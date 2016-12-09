@@ -1,0 +1,25 @@
+{
+  "name": "superdesk-ui-framework",
+  "version": "1.0.0",
+  "author": "Nemanja Pavlovic",
+  "contributors": [
+    "Nemanja Pavlovic",
+    "Vladimir Stefanovic",
+    "Darko Tomic",
+    "Aleksandar Jelicic",
+    "Aleksandar Jovanovic"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "connect-livereload": "^0.6.0",
+    "grunt": "^1.0.1",
+    "grunt-contrib-connect": "^1.0.2",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-uglify": "^2.0.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-http-server": "^2.0.0",
+    "grunt-sass": "^1.2.1",
+    "load-grunt-tasks": "^3.5.2",
+    "node-sass": "^3.13.0"
+  }
+}
