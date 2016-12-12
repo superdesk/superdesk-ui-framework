@@ -13,6 +13,21 @@ module.exports = function (grunt) {
                 }
             }
         },
+        uglify: {
+            options: {
+                mangle: false
+            },
+            vendor: {
+                files: {
+                    'examples/js/vendor.js': [
+                        'node_modules/jquery/dist/jquery.min.js',
+                        'node_modules/underscore/underscore-min.js',
+                        'node_modules/google-code-prettify/src/prettify.js',
+                        'node_modules/angular/angular.min.js'
+                    ]
+                }
+            }
+        },
         connect: {
             options: {
                 hostname: 'localhost',
@@ -43,6 +58,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'sass',
+        'uglify',
         'connect',
         'watch'
     ]);

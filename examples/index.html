@@ -5,35 +5,32 @@
         <title>Superdesk UI Framework</title>
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/docs-page.css">
+        <link rel="stylesheet" href="../node_modules/google-code-prettify/src/prettify.css">
+        <link rel="stylesheet" href="../node_modules/google-code-prettify/styles/sons-of-obsidian.css">
         <link rel="stylesheet" href="../dist/superdesk-ui-framework.css">
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-        <script type="text/javascript" src="js/docs-page__init.js"></script>
+        <script type="text/javascript" src="js/vendor.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     </head>
-    <body class="docs-page">
+    <body class="docs-page" ng-app="ui-docs">
         <header class="docs-page__header">
             <h1 class="docs-page__h1">Superdesk UI Framework</h1>
         </header>
         <main class="docs-page__container-fluid">
             <aside class="docs-page__sidebar">
                 <ul class="docs-page__nav">
-                    <li class="active">
-                        <a href="#">Buttons</a>
-                    </li>
-                    <li>
-                        <a href="#">Labels</a>
-                    </li>
-                    <li>
-                        <a href="#">Forms</a>
-                    </li>
+                    <li class="active"><a href="#">Buttons</a></li>
+                    <li><a href="#">Labels</a></li>
+                    <li><a href="#">Forms</a></li>
                 </ul>
             </aside>
+
             <article class="docs-page__content">
                 <section class="docs-page__section">
                     <h2 class="docs-page__h2">Buttons</h2>
                     <p class="docs-page__paragraph">This is simplest grid possible. Flex is set to no-wrap by default - all items are in one row.</p>
-                    <div class="docs-page__code-window">
+                    <div class="docs-page__code-window" doc-tabs>
                         <div class="docs-page__window-bar">
-                            <a id="example"href="#" class="active">Example</a>
+                            <a id="example" href="#" class="active">Example</a>
                             <a id="markup" href="#">Markup</a>
                         </div>
                         <div class="docs-page__window-content">
@@ -41,18 +38,21 @@
                                 This is code example space
                             </div>
                             <div class="docs-page__code-markup">
-                                <pre><code>&lt;button&gt;hey dugme&lt;/button&gt;
-                            </code></pre>
+                                <pre class="prettyprint lang-html linenums">
+                                    <button>hey dugme</button>
+                                    <label>hey dugme</label>
+                                </pre>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 <section class="docs-page__section">
                     <h2 class="docs-page__h2">Labels</h2>
                     <p class="docs-page__paragraph">This is simplest grid possible. Flex is set to no-wrap by default - all items are in one row.</p>
-                    <div class="docs-page__code-window">
+                    <div class="docs-page__code-window" doc-tabs>
                         <div class="docs-page__window-bar">
-                            <a id="example"href="#" class="active">Example</a>
+                            <a id="example" href="#" class="active">Example</a>
                             <a id="markup" href="#">Markup</a>
                         </div>
                         <div class="docs-page__window-content">
@@ -60,18 +60,20 @@
                                 This is code example space
                             </div>
                             <div class="docs-page__code-markup">
-                                <pre><code>&lt;button&gt;hey dugme&lt;/button&gt;
-                            </code></pre>
+                                <pre class="prettyprint lang-html linenums">
+                                    <button>hey dugme</button>
+                                </pre>
                             </div>
                         </div>
                     </div>
                 </section>
+
                 <section class="docs-page__section">
                     <h2 class="docs-page__h2">Forms</h2>
                     <p class="docs-page__paragraph">This is simplest grid possible. Flex is set to no-wrap by default - all items are in one row.</p>
-                    <div class="docs-page__code-window">
+                    <div class="docs-page__code-window" doc-tabs>
                         <div class="docs-page__window-bar">
-                            <a id="example"href="#" class="active">Example</a>
+                            <a id="example" href="#" class="active">Example</a>
                             <a id="markup" href="#">Markup</a>
                         </div>
                         <div class="docs-page__window-content">
@@ -79,12 +81,14 @@
                                 This is code example space
                             </div>
                             <div class="docs-page__code-markup">
-                                <pre><code>&lt;button&gt;hey dugme&lt;/button&gt;
-                            </code></pre>
+                                <pre class="prettyprint lang-html linenums">
+                                    <button>hey dugme</button>
+                                </pre>
                             </div>
                         </div>
                     </div>
                 </section>
+
             </article>        
         </main>
         <footer class="docs-page__footer">

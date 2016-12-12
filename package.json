@@ -9,7 +9,13 @@
     "Aleksandar Jelicic",
     "Aleksandar Jovanovic"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "angular": "^1.6.0",
+    "google-code-prettify": "^1.0.5",
+    "jquery": "^3.1.1",
+    "jquery-ui": "^1.12.1",
+    "underscore": "^1.8.3"
+  },
   "devDependencies": {
     "connect-livereload": "^0.6.0",
     "grunt": "^1.0.1",
