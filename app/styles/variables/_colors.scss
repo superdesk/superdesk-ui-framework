@@ -1,0 +1,21 @@
+// variables/colors.scss
+// -----------------------------------------------------
+$black:                 #000;
+$grayDarker:            #222;
+$grayDark:              #333;
+$gray:                  #666;
+$grayLight:             #999;
+$grayLighter:           #F5F5F5;
+$white:                 #fff;
+
+$superdesk-palette: (
+  btn--default: #323232,
+  btn--primary: #5eadc8,
+  btn--success: #46a546,
+  btn--warning: #dd8200,
+  btn--alert: #E51C23,
+  btn--highlight: #9c5e96,
+);
+// Internal variables used for colors
+$primary-color: map-get($superdesk-palette, btn--primary);
+$default-color: map-get($superdesk-palette, btn--default);
