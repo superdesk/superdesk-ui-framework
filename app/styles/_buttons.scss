@@ -1,3 +1,235 @@
+/// Padding inside buttons.
+/// @type List
+$button-padding: 0.4375rem 0.875rem !default;
+$button-padding-small: 0.3125rem 0.625rem;
+$button-padding-large: 0.625rem 1.25rem;
+
+/// Margin around buttons.
+/// @type List
+$button-margin: 0 !default;
+
+/// Default background color for buttons.
+/// @type Color
+$button-background: scale-color($default-color, $alpha: -75%) !default;
+//$button-background: #aaa;
+
+/// Background color on hover for buttons.
+/// @type Color
+$button-background-hover: scale-color($button-background, $lightness: -85%) !default;
+
+/// Border color for active button state
+$active-button-border-color: scale-color($button-background, $lightness: -85%) !default;
+
+/// Font color for buttons.
+/// @type List
+$button-color: $grayDark !default;
+
+/// Alternative font color for buttons.
+/// @type List
+$button-color-alt: $white !default;
+
+/// Border radius for buttons, defaulted to global-radius.
+/// @type Number
+//$button-radius: $global-radius !default;
+$button-radius: 2px !default;
+
+/// Sizes for buttons / Font size
+/// @type Map
+$button-sizes: (
+  btn--small: 0.625rem,
+  btn--default: 0.75rem,
+  btn--large: 0.875rem,
+) !default;
+
+/// opacity for a disabled button.
+/// @type List
+$button-opacity-disabled: 0.25 !default;
+
+/// Background color lightness on hover for buttons.
+/// @type Number
+$button-background-hover-lightness: -20% !default;
+
+/// Color lightness on hover for hollow buttons.
+/// @type Number
+$button-hollow-hover-lightness: -20% !default;
+
+/// transitions for buttons.
+$button-transition: background-color 0.1s ease-out, color 0.1s ease-out !default;
+$button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
+
+// Button-base() mixin
+@mixin button-base {
+  //@include disable-mouse-outline;
+  display: inline-block;
+  vertical-align: middle;
+  margin: $button-margin;
+  padding: $button-padding;
+
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  border-radius: $button-radius;
+  transition: $button-transition;
+
+  font-size: map-get($button-sizes, btn--default);
+  text-transform: uppercase;
+  line-height: 1;
+  text-align: center;
+  cursor: pointer;
+}
+
+/// Expands a button to make it full-width.
+@mixin button-expand($expand: true) {
+  @if $expand {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+  }
+  @else {
+    display: inline-block;
+    width: auto;
+    margin: $button-margin;
+  }
+}
+
+/// Active styles
+@mixin button-active-style () {
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.4);
+    border-style: solid;
+    border-color: $active-button-border-color $active-button-border-color transparent $active-button-border-color;
+    border-width: 1px;
+}
+
+
+/// Sets the visual style of a button.
+@mixin button-style(
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: $button-color,
+  $background-hover-lightness: $button-background-hover-lightness
+) {
+
+  @if $background-hover == auto {
+    $background-hover: scale-color($background, $lightness: $background-hover-lightness);
+  }
+
+  background-color: $background;
+  color: $color;
+
+  &:hover, &:focus {
+    background-color: $background-hover;
+    color: $color;
+    box-shadow: $button-hover-box-shadow;
+  }
+  &:active {
+    @include button-active-style;
+  }
+}
+
+/// Removes background fill on hover and focus for hollow buttons.
+@mixin button-hollow {
+  &,
+  &:hover, &:focus {
+    background-color: transparent !important;
+  }
+}
+
+@mixin button-hollow-style(
+  $color: $button-color,
+  $hover-lightness: $button-hollow-hover-lightness
+) {
+  $color-hover: scale-color($color, $lightness: $hover-lightness);
+
+  border: 1px solid $color !important;
+  color: $color !important;
+
+  &:hover, &:focus {
+    border-color: $color-hover;
+    color: $color-hover;
+  }
+}
+
+/// Adds disabled styles to a button by fading the element, reseting the cursor, and disabling pointer events.
+@mixin button-disabled(
+  $background-color: $button-background,
+  $color: $button-color
+  ) {
+  opacity: $button-opacity-disabled;
+  cursor: not-allowed;
+  box-shadow: none;
+
+  &:hover, &:focus {
+    background-color: $background-color;
+    color: $color;
+    box-shadow: none;
+    border: 1px solid transparent;
+  }
+}
+
+/// Adds all styles for a button. For more granular control over styles, use the individual button mixins.
+@mixin button(
+  $expand: false,
+  $background: $button-background,
+  $background-hover: $button-background-hover,
+  $color: $button-color
+) {
+  @include button-base;
+
+  @include button-style($background, $background-hover, $color);
+
+  @if $expand {
+    @include button-expand;
+  }
+}
+
 .btn {
-    color: blue;
+    @include button;
+
+    // Sizes
+    @each $size, $value in map-remove($button-sizes, btn--default) {
+      &.#{$size} {
+        font-size: $value;
+        @if $size == btn--small {
+          padding: $button-padding-small;
+        }
+        @if $size == btn--large {
+          padding: $button-padding-large;
+        }
+      }
+    }
+
+    &.btn--active { @include button-active-style; }
+    
+    &.btn--expanded { @include button-expand; }
+
+    // Colors
+    @each $name, $color in $superdesk-palette {
+        &.#{$name} {
+          @include button-style($color, auto, $button-color-alt); // for all colored buttons we use alt color (white)
+        }
+    }
+
+    // Hollow style    
+    &.btn--hollow {
+      @include button-hollow;
+      @include button-hollow-style;
+
+      @each $name, $color in $superdesk-palette {
+        &.#{$name} {
+          @include button-hollow-style($color);
+        }
+      }
+    }
+
+    // Disabled style
+    &.btn--disabled,
+    &[disabled] {
+      @include button-disabled;
+
+      @each $name, $color in $superdesk-palette {
+        &.#{$name} {
+          @include button-disabled($color, $button-color-alt);
+        }
+      }
+    }
 }

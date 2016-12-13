@@ -30,9 +30,9 @@ h3.docs-page__h3 {
 p.docs-page__paragraph {
     margin: 0 0 1em;
 }
-.docs-page a {
-    color: #5eadc8;
-    text-decoration: none;
+.docs-page .link {
+	color: #5eadc8;
+	text-decoration: none;
 }
 .docs-page__header {
     background: #5eadc8;
@@ -118,13 +118,19 @@ p.docs-page__paragraph {
 .docs-page__window-bar>a {
     color: #999;
     padding: 0 4px;
+    text-decoration: none;
 }
 .docs-page__window-bar>a.active {
-    opacity: 1;
     color: #5eadc8;
 }
 .docs-page__code-example {
     padding: 16px;
+}
+.docs-page__code-example > div {
+    margin-bottom: 20px;
+}
+.docs-page__code-example .btn {
+    margin-right: 8px;
 }
 .docs-page__code-markup {
     display: none;
