@@ -1,0 +1,54 @@
+/// @group badge
+
+/// Default background color for badges.
+$badge-background: $gray !default;
+
+/// Default text color for badges.
+$badge-color: $white !default;
+
+/// Alternate text color for badges.
+$badge-color-alt: $gray !default;
+
+/// Coloring classes. A map of classes to output in the CSS.
+$badge-palette: $sd-basic-palette !default;
+
+/// Default padding inside badges.
+$badge-padding: 0.5em 0.5em 0.4em!default;
+
+/// Minimum width of a badge.
+$badge-minwidth: 1.9em !default;
+
+/// Default radius of a badge.
+$badge-radius: 1em !default;
+
+/// Default font size and line height for badges.
+$badge-font-size: 0.625rem !default;
+$badge-lineheight: 1em !default;
+
+/// Generates the base styles for a badge.
+@mixin badge {
+    display: inline-block;
+    min-width: $badge-minwidth;
+    padding: $badge-padding;
+    border-radius: $badge-radius;
+    font-size: $badge-font-size;
+    line-height: $badge-lineheight;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.badge {
+    @include badge;
+
+    background: $badge-background;
+    color: $badge-color;
+
+    @each $name, $color in $badge-palette {
+        &.badge--#{$name} {
+        background: $color;
+        color: color-pick-contrast($color, ($badge-color, $badge-color-alt));
+        }
+    }
+}
+
