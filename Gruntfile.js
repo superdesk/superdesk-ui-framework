@@ -39,7 +39,7 @@ module.exports = function (grunt) {
         },
         watch: {
             html: {
-                files: ['examples/*.html'],
+                files: ['examples/**/*.html'],
                 options: {
                     livereload: true,
                     spawn: false
