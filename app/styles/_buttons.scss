@@ -73,6 +73,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   font-size: map-get($button-sizes, btn--default);
   text-transform: uppercase;
   line-height: 1;
+  letter-spacing: 0.1em;
   text-align: center;
   cursor: pointer;
 }
@@ -203,8 +204,8 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     &.btn--expanded { @include button-expand; }
 
     // Colors
-    @each $name, $color in $superdesk-palette {
-        &.#{$name} {
+    @each $name, $color in $sd-basic-palette {
+        &.btn--#{$name} {
           @include button-style($color, auto, $button-color-alt); // for all colored buttons we use alt color (white)
         }
     }
@@ -214,8 +215,8 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       @include button-hollow;
       @include button-hollow-style;
 
-      @each $name, $color in $superdesk-palette {
-        &.#{$name} {
+      @each $name, $color in $sd-basic-palette {
+        &.btn--#{$name} {
           @include button-hollow-style($color);
         }
       }
@@ -226,8 +227,8 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     &[disabled] {
       @include button-disabled;
 
-      @each $name, $color in $superdesk-palette {
-        &.#{$name} {
+      @each $name, $color in $sd-basic-palette {
+        &.btn--#{$name} {
           @include button-disabled($color, $button-color-alt);
         }
       }

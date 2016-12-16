@@ -20,14 +20,15 @@
                 <ul class="docs-page__nav">
                     <li class="active"><a href="#">Buttons</a></li>
                     <li><a href="#">Labels</a></li>
-                    <li><a href="#">Forms</a></li>
+                    <li><a href="#">Badge</a></li>
                 </ul>
             </aside>
 
             <article class="docs-page__content">
                 <section class="docs-page__section">
                     <h2 class="docs-page__h2">Buttons</h2>
-                    <p class="docs-page__paragraph">This is simplest grid possible. Flex is set to no-wrap by default - all items are in one row.</p>
+                    <p class="docs-page__paragraph">This section describes buttons in Superdesk.</p>
+                    <h3 class="docs-page__h3">Sizing</h3>
                     <div class="docs-page__code-window" doc-tabs>
                         <div class="docs-page__window-bar">
                             <a id="example" href="#" class="active">Example</a>
@@ -41,46 +42,120 @@
                                     <a class="btn btn--large">Button large</a>
                                 </div>
                                 <div>
-                                    <a class="btn">Button</a>
-                                    <a class="btn btn--primary">Button</a>
-                                    <a class="btn btn--success">Button</a>
-                                    <a class="btn btn--warning">Button</a>
-                                    <a class="btn btn--alert">Button</a> 
-                                    <a class="btn btn--highlight">Button</a>                                    
+                                    <a class="btn btn--small btn--expanded">Small expanded button</a>
                                 </div>
                                 <div>
-                                    <a class="btn btn--hollow">Button</a>
-                                    <a class="btn btn--primary btn--hollow">Button</a>                                    
-                                    <a class="btn btn--success btn--hollow">Button</a>
-                                    <a class="btn btn--warning btn--hollow">Button</a>
-                                    <a class="btn btn--alert btn--hollow">Button</a>
-                                    <a class="btn btn--highlight btn--hollow">Button</a>
+                                    <a class="btn btn--expanded">Default expanded button</a>                                    
                                 </div>
                                 <div>
-                                    <a class="btn btn--expanded">This is expanded button</a>
-                                </div>
-                                <div>
-                                    <a class="btn btn--disabled">Disabled</a>
-                                    <a class="btn btn--primary btn--disabled">Disabled</a>                                   
-                                    <a class="btn btn--success btn--disabled">Disabled</a>
-                                    <a class="btn btn--warning btn--disabled">Disabled</a>
-                                    <a class="btn btn--highlight btn--disabled">Disabled</a>
-                                </div>
-                                 <div>
-                                    <a class="btn btn--hollow btn--disabled">Disabled</a>
-                                    <a class="btn btn--hollow btn--primary btn--disabled">Disabled</a>
-                                    <a class="btn btn--hollow btn--success btn--disabled">Disabled</a>
-                                    <a class="btn btn--hollow btn--warning btn--disabled">Disabled</a>
-                                    <a class="btn btn--hollow btn--highlight btn--disabled">Disabled</a>
+                                    <a class="btn btn--large btn--expanded">Large expanded button</a>
                                 </div>
                             </div>
                             <div class="docs-page__code-markup">
                                 <pre class="prettyprint lang-html linenums">
-                                    <a class="btn xsmall">Button xsmall</a>
-                                    <a class="btn small">Button small</a>
+                                     <a class="btn btn--small">Button small</a>
                                     <a class="btn">Button default</a>
-                                    <a class="btn large">Button large</a>
-                                </pre>
+                                    <a class="btn btn--large">Button large</a>
+                                    <a class="btn btn--small btn--expanded">Small expanded button</a>
+                                    <a class="btn btn--expanded">Default expanded button</a>
+                                    <a class="btn btn--large btn--expanded">Large expanded button</a></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="docs-page__h3">Coloring</h3>
+                    <div class="docs-page__code-window" doc-tabs>
+                        <div class="docs-page__window-bar">
+                            <a id="example" href="#" class="active">Example</a>
+                            <a id="markup" href="#">Markup</a>
+                        </div>
+                        <div class="docs-page__window-content">
+                            <div class="docs-page__code-example">
+                                <div>                                    
+                                    <a class="btn">Default</a>
+                                    <a class="btn btn--primary">Primary</a>
+                                    <a class="btn btn--success">Success</a>
+                                    <a class="btn btn--warning">Warning</a>
+                                    <a class="btn btn--alert">Alert</a> 
+                                    <a class="btn btn--highlight">Highlight</a>
+                                </div>                              
+                            </div>
+                            <div class="docs-page__code-markup">
+                                <pre class="prettyprint lang-html linenums">
+                                     <a class="btn">Default</a>
+                                    <a class="btn btn--primary">Primary</a>
+                                    <a class="btn btn--success">Success</a>
+                                    <a class="btn btn--warning">Warning</a>
+                                    <a class="btn btn--alert">Alert</a>
+                                    <a class="btn btn--highlight">Highlight</a></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="docs-page__h3">Hollow style</h3>
+                    <div class="docs-page__code-window" doc-tabs>
+                        <div class="docs-page__window-bar">
+                            <a id="example" href="#" class="active">Example</a>
+                            <a id="markup" href="#">Markup</a>
+                        </div>
+                        <div class="docs-page__window-content">
+                            <div class="docs-page__code-example">
+                                <div>                                    
+                                    <a class="btn btn--hollow">Default</a>
+                                    <a class="btn btn--hollow btn--primary">Primary</a>
+                                    <a class="btn btn--hollow btn--success">Success</a>
+                                    <a class="btn btn--hollow btn--warning">Warning</a>
+                                    <a class="btn btn--hollow btn--alert">Alert</a>
+                                    <a class="btn btn--hollow btn--highlight">Highlight</a>
+                                </div>                              
+                            </div>
+                            <div class="docs-page__code-markup">
+                                <pre class="prettyprint lang-html linenums">
+                                     <a class="btn btn--hollow">Default</a>
+                                    <a class="btn btn--hollow btn--primary">Primary</a>
+                                    <a class="btn btn--hollow btn--success">Success</a>
+                                    <a class="btn btn--hollow btn--warning">Warning</a>
+                                    <a class="btn btn--hollow btn--alert">Alert</a>
+                                    <a class="btn btn--hollow btn--highlight">Highlight</a></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="docs-page__h3">Disabled</h3>
+                    <div class="docs-page__code-window" doc-tabs>
+                        <div class="docs-page__window-bar">
+                            <a id="example" href="#" class="active">Example</a>
+                            <a id="markup" href="#">Markup</a>
+                        </div>
+                        <div class="docs-page__window-content">
+                            <div class="docs-page__code-example">
+                                <div>                                    
+                                    <a class="btn btn--disabled">Default</a>
+                                    <a class="btn btn--primary btn--disabled">Primary</a>                                   
+                                    <a class="btn btn--success btn--disabled">Success</a>
+                                    <a class="btn btn--warning btn--disabled">Warning</a>
+                                    <a class="btn btn--alert btn--disabled">Alert</a>
+                                    <a class="btn btn--highlight btn--disabled">Highlight</a>
+
+                                    <a class="btn btn--hollow btn--disabled">Default</a>
+                                    <a class="btn btn--hollow btn--primary btn--disabled">Primary</a>                                   
+                                    <a class="btn btn--hollow btn--success btn--disabled">Success</a>
+                                    <a class="btn btn--hollow btn--warning btn--disabled">Warning</a>
+                                    <a class="btn btn--hollow btn--alert btn--disabled">Alert</a>
+                                    <a class="btn btn--hollow btn--highlight btn--disabled">Highlight</a>
+                                </div>                              
+                            </div>
+                            <div class="docs-page__code-markup">
+                                <pre class="prettyprint lang-html linenums">
+                                     <a class="btn btn--disabled">Default</a>
+                                    <a class="btn btn--primary btn--disabled">Primary</a>
+                                    <a class="btn btn--success btn--disabled">Success</a>
+                                    <a class="btn btn--warning btn--disabled">Warning</a>
+                                    <a class="btn btn--alert btn--disabled">Alert</a>
+                                    <a class="btn btn--highlight btn--disabled">Highlight</a>
+                                    <a class="btn btn--hollow btn--disabled">Default</a>
+                                    <a class="btn btn--hollow btn--primary btn--disabled">Primary</a>
+                                    <a class="btn btn--hollow btn--success btn--disabled">Success</a>
+                                    <a class="btn btn--hollow btn--warning btn--disabled">Warning</a>
+                                    <a class="btn btn--hollow btn--alert btn--disabled">Alert</a>
+                                    <a class="btn btn--hollow btn--highlight btn--disabled">Highlight</a></pre>
                             </div>
                         </div>
                     </div>
@@ -88,28 +163,122 @@
 
                 <section class="docs-page__section">
                     <h2 class="docs-page__h2">Labels</h2>
-                    <p class="docs-page__paragraph">This is simplest grid possible. Flex is set to no-wrap by default - all items are in one row.</p>
+                    <p class="docs-page__paragraph">Labels are inline styles that can be dropped into body text. For example, labels are used to show the state of items in Superdesk.</p>
+                    <h3 class="docs-page__h3">Sizing</h3>
                     <div class="docs-page__code-window" doc-tabs>
                         <div class="docs-page__window-bar">
                             <a id="example" href="#" class="active">Example</a>
                             <a id="markup" href="#">Markup</a>
-                        </div>
+                        </div> 
                         <div class="docs-page__window-content">
                             <div class="docs-page__code-example">
-                                This is code example spac
+                                <div>
+                                    <span class="label">default label</span>
+                                    <span class="label label--large">large label</span>
+                                </div>
                             </div>
                             <div class="docs-page__code-markup">
                                 <pre class="prettyprint lang-html linenums">
-                                    <button>hey dugme</button>
+                                     <span class="label">default label</span>
+                                    <span class="label label--large">large label</span>
                                 </pre>
                             </div>
                         </div>
                     </div>
+
+                    <h3 class="docs-page__h3">Coloring</h3>
+                    By default labels have a wider color palette than buttons and badges.
+
+                    <div class="docs-page__code-window" doc-tabs>
+                        <div class="docs-page__window-bar">
+                            <a id="example" href="#" class="active">Example</a>
+                            <a id="markup" href="#">Markup</a>
+                        </div> 
+                        <div class="docs-page__window-content">
+                            <div class="docs-page__code-example">
+                                <div>
+                                    <span class="label">default label</span>
+                                    <span class="label label--primary">primary label</span>
+                                    <span class="label label--success">success label</span>
+                                    <span class="label label--yellow2">Color label</span>
+                                    <span class="label label--warning">warning label</span>
+                                    <span class="label label--orange2">Color label</span>
+                                    <span class="label label--alert">alert label</span>
+                                    <span class="label label--red2">Color label</span>
+                                    <span class="label label--highlight">highlight label</span>
+                                    <span class="label label--highlight2">Color label</span>
+                                    <span class="label label--highlight3">Color label</span>
+                                    <span class="label label--highlight4">Color label</span>
+                                    <span class="label label--darkBlue2">Color label</span>
+                                </div>
+                            </div>
+                            <div class="docs-page__code-markup">
+                                <pre class="prettyprint lang-html linenums">
+                                     <span class="label">default label</span>
+                                    <span class="label label--primary">primary label</span>
+                                    <span class="label label--success">success label</span>
+                                    <span class="label label--yellow2">Color label</span>
+                                    <span class="label label--warning">warning label</span>
+                                    <span class="label label--orange2">Color label</span>
+                                    <span class="label label--alert">alert label</span>
+                                    <span class="label label--red2">Color label</span>
+                                    <span class="label label--highlight">highlight label</span>
+                                    <span class="label label--highlight2">Color label</span>
+                                    <span class="label label--highlight3">Color label</span>
+                                    <span class="label label--highlight4">Color label</span>
+                                    <span class="label label--darkBlue2">Color label</span>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="docs-page__h3">Hollow style</h3>
+                    <div class="docs-page__code-window" doc-tabs>
+                        <div class="docs-page__window-bar">
+                            <a id="example" href="#" class="active">Example</a>
+                            <a id="markup" href="#">Markup</a>
+                        </div> 
+                        <div class="docs-page__window-content">
+                            <div class="docs-page__code-example">
+                                <div>
+                                    <span class="label">default label</span>
+                                    <span class="label label--primary label--hollow">primary label</span>
+                                    <span class="label label--success label--hollow">success label</span>
+                                    <span class="label label--yellow2 label--hollow">Color label</span>
+                                    <span class="label label--warning label--hollow">warning label</span>
+                                    <span class="label label--orange2 label--hollow">Color label</span>
+                                    <span class="label label--alert label--hollow">alert label</span>
+                                    <span class="label label--red2 label--hollow">Color label</span>
+                                    <span class="label label--highlight label--hollow">highlight label</span>
+                                    <span class="label label--highlight2 label--hollow">Color label</span>
+                                    <span class="label label--highlight3 label--hollow">Color label</span>
+                                    <span class="label label--highlight4 label--hollow">Color label</span>
+                                    <span class="label label--darkBlue2 label--hollow">Color label</span>
+                                </div>  
+                            </div>
+                            <div class="docs-page__code-markup">
+                                <pre class="prettyprint lang-html linenums">
+                                     <span class="label">default label</span>
+                                    <span class="label label--primary label--hollow">primary label</span>
+                                    <span class="label label--success label--hollow">success label</span>
+                                    <span class="label label--yellow2 label--hollow">Color label</span>
+                                    <span class="label label--warning label--hollow">warning label</span>
+                                    <span class="label label--orange2 label--hollow">Color label</span>
+                                    <span class="label label--alert label--hollow">alert label</span>
+                                    <span class="label label--red2 label--hollow">Color label</span>
+                                    <span class="label label--highlight label--hollow">highlight label</span>
+                                    <span class="label label--highlight2 label--hollow">Color label</span>
+                                    <span class="label label--highlight3 label--hollow">Color label</span>
+                                    <span class="label label--highlight4 label--hollow">Color label</span>
+                                    <span class="label label--darkBlue2 label--hollow">Color label</span>
+                                </pre>
+                            </div>
+                        </div>
+                    </div>          
                 </section>
 
                 <section class="docs-page__section">
-                    <h2 class="docs-page__h2">Forms</h2>
-                    <p class="docs-page__paragraph">This is simplest grid possible. Flex is set to no-wrap by default - all items are in one row.</p>
+                    <h2 class="docs-page__h2">Badge</h2>
+                    <p class="docs-page__paragraph">Add the .badge class to an element to create a badge. In the code example <code>&lt;span&gt;</code> is used, but any tag will do.</p>
                     <div class="docs-page__code-window" doc-tabs>
                         <div class="docs-page__window-bar">
                             <a id="example" href="#" class="active">Example</a>
@@ -117,11 +286,23 @@
                         </div>
                         <div class="docs-page__window-content">
                             <div class="docs-page__code-example">
-                                This is code example space
+                                <div>
+                                    <span class="badge">1</span>
+                                    <span class="badge badge--primary">2</span>
+                                    <span class="badge badge--success">A</span>
+                                    <span class="badge badge--warning">B</span>
+                                    <span class="badge badge--alert">6</span>
+                                    <span class="badge badge--highlight">2318</span>
+                                </div>
                             </div>
                             <div class="docs-page__code-markup">
                                 <pre class="prettyprint lang-html linenums">
-                                    <button>hey dugme</button>
+                                     <span class="badge">1</span>
+                                    <span class="badge badge--primary">2</span>
+                                    <span class="badge badge--success">A</span>
+                                    <span class="badge badge--warning">B</span>
+                                    <span class="badge badge--alert">6</span>
+                                    <span class="badge badge--highlight">2318</span>
                                 </pre>
                             </div>
                         </div>

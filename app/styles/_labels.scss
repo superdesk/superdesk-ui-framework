@@ -1,0 +1,87 @@
+/// @group label
+
+
+/// Default background color for labels.
+$label-background: $gray !default;
+
+/// Default text color for labels.
+$label-color: $white !default;
+
+/// Alternate text color for labels.
+$label-color-alt: $gray !default;
+
+/// Coloring classes. A map of classes to output in the CSS.
+$label-palette: $sd-extended-palette;
+
+/// Default padding inside labels.
+$label-padding: 0 0.375rem !default;
+$label-padding-large: 0.25rem 0.75rem;
+
+$label-lineheight-large: 1;
+
+/// Default radius of labels.
+$label-radius: 2px !default;
+
+$label-sizes: (
+  label--default: 0.5625rem,
+  label--large: 0.6875rem,
+) !default;
+
+/// Removes background fill for hollow buttons.
+@mixin label-hollow-style($color: $label-color-alt) {
+    border: 1px solid $color;
+    background-color: transparent;
+    color: $color;
+}
+
+/// Generates base styles for a label.
+@mixin label {
+    display: inline-block;
+    padding: $label-padding;
+    vertical-align: middle;
+    border-radius: $label-radius;
+    text-transform: uppercase;
+    line-height: 0.875rem;
+    letter-spacing: 0.125em;
+    font-size: map-get($label-sizes, label--default);
+    white-space: nowrap;
+    cursor: default;
+    border: 1px solid transparent;
+    font-weight: 500;
+}
+
+
+.label {
+    @include label;
+
+    // Sizes
+    @each $size, $value in map-remove($label-sizes, label--default) {
+      &.#{$size} {
+        font-size: $value;
+        @if $size == label--large {
+          padding: $label-padding-large;
+          line-height: $label-lineheight-large;
+        }
+      }
+    }
+
+    background: $label-background;
+    color: $label-color;
+        @each $name, $color in $label-palette {
+        &.label--#{$name} {
+            background: $color;
+            color: color-pick-contrast($color, ($label-color, $label-color-alt));
+        }
+    }
+    &.label--hollow {
+        @include label-hollow-style;
+
+        @each $name, $color in $label-palette {
+            &.label--#{$name} {
+                @include label-hollow-style($color);
+            }
+        }
+    }
+}
+
+
