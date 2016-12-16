@@ -32,6 +32,7 @@ angular.module('ui-docs', [
             element.html(window.prettyPrintOne(_.escape(element.html()), langExtension, true));
         }
     };
+
 }).directive('docTabs', function () {
     return {
         link: function (scope, elem, attr, ctrl) {
@@ -40,6 +41,37 @@ angular.module('ui-docs', [
                 $(this).addClass('active').siblings().removeClass('active');
                 elem.find('.docs-page__code-' + $(this).attr('id')).show().siblings().hide();
             });
+        }
+    };
+
+}).directive('docNav', function ($window) {
+    return {
+        link: function (scope, elem, attr, ctrl) {
+            elem.find('a[href*="#"]:not([href="#"])').click(function () {
+                var target = $(this.hash);
+                if (target.length) {
+                    $('html, body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            });
+
+            angular.element($window).bind("scroll", onScroll);
+
+            function onScroll() {
+                var scrollPos = $(document).scrollTop();
+                elem.find('a').each(function () {
+                    var currLink = $(this);
+                    var refElement = $(currLink.attr("href"));
+                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                        elem.find('a').removeClass("active");
+                        currLink.parent().addClass("active");
+                    } else {
+                        currLink.parent().removeClass("active");
+                    }
+                });
+            }
         }
     };
 });

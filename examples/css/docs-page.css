@@ -30,8 +30,8 @@ p.docs-page__paragraph {
     margin: 0 0 1em;
 }
 .docs-page .link {
-	color: #5eadc8;
-	text-decoration: none;
+    color: #5eadc8;
+    text-decoration: none;
 }
 .docs-page__header {
     background: #5eadc8;
@@ -52,6 +52,7 @@ p.docs-page__paragraph {
     overflow: hidden;
 }
 .docs-page__sidebar {
+    position: fixed;
     float: left;
     width: 220px;
     padding: 30px 15px;
@@ -59,6 +60,7 @@ p.docs-page__paragraph {
 }
 .docs-page__content {
     float: left;
+    margin-left: 220px;
     min-width: 600px;
 }
 .docs-page__nav {
