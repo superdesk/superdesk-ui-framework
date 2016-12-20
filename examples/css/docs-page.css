@@ -28,6 +28,7 @@ h3.docs-page__h3 {
 }
 p.docs-page__paragraph {
     margin: 0 0 1em;
+    max-width: 800px;
 }
 .docs-page .link {
     color: #5eadc8;
@@ -152,4 +153,11 @@ pre.prettyprint {
     font-family: 'Source Code Pro', monospace;
     font-size: 14px;
     font-weight: 300;
+}
+
+.docs-page__paragraph code {
+    font-size: 85%;
+    padding: 0.2em 0.4em;
+    background-color: rgba(0,0,0,0.07);
+    border-radius: 3px;
 }

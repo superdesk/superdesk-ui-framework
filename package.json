@@ -1,7 +1,11 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "1.0.0",
-  "author": "Nemanja Pavlovic",
+  "version": "0.0.1",
+  "license": "AGPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/superdesk/superdesk-ui-framework.git"
+  },
   "contributors": [
     "Nemanja Pavlovic",
     "Vladimir Stefanovic",
@@ -11,10 +15,9 @@
   ],
   "dependencies": {
     "angular": "^1.6.0",
-    "google-code-prettify": "^1.0.5",
+    "angular-ui-bootstrap": "0.13.1",
     "jquery": "^3.1.1",
-    "jquery-ui": "^1.12.1",
-    "underscore": "^1.8.3"
+    "jquery-ui": "^1.12.1"
   },
   "devDependencies": {
     "connect-livereload": "^0.6.0",
@@ -26,6 +29,8 @@
     "grunt-http-server": "^2.0.0",
     "grunt-sass": "^1.2.1",
     "load-grunt-tasks": "^3.5.2",
-    "node-sass": "^3.13.0"
+    "node-sass": "^3.13.0",
+    "underscore": "^1.8.3",
+    "google-code-prettify": "^1.0.5"
   }
 }

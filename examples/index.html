@@ -7,8 +7,9 @@
         <link rel="stylesheet" href="css/docs-page.css">
         <link rel="stylesheet" href="../node_modules/google-code-prettify/src/prettify.css">
         <link rel="stylesheet" href="../node_modules/google-code-prettify/styles/sons-of-obsidian.css">
-        <link rel="stylesheet" href="../dist/superdesk-ui-framework.css">
+        <link rel="stylesheet" href="../dist/superdesk-ui-framework.min.css">
         <script type="text/javascript" src="js/vendor.js"></script>
+        <script type="text/javascript" src="../dist/superdesk-ui-framework.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body class="docs-page" ng-app="ui-docs">
@@ -21,6 +22,7 @@
                     <li><a href="#buttons">Buttons</a></li>
                     <li><a href="#labels">Labels</a></li>
                     <li><a href="#badge">Badge</a></li>
+                    <li><a href="#dropdown">Dropdown</a></li>
                 </ul>
             </aside>
 
@@ -28,6 +30,7 @@
                 <section class="docs-page__section" id="buttons" ng-include="'templates/buttons.html'"></section>
                 <section class="docs-page__section" id="labels" ng-include="'templates/labels.html'"></section>
                 <section class="docs-page__section" id="badge" ng-include="'templates/badge.html'"></section>
+                <section class="docs-page__section" id="dropdown" ng-include="'templates/dropdown.html'"></section>
             </article>        
         </main>
         <footer class="docs-page__footer">
