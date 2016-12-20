@@ -9,7 +9,19 @@ module.exports = function (grunt) {
             },
             dist: {
                 files: {
-                    'dist/superdesk-ui-framework.css': 'app/styles/app.scss'
+                    'dist/superdesk-ui-framework.core.css': 'app/styles/app.scss'
+                }
+            }
+        },
+        cssmin: {
+            options: {
+                sourceMap: true
+            },
+            dist: {
+                files: {
+                    'dist/superdesk-ui-framework.min.css': [
+                        'dist/superdesk-ui-framework.core.css'
+                    ]
                 }
             }
         },
@@ -24,6 +36,17 @@ module.exports = function (grunt) {
                         'node_modules/underscore/underscore-min.js',
                         'node_modules/google-code-prettify/src/prettify.js',
                         'node_modules/angular/angular.min.js'
+                    ]
+                }
+            },
+            dist: {
+                options: {
+                    sourceMap: true
+                },
+                files: {
+                    'dist/superdesk-ui-framework.js': [
+                        'node_modules/angular-ui-bootstrap/ui-bootstrap.min.js',
+                        'app/scripts/index.js'
                     ]
                 }
             }
@@ -47,7 +70,7 @@ module.exports = function (grunt) {
             },
             sass: {
                 files: ['app/styles/*.scss'],
-                tasks: ['sass'],
+                tasks: ['sass', 'cssmin'],
                 options: {
                     livereload: true,
                     spawn: false
@@ -58,6 +81,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'sass',
+        'cssmin',
         'uglify',
         'connect',
         'watch'

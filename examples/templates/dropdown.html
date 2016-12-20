@@ -1,0 +1,71 @@
+<h2 class="docs-page__h2">Dropdown</h2>
+<p class="docs-page__paragraph">
+    Dropdowns have it's specific class <code>dropdown</code> and consist of two parts, <code>dropdown__toggle</code> and <code>dropdown__menu</code> It is important to have those two in order to have porperly styled component.
+</p>
+<p class="docs-page__paragraph">
+    By default dropdown__menu is positioned left comparing to dropdown__toggle element. For right positioned menu (second example) add class <code>pull-right</code>
+</p>
+<p class="docs-page__paragraph">
+    Menu items should be <code>li</code> elements, containing either <code>button</code> or <code>a</code> tag.
+</p>
+<p class="docs-page__paragraph">
+    Angular UI Bootstrap library: <a href="https://angular-ui.github.io/bootstrap/">https://angular-ui.github.io/bootstrap/</a>
+</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div> 
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example clearfix">
+            <div class="dropdown pull-left" dropdown>
+                <button class="dropdown__toggle" dropdown__toggle>
+                    Action
+                    <span class="dropdown__caret"></span>
+                </button>
+                <ul class="dropdown__menu">
+                    <li><button>Action 1</button></li>
+                    <li><button>Action 2</button></li>
+                    <li><button>Action 3</button></li>
+                </ul>
+            </div>
+            <div class="dropdown pull-left" dropdown>
+                <button class="dropdown__toggle" dropdown__toggle>
+                    Action
+                    <span class="dropdown__caret"></span>
+                </button>
+                <ul class="dropdown__menu pull-right">
+                    <li><button>Action 1</button></li>
+                    <li><button>Action 2</button></li>
+                    <li><button>Action 3</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <div class="dropdown pull-left" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Action
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+                <div class="dropdown pull-left" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Action
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu pull-right">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>

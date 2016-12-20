@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ui-docs', [
-
+    'superdesk-ui'
 ]).directive('prettyprint', function () {
     return {
         restrict: 'C',
