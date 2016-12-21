@@ -1,0 +1,127 @@
+<h2 class="docs-page__h2">Basic grid</h2>
+<p class="docs-page__paragraph">The basic grid in Superdesk is based on flex grid and works very similarly to the standard float grid. It is intended for positioning items in a grid layout, either on separate pages or inside other elemts. Basic responsive features are included but features needed for a full layout grid are not available as Superdesk doesn't need them at this point. A full featured layout grid might be added as at later point as a separate module.</p> 
+
+<p class="docs-page__paragraph"><b>Note:</b> flex grid is only supported in Chrome, Firefox, Safari 6+ and IE10+. 
+
+<h3 class="docs-page__h3">Basic</h3>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <p class="docs-page__paragraph">Six column grid</p>
+            <div class="flex-grid flex-grid--wrap-items flex-grid--small-6">
+                <div class="flex-grid__item">1</div>
+                <div class="flex-grid__item">2</div>
+                <div class="flex-grid__item">3</div>
+                <div class="flex-grid__item">4</div>
+                <div class="flex-grid__item">5</div>
+                <div class="flex-grid__item">6</div>
+                <div class="flex-grid__item">7</div>
+                <div class="flex-grid__item">8</div>
+                <div class="flex-grid__item">9</div>
+                <div class="flex-grid__item">10</div>
+                <div class="flex-grid__item">11</div>
+                <div class="flex-grid__item">12</div>
+            </div>
+            <p class="docs-page__paragraph">Four column grid</p>
+            <div class="flex-grid flex-grid--wrap-items flex-grid--small-4">
+                <div class="flex-grid__item">1</div>
+                <div class="flex-grid__item">2</div>
+                <div class="flex-grid__item">3</div>
+                <div class="flex-grid__item">4</div>
+                <div class="flex-grid__item">5</div>
+                <div class="flex-grid__item">6</div>
+                <div class="flex-grid__item">7</div>
+                <div class="flex-grid__item">8</div>
+                <div class="flex-grid__item">9</div>
+                <div class="flex-grid__item">10</div>
+                <div class="flex-grid__item">11</div>
+                <div class="flex-grid__item">12</div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <!--Six column grid-->
+                <div class="flex-grid flex-grid--wrap-items flex-grid--small-6">
+                    <div class="flex-grid__item">1</div>
+                    <div class="flex-grid__item">2</div>
+                    <div class="flex-grid__item">3</div>
+                    <div class="flex-grid__item">4</div>
+                    <div class="flex-grid__item">5</div>
+                    <div class="flex-grid__item">6</div>
+                    <div class="flex-grid__item">7</div>
+                    <div class="flex-grid__item">8</div>
+                    <div class="flex-grid__item">9</div>
+                    <div class="flex-grid__item">10</div>
+                    <div class="flex-grid__item">11</div>
+                    <div class="flex-grid__item">12</div>
+                </div>
+                <!--Four column grid-->
+                <div class="flex-grid flex-grid--wrap-items flex-grid--small-4">
+                    <div class="flex-grid__item">1</div>
+                    <div class="flex-grid__item">2</div>
+                    <div class="flex-grid__item">3</div>
+                    <div class="flex-grid__item">4</div>
+                    <div class="flex-grid__item">5</div>
+                    <div class="flex-grid__item">6</div>
+                    <div class="flex-grid__item">7</div>
+                    <div class="flex-grid__item">8</div>
+                    <div class="flex-grid__item">9</div>
+                    <div class="flex-grid__item">10</div>
+                    <div class="flex-grid__item">11</div>
+                    <div class="flex-grid__item">12</div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+
+<h3 class="docs-page__h3">Boxed</h3>
+<p class="docs-page__paragraph">Adding the modifier <code>.flex-grid--boxed</code> to the <code>.flex-grid</code> will calculate and add margins to the <code>.flex-grid__item</code> elements.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <p class="docs-page__paragraph">Boxed grid example with six columns.</p>
+            <div class="flex-grid flex-grid--boxed flex-grid--wrap-items flex-grid--small-6">
+                <div class="flex-grid__item">1</div>
+                <div class="flex-grid__item">2</div>
+                <div class="flex-grid__item">3</div>
+                <div class="flex-grid__item">4</div>
+                <div class="flex-grid__item">5</div>
+                <div class="flex-grid__item">6</div>
+                <div class="flex-grid__item">7</div>
+                <div class="flex-grid__item">8</div>
+                <div class="flex-grid__item">9</div>
+                <div class="flex-grid__item">10</div>
+                <div class="flex-grid__item">11</div>
+                <div class="flex-grid__item">12</div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <!--Boxed grid example with six columns.-->
+                <div class="flex-grid flex-grid--boxed flex-grid--wrap-items flex-grid--small-6">
+                    <div class="flex-grid__item">1</div>
+                    <div class="flex-grid__item">2</div>
+                    <div class="flex-grid__item">3</div>
+                    <div class="flex-grid__item">4</div>
+                    <div class="flex-grid__item">5</div>
+                    <div class="flex-grid__item">6</div>
+                    <div class="flex-grid__item">7</div>
+                    <div class="flex-grid__item">8</div>
+                    <div class="flex-grid__item">9</div>
+                    <div class="flex-grid__item">10</div>
+                    <div class="flex-grid__item">11</div>
+                    <div class="flex-grid__item">12</div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
