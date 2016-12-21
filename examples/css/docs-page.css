@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic,500italic,700italic,300,300italic);
+@import url('http://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic,500italic,700italic,300,300italic');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400&subset=latin-ext');
 
 body.docs-page {
@@ -28,11 +28,18 @@ h3.docs-page__h3 {
 }
 p.docs-page__paragraph {
     margin: 0 0 1em;
-    max-width: 800px;
+    line-height: 140%;
+    font-weight: 300;
+}
+p.docs-page__paragraph b {
+    font-weight: 500;
 }
 .docs-page .link {
     color: #5eadc8;
     text-decoration: none;
+}
+.docs-page .link:hover {
+    text-decoration: underline;
 }
 .docs-page__header {
     background: #5eadc8;
@@ -50,19 +57,17 @@ p.docs-page__paragraph {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-    overflow: hidden;
 }
 .docs-page__sidebar {
     position: fixed;
-    float: left;
     width: 220px;
     padding: 30px 15px;
     box-sizing: border-box;
 }
 .docs-page__content {
-    float: left;
     margin-left: 220px;
     min-width: 600px;
+
 }
 .docs-page__nav {
 }
@@ -111,7 +116,6 @@ p.docs-page__paragraph {
     margin: 10px 0 20px;
     -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.07);
     box-shadow: 0 2px 8px rgba(0,0,0,.07);
-    max-width: 800px;
 }
 .docs-page__window-bar {
     padding: 10px;
@@ -155,9 +159,34 @@ pre.prettyprint {
     font-weight: 300;
 }
 
-.docs-page__paragraph code {
+.docs-page__paragraph p code {
     font-size: 85%;
     padding: 0.2em 0.4em;
     background-color: rgba(0,0,0,0.07);
     border-radius: 3px;
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 400;
+}
+
+.docs-page__code-example .flex-grid .flex-grid__item {
+    background-color: #fff !important;
+    min-height: 60px;
+    padding: 20px;
+    border: 1px dotted rgba(0,0,0,0.2);
+}
+
+.docs-page__code-example .flex-grid.flex-grid--boxed .flex-grid__item {
+    background-color: #fff !important;
+    border:none;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px rgba(0,0,0,.12) !important;
+}
+
+
+/*// extra large screen media query /100em = 1600px/*/
+@media only screen and (min-width: 100em) {
+    .docs-page__content {
+        max-width: 70%;
+    }
+
 }
