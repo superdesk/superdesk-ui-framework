@@ -1642,7 +1642,9 @@ input[type="search"] {
   box-sizing: border-box; }
   .dropdown__menu button {
     width: 100%;
-    text-align: left; }
+    text-align: left;
+    -webkit-appearance: none;
+    border: 0; }
   .dropdown__menu a, .dropdown__menu button {
     display: block;
     padding: 3px 15px;

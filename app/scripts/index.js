@@ -1,5 +1,6 @@
 'use strict';
 
 angular.module('superdesk-ui', [
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'superdesk-ui.dropdown',
 ]);
