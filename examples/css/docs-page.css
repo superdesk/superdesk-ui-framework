@@ -188,7 +188,31 @@ p.docs-page__paragraph code {
     border-radius: 2px;
     box-shadow: 0 1px 4px rgba(0,0,0,.12) !important;
 }
-
+.docs-page__icon-font-list {
+    margin: 20px 0;
+}
+.docs-page__icon-font-list li {
+    display: inline-block;
+    width: 200px;
+    height: 30px;
+    padding: 4px 8px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+    color: gray;
+    box-sizing: border-box;
+    border-radius: 2px;
+}
+.docs-page__icon-font-list li i {
+    margin-right: 10px;
+}
+.docs-page__icon-font-list li span {
+    font-size: 14px;
+    vertical-align: top;
+}
+.docs-page__icon-font-list--dark {
+    background: #666;
+    color: lightgray !important;
+}
 
 /*// extra large screen media query /100em = 1600px/*/
 @media only screen and (min-width: 100em) {

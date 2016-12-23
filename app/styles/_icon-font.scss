@@ -1,0 +1,196 @@
+// ICON FONT
+// Glyphs and icons for buttons, nav, and more
+// -------------------------------------------
+
+// All icons receive the styles of the <i> tag with a base class
+// of .i and are then given a unique class to add width, height,
+// and font specification. Your resulting HTML will look like
+// <i class="icon-ok"></i>.
+
+// For the white version of the icons, just add the icon--white modifier:
+// <i class="icon-ok icon--white"></i>
+
+/// Default color for icons.
+$icon-color: $grayDark !default;
+
+@font-face {
+  font-family: 'sd_icons';
+  src:url('../fonts/sd_icons.eot?-r9v51w');
+  src:url('../fonts/sd_icons.eot?#iefix-r9v51w') format('embedded-opentype'),
+    url('../fonts/sd_icons.woff?-r9v51w') format('woff'),
+    url('../fonts/sd_icons.ttf?-r9v51w') format('truetype'),
+    url('../fonts/sd_icons.svg?-r9v51w#sd_icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin icon-base {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  line-height: 16px;
+  font-family: 'sd_icons';
+  font-size: 16px;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  @include icon-base;
+  
+  color: $icon-color;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon--blue {
+  color: $sd-blue;
+}
+.icon--white {
+  color: $white;
+}
+
+// Icons definition
+$sd-icon-font: (
+  photo: "\e600",
+  video: "\e601",
+  map-marker: "\e602",
+  slideshow: "\e603",
+  text: "\e604",
+  file: "\e605",
+  calendar: "\e606",
+  composite: "\e607",
+  audio: "\e608",
+  stream: "\e609",
+  ingest: "\e60a",
+  archive: "\e60b",
+  time: "\e60c",
+  pin: "\e60d",
+  expand: "\e60e",
+  ascending: "\e60f",
+  descending: "\e60f",
+  th: "\e610",
+  th-list: "\e611",
+  pencil: "\e612",
+  lock: "\e613",
+  retweet: "\e614",
+  unspike: "\e615",
+  fullscreen: "\e616",
+  fetch-as: "\e617",
+  search: "\e618",
+  star: "\e619",
+  star-empty: "\e61a",
+  multi-star: "\e61b",
+  th-large: "\e61c",
+  ok: "\e61d",
+  zoom-in: "\e61e",
+  zoom-out: "\e61f",
+  signal: "\e620",
+  filter-large: "\e621",
+  trash: "\e622",
+  user: "\e623",
+  download: "\e624",
+  upload: "\e625",
+  repeat: "\e626",
+  refresh: "\e627",
+  list-alt: "\e628",
+  plus-large: "\e629",
+  picture: "\e62a",
+  question-sign: "\e62b",
+  info-sign: "\e62c",
+  plus-sign: "\e62d",
+  minus-sign: "\e62e",
+  remove-sign: "\e62f",
+  share-alt: "\e630",
+  exclamation-sign: "\e631",
+  eye-open: "\e632",
+  copy: "\e633",
+  comment: "\e634",
+  warning-sign: "\e635",
+  adjust: "\e636",
+  folder-close: "\e637",
+  folder-open: "\e638",
+  download-alt: "\e639",
+  tasks: "\e63a",
+  globe: "\e63b",
+  link: "\e63c",
+  expand-thin: "\e63d",
+  assign: "\e63e",
+  dots: "\e63f",
+  dots-vertical: "\e63f",
+  backward-thin: "\e640",
+  forward-thin: "\e641",
+  chevron-left-thin:"\e642",
+  chevron-right-thin: "\e643",
+  switches: "\e644",
+  plus-small: "\e645",
+  minus-small: "\e646",
+  close-small: "\e647",
+  post: "\e648",
+  external: "\e649",
+  chevron-up-thin: "\e64a",
+  chevron-down-thin: "\e64b",
+  pick: "\e64c",
+  revert: "\e64d",
+  package-plus: "\e64e",
+  list-plus: "\e64f",
+  envelope: "\e650",
+  heart: "\e651",
+  home: "\e652",
+  print: "\e653",
+  font: "\e654",
+  bold: "\e655",
+  italic: "\e656",
+  text-height: "\e657",
+  text-width: "\e658",
+  align-left: "\e659",
+  align-center: "\e65a",
+  align-right: "\e65b",
+  align-justify: "\e65c",
+  unordered-list: "\e65d",
+  indent-left: "\e65e",
+  indent-right: "\e65f",
+  ban-circle: "\e660",
+  bell: "\e661",
+  random: "\e662",
+  settings: "\e663",
+  package-create: "\e664",
+  list-menu: "\e665",
+  new-doc: "\e666",
+  edit-line: "\e667",
+  calendar-list: "\e668",
+  collapse: "\e669",
+  broadcast: "\e66a",
+  broadcast-create: "\e66b",
+  kill: "\e66c",
+  graphic: "\e66d",
+  close-thick: "\e66e",
+  move: "\e66f",
+  takes-package: "\e670",
+  highlight-package: "\e671",
+  preview-mode: "\e672",
+  unlocked: "\e673",
+  code: "\e674",
+  cut: "\e675",
+  paste: "\e676"
+);
+
+@each $name, $value in $sd-icon-font {
+  &.icon-#{$name}:before {
+    content: $value;
+  }
+  .icon-#{$name} {
+    @if $name == descending {
+      transform: rotate(180deg);
+    }
+    @if $name == dots-vertical {
+      transform: rotate(90deg);
+    }
+  }
+}
