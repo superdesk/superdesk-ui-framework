@@ -1,8 +1,8 @@
 /// Padding inside buttons.
 /// @type List
-$button-padding: 0.4375rem 0.875rem !default;
-$button-padding-small: 0.3125rem 0.625rem;
-$button-padding-large: 0.625rem 1.25rem;
+$button-padding: 0.7rem 1.4rem !default;
+$button-padding-small: 0.5rem 1rem;
+$button-padding-large: 1rem 2rem;
 
 /// Margin around buttons.
 /// @type List
@@ -36,9 +36,9 @@ $button-radius: 2px !default;
 /// Sizes for buttons / Font size
 /// @type Map
 $button-sizes: (
-  btn--small: 0.625rem,
-  btn--default: 0.75rem,
-  btn--large: 0.875rem,
+  btn--small: 1rem,
+  btn--default: 1.2rem,
+  btn--large: 1.4rem,
 ) !default;
 
 /// opacity for a disabled button.

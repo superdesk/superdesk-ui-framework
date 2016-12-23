@@ -1,0 +1,42 @@
+/**
+ * SD Reboot
+ */
+
+// ============================================================================
+// GLOBAL
+// ============================================================================
+
+// Reset box sizing
+* {
+  box-sizing: border-box;
+}
+// Set box-sizing globally to handle padding and border widths
+
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+// remove deafult browser focus
+:focus {outline:none;}
+
+// Body reset
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: $baseFontFamily;
+  font-size: $baseFontSize;
+  line-height: $baseLineHeight;
+}
+
+$baseFontSize: 13px;
+$baseFontFamily: "Roboto", Helvetica, Arial, sans-serif;
+$baseLineHeight: 18px;
+$altFontFamily: Georgia, "Times New Roman", Times, serif;
+
+// override content-box in normalize.css
+input[type="search"] {
+  box-sizing: border-box;
+}

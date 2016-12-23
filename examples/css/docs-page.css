@@ -28,6 +28,7 @@ h3.docs-page__h3 {
     margin: 0 0 0.4em 0;
 }
 p.docs-page__paragraph {
+    font-size: 16px;
     margin: 1em 0;
     line-height: 140%;
     font-weight: 300;
@@ -131,6 +132,7 @@ p.docs-page__paragraph b {
     background: #ebebeb;
 }
 .docs-page__window-bar>a {
+    font-size: 16px;
     color: #999;
     padding: 0 4px;
     text-decoration: none;
@@ -154,6 +156,7 @@ p.docs-page__paragraph b {
     display: none;
     background-color: #000;
     padding: 16px 16px 16px 36px;
+    overflow-y: scroll;
 }
 .docs-page__code-markup ol {
     margin-left: 10px;
@@ -163,6 +166,7 @@ p.docs-page__paragraph b {
 pre.prettyprint {
     font-family: 'Source Code Pro', monospace;
     font-size: 14px;
+    line-height: 150%;
     font-weight: 300;
 }
 

@@ -13,8 +13,8 @@ $label-color-alt: $gray !default;
 $label-palette: $sd-extended-palette;
 
 /// Default padding inside labels.
-$label-padding: 0 0.375rem !default;
-$label-padding-large: 0.25rem 0.75rem;
+$label-padding: 0 0.6rem !default;
+$label-padding-large: 0.4rem 1.2rem;
 
 $label-lineheight-large: 1;
 
@@ -22,8 +22,8 @@ $label-lineheight-large: 1;
 $label-radius: 2px !default;
 
 $label-sizes: (
-  label--default: 0.5625rem,
-  label--large: 0.6875rem,
+  label--default: 0.9rem,
+  label--large: 1.1rem,
 ) !default;
 
 /// Removes background fill for hollow buttons.
@@ -40,7 +40,7 @@ $label-sizes: (
     vertical-align: middle;
     border-radius: $label-radius;
     text-transform: uppercase;
-    line-height: 0.875rem;
+    line-height: 1.4rem;
     letter-spacing: 0.125em;
     font-size: map-get($label-sizes, label--default);
     white-space: nowrap;
