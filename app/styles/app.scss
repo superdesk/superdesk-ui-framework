@@ -1,3 +1,5 @@
+@import "normalize";
+@import "reset";
 @import "mixins";
 @import "helpers";
 @import "variables";
@@ -6,8 +8,13 @@
 @import "badge";
 @import "basic-grid";
 
+// Form elements
+@import 'form-elements/inputs';
+
 // Dropdowns
 @import 'dropdowns/basic-dropdown';
 @import 'dropdowns/nested-dropdown';
 @import 'dropdowns/navigation-dropdown';
 @import 'dropdowns/input-dropdown';
+
+

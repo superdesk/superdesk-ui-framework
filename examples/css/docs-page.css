@@ -14,6 +14,7 @@ h1.docs-page__h1 {
     font-size: 36px;
     font-weight: 300;
     line-height: 140%;
+    margin: 0;
 }
 h2.docs-page__h2 {
     font-size: 30px;
@@ -27,9 +28,15 @@ h3.docs-page__h3 {
     margin: 0 0 0.4em 0;
 }
 p.docs-page__paragraph {
-    margin: 0 0 1em;
+    margin: 1em 0;
     line-height: 140%;
     font-weight: 300;
+}
+p.docs-page__paragraph--topMarginL {
+    margin-top: 3em;
+}
+p.docs-page__paragraph:first-child {
+    margin: 0 0 1em;
 }
 p.docs-page__paragraph b {
     font-weight: 500;
@@ -132,9 +139,9 @@ p.docs-page__paragraph b {
     color: #5eadc8;
 }
 .docs-page__code-example {
-    padding: 20px 20px 0;
+    padding: 20px;
 }
-.docs-page__code-example > div {
+.docs-page__code-example .docs-page__content-block {
     margin-bottom: 20px;
 }
 .docs-page__code-example .btn,
@@ -159,7 +166,7 @@ pre.prettyprint {
     font-weight: 300;
 }
 
-.docs-page__paragraph p code {
+p.docs-page__paragraph code {
     font-size: 85%;
     padding: 0.2em 0.4em;
     background-color: rgba(0,0,0,0.07);
