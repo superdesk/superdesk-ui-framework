@@ -403,8 +403,30 @@ template {
 [hidden] {
   display: none; }
 
+/**
+ * SD Reboot
+ */
+* {
+  box-sizing: border-box; }
+
+*::before,
+*::after {
+  box-sizing: inherit; }
+
 :focus {
   outline: none; }
+
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: transparent; }
+
+body {
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 140%; }
+
+input[type="search"] {
+  box-sizing: border-box; }
 
 .pull-left {
   float: left; }
@@ -420,24 +442,16 @@ template {
   .clearfix:after {
     clear: both; }
 
-html {
-  box-sizing: border-box; }
-
-*,
-*::before,
-*::after {
-  box-sizing: inherit; }
-
 .btn {
   display: inline-block;
   vertical-align: middle;
   margin: 0;
-  padding: 0.4375rem 0.875rem;
+  padding: 0.7rem 1.4rem;
   -webkit-appearance: none;
   border: 1px solid transparent;
   border-radius: 2px;
   transition: background-color 0.1s ease-out, color 0.1s ease-out;
-  font-size: 0.75rem;
+  font-size: 1.2rem;
   text-transform: uppercase;
   line-height: 1;
   letter-spacing: 0.1em;
@@ -455,11 +469,11 @@ html {
     border-color: rgba(8, 8, 8, 0.25) rgba(8, 8, 8, 0.25) transparent rgba(8, 8, 8, 0.25);
     border-width: 1px; }
   .btn.btn--small {
-    font-size: 0.625rem;
-    padding: 0.3125rem 0.625rem; }
+    font-size: 1rem;
+    padding: 0.5rem 1rem; }
   .btn.btn--large {
-    font-size: 0.875rem;
-    padding: 0.625rem 1.25rem; }
+    font-size: 1.4rem;
+    padding: 1rem 2rem; }
   .btn.btn--active {
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.4);
     border-style: solid;
@@ -652,13 +666,13 @@ html {
 
 .label {
   display: inline-block;
-  padding: 0 0.375rem;
+  padding: 0 0.6rem;
   vertical-align: middle;
   border-radius: 2px;
   text-transform: uppercase;
-  line-height: 0.875rem;
+  line-height: 1.4rem;
   letter-spacing: 0.125em;
-  font-size: 0.5625rem;
+  font-size: 0.9rem;
   white-space: nowrap;
   cursor: default;
   border: 1px solid transparent;
@@ -666,8 +680,8 @@ html {
   background: #666;
   color: #fff; }
   .label.label--large {
-    font-size: 0.6875rem;
-    padding: 0.25rem 0.75rem;
+    font-size: 1.1rem;
+    padding: 0.4rem 1.2rem;
     line-height: 1; }
   .label.label--default {
     background: #333;
@@ -777,7 +791,7 @@ html {
   min-width: 1.9em;
   padding: 0.5em 0.5em 0.4em;
   border-radius: 1em;
-  font-size: 0.625rem;
+  font-size: 1rem;
   line-height: 1em;
   text-align: center;
   text-transform: uppercase;
@@ -1467,16 +1481,16 @@ html {
 .form-label {
   display: inline-block;
   min-width: 75px;
-  font-size: 11px;
-  line-height: 26px;
-  margin: 0 5px 0 0;
+  font-size: 1.1rem;
+  line-height: 2.6rem;
+  margin: 0 0.5rem 0 0;
   color: #747474;
   text-transform: uppercase;
   font-weight: 500; }
 
 .sd-line-input {
   margin: 0 0 1.8em 0;
-  padding-top: 14px;
+  padding-top: 1.4rem;
   position: relative; }
   .sd-line-input input.sd-line-input__input, .sd-line-input textarea.sd-line-input__input {
     width: 100%;
@@ -1485,8 +1499,8 @@ html {
     border-bottom: 1px solid rgba(0, 0, 0, 0.15) !important;
     background-color: transparent;
     padding: 0;
-    font-size: 14px;
-    height: 24px;
+    font-size: 1.4rem;
+    height: 2.4rem;
     transition: border linear 0.2s, box-shadow linear 0.2s; }
     .sd-line-input input.sd-line-input__input:hover, .sd-line-input textarea.sd-line-input__input:hover {
       border-color: rgba(0, 0, 0, 0.3) !important;
@@ -1500,7 +1514,7 @@ html {
   .sd-line-input .sd-line-input__label {
     position: absolute;
     display: inline-block;
-    font-size: 11px;
+    font-size: 1.1rem;
     line-height: 100%;
     margin: 0;
     color: #747474;
@@ -1510,8 +1524,8 @@ html {
   .sd-line-input .sd-line-input__hint,
   .sd-line-input .sd-line-input__message,
   .sd-line-input .sd-line-input__char-count {
-    font-size: 12px;
-    line-height: 14px;
+    font-size: 1.2rem;
+    line-height: 1.4rem;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     color: grey;
     font-weight: 300;
@@ -1520,18 +1534,18 @@ html {
     position: absolute;
     left: 1px;
     right: auto;
-    top: 42px;
-    padding-right: 55px; }
+    top: 4.2rem;
+    padding-right: 5.5rem; }
   .sd-line-input .sd-line-input__char-count {
     position: absolute;
     right: 1px;
     left: auto;
-    top: 43px;
-    font-size: 11px;
+    top: 4.3rem;
+    font-size: 1.1rem;
     font-weight: 400;
     font-style: italic; }
   .sd-line-input .sd-line-input__message {
-    padding-top: 4px; }
+    padding-top: 0.4rem; }
   .sd-line-input.sd-line-input--invalid .sd-line-input__label,
   .sd-line-input.sd-line-input--invalid .sd-line-input__message {
     color: #E51C23; }
