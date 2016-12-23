@@ -121,6 +121,8 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     button {
         width: 100%;
         text-align: left;
+        -webkit-appearance: none;
+        border: 0;
     }
     a, button {
         display: block;

@@ -46,7 +46,8 @@ module.exports = function (grunt) {
                 files: {
                     'dist/superdesk-ui-framework.js': [
                         'node_modules/angular-ui-bootstrap/ui-bootstrap.min.js',
-                        'app/scripts/index.js'
+                        'app/scripts/index.js',
+                        'app/scripts/dropdown.js'
                     ]
                 }
             }
@@ -71,6 +72,14 @@ module.exports = function (grunt) {
             sass: {
                 files: ['app/styles/**/*.scss'],
                 tasks: ['sass', 'cssmin'],
+                options: {
+                    livereload: true,
+                    spawn: false
+                }
+            },
+            uglify: {
+                files: ['app/scripts/**/*.js'],
+                tasks: ['uglify'],
                 options: {
                     livereload: true,
                     spawn: false
