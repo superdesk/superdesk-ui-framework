@@ -1,4 +1,5 @@
 // Flex grid
+// Grid has equal columns, default setup is 'no wrap'
 // ---------------------------------------------
 
 @mixin flex($grow, $shrink, $basis) {
@@ -9,9 +10,38 @@
 
 $flex-grid-gap:          16px; // space between items is $flex-grid-gap*2
 $flex-grid-box-bg:       white;
+$flex-grid-columns:      6; // max number of columns supported
+
+// map for media breakpoints, 'small' is mandatory and reserved as mobile first
+$flex-grid-media: (
+    medium: 40em,
+    large: 60em,
+    xlarge: 100em
+);
+
+// grid mixins
+@mixin basic-grid {
+    @for $i from $flex-grid-columns to 1 {
+        &-#{$i} {
+            .flex-grid__item {
+                @include flex(0, 0, 100% / $i);
+                max-width: 100% / $i;
+            }
+        }
+    }
+}
+@mixin basic-grid-boxed {
+    @for $i from $flex-grid-columns to 1 {
+        &-#{$i} {
+            .flex-grid__item {
+                @include flex(0, 0, calc(#{100% / $i} - #{$flex-grid-gap * 2}));
+                max-width: calc(#{100% / $i} - #{$flex-grid-gap * 2});
+            }
+        }
+    }
+}
 
 // grid
-
 .flex-grid {
     display: flex;
     flex-direction: row;
@@ -32,332 +62,28 @@ $flex-grid-box-bg:       white;
             background-color: $flex-grid-box-bg;
         }
     }
+    
     // default grid setup (mobile first), calc for 1-6 columns
-
+    &--small {
+        @include basic-grid;
+    }
     &--boxed {
         &.flex-grid--small {
-            &-6 {
-                .flex-grid__item {
-                    @include flex(0, 0, calc(16.6666% - #{$flex-grid-gap * 2}));
-                    max-width: calc(16.6666% - #{$flex-grid-gap * 2});
-                }
-            }
-            &-5 {
-                .flex-grid__item {
-                    @include flex(0, 0, calc(20% - #{$flex-grid-gap * 2}));
-                    max-width: calc(20% - #{$flex-grid-gap * 2});
-                }
-            }
-            &-4 {
-                .flex-grid__item {
-                    @include flex(0, 0, calc(25% - #{$flex-grid-gap * 2}));
-                    max-width: calc(25% - #{$flex-grid-gap * 2});
-                }
-            }
-            &-3 {
-                .flex-grid__item {
-                    @include flex(0, 0, calc(33.3333% - #{$flex-grid-gap * 2}));
-                    max-width: calc(33.3333% - #{$flex-grid-gap * 2});
-                }
-            }
-            &-2 {
-                .flex-grid__item {
-                    @include flex(0, 0, calc(50% - #{$flex-grid-gap * 2}));
-                    max-width: calc(50% - #{$flex-grid-gap * 2});
-                }
-            }
-            &-1 {
-                .flex-grid__item {
-                    @include flex(0, 0, calc(100% - #{$flex-grid-gap * 2}));
-                    max-width: calc(100% - #{$flex-grid-gap * 2});
-                }
-            }
-        }
-    }
-    &--small {
-        &-6 {
-            .flex-grid__item {
-                @include flex(0, 0, 16.6666%);
-                max-width: 16.6666%;
-            }
-        }
-        &-5 {
-            .flex-grid__item {
-                @include flex(0, 0, 20%);
-                max-width: 20%;
-            }
-        }
-        &-4 {
-            .flex-grid__item {
-                @include flex(0, 0, 25%);
-                max-width: 25%;
-            }
-        }
-        &-3 {
-            .flex-grid__item {
-                @include flex(0, 0, 33.3333%);
-                max-width: 33.3333%;
-            }
-        }
-        &-2 {
-            .flex-grid__item {
-                @include flex(0, 0, 50%);
-                max-width: 50%;
-            }
-        }
-        &-1 {
-            .flex-grid__item {
-                @include flex(0, 0, 100%);
-                max-width: 100%;
-            }
+            @include basic-grid-boxed;
         }
     }
 }
 
-// medium screen media query /40em = 640px/
-@media only screen and (min-width: 40em) {
-    .flex-grid {
-        &--boxed {
-            &.flex-grid--medium {
-                &-6 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(16.6666% - #{$flex-grid-gap * 2}));
-                        max-width: calc(16.6666% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-5 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(20% - #{$flex-grid-gap * 2}));
-                        max-width: calc(20% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-4 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(25% - #{$flex-grid-gap * 2}));
-                        max-width: calc(25% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-3 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(33.3333% - #{$flex-grid-gap * 2}));
-                        max-width: calc(33.3333% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-2 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(50% - #{$flex-grid-gap * 2}));
-                        max-width: calc(50% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-1 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(100% - #{$flex-grid-gap * 2}));
-                        max-width: calc(100% - #{$flex-grid-gap * 2});
-                    }
-                }
+// Media queries
+@each $name, $value in $flex-grid-media {
+    @media only screen and (min-width: $value) {
+        .flex-grid {
+            &--#{$name} {
+                @include basic-grid;
             }
-        }
-        &--medium {
-            &-6 {
-                .flex-grid__item {
-                    @include flex(0, 0, 16.6666%);
-                    max-width: 16.6666%;
-                }
-            }
-            &-5 {
-                .flex-grid__item {
-                    @include flex(0, 0, 20%);
-                    max-width: 20%;
-                }
-            }
-            &-4 {
-                .flex-grid__item {
-                    @include flex(0, 0, 25%);
-                    max-width: 25%;
-                }
-            }
-            &-3 {
-                .flex-grid__item {
-                    @include flex(0, 0, 33.3333%);
-                    max-width: 33.3333%;
-                }
-            }
-            &-2 {
-                .flex-grid__item {
-                    @include flex(0, 0, 50%);
-                    max-width: 50%;
-                }
-            }
-            &-1 {
-                .flex-grid__item {
-                    @include flex(0, 0, 100%);
-                    max-width: 100%;
-                }
-            }
-        }
-    }
-}
-// large screen media query /60em = 960px/
-@media only screen and (min-width: 60em) {
-    .flex-grid {
-        &--boxed {
-            &.flex-grid--large {
-                &-6 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(16.6666% - #{$flex-grid-gap * 2}));
-                        max-width: calc(16.6666% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-5 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(20% - #{$flex-grid-gap * 2}));
-                        max-width: calc(20% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-4 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(25% - #{$flex-grid-gap * 2}));
-                        max-width: calc(25% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-3 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(33.3333% - #{$flex-grid-gap * 2}));
-                        max-width: calc(33.3333% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-2 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(50% - #{$flex-grid-gap * 2}));
-                        max-width: calc(50% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-1 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(100% - #{$flex-grid-gap * 2}));
-                        max-width: calc(100% - #{$flex-grid-gap * 2});
-                    }
-                }
-            }
-        }
-        &--large {
-            &-6 {
-                .flex-grid__item {
-                    @include flex(0, 0, 16.6666%);
-                    max-width: 16.6666%;
-                }
-            }
-            &-5 {
-                .flex-grid__item {
-                    @include flex(0, 0, 20%);
-                    max-width: 20%;
-                }
-            }
-            &-4 {
-                .flex-grid__item {
-                    @include flex(0, 0, 25%);
-                    max-width: 25%;
-                }
-            }
-            &-3 {
-                .flex-grid__item {
-                    @include flex(0, 0, 33.3333%);
-                    max-width: 33.3333%;
-                }
-            }
-            &-2 {
-                .flex-grid__item {
-                    @include flex(0, 0, 50%);
-                    max-width: 50%;
-                }
-            }
-            &-1 {
-                .flex-grid__item {
-                    @include flex(0, 0, 100%);
-                    max-width: 100%;
-                }
-            }
-        }
-    }
-}
-// extra large screen media query /100em = 1600px/
-@media only screen and (min-width: 100em) {
-    .flex-grid {
-        &--boxed {
-            &.flex-grid--xlarge {
-                &-6 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(16.6666% - #{$flex-grid-gap*2}));
-                        max-width: calc(16.6666% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-5 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(20% - #{$flex-grid-gap * 2}));
-                        max-width: calc(20% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-4 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(25% - #{$flex-grid-gap * 2}));
-                        max-width: calc(25% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-3 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(33.3333% - #{$flex-grid-gap * 2}));
-                        max-width: calc(33.3333% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-2 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(50% - #{$flex-grid-gap * 2}));
-                        max-width: calc(50% - #{$flex-grid-gap * 2});
-                    }
-                }
-                &-1 {
-                    .flex-grid__item {
-                        @include flex(0, 0, calc(100% - #{$flex-grid-gap * 2}));
-                        max-width: calc(100% - #{$flex-grid-gap * 2});
-                    }
-                }
-            }
-        }
-        &--xlarge {
-            &-6 {
-                .flex-grid__item {
-                    @include flex(0, 0, 16.6666%);
-                    max-width: 16.6666%;
-                }
-            }
-            &-5 {
-                .flex-grid__item {
-                    @include flex(0, 0, 20%);
-                    max-width: 20%;
-                }
-            }
-            &-4 {
-                .flex-grid__item {
-                    @include flex(0, 0, 25%);
-                    max-width: 25%;
-                }
-            }
-            &-3 {
-                .flex-grid__item {
-                    @include flex(0, 0, 33.3333%);
-                    max-width: 33.3333%;
-                }
-            }
-            &-2 {
-                .flex-grid__item {
-                    @include flex(0, 0, 50%);
-                    max-width: 50%;
-                }
-            }
-            &-1 {
-                .flex-grid__item {
-                    @include flex(0, 0, 100%);
-                    max-width: 100%;
+            &--boxed {
+                &.flex-grid--#{$name} {
+                    @include basic-grid-boxed;
                 }
             }
         }
