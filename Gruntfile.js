@@ -47,7 +47,8 @@ module.exports = function (grunt) {
                     'dist/superdesk-ui-framework.js': [
                         'node_modules/angular-ui-bootstrap/ui-bootstrap.min.js',
                         'app/scripts/index.js',
-                        'app/scripts/dropdown.js'
+                        'app/scripts/dropdown.js',
+                        'app/scripts/modals.js'
                     ]
                 }
             }
