@@ -1,0 +1,45 @@
+<h2 class="docs-page__h2">Modals</h2>
+<p class="docs-page__paragraph">The best way to invoke the modal window is through directive <code>sd-modal</code>. Here is an example:</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openModal()">Show modal</button>
+            <div sd-modal data-model="modalActive">
+                <div class="modal-header">
+                    <button class="close" ng-click="closeModal()"><i class="icon-close-small"></i></button>
+                    <h3>Sample modal</h3>
+                </div>
+                <div class="modal-body">
+                    <p>This is sample message inside modal!</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn" ng-click="closeModal()">Cancel</button>
+                    <button class="btn btn--primary" ng-click="closeModal()">Ok</button>
+                </div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                <button class="btn" ng-click="openModal()">Show modal</button>
+                <div sd-modal data-model="modalActive" ng-non-bindable>
+                    <div class="modal-header">
+                        <button class="close" ng-click="closeModal()"><i class="icon-close-small"></i></button>
+                        <h3>Sample modal</h3>
+                    </div>
+                    <div class="modal-body">
+                        <p>This is sample message inside modal!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn" ng-click="closeModal()">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal()">Ok</button>
+                    </div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+<p class="docs-page__paragraph">Modal state (open/close) is handled by <code>data-model=""</code> attribute.</p>

@@ -74,4 +74,16 @@ angular.module('ui-docs', [
             }
         }
     };
+}).directive('docModal', function () {
+    return {
+        link: function (scope) {
+            scope.modalActive = false;
+            scope.openModal = function () {
+                scope.modalActive = true;
+            };
+            scope.closeModal = function () {
+                scope.modalActive = false;
+            };
+        }
+    };
 });
