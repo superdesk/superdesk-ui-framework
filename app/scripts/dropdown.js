@@ -9,7 +9,7 @@ function sdDropdown($window) {
 
             var settings = {
                 isTopOriented: menu.hasClass('dropdown--dropup'),
-                isRightOriented: menu.hasClass('pull-right'),
+                isRightOriented: menu.hasClass('dropdown--align-right'),
                 isInlineOriented: elem.hasClass('dropdown--dropright') ||
                         elem.hasClass('dropdown--dropleft')
             };
@@ -36,16 +36,16 @@ function sdDropdown($window) {
 
                 // Check if menu is near left edge
                 if (closeToLeft()) {
-                    menu.removeClass('pull-right');
+                    menu.removeClass('dropdown--align-right');
                 } else if (settings.isRightOriented) {
-                    menu.addClass('pull-right');
+                    menu.addClass('dropdown--align-right');
                 }
 
                 // Check if menu is near right edge
                 if (closeToRight()) {
-                    menu.addClass('pull-right');
+                    menu.addClass('dropdown--align-right');
                 } else if (!settings.isRightOriented) {
-                    menu.removeClass('pull-right');
+                    menu.removeClass('dropdown--align-right');
                 }
             });
         }
@@ -81,7 +81,7 @@ function sdDropdownAppendToBody($window) {
                 scope.$applyAsync(function () {
                     // Check if menu is near bottom edge
                     if (elem.hasClass('dropdown--dropup')) {
-                        style.top = elem.offset().top - button.outerHeight() - ctrl.dropdownMenu.outerHeight();
+                        style.top = elem.offset().top - ctrl.dropdownMenu.outerHeight();
                     }
 
                     // Check if menu is near left edge
