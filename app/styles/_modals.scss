@@ -10,27 +10,233 @@ $zindexModal: 1050;
 $nav-height: 48px;
 
 .modal-open {
+    overflow: hidden;
     .dropdown__menu {  z-index: $zindexDropdown + $zindexModal; }
     .dropdown.open { *z-index: $zindexDropdown + $zindexModal; }
     .popover       {  z-index: $zindexPopover  + $zindexModal; }
     .tooltip       {  z-index: $zindexTooltip  + $zindexModal; }
 }
 
-$modal-base-width : 460px;
-$modal-large-width : 660px;
-$modal-big-width : 820px;
-$modal-huge-width : 1051px;
+// Variables
+$modal-base-width : 480px;
+$modal-large-width : 680px;
+$modal-fill-width: 100%;
+$modal-fullscreen-width: 100%;
 
 $modal-border-radius: 4px;
+$modal-line-color: #e4e4e4;
 
 $modal-header-height : $nav-height;
 $modal-footer-height : 58px;
 $modal-subnav-height : $nav-height;
 
+$modal-padding : 16px;
 
+// Box shadow
+@mixin modal-box-shadow {
+    @include box-shadow(0, 0, 8px, 2px, rgba(0, 0, 0, 0.3));
+}
+// Map with all modal sizes
+$modal-sizes: (
+  default: $modal-base-width,
+  large: $modal-large-width,
+  fill: $modal-fill-width,
+  fullscreen: $modal-fullscreen-width,
+) !default;
+
+@mixin modal-base(
+    $align-items: flex-start, 
+    $space-around: 40px
+    ) {
+    position: fixed;
+    left: $space-around;
+    right: $space-around;
+    top: $space-around;
+    bottom: $space-around;
+    align-items: $align-items;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: $zindexModal;
+    display: none;
+}
+@mixin modal-dialog() {
+    display: flex;
+    max-height: 100%;
+    flex: 0 1 auto;
+    margin: 0 auto;
+}
+@mixin modal-content() {
+    background-color: $white;
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+    @include border-radius($modal-border-radius);
+    @include modal-box-shadow();
+}
+@mixin modal-header() {
+    padding: $modal-padding - 4px $modal-padding;
+    border-bottom: 1px solid $modal-line-color;
+    min-height: $modal-header-height;
+}
+@mixin modal-body() {
+    background: $sd-background;
+    overflow-y: auto;
+    padding: $modal-padding;
+    position: relative;
+}
+@mixin modal-footer() {
+    padding: $modal-padding - 4px $modal-padding;
+    text-align: right; // right align buttons
+    border-top: 1px solid $modal-line-color;
+    @include clearfix(); // clear it in case folks use .pull-* classes on buttons
+}
+
+// Base modal calculation, with different sizes
+.modal {
+    @include modal-base;
+    &.in {
+        display: flex !important;
+    }
+    // default size, no class needed
+    .modal__dialog {
+        @include modal-dialog();
+        max-width: map-get($modal-sizes, default);
+        width: 100%;
+    }
+    .modal__content {
+        @include modal-content();
+        flex: 0 0 100%;
+        .modal__header, .modal__footer {
+            flex: 0 0 auto;
+            width: 100%;            
+        }
+        .modal__header {
+            @include modal-header();
+            &--padding-20 {
+                padding: 10px 20px;
+            }
+        }
+        .modal__footer {
+            @include modal-footer();
+        }
+        .modal__body {
+            @include modal-body();
+            flex: 0 1 auto;
+            width: 100%;            
+        }
+    }
+    // loop for different modal sizes
+    @each $name, $value in $modal-sizes {
+        // fill modal
+        @if $name == fill {
+            &--#{$name} {
+                @include modal-base(flex-start, 30px);
+                align-items: initial;
+                flex-direction: initial;
+                padding: 10px;
+                .modal__content {
+                    margin: 0 !important;
+                }
+                .modal__body {
+                    flex: 1 1 auto !important;
+                }
+            }
+        }
+        // fullscreen modal (preview article dialog)
+        @if $name == fullscreen {
+            &--#{$name} {
+                @include modal-base(flex-start, 0px);
+                .modal__dialog {
+                    width: 100%;
+                    height: 100%;
+                } 
+                .modal__content {
+                    flex: 0 0 100%;
+                    margin: 0;
+                    @include border-radius(0);
+                }
+                .modal__body {
+                    max-height: none;
+                    flex: 1 1 auto !important;
+                }
+            }
+        }
+        // all other sizes from $modal-sizes except default one
+        @if $name != default {
+            &--#{$name} {
+                .modal__dialog {
+                   max-width: $value; 
+                }
+            }
+        }
+    }
+    // modifier, change body to white background 
+    &.modal--white {
+        .modal__body {
+            background: $white !important;
+        }
+    }
+    // fix for calling a modal from another modal
+    &.modal--double {
+        z-index: 1060;
+        &+.modal__backdrop {
+            z-index: 1055;
+        }
+    }
+    // modal with tabs and footer inside body
+    &.modal--tabs {
+        .modal__body {
+            position: relative;
+            //overflow: initial;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            background: transparent;
+        }
+        .modal__body-header {
+            height: 48px;
+            width: 100%;
+            background: $white;
+            border-bottom: 1px solid $modal-line-color;
+            padding: $modal-padding;
+        }
+        .modal__body-content {
+            flex: 1 1 auto;
+            width: 100%;
+            overflow-y: auto;
+            padding: $modal-padding;
+            background: $sd-background;
+        }
+        .modal__body-footer {
+            flex: 0 0 auto;
+            padding: $modal-padding;
+            border-top: 1px solid $modal-line-color;
+            text-align: right;
+        }
+    }
+    p {
+        margin: 0 0 1em 0;
+    }
+}
+.modal__close {
+    margin: 2px -6px 0;
+    border: 0;
+    background: 0;
+    padding: 0px 4px;
+    @include opacity(30);
+    &:hover {
+        @include opacity(70);
+        cursor: pointer;
+    }
+}
+h3.modal__heading {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 27px;
+}
 
 // Background
-.modal-backdrop {
+.modal__backdrop {
     position: fixed;
     top: 0;
     right: 0;
@@ -41,600 +247,7 @@ $modal-subnav-height : $nav-height;
     // Fade for backdrop
     &.fade { opacity: 0; }
 }
-
-.modal-backdrop,
-.modal-backdrop.fade.in {
-    opacity: .3;
-}
-
-body:not(:-moz-handler-blocked) .modal{
-    &.moz-scroll-fix{
-        .modal-dialog{
-            /* height: 100%; */
-        }
-    }
-}
-
-// Base modal
-.modal {
-    position: fixed;
-    left: 40px; right: 40px; top: 40px; bottom:40px;
-    align-items: flex-start;
-    flex-direction: column;
-    overflow: hidden;
-    z-index: $zindexModal;
-    display: none;
-    &.in {
-        display: flex !important;
-    }
-    &.fade{
-        transition: none;
-        -webkit-transition: none;
-    }
-    &.wrapped, .wrapped {
-        .modal-content {
-            flex-direction: row;
-            align-items: initial;
-            flex: 0 1 auto;
-            width: 480px;
-        }
-        .modal-wrapper {
-            display: flex;
-            flex: 1 0 auto;
-            flex-direction: column;
-            width: 100%;
-            max-height: calc(100vh - 95px);
-        }
-    }
-    .modal-dialog {
-        width: $modal-base-width + 20px;
-        display: flex;
-        max-height: 100%;
-        flex: 0 1 auto;
-        justify-content: center;
-        margin: 0 auto;
-    }
-    .modal-content {
-        display: flex;
-        align-items: flex-start;
-        flex-direction: column;
-        flex: 0 0 $modal-base-width + 20px;
-        margin: 10px;
-/*        @include border-radius($modal-border-radius);
-        @include box-shadow(0 0 8px 2px rgba(0, 0, 0, 0.3));*/
-        .modal-header, .modal-footer {
-            flex: 0 0 auto;
-            width: 100%;
-            /*@include border-box();*/
-        }
-        .modal-body {
-            flex: 0 1 auto;
-            width: 100%;
-            /*@include border-box();*/
-            overflow-y: auto;
-        }
-    }
-    .modal-strech {
-        width: 100%;
-    }
-    &.child-shadow {
-        .modal-content {
-            /*@include box-shadow(0 0 0 0 rgb(0, 0, 0));*/
-            > * {
-                /*@include box-shadow(0 0 8px 2px rgba(0, 0, 0, 0.3));*/
-            }
-        }
-    }
-}
-.modal-header {
-    background-color: $white;
-    padding: 9px 15px;
-    border-bottom: 1px solid #e4e4e4;
-    /*@include box-sizing(border-box);*/
-    min-height: $modal-header-height;
-    /*@include border-radius($modal-border-radius $modal-border-radius 0 0);*/
-    // Close icon
-    .close {
-        margin-top: 2px;
-        border: 0;
-        background: 0;
-    }
-    h3 {
-        font-size: 18px;
-        font-weight: 100;
-    }
-
-    .alert {
-        margin: 5px 0 0;
-        padding: 5px;
-    }
-    &--padding-20 {
-        padding: 10px 20px;
-    }
-}
-.modal--about {
-    h4 {
-        font-size: 16px;
-    }
-    .date-released {
-        color: #767676;
-        margin-bottom: 24px;
-    }
-}
-
-.modal-header--about {
-    /*background-color: $superdesk-green;*/
-    padding: 15px 15px 20px 20px;
-    i {
-        color: white;
-    }
-    .modal-header__sd-logo {
-        background: url(~images/superdesk-logo_white.svg) no-repeat 0 0;
-        width: 154px;
-        height: 48px;
-        text-indent: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        float: left;
-    }
-}
-
-// Body (where all modal content resises)
-.modal-body {
-    /*background: $sd-background;*/
-    overflow-y: auto;
-    //max-height: 400px;
-    padding: 20px;
-    position: relative;
-    &.modal-body-white {
-        background: $white;
-    }
-    .nav-tabs {
-        position: absolute;
-        left: 0; right: 0; top: 0;
-        border-bottom: 1px solid #e4e4e4;
-        height: $modal-subnav-height;
-        line-height: $modal-subnav-height - 20;
-        padding: 0px 20px;
-        /*@include box-sizing(border-box);*/
-        background: $white;
-    }
-    .tab-content {
-        margin-top: $modal-subnav-height;
-    }
-
-    .modal-screen {
-        position: absolute;
-        left: 0; right: 0; top: 0; bottom: 0;
-        overflow-y: auto;
-        overflow-x: hidden;
-        padding: 20px;
-    }
-}
-// Remove bottom margin if need be
-.modal-form {
-    margin-bottom: 0;
-}
-
-// Footer (for actions)
-.modal-footer {
-    background-color: $white;
-    padding: 14px 15px 15px;
-    margin-bottom: 0;
-    text-align: right; // right align buttons
-    border-top: 1px solid #e4e4e4;
-    /*@include border-radius(0 0 $modal-border-radius $modal-border-radius);*/
-    /*@include clearfix(); // clear it in case folks use .pull-* classes on buttons*/
-
-    // Properly space out buttons
-    .btn + .btn {
-        margin-left: 5px;
-        margin-bottom: 0; // account for input[type="submit"] which gets the bottom margin like all other inputs
-    }
-    // but override that for button groups
-    .btn-group .btn + .btn {
-        margin-left: -1px;
-    }
-}
-
-
-.modal {
-    &.modal-strech {
-        .modal-dialog {
-            height: 100%;
-        }
-        .modal-body {
-            .tab-content {
-                position: absolute;
-                left: 0; right: 0; bottom: 0;
-                top: $modal-subnav-height;
-                margin: 0;
-                padding: 20px;
-                overflow: auto;
-                display: block;
-                width: auto;
-            }
-        }
-    }
-    &.modal-static {
-        .modal-dialog {
-            height: auto;
-            .modal-body {
-                height: 400px;
-                max-height: 400px;
-                .tab-content {
-                    position: absolute;
-                    left: 0; right: 0; bottom: 0;
-                    top: $modal-subnav-height;
-                    margin: 0;
-                    padding: 20px;
-                    overflow: auto;
-                    display: block;
-                    width: auto;
-                }
-            }
-        }
-    }
-    &.modal-body-grey {
-        .modal-body {
-            /*background: $sd-background;*/
-        }
-    }
-    &.modal-large {
-        .modal-dialog {
-            max-width: $modal-large-width + 20px;
-            width: 100%;
-        }
-        .modal-content {
-            flex: 0 0 100%;
-        }
-    }
-    &.modal-big {
-        .modal-dialog {
-            max-width: $modal-big-width + 20px;
-            width: 100%;
-        }
-        .modal-content {
-            flex: 0 0 100%;
-        }
-    }
-    &.modal-huge {
-        .modal-dialog {
-            max-width: $modal-huge-width + 20px;
-            width: 100%;
-        }
-        .modal-content {
-            flex: 0 0 100%;
-        }
-    }
-    &.modal-responsive {
-        .modal-dialog {
-            width: 100%;
-            height: 100%;
-            .modal-content {
-                flex: 0 1 100%;
-                -moz-box-flex: 0 0 100%;
-                .modal-body {
-                    max-height: none;
-                    flex: 1 1 auto;
-                }
-            }
-        }
-    }
-    &.with-subnav {
-        .modal-dialog {
-            height: 100%;
-            .modal-body {
-            }
-        }
-    }
-    &.add-vocabulary-popup {
-        .modal-content {
-            flex: 0 0 100%;
-        }
-    }
-
-    // Preview article dialog
-    &.modal--fullscreen {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        .modal-dialog {
-            width: 100%;
-            height: 100%;
-            .modal-content {
-                flex: 0 0 100%;
-                margin: 0;
-                /*@include border-radius(0);*/
-                .scroll-shadow {
-                    position: absolute;
-                    top: 47px;
-                    width: 100vw;
-                }
-                .modal-header {
-                    /*@include border-radius(0);*/
-                    .btn-group {
-                        button {
-                            cursor: pointer;
-                            background: 0 0;
-                            border: 0;
-                            margin-top: 2px;
-                            -webkit-appearance: none;
-                            [class^="icon-"], [class*=" icon-"] {
-                                width: 24px;
-                                height: 24px;
-                                font-size: 24px;
-                                line-height: 24px;
-                                color: #bfbfbf;
-                                &:hover {
-                                    color: $gray;
-                                }
-                            }
-                        }
-                        label {
-                            line-height: 18px;
-                        }
-                    }
-                    .btn {
-                        margin-right: 12px;
-                    }
-                    &--no-border {
-                        border: 0;
-                    }
-                }
-                .modal-body {
-                    max-height: none;
-                    flex: 1 1 auto;
-                    // styles for preview content
-                    .preview-content {
-                        width: 100%;
-                        max-width: 540px;
-                        margin: 0 auto;
-                        display: flex;
-                        flex-direction: column;
-                        .metadata {
-                            margin: 30px 0 40px;
-                            display: flex;
-                            flex-direction: column;
-                            > div {
-                                min-height: 24px;
-                                overflow: hidden;
-                                margin-bottom: 10px;
-                            }
-                            .preview-label {
-                                float: left;
-                                min-width: 100px;
-                                vertical-align: top;
-                            }
-                            .preview-data {
-                                float: left;
-                                max-width: 440px;
-                                span {
-                                    font-size: 12px;
-                                    color: #000;
-                                    background-color: #f5f5f5;
-                                    margin-right: 3px;
-                                    margin-bottom: 3px;
-                                    padding: 3px 6px;
-                                    border-radius: 2px;
-                                    display: inline-block;
-                                }
-                            }
-                        }
-                        .headline {
-                            min-height: 33px;
-                            font-size: 28px;
-                            line-height: 120%;
-                            font-weight: 500;
-                            padding: 0;
-                            margin: 0 0 30px;
-                        }
-                        .byline {
-                            font-size: 16px;
-                            font-weight: 500;
-                            margin: 0 0 30px;
-                        }
-                        .association {
-                            margin-bottom: 40px;
-                            p {
-                                font-style: italic;
-                            }
-                        }
-                        .body {
-                            margin-bottom: 30px;
-                        }
-                        p {
-                            font-size: 16px;
-                            line-height: 150%;
-                            font-weight: 300;
-                            margin: 0 0 16px;
-                        }
-                        figure {
-                            margin-bottom: 20px;
-                        }
-                        figcaption {
-                            color: $grayLight;
-                            padding: 4px 0;
-                        }
-                        img {
-                            max-width: 100%;
-                        }
-                        &.hide-images {
-                            .association {
-                                p {
-                                    padding: 10px;
-                                    border: 1px solid black;
-                                }
-                                i {
-                                    vertical-align: middle;
-                                    margin-right: 10px;
-                                }
-                            }
-                            figure {
-                                display: none !important;
-                            }
-                        }
-                    }
-                    &--white {
-                        background: white;
-                    }
-                }
-                .modal-footer {
-                    /*@include border-radius(0);*/
-                }
-            }
-        }
-    }
-    label {
-        display: inline-block;
-        min-width: 75px;
-        font-size: 11px;
-        line-height: 26px;
-        margin: 0;
-        color: #747474;
-        text-transform: uppercase;
-        font-weight: 500;
-        margin-right: 5px;
-
-        .sd-checkbox { margin-top: 4px; }
-    }
-    .field-info {
-        margin-left: 20px;
-        color: #c0c0c0;
-    }
-    // fix for calling a modal from another modal
-    &.modal--double {
-        z-index: 1060;
-        &+.modal-backdrop {
-            z-index: 1055;
-        }
-    }
-}
-
-
-.mini-modal {
-    padding: 20px;
-    border: 1px solid #9ecbde;
-    /*@include border-box();*/
-    /*@include box-shadow(0 0 2px 0 #bbb);*/
-    background: #fff;
-    width: 300px;
-    margin-left: -150px;
-    &.inline {
-        position: relative;
-        width: auto;
-        margin-left: auto;
-    }
-    .title {
-        font-size: 11px;
-        /*@include text-semibold();*/
-        color: $black;
-        text-transform: uppercase;
-    }
-    .close {
-        position: absolute;
-        right: 12px;
-        top: 8px;
-    }
-    .content {
-        margin: 15px 0;
-        .field {
-            margin-bottom: 10px;
-        }
-    }
-    .footer {
-        text-align: right;
-    }
-}
-
-
-
-// SPLIT POPUP (left sidebar)
-// > used for upload avatar task
-$split-modal-sidebar : 230px;
-.split-popup {
-    .sidebar {
-        position: absolute;
-        top:0; left: 0; bottom: 0;
-        width: $split-modal-sidebar;
-        border-right: 1px solid #ddd;
-    }
-    .main {
-        position: absolute;
-        top:0; right: 0; bottom: 0;
-        left: $split-modal-sidebar;
-    }
-}
-
-.activity-choose-modal {
-    /*@include border-radius(0px);*/
-    width: 300px;
-    margin-left: -150px;
-    margin-top: -100px;
-    background: none;
-    /*@include box-shadow(none);*/
-    border: 0;
-    .list-group {
-        margin-bottom: 10px;
-        .list-group-item {
-            border-color: #c0c0c0;
-            &:hover, &.active {
-                background: #e0e0e0;
-            }
-        }
-    }
-    .btn {
-        /*@include box-shadow(inset 0 1px 0 #707070);*/
-    }
-}
-
-// Custom animation
-.animate-zoom__from-bottom-left {
-    animation: appearFromBottomLeft 0.4s ease-out 1;
-}
-//
-.animate-slide-in__from-right {
-    animation: appearFromRight2 0.6s ease-out 0s 1;
-}
-
-// Split view for modals
-// > used in routing schemes
-.split-view {
-    position: absolute;
-    right: 0;
-    left: 0;
-    top: 70px;
-    bottom: 0px;
-
-    .sidebar, .main {
-        position: absolute;
-        /*@include border-box();*/
-        top: 0; bottom: 10px;
-        left: 0; right: 50%;
-        padding: 10px 20px;
-        overflow-x: hidden;
-        overflow-y: auto;
-    }
-
-    .sidebar {
-        right: 70%;
-        & + .main {
-            left: 30%; right: 0;
-            border-left: 1px solid #e0e0e0;
-        }
-    }
-
-    .main + .main {
-        left: 50%; right: 0;
-        border-left: 1px solid #e0e0e0;
-
-    }
-}
-
-.action-panel {
-    margin: 5px 0 15px 0;
-    overflow: hidden;
-    padding: 12px;
-    /*@include shadow-box;*/
+.modal__backdrop,
+.modal__backdrop.fade.in {
+    @include opacity(30);
 }

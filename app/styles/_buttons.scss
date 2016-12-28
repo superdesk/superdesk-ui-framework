@@ -233,4 +233,9 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
         }
       }
     }
+
+    // Add some space, i there is more buttons side by side
+    &+.btn {
+      margin-left: 4px;
+    }
 }
