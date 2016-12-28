@@ -48,7 +48,8 @@ module.exports = function (grunt) {
                         'node_modules/angular-ui-bootstrap/ui-bootstrap.min.js',
                         'app/scripts/index.js',
                         'app/scripts/dropdown.js',
-                        'app/scripts/modals.js'
+                        'app/scripts/modals.js',
+                        'app/scripts/switch.js'
                     ]
                 }
             }
