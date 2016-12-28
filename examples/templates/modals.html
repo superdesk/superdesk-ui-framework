@@ -1,5 +1,8 @@
 <h2 class="docs-page__h2">Modals</h2>
-<p class="docs-page__paragraph">The best way to invoke the modal window is through directive <code>sd-modal</code>. Here is an example:</p>
+<p class="docs-page__paragraph">The best way to invoke the modal window is through directive <code>sd-modal</code>.</p>
+<p class="docs-page__paragraph">Modal state (open/close) is handled by <code>data-model=""</code> attribute.</p>
+<h3 class="docs-page__h3">Default</h3>
+<p class="docs-page__paragraph">By default modal has 480px width and auto height (depends on the amount of content).</p>
 <div class="docs-page__code-window" doc-tabs>
     <div class="docs-page__window-bar">
         <a id="example" href="#" class="active">Example</a>
@@ -7,39 +10,235 @@
     </div>
     <div class="docs-page__window-content">
         <div class="docs-page__code-example" doc-modal>
-            <button class="btn" ng-click="openModal()">Show modal</button>
+            <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
             <div sd-modal data-model="modalActive">
-                <div class="modal-header">
-                    <button class="close" ng-click="closeModal()"><i class="icon-close-small"></i></button>
-                    <h3>Sample modal</h3>
+                <div class="modal__header">
+                    <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                    <h3 class="modal__heading">Modal Default</h3>
                 </div>
-                <div class="modal-body">
+                <div class="modal__body">
                     <p>This is sample message inside modal!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
                 </div>
-                <div class="modal-footer">
-                    <button class="btn" ng-click="closeModal()">Cancel</button>
-                    <button class="btn btn--primary" ng-click="closeModal()">Ok</button>
+                <div class="modal__footer">
+                    <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
+                    <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
                 </div>
             </div>
+            <div class="modal__backdrop fade in" ng-if="modalActive"></div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
-                <button class="btn" ng-click="openModal()">Show modal</button>
+                 <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
                 <div sd-modal data-model="modalActive" ng-non-bindable>
-                    <div class="modal-header">
-                        <button class="close" ng-click="closeModal()"><i class="icon-close-small"></i></button>
-                        <h3>Sample modal</h3>
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Modal Default</h3>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal__body">
                         <p>This is sample message inside modal!</p>
                     </div>
-                    <div class="modal-footer">
-                        <button class="btn" ng-click="closeModal()">Cancel</button>
-                        <button class="btn btn--primary" ng-click="closeModal()">Ok</button>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
                     </div>
                 </div>
             </pre>
         </div>
     </div>
 </div>
-<p class="docs-page__paragraph">Modal state (open/close) is handled by <code>data-model=""</code> attribute.</p>
+<h3 class="docs-page__h3">Large</h3>
+<p class="docs-page__paragraph">Large modal has 680px width and auto height (depends on the amount of content). Add class <code>.modal--large</code> on div <code>sd-modal</code>.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openModal('modalActive2')">Show modal</button>
+            <div sd-modal data-model="modalActive2" class="modal--large">
+                <div class="modal__header">
+                    <button class="modal__close pull-right" ng-click="closeModal('modalActive2')"><i class="icon-close-small"></i></button>
+                    <h3 class="modal__heading">Modal Large</h3>
+                </div>
+                <div class="modal__body">
+                    <p>This is sample message inside modal!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn" ng-click="closeModal('modalActive2')">Cancel</button>
+                    <button class="btn btn--primary" ng-click="closeModal('modalActive2')">Ok</button>
+                </div>
+            </div>
+            <div class="modal__backdrop fade in" ng-if="modalActive2"></div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
+                <div sd-modal data-model="modalActive" class="modal--large" ng-non-bindable>
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Modal Large</h3>
+                    </div>
+                    <div class="modal__body">
+                        <p>This is sample message inside modal!</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
+                    </div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+<h3 class="docs-page__h3">Fill</h3>
+<p class="docs-page__paragraph">Fill modal is filling up available browser space, with 40px space around. Add class <code>.modal--fill</code> on div <code>sd-modal</code>.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openModal('modalActive3')">Show modal</button>
+            <div sd-modal data-model="modalActive3" class="modal--fill">
+                <div class="modal__header">
+                    <button class="modal__close pull-right" ng-click="closeModal('modalActive3')"><i class="icon-close-small"></i></button>
+                    <h3 class="modal__heading">Modal Fill</h3>
+                </div>
+                <div class="modal__body">
+                    <p>This is sample message inside modal!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn" ng-click="closeModal('modalActive3')">Cancel</button>
+                    <button class="btn btn--primary" ng-click="closeModal('modalActive3')">Ok</button>
+                </div>
+            </div>
+            <div class="modal__backdrop fade in" ng-if="modalActive3"></div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
+                <div sd-modal data-model="modalActive" class="modal--fill" ng-non-bindable>
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Modal Fill</h3>
+                    </div>
+                    <div class="modal__body">
+                        <p>This is sample message inside modal!</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
+                    </div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+<h3 class="docs-page__h3">Fullscreen</h3>
+<p class="docs-page__paragraph">Fullscreen modal behaves as full page overlay, width and height set to 100%. Add class <code>.modal--fullscreen</code> on div <code>sd-modal</code>. There is also class <code>.modal--white</code> that applies white background to modal body.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openModal('modalActive4')">Show modal</button>
+            <div sd-modal data-model="modalActive4" class="modal--fullscreen modal--white">
+                <div class="modal__header">
+                    <button class="modal__close pull-right" ng-click="closeModal('modalActive4')"><i class="icon-close-small"></i></button>
+                    <h3 class="modal__heading">Modal Fullscreen</h3>
+                </div>
+                <div class="modal__body">
+                    <p>This is sample message inside modal!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn" ng-click="closeModal('modalActive4')">Cancel</button>
+                    <button class="btn btn--primary" ng-click="closeModal('modalActive4')">Ok</button>
+                </div>
+            </div>
+            <div class="modal__backdrop fade in" ng-if="modalActive4"></div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
+                <div sd-modal data-model="modalActive" class="modal--fullscreen modal--white" ng-non-bindable>
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Modal Fullscreen</h3>
+                    </div>
+                    <div class="modal__body">
+                        <p>This is sample message inside modal!</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
+                    </div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+<h3 class="docs-page__h3">Tabs</h3>
+<p class="docs-page__paragraph">Special case for modals with tabbed navigation and nested footer inside the body. Add class <code>.modal--tabs</code> on div <code>sd-modal</code>. This version also works with different modal size, for example just add <code>.modal--large</code> to get large modal with tabs.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openModal('modalActive5')">Show modal</button>
+            <div sd-modal data-model="modalActive5" class="modal--tabs">
+                <div class="modal__header">
+                    <button class="modal__close pull-right" ng-click="closeModal('modalActive5')"><i class="icon-close-small"></i></button>
+                    <h3 class="modal__heading">Modal with Tabs</h3>
+                </div>
+                <div class="modal__body">
+                    <div class="modal__body-header">
+                        <strong>Tabs here</strong>
+                    </div>
+                    <div class="modal__body-content">
+                        <p>This is sample message inside modal!</p>
+                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                    </div>
+                    <div class="modal__body-footer">
+                        <button class="btn" ng-click="closeModal('modalActive5')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive5')">Ok</button>
+                    </div>
+                </div>
+            </div>
+            <div class="modal__backdrop fade in" ng-if="modalActive5"></div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
+                <div sd-modal data-model="modalActive" class="modal--tabs" ng-non-bindable>
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Sample modal</h3>
+                    </div>
+                    <div class="modal__body">
+                        <div class="modal__body-header">
+                            <strong>Tabs here</strong>
+                        </div>
+                        <div class="modal__body-content">
+                            <p>This is sample message inside modal!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                        </div>
+                        <div class="modal__body-footer">
+                            <button class="btn" ng-click="closeModal('modalActive5')">Cancel</button>
+                            <button class="btn btn--primary" ng-click="closeModal('modalActive5')">Ok</button>
+                        </div>
+                    </div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>

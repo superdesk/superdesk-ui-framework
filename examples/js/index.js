@@ -78,11 +78,11 @@ angular.module('ui-docs', [
     return {
         link: function (scope) {
             scope.modalActive = false;
-            scope.openModal = function () {
-                scope.modalActive = true;
+            scope.openModal = function (obj) {
+                scope[obj] = true;
             };
-            scope.closeModal = function () {
-                scope.modalActive = false;
+            scope.closeModal = function (obj) {
+                scope[obj] = false;
             };
         }
     };
