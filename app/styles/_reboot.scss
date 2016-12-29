@@ -31,12 +31,17 @@ body {
   line-height: $baseLineHeight;
 }
 
-$baseFontSize: 13px;
+$baseFontSize: 1.3rem;
 $baseFontFamily: "Roboto", Helvetica, Arial, sans-serif;
-$baseLineHeight: 18px;
+$baseLineHeight: 1.8rem;
 $altFontFamily: Georgia, "Times New Roman", Times, serif;
 
 // override content-box in normalize.css
 input[type="search"] {
   box-sizing: border-box;
+}
+
+button {
+  border: 0;
+  background: transparent;
 }

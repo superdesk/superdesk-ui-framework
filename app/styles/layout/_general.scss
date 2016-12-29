@@ -1,0 +1,203 @@
+// LAYOU ELEMENTS : General : layout/general.scss
+// -----------------------------------------------------
+
+// ============================================================================
+// SUBNAV
+// ============================================================================
+$subnav-background: $grayLighter;
+.subnav {
+    position: relative;
+    display: flex;
+    height:$subnav-height;
+    background: $subnav-background;
+    border-bottom: 0px;
+    @include box-shadow-both(0 1px 3px rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.1));
+    @include transition(all, 0.3s, ease);
+    &--padded {
+        padding: 10px 20px;
+    }
+    &--archive {
+        top:$nav-height*2;
+    }
+    &--darker {
+        background: #dedede;
+    }
+}
+.subnav__page-title {
+  padding: 1rem 2rem;
+  color: $grayDark;
+  font-size: 1.8rem;
+  line-height: 2.8rem;
+  flex-grow: 1;
+  @include text-overflow();
+  @include text-normal();
+}
+.subnav__desk-stage {
+    flex-grow: 1;
+}
+
+.subnav {
+    &.subnav--level2 {
+        position: absolute;
+        top:0;
+        left: 0;
+        z-index: 2;
+        box-shadow: none;
+    }
+}
+
+.button-stack {
+  height:$subnav-height !important;
+  position: relative;
+  margin: 0 20px 0 0;
+  float: left;
+    > .btn {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+  &.right-stack {
+    float: right;
+    margin: 0 0 0 5px;
+    .navbtn {
+      border-left: 1px solid rgba(0,0,0,0.1) !important;
+      border-right: 0 !important;
+    }
+    > .btn {
+      margin-right: 12px;
+      margin-left: 0;
+    }
+  }
+}
+
+.navbtn {
+    position: relative;
+    display: inline-block;
+    height: 4.8rem;
+    width: 4.8rem;
+    padding: 0 10px;
+    background: transparent;
+    color: $sd-text;
+    text-align: center;
+    line-height: 5.6rem;
+    text-decoration: none;
+    border: 0;
+    border-left: 1px solid rgba(0,0,0,.1);
+    cursor:pointer;
+    i {
+        opacity: 0.75;
+        vertical-align: baseline !important;
+    }
+    &:hover {
+        background: rgba(255, 255, 255, 0.5);
+        i {
+            opacity: 1;
+        }
+    }
+}
+.dropdown.open {
+    .navbtn {
+        background: rgba(255, 255, 255, 1);
+        box-shadow: -2px -1px 5px -2px rgba(0, 0, 0, 0.2), 3px -1px 5px -2px rgba(0, 0, 0, 0.2);
+        z-index: $zindexDropdown + 1;
+        i {
+            opacity: 1;
+            color: $sd-blue;
+        }
+    }
+}
+
+.subnav__stretch-bar {
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 1;
+  margin: 0 16px;
+}
+.subnav__button-stack {
+  position: relative;
+  max-width: 100%;
+  & > .btn {
+    padding: 8px 20px;
+    height: 28px;
+  }
+  &--square-buttons {
+    height:48px;
+    margin: 0 0 0 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 0;
+    flex-shrink: 1;
+    max-width: 100%;
+  }
+  &--custom-buttons {
+    margin: 0 auto;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-width: 0 1px;
+    box-sizing: border-box;
+    display: flex;
+    max-width: 100%;
+    .btn {
+      flex-grow: 0;
+      margin:0 4px;
+    }
+    .btn__text--short {
+      display: none;
+    }
+    .btn__text {
+      display: inline;
+    }
+  }
+}
+
+.subnav__button-stack--custom-buttons {
+  .btn__text--short {
+    display: none;
+  }
+  .btn__text {
+    display: inline;
+  }
+}
+.compact {
+  .subnav__button-stack--custom-buttons {
+    .btn__text--short {
+      display: inline;
+    }
+    .btn__text {
+      display: none;
+    }
+  }
+}
+
+.subnav__button-stack--default {
+  display: flex;
+  flex-grow: 1;
+  justify-content: flex-end;
+  padding: 10px 0;
+  .btn {
+    flex-grow: 0;
+    margin:0 4px;
+  }
+  .btn--close {
+    .btn__text--alt-icon {
+      display: none;
+    }
+    .btn__text {
+      display: inline;
+    }
+  }
+}
+
+.subnav__button-stack--default {
+  &.compact {
+    .btn--close {
+      padding: 0 3px 0 6px;
+      .btn__text--alt-icon {
+        display: inline;
+        opacity: 0.7;
+      }
+      .btn__text {
+        display: none;
+      }
+    }
+  }
+}

@@ -47,7 +47,7 @@ $badge-lineheight: 1em !default;
     @each $name, $color in $badge-palette {
         &.badge--#{$name} {
         background: $color;
-        color: color-pick-contrast($color, ($badge-color, $badge-color-alt));
+        //color: color-pick-contrast($color, ($badge-color, $badge-color-alt));
         }
     }
 }

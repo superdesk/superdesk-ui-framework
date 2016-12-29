@@ -1,0 +1,41 @@
+.form__row {
+    width:100%;
+    margin-bottom: 2rem;
+    &--flex {
+        display: flex;
+        align-items: baseline;
+    } 
+}
+
+.form__row--flex {
+    // behavior for simple inline form inputs
+    .sd-line-input {
+        flex-grow: 1;
+    }
+    .sd-line-input + .btn {
+        flex-grow: 0;
+        vertical-align: bottom;
+        margin: 0 0 0 1.2rem;
+    }
+    .sd-line-input + .sd-line-input{
+        margin-left: 1.2rem;
+    }
+    // For more complex inline form combinations an additional element that goes inside .form__row--flex container is provided.
+    .form__row-item {
+        flex-grow: 1;
+        margin: 0 0.6rem;
+        &:first-child {
+            margin-left: 0;
+        }
+        &:last-child {
+            margin-right: 0;
+        }
+        &:only-child {
+            margin: 0;
+        }
+        &--no-grow {
+            flex-grow: 0;
+        }
+    }
+}
+

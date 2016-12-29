@@ -16,6 +16,38 @@
         -ms-border-radius: $radius;
             border-radius: $radius;
 }
+@mixin box-shadow-both($shadow1 , $shadow2) {
+    box-shadow: $shadow1, $shadow2;
+}
+// Text overflow ellipsis
+@mixin text-overflow() {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+// Font weight
+@mixin text-light() {
+    font-weight: 300;
+}
+@mixin text-normal() {
+    font-weight: 400;
+}
+@mixin text-semibold() {
+    font-weight: 500;
+}
+@mixin text-bold() {
+    font-weight: 700;
+}
+@mixin text-extrabold() {
+    font-weight: 800;
+}
+// Box sizing
+@mixin box-sizing($boxmodel) {
+        box-sizing: $boxmodel;
+}
+@mixin border-box() {
+    @include box-sizing(border-box);
+}
 // Opacity
 @mixin opacity($opacity: 100) {
     opacity: $opacity / 100;
