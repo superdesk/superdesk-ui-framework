@@ -1,22 +1,23 @@
 
-@import "normalize";
-@import "variables";
-@import "reboot";
-@import "mixins";
-@import "helpers";
-@import "buttons";
-@import "labels";
-@import "badge";
-@import "basic-grid";
-@import "icon-font";
-@import "modals";
-@import "switch";
+@import 'normalize';
+@import 'variables';
+@import 'reboot';
+@import 'mixins';
+@import 'helpers';
+@import 'buttons';
+@import 'labels';
+@import 'badge';
+@import 'basic-grid';
+@import 'icon-font';
+@import 'modals';
 
 // Layout
 @import 'layout/general';
 
 // Form elements
+@import 'form-elements/forms-general';
 @import 'form-elements/inputs';
+@import 'form-elements/switch';
 
 // Dropdowns
 @import 'dropdowns/basic-dropdown';

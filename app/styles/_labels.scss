@@ -69,7 +69,7 @@ $label-sizes: (
         @each $name, $color in $label-palette {
         &.label--#{$name} {
             background: $color;
-            color: color-pick-contrast($color, ($label-color, $label-color-alt));
+            //color: color-pick-contrast($color, ($label-color, $label-color-alt));
         }
     }
     &.label--hollow {

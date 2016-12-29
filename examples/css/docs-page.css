@@ -30,9 +30,13 @@ h3.docs-page__h3 {
 p.docs-page__paragraph {
     font-size: 16px;
     margin: 1em 0;
-    line-height: 140%;
+    line-height: 150%;
     font-weight: 300;
 }
+.docs-page__code-example p.docs-page__paragraph {
+    color: #7abcd1;
+}
+
 p.docs-page__paragraph--topMarginL {
     margin-top: 3em;
 }
@@ -69,7 +73,7 @@ p.docs-page__paragraph b {
 .docs-page__sidebar {
     position: fixed;
     width: 220px;
-    padding: 30px 15px;
+    padding: 30px 15px 60px;
     box-sizing: border-box;
 }
 .docs-page__content {
@@ -79,16 +83,28 @@ p.docs-page__paragraph b {
 }
 .docs-page__nav {
 }
+.docs-page__nav-title {
+    text-transform: uppercase;
+    color: #a3a3a3;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    display: inline-block;
+    margin-top: 16px;
+}
+.docs-page__nav>li:first-child .docs-page__nav-title {
+    margin-top: 0;
+}
 .docs-page__nav>li {
     position: relative;
     font-size: 16px;
-    line-height: 36px;
-    color: #777;
+    line-height: 24px;
+    color: #666;
 }
 .docs-page__nav>li>a {
     font-size: 16px;
     line-height: 36px;
-    color: #777;
+    color: #666;
     text-decoration: none;
 }
 .docs-page__nav>li>a:hover {
@@ -103,7 +119,7 @@ p.docs-page__paragraph b {
     padding: 40px 0 0;
 }
 .docs-page__section:last-child {
-    padding: 40px 0;
+    padding: 40px 0 100px;
 }
 .docs-page__pre {
     display: block;
@@ -146,9 +162,9 @@ p.docs-page__paragraph b {
 .docs-page__code-example .docs-page__content-block {
     margin-bottom: 20px;
 }
-.docs-page__code-example .btn,
-.docs-page__code-example .label,
-.docs-page__code-example .badge {
+.docs-page__code-example .docs-page__content-row .btn,
+.docs-page__code-example .docs-page__content-row .label,
+.docs-page__code-example .docs-page__content-row .badge {
     margin-right: 6px;
     margin-bottom: 10px;
 }
