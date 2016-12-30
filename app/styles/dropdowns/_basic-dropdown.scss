@@ -66,6 +66,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     border-top:   4px solid $black;
     opacity: .3;
     content: "";
+    @include transition(all, 0.1s, ease-in);
     &.dropdown__caret--white, 
     &.white {
         border-top-color: $white;
@@ -292,6 +293,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         border-top: 0;
         border-bottom: 4px solid $black;
         content: "\2191";
+        @include transition(all, 0.2s, eas-in);
     }
     // Different positioning for bottom up menu
     .dropdown__menu {
@@ -310,9 +312,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     display: inline-block;
     vertical-align: middle;
     .dropdown__menu {
-        top: -23px;
+        top: -2.3rem;
         left: auto;
-        right: calc(100% + 15px);
+        right: calc(100% + 0.3rem);
     }
 }
 
@@ -320,8 +322,20 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     display: inline-block;
     vertical-align: middle;
     .dropdown__menu {
-        top: -23px;
-        left: calc(100% + 15px);
+        top: -2.3rem;
+        left: calc(100% + 0.3rem);
+    }
+}
+.dropdown--dropright.open {
+    .dropdown__caret {
+        transform: rotate(-90deg);
+        
+    }
+}
+.dropdown--dropleft.open {
+    .dropdown__caret {
+        transform: rotate(90deg);
+        
     }
 }
 

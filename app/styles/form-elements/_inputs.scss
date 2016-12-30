@@ -1,7 +1,29 @@
-// FORM ELEMENTS : Inputs : form-elements/inputs.scss
+// FORM ELEMENTS : Input and slect : form-elements/inputs.scss
 // 
 
-// input, textarea, .dropdown__toggle {
+// input, textarea, select {
+@mixin Line-input-base {
+    width: 100%;
+    @include appearance-reset();
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    background-color: transparent;
+    padding: 0;
+    font-size: 1.4rem;
+    height:2.4rem;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    &:hover {
+        border-color: rgba(0,0,0,0.3);
+        background-color: transparent;
+    }
+    &:focus {
+        box-shadow: 0 1px 0 0 $sd-blue;
+        border-color: $sd-blue;
+        background-color: transparent;
+    }
+}    
+
 .form-label {
     display: inline-block;
     min-width: 75px;
@@ -19,24 +41,14 @@
     position: relative;
     input, textarea {
         &.sd-line-input__input {
-            width: 100%;
-            border-radius: 0 !important;
-            border: 0 !important;
-            border-bottom: 1px solid rgba(0,0,0,0.15)!important;
-            background-color: transparent;
-            padding: 0;
-            font-size: 1.4rem;
-            height:2.4rem;
-            transition: border linear 0.2s, box-shadow linear 0.2s;
-            &:hover {
-                border-color: rgba(0,0,0,0.3) !important;
-                background-color: transparent !important;
-            }
-            &:focus {
-                box-shadow: 0 1px 0 0 $sd-blue !important;
-                border-color: $sd-blue !important;
-                background-color: transparent !important;
-            }
+            @include Line-input-base;
+        }
+    }
+    select {
+        &.sd-line-input__select {
+            @include Line-input-base;
+            position: relative;
+            z-index: 2;
         }
     }
     textarea.sd-line-input__input {
@@ -89,10 +101,40 @@
         }
         input, textarea {
             &.sd-line-input__input {
-                border-color: $red !important;
+                border-color: $red;
                 &:focus {
-                    box-shadow: 0 1px 0 0 $red !important;
+                    box-shadow: 0 1px 0 0 $red;
                 }
+            }
+        }
+        select {
+            &.sd-line-input__select {
+                border-color: $red;
+                &:focus {
+                    box-shadow: 0 1px 0 0 $red;
+                }
+            }
+        }
+    }
+    &.sd-line-input--is-select {
+        &::after {
+            position: absolute;
+            top: 2.6rem;
+            right: 0.4rem;
+            display: inline-block;
+            width: 0;
+            height: 0;
+            vertical-align: middle;
+            border-left: 0.4rem solid transparent;
+            border-right: 0.4rem solid transparent;
+            border-top: 0.4rem solid #000;
+            @include opacity(30);
+            content: "";
+            z-index: 0;
+        }
+        &:hover {
+            &::after {
+                @include opacity(60);
             }
         }
     }

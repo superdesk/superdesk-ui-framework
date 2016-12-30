@@ -17,7 +17,11 @@
     box-sizing: inherit;
 }
 // remove deafult browser focus
-:focus {outline:none;}
+:focus,
+select:focus,
+select:active {
+  outline:none;
+}
 
 // Body reset
 html {

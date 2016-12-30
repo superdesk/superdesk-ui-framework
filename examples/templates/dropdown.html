@@ -69,6 +69,72 @@
     </div>
 </div>
 
+<h3 class="docs-page__h3">Dropdowns opened on the side of the trigger.</h3>
+<p class="docs-page__paragraph">
+    Dropdowns have it's specific class <code>dropdown</code> and consist of two parts, <code>dropdown__toggle</code> and <code>dropdown__menu</code> It is important to have those two in order to have porperly styled component.
+</p>
+
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div> 
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example clearfix">
+            <div class="dropdown dropdown--dropleft" dropdown>
+                <button class="dropdown__toggle" dropdown__toggle>
+                    Drop left
+                    <span class="dropdown__caret"></span>
+                </button>
+                <ul class="dropdown__menu">
+                    <li><button>Action 1</button></li>
+                    <li><button>Action 2</button></li>
+                    <li><button>Action 3</button></li>
+                </ul>
+            </div>
+            <div class="dropdown dropdown--dropright" dropdown>
+                <button class="dropdown__toggle" dropdown__toggle>
+                    Drop right
+                    <span class="dropdown__caret"></span>
+                </button>
+                <ul class="dropdown__menu dropdown--align-right">
+                    <li><button>Action 1</button></li>
+                    <li><button>Action 2</button></li>
+                    <li><button>Action 3</button></li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <!--Left aligned (default)-->
+                <div class="dropdown" dropdown ng-non-bindable>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Left aligned (default)
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+                <!--Right aligned-->
+                <div class="dropdown" dropdown ng-non-bindable>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Right aligned
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu dropdown--align-right">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+
 
 <h3 class="docs-page__h3">Dropdown Append To Body</h3>
 <p class="docs-page__paragraph">
