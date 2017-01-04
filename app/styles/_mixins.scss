@@ -73,3 +73,9 @@
 	-o-transition: $transition-property $transition-time $method;
 	transition: $transition-property $transition-time $method;
 }
+
+@mixin appearance-reset() {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   appearance: none;
+}

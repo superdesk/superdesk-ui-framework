@@ -1,0 +1,54 @@
+<h2 class="docs-page__h2">Select</h2>
+<p class="docs-page__paragraph">Line select shares the same basic structure as the Line input. An additional modifier class <code>sd-line-input--is-select</code> on the <code>sd-line-input</code> element is required to add the caret. The select element must have the class <code>sd-line-input__select</code>.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <p class="docs-page__paragraph">// Select with hint text.</p>
+            <div class="sd-line-input sd-line-input--is-select">
+                <label class="sd-line-input__label">Favorite fruit</label>
+                <select class="sd-line-input__select">
+                    <option value="apples">Apples</option>
+                    <option value="oranges">Oranges</option>
+                    <option value="bananas">Bananas</option>
+                    <option value="pears">Pears</option>
+                    <option value="peaches">Peaches</option>
+                </select>
+                <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+            </div>
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Select with error message.</p>
+            <div class="sd-line-input sd-line-input--is-select sd-line-input--invalid">
+                <label class="sd-line-input__label">City</label>
+                <select class="sd-line-input__select">
+                    <option value=""></option>
+                    <option value="prague">Prague</option>
+                    <option value="berlin">Berlin</option>
+                    <option value="belgrade">Belgrade</option>
+                    <option value="cluj-napoca">Cluj-Napoca</option>
+                    <option value="toronto">Toronto</option>
+                </select>
+                <div class="sd-line-input__message">This field is required.</div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <!--Input with hint text and character count.-->
+                <div class="sd-line-input">
+                    <label class="sd-line-input__label">Basic label</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__char-count">00/00</div>
+                    <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                </div>
+                <!--Input with error message.-->
+                <div class="sd-line-input sd-line-input--invalid">
+                    <label class="sd-line-input__label">Basic label</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__message">This field is required.</div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
