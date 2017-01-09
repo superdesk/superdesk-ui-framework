@@ -49,7 +49,8 @@ module.exports = function (grunt) {
                         'app/scripts/index.js',
                         'app/scripts/dropdown.js',
                         'app/scripts/modals.js',
-                        'app/scripts/switch.js'
+                        'app/scripts/switch.js',
+                        'app/scripts/check.js'
                     ]
                 }
             }
