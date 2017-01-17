@@ -12,17 +12,21 @@ function sdCheck() {
                 render(element, ngModel.$viewValue);
             };
 
-            $scope.$watch(attrs.ngModel, () => {
+            $scope.$watch(attrs.ngModel, function () {
                 render(element, ngModel.$viewValue);
             });
 
-            element.on('click', (e) => {
-                $scope.$apply(() => {
+            element.on('click', function (e) {
+                $scope.$apply(function () {
                     ngModel.$setViewValue(!ngModel.$viewValue);
                 });
 
                 return false;
             });
+            function render(element, value) {
+                element.toggleClass('checked', !!value);
+                element.attr('checked', !!value);
+            };
         }
     };
 }
