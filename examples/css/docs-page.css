@@ -168,6 +168,13 @@ p.docs-page__paragraph b {
     margin-right: 6px;
     margin-bottom: 10px;
 }
+.docs-page__content-row {
+    margin-bottom: 20px;
+}
+.docs-page__content-row--ui-dark {
+    background: #3b3b3b;
+    padding-bottom: 10px;
+}
 .docs-page__code-markup {
     display: none;
     background-color: #000;
