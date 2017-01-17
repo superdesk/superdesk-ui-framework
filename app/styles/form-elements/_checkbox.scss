@@ -1,0 +1,96 @@
+// CHECKBOX : form-elements/checkbox.scss
+// --------------
+
+// Custom checkox 
+
+$checkButtonTextColor: #5a5a5a;
+$checkButtonBorderColor: #c6c6c6;
+
+
+.sd-checkbox {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    @include border-radius(2px);
+    vertical-align: middle;
+    margin-right: 0.8rem;
+    @include transition(all, 0.2s, ease-out);
+    &::after {
+        font-family: 'sd_icons';
+        font-weight: 600;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        height: 1.2rem;
+        width: 1.2rem;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        content:'\e61d';
+        color: #fff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        @include opacity(0);
+        @include transition(all, 0.2s, ease-in);
+        transform: scale(0.25, 0.25);
+    }
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    &.checked, &[checked="checked"] {
+        border-color: $sd-blue;
+        background: $sd-blue;
+        &::after {
+            @include opacity(100);
+            transform: scale(1, 1);
+        }
+        &:hover {
+            border-color: darken($sd-blue, 10%);
+            background-color: darken($sd-blue, 10%);
+        }
+    }
+    &--button-style {
+        width: auto;
+        height: auto;
+        padding: 0.5rem 1.2rem 0.6rem;
+        line-height: 1;
+        color: $checkButtonTextColor;
+        border: 1px solid $checkButtonBorderColor;
+        @include border-radius(2px);
+        @include transition(all, 0.2s, ease-out);
+        &::after {
+            content:'';
+            display: none;
+        }
+        &:hover {
+            color: darken($checkButtonTextColor, 30%);
+            border-color: darken($checkButtonBorderColor, 30%);
+            @include box-shadow(0, 1px, 4px, 0, rgba(0,0,0,0.20));
+        }
+      &.checked, &[checked="checked"] {
+        background-color: darken($sd-blue, 11%);
+        border-color: darken($sd-blue, 11%);
+        border-top-color: darken($sd-blue, 30%);
+        @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+        color: $white;
+        &:hover {
+            color: $white;
+            border-color: darken($sd-blue, 16%);
+            background-color: darken($sd-blue, 16%);
+            @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+        }
+      }
+    }
+}
+
+label + .sd-checkbox {
+    display: inline-block;
+}
+
+.sd-checkbox + label {
+    display: inline-block;
+    vertical-align: middle;
+}
