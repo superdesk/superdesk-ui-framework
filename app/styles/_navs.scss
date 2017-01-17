@@ -1,0 +1,137 @@
+// NAVIGATIONS
+// -----------
+
+// TABS
+// ----
+
+// Variables
+$nav-tabs-padding: 0.8rem 0;
+$nav-tabs-margin: 0 1rem;
+$nav-tabs-font-size: 1.4rem !default;
+$nav-tabs-font-size-small: 1.3rem;
+$nav-tabs-font-size-big: 2rem;
+
+$nav-tab-link-color: $grayText; // default text color
+$nav-tab-active-link-color: $grayDark; // active state text color
+$nav-tab-link-border-color: #d8d8d8; // hover state, border bottom color  
+$nav-tab-active-link-border-color: $sd-blue;  // active state border bottom color
+
+// UI dark colors
+$nav-tab-link-color-dark: $grayLight;
+$nav-tab-active-link-color-dark: $white;
+$nav-tab-link-border-color-dark: $sd-blue;
+$nav-tab-active-link-border-color-dark: $sd-blue;
+
+// Mixins
+@mixin nav-tabs-base {
+    @include clearfix();
+    height: $nav-height;
+    display: flex;
+    padding: 0 1rem;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);
+}
+@mixin nav-tab-link(
+     $link-color: $nav-tab-link-color,
+     $border-bottom-hover-color: $nav-tab-link-border-color
+) {
+    display: block;
+    margin: $nav-tabs-margin;
+    padding: $nav-tabs-padding;
+    height: $nav-height;
+    line-height: 30px;
+    font-size: $nav-tabs-font-size;
+    color: $link-color;
+    background: none;
+    border:0;
+    border-bottom: 3px solid transparent;
+    text-decoration: none;
+    &:hover {
+        border-bottom-color: $border-bottom-hover-color;
+        background: none;
+        text-decoration: none;
+    }
+}
+@mixin nav-tab-link-active(
+    $active-link-color: $grayDark,
+    $border-bottom-color: $nav-tab-active-link-border-color
+) {
+    background: none;
+    cursor: default;
+    border-bottom-color: $border-bottom-color;
+    color: $active-link-color;
+}
+
+.nav-tabs {
+    @include nav-tabs-base();
+
+    // single tab
+    &__tab {
+        margin-bottom: -1px;
+
+        // active state
+        &--active,
+        &--active:hover {
+            .nav-tabs__link {
+                @include nav-tab-link-active();
+            }
+        }
+    }
+    // tab link
+    &__link {
+        @include nav-tab-link();
+    }
+
+    // UI dark
+    &--ui-dark {
+        box-shadow: 0 1px 0 0 rgba(255,255,255,0.1);
+        .nav-tabs {        
+            &__tab {
+                
+                // active state
+                &--active,
+                &--active:hover {
+                    .nav-tabs__link {
+                        @include nav-tab-link-active($nav-tab-active-link-color-dark, $nav-tab-active-link-border-color-dark);
+                    }
+                }
+            }
+            // tab link
+            &__link {
+                @include nav-tab-link($nav-tab-link-color-dark, $nav-tab-link-border-color-dark);
+            }
+        }
+    }
+
+    // Smaller nav tabs
+    &--small {
+        padding: 0 .4rem;
+        .nav-tabs {
+            &__link {                
+                font-size: $nav-tabs-font-size-small;
+                margin: 0 .8rem;
+            }
+        }
+    }
+    
+    // Bigger nav tabs
+    &--big {
+        .nav-tabs {
+            &__link {                
+                font-size: $nav-tabs-font-size-big;                
+            }
+        }
+    }
+
+    // Nav tabs content
+    &__content {
+        padding: 2rem;
+
+        // UI dark
+        &--ui-dark {
+            color: $white;
+        }
+        &--small {
+            padding: 1.2rem;
+        }
+    }
+}

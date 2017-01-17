@@ -202,15 +202,29 @@
                 </div>
                 <div class="modal__body">
                     <div class="modal__body-header">
-                        <strong>Tabs here</strong>
+                        <ul class="nav-tabs">
+                            <li ng-class="{'nav-tabs__tab--active': !tab5 || tab5 === 'general'}" class="nav-tabs__tab">
+                                <button ng-click="tab5 = 'general'" class="nav-tabs__link"><span translate>General</span></button>
+                            </li>
+                            <li ng-class="{'nav-tabs__tab--active': tab5 === 'stages'}" class="nav-tabs__tab">
+                                <button ng-click="tab5 = 'stages'" class="nav-tabs__link"><span translate>Stages</span></button>
+                            </li>
+                            <li ng-class="{'nav-tabs__tab--active': tab5 === 'people'}" class="nav-tabs__tab">
+                                <button ng-click="tab5 = 'people'" class="nav-tabs__link"><span translate>People</span></button>
+                            </li>
+                            <li ng-class="{'nav-tabs__tab--active': tab5 === 'macro'}" class="nav-tabs__tab">
+                                <button ng-click="tab5 = 'macro'" class="nav-tabs__link"><span translate>Macro</span></button>
+                            </li>                    
+                        </ul>
                     </div>
                     <div class="modal__body-content">
                         <p>This is sample message inside modal!</p>
                         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
                     </div>
                     <div class="modal__body-footer">
+                        <button class="btn" ng-click="closeModal('modalActive5')">Add</button>
                         <button class="btn" ng-click="closeModal('modalActive5')">Cancel</button>
-                        <button class="btn btn--primary" ng-click="closeModal('modalActive5')">Ok</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive5')">Save</button>
                     </div>
                 </div>
             </div>

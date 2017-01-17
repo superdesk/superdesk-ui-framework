@@ -187,7 +187,6 @@ $modal-sizes: (
     &.modal--tabs {
         .modal__body {
             position: relative;
-            //overflow: initial;
             display: flex;
             flex-direction: column;
             padding: 0;
@@ -198,7 +197,7 @@ $modal-sizes: (
             width: 100%;
             background: $white;
             border-bottom: 1px solid $modal-line-color;
-            padding: $modal-padding;
+            padding: 0;
         }
         .modal__body-content {
             flex: 1 1 auto;
@@ -229,7 +228,7 @@ $modal-sizes: (
         cursor: pointer;
     }
 }
-h3.modal__heading {
+.modal__heading {
     font-size: 18px;
     font-weight: 300;
     line-height: 27px;
