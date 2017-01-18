@@ -70,19 +70,19 @@ $checkButtonBorderColor: #c6c6c6;
             border-color: darken($checkButtonBorderColor, 30%);
             @include box-shadow(0, 1px, 4px, 0, rgba(0,0,0,0.20));
         }
-      &.checked, &[checked="checked"] {
-        background-color: darken($sd-blue, 11%);
-        border-color: darken($sd-blue, 11%);
-        border-top-color: darken($sd-blue, 30%);
-        @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
-        color: $white;
-        &:hover {
-            color: $white;
-            border-color: darken($sd-blue, 16%);
-            background-color: darken($sd-blue, 16%);
+        &.checked, &[checked="checked"] {
+            background-color: darken($sd-blue, 11%);
+            border-color: darken($sd-blue, 11%);
+            border-top-color: darken($sd-blue, 30%);
             @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+            color: $white;
+            &:hover {
+                color: $white;
+                border-color: darken($sd-blue, 16%);
+                background-color: darken($sd-blue, 16%);
+                @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+            }
         }
-      }
     }
 }
 

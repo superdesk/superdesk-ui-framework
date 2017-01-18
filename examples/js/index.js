@@ -64,7 +64,7 @@ angular.module('ui-docs', [
                 elem.find('a').each(function () {
                     var currLink = $(this);
                     var refElement = $(currLink.attr("href"));
-                    if (refElement.position().top <= scrollPos && refElement.position().top + refElement.height() > scrollPos) {
+                    if (refElement.position() && refElement.position().top <= scrollPos + 20 && refElement.position().top + refElement.height() > scrollPos) {
                         elem.find('a').removeClass("active");
                         currLink.parent().addClass("active");
                     } else {

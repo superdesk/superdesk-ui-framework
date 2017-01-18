@@ -6,27 +6,46 @@ function sdCheck() {
         require: 'ngModel',
         replace: true,
         transclude: true,
-        template: '<span class="sd-checkbox" ng-transclude></span>',
+        template: '<span><span class="sd-checkbox"></span><label ng-transclude></label></span>',
         link: function ($scope, element, attrs, ngModel) {
+            var label = element.find('label'),
+                    checkbox = element.find('span');
+
             ngModel.$render = function () {
-                render(element, ngModel.$viewValue);
+                render(label, checkbox, ngModel.$viewValue);
             };
 
             $scope.$watch(attrs.ngModel, function () {
-                render(element, ngModel.$viewValue);
+                render(label, checkbox, ngModel.$viewValue);
             });
 
-            element.on('click', function (e) {
+            element.on('click', function () {
                 $scope.$apply(function () {
-                    ngModel.$setViewValue(!ngModel.$viewValue);
-                });
+                    if (attrs.type === 'radio') {
+                        return ngModel.$setViewValue(attrs.ngValue);
+                    }
 
-                return false;
+                    return ngModel.$setViewValue(!ngModel.$viewValue);
+                });
             });
-            function render(element, value) {
-                element.toggleClass('checked', !!value);
-                element.attr('checked', !!value);
-            };
+
+            function render(label, checkbox, value) {
+                if (attrs.type === 'radio') {
+                    value = ngModel.$viewValue === attrs.ngValue;
+                }
+
+                checkbox.toggleClass('checked', !!value).attr('checked', !!value);
+
+                if (attrs.labelPosition !== 'inside') {
+                    label.toggleClass('label--active', !!value);
+                }
+            }
+
+            if (attrs.labelPosition === 'inside') {
+                checkbox.append(label).addClass('sd-checkbox sd-checkbox--button-style');
+            } else if (attrs.labelPosition === 'left') {
+                label.after(checkbox);
+            }
         }
     };
 }
