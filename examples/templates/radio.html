@@ -1,0 +1,29 @@
+<h2 class="docs-page__h2">Radio button</h2>
+<p class="docs-page__paragraph">To create a SD styled radio button add the <code>sd-radio</code> class, the <code>sd-radio</code> directive and <code>ng-model=""</code>to a <code>&lt;span&gt;</code> element.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <div class="form__row">
+                <span class="sd-radio checked" sd-radio ng-model="opr"></span><label ng-click="opr = !opr" ng-class="{'label--active': opr}">Radio button label</label> 
+            </div>
+            <div class="form__row">
+                <label ng-click="stu = !stu" ng-class="{'label--active': stu}">Radio button label</label><span class="sd-radio" sd-radio ng-model="stu"></span>
+            </div>
+        </div>
+
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                <div class="form__row">
+                    <span class="sd-radio" sd-radio ng-model="opr"></span><label ng-click="opr = !opr" ng-class="{'label--active': opr}">Radio button label</label>  
+                </div>
+                <div class="form__row">
+                    <label ng-click="stu = !stu" ng-class="{'label--active': stu}">Radio button label</label><span class="sd-radio" sd-radio ng-model="stu"></span>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
