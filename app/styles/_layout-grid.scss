@@ -1,0 +1,40 @@
+// Layout Grid with columns
+
+$grid-columns: 12;
+$grid-gutter: 1rem;
+
+@mixin grid {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    padding: 0 $grid-gutter;
+}
+@mixin grid-columns {
+    @for $i from 1 to $grid-columns {
+        &--col-#{$i} {
+            $col-width: ($i / $grid-columns) * 100%;
+            @include flex(0, 0, $col-width);
+            max-width: $col-width;
+        }
+    }
+}
+.grid {
+    @include grid;
+    .grid__item {
+        flex: 1 1 auto;
+        padding: 0 $grid-gutter;
+        &.grid__item {
+            @include grid-columns;
+        }
+        & > .grid {
+            margin-left: -$grid-gutter;
+            margin-right: -$grid-gutter;
+            padding: 0;
+        }
+    }
+    &--padding-fix {
+        margin-left: -$grid-gutter;
+        margin-right: -$grid-gutter;
+        padding: 0;
+    }
+}

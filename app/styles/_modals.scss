@@ -30,7 +30,7 @@ $modal-header-height : $nav-height;
 $modal-footer-height : 58px;
 $modal-subnav-height : $nav-height;
 
-$modal-padding : 16px;
+$modal-padding : 2rem;
 
 // Box shadow
 @mixin modal-box-shadow {
@@ -74,7 +74,7 @@ $modal-sizes: (
     @include modal-box-shadow();
 }
 @mixin modal-header() {
-    padding: $modal-padding - 4px $modal-padding;
+    padding: $modal-padding - .8rem $modal-padding;
     border-bottom: 1px solid $modal-line-color;
     min-height: $modal-header-height;
 }
@@ -85,7 +85,7 @@ $modal-sizes: (
     position: relative;
 }
 @mixin modal-footer() {
-    padding: $modal-padding - 4px $modal-padding;
+    padding: $modal-padding - .8rem $modal-padding;
     text-align: right; // right align buttons
     border-top: 1px solid $modal-line-color;
     @include clearfix(); // clear it in case folks use .pull-* classes on buttons

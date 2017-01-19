@@ -202,13 +202,18 @@ p.docs-page__paragraph code {
     font-weight: 400;
 }
 
-.docs-page__code-example .flex-grid .flex-grid__item {
+.docs-page__code-example .flex-grid .flex-grid__item,
+.docs-page__code-example .grid .grid__item {
     background-color: #fff !important;
     min-height: 60px;
-    padding: 20px;
     border: 1px dotted rgba(0,0,0,0.2);
 }
-
+.docs-page__code-example .grid .grid .grid__item {
+    border: 1px dotted #5eadc8;
+}
+.docs-page__code-example .flex-grid .flex-grid__item {
+    padding: 20px;
+}
 .docs-page__code-example .flex-grid.flex-grid--boxed .flex-grid__item {
     background-color: #fff !important;
     border:none;

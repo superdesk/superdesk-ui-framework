@@ -1,0 +1,99 @@
+<h2 class="docs-page__h2">Layout grid</h2>
+<p class="docs-page__paragraph">Layout grid in Superdesk is based on flex grid and works very similarly to the standard float grid. It has 12 columns setup, and column gutter of 10px so that the space between two columns is always 20px. The grid is fluid, but for now we don't have responsive behavior in terms of setting different number of columns for various screen sizes. It's because in Superdesk, layout grid will mainly be used inside other containers or components (like panes, modals etc.) so media queries do not make much sense.</p>
+<p class="docs-page__paragraph">If there is a need to have layout grid inside an element which already has default padding (like modal body for instance), just add modifier <code>.grid--padding-fix</code> to div <code>.grid</code>.</p>
+<h3 class="docs-page__h3">Examples</h3>
+<p class="docs-page__paragraph">Add grid container with class <code>.grid</code>, and nest grid items inside. For example, grid item will be <code>.grid__item</code> with additional modifier class <code>.grid__item--col-3</code>, so number of columns is set as a modifier on a grid item div. To have a full row width, sum of items columns should be 12.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <div class="docs-page__content-row"> 
+                <div class="grid">
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                    <div class="grid__item grid__item--col-6">col-6</div>
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                </div>
+            </div>
+            <div class="docs-page__content-row"> 
+                <div class="grid">
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                </div>
+            </div>
+            <div class="docs-page__content-row"> 
+                <div class="grid">
+                    <div class="grid__item grid__item--col-2">col-2</div>
+                    <div class="grid__item grid__item--col-8">col-8</div>
+                    <div class="grid__item grid__item--col-2">col-2</div>
+                </div>
+            </div>
+            <div class="docs-page__content-row"> 
+                <div class="grid">
+                    <div class="grid__item grid__item--col-6">col-6</div>
+                    <div class="grid__item grid__item--col-6">col-6</div>                    
+                </div>
+            </div>
+            <div class="docs-page__content-row"> 
+                <div class="grid">
+                    <div class="grid__item grid__item--col-4">col-4</div>
+                    <div class="grid__item grid__item--col-4">col-4</div>
+                    <div class="grid__item grid__item--col-4">col-4</div>
+                </div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <div class="grid">
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                    <div class="grid__item grid__item--col-6">col-6</div>
+                    <div class="grid__item grid__item--col-3">col-3</div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+
+
+<h3 class="docs-page__h3">Nested grid</h3>
+<p class="docs-page__paragraph">To have layout grid inside another one, just add whole <code>.grid</code> structure to <code>.grid__item</code> div.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <div class="docs-page__content-row"> 
+                <div class="grid">
+                    <div class="grid__item grid__item--col-4">col-4</div>
+                    <div class="grid__item grid__item--col-4">
+                        <div class="grid">
+                            <div class="grid__item grid__item--col-6">col-6 (nested)</div>
+                            <div class="grid__item grid__item--col-6">col-6 (nested)</div>                    
+                        </div>
+                    </div>
+                    <div class="grid__item grid__item--col-4">col-4</div>
+                </div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <div class="grid">
+                    <div class="grid__item grid__item--col-4">col-4</div>
+                    <div class="grid__item grid__item--col-4">
+                        <div class="grid">
+                            <div class="grid__item grid__item--col-6">col-6 (nested)</div>
+                            <div class="grid__item grid__item--col-6">col-6 (nested)</div>
+                        </div>
+                    </div>
+                    <div class="grid__item grid__item--col-4">col-4</div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
