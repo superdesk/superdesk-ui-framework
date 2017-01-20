@@ -1762,6 +1762,11 @@ button {
       -ms-flex: 0 0 91.6666666667%;
       flex: 0 0 91.6666666667%;
       max-width: 91.6666666667%; }
+    .grid .grid__item.grid__item--col-12 {
+      -webkit-flex: 0 0 100%;
+      -ms-flex: 0 0 100%;
+      flex: 0 0 100%;
+      max-width: 100%; }
     .grid .grid__item > .grid {
       margin-left: -1rem;
       margin-right: -1rem;
