@@ -1,33 +1,35 @@
-// CHECKBOX : form-elements/checkbox.scss
+// CHECKBOX & RADIO BUTTONS : form-elements/checkbox.scss
 // --------------
 
-// Custom checkox 
+// Custom checkox & Radio buttons 
 
 $checkButtonTextColor: #5a5a5a;
 $checkButtonBorderColor: #c6c6c6;
 
-
-.sd-checkbox {
+@mixin check-base {
     width: 1.6rem;
     height: 1.6rem;
     display: inline-block;
     position: relative;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.2);
-    @include border-radius(2px);
     vertical-align: middle;
-    margin-right: 0.8rem;
     @include transition(all, 0.2s, ease-out);
+}
+
+.sd-checkbox {
+    @include check-base;
+    @include border-radius(2px);
     &::after {
         font-family: 'sd_icons';
-        font-weight: 600;
+        content:'\e61d';
+        font-weight: 400;
         font-size: 1.2rem;
         line-height: 1.2rem;
         height: 1.2rem;
         width: 1.2rem;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        content:'\e61d';
         color: #fff;
         position: absolute;
         top: 0;
@@ -52,6 +54,35 @@ $checkButtonBorderColor: #c6c6c6;
             background-color: darken($sd-blue, 10%);
         }
     }
+    // Modifier for .sd-checkbox to create a radio button
+    &--radio {
+        @include border-radius(50%);
+        &::after {
+            height: 0.8rem;
+            width: 0.8rem;
+            @include border-radius(50%);
+            content:' ';
+            position: absolute;
+            background-color: $sd-blue;
+            top: 0.2rem;
+            left: 0.2rem;
+            @include opacity(0);
+            @include transition(all, 0.2s, ease-in);
+            transform: scale(0.25, 0.25);
+        }
+        &.checked, &[checked="checked"] {
+            border-color: $sd-blue;
+            background: transparent;
+            &::after {
+                @include opacity(100);
+                transform: scale(1, 1);
+            }
+            &:hover {
+                background: transparent;
+            }
+        }
+    }
+    // This modifier creates button styled checkboxes or radio buttons
     &--button-style {
         width: auto;
         height: auto;
@@ -61,6 +92,11 @@ $checkButtonBorderColor: #c6c6c6;
         border: 1px solid $checkButtonBorderColor;
         @include border-radius(2px);
         @include transition(all, 0.2s, ease-out);
+        label {
+            margin:0;
+            display: inline;
+            cursor: pointer;
+        }
         &::after {
             content:'';
             display: none;
@@ -86,11 +122,22 @@ $checkButtonBorderColor: #c6c6c6;
     }
 }
 
-label + .sd-checkbox {
-    display: inline-block;
-}
+
 
 .sd-checkbox + label {
     display: inline-block;
     vertical-align: middle;
+}
+
+.sd-check__wrapper + .sd-check__wrapper {
+    margin-left: 0.8rem;
+}
+
+.sd-check__wrapper {
+    margin-left: 0.8rem;
+    .sd-checkbox + label {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 0 0 0.6rem;
+    }
 }

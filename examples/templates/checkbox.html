@@ -1,5 +1,5 @@
 <h2 class="docs-page__h2">Checkbox</h2>
-<p class="docs-page__paragraph">To create a SD styled checkbox add the <code>sd-checkbox</code> class, the <code>sd-check</code> directive and <code>ng-model=""</code>to a <code>&lt;span&gt;</code> element. For cases where there are many options to select from there is a button style checkbox. To use this version append <code>sd-checkbox--button-style</code> to the <code>sd-checkbox</code> class.</p>
+<p class="docs-page__paragraph">For creating SD styled checkboxes use the cutom <code>&lt;sd-check&gt;</code>. The text inside the tag creates the label for the sd-checkbox. By default the label will be placed on the right side of checkbox, to place it on the left add the property <code>label-position="left"</code>. To create the button styled checkbox add <code>label-position="inside"</code> to the sd-check tag. <code>ng-model</code> must be defined for proper functionality.</p>
 <div class="docs-page__code-window" doc-tabs>
     <div class="docs-page__window-bar">
         <a id="example" href="#" class="active">Example</a>
@@ -9,14 +9,18 @@
         <div class="docs-page__code-example">
             <p class="docs-page__paragraph">// Basic SD checkbox</p>
             <div class="form__row">
-                <sd-check ng-model="abc">Checkbox label</sd-check> 
+                <sd-check ng-model="abc1">Checkbox label right</sd-check>
+                <sd-check ng-model="abc2">Check me!</sd-check>
+                <sd-check ng-model="abc3">Check me too!</sd-check>
             </div>
             <div class="form__row">
-                <sd-check ng-model="def" label-position="left">Checkbox label</sd-check>
+                <sd-check ng-model="def" label-position="left">Checkbox label left</sd-check>
             </div>
             <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style checkbox</p>
             <div class="form__row">
                 <sd-check ng-model="ghi" label-position="inside">Button style checkbox</sd-check>
+                <sd-check ng-model="jkl" label-position="inside">Check this out</sd-check>
+                <sd-check ng-model="mn" label-position="inside">Check this!</sd-check>
             </div>
         </div>
 
@@ -24,41 +28,18 @@
             <pre class="prettyprint lang-html linenums">
                  <!--Basic SD checkbox-->
                 <div class="form__row" ng-non-bindable>
-                    <sd-check ng-model="abc">Checkbox label</sd-check>
+                    <sd-check ng-model="abc1">Checkbox label right</sd-check>
+                    <sd-check ng-model="abc2">Check me!</sd-check>
+                    <sd-check ng-model="abc3">Check me too!</sd-check>
                 </div>
                 <div class="form__row" ng-non-bindable>
-                    <sd-check ng-model="def" label-position="left">Checkbox label</sd-check>
+                    <sd-check ng-model="def" label-position="left">Checkbox label left</sd-check>
                 </div>
                 <!--Button style checkbox-->
                 <div class="form__row" ng-non-bindable>
                     <sd-check ng-model="ghi" label-position="inside">Button style checkbox</sd-check>
-                </div>
-            </pre>
-        </div>
-    </div>
-</div>
-
-<h3 class="docs-page__h3">Radio</h2>
-<div class="docs-page__code-window" doc-tabs>
-    <div class="docs-page__window-bar">
-        <a id="example" href="#" class="active">Example</a>
-        <a id="markup" href="#">Markup</a>
-    </div>
-    <div class="docs-page__window-content">
-        <div class="docs-page__code-example">
-            <div class="form__row">
-                <sd-check ng-model="abc" type="radio" ng-value="value1" label-position="inside">Radio label</sd-check>
-                <sd-check ng-model="abc" type="radio" ng-value="value2" label-position="inside">Radio label</sd-check> 
-                <sd-check ng-model="abc" type="radio" ng-value="value3" label-position="inside">Radio label</sd-check> 
-            </div>
-        </div>
-
-        <div class="docs-page__code-markup">
-            <pre class="prettyprint lang-html linenums">
-                <div class="form__row" ng-non-bindable>
-                    <sd-check ng-model="abc" type="radio" ng-value="value1">Radio label</sd-check>
-                    <sd-check ng-model="abc" type="radio" ng-value="value2">Radio label</sd-check>
-                    <sd-check ng-model="abc" type="radio" ng-value="value3">Radio label</sd-check>
+                    <sd-check ng-model="jkl" label-position="inside">Check this out</sd-check>
+                    <sd-check ng-model="mn" label-position="inside">Check this!</sd-check>
                 </div>
             </pre>
         </div>

@@ -1,0 +1,56 @@
+// RADIO BUTTON : form-elements/radio.scss
+// --------------
+
+// SD radio button 
+
+.sd-radio {
+    width: 1.6rem;
+    height: 1.6rem;
+    display: inline-block;
+    position: relative;
+    background: transparent;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    @include border-radius(50%);
+    vertical-align: middle;
+    margin-right: 0.8rem;
+    @include transition(all, 0.2s, ease-out);
+    &::after {
+        height: 0.8rem;
+        width: 0.8rem;
+        @include border-radius(50%);
+        content:' ';
+        position: absolute;
+        background-color: $sd-blue;
+        top: 0.2rem;
+        left: 0.2rem;
+        @include opacity(0);
+        @include transition(all, 0.2s, ease-in);
+        transform: scale(0.25, 0.25);
+    }
+    &:hover {
+        border-color: rgba(0, 0, 0, 0.4);
+        cursor: pointer;
+    }
+    &.checked, &[checked="checked"] {
+        border-color: $sd-blue;
+        &::after {
+            @include opacity(100);
+            transform: scale(1, 1);
+        }
+        &:hover {
+            border-color: darken($sd-blue, 10%);
+             &::after {
+                background-color: darken($sd-blue, 10%);
+            }
+        }
+    }
+}
+
+label + .sd-radio {
+    display: inline-block;
+}
+
+.sd-radio + label {
+    display: inline-block;
+    vertical-align: middle;
+}
