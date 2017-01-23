@@ -6,7 +6,7 @@ function sdCheck() {
         require: 'ngModel',
         replace: true,
         transclude: true,
-        template: '<span><span class="sd-checkbox"></span><label ng-transclude></label></span>',
+        template: '<span class="sd-check__wrapper"><span class="sd-checkbox"></span><label ng-transclude></label></span>',
         link: function ($scope, element, attrs, ngModel) {
             var label = element.find('label'),
                     checkbox = element.find('span');
@@ -32,6 +32,7 @@ function sdCheck() {
             function render(label, checkbox, value) {
                 if (attrs.type === 'radio') {
                     value = ngModel.$viewValue === attrs.ngValue;
+                    checkbox.addClass('sd-checkbox--radio');
                 }
 
                 checkbox.toggleClass('checked', !!value).attr('checked', !!value);
