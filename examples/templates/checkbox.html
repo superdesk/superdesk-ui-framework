@@ -12,15 +12,17 @@
                 <sd-check ng-model="abc1">Checkbox label right</sd-check>
                 <sd-check ng-model="abc2">Check me!</sd-check>
                 <sd-check ng-model="abc3">Check me too!</sd-check>
+                <sd-check ng-model="abc4" disabled="disabled">I'm disabled :(</sd-check>
             </div>
             <div class="form__row">
                 <sd-check ng-model="def" label-position="left">Checkbox label left</sd-check>
             </div>
             <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style checkbox</p>
             <div class="form__row">
-                <sd-check ng-model="ghi" label-position="inside">Button style checkbox</sd-check>
-                <sd-check ng-model="jkl" label-position="inside">Check this out</sd-check>
-                <sd-check ng-model="mn" label-position="inside">Check this!</sd-check>
+                <sd-check ng-model="def1" label-position="inside">Button style checkbox</sd-check>
+                <sd-check ng-model="def2" label-position="inside">Check this out</sd-check>
+                <sd-check ng-model="def3" label-position="inside">Check this too!</sd-check>
+                <sd-check ng-model="def4" label-position="inside" disabled="disabled">U can't touch this!</sd-check>
             </div>
         </div>
 
@@ -31,6 +33,7 @@
                     <sd-check ng-model="abc1">Checkbox label right</sd-check>
                     <sd-check ng-model="abc2">Check me!</sd-check>
                     <sd-check ng-model="abc3">Check me too!</sd-check>
+                    <sd-check ng-model="abc4" disabled="disabled">I'm disabled :(</sd-check>
                 </div>
                 <div class="form__row" ng-non-bindable>
                     <sd-check ng-model="def" label-position="left">Checkbox label left</sd-check>
@@ -39,7 +42,8 @@
                 <div class="form__row" ng-non-bindable>
                     <sd-check ng-model="ghi" label-position="inside">Button style checkbox</sd-check>
                     <sd-check ng-model="jkl" label-position="inside">Check this out</sd-check>
-                    <sd-check ng-model="mn" label-position="inside">Check this!</sd-check>
+                    <sd-check ng-model="mn" label-position="inside">Check this too!</sd-check>
+                    <sd-check ng-model="def4" label-position="inside" disabled="disabled">U can't touch this!</sd-check>
                 </div>
             </pre>
         </div>

@@ -20,6 +20,10 @@ function sdCheck() {
             });
 
             element.on('click', function () {
+                if (attrs.disabled) {
+                    return false;
+                }
+                
                 $scope.$apply(function () {
                     if (attrs.type === 'radio') {
                         return ngModel.$setViewValue(attrs.ngValue);
@@ -33,6 +37,11 @@ function sdCheck() {
                 if (attrs.type === 'radio') {
                     value = ngModel.$viewValue === attrs.ngValue;
                     checkbox.addClass('sd-checkbox--radio');
+                }
+
+                if (attrs.disabled) {
+                    checkbox.addClass('sd-checkbox sd-checkbox--disabled');
+                    label.addClass('sd-label--disabled');
                 }
 
                 checkbox.toggleClass('checked', !!value).attr('checked', !!value);
