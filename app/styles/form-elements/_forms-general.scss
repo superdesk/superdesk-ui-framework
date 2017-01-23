@@ -44,7 +44,8 @@
     vertical-align: middle;
     line-height: 100%;
     margin-right: 0.6rem;
+     @include transition(color, 0.15s, ease-in);
 }
 .label--active {
-    color: $sd-blue;
+    color: darken($sd-blue, 6%);
 }
