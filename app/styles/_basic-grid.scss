@@ -21,7 +21,7 @@ $flex-grid-media: (
 
 // grid mixins
 @mixin basic-grid {
-    @for $i from $flex-grid-columns to 1 {
+    @for $i from $flex-grid-columns through 1 {
         &-#{$i} {
             .flex-grid__item {
                 @include flex(0, 0, 100% / $i);
@@ -31,7 +31,7 @@ $flex-grid-media: (
     }
 }
 @mixin basic-grid-boxed {
-    @for $i from $flex-grid-columns to 1 {
+    @for $i from $flex-grid-columns through 1 {
         &-#{$i} {
             .flex-grid__item {
                 @include flex(0, 0, calc(#{100% / $i} - #{$flex-grid-gap * 2}));
