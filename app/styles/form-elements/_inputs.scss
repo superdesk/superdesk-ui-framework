@@ -2,12 +2,13 @@
 // 
 
 // input, textarea, select {
+
 @mixin Line-input-base {
     width: 100%;
     @include appearance-reset();
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    border-bottom: 1px solid $sd-inputBorderColor;
     background-color: transparent;
     padding: 0;
     font-size: 1.4rem;

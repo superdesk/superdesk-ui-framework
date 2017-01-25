@@ -32,6 +32,11 @@ $navy:                  #000080;
 
 $sd-background:         #f8f8f8;
 
+$transparent-gray:      rgba(0,0,0,.15);
+$sd-inputBorderColor:   $transparent-gray;
+$sd-tableBorderColor:   $transparent-gray;
+
+
 $sd-basic-palette: (
   default: $grayDark,
   primary: $sd-blue,
