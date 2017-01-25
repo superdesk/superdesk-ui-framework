@@ -1,0 +1,40 @@
+// TABLES : tables.scss
+// 
+
+$sd-tableBgColor: #fff;
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0px;
+    border-top: 1px solid $sd-tableBorderColor;
+    border-bottom: 1px solid $sd-tableBorderColor;
+
+
+    th, td {
+        padding: 1.2rem 0.8rem;
+        text-align: left;
+        vertical-align: top;
+        border-bottom: 1px solid $sd-tableBorderColor;
+    }
+    tr:last-child {
+        td {
+            border-bottom: none;
+        }
+    }
+    th {
+        font-weight: 600;
+        border-bottom: 2px solid $sd-tableBorderColor;
+    }
+    // Bottom align for column headings
+    thead th {
+        vertical-align: bottom;
+    }
+}
+.sd-table--shadowed {
+    background-color: $sd-tableBgColor;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+    border: none;
+}
+
+
