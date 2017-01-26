@@ -5,12 +5,8 @@
         <title>Superdesk UI Framework</title>
         <link rel="stylesheet" href="css/reset.css">
         <link rel="stylesheet" href="css/docs-page.css">
-        <link rel="stylesheet" href="../node_modules/google-code-prettify/src/prettify.css">
-        <link rel="stylesheet" href="../node_modules/google-code-prettify/styles/sons-of-obsidian.css">
+        <link rel="stylesheet" href="css/vendor.css">
         <link rel="stylesheet" href="../dist/superdesk-ui-framework.min.css">
-        <script type="text/javascript" src="js/vendor.js"></script>
-        <script type="text/javascript" src="../dist/superdesk-ui-framework.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
     </head>
     <body class="docs-page" ng-app="ui-docs">
         <header class="docs-page__header">
@@ -27,7 +23,6 @@
                     <li><a href="#dropdown">Dropdown</a></li>
                     <li><a href="#navigation">Navigation</a></li>
                     <li><a href="#tables">Tables</a></li>
-                    
                     <li><span class="docs-page__nav-title">Form elements</span></li>
                     <li><a href="#inputs">Inputs</a></li>
                     <li><a href="#select">Select</a></li>
@@ -64,7 +59,7 @@
                 <section class="docs-page__section" id="basic-grid" ng-include="'templates/basic-grid.html'"></section>
                 <section class="docs-page__section" id="layout-grid" ng-include="'templates/layout-grid.html'"></section>  
                 <section class="docs-page__section" id="icon-font" ng-include="'templates/icons.html'"></section>
-                
+
             </article>        
         </main>
         <footer class="docs-page__footer">
@@ -72,5 +67,9 @@
                 Superdesk is brought to you by <a href="http://www.sourcefabric.org/" class="link">Sourcefabric</a>. This work is licensed under a <a target="_top" href="https://creativecommons.org/licenses/by/3.0/" class="link">Creative Commons Attribution 3.0 Unported License</a>
             </p>
         </footer>
+
+        <script type="text/javascript" src="js/vendor.js"></script>
+        <script type="text/javascript" src="../dist/superdesk-ui-framework.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
     </body>
 </html>
