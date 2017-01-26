@@ -89,7 +89,7 @@ $subnav-background: $grayLighter;
     }
     &:hover {
         background: rgba(255, 255, 255, 0.5);
-        i {
+        > i {
             opacity: 1;
         }
     }
@@ -99,7 +99,7 @@ $subnav-background: $grayLighter;
         background: rgba(255, 255, 255, 1);
         box-shadow: -2px -1px 5px -2px rgba(0, 0, 0, 0.2), 3px -1px 5px -2px rgba(0, 0, 0, 0.2);
         z-index: $zindexDropdown + 1;
-        i {
+        > i {
             opacity: 1;
             color: $sd-blue;
         }

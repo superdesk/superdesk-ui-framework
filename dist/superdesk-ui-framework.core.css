@@ -1917,14 +1917,14 @@ table {
     vertical-align: baseline !important; }
   .navbtn:hover {
     background: rgba(255, 255, 255, 0.5); }
-    .navbtn:hover i {
+    .navbtn:hover > i {
       opacity: 1; }
 
 .dropdown.open .navbtn {
   background: white;
   box-shadow: -2px -1px 5px -2px rgba(0, 0, 0, 0.2), 3px -1px 5px -2px rgba(0, 0, 0, 0.2);
   z-index: 1001; }
-  .dropdown.open .navbtn i {
+  .dropdown.open .navbtn > i {
     opacity: 1;
     color: #5ea9c8; }
 
@@ -2565,6 +2565,16 @@ label + .sd-radio {
 .dropdown__menu .dropdown__menu-item--highlighted {
   background-color: #c245ff; }
 
+.dropdown__menu .dropdown__menu-item--no-link {
+  font-weight: 400;
+  line-height: 1.8rem;
+  position: relative;
+  color: #333;
+  padding: .6rem 1.6rem;
+  margin-bottom: .2rem;
+  font-size: 1.3rem;
+  text-align: left; }
+
 .dropdown__menu-label {
   text-transform: uppercase;
   font-size: 1.1rem;
@@ -2833,5 +2843,108 @@ label + .sd-radio {
       margin-left: 0; }
   .dropdown.dropdown--input-addon.open > .dropdown__toggle {
     background-color: transparent; }
+
+.dropdown.dropdown--big > .dropdown__toggle,
+.navbtn.dropdown > .dropdown__toggle {
+  padding: 0 15px;
+  display: block;
+  color: #333;
+  height: 4.8rem;
+  text-align: center;
+  line-height: 4.8rem;
+  font-size: 15px;
+  position: relative;
+  z-index: 2;
+  background: transparent; }
+  .dropdown.dropdown--big > .dropdown__toggle:hover,
+  .navbtn.dropdown > .dropdown__toggle:hover {
+    background: rgba(255, 255, 255, 0); }
+  .dropdown.dropdown--big > .dropdown__toggle.condensed,
+  .navbtn.dropdown > .dropdown__toggle.condensed {
+    padding: 0 14px; }
+
+.dropdown.dropdown--big.open > .dropdown__toggle,
+.navbtn.dropdown.open > .dropdown__toggle {
+  background: #fff;
+  color: #333;
+  box-shadow: -3px 0px 1px -2px #999,3px 0px 1px -2px #999;
+  z-index: 3; }
+  .dropdown.dropdown--big.open > .dropdown__toggle.sd-create-btn .circle,
+  .navbtn.dropdown.open > .dropdown__toggle.sd-create-btn .circle {
+    width: 32px;
+    height: 32px;
+    margin-top: 8px;
+    margin-left: 0; }
+
+.dropdown.dropdown--big .caret,
+.navbtn.dropdown .caret {
+  margin-left: 15px; }
+
+.dropdown.dropdown--big .dropdown__menu,
+.navbtn.dropdown .dropdown__menu {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  border-radius: 0px;
+  border: 0;
+  z-index: 2;
+  margin-top: -1px;
+  min-width: 200px;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.35);
+  padding: 10px 0; }
+  .dropdown.dropdown--big .dropdown__menu:before,
+  .navbtn.dropdown .dropdown__menu:before {
+    display: none; }
+  .dropdown.dropdown--big .dropdown__menu li > a, .dropdown.dropdown--big .dropdown__menu li > button, .dropdown.dropdown--big .dropdown__menu li > span,
+  .navbtn.dropdown .dropdown__menu li > a,
+  .navbtn.dropdown .dropdown__menu li > button,
+  .navbtn.dropdown .dropdown__menu li > span {
+    margin: 0;
+    min-width: 225px;
+    padding: 6px 16px;
+    line-height: 19px; }
+  .dropdown.dropdown--big .dropdown__menu li > span,
+  .navbtn.dropdown .dropdown__menu li > span {
+    display: block; }
+    .dropdown.dropdown--big .dropdown__menu li > span:hover,
+    .navbtn.dropdown .dropdown__menu li > span:hover {
+      background: none; }
+  .dropdown.dropdown--big .dropdown__menu li > .dropdown__menu-label,
+  .navbtn.dropdown .dropdown__menu li > .dropdown__menu-label {
+    min-width: 205px; }
+  .dropdown.dropdown--big .dropdown__menu li button.full,
+  .navbtn.dropdown .dropdown__menu li button.full {
+    width: 100%;
+    margin: 0;
+    height: 41px;
+    padding: 10px 10px;
+    border-top: 1px solid #e0e0e0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    border-radius: 0px; }
+    .dropdown.dropdown--big .dropdown__menu li button.full i,
+    .navbtn.dropdown .dropdown__menu li button.full i {
+      margin-right: 10px; }
+    .dropdown.dropdown--big .dropdown__menu li button.full:hover,
+    .navbtn.dropdown .dropdown__menu li button.full:hover {
+      background: #5ea9c8;
+      color: #fff; }
+  .dropdown.dropdown--big .dropdown__menu li:active > button,
+  .navbtn.dropdown .dropdown__menu li:active > button {
+    background: #5ea9c8;
+    color: #fff; }
+  .dropdown.dropdown--big .dropdown__menu .fieldset button,
+  .navbtn.dropdown .dropdown__menu .fieldset button {
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    min-width: 50px;
+    clear: none;
+    margin-right: 10px;
+    float: right; }
+
+.navbtn.dropdown {
+  padding: 0; }
 
 /*# sourceMappingURL=superdesk-ui-framework.core.css.map */
