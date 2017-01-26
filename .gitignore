@@ -2,5 +2,4 @@
 *.css.map
 node_modules/
 nbproject/
-examples/js/vendor.js
 .vscode/

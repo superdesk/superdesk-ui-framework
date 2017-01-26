@@ -181,6 +181,16 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     .dropdown__menu-item--highlighted {
         background-color: lighten($darkViolet, 30%);
     }
+    .dropdown__menu-item--no-link {
+        font-weight: 400;
+        line-height: 1.8rem;
+        position: relative;
+        color: #333;
+        padding: .6rem 1.6rem;
+        margin-bottom: .2rem;
+        font-size: 1.3rem;
+        text-align: left;
+    }
 }
 
 .dropdown__menu-label {
