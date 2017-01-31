@@ -21,16 +21,18 @@
   },
   "devDependencies": {
     "connect-livereload": "^0.6.0",
+    "google-code-prettify": "^1.0.5",
     "grunt": "^1.0.1",
     "grunt-contrib-connect": "^1.0.2",
     "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-css-prefix": "^0.2.3",
     "grunt-http-server": "^2.0.0",
+    "grunt-pixrem": "^0.1.2",
     "grunt-sass": "^1.2.1",
     "load-grunt-tasks": "^3.5.2",
     "node-sass": "^3.13.0",
-    "underscore": "^1.8.3",
-    "google-code-prettify": "^1.0.5"
+    "underscore": "^1.8.3"
   }
 }

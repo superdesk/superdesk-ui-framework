@@ -64,6 +64,27 @@ module.exports = function (grunt) {
                 }
             }
         },
+        pixrem: {
+           options: {
+             rootvalue: '10px',
+             replace: true
+           },
+           dist: {
+             src: 'dist/superdesk-ui-framework.core.css',
+             dest: 'dist/superdesk-ui-framework.prefixed.css'
+           }
+        },
+        css_prefix: {
+            thirdparty: {
+                options: {
+                    prefix: 'suif-',
+                    processName: 'trim'
+                },
+               files: {
+                    'dist/superdesk-ui-framework.prefixed.css': ['dist/superdesk-ui-framework.prefixed.css']
+                }
+            }
+        },
         connect: {
             options: {
                 hostname: 'localhost',
@@ -105,6 +126,11 @@ module.exports = function (grunt) {
         'cssmin',
         'uglify',
         'connect',
+        'pixrem',
+        'css_prefix',
         'watch'
     ]);
+
+
+
 };
