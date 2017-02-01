@@ -116,10 +116,6 @@ $subnav-background: $grayLighter;
 .subnav__button-stack {
   position: relative;
   max-width: 100%;
-  & > .btn {
-    padding: 8px 20px;
-    height: 28px;
-  }
   &--square-buttons {
     height:48px;
     margin: 0 0 0 16px;
