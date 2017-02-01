@@ -4,6 +4,9 @@ $button-padding: 0.7rem 1.4rem !default;
 $button-padding-small: 0.5rem 1rem;
 $button-padding-large: 1rem 2rem;
 
+$button-padding-icon-only: 0.5rem 0.8rem;
+$button-padding-small-icon-only: 0.2rem 0.4rem;
+$button-padding-large-icon-only: 0.9rem 1.4rem;
 /// Margin around buttons.
 /// @type List
 $button-margin: 0 !default;
@@ -207,6 +210,9 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     @each $name, $color in $sd-basic-palette {
         &.btn--#{$name} {
           @include button-style($color, auto, $button-color-alt); // for all colored buttons we use alt color (white)
+          [class^="icon-"], [class*=" icon-"] {
+            color: $button-color-alt;
+          }
         }
     }
 
@@ -218,6 +224,9 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       @each $name, $color in $sd-basic-palette {
         &.btn--#{$name} {
           @include button-hollow-style($color);
+          [class^="icon-"], [class*=" icon-"] {
+            color: $color;
+          }
         }
       }
     }
@@ -238,4 +247,25 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     &+.btn {
       margin-left: 4px;
     }
+    // Icons inside buttons (with text included as well)
+    [class^="icon-"], [class*=" icon-"] {
+        margin: -0.6rem 0.6rem -0.3rem -0.3rem;
+        line-height: 1;
+        vertical-align: middle;
+    }
+    &.btn--icon-only {
+      padding: $button-padding-icon-only;
+      [class^="icon-"], [class*=" icon-"] {
+          display:inline-block;
+          margin: 0;
+          vertical-align: middle;
+      }
+      &.btn--large {
+        padding: $button-padding-large-icon-only;
+      }
+      &.btn--small {
+        padding: $button-padding-small-icon-only;
+      }
+    }
 }
+

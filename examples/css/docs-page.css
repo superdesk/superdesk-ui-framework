@@ -22,6 +22,17 @@ h2.docs-page__h2 {
     line-height: 140%;
     margin: 0 0 0.6em 0;
 }
+h2.docs-page__group-heading {
+   font-size: 36px;
+   font-weight: 300;
+   margin: 1.6em 0 -0.6em 0;
+   line-height: 140%;
+   color: #747474;
+   color: #999;
+}
+h2.docs-page__group-heading:first-of-type {
+    margin-top: 1em;
+}
 h3.docs-page__h3 {
     font-size: 23px;
     line-height: 140%;
@@ -88,8 +99,6 @@ p.docs-page__paragraph b {
 .docs-page__content {
     margin-left: 240px;
     min-width: 600px;
-}
-.docs-page__nav {
 }
 .docs-page__nav-title {
     text-transform: uppercase;
