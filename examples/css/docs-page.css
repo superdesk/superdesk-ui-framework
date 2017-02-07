@@ -190,7 +190,7 @@ p.docs-page__paragraph b {
 }
 .docs-page__content-row--ui-dark {
     background: #3b3b3b;
-    padding-bottom: 10px;
+    padding: 10px;
 }
 .docs-page__code-markup {
     display: none;
