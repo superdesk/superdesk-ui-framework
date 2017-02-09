@@ -26,12 +26,12 @@
                     <li><button>Action 3</button></li>
                 </ul>
             </div>
-            <div class="dropdown" dropdown>
+            <div class="dropdown dropdown--align-right" dropdown>
                 <button class="dropdown__toggle" dropdown__toggle>
                     Right aligned
                     <span class="dropdown__caret"></span>
                 </button>
-                <ul class="dropdown__menu dropdown--align-right">
+                <ul class="dropdown__menu">
                     <li><button>Action 1</button></li>
                     <li><button>Action 2</button></li>
                     <li><button>Action 3</button></li>
@@ -53,12 +53,12 @@
                     </ul>
                 </div>
                 <!--Right aligned-->
-                <div class="dropdown" dropdown ng-non-bindable>
+                <div class="dropdown dropdown--align-right" dropdown ng-non-bindable>
                     <button class="dropdown__toggle" dropdown__toggle>
                         Right aligned
                         <span class="dropdown__caret"></span>
                     </button>
-                    <ul class="dropdown__menu dropdown--align-right">
+                    <ul class="dropdown__menu">
                         <li><button>Action 1</button></li>
                         <li><button>Action 2</button></li>
                         <li><button>Action 3</button></li>
@@ -106,10 +106,10 @@
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
-                 <!--Left aligned (default)-->
-                <div class="dropdown" dropdown ng-non-bindable>
+                 <!--Opens on the left-->
+                <div class="dropdown dropdown--dropleft" dropdown ng-non-bindable>
                     <button class="dropdown__toggle" dropdown__toggle>
-                        Left aligned (default)
+                        Drop left
                         <span class="dropdown__caret"></span>
                     </button>
                     <ul class="dropdown__menu">
@@ -118,10 +118,10 @@
                         <li><button>Action 3</button></li>
                     </ul>
                 </div>
-                <!--Right aligned-->
-                <div class="dropdown" dropdown ng-non-bindable>
+                <!--Opens on the right-->
+                <div class="dropdown dropdown--dropright" dropdown ng-non-bindable>
                     <button class="dropdown__toggle" dropdown__toggle>
-                        Right aligned
+                        Drop right
                         <span class="dropdown__caret"></span>
                     </button>
                     <ul class="dropdown__menu dropdown--align-right">
@@ -148,7 +148,7 @@
     </div> 
     <div class="docs-page__window-content">
         <div class="docs-page__code-example clearfix">
-            <div class="dropdown pull-left" dropdown dropdown-append-to-body>
+            <div class="dropdown dropdown--align-right" dropdown dropdown-append-to-body>
                 <button class="dropdown__toggle" dropdown__toggle>
                     Action
                     <span class="dropdown__caret"></span>
@@ -183,7 +183,7 @@
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
-                 <div class="dropdown pull-left" dropdown dropdown-append-to-body ng-non-bindable>
+                 <div class="dropdown" dropdown dropdown-append-to-body ng-non-bindable>
                     <button class="dropdown__toggle" dropdown__toggle>
                         Action
                         <span class="dropdown__caret"></span>
@@ -219,7 +219,7 @@
 
 <h3 class="docs-page__h3">Multilevel dropdown</h3>
 <p class="docs-page__paragraph">
-    To create a scond level in the dropdown menu repeat the initial dropdown structure on the desired <code>&lt;li&gt;</code> item of the parent dropdown. 
+    To create a second level in the dropdown menu repeat the initial dropdown structure on the desired <code>&lt;li&gt;</code> item of the parent dropdown. 
     The submenu opens by default on the right side of the parent menu, to open it on the left side add the <code>dropdown__menu--submenu-left</code> modifier class to the <code>dropdown__menu</code> element. 
 </p>
 <div class="docs-page__code-window" doc-tabs>

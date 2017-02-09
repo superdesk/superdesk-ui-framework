@@ -29,16 +29,27 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
+$baseFontSize: 1.3rem;
+$baseFontFamily: "Roboto", Helvetica, Arial, sans-serif;
+$baseLineHeight: 1.8rem;
+$altFontFamily: Georgia, "Times New Roman", Times, serif;
+
 body {
   font-family: $baseFontFamily;
   font-size: $baseFontSize;
   line-height: $baseLineHeight;
 }
 
-$baseFontSize: 1.3rem;
-$baseFontFamily: "Roboto", Helvetica, Arial, sans-serif;
-$baseLineHeight: 1.8rem;
-$altFontFamily: Georgia, "Times New Roman", Times, serif;
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  margin: 0;
+}
 
 // override content-box in normalize.css
 input[type="search"] {
