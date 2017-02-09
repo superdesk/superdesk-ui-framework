@@ -4170,6 +4170,10 @@ table thead th {
   font-style: italic;
 }
 
+.suif-sd-line-input .suif-sd-line-input__char-count--error {
+  color: #E51C23;
+}
+
 .suif-sd-line-input .suif-sd-line-input__message {
   padding-top: 4px;
 }

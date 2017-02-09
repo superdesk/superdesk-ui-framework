@@ -25,7 +25,6 @@
                     <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
                 </div>
             </div>
-            <div class="modal__backdrop fade in" ng-if="modalActive"></div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
@@ -71,7 +70,6 @@
                     <button class="btn btn--primary" ng-click="closeModal('modalActive2')">Ok</button>
                 </div>
             </div>
-            <div class="modal__backdrop fade in" ng-if="modalActive2"></div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
@@ -117,7 +115,6 @@
                     <button class="btn btn--primary" ng-click="closeModal('modalActive3')">Ok</button>
                 </div>
             </div>
-            <div class="modal__backdrop fade in" ng-if="modalActive3"></div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
@@ -163,7 +160,6 @@
                     <button class="btn btn--primary" ng-click="closeModal('modalActive4')">Ok</button>
                 </div>
             </div>
-            <div class="modal__backdrop fade in" ng-if="modalActive4"></div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
@@ -203,16 +199,20 @@
                 <div class="modal__body">
                     <div class="modal__body-header">
                         <ul class="nav-tabs">
-                            <li ng-class="{'nav-tabs__tab--active': !tab5 || tab5 === 'general'}" class="nav-tabs__tab">
+                            <li ng-class="{
+                                    'nav-tabs__tab--active': !tab5 || tab5 === 'general'}" class="nav-tabs__tab">
                                 <button ng-click="tab5 = 'general'" class="nav-tabs__link"><span translate>General</span></button>
                             </li>
-                            <li ng-class="{'nav-tabs__tab--active': tab5 === 'stages'}" class="nav-tabs__tab">
+                            <li ng-class="{
+                                    'nav-tabs__tab--active': tab5 === 'stages'}" class="nav-tabs__tab">
                                 <button ng-click="tab5 = 'stages'" class="nav-tabs__link"><span translate>Stages</span></button>
                             </li>
-                            <li ng-class="{'nav-tabs__tab--active': tab5 === 'people'}" class="nav-tabs__tab">
+                            <li ng-class="{
+                                    'nav-tabs__tab--active': tab5 === 'people'}" class="nav-tabs__tab">
                                 <button ng-click="tab5 = 'people'" class="nav-tabs__link"><span translate>People</span></button>
                             </li>
-                            <li ng-class="{'nav-tabs__tab--active': tab5 === 'macro'}" class="nav-tabs__tab">
+                            <li ng-class="{
+                                    'nav-tabs__tab--active': tab5 === 'macro'}" class="nav-tabs__tab">
                                 <button ng-click="tab5 = 'macro'" class="nav-tabs__link"><span translate>Macro</span></button>
                             </li>                    
                         </ul>
@@ -228,7 +228,6 @@
                     </div>
                 </div>
             </div>
-            <div class="modal__backdrop fade in" ng-if="modalActive5"></div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
