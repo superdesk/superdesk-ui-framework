@@ -2326,6 +2326,7 @@ table {
 .subnav {
   position: relative;
   display: flex;
+  flex: 0 0 auto;
   height: 4.8rem;
   background: #F5F5F5;
   border-bottom: 0px;

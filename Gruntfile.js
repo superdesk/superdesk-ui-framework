@@ -74,17 +74,6 @@ module.exports = function (grunt) {
              dest: 'dist/superdesk-ui-framework.prefixed.css'
            }
         },
-        css_prefix: {
-            thirdparty: {
-                options: {
-                    prefix: 'suif-',
-                    processName: 'trim'
-                },
-               files: {
-                    'dist/superdesk-ui-framework.prefixed.css': ['dist/superdesk-ui-framework.prefixed.css']
-                }
-            }
-        },
         connect: {
             options: {
                 hostname: 'localhost',
@@ -127,7 +116,6 @@ module.exports = function (grunt) {
         'uglify',
         'connect',
         'pixrem',
-        'css_prefix',
         'watch'
     ]);
 

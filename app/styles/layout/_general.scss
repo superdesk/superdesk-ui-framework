@@ -8,6 +8,7 @@ $subnav-background: $grayLighter;
 .subnav {
     position: relative;
     display: flex;
+    flex: 0 0 auto;
     height:$subnav-height;
     background: $subnav-background;
     border-bottom: 0px;
