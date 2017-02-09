@@ -2613,6 +2613,8 @@ table {
     font-size: 1.1rem;
     font-weight: 400;
     font-style: italic; }
+  .sd-line-input .sd-line-input__char-count--error {
+    color: #E51C23; }
   .sd-line-input .sd-line-input__message {
     padding-top: 0.4rem; }
   .sd-line-input.sd-line-input--invalid .sd-line-input__label,

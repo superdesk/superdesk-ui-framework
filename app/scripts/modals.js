@@ -6,7 +6,7 @@ function sdModal($document) {
         template: [
             '<div class="modal" data-backdrop="static">',
             '<div class="modal__dialog" ng-if="model"><div class="modal__content" ng-transclude></div></div>',
-            '</div>'].join(''),
+            '</div><div class="modal__backdrop fade in" ng-if="model"></div>'].join(''),
         transclude: true,
         scope: {
             model: '='
@@ -23,8 +23,8 @@ function sdModal($document) {
                         content[0].foo = 'bar';
                         _initialized = true;
                     }
-                content.show().addClass('in');
-                $document.find('body').addClass('modal-open');
+                    content.show().addClass('in');
+                    $document.find('body').addClass('modal-open');
                 } else if (initialized()) {
                     content.hide().removeClass('in');
                     $document.find('body').removeClass('modal-open');
