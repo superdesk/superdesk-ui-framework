@@ -64,6 +64,16 @@ $sd-extended-palette: (
   darkBlue2: $navy,
 );
 
+$sd-basic-palette-ui-dark: (
+  default: $grayLighter,
+  primary: $sd-blue,
+  success: $green,
+  warning: $orange,
+  alert: $red,
+  highlight: $purple,
+);
+
 // Internal variables used for colors
 $primary-color: map-get($sd-basic-palette, primary);
 $default-color: map-get($sd-basic-palette, default);
+$default-color-ui-dark: map-get($sd-basic-palette-ui-dark, default);

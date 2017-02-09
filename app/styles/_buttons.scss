@@ -4,6 +4,9 @@ $button-padding: 0.7rem 1.4rem !default;
 $button-padding-small: 0.5rem 1rem;
 $button-padding-large: 1rem 2rem;
 
+$button-padding-icon-only: 0.5rem 0.8rem;
+$button-padding-small-icon-only: 0.2rem 0.4rem;
+$button-padding-large-icon-only: 0.9rem 1.4rem;
 /// Margin around buttons.
 /// @type List
 $button-margin: 0 !default;
@@ -11,14 +14,13 @@ $button-margin: 0 !default;
 /// Default background color for buttons.
 /// @type Color
 $button-background: scale-color($default-color, $alpha: -75%) !default;
-//$button-background: #aaa;
 
 /// Background color on hover for buttons.
 /// @type Color
 $button-background-hover: scale-color($button-background, $lightness: -85%) !default;
 
 /// Border color for active button state
-$active-button-border-color: scale-color($button-background, $lightness: -85%) !default;
+$active-button-border-color: scale-color($black, $alpha: -60%) !default;
 
 /// Font color for buttons.
 /// @type List
@@ -51,7 +53,13 @@ $button-background-hover-lightness: -20% !default;
 
 /// Color lightness on hover for hollow buttons.
 /// @type Number
-$button-hollow-hover-lightness: -20% !default;
+$button-hollow-hover-lightness: -40% !default;
+
+/// UI dark buttons
+$button-background-ui-dark: scale-color($default-color-ui-dark, $alpha: -75%) !default;
+$button-background-hover-ui-dark: scale-color($button-background-ui-dark, $lightness: -20%) !default;
+$button-color-ui-dark: $white !default;
+$button-background-hover-lightness-ui-dark: -20% !default;
 
 /// transitions for buttons.
 $button-transition: background-color 0.1s ease-out, color 0.1s ease-out !default;
@@ -131,7 +139,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
 @mixin button-hollow {
   &,
   &:hover, &:focus {
-    background-color: transparent !important;
+    background-color: transparent;
   }
 }
 
@@ -139,14 +147,82 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   $color: $button-color,
   $hover-lightness: $button-hollow-hover-lightness
 ) {
-  $color-hover: scale-color($color, $lightness: $hover-lightness);
 
-  border: 1px solid $color !important;
-  color: $color !important;
+  $color-hover: scale-color($color, $alpha: $hover-lightness);
+
+  border: 1px solid $color;
+  color: $color;
 
   &:hover, &:focus {
     border-color: $color-hover;
     color: $color-hover;
+  }
+}
+
+// UI dark
+@mixin button-ui-dark-style(
+  $background: $button-background-ui-dark,
+  $background-hover: $button-background-hover-ui-dark,
+  $color: $button-color-ui-dark,
+  $background-hover-lightness: $button-background-hover-lightness-ui-dark
+) {
+
+  @if $background-hover == auto {
+    $background-hover: scale-color($background, $lightness: $background-hover-lightness);
+  }
+
+  background-color: $background;
+  color: $color;
+
+  &:hover, &:focus {
+    background-color: $background-hover;
+    color: $color;
+    box-shadow: $button-hover-box-shadow;
+  }
+  &:active {
+    @include button-active-style;
+  }
+}
+
+@mixin button-text-only-style(
+  $background: $button-background,
+  $color: $button-color,
+  $background-hover: $button-background-hover,
+  $ui-dark: false
+) {
+  
+  // no background by default
+  background-color: transparent;
+
+  // hover for colored buttons
+  @if $background-hover == auto {
+    $background-hover: scale-color($background, $alpha: -80%);
+  }
+
+  // hover for default gray button
+  @else {
+    $background-hover: scale-color($background, $alpha: -50%);
+  }
+
+  // button colors
+  // UI dark
+  @if $ui-dark {
+    color: $default-color-ui-dark;
+    $background-hover: scale-color($background, $alpha: -60%); // fix for default hover background on UI dark
+  }
+
+  // default UI (light)
+  @else {
+    color: $color;
+  }
+
+  &:hover, &:focus {
+    background-color: $background-hover;
+    color: $color;
+    box-shadow: $button-hover-box-shadow;
+  }
+  &:active {
+    @include button-active-style;
   }
 }
 
@@ -207,6 +283,9 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     @each $name, $color in $sd-basic-palette {
         &.btn--#{$name} {
           @include button-style($color, auto, $button-color-alt); // for all colored buttons we use alt color (white)
+          [class^="icon-"], [class*=" icon-"] {
+            color: $button-color-alt;
+          }
         }
     }
 
@@ -218,6 +297,20 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       @each $name, $color in $sd-basic-palette {
         &.btn--#{$name} {
           @include button-hollow-style($color);
+          [class^="icon-"], [class*=" icon-"] {
+            color: $color;
+          }
+        }
+      }
+    }
+
+    // Text only style
+    &.btn--text-only {
+      @include button-text-only-style;
+
+      @each $name, $color in $sd-basic-palette {
+        &.btn--#{$name} {
+          @include button-text-only-style($color, $color, auto, false);
         }
       }
     }
@@ -232,10 +325,153 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
           @include button-disabled($color, $button-color-alt);
         }
       }
+
+      // Hollow disabled style
+      &.btn--hollow {
+        @include button-hollow;
+        @include button-hollow-style($button-color, 0);
+
+        @each $name, $color in $sd-basic-palette {
+          &.btn--#{$name} {
+            @include button-hollow-style($color, 0);
+          }
+        }
+      }
+
+      // Text only disabled style
+      &.btn--text-only {
+        @include button-text-only-style($background: transparent);
+        &:hover, &:focus, &:active {
+          box-shadow: none;
+          border-color: transparent;
+        }
+
+        @each $name, $color in $sd-basic-palette {
+          &.btn--#{$name} {
+            @include button-text-only-style(transparent, $color, transparent, false);
+            &:hover, &:focus, &:active {
+              box-shadow: none;
+              border-color: transparent;
+            }
+          }
+        }
+      }
+    }
+
+    // UI dark style
+    &.btn--ui-dark {
+      @include button-ui-dark-style;
+
+      @each $name, $color in $sd-basic-palette-ui-dark {
+        &.btn--#{$name} {
+          @include button-ui-dark-style($color, auto, $button-color-alt);
+        }
+      }
+      
+      &.btn--disabled,
+      &[disabled] {
+        @include button-ui-dark-style($button-background-ui-dark, auto, $button-color-ui-dark, 0);
+
+        &:hover, &:focus, &:active {
+          box-shadow: none;
+          border-color: transparent;
+        }
+        @each $name, $color in $sd-basic-palette-ui-dark {
+          &.btn--#{$name} {
+            @include button-ui-dark-style($color, auto, $button-color-alt, 0);
+            &:hover, &:focus, &:active {
+              box-shadow: none;
+              border-color: transparent;
+            }
+          }
+        }
+      }
+      
+      // Text only UI dark
+      &.btn--text-only {
+        @include button-text-only-style($button-background-ui-dark, $default-color-ui-dark, auto, true);
+
+        @each $name, $color in $sd-basic-palette-ui-dark {
+          $btn-background-hover: scale-color($color, $alpha: -80%);
+          &.btn--#{$name} {
+            @include button-ui-dark-style(transparent, $btn-background-hover, $color);
+          }
+        }
+
+        // Text only disabled UI dark
+        &.btn--disabled,
+        &[disabled] {
+          @include button-text-only-style(transparent, $default-color-ui-dark, transparent, true);
+          &:hover, &:focus, &:active {
+            box-shadow: none;
+          }
+
+          @each $name, $color in $sd-basic-palette-ui-dark {
+            &.btn--#{$name} {
+              @include button-ui-dark-style(transparent, transparent, $color);
+              &:hover, &:focus, &:active {
+                box-shadow: none;
+              }
+            }
+          }
+        }
+      }
+
+      // Hollow UI dark
+      &.btn--hollow {
+        @include button-hollow;
+        @include button-hollow-style($default-color-ui-dark);
+
+        @each $name, $color in $sd-basic-palette-ui-dark {
+          &.btn--#{$name} {
+            @include button-hollow-style($color);
+          }
+        }
+        
+        // Hollow disabled UI dark
+        &.btn--disabled,
+        &[disabled] {
+          @include button-hollow;
+          @include button-hollow-style($default-color-ui-dark, 0);
+          &:hover, &:focus, &:active {
+            box-shadow: none;
+          }
+
+          @each $name, $color in $sd-basic-palette-ui-dark {
+            &.btn--#{$name} {
+              @include button-hollow-style($color, 0);
+              &:hover, &:focus, &:active {
+                box-shadow: none;
+              }
+            }
+          }
+        }
+      }
     }
 
     // Add some space, i there is more buttons side by side
     &+.btn {
       margin-left: 4px;
     }
+    // Icons inside buttons (with text included as well)
+    [class^="icon-"], [class*=" icon-"] {
+        margin: -0.6rem 0.6rem -0.3rem -0.3rem;
+        line-height: 1;
+        vertical-align: middle;
+    }
+    &.btn--icon-only {
+      padding: $button-padding-icon-only;
+      [class^="icon-"], [class*=" icon-"] {
+          display:inline-block;
+          margin: 0;
+          vertical-align: middle;
+      }
+      &.btn--large {
+        padding: $button-padding-large-icon-only;
+      }
+      &.btn--small {
+        padding: $button-padding-small-icon-only;
+      }
+    }
 }
+

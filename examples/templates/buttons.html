@@ -1,5 +1,4 @@
 <h2 class="docs-page__h2">Buttons</h2>
-<p class="docs-page__paragraph">This section describes buttons in Superdesk.</p>
 <h3 class="docs-page__h3">Sizing</h3>
 <div class="docs-page__code-window" doc-tabs>
     <div class="docs-page__window-bar">
@@ -93,6 +92,35 @@
         </div>
     </div>
 </div>
+<h3 class="docs-page__h3">Text only (without background)</h3>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <div class="docs-page__content-row">                                    
+                <a class="btn btn--text-only">Default</a>
+                <a class="btn btn--primary btn--text-only">Primary</a>
+                <a class="btn btn--success btn--text-only">Success</a>
+                <a class="btn btn--warning btn--text-only">Warning</a>
+                <a class="btn btn--alert btn--text-only">Alert</a>
+                <a class="btn btn--highlight btn--text-only">Highlight</a>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                <a class="btn btn--text-only">Default</a>
+                <a class="btn btn--primary btn--text-only">Primary</a>
+                <a class="btn btn--success btn--text-only">Success</a>
+                <a class="btn btn--warning btn--text-only">Warning</a>
+                <a class="btn btn--alert btn--text-only">Alert</a>
+                <a class="btn btn--highlight btn--text-only">Highlight</a>
+            </pre>
+        </div>
+    </div>
+</div>
 <h3 class="docs-page__h3">Disabled</h3>
 <div class="docs-page__code-window" doc-tabs>
     <div class="docs-page__window-bar">
@@ -115,6 +143,13 @@
                 <a class="btn btn--hollow btn--warning btn--disabled">Warning</a>
                 <a class="btn btn--hollow btn--alert btn--disabled">Alert</a>
                 <a class="btn btn--hollow btn--highlight btn--disabled">Highlight</a>
+                                    
+                <a class="btn btn--text-only btn--disabled">Default</a>
+                <a class="btn btn--primary btn--text-only btn--disabled">Primary</a>
+                <a class="btn btn--success btn--text-only btn--disabled">Success</a>
+                <a class="btn btn--warning btn--text-only btn--disabled">Warning</a>
+                <a class="btn btn--alert btn--text-only btn--disabled">Alert</a> 
+                <a class="btn btn--highlight btn--text-only btn--disabled">Highlight</a>
             </div>                              
         </div>
         <div class="docs-page__code-markup">
@@ -131,6 +166,212 @@
                 <a class="btn btn--hollow btn--warning btn--disabled">Warning</a>
                 <a class="btn btn--hollow btn--alert btn--disabled">Alert</a>
                 <a class="btn btn--hollow btn--highlight btn--disabled">Highlight</a>
+            </pre>
+        </div>
+    </div>
+</div>
+<h3 class="docs-page__h3">Buttons with icon font and text</h3>
+<p class="docs-page__paragraph ng-scope">Buttons can be combined with the the icon font. No extra modifiers are needed, just adding any of the available classes from the Icon font to an <code>&lt;i&gt;</code> tag placed before the button text.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <p class="docs-page__paragraph">// Default size</p>
+            <div class="docs-page__content-row">                                    
+                <a class="btn"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--primary"><i class="icon-plus-sign"></i>Primary</a>                                   
+                <a class="btn btn--success"><i class="icon-ok"></i>Success</a>
+                <a class="btn btn--alert"><i class="icon-warning-sign"></i>Alert</a>
+
+                <a class="btn btn--hollow"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--hollow btn--primary"><i class="icon-plus-sign"></i>Primary</a>                                   
+                <a class="btn btn--hollow btn--success"><i class="icon-ok"></i>Success</a>
+                <a class="btn btn--hollow btn--warning"><i class="icon-exclamation-sign"></i>Warning</a>
+
+                <a class="btn btn--disabled"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--hollow btn--primary btn--disabled"><i class="icon-plus-sign"></i>Primary</a> 
+            </div>
+            <p class="docs-page__paragraph">// Large size</p>
+            <div class="docs-page__content-row">                                    
+                <a class="btn btn--large"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--primary btn--large"><i class="icon-plus-sign"></i>Primary</a>                                   
+                <a class="btn btn--success btn--large"><i class="icon-ok"></i>Success</a>
+
+                <a class="btn btn--hollow btn--large"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--hollow btn--primary btn--large"><i class="icon-plus-sign"></i>Primary</a>                                   
+            </div>
+            <p class="docs-page__paragraph">// Small size</p>
+            <div class="docs-page__content-row">                                    
+                <a class="btn btn--small"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--primary btn--small"><i class="icon-plus-sign"></i>Primary</a>                                   
+            </div>                          
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <!--Default size buttons with icons   -->
+                <a class="btn"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--primary"><i class="icon-plus-sign"></i>Primary</a>                                   
+                <a class="btn btn--success"><i class="icon-ok"></i>Success</a>
+                <a class="btn btn--alert"><i class="icon-warning-sign"></i>Alert</a>
+                <a class="btn btn--hollow"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--hollow btn--primary"><i class="icon-plus-sign"></i>Primary</a>                                   
+                <a class="btn btn--hollow btn--success"><i class="icon-ok"></i>Success</a>
+                <a class="btn btn--hollow btn--warning"><i class="icon-exclamation-sign"></i>Warning</a>
+                <a class="btn btn--disabled"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--hollow btn--primary btn--disabled"><i class="icon-plus-sign"></i>Primary</a> 
+                <!--Large size buttons with icons-->
+                <a class="btn btn--large"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--primary btn--large"><i class="icon-plus-sign"></i>Primary</a>                                   
+                <a class="btn btn--success btn--large"><i class="icon-ok"></i>Success</a>
+                <a class="btn btn--hollow btn--large"><i class="icon-info-sign"></i>Default</a>
+                <a class="btn btn--hollow btn--primary btn--large"><i class="icon-plus-sign"></i>Primary</a>                                   
+            </pre>
+        </div>
+    </div>
+</div>
+
+<h3 class="docs-page__h3">Buttons with icon font only</h3>
+<p class="docs-page__paragraph ng-scope">For buttons without any text, only an icon, the modifier <code>btn--icon-only</code> is needed to ajust the padding and width of the button.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <p class="docs-page__paragraph">// Default</p>
+            <div class="docs-page__content-row">                                    
+                <a class="btn btn--icon-only"><i class="icon-info-sign"></i></a>
+                <a class="btn btn--primary btn--icon-only"><i class="icon-plus-sign"></i></a>                                   
+                <a class="btn btn--success btn--icon-only btn--hollow"><i class="icon-ok"></i></a>                                
+            </div> 
+            <p class="docs-page__paragraph">// Large</p>
+            <div class="docs-page__content-row">                                    
+                <a class="btn btn--warning btn--large btn--icon-only"><i class="icon-exclamation-sign"></i></a>
+                <a class="btn btn--primary btn--icon-only btn--large btn--hollow"><i class="icon-plus-sign"></i></a>                                   
+                <a class="btn btn--highlight btn--icon-only btn--large"><i class="icon-bell"></i></a>                                
+            </div>
+            <p class="docs-page__paragraph">// Small</p>
+            <div class="docs-page__content-row">                                    
+                <a class="btn btn--alert btn--small btn--icon-only btn--hollow"><i class="icon-kill"></i></a>
+                <a class="btn btn--icon-only btn--small"><i class="icon-calendar"></i></a>                                   
+                <a class="btn btn--primary btn--icon-only btn--small btn--hollow"><i class="icon-refresh"></i></a>                                
+            </div>                       
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <!--Default size buttons with icons   -->
+                <a class="btn"><i class="icon-info-sign"></i>Default</a>
+
+                <!--Large size buttons with icons-->
+                <a class="btn btn--large"><i class="icon-info-sign"></i>Default</a>
+            </pre>
+        </div>
+    </div>
+</div>
+<h3 class="docs-page__h3">Dark UI</h3>
+<p class="docs-page__paragraph ng-scope">To have appropriate button colors on dark background, just add class <code>btn--ui-dark</code> to regular markup.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <p class="docs-page__paragraph">// Default style</p>
+            <div class="docs-page__content-row docs-page__content-row--ui-dark">
+                <a class="btn btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--ui-dark">Success</a>
+                <a class="btn btn--warning btn--ui-dark">Warning</a>
+                <a class="btn btn--alert btn--ui-dark">Alert</a>
+                <a class="btn btn--highlight btn--ui-dark">Highlight</a>
+            </div>
+            <p class="docs-page__paragraph">// Hollow style</p>
+            <div class="docs-page__content-row docs-page__content-row--ui-dark">
+                <a class="btn btn--hollow btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--hollow btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--hollow btn--ui-dark">Success</a>
+                <a class="btn btn--warning btn--hollow btn--ui-dark">Warning</a>
+                <a class="btn btn--alert btn--hollow btn--ui-dark">Alert</a> 
+                <a class="btn btn--highlight btn--hollow btn--ui-dark">Highlight</a>
+            </div>
+            <p class="docs-page__paragraph">// Text only style</p>
+            <div class="docs-page__content-row docs-page__content-row--ui-dark">
+                <a class="btn btn--text-only btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--text-only btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--text-only btn--ui-dark">Success</a>
+                <a class="btn btn--warning btn--text-only btn--ui-dark">Warning</a>
+                <a class="btn btn--alert btn--text-only btn--ui-dark">Alert</a> 
+                <a class="btn btn--highlight btn--text-only btn--ui-dark">Highlight</a>
+            </div>
+            <p class="docs-page__paragraph">// Disabled</p>
+             <div class="docs-page__content-row docs-page__content-row--ui-dark">
+                <a class="btn btn--disabled btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--disabled btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--disabled btn--ui-dark">Success</a>
+                <a class="btn btn--warning btn--disabled btn--ui-dark">Warning</a>
+                <a class="btn btn--alert btn--disabled btn--ui-dark">Alert</a>
+                <a class="btn btn--highlight btn--disabled btn--ui-dark">Highlight</a>
+
+                <a class="btn btn--hollow btn--disabled btn--ui-dark">Default</a>
+                <a class="btn btn--hollow btn--primary btn--disabled btn--ui-dark">Primary</a>
+                <a class="btn btn--hollow btn--success btn--disabled btn--ui-dark">Success</a>
+                <a class="btn btn--hollow btn--warning btn--disabled btn--ui-dark">Warning</a>
+                <a class="btn btn--hollow btn--alert btn--disabled btn--ui-dark">Alert</a>
+                <a class="btn btn--hollow btn--highlight btn--disabled btn--ui-dark">Highlight</a>
+
+                <a class="btn btn--text-only btn--disabled btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--text-only btn--disabled btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--text-only btn--disabled btn--ui-dark">Success</a>
+                <a class="btn btn--warning btn--text-only btn--disabled btn--ui-dark">Warning</a>
+                <a class="btn btn--alert btn--text-only btn--disabled btn--ui-dark">Alert</a> 
+                <a class="btn btn--highlight btn--text-only btn--disabled btn--ui-dark">Highlight</a>
+            </div>          
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                <!-- Default style -->
+                <a class="btn btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--ui-dark">Success</a>
+                ...
+
+
+                <!-- Hollow style -->
+                <a class="btn btn--hollow btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--hollow btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--hollow btn--ui-dark">Success</a>
+                ...
+
+
+                <!-- Text only style -->
+                <a class="btn btn--text-only btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--text-only btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--text-only btn--ui-dark">Success</a>
+                ...
+
+
+                <!-- Disabled -->
+                <a class="btn btn--disabled btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--disabled btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--disabled btn--ui-dark">Success</a>
+                ...
+
+
+                <a class="btn btn--hollow btn--disabled btn--ui-dark">Default</a>
+                <a class="btn btn--hollow btn--primary btn--disabled btn--ui-dark">Primary</a>
+                <a class="btn btn--hollow btn--success btn--disabled btn--ui-dark">Success</a>
+                ...
+
+
+                <a class="btn btn--text-only btn--disabled btn--ui-dark">Default</a>
+                <a class="btn btn--primary btn--text-only btn--disabled btn--ui-dark">Primary</a>
+                <a class="btn btn--success btn--text-only btn--disabled btn--ui-dark">Success</a>
+                ...
             </pre>
         </div>
     </div>
