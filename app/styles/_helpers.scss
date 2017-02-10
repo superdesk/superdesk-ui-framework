@@ -9,6 +9,9 @@
 .clearfix {
     @include clearfix();
 }
+.no-padding {
+    padding: 0;
+}
 
 // Webkit scroll
 // --------------------------------------------------
