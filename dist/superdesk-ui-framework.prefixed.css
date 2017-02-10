@@ -74,6 +74,10 @@ button {
   clear: both;
 }
 
+.suif-no-padding {
+  padding: 0;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -3802,6 +3806,10 @@ table thead th {
 
 .suif-subnav--darker {
   background: #dedede;
+}
+
+.suif-subnav--absolute {
+  position: absolute;
 }
 
 .suif-subnav__page-title {

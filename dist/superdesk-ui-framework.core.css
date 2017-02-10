@@ -55,6 +55,9 @@ button {
   .clearfix:after {
     clear: both; }
 
+.no-padding {
+  padding: 0; }
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -2341,6 +2344,8 @@ table {
     top: 96px; }
   .subnav--darker {
     background: #dedede; }
+  .subnav--absolute {
+    position: absolute; }
 
 .subnav__page-title {
   padding: 1rem 2rem;
