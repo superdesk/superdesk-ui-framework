@@ -3313,7 +3313,7 @@ button {
 
 .suif-modal.suif-modal--tabs .suif-modal__body-footer {
   flex: 0 0 auto;
-  padding: 20px;
+  padding: 12px 20px;
   border-top: 1px solid #e4e4e4;
   text-align: right;
 }

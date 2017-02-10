@@ -208,7 +208,7 @@ $modal-sizes: (
         }
         .modal__body-footer {
             flex: 0 0 auto;
-            padding: $modal-padding;
+            padding: $modal-padding - .8rem $modal-padding;
             border-top: 1px solid $modal-line-color;
             text-align: right;
         }
