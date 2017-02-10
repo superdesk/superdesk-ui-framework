@@ -1979,7 +1979,7 @@ button {
     background: #f8f8f8; }
   .modal.modal--tabs .modal__body-footer {
     flex: 0 0 auto;
-    padding: 2rem;
+    padding: 1.2rem 2rem;
     border-top: 1px solid #e4e4e4;
     text-align: right; }
   .modal p {
