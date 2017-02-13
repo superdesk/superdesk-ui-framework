@@ -2168,6 +2168,8 @@ button {
     margin-left: -1rem;
     margin-right: -1rem;
     padding: 0; }
+  .grid + .grid {
+    margin-top: 1rem; }
 
 table {
   width: 100%;

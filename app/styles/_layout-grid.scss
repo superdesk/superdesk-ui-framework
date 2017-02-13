@@ -37,4 +37,7 @@ $grid-gutter: 1rem;
         margin-right: -$grid-gutter;
         padding: 0;
     }
+    & + .grid {
+        margin-top: 1rem;
+    }
 }
