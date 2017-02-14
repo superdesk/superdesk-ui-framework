@@ -37,11 +37,11 @@ $grid-gutter: 1rem;
         margin-right: -$grid-gutter;
         padding: 0;
     }
-    &--grid-margin {
+    &--margin {
         margin-top: $grid-gutter;
         margin-bottom: $grid-gutter; 
     }
-    &--grid-wrap {
+    &--wrap {
         flex-wrap: wrap;
     }
     & + .grid {

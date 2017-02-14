@@ -3582,12 +3582,12 @@ button {
   padding: 0;
 }
 
-.suif-grid--grid-margin {
+.suif-grid--margin {
   margin-top: 10px;
   margin-bottom: 10px;
 }
 
-.suif-grid--grid-wrap {
+.suif-grid--wrap {
   flex-wrap: wrap;
 }
 

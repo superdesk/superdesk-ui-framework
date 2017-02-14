@@ -2168,10 +2168,10 @@ button {
     margin-left: -1rem;
     margin-right: -1rem;
     padding: 0; }
-  .grid--grid-margin {
+  .grid--margin {
     margin-top: 1rem;
     margin-bottom: 1rem; }
-  .grid--grid-wrap {
+  .grid--wrap {
     flex-wrap: wrap; }
   .grid + .grid {
     margin-top: 1rem; }
