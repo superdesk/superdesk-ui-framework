@@ -3582,6 +3582,10 @@ button {
   padding: 0;
 }
 
+.suif-grid + .suif-grid {
+  margin-top: 10px;
+}
+
 table {
   width: 100%;
   border-collapse: separate;
@@ -3890,6 +3894,16 @@ table thead th {
 
 .suif-navbtn:hover > i {
   opacity: 1;
+}
+
+.suif-navbtn.suif-navbtn--blue {
+  background: #5ea9c8;
+  border-left: 1px solid #84bdd5;
+  color: #fff;
+}
+
+.suif-navbtn.suif-navbtn--blue.suif-disabled {
+  background: #898989;
 }
 
 .suif-dropdown.suif-open .suif-navbtn {

@@ -2409,6 +2409,12 @@ table {
     background: rgba(255, 255, 255, 0.5); }
     .navbtn:hover > i {
       opacity: 1; }
+  .navbtn.navbtn--blue {
+    background: #5ea9c8;
+    border-left: 1px solid #84bdd5;
+    color: #fff; }
+    .navbtn.navbtn--blue.disabled {
+      background: #898989; }
 
 .dropdown.open .navbtn {
   background: white;
