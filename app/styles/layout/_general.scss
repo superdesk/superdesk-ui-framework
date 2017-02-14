@@ -96,6 +96,14 @@ $subnav-background: $grayLighter;
             opacity: 1;
         }
     }
+    &.navbtn--blue {
+        background: $sd-blue;
+        border-left: 1px solid lighten($sd-blue, 10%);
+        color: #fff;
+        &.disabled {
+            background: #898989;
+        }
+    }
 }
 .dropdown.open {
     .navbtn {
