@@ -3582,6 +3582,15 @@ button {
   padding: 0;
 }
 
+.suif-grid--grid-margin {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.suif-grid--grid-wrap {
+  flex-wrap: wrap;
+}
+
 .suif-grid + .suif-grid {
   margin-top: 10px;
 }
