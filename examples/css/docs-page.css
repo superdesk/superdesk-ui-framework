@@ -192,6 +192,10 @@ p.docs-page__paragraph b {
     background: #3b3b3b;
     padding: 10px;
 }
+.docs-page__content-row--gray {
+    background: #F2F2F2;
+    padding: 10px;
+}
 .docs-page__code-markup {
     display: none;
     background-color: #000;
