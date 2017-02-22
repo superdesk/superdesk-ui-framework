@@ -420,7 +420,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       // Hollow UI dark
       &.btn--hollow {
         @include button-hollow;
-        @include button-hollow-style($default-color-ui-dark);
+        @include button-hollow-style(scale-color($default-color-ui-dark, $alpha: -30%));
 
         @each $name, $color in $sd-basic-palette-ui-dark {
           &.btn--#{$name} {
@@ -475,3 +475,53 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     }
 }
 
+// SD create button
+.sd-create-btn {
+    width: 48px;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 !important;
+    overflow: hidden;
+    position: relative;
+    background: $white;
+    i {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        top: 50%; margin-top: -8px;
+        left: 50%; margin-left: -8px;
+        opacity: 1 !important;
+        color: $white;
+    }
+    .circle {
+        @include border-box();
+        display: inline-block;
+        text-align: center;
+        width: 26px;
+        height: 26px;
+        margin: 0;
+        padding: 0;
+        margin-top: 11px;
+        border-radius: 50%;
+        background-color: $sd-blue;
+        color: $white;
+        position: relative;
+        @include transition(all, 60ms, ease-in);
+    }
+    &:hover {
+        .circle {
+            width: 34px;
+            height: 34px;
+            margin-top: 7px;
+            margin-left: 0;
+        }
+    }
+    &:active {
+        .circle {
+            width: 68px;
+            height: 68px;
+            margin: -10px 0 0 -10px;
+            @include transition(all, 30ms, ease-in);
+        }
+    }
+}

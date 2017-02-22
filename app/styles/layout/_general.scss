@@ -115,6 +115,11 @@ $subnav-background: $grayLighter;
             color: $sd-blue;
         }
     }
+    .sd-create-btn {
+      i {
+        color: $white;
+      }
+    }
 }
 
 .subnav__stretch-bar {

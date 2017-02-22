@@ -13,6 +13,7 @@ $white:                 #fff;
 $sd-blue:               #5ea9c8;
 $sd-blueMedium:         #3d8fb1;
 $sd-blueDark:           #005b7f;
+$sd-green:              #1eb06c;
 $sd-text:               $grayDark;
 $sd-hover:              #eff7fa;
 $green:                 #46a546;
@@ -44,6 +45,7 @@ $sd-basic-palette: (
   warning: $orange,
   alert: $red,
   highlight: $purple,
+  sd-green: $sd-green, 
 );
 
 $sd-extended-palette: (
@@ -70,7 +72,8 @@ $sd-basic-palette-ui-dark: (
   success: $green,
   warning: $orange,
   alert: $red,
-  highlight: $purple,
+  highlight: #bf00e0,
+  sd-green: $sd-green,
 );
 
 // Internal variables used for colors

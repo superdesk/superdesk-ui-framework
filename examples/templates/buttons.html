@@ -49,6 +49,7 @@
                 <a class="btn btn--warning">Warning</a>
                 <a class="btn btn--alert">Alert</a> 
                 <a class="btn btn--highlight">Highlight</a>
+                <a class="btn btn--sd-green">Sd-green</a>
             </div>                              
         </div>
         <div class="docs-page__code-markup">
@@ -59,6 +60,7 @@
                 <a class="btn btn--warning">Warning</a>
                 <a class="btn btn--alert">Alert</a>
                 <a class="btn btn--highlight">Highlight</a>
+                <a class="btn btn--sd-green">Sd-green</a>
             </pre>
         </div>
     </div>
@@ -78,6 +80,7 @@
                 <a class="btn btn--hollow btn--warning">Warning</a>
                 <a class="btn btn--hollow btn--alert">Alert</a>
                 <a class="btn btn--hollow btn--highlight">Highlight</a>
+                <a class="btn btn--hollow btn--sd-green">Sd-green</a>
             </div>                              
         </div>
         <div class="docs-page__code-markup">
@@ -88,6 +91,7 @@
                 <a class="btn btn--hollow btn--warning">Warning</a>
                 <a class="btn btn--hollow btn--alert">Alert</a>
                 <a class="btn btn--hollow btn--highlight">Highlight</a>
+                <a class="btn btn--hollow btn--sd-green">Sd-green</a>
             </pre>
         </div>
     </div>
@@ -107,6 +111,7 @@
                 <a class="btn btn--warning btn--text-only">Warning</a>
                 <a class="btn btn--alert btn--text-only">Alert</a>
                 <a class="btn btn--highlight btn--text-only">Highlight</a>
+                <a class="btn btn--sd-green btn--text-only">Sd-green</a>
             </div>
         </div>
         <div class="docs-page__code-markup">
@@ -117,6 +122,7 @@
                 <a class="btn btn--warning btn--text-only">Warning</a>
                 <a class="btn btn--alert btn--text-only">Alert</a>
                 <a class="btn btn--highlight btn--text-only">Highlight</a>
+                <a class="btn btn--sd-green btn--text-only">Sd-green</a>
             </pre>
         </div>
     </div>
@@ -136,6 +142,7 @@
                 <a class="btn btn--warning btn--disabled">Warning</a>
                 <a class="btn btn--alert btn--disabled">Alert</a>
                 <a class="btn btn--highlight btn--disabled">Highlight</a>
+                <a class="btn btn--sd-green btn--disabled">Sd-green</a>
 
                 <a class="btn btn--hollow btn--disabled">Default</a>
                 <a class="btn btn--hollow btn--primary btn--disabled">Primary</a>                                   
@@ -143,6 +150,7 @@
                 <a class="btn btn--hollow btn--warning btn--disabled">Warning</a>
                 <a class="btn btn--hollow btn--alert btn--disabled">Alert</a>
                 <a class="btn btn--hollow btn--highlight btn--disabled">Highlight</a>
+                <a class="btn btn--hollow btn--sd-green btn--disabled">Sd-green</a>
                                     
                 <a class="btn btn--text-only btn--disabled">Default</a>
                 <a class="btn btn--primary btn--text-only btn--disabled">Primary</a>
@@ -150,6 +158,7 @@
                 <a class="btn btn--warning btn--text-only btn--disabled">Warning</a>
                 <a class="btn btn--alert btn--text-only btn--disabled">Alert</a> 
                 <a class="btn btn--highlight btn--text-only btn--disabled">Highlight</a>
+                <a class="btn btn--sd-green btn--text-only btn--disabled">Sd-green</a>
             </div>                              
         </div>
         <div class="docs-page__code-markup">
@@ -272,6 +281,57 @@
         </div>
     </div>
 </div>
+
+<h3 class="docs-page__h3">SD create button</h3>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example clearfix">
+            <div class="subnav subnav--darker">
+                <h3 class="subnav__page-title">Subnav title</h3>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="navbtn dropdown sd-create-btn" dropdown__toggle>
+                        <i class="icon-plus-large"></i>
+                        <span class="circle"></span>
+                    </button>   
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <div class="dropdown" dropdown>
+                                <button class="dropdown__toggle"><i class="icon-star"></i>Second level actions</button>
+                                <ul class="dropdown__menu dropdown__menu--submenu-left">
+                                    <li><a href="">Action 4</a></li>
+                                    <li><a href="">Action 5</a></li>
+                                    <li><a href="">Action 6</a></li>
+                                    <li><a href="">Action 7</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                <button class="navbtn dropdown sd-create-btn" dropdown__toggle>
+                    <i class="icon-plus-large"></i>
+                    <span class="circle"></span>
+                </button>
+            </pre>
+        </div>
+    </div>
+</div>
+
 <h3 class="docs-page__h3">Dark UI</h3>
 <p class="docs-page__paragraph ng-scope">To have appropriate button colors on dark background, just add class <code>btn--ui-dark</code> to regular markup.</p>
 <div class="docs-page__code-window" doc-tabs>
@@ -289,6 +349,7 @@
                 <a class="btn btn--warning btn--ui-dark">Warning</a>
                 <a class="btn btn--alert btn--ui-dark">Alert</a>
                 <a class="btn btn--highlight btn--ui-dark">Highlight</a>
+                <a class="btn btn--sd-green btn--ui-dark">Sd-green</a>
             </div>
             <p class="docs-page__paragraph">// Hollow style</p>
             <div class="docs-page__content-row docs-page__content-row--ui-dark">
@@ -298,6 +359,7 @@
                 <a class="btn btn--warning btn--hollow btn--ui-dark">Warning</a>
                 <a class="btn btn--alert btn--hollow btn--ui-dark">Alert</a> 
                 <a class="btn btn--highlight btn--hollow btn--ui-dark">Highlight</a>
+                <a class="btn btn--sd-green btn--hollow btn--ui-dark">Sd-green</a>
             </div>
             <p class="docs-page__paragraph">// Text only style</p>
             <div class="docs-page__content-row docs-page__content-row--ui-dark">
@@ -307,6 +369,7 @@
                 <a class="btn btn--warning btn--text-only btn--ui-dark">Warning</a>
                 <a class="btn btn--alert btn--text-only btn--ui-dark">Alert</a> 
                 <a class="btn btn--highlight btn--text-only btn--ui-dark">Highlight</a>
+                <a class="btn btn--sd-green btn--text-only btn--ui-dark">Sd-green</a>
             </div>
             <p class="docs-page__paragraph">// Disabled</p>
              <div class="docs-page__content-row docs-page__content-row--ui-dark">
@@ -316,6 +379,7 @@
                 <a class="btn btn--warning btn--disabled btn--ui-dark">Warning</a>
                 <a class="btn btn--alert btn--disabled btn--ui-dark">Alert</a>
                 <a class="btn btn--highlight btn--disabled btn--ui-dark">Highlight</a>
+                <a class="btn btn--sd-green btn--disabled btn--ui-dark">Sd-green</a>
 
                 <a class="btn btn--hollow btn--disabled btn--ui-dark">Default</a>
                 <a class="btn btn--hollow btn--primary btn--disabled btn--ui-dark">Primary</a>
@@ -323,6 +387,7 @@
                 <a class="btn btn--hollow btn--warning btn--disabled btn--ui-dark">Warning</a>
                 <a class="btn btn--hollow btn--alert btn--disabled btn--ui-dark">Alert</a>
                 <a class="btn btn--hollow btn--highlight btn--disabled btn--ui-dark">Highlight</a>
+                <a class="btn btn--hollow btn--sd-green btn--disabled btn--ui-dark">Sd-green</a>
 
                 <a class="btn btn--text-only btn--disabled btn--ui-dark">Default</a>
                 <a class="btn btn--primary btn--text-only btn--disabled btn--ui-dark">Primary</a>
@@ -330,6 +395,7 @@
                 <a class="btn btn--warning btn--text-only btn--disabled btn--ui-dark">Warning</a>
                 <a class="btn btn--alert btn--text-only btn--disabled btn--ui-dark">Alert</a> 
                 <a class="btn btn--highlight btn--text-only btn--disabled btn--ui-dark">Highlight</a>
+                <a class="btn btn--sd-green btn--text-only btn--disabled btn--ui-dark">Sd-green</a>
             </div>          
         </div>
         <div class="docs-page__code-markup">

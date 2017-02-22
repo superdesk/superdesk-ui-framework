@@ -78,6 +78,10 @@ button {
   padding: 0 !important;
 }
 
+.suif-no-border {
+  border: 0 !important;
+}
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -2006,6 +2010,66 @@ button {
 
 .suif-btn.suif-btn--icon-only.suif-btn--small {
   padding: 2px 4px;
+}
+
+.suif-sd-create-btn {
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  padding: 0 !important;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+}
+
+.suif-sd-create-btn i {
+  position: absolute;
+  z-index: 1;
+  display: block;
+  top: 50%;
+  margin-top: -8px;
+  left: 50%;
+  margin-left: -8px;
+  opacity: 1 !important;
+  color: #fff;
+}
+
+.suif-sd-create-btn .suif-circle {
+  box-sizing: border-box;
+  display: inline-block;
+  text-align: center;
+  width: 26px;
+  height: 26px;
+  margin: 0;
+  padding: 0;
+  margin-top: 11px;
+  border-radius: 50%;
+  background-color: #5ea9c8;
+  color: #fff;
+  position: relative;
+  -webkit-transition: all 60ms ease-in;
+  -moz-transition: all 60ms ease-in;
+  -ms-transition: all 60ms ease-in;
+  -o-transition: all 60ms ease-in;
+  transition: all 60ms ease-in;
+}
+
+.suif-sd-create-btn:hover .suif-circle {
+  width: 34px;
+  height: 34px;
+  margin-top: 7px;
+  margin-left: 0;
+}
+
+.suif-sd-create-btn:active .suif-circle {
+  width: 68px;
+  height: 68px;
+  margin: -10px 0 0 -10px;
+  -webkit-transition: all 30ms ease-in;
+  -moz-transition: all 30ms ease-in;
+  -ms-transition: all 30ms ease-in;
+  -o-transition: all 30ms ease-in;
+  transition: all 30ms ease-in;
 }
 
 .suif-label {
