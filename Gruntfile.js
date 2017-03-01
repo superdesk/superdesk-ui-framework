@@ -44,7 +44,8 @@ module.exports = function (grunt) {
                         'node_modules/jquery/dist/jquery.min.js',
                         'node_modules/underscore/underscore-min.js',
                         'node_modules/google-code-prettify/src/prettify.js',
-                        'node_modules/angular/angular.min.js'
+                        'node_modules/angular/angular.min.js',
+                        'node_modules/angular-ui-bootstrap/ui-bootstrap.min.js'
                     ]
                 }
             },
@@ -54,7 +55,6 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'dist/superdesk-ui-framework.js': [
-                        'node_modules/angular-ui-bootstrap/ui-bootstrap.min.js',
                         'app/scripts/index.js',
                         'app/scripts/dropdown.js',
                         'app/scripts/modals.js',
@@ -73,17 +73,6 @@ module.exports = function (grunt) {
              src: 'dist/superdesk-ui-framework.core.css',
              dest: 'dist/superdesk-ui-framework.prefixed.css'
            }
-        },
-        css_prefix: {
-            thirdparty: {
-                options: {
-                    prefix: 'suif-',
-                    processName: 'trim'
-                },
-               files: {
-                    'dist/superdesk-ui-framework.prefixed.css': ['dist/superdesk-ui-framework.prefixed.css']
-                }
-            }
         },
         connect: {
             options: {
@@ -127,10 +116,7 @@ module.exports = function (grunt) {
         'uglify',
         'connect',
         'pixrem',
-        'css_prefix',
         'watch'
     ]);
-
-
 
 };
