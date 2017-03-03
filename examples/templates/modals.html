@@ -255,3 +255,31 @@
         </div>
     </div>
 </div>
+
+<h3 class="docs-page__h3">Modal with external template</h3>
+<p class="docs-page__paragraph">In some cases we will need to trigger modal through angular with defined template in different <code>html</code>. This can be done with <code>sdModalService</code> service.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openTemplateModal()">Show modal</button>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-js linenums">
+                 var modal;
+                scope.openModal = function () {
+                    modal = sdModalService.open({
+                        scope: scope,
+                        template: 'templates/modal-template.html'
+                    });
+                };
+                scope.close = function () {
+                    modal.close();
+                };
+            </pre>
+        </div>
+    </div>
+</div>
