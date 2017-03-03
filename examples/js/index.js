@@ -74,27 +74,41 @@ angular.module('ui-docs', [
             }
         }
     };
-}).directive('docModal', function () {
+}).directive('docModal', function (sdModalService) {
     return {
         link: function (scope) {
             scope.modalActive = false;
+
             scope.openModal = function (obj) {
                 scope[obj] = true;
             };
+
             scope.closeModal = function (obj) {
                 scope[obj] = false;
+            };
+
+            var modal;
+            scope.openTemplateModal = function () {
+                modal = sdModalService.open({
+                    template: 'templates/modal-template.html',
+                    scope: scope
+                });
+            };
+
+            scope.close = function () {
+                modal.close();
             };
         }
     };
 }).directive('scroll', function ($window) {
-    return function(scope, element, attrs) {
-      
-        angular.element($window).bind('scroll', function() {
+    return function (scope, element, attrs) {
+
+        angular.element($window).bind('scroll', function () {
             if (this.pageYOffset >= 80) {
-                 scope.boolChangeClass = true;                 
-             } else {
-                 scope.boolChangeClass = false;
-             }
+                scope.boolChangeClass = true;
+            } else {
+                scope.boolChangeClass = false;
+            }
             scope.$apply();
         });
     };
