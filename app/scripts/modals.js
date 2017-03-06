@@ -51,26 +51,40 @@ function sdModal($document) {
     };
 }
 
-sdModalService.$inject = ['$rootScope', '$document', '$compile'];
-function sdModalService($rootScope, $document, $compile) {
+sdModalService.$inject = ['$rootScope', '$document', '$compile', '$controller'];
+function sdModalService($rootScope, $document, $compile, $controller) {
     var $modal, body = $document.find('body').eq(0);
 
     this.open = function (options) {
         $modal = {options: options};
-        $modal.options.scope = options.scope || $rootScope.$new();
-        $modal.id = $modal.options.scope.$id;
-        appendModal($modal.id, $modal.options);
+        $modal.scope = (options.scope || $rootScope).$new();
+        $modal.id = $modal.scope.$id;
+
+        if (options.controller) {
+            var ctrlInstance, ctrlLocals = {};
+            ctrlLocals.$scope = $modal.scope;
+            ctrlInstance = $controller(options.controller, ctrlLocals);
+
+            if (options.controllerAs) {
+                $modal.scope[options.controllerAs] = $controller(options.controller, ctrlLocals);
+            }
+        }
+
         $modal.close = function () {
             return removeModal($modal);
         };
 
+        appendModal($modal.id, $modal.scope, $modal.options);
+
         return $modal;
     };
 
-    function appendModal(id, options) {
-        body.append($compile('<div class="modal modal-' + id + ' ng-show" style="display: block;">' +
+    function appendModal(id, scope, options) {
+        body.append($compile('<div class="modal modal-' + id +
+                (options.size ? ' modal--' + options.size : '') +
+                (options.classes ? ' ' + options.classes : '') + '" style="display: block;">' +
                 '<div class="modal__dialog"><div class="modal__content" ng-include="\'' + options.template + '\'"></div></div>' +
-                '</div><div class="modal__backdrop modal-' + id + ' fade in"></div>')(options.scope));
+                '</div><div class="modal__backdrop modal-' + id + ' fade in"></div>')(scope));
 
     }
 

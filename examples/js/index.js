@@ -74,6 +74,7 @@ angular.module('ui-docs', [
             }
         }
     };
+
 }).directive('docModal', function (sdModalService) {
     return {
         link: function (scope) {
@@ -91,13 +92,20 @@ angular.module('ui-docs', [
             scope.openTemplateModal = function () {
                 modal = sdModalService.open({
                     template: 'templates/modal-template.html',
-                    scope: scope
+                    controller: docModalController,
+                    controllerAs: 'ctrl',
+                    size: 'large',
+                    classes: 'modal--white'
                 });
             };
 
             scope.close = function () {
                 modal.close();
             };
+
+            function docModalController($scope) {
+                this.data = "Element binded inside controller";
+            }
         }
     };
 }).directive('scroll', function ($window) {
