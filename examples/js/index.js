@@ -75,7 +75,7 @@ angular.module('ui-docs', [
         }
     };
 
-}).directive('docModal', function (sdModalService) {
+}).directive('docModal', function ($modal) {
     return {
         link: function (scope) {
             scope.modalActive = false;
@@ -90,21 +90,19 @@ angular.module('ui-docs', [
 
             var modal;
             scope.openTemplateModal = function () {
-                modal = sdModalService.open({
-                    template: 'templates/modal-template.html',
+                modal = $modal.open({
+                    templateUrl: 'templates/modal-template.html',
                     controller: docModalController,
-                    controllerAs: 'ctrl',
-                    size: 'large',
-                    classes: 'modal--white'
+                    size: 'large'
                 });
             };
 
-            scope.close = function () {
-                modal.close();
+            scope.close = function ($event) {
+                modal.close('cancel');
             };
 
-            function docModalController($scope) {
-                this.data = "Element binded inside controller";
+            function docModalController($scope, $modalInstance) {
+                $scope.data = "Element binded inside controller";
             }
         }
     };
