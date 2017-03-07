@@ -3,6 +3,24 @@ module.exports = function (grunt) {
 
     // Project configuration.
     grunt.config.init({
+        ngtemplates: {
+            core: {
+                src: 'app/template/**/*.html',
+                dest: '.tmp/templates-cache.generated.js',
+                options: {
+                    htmlmin: {
+                        collapseWhitespace: true,
+                        collapseBooleanAttributes: true
+                    },
+                    bootstrap: function (module, script) {
+                        return '"use strict";\n' +
+                                'angular.module("superdesk-ui.templates-cache", [])' +
+                                '.run([\'$templateCache\', function($templateCache) {' + script + ' }]);';
+                    }
+                }
+            }
+        },
+
         sass: {
             options: {
                 sourceMap: true
@@ -44,8 +62,7 @@ module.exports = function (grunt) {
                         'node_modules/jquery/dist/jquery.min.js',
                         'node_modules/underscore/underscore-min.js',
                         'node_modules/google-code-prettify/src/prettify.js',
-                        'node_modules/angular/angular.min.js',
-                        'node_modules/angular-ui-bootstrap/ui-bootstrap.min.js'
+                        'node_modules/angular/angular.min.js'
                     ]
                 }
             },
@@ -55,25 +72,34 @@ module.exports = function (grunt) {
                 },
                 files: {
                     'dist/superdesk-ui-framework.js': [
-                        'app/scripts/index.js',
+                        '.tmp/templates-cache.generated.js',
+                        'app/scripts/helpers/position_helper.js',
+                        'app/scripts/helpers/dropdown_helper.js',
+                        'app/scripts/helpers/modal_helper.js',
                         'app/scripts/dropdown.js',
                         'app/scripts/modals.js',
                         'app/scripts/switch.js',
-                        'app/scripts/check.js'
+                        'app/scripts/check.js',
+                        'app/scripts/index.js'
                     ]
                 }
             }
         },
         pixrem: {
-           options: {
-             rootvalue: '10px',
-             replace: true
-           },
-           dist: {
-             src: 'dist/superdesk-ui-framework.core.css',
-             dest: 'dist/superdesk-ui-framework.prefixed.css'
-           }
+            options: {
+                rootvalue: '10px',
+                replace: true
+            },
+            dist: {
+                src: 'dist/superdesk-ui-framework.core.css',
+                dest: 'dist/superdesk-ui-framework.prefixed.css'
+            }
         },
+        clean: {
+            options: {force: true},
+            structure: ['dist', '.tmp']
+        },
+
         connect: {
             options: {
                 hostname: 'localhost',
@@ -86,6 +112,14 @@ module.exports = function (grunt) {
         watch: {
             html: {
                 files: ['examples/**/*.html'],
+                options: {
+                    livereload: true,
+                    spawn: false
+                }
+            },
+            appHtml: {
+                files: ['app/template/**/*.html'],
+                tasks: ['ngtemplates:core', 'uglify:dist'],
                 options: {
                     livereload: true,
                     spawn: false
@@ -111,6 +145,8 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', [
+        'clean',
+        'ngtemplates:core',
         'sass',
         'cssmin',
         'uglify',
@@ -118,5 +154,4 @@ module.exports = function (grunt) {
         'pixrem',
         'watch'
     ]);
-
 };

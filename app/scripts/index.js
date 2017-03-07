@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('superdesk-ui', [
-    'ui.bootstrap',
+    'superdesk-ui.templates-cache',
+    'superdesk-ui.helper.dropdown',
+    'superdesk-ui.helper.modal',
     'superdesk-ui.dropdown',
     'superdesk-ui.modals',
     'superdesk-ui.switch',
