@@ -2161,12 +2161,15 @@ button {
     background: #fff;
     border-bottom: 1px solid #e4e4e4;
     padding: 0; }
+    .modal.modal--tabs .modal__body-header--add-padding {
+      padding: 1rem 2rem; }
   .modal.modal--tabs .modal__body-content {
     flex: 1 1 auto;
     width: 100%;
     overflow-y: auto;
     padding: 2rem;
-    background: #f8f8f8; }
+    background: #f8f8f8;
+    min-height: 60px; }
   .modal.modal--tabs .modal__body-footer {
     flex: 0 0 auto;
     padding: 1.2rem 2rem;

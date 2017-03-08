@@ -198,6 +198,9 @@ $modal-sizes: (
             background: $white;
             border-bottom: 1px solid $modal-line-color;
             padding: 0;
+            &--add-padding {
+                padding: 1rem 2rem; // useful if we use body header for something else but tabs
+            }
         }
         .modal__body-content {
             flex: 1 1 auto;
@@ -205,6 +208,7 @@ $modal-sizes: (
             overflow-y: auto;
             padding: $modal-padding;
             background: $sd-background;
+            min-height: 60px;
         }
         .modal__body-footer {
             flex: 0 0 auto;
