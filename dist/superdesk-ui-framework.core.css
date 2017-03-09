@@ -2537,8 +2537,6 @@ table {
   transition: all 0.3s ease; }
   .subnav--padded {
     padding: 10px 20px; }
-  .subnav--archive {
-    top: 96px; }
   .subnav--darker {
     background: #dedede; }
   .subnav--absolute {
