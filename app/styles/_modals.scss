@@ -200,6 +200,8 @@ $modal-sizes: (
             padding: 0;
             &--add-padding {
                 padding: 1rem 2rem; // useful if we use body header for something else but tabs
+                height: auto;
+                min-height: 48px;
             }
         }
         .modal__body-content {
