@@ -52,7 +52,7 @@ function sdCheck() {
             }
 
             if (attrs.labelPosition === 'inside') {
-                checkbox.append(label).addClass('sd-checkbox sd-checkbox--button-style');
+                checkbox.html(label).addClass('sd-checkbox sd-checkbox--button-style');
             } else if (attrs.labelPosition === 'left') {
                 label.after(checkbox);
             }
