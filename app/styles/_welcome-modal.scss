@@ -1,0 +1,205 @@
+// WELCOME MODAL
+// ------
+
+// Modal for onboarding pages. Includes support for slider and pagination.
+
+
+.sd-welcome-modal {
+    position: fixed;
+    left: 40px;
+    right: 40px;
+    top: 40px;
+    bottom: 40px;
+    align-items: center;
+    flex-direction: row;
+    z-index: 1050;
+    display: flex;
+    
+    display: none;
+}
+
+.sd-welcome-modal__dialog {
+    display: flex;
+    max-height: 100%;
+    flex: 0 1 auto;
+    margin: 0 auto;
+    max-width: 680px;
+    width: 100%;
+    position: relative;
+}
+
+.sd-welcome-modal__content {
+    background: #fff;
+    background-clip: padding-box;
+    outline: 0;
+    box-shadow: 0 4px 24px rgba(0,0,0,.20), 0 10px 28px rgba(0,0,0,.35);
+    border-radius: 1rem 1rem 0.8rem 0.8rem;
+    min-height: 40rem;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+}
+
+.sd-welcome-modal__page {
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+}
+.sd-welcome-modal__page-header {
+    width: 100%;
+    height: 200px;
+    border-radius: 0.8rem 0.8rem 0 0;
+    background-color: #303E55;
+    flex-grow: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.sd-welcome-modal__page-header-illustration {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    opacity: 0.5;
+}
+
+.sd-welcome-modal__page-heading {
+    font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    letter-spacing: .03em;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+    color: #fff;
+    font-size: 3.2rem;
+    line-height: 1;
+    top: calc(50% - 1.6rem);
+}
+
+.sd-welcome-modal__page-text {
+    padding: 3rem;
+    flex-grow: 1;
+    font-size: 1.6rem;
+    line-height: 140%;
+    font-weight: 300;
+    p {
+        margin-bottom: 1em;
+        &:last-child, &:only-child {
+            margin-bottom: 0;
+        }
+    }
+    h3 {
+        font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+        font-size: 2rem;
+        margin-bottom: 0.8em;
+        font-weight: 700;
+    }
+}
+.sd-welcome-modal__page-footer {
+    text-align: center;
+    padding: 0 3rem 3rem;
+    flex-grow: 0;
+}
+
+
+@mixin modalNavButton-style(
+  $background: #fff,
+  $background-hover: scale-color($background, $lightness: -10%),
+  $background-active: scale-color($background, $lightness: -20%)) 
+  {
+    border-radius: 50%;
+    cursor: pointer;
+    height: 5.6rem;
+    line-height: 5.6rem;
+    position: absolute;
+    top: calc(50% - 2.8rem);
+    width: 5.6rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,.20), 0 10px 28px rgba(0,0,0,.35);
+    color: $sd-green;
+    transition: $button-transition;
+    background-color: $background;
+    &:hover {
+        background-color: $background-hover;
+    }
+    &:active {
+        background-color: $background-active;
+    }
+    &::after {
+        content: " ";
+        font-family: 'sd_icons';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        top:0;
+        text-align: center;
+        z-index: 2;
+        color: $sd-green;
+        width: 5.6rem;
+        font-size: 2.4rem; 
+    }
+}
+
+.sd-welcome-modal__nav-button {
+    @include modalNavButton-style;
+    &--next {
+        right: -88px;
+        color: inherit;
+        &::after {
+            content: "\e643";
+        }
+    }
+    &--prev {
+        left: -88px;
+        color: inherit;
+        &::after {
+            content: "\e642";
+        }
+    }
+    &--end {
+        right: -88px;
+        @include modalNavButton-style ($sd-green);
+        &::after {
+            content: "\e61d";
+            color: #fff;
+        }
+    }
+
+}
+
+.sd-welcome-modal__page-indication-bar {
+    bottom: -3.6rem;
+    height: 2.6rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.sd-welcome-modal__page-indicator {
+    background-color: rgba(255,255,255,.2);
+    border: 1px solid rgba(0,0,0,.4);
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.4rem;
+    width: 1.4rem;
+    margin: 0.6rem;
+    transition: $button-transition;
+    &--selcted {
+        background-color: rgba(255,255,255,0.8);
+        border-color: rgba(0,0,0,.6);
+    }
+}
+
+.sd-welcome-modal__backdrop {
+    z-index: 1045;
+    background: rgba(0,0,0,.45);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: none;
+}
+
+

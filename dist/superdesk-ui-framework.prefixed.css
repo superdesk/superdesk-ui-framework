@@ -61,6 +61,20 @@ button {
 .no-border {
   border: 0 !important; }
 
+.sd-shadow--z1 {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.08) !important;
+  transition: box-shadow 0.3s ease-out; }
+  .sd-shadow--z1:active {
+    box-shadow: none !important;
+    transition: box-shadow 0.4s ease-out; }
+
+.sd-shadow--z4 {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.3) !important;
+  transition: box-shadow 0.3s ease-out; }
+  .sd-shadow--z4:active {
+    box-shadow: none !important;
+    transition: box-shadow 0.4s ease-out; }
+
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -87,7 +101,7 @@ button {
   -webkit-appearance: none;
   border: 1px solid transparent;
   border-radius: 2px;
-  transition: background-color 0.1s ease-out, color 0.1s ease-out;
+  transition: background-color 0.2s ease-out, color 0.1s ease-out;
   font-size: 12px;
   text-transform: uppercase;
   line-height: 1;
@@ -1177,6 +1191,17 @@ button {
       padding: 9px 14px; }
     .btn.btn--icon-only.btn--small {
       padding: 2px 4px; }
+  .btn.btn--icon-only-circle {
+    padding: 5px 5px;
+    border-radius: 50%; }
+    .btn.btn--icon-only-circle [class^="icon-"], .btn.btn--icon-only-circle [class*=" icon-"] {
+      display: inline-block;
+      margin: 0;
+      vertical-align: middle; }
+    .btn.btn--icon-only-circle.btn--large {
+      padding: 9px 9px; }
+    .btn.btn--icon-only-circle.btn--small {
+      padding: 2px 2px; }
 
 .sd-create-btn {
   width: 48px;
@@ -2524,6 +2549,195 @@ table {
 [sd-tooltip][flow^="right"]:hover::before,
 [sd-tooltip][flow^="right"]:hover::after {
   animation: tooltips-horz 200ms ease-out forwards; }
+
+.sd-welcome-modal {
+  position: fixed;
+  left: 40px;
+  right: 40px;
+  top: 40px;
+  bottom: 40px;
+  align-items: center;
+  flex-direction: row;
+  z-index: 1050;
+  display: flex;
+  display: none; }
+
+.sd-welcome-modal__dialog {
+  display: flex;
+  max-height: 100%;
+  flex: 0 1 auto;
+  margin: 0 auto;
+  max-width: 680px;
+  width: 100%;
+  position: relative; }
+
+.sd-welcome-modal__content {
+  background: #fff;
+  background-clip: padding-box;
+  outline: 0;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 10px 28px rgba(0, 0, 0, 0.35);
+  border-radius: 10px 10px 8px 8px;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  flex: 0 0 100%; }
+
+.sd-welcome-modal__page {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column; }
+
+.sd-welcome-modal__page-header {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px 8px 0 0;
+  background-color: #303E55;
+  flex-grow: 0;
+  position: relative;
+  overflow: hidden; }
+
+.sd-welcome-modal__page-header-illustration {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 0.5; }
+
+.sd-welcome-modal__page-heading {
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+  font-weight: 700;
+  letter-spacing: .03em;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  color: #fff;
+  font-size: 32px;
+  line-height: 1;
+  top: calc(50% - 16px); }
+
+.sd-welcome-modal__page-text {
+  padding: 30px;
+  flex-grow: 1;
+  font-size: 16px;
+  line-height: 140%;
+  font-weight: 300; }
+  .sd-welcome-modal__page-text p {
+    margin-bottom: 1em; }
+    .sd-welcome-modal__page-text p:last-child, .sd-welcome-modal__page-text p:only-child {
+      margin-bottom: 0; }
+  .sd-welcome-modal__page-text h3 {
+    font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+    font-size: 20px;
+    margin-bottom: 0.8em;
+    font-weight: 700; }
+
+.sd-welcome-modal__page-footer {
+  text-align: center;
+  padding: 0 30px 30px;
+  flex-grow: 0; }
+
+.sd-welcome-modal__nav-button {
+  border-radius: 50%;
+  cursor: pointer;
+  height: 56px;
+  line-height: 56px;
+  position: absolute;
+  top: calc(50% - 28px);
+  width: 56px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 10px 28px rgba(0, 0, 0, 0.35);
+  color: #1eb06c;
+  transition: background-color 0.2s ease-out, color 0.1s ease-out;
+  background-color: #fff; }
+  .sd-welcome-modal__nav-button:hover {
+    background-color: #e6e6e6; }
+  .sd-welcome-modal__nav-button:active {
+    background-color: #cccccc; }
+  .sd-welcome-modal__nav-button::after {
+    content: " ";
+    font-family: 'sd_icons';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    position: absolute;
+    top: 0;
+    text-align: center;
+    z-index: 2;
+    color: #1eb06c;
+    width: 56px;
+    font-size: 24px; }
+  .sd-welcome-modal__nav-button--next {
+    right: -88px;
+    color: inherit; }
+    .sd-welcome-modal__nav-button--next::after {
+      content: "\e643"; }
+  .sd-welcome-modal__nav-button--prev {
+    left: -88px;
+    color: inherit; }
+    .sd-welcome-modal__nav-button--prev::after {
+      content: "\e642"; }
+  .sd-welcome-modal__nav-button--end {
+    right: -88px;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 56px;
+    line-height: 56px;
+    position: absolute;
+    top: calc(50% - 28px);
+    width: 56px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2), 0 10px 28px rgba(0, 0, 0, 0.35);
+    color: #1eb06c;
+    transition: background-color 0.2s ease-out, color 0.1s ease-out;
+    background-color: #1eb06c; }
+    .sd-welcome-modal__nav-button--end:hover {
+      background-color: #1b9e61; }
+    .sd-welcome-modal__nav-button--end:active {
+      background-color: #188d56; }
+    .sd-welcome-modal__nav-button--end::after {
+      content: " ";
+      font-family: 'sd_icons';
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      z-index: 2;
+      color: #1eb06c;
+      width: 56px;
+      font-size: 24px; }
+    .sd-welcome-modal__nav-button--end::after {
+      content: "\e61d";
+      color: #fff; }
+
+.sd-welcome-modal__page-indication-bar {
+  bottom: -36px;
+  height: 26px;
+  position: absolute;
+  text-align: center;
+  width: 100%; }
+
+.sd-welcome-modal__page-indicator {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  cursor: pointer;
+  display: inline-block;
+  height: 14px;
+  width: 14px;
+  margin: 6px;
+  transition: background-color 0.2s ease-out, color 0.1s ease-out; }
+  .sd-welcome-modal__page-indicator--selcted {
+    background-color: rgba(255, 255, 255, 0.8);
+    border-color: rgba(0, 0, 0, 0.6); }
+
+.sd-welcome-modal__backdrop {
+  z-index: 1045;
+  background: rgba(0, 0, 0, 0.45);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none; }
 
 .subnav {
   position: relative;
