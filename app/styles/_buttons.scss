@@ -7,6 +7,11 @@ $button-padding-large: 1rem 2rem;
 $button-padding-icon-only: 0.5rem 0.8rem;
 $button-padding-small-icon-only: 0.2rem 0.4rem;
 $button-padding-large-icon-only: 0.9rem 1.4rem;
+
+$button-padding-icon-only-circle: 0.5rem 0.5rem;
+$button-padding-small-icon-only-circle: 0.2rem 0.2rem;
+$button-padding-large-icon-only-circle: 0.9rem 0.9rem;
+
 /// Margin around buttons.
 /// @type List
 $button-margin: 0 !default;
@@ -62,7 +67,7 @@ $button-color-ui-dark: $white !default;
 $button-background-hover-lightness-ui-dark: -20% !default;
 
 /// transitions for buttons.
-$button-transition: background-color 0.1s ease-out, color 0.1s ease-out !default;
+$button-transition: background-color 0.2s ease-out, color 0.1s ease-out !default;
 $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
 
 // Button-base() mixin
@@ -471,6 +476,21 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       }
       &.btn--small {
         padding: $button-padding-small-icon-only;
+      }
+    }
+    &.btn--icon-only-circle {
+      padding: $button-padding-icon-only-circle;
+      border-radius: 50%;
+      [class^="icon-"], [class*=" icon-"] {
+          display:inline-block;
+          margin: 0;
+          vertical-align: middle;
+      }
+      &.btn--large {
+        padding: $button-padding-large-icon-only-circle;
+      }
+      &.btn--small {
+        padding: $button-padding-small-icon-only-circle;
       }
     }
 }
