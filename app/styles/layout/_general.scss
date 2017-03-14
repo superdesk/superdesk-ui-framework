@@ -101,6 +101,14 @@ $subnav-background: $grayLighter;
             background: #898989;
         }
     }
+    &.navbtn--highlighted {
+      background-color: $purple !important;
+      transition: all 0.3s;
+      padding: 0 0 0 9px;
+      &:hover {
+        background-color: darken($purple, 10%);
+      }
+    }
 }
 .dropdown.open {
     .navbtn {
