@@ -2824,6 +2824,12 @@ table {
     color: #fff; }
     .navbtn.navbtn--blue.disabled {
       background: #898989; }
+  .navbtn.navbtn--highlighted {
+    background-color: #9c27b0 !important;
+    transition: all 0.3s;
+    padding: 0 0 0 9px; }
+    .navbtn.navbtn--highlighted:hover {
+      background-color: #771e86; }
 
 .dropdown.open .navbtn {
   background: white;
