@@ -3416,7 +3416,7 @@ label + .sd-radio {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   text-align: left; }
-  .dropdown__menu li a, .dropdown__menu li button, .dropdown__menu .dropdown__menu-item a, .dropdown__menu .dropdown__menu-item button {
+  .dropdown__menu li a, .dropdown__menu li button:not(.btn), .dropdown__menu .dropdown__menu-item a, .dropdown__menu .dropdown__menu-item button:not(.btn) {
     display: block;
     font-weight: normal;
     line-height: 1.8rem;
@@ -3430,12 +3430,12 @@ label + .sd-radio {
     font-size: 1.3rem;
     text-decoration: none;
     text-align: left; }
-    .dropdown__menu li a > i[class^="icon-"], .dropdown__menu li a i[class*=" icon-"], .dropdown__menu li button > i[class^="icon-"], .dropdown__menu li button i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button i[class*=" icon-"] {
+    .dropdown__menu li a > i[class^="icon-"], .dropdown__menu li a i[class*=" icon-"], .dropdown__menu li button:not(.btn) > i[class^="icon-"], .dropdown__menu li button:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn) i[class*=" icon-"] {
       margin-right: 1rem;
       margin-top: -0.3rem;
       min-width: 1.9rem;
       vertical-align: middle; }
-    .dropdown__menu li a.disabled, .dropdown__menu li a[disabled], .dropdown__menu li button.disabled, .dropdown__menu li button[disabled], .dropdown__menu .dropdown__menu-item a.disabled, .dropdown__menu .dropdown__menu-item a[disabled], .dropdown__menu .dropdown__menu-item button.disabled, .dropdown__menu .dropdown__menu-item button[disabled] {
+    .dropdown__menu li a.disabled, .dropdown__menu li a[disabled], .dropdown__menu li button:not(.btn).disabled, .dropdown__menu li button:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item a.disabled, .dropdown__menu .dropdown__menu-item a[disabled], .dropdown__menu .dropdown__menu-item button:not(.btn).disabled, .dropdown__menu .dropdown__menu-item button:not(.btn)[disabled] {
       opacity: .5; }
   .dropdown__menu li a:hover, .dropdown__menu li a:focus, .dropdown__menu li button:hover, .dropdown__menu li button:focus, .dropdown__menu .dropdown__menu-item a:hover, .dropdown__menu .dropdown__menu-item a:focus, .dropdown__menu .dropdown__menu-item button:hover, .dropdown__menu .dropdown__menu-item button:focus {
     background: #eff7fa;
