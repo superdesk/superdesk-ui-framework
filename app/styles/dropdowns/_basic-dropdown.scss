@@ -101,7 +101,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 
     // Links within the dropdown menu
     li, .dropdown__menu-item {
-        a, button {
+        a, button:not(.btn) {
             display: block;
             font-weight: normal;
             line-height: $baseLineHeight;
