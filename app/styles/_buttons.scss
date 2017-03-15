@@ -287,9 +287,14 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     // Colors
     @each $name, $color in $sd-basic-palette {
         &.btn--#{$name} {
-          @include button-style($color, auto, $button-color-alt); // for all colored buttons we use alt color (white)
-          [class^="icon-"], [class*=" icon-"] {
-            color: $button-color-alt;
+          @if $name == default {
+            @include button-style($button-background, auto, $button-color); // btn--default class if needed
+          }
+          @else {
+            @include button-style($color, auto, $button-color-alt); // for all colored buttons we use alt color (white)
+            [class^="icon-"], [class*=" icon-"] {
+              color: $button-color-alt;
+            }
           }
         }
     }
