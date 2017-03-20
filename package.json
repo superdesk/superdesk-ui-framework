@@ -15,6 +15,7 @@
   ],
   "dependencies": {
     "angular": "^1.6.0",
+    "angular-animate": "^1.6.3",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1"
   },

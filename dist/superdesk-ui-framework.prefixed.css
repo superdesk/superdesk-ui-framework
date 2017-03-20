@@ -2548,7 +2548,7 @@ table {
 [sd-tooltip][flow^="right"]:hover::after {
   animation: tooltips-horz 200ms ease-out forwards; }
 
-.sd-welcome-modal {
+.sd-carousel {
   position: fixed;
   left: 40px;
   right: 40px;
@@ -2557,10 +2557,9 @@ table {
   align-items: center;
   flex-direction: row;
   z-index: 1050;
-  display: flex;
-  display: none; }
+  display: flex; }
 
-.sd-welcome-modal__dialog {
+.sd-carousel__dialog {
   display: flex;
   max-height: 100%;
   flex: 0 1 auto;
@@ -2569,7 +2568,7 @@ table {
   width: 100%;
   position: relative; }
 
-.sd-welcome-modal__content {
+.sd-carousel__content {
   background: #fff;
   background-clip: padding-box;
   outline: 0;
@@ -2580,13 +2579,13 @@ table {
   flex-direction: column;
   flex: 0 0 100%; }
 
-.sd-welcome-modal__page {
+.sd-carousel__page {
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: column; }
 
-.sd-welcome-modal__page-header {
+.sd-carousel__page-header {
   width: 100%;
   height: 200px;
   border-radius: 8px 8px 0 0;
@@ -2595,13 +2594,13 @@ table {
   position: relative;
   overflow: hidden; }
 
-.sd-welcome-modal__page-header-illustration {
+.sd-carousel__page-header-illustration {
   position: absolute;
   left: 0;
   bottom: 0;
   opacity: 0.5; }
 
-.sd-welcome-modal__page-heading {
+.sd-carousel__page-heading {
   font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
   font-weight: 700;
   letter-spacing: .03em;
@@ -2614,28 +2613,28 @@ table {
   line-height: 1;
   top: calc(50% - 16px); }
 
-.sd-welcome-modal__page-text {
+.sd-carousel__page-text {
   padding: 30px;
   flex-grow: 1;
   font-size: 16px;
   line-height: 140%;
   font-weight: 300; }
-  .sd-welcome-modal__page-text p {
+  .sd-carousel__page-text p {
     margin-bottom: 1em; }
-    .sd-welcome-modal__page-text p:last-child, .sd-welcome-modal__page-text p:only-child {
+    .sd-carousel__page-text p:last-child, .sd-carousel__page-text p:only-child {
       margin-bottom: 0; }
-  .sd-welcome-modal__page-text h3 {
+  .sd-carousel__page-text h3 {
     font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
     font-size: 20px;
     margin-bottom: 0.8em;
     font-weight: 700; }
 
-.sd-welcome-modal__page-footer {
+.sd-carousel__page-footer {
   text-align: center;
   padding: 0 30px 30px;
   flex-grow: 0; }
 
-.sd-welcome-modal__nav-button {
+.sd-carousel__nav-button {
   border-radius: 50%;
   cursor: pointer;
   height: 56px;
@@ -2647,11 +2646,11 @@ table {
   color: #1eb06c;
   transition: background-color 0.2s ease-out, color 0.1s ease-out;
   background-color: #fff; }
-  .sd-welcome-modal__nav-button:hover {
+  .sd-carousel__nav-button:hover {
     background-color: #e6e6e6; }
-  .sd-welcome-modal__nav-button:active {
+  .sd-carousel__nav-button:active {
     background-color: #cccccc; }
-  .sd-welcome-modal__nav-button::after {
+  .sd-carousel__nav-button::after {
     content: " ";
     font-family: 'sd_icons';
     -webkit-font-smoothing: antialiased;
@@ -2663,17 +2662,17 @@ table {
     color: #1eb06c;
     width: 56px;
     font-size: 24px; }
-  .sd-welcome-modal__nav-button--next {
+  .sd-carousel__nav-button--next {
     right: -88px;
     color: inherit; }
-    .sd-welcome-modal__nav-button--next::after {
+    .sd-carousel__nav-button--next::after {
       content: "\e643"; }
-  .sd-welcome-modal__nav-button--prev {
+  .sd-carousel__nav-button--prev {
     left: -88px;
     color: inherit; }
-    .sd-welcome-modal__nav-button--prev::after {
+    .sd-carousel__nav-button--prev::after {
       content: "\e642"; }
-  .sd-welcome-modal__nav-button--end {
+  .sd-carousel__nav-button--end {
     right: -88px;
     border-radius: 50%;
     cursor: pointer;
@@ -2686,11 +2685,11 @@ table {
     color: #1eb06c;
     transition: background-color 0.2s ease-out, color 0.1s ease-out;
     background-color: #1eb06c; }
-    .sd-welcome-modal__nav-button--end:hover {
+    .sd-carousel__nav-button--end:hover {
       background-color: #1b9e61; }
-    .sd-welcome-modal__nav-button--end:active {
+    .sd-carousel__nav-button--end:active {
       background-color: #188d56; }
-    .sd-welcome-modal__nav-button--end::after {
+    .sd-carousel__nav-button--end::after {
       content: " ";
       font-family: 'sd_icons';
       -webkit-font-smoothing: antialiased;
@@ -2702,18 +2701,18 @@ table {
       color: #1eb06c;
       width: 56px;
       font-size: 24px; }
-    .sd-welcome-modal__nav-button--end::after {
+    .sd-carousel__nav-button--end::after {
       content: "\e61d";
       color: #fff; }
 
-.sd-welcome-modal__page-indication-bar {
+.sd-carousel__page-indication-bar {
   bottom: -36px;
   height: 26px;
   position: absolute;
   text-align: center;
   width: 100%; }
 
-.sd-welcome-modal__page-indicator {
+.sd-carousel__page-indicator {
   background-color: rgba(255, 255, 255, 0.2);
   border: 1px solid rgba(0, 0, 0, 0.4);
   border-radius: 50%;
@@ -2723,19 +2722,32 @@ table {
   width: 14px;
   margin: 6px;
   transition: background-color 0.2s ease-out, color 0.1s ease-out; }
-  .sd-welcome-modal__page-indicator--selcted {
+  .sd-carousel__page-indicator--selected {
     background-color: rgba(255, 255, 255, 0.8);
     border-color: rgba(0, 0, 0, 0.6); }
 
-.sd-welcome-modal__backdrop {
+.sd-carousel__backdrop {
   z-index: 1045;
   background: rgba(0, 0, 0, 0.45);
   position: fixed;
   top: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  display: none; }
+  right: 0; }
+
+.fade.ng-hide {
+  opacity: 0; }
+
+.fade.ng-hide-remove,
+.fade.ng-hide-add {
+  display: block !important; }
+
+.fade.ng-hide-remove {
+  transition: all linear 800ms; }
+
+.fade.ng-hide-add {
+  position: absolute;
+  transition: all linear 300ms; }
 
 .subnav {
   position: relative;
