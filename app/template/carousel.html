@@ -1,0 +1,15 @@
+<div class="sd-carousel__backdrop"></div>
+<div class="sd-carousel">
+    <div class="sd-carousel__dialog">
+        <div class="sd-carousel__content" ng-transclude></div>
+        <a class="sd-carousel__nav-button sd-carousel__nav-button--prev" ng-click="ctrl.previous()" ng-hide="pageIndex === 0"></a>
+        <a class="sd-carousel__nav-button" ng-click="pageIndex === steps.length-1 ? ctrl.finish() : ctrl.next()" ng-class="pageIndex === steps.length-1 ? 'sd-carousel__nav-button--end' : 'sd-carousel__nav-button--next'"></a>
+        <div class="sd-carousel__page-indication-bar">
+            <span ng-repeat="step in steps" 
+                  class="sd-carousel__page-indicator" 
+                  ng-class="{'sd-carousel__page-indicator--selected': step.selected}"
+                  ng-click="goTo(step)">
+            </span>
+        </div>
+    </div>
+</div>

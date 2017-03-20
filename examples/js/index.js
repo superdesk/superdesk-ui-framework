@@ -97,13 +97,21 @@ angular.module('ui-docs', [
                 });
             };
 
-            scope.close = function ($event) {
+            scope.close = function () {
                 modal.close('cancel');
             };
 
-            function docModalController($scope, $modalInstance) {
+            function docModalController($scope) {
                 $scope.data = "Element binded inside controller";
             }
+
+            scope.openCarousel = function() {
+                scope.carouselActive = true;
+            };
+
+            scope.hideCarousel = function() {
+                scope.carouselActive = false;
+            };
         }
     };
 }).directive('scroll', function ($window) {

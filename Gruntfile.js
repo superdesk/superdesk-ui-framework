@@ -62,7 +62,8 @@ module.exports = function (grunt) {
                         'node_modules/jquery/dist/jquery.min.js',
                         'node_modules/underscore/underscore-min.js',
                         'node_modules/google-code-prettify/src/prettify.js',
-                        'node_modules/angular/angular.min.js'
+                        'node_modules/angular/angular.min.js',
+                        'node_modules/angular-animate/angular-animate.min.js'
                     ]
                 }
             },
@@ -76,6 +77,8 @@ module.exports = function (grunt) {
                         'app/scripts/helpers/position_helper.js',
                         'app/scripts/helpers/dropdown_helper.js',
                         'app/scripts/helpers/modal_helper.js',
+                        'app/scripts/carousel.js',
+                        'app/scripts/wizard.js',
                         'app/scripts/dropdown.js',
                         'app/scripts/modals.js',
                         'app/scripts/switch.js',
