@@ -1,0 +1,122 @@
+/// @group sd-alert
+
+/// Default background color for labels.
+$sd-alert-background: scale-color($grayLight, $alpha: -50%) !default;
+
+/// Default text color for sd-alerts.
+$sd-alert-color: $grayDark !default;
+
+/// Alternate text color for sd-alerts.
+$sd-alert-color-alt: $gray !default;
+
+/// Coloring classes. A map of classes to output in the CSS.
+$sd-alert-palette: $sd-extended-palette;
+
+/// Default padding inside sd-alerts.
+$sd-alert-padding: 1.8rem 3rem 1.8rem 2rem !default;
+//$sd-alert-padding-large: 0.4rem 1.2rem;
+
+$sd-alert-lineheight-large: 1;
+
+/// Default radius of sd-alerts.
+$sd-alert-radius: 4px !default;
+
+/// Default shadow for sd-alerts.
+$sd-alert-shadow: 0 1px 4px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);
+
+
+/// Removes background fill for hollow buttons.
+@mixin sd-alert-hollow-style($color: $sd-alert-color-alt) {
+    border: 1px solid $color;
+    background-color: scale-color($color, $lightness: 95%);
+    color: $color;
+}
+
+/// Generates base styles for a sd-alert.
+@mixin sd-alert {
+    padding: $sd-alert-padding;
+    vertical-align: middle;
+    border-radius: $sd-alert-radius;
+    line-height: 1.4em;
+    font-size: 1.4rem;
+    border: 1px solid transparent;
+    font-weight: 400;
+    position: relative;
+    box-shadow: $sd-alert-shadow;
+    & strong {
+        font-weight: 500;
+    }
+}
+
+
+.sd-alert {
+    @include sd-alert;
+    margin-bottom: 2rem;
+    background: $sd-alert-background;
+    color: $sd-alert-color;
+        @each $name, $color in $sd-alert-palette {
+        &.sd-alert--#{$name} {
+            background: $color;
+            color: white;
+        }
+    }
+    &.sd-alert--hollow {
+        @include sd-alert-hollow-style;
+        @each $name, $color in $sd-alert-palette {
+            &.sd-alert--#{$name} {
+                @include sd-alert-hollow-style($color);
+            }
+        }
+    }
+    p {
+        font-size: 1.4rem;
+        color: inherit;
+        margin-bottom: 1em;
+    }
+    & p:last-child,
+    & p:only-child {
+        margin-bottom: 0;
+    }
+}
+
+.sd-alert__close {
+    position: absolute;
+    top: 0.3rem;
+    right: 0.3rem;
+    width: 2.1rem;
+    height: 2.1rem;
+    padding: 0;
+    z-index: 1;
+    opacity: .2;
+    line-height: 2.1rem;
+    color: inherit;
+    border-radius: 50%;
+    &::after {
+        font-family: sd_icons;
+        font-size: 16px;
+        content: "\e647";
+        width: 16px;
+        height:16px;
+        position: absolute;
+        top:0;
+        left: 0.2rem;
+        line-height: inherit;
+        color: inherit;
+        font-style: normal;
+        font-weight: 400;
+        font-variant: normal;
+        text-transform: none;
+        -webkit-font-smoothing: antialiased;
+    }
+    &:hover {
+        opacity: .8;
+        background-color: rgba(255,255,255,.3);
+    }
+    &:active {
+        opacity: 1;
+        background-color: rgba(255,255,255,.5);
+    }
+
+}
+
+

@@ -1299,6 +1299,8 @@ button {
     background: #7300ab; }
   .label.label--darkBlue2 {
     background: #000080; }
+  .label.label--sd-green {
+    background: #1eb06c; }
   .label.label--hollow {
     border: 1px solid #666;
     background-color: transparent;
@@ -1359,6 +1361,10 @@ button {
       border: 1px solid #000080;
       background-color: transparent;
       color: #000080; }
+    .label.label--hollow.label--sd-green {
+      border: 1px solid #1eb06c;
+      background-color: transparent;
+      color: #1eb06c; }
 
 .badge {
   display: inline-block;
@@ -1386,6 +1392,173 @@ button {
     background: #9c27b0; }
   .badge.badge--sd-green {
     background: #1eb06c; }
+
+.sd-alert {
+  padding: 18px 30px 18px 20px;
+  vertical-align: middle;
+  border-radius: 4px;
+  line-height: 1.4em;
+  font-size: 14px;
+  border: 1px solid transparent;
+  font-weight: 400;
+  position: relative;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  background: rgba(153, 153, 153, 0.5);
+  color: #333; }
+  .sd-alert strong {
+    font-weight: 500; }
+  .sd-alert.sd-alert--default {
+    background: #333;
+    color: white; }
+  .sd-alert.sd-alert--primary {
+    background: #5ea9c8;
+    color: white; }
+  .sd-alert.sd-alert--success {
+    background: #46a546;
+    color: white; }
+  .sd-alert.sd-alert--warning {
+    background: #dd8200;
+    color: white; }
+  .sd-alert.sd-alert--alert {
+    background: #E51C23;
+    color: white; }
+  .sd-alert.sd-alert--highlight {
+    background: #9c27b0;
+    color: white; }
+  .sd-alert.sd-alert--success2 {
+    background: #56812e;
+    color: white; }
+  .sd-alert.sd-alert--yellow2 {
+    background: #d2a800;
+    color: white; }
+  .sd-alert.sd-alert--orange2 {
+    background: #da7200;
+    color: white; }
+  .sd-alert.sd-alert--red2 {
+    background: #be1600;
+    color: white; }
+  .sd-alert.sd-alert--highlight2 {
+    background: #e30083;
+    color: white; }
+  .sd-alert.sd-alert--highlight3 {
+    background: #8b008b;
+    color: white; }
+  .sd-alert.sd-alert--highlight4 {
+    background: #7300ab;
+    color: white; }
+  .sd-alert.sd-alert--darkBlue2 {
+    background: #000080;
+    color: white; }
+  .sd-alert.sd-alert--sd-green {
+    background: #1eb06c;
+    color: white; }
+  .sd-alert.sd-alert--hollow {
+    border: 1px solid #666;
+    background-color: #f7f7f7;
+    color: #666; }
+    .sd-alert.sd-alert--hollow.sd-alert--default {
+      border: 1px solid #333;
+      background-color: whitesmoke;
+      color: #333; }
+    .sd-alert.sd-alert--hollow.sd-alert--primary {
+      border: 1px solid #5ea9c8;
+      background-color: #f7fbfc;
+      color: #5ea9c8; }
+    .sd-alert.sd-alert--hollow.sd-alert--success {
+      border: 1px solid #46a546;
+      background-color: #f5fbf5;
+      color: #46a546; }
+    .sd-alert.sd-alert--hollow.sd-alert--warning {
+      border: 1px solid #dd8200;
+      background-color: #fff9f1;
+      color: #dd8200; }
+    .sd-alert.sd-alert--hollow.sd-alert--alert {
+      border: 1px solid #E51C23;
+      background-color: #fef4f4;
+      color: #E51C23; }
+    .sd-alert.sd-alert--hollow.sd-alert--highlight {
+      border: 1px solid #9c27b0;
+      background-color: #fbf3fc;
+      color: #9c27b0; }
+    .sd-alert.sd-alert--hollow.sd-alert--success2 {
+      border: 1px solid #56812e;
+      background-color: #f6fbf3;
+      color: #56812e; }
+    .sd-alert.sd-alert--hollow.sd-alert--yellow2 {
+      border: 1px solid #d2a800;
+      background-color: #fffcf0;
+      color: #d2a800; }
+    .sd-alert.sd-alert--hollow.sd-alert--orange2 {
+      border: 1px solid #da7200;
+      background-color: #fff8f0;
+      color: #da7200; }
+    .sd-alert.sd-alert--hollow.sd-alert--red2 {
+      border: 1px solid #be1600;
+      background-color: #fff1ef;
+      color: #be1600; }
+    .sd-alert.sd-alert--hollow.sd-alert--highlight2 {
+      border: 1px solid #e30083;
+      background-color: #fff1f9;
+      color: #e30083; }
+    .sd-alert.sd-alert--hollow.sd-alert--highlight3 {
+      border: 1px solid #8b008b;
+      background-color: #ffecff;
+      color: #8b008b; }
+    .sd-alert.sd-alert--hollow.sd-alert--highlight4 {
+      border: 1px solid #7300ab;
+      background-color: #f9eeff;
+      color: #7300ab; }
+    .sd-alert.sd-alert--hollow.sd-alert--darkBlue2 {
+      border: 1px solid #000080;
+      background-color: #ececff;
+      color: #000080; }
+    .sd-alert.sd-alert--hollow.sd-alert--sd-green {
+      border: 1px solid #1eb06c;
+      background-color: #f2fdf8;
+      color: #1eb06c; }
+  .sd-alert p {
+    font-size: 14px;
+    color: inherit;
+    margin-bottom: 1em; }
+  .sd-alert p:last-child,
+  .sd-alert p:only-child {
+    margin-bottom: 0; }
+
+.sd-alert__close {
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 21px;
+  height: 21px;
+  padding: 0;
+  z-index: 1;
+  opacity: .2;
+  line-height: 21px;
+  color: inherit;
+  border-radius: 50%; }
+  .sd-alert__close::after {
+    font-family: sd_icons;
+    font-size: 16px;
+    content: "\e647";
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: 0;
+    left: 2px;
+    line-height: inherit;
+    color: inherit;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased; }
+  .sd-alert__close:hover {
+    opacity: .8;
+    background-color: rgba(255, 255, 255, 0.3); }
+  .sd-alert__close:active {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.5); }
 
 .flex-grid {
   display: flex;
