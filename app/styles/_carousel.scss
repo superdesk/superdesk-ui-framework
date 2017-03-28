@@ -36,6 +36,8 @@
     display: flex;
     flex-direction: column;
     flex: 0 0 100%;
+    max-height: 80rem;
+
 }
 
 .sd-carousel__page {
@@ -43,6 +45,8 @@
     height:100%;
     display: flex;
     flex-direction: column;
+    flex-grow: 1;
+
 }
 .sd-carousel__page-header {
     width: 100%;
@@ -52,13 +56,19 @@
     flex-grow: 0;
     position: relative;
     overflow: hidden;
+    &--color-2 {
+        background-color: #856CA1;
+    }
+    &--color-3 {
+        background-color: #6DBEC4;
+    }
 }
 
 .sd-carousel__page-header-illustration {
     position: absolute;
     left: 0;
     bottom: 0;
-    opacity: 0.5;
+    opacity: 0.65;
 }
 
 .sd-carousel__page-heading {
@@ -196,23 +206,4 @@
     bottom: 0;
     left: 0;
     right: 0;
-}
-
-// Animation, TODO: Refactor
-.fade.ng-hide {
-  opacity: 0;
-}
-
-.fade.ng-hide-remove,
-.fade.ng-hide-add {
-  display: block !important;
-}
-
-.fade.ng-hide-remove {
-  transition: all linear 800ms;
-}
-
-.fade.ng-hide-add {
-  position: absolute;
-  transition: all linear 300ms;
 }
