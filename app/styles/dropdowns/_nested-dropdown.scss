@@ -44,11 +44,12 @@
                 }
                 &.dropdown--align-right {
                     left: auto;
-                    right: 0;
+                    right: 100%;
                 }
             }
             &.dropdown--dropup > .dropdown__menu {
                 top: auto;
+                bottom: 0;
             }
             &:hover {
                 > .dropdown__menu {
