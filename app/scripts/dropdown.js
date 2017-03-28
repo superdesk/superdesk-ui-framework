@@ -23,7 +23,7 @@ function sdDropdown($window) {
             }
 
             function closeToRight() {
-                return ($window.innerWidth - elem.offset().left) < menu.outerWidth();
+                return ($window.innerWidth - button.offset().left - button.outerWidth()) < menu.outerWidth();
             }
 
             button.bind('click mouseover', function (event) {

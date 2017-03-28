@@ -3910,9 +3910,10 @@ label + .sd-radio {
       bottom: -16px; }
     .dropdown.open li .dropdown > .dropdown__menu.dropdown--align-right {
       left: auto;
-      right: 0; }
+      right: 100%; }
   .dropdown.open li .dropdown.dropdown--dropup > .dropdown__menu {
-    top: auto; }
+    top: auto;
+    bottom: 0; }
   .dropdown.open li .dropdown:hover > .dropdown__menu {
     display: block; }
 
