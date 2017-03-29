@@ -101,7 +101,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 
     // Links within the dropdown menu
     li, .dropdown__menu-item {
-        a:not(.btn), button:not(.btn) {
+        a:not(.btn), button:not(.btn):not(.dropdown__menu-close) {
             display: block;
             font-weight: normal;
             line-height: $baseLineHeight;
@@ -125,7 +125,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
                 opacity: .5;
             }
         }
-        a:not(.btn), button:not(.btn) {
+        a:not(.btn), button:not(.btn):not(.dropdown__menu-close) {
             &:hover, &:focus {
                 background: $dropdownLinkBackgroundHover;
                 text-decoration: none;
