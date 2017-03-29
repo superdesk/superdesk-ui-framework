@@ -3601,7 +3601,7 @@ label + .sd-radio {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   text-align: left; }
-  .dropdown__menu li a:not(.btn), .dropdown__menu li button:not(.btn), .dropdown__menu .dropdown__menu-item a:not(.btn), .dropdown__menu .dropdown__menu-item button:not(.btn) {
+  .dropdown__menu li a:not(.btn), .dropdown__menu li button:not(.btn):not(.dropdown__menu-close), .dropdown__menu .dropdown__menu-item a:not(.btn), .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) {
     display: block;
     font-weight: normal;
     line-height: 1.8rem;
@@ -3615,20 +3615,20 @@ label + .sd-radio {
     font-size: 1.3rem;
     text-decoration: none;
     text-align: left; }
-    .dropdown__menu li a:not(.btn) > i[class^="icon-"], .dropdown__menu li a:not(.btn) i[class*=" icon-"], .dropdown__menu li button:not(.btn) > i[class^="icon-"], .dropdown__menu li button:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn) i[class*=" icon-"] {
+    .dropdown__menu li a:not(.btn) > i[class^="icon-"], .dropdown__menu li a:not(.btn) i[class*=" icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) i[class*=" icon-"] {
       margin-right: 1rem;
       margin-top: -0.3rem;
       min-width: 1.9rem;
       vertical-align: middle; }
-    .dropdown__menu li a:not(.btn).disabled, .dropdown__menu li a:not(.btn)[disabled], .dropdown__menu li button:not(.btn).disabled, .dropdown__menu li button:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item a:not(.btn).disabled, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item button:not(.btn).disabled, .dropdown__menu .dropdown__menu-item button:not(.btn)[disabled] {
+    .dropdown__menu li a:not(.btn).disabled, .dropdown__menu li a:not(.btn)[disabled], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close).disabled, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close)[disabled], .dropdown__menu .dropdown__menu-item a:not(.btn).disabled, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close).disabled, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close)[disabled] {
       opacity: .5; }
-  .dropdown__menu li a:not(.btn):hover, .dropdown__menu li a:not(.btn):focus, .dropdown__menu li button:not(.btn):hover, .dropdown__menu li button:not(.btn):focus, .dropdown__menu .dropdown__menu-item a:not(.btn):hover, .dropdown__menu .dropdown__menu-item a:not(.btn):focus, .dropdown__menu .dropdown__menu-item button:not(.btn):hover, .dropdown__menu .dropdown__menu-item button:not(.btn):focus {
+  .dropdown__menu li a:not(.btn):hover, .dropdown__menu li a:not(.btn):focus, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):focus, .dropdown__menu .dropdown__menu-item a:not(.btn):hover, .dropdown__menu .dropdown__menu-item a:not(.btn):focus, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):focus {
     background: #eff7fa;
     text-decoration: none;
     cursor: pointer; }
-  .dropdown__menu li a:not(.btn):active, .dropdown__menu li button:not(.btn):active, .dropdown__menu .dropdown__menu-item a:not(.btn):active, .dropdown__menu .dropdown__menu-item button:not(.btn):active {
+  .dropdown__menu li a:not(.btn):active, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):active, .dropdown__menu .dropdown__menu-item a:not(.btn):active, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):active {
     background: #c8e4ee; }
-  .dropdown__menu li a:not(.btn).disabled:hover, .dropdown__menu li a:not(.btn)[disabled]:hover, .dropdown__menu li button:not(.btn).disabled:hover, .dropdown__menu li button:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item a:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item button:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item button:not(.btn)[disabled]:hover {
+  .dropdown__menu li a:not(.btn).disabled:hover, .dropdown__menu li a:not(.btn)[disabled]:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close).disabled:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close)[disabled]:hover, .dropdown__menu .dropdown__menu-item a:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close).disabled:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close)[disabled]:hover {
     background: none;
     cursor: default; }
   .dropdown__menu li .preferred-desk, .dropdown__menu .dropdown__menu-item .preferred-desk {
