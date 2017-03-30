@@ -178,7 +178,11 @@ $sd-icon-font: (
   unlocked: "\e673",
   code: "\e674",
   cut: "\e675",
-  paste: "\e676"
+  paste: "\e676",
+  arrow-left:"\e677",
+  arrow-right:"\e678",
+  info-large:"\e679",
+  help-large:"\e67a"
 );
 
 @each $name, $value in $sd-icon-font {

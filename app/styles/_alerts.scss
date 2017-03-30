@@ -32,6 +32,8 @@ $sd-alert-shadow: 0 1px 4px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);
     color: $color;
 }
 
+//$sd-info-btn-hover: scale-color($button-background, $lightness: -85%) !default;
+
 /// Generates base styles for a sd-alert.
 @mixin sd-alert {
     padding: $sd-alert-padding;
@@ -54,6 +56,10 @@ $sd-alert-shadow: 0 1px 4px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);
     margin-bottom: 2rem;
     background: $sd-alert-background;
     color: $sd-alert-color;
+    max-height: 20rem;
+    max-width: 100%;
+    height:auto;
+    transition: all linear 100ms;
         @each $name, $color in $sd-alert-palette {
         &.sd-alert--#{$name} {
             background: $color;
@@ -77,6 +83,16 @@ $sd-alert-shadow: 0 1px 4px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);
     & p:only-child {
         margin-bottom: 0;
     }
+    &--hidden {
+        opacity:0;
+        max-height: 0.1rem;
+        max-width: 10%;
+        padding:0;
+        overflow:hidden;
+        font-size: 0.1rem;
+        transition: font-size ease-out 300ms, padding ease-out 300ms, max-width ease-out 200ms, max-height ease-out 300ms, opacity ease-out 200ms;
+        //transition: all ease-out 300ms;
+    }
 }
 
 .sd-alert__close {
@@ -99,7 +115,7 @@ $sd-alert-shadow: 0 1px 4px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);
         height:16px;
         position: absolute;
         top:0;
-        left: 0.2rem;
+        left: 0.3rem;
         line-height: inherit;
         color: inherit;
         font-style: normal;
@@ -117,6 +133,64 @@ $sd-alert-shadow: 0 1px 4px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);
         background-color: rgba(255,255,255,.5);
     }
 
+}
+
+.sd-alert__container {
+    position: relative;
+    min-height: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
+.sd-alert__info-btn {
+    cursor: pointer;
+    height: 2.2rem; 
+    width: 2.2rem;
+    font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-style: italic;
+    line-height: 2.4rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    color:white;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    flex-grow: 0;
+    flex-shrink: 1;
+    transition: all linear 100ms 0.2s, background ease-in 200ms;
+    background: $sd-alert-color-alt;
+    & [class^="icon-"], & [class*=" icon-"] {
+        color:inherit;
+        margin-top: 0.3rem;
+    }
+    &:hover {
+        background: scale-color($sd-alert-color-alt, $lightness: -20%);
+    }
+    @each $name, $color in $sd-alert-palette {
+        &.sd-alert__info-btn--#{$name} {
+            background: $color;
+            color: white;
+            &:hover {
+                background: scale-color($color, $lightness: -20%);
+    }
+        }
+    }
+    &--hidden {
+        opacity: 0;
+        height:1px;
+        width:1px;
+        flex-shrink: 1;
+        transition: all linear 100ms;
+    }
+
+}
+
+.sd-alert__container {
+    .sd-alert {
+        flex-grow: 1;
+    }
 }
 
 

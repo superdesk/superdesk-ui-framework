@@ -41,6 +41,20 @@ button {
   background: transparent;
   cursor: pointer; }
 
+.fade.ng-hide {
+  opacity: 0; }
+
+.fade.ng-hide-remove,
+.fade.ng-hide-add {
+  display: block !important; }
+
+.fade.ng-hide-remove {
+  transition: all linear 200ms; }
+
+.fade.ng-hide-add {
+  position: absolute;
+  transition: all linear 300ms; }
+
 .pull-left {
   float: left; }
 
@@ -65,6 +79,20 @@ button {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.08) !important;
   transition: box-shadow 0.3s ease-out; }
   .sd-shadow--z1:active {
+    box-shadow: none !important;
+    transition: box-shadow 0.4s ease-out; }
+
+.sd-shadow--z2 {
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.16) !important;
+  transition: box-shadow 0.3s ease-out; }
+  .sd-shadow--z2:active {
+    box-shadow: none !important;
+    transition: box-shadow 0.4s ease-out; }
+
+.sd-shadow--z3 {
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.1), 0 3px 8px rgba(0, 0, 0, 0.24) !important;
+  transition: box-shadow 0.3s ease-out; }
+  .sd-shadow--z3:active {
     box-shadow: none !important;
     transition: box-shadow 0.4s ease-out; }
 
@@ -1405,7 +1433,11 @@ button {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2), 0 0 1px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   background: rgba(153, 153, 153, 0.5);
-  color: #333; }
+  color: #333;
+  max-height: 200px;
+  max-width: 100%;
+  height: auto;
+  transition: all linear 100ms; }
   .sd-alert strong {
     font-weight: 500; }
   .sd-alert.sd-alert--default {
@@ -1524,6 +1556,14 @@ button {
   .sd-alert p:last-child,
   .sd-alert p:only-child {
     margin-bottom: 0; }
+  .sd-alert--hidden {
+    opacity: 0;
+    max-height: 1px;
+    max-width: 10%;
+    padding: 0;
+    overflow: hidden;
+    font-size: 1px;
+    transition: font-size ease-out 300ms, padding ease-out 300ms, max-width ease-out 200ms, max-height ease-out 300ms, opacity ease-out 200ms; }
 
 .sd-alert__close {
   position: absolute;
@@ -1545,7 +1585,7 @@ button {
     height: 16px;
     position: absolute;
     top: 0;
-    left: 2px;
+    left: 3px;
     line-height: inherit;
     color: inherit;
     font-style: normal;
@@ -1559,6 +1599,121 @@ button {
   .sd-alert__close:active {
     opacity: 1;
     background-color: rgba(255, 255, 255, 0.5); }
+
+.sd-alert__container {
+  position: relative;
+  min-height: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end; }
+
+.sd-alert__info-btn {
+  cursor: pointer;
+  height: 22px;
+  width: 22px;
+  font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+  font-weight: 500;
+  font-style: italic;
+  line-height: 24px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  border-radius: 50%;
+  flex-grow: 0;
+  flex-shrink: 1;
+  transition: all linear 100ms 0.2s, background ease-in 200ms;
+  background: #666; }
+  .sd-alert__info-btn [class^="icon-"], .sd-alert__info-btn [class*=" icon-"] {
+    color: inherit;
+    margin-top: 3px; }
+  .sd-alert__info-btn:hover {
+    background: #525252; }
+  .sd-alert__info-btn.sd-alert__info-btn--default {
+    background: #333;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--default:hover {
+      background: #292929; }
+  .sd-alert__info-btn.sd-alert__info-btn--primary {
+    background: #5ea9c8;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--primary:hover {
+      background: #3c8eaf; }
+  .sd-alert__info-btn.sd-alert__info-btn--success {
+    background: #46a546;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--success:hover {
+      background: #388438; }
+  .sd-alert__info-btn.sd-alert__info-btn--warning {
+    background: #dd8200;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--warning:hover {
+      background: #b16800; }
+  .sd-alert__info-btn.sd-alert__info-btn--alert {
+    background: #E51C23;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--alert:hover {
+      background: #b8151b; }
+  .sd-alert__info-btn.sd-alert__info-btn--highlight {
+    background: #9c27b0;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--highlight:hover {
+      background: #7d1f8d; }
+  .sd-alert__info-btn.sd-alert__info-btn--success2 {
+    background: #56812e;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--success2:hover {
+      background: #456725; }
+  .sd-alert__info-btn.sd-alert__info-btn--yellow2 {
+    background: #d2a800;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--yellow2:hover {
+      background: #a88600; }
+  .sd-alert__info-btn.sd-alert__info-btn--orange2 {
+    background: #da7200;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--orange2:hover {
+      background: #ae5b00; }
+  .sd-alert__info-btn.sd-alert__info-btn--red2 {
+    background: #be1600;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--red2:hover {
+      background: #981200; }
+  .sd-alert__info-btn.sd-alert__info-btn--highlight2 {
+    background: #e30083;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--highlight2:hover {
+      background: #b60069; }
+  .sd-alert__info-btn.sd-alert__info-btn--highlight3 {
+    background: #8b008b;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--highlight3:hover {
+      background: #6f006f; }
+  .sd-alert__info-btn.sd-alert__info-btn--highlight4 {
+    background: #7300ab;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--highlight4:hover {
+      background: #5c0089; }
+  .sd-alert__info-btn.sd-alert__info-btn--darkBlue2 {
+    background: #000080;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--darkBlue2:hover {
+      background: #000066; }
+  .sd-alert__info-btn.sd-alert__info-btn--sd-green {
+    background: #1eb06c;
+    color: white; }
+    .sd-alert__info-btn.sd-alert__info-btn--sd-green:hover {
+      background: #188d56; }
+  .sd-alert__info-btn--hidden {
+    opacity: 0;
+    height: 1px;
+    width: 1px;
+    flex-shrink: 1;
+    transition: all linear 100ms; }
+
+.sd-alert__container .sd-alert {
+  flex-grow: 1; }
 
 .flex-grid {
   display: flex;
@@ -2221,6 +2376,18 @@ button {
 .icon-paste:before {
   content: ""; }
 
+.icon-arrow-left:before {
+  content: ""; }
+
+.icon-arrow-right:before {
+  content: ""; }
+
+.icon-info-large:before {
+  content: ""; }
+
+.icon-help-large:before {
+  content: ""; }
+
 .modal-open {
   overflow: hidden; }
   .modal-open .dropdown__menu {
@@ -2750,13 +2917,15 @@ table {
   min-height: 400px;
   display: flex;
   flex-direction: column;
-  flex: 0 0 100%; }
+  flex: 0 0 100%;
+  max-height: 800px; }
 
 .sd-carousel__page {
   width: 100%;
   height: 100%;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  flex-grow: 1; }
 
 .sd-carousel__page-header {
   width: 100%;
@@ -2766,12 +2935,16 @@ table {
   flex-grow: 0;
   position: relative;
   overflow: hidden; }
+  .sd-carousel__page-header--color-2 {
+    background-color: #856CA1; }
+  .sd-carousel__page-header--color-3 {
+    background-color: #6DBEC4; }
 
 .sd-carousel__page-header-illustration {
   position: absolute;
   left: 0;
   bottom: 0;
-  opacity: 0.5; }
+  opacity: 0.65; }
 
 .sd-carousel__page-heading {
   font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
@@ -2907,20 +3080,6 @@ table {
   bottom: 0;
   left: 0;
   right: 0; }
-
-.fade.ng-hide {
-  opacity: 0; }
-
-.fade.ng-hide-remove,
-.fade.ng-hide-add {
-  display: block !important; }
-
-.fade.ng-hide-remove {
-  transition: all linear 800ms; }
-
-.fade.ng-hide-add {
-  position: absolute;
-  transition: all linear 300ms; }
 
 .subnav {
   position: relative;
@@ -3601,7 +3760,7 @@ label + .sd-radio {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   text-align: left; }
-  .dropdown__menu li a:not(.btn), .dropdown__menu li button:not(.btn), .dropdown__menu li button:not(.dropdown__menu-close), .dropdown__menu .dropdown__menu-item a:not(.btn), .dropdown__menu .dropdown__menu-item button:not(.btn), .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close) {
+  .dropdown__menu li a:not(.btn), .dropdown__menu li button:not(.btn):not(.dropdown__menu-close), .dropdown__menu .dropdown__menu-item a:not(.btn), .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) {
     display: block;
     font-weight: normal;
     line-height: 18px;
@@ -3615,20 +3774,20 @@ label + .sd-radio {
     font-size: 13px;
     text-decoration: none;
     text-align: left; }
-    .dropdown__menu li a:not(.btn) > i[class^="icon-"], .dropdown__menu li a:not(.btn) i[class*=" icon-"], .dropdown__menu li button:not(.btn) > i[class^="icon-"], .dropdown__menu li button:not(.btn) i[class*=" icon-"], .dropdown__menu li button:not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu li button:not(.dropdown__menu-close) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close) i[class*=" icon-"] {
+    .dropdown__menu li a:not(.btn) > i[class^="icon-"], .dropdown__menu li a:not(.btn) i[class*=" icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) i[class*=" icon-"] {
       margin-right: 10px;
       margin-top: -3px;
       min-width: 19px;
       vertical-align: middle; }
-    .dropdown__menu li a:not(.btn).disabled, .dropdown__menu li a:not(.btn)[disabled], .dropdown__menu li button:not(.btn).disabled, .dropdown__menu li button:not(.btn)[disabled], .dropdown__menu li button:not(.dropdown__menu-close).disabled, .dropdown__menu li button:not(.dropdown__menu-close)[disabled], .dropdown__menu .dropdown__menu-item a:not(.btn).disabled, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item button:not(.btn).disabled, .dropdown__menu .dropdown__menu-item button:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close).disabled, .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close)[disabled] {
+    .dropdown__menu li a:not(.btn).disabled, .dropdown__menu li a:not(.btn)[disabled], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close).disabled, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close)[disabled], .dropdown__menu .dropdown__menu-item a:not(.btn).disabled, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close).disabled, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close)[disabled] {
       opacity: .5; }
-  .dropdown__menu li a:not(.btn):hover, .dropdown__menu li a:not(.btn):focus, .dropdown__menu li button:not(.btn):hover, .dropdown__menu li button:not(.btn):focus, .dropdown__menu li button:not(.dropdown__menu-close):hover, .dropdown__menu li button:not(.dropdown__menu-close):focus, .dropdown__menu .dropdown__menu-item a:not(.btn):hover, .dropdown__menu .dropdown__menu-item a:not(.btn):focus, .dropdown__menu .dropdown__menu-item button:not(.btn):hover, .dropdown__menu .dropdown__menu-item button:not(.btn):focus, .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close):hover, .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close):focus {
+  .dropdown__menu li a:not(.btn):hover, .dropdown__menu li a:not(.btn):focus, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):focus, .dropdown__menu .dropdown__menu-item a:not(.btn):hover, .dropdown__menu .dropdown__menu-item a:not(.btn):focus, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):focus {
     background: #eff7fa;
     text-decoration: none;
     cursor: pointer; }
-  .dropdown__menu li a:not(.btn):active, .dropdown__menu li button:not(.btn):active, .dropdown__menu li button:not(.dropdown__menu-close):active, .dropdown__menu .dropdown__menu-item a:not(.btn):active, .dropdown__menu .dropdown__menu-item button:not(.btn):active, .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close):active {
+  .dropdown__menu li a:not(.btn):active, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):active, .dropdown__menu .dropdown__menu-item a:not(.btn):active, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):active {
     background: #c8e4ee; }
-  .dropdown__menu li a:not(.btn).disabled:hover, .dropdown__menu li a:not(.btn)[disabled]:hover, .dropdown__menu li button:not(.btn).disabled:hover, .dropdown__menu li button:not(.btn)[disabled]:hover, .dropdown__menu li button:not(.dropdown__menu-close).disabled:hover, .dropdown__menu li button:not(.dropdown__menu-close)[disabled]:hover, .dropdown__menu .dropdown__menu-item a:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item button:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item button:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close).disabled:hover, .dropdown__menu .dropdown__menu-item button:not(.dropdown__menu-close)[disabled]:hover {
+  .dropdown__menu li a:not(.btn).disabled:hover, .dropdown__menu li a:not(.btn)[disabled]:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close).disabled:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close)[disabled]:hover, .dropdown__menu .dropdown__menu-item a:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close).disabled:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close)[disabled]:hover {
     background: none;
     cursor: default; }
   .dropdown__menu li .preferred-desk, .dropdown__menu .dropdown__menu-item .preferred-desk {
