@@ -74,16 +74,7 @@ module.exports = function (grunt) {
                 files: {
                     'dist/superdesk-ui-framework.js': [
                         '.tmp/templates-cache.generated.js',
-                        'app/scripts/helpers/position_helper.js',
-                        'app/scripts/helpers/dropdown_helper.js',
-                        'app/scripts/helpers/modal_helper.js',
-                        'app/scripts/carousel.js',
-                        'app/scripts/wizard.js',
-                        'app/scripts/dropdown.js',
-                        'app/scripts/modals.js',
-                        'app/scripts/switch.js',
-                        'app/scripts/check.js',
-                        'app/scripts/index.js'
+                        'app/scripts/**/*.js'
                     ]
                 }
             }
