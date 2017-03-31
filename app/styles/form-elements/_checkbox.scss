@@ -119,6 +119,9 @@ $checkButtonBorderColor: #c6c6c6;
                 background-color: darken($sd-blue, 16%);
                 @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
             }
+            label {
+                color: $white;
+            }
         }
         .sd-label--disabled { 
             opacity: 1 !important;
