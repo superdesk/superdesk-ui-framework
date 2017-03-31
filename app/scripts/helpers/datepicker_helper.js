@@ -210,7 +210,7 @@ angular.module('superdesk-ui.helper.datepicker', ['superdesk-ui.helper.dateparse
             return {
                 restrict: 'EA',
                 replace: true,
-                templateUrl: 'template/datepicker/datepicker.html',
+                templateUrl: 'app/template/datepicker/datepicker.html',
                 scope: {
                     datepickerMode: '=?',
                     dateDisabled: '&',
@@ -233,7 +233,7 @@ angular.module('superdesk-ui.helper.datepicker', ['superdesk-ui.helper.dateparse
                 return {
                     restrict: 'EA',
                     replace: true,
-                    templateUrl: 'template/datepicker/day.html',
+                    templateUrl: 'app/template/datepicker/day.html',
                     require: '^datepicker',
                     link: function (scope, element, attrs, ctrl) {
                         scope.showWeeks = ctrl.showWeeks;
@@ -345,7 +345,7 @@ angular.module('superdesk-ui.helper.datepicker', ['superdesk-ui.helper.dateparse
                 return {
                     restrict: 'EA',
                     replace: true,
-                    templateUrl: 'template/datepicker/month.html',
+                    templateUrl: 'app/template/datepicker/month.html',
                     require: '^datepicker',
                     link: function (scope, element, attrs, ctrl) {
                         ctrl.step = {years: 1};
@@ -403,7 +403,7 @@ angular.module('superdesk-ui.helper.datepicker', ['superdesk-ui.helper.dateparse
                 return {
                     restrict: 'EA',
                     replace: true,
-                    templateUrl: 'template/datepicker/year.html',
+                    templateUrl: 'app/template/datepicker/year.html',
                     require: '^datepicker',
                     link: function (scope, element, attrs, ctrl) {
                         var range = ctrl.yearRange;
@@ -765,6 +765,6 @@ angular.module('superdesk-ui.helper.datepicker', ['superdesk-ui.helper.dateparse
                 restrict: 'EA',
                 replace: true,
                 transclude: true,
-                templateUrl: 'template/datepicker/popup.html'
+                templateUrl: 'app/template/datepicker/popup.html'
             };
         });
