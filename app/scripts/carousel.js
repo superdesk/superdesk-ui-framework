@@ -128,6 +128,6 @@ function CarouselStepDirective() {
     };
 }
 
-angular.module('superdesk-ui.carousel', ['ngAnimate'])
+angular.module('superdesk-ui.carousel', [])
         .directive('sdCarousel', CarouselDirective)
         .directive('sdCarouselStep', CarouselStepDirective);
