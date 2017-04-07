@@ -456,6 +456,18 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
 }
 
+// Full width dropdown 
+// -------------------------------------------------
+.dropdown.dropdown--full-width {
+    width: 100%;
+    .dropdown__toggle {
+        .dropdown__caret {
+            float: right;
+            margin-top: 6px;
+        }
+    }
+}
+
 // Multiedit dropdown
 // -------------------------------------------------
 
