@@ -46,6 +46,53 @@
         </div>
     </div>
 </div>
+<h4 class="docs-page__h4">Modal with min height modifier</h4>
+<p class="docs-page__paragraph">Sometimes there is a need to add min height to modal body, and in that case add class <code>.modal__body--add-min-height</code> on div block <code>.modal__body</code>. This will add min height of 300px to modal body.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openModal('modalActive6')">Show modal</button>
+            <div sd-modal data-model="modalActive6">
+                <div class="modal__header">
+                    <button class="modal__close pull-right" ng-click="closeModal('modalActive6')"><i class="icon-close-small"></i></button>
+                    <h3 class="modal__heading">Modal Default with min height modifier</h3>
+                </div>
+                <div class="modal__body modal__body--add-min-height">
+                    <p>This is sample message inside modal!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn" ng-click="closeModal('modalActive6')">Cancel</button>
+                    <button class="btn btn--primary" ng-click="closeModal('modalActive6')">Ok</button>
+                </div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
+                <div sd-modal data-model="modalActive" ng-non-bindable>
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Modal Default with min height modifier</h3>
+                    </div>
+                    <div class="modal__body modal__body--add-min-height">
+                        <p>This is sample message inside modal!</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
+                    </div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+
+
 <h3 class="docs-page__h3">Large</h3>
 <p class="docs-page__paragraph">Large modal has 680px width and auto height (depends on the amount of content). Add class <code>.modal--large</code> on div <code>sd-modal</code>.</p>
 <div class="docs-page__code-window" doc-tabs>

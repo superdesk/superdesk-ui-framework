@@ -122,7 +122,15 @@ $modal-sizes: (
         .modal__body {
             @include modal-body();
             flex: 0 1 auto;
-            width: 100%;            
+            width: 100%; 
+            // modifier to add min height, if needed
+            &--add-min-height {
+                min-height: 300px; 
+                // we reset this value if the screen height is lower than 500px
+                @media (max-height: 500px) {
+                    min-height: auto;
+                }
+            }           
         }
     }
     // loop for different modal sizes
