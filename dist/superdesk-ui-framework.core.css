@@ -2458,6 +2458,11 @@ button {
       position: relative;
       flex: 0 1 auto;
       width: 100%; }
+      .modal .modal__content .modal__body--add-min-height {
+        min-height: 300px; }
+        @media (max-height: 500px) {
+          .modal .modal__content .modal__body--add-min-height {
+            min-height: auto; } }
   .modal--large .modal__dialog {
     max-width: 680px; }
   .modal--fill {

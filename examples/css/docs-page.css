@@ -38,6 +38,11 @@ h3.docs-page__h3 {
     line-height: 140%;
     margin: 0 0 0.4em 0;
 }
+h4.docs-page__h4 {
+    font-size: 18px;
+    line-height: 140%;
+    margin: 0 0 0.4em 0;
+}
 p.docs-page__paragraph {
     font-size: 16px;
     margin: 1em 0;

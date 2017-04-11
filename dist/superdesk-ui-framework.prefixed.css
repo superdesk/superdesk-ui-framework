@@ -4012,6 +4012,9 @@ label + .sd-radio {
 
 .dropdown.dropdown--full-width {
   width: 100%; }
+  .dropdown.dropdown--full-width .dropdown__toggle .dropdown__caret {
+    float: right;
+    margin-top: 6px; }
 
 .dropdown__menu--multiedit {
   max-height: 400px;
