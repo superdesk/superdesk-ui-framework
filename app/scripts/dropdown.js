@@ -10,8 +10,8 @@ function sdDropdown($window) {
             var settings = {
                 isTopOriented: menu.hasClass('dropdown--dropup'),
                 isRightOriented: menu.hasClass('dropdown--align-right'),
-                isInlineOriented: elem.hasClass('dropdown--dropright') ||
-                        elem.hasClass('dropdown--dropleft')
+                isInlineOrientedRight: elem.hasClass('dropdown--dropright'),
+                isInlineOrientedLeft: elem.hasClass('dropdown--dropleft')
             };
 
             function closeToBottom(event) {
@@ -36,16 +36,29 @@ function sdDropdown($window) {
 
                 // Check if menu is near left edge
                 if (closeToLeft()) {
-                    menu.removeClass('dropdown--align-right');
-                } else if (settings.isRightOriented) {
-                    menu.addClass('dropdown--align-right');
+                    settings.isInlineOrientedRight || settings.isInlineOrientedLeft ?
+                            elem.removeClass('dropdown--dropleft').addClass('dropdown--dropright') :
+                            menu.removeClass('dropdown--align-right');
                 }
 
                 // Check if menu is near right edge
                 if (closeToRight()) {
-                    menu.addClass('dropdown--align-right');
-                } else if (!settings.isRightOriented) {
-                    menu.removeClass('dropdown--align-right');
+                    settings.isInlineOrientedRight || settings.isInlineOrientedLeft ?
+                            elem.addClass('dropdown--dropleft').removeClass('dropdown--dropright') :
+                            menu.addClass('dropdown--align-right');
+                }
+
+                // If neither, return to initial state
+                if (!closeToLeft() && !closeToRight()) {
+                    if (settings.isInlineOrientedRight) {
+                        elem.addClass('dropdown--dropright').removeClass('dropdown--dropleft');
+                    } else if (settings.isInlineOrientedLeft) {
+                        elem.addClass('dropdown--dropleft').removeClass('dropdown--dropright');
+                    } else if (settings.isRightOriented) {
+                        menu.addClass('dropdown--align-right');
+                    } else {
+                        menu.removeClass('dropdown--align-right');
+                    }
                 }
             });
         }
