@@ -5,14 +5,13 @@ function sdDropdown($window) {
     return {
         link: function (scope, elem) {
             var menu = elem.children('.dropdown__menu');
-            var button = elem.children('[dropdown__toggle]');
 
             var settings = {
                 isTopOriented: menu.hasClass('dropdown--dropup'),
                 isRightOriented: menu.hasClass('dropdown--align-right'),
                 isInlineOrientedRight: elem.hasClass('dropdown--dropright'),
                 isInlineOrientedLeft: elem.hasClass('dropdown--dropleft')
-            };
+            }, button;
 
             function closeToBottom(event) {
                 return event.clientY > $window.innerHeight - (menu.outerHeight() + button.outerHeight());
@@ -26,7 +25,9 @@ function sdDropdown($window) {
                 return ($window.innerWidth - button.offset().left - button.outerWidth()) < menu.outerWidth();
             }
 
-            button.bind('click mouseover', function (event) {
+            elem.bind('click mouseover', function (event) {
+                button = elem.children('[dropdown__toggle]');
+
                 // Check if menu is near bottom edge
                 if (closeToBottom(event)) {
                     elem.addClass('dropdown--dropup');
