@@ -3773,6 +3773,7 @@ label + .sd-radio {
     line-height: 1.8rem;
     white-space: nowrap;
     width: 100%;
+    min-width: 200px;
     position: relative;
     color: #333;
     background: none;
@@ -4028,7 +4029,7 @@ label + .sd-radio {
   .dropdown__menu--multiedit li {
     margin-bottom: 4px; }
   .dropdown__menu--multiedit li button {
-    width: 300px;
+    width: 300px !important;
     padding-right: 30px;
     overflow: hidden;
     text-overflow: ellipsis;
