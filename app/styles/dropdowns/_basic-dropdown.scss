@@ -107,6 +107,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             line-height: $baseLineHeight;
             white-space: nowrap;
             width: 100%;
+            min-width: 200px;
             position: relative;
             color: $dropdownLinkColor;
             background: none;
@@ -479,7 +480,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         margin-bottom: 4px;
     }
     li button {
-        width: 300px;
+        width: 300px !important;
         padding-right: 30px;
         overflow: hidden;
         text-overflow: ellipsis;
