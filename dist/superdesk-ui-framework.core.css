@@ -2007,6 +2007,10 @@ button {
 .icon--white {
   color: #fff; }
 
+[class*=icon-].red,
+.icon--red {
+  color: #be1600; }
+
 .icon-photo:before {
   content: ""; }
 
@@ -3835,6 +3839,10 @@ label + .sd-radio {
   margin-bottom: .2rem;
   font-size: 1.3rem;
   text-align: left; }
+
+.dropdown__menu label {
+  display: inline-block;
+  margin: 0; }
 
 .dropdown__menu-label {
   text-transform: uppercase;

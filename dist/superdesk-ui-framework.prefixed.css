@@ -3773,7 +3773,7 @@ label + .sd-radio {
     line-height: 18px;
     white-space: nowrap;
     width: 100%;
-    min-width: 200px;
+    min-width: 225px;
     position: relative;
     color: #333;
     background: none;

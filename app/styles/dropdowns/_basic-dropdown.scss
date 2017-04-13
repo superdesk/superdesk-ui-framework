@@ -192,6 +192,10 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         font-size: 1.3rem;
         text-align: left;
     }
+    label {
+        display: inline-block;
+        margin: 0;
+    }
 }
 
 .dropdown__menu-label {
