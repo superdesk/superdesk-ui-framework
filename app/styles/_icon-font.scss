@@ -55,6 +55,10 @@ $icon-color: $grayDark !default;
 .icon--white {
   color: $white;
 }
+[class*=icon-].red,
+.icon--red {
+  color: $fireBrick;
+}
 
 // Icons definition
 $sd-icon-font: (
