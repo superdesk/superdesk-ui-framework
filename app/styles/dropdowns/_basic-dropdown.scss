@@ -167,15 +167,15 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__menu {
     .dropdown__menu-item--active {
         button, button:hover {
-            background-color: lighten($sd-blue, 10%);
-            color: white;
+            background-color: lighten($sd-blue, 10%) !important;
+            color: white !important;
             [class^="icon-"], [class*=" icon-"],
             [class^="filetype-icon-"], [class*=" filetype-icon-"] {
-                color: white;
+                color: white !important;
             }
         }
         button:hover {
-            background-color: $sd-blue;
+            background-color: $sd-blue !important;
         }
     }
     .dropdown__menu-item--highlighted {

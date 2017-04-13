@@ -3812,15 +3812,15 @@ label + .sd-radio {
   background-color: #e5e5e5; }
 
 .dropdown__menu .dropdown__menu-item--active button, .dropdown__menu .dropdown__menu-item--active button:hover {
-  background-color: #84bdd5;
-  color: white; }
+  background-color: #84bdd5 !important;
+  color: white !important; }
   .dropdown__menu .dropdown__menu-item--active button [class^="icon-"], .dropdown__menu .dropdown__menu-item--active button [class*=" icon-"],
   .dropdown__menu .dropdown__menu-item--active button [class^="filetype-icon-"], .dropdown__menu .dropdown__menu-item--active button [class*=" filetype-icon-"], .dropdown__menu .dropdown__menu-item--active button:hover [class^="icon-"], .dropdown__menu .dropdown__menu-item--active button:hover [class*=" icon-"],
   .dropdown__menu .dropdown__menu-item--active button:hover [class^="filetype-icon-"], .dropdown__menu .dropdown__menu-item--active button:hover [class*=" filetype-icon-"] {
-    color: white; }
+    color: white !important; }
 
 .dropdown__menu .dropdown__menu-item--active button:hover {
-  background-color: #5ea9c8; }
+  background-color: #5ea9c8 !important; }
 
 .dropdown__menu .dropdown__menu-item--highlighted {
   background-color: #c245ff; }
