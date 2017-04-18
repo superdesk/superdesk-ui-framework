@@ -13,8 +13,12 @@ function sdDropdown($window) {
                 isInlineOrientedLeft: elem.hasClass('dropdown--dropleft')
             }, button;
 
-            function closeToBottom(event) {
-                return event.clientY > $window.innerHeight - (menu.outerHeight() + button.outerHeight());
+            function closeToBottom() {
+                return $window.innerHeight - (button.offset().top - $window.scrollY) < menu.outerHeight() + button.outerHeight();
+            }
+
+            function closeToTop() {
+                return button.offset().top - $window.scrollY < menu.outerHeight() + button.outerHeight();
             }
 
             function closeToLeft() {
@@ -25,13 +29,16 @@ function sdDropdown($window) {
                 return ($window.innerWidth - button.offset().left - button.outerWidth()) < menu.outerWidth();
             }
 
-            elem.bind('click mouseover', function (event) {
+            elem.bind('click mouseover', function () {
                 button = elem.children('[dropdown__toggle]');
 
                 // Check if menu is near bottom edge
-                if (closeToBottom(event)) {
+                if (closeToBottom()) {
                     elem.addClass('dropdown--dropup');
-                } else if (!settings.isTopOriented) {
+                }
+
+                // Check if menu is near top edge
+                if (closeToTop()) {
                     elem.removeClass('dropdown--dropup');
                 }
 
@@ -66,15 +73,20 @@ function sdDropdown($window) {
     };
 }
 
-sdDropdownAppendToBody.$inject = ['$window'];
-function sdDropdownAppendToBody($window) {
+sdDropdownAppendToBody.$inject = ['$window', '$timeout'];
+function sdDropdownAppendToBody($window, $timeout) {
     return {
         require: 'dropdown',
         link: function (scope, elem, attr, ctrl) {
-            var button = elem.find('[dropdown__toggle]');
+            var button = elem.find('[dropdown__toggle]'),
+                    topOffset = 96;
 
-            function closeToRight(menu) {
-                return ($window.innerWidth - elem.offset().left) < menu.outerWidth();
+            function closeToRight(menu, inline) {
+                return $window.innerWidth - elem.offset().left < menu.outerWidth() + (inline ? button.outerWidth() : 0);
+            }
+
+            function closeToTop(menu) {
+                return button.offset().top < menu.outerHeight() + button.outerHeight();
             }
 
             scope.$watch(ctrl.isOpen, function (isOpen) {
@@ -92,20 +104,37 @@ function sdDropdownAppendToBody($window) {
                     ctrl.dropdownMenu.css({opacity: 0});
                 });
 
-                scope.$applyAsync(function () {
-                    // Check if menu is near bottom edge
-                    if (elem.hasClass('dropdown--dropup')) {
-                        style.top = elem.offset().top - ctrl.dropdownMenu.outerHeight();
-                    }
+                $timeout(function () {
+                    scope.$applyAsync(function () {
+                        // Check if menu is near bottom edge
+                        if (elem.hasClass('dropdown--dropup')) {
+                            style.top = elem.offset().top - ctrl.dropdownMenu.outerHeight();
+                        } else {
+                            style.top = elem.offset().top + button.outerHeight();
+                        }
 
-                    // Check if menu is near left edge
-                    if (closeToRight(ctrl.dropdownMenu)) {
-                        style.left = $window.innerWidth - ctrl.dropdownMenu.outerWidth() - 15;
-                    }
+                        // Check if element is right aligned
+                        if (elem.hasClass('dropdown--align-right')) {
+                            style.left = elem.offset().left - ctrl.dropdownMenu.outerWidth() + button.outerWidth();
+                        }
 
-                    // Apply modified css to dropdown menu element
-                    ctrl.dropdownMenu.css(style);
-                });
+                        // Check if menu is near right edge
+                        if (closeToRight(ctrl.dropdownMenu)) {
+                            style.left = elem.offset().left - ctrl.dropdownMenu.outerWidth() - 15;
+                        }
+
+                        // Check if menu is near top and bottom edge
+                        if (closeToTop(ctrl.dropdownMenu) && !elem.hasClass('dropdown--dropup')) {
+                            style.top = topOffset;
+                            style.left = !closeToRight(ctrl.dropdownMenu, true) ?
+                                    elem.offset().left + button.outerWidth() :
+                                    elem.offset().left - ctrl.dropdownMenu.outerWidth() - 15;
+                        }
+
+                        // Apply modified css to dropdown menu element
+                        ctrl.dropdownMenu.css(style);
+                    });
+                }, 150, false);
             });
         }
     };
