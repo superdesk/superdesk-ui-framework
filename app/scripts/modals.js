@@ -1,7 +1,7 @@
 'use strict';
 
-sdModal.$inject = ['$document'];
-function sdModal($document) {
+sdModal.$inject = ['$document', '$rootScope'];
+function sdModal($document, $rootScope) {
     return {
         template: [
             '<div class="modal" data-backdrop="static">',
@@ -12,6 +12,7 @@ function sdModal($document) {
             model: '='
         },
         link: function (scope, element) {
+            $rootScope.modals = $rootScope.modals ? $rootScope.modals : 0;
             var content, _initialized = false;
 
             scope.$watch('model', function () {
@@ -20,11 +21,13 @@ function sdModal($document) {
                         content = element.children();
                         content.addClass(element.attr('class'));
                         content.appendTo($document.find('body'));
-                        content[0].foo = 'bar';
+                        content[0].style = 'z-index: ' + (1050 + $rootScope.modals);
+                        content[1].style = 'z-index: ' + (1049 + $rootScope.modals);
                         _initialized = true;
                     }
                     content.show().addClass('in');
                     $document.find('body').addClass('modal-open');
+                    $rootScope.modals++;
                 } else if (initialized()) {
                     content.hide().removeClass('in');
                     $document.find('body').removeClass('modal-open');
@@ -34,6 +37,7 @@ function sdModal($document) {
 
             var closeModal = function () {
                 scope.model = false;
+                $rootScope.modal--;
                 scope.$evalAsync();
             };
 
@@ -45,6 +49,7 @@ function sdModal($document) {
                 if (initialized()) {
                     content.hide();
                     content.remove();
+                    delete $rootScope.modals;
                 }
             });
         }

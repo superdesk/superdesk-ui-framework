@@ -134,7 +134,7 @@ function sdDropdownAppendToBody($window, $timeout) {
                         // Apply modified css to dropdown menu element
                         ctrl.dropdownMenu.css(style);
                     });
-                }, 150, false);
+                }, 100, false);
             });
         }
     };
