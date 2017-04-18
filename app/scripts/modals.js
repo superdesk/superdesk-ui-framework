@@ -37,7 +37,7 @@ function sdModal($document, $rootScope) {
 
             var closeModal = function () {
                 scope.model = false;
-                $rootScope.modal--;
+                $rootScope.modals--;
                 scope.$evalAsync();
             };
 

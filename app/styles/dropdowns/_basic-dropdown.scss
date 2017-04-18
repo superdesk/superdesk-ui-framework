@@ -141,7 +141,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
         }
         .preferred-desk {
-            background-color: #59b3bc;
+            background-color: lighten($sd-blue, 30%) !important;
         }
     }
     &.dropdown__menu--plain {

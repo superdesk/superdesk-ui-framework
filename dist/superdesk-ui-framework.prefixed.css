@@ -3803,7 +3803,7 @@ label + .sd-radio {
     background: none;
     cursor: default; }
   .dropdown__menu li .preferred-desk, .dropdown__menu .dropdown__menu-item .preferred-desk {
-    background-color: #59b3bc; }
+    background-color: #d0e6ef !important; }
   .dropdown__menu.dropdown__menu--plain li, .dropdown__menu.dropdown__menu--plain .dropdown__menu-item {
     padding: 5px 7px; }
     .dropdown__menu.dropdown__menu--plain li:hover, .dropdown__menu.dropdown__menu--plain .dropdown__menu-item:hover {
