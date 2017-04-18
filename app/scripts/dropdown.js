@@ -30,7 +30,9 @@ function sdDropdown($window) {
             }
 
             elem.bind('click mouseover', function () {
-                button = elem.children('[dropdown__toggle]');
+                button = elem.children('[dropdown__toggle]') ?
+                        elem.children('[dropdown__toggle]') :
+                        {offset: {left: 0, top: 0}};
 
                 // Check if menu is near bottom edge
                 if (closeToBottom()) {
