@@ -181,6 +181,9 @@ p.docs-page__paragraph b {
 .docs-page__code-example {
     padding: 20px;
 }
+.docs-page__code-example--grey {
+    background-color: #f8f8f8;
+}
 .docs-page__code-example .docs-page__content-block {
     margin-bottom: 20px;
 }

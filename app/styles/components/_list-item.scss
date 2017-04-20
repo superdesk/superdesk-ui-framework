@@ -1,0 +1,177 @@
+// LIST ITEMS : components/list-items.scss
+// --------------
+$sd-ListItem-background: #fff;
+$sd-ListItem-background-hover: #f4f4f4;
+$sd-ListItem-background-selected: #c8e4ee;
+$sd-ListItem-background-active: #e3f1f6;
+.sd-list-item {
+    display: flex;
+    min-height: 3.8rem;
+    flex-direction: row;
+    background-color: $sd-ListItem-background;
+    transition: background-color 0.2s linear;
+    &:hover {
+        background-color: $sd-ListItem-background-hover;
+        cursor: pointer;
+    }
+    &--active {
+        background-color: $sd-ListItem-background-active;
+    }
+    &--selected {
+        background-color: $sd-ListItem-background-selected;
+    }
+    &--activated, &--activated:hover {
+        background-color: $sd-ListItem-background-active;
+    }
+}
+
+.sd-list-item__border {
+    width: 0.4rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    background: transparent;
+    &--locked {
+        background: $red;
+    }
+}
+
+.sd-list-item__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-right: 1px solid rgba(185,185,185,0.3);
+    padding: 0 1rem;
+    overflow: hidden;
+    flex-shrink: 0;
+    &:last-child, &:last-of-type {
+        border:none;
+    }
+    &--no-border {
+        border:none;
+    }
+    &--grow {
+        flex-grow: 1;
+        flex-shrink: 1;
+    }
+
+}
+.sd-list-item__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    overflow: hidden;
+    &:first-child {
+        margin: 0.8rem 0 0.2rem;
+    }
+    &:last-child {
+        margin: 0.2rem 0 0.8rem;
+    }
+    &:only-child {
+        margin: 0.2rem 0;
+    }
+}
+.sd-list-item__action-menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    justify-content: center;
+    padding: 0 0.6rem;
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all ease-in 0.1s;
+}
+
+.sd-list-item:hover, .sd-list-item--activated {
+    .sd-list-item__action-menu {
+        padding: 0 0.6rem;
+        width: auto;
+        overflow: visible;
+        opacity: 1;
+    }
+}
+
+.sd-list-item--element-grow {
+    flex-grow: 1;
+}
+
+//  Overrides for inner elements
+.sd-list-item {
+    .label {
+        max-height: 1.6rem;
+        margin-right: 0.6rem;
+    }
+}
+
+.sd-list-item {
+    .badge {
+        margin: 0.2rem;
+    }
+}
+
+.sd-list-item {
+    [class^="icon-"],
+    [class*=" icon-"] {
+        opacity: 0.6;
+        vertical-align: middle;
+    }
+}
+.sd-list-item {
+    time {
+        color: $grayText;
+        font-size: 1.2rem;
+        letter-spacing: 0.1em;
+        flex-shrink: 0;
+        padding-left: 1em;
+    }
+}
+
+
+.avatar {
+    display: inline-block;
+    height: 3rem;
+    width: 3rem;
+    background-color: $avatarBG;
+    border-radius: 50%;
+    margin-right: 0.6rem;
+    color: $white;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    line-height: 3.2rem;
+    letter-spacing: -0.03em;
+    vertical-align: middle;
+    &--small {
+        height: 2.4rem;
+        width: 2.4rem;
+        font-size: 1rem;
+        line-height: 2.5rem;
+    }
+}
+
+.dropdown__toggle {
+    &:hover {
+        [class^="icon-"],
+        [class*=" icon-"] {
+            opacity: 1;
+        }
+    }
+    &:active {
+        [class^="icon-"],
+        [class*=" icon-"] {
+            opacity: 1;
+            color: $sd-blue;
+        }
+    }
+}
+.sd-list-item--activated {
+.dropdown__toggle {
+    
+        [class^="icon-"],
+        [class*=" icon-"] {
+            opacity: 1;
+            color: $sd-blue;
+        }
+    }
+}

@@ -151,8 +151,8 @@ $sd-icon-font: (
   font: "\e654",
   bold: "\e655",
   italic: "\e656",
-  text-height: "\e657",
-  text-width: "\e658",
+  underline: "\e657",
+  strikethrough: "\e658",
   align-left: "\e659",
   align-center: "\e65a",
   align-right: "\e65b",
@@ -184,9 +184,20 @@ $sd-icon-font: (
   cut: "\e675",
   paste: "\e676",
   arrow-left:"\e677",
-  arrow-right:"\e678",
-  info-large:"\e679",
-  help-large:"\e67a"
+  arrow-right: "\e678",
+  info-large: "\e679",
+  help-large: "\e67a",
+  attachment: "\e67b",
+  attachment-large: "\e67c",
+  table: "\e67d",
+  ordered-list: "\e67e",
+  heading-1: "\e67f",
+  heading-2: "\e680",
+  heading-3: "\e681",
+  heading-4: "\e682",
+  heading-5: "\e683",
+  heading-6: "\e684",
+  quote: "\e685"
 );
 
 @each $name, $value in $sd-icon-font {
