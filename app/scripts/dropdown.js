@@ -30,13 +30,13 @@ function sdDropdown($window) {
             }
 
             elem.bind('click mouseover', function () {
-                button = elem.children('[dropdown__toggle]') ?
-                        elem.children('[dropdown__toggle]') :
-                        {offset: {left: 0, top: 0}};
+                button = elem.find('.dropdown__toggle') || elem.find('[dropdown__toggle]');
 
                 // Check if menu is near bottom edge
                 if (closeToBottom()) {
                     elem.addClass('dropdown--dropup');
+                } else {
+                    elem.removeClass('dropdown--dropup');
                 }
 
                 // Check if menu is near top edge
@@ -136,7 +136,7 @@ function sdDropdownAppendToBody($window, $timeout) {
                         // Apply modified css to dropdown menu element
                         ctrl.dropdownMenu.css(style);
                     });
-                }, 100, false);
+                }, 150, false);
             });
         }
     };
