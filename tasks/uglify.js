@@ -20,7 +20,8 @@ module.exports = {
         files: {
             'dist/superdesk-ui-framework.js': [
                 '.tmp/templates-cache.generated.js',
-                'app/scripts/**/*.js'
+                'app/scripts/**/*.js',
+                '!app/scripts/**/*.test.js'
             ]
         }
     }
