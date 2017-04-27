@@ -195,6 +195,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     label {
         display: inline-block;
         margin: 0;
+        + .dropdown__menu-info {
+            margin-left: 4px;
+        }
     }
 }
 
@@ -239,6 +242,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__menu-info {
     color: $grayLight;
     font-style: italic;
+    vertical-align: middle;
 }
 .dropdown__menu-item {
     padding: 0;

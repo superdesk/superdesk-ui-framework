@@ -4007,6 +4007,8 @@ label + .sd-radio {
 .dropdown__menu label {
   display: inline-block;
   margin: 0; }
+  .dropdown__menu label + .dropdown__menu-info {
+    margin-left: 4px; }
 
 .dropdown__menu-label {
   text-transform: uppercase;
@@ -4045,7 +4047,8 @@ label + .sd-radio {
 
 .dropdown__menu-info {
   color: #999;
-  font-style: italic; }
+  font-style: italic;
+  vertical-align: middle; }
 
 .dropdown__menu-item {
   padding: 0; }
