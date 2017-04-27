@@ -4,3 +4,15 @@ node_modules/
 nbproject/
 .vscode/
 /.tmp/
+
+# Numerous always-ignore extensions
+*.diff
+*.err
+*.log
+*.orig
+*.rej
+*.swo
+*.swp
+*.vi
+*.zip
+*~
