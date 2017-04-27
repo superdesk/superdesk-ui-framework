@@ -2,8 +2,7 @@ sudo: required
 dist: trusty
 
 language: node_js
-node_js:
-  - '4.5'
+node_js: '6'
 
 install:
   - export DISPLAY=:99.0
