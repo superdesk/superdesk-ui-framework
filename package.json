@@ -20,6 +20,7 @@
     "jquery-ui": "^1.12.1"
   },
   "devDependencies": {
+    "angular-mocks": "^1.6.4",
     "connect-livereload": "^0.6.0",
     "google-code-prettify": "^1.0.5",
     "grunt": "^1.0.1",
@@ -48,10 +49,8 @@
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "karma start karma.conf.js --single-run",
-
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
-
     "preprotractor": "npm run update-webdriver",
     "protractor": "protractor protractor.conf.js"
   }

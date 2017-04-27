@@ -1,10 +1,10 @@
 //jshint strict: false
 module.exports = function (config) {
     config.set({
-        basePath: './app',
 
         files: [
             'node_modules/angular/angular.js',
+            'node_modules/angular-mocks/angular-mocks.js',
             'app/scripts/**/*.js'
         ],
 
