@@ -29,12 +29,30 @@
     "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
-    "grunt-css-prefix": "^0.2.3",
     "grunt-http-server": "^2.0.0",
     "grunt-pixrem": "^0.1.2",
     "grunt-sass": "^1.2.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.8",
+    "karma-junit-reporter": "^0.4.1",
+    "load-grunt-config": "^0.19.2",
     "load-grunt-tasks": "^3.5.2",
     "node-sass": "^3.13.0",
+    "protractor": "^4.0.9",
     "underscore": "^1.8.3"
+  },
+  "scripts": {
+    "pretest": "npm install",
+    "test": "karma start karma.conf.js",
+    "test-single-run": "karma start karma.conf.js --single-run",
+
+    "preupdate-webdriver": "npm install",
+    "update-webdriver": "webdriver-manager update",
+
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "protractor protractor.conf.js"
   }
 }
