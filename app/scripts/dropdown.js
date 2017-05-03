@@ -103,7 +103,7 @@ function sdDropdownAppendToBody($window, $timeout) {
                 };
 
                 scope.$evalAsync(function () {
-                    ctrl.dropdownMenu.css({opacity: 0});
+                    ctrl.dropdownMenu.css({opacity: 0, display: 'none'});
                 });
 
                 $timeout(function () {
