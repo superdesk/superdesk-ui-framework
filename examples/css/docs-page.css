@@ -56,6 +56,11 @@ p.docs-page__paragraph {
 p.docs-page__paragraph--topMarginL {
     margin-top: 3em;
 }
+.docs-page__code-example p.docs-page__paragraph--small {
+    color: #999;
+    font-size: 14px;
+    margin: -1em 0 1em;
+}
 p.docs-page__paragraph:first-child {
     margin: 0 0 1em;
 }
@@ -187,12 +192,13 @@ p.docs-page__paragraph b {
 .docs-page__code-example .docs-page__content-block {
     margin-bottom: 20px;
 }
-.docs-page__code-example .docs-page__content-row .btn,
-.docs-page__code-example .docs-page__content-row .label,
-.docs-page__code-example .docs-page__content-row .badge {
+.docs-page__code-example .docs-page__content-row > .btn,
+.docs-page__code-example .docs-page__content-row > .label,
+.docs-page__code-example .docs-page__content-row > .badge {
     margin-right: 6px;
     margin-bottom: 10px;
 }
+
 .docs-page__content-row {
     margin-bottom: 20px;
 }
@@ -255,7 +261,7 @@ p.docs-page__paragraph code {
 .docs-page__icon-font-list li {
     display: inline-block;
     width: 200px;
-    height: 30px;
+    min-height: 30px;
     padding: 4px 8px;
     margin-right: 20px;
     margin-bottom: 25px;
@@ -263,13 +269,32 @@ p.docs-page__paragraph code {
     box-sizing: border-box;
     border-radius: 2px;
 }
+.docs-page__icon-font-list--big li {
+    width: 300px;
+    padding: 4px 8px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+}
+
+.docs-page__icon-font-list--big {
+    margin-top: 45px;
+}
+
 .docs-page__icon-font-list li i {
     margin-right: 10px;
+    vertical-align: middle;
 }
+
+.docs-page__icon-font-list--big li i {
+    margin-right: 16px;
+}
+
 .docs-page__icon-font-list li span {
     font-size: 14px;
-    vertical-align: top;
+    vertical-align: middle;
+
 }
+
 .docs-page__icon-font-list--dark {
     background: #666;
     color: lightgray !important;

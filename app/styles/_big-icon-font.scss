@@ -1,0 +1,101 @@
+// BIG ICON FONT
+// Icons for the left and right sidebar and large action buttons in the top subnavigation bar
+// -------------------------------------------
+
+// All icons receive the styles of the <i> tag with a base class
+// of .i and are then given a unique class to add width, height,
+// and font specification. Your resulting HTML will look like
+// <i class="icon-ok"></i>.
+
+@font-face {
+  font-family: 'sd_big-icons';
+  src:  url('../fonts/sd_big-icons.eot?v4j36k');
+  src:  url('../fonts/sd_big-icons.eot?v4j36k#iefix') format('embedded-opentype'),
+    url('../fonts/sd_big-icons.ttf?v4j36k') format('truetype'),
+    url('../fonts/sd_big-icons.woff?v4j36k') format('woff'),
+    url('../fonts/sd_big-icons.svg?v4j36k#sd_big-icons') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin big-icon-base {
+  display: inline-block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  font-family: 'sd_big-icons';
+  font-size: 26px;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+}
+
+[class^="big-icon--"],
+[class*=" big-icon--"] {
+  @include big-icon-base;
+  color: $icon-color;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.big-icon--blue {
+  color: $sd-blue;
+}
+.big-icon--white {
+  color: $white;
+}
+[class*=big-icon--].red,
+.big-icon--red {
+  color: $fireBrick;
+}
+
+// Icons definition
+$sd-big-icon-font: (
+    dashboard: "\e600",
+    view: "\e601",
+    tasks: "\e602",
+    calendar: "\e603",
+    marked-star: "\e604",
+    archive: "\e605",
+    spike: "\e606",
+    unspike: "\e607",
+    personal: "\e608",
+    global-search: "\e609",
+    analytics: "\e60a",
+    web: "\e60b",
+    cog: "\e60c",
+    send-to: "\e60d",
+    info: "\e60e",
+    find-replace: "\e60f",
+    comments: "\e610",
+    history: "\e611",
+    package: "\e612",
+    create-package: "\e613",
+    add-to-package: "\e614",
+    fetch: "\e615",
+    fetch-as: "\e616",
+    macro: "\e617",
+    related: "\e618",
+    minimize: "\e619",
+    settings: "\e61a",
+    multiedit: "\e61b",
+    export: "\e61c",
+    create-list: "\e61d",
+    add-to-list: "\e61e",
+    text: "\e61f",
+    desk: "\e620",
+    chevron-left: "\e621",
+    chevron-right: "\e622",
+    dashboard-alt: "\e623",
+    master: "\e624",
+);
+
+@each $name, $value in $sd-big-icon-font {
+  &.big-icon--#{$name}:before {
+    content: $value;
+  }
+}
+
