@@ -14,7 +14,8 @@ function sdDropdown($window) {
             }, button;
 
             function closeToBottom() {
-                return $window.innerHeight - (button.offset().top - $window.scrollY) < menu.outerHeight() + button.outerHeight();
+                return $window.innerHeight - (button.offset().top - $window.scrollY) <
+                        menu.outerHeight() + button.outerHeight();
             }
 
             function closeToTop() {
@@ -26,7 +27,7 @@ function sdDropdown($window) {
             }
 
             function closeToRight() {
-                return ($window.innerWidth - button.offset().left - button.outerWidth()) < menu.outerWidth();
+                return $window.innerWidth - button.offset().left - button.outerWidth() < menu.outerWidth();
             }
 
             elem.bind('click mouseover', function () {
@@ -92,8 +93,9 @@ function sdDropdownAppendToBody($window, $timeout) {
             }
 
             scope.$watch(ctrl.isOpen, function (isOpen) {
-                if (!isOpen)
+                if (!isOpen) {
                     return false;
+                }
 
                 var style = {
                     display: isOpen ? 'block' : 'none',

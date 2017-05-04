@@ -21,4 +21,10 @@ module.exports = function (grunt) {
         'pixrem',
         'watch'
     ]);
+
+    // Test task
+    grunt.registerTask('test', [
+        'karma:unit',
+        'eslint'
+    ]);
 };
