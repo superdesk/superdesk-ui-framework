@@ -1,9 +1,9 @@
-### Superdesk UI Framework
+# Superdesk UI Framework
 
-## Status
+### Status
 [![Build Status](https://travis-ci.org/superdesk/superdesk-client-core.svg?branch=master)](https://travis-ci.org/superdesk/superdesk-ui-framework)
 
-## Install and connect
+### Install and connect
 To install the package via npm use
 
 ```
@@ -25,14 +25,14 @@ To use it in your angular-app you should add the module (modules)
 angular.module('application', ['superdesk-ui'])
 ``` 
 
-## Contributing
+### Contributing
 1. Fork repo https://github.com/superdesk/superdesk-ui-framework
 2. Clone `git clone https://github.com/superdesk/superdesk-ui-framework`
 3. `npm install` to install dependencies
 4. `grunt build` to run server locally
 5. Page `localhost:9100` is opened automatically in default browser
 
-## Testing
+### Testing
 Runing `e2e&unit` tests
 ```
 grunt test
