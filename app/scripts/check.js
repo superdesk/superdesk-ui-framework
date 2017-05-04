@@ -13,6 +13,14 @@ function sdCheck() {
             var label = element.find('label'),
                     checkbox = element.find('span');
 
+            if (attrs.ngChecked) {
+                if (attrs.type === 'radio') {
+                    ngModel.$setViewValue(attrs.ngValue);
+                }
+
+                ngModel.$setViewValue(!ngModel.$viewValue);
+            }
+
             ngModel.$render = function () {
                 render(label, checkbox, ngModel.$viewValue);
             };
