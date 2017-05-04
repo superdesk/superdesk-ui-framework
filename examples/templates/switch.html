@@ -15,12 +15,14 @@ Labels can be placed on both left and right side. To place the switch on a singl
                 <label>Label for switch</label><span ng-model="CD" sd-switch></span>
             </div>
             <div class="form__row">
-                <span ng-model="EF" sd-switch></span><label>Label for switch</label>
+                <span ng-model="EF" sd-switch></span><label>Label on the right</label>
             </div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
-                <span ng-model="AB" sd-switch></span>
+                <span ng-model="AB" sd-switch ng-non-bindable></span>
+                <label>Label for switch</label><span ng-model="AB" sd-switch ng-non-bindable></span>
+                <span ng-model="AB" sd-switch ng-non-bindable></span><label>Label on the right</label>
             </pre>
         </div>
     </div>

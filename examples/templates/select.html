@@ -7,7 +7,7 @@
     </div>
     <div class="docs-page__window-content">
         <div class="docs-page__code-example">
-            <p class="docs-page__paragraph">// Select with hint text.</p>
+            <p class="docs-page__paragraph">// Select with hint text</p>
             <div class="sd-line-input sd-line-input--is-select">
                 <label class="sd-line-input__label">Favorite fruit</label>
                 <select class="sd-line-input__select">
@@ -19,8 +19,8 @@
                 </select>
                 <span class="sd-line-input__hint">Dolor in hendrerit.</span>
             </div>
-            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Select with error message.</p>
-            <div class="sd-line-input sd-line-input--is-select sd-line-input--invalid">
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Select with error message</p>
+            <div class="sd-line-input sd-line-input--is-select sd-line-input--required sd-line-input--invalid">
                 <label class="sd-line-input__label">City</label>
                 <select class="sd-line-input__select">
                     <option value=""></option>
@@ -32,21 +32,60 @@
                 </select>
                 <div class="sd-line-input__message">This field is required.</div>
             </div>
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Alternative styling - boxed select</p>
+            <p class="docs-page__paragraph docs-page__paragraph--small">As with the input fields there is a boxed style for select fields as well. Same rule appies as well, append <code>.sd-line-input--boxed</code> to the default classes.</p>
+            <div class="sd-line-input sd-line-input--boxed sd-line-input--is-select">
+                <label class="sd-line-input__label">Vegetable</label>
+                <select class="sd-line-input__select">
+                    <option value=""></option>
+                    <option value="prague">Asparagus</option>
+                    <option value="berlin">Aubergine</option>
+                    <option value="belgrade">Beetroot</option>
+                    <option value="belgrade">Broccoli</option>
+                    <option value="belgrade">Carrot</option>
+                </select>
+                <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+            </div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
-                 <!--Input with hint text and character count.-->
-                <div class="sd-line-input">
-                    <label class="sd-line-input__label">Basic label</label>
-                    <input class="sd-line-input__input" type="text">
-                    <div class="sd-line-input__char-count">00/00</div>
-                    <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                 <!--Select with hint text-->
+                <div class="sd-line-input sd-line-input--is-select">
+                    <label class="sd-line-input__label">Favorite fruit</label>
+                    <select class="sd-line-input__select">
+                        <option value="apples">Apples</option>
+                        <option value="oranges">Oranges</option>
+                        <option value="bananas">Bananas</option>
+                        <option value="pears">Pears</option>
+                        <option value="peaches">Peaches</option>
+                    </select>
+                    <span class="sd-line-input__hint">Dolor in hendrerit.</span>
                 </div>
-                <!--Input with error message.-->
-                <div class="sd-line-input sd-line-input--invalid">
-                    <label class="sd-line-input__label">Basic label</label>
-                    <input class="sd-line-input__input" type="text">
+                <!--Select with error message-->
+                <div class="sd-line-input sd-line-input--is-select sd-line-input--required sd-line-input--invalid">
+                    <label class="sd-line-input__label">City</label>
+                    <select class="sd-line-input__select">
+                        <option value=""></option>
+                        <option value="prague">Prague</option>
+                        <option value="berlin">Berlin</option>
+                        <option value="belgrade">Belgrade</option>
+                        <option value="cluj-napoca">Cluj-Napoca</option>
+                        <option value="toronto">Toronto</option>
+                    </select>
                     <div class="sd-line-input__message">This field is required.</div>
+                </div>
+                <!--Alternative styling - boxed select-->
+                <div class="sd-line-input sd-line-input--is-select sd-line-input--boxed">
+                    <label class="sd-line-input__label">Vegetable</label>
+                    <select class="sd-line-input__select">
+                        <option value=""></option>
+                        <option value="prague">Asparagus</option>
+                        <option value="berlin">Aubergine</option>
+                        <option value="belgrade">Beetroot</option>
+                        <option value="belgrade">Broccoli</option>
+                        <option value="belgrade">Carrot</option>
+                    </select>
+                    <span class="sd-line-input__hint">Dolor in hendrerit.</span>
                 </div>
             </pre>
         </div>

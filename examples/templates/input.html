@@ -7,18 +7,32 @@
     </div>
     <div class="docs-page__window-content">
         <div class="docs-page__code-example">
-            <p class="docs-page__paragraph">// Input with hint text and character count.</p>
+            <p class="docs-page__paragraph">// Input with hint text and character count</p>
             <div class="sd-line-input">
                 <label class="sd-line-input__label">Headline</label>
                 <input class="sd-line-input__input" type="text">
                 <div class="sd-line-input__char-count">00/90</div>
                 <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
             </div>
-            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Input with error message.</p>
-            <div class="sd-line-input sd-line-input--invalid">
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Required input field</p>
+            <div class="sd-line-input sd-line-input--required">
+                <label class="sd-line-input__label">Description</label>
+                <input class="sd-line-input__input" type="text">
+                <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+            </div>
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Input with error message</p>
+            <div class="sd-line-input sd-line-input--invalid sd-line-input--required">
                 <label class="sd-line-input__label">Description</label>
                 <input class="sd-line-input__input" type="text">
                 <div class="sd-line-input__message">This field is required.</div>
+            </div>
+
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Alternative styling</p>
+            <p class="docs-page__paragraph docs-page__paragraph--small">An alternative styling for input fields is available in cases where the whole filed needs to be visible. The style is applied by appending <code>.sd-line-input--boxed</code> to the default classes.</p>
+            <div class="sd-line-input sd-line-input--boxed">
+                <label class="sd-line-input__label">Description</label>
+                <input class="sd-line-input__input" type="text">
+                <div class="sd-line-input__hint">Vulputate velit esse molestie consequat.</div>
             </div>
         </div>
         <div class="docs-page__code-markup">
@@ -30,11 +44,24 @@
                     <div class="sd-line-input__char-count">00/00</div>
                     <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
                 </div>
+                <!--Required input field-->
+                <div class="sd-line-input sd-line-input--required">
+                    <label class="sd-line-input__label">Description</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+                </div>
                 <!--Input with error message.-->
                 <div class="sd-line-input sd-line-input--invalid">
                     <label class="sd-line-input__label">Basic label</label>
                     <input class="sd-line-input__input" type="text">
                     <div class="sd-line-input__message">This field is required.</div>
+                </div>
+                <!--Alternative styling-->
+                <!--in cases where the whole filed needs to be visible.-->
+                <div class="sd-line-input sd-line-input--boxed">
+                    <label class="sd-line-input__label">Description</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__hint">Vulputate velit esse molestie consequat.</div>
                 </div>
             </pre>
         </div>

@@ -1,0 +1,206 @@
+$sd-sidebarMenu-background: #dedede;
+$sd-sidebarMenu-width: 4.8rem;
+$sd-main-menu-width: 30rem;
+
+$sd-sideTabMenu-background: #a1a1a1;
+
+.sd-sidebar-menu {
+  position: absolute;
+  bottom: 0;
+  width: $sd-sidebarMenu-width;
+  top: $nav-height;
+  background-color: $sd-sidebarMenu-background;
+  z-index: $zindexFixedNavbar - 1;
+  
+  transition: all .3s ease;
+  &--left {
+    left: 0;
+    box-shadow: 2px 0 5px 0 rgba(0,0,0,.25);
+    &.main-menu__open {
+      left: $sd-main-menu-width;
+      //right: 0; This doesn't seam to have any function; To be tested; 
+    }
+  }
+}
+
+.sd-sidebar-menu__spacer {
+  width: $sd-sidebarMenu-width / 2;
+  margin: 1.8rem auto;
+  border-top: 1px dotted #9b9b9b;
+  border-bottom: 0;
+}
+
+.sd-sidebar-menu__btn {
+  display: block;
+  margin: 0.6rem auto;
+  border-radius: 50%;
+  height:3.6rem;
+  width: 3.6rem;
+  opacity: .7;
+  overflow: hidden;
+  transition: opacity 0.2s, background-color 0.2s;
+  position: relative;
+  &:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .6);
+  }
+  &:active {
+    background-color: $sd-blue;
+    opacity: 1;
+  }
+  &--active, &--active:hover {
+    background-color: darken($sd-blue, 11%);
+    opacity: 1;
+  }
+}
+
+.sd-sidebar-menu__main-icon {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  transition: left 0.2s ease-out;
+}
+.sd-sidebar-menu__helper-icon {
+  position: absolute;
+  top: 0.5rem;
+  left: 3rem;
+  transition: left 0.2s ease-out, transform 0.2s;
+}
+
+
+.authoring-active {
+  .sd-sidebar-menu__btn--active {
+    .sd-sidebar-menu__main-icon, .sd-sidebar-menu__helper-icon {
+      color: #fff;
+    }
+    &:hover {
+      .sd-sidebar-menu__main-icon {
+        left: -3rem;
+      }
+      .sd-sidebar-menu__helper-icon {
+        left: 0.5rem;
+      }
+    }
+  }
+  &.list-hidden {
+    .sd-sidebar-menu__btn--active {
+      .sd-sidebar-menu__helper-icon {
+        transform: rotate(180deg);
+        left: -3rem;
+      }
+      &:hover {
+        .sd-sidebar-menu__main-icon {
+          left: 4rem;
+        }
+        .sd-sidebar-menu__helper-icon {
+          left: 0.5rem;
+        }
+      }
+    }
+  }
+}
+
+.sd-sidetab-menu {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  width: $sd-sidebarMenu-width;
+  top: $nav-height;
+  background-color: $sd-sideTabMenu-background;
+  z-index: 20;
+  transition: all .3s ease;
+  &--right {
+    right: 0;
+    box-shadow: inset 8px 0 7px -6px rgba(0,0,0,0.25);
+
+  }
+}
+
+.sd-sidetab-menu__btn {
+  display:block;
+  position: relative;
+  width: 100%;
+  height: $sd-sidebarMenu-width;
+  text-align: center;
+  padding: 0;
+  margin:0;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-width: 0 0 1px 0;
+  background: none;
+  &:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(0,0,0,0.18);
+  }
+}
+
+.sd-sidetab-menu__helper-icon,
+.sd-sidetab-menu__main-icon {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.sd-sidetab-menu__helper-icon {
+  opacity: 0;
+  margin: 0;
+  left: 1.2rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  z-index: 2;
+  transition: all 0.4s 0s, transform 0.3s 0s;
+}
+.sd-sidetab-menu__main-icon {
+  opacity: 1;
+  transition: all 0.2s, transform 0.2s;
+}
+
+.sd-sidetab-menu__info-label {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  text-shadow: none;
+  z-index: 3;
+  margin: 0;
+}
+
+.active {
+  .sd-sidetab-menu__btn {
+    background: rgba(255,255,255,0.2);
+    border-color: rgba(0,0,0,0.18);
+  }
+  .sd-sidetab-menu__btn:hover {
+    .sd-sidetab-menu__helper-icon {
+      opacity: 1;
+      transform: rotate(180deg);
+      transition: all 0.3s 0.2s, transform 0.2s 0.2s;
+    }
+    .sd-sidetab-menu__main-icon {
+      opacity: 0;
+      height:0.8rem;
+      width:0.8rem;
+      left: 2.0rem;
+      font-size: 8px;
+    }
+  }
+}
+
+.sd-sidetab-menu__btn--active {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(0,0,0,0.18);
+  &:hover {
+    .sd-sidetab-menu__helper-icon {
+      opacity: 1;
+      transform: rotate(180deg);
+      transition: all 0.3s 0.2s, transform 0.2s 0.2s;
+    }
+    .sd-sidetab-menu__main-icon {
+      opacity: 0;
+      height:0.8rem;
+      width:0.8rem;
+      left: 2.0rem;
+      font-size: 8px;
+    }
+  }
+}
+

@@ -3525,6 +3525,64 @@ table {
       background-color: transparent; }
   .sd-line-input textarea.sd-line-input__input {
     padding-top: 3px; }
+  .sd-line-input--boxed input.sd-line-input__input, .sd-line-input--boxed textarea.sd-line-input__input, .sd-line-input--boxed textarea.sd-line-input__input {
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+    padding: 0;
+    font-size: 14px;
+    height: 24px;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0 10px;
+    height: 32px;
+    transition: border linear 0.2s, box-shadow linear 0.2s, background-color linear 0.2s; }
+    .sd-line-input--boxed input.sd-line-input__input:hover, .sd-line-input--boxed textarea.sd-line-input__input:hover, .sd-line-input--boxed textarea.sd-line-input__input:hover {
+      border-color: rgba(0, 0, 0, 0.3);
+      background-color: transparent; }
+    .sd-line-input--boxed input.sd-line-input__input:focus, .sd-line-input--boxed textarea.sd-line-input__input:focus, .sd-line-input--boxed textarea.sd-line-input__input:focus {
+      box-shadow: 0 1px 0 0 #5ea9c8;
+      border-color: #5ea9c8;
+      background-color: transparent; }
+    .sd-line-input--boxed input.sd-line-input__input:hover, .sd-line-input--boxed textarea.sd-line-input__input:hover, .sd-line-input--boxed textarea.sd-line-input__input:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
+    .sd-line-input--boxed input.sd-line-input__input:focus, .sd-line-input--boxed textarea.sd-line-input__input:focus, .sd-line-input--boxed textarea.sd-line-input__input:focus {
+      background-color: rgba(0, 0, 0, 0.05); }
+  .sd-line-input--boxed select.sd-line-input__select {
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: 0;
+    border: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    background-color: transparent;
+    padding: 0;
+    font-size: 14px;
+    height: 24px;
+    transition: border linear 0.2s, box-shadow linear 0.2s;
+    border-radius: 2px;
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0 10px;
+    height: 32px;
+    transition: border linear 0.2s, box-shadow linear 0.2s, background-color linear 0.2s; }
+    .sd-line-input--boxed select.sd-line-input__select:hover {
+      border-color: rgba(0, 0, 0, 0.3);
+      background-color: transparent; }
+    .sd-line-input--boxed select.sd-line-input__select:focus {
+      box-shadow: 0 1px 0 0 #5ea9c8;
+      border-color: #5ea9c8;
+      background-color: transparent; }
+    .sd-line-input--boxed select.sd-line-input__select:hover {
+      background-color: rgba(0, 0, 0, 0.1); }
+    .sd-line-input--boxed select.sd-line-input__select:focus {
+      background-color: rgba(0, 0, 0, 0.05); }
   .sd-line-input .sd-line-input__label {
     position: absolute;
     display: inline-block;
@@ -3535,6 +3593,12 @@ table {
     text-transform: uppercase;
     font-weight: 500;
     top: 0; }
+    .sd-line-input .sd-line-input__label--required::after {
+      color: #E51C23;
+      content: "*";
+      vertical-align: top;
+      font-size: 12px;
+      padding-left: 3px; }
   .sd-line-input .sd-line-input__hint,
   .sd-line-input .sd-line-input__message,
   .sd-line-input .sd-line-input__char-count {
@@ -3548,13 +3612,13 @@ table {
     position: absolute;
     left: 1px;
     right: auto;
-    top: 42px;
-    padding-right: 55px; }
+    padding-right: 55px;
+    margin-top: 4px; }
   .sd-line-input .sd-line-input__char-count {
     position: absolute;
     right: 1px;
     left: auto;
-    top: 43px;
+    margin-top: 5px;
     font-size: 11px;
     font-weight: 400;
     font-style: italic; }
@@ -3589,6 +3653,15 @@ table {
   .sd-line-input.sd-line-input--is-select:hover::after {
     opacity: 0.6;
     filter: "alpha(opacity=60)"; }
+  .sd-line-input.sd-line-input--is-select.sd-line-input--boxed::after {
+    top: 29px;
+    right: 8px; }
+  .sd-line-input.sd-line-input--required .sd-line-input__label::after {
+    color: #E51C23;
+    content: "*";
+    vertical-align: top;
+    font-size: 12px;
+    padding-left: 3px; }
 
 .sd-toggle {
   display: inline-block;
@@ -4008,7 +4081,7 @@ label + .sd-radio {
   display: inline-block;
   margin: 0; }
   .dropdown__menu label + .dropdown__menu-info {
-    margin-left: 5px; }
+    margin-left: 4px; }
 
 .dropdown__menu-label {
   text-transform: uppercase;
