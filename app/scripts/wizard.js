@@ -32,7 +32,8 @@ function WizardDirective() {
             name: '@'
         },
         transclude: true,
-        controller: ['$scope', 'WizardHandler', function ($scope, WizardHandler) {
+        controller: ['$scope', 'WizardHandler',
+            function ($scope, WizardHandler) {
                 WizardHandler.addWizard($scope.name || WizardHandler.defaultName, this);
                 $scope.$on('$destroy', function () {
                     WizardHandler.removeWizard($scope.name || WizardHandler.defaultName);
@@ -60,7 +61,7 @@ function WizardDirective() {
                 };
 
                 function unselectAll() {
-                    _.each($scope.steps, function(step) {
+                    _.each($scope.steps, function (step) {
                         step.selected = false;
                     });
                     $scope.selectedStep = null;

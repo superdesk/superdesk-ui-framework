@@ -16,5 +16,5 @@ before_script:
   - npm install
 
 script:
-  - npm run test-single-run
+  - grunt test
   - (grunt build > /dev/null &) && (npm run protractor)

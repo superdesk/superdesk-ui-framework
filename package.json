@@ -22,6 +22,7 @@
   "devDependencies": {
     "angular-mocks": "^1.6.4",
     "connect-livereload": "^0.6.0",
+    "eslint-plugin-angular": "^2.4.0",
     "google-code-prettify": "^1.0.5",
     "grunt": "^1.0.1",
     "grunt-angular-templates": "^1.1.0",
@@ -30,7 +31,9 @@
     "grunt-contrib-cssmin": "^1.0.2",
     "grunt-contrib-uglify": "^2.0.0",
     "grunt-contrib-watch": "^1.0.0",
+    "grunt-eslint": "^19.0.0",
     "grunt-http-server": "^2.0.0",
+    "grunt-karma": "^2.0.0",
     "grunt-pixrem": "^0.1.2",
     "grunt-sass": "^1.2.1",
     "jasmine-core": "^2.4.1",
@@ -47,8 +50,6 @@
   },
   "scripts": {
     "pretest": "npm install",
-    "test": "karma start karma.conf.js",
-    "test-single-run": "karma start karma.conf.js --single-run",
     "preupdate-webdriver": "npm install",
     "update-webdriver": "webdriver-manager update",
     "preprotractor": "npm run update-webdriver",
