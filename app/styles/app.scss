@@ -11,7 +11,7 @@
 @import 'alerts';
 @import 'basic-grid';
 @import 'icon-font';
-// @import 'big-icon-font';
+@import 'big-icon-font';
 @import 'modals';
 @import 'navs';
 @import 'layout-grid';
@@ -40,7 +40,6 @@
 @import 'dropdowns/_navigation_dropdown';
 
 // Menus
-// @import 'menus/sd-sidebar-menu';
-// @import 'menus/sd-top-menu';
-
+@import 'menus/sd-sidebar-menu';
+@import 'menus/sd-top-menu';
 
