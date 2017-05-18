@@ -31,7 +31,8 @@ function sdDropdown($window) {
             }
 
             elem.bind('click mouseover', function () {
-                button = elem.find('.dropdown__toggle') || elem.find('.dropdown-toggle') || elem.find('[dropdown__toggle]');
+                button = elem.find('.dropdown__toggle') || elem.find('.dropdown-toggle')
+                        || elem.find('[dropdown__toggle]');
 
                 // Check if menu is near bottom edge
                 if (closeToBottom()) {
@@ -92,6 +93,11 @@ function sdDropdownAppendToBody($window, $timeout) {
                 return button.offset().top < menu.outerHeight() + button.outerHeight();
             }
 
+            function closeToBottom(menu) {
+                return $window.innerHeight - (button.offset().top - $window.scrollY) <
+                        menu.outerHeight() + button.outerHeight();
+            }
+
             scope.$watch(ctrl.isOpen, function (isOpen) {
                 if (!isOpen) {
                     return false;
@@ -111,7 +117,7 @@ function sdDropdownAppendToBody($window, $timeout) {
                 $timeout(function () {
                     scope.$applyAsync(function () {
                         // Check if menu is near bottom edge
-                        if (elem.hasClass('dropdown--dropup')) {
+                        if (closeToBottom(ctrl.dropdownMenu)) {
                             style.top = elem.offset().top - ctrl.dropdownMenu.outerHeight();
                         } else {
                             style.top = elem.offset().top + button.outerHeight();
