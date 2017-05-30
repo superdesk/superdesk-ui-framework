@@ -59,6 +59,12 @@ $icon-color: $grayDark !default;
 .icon--red {
   color: $fireBrick;
 }
+.icon--rotate-180 {
+  transform: rotate(180deg);
+}
+.icon--rotate-90 {
+  transform: rotate(90deg);
+}
 
 // Icons definition
 $sd-icon-font: (
