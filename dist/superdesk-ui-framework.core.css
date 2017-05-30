@@ -2016,6 +2016,12 @@ button {
 .icon--red {
   color: #be1600; }
 
+.icon--rotate-180 {
+  transform: rotate(180deg); }
+
+.icon--rotate-90 {
+  transform: rotate(90deg); }
+
 .icon-photo:before {
   content: ""; }
 
