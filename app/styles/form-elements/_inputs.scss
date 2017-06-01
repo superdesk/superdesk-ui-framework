@@ -177,6 +177,11 @@
                 right: 0.8rem;
             }
         }
+        &.sd-line-input--no-label {
+            &::after {
+                top: 1.2rem;
+            }
+        }
     }
     &.sd-line-input--required {
         .sd-line-input__label::after {
@@ -186,6 +191,9 @@
             font-size: 1.2rem;
             padding-left: 0.3rem;
         }
+    }
+    &.sd-line-input--no-label {
+        padding-top: 0;
     }
 
 }
