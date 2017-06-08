@@ -3808,6 +3808,8 @@ table {
   .sd-line-input.sd-line-input--is-select.sd-line-input--boxed::after {
     top: 29px;
     right: 8px; }
+  .sd-line-input.sd-line-input--is-select.sd-line-input--no-label::after {
+    top: 12px; }
   .sd-line-input.sd-line-input--required .sd-line-input__label::after {
     color: #E51C23;
     content: "*";
