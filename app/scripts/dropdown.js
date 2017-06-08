@@ -14,12 +14,14 @@ function sdDropdown($window) {
             }, button;
 
             function closeToBottom() {
-                return $window.innerHeight - (button.offset().top - $window.scrollY) <
-                        menu.outerHeight() + button.outerHeight();
+                return button && button.offset() ?
+                        $window.innerHeight - (button.offset().top - $window.scrollY) <
+                        menu.outerHeight() + button.outerHeight() : false;
             }
 
             function closeToTop() {
-                return button.offset().top - $window.scrollY < menu.outerHeight() + button.outerHeight();
+                return button && button.offset() ?
+                        button.offset().top - $window.scrollY < menu.outerHeight() + button.outerHeight() : false;
             }
 
             function closeToLeft() {
@@ -27,7 +29,8 @@ function sdDropdown($window) {
             }
 
             function closeToRight() {
-                return $window.innerWidth - button.offset().left - button.outerWidth() < menu.outerWidth();
+                return button && button.offset() ?
+                        $window.innerWidth - button.offset().left - button.outerWidth() < menu.outerWidth() : false;
             }
 
             elem.bind('click mouseover', function () {
