@@ -3808,12 +3808,16 @@ table {
   .sd-line-input.sd-line-input--is-select.sd-line-input--boxed::after {
     top: 2.9rem;
     right: 0.8rem; }
+  .sd-line-input.sd-line-input--is-select.sd-line-input--no-label::after {
+    top: 1.2rem; }
   .sd-line-input.sd-line-input--required .sd-line-input__label::after {
     color: #E51C23;
     content: "*";
     vertical-align: top;
     font-size: 1.2rem;
     padding-left: 0.3rem; }
+  .sd-line-input.sd-line-input--no-label {
+    padding-top: 0; }
 
 .sd-toggle {
   display: inline-block;

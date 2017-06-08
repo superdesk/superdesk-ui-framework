@@ -2016,6 +2016,12 @@ button {
 .icon--red {
   color: #be1600; }
 
+.icon--rotate-180 {
+  transform: rotate(180deg); }
+
+.icon--rotate-90 {
+  transform: rotate(90deg); }
+
 .icon-photo:before {
   content: ""; }
 
@@ -3808,6 +3814,8 @@ table {
     vertical-align: top;
     font-size: 12px;
     padding-left: 3px; }
+  .sd-line-input.sd-line-input--no-label {
+    padding-top: 0; }
 
 .sd-toggle {
   display: inline-block;
