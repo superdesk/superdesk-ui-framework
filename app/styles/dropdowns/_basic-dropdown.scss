@@ -342,7 +342,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     vertical-align: middle;
     .dropdown__menu {
         top: -2.3rem;
-        left: calc(100% + 0.3rem);
+        left: 100%;
     }
 }
 .dropdown--dropright.open {
