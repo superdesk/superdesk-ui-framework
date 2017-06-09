@@ -4350,7 +4350,7 @@ label + .sd-radio {
   vertical-align: middle; }
   .dropdown--dropright .dropdown__menu {
     top: -23px;
-    left: calc(100% + 3px); }
+    left: 100%; }
 
 .dropdown--dropright.open .dropdown__caret {
   transform: rotate(-90deg); }
