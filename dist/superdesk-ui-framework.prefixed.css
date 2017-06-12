@@ -2955,111 +2955,134 @@ table {
   border: none; }
 
 /* Thanks to Jase Smith - codepen.io/jasesmith */
-[sd-tooltip] {
-  position: relative; }
+[sd-tooltip],
+[data-sd-tooltip] {
+  position: relative;
+  /* Applies to all sd-tooltips */
+  /* Make the sd-tooltips respond to hover */
+  /* FLOW: UP */
+  /* FLOW: DOWN */
+  /* FLOW: LEFT */
+  /* FLOW: RIGHT */
+  /* FX All The Things */ }
+  [sd-tooltip]::before, [sd-tooltip]::after,
+  [data-sd-tooltip]::before,
+  [data-sd-tooltip]::after {
+    text-transform: none;
+    font-size: 12px;
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    display: none;
+    opacity: 0; }
+  [sd-tooltip]::before,
+  [data-sd-tooltip]::before {
+    content: '';
+    border: 5px solid transparent;
+    z-index: 1001; }
+  [sd-tooltip]::after,
+  [data-sd-tooltip]::after {
+    text-align: center;
+    /* Let the content set the size of the sd-tooltips */
+    min-width: 3em;
+    max-width: 21em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 8px 12px 9px;
+    border-radius: 2px;
+    box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.45);
+    background: #333;
+    color: #fff;
+    font-weight: 400;
+    z-index: 1000; }
+  [sd-tooltip]:hover::before, [sd-tooltip]:hover::after,
+  [data-sd-tooltip]:hover::before,
+  [data-sd-tooltip]:hover::after {
+    display: block; }
+  [sd-tooltip]:not([flow])::before, [sd-tooltip][flow^="up"]::before,
+  [data-sd-tooltip]:not([flow])::before,
+  [data-sd-tooltip][flow^="up"]::before {
+    bottom: 100%;
+    border-bottom-width: 0;
+    border-top-color: #333; }
+  [sd-tooltip]:not([flow])::after, [sd-tooltip][flow^="up"]::after,
+  [data-sd-tooltip]:not([flow])::after,
+  [data-sd-tooltip][flow^="up"]::after {
+    bottom: calc(100% + 5px); }
+  [sd-tooltip]:not([flow])::before, [sd-tooltip]:not([flow])::after, [sd-tooltip][flow^="up"]::before, [sd-tooltip][flow^="up"]::after,
+  [data-sd-tooltip]:not([flow])::before,
+  [data-sd-tooltip]:not([flow])::after,
+  [data-sd-tooltip][flow^="up"]::before,
+  [data-sd-tooltip][flow^="up"]::after {
+    left: 50%;
+    transform: translate(-50%, -0.5em); }
+  [sd-tooltip][flow^="down"]::before,
+  [data-sd-tooltip][flow^="down"]::before {
+    top: 100%;
+    border-top-width: 0;
+    border-bottom-color: #333; }
+  [sd-tooltip][flow^="down"]::after,
+  [data-sd-tooltip][flow^="down"]::after {
+    top: calc(100% + 5px); }
+  [sd-tooltip][flow^="down"]::before, [sd-tooltip][flow^="down"]::after,
+  [data-sd-tooltip][flow^="down"]::before,
+  [data-sd-tooltip][flow^="down"]::after {
+    left: 50%;
+    transform: translate(-50%, 0.5em); }
+  [sd-tooltip][flow^="left"]::before,
+  [data-sd-tooltip][flow^="left"]::before {
+    top: 50%;
+    border-right-width: 0;
+    border-left-color: #333;
+    left: calc(0em - 5px);
+    transform: translate(-0.5em, -50%); }
+  [sd-tooltip][flow^="left"]::after,
+  [data-sd-tooltip][flow^="left"]::after {
+    top: 50%;
+    right: calc(100% + 5px);
+    transform: translate(-0.5em, -50%); }
+  [sd-tooltip][flow^="right"]::before,
+  [data-sd-tooltip][flow^="right"]::before {
+    top: 50%;
+    border-left-width: 0;
+    border-right-color: #333;
+    right: calc(0em - 5px);
+    transform: translate(0.5em, -50%); }
+  [sd-tooltip][flow^="right"]::after,
+  [data-sd-tooltip][flow^="right"]::after {
+    top: 50%;
+    left: calc(100% + 5px);
+    transform: translate(0.5em, -50%); }
+  [sd-tooltip]:not([flow]):hover::before, [sd-tooltip]:not([flow]):hover::after, [sd-tooltip][flow^="up"]:hover::before, [sd-tooltip][flow^="up"]:hover::after, [sd-tooltip][flow^="down"]:hover::before, [sd-tooltip][flow^="down"]:hover::after,
+  [data-sd-tooltip]:not([flow]):hover::before,
+  [data-sd-tooltip]:not([flow]):hover::after,
+  [data-sd-tooltip][flow^="up"]:hover::before,
+  [data-sd-tooltip][flow^="up"]:hover::after,
+  [data-sd-tooltip][flow^="down"]:hover::before,
+  [data-sd-tooltip][flow^="down"]:hover::after {
+    animation: tooltips-vert 200ms ease-out forwards; }
+  [sd-tooltip][flow^="left"]:hover::before, [sd-tooltip][flow^="left"]:hover::after, [sd-tooltip][flow^="right"]:hover::before, [sd-tooltip][flow^="right"]:hover::after,
+  [data-sd-tooltip][flow^="left"]:hover::before,
+  [data-sd-tooltip][flow^="left"]:hover::after,
+  [data-sd-tooltip][flow^="right"]:hover::before,
+  [data-sd-tooltip][flow^="right"]:hover::after {
+    animation: tooltips-horz 200ms ease-out forwards; }
 
-/* Applies to all sd-tooltips */
-[sd-tooltip]::before,
+/* magic! */
 [sd-tooltip]::after {
-  text-transform: none;
-  font-size: 12px;
-  line-height: 1;
-  user-select: none;
-  pointer-events: none;
-  position: absolute;
-  display: none;
-  opacity: 0; }
+  content: attr(sd-tooltip); }
 
-[sd-tooltip]::before {
-  content: '';
-  border: 5px solid transparent;
-  z-index: 1001; }
-
-[sd-tooltip]::after {
-  content: attr(sd-tooltip);
-  /* magic! */
-  text-align: center;
-  /* Let the content set the size of the sd-tooltips */
-  min-width: 3em;
-  max-width: 21em;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  padding: 8px 12px 9px;
-  border-radius: 2px;
-  box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.45);
-  background: #333;
-  color: #fff;
-  font-weight: 400;
-  z-index: 1000; }
-
-/* Make the sd-tooltips respond to hover */
-[sd-tooltip]:hover::before,
-[sd-tooltip]:hover::after {
-  display: block; }
+[data-sd-tooltip]::after {
+  content: attr(data-sd-tooltip); }
 
 /* don't show empty sd-tooltips */
 [sd-tooltip='']::before,
-[sd-tooltip='']::after {
+[sd-tooltip='']::after,
+[data-sd-tooltip='']::before,
+[data-sd-tooltip='']::after {
   display: none !important; }
-
-/* FLOW: UP */
-[sd-tooltip]:not([flow])::before,
-[sd-tooltip][flow^="up"]::before {
-  bottom: 100%;
-  border-bottom-width: 0;
-  border-top-color: #333; }
-
-[sd-tooltip]:not([flow])::after,
-[sd-tooltip][flow^="up"]::after {
-  bottom: calc(100% + 5px); }
-
-[sd-tooltip]:not([flow])::before,
-[sd-tooltip]:not([flow])::after,
-[sd-tooltip][flow^="up"]::before,
-[sd-tooltip][flow^="up"]::after {
-  left: 50%;
-  transform: translate(-50%, -0.5em); }
-
-/* FLOW: DOWN */
-[sd-tooltip][flow^="down"]::before {
-  top: 100%;
-  border-top-width: 0;
-  border-bottom-color: #333; }
-
-[sd-tooltip][flow^="down"]::after {
-  top: calc(100% + 5px); }
-
-[sd-tooltip][flow^="down"]::before,
-[sd-tooltip][flow^="down"]::after {
-  left: 50%;
-  transform: translate(-50%, 0.5em); }
-
-/* FLOW: LEFT */
-[sd-tooltip][flow^="left"]::before {
-  top: 50%;
-  border-right-width: 0;
-  border-left-color: #333;
-  left: calc(0em - 5px);
-  transform: translate(-0.5em, -50%); }
-
-[sd-tooltip][flow^="left"]::after {
-  top: 50%;
-  right: calc(100% + 5px);
-  transform: translate(-0.5em, -50%); }
-
-/* FLOW: RIGHT */
-[sd-tooltip][flow^="right"]::before {
-  top: 50%;
-  border-left-width: 0;
-  border-right-color: #333;
-  right: calc(0em - 5px);
-  transform: translate(0.5em, -50%); }
-
-[sd-tooltip][flow^="right"]::after {
-  top: 50%;
-  left: calc(100% + 5px);
-  transform: translate(0.5em, -50%); }
 
 /* KEYFRAMES */
 @keyframes tooltips-vert {
@@ -3071,21 +3094,6 @@ table {
   to {
     opacity: .9;
     transform: translate(0, -50%); } }
-
-/* FX All The Things */
-[sd-tooltip]:not([flow]):hover::before,
-[sd-tooltip]:not([flow]):hover::after,
-[sd-tooltip][flow^="up"]:hover::before,
-[sd-tooltip][flow^="up"]:hover::after,
-[sd-tooltip][flow^="down"]:hover::before,
-[sd-tooltip][flow^="down"]:hover::after {
-  animation: tooltips-vert 200ms ease-out forwards; }
-
-[sd-tooltip][flow^="left"]:hover::before,
-[sd-tooltip][flow^="left"]:hover::after,
-[sd-tooltip][flow^="right"]:hover::before,
-[sd-tooltip][flow^="right"]:hover::after {
-  animation: tooltips-horz 200ms ease-out forwards; }
 
 .sd-carousel {
   position: fixed;
