@@ -86,7 +86,7 @@ function sdDropdownAppendToBody($window, $timeout) {
         require: 'dropdown',
         link: function (scope, elem, attr, ctrl) {
             var button = elem.find('[dropdown__toggle]'),
-                    topOffset = 96;
+                    topOffset = 48;
 
             function closeToRight(menu, inline) {
                 return $window.innerWidth - elem.offset().left < menu.outerWidth() + (inline ? button.outerWidth() : 0);
