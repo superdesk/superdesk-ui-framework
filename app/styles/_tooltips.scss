@@ -45,7 +45,10 @@
   &:hover::after {
     display: block;
   }
+}
 
+// [sd-tooltip] [flow]
+[sd-tooltip] {
   /* FLOW: UP */
   &:not([flow])::before,
   &[flow^="up"]::before {
@@ -125,7 +128,89 @@
   &[flow^="right"]:hover::after {
     animation: tooltips-horz 200ms ease-out forwards;
   }
+}
 
+// [data-sd-tooltip] [data-flow]
+[data-sd-tooltip] {
+  /* FLOW: UP */
+  &:not([data-flow])::before,
+  &[data-flow^="up"]::before {
+    bottom: 100%;
+    border-bottom-width: 0;
+    border-top-color: #333;
+  }
+
+  &:not([data-flow])::after,
+  &[data-flow^="up"]::after {
+    bottom: calc(100% + 5px);
+  }
+  &:not([data-flow])::before,
+  &:not([data-flow])::after,
+  &[data-flow^="up"]::before,
+  &[data-flow^="up"]::after {
+    left: 50%;
+    transform: translate(-50%, -.5em);
+  }
+
+  /* FLOW: DOWN */
+  &[data-flow^="down"]::before {
+    top: 100%;
+    border-top-width: 0;
+    border-bottom-color: #333;
+  }
+  &[data-flow^="down"]::after {
+    top: calc(100% + 5px);
+  }
+  &[data-flow^="down"]::before,
+  &[data-flow^="down"]::after {
+    left: 50%;
+    transform: translate(-50%, .5em);
+  }
+
+  /* FLOW: LEFT */
+  &[data-flow^="left"]::before {
+    top: 50%;
+    border-right-width: 0;
+    border-left-color: #333;
+    left: calc(0em - 5px);
+    transform: translate(-.5em, -50%);
+  }
+  &[data-flow^="left"]::after {
+    top: 50%;
+    right: calc(100% + 5px);
+    transform: translate(-.5em, -50%);
+  }
+
+  /* FLOW: RIGHT */
+  &[data-flow^="right"]::before {
+    top: 50%;
+    border-left-width: 0;
+    border-right-color: #333;
+    right: calc(0em - 5px);
+    transform: translate(.5em, -50%);
+  }
+  &[data-flow^="right"]::after {
+    top: 50%;
+    left: calc(100% + 5px);
+    transform: translate(.5em, -50%);
+  }
+
+  /* FX All The Things */ 
+  &:not([data-flow]):hover::before,
+  &:not([data-flow]):hover::after,
+  &[data-flow^="up"]:hover::before,
+  &[data-flow^="up"]:hover::after,
+  &[data-flow^="down"]:hover::before,
+  &[data-flow^="down"]:hover::after {
+    animation: tooltips-vert 200ms ease-out forwards;
+  }
+
+  &[data-flow^="left"]:hover::before,
+  &[data-flow^="left"]:hover::after,
+  &[data-flow^="right"]:hover::before,
+  &[data-flow^="right"]:hover::after {
+    animation: tooltips-horz 200ms ease-out forwards;
+  }
 }
 
 /* magic! */
