@@ -16,9 +16,9 @@ function sdCheck() {
             if (attrs.ngChecked) {
                 if (attrs.type === 'radio') {
                     ngModel.$setViewValue(attrs.ngValue);
+                } else {
+                    ngModel.$setViewValue(!ngModel.$viewValue);
                 }
-
-                ngModel.$setViewValue(!ngModel.$viewValue);
             }
 
             ngModel.$render = function () {
