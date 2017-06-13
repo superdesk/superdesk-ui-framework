@@ -1,7 +1,7 @@
 'use strict';
 
-sdCheck.$inject = [];
-function sdCheck() {
+sdCheck.$inject = ['$parse'];
+function sdCheck($parse) {
     return {
         require: 'ngModel',
         replace: true,
@@ -13,12 +13,10 @@ function sdCheck() {
             var label = element.find('label'),
                     checkbox = element.find('span');
 
-            if (attrs.ngChecked) {
-                if (attrs.type === 'radio') {
-                    ngModel.$setViewValue(attrs.ngValue);
-                } else {
-                    ngModel.$setViewValue(!ngModel.$viewValue);
-                }
+            if ($parse(attrs.ngChecked)($scope)) {
+                attrs.type === 'radio' ?
+                        ngModel.$setViewValue(attrs.ngValue) :
+                        ngModel.$setViewValue(!ngModel.$viewValue);
             }
 
             ngModel.$render = function () {
