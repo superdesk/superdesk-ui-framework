@@ -59,6 +59,7 @@ $sd-ListItem-background-active: #e3f1f6;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
+    align-items: center;
     overflow: hidden;
     &:first-child {
         margin: 0.8rem 0 0.2rem;
@@ -99,7 +100,6 @@ $sd-ListItem-background-active: #e3f1f6;
 //  Overrides for inner elements
 .sd-list-item {
     .label {
-        max-height: 1.6rem;
         margin-right: 0.6rem;
     }
 }
