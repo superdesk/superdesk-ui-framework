@@ -3526,6 +3526,7 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   overflow: hidden; }
   .sd-list-item__row:first-child {
     margin: 8px 0 2px; }

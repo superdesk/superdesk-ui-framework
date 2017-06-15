@@ -3526,6 +3526,7 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
   overflow: hidden; }
   .sd-list-item__row:first-child {
     margin: 0.8rem 0 0.2rem; }
@@ -3556,7 +3557,6 @@ table {
   flex-grow: 1; }
 
 .sd-list-item .label {
-  max-height: 1.6rem;
   margin-right: 0.6rem; }
 
 .sd-list-item .badge {
