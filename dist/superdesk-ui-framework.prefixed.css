@@ -4391,6 +4391,10 @@ label + .sd-radio {
 .dropdown--dropleft.open .dropdown__caret {
   transform: rotate(90deg); }
 
+.dropdown--dropright.dropdown--dropup .dropdown__menu, .dropdown--dropleft.dropdown--dropup .dropdown__menu {
+  bottom: -23px;
+  top: auto; }
+
 .dropdown--noarrow {
   display: inline-block; }
   .dropdown--noarrow .dropdown__menu {
