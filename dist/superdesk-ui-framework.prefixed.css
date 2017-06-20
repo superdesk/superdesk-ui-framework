@@ -3557,7 +3557,6 @@ table {
   flex-grow: 1; }
 
 .sd-list-item .label {
-  max-height: 16px;
   margin-right: 6px; }
 
 .sd-list-item .badge {
