@@ -203,7 +203,8 @@ $sd-icon-font: (
   heading-4: "\e682",
   heading-5: "\e683",
   heading-6: "\e684",
-  quote: "\e685"
+  quote: "\e685",
+  multiedit: "\e686"
 );
 
 @each $name, $value in $sd-icon-font {

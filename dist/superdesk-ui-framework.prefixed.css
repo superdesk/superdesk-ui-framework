@@ -2436,6 +2436,9 @@ button {
 .icon-quote:before {
   content: ""; }
 
+.icon-multiedit:before {
+  content: ""; }
+
 @font-face {
   font-family: 'sd_big-icons';
   src: url("../fonts/sd_big-icons.eot?v4j36k");
