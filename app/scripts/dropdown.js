@@ -25,7 +25,9 @@ function sdDropdown($window) {
             }
 
             function closeToLeft() {
-                return elem.offset().left < menu.outerWidth();
+                return checkEnvironment() === 'authoring' ?
+                        elem.offset().left - $('#authoring-container').offset().left < menu.outerWidth() :
+                        elem.offset().left < menu.outerWidth();
             }
 
             function closeToRight() {
@@ -33,7 +35,18 @@ function sdDropdown($window) {
                         $window.innerWidth - button.offset().left - button.outerWidth() < menu.outerWidth() : false;
             }
 
-            elem.bind('click mouseover', function () {
+            function checkEnvironment() {
+                return !!elem.parents('#authoring-container').length ?
+                        'authoring' : (!!elem.parents('.modal').length ? 'modal' : false);
+            }
+
+            elem.bind('click', doTheMath);
+
+            if (elem.hasClass('dropdown--hover')) {
+                elem.bind('mouseover', doTheMath);
+            }
+
+            function doTheMath() {
                 button = elem.find('.dropdown__toggle') || elem.find('.dropdown-toggle')
                         || elem.find('[dropdown__toggle]');
 
@@ -63,6 +76,12 @@ function sdDropdown($window) {
                             menu.addClass('dropdown--align-right');
                 }
 
+                if (closeToLeft() && closeToRight()) {
+                    settings.isInlineOrientedRight || settings.isInlineOrientedLeft ?
+                            elem.removeClass('dropdown--dropleft').removeClass('dropdown--dropright') :
+                            menu.removeClass('dropdown--align-right');
+                }
+
                 // If neither, return to initial state
                 if (!closeToLeft() && !closeToRight()) {
                     if (settings.isInlineOrientedRight) {
@@ -75,7 +94,7 @@ function sdDropdown($window) {
                         menu.removeClass('dropdown--align-right');
                     }
                 }
-            });
+            }
         }
     };
 }
