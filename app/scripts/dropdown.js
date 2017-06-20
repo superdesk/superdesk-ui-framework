@@ -36,8 +36,7 @@ function sdDropdown($window) {
             }
 
             function checkEnvironment() {
-                return !!elem.parents('#authoring-container').length ?
-                        'authoring' : (!!elem.parents('.modal').length ? 'modal' : false);
+                return elem.parents('#authoring-container').length ? 'authoring' : false;
             }
 
             elem.bind('click', doTheMath);
