@@ -2654,7 +2654,8 @@ button {
       padding: 2rem;
       position: relative;
       flex: 0 1 auto;
-      width: 100%; }
+      width: 100%;
+      max-width: 480px; }
       .modal .modal__content .modal__body--add-min-height {
         min-height: 300px; }
         @media (max-height: 500px) {
@@ -2662,6 +2663,8 @@ button {
             min-height: auto; } }
   .modal--large .modal__dialog {
     max-width: 680px; }
+  .modal--large .modal__body {
+    max-width: 680px !important; }
   .modal--fill {
     position: fixed;
     left: 30px;
@@ -2682,6 +2685,8 @@ button {
       flex: 1 1 auto !important; }
   .modal--fill .modal__dialog {
     max-width: 100%; }
+  .modal--fill .modal__body {
+    max-width: 100% !important; }
   .modal--fullscreen {
     position: fixed;
     left: 0px;
@@ -2708,6 +2713,8 @@ button {
       flex: 1 1 auto !important; }
   .modal--fullscreen .modal__dialog {
     max-width: 100%; }
+  .modal--fullscreen .modal__body {
+    max-width: 100% !important; }
   .modal.modal--white .modal__body {
     background: #fff !important; }
   .modal.modal--double {
@@ -3549,6 +3556,10 @@ table {
   overflow: hidden;
   opacity: 0;
   transition: all ease-in 0.1s; }
+  .sd-list-item__action-menu--direction-row {
+    flex-direction: row; }
+  .sd-list-item__action-menu > .dropdown__toggle {
+    line-height: 0; }
 
 .sd-list-item:hover .sd-list-item__action-menu, .sd-list-item--activated .sd-list-item__action-menu {
   padding: 0 0.6rem;
@@ -3610,6 +3621,13 @@ table {
 .sd-list-item--activated .dropdown__toggle [class*=" icon-"] {
   opacity: 1;
   color: #5ea9c8; }
+
+.sd-list-item-group .sd-list-item + .sd-list-item {
+  border-top: 1px solid #e6e6e6; }
+
+.sd-list-item-group--space-between-items .sd-list-item + .sd-list-item {
+  margin-top: .8rem;
+  border-top: none; }
 
 .form__row {
   width: 100%;
