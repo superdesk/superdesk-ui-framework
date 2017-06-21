@@ -123,6 +123,7 @@ $modal-sizes: (
             @include modal-body();
             flex: 0 1 auto;
             width: 100%; 
+            max-width: $modal-base-width;
             // modifier to add min height, if needed
             &--add-min-height {
                 min-height: 300px; 
@@ -174,6 +175,9 @@ $modal-sizes: (
             &--#{$name} {
                 .modal__dialog {
                    max-width: $value; 
+                }
+                .modal__body {
+                    max-width: $value !important;
                 }
             }
         }
