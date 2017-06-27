@@ -50,5 +50,11 @@ $badge-lineheight: 1.1em !default;
         //color: color-pick-contrast($color, ($badge-color, $badge-color-alt));
         }
     }
+    // light gray
+    &--light {
+        background-color: #ddd;
+        color: $grayDark;
+        font-weight: 500;
+    }
 }
 

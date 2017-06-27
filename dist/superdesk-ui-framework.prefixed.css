@@ -1425,6 +1425,9 @@ button {
     background: #9c27b0; }
   .badge.badge--sd-green {
     background: #1eb06c; }
+  .badge--light {
+    background-color: #ddd;
+    color: #333; }
 
 .sd-alert {
   padding: 18px 30px 18px 20px;
@@ -3558,6 +3561,8 @@ table {
   transition: all ease-in 0.1s; }
   .sd-list-item__action-menu--direction-row {
     flex-direction: row; }
+  .sd-list-item__action-menu > .dropdown__toggle {
+    line-height: 0; }
 
 .sd-list-item:hover .sd-list-item__action-menu, .sd-list-item--activated .sd-list-item__action-menu {
   padding: 0 6px;
@@ -3619,6 +3624,13 @@ table {
 .sd-list-item--activated .dropdown__toggle [class*=" icon-"] {
   opacity: 1;
   color: #5ea9c8; }
+
+.sd-list-item-group .sd-list-item + .sd-list-item {
+  border-top: 1px solid #e6e6e6; }
+
+.sd-list-item-group--space-between-items .sd-list-item + .sd-list-item {
+  margin-top: 8px;
+  border-top: none; }
 
 .form__row {
   width: 100%;
