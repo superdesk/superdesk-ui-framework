@@ -1425,6 +1425,10 @@ button {
     background: #9c27b0; }
   .badge.badge--sd-green {
     background: #1eb06c; }
+  .badge--light {
+    background-color: #ddd;
+    color: #333;
+    font-weight: 500; }
 
 .sd-alert {
   padding: 1.8rem 3rem 1.8rem 2rem;
