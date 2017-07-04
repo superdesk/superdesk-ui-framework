@@ -3327,6 +3327,40 @@ table {
   left: 0;
   right: 0; }
 
+.panel-info {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 5rem 0 0;
+  text-align: center;
+  color: #888; }
+  .panel-info__icon {
+    display: block;
+    box-sizing: border-box;
+    padding-top: 1.6rem;
+    height: 9rem;
+    width: 9rem;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.08); }
+    .panel-info__icon i {
+      display: block;
+      width: 56px;
+      height: 48px;
+      opacity: .2;
+      margin: 14px auto 0;
+      font-size: 5.2rem; }
+  .panel-info__heading {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 12px 0 0;
+    line-height: 27px; }
+  .panel-info__description {
+    margin: 4px 0 0;
+    font-weight: 300; }
+
 .subnav {
   position: relative;
   display: flex;

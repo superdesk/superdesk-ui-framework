@@ -1427,7 +1427,8 @@ button {
     background: #1eb06c; }
   .badge--light {
     background-color: #ddd;
-    color: #333; }
+    color: #333;
+    font-weight: 500; }
 
 .sd-alert {
   padding: 18px 30px 18px 20px;
@@ -3325,6 +3326,40 @@ table {
   bottom: 0;
   left: 0;
   right: 0; }
+
+.panel-info {
+  background-color: transparent;
+  box-shadow: none;
+  padding: 50px 0 0;
+  text-align: center;
+  color: #888; }
+  .panel-info__icon {
+    display: block;
+    box-sizing: border-box;
+    padding-top: 16px;
+    height: 90px;
+    width: 90px;
+    background-color: #fff;
+    border-radius: 50%;
+    margin: 0 auto;
+    -webkit-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 0 6px 1px rgba(0, 0, 0, 0.08); }
+    .panel-info__icon i {
+      display: block;
+      width: 56px;
+      height: 48px;
+      opacity: .2;
+      margin: 14px auto 0;
+      font-size: 52px; }
+  .panel-info__heading {
+    font-size: 18px;
+    font-weight: 400;
+    margin: 12px 0 0;
+    line-height: 27px; }
+  .panel-info__description {
+    margin: 4px 0 0;
+    font-weight: 300; }
 
 .subnav {
   position: relative;
