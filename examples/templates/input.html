@@ -8,40 +8,66 @@
     <div class="docs-page__window-content">
         <div class="docs-page__code-example">
             <p class="docs-page__paragraph">// Input with hint text and character count</p>
-            <div class="sd-line-input">
-                <label class="sd-line-input__label">Headline</label>
-                <input class="sd-line-input__input" type="text">
-                <div class="sd-line-input__char-count">00/90</div>
-                <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+            <div class="form__row">
+                <div class="sd-line-input">
+                    <label class="sd-line-input__label">Headline</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__char-count">00/90</div>
+                    <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                </div>
             </div>
             <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Required input field</p>
-            <div class="sd-line-input sd-line-input--required">
-                <label class="sd-line-input__label">Description</label>
-                <input class="sd-line-input__input" type="text">
-                <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+            <div class="form__row">
+                <div class="sd-line-input sd-line-input--required">
+                    <label class="sd-line-input__label">Description</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+                </div>
             </div>
             <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Input with error message</p>
-            <div class="sd-line-input sd-line-input--invalid sd-line-input--required">
-                <label class="sd-line-input__label">Description</label>
-                <input class="sd-line-input__input" type="text">
-                <div class="sd-line-input__message">This field is required.</div>
+            <div class="form__row">
+                <div class="sd-line-input sd-line-input--invalid sd-line-input--required">
+                    <label class="sd-line-input__label">Description</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__message">This field is required.</div>
+                </div>
+            </div>
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Disabled input</p>
+            <div class="form__row">
+                <div class="sd-line-input sd-line-input--disabled">
+                    <label class="sd-line-input__label">Disabled input</label>
+                    <input class="sd-line-input__input" type="text" disabled>
+                    <div class="sd-line-input__message">This field is disabled.</div>
+                </div>
             </div>
 
             <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Alternative styling</p>
             <p class="docs-page__paragraph docs-page__paragraph--small">An alternative styling for input fields is available in cases where the whole filed needs to be visible. The style is applied by appending <code>.sd-line-input--boxed</code> to the default classes.</p>
-            <div class="sd-line-input sd-line-input--boxed">
-                <label class="sd-line-input__label">Description</label>
-                <input class="sd-line-input__input" type="text">
-                <div class="sd-line-input__hint">Vulputate velit esse molestie consequat.</div>
+            <div class="form__row">
+                <div class="sd-line-input sd-line-input--boxed">
+                    <label class="sd-line-input__label">Description</label>
+                    <input class="sd-line-input__input" type="text">
+                    <div class="sd-line-input__hint">Vulputate velit esse molestie consequat.</div>
+                </div>
             </div>
+
+            <div class="form__row">
+                <div class="sd-line-input sd-line-input--boxed sd-line-input--disabled">
+                    <label class="sd-line-input__label">Disabled</label>
+                    <input class="sd-line-input__input" type="text" disabled>
+                    <div class="sd-line-input__hint">This field is disabled.</div>
+                </div>
+            </div>
+
+
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
                  <!--Input with hint text and character count.-->
                 <div class="sd-line-input">
-                    <label class="sd-line-input__label">Basic label</label>
+                    <label class="sd-line-input__label">Headline</label>
                     <input class="sd-line-input__input" type="text">
-                    <div class="sd-line-input__char-count">00/00</div>
+                    <div class="sd-line-input__char-count">00/90</div>
                     <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
                 </div>
                 <!--Required input field-->
@@ -52,9 +78,14 @@
                 </div>
                 <!--Input with error message.-->
                 <div class="sd-line-input sd-line-input--invalid">
-                    <label class="sd-line-input__label">Basic label</label>
+                    <label class="sd-line-input__label">Description</label>
                     <input class="sd-line-input__input" type="text">
                     <div class="sd-line-input__message">This field is required.</div>
+                </div>
+                <div class="sd-line-input sd-line-input--disabled">
+                    <label class="sd-line-input__label">Disabled input</label>
+                    <input class="sd-line-input__input" type="text" disabled>
+                    <div class="sd-line-input__message">This field is disabled.</div>
                 </div>
                 <!--Alternative styling-->
                 <!--in cases where the whole filed needs to be visible.-->
@@ -62,6 +93,11 @@
                     <label class="sd-line-input__label">Description</label>
                     <input class="sd-line-input__input" type="text">
                     <div class="sd-line-input__hint">Vulputate velit esse molestie consequat.</div>
+                </div>
+                <div class="sd-line-input sd-line-input--boxed sd-line-input--disabled">
+                    <label class="sd-line-input__label">Disabled</label>
+                    <input class="sd-line-input__input" type="text" disabled>
+                    <div class="sd-line-input__hint">This field is disabled.</div>
                 </div>
             </pre>
         </div>
