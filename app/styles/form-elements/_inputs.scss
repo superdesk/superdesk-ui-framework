@@ -80,6 +80,20 @@
                 @include Line-input-boxed;
             }
         }
+        &.sd-line-input--disabled {
+            input, textarea, textarea {
+                &.sd-line-input__input {
+                    background-color: rgba(0, 0, 0, 0.03);
+                    border-bottom: 1px dotted $grayLight !important;
+                }
+            }
+            select {
+                &.sd-line-input__select, &.sd-line-input__select:hover {
+                    background-color: rgba(0, 0, 0, 0.03);
+                    border-bottom: 1px dotted $grayLight !important;
+                }
+            }
+        }
     }
     .sd-line-input__label {
         position: absolute;
@@ -150,6 +164,23 @@
             }
         }
     }
+
+    &.sd-line-input--disabled {
+        input, textarea {
+            &.sd-line-input__input {
+                border-bottom: 1px dotted $sd-inputBorderColor;
+                cursor: not-allowed;
+            }
+        }
+        select {
+            &.sd-line-input__select {
+                border-bottom: 1px dotted $sd-inputBorderColor;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+
     &.sd-line-input--is-select {
         &::after {
             position: absolute;
@@ -169,6 +200,13 @@
         &:hover {
             &::after {
                 @include opacity(60);
+            }
+        }
+        &.sd-line-input--disabled {
+            &:hover {
+                &::after {
+                    @include opacity(30);
+                }
             }
         }
         &.sd-line-input--boxed {

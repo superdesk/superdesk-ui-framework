@@ -91,6 +91,8 @@ $sd-big-icon-font: (
     chevron-right: "\e622",
     dashboard-alt: "\e623",
     master: "\e624",
+    attachment: "\e625",
+    upload-alt: "\e626",
 );
 
 @each $name, $value in $sd-big-icon-font {
