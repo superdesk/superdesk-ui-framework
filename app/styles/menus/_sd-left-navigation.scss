@@ -38,6 +38,8 @@ $sd-leftNavBtn-borderActive: 4px solid rgba(94,169,200,1);
     transition: $sd-leftNavBtn-transition;
     &:hover {
         background-color: $sd-leftNavBtn-bgHoverColor;
+        color: $sd-text;
+        text-decoration: none;
     }
     &:active, &--active {
         background-color: $sd-leftNavBtn-bgActiveColor;
