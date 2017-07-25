@@ -2595,6 +2595,15 @@ button {
 .big-icon--upload-alt:before {
   content: ""; }
 
+.big-icon--document-default:before {
+  content: ""; }
+
+.big-icon--document-pdf:before {
+  content: ""; }
+
+.big-icon--document-doc:before {
+  content: ""; }
+
 .modal-open {
   overflow: hidden; }
   .modal-open .dropdown__menu {
