@@ -4967,7 +4967,9 @@ label + .sd-radio {
   border-right: 4px solid rgba(94, 169, 200, 0);
   transition: background-color 0.2s ease-out, color 0.1s ease-out; }
   .sd-left-nav__btn:hover {
-    background-color: rgba(94, 169, 200, 0.2); }
+    background-color: rgba(94, 169, 200, 0.2);
+    color: #333;
+    text-decoration: none; }
   .sd-left-nav__btn:active, .sd-left-nav__btn--active {
     background-color: rgba(94, 169, 200, 0.1);
     color: #5ea9c8; }
