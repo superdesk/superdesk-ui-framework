@@ -126,6 +126,9 @@ button {
   white-space: nowrap;
   overflow: hidden; }
 
+.sd-no-wrap {
+  white-space: nowrap; }
+
 .btn {
   display: inline-block;
   vertical-align: middle;
