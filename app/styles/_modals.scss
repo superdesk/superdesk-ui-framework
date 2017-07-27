@@ -203,6 +203,11 @@ $modal-sizes: (
             flex-direction: column;
             padding: 0;
             background: transparent;
+            // fix for modal with form
+            > form {
+                display: flex;
+                flex-direction: column;
+            }
         }
         .modal__body-header {
             height: 48px;

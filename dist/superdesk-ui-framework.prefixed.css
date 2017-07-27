@@ -2749,6 +2749,9 @@ button {
     flex-direction: column;
     padding: 0;
     background: transparent; }
+    .modal.modal--tabs .modal__body > form {
+      display: flex;
+      flex-direction: column; }
   .modal.modal--tabs .modal__body-header {
     height: 48px;
     width: 100%;
