@@ -3551,6 +3551,65 @@ table {
   .subnav__button-stack--default.compact .btn--close .btn__text {
     display: none; }
 
+.sd-page {
+  position: absolute;
+  top: 48px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #fff;
+  overflow: hidden; }
+
+.sd-page__sidebar {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0; }
+
+.sd-page__main-content {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column; }
+
+.sd-page__sidebar + .sd-page__main-content {
+  left: 200px; }
+
+.sd-page__header {
+  height: 48px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #dedede;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0 20px;
+  z-index: 2; }
+  .sd-page__header--white {
+    background-color: #fff; }
+
+.sd-page__element-grow {
+  flex-grow: 1;
+  display: inline-block; }
+
+.sd-page__page-heading {
+  font-size: 1.6rem;
+  color: #333;
+  font-weight: 500; }
+
+.sd-page__content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow: auto; }
+
+.sd-page__flex-helper {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; }
+
 .sd-list-item {
   display: flex;
   min-height: 3.8rem;
