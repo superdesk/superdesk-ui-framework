@@ -58,7 +58,7 @@ $button-background-hover-lightness: -20% !default;
 
 /// Color lightness on hover for hollow buttons.
 /// @type Number
-$button-hollow-hover-lightness: -40% !default;
+$button-hollow-hover-lightness: -10% !default;
 
 /// UI dark buttons
 $button-background-ui-dark: scale-color($default-color-ui-dark, $alpha: -75%) !default;
@@ -133,6 +133,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   &:hover, &:focus {
     background-color: $background-hover;
     color: $color;
+    text-decoration: none;
     box-shadow: $button-hover-box-shadow;
   }
   &:active {
@@ -201,7 +202,8 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
 
   // hover for colored buttons
   @if $background-hover == auto {
-    $background-hover: scale-color($background, $alpha: -80%);
+    $background-hover: scale-color($background, $alpha: -90%);
+    box-shadow: none;
   }
 
   // hover for default gray button
@@ -324,7 +326,6 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
         }
       }
     }
-
     // Disabled style
     &.btn--disabled,
     &[disabled] {
@@ -497,6 +498,31 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       &.btn--small {
         padding: $button-padding-small-icon-only-circle;
       }
+
+      &.btn--text-only {
+        @include button-text-only-style;
+        transition: background-color 0.2s ease-out, color 0.1s ease-out, opacity 0.1s ease-out;
+        opacity: 0.5;
+          [class^="icon-"], [class*=" icon-"] {
+            color:inherit;
+        }
+          &:hover, &:focus, &:active {
+          box-shadow: none;
+          opacity:1;
+          border-color: transparent;
+        }
+          &:hover {
+          background-color: rgba(35,35,35,0);
+        }
+          &:focus, &:active {
+          background-color: rgba(35,35,35,0.2);
+        }
+        &.btn--ui-dark {
+          [class^="icon-"], [class*=" icon-"] {
+            color:$white;
+          }
+        }
+      }
     }
 }
 
@@ -543,10 +569,51 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     }
     &:active {
         .circle {
-            width: 68px;
-            height: 68px;
-            margin: -10px 0 0 -10px;
-            @include transition(all, 30ms, ease-in);
+          width: 68px;
+          height: 68px;
+          margin: -10px 0 0 -10px;
+          @include transition(all, 30ms, ease-in);
         }
     }
+}
+
+// Plain Icon buttons
+.icn-btn {
+  line-height: 1;
+  font-size: 1.6rem;
+  transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
+  padding: .5rem .6rem;
+  border-radius: 50%;
+  background-color: transparent;
+  opacity: 0.5;
+  background-color: rgba(35,35,35,0);
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  [class^="icon-"], [class*=" icon-"] {
+    color: inherit;
+  }
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+  }
+  &:active {
+    opacity: 1;
+    background-color: rgba(35,35,35,0.2);
+  }
+  &--overlay {
+    opacity: 0.85;
+    background-color: rgba(35,35,35,0.3);
+    &:hover {
+      opacity: 1;
+      background-color: rgba(35,35,35,0.5);
+    }
+    &:active {
+      opacity: 1;
+      background-color: rgba(35,35,35,0.75);
+    }
+  }
 }

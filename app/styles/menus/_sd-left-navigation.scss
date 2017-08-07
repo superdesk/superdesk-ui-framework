@@ -18,6 +18,7 @@ $sd-leftNavBtn-borderActive: 4px solid rgba(94,169,200,1);
     border-right: 1px solid $sd-leftNav-borderColor;
     display: block;
     width: $sd-leftNav-width;
+    overflow: auto;
     &--absolute {
         position: absolute;
         top: 0;
