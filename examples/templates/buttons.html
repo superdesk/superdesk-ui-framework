@@ -275,7 +275,7 @@
                 <a class="btn btn--icon-only-circle"><i class="icon-info-sign"></i></a>
                 <a class="btn btn--primary btn--icon-only-circle"><i class="icon-plus-large"></i></a>                                   
                 <a class="btn btn--sd-green btn--icon-only-circle btn--hollow"><i class="icon-ok"></i></a>                                
-            </div> 
+            </div>
             <p class="docs-page__paragraph">// Circle large</p>
             <div class="docs-page__content-row">                                    
                 <a class="btn btn--warning btn--large btn--icon-only-circle"><i class="icon-exclamation-sign"></i></a>
@@ -287,8 +287,7 @@
                 <a class="btn btn--alert btn--small btn--icon-only-circle"><i class="icon-close-small"></i></a>
                 <a class="btn btn--primary btn--icon-only-circle btn--small"><i class="icon-plus-large"></i></a>                                   
                 <a class="btn btn--sd-green btn--icon-only-circle btn--small"><i class="icon-star"></i></a>                                
-            </div> 
-
+            </div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
@@ -483,6 +482,46 @@
                 <a class="btn btn--primary btn--text-only btn--disabled btn--ui-dark">Primary</a>
                 <a class="btn btn--success btn--text-only btn--disabled btn--ui-dark">Success</a>
                 ...
+            </pre>
+        </div>
+    </div>
+</div>
+
+<h3 class="docs-page__h3">Plain icon button</h3>
+<p class="docs-page__paragraph ng-scope">
+    Plain icon buttons don't use the base <code>.btn</code> class like other buttons, instead a separate class ( <code>.icn-btn</code> ) 
+    is used to simpify the implementation and make it more flexible. It is intended mostly for actions on list items, toolbars etc. 
+    The font color is set to inherit so it will take it from the nearest parent where the color is defined. Tooltips are also suppored 
+    (see the Tooltip section for implementation details).  
+</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example clearfix">
+            <a class="icn-btn" sd-tooltip="I support tooltips!"><i class="icon-close-small"></i></a>
+            <a class="icn-btn"><i class="icon-plus-large"></i></a>
+            <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+            <button class="icn-btn"><i class="icon-trash"></i></button>
+            <button class="icn-btn" sd-tooltip="My tooltip is on the right." flow="right"><i class="icon-pencil"></i></button>
+            <p class="docs-page__paragraph">// Dark UI</p>  
+            <div class="docs-page__content-row docs-page__content-row--ui-dark" style="color:white;">
+                <a class="icn-btn" sd-tooltip="I support tooltips!"><i class="icon-close-small"></i></a>
+                <a class="icn-btn"><i class="icon-plus-large"></i></a>
+                <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                <button class="icn-btn"><i class="icon-trash"></i></button>
+                <button class="icn-btn" sd-tooltip="My tooltip is on the right." flow="right"><i class="icon-pencil"></i></button>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <a class="icn-btn" sd-tooltip="I support tooltips!"><i class="icon-close-small"></i></a>
+                <a class="icn-btn"><i class="icon-plus-large"></i></a>
+                <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                <button class="icn-btn"><i class="icon-trash"></i></button>
+                <button class="icn-btn" sd-tooltip="My tooltip is on the right." flow="right"><i class="icon-pencil"></i></button>
             </pre>
         </div>
     </div>

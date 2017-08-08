@@ -8,7 +8,7 @@
             flex: $grow $shrink $basis;
 }
 
-$flex-grid-gap:          16px; // space between items is $flex-grid-gap*2
+$flex-grid-gap:          1rem; // space between items is $flex-grid-gap*2
 $flex-grid-box-bg:       white;
 $flex-grid-columns:      6; // max number of columns supported
 
@@ -57,9 +57,18 @@ $flex-grid-media: (
         justify-content: center;
     }
     &--boxed {
+        margin-left: -1rem;
+        margin-right: -1rem;
         .flex-grid__item {
             margin: $flex-grid-gap;
-            background-color: $flex-grid-box-bg;
+            //background-color: $flex-grid-box-bg;
+        }
+    }
+
+    &--plain {
+        .flex-grid__item {
+            margin: $flex-grid-gap;
+            padding: 0;
         }
     }
     
@@ -67,6 +76,7 @@ $flex-grid-media: (
     &--small {
         @include basic-grid;
     }
+
     &--boxed {
         &.flex-grid--small {
             @include basic-grid-boxed;

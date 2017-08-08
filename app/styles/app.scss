@@ -9,17 +9,19 @@
 @import 'labels';
 @import 'badge';
 @import 'alerts';
-@import 'basic-grid';
 @import 'icon-font';
 @import 'big-icon-font';
 @import 'modals';
 @import 'tabs';
-@import 'layout-grid';
 @import 'tables';
 @import 'tooltips';
 @import 'carousel';
 @import 'panel-info';
+@import 'simple-list';
 
+// Grids
+@import 'grids/basic-grid';
+@import 'grids/layout-grid';
 
 // Layout
 @import 'layout/general';
@@ -27,6 +29,7 @@
 
 // Components
 @import 'components/list-item';
+@import 'components/card-item';
 
 // Form elements
 @import 'form-elements/forms-general';

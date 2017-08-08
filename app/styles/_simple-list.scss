@@ -1,0 +1,26 @@
+// Simple lists
+// ---------------------------------------------
+
+//colors
+$sinple-list-border-color: #bfbfbf;
+
+.simple-list {
+    padding: 2rem 0;
+    .simple-list__item {
+        padding: 0.5rem 0;
+    }
+    &--dotted {
+        .simple-list__item {
+            padding: 0.8rem 0;
+            border-bottom: 1px dotted $sinple-list-border-color;
+            &:first-child {
+                border-top: 1px dotted $sinple-list-border-color;
+            }
+        }
+    }
+    &--comfortable {
+        .simple-list__item {
+            padding: 1.2rem 0;
+        }
+    }
+}
