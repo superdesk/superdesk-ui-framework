@@ -4100,7 +4100,7 @@ table {
     font-size: 5.2rem;
     height: 5.2rem;
     width: 5.2rem;
-    padding-top: 34%;
+    padding-top: 8.5rem;
     opacity: 0.5; }
 
 .form__row {
@@ -4363,6 +4363,37 @@ table {
     padding-top: 0; }
   .sd-line-input.sd-line-input--no-margin {
     margin-bottom: 0; }
+  .sd-line-input--label-left, .sd-line-input--label-left-auto {
+    padding-top: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1rem 1fr auto;
+    grid-template-rows: auto auto;
+    grid-gap: 0; }
+    .sd-line-input--label-left .sd-line-input__label, .sd-line-input--label-left-auto .sd-line-input__label {
+      margin-top: 0.8rem;
+      grid-column: 1/2;
+      grid-row: 1/2;
+      position: static;
+      min-width: 7.6rem;
+      max-width: 12rem; }
+    .sd-line-input--label-left .sd-line-input__input, .sd-line-input--label-left-auto .sd-line-input__input {
+      grid-row: 1/2;
+      grid-column: 3/5; }
+    .sd-line-input--label-left .sd-line-input__hint, .sd-line-input--label-left .sd-line-input__message, .sd-line-input--label-left-auto .sd-line-input__hint, .sd-line-input--label-left-auto .sd-line-input__message {
+      position: static;
+      grid-row: 2/3;
+      grid-column: 3/4;
+      padding-right: 0; }
+    .sd-line-input--label-left .sd-line-input__char-count, .sd-line-input--label-left-auto .sd-line-input__char-count {
+      position: static;
+      grid-row: 2/3;
+      grid-column: 5/4;
+      text-align: right;
+      padding-left: 1.6rem; }
+  .sd-line-input--label-left-auto .sd-line-input__label {
+    min-width: auto;
+    max-width: none; }
 
 .sd-toggle {
   display: inline-block;
