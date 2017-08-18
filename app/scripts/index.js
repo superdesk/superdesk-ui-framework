@@ -8,5 +8,6 @@ angular.module('superdesk-ui', [
     'superdesk-ui.dropdown',
     'superdesk-ui.modals',
     'superdesk-ui.switch',
-    'superdesk-ui.check'
+    'superdesk-ui.check',
+    'superdesk-ui.toggleBox'
 ]);
