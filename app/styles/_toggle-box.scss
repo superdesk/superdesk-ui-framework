@@ -1,0 +1,85 @@
+// Toggle box aka collapsible panel
+// ----
+
+.toggle-box {
+    position: relative;
+    margin-bottom: 30px;
+
+
+    &.hidden {
+        .toggle-box__chevron {
+            i {
+                transform: rotate(0);
+            }
+        }
+        .toggle-box__content-wraper {
+            max-height: 0;
+            transition: all .5s;
+        }
+    }
+
+    // Stylings
+    &.toggle-box--dark {
+        .toggle-box__chevron {
+            i { color: $white; vertical-align: middle; }
+        }
+        .toggle-box__label {
+            color: rgba(255, 255, 255, 0.65);
+        }
+        .toggle-box__line {
+            background: rgba(255, 255, 255, 0.10);
+        }
+    }
+}
+
+.toggle-box__header {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    align-items: center;
+
+    .toggle-box__chevron {
+        padding: 2px;
+        i {
+            transition: all .3s;
+            transform: rotate(90deg);
+        }
+    }
+    .toggle-box__label {
+        font-size: 1.2rem;
+        padding: 0 1rem 0 0.8rem;
+        color: #666;
+        text-transform: uppercase;
+    }
+    .toggle-box__line {
+        flex: 1;
+        height: 1px;
+        margin: auto 0.4rem auto 0;
+        background: #dcdcdc;
+    }
+}
+
+.toggle-box__content-wraper {
+    max-height: 600px;
+    transition: all .5s;
+}
+
+.toggle-box__content {  
+    animation: fadeIn 0.3s ease-in 0s 1;
+}
+
+// Buttons
+.toggle-box__button {
+    color: $grayLight;
+    cursor: pointer;
+    i {
+        color: $grayLight;
+        margin-right: 0.5rem;
+        vertical-align: text-bottom;
+    }
+    &:hover {
+        text-decoration: none;
+        color: $white;
+        i { color: $white; }
+    }
+}
