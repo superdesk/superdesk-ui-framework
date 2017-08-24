@@ -121,7 +121,7 @@ function CarouselStepDirective() {
         scope: {
             code: '@'
         },
-        template: '<div class="sd-carousel__page fade" ng-show="selected" ng-transclude></div>',
+        template: '<div class="sd-carousel__page" ng-show="selected" ng-transclude></div>',
         transclude: true,
         replace: true,
         require: '^sdCarousel',
