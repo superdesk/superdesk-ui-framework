@@ -139,14 +139,18 @@ button {
 
 .element-with-badge {
   display: inline-block;
-  vertical-align: middle;
   position: relative; }
   .element-with-badge .badge {
     position: absolute;
     top: -.9rem;
     right: -.9rem; }
-  .element-with-badge + .element-with-badge {
-    margin-left: 1.2rem; }
+  .element-with-badge + .element-with-badge, .element-with-badge + .btn {
+    margin-left: 1.2rem;
+    vertical-align: top; }
+
+.btn + .element-with-badge {
+  margin-left: 1.2rem;
+  vertical-align: top; }
 
 .btn {
   display: inline-block;
