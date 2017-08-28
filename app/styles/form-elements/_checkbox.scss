@@ -150,6 +150,9 @@ $checkButtonBorderColor: #c6c6c6;
 .sd-check__wrapper + .sd-check__wrapper {
     margin-left: 0.8rem;
 }
+.sd-check__wrapper:first-child, .sd-check__wrapper:only-of-type {
+    margin-left: 0;
+}
 
 .sd-check__wrapper {
     margin-left: 0.8rem;

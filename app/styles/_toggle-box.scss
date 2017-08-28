@@ -14,7 +14,7 @@
         }
         .toggle-box__content-wraper {
             max-height: 0;
-            transition: all .5s;
+            transition: all ease-out .5s;
         }
     }
 
@@ -60,8 +60,8 @@
 }
 
 .toggle-box__content-wraper {
-    max-height: 600px;
-    transition: all .5s;
+    max-height: 1000px;
+    transition: all ease-out .5s;
 }
 
 .toggle-box__content {  

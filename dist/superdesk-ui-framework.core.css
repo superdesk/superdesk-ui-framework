@@ -63,6 +63,14 @@ button {
   100% {
     opacity: 1; } }
 
+.sd-card__thumbnail {
+  transition: all 0.2s ease-in;
+  height: 20rem; }
+
+.sd-card__thumbnail.ng-hide {
+  opacity: 0;
+  height: 0.1rem !important; }
+
 .pull-left {
   float: left; }
 
@@ -1303,9 +1311,9 @@ button {
         color: #fff; }
 
 .sd-create-btn {
-  width: 48px;
-  height: 48px;
-  line-height: 48px;
+  width: 4.8rem;
+  height: 4.8rem;
+  line-height: 4.8rem;
   padding: 0 !important;
   overflow: hidden;
   position: relative;
@@ -1315,20 +1323,21 @@ button {
     z-index: 1;
     display: block;
     top: 50%;
-    margin-top: -8px;
+    margin-top: -0.8rem;
     left: 50%;
-    margin-left: -8px;
+    margin-left: -0.8rem;
     opacity: 1 !important;
-    color: #fff; }
+    color: #fff;
+    line-height: 1.6rem !important; }
   .sd-create-btn .circle {
     box-sizing: border-box;
     display: inline-block;
     text-align: center;
-    width: 26px;
-    height: 26px;
+    width: 2.6rem;
+    height: 2.6rem;
     margin: 0;
     padding: 0;
-    margin-top: 11px;
+    margin-top: 1.1rem;
     border-radius: 50%;
     background-color: #5ea9c8;
     color: #fff;
@@ -1339,14 +1348,14 @@ button {
     -o-transition: all 60ms ease-in;
     transition: all 60ms ease-in; }
   .sd-create-btn:hover .circle {
-    width: 34px;
-    height: 34px;
-    margin-top: 7px;
+    width: 3.4rem;
+    height: 3.4rem;
+    margin-top: 0.7rem;
     margin-left: 0; }
   .sd-create-btn:active .circle {
-    width: 68px;
-    height: 68px;
-    margin: -10px 0 0 -10px;
+    width: 6.8rem;
+    height: 6.8rem;
+    margin: -1rem 0 0 -1rem;
     -webkit-transition: all 30ms ease-in;
     -moz-transition: all 30ms ease-in;
     -ms-transition: all 30ms ease-in;
@@ -3154,7 +3163,7 @@ table {
     transform: rotate(0); }
   .toggle-box.hidden .toggle-box__content-wraper {
     max-height: 0;
-    transition: all .5s; }
+    transition: all ease-out .5s; }
   .toggle-box.toggle-box--dark .toggle-box__chevron i {
     color: #fff;
     vertical-align: middle; }
@@ -3185,8 +3194,8 @@ table {
     background: #dcdcdc; }
 
 .toggle-box__content-wraper {
-  max-height: 600px;
-  transition: all .5s; }
+  max-height: 1000px;
+  transition: all ease-out .5s; }
 
 .toggle-box__content {
   animation: fadeIn 0.3s ease-in 0s 1; }
@@ -3639,13 +3648,22 @@ table {
   -moz-transition: all 0.3s ease;
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
-  transition: all 0.3s ease; }
+  transition: all 0.3s ease;
+  z-index: 1001; }
   .subnav--padded {
     padding: 10px 20px; }
   .subnav--darker {
     background: #dedede; }
   .subnav--absolute {
-    position: absolute; }
+    position: absolute;
+    top: 48px;
+    left: 0;
+    right: 0; }
+  .subnav + .subnav {
+    z-index: 999; }
+
+.subnav__element-grow {
+  flex-grow: 1; }
 
 .subnav__page-title {
   padding: 1rem 2rem;
@@ -3703,6 +3721,9 @@ table {
   .navbtn i {
     opacity: 0.75;
     vertical-align: baseline !important; }
+  .navbtn [class^="big-icon--"],
+  .navbtn [class*=" big-icon--"] {
+    line-height: 4.8rem; }
   .navbtn:hover {
     background: rgba(255, 255, 255, 0.5); }
     .navbtn:hover > i {
@@ -3713,6 +3734,12 @@ table {
     color: #fff; }
     .navbtn.navbtn--blue.disabled {
       background: #898989; }
+  .navbtn.navbtn--text-only {
+    width: auto;
+    line-height: 4.8rem;
+    padding: 0 20px;
+    border-left: none;
+    font-size: 1.5rem; }
   .navbtn.navbtn--highlighted {
     background-color: #9c27b0 !important;
     transition: all 0.3s;
@@ -4751,6 +4778,9 @@ label + .sd-toggle {
 
 .sd-check__wrapper + .sd-check__wrapper {
   margin-left: 0.8rem; }
+
+.sd-check__wrapper:first-child, .sd-check__wrapper:only-of-type {
+  margin-left: 0; }
 
 .sd-check__wrapper {
   margin-left: 0.8rem; }

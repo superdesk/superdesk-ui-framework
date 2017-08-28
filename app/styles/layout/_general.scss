@@ -13,6 +13,7 @@ $subnav-background: $grayLighter;
     border-bottom: 0px;
     @include box-shadow-both(0 1px 3px rgba(0,0,0,0.07), 0 1px 0 0 rgba(0,0,0,0.1));
     @include transition(all, 0.3s, ease);
+    z-index: 1001;
     &--padded {
         padding: 10px 20px;
     }
@@ -21,7 +22,16 @@ $subnav-background: $grayLighter;
     }
     &--absolute {
       position: absolute;
+      top:48px;
+      left:0;
+      right:0;
     }
+    + .subnav {
+      z-index: 999;
+  }
+}
+.subnav__element-grow {
+  flex-grow: 1;
 }
 .subnav__page-title {
   padding: 1rem 2rem;
@@ -72,7 +82,7 @@ $subnav-background: $grayLighter;
 .navbtn {
     position: relative;
     display: inline-block;
-    height: 4.8rem;
+    height: $subnav-height;
     width: 4.8rem;
     padding: 0 10px;
     background: transparent;
@@ -87,6 +97,10 @@ $subnav-background: $grayLighter;
         opacity: 0.75;
         vertical-align: baseline !important;
     }
+    [class^="big-icon--"],
+    [class*=" big-icon--"] {
+      line-height: $subnav-height;
+    }
     &:hover {
         background: rgba(255, 255, 255, 0.5);
         > i {
@@ -100,6 +114,13 @@ $subnav-background: $grayLighter;
         &.disabled {
             background: #898989;
         }
+    }
+    &.navbtn--text-only {
+      width: auto;
+      line-height: $subnav-height;
+      padding: 0 20px;
+      border-left: none;
+      font-size: 1.5rem;
     }
     &.navbtn--highlighted {
       background-color: $purple !important;
