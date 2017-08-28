@@ -14,9 +14,15 @@ function sdCheck($parse) {
                     checkbox = element.find('span');
 
             if ($parse(attrs.ngChecked)($scope)) {
-                attrs.type === 'radio' ?
-                        ngModel.$setViewValue(attrs.ngValue) :
-                        ngModel.$setViewValue(!ngModel.$viewValue);
+                if (attrs.type === 'radio') {
+                    ngModel.$setViewValue(attrs.ngValue);
+                } else if (attrs.ngTrueValue) {
+                    ngModel.$setViewValue(attrs.ngTrueValue);
+                } else {
+                    ngModel.$setViewValue(!ngModel.$viewValue);
+                }
+            } else if (attrs.ngFalseValue) {
+                ngModel.$setViewValue(attrs.ngFalseValue);
             }
 
             ngModel.$render = function () {
@@ -37,6 +43,11 @@ function sdCheck($parse) {
                         return ngModel.$setViewValue(attrs.ngValue);
                     }
 
+                    if (attrs.ngTrueValue) {
+                        return ngModel.$setViewValue(ngModel.$viewValue ===
+                                attrs.ngTrueValue ? attrs.ngFalseValue : attrs.ngTrueValue);
+                    }
+
                     return ngModel.$setViewValue(!ngModel.$viewValue);
                 });
             });
@@ -45,6 +56,10 @@ function sdCheck($parse) {
                 if (attrs.type === 'radio') {
                     value = ngModel.$viewValue === attrs.ngValue;
                     checkbox.addClass('sd-checkbox--radio');
+                }
+
+                if (attrs.ngTrueValue) {
+                    value = ngModel.$viewValue === attrs.ngTrueValue;
                 }
 
                 if (attrs.disabled) {
