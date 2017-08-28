@@ -1,6 +1,7 @@
 'use strict';
 
 angular.module('superdesk-ui', [
+    // 'ngAnimate',
     'superdesk-ui.templates-cache',
     'superdesk-ui.helper',
     'superdesk-ui.carousel',

@@ -183,7 +183,7 @@
 
                         <div class="sd-card flex-grid__item">
                             <div class="sd-card__header sd-card__header--with-thumb">
-                                <div class="sd-card__thumbnail">
+                                <div class="sd-card__thumbnail" ng-hide="hideThumb">
                                     <img src="img/image_02.jpg" alt="test">
                                 </div>
                                 <div class="sd-card__heading">Entertainment Desk</div>
@@ -193,7 +193,7 @@
                                 Content here
                             </div>
                             <div class="sd-card__footer sd-card__footer--right-align">
-                                <a class="btn btn--primary btn--hollow">On the right</a>
+                                <a class="btn btn--primary btn--hollow" ng-click="hideThumb=!hideThumb">On the right</a>
                             </div>
                         </div>
                         <div class="sd-card flex-grid__item">

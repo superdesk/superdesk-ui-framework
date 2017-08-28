@@ -22,3 +22,13 @@
   50% {opacity:0;}
   100% {opacity:1;}
 }
+
+.sd-card__thumbnail {
+  transition: all 0.2s ease-in;
+  height: 20rem;
+
+}
+.sd-card__thumbnail.ng-hide {
+  opacity: 0;
+  height: 0.1rem !important;
+}
