@@ -7,22 +7,22 @@ function sdCheck($parse) {
         replace: true,
         transclude: true,
         template: '<span class="sd-check__wrapper">' +
-                '<span class="sd-checkbox"></span><label ng-transclude></label>' +
-                '</span>',
+                '<span class="sd-checkbox"></span><label ng-transclude></label></span>',
         link: function ($scope, element, attrs, ngModel) {
             var label = element.find('label'),
-                    checkbox = element.find('span');
+                    checkbox = element.find('span'),
+                    isChecked = $parse(attrs.ngChecked)($scope);
 
-            if ($parse(attrs.ngChecked)($scope)) {
+            if (isChecked) {
                 if (attrs.type === 'radio') {
                     ngModel.$setViewValue(attrs.ngValue);
-                } else if (attrs.ngTrueValue) {
-                    ngModel.$setViewValue(attrs.ngTrueValue);
-                } else {
-                    ngModel.$setViewValue(!ngModel.$viewValue);
                 }
-            } else if (attrs.ngFalseValue) {
-                ngModel.$setViewValue(attrs.ngFalseValue);
+
+                if (attrs.ngTrueValue) {
+                    ngModel.$setViewValue(attrs.ngTrueValue);
+                }
+
+                ngModel.$setViewValue(!ngModel.$viewValue);
             }
 
             ngModel.$render = function () {
@@ -74,6 +74,7 @@ function sdCheck($parse) {
                 }
             }
 
+            // CHECKBOX STYLING
             if (attrs.labelPosition === 'inside') {
                 checkbox.html(label).addClass('sd-checkbox sd-checkbox--button-style');
             } else if (attrs.labelPosition === 'left') {
