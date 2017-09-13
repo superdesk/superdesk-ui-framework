@@ -3881,7 +3881,8 @@ table {
 .sd-page__flex-helper {
   display: flex;
   flex-direction: column;
-  flex-grow: 1; }
+  flex-grow: 1;
+  min-height: 0; }
 
 .sd-list-item {
   display: flex;
