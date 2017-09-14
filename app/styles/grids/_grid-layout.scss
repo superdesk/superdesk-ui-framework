@@ -1,0 +1,322 @@
+// Complete CSS Grid layout 
+// ---------------------------------------------
+
+
+// ------ Basic page with space for the main navigation on the left ------ //
+.sd-page-grid--basic {
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 4.8rem 1fr auto auto;
+    grid-gap: 0;
+    height: 100vh;
+    position: relative;
+    background-color: aquamarine;
+
+    .sd-main-menu {
+        grid-column: 1/2;
+        grid-row: 1/5;
+        background-color: #272727;
+        width: 30rem;
+        box-shadow: inset -4px 0 12px rgba(0,0,0,0.9);
+        display: none;
+        .sd-left-nav__btn {
+            color: rgba(255, 255, 255, 0.75);
+        }
+        .sd-left-nav__group-header {
+            border-top: 1px solid rgba(255, 255, 255, 0.14);
+        }
+    }
+    .sd-top-menu {
+        grid-column: 2/3;
+        grid-row: 1/2;
+        z-index: 2;
+        position: static;
+    }
+    .sd-content {
+        grid-column: 2/3;
+        grid-row: 2/3;
+        z-index: 1;
+        background-color: #f8f8f8;
+        overflow: auto;
+    }    
+    .bottom-bar {
+        height:3rem;
+        background-color: #222;
+        grid-column: 2/3;
+        grid-row: 4/5;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        color: rgba(255, 255, 255, 0.75);
+        padding: 0 10px; 
+    }
+}
+
+// ------ Basic page with space for the main navigation on the left ------ //
+.sd-page-content--split {
+    // display: grid;
+    // grid-template-columns: 4.8rem auto 0.3rem auto 4.8rem;
+    // grid-template-rows: 1fr;
+    // grid-gap: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .sd-page-content__left-tabs::after {
+        right: -4px;
+        background-image: linear-gradient(to right,rgba(0,0,0,.25) 0,transparent 100%);
+    }
+
+    .sd-page-content__right-tabs::after {
+        left: -4px;
+        background-image: linear-gradient(to left,rgba(0,0,0,.25) 0,transparent 100%);
+    }
+
+    .sd-page-content__left-tabs::after, .sd-page-content__right-tabs::after {
+        display: block;
+        bottom: 0;
+        content: '';
+        width: 4px;
+        position: absolute;
+        z-index: 80;
+        top: 0;
+    }
+
+    .sd-page-content__left-tabs {
+        // grid-column: 1/2;
+        // grid-row: 1/2;
+        flex-grow: 0;
+        flex-shrink: 0;
+        position: relative;
+        &::after {
+            display: block;
+            bottom: 0;
+            content: '';
+            width: 4px;
+            position: absolute;
+            z-index: 80;
+            top: 0;
+        }
+    }
+
+    .sd-page-content__right-tabs {
+        // grid-column: 5/6;
+        // grid-row: 1/2;
+        flex-grow: 0;
+        flex-shrink: 0;
+    }
+
+    .sd-page-content__spliter {
+        // grid-column: 3/4;
+        // grid-row: 1/2;
+        background-color: #6C6C6C;
+        width: 0.2rem;
+        flex-grow: 0;
+        flex-grow: 0;
+    }
+
+    .sd-sidebar-menu {
+        position: relative;
+        top: 0;
+        bottom: auto;
+    }
+
+    .sd-page-content__left-content, .sd-page-content__right-content {
+        transition: all 0.2s ease-out;
+        transition-delay: 0.1s;
+        width: calc(50vw - 49px);
+        display: flex;
+        flex-direction: column;
+        overflow-x: hidden;
+        flex-grow: 1;
+        position: relative;
+
+        .subnav {
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+
+        .sd-list-item-group {
+            margin: 2.4rem;
+            opacity: 1;
+            transition: opacity 0.2s ease-in;
+            transition-delay: 0.1s;
+        }
+        .sd-column-box--3 {
+            opacity: 1;
+            transition: opacity 0.2s ease-in;
+            transition-delay: 0.1s;
+        }
+    }
+    .sd-page-content__right-content::before {
+        background-image: linear-gradient(to right,rgba(0,0,0,.12) 0,transparent 100%);
+        display: block;
+        bottom: 0;
+        content: '';
+        width: 5px;
+        position: absolute;
+        z-index: 8000;
+        top: 0;
+    }
+    // .sd-page-content__left-content {
+    //     grid-column: 2/3;
+    //     grid-row: 1/2;
+    // }
+    // .sd-page-content__right-content {
+    //     grid-column: 4/5;
+    //     grid-row: 1/2;
+    // }
+
+    &.sd-page-content--split-left {
+        // grid-template-columns: 4.8rem auto 0.3rem 1fr 4.8rem;
+        .sd-page-content__left-content {
+            width: 0;
+            opacity: 0;
+            .sd-list-item-group {
+                opacity: 0;
+                transition-delay: 0s;
+            }
+            .sd-column-box--3 {
+                opacity: 0;
+                transition-delay: 0s;   
+            }
+        }
+        .open-preview .sd-preview-panel {
+            width: 60rem;
+        }
+        .sd-page-content__right-content {
+            width: calc(100vw - 98px);
+        }
+
+    }
+    &.sd-page-content--split-left.shift-to-left {
+        .sd-page-content__right-content {
+            width: calc(100vw - 98px);
+        }
+        .sd-page-content__left-content {
+            width: 0;
+        }
+    }
+    &.sd-page-content--split-right {
+        // grid-template-columns: 4.8rem 1fr 0.3rem auto 4.8rem;
+        .sd-page-content__right-content {
+            width: 0;
+            opacity: 0;
+            .sd-list-item-group {
+                opacity: 0;
+                transition-delay: 0s;
+            }
+            .sd-column-box--3 {
+                opacity: 0;
+                transition-delay: 0s;   
+            }
+        }
+        .open-preview .sd-preview-panel {
+            width: 60rem;
+        }
+        .sd-page-content__left-content {
+            width: calc(100vw - 98px);
+        }
+    }
+    &.sd-page-content--split-right.shift-to-right {
+        .sd-page-content__left-content {
+            width: calc(100vw - 98px);
+        }
+        .sd-page-content__right-content {
+            width: 0;
+        }
+    }
+    .sd-column-box--3 {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: row;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+    .sd-column-box__main-column {
+        flex-grow: 1;
+        flex-shrink: 1;
+        width: 50%;
+        overflow: auto;
+    }
+
+    &.shift-to-right {
+        .sd-page-content__left-content  {
+            width: calc(65vw - 49px);
+        }
+        .sd-page-content__right-content {
+            width: calc(35vw - 49px);
+        }
+    }
+    &.shift-to-left {
+        .sd-page-content__left-content  {
+            width: calc(35vw - 49px);
+        }
+        .sd-page-content__right-content {
+            width: calc(65vw - 49px);
+        }
+    }
+}
+
+.sd-sidebar-menu__btn--closed {
+    .sd-sidebar-menu__helper-icon {
+        transform: rotate(180deg);
+    }
+}
+
+.sd-filters-panel, .sd-preview-panel {
+    width: 0;
+    transition: all .2s ease-out;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    .side-panel {
+        opacity: 0;
+        transition: all 0.1s ease-out;
+        transition-delay: 0;
+    }
+}
+.sd-filters-panel {
+    background-color: $sd-filters-bg;
+    border-right: 2px solid rgba(187, 187, 187, 0); 
+}
+.sd-preview-panel {
+    background-color: #fff;
+    border-left: 1px solid rgba(187, 187, 187, 0); 
+}
+.open-filters {
+    .sd-filters-panel {
+        width: 36rem;
+        border-right: 2px solid rgba(187, 187, 187, 1);
+        .side-panel {
+            opacity: 1;
+            transition: all 0.2s ease-out;
+            transition-delay: .2s;
+        } 
+    }
+}
+.open-preview {
+    .sd-preview-panel {
+        width: 36rem;
+        border-left: 1px solid rgba(187, 187, 187, 1);
+        .side-panel {
+            opacity: 1;
+            transition: all 0.2s ease-out;
+            transition-delay: .2s;
+        }  
+    }
+}
+
+.sd-filters-panel, .sd-preview-panel {
+    .side-panel {
+        opacity: 0;
+    }
+}
+.text-label {
+    display: inline-block;
+    min-width: 4rem;
+    color: $gray;
+    font-weight: 300;
+}

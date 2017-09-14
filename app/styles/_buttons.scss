@@ -88,6 +88,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   line-height: 1;
   letter-spacing: 0.1em;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -583,11 +584,13 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   line-height: 1;
   font-size: 1.6rem;
   transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-  padding: .5rem .6rem;
+  padding: .6rem;
+  height: 1.75em;
+  width: 1.75em;
   border-radius: 50%;
   background-color: transparent;
-  opacity: 0.5;
-  background-color: rgba(35,35,35,0);
+  opacity: 0.75;
+  background-color: rgba(55,55,55,0);
   color: inherit;
   text-decoration: none;
   display: inline-block;
@@ -596,6 +599,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   cursor: pointer;
   [class^="icon-"], [class*=" icon-"] {
     color: inherit;
+    vertical-align: baseline !important;
   }
   &:hover {
     opacity: 1;
@@ -603,18 +607,22 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   }
   &:active {
     opacity: 1;
-    background-color: rgba(35,35,35,0.2);
+    background-color: rgba(155,155,155,0.25);
+    [class^="icon-"], [class*=" icon-"] {
+      color: $sd-blue;
+      opacity: 1;
+    }
   }
   &--overlay {
-    opacity: 0.85;
+    opacity: 0.90;
     background-color: rgba(35,35,35,0.3);
     &:hover {
       opacity: 1;
-      background-color: rgba(35,35,35,0.5);
+      background-color: rgba(35,35,35,0.70);
     }
     &:active {
       opacity: 1;
-      background-color: rgba(35,35,35,0.75);
+      background-color: rgba(35,35,35,0.8);
     }
   }
 }

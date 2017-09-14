@@ -9,19 +9,18 @@ $grayLight:             #999;
 $grayLighter:           #F5F5F5;
 $white:                 #fff;
 
-//Basic colors
+// Basic colors
 $sd-blue:               #5ea9c8;
 $sd-blueMedium:         #3d8fb1;
 $sd-blueDark:           #005b7f;
 $sd-green:              #1eb06c;
-$sd-text:               $grayDark;
-$sd-hover:              #eff7fa;
+
 $green:                 #46a546;
 $red:                   #E51C23;
 $yellow:                #ffc40d;
 $orange:                #dd8200;
 $purple:                #9c27b0;
-//Extended colors
+// Extended colors
 $fernGreen:             #56812e;
 $oldGold:               #d2a800;
 $darkOrange:            #da7200;
@@ -31,9 +30,15 @@ $darkMagenta:           #8b008b;
 $darkViolet:            #7300ab;
 $navy:                  #000080;
 
+// Text specific colors
+$sd-text:               $grayDark;
+$sd-slugline:           $sd-blueDark;
+
+// Misc
 $avatarBG:              #67afa1;
 $sd-background:         #f8f8f8;
-
+$sd-filters-bg:         #ededed;
+$sd-hover:              #eff7fa;
 $transparent-gray:      rgba(0,0,0,.15);
 $sd-inputBorderColor:   $transparent-gray;
 $sd-tableBorderColor:   $transparent-gray;

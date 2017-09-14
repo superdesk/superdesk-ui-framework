@@ -11,17 +11,27 @@
             i {
                 transform: rotate(0);
             }
+            &--circle {
+                padding: 2px;
+                background-color: $grayText;
+                height: 20px;
+                width: 20px;
+                text-align: center;
+                border-radius: 50%;
+                i {
+                    color: $white;
+                }
+            }
         }
         .toggle-box__content-wraper {
             max-height: 0;
             transition: all ease-out .5s;
         }
     }
-
     // Stylings
     &.toggle-box--dark {
         .toggle-box__chevron {
-            i { color: $white; vertical-align: middle; }
+            i { color: $white;}
         }
         .toggle-box__label {
             color: rgba(255, 255, 255, 0.65);
@@ -30,12 +40,24 @@
             background: rgba(255, 255, 255, 0.10);
         }
     }
+    &.toggle-box--circle {
+        .toggle-box__chevron {
+            background-color: $grayLight;
+            height: 2rem;
+            width: 2rem;
+            text-align: center;
+            border-radius: 50%;
+            i {
+                color: $white;
+            }
+        }
+    }
 }
 
 .toggle-box__header {
     display: flex;
     cursor: pointer;
-    margin-bottom: 1rem;
+    margin-bottom: 1.8rem;
     align-items: center;
 
     .toggle-box__chevron {
@@ -83,3 +105,5 @@
         i { color: $white; }
     }
 }
+
+

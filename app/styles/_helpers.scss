@@ -111,3 +111,54 @@
     margin-left: 1.2rem;
     vertical-align: top;
 }
+
+// Deafult headings 
+// --------------------------------------------------
+
+.sd-heading-3 {
+    font-size: 1.6rem;
+    margin-bottom: 1.6rem; 
+}
+
+// Deafult text syles based on type of data  
+// --------------------------------------------------
+
+.sd-text__slugline {
+    color: $sd-slugline;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-right: 1rem;
+}
+p strong {
+    font-weight: 500;
+}
+time {
+    color: #747474;
+    font-weight: 300;
+    letter-spacing: .025em;
+    &.small {
+        font-size: calc(100% - 0.1rem);
+    }
+}
+.sd-text__date-time {
+    color: #747474;
+    font-weight: 300;
+    letter-spacing: .025em;
+    &--small {
+        font-size: 1.2rem;
+    }
+}
+.sd-text__date-and-author {
+    font-size: 1.2rem;
+
+}
+.sd-text__author {
+    font-weight: 500;
+    color: $sd-text;
+}
+.sd-text__info {
+    font-weight: 300;
+    color: $grayText;
+}
+
