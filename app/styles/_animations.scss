@@ -23,6 +23,11 @@
   100% {opacity:1;}
 }
 
+@keyframes dropOut2 {
+  0% {transform: translateY(-4.8rem);}
+  100% {transform: translateY(0);}
+}
+
 .sd-card__thumbnail {
   transition: all 0.2s ease-in;
   height: 20rem;

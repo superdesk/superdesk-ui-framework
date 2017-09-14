@@ -9,6 +9,7 @@
 }
 
 $flex-grid-gap:          1rem; // space between items is $flex-grid-gap*2
+$flex-grid-gap-small:    0.4rem; // alternative small gap
 $flex-grid-box-bg:       white;
 $flex-grid-columns:      6; // max number of columns supported
 
@@ -41,6 +42,17 @@ $flex-grid-media: (
     }
 }
 
+@mixin basic-grid-boxed-small {
+    @for $i from $flex-grid-columns through 1 {
+        &-#{$i} {
+            .flex-grid__item, .sd-check__wrapper, .btn {
+                @include flex(0, 0, calc(#{100% / $i} - #{$flex-grid-gap-small * 2}));
+                max-width: calc(#{100% / $i} - #{$flex-grid-gap-small * 2});
+            }
+        }
+    }
+}
+
 // grid
 .flex-grid {
     display: flex;
@@ -57,10 +69,19 @@ $flex-grid-media: (
         justify-content: center;
     }
     &--boxed {
-        margin-left: -1rem;
-        margin-right: -1rem;
+        margin-left: -$flex-grid-gap;
+        margin-right: -$flex-grid-gap;
         .flex-grid__item {
             margin: $flex-grid-gap;
+            //background-color: $flex-grid-box-bg;
+        }
+    }
+
+    &--boxed-small {
+        margin-left: -$flex-grid-gap-small;
+        margin-right: -$flex-grid-gap-small;
+        .flex-grid__item, .sd-check__wrapper, .btn {
+            margin: $flex-grid-gap-small !important;
             //background-color: $flex-grid-box-bg;
         }
     }
@@ -82,6 +103,11 @@ $flex-grid-media: (
             @include basic-grid-boxed;
         }
     }
+    &--boxed-small {
+        &.flex-grid--small {
+            @include basic-grid-boxed-small;
+        }
+    }
 }
 
 // Media queries
@@ -94,6 +120,11 @@ $flex-grid-media: (
             &--boxed {
                 &.flex-grid--#{$name} {
                     @include basic-grid-boxed;
+                }
+            }
+            &--boxed-small {
+                &.flex-grid--#{$name} {
+                    @include basic-grid-boxed-small;
                 }
             }
         }

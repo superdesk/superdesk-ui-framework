@@ -2,19 +2,29 @@
 // ---------------------------------------------
 
 //colors
-$sinple-list-border-color: #bfbfbf;
+$simple-list-border-color: #bfbfbf;
 
 .simple-list {
     padding: 2rem 0;
     .simple-list__item {
         padding: 0.5rem 0;
+        &--with-icon {
+            display: flex;
+            flex-direction: row;
+            [class^="icon-"], [class*=" icon-"] {
+                flex-grow: 0;
+                flex-shrink: 0;
+                margin-right: 1rem;
+                opacity: .75;
+            }
+        }
     }
     &--dotted {
         .simple-list__item {
             padding: 0.8rem 0;
-            border-bottom: 1px dotted $sinple-list-border-color;
+            border-bottom: 1px dotted $simple-list-border-color;
             &:first-child {
-                border-top: 1px dotted $sinple-list-border-color;
+                border-top: 1px dotted $simple-list-border-color;
             }
         }
     }
@@ -22,5 +32,11 @@ $sinple-list-border-color: #bfbfbf;
         .simple-list__item {
             padding: 1.2rem 0;
         }
+    }
+    [class^="icon-"], [class*=" icon-"] {
+        vertical-align: middle;
+    }
+    &--no-padding {
+        padding: 0 0 2rem 0;
     }
 }

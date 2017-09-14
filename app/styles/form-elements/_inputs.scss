@@ -275,6 +275,51 @@
             max-width: none;
         } 
     }
+    &--with-button {
+        input, textarea {
+            &.sd-line-input__input {
+                height: 3rem;
+                text-indent: 2.8rem;
+            }
+        }
+    }
+    &--with-icon-l {
+        input, textarea {
+            &.sd-line-input__input {
+                padding-right: 3rem;
+            }
+        }
+    }
+    .sd-line-input__plus-btn {
+        position: absolute;
+        top: 1.8rem;
+        left: 0;
+        height: 2.2rem;
+        width: 2.2rem;
+        background-color: scale-color($sd-blue, $alpha: -25%);
+        transition: $button-transition;
+        border-radius: 2px;
+        cursor: pointer;
+        text-align: center;
+        &::before {
+            margin-top: 0.2rem;
+            content: "\e629";
+            @include icon-base;
+            color: $white;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        &:hover {
+            background-color: $sd-blue;
+        }
+    }
+    .sd-line-input__icon-right {
+        position: absolute;
+        top: 0.8rem;
+        right: 0;
+        cursor: pointer;
+    }
+
 
 }
 

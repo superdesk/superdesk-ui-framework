@@ -205,3 +205,102 @@ $sd-sideTabMenu-background: #a1a1a1;
   }
 }
 
+
+/// --------------------------- ////
+
+.sd-side-menu__btn {
+  display: block;
+  margin: 0.6rem auto;
+  border-radius: 50%;
+  height:3.6rem;
+  width: 3.6rem;
+  opacity: .7;
+  overflow: hidden;
+  transition: opacity 0.2s, background-color 0.2s;
+  position: relative;
+  &:hover {
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .6);
+  }
+  &:active {
+    background-color: $sd-blue;
+    opacity: 1;
+  }
+  &--active, &--active:hover {
+    background-color: darken($sd-blue, 11%);
+    opacity: 1;
+  }
+}
+
+.sd-side-menu__helper-icon,
+.sd-side-menu__main-icon {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+}
+.sd-side-menu__helper-icon {
+  opacity: 0;
+  margin: 0;
+  left: 0.6rem;
+  width: 2.4rem;
+  height: 2.4rem;
+  font-size: 2.4rem;
+  line-height: 2.4rem;
+  z-index: 2;
+  transition: all 0.4s 0s, transform 0.3s 0s;
+}
+.sd-side-menu__main-icon {
+  opacity: 1;
+  transition: all 0.2s, transform 0.2s;
+}
+
+.sd-side-menu__info-label {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  text-shadow: none;
+  z-index: 3;
+  margin: 0;
+}
+
+// .active {
+//   .sd-side-menu__btn {
+//     background: rgba(255,255,255,0.2);
+//     border-color: rgba(0,0,0,0.18);
+//   }
+//   .sd-side-menu__btn:hover {
+//     .sd-side-menu__helper-icon {
+//       opacity: 1;
+//       transform: rotate(180deg);
+//       transition: all 0.3s 0.2s, transform 0.2s 0.2s;
+//     }
+//     .sd-side-menu__main-icon {
+//       opacity: 0;
+//       height:0.8rem;
+//       width:0.8rem;
+//       left: 2.0rem;
+//       font-size: 8px;
+//     }
+//   }
+// }
+
+.sd-side-menu__btn--active {
+  .sd-side-menu__helper-icon, .sd-side-menu__main-icon {
+    color: #fff;
+  } 
+  &:hover {
+    .sd-side-menu__helper-icon {
+      opacity: 1;
+      transform: rotate(180deg);
+      transition: all 0.3s 0.2s, transform 0.2s 0.2s;
+    }
+    .sd-side-menu__main-icon {
+      opacity: 0;
+      height:0.8rem;
+      width:0.8rem;
+      left: 2.0rem;
+      font-size: 8px;
+    }
+  }
+}
+

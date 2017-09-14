@@ -92,11 +92,14 @@ $checkButtonBorderColor: #c6c6c6;
         border: 1px solid $checkButtonBorderColor;
         @include border-radius(2px);
         @include transition(all, 0.2s, ease-out);
+        display: block;
+        text-align: center;
         label {
             margin:0;
             display: inline;
             cursor: pointer;
             transition: none;
+            text-align: center;
         }
         &::after {
             content:'';
@@ -156,6 +159,7 @@ $checkButtonBorderColor: #c6c6c6;
 
 .sd-check__wrapper {
     margin-left: 0.8rem;
+    display: inline-block;
     .sd-checkbox + label {
         display: inline-block;
         vertical-align: middle;
@@ -166,4 +170,15 @@ $checkButtonBorderColor: #c6c6c6;
     }
 }
 
+// .multi-line-content {
+//     margin: 0 -0.3rem;
+//     .sd-check__wrapper, .btn, .label {
+//         margin: 0.3rem !important;
+//     }
+// }
 
+// .flex-grid--boxed {
+//     .sd-check__wrapper {
+//         margin: 0.3rem !important;
+//     }
+// }
