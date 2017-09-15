@@ -159,10 +159,39 @@ $sd-ListItem-background-active: #e3f1f6;
     }
     .sd-list-item__text-label {
         color: $sd-text;
-        opacity: 0.8;
+        opacity: 0.7;
         font-weight: 300;
         font-style: italic;
-        margin-right: 1rem;
+        margin-right: 0.3rem;
+    }
+    .sd-list-item__inline-icon,
+    .sd-list-item__inline-text {
+        margin-right: 0.6rem;
+    }
+    .sd-list-item__text-strong {
+        font-weight: 500;
+        color: $sd-text;
+    }
+    .sd-list-item__location {
+        padding-left: 1.8rem;
+        position: relative;
+        &::before {
+            position: absolute;
+            left: 0;
+            top:0.1rem;
+            font-family: 'sd_icons';
+            content: "\e602";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            line-height: 16px;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            color: $grayLight;
+        }
     }
 }
 
@@ -231,3 +260,27 @@ $sd-ListItem-background-active: #e3f1f6;
         }
     }
 }
+
+.sd-list-header {
+    display: flex;
+    height: 2rem;
+    margin-bottom: 0.8rem;
+    align-items: center;
+    .sd-list-header__name {
+        font-size: 1.1rem;
+        letter-spacing: .08em;
+        font-weight: 500;
+        text-transform: uppercase;
+        color: $gray;  
+    }
+    .sd-list-header__number {
+        margin-left: 1rem;
+    }
+    .sd-list-header__stretch-bar {
+        flex-grow: 1;
+        height: 1px;
+        background: transparent;
+        margin: auto 0;
+    }
+}
+
