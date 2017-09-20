@@ -1363,7 +1363,8 @@ time {
   padding: 0 !important;
   overflow: hidden;
   position: relative;
-  background: #fff; }
+  background: #fff;
+  vertical-align: top; }
   .sd-create-btn i {
     position: absolute;
     z-index: 1;
