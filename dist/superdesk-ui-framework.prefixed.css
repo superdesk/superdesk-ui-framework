@@ -1363,7 +1363,8 @@ time {
   padding: 0 !important;
   overflow: hidden;
   position: relative;
-  background: #fff; }
+  background: #fff;
+  vertical-align: top; }
   .sd-create-btn i {
     position: absolute;
     z-index: 1;
@@ -4070,6 +4071,8 @@ table {
       opacity: 1;
       transition: opacity 0.2s ease-in;
       transition-delay: 0.1s; }
+    .sd-page-content--split .sd-page-content__left-content .sd-list-header, .sd-page-content--split .sd-page-content__right-content .sd-list-header {
+      margin: 24px 24px -20px 24px; }
   .sd-page-content--split .sd-page-content__right-content::before {
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0, transparent 100%);
     display: block;
@@ -4088,6 +4091,9 @@ table {
     .sd-page-content--split.sd-page-content--split-left .sd-page-content__left-content .sd-column-box--3 {
       opacity: 0;
       transition-delay: 0s; }
+    .sd-page-content--split.sd-page-content--split-left .sd-page-content__left-content .sd-list-header {
+      opacity: 0;
+      transition-delay: 0s; }
   .sd-page-content--split.sd-page-content--split-left .open-preview .sd-preview-panel {
     width: 600px; }
   .sd-page-content--split.sd-page-content--split-left .sd-page-content__right-content {
@@ -4103,6 +4109,9 @@ table {
       opacity: 0;
       transition-delay: 0s; }
     .sd-page-content--split.sd-page-content--split-right .sd-page-content__right-content .sd-column-box--3 {
+      opacity: 0;
+      transition-delay: 0s; }
+    .sd-page-content--split.sd-page-content--split-right .sd-page-content__right-content .sd-list-header {
       opacity: 0;
       transition-delay: 0s; }
   .sd-page-content--split.sd-page-content--split-right .open-preview .sd-preview-panel {
@@ -4580,10 +4589,38 @@ a.text-link {
 
 .sd-list-item .sd-list-item__text-label {
   color: #333;
-  opacity: 0.8;
+  opacity: 0.7;
   font-weight: 300;
   font-style: italic;
-  margin-right: 10px; }
+  margin-right: 3px; }
+
+.sd-list-item .sd-list-item__inline-icon,
+.sd-list-item .sd-list-item__inline-text {
+  margin-right: 6px; }
+
+.sd-list-item .sd-list-item__text-strong {
+  font-weight: 500;
+  color: #333; }
+
+.sd-list-item .sd-list-item__location {
+  padding-left: 18px;
+  position: relative; }
+  .sd-list-item .sd-list-item__location::before {
+    position: absolute;
+    left: 0;
+    top: 1px;
+    font-family: 'sd_icons';
+    content: "\e602";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    line-height: 16px;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    color: #999; }
 
 .avatar {
   display: inline-block;
@@ -4625,6 +4662,25 @@ a.text-link {
 .sd-list-item-group--space-between-items .sd-list-item + .sd-list-item {
   margin-top: 8px;
   border-top: none; }
+
+.sd-list-header {
+  display: flex;
+  height: 20px;
+  margin-bottom: 8px;
+  align-items: center; }
+  .sd-list-header .sd-list-header__name {
+    font-size: 11px;
+    letter-spacing: .08em;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: #666; }
+  .sd-list-header .sd-list-header__number {
+    margin-left: 10px; }
+  .sd-list-header .sd-list-header__stretch-bar {
+    flex-grow: 1;
+    height: 1px;
+    background: transparent;
+    margin: auto 0; }
 
 .sd-card {
   position: relative;
