@@ -152,17 +152,22 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
 
 @mixin button-hollow-style(
   $color: $button-color,
+  $border-color: scale-color($color, $alpha: -60%),
   $hover-lightness: $button-hollow-hover-lightness
 ) {
 
   $color-hover: scale-color($color, $alpha: $hover-lightness);
 
-  border: 1px solid $color;
+  border: 1px solid $border-color;
   color: $color;
+  box-shadow: none;
 
   &:hover, &:focus {
     border-color: $color-hover;
     color: $color-hover;
+  }
+  &:active {    
+    box-shadow: inset 0 1px 0 0 $color;
   }
 }
 
@@ -184,7 +189,6 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   &:hover, &:focus {
     background-color: $background-hover;
     color: $color;
-    box-shadow: $button-hover-box-shadow;
   }
   &:active {
     @include button-active-style;
@@ -227,10 +231,13 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   &:hover, &:focus {
     background-color: $background-hover;
     color: $color;
-    box-shadow: $button-hover-box-shadow;
+    box-shadow: none;
   }
   &:active {
-    @include button-active-style;
+    $active-border-color: scale-color($color, $alpha: -60%);
+    box-shadow: inset 0 1px 0 0 $active-border-color;
+    border-color: $active-border-color transparent transparent transparent;
+    background-color: scale-color($background-hover, $alpha: +10%);
   }
 }
 
@@ -342,10 +349,16 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       &.btn--hollow {
         @include button-hollow;
         @include button-hollow-style($button-color, 0);
+        &:active {
+          box-shadow: none;
+        }
 
         @each $name, $color in $sd-basic-palette {
           &.btn--#{$name} {
             @include button-hollow-style($color, 0);
+            &:active {
+              box-shadow: none;
+            }
           }
         }
       }
@@ -356,6 +369,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
         &:hover, &:focus, &:active {
           box-shadow: none;
           border-color: transparent;
+          background: transparent;
         }
 
         @each $name, $color in $sd-basic-palette {
@@ -364,6 +378,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
             &:hover, &:focus, &:active {
               box-shadow: none;
               border-color: transparent;
+              background: transparent;
             }
           }
         }
@@ -407,6 +422,11 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
           $btn-background-hover: scale-color($color, $alpha: -80%);
           &.btn--#{$name} {
             @include button-ui-dark-style(transparent, $btn-background-hover, $color);
+            &:active {
+              $active-border-color: scale-color($color, $alpha: -60%);
+              box-shadow: inset 0 1px 0 0 $active-border-color;
+              border-color: $active-border-color transparent transparent transparent;
+            }
           }
         }
 
@@ -416,6 +436,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
           @include button-text-only-style(transparent, $default-color-ui-dark, transparent, true);
           &:hover, &:focus, &:active {
             box-shadow: none;
+            border-color: transparent;
           }
 
           @each $name, $color in $sd-basic-palette-ui-dark {
@@ -423,6 +444,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
               @include button-ui-dark-style(transparent, transparent, $color);
               &:hover, &:focus, &:active {
                 box-shadow: none;
+                border-color: transparent;
               }
             }
           }
