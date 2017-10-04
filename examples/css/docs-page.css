@@ -239,9 +239,15 @@ p.docs-page__paragraph code {
 
 .docs-page__code-example .flex-grid .flex-grid__item,
 .docs-page__code-example .grid .grid__item {
-    background-color: #fff !important;
+    background-color: #fff;
     min-height: 60px;
     border: 1px dotted rgba(0,0,0,0.2);
+}
+.docs-page__code-example .grid.grid--boxed .grid__item {
+    background-color: transparent;
+}
+.docs-page__code-example .grid.grid--boxed.grid--boxed-styled .grid__item {
+    background-color: #fff;
 }
 .docs-page__code-example .grid .grid .grid__item {
     border: 1px dotted #5eadc8;
