@@ -35,7 +35,7 @@ $layout-grid-media: (
         &-#{$i} {
             $col-width: ($i / $layout-grid-columns) * 100%;
             @include flex(0, 0, $col-width);
-            max-width: $col-width;
+            min-width: $col-width;
         }
     }
 }
@@ -44,7 +44,7 @@ $layout-grid-media: (
         &-#{$i} {
             $box-col-width: calc(#{($i / $layout-grid-columns) * 100%} - #{$layout-grid-gap * 2});
             @include flex(0, 0, $box-col-width);
-            max-width: $box-col-width;
+            min-width: $box-col-width;
         }
     }
 }
