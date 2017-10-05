@@ -1,20 +1,50 @@
 // Layout Grid with columns
 
-$grid-columns: 12;
-$grid-gutter: 1rem;
+$layout-grid-columns: 12;
+$layout-grid-gutter: 1rem;
+$layout-grid-gap: 1rem;
+
+// map for media breakpoints, 'small' is mandatory and reserved as mobile first
+$layout-grid-media: (
+    xsmall: 0, // 0px, mobile first
+    small: 40em, // 640px
+    medium: 60em, // 960px
+    large: 64em, // 1024px
+    xlarge: 75em,  // 1200px
+    xxlarge: 90em // 1440px
+);
 
 @mixin grid {
     display: flex;
     align-items: stretch;
     justify-content: flex-start;
-    padding: 0 $grid-gutter;
+    padding: 0 $layout-grid-gutter;
+    flex-wrap: wrap;
 }
-@mixin grid-columns {
-    @for $i from 1 through $grid-columns {
+@mixin layout-grid-columns {
+    @for $i from 1 through $layout-grid-columns {
         &--col-#{$i} {
-            $col-width: ($i / $grid-columns) * 100%;
+            $col-width: ($i / $layout-grid-columns) * 100%;
             @include flex(0, 0, $col-width);
             max-width: $col-width;
+        }
+    }
+}
+@mixin layout-grid-responsive {
+    @for $i from 1 through $layout-grid-columns {
+        &-#{$i} {
+            $col-width: ($i / $layout-grid-columns) * 100%;
+            @include flex(0, 0, $col-width);
+            max-width: $col-width;
+        }
+    }
+}
+@mixin layout-grid-responsive-boxed {
+    @for $i from 1 through $layout-grid-columns {
+        &-#{$i} {
+            $box-col-width: calc(#{($i / $layout-grid-columns) * 100%} - #{$layout-grid-gap * 2});
+            @include flex(0, 0, $box-col-width);
+            max-width: $box-col-width;
         }
     }
 }
@@ -22,29 +52,64 @@ $grid-gutter: 1rem;
     @include grid;
     .grid__item {
         flex: 1 1 auto;
-        padding: 0 $grid-gutter;
+        padding: 0 $layout-grid-gutter;
         &.grid__item {
-            @include grid-columns;
+            @include layout-grid-columns;
         }
         & > .grid {
-            margin-left: -$grid-gutter;
-            margin-right: -$grid-gutter;
+            margin-left: -$layout-grid-gutter;
+            margin-right: -$layout-grid-gutter;
             padding: 0;
         }
     }
     &--padding-fix {
-        margin-left: -$grid-gutter;
-        margin-right: -$grid-gutter;
+        margin-left: -$layout-grid-gutter;
+        margin-right: -$layout-grid-gutter;
         padding: 0;
     }
     &--margin {
-        margin-top: $grid-gutter;
-        margin-bottom: $grid-gutter; 
+        margin-top: $layout-grid-gutter;
+        margin-bottom: $layout-grid-gutter; 
     }
     &--wrap {
         flex-wrap: wrap;
     }
+    &--boxed {
+        margin-left: -$layout-grid-gap;
+        margin-right: -$layout-grid-gap;
+        .grid__item {
+            margin: $layout-grid-gap;
+            padding: 0;           
+        }
+        &-styled {
+            .grid__item {
+                background-color: white;
+                border-radius: 2px;
+                box-shadow: 0 1px 4px rgba(0,0,0,.12);
+            }
+        }
+    }
     & + .grid {
         margin-top: 1rem;
+    }
+}
+
+// Media queries
+@each $name, $value in $layout-grid-media {
+    @media only screen and (min-width: $value) {
+        .grid {
+            .grid__item {
+                &.gi-#{$name} {
+                    @include layout-grid-responsive;
+                }                
+            }
+            &--boxed {
+                .grid__item {
+                    &.gi-#{$name} {
+                        @include layout-grid-responsive-boxed;
+                    }
+                }
+            }
+        }
     }
 }
