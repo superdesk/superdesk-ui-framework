@@ -23,6 +23,15 @@ $sd-ListItem-background-active: #e3f1f6;
     &--activated, &--activated:hover {
         background-color: $sd-ListItem-background-active;
     }
+    &--no-bg {
+        background-color: transparent;
+    }
+    &--no-hover {
+        &:hover {
+            background-color: transparent;
+            cursor: default;
+        } 
+    }
 }
 
 .sd-list-item__border {
@@ -123,6 +132,13 @@ $sd-ListItem-background-active: #e3f1f6;
         opacity: 0.6;
         vertical-align: middle;
     }
+    time {
+        [class^="icon-"],
+        [class*=" icon-"] {
+            vertical-align: top;
+            margin-right: 0.2rem;
+        }  
+    }
 }
 
 // Text specific styles
@@ -163,6 +179,9 @@ $sd-ListItem-background-active: #e3f1f6;
         font-weight: 300;
         font-style: italic;
         margin-right: 0.3rem;
+        &--normal {
+            font-style: normal;
+        }
     }
     .sd-list-item__inline-icon,
     .sd-list-item__inline-text {
@@ -173,7 +192,7 @@ $sd-ListItem-background-active: #e3f1f6;
         color: $sd-text;
     }
     .sd-list-item__location {
-        padding-left: 1.8rem;
+        padding-left: 1.6rem;
         position: relative;
         &::before {
             position: absolute;
@@ -182,15 +201,15 @@ $sd-ListItem-background-active: #e3f1f6;
             font-family: 'sd_icons';
             content: "\e602";
             display: inline-block;
-            width: 16px;
-            height: 16px;
-            line-height: 16px;
-            font-size: 16px;
+            width: 1.4rem;
+            height: 1.4rem;
+            line-height: 1.4rem;
+            font-size: 1.4rem;
             font-style: normal;
             font-weight: normal;
             font-variant: normal;
             text-transform: none;
-            color: $grayLight;
+            color: scale-color($grayLight, $alpha: -20%);
         }
     }
 }
@@ -215,6 +234,18 @@ $sd-ListItem-background-active: #e3f1f6;
         width: 2.4rem;
         font-size: 1rem;
         line-height: 2.5rem;
+    }
+    &--large {
+        height: 4.8rem;
+        width: 4.8rem;
+        font-size: 1.8rem;
+        line-height: 5rem;
+    }
+    &--no-margin {
+        margin: 0;
+    }
+    &--empty {
+        background-color: rgba(0,0,0,0.1);
     }
 }
 
