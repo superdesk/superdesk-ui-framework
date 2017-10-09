@@ -3,107 +3,37 @@
     <head>
         <meta charset="UTF-8">
         <title>Superdesk UI Framework</title>
-        <link rel="stylesheet" href="css/reset.css">
-        <link rel="stylesheet" href="css/docs-page.css">
-        <link rel="stylesheet" href="css/vendor.css">
-        <link rel="stylesheet" href="../dist/superdesk-ui-framework.min.css">
+        <link rel="stylesheet" href="../examples.bundle.css">
     </head>
-    <body class="docs-page" ng-app="ui-docs">
-        <header class="docs-page__header">
+    <body class="docs-page" ng-app="ui-docs" doc-playground>
+        <header class="docs-page__header" ng-if="!route.current.$$route.removeHeader">
             <h1 class="docs-page__h1">Superdesk UI Framework</h1>
+            <div class="docs-page__playground_picker">
+                <div class="form__row">
+                    <div class="dropdown" dropdown>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Pick a playground
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li ng-repeat="playground in playgrounds">
+                                <a href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </header>
-        <main class="docs-page__container-fluid">
-            <aside class="docs-page__sidebar" scroll ng-class="{scroll:boolChangeClass}">
-                <ul class="docs-page__nav" doc-nav>
 
-                    <li><span class="docs-page__nav-title">Basic components</span></li>
-                    <li><a href="#buttons">Buttons</a></li>
-                    <li><a href="#labels">Labels</a></li>
-                    <li><a href="#badge">Badge</a></li>
-                    <li><a href="#alerts">Alerts</a></li>
-                    <li><a href="#dropdown">Dropdown</a></li>
-                    <li><a href="#tooltips">Tooltips</a></li>
-                    <li><a href="#tables">Tables</a></li>
-                    <li><a href="#panel-info">Panel info</a></li>
+        <main ng-class="{'docs-page__container-fluid': !route.current.$$route.removeHeader && !route.current.$$route.removeFooter}" ng-view></main>
 
-                    <li><span class="docs-page__nav-title">Navigation</span></li>
-                    <li><a href="#tabs">Tabs</a></li>
-                    <li><a href="#left-navigation">Left navigation</a></li>
-
-                    <li><span class="docs-page__nav-title">Form elements</span></li>
-                    <li><a href="#inputs">Inputs</a></li>
-                    <li><a href="#select">Select</a></li>
-                    <li><a href="#checkbox">Checkbox</a></li>
-                    <li><a href="#radio">Radio</a></li>
-                    <li><a href="#switch">Switch</a></li>
-                    <li><a href="#form">Form layout</a></li>
-
-                    <li><span class="docs-page__nav-title">Containers</span></li>
-                    <li><a href="#modals">Modals</a></li>
-                    <li><a href="#wizard">Wizard</a></li>
-                    <li><a href="#carousel">Carousel</a></li>
-
-                    <li><span class="docs-page__nav-title">Layout</span></li>
-                    <li><a href="#basic-grid">Basic grid</a></li>
-                    <li><a href="#layout-grid">Layout grid</a></li>
-
-                    <li><span class="docs-page__nav-title">Layout elements</span></li>
-                    <li><a href="#list-item">List item</a></li>
-                    <li><a href="#simple-list">Simple list</a></li>
-                    <li><a href="#toggle-box">Toggle box</a></li>
-                    <li><a href="#sidebar-menu">Sidebar menu</a></li>
-
-                    <li><span class="docs-page__nav-title">Icons</span></li>
-                    <li><a href="#icon-font">Icon font</a></li>
-                    <li><a href="#big-icon-font">Big icon font</a></li>
-                </ul>
-            </aside>
-            <article class="docs-page__content">
-                <h2 class="docs-page__group-heading">BASIC COMPONENTS</h2>                                       
-                <section class="docs-page__section" id="buttons" ng-include="'templates/buttons.html'"></section>
-                <section class="docs-page__section" id="labels" ng-include="'templates/labels.html'"></section>
-                <section class="docs-page__section" id="badge" ng-include="'templates/badge.html'"></section>
-                <section class="docs-page__section" id="alerts" ng-include="'templates/alerts.html'"></section>
-                <section class="docs-page__section" id="dropdown" ng-include="'templates/dropdown.html'"></section>               
-                <section class="docs-page__section" id="tooltips" ng-include="'templates/tooltips.html'"></section>      
-                <section class="docs-page__section" id="tables" ng-include="'templates/tables.html'"></section>
-                <section class="docs-page__section" id="panel-info" ng-include="'templates/panel-info.html'"></section>
-                <h2 class="docs-page__group-heading">NAVIGATION</h2>
-                <section class="docs-page__section" id="tabs" ng-include="'templates/tabs.html'"></section>
-                <section class="docs-page__section" id="left-navigation" ng-include="'templates/left-nav.html'"></section>
-                <h2 class="docs-page__group-heading">FORM ELEMENTS</h2>     
-                <section class="docs-page__section" id="inputs" ng-include="'templates/input.html'"></section>
-                <section class="docs-page__section" id="select" ng-include="'templates/select.html'"></section>
-                <section class="docs-page__section" id="checkbox" ng-include="'templates/checkbox.html'"></section>
-                <section class="docs-page__section" id="radio" ng-include="'templates/radio.html'"></section>
-                <section class="docs-page__section" id="switch" ng-include="'templates/switch.html'"></section>
-                <section class="docs-page__section" id="form" ng-include="'templates/form-layout.html'"></section>
-                <h2 class="docs-page__group-heading">CONTAINERS</h2>
-                <section class="docs-page__section" id="modals" ng-include="'templates/modals.html'"></section>
-                <section class="docs-page__section" id="wizard" ng-include="'templates/wizard.html'"></section>
-                <section class="docs-page__section" id="carousel" ng-include="'templates/carousel.html'"></section>
-                <h2 class="docs-page__group-heading">LAYOUT</h2>
-                <section class="docs-page__section" id="basic-grid" ng-include="'templates/basic-grid.html'"></section>
-                <section class="docs-page__section" id="layout-grid" ng-include="'templates/layout-grid.html'"></section>
-                <h2 class="docs-page__group-heading">LAYOUT ELEMENTS</h2>
-                <section class="docs-page__section" id="list-item" ng-include="'templates/list-item.html'"></section>
-                <section class="docs-page__section" id="simple-list" ng-include="'templates/simple-list.html'"></section>
-                <section class="docs-page__section" id="toggle-box" ng-include="'templates/toggle.html'"></section>
-                <section class="docs-page__section" id="sidebar-menu" ng-include="'templates/sidebar-menu.html'"></section>
-                <h2 class="docs-page__group-heading">ICONS</h2>  
-                <section class="docs-page__section" id="icon-font" ng-include="'templates/icons.html'"></section>
-                <section class="docs-page__section" id="big-icon-font" ng-include="'templates/big-icons.html'"></section>
-
-            </article>        
-        </main>
-        <footer class="docs-page__footer">
+        <footer class="docs-page__footer" ng-if="!route.current.$$route.removeFooter">
             <p class="docs-page__paragraph">
                 Superdesk is brought to you by <a href="http://www.sourcefabric.org/" class="link">Sourcefabric</a>. This work is licensed under a <a target="_top" href="https://creativecommons.org/licenses/by/3.0/" class="link">Creative Commons Attribution 3.0 Unported License</a>
             </p>
         </footer>
 
-        <script type="text/javascript" src="js/vendor.js"></script>
-        <script type="text/javascript" src="../dist/superdesk-ui-framework.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+        <script type="text/javascript" src="../vendor.bundle.js"></script>
+        <script type="text/javascript" src="../examples.bundle.js"></script>
     </body>
 </html>

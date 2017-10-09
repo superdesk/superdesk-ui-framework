@@ -1,3 +1,4 @@
+/* eslint-disable */
 /* global _ */
 
 CarouselDirective.$inject = [];
@@ -8,7 +9,7 @@ function CarouselDirective() {
             finish: '&',
             model: '='
         },
-        templateUrl: 'app/template/carousel.html',
+        templateUrl: '../app/template/carousel.html',
         transclude: true,
         controllerAs: 'ctrl',
         controller: ['$scope', '$document',

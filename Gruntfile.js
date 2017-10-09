@@ -14,12 +14,14 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean',
         'ngtemplates:core',
-        'sass',
-        'cssmin',
-        'uglify',
-        'connect',
-        'pixrem',
-        'watch'
+        'webpack:build'
+    ]);
+
+    // Register grunt tasks
+    grunt.registerTask('server', [
+        'clean',
+        'ngtemplates:dev',
+        'webpack-dev-server:start'
     ]);
 
     // Test task
