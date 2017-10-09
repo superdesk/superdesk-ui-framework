@@ -37,17 +37,27 @@
     &:focus {
         background-color: rgba(0, 0, 0, 0.05);
     }
-}      
+} 
 
-.form-label {
+@mixin Form-label-base {
     display: inline-block;
-    min-width: 75px;
     font-size: 1.1rem;
-    line-height: 2.6rem;
     margin: 0 0.5rem 0 0;
-    color: #747474;
+    line-height: 2.6rem;
+    color: $grayText;
     text-transform: uppercase;
     font-weight: 500;
+    letter-spacing: 0.04em;
+}
+
+
+.form-label {
+    @include Form-label-base;
+    min-width: 75px;
+    &--light {
+        color: $grayLight;
+        font-weight: 400;
+    }
 }
 
 .sd-line-input {
@@ -96,14 +106,10 @@
         }
     }
     .sd-line-input__label {
+        @include Form-label-base;
         position: absolute;
-        display: inline-block;
-        font-size: 1.1rem;
         line-height: 100%;
         margin: 0;
-        color: $grayText;
-        text-transform: uppercase;
-        font-weight: 500;
         top:0;
         &--required::after {
             color:$red;

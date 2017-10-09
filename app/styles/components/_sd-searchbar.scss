@@ -1,0 +1,108 @@
+// Large Searchbar
+// -----------------------------------------------------
+
+// Large searchbar is usualy used inside the 'subnav' component, hence the flex-grow property;
+
+.sd-searchbar {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    transition: background-color 0.2s ease-out;
+    &--focused {
+        background-color: $white;
+    }
+    &--border-r {
+        border-right: 1px solid #dfdfdf;
+    }
+    &--border-l {
+        border-left: 1px solid #dfdfdf;
+    }
+    &--border-l-r {
+        border-right: 1px solid #dfdfdf;
+        border-left: 1px solid #dfdfdf;
+    }
+}
+.sd-searchbar__input {
+    height: $subnav-height;
+    flex-grow: 1;
+    font-size: 1.4rem;
+    border: 0;
+    padding: 0;
+    background-color: transparent;
+    &::placeholder {
+        color: $grayLight;
+        font-weight: 300;
+        letter-spacing: 0.03rem;
+    }
+}
+
+.sd-searchbar__icon {
+    flex-grow: 0;
+    flex-shrink: 0;
+    height: $subnav-height;
+    width: $subnav-height;
+    position: relative;
+    opacity: 0.4;
+    &::after {
+        content:"\e618";
+        position: absolute;
+        top: 1.6rem;
+        left: 1.8rem;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        font-family: 'sd_icons';
+        font-size: 16px;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+    }
+    
+}
+.sd-searchbar__search-btn {
+    height: $subnav-height - 1.4rem;
+    width: $subnav-height - 1.4rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 0.7rem 0 0;
+    padding: 0;
+    opacity: 0.6;
+    transition: all 0.2s ease-out;
+    background-color: rgba(0,0,0,0.08);
+    border-radius: 50%;
+    i {
+        margin-top: 0.2rem;
+        transition: color 0.2s ease-out;
+    }
+    &:hover {
+        opacity: 0.8;
+        background-color: rgba(0,0,0,0.1);;
+    }
+    &:active {
+        opacity: 1;
+        background-color: rgba(0,0,0,0.12);;
+        i {
+            color: $sd-blue;
+        }
+    }
+}
+.sd-searchbar__cancel {
+    height: 1.6rem;
+    width: 1.6rem;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 1.2rem 0 0;
+    padding: 0;
+    opacity: 0.35;
+    transition: opacity 0.2s ease-out;
+    &:hover {
+        opacity: 0.7;
+    }
+    &:active {
+        opacity: 1;
+    }
+}
+
