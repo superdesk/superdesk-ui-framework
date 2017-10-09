@@ -1,206 +1,209 @@
-angular.module('superdesk-ui.helper.dateparser', [])
-        .service('dateParser', ['$locale', 'orderByFilter', function ($locale, orderByFilter) {
-                // Pulled from https://github.com/mbostock/d3/blob/master/src/format/requote.js
-                var SPECIAL_CHARACTERS_REGEXP = /[\\\^\$\*\+\?\|\[\]\(\)\.\{\}]/g;
+/* eslint-disable */
 
-                this.parsers = {};
+angular.module('superdesk-ui.helper.dateparser', []).service('dateParser', ['$locale', 'orderByFilter', function($locale, orderByFilter) {
+    // Pulled from https://github.com/mbostock/d3/blob/master/src/format/requote.js
+    var SPECIAL_CHARACTERS_REGEXP = /[\\\^\$\*\+\?\|\[\]\(\)\.\{\}]/g;
 
-                var formatCodeToRegex = {
-                    'yyyy': {
-                        regex: '\\d{4}',
-                        apply: function (value) {
-                            this.year = +value;
-                        }
-                    },
-                    'yy': {
-                        regex: '\\d{2}',
-                        apply: function (value) {
-                            this.year = +value + 2000;
-                        }
-                    },
-                    'y': {
-                        regex: '\\d{1,4}',
-                        apply: function (value) {
-                            this.year = +value;
-                        }
-                    },
-                    'MMMM': {
-                        regex: $locale.DATETIME_FORMATS.MONTH.join('|'),
-                        apply: function (value) {
-                            this.month = $locale.DATETIME_FORMATS.MONTH.indexOf(value);
-                        }
-                    },
-                    'MMM': {
-                        regex: $locale.DATETIME_FORMATS.SHORTMONTH.join('|'),
-                        apply: function (value) {
-                            this.month = $locale.DATETIME_FORMATS.SHORTMONTH.indexOf(value);
-                        }
-                    },
-                    'MM': {
-                        regex: '0[1-9]|1[0-2]',
-                        apply: function (value) {
-                            this.month = value - 1;
-                        }
-                    },
-                    'M': {
-                        regex: '[1-9]|1[0-2]',
-                        apply: function (value) {
-                            this.month = value - 1;
-                        }
-                    },
-                    'dd': {
-                        regex: '[0-2][0-9]{1}|3[0-1]{1}',
-                        apply: function (value) {
-                            this.date = +value;
-                        }
-                    },
-                    'd': {
-                        regex: '[1-2]?[0-9]{1}|3[0-1]{1}',
-                        apply: function (value) {
-                            this.date = +value;
-                        }
-                    },
-                    'EEEE': {
-                        regex: $locale.DATETIME_FORMATS.DAY.join('|')
-                    },
-                    'EEE': {
-                        regex: $locale.DATETIME_FORMATS.SHORTDAY.join('|')
-                    },
-                    'HH': {
-                        regex: '(?:0|1)[0-9]|2[0-3]',
-                        apply: function (value) {
-                            this.hours = +value;
-                        }
-                    },
-                    'H': {
-                        regex: '1?[0-9]|2[0-3]',
-                        apply: function (value) {
-                            this.hours = +value;
-                        }
-                    },
-                    'mm': {
-                        regex: '[0-5][0-9]',
-                        apply: function (value) {
-                            this.minutes = +value;
-                        }
-                    },
-                    'm': {
-                        regex: '[0-9]|[1-5][0-9]',
-                        apply: function (value) {
-                            this.minutes = +value;
-                        }
-                    },
-                    'sss': {
-                        regex: '[0-9][0-9][0-9]',
-                        apply: function (value) {
-                            this.milliseconds = +value;
-                        }
-                    },
-                    'ss': {
-                        regex: '[0-5][0-9]',
-                        apply: function (value) {
-                            this.seconds = +value;
-                        }
-                    },
-                    's': {
-                        regex: '[0-9]|[1-5][0-9]',
-                        apply: function (value) {
-                            this.seconds = +value;
-                        }
-                    }
-                };
+    this.parsers = {};
 
-                function createParser(format) {
-                    var map = [], regex = format.split('');
+    var formatCodeToRegex = {
+        yyyy: {
+            regex: '\\d{4}',
+            apply: function apply(value) {
+                this.year = +value;
+            }
+        },
+        yy: {
+            regex: '\\d{2}',
+            apply: function apply(value) {
+                this.year = +value + 2000;
+            }
+        },
+        y: {
+            regex: '\\d{1,4}',
+            apply: function apply(value) {
+                this.year = +value;
+            }
+        },
+        MMMM: {
+            regex: $locale.DATETIME_FORMATS.MONTH.join('|'),
+            apply: function apply(value) {
+                this.month = $locale.DATETIME_FORMATS.MONTH.indexOf(value);
+            }
+        },
+        MMM: {
+            regex: $locale.DATETIME_FORMATS.SHORTMONTH.join('|'),
+            apply: function apply(value) {
+                this.month = $locale.DATETIME_FORMATS.SHORTMONTH.indexOf(value);
+            }
+        },
+        MM: {
+            regex: '0[1-9]|1[0-2]',
+            apply: function apply(value) {
+                this.month = value - 1;
+            }
+        },
+        M: {
+            regex: '[1-9]|1[0-2]',
+            apply: function apply(value) {
+                this.month = value - 1;
+            }
+        },
+        dd: {
+            regex: '[0-2][0-9]{1}|3[0-1]{1}',
+            apply: function apply(value) {
+                this.date = +value;
+            }
+        },
+        d: {
+            regex: '[1-2]?[0-9]{1}|3[0-1]{1}',
+            apply: function apply(value) {
+                this.date = +value;
+            }
+        },
+        EEEE: {
+            regex: $locale.DATETIME_FORMATS.DAY.join('|')
+        },
+        EEE: {
+            regex: $locale.DATETIME_FORMATS.SHORTDAY.join('|')
+        },
+        HH: {
+            regex: '(?:0|1)[0-9]|2[0-3]',
+            apply: function apply(value) {
+                this.hours = +value;
+            }
+        },
+        H: {
+            regex: '1?[0-9]|2[0-3]',
+            apply: function apply(value) {
+                this.hours = +value;
+            }
+        },
+        mm: {
+            regex: '[0-5][0-9]',
+            apply: function apply(value) {
+                this.minutes = +value;
+            }
+        },
+        m: {
+            regex: '[0-9]|[1-5][0-9]',
+            apply: function apply(value) {
+                this.minutes = +value;
+            }
+        },
+        sss: {
+            regex: '[0-9][0-9][0-9]',
+            apply: function apply(value) {
+                this.milliseconds = +value;
+            }
+        },
+        ss: {
+            regex: '[0-5][0-9]',
+            apply: function apply(value) {
+                this.seconds = +value;
+            }
+        },
+        s: {
+            regex: '[0-9]|[1-5][0-9]',
+            apply: function apply(value) {
+                this.seconds = +value;
+            }
+        }
+    };
 
-                    angular.forEach(formatCodeToRegex, function (data, code) {
-                        var index = format.indexOf(code);
+    function createParser(format) {
+        var map = [],
+            regex = format.split('');
 
-                        if (index > -1) {
-                            format = format.split('');
+        angular.forEach(formatCodeToRegex, (data, code) => {
+            var index = format.indexOf(code);
 
-                            regex[index] = '(' + data.regex + ')';
-                            format[index] = '$'; // Custom symbol to define consumed part of format
-                            for (var i = index + 1, n = index + code.length; i < n; i++) {
-                                regex[i] = '';
-                                format[i] = '$';
-                            }
-                            format = format.join('');
+            if (index > -1) {
+                format = format.split('');
 
-                            map.push({index: index, apply: data.apply});
-                        }
-                    });
-
-                    return {
-                        regex: new RegExp('^' + regex.join('') + '$'),
-                        map: orderByFilter(map, 'index')
-                    };
+                regex[index] = '(' + data.regex + ')';
+                format[index] = '$'; // Custom symbol to define consumed part of format
+                for (var i = index + 1, n = index + code.length; i < n; i++) {
+                    regex[i] = '';
+                    format[i] = '$';
                 }
+                format = format.join('');
 
-                this.parse = function (input, format, baseDate) {
-                    if (!angular.isString(input) || !format) {
-                        return input;
-                    }
+                map.push({index: index, apply: data.apply});
+            }
+        });
 
-                    format = $locale.DATETIME_FORMATS[format] || format;
-                    format = format.replace(SPECIAL_CHARACTERS_REGEXP, '\\$&');
+        return {
+            regex: new RegExp('^' + regex.join('') + '$'),
+            map: orderByFilter(map, 'index')
+        };
+    }
 
-                    if (!this.parsers[format]) {
-                        this.parsers[format] = createParser(format);
-                    }
+    this.parse = function(input, format, baseDate) {
+        if (!angular.isString(input) || !format) {
+            return input;
+        }
 
-                    var parser = this.parsers[format],
-                            regex = parser.regex,
-                            map = parser.map,
-                            results = input.match(regex);
+        format = $locale.DATETIME_FORMATS[format] || format;
+        format = format.replace(SPECIAL_CHARACTERS_REGEXP, '\\$&');
 
-                    if (results && results.length) {
-                        var fields, dt;
-                        if (baseDate) {
-                            fields = {
-                                year: baseDate.getFullYear(),
-                                month: baseDate.getMonth(),
-                                date: baseDate.getDate(),
-                                hours: baseDate.getHours(),
-                                minutes: baseDate.getMinutes(),
-                                seconds: baseDate.getSeconds(),
-                                milliseconds: baseDate.getMilliseconds()
-                            };
-                        } else {
-                            fields = {year: 1900, month: 0, date: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0};
-                        }
+        if (!this.parsers[format]) {
+            this.parsers[format] = createParser(format);
+        }
 
-                        for (var i = 1, n = results.length; i < n; i++) {
-                            var mapper = map[i - 1];
-                            if (mapper.apply) {
-                                mapper.apply.call(fields, results[i]);
-                            }
-                        }
+        var parser = this.parsers[format],
+            regex = parser.regex,
+            map = parser.map,
+            results = input.match(regex);
 
-                        if (isValid(fields.year, fields.month, fields.date)) {
-                            dt = new Date(fields.year, fields.month, fields.date, fields.hours, fields.minutes, fields.seconds,
-                                    fields.milliseconds || 0);
-                        }
+        if (results && results.length) {
+            var fields, dt;
 
-                        return dt;
-                    }
+            if (baseDate) {
+                fields = {
+                    year: baseDate.getFullYear(),
+                    month: baseDate.getMonth(),
+                    date: baseDate.getDate(),
+                    hours: baseDate.getHours(),
+                    minutes: baseDate.getMinutes(),
+                    seconds: baseDate.getSeconds(),
+                    milliseconds: baseDate.getMilliseconds()
                 };
+            } else {
+                fields = {year: 1900, month: 0, date: 1, hours: 0, minutes: 0, seconds: 0, milliseconds: 0};
+            }
 
-                // Check if date is valid for specific month (and year for February).
-                // Month: 0 = Jan, 1 = Feb, etc
-                function isValid(year, month, date) {
-                    if (date < 1) {
-                        return false;
-                    }
+            for (var i = 1, n = results.length; i < n; i++) {
+                var mapper = map[i - 1];
 
-                    if (month === 1 && date > 28) {
-                        return date === 29 && ((year % 4 === 0 && year % 100 !== 0) || year % 400 === 0);
-                    }
-
-                    if (month === 3 || month === 5 || month === 8 || month === 10) {
-                        return date < 31;
-                    }
-
-                    return true;
+                if (mapper.apply) {
+                    mapper.apply.call(fields, results[i]);
                 }
-            }]);
+            }
+
+            if (isValid(fields.year, fields.month, fields.date)) {
+                dt = new Date(fields.year, fields.month, fields.date, fields.hours, fields.minutes, fields.seconds, fields.milliseconds || 0);
+            }
+
+            return dt;
+        }
+    };
+
+    // Check if date is valid for specific month (and year for February).
+    // Month: 0 = Jan, 1 = Feb, etc
+    function isValid(year, month, date) {
+        if (date < 1) {
+            return false;
+        }
+
+        if (month === 1 && date > 28) {
+            return date === 29 && (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0);
+        }
+
+        if (month === 3 || month === 5 || month === 8 || month === 10) {
+            return date < 31;
+        }
+
+        return true;
+    }
+}]);

@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-disable */
 
 sdSwitch.$inject = [];
 function sdSwitch() {

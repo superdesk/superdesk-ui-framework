@@ -23,12 +23,12 @@ h2.docs-page__h2 {
     margin: 0 0 0.6em 0;
 }
 h2.docs-page__group-heading {
-   font-size: 36px;
-   font-weight: 300;
-   margin: 1.6em 0 -0.6em 0;
-   line-height: 140%;
-   color: #747474;
-   color: #999;
+    font-size: 36px;
+    font-weight: 300;
+    margin: 1.6em 0 -0.6em 0;
+    line-height: 140%;
+    color: #747474;
+    color: #999;
 }
 h2.docs-page__group-heading:first-of-type {
     margin-top: 1em;
@@ -128,17 +128,18 @@ p.docs-page__paragraph b {
     line-height: 24px;
     color: #666;
 }
-.docs-page__nav>li>a {
+.docs-page__nav li a {
     font-size: 16px;
     line-height: 36px;
     color: #666;
+    cursor: pointer;
     text-decoration: none;
 }
-.docs-page__nav>li>a:hover {
+.docs-page__nav li a:hover {
     color: #333;
     opacity: 1;
 }
-.docs-page__nav>li.active a {
+.docs-page__nav li.active a {
     color: #5eadc8;
 }
 
@@ -304,6 +305,17 @@ p.docs-page__paragraph code {
 .docs-page__icon-font-list--dark {
     background: #666;
     color: lightgray !important;
+}
+
+.docs-page__playground_picker {
+    position: absolute;
+    width: 150px;
+    right: 20px;
+    top: 30px;
+}
+
+.docs-page__playground_picker .dropdown__toggle {
+    color: white !important;
 }
 
 /*// extra large screen media query /100em = 1600px/*/

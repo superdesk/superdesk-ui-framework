@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-disable */
 
 sdModal.$inject = ['$document', '$rootScope'];
 function sdModal($document, $rootScope) {

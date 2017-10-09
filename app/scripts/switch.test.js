@@ -1,7 +1,6 @@
-'use strict';
+/* eslint-disable */
 
 describe('ui-framework.switch module', function () {
-
     beforeEach(module('superdesk-ui.switch'));
 
     describe('switch directive', function () {

@@ -16,8 +16,7 @@ npm install --save superdesk-ui-framework
 After installation, the ui-framework distributive files will be available as
 
 ```
-node_modules/superdesk-ui-framework/dist/superdesk-ui-framework.min.css
-node_modules/superdesk-ui-framework/dist/superdesk-ui-framework.js
+import 'superdesk-ui-framework'
 ```
 
 There are also uncompressed versions (superdesk-ui-framework.js, superdesk-ui-framework.css) and sourcemaps for all of js/css-files.

@@ -1,0 +1,7 @@
+@import '../../styles/_mixins';
+@import '../../styles/_variables';
+@import '../../styles/_modals';
+
+.modal-backdrop {
+    @extend .modal__backdrop;
+}

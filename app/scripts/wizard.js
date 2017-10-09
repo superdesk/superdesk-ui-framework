@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 WizardHandlerFactory.$inject = [];
 function WizardHandlerFactory() {
     var service = {};
@@ -25,7 +27,7 @@ function WizardHandlerFactory() {
 WizardDirective.$inject = [];
 function WizardDirective() {
     return {
-        templateUrl: 'app/template/wizard.html',
+        templateUrl: '../app/template/wizard.html',
         scope: {
             currentStep: '=',
             finish: '&',
@@ -115,7 +117,7 @@ function WizardDirective() {
 WizardStepDirective.$inject = [];
 function WizardStepDirective() {
     return {
-        templateUrl: 'app/template/wizardStep.html',
+        templateUrl: '../app/template/wizardStep.html',
         scope: {
             title: '@',
             code: '@',

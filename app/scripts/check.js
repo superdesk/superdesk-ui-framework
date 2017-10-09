@@ -1,4 +1,4 @@
-'use strict';
+/* eslint-disable */
 
 sdCheck.$inject = ['$parse'];
 function sdCheck($parse) {
