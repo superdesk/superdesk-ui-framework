@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Superdesk UI Framework</title>
+    <link href="examples.bundle.css" rel="stylesheet"><link href="superdesk-ui.bundle.css" rel="stylesheet"></head>
+    <body class="docs-page" ng-app="ui-docs" doc-playground>
+        <header class="docs-page__header" ng-if="!route.current.$$route.removeHeader">
+            <h1 class="docs-page__h1">Superdesk UI Framework</h1>
+            <div class="docs-page__playground_picker">
+                <div class="form__row">
+                    <div class="dropdown" dropdown>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Pick a playground
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li ng-repeat="playground in playgrounds">
+                                <a href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main ng-class="{'docs-page__container-fluid': !route.current.$$route.removeHeader && !route.current.$$route.removeFooter}" ng-view></main>
+
+        <footer class="docs-page__footer" ng-if="!route.current.$$route.removeFooter">
+            <p class="docs-page__paragraph">
+                Superdesk is brought to you by <a href="http://www.sourcefabric.org/" class="link">Sourcefabric</a>. This work is licensed under a <a target="_top" href="https://creativecommons.org/licenses/by/3.0/" class="link">Creative Commons Attribution 3.0 Unported License</a>
+            </p>
+        </footer>
+    <script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="examples.bundle.js"></script><script type="text/javascript" src="superdesk-ui.bundle.js"></script></body>
+</html>

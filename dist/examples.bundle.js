@@ -85499,6 +85499,16 @@ exports.default = angular.module('ui-docs', ['ngRoute', 'superdesk-ui', 'ui-docs
         removeHeader: true,
         removeFooter: true,
         templateUrl: '../examples/playgrounds/layout-grid.html'
+    }).when('/cards', {
+        title: 'Cards',
+        removeHeader: true,
+        removeFooter: true,
+        templateUrl: '../examples/playgrounds/cards.html'
+    }).when('/side-navigation', {
+        title: 'Side Navigation',
+        removeHeader: true,
+        removeFooter: true,
+        templateUrl: '../examples/playgrounds/side-navigation.html'
     }).otherwise({ redirectTo: '/' });
 }); /* eslint-disable */
 

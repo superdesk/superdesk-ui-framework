@@ -73,6 +73,11 @@ const config = {
     },
 
     plugins: [
+        new HtmlWebpackPlugin({
+            template: 'examples/index.html',
+            chunks: ['vendor', 'examples', 'superdesk-ui'],
+            chunksSortMode: 'manual'
+        }),
         new ExtractTextPlugin({
             filename: '[name].bundle.css'
         }),
