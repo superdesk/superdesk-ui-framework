@@ -1,5 +1,4 @@
 import './scripts';
-import './react-ui';
 import './styles';
 
 export default angular.module('superdesk-ui', [
