@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 
 export class TabContent extends React.Component {
