@@ -57,7 +57,7 @@ angular.module('superdesk-ui.helper.modal', []).factory('$$stackedMap', () => ({
         return {
             restrict: 'EA',
             replace: true,
-            templateUrl: '../app/template/backdrop.html',
+            template: require('../../template/backdrop.html'),
             compile: function compile(tElement, tAttrs) {
                 tElement.addClass(tAttrs.backdropClass);
                 return linkFn;
@@ -82,9 +82,10 @@ angular.module('superdesk-ui.helper.modal', []).factory('$$stackedMap', () => ({
             },
             replace: true,
             transclude: true,
-            templateUrl: function templateUrl(tElement, tAttrs) {
-                return tAttrs.templateUrl || '../app/template/window.html';
-            },
+//            templateUrl: function templateUrl(tElement, tAttrs) {
+//                return tAttrs.templateUrl || '../app/template/window.html';
+//            },
+            template: require('../../template/window.html'),
             link: function link(scope, element, attrs) {
                 element.addClass(attrs.windowClass || '');
                 scope.size = attrs.size;

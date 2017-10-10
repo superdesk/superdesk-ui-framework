@@ -63,6 +63,10 @@ const config = {
                 })
             },
             {
+                test: /\.html$/,
+                loader: 'html-loader'
+            },
+            {
                 test: /\.(png|gif|jpeg|jpg|woff|woff2|eot|ttf|svg)(\?.*$|$)/,
                 loader: 'file-loader',
                 options: {

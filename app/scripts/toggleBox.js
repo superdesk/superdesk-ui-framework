@@ -9,7 +9,7 @@
  */
 function ToggleBoxDirective() {
     return {
-        templateUrl: '../app/template/toggle-box.html',
+        template: require('../template/toggle-box.html'),
         transclude: true,
         scope: true,
         link: function ($scope, element, attrs) {

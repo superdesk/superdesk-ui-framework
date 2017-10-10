@@ -9,7 +9,7 @@ function CarouselDirective() {
             finish: '&',
             model: '='
         },
-        templateUrl: '../app/template/carousel.html',
+        template: require('../template/carousel.html'),
         transclude: true,
         controllerAs: 'ctrl',
         controller: ['$scope', '$document',
