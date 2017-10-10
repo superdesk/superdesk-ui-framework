@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react'
 import { Modal as _Modal } from 'react-bootstrap'
 
