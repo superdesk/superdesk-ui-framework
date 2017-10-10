@@ -74,7 +74,7 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
-            chunks: ['vendor', 'examples', 'superdesk-ui', 'superdesk-ui-react'],
+            chunks: ['vendor', 'examples', 'superdesk-ui-react', 'superdesk-ui'],
             chunksSortMode: 'manual'
         }),
         new ExtractTextPlugin({
