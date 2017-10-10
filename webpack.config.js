@@ -7,7 +7,8 @@ const config = {
     entry: {
         'vendor': './app/vendor.js',
         'examples': './examples/index.js',
-        'superdesk-ui': './app/index.js'
+        'superdesk-ui': './app/index.js',
+        'superdesk-react-ui': './app/react-ui/index.jsx'
     },
 
     output: {
@@ -25,12 +26,6 @@ const config = {
 
     module: {
         rules: [
-            {
-                enforce: 'pre',
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'eslint-loader'
-            },
             {
                 test: /\.js/,
                 loader: 'babel-loader',
@@ -79,7 +74,7 @@ const config = {
     plugins: [
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
-            chunks: ['vendor', 'examples', 'superdesk-ui'],
+            chunks: ['vendor', 'examples', 'superdesk-ui', 'superdesk-ui-react'],
             chunksSortMode: 'manual'
         }),
         new ExtractTextPlugin({
