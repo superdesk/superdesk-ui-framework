@@ -4,7 +4,7 @@
 [![Build Status](https://travis-ci.org/superdesk/superdesk-client-core.svg?branch=master)](https://travis-ci.org/superdesk/superdesk-ui-framework)
 
 ### Documentation
-Documentation page can be accessed via this link: https://superdesk.github.io/superdesk-ui-framework/examples/
+Documentation page can be accessed via this link: https://superdesk.github.io/superdesk-ui-framework/dist/
 
 ### Install and connect
 To install the package via npm use
