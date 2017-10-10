@@ -13,14 +13,12 @@ module.exports = function (grunt) {
     // Register grunt tasks
     grunt.registerTask('build', [
         'clean',
-        'ngtemplates:core',
         'webpack:build'
     ]);
 
     // Register grunt tasks
     grunt.registerTask('server', [
         'clean',
-        'ngtemplates:dev',
         'webpack-dev-server:start'
     ]);
 

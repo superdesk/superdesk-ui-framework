@@ -27,7 +27,7 @@ function WizardHandlerFactory() {
 WizardDirective.$inject = [];
 function WizardDirective() {
     return {
-        templateUrl: '../app/template/wizard.html',
+        template: require('../template/wizard.html'),
         scope: {
             currentStep: '=',
             finish: '&',
@@ -117,7 +117,7 @@ function WizardDirective() {
 WizardStepDirective.$inject = [];
 function WizardStepDirective() {
     return {
-        templateUrl: '../app/template/wizardStep.html',
+        template: require('../template/wizardStep.html'),
         scope: {
             title: '@',
             code: '@',
