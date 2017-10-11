@@ -6,7 +6,8 @@
     "type": "git",
     "url": "https://github.com/superdesk/superdesk-ui-framework.git"
   },
-  "main": "app/index.js",
+  "main": "dist/superdesk-ui.bundle.js",
+  "style": "dist/superdesk-ui.bundle.css",
   "contributors": [
     "Nemanja Pavlovic",
     "Vladimir Stefanovic",
