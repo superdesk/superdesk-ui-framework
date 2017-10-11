@@ -3100,6 +3100,9 @@ time {
 .big-icon--document-doc:before {
   content: "\E629"; }
 
+.big-icon--semantics:before {
+  content: "\E62A"; }
+
 .modal-open {
   overflow: hidden; }
   .modal-open .dropdown__menu {
