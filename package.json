@@ -8,6 +8,7 @@
   },
   "main": "dist/superdesk-ui.bundle.js",
   "style": "dist/superdesk-ui.bundle.css",
+  "sass": "app/styles/app.scss",
   "contributors": [
     "Nemanja Pavlovic",
     "Vladimir Stefanovic",
