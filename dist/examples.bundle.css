@@ -2939,6 +2939,33 @@ time {
 .icon-multiedit:before {
   content: "\E686"; }
 
+.icon-phone:before {
+  content: "\E687"; }
+
+.icon-mobile:before {
+  content: "\E688"; }
+
+.icon-twitter:before {
+  content: "\E689"; }
+
+.icon-facebook:before {
+  content: "\E68A"; }
+
+.icon-linked-in:before {
+  content: "\E68B"; }
+
+.icon-twitter-circle:before {
+  content: "\E68C"; }
+
+.icon-facebook-circle:before {
+  content: "\E68D"; }
+
+.icon-linked-in-circle:before {
+  content: "\E68E"; }
+
+.icon-recurring:before {
+  content: "\E68F"; }
+
 @font-face {
   font-family: 'sd_big-icons';
   src: url(sd_big-icons.eot);
