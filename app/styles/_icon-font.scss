@@ -204,7 +204,16 @@ $sd-icon-font: (
   heading-5: "\e683",
   heading-6: "\e684",
   quote: "\e685",
-  multiedit: "\e686"
+  multiedit: "\e686",
+  phone: "\e687",
+  mobile: "\e688",
+  twitter: "\e689",
+  facebook: "\e68a",
+  linked-in: "\e68b",
+  twitter-circle: "\e68c",
+  facebook-circle: "\e68d",
+  linked-in-circle: "\e68e",
+  recurring: "\e68f"
 );
 
 @each $name, $value in $sd-icon-font {
