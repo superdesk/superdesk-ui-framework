@@ -1,4 +1,4 @@
-<div class="sd-page-grid--basic">
+<div class="sd-page-grid--basic" doc-modal>
     <header class="sd-top-menu">
         <a href="" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
         <p class="sd-top-menu__header">Planning</p>
@@ -60,6 +60,15 @@
                 'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen}">
             <!-- left content -->
             <div class="subnav">
+
+                <div class="subnav__sliding-toolbar" ng-show="editMode">
+                    <div class="sliding-toolbar__inner">
+                        <a class="btn" ng-click="editMode = false">Cancel</a>
+                        <span class="sliding-toolbar__info-text">1 item selected</span>
+                    </div>
+                    <a class="btn btn--primary">Create Planning item</a>
+                    <a class="btn btn--alert"><i class="icon-trash"></i>Spike</a>
+                </div>
                 <div class="sd-searchbar" ng-class="{
                         'sd-searchbar--focused': focused}" >
                     <label for="search-input" class="sd-searchbar__icon"></label>
@@ -78,13 +87,39 @@
                         <i class="big-icon--chevron-right"></i>
                     </button>
                 </div>
-                <button class="navbtn">
-                    <i class="icon-dots-vertical"></i>
-                </button>
-                <button class="navbtn sd-create-btn">
-                    <i class="icon-plus-large"></i>
-                    <span class="circle"></span>
-                </button>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn" dropdown__toggle>
+                        <i class="icon-dots-vertical"></i>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button ng-click="openModal('agendaModal')">Manage agendas</button></li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn sd-create-btn" dropdown__toggle>
+                        <i class="icon-plus-large"></i>
+                        <span class="circle"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Create New</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Planning item</button>
+                        </li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Event</button>
+                        </li>
+                    </ul>
+                </div>
             </div>
             <div class="subnav">
                 <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{
@@ -194,59 +229,117 @@
                     <div class="sd-list-header">
                         <span class="sd-list-header__name">Friday September 15, 2017</span>
                     </div>
-                    <div class="sd-list-item-group sd-list-item-group--space-between-items">
+                    <div class="sd-list-item-group sd-list-item-group--space-between-items" >
                         <!-- list item  -->
-                        <div class="sd-list-item sd-shadow--z1" ng-click="leftPreviewOpen = !leftPreviewOpen" ng-dblclick="editorOpen = true" ng-class="{
-                                'sd-list-item--activated': leftPreviewOpen}" ng-show="planningType === 'events-planning' || planningType === 'events'">
-                            <div class="sd-list-item__border"></div>
-                            <div class="sd-list-item__column">
-                                <i class="icon-calendar-list"></i>
-                            </div>
-                            <div class="sd-list-item__column">
-                                <span class="badge badge--success">P</span>
-                            </div>
-                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                <div class="sd-list-item__row">
-                                    <span class="label label--success label--hollow">Scheduled</span>
-                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lipsum ipsum</span>Duis autem vel eum iriure dolor illum dolore.</span>
-                                    <time title="March 22, 2017 11:08 AM">12:50, 15.09.2017</time>
+                        <div class="sd-list-item-nested" ng-class="{'sd-list-item-nested--expanded' : openNested, 'sd-list-item-nested--collapsed' : !openNested}" ng-init="openNested = true">
+                                <div class="sd-list-item sd-list-item-nested__parent sd-shadow--z1" ng-click="leftPreviewOpen = !leftPreviewOpen" ng-dblclick="editorOpen = true" ng-class="{
+                                    'sd-list-item--activated': leftPreviewOpen, 'sd-list-item--selected' : editMode}" ng-show="planningType === 'events-planning' || planningType === 'events'">
+                                <div class="sd-list-item__border"></div>
+                                <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : editMode}">
+                                    <div class="sd-list-item__checkbox-container">
+                                        <sd-check ng-model="editMode"></sd-check>
+                                    </div>
+                                    <span class="icn-mix sd-list-item__item-type">
+                                        <i class="icon-repeat icn-mix__sub-icn"></i>
+                                        <i class="icon-calendar-list"></i>
+                                    </span>
+                                </div>
+                                <div class="sd-list-item__column">
+                                    <span class="badge badge--success">P</span>
+                                </div>
+                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                    <div class="sd-list-item__row" ng-class="{'sd-list-item__row--only-child' : planningType !== 'events-planning'}">
+                                        <span class="label label--success label--hollow">Scheduled</span>
+                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lipsum ipsum</span>Duis autem vel eum iriure dolor illum dolore.</span>
+                                        <time title="March 22, 2017 11:08 AM">12:50, 15.09.2017</time>
+                                    </div>
+                                    <div class="sd-list-item__row" ng-show="planningType === 'events-planning'">
+                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow"> <a class="text-link" ng-click="openNested = !openNested; leftPreviewOpen = false"><i class="icon-calendar"></i>(2) <span ng-show="openNested">Hide planning items</span><span ng-show="!openNested">Show planning items</span></a></span>
+                                    </div>
+                                </div>
+                                <div class="sd-list-item__action-menu">
+                                    <!--dropdown-->
+                                    <div class="dropdown " dropdown dropdown-append-to-body is-open="itemActive1">
+                                        <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                                            <i class="icon-dots-vertical"></i>
+                                        </button>
+                                        <ul class="dropdown__menu">
+                                            <li>
+                                                <div class="dropdown__menu-label">
+                                                    Actions
+                                                    <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
+                                                </div>
+                                            </li>
+                                            <li class="dropdown__menu-divider"></li>
+                                            <li><button><i class="icon-pencil"></i>Edit</button></li>
+                                            <li><button><i class="icon-copy"></i>Copy</button></li>
+                                            <li><button><i class="icon-trash"></i>Delete</button></li>
+                                            <li class="dropdown__menu-divider"></li>
+                                            <li>
+                                                <div class="dropdown__menu-label">Actions 2</div>
+                                            </li>
+                                            <li class="dropdown__menu-item--no-link">
+                                                Just some text without a link
+                                            </li>
+                                            <li>
+                                                <button><i class="icon-download"></i>Download</button>
+                                            </li>
+                                            <li>
+                                                <button><i class="icon-print"></i>Print</button>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <!--end dropdown-->
                                 </div>
                             </div>
-                            <div class="sd-list-item__action-menu">
-                                <!--dropdown-->
-                                <div class="dropdown " dropdown dropdown-append-to-body is-open="itemActive1">
-                                    <button class="icn-btn dropdown__toggle" dropdown__toggle>
-                                        <i class="icon-dots-vertical"></i>
-                                    </button>
-                                    <ul class="dropdown__menu">
-                                        <li>
-                                            <div class="dropdown__menu-label">
-                                                Actions
-                                                <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
-                                            </div>
-                                        </li>
-                                        <li class="dropdown__menu-divider"></li>
-                                        <li><button><i class="icon-pencil"></i>Edit</button></li>
-                                        <li><button><i class="icon-copy"></i>Copy</button></li>
-                                        <li><button><i class="icon-trash"></i>Delete</button></li>
-                                        <li class="dropdown__menu-divider"></li>
-                                        <li>
-                                            <div class="dropdown__menu-label">Actions 2</div>
-                                        </li>
-                                        <li class="dropdown__menu-item--no-link">
-                                            Just some text without a link
-                                        </li>
-
-                                        <li>
-                                            <button><i class="icon-download"></i>Download</button>
-                                        </li>
-                                        <li>
-                                            <button><i class="icon-print"></i>Print</button>
-                                        </li>
-                                    </ul>
+                            <!-- Nested items -->
+                            <div class="sd-list-item-nested__childs sd-shadow--z1" ng-show="planningType === 'events-planning'">
+                                <!-- Child 1 -->
+                                <div class="sd-list-item">
+                                    <div class="sd-list-item__border"></div>
+                                    <div class="sd-list-item__column">
+                                        <i class="icon-calendar"></i>
+                                    </div>
+                                    <div class="sd-list-item__column">
+                                        <span class="badge badge--light">&nbsp;</span>
+                                    </div>
+                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div class="sd-list-item__row">
+                                            <span class="label label--hollow">Draft</span>
+                                            <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lipsum Ipsum</span>Molestie consequatvel illum dolore eu feugiat nulla facilisis.</span>
+                                            <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <button class="icn-btn">
+                                            <i class="icon-dots-vertical"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                                <!--end dropdown-->
+                                <!-- Child 2 -->
+                                <div class="sd-list-item">
+                                    <div class="sd-list-item__border"></div>
+                                    <div class="sd-list-item__column">
+                                        <i class="icon-calendar"></i>
+                                    </div>
+                                    <div class="sd-list-item__column">
+                                        <span class="badge badge--light">&nbsp;</span>
+                                    </div>
+                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div class="sd-list-item__row">
+                                            <span class="label label--hollow">Draft</span>
+                                            <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lipsum Ipsum</span>Molestie consequatvel illum dolore eu feugiat nulla facilisis.</span>
+                                            <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <button class="icn-btn">
+                                            <i class="icon-dots-vertical"></i>
+                                        </button>
+                                    </div>
+                                </div>
                             </div>
+                            <!-- END nested items -->
                         </div>
                         <!-- list item  -->
                         <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive2}  ng-show="planningType === 'events-planning' || planningType === 'events'">
@@ -274,7 +367,9 @@
                         <div class="sd-list-item sd-shadow--z1" ng-show="planningType === 'events-planning' || planningType === 'planning'">
                             <div class="sd-list-item__border"></div>
                             <div class="sd-list-item__column">
-                                <i class="icon-calendar"></i>
+                                <span class="icn-mix">
+                                   <i class="icon-calendar"></i> 
+                                </span>
                             </div>
                             <div class="sd-list-item__column">
                                 <span class="badge badge--success">P</span>
@@ -328,7 +423,10 @@
                         <div class="sd-list-item sd-shadow--z1" ng-show="planningType === 'events-planning' || planningType === 'events'">
                             <div class="sd-list-item__border"></div>
                             <div class="sd-list-item__column">
-                                <i class="icon-calendar-list"></i>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-repeat icn-mix__sub-icn"></i>
+                                    <i class="icon-calendar-list"></i>
+                                </span>
                             </div>
                             <div class="sd-list-item__column">
                                 <span class="badge badge--success">P</span>
@@ -1109,4 +1207,149 @@
     <footer class="bottom-bar ">
         This is the optional footer.
     </footer>
+
+    <!-- Agenda management modal -->
+    <div sd-modal data-model="agendaModal" class="modal--large">
+        <div class="modal__header">
+            <button class="modal__close pull-right icn-btn" ng-click="closeModal('agendaModal')"><i class="icon-close-small"></i></button>
+            <h3 class="modal__heading">Manage Agendas</h3>
+        </div>
+        <div class="modal__body modal__body--no-padding">
+            <div class="subnav">
+                <div class="subnav__stretch-bar"></div>
+                <div class="subnav__button-stack subnav__button-stack--right">
+                    <button class="btn btn--primary" ng-click="newAgenda = !newAgenda; editAgendaOpen = !editAgendaOpen">
+                        <i class="icon-plus-sign icon-white"></i>Add new agenda</button>
+                    </button>
+                </div>
+            </div>
+            <div class="sd-column-box--2">
+                <div class="sd-column-box__main-column sd-column-box__main-column--padded">
+                    <div class="sd-list-header">
+                        <span class="sd-list-header__name">Active Agendas</span>
+                    </div>
+                    <div class="sd-list-item-group sd-list-item-group--space-between-items">
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated': activateList}">
+                            <div class="sd-list-item__border sd-list-item__border--active"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">Agenda One</span><time>updated 3 days ago</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="dropdown__toggle" data-sd-tooltip="Edit Agenda" data-flow="left" ng-click="editAgendaOpen = !editAgendaOpen; activateList = !activateList"><i class="icon-pencil"></i></button>
+                                <button class="dropdown__toggle" data-sd-tooltip="Delete Agenda" data-flow="left"><i class="icon-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="sd-list-item sd-shadow--z1">
+                            <div class="sd-list-item__border sd-list-item__border--active"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">Agenda Two</span><time>updated 3 days ago</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="dropdown__toggle" data-sd-tooltip="Edit Agenda" data-flow="left"><i class="icon-pencil"></i></button>
+                                <button class="dropdown__toggle" data-sd-tooltip="Delete Agenda" data-flow="left"><i class="icon-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="sd-list-item sd-shadow--z1">
+                            <div class="sd-list-item__border sd-list-item__border--active"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">Agenda Three</span><time>updated 4 days ago</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="dropdown__toggle" data-sd-tooltip="Edit Agenda" data-flow="left"><i class="icon-pencil"></i></button>
+                                <button class="dropdown__toggle" data-sd-tooltip="Delete Agenda" data-flow="left"><i class="icon-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="sd-list-item sd-shadow--z1">
+                            <div class="sd-list-item__border sd-list-item__border--active"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">Agenda Four</span><time>updated 5 days ago</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="dropdown__toggle" data-sd-tooltip="Edit Agenda" data-flow="left"><i class="icon-pencil"></i></button>
+                                <button class="dropdown__toggle" data-sd-tooltip="Delete Agenda" data-flow="left"><i class="icon-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-list-header sd-list-header--m-top">
+                        <span class="sd-list-header__name">Disabled Agendas</span>
+                    </div>
+                    <div class="sd-list-item-group sd-list-item-group--space-between-items">
+                        <div class="sd-list-item sd-shadow--z1">
+                            <div class="sd-list-item__border sd-list-item__border--idle"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">Agenda Five</span><time>updated 1 days ago</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="dropdown__toggle" data-sd-tooltip="Edit Agenda" data-flow="left"><i class="icon-pencil"></i></button>
+                                <button class="dropdown__toggle" data-sd-tooltip="Delete Agenda" data-flow="left"><i class="icon-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="sd-list-item sd-shadow--z1">
+                            <div class="sd-list-item__border sd-list-item__border--idle"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">Agenda Six</span><time>updated 2 days ago</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="dropdown__toggle" data-sd-tooltip="Edit Agenda" data-flow="left"><i class="icon-pencil"></i></button>
+                                <button class="dropdown__toggle" data-sd-tooltip="Delete Agenda" data-flow="left"><i class="icon-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="sd-column-box__slide-in-column" ng-class="{'sd-column-box__slide-in-column--closed' : !editAgendaOpen}">
+                    <div class="sd-column-box__slide-in-column-inner sd-slide-in-panel">
+
+                        <div class="sd-slide-in-panel__header">
+                            <div class="subnav__sliding-toolbar" ng-show="!contentChanged || newAgenda">
+                                <div class="sliding-toolbar__inner"></div>
+                                <a class="btn" ng-click="editAgendaOpen = false; contentChanged = true; activateList = false; newAgenda = false;">Cancel</a>
+                                <a class="btn btn--primary">Save</a>
+                            </div>
+                            <h3 class="sd-slide-in-panel__heading" ng-hide="newAgenda">Edit Agenda</h3>
+                            <h3 class="sd-slide-in-panel__heading" ng-show="newAgenda">New Agenda</h3>
+                            <a class="icn-btn sd-slide-in-panel__close" sd-tooltip="Close details" flow="top" ng-click="editAgendaOpen = !editAgendaOpen; activateList = false; newAgenda = false;"><i class="icon-close-small"></i></a>
+                        </div>
+                        <div class="sd-slide-in-panel__content">
+                            <div class="sd-slide-in-panel__content-block sd-slide-in-panel__content-block--first">
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin">
+                                        <label class="sd-line-input__label">Name</label>
+                                        <input class="sd-line-input__input" type="text" value="Agenda One" ng-hide="newAgenda">
+                                        <input class="sd-line-input__input" type="text" value="" ng-show="newAgenda">
+                                    </div>
+                                </div>
+                                <div class="form__row" ng-init="contentChanged = true">
+                                    <span ng-model="contentChanged" sd-switch></span><label>Enabled</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+            </div>
+        </div>
+        <div class="modal__footer">
+            <button class="btn" ng-click="closeModal('agendaModal')">Cancel</button>
+            <button class="btn btn--primary" ng-click="closeModal('agendaModal')">Ok</button>
+        </div>
+    </div>
+    <!-- END Agenda management modal -->
 </div>
+
+
+
+ 

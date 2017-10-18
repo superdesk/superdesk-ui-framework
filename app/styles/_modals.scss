@@ -131,6 +131,9 @@ $modal-sizes: (
                 @media (max-height: 500px) {
                     min-height: auto;
                 }
+            }
+            &--no-padding {
+                padding: 0;
             }           
         }
     }

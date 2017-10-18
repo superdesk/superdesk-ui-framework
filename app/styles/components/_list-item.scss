@@ -17,8 +17,8 @@ $sd-ListItem-background-active: #e3f1f6;
     &--active {
         background-color: $sd-ListItem-background-active;
     }
-    &--selected {
-        background-color: $sd-ListItem-background-selected;
+    &--selected, &--selected:hover  {
+        background-color: $sd-ListItem-background-selected !important;
     }
     &--activated, &--activated:hover {
         background-color: $sd-ListItem-background-active;
@@ -39,8 +39,17 @@ $sd-ListItem-background-active: #e3f1f6;
     flex-grow: 0;
     flex-shrink: 0;
     background: transparent;
-    &--locked {
+    &--locked, &--error {
         background: $red;
+    }
+    &--success, &--active {
+        background: $green;
+    }
+    &--success, &--active {
+        background: $green;
+    }
+    &--idle {
+        background: $orange;
     }
 }
 
@@ -62,8 +71,53 @@ $sd-ListItem-background-active: #e3f1f6;
         flex-grow: 1;
         flex-shrink: 1;
     }
-
+    &--has-check {
+        position: relative;
+        .sd-list-item__item-type {
+            opacity: 1;
+            margin-top: -0.2rem;
+            transition: opacity 0.1s linear;
+        }
+        .sd-list-item__checkbox-container {
+            position: absolute;
+            padding: 0 0.8rem;
+            top: 0;
+            bottom:0;
+            left:0;
+            right:0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.2s linear; 
+            .sd-check__wrapper {
+                height: 1.6rem;
+                width: 1.6rem;
+                .sd-checkbox {
+                    display: block;
+                }
+            }
+        }
+        &:hover {
+            .sd-list-item__item-type {
+                opacity: 0;
+            }
+            .sd-list-item__checkbox-container {
+                opacity: 1;
+            }
+        }
+        &.sd-list-item__column--checked, &.sd-list-item__column--checked:hover {
+            .sd-list-item__item-type {
+                opacity: 0;
+            }
+            .sd-list-item__checkbox-container {
+                opacity: 1;
+            }
+        } 
+    }
 }
+
 .sd-list-item__row {
     display: flex;
     flex-direction: row;
@@ -78,6 +132,9 @@ $sd-ListItem-background-active: #e3f1f6;
     }
     &:only-child {
         margin: 0.2rem 0;
+    }
+    &--only-child {
+        margin: 0.2rem 0 !important;
     }
 }
 .sd-list-item__action-menu {
@@ -275,6 +332,45 @@ $sd-ListItem-background-active: #e3f1f6;
     }
 }
 
+
+// NESTED list items
+.sd-list-item-nested {
+    display: flex;
+    flex-direction: column;
+}
+.sd-list-item-nested__childs {
+    position: relative;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    margin-left: 1rem;
+    margin-bottom: 0.8rem;
+    .sd-list-item {
+        margin-top: 0;
+        border-top: 1px solid lighten( $grayLight, 30% );
+    }
+}
+.sd-list-item-nested__parent {
+    position: relative;
+    z-index: 1;
+}
+
+.sd-list-item-nested--collapsed {
+    .sd-list-item-nested__childs {
+        transition: all ease-in 0.2s;
+        max-height: 0;
+        opacity: 0;
+        margin-bottom: 0;
+    }
+}
+.sd-list-item-nested--expanded {
+    .sd-list-item-nested__childs {
+        transition: all ease-in 0.2s;
+        max-height: 15.2rem;
+        opacity: 1;
+    }
+}
+
 // sd list item GROUP
 .sd-list-item-group {
     .sd-list-item {
@@ -287,6 +383,18 @@ $sd-ListItem-background-active: #e3f1f6;
             + .sd-list-item {
                 margin-top: .8rem;
                 border-top: none;
+            }
+        }
+        .sd-list-item-nested {
+            + .sd-list-item {
+                margin-top: .8rem;
+                border-top: none;
+            }
+        }
+        .sd-list-item-nested__childs {
+            .sd-list-item {
+                margin-top: 0;
+                border-top: 1px solid lighten( $grayLight, 30% );
             }
         }
     }
@@ -312,6 +420,9 @@ $sd-ListItem-background-active: #e3f1f6;
         height: 1px;
         background: transparent;
         margin: auto 0;
+    }
+    &--m-top {
+        margin-top: 2.4rem;
     }
 }
 

@@ -198,5 +198,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/side-navigation.html'
         })
+        .when('/playground-5', {
+            title: 'Playground 5',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/playground-5.html'
+        })
         .otherwise({redirectTo: '/'});
 });
