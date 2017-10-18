@@ -229,3 +229,23 @@ $sd-icon-font: (
     }
   }
 }
+
+// Combining 2 icons
+.icn-mix {
+  position: relative;
+  .icn-mix__sub-icn {
+    position:absolute;
+    font-size: 1.1rem;
+    line-height: 1;
+    color: $purple;
+    right: -0.4rem;
+    bottom: -0.5rem;
+    height: 1.3rem;
+    width: 1.3rem;
+    background-color: $white;
+    border-radius: 50%;
+    padding: 0.1rem;
+    z-index: 1;
+    opacity: 1 !important;
+  }
+}

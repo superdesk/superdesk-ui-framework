@@ -74,6 +74,8 @@
         @media (max-height: 500px) {
           .modal .modal__content .modal__body--add-min-height {
             min-height: auto; } }
+      .modal .modal__content .modal__body--no-padding {
+        padding: 0; }
   .modal--large .modal__dialog {
     max-width: 680px; }
   .modal--large .modal__body {

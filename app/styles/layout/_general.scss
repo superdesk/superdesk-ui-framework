@@ -58,6 +58,10 @@ $subnav-background: $grayLighter;
   }
 }
 
+.subnav__sliding-toolbar {
+  @include sliding-toolbar; // See mixins.scss for details
+}
+
 .button-stack {
   height:$subnav-height !important;
   position: relative;
@@ -206,6 +210,10 @@ $subnav-background: $grayLighter;
     .btn__text {
       display: inline;
     }
+  }
+  &--right {
+    text-align: right;
+    padding-right: 2rem;
   }
 }
 

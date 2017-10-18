@@ -78,8 +78,8 @@
     background-image: linear-gradient(to left,rgba(0,0,0,.25) 0,transparent 100%);
 }
 
-// Container for layouts consisting of main content block with 2 slide-in panes 
-.sd-column-box--3 {
+// Container for layouts consisting of main content block with 1 or 2 slide-in panes 
+.sd-column-box--3, .sd-column-box--2 {  
     flex-grow: 1;
     display: flex;
     flex-direction: row;
@@ -91,7 +91,88 @@
     flex-shrink: 1;
     width: 50%;
     overflow: auto;
+    &--padded {
+        padding: 2rem;
+    }
 }
+.sd-column-box__slide-in-column {
+    width: 26rem;
+    transition: all .2s ease-out;
+    display: flex;
+    flex-direction: column;
+    //background-color: $white;
+    border-left: 1px solid rgba(187, 187, 187, 1);
+    overflow-x: hidden;
+    position: relative;
+    &::before{
+        display: block;
+        top: 0;
+        bottom: 0;
+        content: '';
+        width: 4px;
+        position: absolute;
+        left: 0;
+        z-index: 80;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+    }
+    .sd-column-box__slide-in-column-inner {
+        opacity: 1;
+        transition: all 0.1s ease-out;
+        transition-delay: 0.2s;
+    }
+    &--closed {
+        width: 0;
+        .sd-column-box__slide-in-column-inner {
+            opacity: 0;
+            transition: all 0.1s ease-out;
+            transition-delay: 0;
+            border-left: 1px solid rgba(187, 187, 187, 0);
+        }
+    }
+}
+.sd-slide-in-panel {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+.sd-slide-in-panel__header {
+    flex-grow: 0;
+    flex-shrink: 0;
+    z-index: 2;
+    position: relative;
+    min-height: 4.8rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+}
+.sd-slide-in-panel__heading {
+    padding: 0 2rem 0 1.6rem;
+    margin: 0;
+    font-size: 1.5rem;
+    color: $gray;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+.sd-slide-in-panel__close {
+    position: absolute;
+    right: 1rem;
+    top: 1.1rem;
+    z-index: 2;
+    color: $gray;
+}
+.sd-slide-in-panel__content {
+    flex-grow: 1;
+}
+.sd-slide-in-panel__content-block {
+    padding: 1.6rem;
+    &--first {
+        padding-top: 3.2rem
+    }
+}
+
+
+
 
 .sd-page-content__content-block {
     transition: all 0.2s ease-out;

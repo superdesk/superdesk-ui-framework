@@ -79,3 +79,38 @@
    -moz-appearance: none;
    appearance: none;
 }
+
+@mixin sliding-toolbar {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    background-color: #fff;
+    padding: 0 16px;
+    animation: dropOut2 .3s cubic-bezier(.695,.105,.285,1.275) 1;
+    background-color: #d2e5ed;
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+    &--right {
+        text-align: right;
+        justify-content: flex-end;
+    }
+    .sliding-toolbar__inner {
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        &--right {
+            text-align: right;
+        }
+    }
+    .sliding-toolbar__info-text {
+        font-weight: 300;
+        opacity: 0.75;
+    }
+    .btn + .sliding-toolbar__info-text {
+        margin-left: 1rem;
+    }
+  }
