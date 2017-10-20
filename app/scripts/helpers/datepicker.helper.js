@@ -234,7 +234,7 @@ angular.module('superdesk-ui.helper.datepicker', ['superdesk-ui.helper.dateparse
         return {
             restrict: 'EA',
             replace: true,
-            template: requre('../../template/datepicker/day.html'),
+            template: require('../../template/datepicker/day.html'),
             require: '^datepicker',
             link: function link(scope, element, attrs, ctrl) {
                 scope.showWeeks = ctrl.showWeeks;
