@@ -248,6 +248,12 @@ $sd-ListItem-background-active: #e3f1f6;
         font-weight: 500;
         color: $sd-text;
     }
+    .sd-list-item__element-rm-10 {
+        margin-right: 1rem;
+    }
+    .sd-list-item__element-lm-10 {
+        margin-left: 1rem;
+    }
     .sd-list-item__location {
         padding-left: 1.6rem;
         position: relative;

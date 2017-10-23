@@ -249,3 +249,22 @@ $sd-icon-font: (
     opacity: 1 !important;
   }
 }
+
+.double-size-icn {
+  display: inline-block;
+  height: 3.2rem;
+  width: 3.2rem;
+  [class^="icon-"],
+  [class*=" icon-"] {
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 32px;
+  }
+  &--light {
+    [class^="icon-"],
+    [class*=" icon-"] {
+      opacity: 0.5;
+    }
+  }
+}
