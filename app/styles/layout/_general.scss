@@ -175,10 +175,29 @@ $subnav-background: $grayLighter;
   flex-grow: 1;
   flex-shrink: 1;
   margin: 0 16px;
+  align-items: center;
   &.subnav__stretch-bar--right {
     text-align: right;
     justify-content: flex-end;
   }
+}
+.subnav__spacer {
+  width: 1px;
+  height: $subnav-height;
+  flex-grow: 0;
+  border-left: 1px solid rgba(0,0,0,.1);
+  margin: auto 2rem;
+  &--dotted {
+    border-left: 1px dotted rgba(0,0,0,.3);
+    height: $subnav-height / 2;
+  }
+  &--no-r-margin {
+    margin-right: -0.1rem;
+  }
+  &--no-l-margin {
+    margin-left: 0;
+  }
+  
 }
 .subnav__button-stack {
   position: relative;
