@@ -171,6 +171,17 @@ function reactPlayground() {
     };
 }
 
+docInclude.$inject = ['$http', '$templateCache', '$compile'];
+function docInclude($http, $templateCache, $compile) {
+    return function(scope, element, attrs) {
+        var templatePath = attrs.docInclude;
+        $http.get(templatePath, { cache: $templateCache }).success(function(response) {
+            var contents = element.html(response).contents();
+            $compile(contents)(scope);
+        });
+    };
+});
+
 export default angular.module('ui-docs.directives', [])
         .directive('prettyprint', docPrettyPrint)
         .directive('docPlayground', docPlayground)
@@ -178,4 +189,5 @@ export default angular.module('ui-docs.directives', [])
         .directive('docNav', docNav)
         .directive('docModal', docModal)
         .directive('docScroll', docScroll)
-        .directive('reactPlayground', reactPlayground);
+        .directive('reactPlayground', reactPlayground)
+        .directive('docInclude', docInclude);
