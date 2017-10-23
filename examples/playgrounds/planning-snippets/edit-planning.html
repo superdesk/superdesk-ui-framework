@@ -4,9 +4,9 @@
         <figure class="avatar" style="margin-right:10px;">sd</figure>
     </div>
     <div class="subnav__stretch-bar subnav__stretch-bar--right">
-        <a href="" class="btn" ng-click="editorOpen = false">Cancel</a>
+        <a href="" class="btn" ng-click="$parent.editorOpen = false">Cancel</a>
         <button class="btn btn--success">Publish</button>
-        <a href="" class="btn btn--primary" ng-click="editorOpen = false">Save</a>
+        <a href="" class="btn btn--primary" ng-click="$parent.editorOpen = false">Save</a>
 
     </div>
     <button class="navbtn" ng-click="editorOpen = !editorOpen">
@@ -133,9 +133,6 @@
                             <div class="sd-list-item__column">
                                 <i class="icon-calendar-list"></i>
                             </div>
-                            <!-- <div class="sd-list-item__column">
-                                <span class="badge badge--success">P</span>
-                            </div> -->
                             <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                 <div class="sd-list-item__row">
                                     <span class="label label--hollow">Draft</span>
