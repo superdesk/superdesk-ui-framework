@@ -171,16 +171,15 @@ function reactPlayground() {
     };
 }
 
-docInclude.$inject = ['$http', '$templateCache', '$compile'];
-function docInclude($http, $templateCache, $compile) {
-    return function(scope, element, attrs) {
-        var templatePath = attrs.docInclude;
-        $http.get(templatePath, { cache: $templateCache }).success(function(response) {
-            var contents = element.html(response).contents();
-            $compile(contents)(scope);
-        });
+docInclude.$inject = [];
+function docInclude() {
+    return {
+        restrict: 'AE',
+        templateUrl: function(elem, attrs) {
+            return attrs.docInclude;
+        }
     };
-});
+}
 
 export default angular.module('ui-docs.directives', [])
         .directive('prettyprint', docPrettyPrint)
