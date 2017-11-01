@@ -815,8 +815,8 @@
         <div id="editPane" class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" ng-class="{
                 'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
             <!-- Eitor content -->
-            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'event'" doc-include="./examples/playgrounds/planning-snippets/edit-event.html"></div>
-            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'planning'" doc-include="./examples/playgrounds/planning-snippets/edit-planning.html"></div>
+            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'event'" doc-include="../examples/playgrounds/planning-snippets/edit-event.html"></div>
+            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'planning'" doc-include="../examples/playgrounds/planning-snippets/edit-planning.html"></div>
             <!-- END Editor content -->
         </div>
     </section>
@@ -835,7 +835,7 @@
                 <div class="subnav__stretch-bar"></div>
                 <div class="subnav__button-stack subnav__button-stack--right">
                     <button class="btn btn--primary" ng-click="newAgenda = !newAgenda; editAgendaOpen = !editAgendaOpen">
-                        <i class="icon-plus-sign icon-white"></i>Add new agenda</button>
+                        <i class="icon-plus-sign icon-white"></i>Add new agenda
                     </button>
                 </div>
             </div>
