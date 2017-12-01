@@ -97,6 +97,7 @@ $sd-big-icon-font: (
     document-pdf: "\e628",
     document-doc: "\e629",
     semantics: "\e62a",
+    picture: "\e62b",
 );
 
 @each $name, $value in $sd-big-icon-font {

@@ -115,6 +115,14 @@ $modal-sizes: (
             &--padding-20 {
                 padding: 10px 20px;
             }
+            &--flex {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .modal__heading {
+                    flex-grow: 1;
+                }
+            }
         }
         .modal__footer {
             @include modal-footer();
@@ -170,6 +178,8 @@ $modal-sizes: (
                 .modal__body {
                     max-height: none;
                     flex: 1 1 auto !important;
+                    display: flex;
+                    flex-direction: column;
                 }
             }
         }
@@ -242,6 +252,36 @@ $modal-sizes: (
     p {
         margin: 0 0 1em 0;
     }
+    &.modal--dark-ui {
+        .modal__content {
+            background-color: #333;
+            color: $white;
+            .modal__body-header {
+                background-color: #333;
+                color: $white;
+            }
+            .modal__body-content, .modal__body {
+                background-color: #444;
+                color: $white;  
+            }
+            .modal__header {
+                border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+            }
+            .modal__footer {
+                border-top: 1px solid rgba(0, 0, 0, 0.12);
+            }
+            .subnav {
+                background-color: #292929;
+                color: $white;
+                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 0 0 rgba(0, 0, 0, 0.3);
+            }  
+        }
+    }
+}
+.modal__content {
+    .subnav {
+        flex-shrink: 0;
+    }
 }
 .modal__close {
     margin: 2px -6px 0;
@@ -258,6 +298,7 @@ $modal-sizes: (
     font-size: 18px;
     font-weight: 300;
     line-height: 27px;
+
 }
 
 // Background

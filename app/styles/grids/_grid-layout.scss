@@ -78,7 +78,7 @@
     background-image: linear-gradient(to left,rgba(0,0,0,.25) 0,transparent 100%);
 }
 
-// Container for layouts consisting of main content block with 1 or 2 slide-in panes 
+// Container for layouts consisting of a main content block with 1 or 2 slide-in panes 
 .sd-column-box--3, .sd-column-box--2 {  
     flex-grow: 1;
     display: flex;
@@ -94,14 +94,22 @@
     &--padded {
         padding: 2rem;
     }
+    &--photo-preview {
+        display: flex;
+        flex-direction: column;
+        background-color: #212121;
+        position: relative;
+        .sd-photo-preview {
+            flex-grow: 1;
+        }
+    }
 }
 .sd-column-box__slide-in-column {
     width: 26rem;
     transition: all .2s ease-out;
     display: flex;
     flex-direction: column;
-    //background-color: $white;
-    border-left: 1px solid rgba(187, 187, 187, 1);
+    border-left: 1px solid rgba(0, 0, 0, 0.27);
     overflow-x: hidden;
     position: relative;
     &::before{
@@ -120,6 +128,18 @@
         transition: all 0.1s ease-out;
         transition-delay: 0.2s;
         background-color: rgba(255, 255, 255, 0.7);
+    }
+    &--large {
+        width: 40rem;
+    }
+    &--dark-ui {
+        background-color: #3b3b3b;
+        .sd-column-box__slide-in-column-inner {
+            background-color: #3b3b3b;
+        }
+        .sd-slide-in-panel__heading {
+            color: rgba(255,255,255,0.75);
+        }
     }
     &--closed {
         width: 0;
@@ -171,6 +191,9 @@
     &--first {
         padding-top: 3.2rem
     }
+    .sd-slide-in-panel__heading {
+        padding: 0;
+    }
 }
 
 
@@ -202,6 +225,7 @@
     .sd-list-header {
         margin: 2.4rem 2.4rem -2rem 2.4rem;
     }
+
 }
 
 .sd-page-content__content-block--right::before {
@@ -449,16 +473,20 @@ $planningEditor-width: 50rem;
 }
 .sd-filters-panel {
     background-color: $sd-filters-bg;
-    border-right: 2px solid rgba(187, 187, 187, 0); 
+    border-right: 0px solid rgba(0, 0, 0, 0); 
 }
 .sd-preview-panel {
     background-color: #fff;
-    border-left: 1px solid rgba(187, 187, 187, 0); 
+    border-left: 0px solid rgba(0, 0, 0, 0);
+    &--dark-ui {
+        background-color: darken($grayMedium, 10%);
+    }
+
 }
 .open-filters {
     .sd-filters-panel {
         width: 36rem;
-        border-right: 2px solid rgba(187, 187, 187, 1);
+        border-right: 2px solid rgba(0, 0, 0, 0.25);
         .side-panel {
             opacity: 1;
             transition: all 0.2s ease-out;
@@ -469,7 +497,10 @@ $planningEditor-width: 50rem;
 .open-preview {
     .sd-preview-panel {
         width: 36rem;
-        border-left: 1px solid rgba(187, 187, 187, 1);
+        border-left: 1px solid rgba(0, 0, 0, 0.25);
+        &--dark-ui {
+            border-left-color: rgba(0, 0, 0, 0.4);
+        }
         .side-panel {
             opacity: 1;
             transition: all 0.2s ease-out;

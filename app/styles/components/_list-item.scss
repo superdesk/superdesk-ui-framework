@@ -343,6 +343,7 @@ $sd-ListItem-background-active: #e3f1f6;
 .sd-list-item-nested {
     display: flex;
     flex-direction: column;
+    margin-top: .8rem;
 }
 .sd-list-item-nested__childs {
     position: relative;

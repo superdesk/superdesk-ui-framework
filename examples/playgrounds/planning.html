@@ -431,10 +431,40 @@
                                     <time title="">12:25, 15.09.2017</time>
                                 </div>
                             </div>
-                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
-                                <button class="icn-btn">
-                                    <i class="icon-dots-vertical"></i>
-                                </button>
+                            <div class="sd-list-item__action-menu">
+                                <!--dropdown-->
+                                <div class="dropdown dropdown--align-right" dropdown dropdown-append-to-body is-open="itemActive18">
+                                    <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                                        <i class="icon-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown__menu">
+                                        <li>
+                                            <div class="dropdown__menu-label">
+                                                Actions
+                                                <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown__menu-divider"></li>
+                                        <li><button><i class="icon-pencil"></i>Edit</button></li>
+                                        <li><button><i class="icon-copy"></i>Copy</button></li>
+                                        <li><button><i class="icon-trash"></i>Delete</button></li>
+                                        <li class="dropdown__menu-divider"></li>
+                                        <li>
+                                            <div class="dropdown__menu-label">Actions 2</div>
+                                        </li>
+                                        <li class="dropdown__menu-item--no-link">
+                                            Just some text without a link
+                                        </li>
+                                        
+                                        <li>
+                                            <button><i class="icon-download"></i>Download</button>
+                                        </li>
+                                        <li>
+                                            <button><i class="icon-print"></i>Print</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--end dropdown-->
                             </div>
                         </div>
                         <!-- list item  -->
@@ -812,8 +842,9 @@
         <!-- SPLIT CONTENT -->
 
 
-        <div id="editPane" class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" ng-class="{
-                'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
+        <div id="editPane" 
+             class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" 
+             ng-class="{'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
             <!-- Eitor content -->
             <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'event'" doc-include="../examples/playgrounds/planning-snippets/edit-event.html"></div>
             <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'planning'" doc-include="../examples/playgrounds/planning-snippets/edit-planning.html"></div>

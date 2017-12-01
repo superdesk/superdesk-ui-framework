@@ -37,7 +37,7 @@
             color: rgba(255, 255, 255, 0.65);
         }
         .toggle-box__line {
-            background: rgba(255, 255, 255, 0.10);
+            background: $neutral-border-color;
         }
     }
     &.toggle-box--circle {
@@ -77,7 +77,7 @@
         flex: 1;
         height: 1px;
         margin: auto 0.4rem auto 0;
-        background: #dcdcdc;
+        background: $neutral-border-color;
     }
 }
 
@@ -103,6 +103,19 @@
         text-decoration: none;
         color: $white;
         i { color: $white; }
+    }
+}
+
+.dark-ui {
+    .toggle-box__header {
+        .toggle-box__label {
+            color: #999;
+        }
+    }
+    .toggle-box--circle {
+        .toggle-box__chevron {
+            background-color: $neutral-border-color;
+        }
     }
 }
 

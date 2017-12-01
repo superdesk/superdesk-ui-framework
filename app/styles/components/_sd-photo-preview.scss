@@ -1,0 +1,146 @@
+
+$photo-nav-transition: all 0.2s ease-out;
+
+.sd-photo-preview  {
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto;
+    grid-gap: 0;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    &--grid-only {
+        grid-template-rows: 0 1fr;
+        .sd-photo-preview__image {
+            height: 0;
+            overflow: hidden;
+        }
+        .sd-photo-preview__thumb-strip {
+            overflow-y: auto;
+        }
+    }
+}
+
+// .sd-photo-preview  img, .sd-photo-preview__image {
+//     max-width: 100%;
+//     max-height: 100%;
+//     height: auto;
+//     margin: auto;
+// }
+
+.sd-photo-preview__image {
+    // flex-grow: 1;
+    position: relative;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    text-align: center;
+    background-color: #111;
+}
+
+.sd-photo-preview__image img {
+    max-width: 100%;
+    max-height: 100%;
+    height: auto;
+    margin: auto;
+} 
+
+.sd-photo-preview__thumb-strip {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    min-height: 16rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+
+@mixin photoNavButton-style(
+    $background: rgba(0,0,0,1),
+    $background-normal: scale-color($background, $alpha: -20%),
+    $background-hover: scale-color($background, $alpha: -10%),
+    $background-active: $sd-blue) 
+{
+    border-radius: 50%;
+    cursor: pointer;
+    height: 5.6rem;
+    line-height: 5.6rem;
+    position: absolute;
+    top: calc(50% - 2.8rem);
+    width: 5.6rem;
+    box-shadow: 0 4px 24px rgba(0,0,0,.20), 0 10px 28px rgba(0,0,0,.35);
+    color: $white;
+    transition: $photo-nav-transition;
+    background-color: $background-normal;
+    opacity: 0.3;
+    &:hover {
+        opacity: 0.6;
+        background-color: $background-hover;
+    }
+    &:active {
+        opacity: 0.8;
+        background-color: $background-active;
+    }
+    &::after {
+        content: " ";
+        font-family: 'sd_icons';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        top:0;
+        left:0;
+        text-align: center;
+        z-index: 2;
+        color: $white;
+        width: 5.6rem;
+        font-size: 3.2rem;
+    }
+}
+
+.sd-photo-preview__slide-in-button {
+    position: absolute;
+    top: 2.4rem;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(255,255,255,0.1);
+    height:4.8rem;
+    width:4.8rem;
+    color: $white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 0 0 1.6rem;
+    border-radius: 6px 0 0 6px;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: $photo-nav-transition;
+    [class^="icon-"],
+    [class*=" icon-"] {
+        color: $white; 
+        flex-shrink: 0;
+    }
+    &:hover {
+        opacity: 1;
+    }
+    &:active {
+        background-color: $sd-blue;
+        opacity: 1;
+    }
+}
+
+.sd-photo-preview__nav-button {
+    @include photoNavButton-style;
+    &--next {
+        right: 0.8rem;
+        color: inherit;
+        &::after {
+            content: "\e643";
+        }
+    }
+    &--prev {
+        left: 0.8rem;
+        color: inherit;
+        &::after {
+            content: "\e642";
+        }
+    }
+}

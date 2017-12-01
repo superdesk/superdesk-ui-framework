@@ -1,0 +1,208 @@
+<!-- Planning edit panel -->
+<div class="side-panel__header subnav" ng-init="editorOpen = true">
+    <div class="subnav__stretch-bar">
+
+    </div>
+    <div class="subnav__stretch-bar subnav__stretch-bar--right">
+        <a href="" class="btn" ng-click="$parent.editorOpen = false">Cancel</a>
+        <a href="" class="btn btn--primary" ng-click="$parent.editorOpen = false">Save</a>
+
+    </div>
+    <button class="navbtn" ng-click="editorOpen = !editorOpen">
+        <i class="big-icon--minimize"></i>
+    </button>
+    <button class="navbtn">
+        <i class="icon-dots-vertical"></i>
+    </button>
+</div>
+<div class="side-panel__content side-panel__content--flex">
+    <ul class="nav-tabs side-panel__content-tab-nav">
+        <li ng-class="{'nav-tabs__tab--active': !tab2 || tab2 === 'event-details2'}" class="nav-tabs__tab">
+            <button ng-click="tab2 = 'event-details2'" class="nav-tabs__link"><span translate="">Content</span></button>
+        </li>
+        <li ng-class="{'nav-tabs__tab--active': tab2 === 'event-history2'}" class="nav-tabs__tab">
+            <button ng-click="tab2 = 'event-history2'" class="nav-tabs__link"><span translate="">History</span></button>
+        </li>
+    </ul>
+    <!-- First tab -->
+    <div class="side-panel__content-tab-content" ng-if="!tab2 || tab2 === 'event-details2'">
+
+        <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
+            <div class="side-panel__content-block-inner" data-sd-tooltip="Planning item" data-flow="right">
+                <span class="double-size-icn double-size-icn--light">
+                    <i class="icon-photo"></i>
+                </span>
+            </div>
+            <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                <p class="sd-text__date-and-author"><time>Created 15.09.2017 by </time> <span class="sd-text__author">Mika Karapet</span></p> 
+                <p class="sd-text__date-and-author"><time>Updated 1 hour ago by </time> <span class="sd-text__author">John Doe</span></p> 
+            </div>
+
+        </div>
+
+        <div class="side-panel__content-block">
+            <div class="form__row">
+                <div class="sd-line-input">
+                    <label class="sd-line-input__label">Slugline</label>
+                    <input class="sd-line-input__input" type="text" value="This is a slugline">
+                </div>
+            </div>
+            <div class="form__row">
+                <div class="sd-line-input">
+                    <label class="sd-line-input__label">Description</label>
+                    <textarea class="sd-line-input__input"></textarea>
+                </div>
+            </div>
+            <div sd-toggle-box data-title="Details" data-style="circle">
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                        <span class="sd-line-input__plus-btn"></span>
+                        <label class="sd-line-input__label">Category</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                        <span class="sd-line-input__plus-btn"></span>
+                        <label class="sd-line-input__label">Subject</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin">
+                        <label class="sd-line-input__label">Long Description</label>
+                        <textarea class="sd-line-input__input"></textarea>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin">
+                        <label class="sd-line-input__label">Internal Note</label>
+                        <textarea class="sd-line-input__input"></textarea>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--is-select  sd-line-input--no-margin">
+                        <label class="sd-line-input__label">Urgency</label>
+                        <select class="sd-line-input__select">
+                            <option value="">None</option>
+                            <option value="">1</option>
+                            <option value="">2</option>
+                            <option value="">3</option>
+                            <option value="">4</option>
+                            <option value="">5</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <span ng-model="pubStatus" sd-switch=""></span><label>Not for publication</label>
+                </div>
+            </div>
+        </div>
+        <h3 class="side-panel__heading side-panel__heading--big">Associated items</h3>
+        <div class="side-panel__content-block">
+            <!-- Collapse box 1 -->
+            <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen0}">
+                <div class="sd-collapse-box__header" ng-click="isOpen0 = !isOpen0">
+                    <!-- list item  -->
+                    <div class="sd-list-item sd-list-item--no-bg">
+                        <div class="sd-list-item__border"></div>
+                        <div class="sd-list-item__column">
+                            <i class="icon-photo"></i>
+                        </div>
+                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                            <div class="sd-list-item__row">
+                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__text-strong">Item name</span></span>
+                                <time title="">15.10.2017–16.10.2017 </time>
+                            </div>
+                        </div>
+                        <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                            <button class="icn-btn">
+                                <i class="icon-dots-vertical"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- END list item  -->
+                </div>
+                <div class="sd-collapse-box__content-wraper">
+                    <div class="sd-collapse-box__content">
+                        <div class="sd-collapse-box__tools">
+                            <a class="icn-btn" sd-tooltip="Collapse" flow="left" ng-click="isOpen0 = false"><i class="icon-chevron-up-thin"></i></a>
+                            <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                        </div>
+                        <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
+                            <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
+                                <div class="sd-list-item__column sd-list-item__column--no-border">
+                                    <span class="double-size-icn double-size-icn--light">
+                                        <i class="icon-calendar"></i>
+                                    </span>
+                                </div>
+                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                    <div class="sd-list-item__row">
+                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__text-strong">Event name</span>
+                                    </div>
+                                    <div class="sd-list-item__row">
+                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__location">New York City </span></span><time title="">15.10.2017–16.10.2017 </time>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="">
+                            <div class="form__row">
+                                <span class="label label--hollow">Draft</span>
+                            </div>
+                            <div class="form__row">
+                                <label class="form-label form-label--light">Name</label>
+                                <p class="sd-text__strong">Event name</p>
+                            </div>
+                            <div class="form__row">
+                                <label class="form-label form-label--light">Date</label>
+                                <p><span class="sd-text__info">From</span> 15.10.2017 @ 12:50 <span class="sd-text__info">to</span> 16.10.2017 @ 12:50</p>
+                            </div>
+                            <div class="form__row">
+                                <label class="form-label form-label--light">Location</label>
+                                <p>New York City, USA</p>
+                            </div>
+                            <div class="form__row">
+                                <label class="form-label form-label--light">Occurence Status</label>
+                                <p>Planned, occurs certainly</p>
+                            </div>
+                            <div class="form__row">
+                                <label class="form-label form-label--light">Description</label>
+                                <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END First tab -->
+    <!-- Second tab -->
+    <div class="side-panel__content-tab-content" ng-if="tab2 === 'event-history2'">
+        <div class="side-panel__content-block">
+            <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                <li class="simple-list__item">
+                    <p><strong>Created by</strong> Mika Karapet</p>
+                    <time class="small">Tuesday, 12. September 13:10</time>
+                </li>
+                <li class="simple-list__item">
+                    <p><strong>Coverage created by</strong> Vince Ryan</p>
+                    <time class="small">Tuesday, 12. September 13:13</time>
+                </li>
+                <li class="simple-list__item">
+                    <p><strong>Updated by</strong> Karel Petrak</p>
+                    <time class="small">Tuesday, 12. September 13:13</time>
+                </li>
+                <li class="simple-list__item">
+                    <p><strong>Coverage updated by</strong> John Doe</p>
+                    <time class="small">Tuesday, 12. September 13:21</time>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END Second tab -->
+</div>
+<div class="side-panel__footer">
+
+</div>
