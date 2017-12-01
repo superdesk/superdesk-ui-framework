@@ -204,5 +204,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/playground-5.html'
         })
+        .when('/photo-desk', {
+            title: 'Photo Desk',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/photo-desk.html'
+        })
         .otherwise({redirectTo: '/'});
 });

@@ -1,5 +1,8 @@
 <h2 class="docs-page__h2">Toggle box (Collapsible panel)</h2>
-<p class="docs-page__paragraph">Add the <code>sd-toggle-box</code> directive to a <code>&lt;div&gt;</code> to create the toggle box structure. Define the header title in the <code>data-title</code> attribute and set <code>data-open</code> to true or false, depending on if you want the content to be visible or hidden by default.</p>
+<p class="docs-page__paragraph">
+    Add the <code>sd-toggle-box</code> directive to a <code>&lt;div&gt;</code> to create the toggle box structure. Define the header title in the <code>data-title</code> attribute and set <code>data-open</code> to true or false, depending on if you want the content to be visible or hidden by default. 
+    To use alternative styling, with circle chevron, add <code>data-style="circle"</code> to the <code>&lt;div&gt;</code>.
+</p>
 <div class="docs-page__code-window" doc-tabs>
     <div class="docs-page__window-bar">
         <a id="example" href="#" class="active">Example</a>
@@ -20,6 +23,20 @@
                     </span>
                 </div>
             </div>
+            <p class="docs-page__paragraph">// Alternative styling with circled chevron</p>
+            <div class="docs-page__content-row">
+                <div sd-toggle-box data-title="Toggle header circle" data-style="circle" data-open="false">
+                    <span>Define your content here. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt 
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo 
+                        dolores et ea rebum. Stet clita kasd gubergren.
+                    </span>
+                </div>
+                <div sd-toggle-box data-title="Second toggle header circle" data-style="circle" data-open="false">
+                    <span>Content goes here. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt 
+                        ut labore et dolore magna aliquyam erat, sed diam voluptua.
+                    </span>
+                </div>
+            </div>
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
@@ -27,6 +44,13 @@
                     <span>Define your content here...</span>
                 </div>
                 <div sd-toggle-box data-title="Second toggle header" data-open="false" ng-non-bindable>
+                    <span>Content goes here...</span>
+                </div>
+                <!-- Alternative styling with circled chevron -->
+                <div sd-toggle-box data-title="Toggle header" data-style="circle" data-open="false" ng-non-bindable>
+                    <span>Define your content here...</span>
+                </div>
+                <div sd-toggle-box data-title="Second toggle header" data-style="circle" data-open="false" ng-non-bindable>
                     <span>Content goes here...</span>
                 </div>
             </pre>

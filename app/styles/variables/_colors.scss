@@ -3,7 +3,9 @@
 $black:                 #000;
 $grayDarker:            #222;
 $grayDark:              #333;
+$grayMedium:            #444;
 $gray:                  #666;
+$grayNeutral:           #7b7b7b;
 $grayText:              #747474;
 $grayLight:             #999;
 $grayLighter:           #F5F5F5;
@@ -33,6 +35,10 @@ $navy:                  #000080;
 // Text specific colors
 $sd-text:               $grayDark;
 $sd-slugline:           $sd-blueDark;
+$sd-slugline-darkUI:    #678b98;
+
+// Light border color that works well on white and dark backgrounds
+$neutral-border-color: scale-color($grayNeutral, $alpha: -50%);
 
 // Misc
 $avatarBG:              #67afa1;
@@ -40,8 +46,11 @@ $sd-background:         #f8f8f8;
 $sd-filters-bg:         #ededed;
 $sd-hover:              #eff7fa;
 $transparent-gray:      rgba(0,0,0,.15);
+$transparent-white:     rgba(255,255,255,0.4);
 $sd-inputBorderColor:   $transparent-gray;
 $sd-tableBorderColor:   $transparent-gray;
+
+$sd-inputBorderColor-darkUi: $transparent-white;
 
 
 $sd-basic-palette: (

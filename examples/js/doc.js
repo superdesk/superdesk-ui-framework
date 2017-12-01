@@ -123,7 +123,7 @@ function docModal($modal) {
 
             scope.openTemplateModal = function () {
                 modal = $modal.open({
-                    templateUrl: 'templates/modal-template.html',
+                    template: require('../templates/modal-template.html'),
                     controller: docModalController,
                     size: 'large'
                 });

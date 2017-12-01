@@ -1,0 +1,874 @@
+<div class="sd-page-grid--basic" doc-modal>
+    <header class="sd-top-menu">
+        <a href="" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <p class="sd-top-menu__header">Photo Desk</p>
+    </header>
+
+    <section class="sd-content sd-page-content--slide-in" ng-class="{
+            'sd-page-content--slide-in--open' : editorOpen}">
+
+        <div class="sd-sidebar-menu sd-page-content__left-tabs">
+            <ul class="authoring-active">
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Monitoring" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Highlights" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--marked-star"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Spiked" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Personal" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Search" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Media archive" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active" ng-click="menuItemActive1 = !menuItemActive1" ng-class="{'sd-sidebar-menu__btn--closed': menuItemActive1}">
+                        <i class="sd-sidebar-menu__main-icon big-icon--picture"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="leftContent"  ng-init="darkUI = true" class="sd-page-content__content-block sd-page-content__content-block--main" ng-class="{'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen, 'dark-ui': darkUI}">
+            <!-- left content -->
+            <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+
+                <div class="subnav__sliding-toolbar" ng-show="select1 || select2 || select3 || select4 || select5 || select6 || select7 || select8">
+                    <div class="sliding-toolbar__inner">
+                        <a class="btn" ng-click="select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false">Cancel</a>
+                        <span class="sliding-toolbar__info-text">1 item selected</span>
+                    </div>
+                    <a class="btn btn--primary" ng-click="openModal('imageModal'); multiEdit = true; select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false; select11 = true; select12 = true; select13 = true; select14 = true">Edit metadata</a>
+                    <a class="btn btn--alert"><i class="icon-trash"></i>Delete</a>
+                </div>
+                
+                <div class="dropdown" dropdown>
+                    <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle >All media archives<span class="dropdown__caret"></span></button>
+                    <ul class="dropdown__menu scrollable">
+                        <li><div class="dropdown__menu-label ng-binding">Media archives</div></li>
+                        <li><button>Media archive One</button></li>
+                        <li><button>Media archive Two</button></li>
+                        <li><button>Media archive Three</button></li>
+                    </ul>
+                </div>
+                <div class="subnav__spacer subnav__spacer--no-margin"></div>
+                <div class="sd-searchbar" ng-class="{'sd-searchbar--focused': focused}" >
+                    <label for="search-input" class="sd-searchbar__icon"></label>
+                    <input id="search-input"
+                           class="sd-searchbar__input"
+                           type="text"
+                           placeholder="Search media"
+                           ng-keyup="searchOnEnter($event)"
+                           ng-model="query"
+                           tabindex="1"
+                           ng-focus="focused = true">
+                    <button class="sd-searchbar__cancel" ng-if="query">
+                        <i class="icon-remove-sign"></i>
+                    </button>
+                    <button id="sd-searchbar__search-btn" class="sd-searchbar__search-btn" ng-if="focused" tabindex="2">
+                        <i class="big-icon--chevron-right"></i>
+                    </button>
+                </div>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn" dropdown__toggle>
+                        <i class="icon-dots-vertical"></i>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn sd-create-btn" dropdown__toggle>
+                        <i class="icon-plus-large"></i>
+                        <span class="circle"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Upload</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Image</button>
+                        </li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Video</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+                <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
+                    <i class="icon-filter-large"></i>
+                </button>
+                <div class="subnav__stretch-bar" ng-init="planningType = 'events-planning'">
+                    <sd-check ng-model="planningType" type="radio" ng-value="events-planning" label-position="inside">All media types</sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="events" label-position="inside">Images only</sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="planning" label-position="inside">Videos only</sd-check>
+                    <div class="subnav__spacer subnav__spacer--dotted subnav__spacer--no-r-margin" ng-show="planningType === 'planning'"></div>
+                    <div class="dropdown" dropdown ng-show="planningType === 'planning'">
+                        <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle >Select agenda <span class="dropdown__caret"></span></button>
+                        <ul class="dropdown__menu scrollable">
+                            <li><div class="dropdown__menu-label ng-binding">Agendas</div></li>
+                            <li><button>Agenda One</button></li>
+                            <li><button>Agenda Two</button></li>
+                            <li><button>Agenda Three</button></li>
+                            <li><button>Agenda Four</button></li>
+                        </ul>
+                    </div>
+                </div>
+                <button class="navbtn" ng-click="darkUI = !darkUI">
+                    <i class="icon-adjust"></i>
+                </button>
+            </div>
+            <div class="sd-column-box--3">
+                <div class="sd-filters-panel">
+                    <div class="side-panel side-panel--transparent side-panel--shadow-left">
+                        <div class="side-panel__header side-panel__header--border-b">
+                            <a class="icn-btn side-panel__close" sd-tooltip="Close filters" flow="left" ng-click="leftFilterOpen = !leftFilterOpen"><i class="icon-close-small"></i></a>
+                            <h3 class="side-panel__heading">Advanced filters</h3>  
+                        </div>
+                        <div class="side-panel__content">
+                            <div class="side-panel__content-block">
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin">
+                                        <label class="sd-line-input__label">Name</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--is-select sd-line-input--no-margin">
+                                        <label class="sd-line-input__label">Ingest source</label>
+                                        <select class="sd-line-input__select">
+                                            <option value="">Select ingest source...</option>
+                                            <option value="">Associated Press</option>
+                                            <option value="">Reuters</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin">
+                                        <label class="sd-line-input__label">Location</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                                        <span class="sd-line-input__plus-btn"></span>
+                                        <label class="sd-line-input__label">Calendars</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                                        <span class="sd-line-input__plus-btn"></span>
+                                        <label class="sd-line-input__label">Category</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                                        <span class="sd-line-input__plus-btn"></span>
+                                        <label class="sd-line-input__label">Subject</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <label class="form-label">Event state</label>
+                                    <div class="flex-grid flex-grid--boxed-small flex-grid--wrap-items flex-grid--small-2">
+                                        <sd-check ng-model="xyz" type="radio" ng-value="value1" label-position="inside" ng-checked="true">Exclude spiked</sd-check>
+                                        <sd-check ng-model="xyz" type="radio" ng-value="value2" label-position="inside">Include spiked</sd-check>
+                                        <sd-check ng-model="xyz" type="radio" ng-value="value3" label-position="inside">Spiked only</sd-check>
+                                    </div>
+                                </div>
+
+                                <div class="form__row form__row--flex">
+                                    <div class="sd-line-input sd-line-input--no-margin">
+                                        <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                        <label class="sd-line-input__label">From</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                    <div class="sd-line-input sd-line-input--no-margin">
+                                        <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row form__row--flex">
+                                    <div class="sd-line-input sd-line-input--no-margin">
+                                        <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                        <label class="sd-line-input__label">To</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                    <div class="sd-line-input sd-line-input--no-margin">
+                                        <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel__footer side-panel__footer--button-box">
+                            <div class="flex-grid flex-grid--boxed-small flex-grid--wrap-items flex-grid--small-2">
+                                <a class="btn btn--hollow">Clear</a>
+                                <a class="btn btn--primary">Submit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sd-column-box__main-column">
+                    <div class="sd-list-header">
+                        <span class="sd-list-header__name">Friday September 15, 2017</span>
+                    </div>
+                    <!-- Grid item list -->
+                    <div class="sd-grid-list">
+                        <!-- item 1 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select1, 'sd-grid-item--activated' : selectThis1}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select1"></sd-check>
+                                </div>
+                                <img src="../../examples/img/d_trump.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                                
+                            </div>
+                            <div class="sd-grid-item__footer" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--success sd-grid-item__footer-block-item">1</span><span class="badge badge--warning badge--square sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 2 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select2}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select2"></sd-check>
+                                </div>
+                                <img src="../../examples/img/d_trump_2.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">In ac dui quis mi consectetuer lacinia. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc.</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--primary sd-grid-item__footer-block-item">2</span><span class="badge badge--alert badge--square sd-grid-item__footer-block-item">4</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 3 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select3}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select3"></sd-check>
+                                </div>
+                                <img src="../../examples/img/bill.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean tellus metus, bibendum sed...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>  
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--highlight sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 4 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select4}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select4"></sd-check>
+                                </div>
+                                <img src="../../examples/img/hillary.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">Reuters</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--primary sd-grid-item__footer-block-item">2</span><span class="badge badge--warning badge--square sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 5 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select5}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select5"></sd-check>
+                                </div>
+                                <img src="../../examples/img/obama_1.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Pellentesque auctor neque nec urna. Vestibulum turpis sem, aliquet eget lobortis...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span> 
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--square sd-grid-item__footer-block-item">5</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 6 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select6}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select6"></sd-check>
+                                </div>
+                                <img src="../../examples/img/obama_2.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Vestibulum turpis sem, aliquet eget lobortis...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--highlight sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 7 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select7}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select7"></sd-check>
+                                </div>
+                                <img src="../../examples/img/bush_1.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Vivamus in erat ut urna cursus vestibulum. Sed consequat, leo eget bibendum sodales...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--highlight sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 8 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select8}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select8"></sd-check>
+                                </div>
+                                <img src="../../examples/img/bush_2.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Mauris sollicitudin fermentum libero, vestibulum et, tempor auctor, justo...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--highlight sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sd-preview-panel" ng-class="{'sd-preview-panel--dark-ui' : darkUI}">
+                    <div class="side-panel side-panel--shadow-right" ng-class="{'side-panel--dark-ui' : darkUI}">
+                        <div class="side-panel__header">
+                            <div class="side-panel__tools">
+                                <a class="icn-btn" sd-tooltip="Edit details" flow="top" ng-click="editorOpen = true; leftPreviewOpen = false"><i class="icon-pencil"></i></a>
+                                <a class="icn-btn" sd-tooltip="Close details" flow="top" ng-click="leftPreviewOpen = !leftPreviewOpen"><i class="icon-close-small"></i></a>
+                            </div>
+                            <ul class="nav-tabs" ng-class="{'nav-tabs--ui-dark' : darkUI}">
+                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'event-details'}" class="nav-tabs__tab">
+                                    <button ng-click="tab = 'event-details'" class="nav-tabs__link"><span translate="">Content</span></button>
+                                </li>
+                                <li ng-class="{'nav-tabs__tab--active': tab === 'event-history'}" class="nav-tabs__tab">
+                                    <button ng-click="tab = 'event-history'" class="nav-tabs__link"><span translate="">History</span></button>
+                                </li>
+                            </ul> 
+                        </div>
+                        <div class="side-panel__content" ng-if="!tab || tab === 'event-details'">
+                            <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
+                                <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                                    <p class="sd-text__date-and-author"><time>Created 23.08.2017 by </time> <span class="sd-text__author">Mika Karapet</span></p> 
+                                    <p class="sd-text__date-and-author"><time>Updated 3 hours ago by</time> <span class="sd-text__author">John Doe</span></p>
+                                </div>
+                                <div class="side-panel__content-block-inner side-panel__content-block-inner--right">
+                                    <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                </div>
+                            </div>
+                            <div class="side-panel__content-block side-panel__content-block--image">
+                                <a class="icn-btn side-panel__image-actions" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <img src="../../examples/img/d_trump.jpg" alt="test">
+                            </div>
+                            <div class="side-panel__content-block">
+                                <div class="form__row">
+                                    <label class="form-label form-label--light">Slugline</label>
+                                    <p class="sd-text__slugline">This is a slugline</p>
+                                </div>
+                                <div class="form__row">
+                                    <label class="form-label form-label--light">Description</label>
+                                    <p>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</p>
+                                </div>
+
+                                <div sd-toggle-box data-title="Details" data-style="circle">
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Calendars</label>
+                                        <p>Sport, Entertainment</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Category</label>
+                                        <p>Some category</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Subject</label>
+                                        <p>Arts, culture and entertainment, Music</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Long Description</label>
+                                        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Internal Note</label>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
+                                    </div>
+                                </div>
+                                <h3 class="side-panel__heading side-panel__heading--big" ng-hide="multiEdit">Related items</h3>
+                                <div class="sd-grid-list sd-grid-list--small sd-grid-list--no-rl-margin dark-ui" ng-hide="multiEdit">
+                                    <!-- related item 1 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/d_trump_2.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 2 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/bill.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 3 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/hillary.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 4 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/bush_1.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel__content" ng-if="tab === 'event-history'">
+                            <div class="side-panel__content-block">
+                                <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                                    <li class="simple-list__item">
+                                        <p><strong>Created by</strong> Mika Karapet</p>
+                                        <time class="small">Tuesday, 12. September 13:10</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Coverage created by</strong> Vince Ryan</p>
+                                        <time class="small">Tuesday, 12. September 13:13</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Updated by</strong> Karel Petrak</p>
+                                        <time class="small">Tuesday, 12. September 13:13</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Coverage updated by</strong> John Doe</p>
+                                        <time class="small">Tuesday, 12. September 13:21</time>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="side-panel__footer">
+
+                        </div>
+                    </div>      
+                </div>
+            </div>
+            <!-- END left content -->
+        </div>
+
+        <!-- SPLIT CONTENT -->
+        <div id="editPane" 
+             class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" ng-class="{'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
+            <!-- Eitor content -->
+
+            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'planning'" doc-include="../examples/playgrounds/photo-snippets/edit-photo-metadata.html"></div>
+            <!-- END Editor content -->
+        </div>
+    </section>
+    <footer class="bottom-bar ">
+        This is the optional footer.
+    </footer>
+
+    <!-- Image Edit modal -->
+    <div sd-modal data-model="imageModal" class="modal--fullscreen modal--dark-ui" ng-init="showMetadata = true">
+        <div class="modal__header modal__header--flex">
+            <h3 class="modal__heading">View image</h3>
+            <!-- <button class="modal__close pull-right icn-btn" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')"><i class="icon-close-small"></i></button> -->
+            <button class="btn btn--ui-dark" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">Cancel</button>
+            <button class="btn btn--ui-dark btn--primary" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')" style="margin-left: 10px;">Done</button>
+
+        </div>
+        <div class="modal__body modal__body--no-padding">
+            <div class="sd-column-box--2">
+                <div class="sd-column-box__main-column sd-column-box__main-column--photo-preview">
+                    <a class="sd-photo-preview__slide-in-button" ng-show="!showMetadata" ng-click="showMetadata = !showMetadata" data-sd-tooltip="Open metadata" data-flow="left">
+                        <i class="icon-backward-thin"></i>
+                    </a>
+                    <div class="sd-photo-preview" ng-class="{'sd-photo-preview--grid-only' : multiEdit}">
+                        <div class="sd-photo-preview__image" ng-hide="multiEdit">
+                            <a class="sd-photo-preview__nav-button sd-photo-preview__nav-button--prev"></a>
+                            <a class="sd-photo-preview__nav-button sd-photo-preview__nav-button--next"></a>                   
+                            <img src="../../examples/img/d_trump_large.jpg" alt="test">
+                        </div> 
+                        <div class="sd-photo-preview__thumb-strip" ng-hide="!multiEdit">
+                            <div class="sd-grid-list dark-ui">
+                                <!-- small item 1 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select11 = !select11" ng-class="{'sd-grid-item--selected' : select11}">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../../examples/img/d_trump.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <span class="sd-grid-item__slugline">This is a slugline</span>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- small item 2 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select12 = !select12" ng-class="{'sd-grid-item--selected' : select12}">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../../examples/img/d_trump_2.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <span class="sd-grid-item__slugline">This is a slugline</span>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- small item 3 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select13 = !select13" ng-class="{'sd-grid-item--selected' : select13}">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../../examples/img/bill.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <span class="sd-grid-item__slugline">This is a slugline</span>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- small item 4 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select14 = !select14" ng-class="{'sd-grid-item--selected' : select14}">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../../examples/img/hillary.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <span class="sd-grid-item__slugline">This is a slugline</span>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large sd-column-box__slide-in-column--dark-ui" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}">
+                    <div class="sd-column-box__slide-in-column-inner sd-slide-in-panel">
+
+                        <div class="sd-slide-in-panel__header">
+                            <div class="subnav__sliding-toolbar" ng-show="!contentChanged">
+                                <div class="sliding-toolbar__inner"></div>
+                                <a class="btn" ng-click="contentChanged = true">Cancel</a>
+                                <a class="btn btn--primary" ng-click="contentChanged = true">Save</a>
+                            </div>
+                            <h3 class="sd-slide-in-panel__heading">Metadata</h3>
+                            <a class="icn-btn sd-slide-in-panel__close" sd-tooltip="Close details" flow="top" ng-click="showMetadata = !showMetadata"><i class="icon-close-small"></i></a>
+                        </div>
+                        <div class="sd-slide-in-panel__content">
+                            <div class="sd-slide-in-panel__content-block sd-slide-in-panel__content-block--first">
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Title</label>
+                                        <input class="sd-line-input__input" type="text" value="Image title" >
+                                        <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Description</label>
+                                        <textarea class="sd-line-input__input"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--dark-ui sd-line-input--boxed">
+                                        <span class="sd-line-input__plus-btn"></span>
+                                        <label class="sd-line-input__label">Category</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--dark-ui sd-line-input--boxed">
+                                        <span class="sd-line-input__plus-btn"></span>
+                                        <label class="sd-line-input__label">Subject</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Usage right</label>
+                                        <select class="sd-line-input__select">
+                                            <option value="">--- Not selected ---</option>
+                                            <option value="single">Single usage</option>
+                                            <option value="time">Time restricted</option>
+                                            <option value="bananas">Indefinite usage</option>
+                                            <option value="indefinite">Pears</option>
+                                        </select>
+                                        <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+                                    </div>
+                                </div>
+                                <div class="form__row" ng-init="contentChanged = true">
+                                    <span ng-model="contentChanged" sd-switch></span><label>For publication</label>
+                                </div>
+                                <h3 class="sd-slide-in-panel__heading" ng-hide="multiEdit">Related items</h3>
+                                <div class="sd-grid-list sd-grid-list--small sd-grid-list--no-rl-margin dark-ui" ng-hide="multiEdit">
+                                    <!-- related item 1 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/d_trump_2.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 2-->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/bill.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 3 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/hillary.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 4 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../../examples/img/bush_1.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <!-- END Agenda management modal -->
+</div>

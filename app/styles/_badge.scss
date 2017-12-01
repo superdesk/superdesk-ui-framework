@@ -56,5 +56,8 @@ $badge-lineheight: 1.1em !default;
         color: $grayDark;
         font-weight: 500;
     }
+    &--square {
+        border-radius: 2px;
+    }
 }
 

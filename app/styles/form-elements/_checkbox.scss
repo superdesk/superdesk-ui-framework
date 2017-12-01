@@ -3,8 +3,12 @@
 
 // Custom checkox & Radio buttons 
 
+$checkButtonTextColor-darkUI: rgba(255,255,255,0.65);
 $checkButtonTextColor: #5a5a5a;
-$checkButtonBorderColor: #c6c6c6;
+
+
+
+$checkButtonBorderColor: rgba(140,140,140,0.5);
 
 @mixin check-base {
     width: 1.6rem;
@@ -107,7 +111,7 @@ $checkButtonBorderColor: #c6c6c6;
         }
         &:hover {
             color: darken($checkButtonTextColor, 30%);
-            border-color: darken($checkButtonBorderColor, 30%);
+            border-color: scale-color($checkButtonBorderColor, $alpha: 90%);
             @include box-shadow(0, 1px, 4px, 0, rgba(0,0,0,0.20));
         }
         &.checked, &[checked="checked"] {
@@ -118,8 +122,8 @@ $checkButtonBorderColor: #c6c6c6;
             color: $white;
             &:hover {
                 color: $white;
-                border-color: darken($sd-blue, 16%);
-                background-color: darken($sd-blue, 16%);
+                border-color: darken($sd-blue, 25%);
+                background-color: darken($sd-blue, 14%);
                 @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
             }
             label {
@@ -182,3 +186,12 @@ $checkButtonBorderColor: #c6c6c6;
 //         margin: 0.3rem !important;
 //     }
 // }
+.subnav--dark-ui {
+    .sd-checkbox--button-style {
+        color: $checkButtonTextColor-darkUI;
+        &:hover {
+            color: scale-color($checkButtonTextColor-darkUI, $alpha: 100%);
+        }
+    }
+
+}

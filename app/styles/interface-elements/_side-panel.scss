@@ -1,3 +1,6 @@
+$side-panel-Bg: $white;
+$side-panel-Bg-darkUi: darken($grayMedium, 4%);
+
 .side-panel {
     margin: 0;
     display: grid;
@@ -6,7 +9,7 @@
     grid-gap: 0;
     height: 100vh;
     position: relative;
-    background-color: $white;
+    background-color: $side-panel-Bg;
     .side-panel__header {
         grid-column: 1/2;
         grid-row: 1/2;
@@ -77,6 +80,12 @@
         flex-grow: 1;
         overflow: auto;
     }
+    .side-panel__image-actions {
+        position: absolute;
+        top: 1.8rem;
+        right: 0.5rem;
+        z-index: 2;
+    }
     .side-panel__content-block {
         padding: 2rem;
         &--pad-top-0 {
@@ -93,6 +102,28 @@
         &--flex {
             display: flex;
             align-items: top;
+        }
+        &--image {
+            padding: 1rem 0 0 0;
+            position: relative;
+            .side-panel__image-actions {
+                visibility: hidden;
+            }
+            img {
+                display: block;
+                max-width: 100%;
+                max-height: 100%;
+                height: auto;
+                margin: auto;
+            }
+            &:hover {
+                .side-panel__image-actions {
+                    visibility: visible;
+                }
+            }
+        }
+        .side-panel__heading {
+            padding: 0;
         }
     }
     // Use only inside cside-panel__content-block--flex for grouping and positioning content
@@ -112,7 +143,7 @@
 
     .side-panel__top-tools {
         padding: 2rem;
-        background-color: $grayLighter;
+        background-color: rgba(0,0,0,0.06);
         padding: 1.2rem 1rem 1.2rem 2rem;
         display: flex;
         align-items: center;
@@ -170,6 +201,16 @@
         background-color: transparent;
         .side-panel__header {
             background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+    &--dark-ui {
+        background-color: $side-panel-Bg-darkUi;
+        color: $white;
+        .side-panel__heading {
+            color: scale-color($white, $alpha: -50%);
+            &--big {
+                color: scale-color($white, $alpha: -20%);
+            }
         }
     }
 }

@@ -65,15 +65,15 @@
     right: 10px;
 }
 ::-webkit-scrollbar:hover {
-    background-color: #e8e8e8;
+    background-color: rgba(140,140,140,.2);
     cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #bbb;
+    background: rgba(0,0,0,.3);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: #777;
+    background: rgba(0,0,0,.6);
     cursor: pointer;
 }
 
@@ -158,9 +158,15 @@ time {
 }
 .sd-text__author {
     font-weight: 500;
-    color: $sd-text;
+    //color: $sd-text;
 }
 .sd-text__info {
     font-weight: 300;
     color: $grayText;
+}
+
+.dark-ui {
+    .sd-text__slugline {
+        color: $sd-slugline-darkUI;
+    }
 }
