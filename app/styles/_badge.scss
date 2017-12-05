@@ -53,6 +53,7 @@ $badge-lineheight: 1.1em !default;
     // light gray
     &--light {
         background-color: #ddd;
+        background-color: scale-color($grayNeutral, $alpha: -80%);
         color: $grayDark;
         font-weight: 500;
     }

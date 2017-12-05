@@ -9,6 +9,7 @@ $sd-grid-item-Bg-selected: $white;
 $sd-grid-item-Bg-activated: #e3f1f6;
 //background color - dark UI
 $sd-grid-item-Bg-darkUI: $grayDark;
+$sd-grid-item-Bg-darkUI-selected: #283237;
 $sd-grid-item-Bg-darkUI-activated: #35393b;
 
 //shadows
@@ -94,7 +95,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             visibility: visible;
         }
     }
-    &.sd-grid-item--activated {
+    &.sd-grid-item--selected {
         .sd-grid-item__checkbox {
             visibility: visible;
         }
@@ -374,6 +375,12 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             &.sd-grid-item--activated {
                 &:hover {
                     background-color: darken($sd-grid-item-Bg-darkUI-activated, 2%);
+                }
+            }
+            &.sd-grid-item--selected {
+                background-color: $sd-grid-item-Bg-darkUI-selected;
+                &:hover {
+                    background-color: darken($sd-grid-item-Bg-darkUI-selected, 2%);
                 }
             }
             &:active {
