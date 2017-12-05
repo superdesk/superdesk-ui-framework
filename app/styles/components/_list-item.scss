@@ -1,9 +1,20 @@
 // LIST ITEMS : components/list-items.scss
 // --------------
+
+//background color 
 $sd-ListItem-background: #fff;
 $sd-ListItem-background-hover: #f4f4f4;
 $sd-ListItem-background-selected: #c8e4ee;
-$sd-ListItem-background-active: #e3f1f6;
+$sd-ListItem-background-activated: #e3f1f6;
+
+//background color - dark UI
+$sd-ListItem-background-darkUI: $grayDark;
+$sd-ListItem-background-darkUI-selected: #283237;
+$sd-ListItem-background-darkUI-activated: #35393b; 
+
+//column border color
+$sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
+
 .sd-list-item {
     display: flex;
     min-height: 3.8rem;
@@ -15,13 +26,13 @@ $sd-ListItem-background-active: #e3f1f6;
         cursor: pointer;
     }
     &--active {
-        background-color: $sd-ListItem-background-active;
+        background-color: $sd-ListItem-background-activated;
     }
     &--selected, &--selected:hover  {
-        background-color: $sd-ListItem-background-selected !important;
+        background-color: $sd-ListItem-background-selected;
     }
     &--activated, &--activated:hover {
-        background-color: $sd-ListItem-background-active;
+        background-color: $sd-ListItem-background-activated;
     }
     &--no-bg {
         background-color: transparent;
@@ -57,7 +68,7 @@ $sd-ListItem-background-active: #e3f1f6;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    border-right: 1px solid rgba(185,185,185,0.3);
+    border-right: 1px solid $sd-ListItem-column-border;
     padding: 0 0.8rem;
     overflow: hidden;
     flex-shrink: 0;
@@ -431,5 +442,47 @@ $sd-ListItem-background-active: #e3f1f6;
     &--m-top {
         margin-top: 2.4rem;
     }
+}
+
+.dark-ui {
+    .sd-list-header {
+        .sd-list-header__name {
+            color: rgba(255,255,255,0.4);  
+        }
+    }
+}
+
+.sd-list-item-group--dark-ui {
+    .sd-list-item {
+        color: scale-color($white, $alpha: -50%);
+        background-color: $sd-ListItem-background-darkUI;
+        &:hover {
+            background-color: lighten($sd-ListItem-background-darkUI, 2%);
+        }
+        [class^="icon-"], [class*=" icon-"] {
+            color: scale-color($white, $alpha: -60%);
+        }
+        .sd-list-item__slugline {
+            color: $sd-slugline-darkUI;
+        }
+        &.sd-list-item--activated {
+            background-color: $sd-ListItem-background-darkUI-activated;
+            outline: 1px solid rgba(94, 169, 200, 0.2);
+            &:hover {
+                background-color: darken($sd-ListItem-background-darkUI-activated, 2%);
+            }
+        }
+        &.sd-list-item--selected {
+            background-color: $sd-ListItem-background-darkUI-selected;
+            outline: 1px solid rgba(94, 169, 200, 0.8);
+            &:hover {
+                background-color: darken($sd-ListItem-background-darkUI-selected, 2%);
+            }
+        }
+    }
+    .sd-shadow--z1 {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.36), 0 0 1px rgba(0, 0, 0, 0.8) !important;
+    }
+    
 }
 
