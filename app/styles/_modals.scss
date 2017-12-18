@@ -20,6 +20,7 @@ $nav-height: 48px;
 // Variables
 $modal-base-width : 480px;
 $modal-large-width : 680px;
+$modal-x-large-width : 1000px;
 $modal-fill-width: 100%;
 $modal-fullscreen-width: 100%;
 
@@ -40,6 +41,7 @@ $modal-padding : 2rem;
 $modal-sizes: (
   default: $modal-base-width,
   large: $modal-large-width,
+  x-large: $modal-x-large-width,
   fill: $modal-fill-width,
   fullscreen: $modal-fullscreen-width,
 ) !default;
@@ -143,6 +145,19 @@ $modal-sizes: (
             &--no-padding {
                 padding: 0;
             }           
+        }
+        .modal__body-heading {
+            font-size: 1.8rem;
+            color: $sd-text;
+            font-weight: 400;
+            margin-bottom: 2rem;
+            &--inactive {
+                color: scale-color($sd-text, $lightness: 60%)
+            }
+            .badge {
+                vertical-align: bottom;
+                margin-right: 0.6rem;
+            }
         }
     }
     // loop for different modal sizes

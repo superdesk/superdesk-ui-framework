@@ -82,10 +82,24 @@
             min-height: auto; } }
       .modal .modal__content .modal__body--no-padding {
         padding: 0; }
+    .modal .modal__content .modal__body-heading {
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: 400;
+      margin-bottom: 2rem; }
+      .modal .modal__content .modal__body-heading--inactive {
+        color: #adadad; }
+      .modal .modal__content .modal__body-heading .badge {
+        vertical-align: bottom;
+        margin-right: 0.6rem; }
   .modal--large .modal__dialog {
     max-width: 680px; }
   .modal--large .modal__body {
     max-width: 680px !important; }
+  .modal--x-large .modal__dialog {
+    max-width: 1000px; }
+  .modal--x-large .modal__body {
+    max-width: 1000px !important; }
   .modal--fill {
     position: fixed;
     left: 30px;

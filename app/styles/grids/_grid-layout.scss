@@ -103,6 +103,9 @@
             flex-grow: 1;
         }
     }
+    &--left {
+        border-right: 1px solid #BEBCBC;
+    }
 }
 .sd-column-box__slide-in-column {
     width: 26rem;
