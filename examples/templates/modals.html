@@ -138,6 +138,53 @@
         </div>
     </div>
 </div>
+
+<h3 class="docs-page__h3">Extra Large</h3>
+<p class="docs-page__paragraph">Large modal is 1000px wide and has auto height (it will depend on the amount of content). Add class <code>.modal--x-large</code> on div <code>sd-modal</code>.</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example" doc-modal>
+            <button class="btn" ng-click="openModal('modalActiveXL')">Show modal</button>
+            <div sd-modal data-model="modalActiveXL" class="modal--x-large">
+                <div class="modal__header">
+                    <button class="modal__close pull-right icn-btn" ng-click="closeModal('modalActiveXL')"><i class="icon-close-small"></i></button>
+                    <h3 class="modal__heading">Modal Extra large</h3>
+                </div>
+                <div class="modal__body">
+                    <p>This is sample message inside modal!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                </div>
+                <div class="modal__footer">
+                    <button class="btn" ng-click="closeModal('modalActiveXL')">Cancel</button>
+                    <button class="btn btn--primary" ng-click="closeModal('modalActiveXL')">Ok</button>
+                </div>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                 <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
+                <div sd-modal data-model="modalActive" class="modal--large" ng-non-bindable>
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Modal Large</h3>
+                    </div>
+                    <div class="modal__body">
+                        <p>This is sample message inside modal!</p>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
+                    </div>
+                </div>
+            </pre>
+        </div>
+    </div>
+</div>
+
 <h3 class="docs-page__h3">Fill</h3>
 <p class="docs-page__paragraph">Fill modal is filling up available browser space, with 40px space around. Add class <code>.modal--fill</code> on div <code>sd-modal</code>.</p>
 <div class="docs-page__code-window" doc-tabs>

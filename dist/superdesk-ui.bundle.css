@@ -2774,10 +2774,24 @@ time {
             min-height: auto; } }
       .modal .modal__content .modal__body--no-padding {
         padding: 0; }
+    .modal .modal__content .modal__body-heading {
+      font-size: 1.8rem;
+      color: #333;
+      font-weight: 400;
+      margin-bottom: 2rem; }
+      .modal .modal__content .modal__body-heading--inactive {
+        color: #adadad; }
+      .modal .modal__content .modal__body-heading .badge {
+        vertical-align: bottom;
+        margin-right: 0.6rem; }
   .modal--large .modal__dialog {
     max-width: 680px; }
   .modal--large .modal__body {
     max-width: 680px !important; }
+  .modal--x-large .modal__dialog {
+    max-width: 1000px; }
+  .modal--x-large .modal__body {
+    max-width: 1000px !important; }
   .modal--fill {
     position: fixed;
     left: 30px;
@@ -5059,6 +5073,8 @@ table {
     position: relative; }
     .sd-column-box__main-column--photo-preview .sd-photo-preview {
       flex-grow: 1; }
+  .sd-column-box__main-column--left {
+    border-right: 1px solid #BEBCBC; }
 
 .sd-column-box__slide-in-column {
   width: 26rem;
@@ -7270,6 +7286,7 @@ label + .sd-toggle {
   background: transparent;
   border: 2px solid rgba(0, 0, 0, 0.2);
   vertical-align: middle;
+  font-family: "Roboto", Helvetica, Arial, sans-serif;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   -ms-transition: all 0.2s ease-out;
@@ -7371,7 +7388,8 @@ label + .sd-toggle {
       display: inline;
       cursor: pointer;
       transition: none;
-      text-align: center; }
+      text-align: center;
+      font-family: "Roboto", Helvetica, Arial, sans-serif; }
     .sd-checkbox--button-style::after {
       content: '';
       display: none; }
@@ -7429,9 +7447,9 @@ label + .sd-toggle {
   .sd-check__wrapper .sd-label--disabled {
     opacity: 0.40; }
 
-.subnav--dark-ui .sd-checkbox--button-style {
+.subnav--dark-ui .sd-checkbox--button-style, .dark-ui .sd-checkbox--button-style {
   color: rgba(255, 255, 255, 0.65); }
-  .subnav--dark-ui .sd-checkbox--button-style:hover {
+  .subnav--dark-ui .sd-checkbox--button-style:hover, .dark-ui .sd-checkbox--button-style:hover {
     color: white; }
 
 .sd-radio {
@@ -8351,3 +8369,158 @@ label + .sd-radio {
   .sd-left-nav__group-header--first {
     border: none;
     margin-top: 0; }
+
+.color-swatch__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(6.8rem, 6.8rem));
+  grid-gap: 0.9rem;
+  margin: 0.4rem 0 2.4rem 0; }
+
+.color-swatch {
+  height: 6.8rem;
+  width: 6.8rem;
+  padding: 0.2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(94, 169, 200, 0); }
+  .color-swatch--selected {
+    border-color: #5ea9c8; }
+    .color-swatch--selected .color-swatch__inner {
+      box-shadow: none !important; }
+  .color-swatch--default .color-swatch__inner {
+    background-color: #fff;
+    color: #333; }
+  .color-swatch--dark .color-swatch__inner {
+    background-color: #222;
+    color: #AACCD1; }
+  .color-swatch--blue .color-swatch__inner {
+    background-color: #06356A;
+    color: #fff; }
+  .color-swatch--turquoise .color-swatch__inner {
+    background-color: #00CED1;
+    color: #122235; }
+  .color-swatch--military .color-swatch__inner {
+    background-color: #949E5F;
+    color: #252818; }
+  .color-swatch--natural .color-swatch__inner {
+    background-color: #EFE9C5;
+    color: #1D1414; }
+
+.color-swatch__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 6rem;
+  width: 6rem;
+  border-radius: 50%;
+  background-color: #fff;
+  color: #333;
+  text-align: center;
+  font-size: 2rem;
+  line-height: 6rem;
+  text-transform: uppercase;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.1);
+  cursor: pointer; }
+  .color-swatch__inner:hover {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.26), 0 0 1px rgba(0, 0, 0, 0.2); }
+
+.theme-preview {
+  margin: 0 -2rem -2rem -2rem;
+  padding: 2rem;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); }
+  .theme-preview .theme-preview__label {
+    opacity: 0.7;
+    transition: opacity 0.3s ease-out; }
+  .theme-preview:hover .theme-preview__label {
+    opacity: 1; }
+  .theme-preview.theme-preview--sans {
+    font-family: "Roboto", sans-serif; }
+  .theme-preview.theme-preview--serif {
+    font-family: "Merriweather", serif; }
+  .theme-preview.theme-preview--mono {
+    font-family: "Roboto Mono", monospace; }
+  .theme-preview--default {
+    background-color: #fff;
+    color: #333; }
+  .theme-preview--dark {
+    background-color: #222;
+    color: #AACCD1; }
+  .theme-preview--blue {
+    background-color: #06356A;
+    color: #fff; }
+  .theme-preview--turquoise {
+    background-color: #00CED1;
+    color: #122235; }
+  .theme-preview--military {
+    background-color: #949E5F;
+    color: #252818; }
+  .theme-preview--natural {
+    background-color: #EFE9C5;
+    color: #1D1414; }
+
+.theme-preview__block {
+  margin-bottom: 1.2rem; }
+  .theme-preview__block:last-child {
+    margin-bottom: 0; }
+
+.theme-preview__label {
+  display: inline-block;
+  padding: 0.4rem 0.7rem 0.3rem 0.7rem;
+  vertical-align: middle;
+  border-radius: 2px;
+  text-transform: uppercase;
+  line-height: 1rem;
+  letter-spacing: 0.05em;
+  font-size: 1rem;
+  white-space: nowrap;
+  font-weight: 500;
+  background-color: rgba(150, 150, 150, 0.75);
+  color: #fff;
+  font-family: "Roboto"; }
+
+.theme-preview__text-field {
+  display: block;
+  line-height: 140%;
+  color: inherit;
+  font-family: inherit;
+  border-bottom: 1px dotted rgba(123, 123, 123, 0.5);
+  margin-bottom: 0.8rem;
+  padding: 1rem 0 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; }
+
+.theme-preview__button-bar {
+  text-align: right; }
+  .theme-preview__button-bar .sd-check__wrapper + .sd-check__wrapper {
+    margin-left: 0.2rem; }
+
+.text-field__headline {
+  font-weight: 500;
+  min-height: 6rem; }
+  .text-field__headline--small {
+    font-size: 2.3rem; }
+  .text-field__headline--medium {
+    font-size: 2.8rem; }
+  .text-field__headline--large {
+    font-size: 3.2rem; }
+
+.text-field__abstract {
+  font-weight: 400;
+  font-style: italic;
+  min-height: 9.2rem; }
+  .text-field__abstract--small {
+    font-size: 1.4rem; }
+  .text-field__abstract--medium {
+    font-size: 1.6rem; }
+  .text-field__abstract--large {
+    font-size: 1.8rem; }
+
+.text-field__body {
+  font-weight: 300;
+  min-height: 9.2rem; }
+  .text-field__body--small {
+    font-size: 1.4rem; }
+  .text-field__body--medium {
+    font-size: 1.6rem; }
+  .text-field__body--large {
+    font-size: 1.8rem; }

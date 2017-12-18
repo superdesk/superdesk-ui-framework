@@ -18,6 +18,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.2);
     vertical-align: middle;
+    font-family: $baseFontFamily;
     @include transition(all, 0.2s, ease-out);
 }
 
@@ -104,6 +105,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             cursor: pointer;
             transition: none;
             text-align: center;
+            font-family: $baseFontFamily;
         }
         &::after {
             content:'';
@@ -186,7 +188,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 //         margin: 0.3rem !important;
 //     }
 // }
-.subnav--dark-ui {
+.subnav--dark-ui, .dark-ui {
     .sd-checkbox--button-style {
         color: $checkButtonTextColor-darkUI;
         &:hover {

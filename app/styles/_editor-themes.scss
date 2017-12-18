@@ -1,0 +1,216 @@
+// EDITOR Themes
+$color-swatch-border-color: scale-color($sd-blue, $alpha: -100%);
+$color-swatch-border-active-color: $sd-blue;
+
+$color-swatch-size: 6.8rem;
+$color-swatch-inner-size: 6rem;
+
+$theme-background: $white !default;
+$theme-color: $sd-text !default;
+
+
+// Theme fonts
+$font-sans-1: 'Roboto', sans-serif;
+$font-serif-1: 'Merriweather', serif;
+$font-monospace-1: 'Roboto Mono', monospace;
+
+$theme-font-list: (
+  sans: $font-sans-1,
+  serif: $font-serif-1,
+  mono: $font-monospace-1,
+);
+
+$themes: (
+  'default': (
+    'bg-color': $white,
+    'text-color': $sd-text
+  ),
+  'dark': (
+    'bg-color': $grayDarker,
+    'text-color': #AACCD1
+  ),
+  'blue': (
+    'bg-color': #06356A,
+    'text-color': $white
+  ),
+  'turquoise': (
+    'bg-color': #00CED1,
+    'text-color': #122235
+  ),
+  'military': (
+    'bg-color': #949E5F,
+    'text-color': #252818
+  ),
+  'natural': (
+    'bg-color': #EFE9C5,
+    'text-color': #1D1414
+  )
+);
+
+
+@mixin editor-lable-base() {
+    display: inline-block;
+    padding: 0.4rem 0.7rem 0.3rem 0.7rem;
+    vertical-align: middle;
+    border-radius: 2px;
+    text-transform: uppercase;
+    line-height: 1rem;
+    letter-spacing: 0.05em;
+    font-size: 1rem;
+    white-space: nowrap;
+    font-weight: 500;
+    background-color: rgba(150,150,150,0.75);
+    color: $white;
+    font-family: "Roboto";
+}
+
+.color-swatch__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(6.8rem, 6.8rem));
+    grid-gap: 0.9rem;
+    margin: 0.4rem 0 2.4rem 0;
+}
+@mixin color-swatch-base() {
+    height: $color-swatch-size;
+    width: $color-swatch-size;
+    padding: 0.2rem;
+    border-radius: 50%;
+    border: 2px solid $color-swatch-border-color;
+}
+@mixin color-swatch-inner-base() {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: $color-swatch-inner-size;
+    width: $color-swatch-inner-size;
+    border-radius: 50%;
+    background-color: $white;
+    color: $sd-text;
+    text-align: center;
+    font-size: 2rem;
+    line-height: $color-swatch-inner-size;
+    text-transform: uppercase;
+    box-shadow: 0 1px 3px rgba(0,0,0,.16), 0 0 1px rgba(0,0,0,.1);
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 1px 3px rgba(0,0,0,.26), 0 0 1px rgba(0,0,0,.2);
+    }
+}
+.color-swatch {
+    @include color-swatch-base();
+    &--selected {
+        border-color: $color-swatch-border-active-color;
+        .color-swatch__inner {
+            box-shadow: none !important;
+        }
+    }
+    @each $theme, $colors in $themes {
+        &--#{$theme} {
+            .color-swatch__inner {
+                background-color: map-get($colors, bg-color);
+                color: map-get($colors, text-color);
+            }
+        }
+    }
+}
+.color-swatch__inner {
+    @include color-swatch-inner-base();
+}
+
+// Theme Preview
+.theme-preview {
+    margin: 0 -2rem -2rem -2rem;
+    padding: 2rem;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
+    // background-color: $theme-background;
+    // color: $theme-color;
+    .theme-preview__label {
+        opacity: 0.7;
+        transition: opacity 0.3s ease-out;
+    }
+    &:hover {
+        .theme-preview__label {
+            opacity: 1;
+        }  
+    }
+    @each $name, $font in $theme-font-list {
+        &.theme-preview--#{$name} {
+            font-family: $font;
+        }
+    }
+    @each $theme, $colors in $themes {
+        &--#{$theme} {
+          background-color: map-get($colors, bg-color);
+          color: map-get($colors, text-color);
+        }
+    }
+}
+.theme-preview__block {
+    margin-bottom: 1.2rem;
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+.theme-preview__label {
+    @include editor-lable-base();
+}
+.theme-preview__text-field {
+    display: block;
+    line-height: 140%;
+    color: inherit;
+    font-family: inherit;
+    border-bottom: 1px dotted $neutral-border-color;
+    margin-bottom: 0.8rem;
+    padding: 1rem 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+.theme-preview__button-bar {
+    text-align: right;
+    .sd-check__wrapper + .sd-check__wrapper {
+        margin-left: 0.2rem;
+    }
+}
+
+.text-field__headline {
+    font-weight: 500;
+    min-height: 6rem;
+    &--small {
+        font-size: 2.3rem;
+    }
+    &--medium {
+        font-size: 2.8rem;
+    }
+    &--large {
+        font-size: 3.2rem;
+    }
+}
+.text-field__abstract {
+    font-weight: 400;
+    font-style: italic;
+    min-height: 9.2rem;
+    &--small {
+        font-size: 1.4rem;
+    }
+    &--medium {
+        font-size: 1.6rem;
+    }
+    &--large {
+        font-size: 1.8rem;
+    }
+}
+.text-field__body {
+    font-weight: 300;
+    min-height: 9.2rem;
+    &--small {
+        font-size: 1.4rem;
+    }
+    &--medium {
+        font-size: 1.6rem;
+    }
+    &--large {
+        font-size: 1.8rem;
+    }
+}
+
