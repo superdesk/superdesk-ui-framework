@@ -86,7 +86,8 @@
       font-size: 1.8rem;
       color: #333;
       font-weight: 400;
-      margin-bottom: 2rem; }
+      margin-bottom: 2rem;
+      line-height: 100%; }
       .modal .modal__content .modal__body-heading--inactive {
         color: #adadad; }
       .modal .modal__content .modal__body-heading .badge {

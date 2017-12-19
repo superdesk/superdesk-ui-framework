@@ -2778,7 +2778,8 @@ time {
       font-size: 1.8rem;
       color: #333;
       font-weight: 400;
-      margin-bottom: 2rem; }
+      margin-bottom: 2rem;
+      line-height: 100%; }
       .modal .modal__content .modal__body-heading--inactive {
         color: #adadad; }
       .modal .modal__content .modal__body-heading .badge {
@@ -7585,7 +7586,7 @@ label + .sd-radio {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
   border-radius: 0;
   text-align: left; }
-  .dropdown__menu li a:not(.btn), .dropdown__menu li button:not(.btn):not(.dropdown__menu-close), .dropdown__menu .dropdown__menu-item a:not(.btn), .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) {
+  .dropdown__menu li a:not(.btn), .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button), .dropdown__menu .dropdown__menu-item a:not(.btn), .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
     display: block;
     font-weight: normal;
     line-height: 1.8rem;
@@ -7600,20 +7601,20 @@ label + .sd-radio {
     font-size: 1.3rem;
     text-decoration: none;
     text-align: left; }
-    .dropdown__menu li a:not(.btn) > i[class^="icon-"], .dropdown__menu li a:not(.btn) i[class*=" icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close) i[class*=" icon-"] {
+    .dropdown__menu li a:not(.btn) > i[class^="icon-"], .dropdown__menu li a:not(.btn) i[class*=" icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) > i[class^="icon-"], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item a:not(.btn) i[class*=" icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) > i[class^="icon-"], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) i[class*=" icon-"] {
       margin-right: 1rem;
       margin-top: -0.3rem;
       min-width: 1.9rem;
       vertical-align: middle; }
-    .dropdown__menu li a:not(.btn).disabled, .dropdown__menu li a:not(.btn)[disabled], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close).disabled, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close)[disabled], .dropdown__menu .dropdown__menu-item a:not(.btn).disabled, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close).disabled, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close)[disabled] {
+    .dropdown__menu li a:not(.btn).disabled, .dropdown__menu li a:not(.btn)[disabled], .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button).disabled, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button)[disabled], .dropdown__menu .dropdown__menu-item a:not(.btn).disabled, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled], .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button).disabled, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button)[disabled] {
       opacity: .5; }
-  .dropdown__menu li a:not(.btn):hover, .dropdown__menu li a:not(.btn):focus, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):focus, .dropdown__menu .dropdown__menu-item a:not(.btn):hover, .dropdown__menu .dropdown__menu-item a:not(.btn):focus, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):focus {
+  .dropdown__menu li a:not(.btn):hover, .dropdown__menu li a:not(.btn):focus, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):focus, .dropdown__menu .dropdown__menu-item a:not(.btn):hover, .dropdown__menu .dropdown__menu-item a:not(.btn):focus, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):focus {
     background: #eff7fa;
     text-decoration: none;
     cursor: pointer; }
-  .dropdown__menu li a:not(.btn):active, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):active, .dropdown__menu .dropdown__menu-item a:not(.btn):active, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):active {
+  .dropdown__menu li a:not(.btn):active, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):active, .dropdown__menu .dropdown__menu-item a:not(.btn):active, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):active {
     background: #c8e4ee; }
-  .dropdown__menu li a:not(.btn).disabled:hover, .dropdown__menu li a:not(.btn)[disabled]:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close).disabled:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close)[disabled]:hover, .dropdown__menu .dropdown__menu-item a:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close).disabled:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close)[disabled]:hover {
+  .dropdown__menu li a:not(.btn).disabled:hover, .dropdown__menu li a:not(.btn)[disabled]:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button).disabled:hover, .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button)[disabled]:hover, .dropdown__menu .dropdown__menu-item a:not(.btn).disabled:hover, .dropdown__menu .dropdown__menu-item a:not(.btn)[disabled]:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button).disabled:hover, .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button)[disabled]:hover {
     background: none;
     cursor: default; }
   .dropdown__menu li .preferred-desk, .dropdown__menu .dropdown__menu-item .preferred-desk {
@@ -8497,30 +8498,90 @@ label + .sd-radio {
 .text-field__headline {
   font-weight: 500;
   min-height: 6rem; }
-  .text-field__headline--small {
+  .text-field__headline.text-field__headline--small {
     font-size: 2.3rem; }
-  .text-field__headline--medium {
+  .text-field__headline.text-field__headline--medium {
     font-size: 2.8rem; }
-  .text-field__headline--large {
+  .text-field__headline.text-field__headline--large {
     font-size: 3.2rem; }
 
 .text-field__abstract {
   font-weight: 400;
   font-style: italic;
   min-height: 9.2rem; }
-  .text-field__abstract--small {
+  .text-field__abstract.text-field__abstract--small {
     font-size: 1.4rem; }
-  .text-field__abstract--medium {
+  .text-field__abstract.text-field__abstract--medium {
     font-size: 1.6rem; }
-  .text-field__abstract--large {
+  .text-field__abstract.text-field__abstract--large {
     font-size: 1.8rem; }
 
 .text-field__body {
   font-weight: 300;
   min-height: 9.2rem; }
-  .text-field__body--small {
+  .text-field__body.text-field__body--small {
     font-size: 1.4rem; }
-  .text-field__body--medium {
+  .text-field__body.text-field__body--medium {
     font-size: 1.6rem; }
-  .text-field__body--large {
+  .text-field__body.text-field__body--large {
     font-size: 1.8rem; }
+
+.main-article.main-article--theme-default {
+  background-color: #fff;
+  color: #333; }
+
+.main-article.main-article--theme-dark {
+  background-color: #222;
+  color: #AACCD1; }
+
+.main-article.main-article--theme-blue {
+  background-color: #06356A;
+  color: #fff; }
+
+.main-article.main-article--theme-turquoise {
+  background-color: #00CED1;
+  color: #122235; }
+
+.main-article.main-article--theme-military {
+  background-color: #949E5F;
+  color: #252818; }
+
+.main-article.main-article--theme-natural {
+  background-color: #EFE9C5;
+  color: #1D1414; }
+
+.main-article.main-article--font-sans {
+  font-family: "Roboto", sans-serif; }
+
+.main-article.main-article--font-serif {
+  font-family: "Merriweather", serif; }
+
+.main-article.main-article--font-mono {
+  font-family: "Roboto Mono", monospace; }
+
+.main-article.main-article--headline-size-small .headline .Editor3-root .DraftEditor-editorContainer {
+  font-size: 2.3rem !important; }
+
+.main-article.main-article--headline-size-medium .headline .Editor3-root .DraftEditor-editorContainer {
+  font-size: 2.8rem !important; }
+
+.main-article.main-article--headline-size-large .headline .Editor3-root .DraftEditor-editorContainer {
+  font-size: 3.2rem !important; }
+
+.main-article.main-article--abstract-size-small .abstract .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.4rem !important; }
+
+.main-article.main-article--abstract-size-medium .abstract .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.6rem !important; }
+
+.main-article.main-article--abstract-size-large .abstract .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.8rem !important; }
+
+.main-article.main-article--body-size-small .body .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.4rem !important; }
+
+.main-article.main-article--body-size-medium .body .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.6rem !important; }
+
+.main-article.main-article--body-size-large .body .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.8rem !important; }
