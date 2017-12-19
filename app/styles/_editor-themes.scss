@@ -47,6 +47,25 @@ $themes: (
   )
 );
 
+$headline-font-size: (
+    small: 2.3rem,
+    medium: 2.8rem,
+    large: 3.2rem,
+);
+
+$abstract-font-size: (
+    small: 1.4rem,
+    medium: 1.6rem,
+    large: 1.8rem,
+);
+
+$body-font-size: (
+    small: 1.4rem,
+    medium: 1.6rem,
+    large: 1.8rem,
+);
+
+
 
 @mixin editor-lable-base() {
     display: inline-block;
@@ -176,41 +195,64 @@ $themes: (
 .text-field__headline {
     font-weight: 500;
     min-height: 6rem;
-    &--small {
-        font-size: 2.3rem;
-    }
-    &--medium {
-        font-size: 2.8rem;
-    }
-    &--large {
-        font-size: 3.2rem;
+    @each $name, $size in $headline-font-size {
+        &.text-field__headline--#{$name} {
+            font-size: $size;
+        }
     }
 }
 .text-field__abstract {
     font-weight: 400;
     font-style: italic;
     min-height: 9.2rem;
-    &--small {
-        font-size: 1.4rem;
-    }
-    &--medium {
-        font-size: 1.6rem;
-    }
-    &--large {
-        font-size: 1.8rem;
+    @each $name, $size in $abstract-font-size {
+        &.text-field__abstract--#{$name} {
+            font-size: $size;
+        }
     }
 }
 .text-field__body {
     font-weight: 300;
     min-height: 9.2rem;
-    &--small {
-        font-size: 1.4rem;
-    }
-    &--medium {
-        font-size: 1.6rem;
-    }
-    &--large {
-        font-size: 1.8rem;
+    @each $name, $size in $body-font-size {
+        &.text-field__body--#{$name} {
+            font-size: $size;
+        }
     }
 }
 
+.main-article {
+    @each $theme, $colors in $themes {
+        &.main-article--theme-#{$theme} {
+          background-color: map-get($colors, bg-color);
+          color: map-get($colors, text-color);
+        }
+    }
+    @each $name, $font in $theme-font-list {
+        &.main-article--font-#{$name} {
+            font-family: $font;
+        }
+    }
+    @each $name, $size in $headline-font-size {
+        &.main-article--headline-size-#{$name} {
+            .headline .Editor3-root .DraftEditor-editorContainer {
+                font-size: $size !important;
+            }
+        }
+    }
+
+    @each $name, $size in $abstract-font-size {
+        &.main-article--abstract-size-#{$name} {
+            .abstract .Editor3-root .DraftEditor-editorContainer {
+                font-size: $size !important;
+            }
+        }
+    }
+    @each $name, $size in $body-font-size {
+        &.main-article--body-size-#{$name} {
+            .body .Editor3-root .DraftEditor-editorContainer {
+                font-size: $size !important;
+            }
+        }
+    }
+}

@@ -151,6 +151,7 @@ $modal-sizes: (
             color: $sd-text;
             font-weight: 400;
             margin-bottom: 2rem;
+            line-height: 100%;
             &--inactive {
                 color: scale-color($sd-text, $lightness: 60%)
             }
