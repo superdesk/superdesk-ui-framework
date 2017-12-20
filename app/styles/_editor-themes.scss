@@ -180,21 +180,21 @@ $body-font-size: (
         }
     }
     @each $name, $size in $headline-font-size {
-        &.sd-editor--headline-size-#{$name} {
+        &.sd-editor--headline-#{$name} {
             .text-field__headline {
                 font-size: $size;
             }
         }
     }
     @each $name, $size in $abstract-font-size {
-        &.sd-editor--abstract-size-#{$name} {
+        &.sd-editor--abstract-#{$name} {
             .text-field__abstract {
                 font-size: $size;
             }
         }
     }
     @each $name, $size in $body-font-size {
-        &.sd-editor--body-size-#{$name} {
+        &.sd-editor--body-#{$name} {
             .text-field__body {
                 font-size: $size;
             }
@@ -245,21 +245,21 @@ $body-font-size: (
         }
     }
     @each $name, $size in $headline-font-size {
-        &.sd-editor--headline-size-#{$name} {
+        &.sd-editor--headline-#{$name} {
             .headline .Editor3-root .DraftEditor-editorContainer {
                 font-size: $size !important;
             }
         }
     }
     @each $name, $size in $abstract-font-size {
-        &.sd-editor--abstract-size-#{$name} {
+        &.sd-editor--abstract-#{$name} {
             .abstract .Editor3-root .DraftEditor-editorContainer {
                 font-size: $size !important;
             }
         }
     }
     @each $name, $size in $body-font-size {
-        &.sd-editor--body-size-#{$name} {
+        &.sd-editor--body-#{$name} {
             .body .Editor3-root .DraftEditor-editorContainer {
                 font-size: $size !important;
             }
