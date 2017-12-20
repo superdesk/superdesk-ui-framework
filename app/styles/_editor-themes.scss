@@ -124,7 +124,7 @@ $body-font-size: (
         }
     }
     @each $theme, $colors in $themes {
-        &--#{$theme} {
+        &.sd-editor--theme-#{$theme} {
             .color-swatch__inner {
                 background-color: map-get($colors, bg-color);
                 color: map-get($colors, text-color);
@@ -136,13 +136,29 @@ $body-font-size: (
     @include color-swatch-inner-base();
 }
 
-// Theme Preview
+
+
+// ------ THEME PREVIEW ------ //
+// text fields
+.text-field__headline {
+    font-weight: 500;
+    min-height: 6rem;
+}
+.text-field__abstract {
+    font-weight: 400;
+    font-style: italic;
+    min-height: 9.2rem;
+}
+.text-field__body {
+    font-weight: 300;
+    min-height: 9.2rem;
+}
+
+
 .theme-preview {
     margin: 0 -2rem -2rem -2rem;
     padding: 2rem;
     box-shadow: inset 0 1px 3px rgba(0,0,0,.2);
-    // background-color: $theme-background;
-    // color: $theme-color;
     .theme-preview__label {
         opacity: 0.7;
         transition: opacity 0.3s ease-out;
@@ -153,17 +169,39 @@ $body-font-size: (
         }  
     }
     @each $name, $font in $theme-font-list {
-        &.theme-preview--#{$name} {
+        &.sd-editor--font-#{$name} {
             font-family: $font;
         }
     }
     @each $theme, $colors in $themes {
-        &--#{$theme} {
+        &.sd-editor--theme-#{$theme} {
           background-color: map-get($colors, bg-color);
           color: map-get($colors, text-color);
         }
     }
+    @each $name, $size in $headline-font-size {
+        &.sd-editor--headline-size-#{$name} {
+            .text-field__headline {
+                font-size: $size;
+            }
+        }
+    }
+    @each $name, $size in $abstract-font-size {
+        &.sd-editor--abstract-size-#{$name} {
+            .text-field__abstract {
+                font-size: $size;
+            }
+        }
+    }
+    @each $name, $size in $body-font-size {
+        &.sd-editor--body-size-#{$name} {
+            .text-field__body {
+                font-size: $size;
+            }
+        }
+    }
 }
+
 .theme-preview__block {
     margin-bottom: 1.2rem;
     &:last-child {
@@ -192,64 +230,36 @@ $body-font-size: (
     }
 }
 
-.text-field__headline {
-    font-weight: 500;
-    min-height: 6rem;
-    @each $name, $size in $headline-font-size {
-        &.text-field__headline--#{$name} {
-            font-size: $size;
-        }
-    }
-}
-.text-field__abstract {
-    font-weight: 400;
-    font-style: italic;
-    min-height: 9.2rem;
-    @each $name, $size in $abstract-font-size {
-        &.text-field__abstract--#{$name} {
-            font-size: $size;
-        }
-    }
-}
-.text-field__body {
-    font-weight: 300;
-    min-height: 9.2rem;
-    @each $name, $size in $body-font-size {
-        &.text-field__body--#{$name} {
-            font-size: $size;
-        }
-    }
-}
 
+// ------ THEME IN EDITOR ------ //
 .main-article {
     @each $theme, $colors in $themes {
-        &.main-article--theme-#{$theme} {
+        &.sd-editor--theme-#{$theme} {
           background-color: map-get($colors, bg-color);
           color: map-get($colors, text-color);
         }
     }
     @each $name, $font in $theme-font-list {
-        &.main-article--font-#{$name} {
+        &.sd-editor--font-#{$name} {
             font-family: $font;
         }
     }
     @each $name, $size in $headline-font-size {
-        &.main-article--headline-size-#{$name} {
+        &.sd-editor--headline-size-#{$name} {
             .headline .Editor3-root .DraftEditor-editorContainer {
                 font-size: $size !important;
             }
         }
     }
-
     @each $name, $size in $abstract-font-size {
-        &.main-article--abstract-size-#{$name} {
+        &.sd-editor--abstract-size-#{$name} {
             .abstract .Editor3-root .DraftEditor-editorContainer {
                 font-size: $size !important;
             }
         }
     }
     @each $name, $size in $body-font-size {
-        &.main-article--body-size-#{$name} {
+        &.sd-editor--body-size-#{$name} {
             .body .Editor3-root .DraftEditor-editorContainer {
                 font-size: $size !important;
             }

@@ -8870,22 +8870,22 @@ label + .sd-radio {
     border-color: #5ea9c8; }
     .color-swatch--selected .color-swatch__inner {
       box-shadow: none !important; }
-  .color-swatch--default .color-swatch__inner {
+  .color-swatch.sd-editor--theme-default .color-swatch__inner {
     background-color: #fff;
     color: #333; }
-  .color-swatch--dark .color-swatch__inner {
+  .color-swatch.sd-editor--theme-dark .color-swatch__inner {
     background-color: #222;
     color: #AACCD1; }
-  .color-swatch--blue .color-swatch__inner {
+  .color-swatch.sd-editor--theme-blue .color-swatch__inner {
     background-color: #06356A;
     color: #fff; }
-  .color-swatch--turquoise .color-swatch__inner {
+  .color-swatch.sd-editor--theme-turquoise .color-swatch__inner {
     background-color: #00CED1;
     color: #122235; }
-  .color-swatch--military .color-swatch__inner {
+  .color-swatch.sd-editor--theme-military .color-swatch__inner {
     background-color: #949E5F;
     color: #252818; }
-  .color-swatch--natural .color-swatch__inner {
+  .color-swatch.sd-editor--theme-natural .color-swatch__inner {
     background-color: #EFE9C5;
     color: #1D1414; }
 
@@ -8907,6 +8907,19 @@ label + .sd-radio {
   .color-swatch__inner:hover {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.26), 0 0 1px rgba(0, 0, 0, 0.2); }
 
+.text-field__headline {
+  font-weight: 500;
+  min-height: 6rem; }
+
+.text-field__abstract {
+  font-weight: 400;
+  font-style: italic;
+  min-height: 9.2rem; }
+
+.text-field__body {
+  font-weight: 300;
+  min-height: 9.2rem; }
+
 .theme-preview {
   margin: 0 -2rem -2rem -2rem;
   padding: 2rem;
@@ -8916,30 +8929,48 @@ label + .sd-radio {
     transition: opacity 0.3s ease-out; }
   .theme-preview:hover .theme-preview__label {
     opacity: 1; }
-  .theme-preview.theme-preview--sans {
+  .theme-preview.sd-editor--font-sans {
     font-family: "Roboto", sans-serif; }
-  .theme-preview.theme-preview--serif {
+  .theme-preview.sd-editor--font-serif {
     font-family: "Merriweather", serif; }
-  .theme-preview.theme-preview--mono {
+  .theme-preview.sd-editor--font-mono {
     font-family: "Roboto Mono", monospace; }
-  .theme-preview--default {
+  .theme-preview.sd-editor--theme-default {
     background-color: #fff;
     color: #333; }
-  .theme-preview--dark {
+  .theme-preview.sd-editor--theme-dark {
     background-color: #222;
     color: #AACCD1; }
-  .theme-preview--blue {
+  .theme-preview.sd-editor--theme-blue {
     background-color: #06356A;
     color: #fff; }
-  .theme-preview--turquoise {
+  .theme-preview.sd-editor--theme-turquoise {
     background-color: #00CED1;
     color: #122235; }
-  .theme-preview--military {
+  .theme-preview.sd-editor--theme-military {
     background-color: #949E5F;
     color: #252818; }
-  .theme-preview--natural {
+  .theme-preview.sd-editor--theme-natural {
     background-color: #EFE9C5;
     color: #1D1414; }
+  .theme-preview.sd-editor--headline-size-small .text-field__headline {
+    font-size: 2.3rem; }
+  .theme-preview.sd-editor--headline-size-medium .text-field__headline {
+    font-size: 2.8rem; }
+  .theme-preview.sd-editor--headline-size-large .text-field__headline {
+    font-size: 3.2rem; }
+  .theme-preview.sd-editor--abstract-size-small .text-field__abstract {
+    font-size: 1.4rem; }
+  .theme-preview.sd-editor--abstract-size-medium .text-field__abstract {
+    font-size: 1.6rem; }
+  .theme-preview.sd-editor--abstract-size-large .text-field__abstract {
+    font-size: 1.8rem; }
+  .theme-preview.sd-editor--body-size-small .text-field__body {
+    font-size: 1.4rem; }
+  .theme-preview.sd-editor--body-size-medium .text-field__body {
+    font-size: 1.6rem; }
+  .theme-preview.sd-editor--body-size-large .text-field__body {
+    font-size: 1.8rem; }
 
 .theme-preview__block {
   margin-bottom: 1.2rem; }
@@ -8978,93 +9009,62 @@ label + .sd-radio {
   .theme-preview__button-bar .sd-check__wrapper + .sd-check__wrapper {
     margin-left: 0.2rem; }
 
-.text-field__headline {
-  font-weight: 500;
-  min-height: 6rem; }
-  .text-field__headline.text-field__headline--small {
-    font-size: 2.3rem; }
-  .text-field__headline.text-field__headline--medium {
-    font-size: 2.8rem; }
-  .text-field__headline.text-field__headline--large {
-    font-size: 3.2rem; }
-
-.text-field__abstract {
-  font-weight: 400;
-  font-style: italic;
-  min-height: 9.2rem; }
-  .text-field__abstract.text-field__abstract--small {
-    font-size: 1.4rem; }
-  .text-field__abstract.text-field__abstract--medium {
-    font-size: 1.6rem; }
-  .text-field__abstract.text-field__abstract--large {
-    font-size: 1.8rem; }
-
-.text-field__body {
-  font-weight: 300;
-  min-height: 9.2rem; }
-  .text-field__body.text-field__body--small {
-    font-size: 1.4rem; }
-  .text-field__body.text-field__body--medium {
-    font-size: 1.6rem; }
-  .text-field__body.text-field__body--large {
-    font-size: 1.8rem; }
-
-.main-article.main-article--theme-default {
+.main-article.sd-editor--theme-default {
   background-color: #fff;
   color: #333; }
 
-.main-article.main-article--theme-dark {
+.main-article.sd-editor--theme-dark {
   background-color: #222;
   color: #AACCD1; }
 
-.main-article.main-article--theme-blue {
+.main-article.sd-editor--theme-blue {
   background-color: #06356A;
   color: #fff; }
 
-.main-article.main-article--theme-turquoise {
+.main-article.sd-editor--theme-turquoise {
   background-color: #00CED1;
   color: #122235; }
 
-.main-article.main-article--theme-military {
+.main-article.sd-editor--theme-military {
   background-color: #949E5F;
   color: #252818; }
 
-.main-article.main-article--theme-natural {
+.main-article.sd-editor--theme-natural {
   background-color: #EFE9C5;
   color: #1D1414; }
 
-.main-article.main-article--font-sans {
+.main-article.sd-editor--font-sans {
   font-family: "Roboto", sans-serif; }
 
-.main-article.main-article--font-serif {
+.main-article.sd-editor--font-serif {
   font-family: "Merriweather", serif; }
 
-.main-article.main-article--font-mono {
+.main-article.sd-editor--font-mono {
   font-family: "Roboto Mono", monospace; }
 
-.main-article.main-article--headline-size-small .headline .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--headline-size-small .headline .Editor3-root .DraftEditor-editorContainer {
   font-size: 2.3rem !important; }
 
-.main-article.main-article--headline-size-medium .headline .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--headline-size-medium .headline .Editor3-root .DraftEditor-editorContainer {
   font-size: 2.8rem !important; }
 
-.main-article.main-article--headline-size-large .headline .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--headline-size-large .headline .Editor3-root .DraftEditor-editorContainer {
   font-size: 3.2rem !important; }
 
-.main-article.main-article--abstract-size-small .abstract .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--abstract-size-small .abstract .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.4rem !important; }
 
-.main-article.main-article--abstract-size-medium .abstract .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--abstract-size-medium .abstract .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.6rem !important; }
 
-.main-article.main-article--abstract-size-large .abstract .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--abstract-size-large .abstract .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.8rem !important; }
 
-.main-article.main-article--body-size-small .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-size-small .body .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.4rem !important; }
 
-.main-article.main-article--body-size-medium .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-size-medium .body .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.6rem !important; }
 
-.main-article.main-article--body-size-large .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-size-large .body .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.8rem !important; }

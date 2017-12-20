@@ -1140,44 +1140,46 @@
                         </div>
                     </div>
                     <div class="color-swatch__list" ng-init="selctTheme1 = true">
-                        <div class="color-swatch" 
+                        <div class="color-swatch sd-editor--theme-default" 
                             ng-click="selctTheme1 = true; selctTheme2 = false; selctTheme3 = false; selctTheme4 = false; selctTheme5 = false; selctTheme6 = false;" 
                             ng-class="{'color-swatch--selected' : selctTheme1}">
                             <span class="color-swatch__inner">a</span>
                         </div>
-                        <div class="color-swatch color-swatch--dark" 
+                        <div class="color-swatch sd-editor--theme-dark" 
                             ng-click="selctTheme2 = true; selctTheme1 = false; selctTheme3 = false; selctTheme4 = false; selctTheme5 = false; selctTheme6 = false;" 
                             ng-class="{'color-swatch--selected' : selctTheme2}">
                             <span class="color-swatch__inner">a</span>
                         </div>
-                        <div class="color-swatch color-swatch--blue" 
+                        <div class="color-swatch sd-editor--theme-blue" 
                             ng-click="selctTheme3 = true; selctTheme1 = false; selctTheme2 = false; selctTheme4 = false; selctTheme5 = false; selctTheme6 = false;" 
                             ng-class="{'color-swatch--selected' : selctTheme3}">
                             <span class="color-swatch__inner">a</span>
                         </div>
-                        <div class="color-swatch color-swatch--turquoise" 
+                        <div class="color-swatch sd-editor--theme-turquoise" 
                             ng-click="selctTheme4 = true; selctTheme1 = false; selctTheme2 = false; selctTheme3 = false; selctTheme5 = false; selctTheme6 = false;" 
                             ng-class="{'color-swatch--selected' : selctTheme4}">
                             <span class="color-swatch__inner">a</span>
                         </div>
-                        <div class="color-swatch color-swatch--military" 
+                        <div class="color-swatch sd-editor--theme-military" 
                             ng-click="selctTheme5 = true; selctTheme1 = false; selctTheme2 = false; selctTheme3 = false; selctTheme4 = false; selctTheme6 = false;" 
                             ng-class="{'color-swatch--selected' : selctTheme5}">
                             <span class="color-swatch__inner">a</span>
                         </div>
-                        <div class="color-swatch color-swatch--natural" 
+                        <div class="color-swatch sd-editor--theme-natural" 
                             ng-click="selctTheme6 = true; selctTheme1 = false; selctTheme2 = false; selctTheme3 = false; selctTheme4 = false; selctTheme5 = false;" 
                             ng-class="{'color-swatch--selected' : selctTheme6}">
                             <span class="color-swatch__inner">a</span>
                         </div>
                     </div>
-                    <div class="theme-preview" ng-class="{'theme-preview--sans' : fontFace === 'sans', 'theme-preview--serif' : fontFace === 'serif', 'theme-preview--mono' : fontFace === 'mono', 'theme-preview--default' : selctTheme1, 'theme-preview--dark' : selctTheme2, 'theme-preview--blue' : selctTheme3, 'theme-preview--turquoise' : selctTheme4,  'theme-preview--military' : selctTheme5, 'theme-preview--natural' : selctTheme6}">
+                    <div class="theme-preview" 
+                    ng-class="{'sd-editor--font-sans' : fontFace === 'sans', 'sd-editor--font-serif' : fontFace === 'serif', 'sd-editor--font-mono' : fontFace === 'mono', 'sd-editor--theme-default' : selctTheme1, 'sd-editor--theme-dark' : selctTheme2, 'sd-editor--theme-blue' : selctTheme3, 'sd-editor--theme-turquoise' : selctTheme4,  'sd-editor--theme-military' : selctTheme5, 'sd-editor--theme-natural' : selctTheme6, 'sd-editor--headline-size-small' : fontSizeHeadline === 's', 'sd-editor--headline-size-medium' : fontSizeHeadline === 'm', 'sd-editor--headline-size-large' : fontSizeHeadline === 'l', 'sd-editor--abstract-size-small' : fontSizeAbstract === 's', 'sd-editor--abstract-size-medium' : fontSizeAbstract === 'm', 'sd-editor--abstract-size-large' : fontSizeAbstract === 'l', 'sd-editor--body-size-small' : fontSizeBody === 's', 'sd-editor--body-size-medium' : fontSizeBody === 'm', 'sd-editor--body-size-large' : fontSizeBody === 'l'}"
+                    ng-init="fontSizeHeadline = 'm'; fontSizeAbstract = 'm'; fontSizeBody = 'm'">
                         <div class="theme-preview__block">
                             <label class="theme-preview__label">Headline</label>
-                            <div class="theme-preview__text-field text-field__headline" ng-class="{'text-field__headline--small' : fontSizeHeadline === 's', 'text-field__headline--medium' : fontSizeHeadline === 'm', 'text-field__headline--large' : fontSizeHeadline === 'l'}">
+                            <div class="theme-preview__text-field text-field__headline">
                                 This is the headline
                             </div>
-                            <div class="theme-preview__button-bar" ng-init="fontSizeHeadline = 'm'" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
+                            <div class="theme-preview__button-bar" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
                                 <sd-check type="radio" ng-model="fontSizeHeadline" label-position="inside" ng-value="s">S</sd-check>
                                 <sd-check type="radio" ng-model="fontSizeHeadline" label-position="inside" ng-value="m">M</sd-check>
                                 <sd-check type="radio" ng-model="fontSizeHeadline" label-position="inside" ng-value="l">L</sd-check>
@@ -1185,10 +1187,10 @@
                         </div>
                         <div class="theme-preview__block">
                             <label class="theme-preview__label">Abstract</label>
-                            <div class="theme-preview__text-field text-field__abstract" ng-class="{'text-field__abstract--small' : fontSizeAbstract === 's', 'text-field__abstract--medium' : fontSizeAbstract === 'm', 'text-field__abstract--large' : fontSizeAbstract === 'l'}">
+                            <div class="theme-preview__text-field text-field__abstract">
                                 Abstract example. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Phasellus ullamcorper…
                             </div>
-                            <div class="theme-preview__button-bar" ng-init="fontSizeAbstract = 'm'"ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
+                            <div class="theme-preview__button-bar" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
                                 <sd-check type="radio" ng-model="fontSizeAbstract" label-position="inside" ng-value="s">S</sd-check>
                                 <sd-check type="radio" ng-model="fontSizeAbstract" label-position="inside" ng-value="m">M</sd-check>
                                 <sd-check type="radio" ng-model="fontSizeAbstract" label-position="inside" ng-value="l">L</sd-check>
@@ -1196,10 +1198,10 @@
                         </div>
                         <div class="theme-preview__block">
                             <label class="theme-preview__label">Body</label>
-                            <div class="theme-preview__text-field text-field__body" ng-class="{'text-field__body--small' : fontSizeBody === 's', 'text-field__body--medium' : fontSizeBody === 'm', 'text-field__body--large' : fontSizeBody === 'l'}">
+                            <div class="theme-preview__text-field text-field__body">
                                 Body text example. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Phasellus ullamcorper…
                             </div>
-                            <div class="theme-preview__button-bar" ng-init="fontSizeBody = 'm'" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
+                            <div class="theme-preview__button-bar" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
                                 <sd-check type="radio" ng-model="fontSizeBody" label-position="inside" ng-value="s">S</sd-check>
                                 <sd-check type="radio" ng-model="fontSizeBody" label-position="inside" ng-value="m">M</sd-check>
                                 <sd-check type="radio" ng-model="fontSizeBody" label-position="inside" ng-value="l">L</sd-check>
