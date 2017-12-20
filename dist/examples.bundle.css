@@ -8953,23 +8953,23 @@ label + .sd-radio {
   .theme-preview.sd-editor--theme-natural {
     background-color: #EFE9C5;
     color: #1D1414; }
-  .theme-preview.sd-editor--headline-size-small .text-field__headline {
+  .theme-preview.sd-editor--headline-small .text-field__headline {
     font-size: 2.3rem; }
-  .theme-preview.sd-editor--headline-size-medium .text-field__headline {
+  .theme-preview.sd-editor--headline-medium .text-field__headline {
     font-size: 2.8rem; }
-  .theme-preview.sd-editor--headline-size-large .text-field__headline {
+  .theme-preview.sd-editor--headline-large .text-field__headline {
     font-size: 3.2rem; }
-  .theme-preview.sd-editor--abstract-size-small .text-field__abstract {
+  .theme-preview.sd-editor--abstract-small .text-field__abstract {
     font-size: 1.4rem; }
-  .theme-preview.sd-editor--abstract-size-medium .text-field__abstract {
+  .theme-preview.sd-editor--abstract-medium .text-field__abstract {
     font-size: 1.6rem; }
-  .theme-preview.sd-editor--abstract-size-large .text-field__abstract {
+  .theme-preview.sd-editor--abstract-large .text-field__abstract {
     font-size: 1.8rem; }
-  .theme-preview.sd-editor--body-size-small .text-field__body {
+  .theme-preview.sd-editor--body-small .text-field__body {
     font-size: 1.4rem; }
-  .theme-preview.sd-editor--body-size-medium .text-field__body {
+  .theme-preview.sd-editor--body-medium .text-field__body {
     font-size: 1.6rem; }
-  .theme-preview.sd-editor--body-size-large .text-field__body {
+  .theme-preview.sd-editor--body-large .text-field__body {
     font-size: 1.8rem; }
 
 .theme-preview__block {
@@ -9042,29 +9042,29 @@ label + .sd-radio {
 .main-article.sd-editor--font-mono {
   font-family: "Roboto Mono", monospace; }
 
-.main-article.sd-editor--headline-size-small .headline .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--headline-small .headline .Editor3-root .DraftEditor-editorContainer {
   font-size: 2.3rem !important; }
 
-.main-article.sd-editor--headline-size-medium .headline .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--headline-medium .headline .Editor3-root .DraftEditor-editorContainer {
   font-size: 2.8rem !important; }
 
-.main-article.sd-editor--headline-size-large .headline .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--headline-large .headline .Editor3-root .DraftEditor-editorContainer {
   font-size: 3.2rem !important; }
 
-.main-article.sd-editor--abstract-size-small .abstract .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--abstract-small .abstract .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.4rem !important; }
 
-.main-article.sd-editor--abstract-size-medium .abstract .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--abstract-medium .abstract .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.6rem !important; }
 
-.main-article.sd-editor--abstract-size-large .abstract .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--abstract-large .abstract .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.8rem !important; }
 
-.main-article.sd-editor--body-size-small .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.4rem !important; }
 
-.main-article.sd-editor--body-size-medium .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.6rem !important; }
 
-.main-article.sd-editor--body-size-large .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.8rem !important; }
