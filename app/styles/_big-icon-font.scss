@@ -45,7 +45,7 @@
   color: $sd-blue;
 }
 .big-icon--white {
-  color: $white;
+  color: $white !important;
 }
 [class*=big-icon--].red,
 .big-icon--red {

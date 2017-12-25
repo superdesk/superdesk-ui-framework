@@ -237,6 +237,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     padding: 1rem;
     margin-top: 0.6rem;
     border-top: 1px solid #e5e5e5;
+    &--align-right {
+        text-align: right;
+    }
 }
 
 .dropdown__menu-info {

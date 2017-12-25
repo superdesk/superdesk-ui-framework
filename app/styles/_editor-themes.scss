@@ -34,7 +34,7 @@ $themes: (
     'text-color': $white
   ),
   'turquoise': (
-    'bg-color': #00CED1,
+    'bg-color': #5AC7C3,
     'text-color': #122235
   ),
   'military': (
@@ -78,7 +78,7 @@ $body-font-size: (
     font-size: 1rem;
     white-space: nowrap;
     font-weight: 500;
-    background-color: rgba(150,150,150,0.75);
+    background-color: rgba(0,0,0,0.5);
     color: $white;
     font-family: "Roboto";
 }
@@ -235,8 +235,11 @@ $body-font-size: (
 .main-article {
     @each $theme, $colors in $themes {
         &.sd-editor--theme-#{$theme} {
-          background-color: map-get($colors, bg-color);
-          color: map-get($colors, text-color);
+            background-color: map-get($colors, bg-color);
+            color: map-get($colors, text-color);
+            .Editor3-root .DraftEditor-editorContainer blockquote {
+                border-left-color: map-get($colors, text-color);
+            }
         }
     }
     @each $name, $font in $theme-font-list {
@@ -247,21 +250,68 @@ $body-font-size: (
     @each $name, $size in $headline-font-size {
         &.sd-editor--headline-#{$name} {
             .headline .Editor3-root .DraftEditor-editorContainer {
-                font-size: $size !important;
+                font-size: $size;
+            }
+            // Editor 2
+            .headline .text-editor, .headline p .text-editor, .headline div .text-editor {
+                font-size: $size;
             }
         }
     }
     @each $name, $size in $abstract-font-size {
         &.sd-editor--abstract-#{$name} {
             .abstract .Editor3-root .DraftEditor-editorContainer {
-                font-size: $size !important;
+                font-size: $size;
+            }
+            // Editor 2
+            .abstract, .abstract p, .abstract div {
+                font-size: $size;
             }
         }
     }
     @each $name, $size in $body-font-size {
         &.sd-editor--body-#{$name} {
             .body .Editor3-root .DraftEditor-editorContainer {
-                font-size: $size !important;
+                font-size: $size;
+                h1 {
+                    font-size: 2em;
+                }
+                h2 {
+                    font-size: 1.5em;
+                    line-height: 140%;
+                }
+                h3 {
+                    font-size: 1.125em;
+                }
+                h4 {
+                    font-size: 0.875em;
+                }
+                h5 {
+                    font-size: 0.75em;
+                }
+                h6 {
+                    font-size: 0.6875em;
+                    color: inherit;
+                    text-transform: uppercase;
+                    opacity: 0.7;
+                    letter-spacing: 0.03em;
+                }
+                h1, h2, h3, h4, h5, h6 {
+                    line-height: 140%;
+                }
+                blockquote {
+                    margin-left: 0;
+                    padding-left: 1em;
+                    border-left: 4px solid;
+                    font-style: italic;
+                }
+            }
+            // Editor 2
+            .body-text .text-editor {
+                font-size: $size;
+                p {
+                    font-size: $size;
+                }
             }
         }
     }
