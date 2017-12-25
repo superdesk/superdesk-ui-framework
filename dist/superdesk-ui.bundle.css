@@ -2552,7 +2552,7 @@ time {
   color: #5ea9c8; }
 
 .big-icon--white {
-  color: #fff; }
+  color: #fff !important; }
 
 [class*=big-icon--].red,
 .big-icon--red {
@@ -7695,6 +7695,8 @@ label + .sd-radio {
   padding: 1rem;
   margin-top: 0.6rem;
   border-top: 1px solid #e5e5e5; }
+  .dropdown__menu-footer--align-right {
+    text-align: right; }
 
 .dropdown__menu-info {
   color: #999;
@@ -8397,7 +8399,7 @@ label + .sd-radio {
     background-color: #06356A;
     color: #fff; }
   .color-swatch.sd-editor--theme-turquoise .color-swatch__inner {
-    background-color: #00CED1;
+    background-color: #5AC7C3;
     color: #122235; }
   .color-swatch.sd-editor--theme-military .color-swatch__inner {
     background-color: #949E5F;
@@ -8462,7 +8464,7 @@ label + .sd-radio {
     background-color: #06356A;
     color: #fff; }
   .theme-preview.sd-editor--theme-turquoise {
-    background-color: #00CED1;
+    background-color: #5AC7C3;
     color: #122235; }
   .theme-preview.sd-editor--theme-military {
     background-color: #949E5F;
@@ -8505,7 +8507,7 @@ label + .sd-radio {
   font-size: 1rem;
   white-space: nowrap;
   font-weight: 500;
-  background-color: rgba(150, 150, 150, 0.75);
+  background-color: rgba(0, 0, 0, 0.5);
   color: #fff;
   font-family: "Roboto"; }
 
@@ -8529,26 +8531,38 @@ label + .sd-radio {
 .main-article.sd-editor--theme-default {
   background-color: #fff;
   color: #333; }
+  .main-article.sd-editor--theme-default .Editor3-root .DraftEditor-editorContainer blockquote {
+    border-left-color: #333; }
 
 .main-article.sd-editor--theme-dark {
   background-color: #222;
   color: #AACCD1; }
+  .main-article.sd-editor--theme-dark .Editor3-root .DraftEditor-editorContainer blockquote {
+    border-left-color: #AACCD1; }
 
 .main-article.sd-editor--theme-blue {
   background-color: #06356A;
   color: #fff; }
+  .main-article.sd-editor--theme-blue .Editor3-root .DraftEditor-editorContainer blockquote {
+    border-left-color: #fff; }
 
 .main-article.sd-editor--theme-turquoise {
-  background-color: #00CED1;
+  background-color: #5AC7C3;
   color: #122235; }
+  .main-article.sd-editor--theme-turquoise .Editor3-root .DraftEditor-editorContainer blockquote {
+    border-left-color: #122235; }
 
 .main-article.sd-editor--theme-military {
   background-color: #949E5F;
   color: #252818; }
+  .main-article.sd-editor--theme-military .Editor3-root .DraftEditor-editorContainer blockquote {
+    border-left-color: #252818; }
 
 .main-article.sd-editor--theme-natural {
   background-color: #EFE9C5;
   color: #1D1414; }
+  .main-article.sd-editor--theme-natural .Editor3-root .DraftEditor-editorContainer blockquote {
+    border-left-color: #1D1414; }
 
 .main-article.sd-editor--font-sans {
   font-family: "Roboto", sans-serif; }
@@ -8560,28 +8574,133 @@ label + .sd-radio {
   font-family: "Roboto Mono", monospace; }
 
 .main-article.sd-editor--headline-small .headline .Editor3-root .DraftEditor-editorContainer {
-  font-size: 2.3rem !important; }
+  font-size: 2.3rem; }
+
+.main-article.sd-editor--headline-small .headline .text-editor, .main-article.sd-editor--headline-small .headline p .text-editor, .main-article.sd-editor--headline-small .headline div .text-editor {
+  font-size: 2.3rem; }
 
 .main-article.sd-editor--headline-medium .headline .Editor3-root .DraftEditor-editorContainer {
-  font-size: 2.8rem !important; }
+  font-size: 2.8rem; }
+
+.main-article.sd-editor--headline-medium .headline .text-editor, .main-article.sd-editor--headline-medium .headline p .text-editor, .main-article.sd-editor--headline-medium .headline div .text-editor {
+  font-size: 2.8rem; }
 
 .main-article.sd-editor--headline-large .headline .Editor3-root .DraftEditor-editorContainer {
-  font-size: 3.2rem !important; }
+  font-size: 3.2rem; }
+
+.main-article.sd-editor--headline-large .headline .text-editor, .main-article.sd-editor--headline-large .headline p .text-editor, .main-article.sd-editor--headline-large .headline div .text-editor {
+  font-size: 3.2rem; }
 
 .main-article.sd-editor--abstract-small .abstract .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.4rem !important; }
+  font-size: 1.4rem; }
+
+.main-article.sd-editor--abstract-small .abstract, .main-article.sd-editor--abstract-small .abstract p, .main-article.sd-editor--abstract-small .abstract div {
+  font-size: 1.4rem; }
 
 .main-article.sd-editor--abstract-medium .abstract .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.6rem !important; }
+  font-size: 1.6rem; }
+
+.main-article.sd-editor--abstract-medium .abstract, .main-article.sd-editor--abstract-medium .abstract p, .main-article.sd-editor--abstract-medium .abstract div {
+  font-size: 1.6rem; }
 
 .main-article.sd-editor--abstract-large .abstract .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.8rem !important; }
+  font-size: 1.8rem; }
+
+.main-article.sd-editor--abstract-large .abstract, .main-article.sd-editor--abstract-large .abstract p, .main-article.sd-editor--abstract-large .abstract div {
+  font-size: 1.8rem; }
 
 .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.4rem !important; }
+  font-size: 1.4rem; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h1 {
+    font-size: 2em; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h2 {
+    font-size: 1.5em;
+    line-height: 140%; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h3 {
+    font-size: 1.125em; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h4 {
+    font-size: 0.875em; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h5 {
+    font-size: 0.75em; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h6 {
+    font-size: 0.6875em;
+    color: inherit;
+    text-transform: uppercase;
+    opacity: 0.7;
+    letter-spacing: 0.03em; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h6 {
+    line-height: 140%; }
+  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer blockquote {
+    margin-left: 0;
+    padding-left: 1em;
+    border-left: 4px solid;
+    font-style: italic; }
+
+.main-article.sd-editor--body-small .body-text .text-editor {
+  font-size: 1.4rem; }
+  .main-article.sd-editor--body-small .body-text .text-editor p {
+    font-size: 1.4rem; }
 
 .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.6rem !important; }
+  font-size: 1.6rem; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h1 {
+    font-size: 2em; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h2 {
+    font-size: 1.5em;
+    line-height: 140%; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h3 {
+    font-size: 1.125em; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h4 {
+    font-size: 0.875em; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h5 {
+    font-size: 0.75em; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h6 {
+    font-size: 0.6875em;
+    color: inherit;
+    text-transform: uppercase;
+    opacity: 0.7;
+    letter-spacing: 0.03em; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h6 {
+    line-height: 140%; }
+  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer blockquote {
+    margin-left: 0;
+    padding-left: 1em;
+    border-left: 4px solid;
+    font-style: italic; }
+
+.main-article.sd-editor--body-medium .body-text .text-editor {
+  font-size: 1.6rem; }
+  .main-article.sd-editor--body-medium .body-text .text-editor p {
+    font-size: 1.6rem; }
 
 .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.8rem !important; }
+  font-size: 1.8rem; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h1 {
+    font-size: 2em; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h2 {
+    font-size: 1.5em;
+    line-height: 140%; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h3 {
+    font-size: 1.125em; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h4 {
+    font-size: 0.875em; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h5 {
+    font-size: 0.75em; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h6 {
+    font-size: 0.6875em;
+    color: inherit;
+    text-transform: uppercase;
+    opacity: 0.7;
+    letter-spacing: 0.03em; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h6 {
+    line-height: 140%; }
+  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer blockquote {
+    margin-left: 0;
+    padding-left: 1em;
+    border-left: 4px solid;
+    font-style: italic; }
+
+.main-article.sd-editor--body-large .body-text .text-editor {
+  font-size: 1.8rem; }
+  .main-article.sd-editor--body-large .body-text .text-editor p {
+    font-size: 1.8rem; }
