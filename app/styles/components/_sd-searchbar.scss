@@ -6,10 +6,12 @@
 .sd-searchbar {
     flex-grow: 1;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     position: relative;
     background-color: transparent;
     transition: background-color 0.2s ease-out;
+    height: 100%; // adapts to the height of the parent element, usually .subnav. 
+    max-height: $subnav-height;
     &--focused {
         background-color: $white;
     }
@@ -23,15 +25,25 @@
         border-right: 1px solid #dfdfdf;
         border-left: 1px solid #dfdfdf;
     }
+    &--border-bottom {
+        border-bottom: 1px solid rgba(123,123,123,0.2);
+    }
+    &--small {
+        height: 3.6rem;
+    }
 }
-.sd-searchbar__input {
-    height: $subnav-height;
+.sd-searchbar__input, input[type="text"].sd-searchbar__input, input[type="search"].sd-searchbar__input {
     flex-grow: 1;
+    flex-shrink: 1;
     font-size: 1.4rem;
-    border: 0;
     padding: 0;
     color: inherit;
+    align-self: auto;
     background-color: transparent;
+    border: 0;
+    box-shadow: none !important;
+    padding-right: 1rem;
+    height: auto;
     &::placeholder {
         color: $grayLight;
         font-weight: 300;
@@ -41,16 +53,17 @@
 
 .sd-searchbar__icon {
     flex-grow: 0;
-    flex-shrink: 0;
-    height: $subnav-height;
+    flex-shrink: 1;
+    align-self: auto;
     width: $subnav-height;
     position: relative;
     opacity: 0.4;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     &::after {
         content:"\e618";
-        position: absolute;
-        top: 1.6rem;
-        left: 1.8rem;
         width: 16px;
         height: 16px;
         line-height: 16px;
@@ -66,10 +79,11 @@
     
 }
 .sd-searchbar__search-btn {
-    height: $subnav-height - 1.4rem;
-    width: $subnav-height - 1.4rem;
+    height: 3rem;
+    width: 3rem;
     flex-grow: 0;
     flex-shrink: 0;
+    align-self: center;
     margin: 0 0.7rem 0 0;
     padding: 0;
     opacity: 0.6;
@@ -95,6 +109,7 @@
 .sd-searchbar__cancel {
     height: 1.6rem;
     width: 1.6rem;
+    align-self: center;
     flex-grow: 0;
     flex-shrink: 0;
     margin: 0 1.2rem 0 0;

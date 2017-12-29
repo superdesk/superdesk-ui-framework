@@ -50,6 +50,9 @@ $subnav-background-darkUi: #404040;
   flex-grow: 1;
   @include text-overflow();
   @include text-normal();
+  &--no-grow {
+    flex-grow: 0;
+  }
 }
 .subnav__desk-stage {
     flex-grow: 1;
