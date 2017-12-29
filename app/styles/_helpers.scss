@@ -165,6 +165,10 @@ time {
     color: $grayText;
 }
 
+.sd-text__right {
+    text-align: right;
+}
+
 .dark-ui {
     .sd-text__slugline {
         color: $sd-slugline-darkUI;

@@ -36,6 +36,10 @@ export default angular.module('ui-docs', [
                     name: 'Badge',
                     page: 'badge.html'
                 },
+                tagLabels: {
+                    name: 'Tag labels',
+                    page: 'tag-labels.html'
+                },
                 alerts: {
                     name: 'Alerts',
                     page: 'alerts.html'
