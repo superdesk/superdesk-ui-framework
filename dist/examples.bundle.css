@@ -3176,6 +3176,18 @@ time {
 .big-icon--picture:before {
   content: "\E62B"; }
 
+.big-icon--manage-package:before {
+  content: "\E62C"; }
+
+.big-icon--live:before {
+  content: "\E62D"; }
+
+.big-icon--live-alt:before {
+  content: "\E62E"; }
+
+.big-icon--meta-search:before {
+  content: "\E62F"; }
+
 .modal-open {
   overflow: hidden; }
   .modal-open .dropdown__menu {
