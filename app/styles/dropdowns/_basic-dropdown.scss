@@ -86,6 +86,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 // ----------------------
 .dropdown__menu {
     position: absolute;
+    overflow: auto;
     top: 100%;
     left: 0;
     z-index: $zindexDropdown;
