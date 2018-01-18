@@ -31,8 +31,8 @@ angular.module('application', ['superdesk-ui'])
 1. Fork repo https://github.com/superdesk/superdesk-ui-framework
 2. Clone `git clone https://github.com/superdesk/superdesk-ui-framework`
 3. `npm install` to install dependencies
-4. `grunt build` to run server locally
-5. Page `localhost:9100` is opened automatically in default browser
+4. `grunt server` to run server locally
+5. Open `localhost:9100`
 
 ### Testing
 Runing `e2e&unit` tests
