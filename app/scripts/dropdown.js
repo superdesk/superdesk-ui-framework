@@ -49,14 +49,6 @@ function sdDropdown($window) {
                 button = elem.find('.dropdown__toggle') || elem.find('.dropdown-toggle')
                         || elem.find('[dropdown__toggle]');
 
-                // when dropdown menu has a lot of items and is rendered inside a fixed element
-                // scrolling the window doesn't help in seeing the items which are outside of the viewport
-                // the problem is solved by limiting dropdown menu height so it doesn't go out of the viewport
-                var buttonBoundingClientRect = button.get(0).getBoundingClientRect();
-                var buttonTopToViewportTop = buttonBoundingClientRect.top;
-                var buttonBottomToViewportBottom = $(window).innerHeight() - buttonBoundingClientRect.bottom;
-                menu.css("max-height", Math.max(buttonTopToViewportTop, buttonBottomToViewportBottom) - button.outerHeight());
-
                 // Check if menu is near bottom edge
                 if (closeToBottom()) {
                     elem.addClass('dropdown--dropup');
