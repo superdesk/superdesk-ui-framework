@@ -27,7 +27,7 @@ $badge-lineheight: 1.1em !default;
 
 /// Generates the base styles for a badge.
 @mixin badge {
-    display: inline-flex;
+    display: inline-block;
     min-width: $badge-minwidth;
     padding: $badge-padding;
     border-radius: $badge-radius;

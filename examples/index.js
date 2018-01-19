@@ -214,5 +214,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/photo-desk.html'
         })
+        .when('/media-carousel', {
+            title: 'Media Carousel',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/media-carousel.html'
+        })
         .otherwise({redirectTo: '/'});
 });

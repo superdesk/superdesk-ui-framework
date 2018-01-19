@@ -382,12 +382,13 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         max-height: 0;
         opacity: 0;
         margin-bottom: 0;
+        overflow: hidden;
     }
 }
 .sd-list-item-nested--expanded {
     .sd-list-item-nested__childs {
         transition: all ease-in 0.2s;
-        max-height: 15.2rem;
+        max-height: 114rem;
         opacity: 1;
     }
 }
