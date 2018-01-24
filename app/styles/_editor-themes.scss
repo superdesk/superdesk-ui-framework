@@ -212,16 +212,23 @@ $body-font-size: (
     @include editor-lable-base();
 }
 .theme-preview__text-field {
-    display: block;
+    display: flex;
     line-height: 140%;
     color: inherit;
     font-family: inherit;
     border-bottom: 1px dotted $neutral-border-color;
     margin-bottom: 0.8rem;
     padding: 1rem 0 0.5rem;
-    display: flex;
     flex-direction: column;
     justify-content: flex-end;
+}
+.theme-preview__media-field {
+    display: flex;
+    color: inherit;
+    font-family: inherit;
+    margin-bottom: 0.8rem;
+    padding: 1rem 0 0.5rem;
+    flex-direction: column;
 }
 .theme-preview__button-bar {
     text-align: right;
