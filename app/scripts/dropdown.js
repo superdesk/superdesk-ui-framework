@@ -1,5 +1,140 @@
 /* eslint-disable */
 
+var multiLevelDropdownId = 0;
+
+function isDropdownRoot(anyElementInsideDropdown){
+    return $(anyElementInsideDropdown).parent().closest('.dropdown__menu').length < 1;
+}
+
+function manageVisibilityOfChildDropdowns(dropdownToggleButton, dropdownMenu){
+    if(dropdownToggleButton !== null){
+        dropdownToggleButton.addEventListener('mouseleave', function(event){
+
+            // when mouse leaves the button - hide child list
+    
+            var leftToElement = event.relatedTarget;
+    
+            if(leftToElement.contains(event.target)){
+                // allow leaving to parent, because when scrollbar exists between a button and the child list
+                // moving a mouse on a scrollbar triggers mouseleave to the scrollable container
+                return;
+            }
+    
+            var parentDropdown = $(leftToElement).closest(".dropdown__menu");
+            if(parentDropdown.length > 0 && parentDropdown.first().get(0).dataset.multiLevelId === dropdownToggleButton.dataset.multiLevelId){
+                return; // keep displaying the list even if mouse cursor moved to the child list
+            }
+    
+            document.querySelector(`.dropdown__menu[data-multi-level-id='${dropdownToggleButton.dataset.multiLevelId}']`).style.display = 'none';
+        }); 
+    }
+
+    Array.from(dropdownMenu.children).forEach(function(child){
+
+        // NOTE: no support for dynamically inserting children later
+
+        child.addEventListener('mouseenter', closeSiblingLists);
+    });
+
+    dropdownMenu.addEventListener('mouseleave', function(e){
+        var listMouseLeftTo = null;
+        var listMouseLeftFrom = e.target;
+
+        if(listMouseLeftFrom.classList.contains('dropdown__menu') === false){
+            throw new Error('Unexpected element type');
+        }
+
+        if(e.relatedTarget !== null){
+            if(e.relatedTarget.classList.contains('dropdown__menu')){
+                listMouseLeftTo = e.relatedTarget;
+            }
+            else if($(e.relatedTarget).parents('.dropdown__menu').length > 0){
+                listMouseLeftTo = $(e.relatedTarget).parents('.dropdown__menu').first().get(0);
+            }
+        }
+
+        if(listMouseLeftTo === null){
+            // keep a list open if mouse leaves to another list
+            // we can't verify if mouseleave originated from a parent list without resorting to setTimeout hackery
+            // because e.target will refer to a list instead of a button in case there is a scrollbar on the list
+            $('.dropdown__menu[data-multi-level-id]').hide();
+        }
+        else if (listMouseLeftFrom.dataset.multiLevelId > listMouseLeftTo.dataset.multiLevelId || listMouseLeftTo.dataset.multiLevelId === undefined/*root dropdown*/){
+            // mouse left from child list to parent list
+            $(listMouseLeftFrom).hide();
+        }
+    });
+
+    if(dropdownToggleButton !== null){
+        dropdownMenu.dataset.multiLevelId = multiLevelDropdownId;
+        dropdownToggleButton.dataset.multiLevelId = multiLevelDropdownId;
+        document.body.append(dropdownMenu);
+        multiLevelDropdownId++;
+    }
+}
+
+function getDropdownToggleButton(e){
+
+    var dropdownToggleButton = null;
+
+    if(e.target.classList.contains('dropdown-toggle') === true){
+        return e.target;
+    }
+    else if($(e.target).parents('.dropdown-toggle').length > 0){
+        // mouse event triggered on the child element e.g. an icon inside a .dropdown-toggle
+        return $(e.target).parents('.dropdown-toggle').first().get(0);
+    }
+    else if(
+        e.target.classList.contains('dropdown')
+        && Array.from(e.target.children)
+            .find((child)=> child.classList.contains('dropdown-toggle')) !== null
+    ){
+        // mouse event triggered on the parent element e.g. div.dropdown
+        return e.target.querySelector('.dropdown-toggle');
+    }
+
+    return null;
+}
+
+function closeSiblingLists(event){
+
+    // When mouse enters a list item, close all other dropdowns
+    // which were triggered from one of the siblings of that list item
+
+    var mouseFromElement = event.relatedTarget;
+    var mouseToElement = event.target;
+
+    var mouseToElementDropdownToggle = null;
+
+    if(mouseToElement.classList.contains('dropdown-toggle')){
+        mouseToElementDropdownToggle = mouseToElement;
+    }
+    else {
+        mouseToElementDropdownToggle = mouseToElement.querySelector('.dropdown-toggle')
+    }
+
+    var mouseToElementParentList = null;
+
+    if(isDropdownRoot(mouseToElement)){
+        mouseToElementParentList = $(mouseToElement).parents('.dropdown').first().get(0);
+    }
+    else {
+        mouseToElementParentList = $(mouseToElement).parents('.dropdown__menu').first().get(0);
+    }
+
+    if(mouseFromElement !== null && mouseToElementParentList.contains(mouseFromElement) ){
+        Array.from(mouseToElementParentList.querySelectorAll('.dropdown-toggle')).forEach(function(dropdownToggle){
+            if(mouseToElementDropdownToggle !== null && mouseToElementDropdownToggle.dataset.multiLevelId === dropdownToggle.dataset.multiLevelId){
+                return;
+            }
+            if(dropdownToggle.dataset.multiLevelId === undefined){
+                return;
+            }
+            document.querySelector(`.dropdown__menu[data-multi-level-id='${dropdownToggle.dataset.multiLevelId}']`).style.display = 'none';
+        });
+    }
+}
+
 sdDropdown.$inject = ['$window'];
 function sdDropdown($window) {
     return {
@@ -41,6 +176,67 @@ function sdDropdown($window) {
 
             elem.bind('click', doTheMath);
 
+            elem.bind('mouseenter', function(e){
+
+                if(e.target.classList.contains('dropdown-toggle') && isDropdownRoot(e.target) && e.target.dataset.rootEventListenerAdded === undefined){
+                    var rootDropdown = Array.from(e.target.parentElement.children).find((el) => el.classList.contains('dropdown__menu'));
+
+                    manageVisibilityOfChildDropdowns(null, rootDropdown);
+                    e.target.dataset.rootEventListenerAdded = true;
+                }
+
+                var dropdownToggleButton = getDropdownToggleButton(e);
+
+                if(dropdownToggleButton === null){
+                    $('.dropdown__menu[data-multi-level-id]').hide();
+                    return;
+                }
+
+                // mouse enters to a button which toggles a dropdown (can be anywhere in the tree)
+                var dropdownMenu = Array.from(dropdownToggleButton.parentElement.children).find((el) => el.classList.contains('dropdown__menu'));
+                if(dropdownMenu !== undefined && isDropdownRoot(dropdownMenu) === false){
+                    manageVisibilityOfChildDropdowns(dropdownToggleButton, dropdownMenu);
+                }
+                
+                // position in a way that dropdown is always in the viewport
+                var nextLevelId = dropdownToggleButton.dataset.multiLevelId;
+                if(nextLevelId !== undefined){
+                    var nextLevelDropdownElement = document.querySelector(`.dropdown__menu[data-multi-level-id='${nextLevelId}']`);
+                    nextLevelDropdownElement.style.display = "block";
+                    nextLevelDropdownElement.style['max-height'] = '';
+                    var parentDropdownBoundingClientRect = $(dropdownToggleButton).parents(".dropdown__menu").first().get(0).getBoundingClientRect();
+
+                    var nextLevelHeight = nextLevelDropdownElement.offsetHeight;
+
+                    var buttonBoundingClientRect = dropdownToggleButton.getBoundingClientRect();
+                    var buttonTopToViewportBottom = $(window).innerHeight() - buttonBoundingClientRect.top;
+                    var buttonBottomToViewportTop = buttonBoundingClientRect.bottom;
+
+                    var enoughSpaceAtTheBottomWithoutOffset = buttonTopToViewportBottom > nextLevelHeight;
+                    var enoughSpaceAtTheTopWithoutOffset = buttonBottomToViewportTop > nextLevelHeight;
+
+                    if(enoughSpaceAtTheBottomWithoutOffset){
+                        nextLevelDropdownElement.style.top = (document.documentElement.scrollTop + buttonBoundingClientRect.top) + 'px';
+                        nextLevelDropdownElement.style['max-height'] = buttonTopToViewportBottom + 'px';
+                    }
+                    else if(enoughSpaceAtTheTopWithoutOffset){
+                        nextLevelDropdownElement.style.top = (document.documentElement.scrollTop + buttonBottomToViewportTop - nextLevelHeight) + 'px';
+                        nextLevelDropdownElement.style['max-height'] = buttonBottomToViewportTop + 'px';
+                    }
+                    else {
+                        nextLevelDropdownElement.style['max-height'] = $(window).innerHeight() + 'px';
+                        nextLevelDropdownElement.style.top = document.documentElement.scrollTop + 'px';
+                    }
+
+                    if(nextLevelDropdownElement.classList.contains('dropdown__menu--submenu-left')){
+                        nextLevelDropdownElement.style.left = (parentDropdownBoundingClientRect.left - nextLevelDropdownElement.offsetWidth) + "px";
+                    }
+                    else {
+                        nextLevelDropdownElement.style.left = parentDropdownBoundingClientRect.right + "px";
+                    }
+                }
+            });
+
             if (elem.hasClass('dropdown--hover')) {
                 elem.bind('mouseover', doTheMath);
             }
@@ -55,13 +251,14 @@ function sdDropdown($window) {
                 var buttonBoundingClientRect = button.get(0).getBoundingClientRect();
                 var buttonTopToViewportTop = buttonBoundingClientRect.top;
                 var buttonBottomToViewportBottom = $(window).innerHeight() - buttonBoundingClientRect.bottom;
-                menu.css("max-height", Math.max(buttonTopToViewportTop, buttonBottomToViewportBottom) - button.outerHeight());
 
-                // Check if menu is near bottom edge
-                if (closeToBottom()) {
+                if(buttonTopToViewportTop > buttonBottomToViewportBottom){
                     elem.addClass('dropdown--dropup');
-                } else {
+                    menu.css("max-height", buttonTopToViewportTop - button.outerHeight());
+                }
+                else {
                     elem.removeClass('dropdown--dropup');
+                    menu.css("max-height", buttonBottomToViewportBottom - button.outerHeight());
                 }
 
                 // Check if menu is near top edge
