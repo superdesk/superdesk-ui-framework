@@ -9,5 +9,6 @@ export default angular.module('superdesk-ui', [
     'superdesk-ui.modals',
     'superdesk-ui.switch',
     'superdesk-ui.check',
-    'superdesk-ui.toggleBox'
+    'superdesk-ui.toggleBox',
+    'superdesk-ui.tags'
 ]);
