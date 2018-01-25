@@ -86,6 +86,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 // ----------------------
 .dropdown__menu {
     position: absolute;
+    overflow: auto;
     top: 100%;
     left: 0;
     z-index: $zindexDropdown;
@@ -298,17 +299,6 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
 }
 
-//Right aligned dropdowns
-.dropdown--align-right .dropdown__menu, .dropdown--align-right.dropdown__menu {
-    left: auto;
-    right: 0;
-    &:before {
-        left: auto;
-        right:10px;
-    }
-}
-
-
 .dropdown--dropup {
     // Reverse the caret
     .dropdown__caret {
@@ -326,45 +316,6 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     &.open {
         .dropdown__caret {
             border-bottom-color: $sd-blue !important;
-        }
-    }
-}
-
-.dropdown--dropleft {
-    display: inline-block;
-    vertical-align: middle;
-    .dropdown__menu {
-        top: -2.3rem;
-        left: auto;
-        right: calc(100% + 0.3rem);
-    }
-}
-
-.dropdown--dropright {
-    display: inline-block;
-    vertical-align: middle;
-    .dropdown__menu {
-        top: -2.3rem;
-        left: 100%;
-    }
-}
-.dropdown--dropright.open {
-    .dropdown__caret {
-        transform: rotate(-90deg);
-
-    }
-}
-.dropdown--dropleft.open {
-    .dropdown__caret {
-        transform: rotate(90deg);
-
-    }
-}
-.dropdown--dropright, .dropdown--dropleft {
-    &.dropdown--dropup {
-        .dropdown__menu {
-            bottom: -2.3rem;
-            top: auto;
         }
     }
 }

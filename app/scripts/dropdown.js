@@ -14,7 +14,7 @@ function manageVisibilityOfChildDropdowns(dropdownToggleButton, dropdownMenu){
     
             var leftToElement = event.relatedTarget;
     
-            if(leftToElement.contains(event.target)){
+            if(leftToElement.contains(event.target) && isDropdownRoot(event.target) === false){
                 // allow leaving to parent, because when scrollbar exists between a button and the child list
                 // moving a mouse on a scrollbar triggers mouseleave to the scrollable container
                 return;
@@ -59,7 +59,7 @@ function manageVisibilityOfChildDropdowns(dropdownToggleButton, dropdownMenu){
             // because e.target will refer to a list instead of a button in case there is a scrollbar on the list
             $('.dropdown__menu[data-multi-level-id]').hide();
         }
-        else if (listMouseLeftFrom.dataset.multiLevelId > listMouseLeftTo.dataset.multiLevelId || listMouseLeftTo.dataset.multiLevelId === undefined/*root dropdown*/){
+        else if (parseInt(listMouseLeftFrom.dataset.multiLevelId) > parseInt(listMouseLeftTo.dataset.multiLevelId)){
             // mouse left from child list to parent list
             $(listMouseLeftFrom).hide();
         }
@@ -135,6 +135,82 @@ function closeSiblingLists(event){
     }
 }
 
+function handleDisplayingAndPositioningOfDropdowns(e){
+
+    var dropdownToggleButton = getDropdownToggleButton(e);
+
+    if(dropdownToggleButton === null){
+        $('.dropdown__menu[data-multi-level-id]').hide();
+        return;
+    }
+
+    // mouse enters to a button which toggles a dropdown (can be anywhere in the tree)
+    var dropdownMenu = Array.from(dropdownToggleButton.parentElement.children).find((el) => el.classList.contains('dropdown__menu'));
+    if(dropdownMenu !== undefined){
+        manageVisibilityOfChildDropdowns(dropdownToggleButton, dropdownMenu);
+    }
+    
+    // position in a way that dropdown is always in the viewport and is opened in the right direction
+    var nextLevelId = dropdownToggleButton.dataset.multiLevelId;
+    if(nextLevelId !== undefined){
+        var nextLevelDropdownElement = document.querySelector(`.dropdown__menu[data-multi-level-id='${nextLevelId}']`);
+        nextLevelDropdownElement.style.display = "block";
+        nextLevelDropdownElement.style['max-height'] = '';
+        var parentDropdownBoundingClientRect = (
+            $(dropdownToggleButton).parents(".dropdown__menu").length > 0
+                ? $(dropdownToggleButton).parents(".dropdown__menu").first().get(0)
+                : dropdownToggleButton
+            
+        ).getBoundingClientRect();
+
+        var minSpacingFromTheEdgeOfTheViewport = 10;
+
+        var nextLevelHeight = nextLevelDropdownElement.offsetHeight;
+
+        var buttonBoundingClientRect = dropdownToggleButton.getBoundingClientRect();
+        var buttonTopToViewportBottom = $(window).innerHeight() - buttonBoundingClientRect.top;
+        var buttonBottomToViewportTop = buttonBoundingClientRect.bottom;
+
+        var $dropdownElement = $(dropdownToggleButton).closest('.dropdown');
+        var dropdownDropLeft = $dropdownElement.hasClass('dropdown--dropleft');
+        var dropdownDropRight = $dropdownElement.hasClass('dropdown--dropright');
+
+        var toggleButtonHeight = isDropdownRoot(dropdownToggleButton) && !dropdownDropLeft && !dropdownDropRight ? dropdownToggleButton.offsetHeight : 0;
+
+        var enoughSpaceAtTheBottomWithoutOffset = buttonTopToViewportBottom - toggleButtonHeight > nextLevelHeight;
+        var moreSpaceAtTheBottomThanTop = buttonTopToViewportBottom - toggleButtonHeight > buttonBottomToViewportTop + toggleButtonHeight;
+
+
+        // vertical positioning
+        if(enoughSpaceAtTheBottomWithoutOffset || moreSpaceAtTheBottomThanTop){
+            var maxHeight = buttonTopToViewportBottom - toggleButtonHeight - minSpacingFromTheEdgeOfTheViewport;
+            nextLevelDropdownElement.style.top = (document.documentElement.scrollTop + buttonBoundingClientRect.top + toggleButtonHeight) + 'px';
+            nextLevelDropdownElement.style['max-height'] = maxHeight + 'px';
+        }
+        else{
+            var maxHeight = buttonBottomToViewportTop - toggleButtonHeight;
+            nextLevelDropdownElement.style.top = document.documentElement.scrollTop + Math.max(maxHeight - nextLevelHeight, minSpacingFromTheEdgeOfTheViewport) + 'px';
+            nextLevelDropdownElement.style['max-height'] = (maxHeight - nextLevelHeight > minSpacingFromTheEdgeOfTheViewport ? maxHeight : maxHeight - minSpacingFromTheEdgeOfTheViewport) + 'px';
+        }
+
+        // horizontal positioning
+        if(isDropdownRoot(dropdownToggleButton) && dropdownDropLeft === false && dropdownDropRight === false){
+            nextLevelDropdownElement.style.left = parentDropdownBoundingClientRect.left + "px";
+        }
+        else if(isDropdownRoot(dropdownToggleButton) && dropdownDropLeft === true){
+            nextLevelDropdownElement.style.left = (parentDropdownBoundingClientRect.left - nextLevelDropdownElement.offsetWidth) + "px";
+        }
+        else {
+            if(nextLevelDropdownElement.classList.contains('dropdown__menu--submenu-left')){
+                nextLevelDropdownElement.style.left = (parentDropdownBoundingClientRect.left - nextLevelDropdownElement.offsetWidth) + "px";
+            }
+            else {
+                nextLevelDropdownElement.style.left = parentDropdownBoundingClientRect.right + "px";
+            }
+        }
+    }
+}
+
 sdDropdown.$inject = ['$window'];
 function sdDropdown($window) {
     return {
@@ -174,68 +250,12 @@ function sdDropdown($window) {
                 return elem.parents('#authoring-container').length ? 'authoring' : false;
             }
 
-            elem.bind('click', doTheMath);
-
-            elem.bind('mouseenter', function(e){
-
-                if(e.target.classList.contains('dropdown-toggle') && isDropdownRoot(e.target) && e.target.dataset.rootEventListenerAdded === undefined){
-                    var rootDropdown = Array.from(e.target.parentElement.children).find((el) => el.classList.contains('dropdown__menu'));
-
-                    manageVisibilityOfChildDropdowns(null, rootDropdown);
-                    e.target.dataset.rootEventListenerAdded = true;
-                }
-
-                var dropdownToggleButton = getDropdownToggleButton(e);
-
-                if(dropdownToggleButton === null){
-                    $('.dropdown__menu[data-multi-level-id]').hide();
-                    return;
-                }
-
-                // mouse enters to a button which toggles a dropdown (can be anywhere in the tree)
-                var dropdownMenu = Array.from(dropdownToggleButton.parentElement.children).find((el) => el.classList.contains('dropdown__menu'));
-                if(dropdownMenu !== undefined && isDropdownRoot(dropdownMenu) === false){
-                    manageVisibilityOfChildDropdowns(dropdownToggleButton, dropdownMenu);
-                }
-                
-                // position in a way that dropdown is always in the viewport
-                var nextLevelId = dropdownToggleButton.dataset.multiLevelId;
-                if(nextLevelId !== undefined){
-                    var nextLevelDropdownElement = document.querySelector(`.dropdown__menu[data-multi-level-id='${nextLevelId}']`);
-                    nextLevelDropdownElement.style.display = "block";
-                    nextLevelDropdownElement.style['max-height'] = '';
-                    var parentDropdownBoundingClientRect = $(dropdownToggleButton).parents(".dropdown__menu").first().get(0).getBoundingClientRect();
-
-                    var nextLevelHeight = nextLevelDropdownElement.offsetHeight;
-
-                    var buttonBoundingClientRect = dropdownToggleButton.getBoundingClientRect();
-                    var buttonTopToViewportBottom = $(window).innerHeight() - buttonBoundingClientRect.top;
-                    var buttonBottomToViewportTop = buttonBoundingClientRect.bottom;
-
-                    var enoughSpaceAtTheBottomWithoutOffset = buttonTopToViewportBottom > nextLevelHeight;
-                    var enoughSpaceAtTheTopWithoutOffset = buttonBottomToViewportTop > nextLevelHeight;
-
-                    if(enoughSpaceAtTheBottomWithoutOffset){
-                        nextLevelDropdownElement.style.top = (document.documentElement.scrollTop + buttonBoundingClientRect.top) + 'px';
-                        nextLevelDropdownElement.style['max-height'] = buttonTopToViewportBottom + 'px';
-                    }
-                    else if(enoughSpaceAtTheTopWithoutOffset){
-                        nextLevelDropdownElement.style.top = (document.documentElement.scrollTop + buttonBottomToViewportTop - nextLevelHeight) + 'px';
-                        nextLevelDropdownElement.style['max-height'] = buttonBottomToViewportTop + 'px';
-                    }
-                    else {
-                        nextLevelDropdownElement.style['max-height'] = $(window).innerHeight() + 'px';
-                        nextLevelDropdownElement.style.top = document.documentElement.scrollTop + 'px';
-                    }
-
-                    if(nextLevelDropdownElement.classList.contains('dropdown__menu--submenu-left')){
-                        nextLevelDropdownElement.style.left = (parentDropdownBoundingClientRect.left - nextLevelDropdownElement.offsetWidth) + "px";
-                    }
-                    else {
-                        nextLevelDropdownElement.style.left = parentDropdownBoundingClientRect.right + "px";
-                    }
-                }
+            elem.bind('click', function(event){
+                doTheMath();
+                handleDisplayingAndPositioningOfDropdowns(event);
             });
+
+            elem.bind('mouseenter', handleDisplayingAndPositioningOfDropdowns);
 
             if (elem.hasClass('dropdown--hover')) {
                 elem.bind('mouseover', doTheMath);
@@ -252,14 +272,6 @@ function sdDropdown($window) {
                 var buttonTopToViewportTop = buttonBoundingClientRect.top;
                 var buttonBottomToViewportBottom = $(window).innerHeight() - buttonBoundingClientRect.bottom;
 
-                if(buttonTopToViewportTop > buttonBottomToViewportBottom){
-                    elem.addClass('dropdown--dropup');
-                    menu.css("max-height", buttonTopToViewportTop - button.outerHeight());
-                }
-                else {
-                    elem.removeClass('dropdown--dropup');
-                    menu.css("max-height", buttonBottomToViewportBottom - button.outerHeight());
-                }
 
                 // Check if menu is near top edge
                 if (closeToTop()) {
