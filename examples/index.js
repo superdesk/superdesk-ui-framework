@@ -220,5 +220,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/media-carousel.html'
         })
+        .when('/tags-input', {
+            title: 'Tags Input',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/tags-input.html'
+        })
         .otherwise({redirectTo: '/'});
 });
