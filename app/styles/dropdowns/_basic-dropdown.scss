@@ -320,6 +320,27 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
 }
 
+.dropdown--dropright {
+    display: inline-block;
+    vertical-align: middle;
+    .dropdown__menu {
+        top: -2.3rem;
+        left: 100%;
+    }
+}
+.dropdown--dropright.open {
+    .dropdown__caret {
+        transform: rotate(-90deg);
+
+    }
+}
+.dropdown--dropleft.open {
+    .dropdown__caret {
+        transform: rotate(90deg);
+
+    }
+}
+
 // CLassic dropdown with no arrow
 // -------------------------------------------------
 .dropdown--noarrow {
