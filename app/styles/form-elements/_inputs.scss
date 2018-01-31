@@ -1,5 +1,5 @@
 // FORM ELEMENTS : Input and slect : form-elements/inputs.scss
-// 
+//
 
 // input, textarea, select {
 
@@ -39,7 +39,7 @@
     &:focus {
         background-color: rgba(0, 0, 0, 0.05);
     }
-} 
+}
 
 @mixin Form-label-base {
     display: inline-block;
@@ -77,6 +77,7 @@
             position: relative;
             z-index: 2;
         }
+        cursor: pointer;
     }
     textarea.sd-line-input__input {
       padding-top: 3px;
@@ -230,7 +231,7 @@
             }
         }
     }
-    // DARK UI 
+    // DARK UI
     // modifications for dark background color
 
     &--dark-ui {
@@ -374,18 +375,18 @@
         }
         .sd-line-input__input {
             grid-row: 1/2;
-            grid-column: 3/5; 
+            grid-column: 3/5;
         }
         .sd-line-input__hint, .sd-line-input__message {
             position: static;
             grid-row: 2/3;
-            grid-column: 3/4; 
-            padding-right: 0; 
+            grid-column: 3/4;
+            padding-right: 0;
         }
         .sd-line-input__char-count {
             position: static;
             grid-row: 2/3;
-            grid-column: 5/4; 
+            grid-column: 5/4;
             text-align: right;
             padding-left: 1.6rem;
         }
@@ -394,7 +395,7 @@
         .sd-line-input__label {
             min-width: auto;
             max-width: none;
-        } 
+        }
     }
     &--with-button {
         input, textarea {
@@ -442,4 +443,3 @@
     }
 
 }
-
