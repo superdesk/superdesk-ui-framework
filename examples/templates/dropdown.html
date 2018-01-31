@@ -135,88 +135,6 @@
     </div>
 </div>
 
-
-<h3 class="docs-page__h3">Dropdown Append To Body</h3>
-<p class="docs-page__paragraph">
-    Add <code>dropdown-append-to-body</code> to the <code>dropdown</code> element to append to the inner <code>dropdown-menu</code> to the body.
-    This is useful when the dropdown button is inside a div with <code>overflow: hidden</code>, and the menu would otherwise be hidden.
-</p>
-<div class="docs-page__code-window" doc-tabs>
-    <div class="docs-page__window-bar">
-        <a id="example" href="#" class="active">Example</a>
-        <a id="markup" href="#">Markup</a>
-    </div> 
-    <div class="docs-page__window-content">
-        <div class="docs-page__code-example clearfix">
-            <div class="dropdown" dropdown dropdown-append-to-body>
-                <button class="dropdown__toggle" dropdown__toggle>
-                    Action
-                    <span class="dropdown__caret"></span>
-                </button>
-                <ul class="dropdown__menu">
-                    <li>
-                        <div class="dropdown__menu-label">
-                            Actions
-                            <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
-                        </div>
-                    </li>
-                    <li class="dropdown__menu-divider"></li>
-                    <li><button><i class="icon-pencil"></i>Edit</button></li>
-                    <li><button><i class="icon-copy"></i>Copy</button></li>
-                    <li><button><i class="icon-trash"></i>Delete</button></li>
-                    <li class="dropdown__menu-divider"></li>
-                    <li>
-                        <div class="dropdown__menu-label">Actions 2</div>
-                    </li>
-                    <li class="dropdown__menu-item--no-link">
-                        Just some text without a link
-                    </li>
-                    
-                    <li>
-                        <button><i class="icon-download"></i>Download</button>
-                    </li>
-                    <li>
-                        <button><i class="icon-print"></i>Print</button>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <div class="docs-page__code-markup">
-            <pre class="prettyprint lang-html linenums">
-                 <div class="dropdown" dropdown dropdown-append-to-body ng-non-bindable>
-                    <button class="dropdown__toggle" dropdown__toggle>
-                        Action
-                        <span class="dropdown__caret"></span>
-                    </button>
-                    <ul class="dropdown__menu">
-                        <li>
-                            <div class="dropdown__menu-label">
-                                Actions
-                                <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
-                            </div>
-                        </li>
-                        <li class="dropdown__menu-divider"></li>
-                        <li><button><i class="icon-pencil"></i>Edit</button></li>
-                        <li><button><i class="icon-copy"></i>Copy</button></li>
-                        <li><button><i class="icon-trash"></i>Delete</button></li>
-                        <li class="dropdown__menu-divider"></li>
-                        <li>
-                            <div class="dropdown__menu-label">Actions 2</div>
-                        </li>
-                        <li>
-                            <button><i class="icon-download"></i>Download</button>
-                        </li>
-                        <li>
-                            <button><i class="icon-print"></i>Print</button>
-                        </li>
-                    </ul>
-                </div>
-            </pre>
-        </div>
-    </div>
-</div>
-
-
 <h3 class="docs-page__h3">Multilevel dropdown</h3>
 <p class="docs-page__paragraph">
     To create a second level in the dropdown menu repeat the initial dropdown structure on the desired <code>&lt;li&gt;</code> item of the parent dropdown. 
@@ -399,7 +317,7 @@
                         <li class="dropdown__menu-divider"></li>
                         <li>
                             <div class="dropdown" dropdown>
-                                <button class="dropdown__toggle"><i class="icon-star"></i>Second level actions</button>
+                                <button class="dropdown__toggle" dropdown__toggle><i class="icon-star"></i>Second level actions</button>
                                 <ul class="dropdown__menu dropdown__menu--submenu-left">
                                     <li><a href="">Action 4</a></li>
                                     <li><a href="">Action 5</a></li>
@@ -433,7 +351,7 @@
                         <li class="dropdown__menu-divider"></li>
                         <li>
                             <div class="dropdown" dropdown>
-                                <button class="dropdown__toggle"><i class="icon-star"></i>Second level actions</button>
+                                <button class="dropdown__toggle" dropdown__toggle><i class="icon-star"></i>Second level actions</button>
                                 <!--additional modifier to open the submenu on the left: dropdown__menu--submenu-left-->
                                 <ul class="dropdown__menu dropdown__menu--submenu-left">
                                     <li><a href="">Action 4</a></li>

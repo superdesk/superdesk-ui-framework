@@ -107,6 +107,7 @@ angular.module('superdesk-ui.helper.dropdown', ['superdesk-ui.helper.position'])
         };
 
         this.toggle = function(open) {
+            //
             return scope.isOpen = arguments.length ? !!open : !scope.isOpen;
         };
 
@@ -310,17 +311,8 @@ angular.module('superdesk-ui.helper.dropdown', ['superdesk-ui.helper.position'])
 
             dropdownCtrl.toggleElement = element;
 
-            var toggleDropdown = function toggleDropdown(event) {
-                event.preventDefault();
 
-                if (!element.hasClass('disabled') && !attrs.disabled) {
-                    scope.$apply(() => {
-                        dropdownCtrl.toggle();
-                    });
-                }
-            };
 
-            element.bind('click', toggleDropdown);
 
             // WAI-ARIA
             element.attr({'aria-haspopup': true, 'aria-expanded': false});
@@ -328,8 +320,5 @@ angular.module('superdesk-ui.helper.dropdown', ['superdesk-ui.helper.position'])
                 element.attr('aria-expanded', !!isOpen);
             });
 
-            scope.$on('$destroy', () => {
-                element.unbind('click', toggleDropdown);
-            });
         }
     }));
