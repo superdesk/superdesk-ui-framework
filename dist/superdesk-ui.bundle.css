@@ -8118,7 +8118,6 @@ label + .sd-radio {
 
 .dropdown__menu {
   position: absolute;
-  overflow: auto;
   top: 100%;
   left: 0;
   z-index: 1000;
@@ -8281,6 +8280,13 @@ label + .sd-radio {
     overflow: auto;
     overflow-x: hidden; }
 
+.dropdown--align-right .dropdown__menu, .dropdown--align-right.dropdown__menu {
+  left: auto;
+  right: 0; }
+  .dropdown--align-right .dropdown__menu:before, .dropdown--align-right.dropdown__menu:before {
+    left: auto;
+    right: 10px; }
+
 .dropdown--dropup .dropdown__caret {
   border-top: 0;
   border-bottom: 4px solid #000;
@@ -8299,6 +8305,14 @@ label + .sd-radio {
 .dropdown--dropup.open .dropdown__caret {
   border-bottom-color: #5ea9c8 !important; }
 
+.dropdown--dropleft {
+  display: inline-block;
+  vertical-align: middle; }
+  .dropdown--dropleft .dropdown__menu {
+    top: -2.3rem;
+    left: auto;
+    right: calc(100% + 0.3rem); }
+
 .dropdown--dropright {
   display: inline-block;
   vertical-align: middle; }
@@ -8311,6 +8325,10 @@ label + .sd-radio {
 
 .dropdown--dropleft.open .dropdown__caret {
   transform: rotate(90deg); }
+
+.dropdown--dropright.dropdown--dropup .dropdown__menu, .dropdown--dropleft.dropdown--dropup .dropdown__menu {
+  bottom: -2.3rem;
+  top: auto; }
 
 .dropdown--noarrow {
   display: inline-block; }
@@ -8445,6 +8463,9 @@ label + .sd-radio {
     .dropdown.open li .dropdown > .dropdown__menu.upward {
       top: auto;
       bottom: -16px; }
+    .dropdown.open li .dropdown > .dropdown__menu.dropdown--align-right {
+      left: auto;
+      right: 100%; }
   .dropdown.open li .dropdown.dropdown--dropup > .dropdown__menu {
     top: auto;
     bottom: 0; }
