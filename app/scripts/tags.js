@@ -2,7 +2,9 @@ TagInputDirective.$inject = ['$q'];
 
 function TagInputDirective($q) {
     return {
-        scope: {},
+        scope: {
+            label: '@'
+        },
         template: require('../template/tags.html'),
         link: function(scope, element, attrs, ctrl) {
             scope.tags = [
