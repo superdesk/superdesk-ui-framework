@@ -42,6 +42,10 @@
                     top: auto;
                     bottom: -16px;
                 }
+                &.dropdown--align-right {
+                    left: auto;
+                    right: 100%;
+                }
             }
             &.dropdown--dropup > .dropdown__menu {
                 top: auto;
