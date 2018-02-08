@@ -47,7 +47,7 @@
      * @param {string=} [type=text] Type of the input element. Only 'text', 'email' and 'url' are supported values.
      * @param {string=} [text=NA] Assignable Angular expression for data-binding to the element's text.
      * @param {number=} tabindex Tab order of the control.
-     * @param {string=} [placeholder=Add a tag] Placeholder text for the control.
+     * @param {string=} [placeholder=Type to add] Placeholder text for the control.
      * @param {number=} [minLength=3] Minimum length for a new tag.
      * @param {number=} [maxLength=MAX_SAFE_INTEGER] Maximum length allowed for a new tag.
      * @param {number=} [minTags=0] Sets minTags validation error key if the number of tags added is less than minTags.
@@ -217,9 +217,9 @@
                 tagsInputConfig.load('tagsInput', $scope, $attrs, {
                     template: [String, 'ngTagsInput/tag-item.html'],
                     type: [String, 'text', validateType],
-                    placeholder: [String, 'Add a tag'],
+                    placeholder: [String, ' '],
                     tabindex: [Number, null],
-                    removeTagSymbol: [String, String.fromCharCode(215)],
+                    removeTagSymbol: [String, 'icon-close-small'],
                     replaceSpacesWithDashes: [Boolean, true],
                     minLength: [Number, 3],
                     maxLength: [Number, MAX_SAFE_INTEGER],
@@ -516,7 +516,7 @@
         return {
             restrict: 'E',
             require: '^tagsInput',
-            template: '<ng-include src="$$template"></ng-include>',
+            template: '<ng-include class="tags-input__helper-box" src="$$template"></ng-include>',
             scope: {
                 $scope: '=scope',
                 data: '='
@@ -885,7 +885,7 @@
                 var threshold = tagsInputConfig.getTextAutosizeThreshold(),
                     span, resize;
 
-                span = angular.element('<span class="input"></span>');
+                span = angular.element('<span class="tag-input__input"></span>');
                 span.css('display', 'none')
                     .css('visibility', 'hidden')
                     .css('width', 'auto')
@@ -1182,11 +1182,11 @@
     /* HTML templates */
     tagsInput.run(["$templateCache", function($templateCache) {
         $templateCache.put('ngTagsInput/tags-input.html',
-            "<div class=\"host\" tabindex=\"-1\" ng-click=\"eventHandlers.host.click()\" ti-transclude-append><div class=\"tags\" ng-class=\"{focused: hasFocus}\"><ul class=\"tag-list\"><li class=\"tag-item\" ng-repeat=\"tag in tagList.items track by track(tag)\" ng-class=\"getTagClass(tag, $index)\" ng-click=\"eventHandlers.tag.click(tag)\"><ti-tag-item scope=\"templateScope\" data=\"::tag\"></ti-tag-item></li></ul><input class=\"input\" autocomplete=\"off\" ng-model=\"newTag.text\" ng-model-options=\"{getterSetter: true}\" ng-keydown=\"eventHandlers.input.keydown($event)\" ng-focus=\"eventHandlers.input.focus($event)\" ng-blur=\"eventHandlers.input.blur($event)\" ng-paste=\"eventHandlers.input.paste($event)\" ng-trim=\"false\" ng-class=\"{'invalid-tag': newTag.invalid}\" ng-disabled=\"disabled\" ti-bind-attrs=\"{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}\" ti-autosize></div></div>"
+            "<div class=\"tags-input__host\" tabindex=\"-1\" ng-click=\"eventHandlers.host.click()\" ti-transclude-append><div class=\"tags-input__tags\" ng-class=\"{focused: hasFocus}\"><button class=\"tags-input__add-button\"><i class=\"icon-plus-large\"></i></button><ul class=\"tags-input__tag-list\"><li class=\"tags-input__tag-item\" ng-repeat=\"tag in tagList.items track by track(tag)\" ng-class=\"getTagClass(tag, $index)\" ng-click=\"eventHandlers.tag.click(tag)\"><ti-tag-item scope=\"templateScope\" data=\"::tag\"></ti-tag-item></li></ul><input class=\"tags-input__input\" autocomplete=\"off\" ng-model=\"newTag.text\" ng-model-options=\"{getterSetter: true}\" ng-keydown=\"eventHandlers.input.keydown($event)\" ng-focus=\"eventHandlers.input.focus($event)\" ng-blur=\"eventHandlers.input.blur($event)\" ng-paste=\"eventHandlers.input.paste($event)\" ng-trim=\"false\" ng-class=\"{'invalid-tag': newTag.invalid}\" ng-disabled=\"disabled\" ti-bind-attrs=\"{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}\" ti-autosize></div></div>"
         );
 
         $templateCache.put('ngTagsInput/tag-item.html',
-            "<span ng-bind=\"$getDisplayText()\"></span> <a class=\"remove-button\" ng-click=\"$removeTag()\" ng-bind=\"::$$removeTagSymbol\"></a>"
+            "<span ng-bind=\"$getDisplayText()\"></span> <a class=\"tags-input__remove-button\" ng-click=\"$removeTag()\"><i ng-class=\"::$$removeTagSymbol\"></i></a>"
         );
 
         $templateCache.put('ngTagsInput/auto-complete.html',
