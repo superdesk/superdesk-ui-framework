@@ -1,0 +1,219 @@
+sd-tag-input {
+    display: block;
+    &[data-label] {
+        position: relative;
+        padding-top: 1rem;
+    }
+}
+.tags-input__label {
+    position: absolute;
+    display: inline-block;
+    font-size: 1.1rem;
+    margin: 0;
+    top:0;
+    line-height: 100%;
+    color: $grayText;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+}
+
+tags-input {
+    display: block;
+    .tags-input__host {
+        position: relative;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+        height: 100%;
+        &:active {
+            outline: none;
+        }
+    }
+    .tags-input__tags {
+        padding: 0.1rem;
+        overflow: hidden;
+        word-wrap: break-word;
+        cursor: text;
+        background-color: transparent;
+        border:none;
+        transition: border linear 0.2s, box-shadow linear 0.2s;
+        border-bottom: 1px solid $sd-inputBorderColor;
+        height: 100%;
+        &:hover {
+            border-color: rgba(0,0,0,0.3);
+        }
+        &.focused {
+            outline: none;
+            border-bottom: 1px solid $sd-blue;
+            box-shadow: 0 1px 0  $sd-blue;
+        }
+        .tags-input__tag-list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        .tags-input__tag-item {
+            margin: 2px;
+            @include tag-label;
+            margin: 2px 4px 2px 0;
+            float: left;
+            transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
+            background: $tag-label-background;
+            color: $tag-label-color;
+            &.selected {
+                background-color: scale-color($sd-blue, $alpha: -35%);
+                
+            }
+            .tags-input__remove-button {
+                height: 1.5385em;
+                width: 1.5385em;
+                padding: 0;
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                font-size: inherit;
+                line-height: 1;
+                text-decoration: none;
+                text-align: center;
+                vertical-align: middle;
+                border-radius: 50%;
+                background-color: rgba(255,255,255,0.35);
+                color: inherit;
+                cursor: pointer;
+                transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
+                opacity: 0.2;
+                margin-right: -0.7695em;
+                margin-left:  0.4rem;
+                &:hover {
+                    opacity: 0.75;
+                    text-decoration: none;
+                    background-color: rgba(255,255,255,0.65);
+                  }
+                
+                &:active {
+                    opacity: 1;
+                    background-color: rgba(255,255,255,0.85);
+                    [class^="icon-"], [class*=" icon-"] {
+                      color: $sd-blue;
+                      opacity: 1;
+                    }
+                }
+            }
+
+            ti-tag-item {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                .tags-input__helper-box {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    span {
+                        flex-grow: 1;
+                    }
+                }
+            }
+        }
+        .tags-input__input {
+            border: 0;
+            outline: none;
+            margin: 0.2rem;
+            padding: 0;
+            float: left;
+            height: 26px;
+            background-color: transparent;
+            &.invalid-tag {
+                color: $red;
+            }
+            &::-ms-clear {
+                display: none;
+            }
+        }
+    }
+    &.ng-invalid .tags-input__tags {
+        border-bottom: 1px solid $red;
+        box-shadow: 0 1px 0  $red;
+    }
+    &[disabled] {
+        .tags-input__host:focus {
+            outline: none;
+        }
+        .tags-input__tags {
+            background-color: #eee;
+            cursor: default;
+            .tags-input__tag-item {
+                opacity: 0.65;
+                .tags-input__remove-button {
+                    cursor: default;
+                    &:active {
+                        color: #585858;
+                    }
+                }
+            }
+            .tags-input__input {
+                background-color: #eee;
+                cursor: default;
+            }
+        }
+    }
+    .tags-input__add-button {
+        float: left;
+        height: 2.6rem;
+        width: 2.6rem;
+        background-color: $sd-blue;
+        color: $white;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        margin: 0.2rem 0.4rem 0.2rem 0;
+        transition: all 0.3s;
+        border-radius: 2px;
+        opacity: 0.5;
+        padding: 0;
+        justify-content: center;
+        i {
+            color: inherit;
+        }
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .autocomplete {
+        margin-top: 0.5rem;
+        position: absolute;
+        padding: 0.5rem 0;
+        z-index: 999;
+        width: 100%;
+        background-color: $white;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
+        .suggestion-list {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+            max-height: 28rem;
+            overflow-y: auto;
+            position: relative;
+        }
+        .suggestion-item {
+            padding: 0.5rem 1rem;
+            cursor: pointer;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $sd-text;
+            background-color: $white;
+            &.selected {
+                color: $white;
+                background-color: $sd-blue;
+                em {
+                    color: $white;
+                    background-color: $sd-blue;
+                }
+            }
+            em {
+                color: $sd-text;
+                background-color: $white;
+            }
+        }
+    }
+}
