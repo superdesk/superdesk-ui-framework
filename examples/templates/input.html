@@ -57,6 +57,17 @@
                 </div>
             </div>
 
+            <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Color input</p>
+            <div class="form__row" style="max-width: 100px;">
+                <div class="sd-line-input sd-line-input--is-color">
+                    <label class="sd-line-input__label">Color input</label>
+                    <div class="sd-line-input--flex-row">
+                        <div class="sd-line-input__value">{{test}}</div>
+                        <input class="sd-line-input__color" type="color" value="#5eadc8" ng-init="test='#5eadc8'" ng-model="test">
+                    </div>
+                </div>
+            </div>
+
             <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Alternative styling</p>
             <p class="docs-page__paragraph docs-page__paragraph--small">An alternative styling for input fields is available in cases where the whole filed needs to be visible. The style is applied by appending <code>.sd-line-input--boxed</code> to the default classes.</p>
             <div class="form__row">
@@ -108,7 +119,16 @@
                         <input class="sd-line-input__input" type="text">
                     </div>
                 </div>
-
+                <!-- Color input -->
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--is-color">
+                        <label class="sd-line-input__label">Color input</label>
+                        <div class="sd-line-input--flex-row">
+                            <div class="sd-line-input__value">{{test}}</div>
+                            <input class="sd-line-input__color" type="color" value="#5eadc8" ng-init="test='#5eadc8'" ng-model="test">
+                        </div>
+                    </div>
+                </div>
                 <!--Alternative styling-->
                 <!--in cases where the whole filed needs to be visible.-->
                 <div class="sd-line-input sd-line-input--boxed">
