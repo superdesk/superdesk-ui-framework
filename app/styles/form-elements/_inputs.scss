@@ -69,6 +69,7 @@
         display: inline-flex;
         align-items: center;
         border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        width: 100%;
     }
     &__value {
         margin-right: 6px;
@@ -254,6 +255,11 @@
             }
         }
     }
+    &.sd-line-input--is-color {
+        .sd-line-input__label {
+            line-height: 140%;
+        }
+    } 
     // DARK UI
     // modifications for dark background color
 

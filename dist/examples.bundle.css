@@ -8005,7 +8005,8 @@ a.text-link {
   .sd-line-input--flex-row {
     display: inline-flex;
     align-items: center;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15); }
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    width: 100%; }
   .sd-line-input__value {
     margin-right: 6px;
     text-transform: uppercase; }
@@ -8236,6 +8237,8 @@ a.text-link {
     right: 0.8rem; }
   .sd-line-input.sd-line-input--is-select.sd-line-input--no-label::after {
     top: 1.2rem; }
+  .sd-line-input.sd-line-input--is-color .sd-line-input__label {
+    line-height: 140%; }
   .sd-line-input--dark-ui input.sd-line-input__input, .sd-line-input--dark-ui textarea.sd-line-input__input, .sd-line-input--dark-ui textarea.sd-line-input__input {
     border-bottom-color: rgba(255, 255, 255, 0.2);
     color: rgba(255, 255, 255, 0.8); }
