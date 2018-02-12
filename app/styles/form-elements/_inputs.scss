@@ -64,9 +64,34 @@
     margin: 0 0 1.8em 0;
     padding-top: 1.4rem;
     position: relative;
+
+    &--flex-row {
+        display: inline-flex;
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    }
+    &__value {
+        margin-right: 6px;
+        text-transform: uppercase;
+    }
     input, textarea {
         &.sd-line-input__input {
             @include Line-input-base;
+        }
+        &.sd-line-input__color {
+            @include Line-input-base;
+            width: 26px;
+            height: 26px;
+            border: none;
+            outline: none;
+            ::-webkit-color-swatch {
+                border: none;
+                outline: none;
+                -webkit-appearance: none;
+            }
+            ::-webkit-color-swatch-wrapper {
+                padding: 0;	
+            }
         }
     }
     select {
