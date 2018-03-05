@@ -7660,6 +7660,10 @@ a.text-link {
   position: relative;
   overflow: hidden;
   text-align: center; }
+  .sd-media-carousel__page img {
+    max-height: 40em;
+    width: auto !important;
+    margin: 0 auto !important; }
 
 .sd-media-carousel__page-media {
   width: 100%;
@@ -7688,7 +7692,7 @@ a.text-link {
   height: 3.6rem;
   line-height: 3.6rem;
   position: absolute;
-  top: calc(50% - 1.8rem);
+  top: calc(50% - 6.5rem);
   width: 3.6rem;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.25), 0 0 1px 1px rgba(0, 0, 0, 0.12);
   color: #333;
