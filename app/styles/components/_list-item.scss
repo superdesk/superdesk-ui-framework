@@ -72,11 +72,14 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     padding: 0 0.8rem;
     overflow: hidden;
     flex-shrink: 0;
-    &:last-child, &:last-of-type {
+    &:last-child, &:last-of-type, &:only-child {
         border:none;
     }
     &--no-border {
         border:none;
+    }
+    &--large-padding {
+        padding: 0.8rem 1.6rem;
     }
     &--grow {
         flex-grow: 1;
@@ -379,12 +382,13 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         max-height: 0;
         opacity: 0;
         margin-bottom: 0;
+        overflow: hidden;
     }
 }
 .sd-list-item-nested--expanded {
     .sd-list-item-nested__childs {
         transition: all ease-in 0.2s;
-        max-height: 15.2rem;
+        max-height: 114rem;
         opacity: 1;
     }
 }

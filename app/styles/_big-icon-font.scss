@@ -45,7 +45,7 @@
   color: $sd-blue;
 }
 .big-icon--white {
-  color: $white;
+  color: $white !important;
 }
 [class*=big-icon--].red,
 .big-icon--red {
@@ -98,6 +98,10 @@ $sd-big-icon-font: (
     document-doc: "\e629",
     semantics: "\e62a",
     picture: "\e62b",
+    manage-package: "\e62c",
+    live: "\e62d",
+    live-alt: "\e62e",
+    meta-search: "\e62f",
 );
 
 @each $name, $value in $sd-big-icon-font {

@@ -213,7 +213,8 @@ $sd-icon-font: (
   twitter-circle: "\e68c",
   facebook-circle: "\e68d",
   linked-in-circle: "\e68e",
-  recurring: "\e68f"
+  recurring: "\e68f",
+  paragraph: "\e690"
 );
 
 @each $name, $value in $sd-icon-font {

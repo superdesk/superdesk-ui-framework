@@ -36,6 +36,10 @@ export default angular.module('ui-docs', [
                     name: 'Badge',
                     page: 'badge.html'
                 },
+                tagLabels: {
+                    name: 'Tag labels',
+                    page: 'tag-labels.html'
+                },
                 alerts: {
                     name: 'Alerts',
                     page: 'alerts.html'
@@ -209,6 +213,18 @@ export default angular.module('ui-docs', [
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/photo-desk.html'
+        })
+        .when('/media-carousel', {
+            title: 'Media Carousel',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/media-carousel.html'
+        })
+        .when('/tags-input', {
+            title: 'Tags Input',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/tags-input.html'
         })
         .otherwise({redirectTo: '/'});
 });

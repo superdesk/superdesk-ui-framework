@@ -66,16 +66,6 @@
                     <a class="btn btn--primary" ng-click="openModal('imageModal'); multiEdit = true; select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false; select11 = true; select12 = true; select13 = true; select14 = true">Edit metadata</a>
                     <a class="btn btn--alert"><i class="icon-trash"></i>Delete</a>
                 </div>
-                
-                <div class="dropdown" dropdown>
-                    <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle >All media archives<span class="dropdown__caret"></span></button>
-                    <ul class="dropdown__menu scrollable">
-                        <li><div class="dropdown__menu-label ng-binding">Media archives</div></li>
-                        <li><button>Media archive One</button></li>
-                        <li><button>Media archive Two</button></li>
-                        <li><button>Media archive Three</button></li>
-                    </ul>
-                </div>
                 <div class="subnav__spacer subnav__spacer--no-margin"></div>
                 <div class="sd-searchbar" ng-class="{'sd-searchbar--focused': focused}" >
                     <label for="search-input" class="sd-searchbar__icon"></label>
@@ -105,7 +95,7 @@
                         <li class="dropdown__menu-divider"></li>
                         <li><button>Action 2</button></li>
                         <li><button>Action 3</button></li>
-                        <li><button ng-click="openModal('modalEditorConfig')">Configure Editor</button></li>
+                        <li><button ng-click="openModal('modalEditorConfig')">Media carousel test</button></li>
                     </ul>
                 </div>
                 <div class="dropdown dropdown--align-right" dropdown>
@@ -135,6 +125,145 @@
                     <sd-check ng-model="planningType" type="radio" ng-value="events-planning" label-position="inside">All media types</sd-check>
                     <sd-check ng-model="planningType" type="radio" ng-value="events" label-position="inside">Images only</sd-check>
                     <sd-check ng-model="planningType" type="radio" ng-value="planning" label-position="inside">Videos only</sd-check>
+                </div>
+                <div class="subnav__spacer subnav__spacer--no-margin"></div>
+                <div class="subnav__content-bar">
+                    <button class="icn-btn" ng-click="openComment = !openComment">
+                        <i class="icon-post"></i>
+                    </button>
+                    <div class="test-comment" ng-class="{'test-comment--open' : openComment}">
+                        <div class="comment-box comment-box--floating">
+                            <div class="comment-box__header">
+                                <figure class="avatar comment-box__header-avatar">vs</figure>
+                                <div class="comment-box__header-text">
+                                    <p class="comment-box__author-name">Andrewopoulus Powerspopdouculopudotidus</p>
+                                    <time class="comment-box__time" title="12:50, 15.09.2017">12:50, 15.09.2017</time>
+                                </div>
+                                <div class="comment-box__header-tools">
+                                    <div class="dropdown dropdown--align-right" dropdown>
+                                        <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                                            <i class="icon-dots-vertical"></i>
+                                        </button>
+                                        <ul class="dropdown__menu">
+                                            <li><button><i class="icon-pencil"></i>Edit</button></li>
+                                            <li><button><i class="icon-trash"></i>Delete</button></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="comment-box__content-block">
+                                <div class="comment-box__info-bar">
+                                    <span class="label">footnote</span>
+                                </div>
+                                <!-- <p><span class="comment-box__text-bold">Replace:</span> <span class="comment-box__text-italic">"Trt"</span> with <span class="comment-box__text-italic">"Mrt"</span></p> -->
+                                <p>Maecenas nec odio et ante tincidunt tempus. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Vestibulum fringilla pede sit amet augue.</p>
+                                <div class="comment-box__button-toolbar comment-box__button-toolbar--right">
+                                    <button class="btn btn--hollow btn--small" ng-click="openComment = !openComment">Resolve</button>
+                                </div>
+                            </div>
+                            <div class="comment-box__reply-section">
+                                <ul class="comment-box__reply-list ">
+                                    <li class="comment-box__reply-item" ng-show="!deleteReply1">
+                                        <div class="comment-box__header">
+                                            <figure class="avatar comment-box__header-avatar">pz</figure>
+                                            <div class="comment-box__header-text">
+                                                <p class="comment-box__author-name">Perus Zderus</p>
+                                                <time class="comment-box__time" title="12:50, 15.09.2017">12:55, 15.09.2017</time>
+                                            </div>
+                                            <div class="comment-box__header-tools">
+                                                <div class="dropdown dropdown--align-right" dropdown>
+                                                    <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                                                        <i class="icon-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown__menu">
+                                                        <li><button ng-click="editReply1 = true"><i class="icon-pencil"></i>Edit</button></li>
+                                                        <li><button ng-click="deleteReply1 = true"><i class="icon-trash"></i>Delete</button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-box__content-block" ng-if="!editReply1">
+                                            <p>Vestibulum fringilla pede sit amet augue. Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</p>
+                                        </div>
+                                        <div class="comment-box__content-block" ng-show="editReply1">
+                                            <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false">Vestibulum fringilla pede sit amet augue. Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</textarea>
+                                            <div class="comment-box__button-toolbar comment-box__button-toolbar--right comment-box__button-toolbar--small">
+                                                <button class="btn btn--icon-only btn--hollow" ng-click="editReply1 = false"><i class="icon-close-small"></i></button>
+                                                <button class="btn btn--primary btn--icon-only" ng-click="editReply1 = false"><i class="icon-ok"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-box__reply-item" ng-show="!deleteReply2">
+                                        <div class="comment-box__header">
+                                            <figure class="avatar comment-box__header-avatar">op</figure>
+                                            <div class="comment-box__header-text">
+                                                <p class="comment-box__author-name">Omar Epps</p>
+                                                <time class="comment-box__time" title="12:50, 15.09.2017">13:15, 15.09.2017</time>
+                                            </div>
+                                            <div class="comment-box__header-tools">
+                                                <div class="dropdown dropdown--align-right" dropdown>
+                                                    <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                                                        <i class="icon-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown__menu">
+                                                        <li><button ng-click="editReply2 = true"><i class="icon-pencil"></i>Edit</button></li>
+                                                        <li><button ng-click="deleteReply2 = true"><i class="icon-trash"></i>Delete</button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-box__content-block" ng-if="!editReply2">
+                                            <p>Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</p>
+                                        </div>
+                                        <div class="comment-box__content-block" ng-show="editReply2">
+                                            <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false">Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</textarea>
+                                            <div class="comment-box__button-toolbar comment-box__button-toolbar--right comment-box__button-toolbar--small">
+                                                <button class="btn btn--icon-only btn--hollow" ng-click="editReply2 = false"><i class="icon-close-small"></i></button>
+                                                <button class="btn btn--primary btn--icon-only" ng-click="editReply2 = false"><i class="icon-ok"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="comment-box__reply-item" ng-show="!deleteReply3">
+                                        <div class="comment-box__header">
+                                            <figure class="avatar comment-box__header-avatar">op</figure>
+                                            <div class="comment-box__header-text">
+                                                <p class="comment-box__author-name">Michael Kenneth Williams</p>
+                                                <time class="comment-box__time" title="12:50, 15.09.2017">13:15, 15.09.2017</time>
+                                            </div>
+                                            <div class="comment-box__header-tools">
+                                                <div class="dropdown dropdown--align-right" dropdown>
+                                                    <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                                                        <i class="icon-dots-vertical"></i>
+                                                    </button>
+                                                    <ul class="dropdown__menu">
+                                                        <li><button ng-click="editReply3 = true"><i class="icon-pencil"></i>Edit</button></li>
+                                                        <li><button ng-click="deleteReply3 = true"><i class="icon-trash"></i>Delete</button></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="comment-box__content-block" ng-if="!editReply3">
+                                            <p>Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</p>
+                                        </div>
+                                        <div class="comment-box__content-block" ng-show="editReply3">
+                                            <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false">Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</textarea>
+                                            <div class="comment-box__button-toolbar comment-box__button-toolbar--right comment-box__button-toolbar--small">
+                                                <button class="btn btn--icon-only btn--hollow" ng-click="editReply3 = false"><i class="icon-close-small"></i></button>
+                                                <button class="btn btn--primary btn--icon-only" ng-click="editReply3 = false"><i class="icon-ok"></i></button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="comment-box__content-block">
+                                    <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false" ng-focus="replyFocus = true"></textarea>
+                                    <div class="comment-box__reply-toolbar" ng-class="{'comment-box__reply-toolbar--active' : replyFocus}">
+                                        <button class="btn btn--primary" ng-click="replyFocus = false">Reply</button>
+                                        <button class="btn" ng-click="replyFocus = false">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="subnav__spacer subnav__spacer--no-margin"></div>
                 <div class="subnav__content-bar">
@@ -892,243 +1021,31 @@
         </div>
 
         <!-- SPLIT CONTENT -->
-        <div id="editPane" 
-             class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" ng-class="{'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
+        <div 
+        id="editPane" 
+        class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" 
+        ng-class="{'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
             <!-- Eitor content -->
-
-            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'planning'" doc-include="../examples/playgrounds/photo-snippets/edit-photo-metadata.html"></div>
+            <div
+            class="side-panel side-panel--shadow-right" 
+            ng-if="!itemType || itemType === 'planning'"
+            doc-include="../examples/playgrounds/photo-snippets/edit-photo-metadata.html"></div>
             <!-- END Editor content -->
         </div>
     </section>
     <footer class="bottom-bar ">
         This is the optional footer.
     </footer>
-
-    <!-- Image Edit modal -->
-    <div sd-modal data-model="imageModal" class="modal--fullscreen modal--dark-ui" ng-init="showMetadata = true">
-        <div class="modal__header modal__header--flex">
-            <h3 class="modal__heading">View image</h3>
-            <button class="btn btn--ui-dark" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">Cancel</button>
-            <button class="btn btn--ui-dark btn--primary" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')" style="margin-left: 10px;">Done</button>
-        </div>
-        <div class="modal__body modal__body--no-padding">
-            <div class="sd-column-box--2">
-                <div class="sd-column-box__main-column sd-column-box__main-column--photo-preview">
-                    <a class="sd-photo-preview__slide-in-button" ng-show="!showMetadata" ng-click="showMetadata = !showMetadata" data-sd-tooltip="Open metadata" data-flow="left">
-                        <i class="icon-backward-thin"></i>
-                    </a>
-                    <div class="sd-photo-preview" ng-class="{'sd-photo-preview--grid-only' : multiEdit}">
-                        <div class="sd-photo-preview__image" ng-hide="multiEdit">
-                            <a class="sd-photo-preview__nav-button sd-photo-preview__nav-button--prev"></a>
-                            <a class="sd-photo-preview__nav-button sd-photo-preview__nav-button--next"></a>                   
-                            <img src="../examples/img/d_trump_large.jpg" alt="test">
-                        </div> 
-                        <div class="sd-photo-preview__thumb-strip" ng-hide="!multiEdit">
-                            <div class="sd-grid-list dark-ui">
-                                <!-- small item 1 -->
-                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select11 = !select11" ng-class="{'sd-grid-item--selected' : select11}">
-                                    <div class="sd-grid-item__thumb">
-                                        <img src="../examples/img/d_trump.jpg" alt="test">
-                                    </div>
-                                    <div class="sd-grid-item__content">
-                                        <time title="20.11.2017">20.11.2017</time>
-                                        <span class="sd-grid-item__slugline">This is a slugline</span>
-                                    </div>
-                                    <div class="sd-grid-item__footer">
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
-                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
-                                        </div>
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
-                                            <a class="icn-btn sd-grid-item__actions">
-                                                <i class="icon-dots-vertical"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- small item 2 -->
-                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select12 = !select12" ng-class="{'sd-grid-item--selected' : select12}">
-                                    <div class="sd-grid-item__thumb">
-                                        <img src="../examples/img/d_trump_2.jpg" alt="test">
-                                    </div>
-                                    <div class="sd-grid-item__content">
-                                        <time title="20.11.2017">20.11.2017</time>
-                                        <span class="sd-grid-item__slugline">This is a slugline</span>
-                                    </div>
-                                    <div class="sd-grid-item__footer">
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
-                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
-                                        </div>
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
-                                            <a class="icn-btn sd-grid-item__actions">
-                                                <i class="icon-dots-vertical"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- small item 3 -->
-                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select13 = !select13" ng-class="{'sd-grid-item--selected' : select13}">
-                                    <div class="sd-grid-item__thumb">
-                                        <img src="../examples/img/bill.jpg" alt="test">
-                                    </div>
-                                    <div class="sd-grid-item__content">
-                                        <time title="20.11.2017">20.11.2017</time>
-                                        <span class="sd-grid-item__slugline">This is a slugline</span>
-                                    </div>
-                                    <div class="sd-grid-item__footer">
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
-                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
-                                        </div>
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
-                                            <a class="icn-btn sd-grid-item__actions">
-                                                <i class="icon-dots-vertical"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- small item 4 -->
-                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select14 = !select14" ng-class="{'sd-grid-item--selected' : select14}">
-                                    <div class="sd-grid-item__thumb">
-                                        <img src="../examples/img/hillary.jpg" alt="test">
-                                    </div>
-                                    <div class="sd-grid-item__content">
-                                        <time title="20.11.2017">20.11.2017</time>
-                                        <span class="sd-grid-item__slugline">This is a slugline</span>
-                                    </div>
-                                    <div class="sd-grid-item__footer">
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
-                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
-                                        </div>
-                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
-                                            <a class="icn-btn sd-grid-item__actions">
-                                                <i class="icon-dots-vertical"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large sd-column-box__slide-in-column--dark-ui" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}">
-                    <div class="sd-column-box__slide-in-column-inner sd-slide-in-panel">
-
-                        <div class="sd-slide-in-panel__header">
-                            <div class="subnav__sliding-toolbar" ng-show="!contentChanged">
-                                <div class="sliding-toolbar__inner"></div>
-                                <a class="btn" ng-click="contentChanged = true">Cancel</a>
-                                <a class="btn btn--primary" ng-click="contentChanged = true">Save</a>
-                            </div>
-                            <h3 class="sd-slide-in-panel__heading">Metadata</h3>
-                            <a class="icn-btn sd-slide-in-panel__close" sd-tooltip="Close details" flow="top" ng-click="showMetadata = !showMetadata"><i class="icon-close-small"></i></a>
-                        </div>
-                        <div class="sd-slide-in-panel__content">
-                            <div class="sd-slide-in-panel__content-block sd-slide-in-panel__content-block--first">
-                                <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
-                                        <label class="sd-line-input__label">Title</label>
-                                        <input class="sd-line-input__input" type="text" value="Image title" >
-                                        <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
-                                    </div>
-                                </div>
-                                <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
-                                        <label class="sd-line-input__label">Description</label>
-                                        <textarea class="sd-line-input__input"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--dark-ui sd-line-input--boxed">
-                                        <span class="sd-line-input__plus-btn"></span>
-                                        <label class="sd-line-input__label">Category</label>
-                                        <input class="sd-line-input__input" type="text">
-                                    </div>
-                                </div>
-                                <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--dark-ui sd-line-input--boxed">
-                                        <span class="sd-line-input__plus-btn"></span>
-                                        <label class="sd-line-input__label">Subject</label>
-                                        <input class="sd-line-input__input" type="text">
-                                    </div>
-                                </div>
-                                <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed">
-                                        <label class="sd-line-input__label">Usage right</label>
-                                        <select class="sd-line-input__select">
-                                            <option value="">--- Not selected ---</option>
-                                            <option value="single">Single usage</option>
-                                            <option value="time">Time restricted</option>
-                                            <option value="bananas">Indefinite usage</option>
-                                            <option value="indefinite">Pears</option>
-                                        </select>
-                                        <span class="sd-line-input__hint">Dolor in hendrerit.</span>
-                                    </div>
-                                </div>
-                                <div class="form__row" ng-init="contentChanged = true">
-                                    <span ng-model="contentChanged" sd-switch></span><label>For publication</label>
-                                </div>
-                                <h3 class="sd-slide-in-panel__heading" ng-hide="multiEdit">Related items</h3>
-                                <div class="sd-grid-list sd-grid-list--small sd-grid-list--no-rl-margin dark-ui" ng-hide="multiEdit">
-                                    <!-- related item 1 -->
-                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
-                                        <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/d_trump_2.jpg" alt="test">
-                                        </div>
-                                        <div class="sd-grid-item__content">
-                                            <time title="20.11.2017">20.11.2017</time>
-                                            <span class="sd-grid-item__slugline">This is a slugline</span>
-                                        </div>
-                                    </div>
-                                    <!-- related item 2-->
-                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
-                                        <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/bill.jpg" alt="test">
-                                        </div>
-                                        <div class="sd-grid-item__content">
-                                            <time title="20.11.2017">20.11.2017</time>
-                                            <span class="sd-grid-item__slugline">This is a slugline</span>
-                                        </div>
-                                    </div>
-                                    <!-- related item 3 -->
-                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
-                                        <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/hillary.jpg" alt="test">
-                                        </div>
-                                        <div class="sd-grid-item__content">
-                                            <time title="20.11.2017">20.11.2017</time>
-                                            <span class="sd-grid-item__slugline">This is a slugline</span>
-                                        </div>
-                                    </div>
-                                    <!-- related item 4 -->
-                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
-                                        <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/bush_1.jpg" alt="test">
-                                        </div>
-                                        <div class="sd-grid-item__content">
-                                            <time title="20.11.2017">20.11.2017</time>
-                                            <span class="sd-grid-item__slugline">This is a slugline</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> 
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-    <!-- END Agenda management modal -->
+</div>
     <!-- Editor configuration modal -->
     <div sd-modal data-model="modalEditorConfig" class="modal--x-large">
         <div class="modal__header">
             <button class="modal__close pull-right icn-btn" ng-click="closeModal('modalEditorConfig')"><i class="icon-close-small"></i></button>
-            <h3 class="modal__heading">Configure Editor themes</h3>
+            <h3 class="modal__heading">Media carousel test</h3>
         </div>
         <div class="modal__body modal__body--no-padding">
             <div class="sd-column-box--2">
                 <div class="sd-column-box__main-column sd-column-box__main-column--left sd-column-box__main-column--padded">
-                    <h2 class="modal__body-heading"><span class="badge badge--success">&nbsp;</span>Default Theme</h2>
                     <div class="form__row">
                         <div class="sd-line-input sd-line-input--no-margin sd-line-input--is-select">
                             <label class="sd-line-input__label">Font</label>
@@ -1174,44 +1091,71 @@
                     <div class="theme-preview" 
                     ng-class="{'sd-editor--font-sans' : fontFace === 'sans', 'sd-editor--font-serif' : fontFace === 'serif', 'sd-editor--font-mono' : fontFace === 'mono', 'sd-editor--theme-default' : selctTheme1, 'sd-editor--theme-dark' : selctTheme2, 'sd-editor--theme-blue' : selctTheme3, 'sd-editor--theme-turquoise' : selctTheme4,  'sd-editor--theme-military' : selctTheme5, 'sd-editor--theme-natural' : selctTheme6, 'sd-editor--headline-small' : fontSizeHeadline === 's', 'sd-editor--headline-medium' : fontSizeHeadline === 'm', 'sd-editor--headline-large' : fontSizeHeadline === 'l', 'sd-editor--abstract-small' : fontSizeAbstract === 's', 'sd-editor--abstract-medium' : fontSizeAbstract === 'm', 'sd-editor--abstract-large' : fontSizeAbstract === 'l', 'sd-editor--body-small' : fontSizeBody === 's', 'sd-editor--body-medium' : fontSizeBody === 'm', 'sd-editor--body-large' : fontSizeBody === 'l'}"
                     ng-init="fontSizeHeadline = 'm'; fontSizeAbstract = 'm'; fontSizeBody = 'm'">
-                        <div class="theme-preview__block">
-                            <label class="theme-preview__label">Headline</label>
-                            <div class="theme-preview__text-field text-field__headline">
-                                This is the headline
-                            </div>
-                            <div class="theme-preview__button-bar" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
-                                <sd-check type="radio" ng-model="fontSizeHeadline" label-position="inside" ng-value="s">S</sd-check>
-                                <sd-check type="radio" ng-model="fontSizeHeadline" label-position="inside" ng-value="m">M</sd-check>
-                                <sd-check type="radio" ng-model="fontSizeHeadline" label-position="inside" ng-value="l">L</sd-check>
-                            </div>
-                        </div>
-                        <div class="theme-preview__block">
-                            <label class="theme-preview__label">Abstract</label>
-                            <div class="theme-preview__text-field text-field__abstract">
-                                Abstract example. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Phasellus ullamcorper…
-                            </div>
-                            <div class="theme-preview__button-bar" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
-                                <sd-check type="radio" ng-model="fontSizeAbstract" label-position="inside" ng-value="s">S</sd-check>
-                                <sd-check type="radio" ng-model="fontSizeAbstract" label-position="inside" ng-value="m">M</sd-check>
-                                <sd-check type="radio" ng-model="fontSizeAbstract" label-position="inside" ng-value="l">L</sd-check>
-                            </div>
-                        </div>
-                        <div class="theme-preview__block">
-                            <label class="theme-preview__label">Body</label>
-                            <div class="theme-preview__text-field text-field__body">
-                                Body text example. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce id purus. Phasellus ullamcorper…
-                            </div>
-                            <div class="theme-preview__button-bar" ng-class="{'dark-ui' : selctTheme2 || selctTheme3}">
-                                <sd-check type="radio" ng-model="fontSizeBody" label-position="inside" ng-value="s">S</sd-check>
-                                <sd-check type="radio" ng-model="fontSizeBody" label-position="inside" ng-value="m">M</sd-check>
-                                <sd-check type="radio" ng-model="fontSizeBody" label-position="inside" ng-value="l">L</sd-check>
+                        <div class="theme-preview__block" style="margin: 30px 60px;">
+                            <label class="theme-preview__label">Featured media</label>
+                            <div class="theme-preview__media-field">
+                                <div class="sd-media-carousel">
+                                    <div class="sd-media-carousel__dialog">
+                                        <div class="sd-media-carousel__content">
+                                            <a href="" class="sd-media-carousel__nav-button sd-media-carousel__nav-button--prev-inner sd-media-carousel__nav-button--disabled"></a>
+                                            <a href="" class="sd-media-carousel__nav-button sd-media-carousel__nav-button--next-inner"></a>
+                                            <div class="sd-media-carousel__page">
+                                                <div class="sd-media-carousel__page-media">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                                <div class="sd-media-carousel__media-caption">
+                                                    Lorem ipsum dolor amet.
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="sd-media-carousel__thumb-strip" ng-init="thumb1Active = true">
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb1Active}" ng-click="thumb1Active = true; thumb2Active = false; thumb3Active = false; thumb4Active = false; thumb5Active = false; thumb6Active = false; thumb7Active = false; thumb8Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb2Active}" ng-click="thumb2Active = true; thumb1Active = false; thumb3Active = false; thumb4Active = false; thumb5Active = false; thumb6Active = false; thumb7Active = false; thumb8Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump_2.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb3Active}" ng-click="thumb3Active = true; thumb1Active = false; thumb2Active = false; thumb4Active = false; thumb5Active = false; thumb6Active = false; thumb7Active = false; thumb8Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb4Active}" ng-click="thumb4Active = true; thumb1Active = false; thumb2Active = false; thumb3Active = false; thumb5Active = false; thumb6Active = false; thumb7Active = false; thumb8Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb5Active}" ng-click="thumb5Active = true; thumb1Active = false; thumb2Active = false; thumb3Active = false; thumb4Active = false; thumb6Active = false; thumb7Active = false; thumb8Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb6Active}" ng-click="thumb6Active = true; thumb1Active = false; thumb2Active = false; thumb3Active = false; thumb4Active = false; thumb5Active = false; thumb7Active = false; thumb8Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb7Active}" ng-click="thumb7Active = true; thumb1Active = false; thumb2Active = false; thumb3Active = false; thumb4Active = false; thumb5Active = false; thumb6Active = false; thumb8Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                            <div class="sd-media-carousel__thumb-strip-item" ng-class="{'sd-media-carousel__thumb-strip-item--active' : thumb8Active}" ng-click="thumb8Active = true; thumb1Active = false; thumb2Active = false; thumb3Active = false; thumb4Active = false; thumb5Active = false; thumb6Active = false; thumb7Active = false">
+                                                <div class="sd-media-carousel__thumb">
+                                                    <img src="../examples/img/d_trump.jpg" alt="Ronmo">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="sd-column-box__main-column sd-column-box__main-column--padded">
-                    <h2 class="modal__body-heading modal__body-heading--inactive"><span class="badge badge--light">&nbsp;</span>Proofread Theme</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
                 </div>
             </div>
         </div>
@@ -1221,4 +1165,3 @@
         </div>
     </div>
     <!-- END Editor configuration modal -->
-</div>

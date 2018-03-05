@@ -1,0 +1,106 @@
+/// Default background color for badges.
+$tag-label-background: rgba(123,123,123,0.2);
+$tag-label-background-darker: rgba(123,123,123,0.4);
+$tag-label-color: $sd-text !default;
+
+
+
+$tag-bg-colors: (
+  default: $tag-label-background,
+  darker: $tag-label-background-darker,
+  highlight1: scale-color($sd-blue, $alpha: -70%),
+  highlight2: scale-color($sd-blue, $alpha: -35%),
+);
+/// Coloring classes. A map of classes to output in the CSS.
+$tag-label-palette: $tag-bg-colors !default;
+
+/// Default padding inside badges.
+$tag-label-padding: 0em 1em 0em 1em !default;
+
+/// Minimum width of a badge.
+$tag-label-minwidth: 1.8em !default;
+
+/// Default radius of a badge.
+$tag-label-radius: 1em !default;
+
+/// Default font size and line height for badges.
+$tag-label-font-size: 1.3rem !default;
+$tag-label-lineheight: 1em !default;
+
+
+/// Generates the base styles for a badge.
+@mixin tag-label {
+    display: inline-flex;
+    align-items: center;
+    min-width: $tag-label-minwidth;
+    padding: $tag-label-padding;
+    border-radius: $tag-label-radius;
+    font-size: $tag-label-font-size;
+    line-height: $tag-label-lineheight;
+    position: relative;
+    text-align: center;
+    font-weight: 400;
+    transition: background-color .2s ease-out, opacity .1s ease-out;
+    margin: 0.2rem 0;
+    height: 2em;
+}
+
+.tag-label {
+    @include tag-label;
+
+    background: $tag-label-background;
+    color: $tag-label-color;
+
+    @each $name, $color in $tag-label-palette {
+        &.tag-label--#{$name} {
+        background: $color;
+        }
+    }
+    &--square {
+        border-radius: 2px;
+    }
+    .tag-label__remove {
+        height: 1.5385em;
+        width: 1.5385em;
+        padding: 0;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: inherit;
+        line-height: 1;
+        text-decoration: none;
+        text-align: center;
+        vertical-align: middle;
+        border-radius: 50%;
+        background-color: rgba(255,255,255,0.35);
+        color: inherit;
+        cursor: pointer;
+        transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
+        opacity: 0.2;
+        margin-right: -0.7695em;
+        margin-left:  0.4rem;
+        i {
+            font-size: 1.6rem;
+            flex-grow: 0;
+            flex-shrink: 0;
+            margin-left: 1px;
+        }
+        &:hover {
+            opacity: 0.75;
+            text-decoration: none;
+            background-color: rgba(255,255,255,0.65);
+          }
+          &:active {
+            opacity: 1;
+            background-color: rgba(255,255,255,0.85);
+            [class^="icon-"], [class*=" icon-"] {
+              color: $sd-blue;
+              opacity: 1;
+            }
+        }
+    }
+}
+
+.tag-label + .tag-label {
+    margin-left: 0.3rem;
+}

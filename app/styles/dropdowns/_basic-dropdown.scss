@@ -101,7 +101,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 
     // Links within the dropdown menu
     li, .dropdown__menu-item {
-        a:not(.btn), button:not(.btn):not(.dropdown__menu-close) {
+        a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
             display: block;
             font-weight: normal;
             line-height: $baseLineHeight;
@@ -126,7 +126,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
                 opacity: .5;
             }
         }
-        a:not(.btn), button:not(.btn):not(.dropdown__menu-close) {
+        a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
             &:hover, &:focus {
                 background: $dropdownLinkBackgroundHover;
                 text-decoration: none;
@@ -237,6 +237,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     padding: 1rem;
     margin-top: 0.6rem;
     border-top: 1px solid #e5e5e5;
+    &--align-right {
+        text-align: right;
+    }
 }
 
 .dropdown__menu-info {

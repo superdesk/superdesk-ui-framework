@@ -94,6 +94,25 @@
     &--padded {
         padding: 2rem;
     }
+    &--20 {
+        width:20%;
+    }
+    &--30 {
+        width:30%;
+    }
+    &--40 {
+        width:40%;
+    }
+    // 50% is the default width
+    &--60 {
+        width:60%;
+    }
+    &--70 {
+        width:70%;
+    }
+    &--80 {
+        width:80%;
+    }
     &--photo-preview {
         display: flex;
         flex-direction: column;
@@ -102,6 +121,9 @@
         .sd-photo-preview {
             flex-grow: 1;
         }
+    }
+    &--left {
+        border-right: 1px solid #BEBCBC;
     }
 }
 .sd-column-box__slide-in-column {

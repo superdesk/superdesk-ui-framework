@@ -1,0 +1,247 @@
+@import '~owl.carousel/dist/assets/owl.carousel.min.css';
+
+.sd-media-carousel {
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
+}
+
+.sd-media-carousel__dialog {
+    display: flex;
+    max-height: 100%;
+    flex: 0 1 auto;
+    flex-direction: column;
+    margin: 0 auto;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+}
+
+.sd-media-carousel__content {
+    background-clip: padding-box;
+    outline: 0;
+    box-shadow: 0 1px 4px rgba(0,0,0,.25), 0 0 1px 1px rgba(0,0,0,.12);
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 100%;
+    position: relative;
+}
+
+.sd-media-carousel__page {
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    img {
+        max-height: 40em;
+        width: auto !important;
+        margin: 0 auto !important;
+    }
+}
+.sd-media-carousel__page-media {
+    width:100%;
+    height:100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    align-items: center;
+    background-color: rgba(0,0,0,0.12);
+    color: #fff;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: auto;
+    }
+}
+
+@mixin carouselNavButton-style(
+$background: rgba(255,255,255,0.3),
+$background-hover: scale-color($background, $alpha: 50%),
+$background-active: scale-color($background, $alpha: 100%)) 
+{
+    border-radius: 50%;
+    cursor: pointer;
+    height: 3.6rem;
+    line-height: 3.6rem;
+    position: absolute;
+    top: calc(50% - 6.5rem);
+    width: 3.6rem;
+    box-shadow: 0 0 6px rgba(0,0,0,.25), 0 0 1px 1px rgba(0,0,0,.12);
+    color: $sd-text;
+    transition: $button-transition;
+    background-color: $background;
+    z-index: 3;
+    &:hover {
+        background-color: $background-hover;
+    }
+    &:active {
+        background-color: $background-active;
+    }
+    &::after {
+        content: " ";
+        font-family: 'sd_icons';
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        position: absolute;
+        top:0;
+        text-align: center;
+        z-index: 2;
+        color: inherit;
+        width: 3.6rem;
+        font-size: 2.4rem; 
+    }
+}
+
+.sd-media-carousel__nav-button {
+    @include carouselNavButton-style;
+    &--next {
+        right: -18px;
+        color: inherit;
+        &::after {
+            content: "\e643";
+        }
+    }
+    &--prev {
+        left: -18px;
+        color: inherit;
+        &::after {
+            content: "\e642";
+        }
+    }
+    &--next-inner {
+        right: 0;
+        color: $sd-text;
+        border-radius: 50% 0 0 50%;
+        box-shadow: none;
+        &::after {
+            content: "\e643";
+        }
+    }
+    &--prev-inner {
+        left: 0;
+        color: $sd-text;
+        border-radius: 0 50% 50% 0;
+        box-shadow: none;
+        &::after {
+            content: "\e642";
+        }
+
+    }
+    &--next-inner, &--prev-inner {
+        &:active {
+            &::after {
+                color: $sd-blue;
+            }
+        }
+    } 
+    &--disabled {
+        background-color: rgba(255,255,255,0.4) !important;
+        cursor: default;
+        opacity: 0.2;
+        &::after {
+            opacity: 0.75;
+            color: $sd-text !important;
+        }
+    }
+}
+
+.sd-media-carousel__page-indication-bar {
+    bottom: -3.6rem;
+    height: 2.6rem;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+.sd-media-carousel__page-indicator {
+    background-color: rgba(255,255,255,.2);
+    border: 1px solid rgba(0,0,0,.4);
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    height: 1.4rem;
+    width: 1.4rem;
+    margin: 0.6rem;
+    transition: $button-transition;
+    &--selected {
+        background-color: rgba(255,255,255,0.8);
+        border-color: rgba(0,0,0,.6);
+    }
+}
+
+.sd-media-carousel__thumb-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    grid-gap: 1rem;
+    margin: 1.4rem 0;
+}
+.sd-media-carousel__thumb-strip-item {
+    box-shadow: 0 1px 4px rgba(0,0,0,.25), 0 0 1px 1px rgba(0,0,0,.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    background-color: inherit;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+    &:hover {
+        box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
+        border: 1px solid rgba(255,255,255,0.4);
+    }
+    &--active {
+        outline: 1px solid $sd-blue;
+        border: 1px solid rgba(255,255,255,0.8);
+        box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
+        cursor: default;
+        .sd-media-carousel__thumb {
+            img {
+                filter: brightness(1) grayscale(100%);
+            }
+        }
+    }
+}
+.sd-media-carousel__thumb {
+    display: flex;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-direction: column;
+    //align-items: center;
+    height: 6rem;
+    padding: 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    img {
+        max-width: 100%;
+        max-height: 6rem;
+        // width: auto;
+        //margin: auto;
+        object-fit: cover;
+        object-position: 50% 50%;
+    }
+}
+
+.sd-media-carousel__media-caption {
+    //background-color: rgba(0,0,0,0.1);;
+    color: inherit;
+    padding: 1.2rem;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: left;
+    font-weight: 300;
+}
