@@ -130,6 +130,15 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             height: auto;
             margin: auto;
         }
+        .sd-grid-item__type-icon {
+            margin: auto;
+            height: 4.8rem;
+            width: 4.8rem;
+            font-size: 4.8rem;
+            line-height: 4.8rem;
+            color: currentColor;
+            opacity: 0.25; 
+        }
         &--white {
             background-color: $white;
             color: $sd-text;

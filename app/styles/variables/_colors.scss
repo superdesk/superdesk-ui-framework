@@ -43,6 +43,7 @@ $neutral-border-color: scale-color($grayNeutral, $alpha: -50%);
 // Misc
 $avatarBG:              #67afa1;
 $sd-background:         #f8f8f8;
+$sd-background-darkUI:  #3b3b3b;
 $sd-filters-bg:         #ededed;
 $sd-hover:              #eff7fa;
 $transparent-gray:      rgba(0,0,0,.15);
@@ -91,6 +92,9 @@ $sd-basic-palette-ui-dark: (
   highlight: #bf00e0,
   sd-green: $sd-green,
 );
+
+// Dark UI
+
 
 // Internal variables used for colors
 $primary-color: map-get($sd-basic-palette, primary);

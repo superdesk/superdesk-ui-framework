@@ -4,6 +4,12 @@
     &--flex {
         display: flex;
         align-items: baseline;
+    }
+    &--no-padding {
+        padding-bottom: 0;
+    }
+    &--small-padding {
+        padding-bottom: 0.8rem;
     } 
 }
 

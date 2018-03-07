@@ -106,10 +106,11 @@
     }
 }
 
-.dark-ui {
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
     .toggle-box__header {
         .toggle-box__label {
-            color: #999;
+            color: rgba(255, 255, 255, 0.5);
         }
     }
     .toggle-box--circle {

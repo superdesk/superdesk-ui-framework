@@ -1,0 +1,37 @@
+<!-- Article edit panel -->
+<div class="side-panel__header subnav subnav--darker" ng-init="editorOpen = true">
+    <div class="subnav__stretch-bar">
+        <figure class="avatar" style="margin-right:10px;">VS</figure>
+    </div>
+    <div class="subnav__stretch-bar subnav__stretch-bar--right">
+        <a href="" class="btn">Cancel</a>
+        <a href="" class="btn btn--primary">Save</a>
+
+    </div>
+    <button class="navbtn" ng-click="editorOpen = !editorOpen">
+        <i class="big-icon--minimize"></i>
+    </button>
+    <button class="navbtn">
+        <i class="icon-dots-vertical"></i>
+    </button>
+    <button class="navbtn navbtn--highlighted">
+        <i class="big-icon--send-to"></i>
+    </button>
+</div>
+<div class="side-panel__content side-panel__content--flex">
+    <div class="side-panel__content-tab-content">
+
+        <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex" style="padding-bottom: 16px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2)">
+            <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                <p class="sd-text__date-and-author"><time>Created 01.02.2018 by </time> <span class="sd-text__author">Mika Karapet</span></p> 
+            </div>
+        </div>
+
+        <h3 class="side-panel__heading side-panel__heading--big" style="margin-top: 60px; opacity: 0.3; text-align: center;">EDITOR CONTENT</h3>
+        <div class="side-panel__content-block">
+
+        </div>
+    </div>
+</div>
+<div class="side-panel__footer"></div>
+<!-- END Article edit panel -->

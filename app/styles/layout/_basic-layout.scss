@@ -77,3 +77,37 @@
     flex-grow: 1;
     min-height: 0; // fix for Firefox
 }
+
+.sd-overlay-panel {
+    z-index: 2;
+    position: absolute;
+    top: $subnav-height;
+    right: 0;
+    bottom: 3rem;
+    width: 0;
+    background-color: $white;
+    color: $sd-text;
+    box-shadow: -2px 0 12px 0 rgba(0,0,0,0.3);
+    overflow: hidden;
+    transition: all 0.1s ease-out;
+    .side-panel {
+        opacity: 0;
+        transition: all 0.2s ease-out;
+        transition-delay: .1s;
+    }
+    &--dark-ui {
+        background-color: $sd-background-darkUI;
+        color: $white;
+    }
+    &--open {
+        width:40rem;
+        overflow: auto;
+        .side-panel {
+            opacity: 1;
+        }
+        &.sd-overlay-panel--large {
+            width:68rem;
+        }
+    }
+
+}

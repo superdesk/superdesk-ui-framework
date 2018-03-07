@@ -649,3 +649,66 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     }
   }
 }
+
+
+// Radio styled buttons
+// --------------------------------------------------
+
+$checkBtnColor: #546E7A;
+$checkBtnColorActive: #2c7694;
+
+.btn__check {
+    position: relative;
+    color: $white;
+    padding: 1rem 1.6rem;
+    background: $checkBtnColor;
+    border: none;
+    font-size: 1.3rem;
+    border-radius: 3px;
+    transition: $button-transition;
+    &:hover {
+        cursor: pointer;
+        background: scale-color($checkBtnColor, $lightness: 5%);
+    }
+    &.btn__check--active, &:active {
+        background: $checkBtnColorActive;
+        box-shadow: inset 0 3px 0 0 rgba(0,0,0,0.2);
+        &:after {
+            content: "";
+            width: 4.2rem;
+            position: absolute;
+            background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDIyLjAuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHdpZHRoPSI0MnB4IiBoZWlnaHQ9IjQycHgiIHZpZXdCb3g9IjAgMCA0MiA0MiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNDIgNDIiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8cGF0aCBvcGFjaXR5PSIwLjU4IiBmaWxsPSIjRkZGRkZGIiBkPSJNMjEsMEM5LjQsMCwwLDkuNCwwLDIxYzAsMTEuNiw5LjQsMjEsMjEsMjFzMjEtOS40LDIxLTIxQzQyLDkuNCwzMi42LDAsMjEsMHogTTE3LDMzTDcsMjMKCWw0LTRsNiw2bDE0LTE0bDQsNEwxNywzM3oiLz4KPC9zdmc+Cg==) no-repeat;
+            background-size: 4.2rem;
+            background-position: 0 -0.2rem;
+            top: 0; 
+            bottom: 0;
+            right: 0.8rem;
+            opacity: 0.3;
+        }
+    }
+    &.btn__check--active {
+      cursor: default;
+    }
+    &:active {
+        background: scale-color($checkBtnColor, $lightness: 5%);
+        box-shadow: inset 0 3px 0 0 rgba(0,0,0,0.2);
+        &:after {
+          opacity: 0.05;
+        }
+    }
+
+    &.btn__check--active:disabled {
+        opacity: 0.5;
+        background-color: rgba(123,123,123,0.5);
+        &:after {
+          opacity: 0.15;
+        }
+    }
+    &:disabled {
+        opacity: 0.5;
+        color:rgba(255,255,255,0.5);
+        background-color: rgba(123,123,123,0.5);
+        //&:not(.btn__check--active) { background: $checkBtnColor !important; }
+        &:hover { cursor: not-allowed; }
+    }
+}
