@@ -226,5 +226,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/tags-input.html'
         })
+        .when('/publish', {
+            title: 'Publish pane test',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publish.html'
+        })
         .otherwise({redirectTo: '/'});
 });

@@ -106,6 +106,11 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             transition: none;
             text-align: center;
             font-family: $baseFontFamily;
+            i {
+                display: block;
+                margin: -0.1rem -0.3rem -0.2rem;
+                color: currentColor;
+            }
         }
         &::after {
             content:'';
@@ -176,24 +181,34 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     }
 }
 
-// .multi-line-content {
-//     margin: 0 -0.3rem;
-//     .sd-check__wrapper, .btn, .label {
-//         margin: 0.3rem !important;
-//     }
-// }
 
-// .flex-grid--boxed {
-//     .sd-check__wrapper {
-//         margin: 0.3rem !important;
-//     }
-// }
-.subnav--dark-ui, .dark-ui {
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
+    .sd-checkbox {
+        border-color: rgba(255, 255, 255, 0.4);
+        &:hover {
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+        &.checked, &[checked="checked"] {
+            border-color: $sd-blue;
+            &:hover {
+                border-color: darken($sd-blue, 10%);
+                background-color: darken($sd-blue, 10%);
+            }
+        }
+    }
     .sd-checkbox--button-style {
         color: $checkButtonTextColor-darkUI;
         &:hover {
             color: scale-color($checkButtonTextColor-darkUI, $alpha: 100%);
         }
+        &.checked, &[checked="checked"] {
+            border-color: darken($sd-blue, 10%);
+            border-top-color: darken($sd-blue, 20%);
+            @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+            &:hover {
+                border-color: darken($sd-blue, 25%);
+            }
+        }
     }
-
 }

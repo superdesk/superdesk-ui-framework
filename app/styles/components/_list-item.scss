@@ -432,7 +432,17 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         letter-spacing: .08em;
         font-weight: 500;
         text-transform: uppercase;
-        color: $gray;  
+        color: $gray;
+        a {
+            color: $sd-blue;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 1;
+            &:hover {
+                color: scale-color($sd-blue, $lightness: -20%);
+                border-bottom: 1px dotted currentColor;
+            }
+        }  
     }
     .sd-list-header__number {
         margin-left: 1rem;
@@ -456,7 +466,11 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     }
 }
 
-.sd-list-item-group--dark-ui {
+
+
+.sd-list-item-group--dark-ui,
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
     .sd-list-item {
         color: scale-color($white, $alpha: -50%);
         background-color: $sd-ListItem-background-darkUI;
@@ -468,6 +482,12 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         }
         .sd-list-item__slugline {
             color: $sd-slugline-darkUI;
+        }
+        .sd-list-item__text-strong {
+            color: $white;
+        }
+        .sd-list-item__text-label {
+            color: currentColor;
         }
         &.sd-list-item--activated {
             background-color: $sd-ListItem-background-darkUI-activated;
@@ -483,10 +503,21 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
                 background-color: darken($sd-ListItem-background-darkUI-selected, 2%);
             }
         }
+        &.sd-list-item--no-hover {
+            &:hover {
+                background-color: $sd-ListItem-background-darkUI;
+            } 
+        }
+        &.sd-list-item--no-bg {
+            background-color: transparent !important; 
+        }
+
     }
     .sd-shadow--z1 {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.36), 0 0 1px rgba(0, 0, 0, 0.8) !important;
     }
-    
+    .sd-shadow--z2 {
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.06) !important;
+    }
 }
 

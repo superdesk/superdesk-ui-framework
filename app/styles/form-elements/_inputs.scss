@@ -106,6 +106,12 @@
     textarea.sd-line-input__input {
       padding-top: 3px;
     }
+    .sd-line-input__icon-right {
+        position: absolute;
+        top: 0.8rem;
+        right: 0;
+        cursor: pointer;
+    }
     &--boxed {
         input, textarea, textarea {
             &.sd-line-input__input {
@@ -130,6 +136,10 @@
                     border-bottom: 1px dotted $grayLight !important;
                 }
             }
+        }
+        .sd-line-input__icon-right {
+            top: 1.6rem;
+            right: 0.2rem;
         }
     }
 
@@ -252,6 +262,11 @@
         &.sd-line-input--no-label {
             &::after {
                 top: 1.2rem;
+            }
+            &.sd-line-input--boxed {
+                &::after {
+                    top: 1.4rem;
+                }
             }
         }
     }
@@ -463,12 +478,6 @@
         &:hover {
             background-color: $sd-blue;
         }
-    }
-    .sd-line-input__icon-right {
-        position: absolute;
-        top: 0.8rem;
-        right: 0;
-        cursor: pointer;
     }
 
 }
