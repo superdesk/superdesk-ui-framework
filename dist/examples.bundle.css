@@ -8075,6 +8075,13 @@ a.text-link {
     max-height: 6rem;
     object-fit: cover;
     object-position: 50% 50%; }
+  .sd-media-carousel__thumb--add i {
+    font-size: 3.2rem;
+    line-height: 3.2rem;
+    width: 3.2rem;
+    height: 3.2rem;
+    margin: auto;
+    opacity: .5; }
 
 .sd-media-carousel__media-caption {
   color: inherit;

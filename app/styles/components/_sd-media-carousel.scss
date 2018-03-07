@@ -232,6 +232,16 @@ $background-active: scale-color($background, $alpha: 100%))
         object-fit: cover;
         object-position: 50% 50%;
     }
+    &--add {
+        i {
+            font-size: 3.2rem;
+            line-height: 3.2rem;
+            width: 3.2rem;
+            height: 3.2rem;
+            margin: auto;
+            opacity: .5;
+        }
+    }
 }
 
 .sd-media-carousel__media-caption {
