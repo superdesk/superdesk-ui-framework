@@ -2753,6 +2753,15 @@ time {
 .big-icon--meta-search:before {
   content: "\E62F"; }
 
+.big-icon--chat:before {
+  content: "\E630"; }
+
+.big-icon--annotation:before {
+  content: "\E631"; }
+
+.big-icon--suggestion:before {
+  content: "\E632"; }
+
 .modal-open {
   overflow: hidden; }
   .modal-open .dropdown__menu {

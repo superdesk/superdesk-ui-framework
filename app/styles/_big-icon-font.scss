@@ -102,6 +102,9 @@ $sd-big-icon-font: (
     live: "\e62d",
     live-alt: "\e62e",
     meta-search: "\e62f",
+    chat: "\e630",
+    annotation: "\e631",
+    suggestion: "\e632",
 );
 
 @each $name, $value in $sd-big-icon-font {
