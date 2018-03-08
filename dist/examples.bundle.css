@@ -3026,6 +3026,9 @@ time {
 .icon-paragraph:before {
   content: "\E690"; }
 
+.icon-suggestion:before {
+  content: "\E691"; }
+
 .icn-mix {
   position: relative; }
   .icn-mix .icn-mix__sub-icn {
@@ -3235,6 +3238,15 @@ time {
 
 .big-icon--meta-search:before {
   content: "\E62F"; }
+
+.big-icon--chat:before {
+  content: "\E630"; }
+
+.big-icon--annotation:before {
+  content: "\E631"; }
+
+.big-icon--suggestion:before {
+  content: "\E632"; }
 
 .modal-open {
   overflow: hidden; }
