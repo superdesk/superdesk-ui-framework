@@ -11,6 +11,11 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown {
     position: relative;
     display: inline-block;
+
+    // not sure why it's inline-block in the first place
+    // align to top in order to prevent a space at the bottom
+    vertical-align: top;
+
     a {
         color: $dropdownLinkColor;
     }
