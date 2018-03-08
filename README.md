@@ -34,6 +34,8 @@ angular.module('application', ['superdesk-ui'])
 4. `grunt server` to run server locally
 5. Open `localhost:9100`
 
+Before pushing changes, please run `grunt build` to rebuild content for example page
+
 ### Testing
 Runing `e2e&unit` tests
 ```
