@@ -3026,6 +3026,9 @@ time {
 .icon-paragraph:before {
   content: "\E690"; }
 
+.icon-suggestion:before {
+  content: "\E691"; }
+
 .icn-mix {
   position: relative; }
   .icn-mix .icn-mix__sub-icn {

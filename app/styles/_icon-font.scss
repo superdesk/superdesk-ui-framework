@@ -214,7 +214,8 @@ $sd-icon-font: (
   facebook-circle: "\e68d",
   linked-in-circle: "\e68e",
   recurring: "\e68f",
-  paragraph: "\e690"
+  paragraph: "\e690",
+  suggestion: "\e691"
 );
 
 @each $name, $value in $sd-icon-font {
