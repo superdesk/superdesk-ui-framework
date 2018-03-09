@@ -6822,7 +6822,7 @@ a.text-link {
     background-color: #e3f1f6; }
     .sd-grid-item--activated:hover {
       background-color: #dbedf4; }
-  .sd-grid-item--selected {
+  .sd-grid-item--selected, .sd-grid-item.selected {
     outline: 2px solid #5ea9c8; }
   .sd-grid-item .sd-grid-item__actions {
     margin: 0;
@@ -6856,9 +6856,9 @@ a.text-link {
   .sd-grid-item:hover .sd-grid-item__actions,
   .sd-grid-item:hover .sd-grid-item__checkbox {
     visibility: visible; }
-  .sd-grid-item.sd-grid-item--selected .sd-grid-item__checkbox {
+  .sd-grid-item.sd-grid-item--selected .sd-grid-item__checkbox, .sd-grid-item.selected .sd-grid-item__checkbox {
     visibility: visible; }
-  .sd-grid-item.sd-grid-item--selected:hover .sd-grid-item__checkbox {
+  .sd-grid-item.sd-grid-item--selected:hover .sd-grid-item__checkbox, .sd-grid-item.selected:hover .sd-grid-item__checkbox {
     visibility: visible; }
   .sd-grid-item .sd-grid-item__thumb {
     position: relative;
@@ -7080,9 +7080,9 @@ a.text-link {
     background-color: #383838; }
   .dark-ui .sd-grid-item--with-click.sd-grid-item--activated:hover {
     background-color: #303436; }
-  .dark-ui .sd-grid-item--with-click.sd-grid-item--selected {
+  .dark-ui .sd-grid-item--with-click.sd-grid-item--selected, .dark-ui .sd-grid-item--with-click.selected {
     background-color: #283237; }
-    .dark-ui .sd-grid-item--with-click.sd-grid-item--selected:hover {
+    .dark-ui .sd-grid-item--with-click.sd-grid-item--selected:hover, .dark-ui .sd-grid-item--with-click.selected:hover {
       background-color: #242d31; }
   .dark-ui .sd-grid-item--with-click:active {
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.36); }
