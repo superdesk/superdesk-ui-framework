@@ -8990,7 +8990,8 @@ label + .sd-radio {
 
 .dropdown {
   position: relative;
-  display: inline-block; }
+  display: inline-block;
+  vertical-align: top; }
   .dropdown a {
     color: #333; }
   .dropdown a:hover {
