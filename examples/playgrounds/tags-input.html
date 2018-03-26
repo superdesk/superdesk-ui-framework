@@ -1,3 +1,20 @@
-<div style="width: 450px; margin: 100px auto">
-    <sd-tag-input data-label="test label"></sd-tag-input>
-</div>
+<header class="sd-top-menu">
+    <a class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+    <p class="sd-top-menu__header">Cards</p>
+</header>
+<main class="sd-page">
+    <section class="sd-page__main-content" ng-class="{'dark-ui': darkUI}">
+        <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+            <h3 class="subnav__page-title">Tag inputs</h3>
+            <button class="navbtn" ng-click="darkUI = !darkUI">
+                <i class="icon-adjust"></i>
+            </button>
+        </div>
+        <div class="sd-page__content">
+            <div style="width: 450px; margin: 100px auto" >
+                <sd-tag-input data-label="test label"></sd-tag-input>
+            </div>
+        </div>
+    </section>
+</main>
+

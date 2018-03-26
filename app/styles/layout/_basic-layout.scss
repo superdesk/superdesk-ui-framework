@@ -111,3 +111,10 @@
     }
 
 }
+
+.dark-ui {
+    .sd-page__content {
+        background-color: $grayMedium;
+        color: $white;
+    }
+}
