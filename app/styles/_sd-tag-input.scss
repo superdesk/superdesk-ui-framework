@@ -59,7 +59,7 @@ tags-input {
             float: left;
             transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
             background: $tag-label-background;
-            color: $tag-label-color;
+            color: currentColor;
             &.selected {
                 background-color: scale-color($sd-blue, $alpha: -35%);
                 
@@ -121,6 +121,7 @@ tags-input {
             padding: 0;
             float: left;
             height: 26px;
+            color: currentColor;
             background-color: transparent;
             &.invalid-tag {
                 color: $red;
@@ -217,3 +218,28 @@ tags-input {
         }
     }
 }
+
+
+.dark-ui,
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
+    tags-input {
+        .tags-input__tags {
+            border-bottom: 1px solid $sd-inputBorderColor-darkUi;
+            &:hover {
+                border-color: scale-color($sd-inputBorderColor-darkUi, $alpha: 35%);
+            }
+            &.focused {
+                border-bottom-color: $sd-blue;
+            }
+            .tags-input__tag-item {
+                background: $tag-label-background-darker;
+                &.selected {
+                    background-color: scale-color($sd-blue, $alpha: -25%);       
+                }
+            }
+        }
+    }
+}
+
+

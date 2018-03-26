@@ -44,7 +44,7 @@ $subnav-background-darkUi: #404040;
 }
 .subnav__page-title {
   padding: 1rem 2rem;
-  color: $grayDark;
+  color: inherit;
   font-size: 1.8rem;
   line-height: 2.8rem;
   flex-grow: 1;
@@ -246,7 +246,10 @@ $subnav-background-darkUi: #404040;
 }
 .subnav__button-stack {
   position: relative;
-  max-width: 100%;
+  //max-width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  
   &--square-buttons {
     height:48px;
     margin: 0 0 0 16px;
@@ -278,6 +281,10 @@ $subnav-background-darkUi: #404040;
   &--right {
     text-align: right;
     padding-right: 2rem;
+  }
+  &--padded {
+    padding: 0 1rem;
+    flex-shrink: 0;
   }
 }
 

@@ -43,13 +43,31 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             box-shadow: $sd-grid-item-shadow-activated;
         }
     }
-    &--activated {
+    &--activated, &--active, &.active {
         outline: 1px solid scale-color($sd-blue, $alpha: -60%);
         background-color: $sd-grid-item-Bg-activated;
         &:hover {
             background-color: darken($sd-grid-item-Bg-activated, 2%);
         }
+
     }
+    &.actioning {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            background-image: url(../img/three-dots.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 60px;
+            background-color: rgba(255, 255, 255, 0.85);
+        }
+    }
+    
     &--selected, &.selected {
         outline: 2px solid $sd-blue;
     }
@@ -165,6 +183,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         flex-grow: 1;
         display: flex;
         flex-direction: column;
+        position: relative;
         h4 {
             text-transform: uppercase;
             font-size: 11px;
@@ -267,6 +286,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             }
         }
     }
+
     .sd-grid-item__full-click {
         position: absolute;
         top:0;
@@ -312,7 +332,35 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         .sd-grid-item__thumb {
             height: 10rem;
         }
-    }    
+    }
+    .sd-grid-item__state-border {
+        height: 3px;
+        flex-grow: 0;
+        flex-shrink: 0;
+        background: none;
+    }
+    &.locked, &--locked {
+        .sd-grid-item__state-border {
+            background: $red;
+        }
+    }
+    &.archived, &--archived {
+        .sd-grid-item__content {
+            //position: relative;
+            &:after {
+                content: "";
+                width: 9.2rem;
+                height: 9.2rem;
+                position: absolute;
+                background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTYiIGhlaWdodD0iMTE2IiB2aWV3Qm94PSIwIDAgMTE2IDExNiI+PHBhdGggZmlsbD0iIzdCN0I3QiIgZD0iTTU4IDBDMjYgMCAwIDI2IDAgNThzMjYgNTggNTggNTggNTgtMjYgNTgtNThTOTAgMCA1OCAwem0zNy4xIDM4LjhMNDYuMyA4Ny42Yy0uNS41LTEuMi41LTEuNyAwTDE4LjkgNjEuOGMtLjUtLjUtLjUtMS4yIDAtMS43bDguMi04LjJjLjUtLjUgMS4yLS41IDEuNyAwTDQ1IDY4LjFjLjMuMy44LjMgMS4xIDBsMzkuMi0zOS4yYy41LS41IDEuMi0uNSAxLjcgMGw4LjIgOC4yYy40LjUuNCAxLjItLjEgMS43eiIvPjwvc3ZnPg==) no-repeat;
+                background-size: 11.6rem;
+                background-position: 0 0;
+                bottom: 0;
+                right: 0rem;
+                opacity: 0.14;
+            }
+        }
+    }   
 }
 
 .sd-grid-item__text-label {
@@ -324,6 +372,10 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
 .sd-grid-item__text-strong {
     font-weight: 400;
 }
+
+
+
+
 
 
 
@@ -404,8 +456,10 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
                 box-shadow: $sd-grid-item-shadow-darkUI-activated;
             }
         }
-
-
-
+        &.actioning {
+            &::before {
+                background-color: rgba(51, 51, 51, 0.85);
+            }
+        }
     }
 }

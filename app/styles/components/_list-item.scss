@@ -17,6 +17,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
 
 .sd-list-item {
     display: flex;
+    position: relative;
     min-height: 3.8rem;
     flex-direction: row;
     background-color: $sd-ListItem-background;
@@ -25,11 +26,12 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         background-color: $sd-ListItem-background-hover;
         cursor: pointer;
     }
-    &--active {
+    &--active, &.active {
         background-color: $sd-ListItem-background-activated;
     }
-    &--selected, &--selected:hover  {
+    &--selected, &--selected:hover, &.selected, &.selected:hover  {
         background-color: $sd-ListItem-background-selected;
+        outline: 1px solid rgba(94, 169, 200, 0.5);
     }
     &--activated, &--activated:hover {
         background-color: $sd-ListItem-background-activated;
@@ -42,6 +44,42 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
             background-color: transparent;
             cursor: default;
         } 
+    }
+    &.actioning {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 3;
+            background-image: url(../img/three-dots.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 45px;
+            background-color: rgba(255, 255, 255, 0.65);
+        }
+    }
+    &.locked {
+        .sd-list-item__border {
+            background: $red;
+        }
+    }
+    &.archived {
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 20%;
+            width: 10rem;
+            background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTYiIGhlaWdodD0iMTE2IiB2aWV3Qm94PSIwIDAgMTE2IDExNiI+PHBhdGggZmlsbD0iIzdCN0I3QiIgZD0iTTU4IDBDMjYgMCAwIDI2IDAgNThzMjYgNTggNTggNTggNTgtMjYgNTgtNThTOTAgMCA1OCAwem0zNy4xIDM4LjhMNDYuMyA4Ny42Yy0uNS41LTEuMi41LTEuNyAwTDE4LjkgNjEuOGMtLjUtLjUtLjUtMS4yIDAtMS43bDguMi04LjJjLjUtLjUgMS4yLS41IDEuNyAwTDQ1IDY4LjFjLjMuMy44LjMgMS4xIDBsMzkuMi0zOS4yYy41LS41IDEuMi0uNSAxLjcgMGw4LjIgOC4yYy40LjUuNCAxLjItLjEgMS43eiIvPjwvc3ZnPg==);
+            background-repeat:  no-repeat;
+            background-size: 6rem;
+            background-position: center center;
+            opacity: 0.16;
+        }
     }
 }
 
@@ -63,6 +101,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         background: $orange;
     }
 }
+
 
 .sd-list-item__column {
     display: flex;
@@ -511,7 +550,11 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         &.sd-list-item--no-bg {
             background-color: transparent !important; 
         }
-
+        &.actioning {
+            &::before {
+                background-color: rgba(51, 51, 51, 0.7);
+            }
+        }
     }
     .sd-shadow--z1 {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.36), 0 0 1px rgba(0, 0, 0, 0.8) !important;
@@ -519,5 +562,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     .sd-shadow--z2 {
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 8px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 0, 0, 0.06) !important;
     }
+
 }
+
 

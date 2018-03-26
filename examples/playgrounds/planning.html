@@ -122,8 +122,7 @@
                 </div>
             </div>
             <div class="subnav">
-                <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{
-                        'navbtn--active': leftFilterOpen}">
+                <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
                     <i class="icon-filter-large"></i>
                 </button>
                 <div class="subnav__stretch-bar" ng-init="planningType = 'events-planning'">
@@ -142,7 +141,18 @@
                         </ul>
                     </div>
                 </div>
-
+                <div class="subnav__button-stac subnav__button-stack--padded">
+                    <a class="btn">Today</a>
+                </div>
+                <div class="subnav__button-stac subnav__button-stack--padded">
+                        <a class="btn btn--icon-only-circle"><i class="icon-chevron-left-thin"></i></a>
+                        <a class="btn btn--icon-only-circle"><i class="icon-chevron-right-thin"></i></a>
+                    </div>
+                <div class="subnav__button-stack subnav__button-stack--padded" ng-init="dateSpan = 'week'">
+                    <sd-check ng-model="dateSpan" type="radio" ng-value="day" label-position="inside">D</sd-check>
+                    <sd-check ng-model="dateSpan" type="radio" ng-value="week" label-position="inside">W</sd-check>
+                    <sd-check ng-model="dateSpan" type="radio" ng-value="month" label-position="inside">M</sd-check>
+                </div>
             </div>
             <div class="sd-column-box--3">
                 <div class="sd-filters-panel">
