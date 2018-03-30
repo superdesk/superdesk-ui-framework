@@ -207,6 +207,7 @@
 }
 .sd-slide-in-panel__content {
     flex-grow: 1;
+    overflow-y: auto;
 }
 .sd-slide-in-panel__content-block {
     padding: 1.6rem;

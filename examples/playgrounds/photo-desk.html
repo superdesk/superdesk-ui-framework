@@ -263,7 +263,7 @@
                     <!-- Grid item view -->
                     <div class="sd-grid-list" ng-hide="!gridView">
                         <!-- item 1 -->
-                        <div class="sd-grid-item sd-grid-item--with-click locked actioning" ng-class="{'sd-grid-item--selected' : select1, 'sd-grid-item--activated' : selectThis1}">
+                        <div class="sd-grid-item sd-grid-item--with-click locked" ng-class="{'sd-grid-item--selected' : select1, 'sd-grid-item--activated' : selectThis1}">
                             <div class="sd-grid-item__thumb">
                                 <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
                                     <i class="icon-fullscreen"></i>
@@ -296,7 +296,7 @@
                             <div class="sd-grid-item__state-border"></div>
                         </div>
                         <!-- item 2 -->
-                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select2}">
+                        <div class="sd-grid-item sd-grid-item--with-click actioning" ng-class="{'sd-grid-item--selected' : select2}">
                             <div class="sd-grid-item__thumb">
                                 <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
                                     <i class="icon-fullscreen"></i>
@@ -526,7 +526,7 @@
                 
                     <div class="sd-list-item-group sd-list-item-group--space-between-items" ng-show="!gridView" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
                         <!-- list item  1 -->
-                        <div class="sd-list-item sd-shadow--z1 actioning" ng-class="{'sd-list-item--selected' : select1, 'sd-list-item--activated' : selectThis1}">
+                        <div class="sd-list-item sd-shadow--z1 locked" ng-class="{'sd-list-item--selected' : select1, 'sd-list-item--activated' : selectThis1}">
                             <div class="sd-list-item__border"></div>
                             <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select1}">
                                 <div class="sd-list-item__checkbox-container">
@@ -555,7 +555,7 @@
                             </div>
                         </div>
                         <!-- list item  2 -->
-                        <div class="sd-list-item sd-shadow--z1 locked" ng-class="{'sd-list-item--selected' : select2}">
+                        <div class="sd-list-item sd-shadow--z1 actioning" ng-class="{'sd-list-item--selected' : select2}">
                             <div class="sd-list-item__border"></div>
                             <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select2}">
                                 <div class="sd-list-item__checkbox-container">
@@ -916,9 +916,23 @@
     <!-- Image Edit modal -->
     <div sd-modal data-model="imageModal" class="modal--fullscreen modal--dark-ui" ng-init="showMetadata = true">
         <div class="modal__header modal__header--flex">
-            <h3 class="modal__heading">View image</h3>
-            <button class="btn btn--ui-dark" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">Cancel</button>
-            <button class="btn btn--ui-dark btn--primary" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')" style="margin-left: 10px;">Done</button>
+            <div class="modal__sliding-toolbar" ng-show="!contentChanged">
+                <div class="sliding-toolbar__inner"></div>
+                <a class="btn" ng-click="contentChanged = true">Cancel</a>
+                <a class="btn btn--primary" ng-click="contentChanged = true">Save</a>
+            </div>
+            <h3 class="modal__heading modal__heading--no-grow">Details</h3>
+            <div class="modal__header-buttons  modal__header-buttons--center modal__header-element-grow button-nav" ng-init="nav = 'view'">
+                <button class="button-nav__btn" ng-click="nav = 'view'; showMetadata = true" ng-class="{'button-nav__btn--active' : nav === 'view'}">Details</button>
+                <button class="button-nav__btn" ng-click="nav = 'image-edit'" ng-class="{'button-nav__btn--active': nav === 'image-edit'}">Edit image</button>
+                <button class="button-nav__btn" ng-click="nav = 'crop'; showMetadata = false" ng-class="{'button-nav__btn--active': nav === 'crop'}">Edit crops</button>
+            </div>
+            <div class="modal__header-buttons modal__header-buttons--right">
+                <button class="btn btn--ui-dark btn--hollow" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">Close</button>
+                <!-- <a class="icn-btn" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">
+                    <i class="icon-close-small"></i>
+                </a> -->
+            </div>
         </div>
         <div class="modal__body modal__body--no-padding">
             <div class="sd-column-box--2">
@@ -931,7 +945,8 @@
                             <a class="sd-photo-preview__nav-button sd-photo-preview__nav-button--prev"></a>
                             <a class="sd-photo-preview__nav-button sd-photo-preview__nav-button--next"></a>                   
                             <img src="../examples/img/d_trump_large.jpg" alt="test">
-                        </div> 
+                        </div>
+                        <!-- THUMBS for Multiedit  -->
                         <div class="sd-photo-preview__thumb-strip" ng-hide="!multiEdit">
                             <div class="sd-grid-list dark-ui">
                                 <!-- small item 1 -->
@@ -1016,17 +1031,55 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- END THUMBS for Multiedit  -->
+                        <!-- THUMBS for EDIT Crops  -->
+                        <div class="sd-photo-preview__thumb-strip" ng-show="nav === 'crop'">
+                            <div class="sd-grid-list dark-ui">
+                                <!-- small item 1 -->
+                                <div class="sd-grid-item sd-grid-item--with-click">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../examples/img/d_trump.jpg" alt="dileja">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <span class="">Original</span>
+                                    </div>
+                                </div>
+                                <!-- small item 2 -->
+                                <div class="sd-grid-item sd-grid-item--with-click">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../examples/img/d_trump.jpg" alt="dileja">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <span class="">3 x 2</span>
+                                    </div>
+                                </div>
+                                <!-- small item 3 -->
+                                <div class="sd-grid-item sd-grid-item--with-click">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../examples/img/d_trump.jpg" alt="dileja">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <span class="">21 x 9</span>
+                                    </div>
+                                </div>
+                                <!-- small item 4 -->
+                                <div class="sd-grid-item sd-grid-item--with-click">
+                                    <div class="sd-grid-item__thumb">
+                                        <img src="../examples/img/d_trump.jpg" alt="dileja">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <span class="">Portrait</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END THUMBS for EDIT Crops  -->
                     </div>
                 </div>
                 <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large sd-column-box__slide-in-column--dark-ui" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}">
                     <div class="sd-column-box__slide-in-column-inner sd-slide-in-panel">
 
                         <div class="sd-slide-in-panel__header">
-                            <div class="subnav__sliding-toolbar" ng-show="!contentChanged">
-                                <div class="sliding-toolbar__inner"></div>
-                                <a class="btn" ng-click="contentChanged = true">Cancel</a>
-                                <a class="btn btn--primary" ng-click="contentChanged = true">Save</a>
-                            </div>
                             <h3 class="sd-slide-in-panel__heading">Metadata</h3>
                             <a class="icn-btn sd-slide-in-panel__close" sd-tooltip="Close details" flow="top" ng-click="showMetadata = !showMetadata"><i class="icon-close-small"></i></a>
                         </div>
@@ -1127,7 +1180,7 @@
         </div>
 
     </div>
-    <!-- END Agenda management modal -->
+    <!-- END Image Edit modal -->
     <!-- Editor configuration modal -->
     <div sd-modal data-model="modalEditorConfig" class="modal--x-large">
         <div class="modal__header">

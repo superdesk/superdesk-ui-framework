@@ -59,6 +59,10 @@ export default angular.module('ui-docs', [
                 panelInfo: {
                     name: 'Panel info',
                     page: 'panel-info.html'
+                },
+                slider: {
+                    name: 'Slider control',
+                    page: 'slider.html'
                 }
             }
         },
