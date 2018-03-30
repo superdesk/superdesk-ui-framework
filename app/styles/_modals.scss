@@ -114,6 +114,7 @@ $modal-sizes: (
         }
         .modal__header {
             @include modal-header();
+            position: relative;
             &--padding-20 {
                 padding: 10px 20px;
             }
@@ -123,7 +124,33 @@ $modal-sizes: (
                 align-items: center;
                 .modal__heading {
                     flex-grow: 1;
+                    &--no-grow {
+                        flex-grow: 0;
+                    }
                 }
+            }
+        }
+        .modal__sliding-toolbar {
+            @include sliding-toolbar;
+            max-height: 5.4rem;
+        }
+        .modal__header-element-grow {
+            flex-grow: 1;
+        }
+        .modal__header-buttons {
+            display: flex;
+            align-content: center;
+            &--right {
+                justify-content: right;
+                .btn {
+                    margin: 0 0 0 1rem;
+                }
+            }
+            &--center {
+                justify-content: center;
+            }
+            &--grow {
+                flex-grow: 1;
             }
         }
         .modal__footer {
