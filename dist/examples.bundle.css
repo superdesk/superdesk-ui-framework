@@ -7520,7 +7520,8 @@ a.text-link {
     position: relative;
     height: 14rem;
     overflow: hidden;
-    text-align: center; }
+    text-align: center;
+    pointer-events: none; }
     .sd-grid-item .sd-grid-item__thumb img {
       max-width: 100%;
       max-height: 100%;
