@@ -1,10 +1,14 @@
 <!-- Event edit panel -->
-<div class="side-panel__header subnav">
+<div class="side-panel__header subnav subnav--dark-blue-grey">
     <div class="subnav__stretch-bar">
+        <span class="icn-mix icn-mix--2x" data-sd-tooltip="Event" data-flow="right">
+            <i class="icon-repeat icn-mix__sub-icn"></i>
+            <i class="icon-event icn-mix__icn"></i>
+        </span>
         <figure class="avatar" style="margin-right:10px;">sd</figure>
     </div>
     <div class="subnav__stretch-bar subnav__stretch-bar--right">
-        <a href="" class="btn" ng-click="$parent.editorOpen = false">Cancel</a>
+        <a href="" class="btn btn--ui-dark" ng-click="$parent.editorOpen = false">Cancel</a>
         <button class="btn btn--success">Publish</button>
         <a href="" class="btn btn--primary" ng-click="$parent.editorOpen = false">Save</a>
 
@@ -30,11 +34,6 @@
     <div class="side-panel__content-tab-content" ng-if="!tab2 || tab2 === 'event-details2'">
 
         <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
-            <div class="side-panel__content-block-inner">
-                <span class="double-size-icn double-size-icn--light" data-sd-tooltip="Event" data-flow="right">
-                    <i class="icon-calendar-list"></i>
-                </span>
-            </div>
             <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
                 <p class="sd-text__date-and-author"><time>Created 16.10.2017 by </time> <span class="sd-text__author">John Doe</span></p> 
                 <p class="sd-text__date-and-author"><time>Updated 3 hours ago by </time> <span class="sd-text__author">Mika Karapet</span></p> 

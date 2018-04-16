@@ -4,8 +4,6 @@
 // ============================================================================
 // SUBNAV
 // ============================================================================
-$subnav-background: $grayLighter;
-$subnav-background-darkUi: #404040;
 
 .subnav {
     position: relative;
@@ -22,7 +20,14 @@ $subnav-background-darkUi: #404040;
         padding: 10px 20px;
     }
     &--darker {
-        background: #dedede;
+        background: $subnav-background-darker;
+    }
+    &--dark-blue-grey {
+      background: $subnav-background-dark-blue-grey;
+      color: $white;
+        .navbtn:hover {
+          background: rgba(255, 255, 255, 0.20);
+      }
     }
     &--absolute {
       position: absolute;

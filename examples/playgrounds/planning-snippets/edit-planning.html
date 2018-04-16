@@ -1,6 +1,10 @@
 <!-- Planning edit panel -->
-<div class="side-panel__header subnav" ng-init="editorOpen = true">
+<div class="side-panel__header subnav subnav--darker" ng-init="editorOpen = true">
     <div class="subnav__stretch-bar">
+        <span class="icn-mix icn-mix--2x" data-sd-tooltip="Planning" data-flow="right">
+            <i class="icon-repeat icn-mix__sub-icn"></i>
+            <i class="icon-calendar icon--light-blue icn-mix__icn"></i>
+        </span>
         <figure class="avatar" style="margin-right:10px;">sd</figure>
     </div>
     <div class="subnav__stretch-bar subnav__stretch-bar--right">
@@ -30,11 +34,6 @@
     <div class="side-panel__content-tab-content" ng-if="!tab2 || tab2 === 'event-details2'">
 
         <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
-            <div class="side-panel__content-block-inner" data-sd-tooltip="Planning item" data-flow="right">
-                <span class="double-size-icn double-size-icn--light">
-                    <i class="icon-calendar"></i>
-                </span>
-            </div>
             <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
                 <p class="sd-text__date-and-author"><time>Created 15.09.2017 by </time> <span class="sd-text__author">Mika Karapet</span></p> 
                 <p class="sd-text__date-and-author"><time>Updated 1 hour ago by </time> <span class="sd-text__author">John Doe</span></p> 

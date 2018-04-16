@@ -24,13 +24,15 @@ $icon-color: $grayDark !default;
   font-style: normal;
 }
 
+$icon-base-size: 16px;
+
 @mixin icon-base {
   display: inline-block;
-  width: 16px;
-  height: 16px;
-  line-height: 16px;
+  width: $icon-base-size;
+  height: $icon-base-size;
+  line-height: $icon-base-size;
+  font-size: $icon-base-size;
   font-family: 'sd_icons';
-  font-size: 16px;
   speak: none;
   font-style: normal;
   font-weight: normal;
@@ -41,19 +43,35 @@ $icon-color: $grayDark !default;
 [class^="icon-"],
 [class*=" icon-"] {
   @include icon-base;
-  
   color: $icon-color;
-
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon--2x {
+  width: $icon-base-size *2;
+  height: $icon-base-size *2;
+  line-height: $icon-base-size *2;
+  font-size: $icon-base-size *2;
+}
+
+.icon--light {
+  opacity: 0.5;
+}
 .icon--blue {
   color: $sd-blue;
 }
 .icon--white {
   color: $white;
+}
+.icon--light-blue {
+  color: #68abc8;
+  opacity: 1 !important;
+}
+.icon--dark-blue-grey {
+  color: #31728e;
+  opacity: 1 !important;
 }
 [class*=icon-].red,
 .icon--red {
@@ -215,7 +233,8 @@ $sd-icon-font: (
   linked-in-circle: "\e68e",
   recurring: "\e68f",
   paragraph: "\e690",
-  suggestion: "\e691"
+  suggestion: "\e691",
+  event: "\e692"
 );
 
 @each $name, $value in $sd-icon-font {
@@ -232,23 +251,47 @@ $sd-icon-font: (
   }
 }
 
+
 // Combining 2 icons
 .icn-mix {
   position: relative;
+  display: inline-block;
+  font-size: $icon-base-size;
+  height: $icon-base-size;
+  .icn-mix__icn {
+    opacity: 0.6;
+  }
   .icn-mix__sub-icn {
     position:absolute;
     font-size: 1.1rem;
-    line-height: 1;
+    box-sizing: content-box;
+    line-height: 100%;
     color: $purple;
-    right: -0.4rem;
-    bottom: -0.5rem;
-    height: 1.3rem;
-    width: 1.3rem;
+    right: -0.5rem;
+    bottom:  -0.7rem;
+    height: 1em;
+    width: 1em;
     background-color: $white;
     border-radius: 50%;
-    padding: 0.1rem;
+    padding: 1px;
     z-index: 1;
     opacity: 1 !important;
+  }
+  &--2x {
+    font-size: $icon-base-size *2;
+    height: $icon-base-size *2;
+    .icn-mix__icn {
+      opacity: 0.6;
+      width: $icon-base-size *2;
+      height: $icon-base-size *2;
+      line-height: $icon-base-size *2;
+      font-size: $icon-base-size *2;
+    }
+    .icn-mix__sub-icn {
+      font-size: 1.6rem;
+      right: -0.6rem;
+      bottom: -0.3rem;
+    }
   }
 }
 
@@ -268,5 +311,32 @@ $sd-icon-font: (
     [class*=" icon-"] {
       opacity: 0.5;
     }
+  }
+}
+
+.subnav {
+  .icn-mix__sub-icn {
+    background-color: $subnav-background;
+  }
+  &--darker {
+    .icn-mix__sub-icn {
+      background-color: $subnav-background-darker;
+    }
+  }
+  &--dark-blue-grey {
+    .icn-mix__sub-icn {
+      background-color: $subnav-background-dark-blue-grey;
+      color: scale-color($purple, $lightness: 50%)
+    }
+    .icn-mix__icn {
+      color: inherit;
+      opacity: 1;
+    }
+  }
+}
+
+.side-panel__top-tools {
+  .icn-mix__sub-icn {
+    background-color: #f0f0f0;  
   }
 }
