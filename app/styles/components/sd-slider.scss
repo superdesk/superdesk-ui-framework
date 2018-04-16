@@ -27,7 +27,8 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     touch-action: manipulation;
     cursor: pointer;
     cursor: -webkit-grab;
-    cursor: grab; 
+    cursor: grab;
+     
     &:hover {
         background-color: scale-color($sd-blue, $lightness: -10%);
     }
