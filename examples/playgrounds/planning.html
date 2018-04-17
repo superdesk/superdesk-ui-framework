@@ -726,12 +726,12 @@
                 </div>
                 <div class="sd-preview-panel">
                     <div class="side-panel side-panel--shadow-right">
-                        <div class="side-panel__header">
+                        <div class="side-panel__header side-panel__header--dark-blue-grey">
                             <div class="side-panel__tools">
                                 <a class="icn-btn" sd-tooltip="Edit details" flow="top" ng-click="editorOpen = true; leftPreviewOpen = false"><i class="icon-pencil"></i></a>
                                 <a class="icn-btn" sd-tooltip="Close details" flow="top" ng-click="leftPreviewOpen = !leftPreviewOpen"><i class="icon-close-small"></i></a>
                             </div>
-                            <ul class="nav-tabs">
+                            <ul class="nav-tabs nav-tabs--ui-dark">
                                 <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'event-details'}" class="nav-tabs__tab">
                                     <button ng-click="tab = 'event-details'" class="nav-tabs__link"><span translate="">Content</span></button>
                                 </li>
@@ -741,7 +741,7 @@
                             </ul> 
                         </div>
                         <div class="side-panel__content" ng-if="!tab || tab === 'event-details'">
-                            <div class="side-panel__top-tools">
+                            <div class="side-panel__top-tools side-panel__top-tools--dark-blue-grey">
                                 <span class="icn-mix icn-mix--2x" data-sd-tooltip="Event" data-flow="right">
                                     <i class="icon-repeat icn-mix__sub-icn"></i>
                                     <i class="icon-event icon--dark-blue-grey icn-mix__icn"></i>

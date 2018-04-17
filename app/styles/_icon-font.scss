@@ -326,7 +326,7 @@ $sd-icon-font: (
   &--dark-blue-grey {
     .icn-mix__sub-icn {
       background-color: $subnav-background-dark-blue-grey;
-      color: scale-color($purple, $lightness: 50%)
+      color: scale-color($purple, $lightness: 50%);
     }
     .icn-mix__icn {
       color: inherit;
@@ -338,5 +338,15 @@ $sd-icon-font: (
 .side-panel__top-tools {
   .icn-mix__sub-icn {
     background-color: #f0f0f0;  
+  }
+  &--dark-blue-grey {
+    .icn-mix__sub-icn {
+      background-color: $subnav-background-dark-blue-grey;
+      color: scale-color($purple, $lightness: 50%);
+    }
+    .icn-mix__icn {
+      color: inherit;
+      opacity: 1;
+    }
   }
 }
