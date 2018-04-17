@@ -2662,6 +2662,14 @@ time {
 .side-panel__top-tools .icn-mix__sub-icn {
   background-color: #f0f0f0; }
 
+.side-panel__top-tools--dark-blue-grey .icn-mix__sub-icn {
+  background-color: #59727d;
+  color: #d786e4; }
+
+.side-panel__top-tools--dark-blue-grey .icn-mix__icn {
+  color: inherit;
+  opacity: 1; }
+
 @font-face {
   font-family: 'sd_big-icons';
   src: url(sd_big-icons.eot);
@@ -3192,7 +3200,7 @@ time {
       height: 48px;
       line-height: 30px;
       font-size: 1.4rem;
-      color: #999;
+      color: rgba(255, 255, 255, 0.6);
       background: none;
       border: 0;
       border-bottom: 3px solid transparent;
@@ -4100,6 +4108,9 @@ tags-input {
       box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12); }
     .side-panel .side-panel__header .nav-tabs {
       flex-grow: 1; }
+    .side-panel .side-panel__header--dark-blue-grey {
+      background-color: #59727d;
+      color: #fff; }
   .side-panel .side-panel__sliding-toolbar {
     position: absolute;
     display: flex;
@@ -4151,7 +4162,7 @@ tags-input {
     right: 1rem;
     top: 1.1rem;
     z-index: 2;
-    color: #666; }
+    color: inherit; }
     .side-panel .side-panel__tools .icn-btn {
       margin-left: 0.2rem; }
   .side-panel .side-panel__content {
@@ -4235,6 +4246,9 @@ tags-input {
     .side-panel .side-panel__top-tools .side-panel__top-tools-right {
       text-align: right;
       flex-grow: 1; }
+    .side-panel .side-panel__top-tools--dark-blue-grey {
+      background: #59727d;
+      color: #fff; }
   .side-panel .side-panel__footer {
     grid-column: 1/2;
     grid-row: 3/4;

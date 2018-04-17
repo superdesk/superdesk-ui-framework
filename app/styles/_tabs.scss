@@ -14,7 +14,7 @@ $nav-tab-link-border-color: #d8d8d8; // hover state, border bottom color
 $nav-tab-active-link-border-color: $sd-blue;  // active state border bottom color
 
 // UI dark colors
-$nav-tab-link-color-dark: $grayLight;
+$nav-tab-link-color-dark: scale-color($white, $alpha: -40%);
 $nav-tab-active-link-color-dark: $white;
 $nav-tab-link-border-color-dark: $sd-blue;
 $nav-tab-active-link-border-color-dark: $sd-blue;
