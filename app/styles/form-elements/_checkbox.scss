@@ -90,14 +90,14 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     // This modifier creates button styled checkboxes or radio buttons
     &--button-style {
         width: auto;
-        //height: auto;
-        padding: 0.6rem 1.2rem 0.7rem;
+        padding: 0 1.2rem;
         line-height: 1;
         color: $checkButtonTextColor;
         border: 1px solid $checkButtonBorderColor;
         @include border-radius(2px);
         @include transition(all, 0.2s, ease-out);
-        display: block;
+        display: inline-flex;
+        align-items: center;
         text-align: center;
         height: 2.8rem;
         @include text-overflow;
@@ -107,14 +107,17 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             cursor: pointer;
             transition: none;
             text-align: center;
+            line-height: 16px;
             font-family: $baseFontFamily;
             @include text-overflow;
-            i {
-                display: block;
-                margin: -0.1rem -0.3rem -0.2rem;
-                color: currentColor;
-            }
         }
+        [class^="icon-"], [class*=" icon-"] {
+            color: currentColor;
+        }
+        i + label {
+            margin-left: 8px;
+        }
+
         &::after {
             content:'';
             display: none;

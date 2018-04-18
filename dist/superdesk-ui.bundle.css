@@ -8644,7 +8644,7 @@ label + .sd-toggle {
         background: transparent; }
   .sd-checkbox--button-style {
     width: auto;
-    padding: 0.6rem 1.2rem 0.7rem;
+    padding: 0 1.2rem;
     line-height: 1;
     color: #5a5a5a;
     border: 1px solid rgba(140, 140, 140, 0.5);
@@ -8657,7 +8657,8 @@ label + .sd-toggle {
     -ms-transition: all 0.2s ease-out;
     -o-transition: all 0.2s ease-out;
     transition: all 0.2s ease-out;
-    display: block;
+    display: inline-flex;
+    align-items: center;
     text-align: center;
     height: 2.8rem;
     overflow: hidden;
@@ -8669,14 +8670,15 @@ label + .sd-toggle {
       cursor: pointer;
       transition: none;
       text-align: center;
+      line-height: 16px;
       font-family: "Roboto", Helvetica, Arial, sans-serif;
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis; }
-      .sd-checkbox--button-style label i {
-        display: block;
-        margin: -0.1rem -0.3rem -0.2rem;
-        color: currentColor; }
+    .sd-checkbox--button-style [class^="icon-"], .sd-checkbox--button-style [class*=" icon-"] {
+      color: currentColor; }
+    .sd-checkbox--button-style i + label {
+      margin-left: 8px; }
     .sd-checkbox--button-style::after {
       content: '';
       display: none; }
