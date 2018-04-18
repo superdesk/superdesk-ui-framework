@@ -67,6 +67,10 @@ function sdCheck($parse) {
                     label.addClass('sd-label--disabled');
                 }
 
+                if (attrs.icon) {
+                    checkbox.html('<i class="icon-' + attrs.icon + '">').addClass('sd-checkbox sd-checkbox--button-style');
+                }
+
                 checkbox.toggleClass('checked', !!value).attr('checked', !!value);
 
                 if (attrs.labelPosition !== 'inside') {
