@@ -2682,7 +2682,13 @@ time {
 .icon-th:before {
   content: "\E610"; }
 
+.icon-grid-view:before {
+  content: "\E610"; }
+
 .icon-th-list:before {
+  content: "\E611"; }
+
+.icon-list-view:before {
   content: "\E611"; }
 
 .icon-pencil:before {
@@ -2716,6 +2722,9 @@ time {
   content: "\E61B"; }
 
 .icon-th-large:before {
+  content: "\E61C"; }
+
+.icon-grid-view-large:before {
   content: "\E61C"; }
 
 .icon-ok:before {
@@ -3077,6 +3086,9 @@ time {
 
 .icon-event:before {
   content: "\E692"; }
+
+.icon-kanban-view:before {
+  content: "\E693"; }
 
 .icn-mix {
   position: relative;

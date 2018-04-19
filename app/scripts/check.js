@@ -68,7 +68,7 @@ function sdCheck($parse) {
                 }
 
                 if (attrs.icon) {
-                    checkbox.html('<i class="icon-' + attrs.icon + '">').addClass('sd-checkbox sd-checkbox--button-style');
+                    checkbox.html('<i class="icon-' + attrs.icon + '">').append(label).addClass('sd-checkbox sd-checkbox--button-style');
                 }
 
                 checkbox.toggleClass('checked', !!value).attr('checked', !!value);
@@ -81,6 +81,11 @@ function sdCheck($parse) {
             // CHECKBOX STYLING
             if (attrs.labelPosition === 'inside') {
                 checkbox.html(label).addClass('sd-checkbox sd-checkbox--button-style');
+
+                if (attrs.icon) {
+                    checkbox.prepend('<i class="icon-' + attrs.icon + '">');
+                }
+
             } else if (attrs.labelPosition === 'left') {
                 label.after(checkbox);
             }

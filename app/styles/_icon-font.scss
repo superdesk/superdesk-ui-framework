@@ -104,7 +104,9 @@ $sd-icon-font: (
   ascending: "\e60f",
   descending: "\e60f",
   th: "\e610",
+  grid-view: "\e610",
   th-list: "\e611",
+  list-view: "\e611",
   pencil: "\e612",
   lock: "\e613",
   retweet: "\e614",
@@ -116,6 +118,7 @@ $sd-icon-font: (
   star-empty: "\e61a",
   multi-star: "\e61b",
   th-large: "\e61c",
+  grid-view-large: "\e61c",
   ok: "\e61d",
   zoom-in: "\e61e",
   zoom-out: "\e61f",
@@ -234,7 +237,8 @@ $sd-icon-font: (
   recurring: "\e68f",
   paragraph: "\e690",
   suggestion: "\e691",
-  event: "\e692"
+  event: "\e692",
+  kanban-view: "\e693"
 );
 
 @each $name, $value in $sd-icon-font {
