@@ -108,6 +108,8 @@ $background-active: scale-color($background, $alpha: 100%))
 
 .sd-media-carousel__nav-button {
     @include carouselNavButton-style;
+    transition: opacity 0.2s ease-out;
+    opacity: 0;
     &--next {
         right: -18px;
         color: inherit;
@@ -142,6 +144,18 @@ $background-active: scale-color($background, $alpha: 100%))
 
     }
     &--next-inner, &--prev-inner {
+        &::after {
+            opacity: 0.5;
+            transition: opacity 0.2s ease-out;
+        }
+        &:hover {
+            &::after {
+                opacity: 1;
+                color: $sd-text;
+            }
+        }
+    }
+    &--next-inner, &--prev-inner {
         &:active {
             &::after {
                 color: $sd-blue;
@@ -157,6 +171,14 @@ $background-active: scale-color($background, $alpha: 100%))
             color: $sd-text !important;
         }
     }
+}
+.sd-media-carousel__dialog {
+    &:hover {
+        .sd-media-carousel__nav-button {
+            opacity: 1;
+        }
+    }
+
 }
 
 .sd-media-carousel__page-indication-bar {
@@ -187,6 +209,10 @@ $background-active: scale-color($background, $alpha: 100%))
     grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
     grid-gap: 1rem;
     margin: 1.4rem 0;
+    i {
+        margin: auto;
+        color: inherit;
+    }
 }
 .sd-media-carousel__thumb-strip-item {
     box-shadow: 0 1px 4px rgba(0,0,0,.25), 0 0 1px 1px rgba(0,0,0,.1);
@@ -217,13 +243,14 @@ $background-active: scale-color($background, $alpha: 100%))
     flex-grow: 0;
     flex-shrink: 0;
     flex-direction: column;
-    //align-items: center;
+    align-items: center;
     height: 6rem;
     padding: 0;
     width: 100%;
     position: relative;
     overflow: hidden;
     text-align: center;
+    background-color: $photoBG-dark;
     img {
         max-width: 100%;
         max-height: 6rem;
@@ -232,15 +259,14 @@ $background-active: scale-color($background, $alpha: 100%))
         object-fit: cover;
         object-position: 50% 50%;
     }
-    &--add {
-        i {
-            font-size: 3.2rem;
-            line-height: 3.2rem;
-            width: 3.2rem;
-            height: 3.2rem;
-            margin: auto;
-            opacity: .5;
-        }
+    i {
+        font-size: 3.2rem;
+        line-height: 3.2rem;
+        width: 3.2rem;
+        height: 3.2rem;
+        margin: auto;
+        color: $white;
+        opacity: .35;
     }
 }
 
@@ -252,4 +278,10 @@ $background-active: scale-color($background, $alpha: 100%))
     font-size: 1.4rem;
     text-align: left;
     font-weight: 300;
+}
+
+.sd-editor--theme-blue, .sd-editor--theme-dark {
+    .sd-media-carousel__content {
+        outline: 1px solid rgba(255,255,255,.2);
+    }
 }

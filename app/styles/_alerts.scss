@@ -15,7 +15,7 @@ $sd-alert-palette: $sd-extended-palette;
 /// Default padding inside sd-alerts.
 $sd-alert-padding: 1.8rem 3rem 1.8rem 2rem !default;
 
-$sd-alert-padding-small: 0.8rem 2.6rem 0.8rem 1.6rem;
+$sd-alert-padding-small: 0.8rem 2.4rem 0.8rem 1.2rem;
 
 $sd-alert-lineheight-large: 1;
 
@@ -62,6 +62,7 @@ $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
     max-width: 100%;
     height:auto;
     transition: all linear 100ms;
+    display: flex;
         @each $name, $color in $sd-alert-palette {
         &.sd-alert--#{$name} {
             background: $color;
@@ -96,9 +97,14 @@ $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
         //transition: all ease-out 300ms;
     }
     &--small {
+        font-size: 1.3rem;
+        font-weight: 300;
         padding: $sd-alert-padding-small;
         box-shadow: $sd-alert-shadow-small;
         transition: all linear 90ms;
+    }
+    &--marg-b12 {
+        margin-bottom: 1.2rem;
     }
 }
 
@@ -142,7 +148,7 @@ $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
 }
 .sd-alert--small {
     .sd-alert__close {
-        top: 0.6rem;
+        top: 0.4rem;
     }
 }
 
@@ -154,6 +160,15 @@ $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
     justify-content: flex-end;
 }
 
+.sd-alert__icon {
+    margin: 0.1rem 1.2rem 0 -0.5rem;
+    flex-shrink: 0;
+}
+.sd-alert--small {
+    .sd-alert__icon {
+        margin-left: 0;
+    }
+}
 .sd-alert__info-btn {
     cursor: pointer;
     height: 2.2rem; 

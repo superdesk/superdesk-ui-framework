@@ -2282,7 +2282,8 @@ time {
   max-height: 20rem;
   max-width: 100%;
   height: auto;
-  transition: all linear 100ms; }
+  transition: all linear 100ms;
+  display: flex; }
   .sd-alert strong {
     font-weight: 500; }
   .sd-alert.sd-alert--default {
@@ -2410,9 +2411,13 @@ time {
     font-size: 0.1rem;
     transition: font-size ease-out 300ms, padding ease-out 300ms, max-width ease-out 200ms, max-height ease-out 300ms, opacity ease-out 200ms; }
   .sd-alert--small {
-    padding: 0.8rem 2.6rem 0.8rem 1.6rem;
+    font-size: 1.3rem;
+    font-weight: 300;
+    padding: 0.8rem 2.4rem 0.8rem 1.2rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.08);
     transition: all linear 90ms; }
+  .sd-alert--marg-b12 {
+    margin-bottom: 1.2rem; }
 
 .sd-alert__close {
   position: absolute;
@@ -2450,7 +2455,7 @@ time {
     background-color: rgba(255, 255, 255, 0.5); }
 
 .sd-alert--small .sd-alert__close {
-  top: 0.6rem; }
+  top: 0.4rem; }
 
 .sd-alert__container {
   position: relative;
@@ -2458,6 +2463,13 @@ time {
   display: flex;
   flex-direction: row;
   justify-content: flex-end; }
+
+.sd-alert__icon {
+  margin: 0.1rem 1.2rem 0 -0.5rem;
+  flex-shrink: 0; }
+
+.sd-alert--small .sd-alert__icon {
+  margin-left: 0; }
 
 .sd-alert__info-btn {
   cursor: pointer;
@@ -8241,7 +8253,9 @@ a.text-link {
   color: #333;
   transition: background-color 0.2s ease-out, color 0.1s ease-out;
   background-color: rgba(255, 255, 255, 0.3);
-  z-index: 3; }
+  z-index: 3;
+  transition: opacity 0.2s ease-out;
+  opacity: 0; }
   .sd-media-carousel__nav-button:hover {
     background-color: rgba(255, 255, 255, 0.65); }
   .sd-media-carousel__nav-button:active {
@@ -8282,6 +8296,12 @@ a.text-link {
     box-shadow: none; }
     .sd-media-carousel__nav-button--prev-inner::after {
       content: "\E642"; }
+  .sd-media-carousel__nav-button--next-inner::after, .sd-media-carousel__nav-button--prev-inner::after {
+    opacity: 0.5;
+    transition: opacity 0.2s ease-out; }
+  .sd-media-carousel__nav-button--next-inner:hover::after, .sd-media-carousel__nav-button--prev-inner:hover::after {
+    opacity: 1;
+    color: #333; }
   .sd-media-carousel__nav-button--next-inner:active::after, .sd-media-carousel__nav-button--prev-inner:active::after {
     color: #5ea9c8; }
   .sd-media-carousel__nav-button--disabled {
@@ -8291,6 +8311,9 @@ a.text-link {
     .sd-media-carousel__nav-button--disabled::after {
       opacity: 0.75;
       color: #333 !important; }
+
+.sd-media-carousel__dialog:hover .sd-media-carousel__nav-button {
+  opacity: 1; }
 
 .sd-media-carousel__page-indication-bar {
   bottom: -3.6rem;
@@ -8318,6 +8341,9 @@ a.text-link {
   grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
   grid-gap: 1rem;
   margin: 1.4rem 0; }
+  .sd-media-carousel__thumb-strip i {
+    margin: auto;
+    color: inherit; }
 
 .sd-media-carousel__thumb-strip-item {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), 0 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -8343,24 +8369,27 @@ a.text-link {
   flex-grow: 0;
   flex-shrink: 0;
   flex-direction: column;
+  align-items: center;
   height: 6rem;
   padding: 0;
   width: 100%;
   position: relative;
   overflow: hidden;
-  text-align: center; }
+  text-align: center;
+  background-color: #2c2c2c; }
   .sd-media-carousel__thumb img {
     max-width: 100%;
     max-height: 6rem;
     object-fit: cover;
     object-position: 50% 50%; }
-  .sd-media-carousel__thumb--add i {
+  .sd-media-carousel__thumb i {
     font-size: 3.2rem;
     line-height: 3.2rem;
     width: 3.2rem;
     height: 3.2rem;
     margin: auto;
-    opacity: .5; }
+    color: #fff;
+    opacity: .35; }
 
 .sd-media-carousel__media-caption {
   color: inherit;
@@ -8369,6 +8398,9 @@ a.text-link {
   font-size: 1.4rem;
   text-align: left;
   font-weight: 300; }
+
+.sd-editor--theme-blue .sd-media-carousel__content, .sd-editor--theme-dark .sd-media-carousel__content {
+  outline: 1px solid rgba(255, 255, 255, 0.2); }
 
 .test-comment {
   display: none;
@@ -8617,6 +8649,8 @@ a.text-link {
   .form-label--light {
     color: #999;
     font-weight: 400; }
+  .form-label--marg-b10 {
+    margin-bottom: 10px; }
 
 .sd-line-input {
   margin: 0 0 1.8em 0;
@@ -10446,7 +10480,6 @@ label + .sd-radio {
   .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h6 {
     font-size: 0.6875em;
     color: inherit;
-    text-transform: uppercase;
     opacity: 0.7;
     letter-spacing: 0.03em; }
   .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h6 {
@@ -10478,7 +10511,6 @@ label + .sd-radio {
   .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h6 {
     font-size: 0.6875em;
     color: inherit;
-    text-transform: uppercase;
     opacity: 0.7;
     letter-spacing: 0.03em; }
   .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h6 {
@@ -10510,7 +10542,6 @@ label + .sd-radio {
   .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h6 {
     font-size: 0.6875em;
     color: inherit;
-    text-transform: uppercase;
     opacity: 0.7;
     letter-spacing: 0.03em; }
   .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h6 {
