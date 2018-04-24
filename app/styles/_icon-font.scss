@@ -238,7 +238,11 @@ $sd-icon-font: (
   paragraph: "\e690",
   suggestion: "\e691",
   event: "\e692",
-  kanban-view: "\e693"
+  kanban-view: "\e693",
+  subscript: "\e694",
+  superscript: "\e695",
+  clear-format: "\e696",
+  preformatted: "\e697"
 );
 
 @each $name, $value in $sd-icon-font {

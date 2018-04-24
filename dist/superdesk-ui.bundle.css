@@ -2619,6 +2619,18 @@ time {
 .icon-kanban-view:before {
   content: "\E693"; }
 
+.icon-subscript:before {
+  content: "\E694"; }
+
+.icon-superscript:before {
+  content: "\E695"; }
+
+.icon-clear-format:before {
+  content: "\E696"; }
+
+.icon-preformatted:before {
+  content: "\E697"; }
+
 .icn-mix {
   position: relative;
   display: inline-block;
