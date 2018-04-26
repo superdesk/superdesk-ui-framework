@@ -3114,6 +3114,21 @@ time {
 .icon-preformatted:before {
   content: "\E697"; }
 
+.icon-crop:before {
+  content: "\E698"; }
+
+.icon-flip-horizontal:before {
+  content: "\E699"; }
+
+.icon-flip-vertical:before {
+  content: "\E69A"; }
+
+.icon-rotate-right:before {
+  content: "\E69B"; }
+
+.icon-rotate-left:before {
+  content: "\E69C"; }
+
 .icn-mix {
   position: relative;
   display: inline-block;
