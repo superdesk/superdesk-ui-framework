@@ -242,7 +242,12 @@ $sd-icon-font: (
   subscript: "\e694",
   superscript: "\e695",
   clear-format: "\e696",
-  preformatted: "\e697"
+  preformatted: "\e697",
+  crop: "\e698",
+  flip-horizontal: "\e699",
+  flip-vertical: "\e69a",
+  rotate-right: "\e69b",
+  rotate-left: "\e69c"
 );
 
 @each $name, $value in $sd-icon-font {
