@@ -131,15 +131,15 @@
                     <button class="icn-btn" ng-click="openComment = !openComment">
                         <i class="icon-post"></i>
                     </button>
-                    <div class="test-comment" ng-class="{'test-comment--open' : openComment}">
-                        <div class="comment-box comment-box--floating">
-                            <div class="comment-box__header">
-                                <figure class="avatar comment-box__header-avatar">vs</figure>
-                                <div class="comment-box__header-text">
-                                    <p class="comment-box__author-name">Andrewopoulus Powerspopdouculopudotidus</p>
-                                    <time class="comment-box__time" title="12:50, 15.09.2017">12:50, 15.09.2017</time>
+                    <div class="editor-popup" ng-class="{'editor-popup--open' : openComment}" style="top: 100px;bottom: 40px;right: 374px;">
+                        <div class="editor-popup__main editor-popup__main--floating">
+                            <div class="editor-popup__header">
+                                <figure class="avatar">vs</figure>
+                                <div class="editor-popup__header-text">
+                                    <p class="editor-popup__author-name">Andrewopoulus Powerspopdouculopudotidus</p>
+                                    <time class="editor-popup__time" title="12:50, 15.09.2017">12:50, 15.09.2017</time>
                                 </div>
-                                <div class="comment-box__header-tools">
+                                <div class="editor-popup__header-tools">
                                     <div class="dropdown dropdown--align-right" dropdown>
                                         <button class="icn-btn dropdown__toggle" dropdown__toggle>
                                             <i class="icon-dots-vertical"></i>
@@ -151,26 +151,26 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="comment-box__content-block">
-                                <div class="comment-box__info-bar">
+                            <div class="editor-popup__content-block">
+                                <div class="editor-popup__info-bar">
                                     <span class="label">footnote</span>
                                 </div>
-                                <!-- <p><span class="comment-box__text-bold">Replace:</span> <span class="comment-box__text-italic">"Trt"</span> with <span class="comment-box__text-italic">"Mrt"</span></p> -->
+                                <!-- <p><span>Replace:</span> <span class="comment-box__text-italic">"Trt"</span> with <span class="comment-box__text-italic">"Mrt"</span></p> -->
                                 <p>Maecenas nec odio et ante tincidunt tempus. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Vestibulum fringilla pede sit amet augue.</p>
                                 <div class="comment-box__button-toolbar comment-box__button-toolbar--right">
                                     <button class="btn btn--hollow btn--small" ng-click="openComment = !openComment">Resolve</button>
                                 </div>
                             </div>
-                            <div class="comment-box__reply-section">
-                                <ul class="comment-box__reply-list ">
+                            <div class="editor-popup__secondary-content">
+                                <ul class="editor-popup__content-scrollable ">
                                     <li class="comment-box__reply-item" ng-show="!deleteReply1">
-                                        <div class="comment-box__header">
-                                            <figure class="avatar comment-box__header-avatar">pz</figure>
-                                            <div class="comment-box__header-text">
-                                                <p class="comment-box__author-name">Perus Zderus</p>
-                                                <time class="comment-box__time" title="12:50, 15.09.2017">12:55, 15.09.2017</time>
+                                        <div class="editor-popup__header">
+                                            <figure class="avatar">pz</figure>
+                                            <div class="editor-popup__header-text">
+                                                <p class="editor-popup__author-name">Perus Zderus</p>
+                                                <time class="editor-popup__time" title="12:50, 15.09.2017">12:55, 15.09.2017</time>
                                             </div>
-                                            <div class="comment-box__header-tools">
+                                            <div class="editor-popup__header-tools">
                                                 <div class="dropdown dropdown--align-right" dropdown>
                                                     <button class="icn-btn dropdown__toggle" dropdown__toggle>
                                                         <i class="icon-dots-vertical"></i>
@@ -182,10 +182,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="comment-box__content-block" ng-if="!editReply1">
+                                        <div class="editor-popup__content-block" ng-if="!editReply1">
                                             <p>Vestibulum fringilla pede sit amet augue. Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</p>
                                         </div>
-                                        <div class="comment-box__content-block" ng-show="editReply1">
+                                        <div class="editor-popup__content-block" ng-show="editReply1">
                                             <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false">Vestibulum fringilla pede sit amet augue. Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</textarea>
                                             <div class="comment-box__button-toolbar comment-box__button-toolbar--right comment-box__button-toolbar--small">
                                                 <button class="btn btn--icon-only btn--hollow" ng-click="editReply1 = false"><i class="icon-close-small"></i></button>
@@ -194,13 +194,13 @@
                                         </div>
                                     </li>
                                     <li class="comment-box__reply-item" ng-show="!deleteReply2">
-                                        <div class="comment-box__header">
-                                            <figure class="avatar comment-box__header-avatar">op</figure>
-                                            <div class="comment-box__header-text">
-                                                <p class="comment-box__author-name">Omar Epps</p>
-                                                <time class="comment-box__time" title="12:50, 15.09.2017">13:15, 15.09.2017</time>
+                                        <div class="editor-popup__header">
+                                            <figure class="avatar">op</figure>
+                                            <div class="editor-popup__header-text">
+                                                <p class="editor-popup__author-name">Omar Epps</p>
+                                                <time class="editor-popup__time" title="12:50, 15.09.2017">13:15, 15.09.2017</time>
                                             </div>
-                                            <div class="comment-box__header-tools">
+                                            <div class="editor-popup__header-tools">
                                                 <div class="dropdown dropdown--align-right" dropdown>
                                                     <button class="icn-btn dropdown__toggle" dropdown__toggle>
                                                         <i class="icon-dots-vertical"></i>
@@ -212,10 +212,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="comment-box__content-block" ng-if="!editReply2">
+                                        <div class="editor-popup__content-block" ng-if="!editReply2">
                                             <p>Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</p>
                                         </div>
-                                        <div class="comment-box__content-block" ng-show="editReply2">
+                                        <div class="editor-popup__content-block" ng-show="editReply2">
                                             <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false">Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</textarea>
                                             <div class="comment-box__button-toolbar comment-box__button-toolbar--right comment-box__button-toolbar--small">
                                                 <button class="btn btn--icon-only btn--hollow" ng-click="editReply2 = false"><i class="icon-close-small"></i></button>
@@ -224,13 +224,13 @@
                                         </div>
                                     </li>
                                     <li class="comment-box__reply-item" ng-show="!deleteReply3">
-                                        <div class="comment-box__header">
-                                            <figure class="avatar comment-box__header-avatar">op</figure>
-                                            <div class="comment-box__header-text">
-                                                <p class="comment-box__author-name">Michael Kenneth Williams</p>
-                                                <time class="comment-box__time" title="12:50, 15.09.2017">13:15, 15.09.2017</time>
+                                        <div class="editor-popup__header">
+                                            <figure class="avatar">op</figure>
+                                            <div class="editor-popup__header-text">
+                                                <p class="editor-popup__author-name">Michael Kenneth Williams</p>
+                                                <time class="editor-popup__time" title="12:50, 15.09.2017">13:15, 15.09.2017</time>
                                             </div>
-                                            <div class="comment-box__header-tools">
+                                            <div class="editor-popup__header-tools">
                                                 <div class="dropdown dropdown--align-right" dropdown>
                                                     <button class="icn-btn dropdown__toggle" dropdown__toggle>
                                                         <i class="icon-dots-vertical"></i>
@@ -242,10 +242,10 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="comment-box__content-block" ng-if="!editReply3">
+                                        <div class="editor-popup__content-block" ng-if="!editReply3">
                                             <p>Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</p>
                                         </div>
-                                        <div class="comment-box__content-block" ng-show="editReply3">
+                                        <div class="editor-popup__content-block" ng-show="editReply3">
                                             <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false">Curabitur blandit mollis lacus. Aenean posuere, tortor sed cursus feugiat.</textarea>
                                             <div class="comment-box__button-toolbar comment-box__button-toolbar--right comment-box__button-toolbar--small">
                                                 <button class="btn btn--icon-only btn--hollow" ng-click="editReply3 = false"><i class="icon-close-small"></i></button>
@@ -254,7 +254,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <div class="comment-box__content-block">
+                                <div class="editor-popup__content-block">
                                     <textarea class="comment-box__input" type="text" placeholder="Reply" sd-auto-height elastic="false" ng-focus="replyFocus = true"></textarea>
                                     <div class="comment-box__reply-toolbar" ng-class="{'comment-box__reply-toolbar--active' : replyFocus}">
                                         <button class="btn btn--primary" ng-click="replyFocus = false">Reply</button>
