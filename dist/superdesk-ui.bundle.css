@@ -7759,7 +7759,7 @@ a.text-link {
   position: relative;
   overflow: hidden;
   text-align: center; }
-  .sd-media-carousel__page img {
+  .sd-media-carousel__page img, .sd-media-carousel__page video {
     max-height: 40em;
     width: auto !important;
     margin: 0 auto !important; }
