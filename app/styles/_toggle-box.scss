@@ -27,6 +27,9 @@
             max-height: 0;
             transition: all ease-out .5s;
         }
+        .toggle-box__header {
+            margin-bottom: 0;
+        }
     }
     // Stylings
     &.toggle-box--dark {
@@ -51,6 +54,9 @@
                 color: $white;
             }
         }
+    }
+    &.toggle-box--marg-b10 {
+        margin-bottom: 1rem;
     }
 }
 
@@ -105,6 +111,8 @@
         i { color: $white; }
     }
 }
+
+
 
 [class^="--dark-ui"],
 [class*="--dark-ui"] {
