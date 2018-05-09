@@ -4262,6 +4262,8 @@ table {
   .toggle-box.hidden .toggle-box__content-wraper {
     max-height: 0;
     transition: all ease-out .5s; }
+  .toggle-box.hidden .toggle-box__header {
+    margin-bottom: 0; }
   .toggle-box.toggle-box--dark .toggle-box__chevron i {
     color: #fff; }
   .toggle-box.toggle-box--dark .toggle-box__label {
@@ -4269,13 +4271,15 @@ table {
   .toggle-box.toggle-box--dark .toggle-box__line {
     background: rgba(123, 123, 123, 0.5); }
   .toggle-box.toggle-box--circle .toggle-box__chevron {
-    background-color: #999;
+    background-color: rgba(123, 123, 123, 0.5);
     height: 2rem;
     width: 2rem;
     text-align: center;
     border-radius: 50%; }
     .toggle-box.toggle-box--circle .toggle-box__chevron i {
       color: #fff; }
+  .toggle-box.toggle-box--marg-b10 {
+    margin-bottom: 1rem; }
 
 .toggle-box__header {
   display: flex;
