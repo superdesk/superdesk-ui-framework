@@ -4271,7 +4271,7 @@ table {
   .toggle-box.toggle-box--dark .toggle-box__line {
     background: rgba(123, 123, 123, 0.5); }
   .toggle-box.toggle-box--circle .toggle-box__chevron {
-    background-color: #999;
+    background-color: rgba(123, 123, 123, 0.5);
     height: 2rem;
     width: 2rem;
     text-align: center;

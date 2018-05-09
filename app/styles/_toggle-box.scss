@@ -45,7 +45,7 @@
     }
     &.toggle-box--circle {
         .toggle-box__chevron {
-            background-color: $grayLight;
+            background-color: rgba(123,123,123,0.5);
             height: 2rem;
             width: 2rem;
             text-align: center;
