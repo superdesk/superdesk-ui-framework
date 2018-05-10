@@ -1,5 +1,50 @@
-
 $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-color .4s cubic-bezier(.25,.8,.25,1), opacity .4s cubic-bezier(.25,.8,.25,1);
+
+.sd-slider__range, input[type="range"] {
+    width: 100%;
+
+    position: relative;
+    height: 0.2rem;
+    margin-top: 1.25rem;
+    margin-bottom: 2.25rem;
+    background-color: rgba(123, 123, 123, 0.5);
+    cursor: pointer;
+    user-select: none;
+    touch-action: none;
+    border: 0;
+    padding: 0;
+    min-height: 0;
+    -webkit-appearance: none;
+
+    &::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        width: 1.6rem;
+        height: 1.6rem;
+        transform: scale(1);
+        border-radius: 50%;
+        background-color: $sd-blue;
+        transition: $sd-slider-transition;
+        touch-action: manipulation;
+        cursor: pointer;
+        cursor: -webkit-grab;
+        cursor: grab;
+
+        &:hover {
+            background-color: scale-color($sd-blue, $lightness: -10%);
+        }
+        &:active {
+            transform: scale(1.4);
+            cursor: -webkit-grabbing;
+            cursor: grabbing;
+        }
+    }
+
+    &:focus {
+        &::-webkit-slider-thumb {
+            background-color: scale-color($sd-blue, $lightness: -10%);
+        }
+    }
+}
 
 .sd-slider {
     position: relative;
@@ -10,6 +55,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     cursor: pointer;
     user-select: none;
     touch-action: none;
+    -webkit-appearance: none;
 }
 
 .sd-slider__handle {
@@ -28,7 +74,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     cursor: pointer;
     cursor: -webkit-grab;
     cursor: grab;
-     
+
     &:hover {
         background-color: scale-color($sd-blue, $lightness: -10%);
     }
