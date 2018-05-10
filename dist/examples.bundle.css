@@ -10462,45 +10462,27 @@ label + .sd-radio {
 .main-article.sd-editor--headline-large .headline .text-editor, .main-article.sd-editor--headline-large .headline p .text-editor, .main-article.sd-editor--headline-large .headline div .text-editor {
   font-size: 3.2rem; }
 
-.main-article.sd-editor--abstract-small .abstract .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.4rem; }
-
-.main-article.sd-editor--abstract-small .abstract, .main-article.sd-editor--abstract-small .abstract p, .main-article.sd-editor--abstract-small .abstract div {
-  font-size: 1.4rem; }
-
-.main-article.sd-editor--abstract-medium .abstract .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.6rem; }
-
-.main-article.sd-editor--abstract-medium .abstract, .main-article.sd-editor--abstract-medium .abstract p, .main-article.sd-editor--abstract-medium .abstract div {
-  font-size: 1.6rem; }
-
-.main-article.sd-editor--abstract-large .abstract .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.8rem; }
-
-.main-article.sd-editor--abstract-large .abstract, .main-article.sd-editor--abstract-large .abstract p, .main-article.sd-editor--abstract-large .abstract div {
-  font-size: 1.8rem; }
-
-.main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer {
-  font-size: 1.4rem; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h1 {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h1 {
     font-size: 2em; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h2 {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h2 {
     font-size: 1.5em;
     line-height: 140%; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h3 {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h3 {
     font-size: 1.125em; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h4 {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h4 {
     font-size: 0.875em; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h5 {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h5 {
     font-size: 0.75em; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h6 {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h6 {
     font-size: 0.6875em;
     color: inherit;
     opacity: 0.7;
     letter-spacing: 0.03em; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer h6 {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h6 {
     line-height: 140%; }
-  .main-article.sd-editor--body-small .body .Editor3-root .DraftEditor-editorContainer blockquote {
+  .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer blockquote {
     margin-left: 0;
     padding-left: 1em;
     border-left: 4px solid;
@@ -10511,27 +10493,27 @@ label + .sd-radio {
   .main-article.sd-editor--body-small .body-text .text-editor p {
     font-size: 1.4rem; }
 
-.main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.6rem; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h1 {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h1 {
     font-size: 2em; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h2 {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h2 {
     font-size: 1.5em;
     line-height: 140%; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h3 {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h3 {
     font-size: 1.125em; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h4 {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h4 {
     font-size: 0.875em; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h5 {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h5 {
     font-size: 0.75em; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h6 {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h6 {
     font-size: 0.6875em;
     color: inherit;
     opacity: 0.7;
     letter-spacing: 0.03em; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer h6 {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer h6 {
     line-height: 140%; }
-  .main-article.sd-editor--body-medium .body .Editor3-root .DraftEditor-editorContainer blockquote {
+  .main-article.sd-editor--body-medium .Editor3-root .DraftEditor-editorContainer blockquote {
     margin-left: 0;
     padding-left: 1em;
     border-left: 4px solid;
@@ -10542,27 +10524,27 @@ label + .sd-radio {
   .main-article.sd-editor--body-medium .body-text .text-editor p {
     font-size: 1.6rem; }
 
-.main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer {
+.main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.8rem; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h1 {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h1 {
     font-size: 2em; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h2 {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h2 {
     font-size: 1.5em;
     line-height: 140%; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h3 {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h3 {
     font-size: 1.125em; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h4 {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h4 {
     font-size: 0.875em; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h5 {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h5 {
     font-size: 0.75em; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h6 {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h6 {
     font-size: 0.6875em;
     color: inherit;
     opacity: 0.7;
     letter-spacing: 0.03em; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer h6 {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h1, .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h2, .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h3, .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h4, .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h5, .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer h6 {
     line-height: 140%; }
-  .main-article.sd-editor--body-large .body .Editor3-root .DraftEditor-editorContainer blockquote {
+  .main-article.sd-editor--body-large .Editor3-root .DraftEditor-editorContainer blockquote {
     margin-left: 0;
     padding-left: 1em;
     border-left: 4px solid;

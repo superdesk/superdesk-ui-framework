@@ -265,20 +265,9 @@ $body-font-size: (
             }
         }
     }
-    @each $name, $size in $abstract-font-size {
-        &.sd-editor--abstract-#{$name} {
-            .abstract .Editor3-root .DraftEditor-editorContainer {
-                font-size: $size;
-            }
-            // Editor 2
-            .abstract, .abstract p, .abstract div {
-                font-size: $size;
-            }
-        }
-    }
     @each $name, $size in $body-font-size {
         &.sd-editor--body-#{$name} {
-            .body .Editor3-root .DraftEditor-editorContainer {
+            .Editor3-root .DraftEditor-editorContainer {
                 font-size: $size;
                 h1 {
                     font-size: 2em;
