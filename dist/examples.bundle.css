@@ -2118,6 +2118,15 @@ time {
     background: rgba(0, 0, 0, 0.35);
     box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.25); }
 
+[class^="--dark-ui"] .btn.btn--ui-dark.btn--hollow.btn--active,
+[class*="--dark-ui"] .btn.btn--ui-dark.btn--hollow.btn--active {
+  color: #5ea9c8;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, 0.8); }
+  [class^="--dark-ui"] .btn.btn--ui-dark.btn--hollow.btn--active i,
+  [class*="--dark-ui"] .btn.btn--ui-dark.btn--hollow.btn--active i {
+    color: inherit; }
+
 .label {
   display: inline-block;
   padding: 0 0.6rem;
@@ -3993,6 +4002,9 @@ table {
   [class^="--dark-ui"] [data-sd-tooltip][data-flow^="right"]::before,
   [class*="--dark-ui"] [data-sd-tooltip][data-flow^="right"]::before {
     border-right-color: #222; }
+
+[disabled]:hover[sd-tooltip]::before, [disabled]:hover[data-sd-tooltip]::before, [disabled]:hover[sd-tooltip]::after, [disabled]:hover[data-sd-tooltip]::after {
+  display: none !important; }
 
 .sd-carousel {
   position: fixed;
@@ -6255,6 +6267,12 @@ tags-input {
   color: #666;
   font-weight: 300;
   letter-spacing: 0.02em; }
+  .sd-slide-in-panel__heading--marg-b10 {
+    margin-bottom: 1rem; }
+  .sd-slide-in-panel__heading--marg-b16 {
+    margin-bottom: 1.6rem; }
+  .sd-slide-in-panel__heading--marg-b20 {
+    margin-bottom: 2rem; }
 
 .sd-slide-in-panel__close {
   position: absolute;
@@ -8547,7 +8565,7 @@ a.text-link {
   position: relative;
   height: 0.2rem;
   margin-top: 1.25rem;
-  margin-bottom: 2.25rem;
+  margin-bottom: 1.25rem;
   background-color: rgba(123, 123, 123, 0.5);
   cursor: pointer;
   user-select: none;
@@ -8574,8 +8592,10 @@ a.text-link {
       transform: scale(1.4);
       cursor: -webkit-grabbing;
       cursor: grabbing; }
-  .sd-slider__range:focus::-webkit-slider-thumb, input[type="range"]:focus::-webkit-slider-thumb {
-    background-color: #489dc1; }
+  .sd-slider__range:focus, input[type="range"]:focus {
+    box-shadow: 0 0 0 1px rgba(123, 123, 123, 0.3); }
+    .sd-slider__range:focus::-webkit-slider-thumb, input[type="range"]:focus::-webkit-slider-thumb {
+      background-color: #489dc1; }
 
 .sd-slider {
   position: relative;
@@ -8703,6 +8723,19 @@ a.text-link {
     font-weight: 400; }
   .form-label--marg-b10 {
     margin-bottom: 10px; }
+
+.form-label__container {
+  display: flex;
+  flex-direction: row;
+  align-items: center; }
+  .form-label__container .form-label {
+    flex-grow: 1; }
+
+.form-label__info-block {
+  color: inherit;
+  font-size: 1.2rem;
+  text-align: right;
+  font-weight: 300; }
 
 .sd-line-input {
   margin: 0 0 1.8em 0;
@@ -9083,6 +9116,11 @@ a.text-link {
       -moz-osx-font-smoothing: grayscale; }
     .sd-line-input .sd-line-input__plus-btn:hover {
       background-color: #5ea9c8; }
+
+[class^="--dark-ui"] .form-label,
+[class*="--dark-ui"] .form-label {
+  color: inherit;
+  opacity: 0.6; }
 
 .sd-toggle {
   display: inline-block;

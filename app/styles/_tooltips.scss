@@ -301,6 +301,16 @@ $tooltip-dark-UI: #222;
   }
 }
 
+[disabled]:hover {
+  &[sd-tooltip]::before,
+  &[data-sd-tooltip]::before,
+  &[sd-tooltip]::after,
+  &[data-sd-tooltip]::after {
+    display: none !important;
+  }
+}
+
+
 
 
 

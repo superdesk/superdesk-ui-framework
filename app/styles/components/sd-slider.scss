@@ -6,7 +6,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     position: relative;
     height: 0.2rem;
     margin-top: 1.25rem;
-    margin-bottom: 2.25rem;
+    margin-bottom: 1.25rem;
     background-color: rgba(123, 123, 123, 0.5);
     cursor: pointer;
     user-select: none;
@@ -40,6 +40,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     }
 
     &:focus {
+        box-shadow: 0 0 0 1px rgba(123, 123, 123, 0.3);
         &::-webkit-slider-thumb {
             background-color: scale-color($sd-blue, $lightness: -10%);
         }
