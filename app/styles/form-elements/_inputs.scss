@@ -62,6 +62,20 @@
         margin-bottom: 10px;
     }
 }
+.form-label__container {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    .form-label {
+        flex-grow: 1;
+    }
+}
+.form-label__info-block {
+    color: inherit;
+    font-size: 1.2rem;
+    text-align: right;
+    font-weight: 300;
+}
 
 .sd-line-input {
     margin: 0 0 1.8em 0;
@@ -483,4 +497,12 @@
         }
     }
 
+}
+
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
+    .form-label {
+        color: inherit;
+        opacity: 0.6;
+    }
 }
