@@ -318,6 +318,19 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         text-transform: uppercase;
         margin-right: 1rem;
     }
+    .sd-grid-item__title {
+        font-weight: 400;
+        letter-spacing: 0.03em;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+    }
+
+    .sd-grid-item__text-light {
+        font-weight: 300;
+        font-size: 1.2rem;
+        letter-spacing: 0.04em;
+        opacity: 0.7;
+    }
 
     time {
         display: block;
