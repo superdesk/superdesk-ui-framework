@@ -80,6 +80,15 @@ $label-sizes: (
             }
         }
     }
+    &--annotation {
+        background-color: $annotation-color;
+        color: $grayMedium;
+
+    }
+    &--comment {
+        background-color: $comment-color;
+        color: $grayMedium;
+    }
 }
 
 

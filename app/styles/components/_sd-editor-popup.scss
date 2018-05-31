@@ -7,6 +7,12 @@ $editor-popup-padding: 1.6rem;
         display: inline-block;
         z-index: 1000;
     }
+    &--annotation {
+        border-top: 3px solid $annotation-color;
+    }
+    &--comment {
+        border-top: 3px solid $comment-color;
+    }
 }
 
 .editor-popup__main {
