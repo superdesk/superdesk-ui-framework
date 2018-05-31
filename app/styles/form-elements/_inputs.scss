@@ -95,6 +95,9 @@
     input, textarea {
         &.sd-line-input__input {
             @include Line-input-base;
+            &--center {
+                text-align: center;
+            }
         }
         &.sd-line-input__color {
             @include Line-input-base;
@@ -123,16 +126,37 @@
     textarea.sd-line-input__input {
       padding-top: 3px;
     }
-    .sd-line-input__icon-right {
+    .sd-line-input__info-left, .sd-line-input__info-right { // use for 1-2 letter info that appear inside inputs ("W" - for width; "H" - for height; px, mm - for units, etc.)
+        position: absolute;
+        top: 2.5rem;
+        opacity: 0.3;
+        font-size: 1.5rem;
+        font-weight: 300;
+    }
+    .sd-line-input__info-right {
+        right: 0.8rem;
+    }
+    .sd-line-input__info-left {
+        left: 0.8rem;
+    }
+
+    .sd-line-input__icon-left, .sd-line-input__icon-right {
         position: absolute;
         top: 0.8rem;
-        right: 0;
         cursor: pointer;
     }
+
+
     &--boxed {
-        input, textarea, textarea {
+        padding-top: 1.8rem;
+        input, textarea {
             &.sd-line-input__input {
                 @include Line-input-boxed;
+            }
+        }
+        textarea {
+            &.sd-line-input__input {
+                padding-top: 0.6rem;
             }
         }
         select {
@@ -141,7 +165,7 @@
             }
         }
         &.sd-line-input--disabled {
-            input, textarea, textarea {
+            input, textarea {
                 &.sd-line-input__input {
                     background-color: rgba(0, 0, 0, 0.03);
                     border-bottom: 1px dotted $grayLight !important;
@@ -154,9 +178,29 @@
                 }
             }
         }
-        .sd-line-input__icon-right {
+        .sd-line-input__icon-right, .sd-line-input__icon-left {
             top: 1.6rem;
+        }
+        .sd-line-input__icon-left {
+            left: 0.2rem;
+        }
+        .sd-line-input__icon-right {
             right: 0.2rem;
+        }
+    }
+
+    &.sd-line-input--indent-l30 {
+        input, textarea {
+            &.sd-line-input__input {
+                padding-left: 3rem;
+            }
+        }
+    }
+    &.sd-line-input--indent-r30 {
+        input, textarea {
+            &.sd-line-input__input {
+                padding-right: 3rem;
+            }
         }
     }
 

@@ -49,6 +49,16 @@ $flex-grid-media: (
                 @include flex(0, 0, calc(#{100% / $i} - #{$flex-grid-gap-small * 2}));
                 max-width: calc(#{100% / $i} - #{$flex-grid-gap-small * 2});
             }
+            .sd-check__wrapper {
+                display: flex;
+                .sd-checkbox.sd-checkbox--button-style {
+                    display: flex;
+                    flex-grow: 1;
+                    label {
+                        flex-grow: 1;
+                    }
+                }
+            }
         }
     }
 }

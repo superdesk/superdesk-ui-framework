@@ -131,7 +131,7 @@
                     <button class="icn-btn" ng-click="openComment = !openComment">
                         <i class="icon-post"></i>
                     </button>
-                    <div class="editor-popup" ng-class="{'editor-popup--open' : openComment}" style="top: 100px;bottom: 40px;right: 374px;">
+                    <div class="editor-popup editor-popup--annotation" ng-class="{'editor-popup--open' : openComment}" style="top: 100px;bottom: 40px;right: 374px;">
                         <div class="editor-popup__main editor-popup__main--floating">
                             <div class="editor-popup__header">
                                 <figure class="avatar">vs</figure>
@@ -153,9 +153,8 @@
                             </div>
                             <div class="editor-popup__content-block">
                                 <div class="editor-popup__info-bar">
-                                    <span class="label">footnote</span>
+                                    <span class="label label--annotation">Annotation</span>
                                 </div>
-                                <!-- <p><span>Replace:</span> <span class="comment-box__text-italic">"Trt"</span> with <span class="comment-box__text-italic">"Mrt"</span></p> -->
                                 <p>Maecenas nec odio et ante tincidunt tempus. Pellentesque libero tortor, tincidunt et, tincidunt eget, semper nec, quam. Vestibulum fringilla pede sit amet augue.</p>
                                 <div class="comment-box__button-toolbar comment-box__button-toolbar--right">
                                     <button class="btn btn--hollow btn--small" ng-click="openComment = !openComment">Resolve</button>

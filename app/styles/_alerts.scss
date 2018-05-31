@@ -1,13 +1,13 @@
 /// @group sd-alert
 
 /// Default background color for labels.
-$sd-alert-background: scale-color($grayLight, $alpha: -50%) !default;
+$sd-alert-background: scale-color($grayLight, $alpha: -80%) !default;
 
 /// Default text color for sd-alerts.
-$sd-alert-color: $grayDark !default;
+$sd-alert-color: inherit !default;
 
 /// Alternate text color for sd-alerts.
-$sd-alert-color-alt: $gray !default;
+$sd-alert-color-alt: $grayNeutral !default;
 
 /// Coloring classes. A map of classes to output in the CSS.
 $sd-alert-palette: $sd-extended-palette;
@@ -30,7 +30,8 @@ $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
 /// Removes background fill for hollow buttons.
 @mixin sd-alert-hollow-style($color: $sd-alert-color-alt) {
     border: 1px solid $color;
-    background-color: scale-color($color, $lightness: 95%);
+    // background-color: scale-color($color, $lightness: 95%);
+    background-color: scale-color($color, $alpha: -95%);
     color: $color;
 }
 
