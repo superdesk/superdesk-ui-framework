@@ -10015,6 +10015,24 @@ label + .sd-radio {
 .main-article.sd-editor--headline-large .headline .text-editor, .main-article.sd-editor--headline-large .headline p .text-editor, .main-article.sd-editor--headline-large .headline div .text-editor {
   font-size: 3.2rem; }
 
+.main-article.sd-editor--abstract-small .abstract .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.4rem; }
+
+.main-article.sd-editor--abstract-small .abstract, .main-article.sd-editor--abstract-small .abstract p, .main-article.sd-editor--abstract-small .abstract div {
+  font-size: 1.4rem; }
+
+.main-article.sd-editor--abstract-medium .abstract .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.6rem; }
+
+.main-article.sd-editor--abstract-medium .abstract, .main-article.sd-editor--abstract-medium .abstract p, .main-article.sd-editor--abstract-medium .abstract div {
+  font-size: 1.6rem; }
+
+.main-article.sd-editor--abstract-large .abstract .Editor3-root .DraftEditor-editorContainer {
+  font-size: 1.8rem; }
+
+.main-article.sd-editor--abstract-large .abstract, .main-article.sd-editor--abstract-large .abstract p, .main-article.sd-editor--abstract-large .abstract div {
+  font-size: 1.8rem; }
+
 .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer {
   font-size: 1.4rem; }
   .main-article.sd-editor--body-small .Editor3-root .DraftEditor-editorContainer h1 {
