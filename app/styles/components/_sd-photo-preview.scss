@@ -29,6 +29,7 @@ $photo-nav-transition: all 0.2s ease-out;
     grid-row: 1/2;
     text-align: center;
     background-color: #111;
+    max-height: 100%; // needed for firefox
 }
 
 .sd-photo-preview__image img {

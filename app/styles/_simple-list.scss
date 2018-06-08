@@ -27,6 +27,13 @@ $simple-list-border-color: $neutral-border-color;
                 border-top: 1px dotted $simple-list-border-color;
             }
         }
+        &.simple-list--no-border-b {
+            .simple-list__item {
+                &:last-child {
+                    border-bottom: none;
+                }
+            }
+        }
     }
     &--comfortable {
         .simple-list__item {
@@ -38,5 +45,8 @@ $simple-list-border-color: $neutral-border-color;
     }
     &--no-padding {
         padding: 0 0 2rem 0;
+    }
+    &--no-padding-b {
+        padding-bottom: 0;
     }
 }

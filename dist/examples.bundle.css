@@ -3144,6 +3144,9 @@ time {
 .icon-rotate-left:before {
   content: "\E69C"; }
 
+.icon-business:before {
+  content: "\E69D"; }
+
 .icn-mix {
   position: relative;
   display: inline-block;
@@ -4256,12 +4259,16 @@ table {
     border-bottom: 1px dotted rgba(123, 123, 123, 0.5); }
     .simple-list--dotted .simple-list__item:first-child {
       border-top: 1px dotted rgba(123, 123, 123, 0.5); }
+  .simple-list--dotted.simple-list--no-border-b .simple-list__item:last-child {
+    border-bottom: none; }
   .simple-list--comfortable .simple-list__item {
     padding: 1.2rem 0; }
   .simple-list [class^="icon-"], .simple-list [class*=" icon-"] {
     vertical-align: middle; }
   .simple-list--no-padding {
     padding: 0 0 2rem 0; }
+  .simple-list--no-padding-b {
+    padding-bottom: 0; }
 
 .toggle-box {
   position: relative;
@@ -7823,6 +7830,10 @@ a.text-link {
     visibility: visible; }
   .sd-grid-item.sd-grid-item--selected:hover .sd-grid-item__checkbox, .sd-grid-item.selected:hover .sd-grid-item__checkbox {
     visibility: visible; }
+  .sd-grid-item.sd-grid-item--overflow-v {
+    overflow: visible; }
+    .sd-grid-item.sd-grid-item--overflow-v .sd-grid-item__thumb {
+      overflow: visible; }
   .sd-grid-item .sd-grid-item__thumb {
     position: relative;
     flex-grow: 0;
@@ -7942,6 +7953,8 @@ a.text-link {
       justify-content: flex-end; }
     .sd-grid-item .sd-grid-item__footer--spread {
       justify-content: space-between; }
+    .sd-grid-item .sd-grid-item__footer--padded {
+      padding: 0.4rem 1.2rem; }
     .sd-grid-item .sd-grid-item__footer .sd-grid-item__footer-block--multi-l {
       flex-grow: 1;
       display: flex;
@@ -7953,6 +7966,8 @@ a.text-link {
     .sd-grid-item .sd-grid-item__footer .sd-grid-item__footer-block .sd-grid-item__footer-block-item {
       margin: 0 0.4rem;
       flex-shrink: 0; }
+    .sd-grid-item .sd-grid-item__footer time {
+      display: inline-block; }
   .sd-grid-item .sd-grid-item__full-click {
     position: absolute;
     top: 0;
@@ -8033,9 +8048,13 @@ a.text-link {
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
     grid-gap: 1.6rem;
     margin: 2rem; }
+  .sd-grid-list--large {
+    grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); }
   .sd-grid-list--no-rl-margin {
     margin-left: 0;
     margin-right: 0; }
+  .sd-grid-list--small-margin {
+    margin: 1rem; }
 
 .dark-ui.sd-column-box__main-column {
   background-color: #444; }
@@ -8325,7 +8344,8 @@ a.text-link {
   grid-column: 1/2;
   grid-row: 1/2;
   text-align: center;
-  background-color: #111; }
+  background-color: #111;
+  max-height: 100%; }
 
 .sd-photo-preview__image img {
   max-width: 100%;
@@ -9004,6 +9024,7 @@ a.text-link {
       font-size: 1.4rem;
       height: 2.4rem;
       transition: border linear 0.2s, box-shadow linear 0.2s;
+      display: block;
       position: relative;
       z-index: 2; }
       .sd-line-input select.sd-line-input__select:hover {
@@ -9013,6 +9034,10 @@ a.text-link {
         box-shadow: 0 1px 0 0 #5ea9c8;
         border-color: #5ea9c8;
         background-color: transparent; }
+      .sd-line-input select.sd-line-input__select option {
+        color: #333;
+        font-size: 1.4rem;
+        line-height: 2rem; }
   .sd-line-input textarea.sd-line-input__input {
     padding-top: 3px; }
   .sd-line-input .sd-line-input__info-left, .sd-line-input .sd-line-input__info-right {
@@ -9029,6 +9054,10 @@ a.text-link {
     position: absolute;
     top: 0.8rem;
     cursor: pointer; }
+  .sd-line-input .sd-line-input__icon-right {
+    right: 0.8rem; }
+  .sd-line-input .sd-line-input__icon-left {
+    left: 0.8rem; }
   .sd-line-input--boxed {
     padding-top: 1.8rem; }
     .sd-line-input--boxed input.sd-line-input__input, .sd-line-input--boxed textarea.sd-line-input__input {
