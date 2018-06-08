@@ -118,8 +118,14 @@
     select {
         &.sd-line-input__select {
             @include Line-input-base;
+            display: block;
             position: relative;
             z-index: 2;
+            option {
+                color:$sd-text;
+                font-size: 1.4rem;
+                line-height: 2rem;
+            }
         }
         cursor: pointer;
     }
@@ -145,7 +151,12 @@
         top: 0.8rem;
         cursor: pointer;
     }
-
+    .sd-line-input__icon-right {
+        right: 0.8rem;
+    }
+    .sd-line-input__icon-left {
+        left: 0.8rem;
+    }
 
     &--boxed {
         padding-top: 1.8rem;
