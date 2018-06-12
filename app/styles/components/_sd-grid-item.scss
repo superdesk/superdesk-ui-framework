@@ -419,6 +419,10 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     &--small-margin {
         margin: 1rem;
     }
+    &--no-margin {
+        margin: 0;
+    }
+
 }
 
 .dark-ui {
