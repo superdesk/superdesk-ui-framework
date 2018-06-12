@@ -5,7 +5,7 @@ $editor-popup-padding: 1.6rem;
     position: fixed;
     &--open {
         display: inline-block;
-        z-index: 1000;
+        z-index: 1040; // higher than top/bottom bars, lower than modals
     }
     &--annotation {
         border-top: 3px solid $annotation-color;

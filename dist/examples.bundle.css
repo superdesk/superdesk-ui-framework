@@ -8660,7 +8660,7 @@ a.text-link {
   position: fixed; }
   .editor-popup--open {
     display: inline-block;
-    z-index: 1000; }
+    z-index: 1040; }
   .editor-popup--annotation {
     border-top: 3px solid #a2df56; }
   .editor-popup--comment {
