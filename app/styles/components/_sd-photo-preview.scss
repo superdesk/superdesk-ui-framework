@@ -30,6 +30,22 @@ $photo-nav-transition: all 0.2s ease-out;
     text-align: center;
     background-color: #111;
     max-height: 100%; // needed for firefox
+    &.actioning {
+        &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 999;
+            background-image: url(../img/three-dots.svg);
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: 60px;
+            background-color: rgba(0, 0, 0, 0.85);
+        }
+    }
 }
 
 .sd-photo-preview__image img {
