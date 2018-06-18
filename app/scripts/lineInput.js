@@ -22,7 +22,7 @@ function LineInputDirective() {
             disabled: '=',
             required: '=',
             transclude: '=',
-            onChange: '&',
+            onchange: '&',
         }
     };
 }
