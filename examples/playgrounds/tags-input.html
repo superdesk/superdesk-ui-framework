@@ -14,6 +14,23 @@
             <div style="width: 450px; margin: 100px auto" >
                 <sd-tag-input data-label="test label"></sd-tag-input>
             </div>
+
+            <div style="width: 450px; margin: 100px auto" >
+                <sd-line-input
+                    ng-model="value"
+                    data-dark="dark"
+                    data-boxed="boxed"
+                    data-required="required"
+                    data-label="{{'Title'}}"
+                    data-disabled="disabled"
+                    data-maxlength="26">
+                </sd-line-input>
+                Value: {{value}} <br><br>
+                Disable: <sd-check ng-model="disabled"></sd-check>
+                Dark <sd-check ng-model="dark"></sd-check>
+                Boxed <sd-check ng-model="boxed"></sd-check>
+                Required <sd-check ng-model="required"></sd-check>
+            </div>
         </div>
     </section>
 </main>

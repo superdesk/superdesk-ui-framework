@@ -7,3 +7,4 @@ import './switch';
 import './toggleBox';
 import './wizard';
 import './tags';
+import './lineInput';
