@@ -13,13 +13,13 @@ function ToggleBoxDirective() {
         transclude: true,
         scope: true,
         link: function ($scope, element, attrs) {
-            $scope.title = attrs.title;
             $scope.isOpen = attrs.open === 'true';
             $scope.mode = attrs.mode;
             $scope.style = attrs.style;
             $scope.toggleModule = function () {
                 $scope.isOpen = !$scope.isOpen;
             };
+            attrs.$observe('title', (title) => $scope.title = title);
         }
     };
 }
