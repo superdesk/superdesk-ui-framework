@@ -21,8 +21,17 @@ function LineInputDirective() {
             maxlength: '=',
             disabled: '=',
             required: '=',
+            placeholder: '@',
             transclude: '=',
             onchange: '&',
+            onblur: '&',
+        },
+        link: (scope, elem, attrs, ngModel) => {
+            scope.update = (value) => {
+                ngModel.$setViewValue(value);
+
+                return scope.onchange();
+            };
         }
     };
 }
