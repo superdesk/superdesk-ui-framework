@@ -1,7 +1,7 @@
  <div class="sd-line-input" ng-class="{'sd-line-input--dark-ui': dark, 'sd-line-input--boxed': boxed, 'sd-line-input--required': required}">
     <label class="sd-line-input__label" translate>{{label}}</label>
 
-    <input class="sd-line-input__input" type="text" ng-model="model" ng-change="onchange()" ng-disabled="disabled" ng-if="!transclude">
+    <input class="sd-line-input__input" type="text" ng-model="model" ng-change="update(model)" ng-blur="onblur()" ng-disabled="disabled" placeholder="{{placeholder}}" ng-if="!transclude">
 
     <ng-transclude></ng-transclude>
 
