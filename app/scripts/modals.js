@@ -41,6 +41,12 @@ function sdModal($document, $rootScope) {
                 scope.$evalAsync();
             };
 
+            $document.bind('keydown', (evt) => {
+                if (evt.which === 27) {
+                    closeModal();
+                }
+            });
+
             function initialized() {
                 return _initialized && content;
             }
@@ -57,4 +63,4 @@ function sdModal($document, $rootScope) {
 }
 
 angular.module('superdesk-ui.modals', [])
-        .directive('sdModal', sdModal);
+    .directive('sdModal', sdModal);
