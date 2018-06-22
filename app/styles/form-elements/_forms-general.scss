@@ -10,6 +10,10 @@
     }
     &--small-padding {
         padding-bottom: 0.8rem;
+    }
+    &--inner {
+        padding-bottom: 0;
+        padding-top: 1rem;
     } 
 }
 
@@ -45,13 +49,33 @@
     }
 }
 
-.form__row label,
-.form__row-item label {
-    vertical-align: middle;
-    line-height: 100%;
-    margin-right: 0.6rem;
-     @include transition(color, 0.15s, ease-in);
+.form__row,
+.form__row-item {
+    label {
+        vertical-align: middle;
+        line-height: 100%;
+        margin-right: 0.6rem;
+         @include transition(color, 0.15s, ease-in);
+         &.form__row-label.form-label {
+             display: block;
+             width: 100%;
+             margin-bottom: 1rem;
+             margin-right: 0;
+         }
+    }
 }
 .label--active {
     color: darken($sd-blue, 6%);
+}
+
+.form__block {
+    display: block;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 1px 4px 0 rgba(0,0,0,0.2);
+    &--light {
+        background-color: $white;
+        box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 1px 4px 0 rgba(0,0,0,0.2);
+    }
 }

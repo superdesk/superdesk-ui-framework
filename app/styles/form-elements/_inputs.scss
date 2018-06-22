@@ -115,6 +115,16 @@
             }
         }
     }
+    input[type="file"] {
+        &.sd-line-input__input {
+            height: 3rem;
+            padding-top: 0.6rem;
+            font-size: 1.3rem;
+            &:focus {
+                outline: none;
+            }
+        }
+    }
     select {
         &.sd-line-input__select {
             @include Line-input-base;
