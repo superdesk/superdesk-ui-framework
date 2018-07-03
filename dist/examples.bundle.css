@@ -7961,9 +7961,16 @@ a.text-link {
       flex-direction: row;
       align-items: center;
       padding-left: 0.4rem; }
+    .sd-grid-item .sd-grid-item__footer .sd-grid-item__footer-block--multi-r {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 0.4rem; }
     .sd-grid-item .sd-grid-item__footer .sd-grid-item__footer-block--single-r {
       flex-grow: 0; }
-    .sd-grid-item .sd-grid-item__footer .sd-grid-item__footer-block .sd-grid-item__footer-block-item {
+    .sd-grid-item .sd-grid-item__footer .sd-grid-item__footer-block-item {
       margin: 0 0.4rem;
       flex-shrink: 0; }
     .sd-grid-item .sd-grid-item__footer time {

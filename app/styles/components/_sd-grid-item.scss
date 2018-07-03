@@ -286,13 +286,21 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
                 align-items: center;
                 padding-left: 0.4rem;
             }
+            &--multi-r {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: flex-end;
+                padding-right: 0.4rem;
+            }
             &--single-r {
                 flex-grow: 0;
             }
-            .sd-grid-item__footer-block-item {
-                margin: 0 0.4rem;
-                flex-shrink: 0;
-            }
+        }
+        .sd-grid-item__footer-block-item {
+            margin: 0 0.4rem;
+            flex-shrink: 0;
         }
         time {
             display: inline-block;
