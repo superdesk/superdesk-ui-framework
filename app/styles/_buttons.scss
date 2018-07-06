@@ -86,6 +86,7 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
   font-size: map-get($button-sizes, btn--default);
   text-transform: uppercase;
   line-height: 1;
+  font-weight: 400;
   letter-spacing: 0.1em;
   text-align: center;
   text-decoration: none;
