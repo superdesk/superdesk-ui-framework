@@ -21,6 +21,7 @@ function LineInputDirective() {
             maxlength: '=',
             disabled: '=',
             required: '=',
+            textarea: '=',
             placeholder: '@',
             transclude: '=',
             onchange: '&',
