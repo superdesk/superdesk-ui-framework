@@ -3522,6 +3522,7 @@ time {
       padding: 1.2rem 2rem;
       text-align: right;
       border-top: 1px solid #e4e4e4;
+      min-height: 48px;
       *zoom: 1; }
       .modal .modal__content .modal__footer:before, .modal .modal__content .modal__footer:after {
         display: table;
@@ -3639,6 +3640,9 @@ time {
       padding: 1rem 2rem;
       height: auto;
       min-height: 48px; }
+    .modal.modal--tabs .modal__body-header--flex {
+      display: flex;
+      align-items: center; }
   .modal.modal--tabs .modal__body-content {
     flex: 1 1 auto;
     width: 100%;
@@ -3650,7 +3654,8 @@ time {
     flex: 0 0 auto;
     padding: 1.2rem 2rem;
     border-top: 1px solid #e4e4e4;
-    text-align: right; }
+    text-align: right;
+    min-height: 48px; }
   .modal p {
     margin: 0 0 1em 0; }
   .modal.modal--dark-ui .modal__content {

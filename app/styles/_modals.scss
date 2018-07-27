@@ -28,7 +28,7 @@ $modal-border-radius: 4px;
 $modal-line-color: #e4e4e4;
 
 $modal-header-height : $nav-height;
-$modal-footer-height : 58px;
+$modal-footer-height : 48px;
 $modal-subnav-height : $nav-height;
 
 $modal-padding : 2rem;
@@ -90,6 +90,7 @@ $modal-sizes: (
     padding: $modal-padding - .8rem $modal-padding;
     text-align: right; // right align buttons
     border-top: 1px solid $modal-line-color;
+    min-height: $modal-footer-height;
     @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 }
 
@@ -276,6 +277,11 @@ $modal-sizes: (
                 height: auto;
                 min-height: 48px;
             }
+            &--flex {
+                display: flex;
+                align-items: center;
+            }
+
         }
         .modal__body-content {
             flex: 1 1 auto;
@@ -290,6 +296,7 @@ $modal-sizes: (
             padding: $modal-padding - .8rem $modal-padding;
             border-top: 1px solid $modal-line-color;
             text-align: right;
+            min-height: $modal-footer-height;
         }
     }
     p {
