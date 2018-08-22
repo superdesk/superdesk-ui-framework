@@ -1,4 +1,4 @@
 <label class="tags-input__label" ng-if="label">{{label}}</label>
-<tags-input ng-model="tag">
-    <auto-complete source="loadTags($query)" load-on-focus="true"></auto-complete>
+    <tags-input ng-model="tag" add-from-autocomplete-only="{{items ? !freetext : false}}">
+    <auto-complete ng-if="items" source="loadTags($query)" load-on-empty="true" min-length="1"></auto-complete>
 </tags-input>

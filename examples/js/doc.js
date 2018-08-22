@@ -45,6 +45,13 @@ function docPlayground(components, $route) {
             scope.components = components;
             scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl'));
             scope.route = $route;
+
+            scope.items = [
+                { text: 'just' },
+                { text: 'some' },
+                { text: 'cool' },
+                { text: 'tags' }
+            ];
         }
     };
 }
