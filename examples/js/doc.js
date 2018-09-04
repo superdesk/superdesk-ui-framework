@@ -47,11 +47,13 @@ function docPlayground(components, $route) {
             scope.route = $route;
 
             scope.items = [
-                { text: 'just' },
-                { text: 'some' },
-                { text: 'cool' },
-                { text: 'tags' }
+                { name: 'just' },
+                { name: 'some' },
+                { name: 'cool' },
+                { name: 'tags' }
             ];
+            
+            scope.freeItems = ['Audi', 'BMW', 'Opel', 'Hyundai'];
         }
     };
 }

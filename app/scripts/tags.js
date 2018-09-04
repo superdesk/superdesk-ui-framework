@@ -4,18 +4,22 @@ TagInputDirective.$inject = ['$q'];
 function TagInputDirective($q) {
     return {
         scope: {
+            model: '=ngModel',
             items: '=',
             field: '@',
             label: '@',
             freetext: '=',
-            freetextOnly: '='
+            required: '='
         },
+        require: '?ngModel',
         template: require('../template/tags.html'),
         link: function (scope) {
             scope.loadTags = (query) => {
                 return $q((resolve, reject) => {
                     let res = scope.items.filter((el) =>
-                        el[scope.field].toLowerCase().indexOf(query.toLowerCase()) > -1
+                        scope.field ?
+                                el[scope.field].toLowerCase().indexOf(query.toLowerCase()) > -1 :
+                                el.toLowerCase().indexOf(query.toLowerCase()) > -1
                     );
 
                     resolve(res);

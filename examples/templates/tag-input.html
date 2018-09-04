@@ -1,0 +1,93 @@
+<h2 class="docs-page__h2">Tag Input</h2>
+<p class="docs-page__paragraph">
+    A tag input is an input box that automatically creates tags – also called tokens – out of typed text every time a certain key is pressed. It's useful for tagging and highlighting information right on the input box.<br><br>
+    Properties: <br>
+    <code>data-items</code>: array of items for autosuggest.<br>
+    <code>data-field</code>: defines property in object by which to filter items.<br>
+    <code>data-freetext</code>: allows free input of items that are not in suggestion list.<br><br>
+    If you don't define <code>data-items</code> button will not be visible.
+</p>
+<div class="docs-page__code-window" doc-tabs>
+    <div class="docs-page__window-bar">
+        <a id="example" href="#" class="active">Example</a>
+        <a id="markup" href="#">Markup</a>
+    </div>
+    <div class="docs-page__window-content">
+        <div class="docs-page__code-example">
+            <p class="docs-page__paragraph">// Tag input with button for picking items from list</p>
+            <div class="form__row">
+                <sd-tag-input
+                    ng-model="cars1"
+                    data-label="Cars"
+                    data-items="[
+                    { text: 'Audi' },
+                    { text: 'BMW' },
+                    { text: 'Hyundai' },
+                    { text: 'Opel' }
+                    ]"
+                    data-field="text" 
+                    data-freetext="false">
+                </sd-tag-input>
+            </div>
+            <p class="docs-page__paragraph">// Tag input with suggestions + freetype text</p>
+            <div class="form__row">
+                <sd-tag-input
+                    ng-model="cars2"
+                    data-label="Cars"
+                    data-items="[
+                    { text: 'Audi' },
+                    { text: 'BMW' },
+                    { text: 'Hyundai' },
+                    { text: 'Opel' }
+                    ]"
+                    data-field="text" 
+                    data-freetext="true">
+                </sd-tag-input>
+            </div>
+            <p class="docs-page__paragraph">// Only freetype text</p>
+            <div class="form__row">
+                <sd-tag-input
+                    ng-model="cars3"
+                    data-label="Cars">
+                </sd-tag-input>
+            </div>
+        </div>
+        <div class="docs-page__code-markup">
+            <pre class="prettyprint lang-html linenums">
+                // Tag input with button for picking items from list
+                <sd-tag-input
+                    ng-model="cars1"
+                    data-label="Cars"
+                    data-items="[
+                        { text: 'Audi' },
+                        { text: 'BMW' },
+                        { text: 'Hyundai' },
+                        { text: 'Opel' }
+                    ]"
+                    data-field="text" 
+                    data-freetext="false">
+                </sd-tag-input>
+
+                // Tag input with suggestions + freetype text
+                <sd-tag-input
+                    ng-model="cars2"
+                    data-label="Cars"
+                    data-items="[
+                        { text: 'Audi' },
+                        { text: 'BMW' },
+                        { text: 'Hyundai' },
+                        { text: 'Opel' }
+                    ]"
+                    data-field="text" 
+                    data-freetext="true">
+                </sd-tag-input>
+
+                // Only freetype text
+                <sd-tag-input
+                    ng-model="cars3"
+                    data-label="Cars">
+                </sd-tag-input>
+            </pre>
+        </div>
+    </div>
+</div>
