@@ -90,6 +90,10 @@ export default angular.module('ui-docs', [
                     name: 'Select',
                     page: 'select.html'
                 },
+                tagInput: {
+                    name: 'Tag Input',
+                    page: 'tag-input.html'
+                },
                 checkbox: {
                     name: 'Checkbox',
                     page: 'checkbox.html'
