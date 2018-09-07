@@ -770,4 +770,12 @@ $button-nav-color: currentColor;
   }
 }
 
+// Button icon group 
+.btn-icon-group {
+  display: flex;
+  align-items: center;
 
+  .btn + .btn {
+    margin-left: 6px;
+  }
+}
