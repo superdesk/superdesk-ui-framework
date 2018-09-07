@@ -6,6 +6,7 @@ $card-item-header-bg-normal: #607d8b;
 $card-item-header-bg-inactive: #b1b1b1;
 $card-item-header-bg-active: $sd-blueMedium;
 $card-item-header-bg-light: #bfbfbf;
+$card-item-header-bg-secondary: #747c87;
 
 //shadows
 $card-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
@@ -31,6 +32,9 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
             box-shadow: $card-item-shadow-active;
         }
     }
+    &--flex-grow {
+        flex-grow: 1;
+    }
     .sd-card__actions   {
         margin: 0.4rem 0.4rem 0 0;
         visibility: hidden;
@@ -38,6 +42,15 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
     &:hover {
         .sd-card__actions   {
         visibility: visible;
+        }
+    }
+    .sd-card__actions-group {
+        display: flex;
+        align-items: center;
+        margin-right: .3rem;
+
+        a + a {
+            margin-left: .6rem;
         }
     }
     .sd-card__header {
@@ -82,6 +95,12 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
                 right:0;
                 z-index: 2;
             }
+        }
+        &--padding {
+            padding: 1rem 0;
+        }
+        &--secondary-color {
+            background-color: $card-item-header-bg-secondary;
         }
     }
     &--active {
@@ -256,6 +275,9 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
                     margin: 0;
                 }
             }
+            &--no-padding {
+                padding: 0;
+            }
         }
         .creation-time {
             display: block;
@@ -271,6 +293,17 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
             border-bottom: 1px dotted #5598B4;
             color: #5598B4;
             cursor: pointer;
+        }
+
+        .sd-card__content-list-block-link {
+            display: block;
+            padding: .8rem 1.6rem;
+            color: $gray;
+            text-decoration: none;
+
+            &:hover {
+                color: $grayDarker;
+            }
         }
     }
 

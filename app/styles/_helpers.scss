@@ -174,3 +174,33 @@ time {
         color: $sd-slugline-darkUI;
     }
 }
+
+// Dashboard content header
+.dashboard-content-header {
+    display: flex;
+    padding: 1.5rem;
+}
+
+.big-number-block {
+    display: flex;
+    color: $grayNeutral;
+
+    &__number {
+        font-size: 3.6rem;
+        font-weight: 300;
+        line-height: 100%;
+        letter-spacing: -.02em;
+    }
+    &__text {
+        margin: 0 1rem;
+        line-height: 120%;
+        font-weight: 300;
+    }
+
+    &--grow {
+        flex-grow: 1;
+    }
+    &--center {
+        align-items: center;
+    }
+}

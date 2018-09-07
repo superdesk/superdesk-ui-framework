@@ -71,12 +71,22 @@ $flex-grid-media: (
     overflow-x: auto;
     .flex-grid__item {
         position: relative;
+
+        &--d-flex {
+            display: flex;
+        }
+        &--column {
+            flex-direction: column;
+        }
     }
     &--wrap-items {
         flex-wrap: wrap;
     }
     &--content-center {
         justify-content: center;
+    }
+    &--grow {
+        flex-grow: 1;
     }
     &--boxed {
         margin-left: -$flex-grid-gap;
