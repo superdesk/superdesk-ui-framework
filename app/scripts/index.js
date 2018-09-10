@@ -5,6 +5,7 @@ import './dropdown';
 import './modals';
 import './switch';
 import './toggleBox';
+import './toggleBoxNext';
 import './wizard';
 import './tags';
 import './lineInput';

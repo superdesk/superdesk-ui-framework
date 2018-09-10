@@ -9,9 +9,11 @@
  */
 function ToggleBoxDirective() {
     return {
-        template: require('../template/toggle-box.html'),
+        template: '<toggle-box-next ng-if="loaded" title="title" mode="mode" style="style" is-open="isOpen"><div><div ng-transclude></div></div></toggle-box-next>',
         transclude: true,
-        scope: true,
+        scope: {
+
+        },
         link: function ($scope, element, attrs) {
             $scope.isOpen = attrs.open === 'true';
             $scope.mode = attrs.mode;
@@ -19,10 +21,14 @@ function ToggleBoxDirective() {
             $scope.toggleModule = function () {
                 $scope.isOpen = !$scope.isOpen;
             };
-            attrs.$observe('title', (title) => $scope.title = title);
+            attrs.$observe('title', (title) => {
+                $scope.title = title;
+                $scope.loaded = true;
+            });
+
         }
     };
 }
 
 angular.module('superdesk-ui.toggleBox', [])
-        .directive('sdToggleBox', ToggleBoxDirective);
+    .directive('sdToggleBox', ToggleBoxDirective);
