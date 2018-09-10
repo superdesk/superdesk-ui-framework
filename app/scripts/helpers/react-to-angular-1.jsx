@@ -10,9 +10,12 @@ class Angular1Bridge extends React.Component {
         this.setRef = this.setRef.bind(this);
     }
     setRef(childrenContainer) {
-        // Moves transcluded component into component passed as children to `ComponentToBridge`
         if (childrenContainer != null && this.props.angularTranscludeEl != null) {
-            childrenContainer.appendChild(this.props.angularTranscludeEl);
+            // Allow Angular to handle transclusion before the element is moved
+            setTimeout(() => {
+                // Moves transcluded component into component passed as children to `ComponentToBridge`
+                childrenContainer.appendChild(this.props.angularTranscludeEl);
+            });
         }
     }
     render() {
