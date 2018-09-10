@@ -29,6 +29,10 @@
           background: rgba(255, 255, 255, 0.20);
       }
     }
+    &--mid-blue-grey {
+      background: $subnav-background-mid-blue-grey;
+      color: $white;
+    }
     &--absolute {
       position: absolute;
       top:48px;
