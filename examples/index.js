@@ -109,6 +109,10 @@ export default angular.module('ui-docs', [
                 form: {
                     name: 'Form layout',
                     page: 'form-layout.html'
+                },
+                other: {
+                    name: 'Other',
+                    page: 'other.html'
                 }
             }
         },
