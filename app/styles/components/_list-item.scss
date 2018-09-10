@@ -124,6 +124,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         flex-grow: 1;
         flex-shrink: 1;
     }
+    &--shrink {
+        flex-shrink: 1;
+    }
     &--has-check {
         position: relative;
         .sd-list-item__item-type {

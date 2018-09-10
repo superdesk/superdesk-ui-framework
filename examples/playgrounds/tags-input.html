@@ -12,7 +12,22 @@
         </div>
         <div class="sd-page__content">
             <div style="width: 450px; margin: 100px auto" >
-                <sd-tag-input data-label="test label"></sd-tag-input>
+                <sd-tag-input
+                    ng-model="tags"
+                    data-label="test label"
+                    data-items="items" 
+                    data-field="name" 
+                    data-freetext="false">
+                </sd-tag-input>
+                {{tags}}
+                <br><br>
+                <sd-tag-input
+                    ng-model="cars"
+                    data-label="Cars"
+                    data-items="freeItems" 
+                    data-freetext="true">
+                </sd-tag-input>
+                {{cars}}
             </div>
 
             <div style="width: 450px; margin: 100px auto" >
@@ -25,6 +40,7 @@
                     data-disabled="disabled"
                     data-maxlength="26">
                 </sd-line-input>
+
                 Value: {{value}} <br><br>
                 Disable: <sd-check ng-model="disabled"></sd-check>
                 Dark <sd-check ng-model="dark"></sd-check>

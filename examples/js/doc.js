@@ -45,6 +45,15 @@ function docPlayground(components, $route) {
             scope.components = components;
             scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl'));
             scope.route = $route;
+
+            scope.items = [
+                { name: 'just' },
+                { name: 'some' },
+                { name: 'cool' },
+                { name: 'tags' }
+            ];
+            
+            scope.freeItems = ['Audi', 'BMW', 'Opel', 'Hyundai'];
         }
     };
 }

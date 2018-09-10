@@ -1,4 +1,5 @@
 $sd-sidebarMenu-background: #dedede;
+$sd-sidebarMenu-secondLevel-background: #b7bec1;
 $sd-sideTabMenu-background: #a1a1a1;
 
 .sd-sidebar-menu {
@@ -17,6 +18,11 @@ $sd-sideTabMenu-background: #a1a1a1;
       left: $sd-main-menu-width;
       //right: 0; This doesn't seam to have any function; To be tested; 
     }
+  }
+
+  &--second-level {
+    background-color: $sd-sidebarMenu-secondLevel-background;
+    z-index: $zindexFixedNavbar - 2;
   }
 }
 
@@ -48,6 +54,10 @@ $sd-sideTabMenu-background: #a1a1a1;
   &--active, &--active:hover {
     background-color: darken($sd-blue, 11%);
     opacity: 1;
+
+    .sd-sidebar-menu__main-icon {
+      color: #fff;
+    }
   }
 }
 

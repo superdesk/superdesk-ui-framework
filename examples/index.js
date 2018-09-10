@@ -90,6 +90,10 @@ export default angular.module('ui-docs', [
                     name: 'Select',
                     page: 'select.html'
                 },
+                tagInput: {
+                    name: 'Tag Input',
+                    page: 'tag-input.html'
+                },
                 checkbox: {
                     name: 'Checkbox',
                     page: 'checkbox.html'
@@ -239,6 +243,30 @@ export default angular.module('ui-docs', [
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publish.html'
+        })
+        .when('/publisher-dashboard', {
+            title: 'Publisher Dashboard',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-dashboard.html'
+        })
+        .when('/publisher-content-lists', {
+            title: 'Publisher Content Lists',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-content-lists.html'
+        })
+        .when('/publisher-content-list-manual', {
+            title: 'Publisher Content List Manual',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-content-list-manual.html'
+        })
+        .when('/publisher-content-list-automatic', {
+            title: 'Publisher Content List Automatic',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-content-list-automatic.html'
         })
         .otherwise({redirectTo: '/'});
 });

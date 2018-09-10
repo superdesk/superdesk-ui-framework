@@ -1,27 +1,33 @@
-TagInputDirective.$inject = ['$q'];
+/* global _ */
 
+TagInputDirective.$inject = ['$q'];
 function TagInputDirective($q) {
     return {
         scope: {
-            label: '@'
+            model: '=ngModel',
+            items: '=',
+            field: '@',
+            label: '@',
+            freetext: '=',
+            required: '='
         },
+        require: '?ngModel',
         template: require('../template/tags.html'),
-        link: function(scope, element, attrs, ctrl) {
-            scope.tags = [
-                { text: 'just' },
-                { text: 'some' },
-                { text: 'cool' },
-                { text: 'tags' }
-            ];
-
+        link: function (scope) {
             scope.loadTags = (query) => {
                 return $q((resolve, reject) => {
-                    resolve(scope.tags);
+                    let res = scope.items.filter((el) =>
+                        scope.field ?
+                                el[scope.field].toLowerCase().indexOf(query.toLowerCase()) > -1 :
+                                el.toLowerCase().indexOf(query.toLowerCase()) > -1
+                    );
+
+                    resolve(res);
                 });
-            }
+            };
         }
     };
 }
 
 angular.module('superdesk-ui.tags', [])
-    .directive('sdTagInput', TagInputDirective);
+        .directive('sdTagInput', TagInputDirective);

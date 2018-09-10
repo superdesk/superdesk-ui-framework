@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -58,5 +58,7 @@
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },
-  "scripts": {}
+  "scripts": {
+    "prepublish": "grunt build"
+  }
 }

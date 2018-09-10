@@ -248,7 +248,9 @@ $sd-icon-font: (
   flip-vertical: "\e69a",
   rotate-right: "\e69b",
   rotate-left: "\e69c",
-  business: "\e69d"
+  business: "\e69d",
+  paywall: "\e69e",
+  analytics: "\e69f"
 );
 
 @each $name, $value in $sd-icon-font {

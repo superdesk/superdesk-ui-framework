@@ -125,6 +125,9 @@
     &--left {
         border-right: 1px solid #BEBCBC;
     }
+    &--border-right {
+        border-right: 2px solid #8f8f8f;
+    }
 }
 .sd-column-box__slide-in-column {
     width: 26rem;
@@ -256,6 +259,9 @@
     }
     .sd-list-header {
         margin: 2.4rem 2.4rem -2rem 2.4rem;
+    }
+    &--double-sidebar {
+        width: calc(100vw - #{$sd-sidebarMenu-width * 2});
     }
 
 }
@@ -430,6 +436,11 @@ $planningEditor-width: 50rem;
     .sd-filters-panel {
         width: 36rem;
         border-right: 2px solid rgba(0, 0, 0, 0.25);
+
+        &--border-left {
+            border-right: none;
+            border-left: 2px solid rgba(0, 0, 0, 0.25);
+        }
         .side-panel {
             opacity: 1;
             transition: all 0.2s ease-out;
@@ -462,4 +473,14 @@ $planningEditor-width: 50rem;
     min-width: 4rem;
     color: $gray;
     font-weight: 300;
+}
+
+.sd-content-navigation-panel {
+    width: 20rem;
+    background-color: #f0f0f0;
+    flex-shrink: 0;
+
+    &--border-right {
+        border-right: 2px solid $grayLight;
+    }
 }
