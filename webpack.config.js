@@ -14,6 +14,7 @@ const config = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: '[name].bundle.js',
+        libraryTarget: 'umd',
         chunkFilename: '[name].chunk.js'
     },
 
