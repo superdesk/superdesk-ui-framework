@@ -258,5 +258,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-list-manual.html'
         })
+        .when('/publisher-content-list-automatic', {
+            title: 'Publisher Content List Automatic',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-content-list-automatic.html'
+        })
         .otherwise({redirectTo: '/'});
 });

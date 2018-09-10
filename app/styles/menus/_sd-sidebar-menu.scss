@@ -54,6 +54,10 @@ $sd-sideTabMenu-background: #a1a1a1;
   &--active, &--active:hover {
     background-color: darken($sd-blue, 11%);
     opacity: 1;
+
+    .sd-sidebar-menu__main-icon {
+      color: #fff;
+    }
   }
 }
 

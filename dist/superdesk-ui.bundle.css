@@ -239,6 +239,14 @@ time {
   .big-number-block--center {
     align-items: center; }
 
+.panel-border-left {
+  border-right: 0;
+  border-left: 2px solid rgba(0, 0, 0, 0.4); }
+
+.panel-border-right {
+  border-left: 0;
+  border-right: 2px solid rgba(0, 0, 0, 0.4); }
+
 .btn {
   display: inline-block;
   vertical-align: middle;
@@ -6237,6 +6245,9 @@ tags-input {
     color: #fff; }
     .subnav--dark-blue-grey .navbtn:hover {
       background: rgba(255, 255, 255, 0.2); }
+  .subnav--mid-blue-grey {
+    background: #747c87;
+    color: #fff; }
   .subnav--absolute {
     position: absolute;
     top: 48px;
@@ -9982,6 +9993,8 @@ label + .sd-radio {
   .sd-sidebar-menu__btn--active, .sd-sidebar-menu__btn--active:hover {
     background-color: #3d8fb1;
     opacity: 1; }
+    .sd-sidebar-menu__btn--active .sd-sidebar-menu__main-icon, .sd-sidebar-menu__btn--active:hover .sd-sidebar-menu__main-icon {
+      color: #fff; }
 
 .sd-sidebar-menu__main-icon {
   position: absolute;
