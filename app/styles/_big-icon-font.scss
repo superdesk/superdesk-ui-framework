@@ -105,6 +105,7 @@ $sd-big-icon-font: (
     chat: "\e630",
     annotation: "\e631",
     suggestion: "\e632",
+    publisher: "\e633",
 );
 
 @each $name, $value in $sd-big-icon-font {
