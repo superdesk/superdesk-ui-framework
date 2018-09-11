@@ -3455,6 +3455,9 @@ time {
 .big-icon--suggestion:before {
   content: "\E632"; }
 
+.big-icon--publisher:before {
+  content: "\E633"; }
+
 .modal-open {
   overflow: hidden; }
   .modal-open .dropdown__menu {
