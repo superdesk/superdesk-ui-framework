@@ -15,7 +15,7 @@ function sdDropdown($window) {
 
             function closeToBottom() {
                 return button && button.offset() ?
-                        $window.innerHeight - (button.offset().top - $window.scrollY) <
+                        checkEnvironment().bottom <
                         menu.outerHeight() + button.outerHeight() : false;
             }
 
@@ -25,9 +25,7 @@ function sdDropdown($window) {
             }
 
             function closeToLeft() {
-                return checkEnvironment() === 'authoring' ?
-                        elem.offset().left - $('#authoring-container').offset().left < menu.outerWidth() :
-                        elem.offset().left < menu.outerWidth();
+                return checkEnvironment().left < menu.outerWidth();
             }
 
             function closeToRight() {
@@ -36,7 +34,23 @@ function sdDropdown($window) {
             }
 
             function checkEnvironment() {
-                return elem.parents('#authoring-container').length ? 'authoring' : false;
+                let container = false;
+
+                if (elem.parents('#authoring-container').length) {
+                    container = '#authoring-container';
+
+                } else if (elem.parents('.modal__body').length) {
+                    container = '.modal__body';
+                }
+
+                return {
+                    left: container ?
+                            elem.offset().left - $(container).offset().left :
+                            elem.offset().left,
+                    bottom: container ?
+                            $(container).innerHeight() - button.offset().top :
+                            $window.innerHeight - (button.offset().top - $window.scrollY)
+                };
             }
 
             elem.bind('click', doTheMath);
