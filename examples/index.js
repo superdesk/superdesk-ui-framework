@@ -63,6 +63,10 @@ export default angular.module('ui-docs', [
                 slider: {
                     name: 'Slider control',
                     page: 'slider.html'
+                },
+                loader: {
+                    name: 'Animated loader',
+                    page: 'loader.html'
                 }
             }
         },

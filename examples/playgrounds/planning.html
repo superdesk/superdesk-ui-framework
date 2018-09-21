@@ -256,6 +256,7 @@
                         <div class="sd-list-item-nested" ng-class="{'sd-list-item-nested--expanded' : openNested, 'sd-list-item-nested--collapsed' : !openNested}" ng-init="openNested = true">
                                 <div class="sd-list-item sd-list-item-nested__parent sd-shadow--z1" ng-click="leftPreviewOpen = !leftPreviewOpen" ng-dblclick="editorOpen = true; itemType = 'event'" ng-class="{
                                     'sd-list-item--activated': leftPreviewOpen, 'sd-list-item--selected' : editMode}" ng-show="planningType === 'events-planning' || planningType === 'events'">
+                                    <div class="sd-loader"></div>
                                 <div class="sd-list-item__border"></div>
                                 <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : editMode}">
                                     <div class="sd-list-item__checkbox-container">
