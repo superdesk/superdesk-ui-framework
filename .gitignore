@@ -4,3 +4,4 @@ package-lock.json
 .DS_Store
 app/.DS_Store
 examples/.DS_Store
+dist
