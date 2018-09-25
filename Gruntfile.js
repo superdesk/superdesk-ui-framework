@@ -17,6 +17,12 @@ module.exports = function (grunt) {
     ]);
 
     // Register grunt tasks
+    grunt.registerTask('build-dev', [
+        'clean',
+        'webpack:build-dev'
+    ]);
+
+    // Register grunt tasks
     grunt.registerTask('server', [
         'clean',
         'webpack-dev-server:start'
