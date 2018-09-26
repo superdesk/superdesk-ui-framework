@@ -1,0 +1,6 @@
+<div class="flat-searchbar" ng-class="{extended: extended}">
+    <div class="search-handler">
+        <label for="search-input" class="trigger-icon" ng-click="extended = !extended"><i class="icon-search"></i></label>
+        <input id="search-input" type="text" placeholder="{{ :: label || 'Search' | translate }}" ng-model="model" ng-model-options="{debounce: debounce}">
+    </div>
+</div>
