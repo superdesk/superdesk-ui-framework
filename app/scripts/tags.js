@@ -9,25 +9,23 @@ function TagInputDirective($q) {
             field: '@',
             label: '@',
             freetext: '=',
-            required: '='
+            required: '=',
         },
         require: '?ngModel',
         template: require('../template/tags.html'),
-        link: function (scope) {
-            scope.loadTags = (query) => {
-                return $q((resolve, reject) => {
-                    let res = scope.items.filter((el) =>
-                        scope.field ?
-                                el[scope.field].toLowerCase().indexOf(query.toLowerCase()) > -1 :
-                                el.toLowerCase().indexOf(query.toLowerCase()) > -1
-                    );
+        link: function(scope) {
+            scope.loadTags = (query) => $q((resolve, reject) => {
+                let res = scope.items.filter((el) =>
+                    scope.field ?
+                        el[scope.field].toLowerCase().indexOf(query.toLowerCase()) > -1 :
+                        el.toLowerCase().indexOf(query.toLowerCase()) > -1
+                );
 
-                    resolve(res);
-                });
-            };
-        }
+                resolve(res);
+            });
+        },
     };
 }
 
 angular.module('superdesk-ui.tags', [])
-        .directive('sdTagInput', TagInputDirective);
+    .directive('sdTagInput', TagInputDirective);
