@@ -12,5 +12,6 @@ export default angular.module('superdesk-ui', [
     'superdesk-ui.toggleBox',
     'superdesk-ui.toggleBoxNext',
     'superdesk-ui.tags',
-    'superdesk-ui.lineInput'
+    'superdesk-ui.lineInput',
+    'superdesk-ui.searchHandler'
 ]);
