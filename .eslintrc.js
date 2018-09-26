@@ -1,4 +1,6 @@
-const sharedConfigs = require('superdesk-code-style');
+const config = require('superdesk-code-style');
 
-module.exports = Object.assign({}, sharedConfigs);
+config['rules']['max-len'] = [2, 140, 4];
+
+module.exports = config;
 
