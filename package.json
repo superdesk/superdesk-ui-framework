@@ -54,11 +54,13 @@
     "redux-form": "^7.0.4",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
+    "superdesk-code-style": "^1.1.2",
     "url-loader": "^0.5.9",
     "webpack": "^3.5.5",
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "prepublish": "grunt build"
+    "prepublish": "grunt build",
+    "lint": "eslint app"
   }
 }
