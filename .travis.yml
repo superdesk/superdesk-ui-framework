@@ -13,3 +13,4 @@ deploy:
   on:
     tags: true
     repo: superdesk/superdesk-ui-framework
+  skip_cleanup: true
