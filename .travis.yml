@@ -3,6 +3,8 @@ node_js: '6'
 cache:
   directories:
   - "$HOME/.cache/yarn"
+before_install:
+- npm i -g npm@6
 script:
 - yarn run lint
 deploy:
