@@ -2,6 +2,7 @@ import './helpers';
 import './carousel';
 import './check';
 import './dropdown';
+import './dropdown2';
 import './modals';
 import './switch';
 import './toggleBox';

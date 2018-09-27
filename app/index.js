@@ -6,6 +6,7 @@ export default angular.module('superdesk-ui', [
     'superdesk-ui.carousel',
     'superdesk-ui.wizard',
     'superdesk-ui.dropdown',
+    'superdesk-ui.dropdown2',
     'superdesk-ui.modals',
     'superdesk-ui.switch',
     'superdesk-ui.check',

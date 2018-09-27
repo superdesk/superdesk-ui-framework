@@ -73,6 +73,11 @@ export function reactToAngular1(component, dependenciesToInject = []) {
                     , $element[0].children[0]
                 );
             }
+            $onDestroy() {
+                const {$element} = this._private;
+
+                ReactDOM.unmountComponentAtNode($element[0].children[0]);
+            }
             $doCheck() {
                 const propsStringified = JSON.stringify({...this, _private: null});
 
