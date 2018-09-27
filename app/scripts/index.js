@@ -10,3 +10,4 @@ import './toggleBoxNext';
 import './wizard';
 import './tags';
 import './lineInput';
+import './searchHandler';
