@@ -8,7 +8,6 @@ const config = {
         'vendor': './app/vendor.js',
         'examples': './examples/index.js',
         'superdesk-ui': './app/index.js',
-        'superdesk-react-ui': './app/react-ui/index.jsx'
     },
 
     output: {
