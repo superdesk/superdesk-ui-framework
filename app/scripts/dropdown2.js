@@ -36,7 +36,7 @@ export class Dropdown2 extends React.Component {
                 preventOverflow: {
                     boundariesElement: 'viewport',
                 },
-            }
+            },
         });
 
         this.initialized = true;
