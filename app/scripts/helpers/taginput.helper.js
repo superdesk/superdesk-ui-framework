@@ -1118,7 +1118,7 @@
         utils.findInObjectArray = function(array, obj, key, comparer) {
             var item = null;
 
-            const _comparer = comparer || self.defaultComparer;
+            const _comparer = comparer || utils.defaultComparer;
 
             array.some((element) => {
                 if (_comparer(element[key], obj[key])) {
