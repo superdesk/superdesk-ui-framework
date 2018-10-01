@@ -115,8 +115,8 @@ export default angular.module('ui-docs', [
                     page: 'form-layout.html'
                 },
                 other: {
-                    name: 'Other',
-                    page: 'other.html'
+                    name: 'Other form elements',
+                    page: 'other-elements.html'
                 }
             }
         },
