@@ -61,6 +61,9 @@
     &--marg-b10 {
         margin-bottom: 10px;
     }
+    &--block {
+        display: block;
+    }
 }
 .form-label__container {
     display:flex;
@@ -162,10 +165,10 @@
         cursor: pointer;
     }
     .sd-line-input__icon-right {
-        right: 0.8rem;
+        right: 0;
     }
     .sd-line-input__icon-left {
-        left: 0.8rem;
+        left: 0;
     }
 
     &--boxed {
