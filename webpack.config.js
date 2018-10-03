@@ -86,11 +86,6 @@ const config = {
             jQuery: 'jquery',
             'window.jQuery': 'jquery',
         }),
-        new webpack.DefinePlugin({
-            'process.env': {
-                NODE_ENV: JSON.stringify('development'),
-            },
-        }),
     ],
 };
 
