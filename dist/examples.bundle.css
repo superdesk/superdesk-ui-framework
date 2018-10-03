@@ -2168,9 +2168,9 @@ time {
 
 .label {
   display: inline-block;
-  padding: 0 0.6rem;
+  padding: 0 0.8rem;
   vertical-align: middle;
-  border-radius: 2px;
+  border-radius: 8px;
   text-transform: uppercase;
   line-height: 1.4rem;
   letter-spacing: 0.125em;
@@ -2182,9 +2182,10 @@ time {
   background: #666;
   color: #fff; }
   .label.label--large {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     padding: 0.4rem 1.2rem;
-    line-height: 1; }
+    line-height: 1;
+    border-radius: 11px; }
   .label.label--default {
     background: #333; }
   .label.label--primary {
@@ -2285,6 +2286,9 @@ time {
   .label--comment {
     background-color: #fff16f;
     color: #444; }
+  .label--no-transform {
+    text-transform: none;
+    letter-spacing: 0.04em; }
 
 .badge {
   display: inline-block;
@@ -2469,7 +2473,7 @@ time {
     font-weight: 300;
     padding: 0.8rem 2.4rem 0.8rem 1.2rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.08);
-    transition: all linear 90ms; }
+    transition: font-size ease-out 20ms, padding ease-out 200ms, max-width ease-out 100ms, max-height ease-out 80ms, opacity ease-out 160ms; }
   .sd-alert--marg-b12 {
     margin-bottom: 1.2rem; }
 
@@ -7165,6 +7169,8 @@ a.text-link {
     background-size: 6rem;
     background-position: center center;
     opacity: 0.16; }
+  .sd-list-item .avatar {
+    flex-shrink: 0; }
 
 .sd-list-item__border {
   width: 0.4rem;
@@ -9149,6 +9155,8 @@ a.text-link {
     font-weight: 400; }
   .form-label--marg-b10 {
     margin-bottom: 10px; }
+  .form-label--block {
+    display: block; }
 
 .form-label__container {
   display: flex;
@@ -9279,9 +9287,9 @@ a.text-link {
     top: 0.8rem;
     cursor: pointer; }
   .sd-line-input .sd-line-input__icon-right {
-    right: 0.8rem; }
+    right: 0; }
   .sd-line-input .sd-line-input__icon-left {
-    left: 0.8rem; }
+    left: 0; }
   .sd-line-input--boxed {
     padding-top: 1.8rem; }
     .sd-line-input--boxed input.sd-line-input__input, .sd-line-input--boxed textarea.sd-line-input__input {
@@ -10453,6 +10461,10 @@ label + .sd-radio {
 
 .navbtn.dropdown {
   padding: 0; }
+
+.dropdown2 {
+  background: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1); }
 
 .sd-sidebar-menu {
   position: absolute;

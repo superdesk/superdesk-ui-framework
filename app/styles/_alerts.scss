@@ -35,6 +35,10 @@ $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
     color: $color;
 }
 
+/// Transition between normal and hidden state
+$sd-alert-transition: font-size ease-out 300ms, padding ease-out 300ms, max-width ease-out 200ms, max-height ease-out 300ms, opacity ease-out 200ms;
+$sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max-width ease-out 100ms, max-height ease-out 80ms, opacity ease-out 160ms;
+
 //$sd-info-btn-hover: scale-color($button-background, $lightness: -85%) !default;
 
 /// Generates base styles for a sd-alert.
@@ -94,15 +98,14 @@ $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
         padding:0;
         overflow:hidden;
         font-size: 0.1rem;
-        transition: font-size ease-out 300ms, padding ease-out 300ms, max-width ease-out 200ms, max-height ease-out 300ms, opacity ease-out 200ms;
-        //transition: all ease-out 300ms;
+        transition: $sd-alert-transition;
     }
     &--small {
         font-size: 1.3rem;
         font-weight: 300;
         padding: $sd-alert-padding-small;
         box-shadow: $sd-alert-shadow-small;
-        transition: all linear 90ms;
+        transition: $sd-alert-transition-small;
     }
     &--marg-b12 {
         margin-bottom: 1.2rem;

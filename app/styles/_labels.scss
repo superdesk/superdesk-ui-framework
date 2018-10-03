@@ -13,17 +13,18 @@ $label-color-alt: $gray !default;
 $label-palette: $sd-extended-palette;
 
 /// Default padding inside labels.
-$label-padding: 0 0.6rem !default;
+$label-padding: 0 0.8rem !default;
 $label-padding-large: 0.4rem 1.2rem;
 
 $label-lineheight-large: 1;
 
 /// Default radius of labels.
-$label-radius: 2px !default;
+$label-radius: 8px !default;
+$label-radius-large: 11px;
 
 $label-sizes: (
   label--default: 0.9rem,
-  label--large: 1.1rem,
+  label--large: 1.2rem,
 ) !default;
 
 /// Removes background fill for hollow buttons.
@@ -60,6 +61,7 @@ $label-sizes: (
         @if $size == label--large {
           padding: $label-padding-large;
           line-height: $label-lineheight-large;
+          border-radius: $label-radius-large;
         }
       }
     }
@@ -88,6 +90,10 @@ $label-sizes: (
     &--comment {
         background-color: $comment-color;
         color: $grayMedium;
+    }
+    &--no-transform {
+        text-transform: none;
+        letter-spacing: 0.04em;
     }
 }
 

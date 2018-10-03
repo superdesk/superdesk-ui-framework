@@ -81,6 +81,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
             opacity: 0.16;
         }
     }
+    .avatar {
+        flex-shrink: 0;
+    }
 }
 
 .sd-list-item__border {
