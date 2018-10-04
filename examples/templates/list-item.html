@@ -9,7 +9,7 @@
     <div class="docs-page__window-content">
         <div class="docs-page__code-example docs-page__code-example--grey">
             <p class="docs-page__paragraph">// One row</p>
-            <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive1}>
+            <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive1}">
                 <div class="sd-list-item__border sd-list-item__border--locked"></div>
                 <div class="sd-list-item__column"><i class="icon-text"></i></div>
                 <div class="sd-list-item__column">
@@ -85,7 +85,7 @@
             <p>&nbsp;</p>
 
             <p class="docs-page__paragraph">// Two rows</p>
-            <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive2}>
+            <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive2}">
                 <div class="sd-list-item__border sd-list-item__border--locked"></div>
                 <div class="sd-list-item__column"><i class="icon-photo"></i></div>
                 <div class="sd-list-item__column">
@@ -185,7 +185,7 @@
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
                 <!--One row-->
-                <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive2} ng-non-bindable>
+                <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive2}" ng-non-bindable>
                     <div class="sd-list-item__border sd-list-item__border--locked"></div>
                     <div class="sd-list-item__column"><i class="icon-text"></i></div>
                     <div class="sd-list-item__column">
@@ -231,7 +231,7 @@
                 </div>
                 ...
                 <!--Two rows-->
-                <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive2} ng-non-bindable>
+                <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive2}" ng-non-bindable>
                     <div class="sd-list-item__border sd-list-item__border--locked"></div>
                     <div class="sd-list-item__column"><i class="icon-photo"></i></div>
                     <div class="sd-list-item__column">
@@ -313,7 +313,7 @@
         <div class="docs-page__code-example docs-page__code-example--grey">
             <p class="docs-page__paragraph">// Default group (shadow class goes in the group div)</p>
             <div class="sd-list-item-group sd-shadow--z2">
-                <div class="sd-list-item" ng-class={"sd-list-item--activated":itemActive3}>
+                <div class="sd-list-item" ng-class="{'sd-list-item--activated':itemActive3}">
                     <div class="sd-list-item__column"><i class="icon-text"></i></div>
                     <div class="sd-list-item__column">
                         <span class="badge">1</span>
@@ -360,7 +360,7 @@
                         <!--end dropdown-->
                     </div>
                 </div>
-                <div class="sd-list-item" ng-class={"sd-list-item--activated":itemActive4}>
+                <div class="sd-list-item" ng-class="{'sd-list-item--activated':itemActive4}">
                     <div class="sd-list-item__column"><i class="icon-text"></i></div>
                     <div class="sd-list-item__column">
                         <span class="badge badge--primary">2</span>
@@ -407,7 +407,7 @@
                         <!--end dropdown-->
                     </div>
                 </div>
-                <div class="sd-list-item" ng-class={"sd-list-item--activated":itemActive5}>
+                <div class="sd-list-item" ng-class="{'sd-list-item--activated':itemActive5}">
                     <div class="sd-list-item__column"><i class="icon-text"></i></div>
                     <div class="sd-list-item__column">
                         <span class="badge badge--highlight">3</span>
@@ -461,7 +461,7 @@
 
             <p class="docs-page__paragraph">// Group with space between list items (shadow class goes in list item)</p>
             <div class="sd-list-item-group sd-list-item-group--space-between-items">
-                <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive6}>
+                <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive6}">
                     <div class="sd-list-item__column"><i class="icon-text"></i></div>
                     <div class="sd-list-item__column">
                         <span class="badge">1</span>
@@ -508,7 +508,7 @@
                         <!--end dropdown-->
                     </div>
                 </div>
-                <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive7}>
+                <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive7}">
                     <div class="sd-list-item__column"><i class="icon-text"></i></div>
                     <div class="sd-list-item__column">
                         <span class="badge badge--success">4</span>
@@ -555,7 +555,7 @@
                         <!--end dropdown-->
                     </div>
                 </div>
-                <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive8}>
+                <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive8}">
                     <div class="sd-list-item__column"><i class="icon-text"></i></div>
                     <div class="sd-list-item__column">
                         <span class="badge badge--highlight">3</span>
@@ -609,7 +609,7 @@
             <pre class="prettyprint lang-html linenums">
                 <!-- Default group (shadow class goes in the group div) -->
                 <div class="sd-list-item-group sd-shadow--z2">
-                    <div class="sd-list-item" ng-class={"sd-list-item--activated":itemActive12}>
+                    <div class="sd-list-item" ng-class="{'sd-list-item--activated':itemActive12}">
                         <div class="sd-list-item__column"><i class="icon-text"></i></div>
                         <div class="sd-list-item__column">
                             <span class="badge">1</span>
@@ -661,7 +661,7 @@
 
                 <!-- Group with space between list items (shadow class goes in list item) -->
                 <div class="sd-list-item-group sd-list-item-group--space-between-items">
-                    <div class="sd-list-item" ng-class={"sd-list-item--activated":itemActive14}>
+                    <div class="sd-list-item" ng-class="{'sd-list-item--activated':itemActive14}">
                         <div class="sd-list-item__column"><i class="icon-text"></i></div>
                         <div class="sd-list-item__column">
                             <span class="badge">1</span>

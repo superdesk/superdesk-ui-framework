@@ -195,7 +195,8 @@ p.docs-page__paragraph b {
 }
 .docs-page__code-example .docs-page__content-row > .btn,
 .docs-page__code-example .docs-page__content-row > .label,
-.docs-page__code-example .docs-page__content-row > .badge {
+.docs-page__code-example .docs-page__content-row > .badge,
+.docs-page__code-example .docs-page__content-row > .label-icon {
     margin-right: 6px;
     margin-bottom: 10px;
 }

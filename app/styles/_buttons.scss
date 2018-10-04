@@ -778,4 +778,8 @@ $button-nav-color: currentColor;
   .btn + .btn {
     margin-left: 6px;
   }
+
+  [class^="icon-"], [class*=" icon-"] {
+    opacity: 0.6;
+  }
 }
