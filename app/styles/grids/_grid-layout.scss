@@ -408,7 +408,7 @@ $planningEditor-width: 50rem;
     }
 }
 
-.sd-filters-panel, .sd-preview-panel {
+.sd-filters-panel, .sd-preview-panel, .sd-publish-panel {
     width: 0;
     transition: all .2s ease-out;
     display: flex;
@@ -452,6 +452,7 @@ $planningEditor-width: 50rem;
     .sd-preview-panel {
         width: 36rem;
         border-left: 1px solid rgba(0, 0, 0, 0.25);
+        flex-shrink: 0;
         &--dark-ui {
             border-left-color: rgba(0, 0, 0, 0.4);
         }
@@ -482,5 +483,19 @@ $planningEditor-width: 50rem;
 
     &--border-right {
         border-right: 2px solid $grayLight;
+    }
+}
+
+// publish panel
+.sd-publish-panel {
+    .open-publish & {
+        width: 40rem;
+        flex-shrink: 0;
+
+        .side-panel {
+            opacity: 1;
+            transition: all 0.2s ease-out;
+            transition-delay: .2s;
+        }
     }
 }

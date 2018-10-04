@@ -1,0 +1,50 @@
+/// Icon labels
+
+/// Default background color for icon labels.
+$label-icon-background: transparent !default;
+
+/// Default text color for icon labels.
+$label-icon-color: $gray !default;
+
+/// Alternate text color for icon labels.
+$label-icon-color-alt: $white !default;
+
+/// Coloring classes. A map of classes to output in the CSS.
+$label-icon-palette: $sd-basic-palette;
+
+/// Default padding inside labels.
+$label-icon-padding: 0 0.6rem 0 0 !default;
+
+/// Generates base styles for a icon label.
+@mixin label-icon {
+    display: inline-flex;
+    padding: $label-icon-padding;
+    vertical-align: middle;
+    align-items: center;
+    line-height: 1.4rem;
+    font-size: 13px;
+    white-space: nowrap;
+    cursor: default;
+}
+
+
+.label-icon {
+    @include label-icon;
+
+    background: $label-icon-background;
+    color: $label-icon-color;
+    
+    [class^="icon-"], & [class*=" icon-"] {
+        color: $label-icon-color;
+        margin-right: .6rem;
+    }
+
+    @each $name, $color in $label-icon-palette {
+        &.label-icon--#{$name} {
+            color: $color;
+            [class^="icon-"], & [class*=" icon-"] {
+                color: $color;
+            }
+        }
+    }    
+}
