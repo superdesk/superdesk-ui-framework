@@ -122,7 +122,7 @@ Dropdown2.propTypes = {
 };
 
 angular.module('superdesk-ui.dropdown2', [])
-    .component('dropdown2', reactToAngular1(Dropdown2));
+    .component('dropdown2', reactToAngular1(Dropdown2, ['triggerSelector', 'placement']));
 
 /*
     Usage:

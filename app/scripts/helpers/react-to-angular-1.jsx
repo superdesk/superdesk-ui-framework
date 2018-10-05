@@ -30,10 +30,10 @@ class Angular1Bridge extends React.Component {
     }
 }
 
-export function reactToAngular1(component, dependenciesToInject = []) {
+export function reactToAngular1(component, bindings = [], dependenciesToInject = []) {
     return {
         transclude: true,
-        bindings: Object.keys(component.propTypes).reduce((result, key) => {
+        bindings: bindings.reduce((result, key) => {
             result[key] = '<';
             return result;
         }, {}),

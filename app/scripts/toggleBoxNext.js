@@ -55,4 +55,4 @@ ToggleBoxNext.propTypes = {
 };
 
 angular.module('superdesk-ui.toggleBoxNext', [])
-    .component('toggleBoxNext', reactToAngular1(ToggleBoxNext));
+    .component('toggleBoxNext', reactToAngular1(ToggleBoxNext, ['mode', 'title', 'style', 'isOpen']));
