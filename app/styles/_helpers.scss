@@ -15,7 +15,9 @@
 .no-border {
     border: 0 !important;
 }
-
+.no-line-height {
+    line-height: 0 !important;
+}
 
 // Shadow helper classes
 // --------------------------------------------------
@@ -213,4 +215,18 @@ time {
 .panel-border-right {
     border-left: 0;
     border-right: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+// auto margin
+.ml-auto {
+    margin-left: auto !important;
+}
+.mr-auto {
+    margin-right: auto !important;
+}
+.mt-auto {
+    margin-top: auto !important;
+}
+.mb-auto {
+    margin-bottom: auto !important;
 }

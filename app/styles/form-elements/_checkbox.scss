@@ -181,6 +181,10 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         display: inline-block;
         vertical-align: middle;
         margin: 0 0 0 0.6rem;
+
+        i {
+            margin: 0 0.4rem 0 0.8rem;
+        }
     }
     .sd-label--disabled { 
         opacity: 0.40;

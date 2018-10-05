@@ -40,6 +40,10 @@ export default angular.module('ui-docs', [
                     name: 'Tag labels',
                     page: 'tag-labels.html'
                 },
+                iconLabels: {
+                    name: 'Icon labels',
+                    page: 'icon-labels.html'
+                },
                 alerts: {
                     name: 'Alerts',
                     page: 'alerts.html'
@@ -271,6 +275,12 @@ export default angular.module('ui-docs', [
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-list-automatic.html'
+        })
+        .when('/publisher-output-control', {
+            title: 'Publisher Output Control',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-output-control.html'
         })
         .otherwise({redirectTo: '/'});
 });

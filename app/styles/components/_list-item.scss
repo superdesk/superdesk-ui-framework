@@ -195,6 +195,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     &--only-child {
         margin: 0.2rem 0 !important;
     }
+    &--wrap {
+        flex-wrap: wrap;
+    }
 }
 .sd-list-item__action-menu {
     display: flex;

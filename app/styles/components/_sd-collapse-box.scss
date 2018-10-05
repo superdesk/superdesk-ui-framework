@@ -57,6 +57,13 @@
         padding: 2rem;
         display: none;
         animation: fadeIn 0.3s ease-in 0s 1;
+
+        &--border-locked {
+            border-left: 4px solid $red;
+        }
+        &--border-success {
+            border-left: 4px solid $green;
+        }
     }
     .sd-collapse-box__content-block { // place inside .sd-collapse-box__content
         padding: 1rem;
@@ -79,6 +86,9 @@
             display: none;
             animation: fadeIn 0.3s ease-in 0s 1;    
         }
+    }
+    &--margin-small {
+        margin-bottom: 0.5rem;
     }
 
 }
@@ -135,5 +145,13 @@
         background-color: rgba(94, 169, 200, 0.03);
         box-shadow: 0 0 0 1px rgba(94, 169, 200, 0.3);
         border-radius: 2px;
+    }
+    .sd-collapse-box--lighter {
+        .sd-list-item {
+           background-color: rgba(141, 161, 167, 0.14);
+        }
+        &.sd-collapse-box--open .sd-collapse-box__content {
+            background-color: rgba(141, 161, 167, 0.14);
+        }
     }
 }

@@ -60,28 +60,34 @@ $icon-base-size: 16px;
   opacity: 0.5;
 }
 .icon--blue {
-  color: $sd-blue;
+  color: $sd-blue !important;
 }
 .icon--white {
-  color: $white;
+  color: $white !important;
 }
 .icon--light-blue {
-  color: #68abc8;
+  color: #68abc8 !important;
   opacity: 1 !important;
 }
 .icon--dark-blue-grey {
-  color: #31728e;
+  color: #31728e !important;
   opacity: 1 !important;
 }
 [class*=icon-].red,
 .icon--red {
-  color: $fireBrick;
+  color: $fireBrick !important;
+}
+.icon--orange {
+  color: $orange !important;
 }
 .icon--rotate-180 {
   transform: rotate(180deg);
 }
 .icon--rotate-90 {
   transform: rotate(90deg);
+}
+.icon--full-opacity {
+  opacity: 1 !important;
 }
 
 // Icons definition
