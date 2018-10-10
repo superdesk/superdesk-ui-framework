@@ -6,6 +6,44 @@ import {reactToAngular1} from './helpers/react-to-angular-1';
 
 import Popper from 'popper.js';
 
+const autoSizeToKeepInViewportModifier = (data) => {
+    // type Position = 'top' | 'right' | 'bottom' | 'left';
+    const position = data.placement.split('-')[0];
+    const container = document.documentElement;
+
+    const padding = data.instance.modifiers.find(
+        (modifier) => modifier.name === 'preventOverflow'
+    ).padding;
+
+    const ensureWidth = (maxWidth) => {
+        data.offsets.popper.width = maxWidth;
+        data.styles = {
+            maxWidth: maxWidth + 'px',
+            overflow: 'auto',
+        };
+    };
+
+    const ensureHeight = (maxHeight) => {
+        data.offsets.popper.height = maxHeight;
+        data.styles = {
+            maxHeight: maxHeight + 'px',
+            overflow: 'auto',
+        };
+    };
+
+    if (position === 'top') {
+        ensureHeight(data.offsets.reference.top - padding);
+    } else if (position === 'bottom') {
+        ensureHeight(container.clientHeight - data.offsets.reference.bottom - padding);
+    } else if (position === 'left') {
+        ensureWidth(data.offsets.reference.left - padding);
+    } else if (position === 'right') {
+        ensureWidth(parent.clientWidth - data.offsets.reference.right - padding);
+    }
+
+    return data;
+};
+
 export class Dropdown2 extends React.Component {
     constructor(props) {
         super(props);
@@ -35,6 +73,11 @@ export class Dropdown2 extends React.Component {
             modifiers: {
                 preventOverflow: {
                     boundariesElement: 'viewport',
+                    escapeWithReference: true,
+                },
+                autoSizeToKeepInViewport: {
+                    enabled: true,
+                    fn: autoSizeToKeepInViewportModifier,
                 },
             },
         });
@@ -89,6 +132,11 @@ export class Dropdown2 extends React.Component {
             } else {
                 this.popperInstance.disableEventListeners();
             }
+
+            // when the component re-renders
+            // popper instance isn't destroyed, but events are disabled.
+            // Popper won't call it's modifiers on next run unless we schedule an update
+            this.popperInstance.scheduleUpdate();
         }
     }
 
