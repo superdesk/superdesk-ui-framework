@@ -466,17 +466,42 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
 }
 
+.dropdown__button-label {
+    display: inline-block;
+    color: inherit;
+    font-weight: 300;
+    opacity: 0.65;
+    padding-right: 0.5rem; 
+    letter-spacing: 0.02rem;
+}
+
 // Dark dropdowns
 // -------------------------------------------------
 .dropdown.dropdown--dark {
     .dropdown__toggle {
         text-align: left;
-        background: #4f4f4f;
-        padding: 10px 15px;
+        background: rgba(127,127,127,.5);
+        padding: 1rem 1.5rem;
         border-radius: 2px;
         color: #fff;
         .dropdown__caret {
             border-top-color: $white;
+            margin-left: 1rem;
+        }
+        &--small {
+            padding: 0.5rem 1.5rem;
+        }
+        &--hollow {
+            border: 1px solid rgba(127,127,127,.75);
+            background: none;
+        }
+    }
+    &.open {
+        .dropdown__toggle {
+            &--hollow {
+                border: 1px solid rgba(255,255,255,0.6);
+                background-color: rgba(255,255,255,.1);
+            }
         }
     }
 }
