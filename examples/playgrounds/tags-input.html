@@ -30,7 +30,7 @@
                 {{cars}}
             </div>
 
-            <div style="width: 450px; margin: 100px auto" >
+            <div style="width: 450px; margin: 100px auto">
                 <sd-line-input
                     ng-model="value"
                     data-dark="dark"
@@ -46,6 +46,19 @@
                 Dark <sd-check ng-model="dark"></sd-check>
                 Boxed <sd-check ng-model="boxed"></sd-check>
                 Required <sd-check ng-model="required"></sd-check>
+            </div>
+
+            <div class="circular-progress-bar flex-grid flex-grid--boxed flex-grid--wrap-items" style="width: 450px; margin: 100px auto">
+                <div class="flex-grid__item">
+                    <sd-circular-progress value="progressValue" counter="progressCounter"></sd-circular-progress>
+                </div>
+                <div class="flex-grid__item">
+                    <sd-line-input
+                        ng-model="progressValue"
+                        data-label="{{'Progress'}}">
+                    </sd-line-input>
+                    Show progress <sd-check ng-model="progressCounter"></sd-check>
+                </div>
             </div>
         </div>
     </section>

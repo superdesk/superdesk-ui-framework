@@ -8849,6 +8849,38 @@ a.text-link {
   .sd-loader.sd-loader--dark-ui {
     background-color: rgba(51, 51, 51, 0.85); }
 
+.progress-bar-container {
+  display: inline-block;
+  position: relative; }
+  .progress-bar-container .progress-text {
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 30px;
+    font-family: arial;
+    color: #666;
+    z-index: 1; }
+  .progress-bar-container .progress-text em {
+    font-size: 14px;
+    font-style: normal; }
+
+.progress-svg {
+  width: 200px;
+  height: 200px;
+  transform: rotate(-90deg); }
+  .progress-svg circle {
+    stroke: #e5e5e5;
+    stroke-width: 12;
+    fill: #fafafa; }
+  .progress-svg .progressbar {
+    stroke: #1eb06c;
+    fill: transparent;
+    transition: all .5s; }
+
 .form__row {
   width: 100%;
   padding-bottom: 2rem; }
