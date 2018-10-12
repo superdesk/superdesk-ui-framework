@@ -12,6 +12,7 @@ export default angular.module('superdesk-ui', [
     'superdesk-ui.modals',
     'superdesk-ui.switch',
     'superdesk-ui.check',
+    'superdesk-ui.circularProgress',
     'superdesk-ui.toggleBox',
     'superdesk-ui.toggleBoxNext',
     'superdesk-ui.tags',
