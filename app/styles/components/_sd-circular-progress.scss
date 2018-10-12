@@ -25,17 +25,19 @@
 }
 
 .progress-svg {
-    width: 200px;
-    height: 200px;
+    width: 60px;
+    height: 60px;
     transform: rotate(-90deg);
 
     circle {
         stroke: #e5e5e5;
-        stroke-width: 12;
+        stroke-width: 6;
         fill: #fafafa;
     }
 
     .progressbar {
+        stroke-dasharray: 565;
+        stroke-dashoffset: 70.69%;
         stroke: $sd-green;
         fill: transparent;
         transition: all .5s;

@@ -10,7 +10,9 @@ function sdCircularProgress() {
         template: require('../template/circular-progress.html'),
         link: function (scope, elem) {
             let width = $(elem).find('.progress-svg').outerWidth();
-            scope.radius = (width / 2) - (12 / 2);
+            let strokeWidth = parseInt($(elem).find('.progress-svg circle').css('strokeWidth'));
+ 
+            scope.radius = (width / 2) - (strokeWidth / 2);
             scope.circumference = 2 * Math.PI * scope.radius;
                 
             scope.$watch('value', () => {
