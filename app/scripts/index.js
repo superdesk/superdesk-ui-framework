@@ -11,3 +11,4 @@ import './wizard';
 import './tags';
 import './lineInput';
 import './searchHandler';
+import './circularProgress';

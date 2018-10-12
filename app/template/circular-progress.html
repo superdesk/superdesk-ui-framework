@@ -1,0 +1,7 @@
+<div class="progress-bar-container">
+    <span class="progress-text" ng-if="counter">{{value}}<em>%</em></span>
+    <svg class="progress-svg">
+        <circle r="{{radius}}" cx="50%" cy="50%"></circle>
+        <circle class="progressbar" r="{{radius}}" cx="50%" cy="50%" ng-style="{'stroke-dashoffset': dashOffset, 'stroke-dasharray': circumference}"></circle>
+    </svg>
+</div>
