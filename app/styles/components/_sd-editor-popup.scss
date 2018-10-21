@@ -17,7 +17,6 @@ $editor-popup-padding: 1.6rem;
 
 .editor-popup__main {
     display: flex;
-    flex-direction: column;
     color: $sd-text;
     width: 32rem;
     max-height: 100%;
@@ -67,10 +66,6 @@ $editor-popup-padding: 1.6rem;
 }
 // content
 .editor-popup__content-block {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-    flex-shrink: 0;
     padding: $editor-popup-padding;
     position: relative;
     &--scrollable {
@@ -81,7 +76,6 @@ $editor-popup-padding: 1.6rem;
     }
 }
 .editor-popup__info-bar {
-    display: block;
     margin-bottom: 0.4rem;
 }
 
@@ -92,11 +86,4 @@ $editor-popup-padding: 1.6rem;
 .editor-popup__secondary-content {
     background-color: rgba(123,123,123,0.1);
     border-top: 1px solid rgba(123,123,123,0.2);
-    flex-shrink: 1;
-    display: flex;
-    flex-direction: column;
-}
-.editor-popup__content-scrollable {
-    flex-shrink: 1;
-    overflow-y: auto;
 }
