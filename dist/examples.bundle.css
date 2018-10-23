@@ -5212,6 +5212,10 @@ tags-input {
       flex-grow: 1; }
       .flex-grid--boxed-small.flex-grid--small-1 .sd-check__wrapper .sd-checkbox.sd-checkbox--button-style label {
         flex-grow: 1; }
+  .flex-grid--padding {
+    padding: 2rem; }
+  .flex-grid--scroll {
+    overflow-y: auto; }
 
 @media only screen and (min-width: 40em) {
   .flex-grid--medium-6 .flex-grid__item {
@@ -6576,6 +6580,13 @@ tags-input {
     border-right: 1px solid #BEBCBC; }
   .sd-column-box__main-column--border-right {
     border-right: 2px solid #8f8f8f; }
+  .sd-column-box__main-column--flex {
+    display: flex;
+    flex-direction: column; }
+
+.sd-column-box__main-column-inner {
+  overflow-y: auto;
+  padding: 2rem; }
 
 .sd-column-box__slide-in-column {
   width: 26rem;
@@ -11107,7 +11118,7 @@ label + .sd-radio {
   padding: 2.6rem 0 0.9rem 1.6rem;
   border-top: 1px solid #dedede;
   margin-top: 1rem; }
-  .sd-left-nav__group-header--first {
+  .sd-left-nav__group-header--first, .sd-left-nav__group-header:first-child {
     border: none;
     margin-top: 0; }
 
