@@ -62,7 +62,7 @@ $sd-leftNavBtn-borderActive: 4px solid rgba(94,169,200,1);
     padding: 2.6rem 0 0.9rem 1.6rem;
     border-top: 1px solid $sd-leftNav-borderColor;
     margin-top: 1rem;
-    &--first {
+    &--first, &:first-child {
         border: none;
         margin-top: 0;
     }
