@@ -9116,7 +9116,6 @@ a.text-link {
 
 .editor-popup__main {
   display: flex;
-  flex-direction: column;
   color: #333;
   width: 32rem;
   max-height: 100%; }
@@ -9160,10 +9159,6 @@ a.text-link {
     opacity: 1; }
 
 .editor-popup__content-block {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-  flex-shrink: 0;
   padding: 1.6rem;
   position: relative; }
   .editor-popup__content-block--scrollable {
@@ -9172,7 +9167,6 @@ a.text-link {
     margin-top: 1rem; }
 
 .editor-popup__info-bar {
-  display: block;
   margin-bottom: 0.4rem; }
 
 .editor-popup__header + .editor-popup__content-block {
@@ -9180,14 +9174,7 @@ a.text-link {
 
 .editor-popup__secondary-content {
   background-color: rgba(123, 123, 123, 0.1);
-  border-top: 1px solid rgba(123, 123, 123, 0.2);
-  flex-shrink: 1;
-  display: flex;
-  flex-direction: column; }
-
-.editor-popup__content-scrollable {
-  flex-shrink: 1;
-  overflow-y: auto; }
+  border-top: 1px solid rgba(123, 123, 123, 0.2); }
 
 .comment-box__reply-item {
   border-bottom: 1px solid rgba(123, 123, 123, 0.2); }
