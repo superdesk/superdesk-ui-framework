@@ -282,5 +282,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-output-control.html'
         })
+        .when('/publisher-content-analytics', {
+            title: 'Publisher Content Analytics',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-content-analytics.html'
+        })
         .otherwise({redirectTo: '/'});
 });

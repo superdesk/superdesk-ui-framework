@@ -128,6 +128,12 @@ $flex-grid-media: (
             @include basic-grid-boxed-small;
         }
     }
+    &--padding {
+        padding: 2rem;
+    }
+    &--scroll {
+        overflow-y: auto;
+    }
 }
 
 // Media queries
