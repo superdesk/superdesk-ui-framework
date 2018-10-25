@@ -4677,11 +4677,14 @@ tags-input {
       float: left;
       height: 26px;
       color: currentColor;
-      background-color: transparent; }
+      background-color: transparent;
+      width: auto; }
       tags-input .tags-input__tags .tags-input__input.invalid-tag {
         color: #E51C23; }
       tags-input .tags-input__tags .tags-input__input::-ms-clear {
         display: none; }
+      tags-input .tags-input__tags .tags-input__input:focus {
+        box-shadow: unset !important; }
   tags-input.ng-invalid .tags-input__tags {
     border-bottom: 1px solid #E51C23;
     box-shadow: 0 1px 0 #E51C23; }

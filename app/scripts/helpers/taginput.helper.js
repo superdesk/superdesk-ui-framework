@@ -102,7 +102,12 @@
                     tagText.length >= options.minLength &&
                     tagText.length <= options.maxLength &&
                     options.allowedTagsPattern.test(tagText) &&
-                    !tiUtil.findInObjectArray(list.items, tag, options.keyProperty || options.displayProperty);
+                    !tiUtil.findInObjectArray(
+                        list.items,
+                        tag,
+                        options.keyProperty || options.displayProperty,
+                        tiUtil.defaultComparer
+                    );
 
                     return $q.when(valid && onTagAdding({$tag: tag})).then(tiUtil.promisifyValue);
                 };
@@ -571,7 +576,7 @@
      *    in the source option.
      * @param {boolean=} [highlightMatchedText=true] Flag indicating that the matched text will be highlighted in the
      *    suggestions list.
-     * @param {number=} [maxResultsToShow=10] Maximum number of results to be displayed at a time.
+     * @param {number=} [maxResultsToShow=10] Maximum number of results to be displayed at a time. If < 1 then show all results.
      * @param {boolean=} [loadOnDownArrow=false] Flag indicating that the source option will be evaluated when the down arrow
      *    key is pressed and the suggestion list is closed. The current input value is available as $query.
      * @param {boolean=} [loadOnEmpty=false] Flag indicating that the source option will be evaluated when the input content
@@ -638,7 +643,9 @@
                     let _items = tiUtil.makeObjectArray(items.data || items, getTagId());
 
                     _items = getDifference(_items, tags);
-                    list.items = _items.slice(0, options.maxResultsToShow);
+                    list.items = options.maxResultsToShow > 0 ?
+                        _items.slice(0, options.maxResultsToShow) :
+                        _items;
 
                     if (list.items.length > 0) {
                         list.show();
