@@ -1,4 +1,8 @@
 <div class="progress-bar-container">
+    <div  class="progress-done" ng-class="{'progress-done--completed': status === 'completed', 'progress-done--error': status === 'error'}">
+        <i class="icon-ok" ng-hide="status === 'error'"></i>
+        <i class="icon-close-small" ng-hide="status === 'completed'"></i>
+    </div>
     <span class="progress-text" ng-if="counter">{{value}}<em>%</em></span>
     <svg class="progress-svg">
         <circle r="{{radius}}" cx="50%" cy="50%"></circle>

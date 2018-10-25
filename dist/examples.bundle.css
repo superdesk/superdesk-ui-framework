@@ -9342,28 +9342,131 @@ a.text-link {
     position: absolute;
     top: 50%;
     left: 50%;
-    font-size: 30px;
+    font-size: 1.8rem;
     font-family: arial;
     color: #666;
-    z-index: 1; }
+    z-index: 1;
+    line-height: 1; }
   .progress-bar-container .progress-text em {
-    font-size: 14px;
+    font-size: 1rem;
     font-style: normal; }
 
 .progress-svg {
-  width: 60px;
-  height: 60px;
-  transform: rotate(-90deg); }
+  width: 20px;
+  height: 20px;
+  transform: rotate(-90deg);
+  display: block; }
   .progress-svg circle {
-    stroke: #e5e5e5;
-    stroke-width: 6;
-    fill: #fafafa; }
+    stroke: rgba(123, 123, 123, 0.2);
+    stroke-width: 2;
+    fill: transparent; }
   .progress-svg .progressbar {
-    stroke-dasharray: 565;
-    stroke-dashoffset: 70.69%;
-    stroke: #1eb06c;
-    fill: transparent;
-    transition: all .5s; }
+    stroke: #46a546;
+    fill: transparent; }
+  .error .progress-svg .progressbar {
+    stroke: transparent !important; }
+
+.progress-done {
+  display: flex;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  color: #46a546;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 0 currentColor;
+  transition: box-shadow 0.3s ease-in-out;
+  z-index: 2; }
+  .progress-done i {
+    color: #fff;
+    text-align: center;
+    margin: auto;
+    align-content: center;
+    transform: scale(0);
+    opacity: 0;
+    transition: all .14s ease-in;
+    transition-delay: .2s; }
+  .progress-done.progress-done--completed {
+    box-shadow: inset 0 0 0 50px currentColor; }
+    .progress-done.progress-done--completed i {
+      transform: scale(1);
+      opacity: 1; }
+  .progress-done.progress-done--error {
+    color: #E51C23;
+    box-shadow: inset 0 0 0 50px currentColor; }
+    .progress-done.progress-done--error i {
+      transform: scale(1);
+      opacity: 1; }
+
+.sd-circular-progress--xs .progress-svg {
+  width: 20px;
+  height: 20px; }
+  .sd-circular-progress--xs .progress-svg circle {
+    stroke-width: 2; }
+
+.sd-circular-progress--xs .progress-text {
+  display: none; }
+
+.sd-circular-progress--xs .progress-done {
+  margin: 1px; }
+  .sd-circular-progress--xs .progress-done i {
+    transition-duration: .12s; }
+  .sd-circular-progress--xs .progress-done.progress-done--completed, .sd-circular-progress--xs .progress-done.progress-done--error {
+    box-shadow: inset 0 0 0 10px currentColor; }
+    .sd-circular-progress--xs .progress-done.progress-done--completed i, .sd-circular-progress--xs .progress-done.progress-done--error i {
+      transform: scale(0.8); }
+
+.sd-circular-progress--s .progress-svg {
+  width: 28px;
+  height: 28px; }
+  .sd-circular-progress--s .progress-svg circle {
+    stroke-width: 2; }
+
+.sd-circular-progress--s .progress-text {
+  display: none; }
+
+.sd-circular-progress--s .progress-done {
+  margin: 1px; }
+  .sd-circular-progress--s .progress-done i {
+    transition-duration: .12s; }
+  .sd-circular-progress--s .progress-done.progress-done--completed, .sd-circular-progress--s .progress-done.progress-done--error {
+    box-shadow: inset 0 0 0 16px currentColor; }
+
+.sd-circular-progress--m .progress-svg {
+  width: 52px;
+  height: 52px; }
+  .sd-circular-progress--m .progress-svg circle {
+    stroke-width: 4; }
+
+.sd-circular-progress--m .progress-done {
+  margin: 3px; }
+  .sd-circular-progress--m .progress-done.progress-done--completed, .sd-circular-progress--m .progress-done.progress-done--error {
+    box-shadow: inset 0 0 0 26px currentColor; }
+    .sd-circular-progress--m .progress-done.progress-done--completed i, .sd-circular-progress--m .progress-done.progress-done--error i {
+      transform: scale(1.4); }
+
+.sd-circular-progress--l .progress-svg {
+  width: 68px;
+  height: 68px; }
+  .sd-circular-progress--l .progress-svg circle {
+    stroke-width: 4; }
+
+.sd-circular-progress--l .progress-done {
+  margin: 3px; }
+  .sd-circular-progress--l .progress-done.progress-done--completed i, .sd-circular-progress--l .progress-done.progress-done--error i {
+    transform: scale(2); }
+
+.sd-circular-progress--xl .progress-svg {
+  width: 102px;
+  height: 102px; }
+  .sd-circular-progress--xl .progress-svg circle {
+    stroke-width: 6; }
+
+.sd-circular-progress--xl .progress-done {
+  margin: 5px; }
+  .sd-circular-progress--xl .progress-done.progress-done--completed i, .sd-circular-progress--xl .progress-done.progress-done--error i {
+    transform: scale(2.4); }
 
 .form__row {
   width: 100%;
@@ -9889,7 +9992,7 @@ a.text-link {
 [class^="--dark-ui"] .form-label,
 [class*="--dark-ui"] .form-label {
   color: inherit;
-  opacity: 0.6; }
+  opacity: 0.4; }
 
 .sd-toggle {
   display: inline-block;
