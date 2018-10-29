@@ -1181,7 +1181,7 @@
     <!-- END Image Edit modal -->
 
 
-    <!-- Image Upload modal -->
+    <!-- //////////////////////////////////////////////////////////////////////// mage Upload modal //////////////////////////////////////////////////////////////////////// -->
     <div sd-modal data-model="uploadModal" class="modal--fullscreen modal--dark-ui" ng-init="showMetadata = true">
         <div class="modal__header modal__header--flex">
             <h3 class="modal__heading modal__heading--no-grow">Upload media</h3>
@@ -1210,7 +1210,11 @@
                     </a>
                     <div class="sd-photo-preview sd-photo-preview--grid-only">
                         <!-- THUMBS for Multiedit  -->
-                        <div class="sd-photo-preview__thumb-strip" ng-init="itemsLoaded = true;">
+                        <div class="sd-photo-preview__thumb-controls">
+                            <button class="btn btn--ui-dark btn--text-only">deselect all</button>
+                            <button class="btn btn--ui-dark btn--text-only" disabled>select all</button>
+                        </div>
+                        <div class="sd-photo-preview__thumb-strip" ng-class="{'sd-photo-preview__thumb-strip--with-controls' : itemsLoaded}" ng-init="itemsLoaded = true;">
                             <div class="upload__info" ng-if="!itemsLoaded">
                                 <div class="upload__info-icon"></div>
                                 <h3 class="upload__info-heading">Drag Your Files Here</h3>
@@ -1218,6 +1222,7 @@
                                 <button class="btn btn--hollow btn--ui-dark upload__info-button">Select them from folder</button>
                             </div>
                             <div class="upload__target" ng-if="!itemsLoaded"></div>
+
                             <div class="sd-grid-list dark-ui" ng-if="itemsLoaded" ng-init="select11 = true; select12 = true; select13 = true; select14 = true;">
                                 <!-- small item 1 -->
                                 <div class="sd-grid-item sd-grid-item--with-click" ng-click="select11 = !select11" ng-class="{'sd-grid-item--selected' : select11}">
@@ -1277,12 +1282,12 @@
                                 </div>
                                 <!-- small item 3 -->
                                 <div class="sd-grid-item sd-grid-item--with-click" ng-click="select13 = !select13" ng-class="{'sd-grid-item--selected' : select13}">
-                                    <div class="sd-grid-item__thumb">
+                                    <div class="sd-grid-item__thumb sd-grid-item__thumb--uploading">
                                         <a class="icn-btn sd-grid-item__remove" sd-tooltip="Remove item" flow="left">
                                             <i class="icon-close-small"></i>
                                         </a>
-                                        <div class="sd-grid-item__progress">
-                                            <div class="sd-grid-item__progress-bar" style="width:36%;"></div>
+                                        <div class="sd-grid-item__progress-circle">
+                                            <sd-circular-progress value="60" class="sd-circular-progress--m"></sd-circular-progress>
                                         </div>
                                         <img src="../examples/img/bill.jpg" alt="test">
                                     </div>
@@ -1308,12 +1313,12 @@
                                 </div>
                                 <!-- small item 4 -->
                                 <div class="sd-grid-item sd-grid-item--with-click" ng-click="select14 = !select14" ng-class="{'sd-grid-item--selected' : select14}">
-                                    <div class="sd-grid-item__thumb">
+                                    <div class="sd-grid-item__thumb sd-grid-item__thumb--uploading">
                                         <a class="icn-btn sd-grid-item__remove" sd-tooltip="Remove item" flow="left">
                                             <i class="icon-close-small"></i>
                                         </a>
-                                        <div class="sd-grid-item__progress">
-                                            <div class="sd-grid-item__progress-bar" style="width:60%;"></div>
+                                        <div class="sd-grid-item__progress-circle">
+                                            <sd-circular-progress value="100" class="sd-circular-progress--m"></sd-circular-progress>
                                         </div>
                                         <img src="../examples/img/hillary.jpg" alt="test">
                                     </div>
@@ -1359,25 +1364,25 @@
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
                                         <label class="sd-line-input__label">Description</label>
                                         <textarea class="sd-line-input__input"></textarea>
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
                                         <label class="sd-line-input__label">Category</label>
                                         <input class="sd-line-input__input" type="text">
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
                                         <label class="sd-line-input__label">Subject</label>
                                         <input class="sd-line-input__input" type="text">
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed">
                                         <label class="sd-line-input__label">Usage right</label>
                                         <select class="sd-line-input__select">
                                             <option value="">--- Not selected ---</option>
@@ -1393,11 +1398,10 @@
                         </div>
                     </div> 
                 </div>
-
             </div>
         </div>
     </div>
-    <!-- END Image Upload modal -->
+    <!-- //////////////////////////////////////////////////////////////////////// END Image Upload modal //////////////////////////////////////////////////////////////////////// -->
 
 
     <!-- Editor configuration modal -->
