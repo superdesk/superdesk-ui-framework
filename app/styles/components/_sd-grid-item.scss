@@ -219,11 +219,13 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     .sd-grid-item__progress-circle {
         z-index: 2;
         position: absolute;
-        height: 4.8rem;
-        width: 4.8rem;
+        height: 5.6rem;
+        width: 5.6rem;
         top: 50%;
-        margin-top: -2.4rem;
+        margin-top: -2.8rem;
         border-radius: 50%;
+        background-color: rgba(0,0,0,0.3);
+        padding: 0.2rem;
     }
     .sd-grid-item__progress-bar {
         height: 0.4rem;
