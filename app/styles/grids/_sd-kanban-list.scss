@@ -1,0 +1,77 @@
+$background-main: $sd-background;
+
+.sd-kanban-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    padding: 1rem;
+    padding-bottom: 0;
+    height: 100%;
+    ::-webkit-scrollbar {
+        border-left: 4px solid transparent !important;
+        border-right: 1px solid transparent !important;
+        width: 6px !important;
+        background: transparent !important;
+    }
+    ::-webkit-scrollbar-track {
+        background: transparent !important;
+        border-left: 3px solid transparent !important;
+        &:hover {
+            background: rgba(0,0,0,.05) !important;
+        }
+    }
+    ::-webkit-scrollbar-thumb {
+        border-left: 3px solid transparent !important;
+    }
+}
+.sd-kanban-list__board {
+    flex: 1 1 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    margin: 0 1rem;
+    height: 100%;
+    min-width: 20rem;
+    .sd-list-item-group {
+        margin: 0;
+    }
+}
+.sd-kanban-list__board-header {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: 2;
+    position: relative;
+    min-height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 4px solid #4d4d4d;
+    padding: 0 0 0.4rem 0;
+    margin: 0 0.1rem;
+    .sd-list-header {
+        margin: 0 !important;
+        flex-grow: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        width: 100%;
+    }
+    .sd-list-header__name {
+        flex-grow: 1;
+    }
+}
+.sd-kanban-list__board-content {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    z-index: 1;
+    overflow: auto;
+    padding: 0.6rem 0.3rem 0.4rem 0.3rem;
+}
+
+[class^="--dark-ui"],
+[class*="--dark-ui"],
+.dark-ui {
+    .sd-kanban-list__board-header {
+        border-bottom: 4px solid rgba(86, 110, 119, 1) !important;
+    }
+}
