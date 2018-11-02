@@ -288,5 +288,11 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-analytics.html'
         })
+        .when('/swimlane-view', {
+            title: 'Swimlane View',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/swimlane-view.html'
+        })
         .otherwise({redirectTo: '/'});
 });

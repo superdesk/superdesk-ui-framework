@@ -110,6 +110,10 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             line-height: 16px;
             font-family: $baseFontFamily;
             @include text-overflow;
+            [class^="icon-"], [class*=" icon-"] {
+                vertical-align: middle;
+            }
+
         }
         [class^="icon-"], [class*=" icon-"] {
             color: currentColor;

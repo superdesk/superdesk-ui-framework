@@ -1,0 +1,1976 @@
+<div class="sd-page-grid--basic" doc-modal>
+    <header class="sd-top-menu">
+        <a href="" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <p class="sd-top-menu__header">National Desk</p>
+    </header>
+
+    <section class="sd-content sd-page-content--slide-in" ng-class="{
+            'sd-page-content--slide-in--open' : editorOpen}">
+
+        <div class="sd-sidebar-menu sd-page-content__left-tabs">
+            <ul class="authoring-active">
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Monitoring" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active" ng-click="menuItemActive1 = !menuItemActive1" ng-class="{'sd-sidebar-menu__btn--closed': menuItemActive1}">
+                        <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Highlights" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--marked-star"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Spiked" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Personal" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Search" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Media archive" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--picture"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="leftContent"  ng-init="darkUI = false;  swimlaneView = true" class="sd-page-content__content-block sd-page-content__content-block--main" ng-class="{'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen, 'dark-ui': darkUI}">
+            <!-- left content -->
+            <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+                <div class="subnav__sliding-toolbar" ng-show="select1 || select2 || select3 || select4 || select5 || select6 || select7 || select8 || select9 || select10 || select11 || select12 || select13 || select14 || select15 || select16 || select17 || select18 || select19 || select20 || select21 || select22 || select23 || select24 || select25 || select26 || select27 || select28 || select29 || select30 || select31 || select32 || select33 || select34 || select35 || select36">
+                    <div class="sliding-toolbar__inner">
+                        <a class="btn" ng-click="select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false">Cancel</a>
+                        <span class="sliding-toolbar__info-text">1 item selected</span>
+                    </div>
+                    <a class="btn btn--primary" ng-click="openModal('imageModal'); multiEdit = true; select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false; select11 = true; select12 = true; select13 = true; select14 = true">Edit metadata</a>
+                    <a class="btn btn--alert"><i class="icon-trash"></i>Delete</a>
+                </div>
+                <div class="dropdown" dropdown="">
+                    <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">Monitoring<span class="dropdown__caret"></span></button>
+                    <ul class="dropdown__menu scrollable" style="">
+                        <li><div class="dropdown__menu-label ng-binding">Monitoring</div></li>
+                        <li><button>Incoming stage</button></li>
+                        <li><button>Working stage</button></li>
+                        <li><button>Output stage</button></li>
+                    </ul>
+                </div>
+                <div class="subnav__spacer subnav__spacer--no-margin"></div>
+                <div class="sd-searchbar" ng-class="{'sd-searchbar--focused': focused}" >
+                    <label for="search-input" class="sd-searchbar__icon"></label>
+                    <input id="search-input"
+                           class="sd-searchbar__input"
+                           type="text"
+                           placeholder="Search"
+                           ng-keyup="searchOnEnter($event)"
+                           ng-model="query"
+                           tabindex="1"
+                           ng-focus="focused = true">
+                    <button class="sd-searchbar__cancel" ng-if="query">
+                        <i class="icon-remove-sign"></i>
+                    </button>
+                    <button id="sd-searchbar__search-btn" class="sd-searchbar__search-btn" ng-if="focused" tabindex="2">
+                        <i class="big-icon--chevron-right"></i>
+                    </button>
+                </div>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn sd-create-btn" dropdown__toggle>
+                        <i class="icon-plus-large"></i>
+                        <span class="circle"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Upload</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Image</button>
+                        </li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Video</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+                <div class="subnav__stretch-bar">
+                    <sd-check ng-model="planningType" ng-value="all" label-position="inside" ng-checked="true">all</sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="text" label-position="inside"><i class="icon-text"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="photo" label-position="inside"><i class="icon-photo"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="graphic" label-position="inside"><i class="icon-graphic"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="composite" label-position="inside"><i class="icon-composite"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="video" label-position="inside"><i class="icon-video"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="audio" label-position="inside"><i class="icon-audio"></i></sd-check>
+                </div>
+                <div class="subnav__spacer subnav__spacer--no-margin"></div>
+                <div class="subnav__content-bar">
+                    <span>Total:</span> <span class="badge" style="margin: 0 10px 0 6px;">6432</span>
+                    <div class="dropdown dropdown--align-right" dropdown>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Updated<span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li><button>Updated</button></li>
+                            <li><button>Created</button></li>
+                            <li><button>Urgency</button></li>
+                            <li><button>Category</button></li>
+                            <li><button>Slugline</button></li>
+                            <li><button>Priority</button></li>
+                            <li><button>Genre</button></li>
+                        </ul>
+                    </div>
+                    <a class="icn-btn" sd-tooltip="Descending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-hide="!sortDesc"><i class="icon-descending"></i></a>
+                    <a class="icn-btn" sd-tooltip="Ascending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-show="!sortDesc"><i class="icon-ascending"></i></a>
+
+                </div>
+                <button class="navbtn" ng-click="darkUI = !darkUI">
+                    <i class="icon-adjust"></i>
+                </button>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="navbtn" dropdown__toggle>
+                        <i class="icon-list-view" ng-show="listView"></i>
+                        <i class="icon-kanban-view" ng-show="swimlaneView"></i>
+                        <i class="icon-grid-view" ng-show="gridView"></i>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li><button ng-click="listView = true; swimlaneView = false; gridView = false;"><i class="icon-list-view"></i> List View</button></li>
+                        <li><button ng-click="swimlaneView = true; listView = false; gridView = false;"><i class="icon-kanban-view"></i> Swimlane View</button></li>
+                        <li><button ng-click="gridView = true; swimlaneView = false; listView = false;"><i class="icon-grid-view"></i> Photo Grid view</button></li>
+
+                    </ul>
+                </div>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn" dropdown__toggle>
+                        <i class="icon-dots-vertical"></i>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                        <li><button ng-click="showColumns6 = !showColumns6">Show <span ng-show="!showColumns6">6</span><span ng-if="showColumns6">5</span> columns</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sd-column-box--3">
+                <div class="sd-column-box__main-column">
+                    <div class="sd-list-header" ng-hide="swimlaneView">
+                        <span class="sd-list-header__name">Friday September 15, 2017</span>
+                    </div>
+                    <!-- Grid item view -->
+                    <div class="sd-grid-list" ng-show="gridView">
+                        <!-- item 1 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select1, 'sd-grid-item--activated' : selectThis1}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select1"></sd-check>
+                                </div>
+                                <img src="../examples/img/d_trump.jpg" alt="Trt">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                                
+                            </div>
+                            <div class="sd-grid-item__footer" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--success sd-grid-item__footer-block-item">1</span><span class="badge badge--warning badge--square sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 2 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select2}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select2"></sd-check>
+                                </div>
+                                <img src="../examples/img/d_trump_2.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">In ac dui quis mi consectetuer lacinia. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc.</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--primary sd-grid-item__footer-block-item">2</span><span class="badge badge--alert badge--square sd-grid-item__footer-block-item">4</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 3 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select3}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select3"></sd-check>
+                                </div>
+                                <img src="../examples/img/bill.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean tellus metus, bibendum sed...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>  
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--highlight sd-grid-item__footer-block-item">3</span><span class="badge badge--light badge--square">&nbsp;</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 4 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select4}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select4"></sd-check>
+                                </div>
+                                <img src="../examples/img/hillary.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">Reuters</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--primary sd-grid-item__footer-block-item">2</span><span class="badge badge--warning badge--square sd-grid-item__footer-block-item">3</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 5 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select5}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select5"></sd-check>
+                                </div>
+                                <img src="../examples/img/obama_1.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Pellentesque auctor neque nec urna. Vestibulum turpis sem, aliquet eget lobortis...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span> 
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--light">&nbsp;</span><span class="badge badge--square sd-grid-item__footer-block-item">5</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 6 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select6}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select6"></sd-check>
+                                </div>
+                                <img src="../examples/img/obama_2.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Vestibulum turpis sem, aliquet eget lobortis...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--highlight sd-grid-item__footer-block-item">3</span><span class="badge badge--light badge--square">&nbsp;</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 7 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select7}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select7"></sd-check>
+                                </div>
+                                <img src="../examples/img/bush_1.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Vivamus in erat ut urna cursus vestibulum. Sed consequat, leo eget bibendum sodales...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--success sd-grid-item__footer-block-item">1</span><span class="badge badge--highlight badge--square sd-grid-item__footer-block-item">2</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- item 8 -->
+                        <div class="sd-grid-item sd-grid-item--with-click" ng-class="{'sd-grid-item--selected' : select8}">
+                            <div class="sd-grid-item__thumb">
+                                <a class="icn-btn sd-grid-item__actions sd-grid-item__actions--top">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <div class="sd-grid-item__checkbox">
+                                    <sd-check ng-model="select8"></sd-check>
+                                </div>
+                                <img src="../examples/img/bush_2.jpg" alt="test">
+                            </div>
+                            <div class="sd-grid-item__content">
+                                <time title="20.11.2017">20.11.2017</time>
+                                <span class="sd-grid-item__slugline">This is a slugline</span>
+                                <p class="sd-grid-item--element-grow">Mauris sollicitudin fermentum libero, vestibulum et, tempor auctor, justo...</p>
+                                <div class="sd-grid-item__content-block">
+                                    <span class="sd-grid-item__text-label">Source:</span>
+                                    <span class="sd-grid-item__text-strong">ANSA</span>
+                                </div>
+                            </div>
+                            <div class="sd-grid-item__footer">
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                    <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i><span class="badge badge--primary sd-grid-item__footer-block-item">2</span><span class="badge badge--square sd-grid-item__footer-block-item">5</span>
+                                </div>
+                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                    <a class="icn-btn sd-grid-item__actions">
+                                        <i class="icon-dots-vertical"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- List item view -->
+                
+                    <div class="sd-list-item-group sd-list-item-group--space-between-items" ng-show="listView" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                        <!-- list item  1 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select1, 'sd-list-item--activated' : selectThis1}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select1}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select1"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--success">1</span>
+                                    <span class="badge badge--warning badge--square ">3</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  2 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select2}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select2}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select2"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--primary">2</span>
+                                    <span class="badge badge--alert badge--square">4</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>In ac dui quis mi consectetuer lacinia. Aenean tellus metus, bibendum sed, posuere ac, mattis non, nunc.</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  3 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select3}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select3}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select3"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--highlight">3</span>
+                                    <span class="badge badge--light badge--square">&nbsp;</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae. Aenean tellus metus, bibendum sed...</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  4 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select4}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select4}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select4"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--primary">2</span>
+                                    <span class="badge badge--warning badge--square">3</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Sed consequat, leo eget bibendum sodales, augue velit cursus nunc, quis gravida magna mi a libero.</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- list item  5 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select5}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select5}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select5"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--light">&nbsp;</span>
+                                    <span class="badge badge--square">5</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Pellentesque auctor neque nec urna. Vestibulum turpis sem, aliquet eget lobortis...</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  6 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select6}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select6}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select6"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--highlight">3</span>
+                                    <span class="badge badge--light badge--square">&nbsp;</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Vestibulum turpis sem, aliquet eget lobortis...</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  7 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select7}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select7}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select7"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--success">1</span>
+                                    <span class="badge badge--highlight badge--square">2</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Vivamus in erat ut urna cursus vestibulum. Sed consequat, leo eget bibendum sodales...</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  8 -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select8}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select8}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select8"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-photo"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <div class="sd-list-item__row">
+                                    <span class="badge badge--primary">2</span>
+                                    <span class="badge badge--square">5</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Mauris sollicitudin fermentum libero, vestibulum et, tempor auctor, justo...</span>
+                                    <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+<!-- /////////////////////////////////// SWIMLANE view /////////////////////////////////// -->
+                    <div class="sd-kanban-list" ng-show="swimlaneView">
+                        <!-- KANBAN BOARD 1 -->
+                        <div class="sd-kanban-list__board">
+                            <div class="sd-kanban-list__board-header">
+                                <div class="sd-list-header">
+                                    <span class="sd-list-header__name">Incoming</span>
+                                    <span class="sd-list-header__number badge">8</span>
+                                </div>
+                            </div>
+                            <div class="sd-kanban-list__board-content">
+                                <div class="sd-list-item-group sd-shadow--z1" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                                    <!-- list item  1 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select1, 'sd-list-item--activated' : selectThis1}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select1}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select1"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  2 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select2}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select2}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select2"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Ipsum slug</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  3 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select3}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select3}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select3"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lorem slugline</span>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   <!-- list item  4 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select4}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select4}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select4"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--primary">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">It's a slug</span>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  5 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select5}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select5}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select5"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--warning">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Praesent nonummy mi in odio. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  6 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select6}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select6}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select6"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">My slugline</span>Maecenas faucibus mollis interdum. Praesent nonummy mi in odio fusce risus nisl viverra et.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  7 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select7}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select7}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select7"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   <!-- list item  8 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select8}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select8}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select8"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-video"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- KANBAN BOARD 2 -->
+                        <div class="sd-kanban-list__board">
+                            <div class="sd-kanban-list__board-header">
+                                <div class="sd-list-header">
+                                    <span class="sd-list-header__name">Working</span>
+                                    <span class="sd-list-header__number badge">16</span>
+                                </div>
+                            </div>
+                            <div class="sd-kanban-list__board-content">
+                                <div class="sd-list-item-group sd-shadow--z1" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                                    <!-- list item  1 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select9, 'sd-list-item--activated' : selectThis2}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select9}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select9"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis2 = !selectThis2">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  2 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select10}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select10}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select10"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Ipsum slug</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  3 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select11}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select11}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select11"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lorem slugline</span>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   <!-- list item  4 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select12}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select12}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select12"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--primary">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">It's a slug</span>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  5 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select13}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select13}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select13"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--warning">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Praesent nonummy mi in odio. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  6 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select14}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select14}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select14"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">My slugline</span>Maecenas faucibus mollis interdum. Praesent nonummy mi in odio fusce risus nisl viverra et.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  7 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select15}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select15}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select15"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   <!-- list item  8 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select16}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select16}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select16"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-video"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  9 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select17}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select17}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select17"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  10 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select18}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select18}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select18"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Ipsum slug</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  11 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select19}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select19}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select19"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lorem slugline</span>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   <!-- list item  12 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select20}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select20}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select20"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--primary">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">It's a slug</span>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  13 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select21}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select21}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select21"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--warning">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Praesent nonummy mi in odio. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  14 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select22}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select22}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select22"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">My slugline</span>Maecenas faucibus mollis interdum. Praesent nonummy mi in odio fusce risus nisl viverra et.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  15 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select23}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select23}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select23"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Cras justo odio, dapibus ac facilisis in, egestas eget quam.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   <!-- list item  16 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select24}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select24}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select24"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-video"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- KANBAN BOARD 3 -->
+                        <div class="sd-kanban-list__board">
+                            <div class="sd-kanban-list__board-header">
+                                <div class="sd-list-header">
+                                    <span class="sd-list-header__name">Revise</span>
+                                    <span class="sd-list-header__number badge">6</span>
+                                </div>
+                            </div>
+                            <div class="sd-kanban-list__board-content">
+                                <div class="sd-list-item-group sd-shadow--z1" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                                    <!-- list item  1 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select25, 'sd-list-item--activated' : selectThis3}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select25}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select25"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis3 = !selectThis3">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline slug</span>Praesent nonummy mi in odio. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  2 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select26}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select26}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select26"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Ipsum slug</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  3 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select27}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select27}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select27"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--primary">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">It's a slug</span>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  4 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select28}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select28}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select28"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--warning">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Praesent nonummy mi in odio. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  5 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select29}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select29}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select29"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">My slugline</span>Maecenas faucibus mollis interdum. Praesent nonummy mi in odio fusce risus nisl viverra et.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  6 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select30}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select30}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select30"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-video"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">This is a slugline</span>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- KANBAN BOARD 4 -->
+                         <div class="sd-kanban-list__board">
+                            <div class="sd-kanban-list__board-header">
+                                <div class="sd-list-header">
+                                    <span class="sd-list-header__name">Desk Output</span>
+                                    <span class="sd-list-header__number badge">4</span>
+                                </div>
+                            </div>
+                            <div class="sd-kanban-list__board-content">
+                                <div class="sd-list-item-group sd-shadow--z1" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                                    <!-- list item  1 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select31, 'sd-list-item--activated' : selectThis4}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select31}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select31"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--highlight">2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis4 = !selectThis4">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline slug</span>Praesent nonummy mi in odio. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  2 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select32}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select32}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select32"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Ipsum slug</span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  3 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select33}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select33}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select33"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--primary">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">It's a slug</span>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  4 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select34}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select34}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select34"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-photo"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--warning">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Slugline</span>Praesent nonummy mi in odio. Fusce risus nisl, viverra et, tempor et, pretium in, sapien.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- KANBAN BOARD 5 -->
+                        <div class="sd-kanban-list__board">
+                            <div class="sd-kanban-list__board-header">
+                                <div class="sd-list-header">
+                                    <span class="sd-list-header__name">Scheduled Desk Output</span>
+                                    <span class="sd-list-header__number badge">2</span>
+                                </div>
+                            </div>
+                            <div class="sd-kanban-list__board-content">
+                                <div class="sd-list-item-group sd-shadow--z1" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                                    <!-- list item  1 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select35, 'sd-list-item--activated' : selectThis5}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select35}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select35"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--primary">3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis5 = !selectThis5">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">It's a slug</span>Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  2 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select36}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select36}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select36"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge">5</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">My slugline</span>Maecenas faucibus mollis interdum. Praesent nonummy mi in odio fusce risus nisl viverra et.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- KANBAN BOARD 6 -->
+                        <div class="sd-kanban-list__board" ng-if="showColumns6">
+                            <div class="sd-kanban-list__board-header">
+                                <div class="sd-list-header">
+                                    <span class="sd-list-header__name">Saved search</span>
+                                    <span class="sd-list-header__number badge">2</span>
+                                </div>
+                            </div>
+                            <div class="sd-kanban-list__board-content">
+                                <div class="sd-list-item-group sd-shadow--z1" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                                    <!-- list item  1 -->
+                                   <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select37, 'sd-list-item--activated' : selectThis6}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select37}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select37"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--alert">1</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis6 = !selectThis6">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">It's my slug</span>Penatibus et magnis dis parturient montes, nascetur ridiculus mus.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- list item  2 -->
+                                    <div class="sd-list-item" ng-class="{'sd-list-item--selected' : select38}">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select38}">
+                                            <div class="sd-list-item__checkbox-container">
+                                                <sd-check ng-model="select38"></sd-check>
+                                            </div>
+                                            <span class="icn-mix sd-list-item__item-type">
+                                                <i class="icon-text"></i>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <div class="sd-list-item__row">
+                                                <span class="badge badge--warning">4</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Dolor slug</span>Praesent nonummy mi in odio fusce risus nisl viverra et. Maecenas faucibus mollis interdum.</span>
+                                                <time title="March 22, 2017 11:08 AM">20.11.2017</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+<!-- /////////////////////////////////// END SWIMLANE view /////////////////////////////////// -->
+                </div>
+                <div class="sd-preview-panel" ng-class="{'sd-preview-panel--dark-ui' : darkUI}">
+                    <div class="side-panel side-panel--shadow-right" ng-class="{'side-panel--dark-ui' : darkUI}">
+                        <div class="side-panel__header">
+                            <div class="side-panel__tools">
+                                <a class="icn-btn" sd-tooltip="Edit details" flow="top" ng-click="editorOpen = true; leftPreviewOpen = false"><i class="icon-pencil"></i></a>
+                                <a class="icn-btn" sd-tooltip="Close details" flow="top" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1"><i class="icon-close-small"></i></a>
+                            </div>
+                            <ul class="nav-tabs" ng-class="{'nav-tabs--ui-dark' : darkUI}">
+                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'event-details'}" class="nav-tabs__tab">
+                                    <button ng-click="tab = 'event-details'" class="nav-tabs__link"><span translate="">Content</span></button>
+                                </li>
+                                <li ng-class="{'nav-tabs__tab--active': tab === 'event-history'}" class="nav-tabs__tab">
+                                    <button ng-click="tab = 'event-history'" class="nav-tabs__link"><span translate="">History</span></button>
+                                </li>
+                            </ul> 
+                        </div>
+                        <div class="side-panel__content" ng-if="!tab || tab === 'event-details'">
+                            <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
+                                <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                                    <p class="sd-text__date-and-author"><time>Created 23.08.2017 by </time> <span class="sd-text__author">Mika Karapet</span></p> 
+                                    <p class="sd-text__date-and-author"><time>Updated 3 hours ago by</time> <span class="sd-text__author">John Doe</span></p>
+                                </div>
+                                <div class="side-panel__content-block-inner side-panel__content-block-inner--right">
+                                    <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                </div>
+                            </div>
+                            <div class="side-panel__content-block side-panel__content-block--image">
+                                <a class="icn-btn side-panel__image-actions" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <img src="../examples/img/d_trump.jpg" alt="test">
+                            </div>
+                            <div class="side-panel__content-block">
+                                <div class="form__row">
+                                    <label class="form-label form-label--light">Slugline</label>
+                                    <p class="sd-text__slugline">This is a slugline</p>
+                                </div>
+                                <div class="form__row">
+                                    <label class="form-label form-label--light">Description</label>
+                                    <p>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</p>
+                                </div>
+
+                                <div sd-toggle-box data-title="Details" data-style="circle">
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Usage right</label>
+                                        <p>Single usage</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Category</label>
+                                        <p>Some category</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Subject</label>
+                                        <p>Arts, culture and entertainment, Music</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Long Description</label>
+                                        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Internal Note</label>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
+                                    </div>
+                                </div>
+                                <h3 class="side-panel__heading side-panel__heading--big" ng-hide="multiEdit">Related items</h3>
+                                <div class="sd-grid-list sd-grid-list--small sd-grid-list--no-rl-margin dark-ui" ng-hide="multiEdit">
+                                    <!-- related item 1 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../examples/img/d_trump_2.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 2 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../examples/img/bill.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 3 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../examples/img/hillary.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 4 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="../examples/img/bush_1.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel__content" ng-if="tab === 'event-history'">
+                            <div class="side-panel__content-block">
+                                <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                                    <li class="simple-list__item">
+                                        <p><strong>Created by</strong> Mika Karapet</p>
+                                        <time class="small">Tuesday, 12. September 13:10</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Coverage created by</strong> Vince Ryan</p>
+                                        <time class="small">Tuesday, 12. September 13:13</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Updated by</strong> Karel Petrak</p>
+                                        <time class="small">Tuesday, 12. September 13:13</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Coverage updated by</strong> John Doe</p>
+                                        <time class="small">Tuesday, 12. September 13:21</time>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="side-panel__footer">
+
+                        </div>
+                    </div>      
+                </div>
+            </div>
+            <!-- END left content -->
+        </div>
+
+        <!-- SPLIT CONTENT -->
+        <div 
+        id="editPane" 
+        class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" 
+        ng-class="{'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
+            <!-- Eitor content -->
+            <div
+            class="side-panel side-panel--shadow-right" 
+            ng-if="!itemType || itemType === 'planning'"
+            doc-include="../examples/playgrounds/photo-snippets/edit-photo-metadata.html"></div>
+            <!-- END Editor content -->
+        </div>
+    </section>
+    <footer class="bottom-bar ">
+        This is the optional footer.
+    </footer>
+</div>
