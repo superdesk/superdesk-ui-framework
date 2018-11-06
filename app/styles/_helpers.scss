@@ -206,6 +206,39 @@ time {
         align-items: center;
     }
 }
+.dashboard-thumbnail-block {
+    display: flex;
+
+    &__image {
+        border: 1px solid #d6d6d6;
+    }
+    &__meta {
+        padding: 0 1rem;
+        display: flex;
+        flex-direction: column;
+    }
+    &__label {
+        font-size: 1.2rem;
+        color: $grayLight;
+    }
+    &__heading {
+        display: flex;
+        font-weight: 700;
+        padding: .3rem 0;
+
+        i {
+            margin-right: .5rem;
+        }
+    }
+    &__link {
+        color: $sd-blue;
+        text-decoration: none;
+        border-bottom: 1px dotted $sd-blue;
+        &:hover {
+            border-bottom: 1px solid $sd-blue;
+        }
+    }
+}
 
 // panel border
 .panel-border-left {
