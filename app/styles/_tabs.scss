@@ -73,6 +73,14 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
             }
         }
     }
+    &__pane {
+        &--padding {
+            padding: 2rem;
+        }
+        .subnav {
+            margin-top: 1px;
+        }
+    }
     // tab link
     &__link {
         @include nav-tab-link();

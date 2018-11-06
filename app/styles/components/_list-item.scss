@@ -107,6 +107,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     &--idle {
         background: $orange;
     }
+    &--dark-blue {
+        background: #4d646f;
+    }
 }
 
 
@@ -471,6 +474,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
                 border-top: 1px solid rgba(123,123,123,0.2);
             }
         }
+    }
+    &--margin {
+        margin: 2rem;
     }
 }
 
