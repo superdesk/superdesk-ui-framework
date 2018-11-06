@@ -7356,8 +7356,11 @@ a.text-link {
   .sd-list-item--no-bg {
     background-color: transparent; }
   .sd-list-item--no-hover:hover {
-    background-color: transparent;
+    background-color: #fff;
     cursor: default; }
+  .sd-list-item--inactive {
+    background-color: transparent;
+    color: rgba(123, 123, 123, 0.75); }
   .sd-list-item.actioning::before {
     content: '';
     position: absolute;
@@ -7801,6 +7804,8 @@ a.text-link {
       box-shadow: 0 0 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.16); }
   .sd-card--flex-grow {
     flex-grow: 1; }
+  .sd-card--auto-height {
+    min-height: 0; }
   .sd-card .sd-card__actions {
     margin: 0.4rem 0.4rem 0 0;
     visibility: hidden; }
@@ -7918,7 +7923,7 @@ a.text-link {
       width: 100%;
       box-shadow: 0 1px 0 rgba(136, 136, 136, 0.25); }
   .sd-card .sd-card__content {
-    padding: 16px;
+    padding: 1.6rem;
     flex-grow: 1; }
     .sd-card .sd-card__content h4 {
       text-transform: uppercase;
@@ -7954,6 +7959,8 @@ a.text-link {
       min-height: 20vh;
       max-height: 30vh;
       overflow-y: auto; }
+    .sd-card .sd-card__content--padd-10 {
+      padding: 1rem; }
   .sd-card .sd-card__placeholder {
     padding: 16px;
     flex-grow: 1;
@@ -10316,6 +10323,9 @@ label + .sd-toggle {
       margin: 0 0.4rem 0 0.8rem; }
   .sd-check__wrapper .sd-label--disabled {
     opacity: 0.40; }
+
+.sd-check__group {
+  padding: 0.6rem 0 1.2rem; }
 
 [class^="--dark-ui"] .sd-checkbox,
 [class*="--dark-ui"] .sd-checkbox {

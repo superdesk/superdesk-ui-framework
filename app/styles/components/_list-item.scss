@@ -41,9 +41,13 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     }
     &--no-hover {
         &:hover {
-            background-color: transparent;
+            background-color: $sd-ListItem-background;
             cursor: default;
         } 
+    }
+    &--inactive {
+        background-color: transparent;
+        color: rgba(123, 123, 123, 0.75);
     }
     &.actioning {
         &::before {
