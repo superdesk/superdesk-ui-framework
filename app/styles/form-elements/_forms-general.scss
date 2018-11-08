@@ -8,13 +8,19 @@
     &--no-padding {
         padding-bottom: 0;
     }
-    &--small-padding {
+    &--small-padding, &--s-padding {
         padding-bottom: 0.8rem;
+    }
+    &--l-padding {
+        padding-bottom: 3rem;
+    }
+    &--xl-padding {
+        padding-bottom: 4rem;
     }
     &--inner {
         padding-bottom: 0;
         padding-top: 1rem;
-    } 
+    }
 }
 
 .form__row--flex {
@@ -85,4 +91,9 @@
         background-color: $white;
         box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 1px 4px 0 rgba(0,0,0,0.2);
     }
+}
+.form__heading {
+    font-size: 1.6rem;
+    padding-bottom: 1.2rem;
+    line-height: 120%;
 }
