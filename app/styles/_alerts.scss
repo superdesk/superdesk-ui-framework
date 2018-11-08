@@ -102,7 +102,6 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     }
     &--small {
         font-size: 1.3rem;
-        font-weight: 300;
         padding: $sd-alert-padding-small;
         box-shadow: $sd-alert-shadow-small;
         transition: $sd-alert-transition-small;

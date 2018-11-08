@@ -2555,7 +2555,6 @@ time {
     transition: font-size ease-out 300ms, padding ease-out 300ms, max-width ease-out 200ms, max-height ease-out 300ms, opacity ease-out 200ms; }
   .sd-alert--small {
     font-size: 1.3rem;
-    font-weight: 300;
     padding: 0.8rem 2.4rem 0.8rem 1.2rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.08);
     transition: font-size ease-out 20ms, padding ease-out 200ms, max-width ease-out 100ms, max-height ease-out 80ms, opacity ease-out 160ms; }
@@ -9632,8 +9631,12 @@ a.text-link {
     align-items: baseline; }
   .form__row--no-padding {
     padding-bottom: 0; }
-  .form__row--small-padding {
+  .form__row--small-padding, .form__row--s-padding {
     padding-bottom: 0.8rem; }
+  .form__row--l-padding {
+    padding-bottom: 3rem; }
+  .form__row--xl-padding {
+    padding-bottom: 4rem; }
   .form__row--inner {
     padding-bottom: 0;
     padding-top: 1rem; }
@@ -9697,6 +9700,11 @@ a.text-link {
     background-color: #fff;
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.2); }
 
+.form__heading {
+  font-size: 1.6rem;
+  padding-bottom: 1.2rem;
+  line-height: 120%; }
+
 .form-label {
   display: inline-block;
   font-size: 1.1rem;
@@ -9714,6 +9722,14 @@ a.text-link {
     margin-bottom: 10px; }
   .form-label--block {
     display: block; }
+  .form-label--required {
+    position: relative; }
+    .form-label--required::after {
+      color: #E51C23;
+      content: "*";
+      vertical-align: top;
+      font-size: 1.2rem;
+      padding-left: 0.3rem; }
 
 .form-label__container {
   display: flex;
