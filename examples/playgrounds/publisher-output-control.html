@@ -470,12 +470,12 @@
                                             <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                 <div class="sd-list-item__row">
                                                     <span class="sd-overflow-ellipsis sd-list-item--element-grow">
-                                                        <span class="sd-list-item__text-strong">sp-magazine.s-lab.sourcefabric.org</span>
+                                                        <span class="sd-list-item__text-strong">www.bbc.co.uk</span>
                                                     </span>
                                                     <a class="icn-btn disabled" sd-tooltip="Remove tenant" flow="left" ng-click="deleteTenant1 = !deleteTenant1; $event.stopPropagation();"><i class="icon-trash"></i></a>
                                                 </div>
                                                 <div class="sd-list-item__row">
-                                                    <span class="sd-overflow-ellipsis label label--success">travel</span>
+                                                    <span class="sd-overflow-ellipsis label label--success">news</span>
                                                     <span class="sd-list-item__inline-text sd-list-item--element-grow no-line-height">
                                                         <i class="icon-facebook icon--blue icon--full-opacity"></i>
                                                     </span>                                                    
@@ -503,7 +503,7 @@
                                                 <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
                                                     <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                         <div class="sd-list-item__row">
-                                                            <span class="sd-overflow-ellipsis sd-list-item__text-strong">sp-magazine.s-lab.sourcefabric.org</span>
+                                                            <span class="sd-overflow-ellipsis sd-list-item__text-strong">www.bbc.co.uk</span>
                                                             <a class="icn-btn" sd-tooltip="Preview" flow="bottom"><i class="icon-external icon--full-opacity icon--white"></i></a>
                                                         </div>                                                       
                                                     </div>
@@ -513,7 +513,7 @@
                                                 <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
                                                     <label class="sd-line-input__label">Route</label>
                                                     <select class="sd-line-input__select">
-                                                        <option value="single">Travel</option>
+                                                        <option value="single">News</option>
                                                         <option value="time">Politics</option>
                                                         <option value="bananas">Lifestyle</option>
                                                         <option value="indefinite">Culture</option>
@@ -534,13 +534,81 @@
                                     <div class="sd-collapse-box__header" ng-click="isOpen2 = !isOpen2">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
+                                            <div class="sd-list-item__border sd-list-item__border--success"></div>
+                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                <div class="sd-list-item__row">
+                                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                        <span class="sd-list-item__text-strong">sp-magazine.s-lab.sourcefabric.org</span>
+                                                    </span>
+                                                    <a class="icn-btn disabled" sd-tooltip="Remove tenant" flow="left" ng-click="deleteTenant2 = !deleteTenant2; $event.stopPropagation();"><i class="icon-trash"></i></a>
+                                                </div>
+                                                <div class="sd-list-item__row">
+                                                    <span class="sd-overflow-ellipsis label label--success">travel</span>
+                                                    <span class="sd-list-item__inline-text sd-list-item--element-grow no-line-height">
+                                                        <i class="icon-facebook icon--blue icon--full-opacity"></i>
+                                                    </span>                                                    
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- END list item  -->
+                                    </div>
+                                    <div class="sd-collapse-box__content-wraper">
+                                        <div class="sd-collapse-box__content sd-collapse-box__content--border-success">
+                                            <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged2">
+                                                <div class="sd-collapse-box__sliding-toolbar">
+                                                    <div class="sliding-toolbar__inner"></div>
+                                                    <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged2 = true; isOpen2 = false">Cancel</a>
+                                                    <a class="btn btn--primary" ng-click="contentChanged2 = true; isOpen2 = false">Save</a>
+                                                </div>
+                                            </div>
+                                            <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
+                                                <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen2 = false">
+                                                    <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
+                                                </a>
+                                                <a class="icn-btn" sd-tooltip="Remove tenant" flow="left"><i class="icon-trash"></i></a>
+                                            </div>
+                                            <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
+                                                <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
+                                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                        <div class="sd-list-item__row">
+                                                            <span class="sd-overflow-ellipsis sd-list-item__text-strong">sp-magazine.s-lab.sourcefabric.org</span>
+                                                            <a class="icn-btn" sd-tooltip="Preview" flow="bottom"><i class="icon-external icon--full-opacity icon--white"></i></a>
+                                                        </div>                                                       
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form__row">
+                                                <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
+                                                    <label class="sd-line-input__label">Route</label>
+                                                    <select class="sd-line-input__select">
+                                                        <option value="single">Travel</option>
+                                                        <option value="time">Politics</option>
+                                                        <option value="bananas">Lifestyle</option>
+                                                        <option value="indefinite">Culture</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form__row" ng-init="contentChanged2 = true">
+                                                <sd-check ng-model="contentChanged2" ng-checked="false"><i class="icon-facebook icon--blue"></i> Publish to facebook</sd-check> 
+                                            </div>
+                                            <div class="form__row">
+                                                <sd-check ng-model="dnp0"><i class="icon-paywall icon--orange"></i> Paywall secured</sd-check>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- website 4 -->
+                                <div class="sd-collapse-box sd-shadow--z2 sd-collapse-box--lighter sd-collapse-box--margin-small" ng-class="{'sd-collapse-box--open' : isOpen3}" ng-hide="deleteTenant3">
+                                    <div class="sd-collapse-box__header" ng-click="isOpen3 = !isOpen3">
+                                        <!-- list item  -->
+                                        <div class="sd-list-item">
                                             <div class="sd-list-item__border sd-list-item__border--locked"></div>
                                             <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                 <div class="sd-list-item__row">
                                                     <span class="sd-overflow-ellipsis sd-list-item--element-grow">
                                                         <span class="sd-list-item__text-strong">test.org</span>
                                                     </span>
-                                                    <a class="icn-btn disabled" sd-tooltip="Remove tenant" flow="left" ng-click="deleteTenant2 = !deleteTenant2; $event.stopPropagation();"><i class="icon-trash"></i></a>
+                                                    <a class="icn-btn disabled" sd-tooltip="Remove tenant" flow="left" ng-click="deleteTenant3 = !deleteTenant3; $event.stopPropagation();"><i class="icon-trash"></i></a>
                                                 </div>
                                                 <div class="sd-list-item__row">
                                                     <span class="sd-overflow-ellipsis label">Unpublished</span>                                                    
@@ -551,15 +619,15 @@
                                     </div>
                                     <div class="sd-collapse-box__content-wraper">
                                         <div class="sd-collapse-box__content sd-collapse-box__content--border-locked">
-                                            <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged0">
+                                            <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged3">
                                                 <div class="sd-collapse-box__sliding-toolbar">
                                                     <div class="sliding-toolbar__inner"></div>
-                                                    <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged0 = true; isOpen1 = false">Cancel</a>
-                                                    <a class="btn btn--primary" ng-click="contentChanged0 = true; isOpen2 = false">Save</a>
+                                                    <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged3 = true; isOpen3 = false">Cancel</a>
+                                                    <a class="btn btn--primary" ng-click="contentChanged3 = true; isOpen3 = false">Save</a>
                                                 </div>
                                             </div>
                                             <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
-                                                <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen2 = false">
+                                                <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen3 = false">
                                                     <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
                                                 </a>
                                                 <a class="icn-btn" sd-tooltip="Remove tenant" flow="left"><i class="icon-trash"></i></a>
@@ -587,7 +655,7 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                            <div class="form__row" ng-init="contentChanged3 = false">
+                                            <div class="form__row" ng-init="contentChanged3 = true">
                                                 <sd-check ng-model="contentChanged3" ng-checked="false"><i class="icon-facebook icon--blue"></i> Publish to facebook</sd-check> 
                                             </div>
                                             <div class="form__row">
@@ -596,8 +664,31 @@
                                         </div>
                                     </div>
                                 </div>
-                                
-
+                            </div>
+                            <!-- Related items -->
+                            <div class="side-panel__content-block">
+                                <div sd-toggle-box data-title="Related articles" data-open="false" data-style="circle">
+                                    <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                                        <li class="simple-list__item">
+                                            <p>J.P. Morgan to settle allegations of violating sanctions: U.S. Treasury</p>
+                                            <span class="label-icon label-icon--success" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                            <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                            <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                        </li>
+                                        <li class="simple-list__item">
+                                            <p>Republican Senator Murkowski says has not decided final Kavanaugh vote</p>
+                                            <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                            <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                            <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                        </li>                        
+                                        <li class="simple-list__item">
+                                            <p>China bet big on quantum computing. Now the US races to keep up.</p>
+                                            <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                            <span class="label-icon" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                            <span class="label-icon label-icon--success" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                        </li>                        
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                         <div class="side-panel__content" ng-if="tab === 'unpublish'">
