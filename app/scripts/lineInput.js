@@ -15,6 +15,7 @@ function LineInputDirective() {
         require: '?ngModel',
         scope: {
             model: '=ngModel',
+            sync: '=',
             dark: '=',
             boxed: '=',
             label: '@',
@@ -28,6 +29,16 @@ function LineInputDirective() {
             onblur: '&',
         },
         link: (scope, elem, attrs, ngModel) => {
+            scope.modelFixed = {
+                // when model is a primitive, two way binding doesn't work
+                // https://stackoverflow.com/a/18128502/1175593
+                value: scope.model,
+            };
+            scope.$watch('model', (model) => {
+                if (scope.sync === true) {
+                    scope.modelFixed.value = model;
+                }
+            });
             scope.update = (value) => {
                 ngModel.$setViewValue(value);
 
