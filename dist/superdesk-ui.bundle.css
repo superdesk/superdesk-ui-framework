@@ -7821,6 +7821,7 @@ a.text-link {
     background-color: rgba(0, 0, 0, 0.3);
     padding: 0.2rem; }
   .sd-grid-item .sd-grid-item__progress-bar {
+    display: block;
     height: 0.4rem;
     width: 0%;
     background-color: #46a546;
@@ -8473,8 +8474,7 @@ a.text-link {
   left: 0;
   z-index: 0;
   border: 2px dashed #5ea9c8;
-  background-color: rgba(94, 169, 200, 0.1);
-  display: none; }
+  background-color: rgba(94, 169, 200, 0.1); }
 
 .upload__info {
   margin: 0 auto;
