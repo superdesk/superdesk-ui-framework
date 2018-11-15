@@ -3,6 +3,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+// Prevent angular from hiding exceptions happening in React components when using this component
+// https://github.com/angular/angular.js/blob/master/src/ng/q.js#L368
+// eslint-disable-next-line
+Error.prototype['$$passToExceptionHandler'] = true;
+
 class Angular1Bridge extends React.Component {
     constructor(props) {
         super(props);
