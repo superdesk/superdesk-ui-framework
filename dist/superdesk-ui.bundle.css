@@ -2076,6 +2076,8 @@ time {
     transition: font-size ease-out 20ms, padding ease-out 200ms, max-width ease-out 100ms, max-height ease-out 80ms, opacity ease-out 160ms; }
   .sd-alert--marg-b12 {
     margin-bottom: 1.2rem; }
+  .sd-alert--no-margin {
+    margin-bottom: 0; }
 
 .sd-alert__close {
   position: absolute;
@@ -9163,6 +9165,11 @@ a.text-link {
   .form__row--inner {
     padding-bottom: 0;
     padding-top: 1rem; }
+  .form__row--bordered {
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(123, 123, 123, 0.3); }
+    .form__row--bordered:first-child, .form__row--bordered:only-child {
+      border-top: 1px solid rgba(123, 123, 123, 0.3); }
 
 .form__row--flex .sd-line-input {
   flex-grow: 1; }
