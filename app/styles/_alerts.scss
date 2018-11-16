@@ -109,6 +109,9 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     &--marg-b12 {
         margin-bottom: 1.2rem;
     }
+    &--no-margin {
+        margin-bottom: 0;
+    }
 }
 
 .sd-alert__close {
