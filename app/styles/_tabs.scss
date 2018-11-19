@@ -24,6 +24,7 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
     @include clearfix();
     height: $nav-height;
     display: flex;
+    flex-shrink: 0;
     padding: 0 1rem;
     box-shadow: 0 1px 0 0 rgba(0,0,0,0.1);
 }
@@ -132,6 +133,7 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
     // Nav tabs content
     &__content {
         padding: 2rem;
+        overflow: auto;
 
         // UI dark
         &--ui-dark {

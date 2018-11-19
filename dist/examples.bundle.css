@@ -3865,6 +3865,7 @@ time {
   *zoom: 1;
   height: 48px;
   display: flex;
+  flex-shrink: 0;
   padding: 0 1rem;
   box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.1); }
   .nav-tabs:before, .nav-tabs:after {
@@ -3931,7 +3932,8 @@ time {
   .nav-tabs--big .nav-tabs__link {
     font-size: 2rem; }
   .nav-tabs__content {
-    padding: 2rem; }
+    padding: 2rem;
+    overflow: auto; }
     .nav-tabs__content--ui-dark {
       color: #fff; }
     .nav-tabs__content--small {
@@ -7355,6 +7357,10 @@ a.text-link {
   flex-grow: 1;
   padding: 20px;
   overflow: auto; }
+  .sd-page__content--d-flex-column {
+    display: flex;
+    flex-direction: column;
+    overflow: auto; }
 
 .sd-page__flex-helper {
   display: flex;
