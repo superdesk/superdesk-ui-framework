@@ -247,6 +247,7 @@
     transition-delay: 0.1s;
     display: flex;
     flex-direction: column;
+    overflow: auto;
     overflow-x: hidden;
     flex-grow: 1;
     position: relative;

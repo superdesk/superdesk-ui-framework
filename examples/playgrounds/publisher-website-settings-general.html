@@ -33,7 +33,7 @@
                 <h2 class="sd-page__page-heading">Daily Telegraph</h2>
                 <a class="btn btn--text-only"><i class="icon-globe"></i> Open website</a>
             </div>            
-            <div class="sd-page__content sd-page__content--d-flex-column no-padding">
+            <div class="sd-page__content sd-display-flex-column no-padding">
                 <ul class="nav-tabs">
                     <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'general'}" class="nav-tabs__tab">
                         <button ng-click="tab = 'general'" class="nav-tabs__link"><span translate="">General</span></button>
@@ -50,8 +50,8 @@
                 </ul>
                 
 
-                        <div class="nav-tabs__content no-padding">
-                            <div ng-if="!tab || tab === 'general'" class="nav-tabs__pane nav-tabs__pane--padding">
+                        <div class="nav-tabs__content no-padding sd-display-flex-column">
+                            <div ng-if="!tab || tab === 'general'" class="nav-tabs__pane nav-tabs__pane--padding sd-display-flex-column">
                                 <div class="grid grid--margin">
                                     <div class="grid__item gi-xsmall-12 gi-xlarge-8">
                                         <div class="form__row">

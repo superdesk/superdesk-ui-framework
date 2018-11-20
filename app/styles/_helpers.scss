@@ -263,3 +263,10 @@ time {
 .mb-auto {
     margin-bottom: auto !important;
 }
+
+// flex
+.sd-display-flex-column {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
