@@ -84,13 +84,7 @@
 .sd-page__content {
     flex-grow: 1;
     padding: 20px;
-    overflow: auto;
-
-    &--d-flex-column {
-        display: flex;
-        flex-direction: column;
-        overflow: auto;
-    }
+    overflow: auto;    
 }
 
 .sd-page__flex-helper {

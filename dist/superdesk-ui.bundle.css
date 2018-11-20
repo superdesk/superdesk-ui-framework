@@ -286,6 +286,11 @@ time {
 .mb-auto {
   margin-bottom: auto !important; }
 
+.sd-display-flex-column {
+  display: flex;
+  flex-direction: column;
+  overflow: auto; }
+
 .btn {
   display: inline-block;
   vertical-align: middle;
@@ -6242,6 +6247,7 @@ tags-input {
   transition-delay: 0.1s;
   display: flex;
   flex-direction: column;
+  overflow: auto;
   overflow-x: hidden;
   flex-grow: 1;
   position: relative; }
@@ -6873,10 +6879,6 @@ a.text-link {
   flex-grow: 1;
   padding: 20px;
   overflow: auto; }
-  .sd-page__content--d-flex-column {
-    display: flex;
-    flex-direction: column;
-    overflow: auto; }
 
 .sd-page__flex-helper {
   display: flex;
