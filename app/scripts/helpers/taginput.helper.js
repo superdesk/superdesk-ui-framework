@@ -710,7 +710,6 @@
                     debounceDelay: [Number, 100],
                     minLength: [Number, 3],
                     highlightMatchedText: [Boolean, true],
-                    maxResultsToShow: [Number, 10],
                     loadOnDownArrow: [Boolean, false],
                     loadOnEmpty: [Boolean, false],
                     loadOnFocus: [Boolean, false],
