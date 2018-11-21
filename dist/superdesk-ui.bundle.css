@@ -264,7 +264,9 @@ time {
     text-decoration: none;
     border-bottom: 1px dotted #5ea9c8; }
     .dashboard-thumbnail-block__link:hover {
-      border-bottom: 1px solid #5ea9c8; }
+      border-bottom: 1px solid #5ea9c8;
+      text-decoration: none;
+      color: #5ea9c8; }
 
 .panel-border-left {
   border-right: 0;
@@ -8105,7 +8107,7 @@ a.text-link {
         color: #3d8fb1;
         margin-left: 8px; }
       .sd-grid-item-header__heading a:hover span {
-        border-style: solid; }
+        border-bottom-style: solid; }
 
 .sd-searchbar {
   flex-grow: 1;
