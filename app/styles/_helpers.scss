@@ -236,6 +236,8 @@ time {
         border-bottom: 1px dotted $sd-blue;
         &:hover {
             border-bottom: 1px solid $sd-blue;
+            text-decoration: none;
+            color: $sd-blue;
         }
     }
 }
