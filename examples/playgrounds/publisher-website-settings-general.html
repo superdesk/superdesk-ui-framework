@@ -1,0 +1,188 @@
+<header class="sd-top-menu">
+        <a href="#" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <p class="sd-top-menu__header">Publisher Settings</p>
+    </header>
+    <main class="sd-page">
+        <nav class="sd-page__sidebar sd-left-nav">
+            <ul>
+                <li>
+                    <a href="#" class="sd-left-nav__btn">Publishing Rules</a>
+                </li>
+                <li>
+                    <a href="#" class="sd-left-nav__btn sd-left-nav__btn--active">Website Management</a>
+                </li>               
+            </ul>
+        </nav>
+        <div class="sd-content-navigation-panel sd-content-navigation-panel--border-right">
+            <div class="subnav subnav--padded subnav--lower-z-index">
+                <h3 class="sd-content-nav-title">Website</h3>
+            </div>
+            <nav class="sd-content-nav">
+                <ul>
+                    <li><a href="#" class="sd-content-nav__btn sd-content-nav__btn--active">Daily Telegraph</a></li>
+                    <li><a href="#" class="sd-content-nav__btn">The Torch</a></li>
+                    <li><a href="#" class="sd-content-nav__btn">Gotham Globe</a></li>
+                    <li><a href="#" class="sd-content-nav__btn">Daily Bugle</a></li>
+                    <li><a href="#" class="sd-content-nav__btn">The Daily Star</a></li>
+                    <li><a href="#" class="sd-content-nav__btn">Sourcefabric.org</a></li>
+                </ul>
+            </nav>
+        </div>
+        <section class="sd-page__main-content sd-page__main-content--double-left-nav">
+            <div class="sd-page__header sd-page__header--white sd-page__header--justify-space-between">
+                <h2 class="sd-page__page-heading">Daily Telegraph</h2>
+                <a class="btn btn--text-only"><i class="icon-globe"></i> Open website</a>
+            </div>            
+            <div class="sd-page__content sd-display-flex-column no-padding">
+                <ul class="nav-tabs">
+                    <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'general'}" class="nav-tabs__tab">
+                        <button ng-click="tab = 'general'" class="nav-tabs__link"><span translate="">General</span></button>
+                    </li>
+                    <li ng-class="{'nav-tabs__tab--active': tab === 'routes'}" class="nav-tabs__tab">
+                        <button ng-click="tab = 'routes'" class="nav-tabs__link"><span translate="">Routes</span></button>
+                    </li>
+                    <li ng-class="{'nav-tabs__tab--active': tab === 'navigation'}" class="nav-tabs__tab">
+                        <button ng-click="tab = 'navigation'" class="nav-tabs__link"><span translate="">Navigation</span></button>
+                    </li>
+                    <li ng-class="{'nav-tabs__tab--active': tab === 'theme'}" class="nav-tabs__tab">
+                        <button ng-click="tab = 'theme'" class="nav-tabs__link"><span translate="">Theme</span></button>
+                    </li>
+                </ul>
+                
+
+                        <div class="nav-tabs__content no-padding sd-display-flex-column">
+                            <div ng-if="!tab || tab === 'general'" class="nav-tabs__pane nav-tabs__pane--padding sd-display-flex-column">
+                                <div class="grid grid--margin">
+                                    <div class="grid__item gi-xsmall-12 gi-xlarge-8">
+                                        <div class="form__row">
+                                            <div class="sd-line-input">
+                                                <label class="sd-line-input__label">Website name</label>
+                                                <input class="sd-line-input__input" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input">
+                                                <label class="sd-line-input__label">Domain name</label>
+                                                <input class="sd-line-input__input" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input">
+                                                <label class="sd-line-input__label">Subdomain name</label>
+                                                <input class="sd-line-input__input" type="text">
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <span ng-model="AB" sd-switch=""></span><label>Enable AMP</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div ng-if="tab === 'routes'" class="nav-tabs__pane">
+                                <div class="sd-page__header">
+                                    <div class="">
+                                        <sd-check ng-model="listType" type="radio" ng-value="all-lists" label-position="inside">All</sd-check>
+                                        <sd-check ng-model="listType" type="radio" ng-value="automatic" label-position="inside">Collection</sd-check>
+                                        <sd-check ng-model="listType" type="radio" ng-value="manual" label-position="inside">Content</sd-check>
+                                    </div>
+
+                                    <span class="sd-page__element-grow sd-page__element-grow--x-padding">
+                                        <button class="navbtn">
+                                            <i class="icon-search"></i>
+                                        </button>
+                                    </span>
+                                    <a class="btn btn--primary"><i class="icon-plus-sign"></i>Add new</a>
+                                </div>
+                                <div class="sd-list-item-group sd-list-item-group--margin sd-shadow--z2">
+                                    <div class="sd-list-item" ng-class="">
+                                        <div class="sd-list-item__border sd-list-item__border--dark-blue"></div>
+                                        <div class="sd-list-item__column"><i class="icon-list-menu"></i></div>                                        
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis">About</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <!--dropdown-->
+                                            <div class="dropdown dropdown--align-right" dropdown="">
+                                                <button class="icn-btn dropdown__toggle dropdown-toggle">
+                                                    <i class="icon-dots-vertical"></i>
+                                                </button>
+                                                
+                                            </div>
+                                            <!--end dropdown-->
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item" ng-class="">
+                                        <div class="sd-list-item__border sd-list-item__border--dark-blue"></div>
+                                        <div class="sd-list-item__column"><i class="icon-list-menu"></i></div>                                        
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis">Business</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <!--dropdown-->
+                                            <div class="dropdown dropdown--align-right" dropdown="">
+                                                <button class="icn-btn dropdown__toggle dropdown-toggle">
+                                                    <i class="icon-dots-vertical"></i>
+                                                </button>
+                                                
+                                            </div>
+                                            <!--end dropdown-->
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item" ng-class="">
+                                        <div class="sd-list-item__border sd-list-item__border--dark-blue"></div>
+                                        <div class="sd-list-item__column"><i class="icon-list-menu"></i></div>                                        
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis">Culture</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <!--dropdown-->
+                                            <div class="dropdown dropdown--align-right" dropdown="">
+                                                <button class="icn-btn dropdown__toggle dropdown-toggle">
+                                                    <i class="icon-dots-vertical"></i>
+                                                </button>
+                                                
+                                            </div>
+                                            <!--end dropdown-->
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item" ng-class="">
+                                        <div class="sd-list-item__border sd-list-item__border--dark-blue"></div>
+                                        <div class="sd-list-item__column"><i class="icon-list-menu"></i></div>                                        
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis">Lifestyle</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <!--dropdown-->
+                                            <div class="dropdown dropdown--align-right" dropdown="">
+                                                <button class="icn-btn dropdown__toggle dropdown-toggle">
+                                                    <i class="icon-dots-vertical"></i>
+                                                </button>
+                                                
+                                            </div>
+                                            <!--end dropdown-->
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </div>
+                            <div ng-if="tab === 'navigation'" class="nav-tabs__pane">
+                                Navigation
+                            </div>
+                            <div ng-if="tab === 'theme'" class="nav-tabs__pane">
+                                Theme
+                            </div>
+                        </div>
+
+                    
+                
+            </div>
+        </section>
+    </main>

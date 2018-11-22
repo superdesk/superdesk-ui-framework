@@ -4,7 +4,14 @@
     Properties: <br>
     <code>data-items</code>: array of items for autosuggest.<br>
     <code>data-field</code>: defines property in object by which to filter items.<br>
-    <code>data-freetext</code>: allows free input of items that are not in suggestion list.<br><br>
+    <code>data-key-property</code>: defines property used as the id of the items.<br>
+    <code>data-freetext</code>: allows free input of items that are not in suggestion list.<br>
+    <code>data-on-change</code>: callback for when the tags are added/removed<br>
+    <code>data-replace-spaces-with-dashes</code>: Flag indicating that spaces will be replaced with dashes (defaults to true).<br>
+    <code>data-min-length</code>: sets the minimum allowed length of a tag to be valid (defaults to 3).<br>
+    <code>data-max-length</code>: sets the maximum allowed length of a tag to be valid (defaults to 9007199254740991).<br>
+    <code>data-placeholder</code>: Placeholder text for the control.<br>
+    <code>data-max-results-to-show</code>: Maximum number of results to be displayed at a time. If < 1 then show all results.<br><br>
     If you don't define <code>data-items</code> button will not be visible.
 </p>
 <div class="docs-page__code-window" doc-tabs>
@@ -23,9 +30,29 @@
                     { text: 'Audi' },
                     { text: 'BMW' },
                     { text: 'Hyundai' },
-                    { text: 'Opel' }
+                    { text: 'Opel' },
+                    { text: 'Audi2' },
+                    { text: 'BMW2' },
+                    { text: 'Hyundai2' },
+                    { text: 'Opel2' },
+                    { text: 'Audi3' },
+                    { text: 'BMW3' },
+                    { text: 'Hyundai3' },
+                    { text: 'Opel3' },
+                    { text: 'Audi4' },
+                    { text: 'BMW4' },
+                    { text: 'Hyundai4' },
+                    { text: 'Opel4' },
+                    { text: 'Audi5' },
+                    { text: 'BMW5' },
+                    { text: 'Hyundai5' },
+                    { text: 'Opel5' },
+                    { text: 'Audi6' },
+                    { text: 'BMW6' },
+                    { text: 'Hyundai6' },
+                    { text: 'Opel6' }
                     ]"
-                    data-field="text" 
+                    data-field="text"
                     data-freetext="false">
                 </sd-tag-input>
             </div>
@@ -40,7 +67,7 @@
                     { text: 'Hyundai' },
                     { text: 'Opel' }
                     ]"
-                    data-field="text" 
+                    data-field="text"
                     data-freetext="true">
                 </sd-tag-input>
             </div>
@@ -64,7 +91,7 @@
                         { text: 'Hyundai' },
                         { text: 'Opel' }
                     ]"
-                    data-field="text" 
+                    data-field="text"
                     data-freetext="false">
                 </sd-tag-input>
 
@@ -78,7 +105,7 @@
                         { text: 'Hyundai' },
                         { text: 'Opel' }
                     ]"
-                    data-field="text" 
+                    data-field="text"
                     data-freetext="true">
                 </sd-tag-input>
 

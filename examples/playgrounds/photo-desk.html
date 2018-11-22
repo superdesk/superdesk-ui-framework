@@ -119,10 +119,7 @@
                         </li>
                         <li class="dropdown__menu-divider"></li>
                         <li>
-                            <button><i class="icon-plus-sign icon--blue"></i>Image</button>
-                        </li>
-                        <li>
-                            <button><i class="icon-plus-sign icon--blue"></i>Video</button>
+                            <button ng-click="openModal('uploadModal')"><i class="icon-plus-sign icon--blue"></i>Upload media</button>
                         </li>
                     </ul>
                 </div>
@@ -1180,9 +1177,236 @@
 
             </div>
         </div>
-
     </div>
     <!-- END Image Edit modal -->
+
+
+    <!-- //////////////////////////////////////////////////////////////////////// mage Upload modal //////////////////////////////////////////////////////////////////////// -->
+    <div sd-modal data-model="uploadModal" class="modal--fullscreen modal--dark-ui" ng-init="showMetadata = true">
+        <div class="modal__header modal__header--flex">
+            <h3 class="modal__heading modal__heading--no-grow">Upload media</h3>
+            <div class="modal__header-element-grow"></div>
+            <div class="modal__header-buttons modal__header-buttons--right">
+                <button class="btn btn--ui-dark btn--hollow" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('uploadModal')">Cancel</button>
+                <div class="dropdown dropdown--dark" dropdown is-open="isOpen">
+                    <button class="dropdown__toggle dropdown__toggle--small dropdown__toggle--hollow dropdown-toggle" dropdown__toggle aria-haspopup="true" aria-expanded="false">
+                        <span class="dropdown__button-label">Send to:</span> <span>National</span><b class="dropdown__caret white"></b>
+                    </button>
+                    <ul class="dropdown__menu dropdown--align-right">
+                        <li><button ng-click="">National</button></li>
+                        <li><button ng-click="">Sports</button></li>
+                        <li><button ng-click="">International</button></li>
+                        <li><button ng-click="">Lifestyle</button></li>
+                    </ul>
+                </div>
+                <button class="btn btn--ui-dark btn--hollow btn--primary">Upload</button>
+            </div>
+        </div>
+        <div class="modal__body modal__body--no-padding">
+            <div class="sd-column-box--2">
+                <div class="sd-column-box__main-column sd-column-box__main-column--photo-preview">
+                    <a class="sd-photo-preview__slide-in-button" ng-show="!showMetadata" ng-click="showMetadata = !showMetadata" data-sd-tooltip="Open metadata" data-flow="left">
+                        <i class="icon-backward-thin"></i>
+                    </a>
+                    <div class="sd-photo-preview sd-photo-preview--grid-only">
+                        <!-- THUMBS for Multiedit  -->
+                        <div class="sd-photo-preview__thumb-controls">
+                            <button class="btn btn--ui-dark btn--text-only">deselect all</button>
+                            <button class="btn btn--ui-dark btn--text-only" disabled>select all</button>
+                        </div>
+                        <div class="sd-photo-preview__thumb-strip" ng-class="{'sd-photo-preview__thumb-strip--with-controls' : itemsLoaded}" ng-init="itemsLoaded = true;">
+                            <div class="upload__info" ng-if="!itemsLoaded">
+                                <div class="upload__info-icon"></div>
+                                <h3 class="upload__info-heading">Drag Your Files Here</h3>
+                                <div class="upload__info-label">or</div>
+                                <button class="btn btn--hollow btn--ui-dark upload__info-button">Select them from folder</button>
+                            </div>
+                            <div class="upload__target" ng-if="!itemsLoaded"></div>
+
+                            <div class="sd-grid-list dark-ui" ng-if="itemsLoaded" ng-init="select11 = true; select12 = true; select13 = true; select14 = true;">
+                                <!-- small item 1 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select11 = !select11" ng-class="{'sd-grid-item--selected' : select11}">
+                                    <div class="sd-grid-item__thumb">
+                                        <a class="icn-btn sd-grid-item__remove" sd-tooltip="Remove item" flow="left">
+                                            <i class="icon-close-small"></i>
+                                        </a>
+                                        <img src="../examples/img/d_trump.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <p class="sd-grid-item__title">Item one title</p>
+                                        <p class="sd-grid-item--element-grow">Description vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae.</p>
+                                        <div class="sd-grid-item__content-block">
+                                            <span class="sd-grid-item__text-label">Copyright:</span>
+                                            <span class="sd-grid-item__text-strong">ANSA</span>
+                                        </div>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- small item 2 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select12 = !select12" ng-class="{'sd-grid-item--selected' : select12}">
+                                    <div class="sd-grid-item__thumb">
+                                        <a class="icn-btn sd-grid-item__remove" sd-tooltip="Remove item" flow="left">
+                                            <i class="icon-close-small"></i>
+                                        </a>
+                                        <img src="../examples/img/d_trump_2.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <p class="sd-grid-item__title">Item two title</p>
+                                        <p class="sd-grid-item--element-grow">Description curabitur blandit tempus porttitor. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                        <div class="sd-grid-item__content-block">
+                                            <span class="sd-grid-item__text-label">Copyright:</span>
+                                            <span class="sd-grid-item__text-strong">ANSA</span>
+                                        </div>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- small item 3 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select13 = !select13" ng-class="{'sd-grid-item--selected' : select13}">
+                                    <div class="sd-grid-item__thumb sd-grid-item__thumb--uploading">
+                                        <a class="icn-btn sd-grid-item__remove" sd-tooltip="Remove item" flow="left">
+                                            <i class="icon-close-small"></i>
+                                        </a>
+                                        <div class="sd-grid-item__progress-circle">
+                                            <sd-circular-progress value="60" class="sd-circular-progress--m"></sd-circular-progress>
+                                        </div>
+                                        <img src="../examples/img/bill.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <p class="sd-grid-item__title">Item three title</p>
+                                        <p class="sd-grid-item--element-grow">Description donec ullamcorper nulla non metus auctor fringilla. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+                                        <div class="sd-grid-item__content-block">
+                                            <span class="sd-grid-item__text-label">Copyright:</span>
+                                            <span class="sd-grid-item__text-strong">ANSA</span>
+                                        </div>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- small item 4 -->
+                                <div class="sd-grid-item sd-grid-item--with-click" ng-click="select14 = !select14" ng-class="{'sd-grid-item--selected' : select14}">
+                                    <div class="sd-grid-item__thumb sd-grid-item__thumb--uploading">
+                                        <a class="icn-btn sd-grid-item__remove" sd-tooltip="Remove item" flow="left">
+                                            <i class="icon-close-small"></i>
+                                        </a>
+                                        <div class="sd-grid-item__progress-circle">
+                                            <sd-circular-progress value="100" class="sd-circular-progress--m"></sd-circular-progress>
+                                        </div>
+                                        <img src="../examples/img/hillary.jpg" alt="test">
+                                    </div>
+                                    <div class="sd-grid-item__content">
+                                        <time title="20.11.2017">20.11.2017</time>
+                                        <p class="sd-grid-item__title">Item four title</p>
+                                        <p class="sd-grid-item--element-grow">Description curabitur blandit tempus porttitor.</p>
+                                        <div class="sd-grid-item__content-block">
+                                            <span class="sd-grid-item__text-label">Copyright:</span>
+                                            <span class="sd-grid-item__text-strong">ANSA</span>
+                                        </div>
+                                    </div>
+                                    <div class="sd-grid-item__footer">
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
+                                            <i class="icon-photo sd-grid-item__type-icn sd-grid-item__footer-block-item"></i>
+                                        </div>
+                                        <div class="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
+                                            <a class="icn-btn sd-grid-item__actions">
+                                                <i class="icon-dots-vertical"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END THUMBS for Multiedit  -->
+                    </div>
+                </div>
+                <!-- Sidebar -->
+                <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large sd-column-box__slide-in-column--dark-ui" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}"  ng-if="itemsLoaded">
+                    <div class="sd-column-box__slide-in-column-inner sd-slide-in-panel">
+
+                        <div class="sd-slide-in-panel__header">
+                            <h3 class="sd-slide-in-panel__heading">Metadata</h3>
+                        </div>
+                        <div class="sd-slide-in-panel__content">
+                            <div class="sd-slide-in-panel__content-block sd-slide-in-panel__content-block--first">
+                                <div class="sd-alert sd-alert--hollow sd-alert--primary sd-alert--small" style="margin: -1rem 0 3rem">
+                                    <span translate="">Currently editing: 4 items</span>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Title</label>
+                                        <input class="sd-line-input__input" type="text" value="Image title" >
+                                        <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Description</label>
+                                        <textarea class="sd-line-input__input"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Category</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Subject</label>
+                                        <input class="sd-line-input__input" type="text">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Usage right</label>
+                                        <select class="sd-line-input__select">
+                                            <option value="">--- Not selected ---</option>
+                                            <option value="single">Single usage</option>
+                                            <option value="time">Time restricted</option>
+                                            <option value="bananas">Indefinite usage</option>
+                                            <option value="indefinite">Pears</option>
+                                        </select>
+                                        <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //////////////////////////////////////////////////////////////////////// END Image Upload modal //////////////////////////////////////////////////////////////////////// -->
+
+
     <!-- Editor configuration modal -->
     <div sd-modal data-model="modalEditorConfig" class="modal--x-large">
         <div class="modal__header">

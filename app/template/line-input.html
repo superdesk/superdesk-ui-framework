@@ -1,11 +1,11 @@
  <div class="sd-line-input" ng-class="{'sd-line-input--dark-ui': dark, 'sd-line-input--boxed': boxed, 'sd-line-input--required': required}">
     <label class="sd-line-input__label" translate>{{label}}</label>
 
-    <input class="sd-line-input__input" type="text" ng-model="model" ng-change="update(model)" ng-blur="onblur()" ng-disabled="disabled" placeholder="{{placeholder}}" ng-if="!transclude && !textarea">
+    <input class="sd-line-input__input" type="text" ng-model="modelFixed.value" ng-change="update(modelFixed.value)" ng-blur="onblur()" ng-disabled="disabled" placeholder="{{placeholder}}" ng-if="!transclude && !textarea">
 
     <textarea class="sd-line-input__input"
-        ng-model="model"
-        ng-change="update(model)"
+        ng-model="modelFixed.value"
+        ng-change="update(modelFixed.value)"
         ng-blur="onblur()"
         ng-disabled="disabled"
         placeholder="{{placeholder}}"
@@ -14,6 +14,5 @@
     </textarea>
 
     <ng-transclude></ng-transclude>
-
-    <div class="sd-line-input__char-count" ng-if="maxlength" sd-character-count data-item="model" data-limit="maxlength" data-html="true"></div>
+    <div class="sd-line-input__char-count" ng-if="maxlength" sd-character-count data-item="modelFixed.value" data-limit="maxlength" data-html="true"></div>
 </div>

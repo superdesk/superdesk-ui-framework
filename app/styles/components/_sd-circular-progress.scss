@@ -1,0 +1,208 @@
+@import '../variables/_colors.scss';
+
+
+// extra small
+$circular-progress-size-xs: 20px;
+$circular-progress-stroke-xs: 2;
+
+// small
+$circular-progress-size-s: 28px;
+$circular-progress-stroke-s: 2;
+
+// medium
+$circular-progress-size-m: 52px;
+$circular-progress-stroke-m: 4;
+
+// large
+$circular-progress-size-l: 68px;
+$circular-progress-stroke-l: 4;
+
+// extra large
+$circular-progress-size-xl: 102px;
+$circular-progress-stroke-xl: 6;
+
+
+.progress-bar-container {
+    display: inline-block;
+    position: relative;
+    .progress-text {
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 1.8rem;
+        font-family: arial;
+        color: #666;
+        z-index: 1;
+        line-height: 1;
+    }
+
+    .progress-text em {
+        font-size: 1rem;
+        font-style: normal;
+    }
+}
+
+.progress-svg {
+    width: 20px;
+    height: 20px;
+    transform: rotate(-90deg);
+    display: block;
+    circle {
+        stroke: rgba(123, 123, 123, 0.4);
+        stroke-width: 2;
+        fill: transparent;
+    }
+    .progressbar {
+        stroke: $green;
+        fill: transparent;
+    }
+    .error & {
+        .progressbar {
+            stroke: transparent !important;
+        }
+    }
+}
+
+.progress-done {
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    color: $green;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 0 currentColor;
+    transition: box-shadow 0.3s ease-in-out;
+    z-index: 2;
+    i {
+        color: $white;
+        text-align: center;
+        margin: auto;
+        align-content: center;
+        transform: scale(0); 
+        opacity: 0;
+        transition: all .14s ease-in;
+        transition-delay: .2s;
+    }
+    &.progress-done--completed {
+        box-shadow: inset 0 0 0 50px currentColor;
+        i {
+            transform: scale(1);
+            opacity: 1; 
+        }
+    }
+    &.progress-done--error {
+        color: $red;
+        box-shadow: inset 0 0 0 50px currentColor;
+        i {
+            transform: scale(1);
+            opacity: 1; 
+        }
+    }
+}
+
+.sd-circular-progress {
+    &--xs {
+        .progress-svg {
+            width: $circular-progress-size-xs;
+            height: $circular-progress-size-xs;
+            circle {
+                stroke-width: $circular-progress-stroke-xs;
+            }
+        }
+        .progress-text {
+            display: none;
+        }
+        .progress-done {
+            margin: $circular-progress-stroke-xs - 1px;
+            i {
+                transition-duration: .12s;
+            }
+            &.progress-done--completed, &.progress-done--error {
+                box-shadow: inset 0 0 0 10px currentColor;
+                i {
+                  transform: scale(0.8);  
+                }
+            }
+        }
+    }
+    &--s {
+        .progress-svg {
+            width: $circular-progress-size-s;
+            height: $circular-progress-size-s;
+            circle {
+                stroke-width: $circular-progress-stroke-s;
+            }
+        }
+        .progress-text {
+            display: none;
+        }
+        .progress-done {
+            margin: $circular-progress-stroke-s - 1px;
+            i {
+                transition-duration: .12s;
+            }
+            &.progress-done--completed, &.progress-done--error {
+                box-shadow: inset 0 0 0 16px currentColor;
+            }
+        }
+    }
+    &--m {
+        .progress-svg {
+            width: $circular-progress-size-m;
+            height: $circular-progress-size-m;
+            circle {
+                stroke-width: $circular-progress-stroke-m;
+            }
+        }
+        .progress-done {
+            margin: $circular-progress-stroke-m - 1px;
+            &.progress-done--completed, &.progress-done--error {
+                box-shadow: inset 0 0 0 26px currentColor;
+                i {
+                    transform: scale(1.4);
+                }
+            }
+        }
+    }
+    &--l {
+        .progress-svg {
+            width: $circular-progress-size-l;
+            height: $circular-progress-size-l;
+            circle {
+                stroke-width: $circular-progress-stroke-l;
+            }
+        }
+        .progress-done {
+            margin: $circular-progress-stroke-l - 1px;
+            &.progress-done--completed, &.progress-done--error {
+                i {
+                    transform: scale(2);
+                }
+                
+            }
+        }
+    }
+    &--xl {
+        .progress-svg {
+            width: $circular-progress-size-xl;
+            height: $circular-progress-size-xl;
+            circle {
+                stroke-width: $circular-progress-stroke-xl;
+            }
+        }
+        .progress-done {
+            margin: $circular-progress-stroke-xl - 1px;
+            &.progress-done--completed, &.progress-done--error  {
+                i {
+                    transform: scale(2.4);
+                }
+            }
+        }
+    }
+}

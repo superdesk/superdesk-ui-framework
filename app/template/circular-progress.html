@@ -1,0 +1,11 @@
+<div class="progress-bar-container">
+    <div  class="progress-done" ng-class="{'progress-done--completed': status === 'completed', 'progress-done--error': status === 'error'}">
+        <i class="icon-ok" ng-hide="status === 'error'"></i>
+        <i class="icon-close-small" ng-hide="status === 'completed'"></i>
+    </div>
+    <span class="progress-text" ng-if="counter">{{value}}<em>%</em></span>
+    <svg class="progress-svg">
+        <circle ng-attr-r="{{radius}}" ng-attr-cx="50%" ng-attr-cy="50%"></circle>
+        <circle class="progressbar" ng-attr-r="{{radius}}" ng-attr-cx="50%" ng-attr-cy="50%" ng-style="{'stroke-dashoffset': dashOffset, 'stroke-dasharray': circumference}"></circle>
+    </svg>
+</div>

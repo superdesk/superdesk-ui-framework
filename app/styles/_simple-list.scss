@@ -18,6 +18,9 @@ $simple-list-border-color: $neutral-border-color;
                 opacity: .75;
             }
         }
+        .label-icon {
+            margin-right: 4px;
+        }
     }
     &--dotted {
         .simple-list__item {

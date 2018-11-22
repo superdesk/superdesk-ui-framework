@@ -41,9 +41,13 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     }
     &--no-hover {
         &:hover {
-            background-color: transparent;
+            background-color: $sd-ListItem-background;
             cursor: default;
         } 
+    }
+    &--inactive {
+        background-color: transparent;
+        color: rgba(123, 123, 123, 0.75);
     }
     &.actioning {
         &::before {
@@ -102,6 +106,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     }
     &--idle {
         background: $orange;
+    }
+    &--dark-blue {
+        background: #4d646f;
     }
 }
 
@@ -445,7 +452,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
 .sd-list-item-group {
     .sd-list-item {
         + .sd-list-item {
-            border-top: 1px solid lighten( $grayLight, 30% );
+            border-top: 1px solid rgba(123,123,123,0.2);
         }
     }
     &--space-between-items {
@@ -464,9 +471,12 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         .sd-list-item-nested__childs {
             .sd-list-item {
                 margin-top: 0;
-                border-top: 1px solid lighten( $grayLight, 30% );
+                border-top: 1px solid rgba(123,123,123,0.2);
             }
         }
+    }
+    &--margin {
+        margin: 2rem;
     }
 }
 

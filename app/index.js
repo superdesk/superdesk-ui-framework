@@ -1,6 +1,8 @@
 import './scripts';
 import './styles';
 
+export {reactToAngular1} from './scripts/helpers/react-to-angular-1';
+
 export default angular.module('superdesk-ui', [
     'superdesk-ui.helper',
     'superdesk-ui.carousel',
@@ -10,6 +12,7 @@ export default angular.module('superdesk-ui', [
     'superdesk-ui.modals',
     'superdesk-ui.switch',
     'superdesk-ui.check',
+    'superdesk-ui.circularProgress',
     'superdesk-ui.toggleBox',
     'superdesk-ui.toggleBoxNext',
     'superdesk-ui.tags',

@@ -282,5 +282,29 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-output-control.html'
         })
+        .when('/publisher-content-analytics', {
+            title: 'Publisher Content Analytics',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-content-analytics.html'
+        })
+        .when('/swimlane-view', {
+            title: 'Swimlane View',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/swimlane-view.html'
+        })
+        .when('/publisher-website-settings', {
+            title: 'Publisher Website Settings',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-website-settings.html'
+        })
+        .when('/publisher-website-settings-general', {
+            title: 'Publisher Website Settings General',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/publisher-website-settings-general.html'
+        })
         .otherwise({redirectTo: '/'});
 });

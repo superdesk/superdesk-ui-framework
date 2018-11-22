@@ -128,6 +128,14 @@
     &--border-right {
         border-right: 2px solid #8f8f8f;
     }
+    &--flex {
+        display: flex;
+        flex-direction: column;
+    }
+}
+.sd-column-box__main-column-inner {
+    overflow-y: auto;
+    padding: 2rem;
 }
 .sd-column-box__slide-in-column {
     width: 26rem;
@@ -239,6 +247,7 @@
     transition-delay: 0.1s;
     display: flex;
     flex-direction: column;
+    overflow: auto;
     overflow-x: hidden;
     flex-grow: 1;
     position: relative;
@@ -480,9 +489,15 @@ $planningEditor-width: 50rem;
     width: 20rem;
     background-color: #f0f0f0;
     flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
 
     &--border-right {
         border-right: 2px solid $grayLight;
+    }
+    .subnav {
+        flex-shrink: 0;
     }
 }
 

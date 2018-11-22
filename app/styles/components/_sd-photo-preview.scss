@@ -18,8 +18,26 @@ $photo-nav-transition: all 0.2s ease-out;
         }
         .sd-photo-preview__thumb-strip {
             overflow-y: auto;
+            &--with-controls {
+                padding-top: 4.8rem;
+            }
         }
     }
+}
+
+.sd-photo-preview__thumb-controls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    min-height: 4.8rem;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(32, 32, 32, 0.9);
+    padding: 0 2rem;
 }
 
 .sd-photo-preview__image {
@@ -61,6 +79,7 @@ $photo-nav-transition: all 0.2s ease-out;
     min-height: 16rem;
     background-color: rgba(0, 0, 0, 0.2);
     box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
 }
 
 
@@ -152,6 +171,80 @@ $photo-nav-transition: all 0.2s ease-out;
         color: inherit;
         &::after {
             content: "\e642";
+        }
+    }
+}
+
+.upload__target {
+    position: absolute;
+    top:0;
+    right: 0;
+    bottom: 0; 
+    left:0;
+    z-index: 0;
+    border: 2px dashed $sd-blue;
+    background-color: scale-color($sd-blue, $alpha: -90%);
+}
+
+.upload__info {
+    margin: 0 auto;
+    max-width: 40rem;
+    position: relative;
+    top: 50%;
+    margin-top: -10.6rem;
+    z-index: 1;
+}
+.upload__info-icon {
+    margin: 0 auto;
+    height: 7.4rem;
+    width: 9rem;
+    background-image: url(../img/ICON_image_stack--white.svg); 
+    opacity: 0.25;
+    text-align: center;
+}
+.upload__info-heading {
+    margin: 0 auto;
+    opacity: 0.5;
+    text-align: center;
+    padding-top: 3rem;
+    text-align: center;
+    color: #a0a0a0;
+    font-size: 2.4rem;
+    font-weight: 300;
+}
+.upload__info-label {
+    position: relative;
+    text-align: center;
+    font-style: italic;
+    margin: 2.2rem auto;
+    color: inherit;
+    opacity: 0.5;
+    &::after, &::before {
+        content: "___________";
+        position: absolute;
+        top: -0.5rem;
+        color: inherit;
+        opacity: 0.25;
+    }
+    &::after { 
+        margin-left: 1.5rem;
+    }
+    &::before {
+        margin-left: -7.8rem;
+    }
+}
+.upload__info-button {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    opacity: 0.75;
+}
+
+
+.sd-photo-preview__thumb-strip {
+    &:hover {
+        .upload-target {
+            display: block;
         }
     }
 }

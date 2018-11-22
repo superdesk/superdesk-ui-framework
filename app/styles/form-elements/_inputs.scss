@@ -64,6 +64,16 @@
     &--block {
         display: block;
     }
+    &--required {
+        position: relative;
+        &::after {
+            color:$red;
+            content: "*";
+            vertical-align: top;
+            font-size: 1.2rem;
+            padding-left: 0.3rem;
+        }
+    }
 }
 .form-label__container {
     display:flex;
@@ -571,6 +581,6 @@
 [class*="--dark-ui"] {
     .form-label {
         color: inherit;
-        opacity: 0.6;
+        opacity: 0.4;
     }
 }

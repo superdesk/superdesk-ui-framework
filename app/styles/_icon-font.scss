@@ -80,6 +80,9 @@ $icon-base-size: 16px;
 .icon--orange {
   color: $orange !important;
 }
+.icon--green {
+  color: $green !important;
+}
 .icon--rotate-180 {
   transform: rotate(180deg);
 }
@@ -88,6 +91,9 @@ $icon-base-size: 16px;
 }
 .icon--full-opacity {
   opacity: 1 !important;
+}
+.icon--disabled {
+  opacity: 0.2 !important;
 }
 
 // Icons definition
@@ -256,7 +262,8 @@ $sd-icon-font: (
   rotate-left: "\e69c",
   business: "\e69d",
   paywall: "\e69e",
-  analytics: "\e69f"
+  analytics: "\e69f",
+  amp: "\e6a0"
 );
 
 @each $name, $value in $sd-icon-font {

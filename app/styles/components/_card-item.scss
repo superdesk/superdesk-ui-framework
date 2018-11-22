@@ -35,6 +35,9 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
     &--flex-grow {
         flex-grow: 1;
     }
+    &--auto-height {
+        min-height: 0;
+    }
     .sd-card__actions   {
         margin: 0.4rem 0.4rem 0 0;
         visibility: hidden;
@@ -183,7 +186,7 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         }
     }
     .sd-card__content {
-        padding: 16px;
+        padding: 1.6rem;
         flex-grow: 1;
         h4 {
             text-transform: uppercase;
@@ -224,6 +227,9 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
             min-height: 20vh;
             max-height: 30vh;
             overflow-y: auto;
+        }
+        &--padd-10 {
+            padding: 1rem;
         }
     }
     .sd-card__placeholder {
@@ -303,6 +309,22 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
 
             &:hover {
                 color: $grayDarker;
+            }
+
+            &--icon-hover {
+                display: flex;
+                justify-content: space-between;
+
+                i {
+                    display: none;
+                }
+                &:hover {
+                    background-color: rgba(94,169,200, .15);
+
+                    i {
+                        display: inline-flex;
+                    }
+                }
             }
         }
     }
