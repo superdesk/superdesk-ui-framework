@@ -130,6 +130,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     &--large-padding {
         padding: 0.8rem 1.6rem;
     }
+    &--no-right-padding {
+        padding-right: 0;
+    }
     &--grow {
         flex-grow: 1;
         flex-shrink: 1;
@@ -225,7 +228,11 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         line-height: 0;
     }
 }
-
+.sd-list-item__thumbnail {
+    max-width: 56px;
+    max-height: 42px;
+    margin: .6rem 0;
+}
 .sd-list-item:hover, .sd-list-item--activated {
     .sd-list-item__action-menu {
         padding: 0 0.6rem;
