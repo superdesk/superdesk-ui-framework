@@ -7004,6 +7004,8 @@ a.text-link {
     border: none; }
   .sd-list-item__column--large-padding {
     padding: 0.8rem 1.6rem; }
+  .sd-list-item__column--no-right-padding {
+    padding-right: 0; }
   .sd-list-item__column--grow {
     flex-grow: 1;
     flex-shrink: 1; }
@@ -7075,6 +7077,11 @@ a.text-link {
     flex-direction: row; }
   .sd-list-item__action-menu > .dropdown__toggle {
     line-height: 0; }
+
+.sd-list-item__thumbnail {
+  max-width: 56px;
+  max-height: 42px;
+  margin: .6rem 0; }
 
 .sd-list-item:hover .sd-list-item__action-menu, .sd-list-item--activated .sd-list-item__action-menu {
   padding: 0 0.6rem;
