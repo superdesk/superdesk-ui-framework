@@ -483,6 +483,9 @@ $planningEditor-width: 50rem;
     min-width: 4rem;
     color: $gray;
     font-weight: 300;
+    &--auto {
+        min-width: auto;
+    } 
 }
 
 .sd-content-navigation-panel {
