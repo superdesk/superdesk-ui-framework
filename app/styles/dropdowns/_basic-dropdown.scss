@@ -481,7 +481,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     .dropdown__toggle {
         text-align: left;
         background: rgba(127,127,127,.5);
-        padding: 1rem 1.5rem;
+        padding: 0.7rem 1.5rem;
         border-radius: 2px;
         color: #fff;
         .dropdown__caret {
@@ -495,12 +495,29 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             border: 1px solid rgba(127,127,127,.75);
             background: none;
         }
+        &--line {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            &:hover {
+                border-bottom-color: rgba(255, 255, 255, 0.4);
+                background-color: rgba(255, 255, 255, 0.1);
+            }
+            &:focus {
+                border-color: $sd-blue;
+                background-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 1px 0 0 $sd-blue;
+            }
+        }
     }
     &.open {
         .dropdown__toggle {
             &--hollow {
                 border: 1px solid rgba(255,255,255,0.6);
                 background-color: rgba(255,255,255,.1);
+            }
+            &--line {
+                background-color: rgba(255, 255, 255, 0.1);
+                box-shadow: 0 1px 0 0 $sd-blue, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
             }
         }
     }
