@@ -2163,7 +2163,7 @@ time {
 .btn__check {
   position: relative;
   color: #fff;
-  padding: 1rem 1.6rem;
+  padding: 0.7rem 1.6rem;
   background: #546E7A;
   border: none;
   font-size: 1.3rem;
@@ -5099,6 +5099,17 @@ tags-input {
         background-image: linear-gradient(to top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%); }
     .side-panel .side-panel__footer--button-box-large {
       padding: 1.4rem 2rem; }
+      .side-panel .side-panel__footer--button-box-large .btn + .btn, .side-panel .side-panel__footer--button-box-large .side-panel__footer-buttons--flex + .btn {
+        margin-top: 1rem;
+        margin-left: 0; }
+    .side-panel .side-panel__footer .side-panel__footer-buttons--flex {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-basis: 0; }
+      .side-panel .side-panel__footer .side-panel__footer-buttons--flex .btn + .btn {
+        margin-left: 0.8rem;
+        margin-top: 0; }
   .side-panel.side-panel--shadow-left::after {
     display: block;
     top: 0;
@@ -10908,7 +10919,7 @@ label + .sd-radio {
 .dropdown.dropdown--dark .dropdown__toggle {
   text-align: left;
   background: rgba(127, 127, 127, 0.5);
-  padding: 1rem 1.5rem;
+  padding: 0.7rem 1.5rem;
   border-radius: 2px;
   color: #fff; }
   .dropdown.dropdown--dark .dropdown__toggle .dropdown__caret {
@@ -10919,10 +10930,24 @@ label + .sd-radio {
   .dropdown.dropdown--dark .dropdown__toggle--hollow {
     border: 1px solid rgba(127, 127, 127, 0.75);
     background: none; }
+  .dropdown.dropdown--dark .dropdown__toggle--line {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2); }
+    .dropdown.dropdown--dark .dropdown__toggle--line:hover {
+      border-bottom-color: rgba(255, 255, 255, 0.4);
+      background-color: rgba(255, 255, 255, 0.1); }
+    .dropdown.dropdown--dark .dropdown__toggle--line:focus {
+      border-color: #5ea9c8;
+      background-color: rgba(255, 255, 255, 0.1);
+      box-shadow: 0 1px 0 0 #5ea9c8; }
 
 .dropdown.dropdown--dark.open .dropdown__toggle--hollow {
   border: 1px solid rgba(255, 255, 255, 0.6);
   background-color: rgba(255, 255, 255, 0.1); }
+
+.dropdown.dropdown--dark.open .dropdown__toggle--line {
+  background-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 1px 0 0 #5ea9c8, inset 0 0px 0 1px rgba(89, 169, 201, 0.4); }
 
 .dropdown.dropdown--full-width {
   width: 100%; }

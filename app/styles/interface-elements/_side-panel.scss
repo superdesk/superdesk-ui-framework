@@ -277,7 +277,21 @@ $side-panel-Bg-darkUi: darken($grayMedium, 4%);
         }
         &--button-box-large {
             padding: 1.4rem 2rem;
+            .btn + .btn, .side-panel__footer-buttons--flex + .btn {
+                margin-top: 1rem;
+                margin-left: 0;
+            }
         }
+        .side-panel__footer-buttons--flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            flex-basis: 0;
+            .btn + .btn {
+                margin-left: 0.8rem;
+                margin-top: 0;
+            }
+        } 
     }
     &.side-panel--shadow-left::after {
         display:block;
