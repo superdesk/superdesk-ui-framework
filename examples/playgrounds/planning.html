@@ -121,17 +121,28 @@
                     </ul>
                 </div>
             </div>
-            <div class="subnav">
+            <div class="subnav subnav--responsive" ng-class="{'compact--level-1' : planningType === 'planning' || planningType === 'events'}">
                 <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
                     <i class="icon-filter-large"></i>
                 </button>
                 <div class="subnav__stretch-bar" ng-init="planningType = 'events-planning'">
-                    <sd-check ng-model="planningType" type="radio" ng-value="events-planning" label-position="inside">Events & Planning</sd-check>
-                    <sd-check ng-model="planningType" type="radio" ng-value="events" label-position="inside">Events only</sd-check>
-                    <sd-check ng-model="planningType" type="radio" ng-value="planning" label-position="inside">Planning only</sd-check>
-                    <div class="subnav__spacer subnav__spacer--dotted subnav__spacer--no-r-margin" ng-show="planningType === 'planning'"></div>
+
+                    <div class="dropdown" dropdown id="planning-dropdown" ng-init="planningTypeText = 'Events & Planning'">
+                        <button class="dropdown__toggle navbtn navbtn--text-only navbtn--border-r dropdown-toggle" dropdown-toggle>{{planningTypeText}}<span class="dropdown__caret"></span></button>
+                        <ul class="dropdown__menu">
+                            <li><button ng-click="planningType = 'events-planning'; planningTypeText = 'Events & Planning'" ng-disabled="planningType === 'events-planning'">Events & Planning</button></li>
+                            <li><button ng-click="planningType = 'events'; planningTypeText = 'Events only'" ng-disabled="planningType === 'events'">Events only</button></li>
+                            <li><button ng-click="planningType = 'planning'; planningTypeText = 'Planning only'" ng-disabled="planningType === 'planning'">Planning only</button></li>
+                        </ul>
+                    </div>
+                    <div class="sd-check__group" id="planning-buttons">
+                        <sd-check ng-model="planningType" type="radio" ng-value="events-planning" label-position="inside">Events & Planning</sd-check>
+                        <sd-check ng-model="planningType" type="radio" ng-value="events" label-position="inside">Events only</sd-check>
+                        <sd-check ng-model="planningType" type="radio" ng-value="planning" label-position="inside">Planning only</sd-check>
+                        <div class="subnav__spacer subnav__spacer--dotted subnav__spacer--no-r-margin" ng-show="planningType === 'planning' || planningType === 'events'"></div>
+                    </div>
                     <div class="dropdown" dropdown ng-show="planningType === 'planning'">
-                        <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle >Select agenda <span class="dropdown__caret"></span></button>
+                        <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle>Agenda: No Agenda Selected <span class="dropdown__caret"></span></button>
                         <ul class="dropdown__menu scrollable">
                             <li><div class="dropdown__menu-label ng-binding">Agendas</div></li>
                             <li><button>Agenda One</button></li>
@@ -140,11 +151,21 @@
                             <li><button>Agenda Four</button></li>
                         </ul>
                     </div>
+                    <div class="dropdown" dropdown ng-show="planningType === 'events'">
+                        <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle>Calendar: No Calendar Assigned <span class="dropdown__caret"></span></button>
+                        <ul class="dropdown__menu scrollable">
+                            <li><div class="dropdown__menu-label ng-binding">Calendars</div></li>
+                            <li><button>Calendar One</button></li>
+                            <li><button>Calendar Two</button></li>
+                            <li><button>Calendar Three</button></li>
+                            <li><button>Calendar Four</button></li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="subnav__button-stac subnav__button-stack--padded">
+                <div class="subnav__button-stack subnav__button-stack--padded">
                     <a class="btn">Today</a>
                 </div>
-                <div class="subnav__button-stac subnav__button-stack--padded">
+                <div class="subnav__button-stack subnav__button-stack--padded">
                         <a class="btn btn--icon-only-circle"><i class="icon-chevron-left-thin"></i></a>
                         <a class="btn btn--icon-only-circle"><i class="icon-chevron-right-thin"></i></a>
                     </div>
@@ -256,7 +277,6 @@
                         <div class="sd-list-item-nested" ng-class="{'sd-list-item-nested--expanded' : openNested, 'sd-list-item-nested--collapsed' : !openNested}" ng-init="openNested = true">
                                 <div class="sd-list-item sd-list-item-nested__parent sd-shadow--z1" ng-click="leftPreviewOpen = !leftPreviewOpen" ng-dblclick="editorOpen = true; itemType = 'event'" ng-class="{
                                     'sd-list-item--activated': leftPreviewOpen, 'sd-list-item--selected' : editMode}" ng-show="planningType === 'events-planning' || planningType === 'events'">
-                                    <div class="sd-loader"></div>
                                 <div class="sd-list-item__border"></div>
                                 <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : editMode}">
                                     <div class="sd-list-item__checkbox-container">
@@ -371,7 +391,7 @@
                             <!-- END nested items -->
                         </div>
                         <!-- list item  -->
-                        <div class="sd-list-item sd-shadow--z1" ng-class={"sd-list-item--activated":itemActive2}  ng-show="planningType === 'events-planning' || planningType === 'events'">
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--activated' : itemActive2}"  ng-show="planningType === 'events-planning' || planningType === 'events'">
                             <div class="sd-list-item__border sd-list-item__border--locked"></div>
                             <div class="sd-list-item__column">
                                 <i class="icon-event icon--dark-blue-grey"></i>
@@ -527,6 +547,7 @@
                         </div>
                         <!-- list item  -->
                         <div class="sd-list-item sd-shadow--z1" ng-show="planningType === 'events-planning' || planningType === 'planning'">
+                            <div class="sd-loader"></div>
                             <div class="sd-list-item__border"></div>
                             <div class="sd-list-item__column">
                                 <i class="icon-calendar icon--light-blue"></i>
