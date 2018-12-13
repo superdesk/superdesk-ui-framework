@@ -48,6 +48,12 @@
     &--lower-z-index {
       z-index: 999;
   }
+  .sd-check__group {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
 }
 .subnav__element-grow {
   flex-grow: 1;
@@ -163,6 +169,9 @@
       padding: 0 20px;
       border-left: none;
       font-size: 1.5rem;
+    }
+    &.navbtn--border-r {
+      border-right: 1px solid rgba(0,0,0,.1) !important;
     }
     &.navbtn--highlighted {
       background-color: $purple !important;
@@ -378,5 +387,144 @@ a.text-link {
   }
 }
 
+// ============================================================================
+// PLANNING SPECIFIC ADDITIONS FOR RESPONSIVE BEHAVIOUR OF THE SUBNAV BAR
+// ============================================================================
 
+.subnav--responsive {
 
+  .navbtn.navbtn--text-only {
+    font-size: 1.4rem;
+  }
+
+  .subnav__stretch-bar {
+    margin-right: 0;
+  }
+
+  .subnav__spacer {
+    margin-left: 1.2rem;
+  }
+
+  #planning-dropdown {
+    display: none;
+    margin-left: -1.2rem;
+  }
+
+  .dropdown__toggle {
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 2.6rem !important;
+    .dropdown__caret {
+      position: absolute;
+      top: 50%;
+      right: 1rem;
+    }
+  }
+  .navbtn {
+    flex-shrink: 0;
+  }
+  .navbtn.navbtn--text-only {
+    flex-shrink: 1;
+    padding: 0 1.2rem;
+  }
+}
+
+.sd-page-content--slide-in--open {
+  .subnav--responsive {
+    .sd-check__wrapper + .sd-check__wrapper {
+      margin-left: 0.4rem;
+    }
+
+    .subnav__stretch-bar {
+      margin: 0 1.2rem;
+      margin-right: 0;
+    }
+
+    .subnav__button-stack--padded {
+      padding: 0 0.6rem;
+    }
+
+    .navbtn.navbtn--text-only {
+      font-size: 1.3rem;
+    }
+  }
+}
+
+// ------------- MEDIA QUERIES ---------------------
+// -------------------------------------------------
+
+@media only screen and (max-width: 1366px) {
+  .sd-page-content--slide-in--open .sd-page-content__content-block--30-slide {
+    width: 50rem;
+  }
+
+  .sd-page-content--slide-in--open .sd-page-content__content-block--main {
+    width: calc(100vw - 54.8rem);
+  }
+}
+
+// Editing Closed
+
+@media only screen and (max-width: 800px) {
+  .subnav--responsive {
+    #planning-dropdown {
+      display: block;
+    }
+    #planning-buttons {
+      display: none;
+    }
+    .dropdown__toggle {
+      max-width: 160px;
+    }
+    &.compact--level-1 {
+      .dropdown__toggle {
+        max-width: 160px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .subnav--responsive.compact--level-1 {
+    #planning-dropdown {
+      display: block;
+    }
+    #planning-buttons {
+      display: none;
+    }
+  }
+}
+
+// Editing Open
+
+@media only screen and (max-width: 1480px) {
+  .sd-page-content--slide-in--open {
+    .subnav--responsive {
+      &.compact--level-1 {
+        #planning-dropdown {
+          display: block;
+        }
+        #planning-buttons {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1250px) {
+  .sd-page-content--slide-in--open {
+    .subnav--responsive {
+      #planning-dropdown {
+        display: block;
+      }
+      #planning-buttons {
+        display: none;
+      }
+      .dropdown__toggle {
+        max-width: 160px;
+      }
+    }
+  }
+}
