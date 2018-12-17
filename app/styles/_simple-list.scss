@@ -37,6 +37,13 @@ $simple-list-border-color: $neutral-border-color;
                 }
             }
         }
+        &.simple-list--no-border-t {
+            .simple-list__item {
+                &:first-child {
+                    border-top: none;
+                }
+            }
+        }
     }
     &--comfortable {
         .simple-list__item {
