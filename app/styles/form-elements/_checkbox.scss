@@ -197,6 +197,19 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 
 .sd-check__group {
     padding: 0.6rem 0 1.2rem;
+    &--grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+        grid-gap: 0.6rem;
+        .sd-check__wrapper {
+            display: block;
+            .sd-checkbox.sd-checkbox--button-style {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
 }
 
 

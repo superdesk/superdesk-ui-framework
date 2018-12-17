@@ -4470,6 +4470,8 @@ table {
       border-top: 1px dotted rgba(123, 123, 123, 0.5); }
   .simple-list--dotted.simple-list--no-border-b .simple-list__item:last-child {
     border-bottom: none; }
+  .simple-list--dotted.simple-list--no-border-t .simple-list__item:first-child {
+    border-top: none; }
   .simple-list--comfortable .simple-list__item {
     padding: 1.2rem 0; }
   .simple-list [class^="icon-"], .simple-list [class*=" icon-"] {
@@ -10572,6 +10574,16 @@ label + .sd-toggle {
 
 .sd-check__group {
   padding: 0.6rem 0 1.2rem; }
+  .sd-check__group--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    grid-gap: 0.6rem; }
+    .sd-check__group--grid .sd-check__wrapper {
+      display: block; }
+      .sd-check__group--grid .sd-check__wrapper .sd-checkbox.sd-checkbox--button-style {
+        display: flex;
+        align-items: center;
+        justify-content: center; }
 
 [class^="--dark-ui"] .sd-checkbox,
 [class*="--dark-ui"] .sd-checkbox {
