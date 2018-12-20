@@ -45,7 +45,7 @@ $flex-grid-media: (
 @mixin basic-grid-boxed-small {
     @for $i from $flex-grid-columns through 1 {
         &-#{$i} {
-            .flex-grid__item, .sd-check__wrapper, .btn {
+            .flex-grid__item, .sd-check__wrapper, .btn, .toggle-button {
                 @include flex(0, 0, calc(#{100% / $i} - #{$flex-grid-gap-small * 2}));
                 max-width: calc(#{100% / $i} - #{$flex-grid-gap-small * 2});
             }
@@ -100,7 +100,7 @@ $flex-grid-media: (
     &--boxed-small {
         margin-left: -$flex-grid-gap-small;
         margin-right: -$flex-grid-gap-small;
-        .flex-grid__item, .sd-check__wrapper, .btn {
+        .flex-grid__item, .sd-check__wrapper, .btn, .toggle-button {
             margin: $flex-grid-gap-small !important;
             //background-color: $flex-grid-box-bg;
         }
