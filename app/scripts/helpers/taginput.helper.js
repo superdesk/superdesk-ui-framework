@@ -1,3 +1,6 @@
+// Add poper dependencie for positioning dropdown element
+import Popper from 'popper.js';
+
 /* !
  * ngTagsInput v3.2.0
  * http://mbenford.github.io/ngTagsInput
@@ -86,7 +89,8 @@
         function($timeout, $document, $window, $q, tagsInputConfig, tiUtil) {
             function TagList(options, events, onTagAdding, onTagRemoving) {
                 var list = {},
-                    getTagText, setTagText, canAddTag, canRemoveTag;
+                    getTagText, setTagText, canAddTag, canRemoveTag,
+                    defaultPlaceholder = options.placeholder;
 
                 getTagText = function(tag) {
                     return tiUtil.safeToString(tag[options.displayProperty]);
@@ -101,6 +105,7 @@
                     var valid = tagText &&
                     tagText.length >= options.minLength &&
                     tagText.length <= options.maxLength &&
+                    list.items.length < options.maxItems &&
                     options.allowedTagsPattern.test(tagText) &&
                     !tiUtil.findInObjectArray(
                         list.items,
@@ -137,6 +142,7 @@
                     return canAddTag(tag)
                         .then(() => {
                             list.items.push(tag);
+                            options.placeholder = '';
                             events.trigger('tag-added', {$tag: tag});
                         })
                         .catch(() => {
@@ -153,6 +159,10 @@
                         list.items.splice(index, 1);
                         list.clearSelection();
                         events.trigger('tag-removed', {$tag: tag});
+
+                        if (!list.items.length) {
+                            options.placeholder = defaultPlaceholder;
+                        }
                         return tag;
                     });
                 };
@@ -230,6 +240,7 @@
                         replaceSpacesWithDashes: [Boolean, true],
                         minLength: [Number, 3],
                         maxLength: [Number, MAX_SAFE_INTEGER],
+                        maxItems: [Number, MAX_SAFE_INTEGER],
                         addOnEnter: [Boolean, true],
                         addOnSpace: [Boolean, false],
                         addOnComma: [Boolean, true],
@@ -245,6 +256,7 @@
                         allowLeftoverText: [Boolean, false],
                         addFromAutocompleteOnly: [Boolean, false],
                         showButton: [Boolean, true],
+                        boxed: [Boolean, false],
                         spellcheck: [Boolean, true],
                         useStrings: [Boolean, false],
                     });
@@ -590,7 +602,7 @@
      *    of the evaluation must be one of the values supported by the ngClass directive (either a string, an array or an object).
      *    See https://docs.angularjs.org/api/ng/directive/ngClass for more information.
      */
-    tagsInput.directive('autoComplete', ['$q', 'tagsInputConfig', 'tiUtil', function($q, tagsInputConfig, tiUtil) {
+    tagsInput.directive('autoComplete', ['$q', 'tagsInputConfig', 'tiUtil', '$timeout', function($q, tagsInputConfig, tiUtil, $timeout) {
         function SuggestionList(loadFn, options, events) {
             var list = {},
                 getDifference, lastPromise, getTagId;
@@ -627,6 +639,7 @@
                     list.selected = null;
                 }
                 list.visible = true;
+                events.trigger('update-autocomplete-position', list.visible);
             };
             list.load = tiUtil.debounce((query, tags) => {
                 list.query = query;
@@ -831,6 +844,12 @@
 
                 events.on('suggestion-selected', (index) => {
                     scrollToElement(element, index);
+                });
+
+                events.on('update-autocomplete-position', () => {
+                    $timeout(() => {
+                        new Popper(element.parent(), element.children());
+                    });
                 });
             },
         };
@@ -1226,7 +1245,7 @@
     tagsInput.run(['$templateCache', function($templateCache) {
         $templateCache.put('ngTagsInput/tags-input.html',
             // eslint-disable-next-line max-len
-            '<div class="tags-input__host" tabindex="-1" ng-click="eventHandlers.host.click()" ti-transclude-append><div class="tags-input__tags" ng-class="{focused: hasFocus}"><button class="tags-input__add-button" ng-if="options.showButton" ng-click="eventHandlers.input.loadSuggestions($event)"><i class="icon-plus-large"></i></button><ul class="tags-input__tag-list"><li class="tags-input__tag-item" ng-repeat="tag in tagList.items track by track(tag)" ng-class="getTagClass(tag, $index)" ng-click="eventHandlers.tag.click(tag)"><ti-tag-item scope="templateScope" data="::tag"></ti-tag-item></li></ul><input class="tags-input__input" autocomplete="off" ng-model="newTag.text" ng-model-options="{getterSetter: true}" ng-keydown="eventHandlers.input.keydown($event)" ng-focus="eventHandlers.input.focus($event)" ng-blur="eventHandlers.input.blur($event)" ng-paste="eventHandlers.input.paste($event)" ng-trim="false" ng-class="{\'invalid-tag\': newTag.invalid}" ng-disabled="disabled" ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize></div></div>'
+            '<div class="tags-input__host" tabindex="-1" ng-click="eventHandlers.host.click()" ti-transclude-append><div class="tags-input__tags" ng-class="{focused: hasFocus, \'tags-input--boxed\': options.boxed}"><button class="tags-input__add-button" ng-if="options.showButton" ng-click="eventHandlers.input.loadSuggestions($event)"><i class="icon-plus-large"></i></button><ul class="tags-input__tag-list"><li class="tags-input__tag-item" ng-repeat="tag in tagList.items track by track(tag)" ng-class="getTagClass(tag, $index)" ng-click="eventHandlers.tag.click(tag)"><ti-tag-item scope="templateScope" data="::tag"></ti-tag-item></li></ul><input class="tags-input__input" autocomplete="off" ng-model="newTag.text" ng-model-options="{getterSetter: true}" ng-keydown="eventHandlers.input.keydown($event)" ng-focus="eventHandlers.input.focus($event)" ng-blur="eventHandlers.input.blur($event)" ng-paste="eventHandlers.input.paste($event)" ng-trim="false" ng-class="{\'invalid-tag\': newTag.invalid}" ng-disabled="disabled" ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize></div></div>'
         );
 
         $templateCache.put('ngTagsInput/tag-item.html',

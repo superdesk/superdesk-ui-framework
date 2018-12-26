@@ -1,0 +1,48 @@
+<header class="sd-top-menu">
+    <a class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+    <p class="sd-top-menu__header">Cards</p>
+</header>
+<main class="sd-page">
+    <section class="sd-page__main-content" ng-class="{'dark-ui': darkUI}">
+        <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+            <h3 class="subnav__page-title">Circular Progress</h3>
+            <button class="navbtn" ng-click="darkUI = !darkUI">
+                <i class="icon-adjust"></i>
+            </button>
+        </div>
+        <div class="sd-page__content">
+            <div style="width: 450px; margin: 100px auto">
+                <sd-line-input
+                    ng-model="value"
+                    data-dark="dark"
+                    data-boxed="boxed"
+                    data-required="required"
+                    data-label="{{'Title'}}"
+                    data-disabled="disabled"
+                    data-maxlength="26">
+                </sd-line-input>
+
+                Value: {{value}} <br><br>
+                Disable: <sd-check ng-model="disabled"></sd-check>
+                Dark <sd-check ng-model="dark"></sd-check>
+                Boxed <sd-check ng-model="boxed"></sd-check>
+                Required <sd-check ng-model="required"></sd-check>
+            </div>
+
+            <div class="circular-progress-bar flex-grid flex-grid--boxed flex-grid--wrap-items" style="width: 450px; margin: 100px auto">
+                <div class="flex-grid__item">
+                    <sd-circular-progress value="progressValue" counter="progressCounter" class="sd-circular-progress--l" error="progressError"></sd-circular-progress>
+                </div>
+                <div class="flex-grid__item">
+                    <sd-line-input
+                        ng-model="progressValue"
+                        data-label="{{'Progress'}}">
+                    </sd-line-input>
+                    Show progress <sd-check ng-model="progressCounter"></sd-check>
+                    Error <sd-check ng-model="progressError"></sd-check>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+

@@ -11,57 +11,23 @@
             </button>
         </div>
         <div class="sd-page__content">
-            <div style="width: 450px; margin: 100px auto" >
-                <sd-tag-input
-                    ng-model="tags"
-                    data-label="test label"
-                    data-items="items" 
-                    data-field="name" 
-                    data-freetext="false">
-                </sd-tag-input>
-                {{tags}}
-                <br><br>
-                <sd-tag-input
-                    ng-model="cars"
-                    data-label="Cars"
-                    data-items="freeItems" 
-                    data-freetext="true">
-                </sd-tag-input>
-                {{cars}}
-            </div>
-
-            <div style="width: 450px; margin: 100px auto">
-                <sd-line-input
-                    ng-model="value"
-                    data-dark="dark"
-                    data-boxed="boxed"
-                    data-required="required"
-                    data-label="{{'Title'}}"
-                    data-disabled="disabled"
-                    data-maxlength="26">
-                </sd-line-input>
-
-                Value: {{value}} <br><br>
-                Disable: <sd-check ng-model="disabled"></sd-check>
-                Dark <sd-check ng-model="dark"></sd-check>
-                Boxed <sd-check ng-model="boxed"></sd-check>
-                Required <sd-check ng-model="required"></sd-check>
-            </div>
-
-            <div class="circular-progress-bar flex-grid flex-grid--boxed flex-grid--wrap-items" style="width: 450px; margin: 100px auto">
-                <div class="flex-grid__item">
-                    <sd-circular-progress value="progressValue" counter="progressCounter" class="sd-circular-progress--l" error="progressError"></sd-circular-progress>
-                </div>
-                <div class="flex-grid__item">
-                    <sd-line-input
-                        ng-model="progressValue"
-                        data-label="{{'Progress'}}">
-                    </sd-line-input>
-                    Show progress <sd-check ng-model="progressCounter"></sd-check>
-                    Error <sd-check ng-model="progressError"></sd-check>
+            <div class="grid grid--boxed" style="max-width: 500px; margin: 0 auto">
+                <div class="grid__item">
+                    <h3 class="docs-page__h3">Preview</h3>
+                    <br>
+                    <sd-tag-input ng-model="tags" data-max-items="1" data-label="Max number of items limited to 1" data-items="items" data-field="name" data-freetext="false"></sd-tag-input>
+                    Result: {{tags}}
+                    <br><br>
+                    <sd-tag-input ng-model="cars" data-label="Cars" data-items="freeItems" data-freetext="true" placeholder="Pick your favourite cars"></sd-tag-input>
+                    Result: {{cars}}
+                    <br><br>
+                    <sd-tag-input ng-model="freetext" data-label="Free text" data-items="freeItems" data-freetext="true"></sd-tag-input>
+                    Result: {{freetext}}
+                    <br><br>
+                    <sd-tag-input ng-model="freetext" data-label="Boxed type" data-items="freeItems" data-freetext="true" data-boxed="true"></sd-tag-input>
+                    Result: {{freetext}}
                 </div>
             </div>
         </div>
     </section>
 </main>
-

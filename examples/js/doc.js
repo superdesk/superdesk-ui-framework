@@ -43,7 +43,8 @@ function docPlayground(components, $route) {
     return {
         link: function link(scope) {
             scope.components = components;
-            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl'));
+            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && !route.playground);
+            scope.publisherPlaygrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && route.playground === 'publisher');
             scope.route = $route;
 
             scope.items = [

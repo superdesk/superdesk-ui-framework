@@ -246,6 +246,12 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/tags-input.html'
         })
+        .when('/circular-progress', {
+            title: 'Circular Progress',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/circular-progress.html'
+        })
         .when('/publish', {
             title: 'Publish pane test',
             removeHeader: true,
@@ -254,36 +260,42 @@ export default angular.module('ui-docs', [
         })
         .when('/publisher-dashboard', {
             title: 'Publisher Dashboard',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-dashboard.html'
         })
         .when('/publisher-content-lists', {
             title: 'Publisher Content Lists',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-lists.html'
         })
         .when('/publisher-content-list-manual', {
             title: 'Publisher Content List Manual',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-list-manual.html'
         })
         .when('/publisher-content-list-automatic', {
             title: 'Publisher Content List Automatic',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-list-automatic.html'
         })
         .when('/publisher-output-control', {
             title: 'Publisher Output Control',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-output-control.html'
         })
         .when('/publisher-content-analytics', {
             title: 'Publisher Content Analytics',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-analytics.html'
@@ -296,12 +308,14 @@ export default angular.module('ui-docs', [
         })
         .when('/publisher-website-settings', {
             title: 'Publisher Website Settings',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-website-settings.html'
         })
         .when('/publisher-website-settings-general', {
             title: 'Publisher Website Settings General',
+            playground: 'publisher',
             removeHeader: true,
             removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-website-settings-general.html'

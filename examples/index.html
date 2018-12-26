@@ -11,11 +11,22 @@
                 <div class="form__row">
                     <div class="dropdown" dropdown>
                         <button class="dropdown__toggle" dropdown__toggle>
-                            Pick a playground
+                            Superdesk playground
                             <span class="dropdown__caret"></span>
                         </button>
                         <ul class="dropdown__menu">
                             <li ng-repeat="playground in playgrounds">
+                                <a href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown" dropdown>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Publisher playground
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li ng-repeat="playground in publisherPlaygrounds">
                                 <a href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
                             </li>
                         </ul>
