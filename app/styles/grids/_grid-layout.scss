@@ -517,3 +517,14 @@ $planningEditor-width: 53rem;
         }
     }
 }
+
+// DARK UI ---------------------------------------------
+//------------------------------------------------------
+
+.dark-ui,
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
+    .sd-filters-panel {
+        background-color: $sd-filters-darkUI-bg;
+    }
+}

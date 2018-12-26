@@ -757,19 +757,6 @@ $button-nav-color: currentColor;
   }
 }
 
-
-[class^="--dark-ui"],
-[class*="--dark-ui"] {
-  .btn.btn--ui-dark.btn--hollow.btn--active {
-    color: $sd-blue;
-    background-color: rgba(0, 0, 0, 0.3);
-    box-shadow: inset 0 2px 0 rgba(0,0,0,0.8);
-    i {
-      color: inherit;
-    }
-  }
-}
-
 // Button icon group 
 .btn-icon-group {
   display: flex;
@@ -781,5 +768,53 @@ $button-nav-color: currentColor;
 
   [class^="icon-"], [class*=" icon-"] {
     opacity: 0.6;
+  }
+}
+
+// DARK UI ---------------------------------------------
+//------------------------------------------------------
+
+.dark-ui,
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
+  .btn.btn--ui-dark.btn--hollow.btn--active {
+    color: $sd-blue;
+    background-color: rgba(0, 0, 0, 0.3);
+    box-shadow: inset 0 2px 0 rgba(0,0,0,0.8);
+    i {
+      color: inherit;
+    }
+  }
+
+  .btn {
+    &.btn--hollow {
+      @include button-hollow;
+      @include button-hollow-style(scale-color($default-color-ui-dark, $alpha: -30%));
+
+      @each $name, $color in $sd-basic-palette-ui-dark {
+        &.btn--#{$name} {
+          @include button-hollow-style($color);
+        }
+      }
+      
+      // Hollow disabled UI dark
+      &.btn--disabled,
+      &[disabled] {
+        @include button-hollow;
+        @include button-hollow-style($default-color-ui-dark, 0);
+        &:hover, &:focus, &:active {
+          box-shadow: none;
+        }
+
+        @each $name, $color in $sd-basic-palette-ui-dark {
+          &.btn--#{$name} {
+            @include button-hollow-style($color, 0);
+            &:hover, &:focus, &:active {
+              box-shadow: none;
+            }
+          }
+        }
+      }
+    }
   }
 }

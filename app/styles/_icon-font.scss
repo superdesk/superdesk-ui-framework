@@ -263,7 +263,9 @@ $sd-icon-font: (
   business: "\e69d",
   paywall: "\e69e",
   analytics: "\e69f",
-  amp: "\e6a0"
+  amp: "\e6a0",
+  undo: "\e6a1",
+  redo: "\e6a2"
 );
 
 @each $name, $value in $sd-icon-font {

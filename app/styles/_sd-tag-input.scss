@@ -136,11 +136,22 @@ tags-input {
                 box-shadow: unset !important;
             }
         }
+        &--boxed {
+            background-color: rgba(0, 0, 0, 0.05);
+            padding-left: 0.4rem;
+            border-radius: 2px;
+            &:hover {
+                background-color: rgba(0, 0, 0, 0.1);
+            }
+        }
     }
-    &.ng-invalid .tags-input__tags {
-        border-bottom: 1px solid $red;
-        box-shadow: 0 1px 0  $red;
+    &.ng-invalid {
+        .tags-input__tags {
+            border-bottom: 1px solid $red !important;
+            box-shadow: 0 1px 0 $red !important;
+        }
     }
+
     &[disabled] {
         .tags-input__host:focus {
             outline: none;
@@ -225,15 +236,17 @@ tags-input {
     }
 }
 
+// DARK UI ---------------------------------------------
+//------------------------------------------------------
 
 .dark-ui,
 [class^="--dark-ui"],
 [class*="--dark-ui"] {
     tags-input {
         .tags-input__tags {
-            border-bottom: 1px solid $sd-inputBorderColor-darkUi;
+            border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2);
             &:hover {
-                border-color: scale-color($sd-inputBorderColor-darkUi, $alpha: 35%);
+                border-bottom-color: $sd-inputBorderColor-darkUi;
             }
             &.focused {
                 border-bottom-color: $sd-blue;
@@ -242,6 +255,12 @@ tags-input {
                 background: $tag-label-background-darker;
                 &.selected {
                     background-color: scale-color($sd-blue, $alpha: -25%);
+                }
+            }
+            &--boxed {
+                background-color: rgba(255, 255, 255, 0.05);
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.1);
                 }
             }
         }
