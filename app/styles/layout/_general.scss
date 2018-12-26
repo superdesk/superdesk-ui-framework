@@ -16,6 +16,7 @@
     z-index: 1001;
     align-items: center;
     color: $sd-text;
+    flex-shrink: 0;
     &--padded {
         padding: 10px 20px;
     }

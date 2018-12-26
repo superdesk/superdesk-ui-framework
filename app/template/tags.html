@@ -11,14 +11,13 @@
             replace-spaces-with-dashes="{{replaceSpacesWithDashes}}"
             min-length="{{minLength}}"
             max-length="{{maxLength}}"
-            placeholder="{{placeholder}}"
->
+            placeholder="{{placeholder}}">
     <auto-complete ng-if="items"
                    source="loadTags($query)"
                    load-on-empty="true"
                    min-length="{{minLength}}"
                    display-property="{{field}}"
                    key-property="{{keyProperty}}"
-                   max-results-to-show="{{maxResultsToShow}}"
-    ></auto-complete>
+                   max-results-to-show="{{maxResultsToShow}}">
+    </auto-complete>
 </tags-input>
