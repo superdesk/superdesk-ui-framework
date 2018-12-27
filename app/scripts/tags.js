@@ -15,6 +15,8 @@ function TagInputDirective($q) {
             replaceSpacesWithDashes: '=?',
             minLength: '=',
             maxLength: '=',
+            maxItems: '=',
+            boxed: '=',
             placeholder: '@',
             maxResultsToShow: '=',
         },

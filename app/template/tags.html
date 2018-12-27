@@ -1,23 +1,27 @@
 <label class="tags-input__label" ng-if="label">{{label}}</label>
 <tags-input ng-model="model"
-            add-from-autocomplete-only="{{items ? !freetext : false}}"
-            show-button="{{!!items}}"
-            display-property="{{field}}"
-            key-property="{{keyProperty}}"
-            use-strings="{{!field}}"
-            ng-required="required"
-            on-tag-added="onChange($tag)"
-            on-tag-removed="onChange($tag)"
-            replace-spaces-with-dashes="{{replaceSpacesWithDashes}}"
-            min-length="{{minLength}}"
-            max-length="{{maxLength}}"
-            placeholder="{{placeholder}}">
+    add-from-autocomplete-only="{{items ? !freetext : false}}"
+    show-button="{{!!items}}"
+    display-property="{{field}}"
+    key-property="{{keyProperty}}"
+    use-strings="{{!field}}"
+    ng-required="required"
+    on-tag-added="onChange($tag)"
+    on-tag-removed="onChange($tag)"
+    replace-spaces-with-dashes="{{replaceSpacesWithDashes}}"
+    min-length="{{minLength}}"
+    max-length="{{maxLength}}"
+    max-tags="{{maxTags}}"
+    max-items="{{maxItems}}"
+    boxed={{boxed}}
+    placeholder="{{placeholder}}">
+
     <auto-complete ng-if="items"
-                   source="loadTags($query)"
-                   load-on-empty="true"
-                   min-length="{{minLength}}"
-                   display-property="{{field}}"
-                   key-property="{{keyProperty}}"
-                   max-results-to-show="{{maxResultsToShow}}">
+        source="loadTags($query)"
+        load-on-empty="true"
+        min-length="{{minLength}}"
+        display-property="{{field}}"
+        key-property="{{keyProperty}}"
+        max-results-to-show="{{maxResultsToShow}}">
     </auto-complete>
 </tags-input>

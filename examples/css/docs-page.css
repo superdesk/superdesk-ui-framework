@@ -310,9 +310,10 @@ p.docs-page__paragraph code {
 
 .docs-page__playground_picker {
     position: absolute;
-    width: 150px;
+    width: 330px;
     right: 20px;
     top: 30px;
+    text-align: right;
 }
 
 .docs-page__playground_picker .dropdown__toggle {
