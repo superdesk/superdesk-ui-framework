@@ -1,5 +1,6 @@
 sd-tag-input {
     display: block;
+    padding-bottom: 3rem;   
     &[data-label] {
         position: relative;
         padding-top: 1rem;
@@ -23,7 +24,7 @@ tags-input {
     .tags-input__host {
         position: relative;
         margin-top: 0.5rem;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
         height: 100%;
         &:active {
             outline: none;
@@ -46,6 +47,9 @@ tags-input {
             outline: none;
             border-bottom: 1px solid $sd-blue;
             box-shadow: 0 1px 0  $sd-blue;
+            .tags-input__input {
+                width: auto;
+            }
         }
         .tags-input__tag-list {
             margin: 0;
@@ -131,9 +135,14 @@ tags-input {
             }
 
             // Override width and box-shadow from superdesk-client-core
-            width: auto;
+            width: 20px;
             &:focus {
                 box-shadow: unset !important;
+            }
+            &::placeholder {
+                opacity: 0.8;
+                font-weight: 300;
+                font-style: italic;
             }
         }
         &--boxed {
@@ -220,17 +229,13 @@ tags-input {
             text-overflow: ellipsis;
             color: $sd-text;
             background-color: $white;
+            transition: all ease-in-out 0.1s;
             &.selected {
-                color: $white;
-                background-color: $sd-blue;
-                em {
+                background-color: scale-color($sd-blue, $alpha: -70%);
+                &:active {
+                    background-color: scale-color($sd-blue, $alpha: -25%);
                     color: $white;
-                    background-color: $sd-blue;
                 }
-            }
-            em {
-                color: $sd-text;
-                background-color: $white;
             }
         }
     }
@@ -252,7 +257,7 @@ tags-input {
                 border-bottom-color: $sd-blue;
             }
             .tags-input__tag-item {
-                background: $tag-label-background-darker;
+                background: $tag-label-background-darkUi;
                 &.selected {
                     background-color: scale-color($sd-blue, $alpha: -25%);
                 }
@@ -264,6 +269,9 @@ tags-input {
                 }
             }
         }
+    }
+    .tags-input__label {
+        color: rgba(255, 255, 255, 0.4);
     }
 }
 

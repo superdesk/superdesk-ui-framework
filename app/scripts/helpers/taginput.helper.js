@@ -237,7 +237,7 @@ import Popper from 'popper.js';
                         placeholder: [String, ' '],
                         tabindex: [Number, null],
                         removeTagSymbol: [String, 'icon-close-small'],
-                        replaceSpacesWithDashes: [Boolean, true],
+                        replaceSpacesWithDashes: [Boolean, false],
                         minLength: [Number, 3],
                         maxLength: [Number, MAX_SAFE_INTEGER],
                         maxItems: [Number, MAX_SAFE_INTEGER],
@@ -1245,7 +1245,7 @@ import Popper from 'popper.js';
     tagsInput.run(['$templateCache', function($templateCache) {
         $templateCache.put('ngTagsInput/tags-input.html',
             // eslint-disable-next-line max-len
-            '<div class="tags-input__host" tabindex="-1" ng-click="eventHandlers.host.click()" ti-transclude-append><div class="tags-input__tags" ng-class="{focused: hasFocus, \'tags-input--boxed\': options.boxed}"><button class="tags-input__add-button" ng-if="options.showButton" ng-click="eventHandlers.input.loadSuggestions($event)"><i class="icon-plus-large"></i></button><ul class="tags-input__tag-list"><li class="tags-input__tag-item" ng-repeat="tag in tagList.items track by track(tag)" ng-class="getTagClass(tag, $index)" ng-click="eventHandlers.tag.click(tag)"><ti-tag-item scope="templateScope" data="::tag"></ti-tag-item></li></ul><input class="tags-input__input" autocomplete="off" ng-model="newTag.text" ng-model-options="{getterSetter: true}" ng-keydown="eventHandlers.input.keydown($event)" ng-focus="eventHandlers.input.focus($event)" ng-blur="eventHandlers.input.blur($event)" ng-paste="eventHandlers.input.paste($event)" ng-trim="false" ng-class="{\'invalid-tag\': newTag.invalid}" ng-disabled="disabled" ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize></div></div>'
+            '<div class="tags-input__host" tabindex="-1" ng-click="eventHandlers.host.click()" ti-transclude-append><div class="tags-input__tags" ng-class="{focused: hasFocus, \'tags-input__tags--boxed\': options.boxed}"><button class="tags-input__add-button" ng-if="options.showButton" ng-click="eventHandlers.input.loadSuggestions($event)"><i class="icon-plus-large"></i></button><ul class="tags-input__tag-list"><li class="tags-input__tag-item" ng-repeat="tag in tagList.items track by track(tag)" ng-class="getTagClass(tag, $index)" ng-click="eventHandlers.tag.click(tag)"><ti-tag-item scope="templateScope" data="::tag"></ti-tag-item></li></ul><input class="tags-input__input" autocomplete="off" ng-model="newTag.text" ng-model-options="{getterSetter: true}" ng-keydown="eventHandlers.input.keydown($event)" ng-focus="eventHandlers.input.focus($event)" ng-blur="eventHandlers.input.blur($event)" ng-paste="eventHandlers.input.paste($event)" ng-trim="false" ng-class="{\'invalid-tag\': newTag.invalid}" ng-disabled="disabled" ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize></div></div>'
         );
 
         $templateCache.put('ngTagsInput/tag-item.html',
