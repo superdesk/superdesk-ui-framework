@@ -45,6 +45,7 @@
     }
     // For more complex inline form combinations an additional element that goes inside .form__row--flex container is provided.
     .form__row-item {
+        flex-basis: 0;
         flex-grow: 1;
         margin: 0 0.6rem;
         &:first-child {
@@ -57,6 +58,7 @@
             margin: 0;
         }
         &--no-grow {
+            flex-basis: auto;
             flex-grow: 0;
         }
     }
