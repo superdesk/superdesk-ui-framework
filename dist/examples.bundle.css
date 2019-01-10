@@ -5301,6 +5301,12 @@ tags-input {
       color: inherit; }
     tags-input .tags-input__add-button:hover {
       opacity: 1; }
+    tags-input .tags-input__add-button[disabled], tags-input .tags-input__add-button [disabled]:hover, tags-input .tags-input__add-button [disabled]:active {
+      opacity: 0.5;
+      background-color: rgba(123, 123, 123, 0.4);
+      cursor: default;
+      cursor: not-allowed;
+      color: rgba(255, 255, 255, 0.8); }
   tags-input .autocomplete {
     margin-top: 0.5rem;
     position: absolute;
@@ -5330,6 +5336,11 @@ tags-input {
         tags-input .autocomplete .suggestion-item.selected:active {
           background-color: rgba(94, 169, 200, 0.75);
           color: #fff; }
+      tags-input .autocomplete .suggestion-item[disabled], tags-input .autocomplete .suggestion-item[disabled]:hover, tags-input .autocomplete .suggestion-item[disabled]:active {
+        background-color: transparent;
+        opacity: 0.45;
+        cursor: default;
+        pointer-events: none; }
 
 .dark-ui tags-input .tags-input__tags,
 [class^="--dark-ui"] tags-input .tags-input__tags,
@@ -5359,6 +5370,16 @@ tags-input {
     [class^="--dark-ui"] tags-input .tags-input__tags--boxed:hover,
     [class*="--dark-ui"] tags-input .tags-input__tags--boxed:hover {
       background-color: rgba(255, 255, 255, 0.1); }
+
+.dark-ui tags-input .tags-input__add-button[disabled], .dark-ui tags-input .tags-input__add-button [disabled]:hover, .dark-ui tags-input .tags-input__add-button [disabled]:active,
+[class^="--dark-ui"] tags-input .tags-input__add-button[disabled],
+[class^="--dark-ui"] tags-input .tags-input__add-button [disabled]:hover,
+[class^="--dark-ui"] tags-input .tags-input__add-button [disabled]:active,
+[class*="--dark-ui"] tags-input .tags-input__add-button[disabled],
+[class*="--dark-ui"] tags-input .tags-input__add-button [disabled]:hover,
+[class*="--dark-ui"] tags-input .tags-input__add-button [disabled]:active {
+  background-color: rgba(123, 123, 123, 0.6);
+  color: rgba(255, 255, 255, 0.3); }
 
 .dark-ui .tags-input__label,
 [class^="--dark-ui"] .tags-input__label,
