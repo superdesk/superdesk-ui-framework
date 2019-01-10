@@ -204,6 +204,13 @@ tags-input {
         &:hover {
             opacity: 1;
         }
+        &[disabled], [disabled]:hover, [disabled]:active {
+            opacity: 0.5;
+            background-color: rgba(123, 123, 123, 0.4);
+            cursor: default;
+            cursor: not-allowed;
+            color: scale-color($white, $alpha: -20%);
+        }
     }
     .autocomplete {
         margin-top: 0.5rem;
@@ -237,6 +244,12 @@ tags-input {
                     color: $white;
                 }
             }
+            &[disabled], &[disabled]:hover, &[disabled]:active {
+                background-color: transparent;
+                opacity: 0.45;
+                cursor: default;
+                pointer-events: none;
+            }
         }
     }
 }
@@ -267,6 +280,12 @@ tags-input {
                 &:hover {
                     background-color: rgba(255, 255, 255, 0.1);
                 }
+            }
+        }
+        .tags-input__add-button {
+            &[disabled], [disabled]:hover, [disabled]:active {
+                background-color: rgba(123, 123, 123, 0.6);
+                color: scale-color($white, $alpha: -70%);
             }
         }
     }
