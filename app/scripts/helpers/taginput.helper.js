@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 // Add poper dependencie for positioning dropdown element
 import Popper from 'popper.js';
 
@@ -605,22 +607,10 @@ import Popper from 'popper.js';
     tagsInput.directive('autoComplete', ['$q', 'tagsInputConfig', 'tiUtil', '$timeout', function($q, tagsInputConfig, tiUtil, $timeout) {
         function SuggestionList(loadFn, options, events) {
             var list = {},
-                getDifference, lastPromise, getTagId;
+                lastPromise, getTagId;
 
             getTagId = function() {
                 return options.tagsInput.keyProperty || options.tagsInput.displayProperty;
-            };
-
-            getDifference = function(array1, array2) {
-                return array1.filter((item) => !tiUtil.findInObjectArray(array2, item, getTagId(), (a, b) => {
-                    if (options.tagsInput.replaceSpacesWithDashes) {
-                        return tiUtil.defaultComparer(
-                            tiUtil.replaceSpacesWithDashes(a),
-                            tiUtil.replaceSpacesWithDashes(b)
-                        );
-                    }
-                    return tiUtil.defaultComparer(a, b);
-                }));
             };
 
             list.reset = function() {
@@ -655,12 +645,11 @@ import Popper from 'popper.js';
 
                     let _items = tiUtil.makeObjectArray(items.data || items, getTagId());
 
-                    _items = getDifference(_items, tags);
                     list.items = options.maxResultsToShow > 0 ?
                         _items.slice(0, options.maxResultsToShow) :
                         _items;
 
-                    if (list.items.length > 0) {
+                    if (list.items.length > 0 && tags.length < options.tagsInput.maxItems) {
                         list.show();
                     } else {
                         list.reset();
@@ -786,6 +775,15 @@ import Popper from 'popper.js';
                         scope.matchClass({$match: item, $index: index, $selected: selected}),
                         {selected: selected},
                     ];
+                };
+
+                scope.isSuggestionSelected = function(item) {
+                    return !!tiUtil.findInObjectArray(
+                        tagsInput.getTags(),
+                        item,
+                        options.tagsInput.keyProperty || options.tagsInput.displayProperty,
+                        tiUtil.defaultComparer
+                    );
                 };
 
                 tagsInput
@@ -1245,7 +1243,7 @@ import Popper from 'popper.js';
     tagsInput.run(['$templateCache', function($templateCache) {
         $templateCache.put('ngTagsInput/tags-input.html',
             // eslint-disable-next-line max-len
-            '<div class="tags-input__host" tabindex="-1" ng-click="eventHandlers.host.click()" ti-transclude-append><div class="tags-input__tags" ng-class="{focused: hasFocus, \'tags-input__tags--boxed\': options.boxed}"><button class="tags-input__add-button" ng-if="options.showButton" ng-click="eventHandlers.input.loadSuggestions($event)"><i class="icon-plus-large"></i></button><ul class="tags-input__tag-list"><li class="tags-input__tag-item" ng-repeat="tag in tagList.items track by track(tag)" ng-class="getTagClass(tag, $index)" ng-click="eventHandlers.tag.click(tag)"><ti-tag-item scope="templateScope" data="::tag"></ti-tag-item></li></ul><input class="tags-input__input" autocomplete="off" ng-model="newTag.text" ng-model-options="{getterSetter: true}" ng-keydown="eventHandlers.input.keydown($event)" ng-focus="eventHandlers.input.focus($event)" ng-blur="eventHandlers.input.blur($event)" ng-paste="eventHandlers.input.paste($event)" ng-trim="false" ng-class="{\'invalid-tag\': newTag.invalid}" ng-disabled="disabled" ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize></div></div>'
+            '<div class="tags-input__host" tabindex="-1" ng-click="eventHandlers.host.click()" ti-transclude-append><div class="tags-input__tags" ng-class="{focused: hasFocus, \'tags-input__tags--boxed\': options.boxed}"><button class="tags-input__add-button" ng-if="options.showButton" ng-click="eventHandlers.input.loadSuggestions($event)" ng-disabled="tagList.items.length >= options.maxItems"><i class="icon-plus-large"></i></button><ul class="tags-input__tag-list"><li class="tags-input__tag-item" ng-repeat="tag in tagList.items track by track(tag)" ng-class="getTagClass(tag, $index)" ng-click="eventHandlers.tag.click(tag)"><ti-tag-item scope="templateScope" data="::tag"></ti-tag-item></li></ul><input class="tags-input__input" autocomplete="off" ng-model="newTag.text" ng-model-options="{getterSetter: true}" ng-keydown="eventHandlers.input.keydown($event)" ng-focus="eventHandlers.input.focus($event)" ng-blur="eventHandlers.input.blur($event)" ng-paste="eventHandlers.input.paste($event)" ng-trim="false" ng-class="{\'invalid-tag\': newTag.invalid}" ng-disabled="disabled" ti-bind-attrs="{type: options.type, placeholder: options.placeholder, tabindex: options.tabindex, spellcheck: options.spellcheck}" ti-autosize></div></div>'
         );
 
         $templateCache.put('ngTagsInput/tag-item.html',
@@ -1255,7 +1253,7 @@ import Popper from 'popper.js';
 
         $templateCache.put('ngTagsInput/auto-complete.html',
             // eslint-disable-next-line max-len
-            '<div class="autocomplete" ng-if="suggestionList.visible"><ul class="suggestion-list"><li class="suggestion-item" ng-repeat="item in suggestionList.items track by track(item)" ng-class="getSuggestionClass(item, $index)" ng-click="addSuggestionByIndex($index)" ng-mouseenter="suggestionList.select($index)"><ti-autocomplete-match scope="templateScope" data="::item"></ti-autocomplete-match></li></ul></div>'
+            '<div class="autocomplete" ng-if="suggestionList.visible"><ul class="suggestion-list"><li class="suggestion-item" ng-repeat="item in suggestionList.items track by track(item)" ng-class="getSuggestionClass(item, $index)" ng-click="addSuggestionByIndex($index)" ng-mouseenter="suggestionList.select($index)" ng-disabled="isSuggestionSelected(item)"><ti-autocomplete-match scope="templateScope" data="::item"></ti-autocomplete-match></li></ul></div>'
         );
 
         $templateCache.put('ngTagsInput/auto-complete-match.html',
