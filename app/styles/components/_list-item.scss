@@ -386,6 +386,10 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     &--empty {
         background-color: rgba(0,0,0,0.1);
     }
+    &--on-right {
+        margin-right: 0;
+        margin-left: 0.6rem;
+    }
 }
 
 .dropdown__toggle {
