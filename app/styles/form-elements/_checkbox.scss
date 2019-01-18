@@ -214,7 +214,8 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 
 
 [class^="--dark-ui"],
-[class*="--dark-ui"] {
+[class*="--dark-ui"],
+.dark-ui {
     .sd-checkbox {
         border-color: rgba(255, 255, 255, 0.4);
         &:hover {

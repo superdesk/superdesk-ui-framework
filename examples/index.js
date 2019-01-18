@@ -222,6 +222,12 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/side-navigation.html'
         })
+        .when('/list-item-test', {
+            title: 'List items test',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/list-item-test.html'
+        })
         .when('/playground-5', {
             title: 'Playground 5',
             removeHeader: true,
