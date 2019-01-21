@@ -494,6 +494,9 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     &--no-margin {
         margin: 0;
     }
+    &--auto-fit {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
 
 }
 

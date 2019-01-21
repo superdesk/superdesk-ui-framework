@@ -388,6 +388,11 @@ a.text-link {
     }
   }
 }
+.text-link-group {
+  a.text-link {
+    margin: 0 .2rem;
+  }
+}
 
 // ============================================================================
 // PLANNING SPECIFIC ADDITIONS FOR RESPONSIVE BEHAVIOUR OF THE SUBNAV BAR
