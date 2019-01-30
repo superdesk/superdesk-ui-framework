@@ -471,6 +471,13 @@ $planningEditor-width: 53rem;
             transition-delay: .2s;
         }  
     }
+    .authoring & {
+        .sd-preview-panel {
+            width: auto;            
+            max-width: 32rem;
+            flex-shrink: 1;
+        }
+    }
 }
 
 .sd-filters-panel, .sd-preview-panel {
@@ -514,6 +521,16 @@ $planningEditor-width: 53rem;
             opacity: 1;
             transition: all 0.2s ease-out;
             transition-delay: .2s;
+        }
+    }
+}
+.authoring {
+    .open-publish {
+        .sd-publish-panel {
+            width: auto;            
+            max-width: 32rem;
+            flex-grow: 1;
+            flex-shrink: 1;
         }
     }
 }
