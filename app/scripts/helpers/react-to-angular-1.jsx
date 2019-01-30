@@ -35,7 +35,7 @@ class Angular1Bridge extends React.Component {
     }
 }
 
-export function reactToAngular1(component, bindings = [], dependenciesToInject = []) {
+export function reactToAngular1(component, bindings = [], dependenciesToInject = [], wrapperStyleString = '') {
     return {
         transclude: true,
         bindings: bindings.reduce((result, key) => {
@@ -103,6 +103,6 @@ export function reactToAngular1(component, bindings = [], dependenciesToInject =
         // the item needs to be wrapped so it can be hidden without touching the original angular element
         // it needs to be hidden so it's not displayed until react component decides to render it
         // when it does, it will be moved out of the hidden wrapper and will show up
-        template: '<div></div><div style="display: none;"><div ng-transclude></div></div>',
+        template: `<div style="${wrapperStyleString}"></div><div style="display: none;"><div ng-transclude></div></div>`,
     };
 }
