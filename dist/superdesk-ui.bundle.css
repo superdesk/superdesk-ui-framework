@@ -7680,6 +7680,16 @@ a.text-link {
   .sd-list-item--inactive {
     background-color: transparent;
     color: rgba(123, 123, 123, 0.75); }
+  .sd-list-item--draggable:hover {
+    cursor: move;
+    /* fallback if grab is unsupported */
+    cursor: grab;
+    cursor: -moz-grab;
+    cursor: -webkit-grab; }
+  .sd-list-item--draggable:active {
+    cursor: grabbing;
+    cursor: -moz-grabbing;
+    cursor: -webkit-grabbing; }
   .sd-list-item.actioning::before {
     content: '';
     position: absolute;

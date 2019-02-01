@@ -49,6 +49,19 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         background-color: transparent;
         color: rgba(123, 123, 123, 0.75);
     }
+    &--draggable {
+        &:hover {
+            cursor: move; /* fallback if grab is unsupported */
+            cursor: grab;
+            cursor: -moz-grab;
+            cursor: -webkit-grab;
+        }
+        &:active {
+            cursor: grabbing;
+            cursor: -moz-grabbing;
+            cursor: -webkit-grabbing;
+        }
+    }
     &.actioning {
         &::before {
             content: '';

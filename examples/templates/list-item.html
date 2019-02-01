@@ -218,6 +218,58 @@
 
             <p>&nbsp;</p>
             
+            <p class="docs-page__paragraph">// Draggable item</p>
+            <div class="sd-list-item sd-list-item--draggable sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive1}">
+                <div class="sd-list-item__border sd-list-item__border--locked"></div>
+                <div class="sd-list-item__column"><i class="icon-text"></i></div>
+                <div class="sd-list-item__column">
+                    <span class="badge">1</span>
+                </div>
+                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                    <div class="sd-list-item__row">
+                        <span class="sd-overflow-ellipsis">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequatvel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.</span>
+                        <time title="March 22, 2017 11:08 AM">11:08, 22.03.2017</time>
+                    </div>
+                </div>
+                <div class="sd-list-item__action-menu">
+                    <!--dropdown-->
+                    <div class="dropdown dropdown--align-right" dropdown dropdown-append-to-body is-open="itemActive1">
+                        <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                            <i class="icon-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">
+                                    Actions
+                                    <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
+                                </div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button><i class="icon-pencil"></i>Edit</button></li>
+                            <li><button><i class="icon-copy"></i>Copy</button></li>
+                            <li><button><i class="icon-trash"></i>Delete</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown__menu-label">Actions 2</div>
+                            </li>
+                            <li class="dropdown__menu-item--no-link">
+                                Just some text without a link
+                            </li>
+                            
+                            <li>
+                                <button><i class="icon-download"></i>Download</button>
+                            </li>
+                            <li>
+                                <button><i class="icon-print"></i>Print</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--end dropdown-->
+                </div>
+            </div>
+
+            <p>&nbsp;</p>
+
             <p class="docs-page__paragraph">// Planning item</p>
             <div class="sd-list-item sd-shadow--z1">
                 <div class="sd-list-item__border"></div>
@@ -323,6 +375,29 @@
                         </div>
                         <div class="sd-list-item__row">
                             <span class="label label--primary label--hollow">primary label</span><span class="label label--highlight2 label--hollow">somelabel</span><span class="sd-overflow-ellipsis sd-list-item--element-grow">Hendrerit in vulputate velit esse molestie praesent.</span><span class="label label--success label--hollow">somelabel</span><span class="label label--success label--hollow">somelabel</span>
+                        </div>
+                    </div>
+                    <div class="sd-list-item__action-menu">
+                        <!--dropdown-->
+                        <div class="dropdown dropdown--align-right" dropdown dropdown-append-to-body is-open="itemActive2" ng-non-bindable>
+                            <button class="icn-btn dropdown__toggle" dropdown__toggle><i class="icon-dots-vertical"></i></button>
+                            <ul class="dropdown__menu"><li>Menu content...</li></ul>
+                        </div>
+                        <!--end dropdown-->
+                    </div>
+                </div>
+                ...
+                <!--Draggable item -->
+                <div class="sd-list-item sd-list-item--draggable sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive2}" ng-non-bindable>
+                    <div class="sd-list-item__border sd-list-item__border--locked"></div>
+                    <div class="sd-list-item__column"><i class="icon-text"></i></div>
+                    <div class="sd-list-item__column">
+                        <span class="badge">1</span>
+                    </div>
+                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                        <div class="sd-list-item__row">
+                            <span class="sd-overflow-ellipsis">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequatvel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.</span>
+                            <time title="March 22, 2017 11:08 AM">11:08, 22.03.2017</time>
                         </div>
                     </div>
                     <div class="sd-list-item__action-menu">
