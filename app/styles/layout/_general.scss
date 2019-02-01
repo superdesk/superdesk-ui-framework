@@ -266,9 +266,9 @@
 }
 .subnav__button-stack {
   position: relative;
-  //max-width: 100%;
   display: flex;
   flex-wrap: nowrap;
+  align-items: center;
   
   &--square-buttons {
     height:48px;
