@@ -7642,7 +7642,7 @@ tags-input {
   -ms-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
   transition: all 0.3s ease;
-  z-index: 1001;
+  z-index: 3;
   align-items: center;
   color: #333;
   flex-shrink: 0; }
@@ -7668,7 +7668,7 @@ tags-input {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 0 0 rgba(0, 0, 0, 0.1);
     color: #fff; }
   .subnav + .subnav, .subnav--lower-z-index {
-    z-index: 999; }
+    z-index: 2; }
   .subnav .sd-check__group {
     padding: 0;
     display: flex;
