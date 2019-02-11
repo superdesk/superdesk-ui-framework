@@ -7,6 +7,8 @@ import {reactToAngular1} from './helpers/react-to-angular-1';
 
 import Popper from 'popper.js';
 
+const eventCloseOthers = 'superdesk-ui-framework.dropdown2.closeOthers';
+
 const autoSizeToKeepInViewportModifier = (data) => {
     // type Position = 'top' | 'right' | 'bottom' | 'left';
     const position = data.placement.split('-')[0];
@@ -57,6 +59,13 @@ export class Dropdown2 extends React.Component {
 
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.closeDropdownOnOutsideClick = this.closeDropdownOnOutsideClick.bind(this);
+        this.handleCloseOthers = this.handleCloseOthers.bind(this);
+    }
+
+    handleCloseOthers({triggerElement}) {
+        if (triggerElement !== this.triggerElement) {
+            this.setState({open: false});
+        }
     }
 
     componentDidMount() {
@@ -64,6 +73,7 @@ export class Dropdown2 extends React.Component {
 
         this.triggerElement.addEventListener('click', this.toggleDropdown);
         window.addEventListener('click', this.closeDropdownOnOutsideClick);
+        window.addEventListener(eventCloseOthers, this.handleCloseOthers);
 
 
         const dropdownElement = this.wrapper.children[0];
@@ -94,10 +104,15 @@ export class Dropdown2 extends React.Component {
         this.elementForPortal.remove();
         this.triggerElement.removeEventListener('click', this.toggleDropdown);
         window.removeEventListener('click', this.closeDropdownOnOutsideClick);
+        window.removeEventListener(eventCloseOthers, this.handleCloseOthers);
     }
 
     toggleDropdown(e) {
         e.stopPropagation();
+
+        window.dispatchEvent(new Event(eventCloseOthers, {
+            triggerElement: this.triggerElement,
+        }));
 
         this.setState({
             open: !this.state.open,
