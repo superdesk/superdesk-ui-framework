@@ -62,8 +62,8 @@ export class Dropdown2 extends React.Component {
         this.handleCloseOthers = this.handleCloseOthers.bind(this);
     }
 
-    handleCloseOthers({triggerElement}) {
-        if (triggerElement !== this.triggerElement) {
+    handleCloseOthers(event) {
+        if (event.detail.triggerElement !== this.triggerElement) {
             this.setState({open: false});
         }
     }
@@ -110,8 +110,10 @@ export class Dropdown2 extends React.Component {
     toggleDropdown(e) {
         e.stopPropagation();
 
-        window.dispatchEvent(new Event(eventCloseOthers, {
-            triggerElement: this.triggerElement,
+        window.dispatchEvent(new CustomEvent(eventCloseOthers, {
+            detail: {
+                triggerElement: this.triggerElement,
+            },
         }));
 
         this.setState({
