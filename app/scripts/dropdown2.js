@@ -76,7 +76,7 @@ export class Dropdown2 extends React.Component {
         window.addEventListener(eventCloseOthers, this.handleCloseOthers);
 
 
-        const dropdownElement = this.wrapper.children[0];
+        const dropdownElement = this.wrapper;
 
         dropdownElement.classList.add('dropdown2');
 
