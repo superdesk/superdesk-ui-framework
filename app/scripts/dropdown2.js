@@ -9,43 +9,7 @@ import Popper from 'popper.js';
 
 const eventCloseOthers = 'superdesk-ui-framework.dropdown2.closeOthers';
 
-const autoSizeToKeepInViewportModifier = (data) => {
-    // type Position = 'top' | 'right' | 'bottom' | 'left';
-    const position = data.placement.split('-')[0];
-    const container = document.documentElement;
-
-    const padding = data.instance.modifiers.find(
-        (modifier) => modifier.name === 'preventOverflow'
-    ).padding;
-
-    const ensureWidth = (maxWidth) => {
-        data.offsets.popper.width = maxWidth;
-        data.styles = {
-            maxWidth: maxWidth + 'px',
-            overflow: 'auto',
-        };
-    };
-
-    const ensureHeight = (maxHeight) => {
-        data.offsets.popper.height = maxHeight;
-        data.styles = {
-            maxHeight: maxHeight + 'px',
-            overflow: 'auto',
-        };
-    };
-
-    if (position === 'top') {
-        ensureHeight(data.offsets.reference.top - padding);
-    } else if (position === 'bottom') {
-        ensureHeight(container.clientHeight - data.offsets.reference.bottom - padding);
-    } else if (position === 'left') {
-        ensureWidth(data.offsets.reference.left - padding);
-    } else if (position === 'right') {
-        ensureWidth(parent.clientWidth - data.offsets.reference.right - padding);
-    }
-
-    return data;
-};
+const padding = 5;
 
 export class Dropdown2 extends React.Component {
     constructor(props) {
@@ -78,7 +42,6 @@ export class Dropdown2 extends React.Component {
 
         const dropdownElement = this.wrapper;
 
-        dropdownElement.classList.add('dropdown2');
 
         if (this.props.zIndex != null) {
             dropdownElement.style['z-index'] = this.props.zIndex;
@@ -86,16 +49,7 @@ export class Dropdown2 extends React.Component {
 
         this.popperInstance = new Popper(this.triggerElement, dropdownElement, {
             placement: this.props.placement,
-            modifiers: {
-                preventOverflow: {
-                    boundariesElement: 'viewport',
-                    escapeWithReference: true,
-                },
-                autoSizeToKeepInViewport: {
-                    enabled: true,
-                    fn: autoSizeToKeepInViewportModifier,
-                },
-            },
+            eventsEnabled: false,
         });
     }
 
@@ -116,8 +70,25 @@ export class Dropdown2 extends React.Component {
             },
         }));
 
+        const rect = this.triggerElement.getBoundingClientRect();
+
+        const viewportHeight = document.documentElement.clientHeight;
+        const viewportWidth = document.documentElement.clientWidth;
+
+        const availableSpaceTop = rect.top - padding;
+        const availableSpaceBottom = (viewportHeight - rect.bottom) - padding;
+
+        const availableSpaceLeft = rect.left;
+        const availableSpaceRight = viewportWidth - rect.right;
+
+        this.wrapper.style.maxHeight = Math.max(availableSpaceBottom, availableSpaceTop) + 'px';
+        this.wrapper.style.maxWidth = Math.max(availableSpaceLeft, availableSpaceRight) + 'px';
+        this.wrapper.style.overflow = 'auto';
+
         this.setState({
             open: !this.state.open,
+        }, () => {
+            this.popperInstance.scheduleUpdate();
         });
     }
 
@@ -134,19 +105,6 @@ export class Dropdown2 extends React.Component {
                 open: false,
             });
         }
-    }
-
-    componentDidUpdate() {
-        if (this.state.open === true) {
-            this.popperInstance.enableEventListeners();
-        } else {
-            this.popperInstance.disableEventListeners();
-        }
-
-        // when the component re-renders
-        // popper instance isn't destroyed, but events are disabled.
-        // Popper won't call it's modifiers on next run unless we schedule an update
-        this.popperInstance.scheduleUpdate();
     }
 
     render() {
