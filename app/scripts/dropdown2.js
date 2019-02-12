@@ -111,7 +111,7 @@ export class Dropdown2 extends React.Component {
         const style = this.state.open === true ? null : {display: 'none'};
 
         return ReactDOM.createPortal(
-            <div style={style} ref={(w) => this.wrapper = w}>{this.props.children}</div>,
+            <div style={style} className={this.props.className || null} ref={(w) => this.wrapper = w}>{this.props.children}</div>,
             this.elementForPortal
         );
     }
@@ -124,10 +124,11 @@ Dropdown2.propTypes = {
     // https://github.com/FezVrasta/popper.js/blob/master/docs/_includes/popper-documentation.md#Popper.Defaults
     placement: PropTypes.string,
     zIndex: PropTypes.number,
+    className: PropTypes.string,
 };
 
 angular.module('superdesk-ui.dropdown2', [])
-    .component('dropdown2', reactToAngular1(Dropdown2, ['triggerSelector', 'placement', 'zIndex']));
+    .component('dropdown2', reactToAngular1(Dropdown2, ['triggerSelector', 'placement', 'zIndex', 'className']));
 
 /*
     Usage:
