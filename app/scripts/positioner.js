@@ -7,11 +7,11 @@ import {reactToAngular1} from './helpers/react-to-angular-1';
 
 import Popper from 'popper.js';
 
-const eventCloseOthers = 'superdesk-ui-framework.dropdown2.closeOthers';
+const eventCloseOthers = 'superdesk-ui-framework.positioner.closeOthers';
 
 const padding = 5;
 
-export class Dropdown2 extends React.Component {
+export class Positioner extends React.Component {
     constructor(props) {
         super(props);
 
@@ -117,7 +117,7 @@ export class Dropdown2 extends React.Component {
     }
 }
 
-Dropdown2.propTypes = {
+Positioner.propTypes = {
     children: PropTypes.any,
     triggerSelector: PropTypes.string,
 
@@ -127,8 +127,8 @@ Dropdown2.propTypes = {
     className: PropTypes.string,
 };
 
-angular.module('superdesk-ui.dropdown2', [])
-    .component('dropdown2', reactToAngular1(Dropdown2, ['triggerSelector', 'placement', 'zIndex', 'className']));
+angular.module('superdesk-ui.positioner', [])
+    .component('sdPositioner', reactToAngular1(Positioner, ['triggerSelector', 'placement', 'zIndex', 'className']));
 
 /*
     Usage:
@@ -136,16 +136,16 @@ angular.module('superdesk-ui.dropdown2', [])
         Angularjs:
             <div>
                 <button id="open">Open</button>
-                <dropdown2 triggerSelector="'#open'" placement="'bottom-end'">
-                    <div class="dropdown2">--contents--</div>
-                </dropdown2>
+                <sd-positioner triggerSelector="'#open'" placement="'bottom-end'" class-name="'dropdown2">
+                    <div>--contents--</div>
+                </sd-positioner>
             </div>
 
         React:
             <div>
                 <button id="open">Open</button>
-                <Dropdown2 triggerSelector="#open" placement="bottom-end">
-                    <div className="dropdown2">--contents--</div>
-                </Dropdown2>
+                <Positioner triggerSelector="#open" placement="bottom-end" className="dropdown2">
+                    <div>--contents--</div>
+                </Positioner>
             </div>
 */
