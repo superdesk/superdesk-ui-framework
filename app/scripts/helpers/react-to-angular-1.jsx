@@ -16,11 +16,8 @@ class Angular1Bridge extends React.Component {
     }
     setRef(childrenContainer) {
         if (childrenContainer != null && this.props.angularTranscludeEl != null) {
-            // Allow Angular to handle transclusion before the element is moved
-            setTimeout(() => {
-                // Moves transcluded component into component passed as children to `ComponentToBridge`
-                childrenContainer.appendChild(this.props.angularTranscludeEl);
-            });
+            // Moves transcluded component into component passed as children to `ComponentToBridge`
+            childrenContainer.appendChild(this.props.angularTranscludeEl);
         }
     }
     render() {
@@ -63,20 +60,26 @@ export function reactToAngular1(component, bindings = [], dependenciesToInject =
                 }
             }
             $onInit() {
-                const {$element} = this._private;
+                // Allow Angular to handle the transclusion before the element is moved.
+                // When you have a toggle box in angularjs which is supposed to be open by default - it doesn't work without
+                // the timeout(the content is empty).
 
-                // initialize props so we don't get propType validation errors from React
-                this.setComponentProps();
+                setTimeout(() => {
+                    const {$element} = this._private;
 
-                ReactDOM.render(
-                    <Angular1Bridge
-                        ref={(i) => { this._private.angular1BridgeInstance = i; }}
-                        component={component}
-                        componentProps={this._private.componentProps}
-                        angularTranscludeEl={$element[0].children[1].children[0]}
-                    />
-                    , $element[0].children[0]
-                );
+                    // initialize props so we don't get propType validation errors from React
+                    this.setComponentProps();
+
+                    ReactDOM.render(
+                        <Angular1Bridge
+                            ref={(i) => { this._private.angular1BridgeInstance = i; }}
+                            component={component}
+                            componentProps={this._private.componentProps}
+                            angularTranscludeEl={$element[0].children[1].children[0]}
+                        />
+                        , $element[0].children[0]
+                    );
+                });
             }
             $onDestroy() {
                 const {$element} = this._private;
