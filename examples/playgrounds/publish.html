@@ -741,6 +741,9 @@
                                     <div class="sd-list-item__row">
                                         <span class="sd-list-item__text-label">Publish to:</span><span class="sd-overflow-ellipsis">news, facebook</span>
                                     </div>
+                                    <div class="sd-list-item__row">
+                                        <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
+                                    </div>
                                 </div>
                             </div>
                             <!-- END list item  -->
@@ -770,6 +773,9 @@
                                             <div class="sd-list-item__row">
                                                 <span class="sd-list-item__text-label sd-overflow-ellipsis">Automatically:</span><span class="sd-overflow-ellipsis">news, facebook</span>
                                             </div>
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -790,9 +796,47 @@
                                 <div class="form__row">
                                     <sd-check ng-model="dnp1">Do not publish</sd-check>
                                 </div>
+                                <!-- content lists -->
+                                <label class="form-label">Content lists</label>
+                                <div class="sd-list-item sd-list-item--no-hover sd-margin-b--1" ng-show="contentListItem">
+                                    <div class="sd-list-item__column sd-list-item__column--grow">
+                                        <div class="sd-list-item__row sd-list-item__row--only-child">
+                                            <span class="sd-margin-r--1">Choose list</span>
+                                            <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow sd-line-input--no-margin">
+                                                <select class="sd-line-input__select">
+                                                    <option value=""></option>
+                                                    <option value="home">Home page</option>
+                                                    <option value="economy">Economy</option>
+                                                    <option value="business">Business</option>
+                                                    <option value="Sports">Sports</option>
+                                                    <option value="lifestyle">Lifestyle</option>
+                                                </select>    
+                                            </div>
+                                            <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a>
+                                        </div>
+                                        <div class="sd-list-item__row sd-margin-b--1">
+                                            <span class="sd-margin-r--1">Set order</span>
+                                            <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow sd-line-input--no-margin sd-line-input--no-label sd-margin-r--2">
+                                                <select class="sd-line-input__select">
+                                                    <option value=""></option>
+                                                    <option value="">1</option>
+                                                    <option value="">2</option>
+                                                    <option value="">3</option>
+                                                    <option value="">4</option>
+                                                    <option value="">5</option>
+                                                </select>
+                                            </div>
+                                            <span><a href="#" class="text-link" sd-tooltip="Edit in Publisher" flow="left">Edit</a></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <button class="btn btn--hollow btn--expanded btn--primary" ng-click="contentListItem = true;">Add to content list</button>      
+                                </div>                                
                             </div>
                         </div>
                     </div>
+                    <!-- end website 2-->
                 </div>
             </div>
         </div>
