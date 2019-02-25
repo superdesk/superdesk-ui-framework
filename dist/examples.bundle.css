@@ -4498,6 +4498,46 @@ time {
     .nav-tabs__content--small {
       padding: 1.2rem; }
 
+.nav-tabs-vertical {
+  width: 2rem;
+  border-right: 1px solid #ccc;
+  transition: all .2s ease-out .3s;
+  opacity: 1; }
+  .nav-tabs-vertical__list {
+    width: 2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0; }
+  .nav-tabs-vertical__tab {
+    display: inline-block;
+    width: 2rem;
+    line-height: 2rem; }
+    .nav-tabs-vertical__tab--active .nav-tabs-vertical__link {
+      color: #222; }
+  .nav-tabs-vertical__link {
+    display: inline-block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #747474;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 10px 0;
+    padding: 0;
+    -webkit-transform: translateX(19px) rotate(90deg);
+    transform: translateX(20px) rotate(90deg);
+    transform-origin: 0 0; }
+    .nav-tabs-vertical__link:hover {
+      color: #222; }
+    .nav-tabs-vertical__link:after {
+      content: "";
+      float: left;
+      margin-top: 100%; }
+  .nav-tabs-vertical--closed {
+    width: 0;
+    border: none;
+    opacity: 0;
+    transition: all .01s ease-out; }
+
 table {
   width: 100%;
   border-collapse: separate;
@@ -7540,11 +7580,23 @@ tags-input {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
-  overflow: auto; }
+  overflow: auto;
+  overflow-x: hidden;
+  border-right-color: #999;
+  border-right-style: solid;
+  border-right-width: 0;
+  transition: all .2s ease-out .1s; }
   .sd-content-navigation-panel--border-right {
-    border-right: 2px solid #999; }
+    border-right-width: 2px; }
   .sd-content-navigation-panel .subnav {
     flex-shrink: 0; }
+  .content-nav-closed .sd-content-navigation-panel {
+    width: 0; }
+    .content-nav-closed .sd-content-navigation-panel .sd-content-nav {
+      opacity: 0;
+      transition: all .1s ease-out; }
+    .content-nav-closed .sd-content-navigation-panel.sd-content-navigation-panel--border-right {
+      border-right-width: 0; }
 
 .open-publish .sd-publish-panel {
   width: 40rem;
@@ -12520,7 +12572,9 @@ label + .sd-radio {
   background: transparent;
   display: block;
   overflow: auto;
-  padding: 1rem 0; }
+  padding: 1rem 0;
+  opacity: 1;
+  transition: all .2s ease-out .3s; }
 
 .sd-content-nav__btn {
   display: block;
@@ -12541,6 +12595,10 @@ label + .sd-radio {
 .sd-content-nav-title {
   font-size: 1.5rem;
   font-weight: 300; }
+  .sd-content-nav-title--uppercase {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: uppercase; }
 
 .color-swatch__list {
   display: grid;

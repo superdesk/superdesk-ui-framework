@@ -502,12 +502,29 @@ $planningEditor-width: 53rem;
     display: flex;
     flex-direction: column;
     overflow: auto;
+    overflow-x: hidden;
+    border-right-color: $grayLight;
+    border-right-style: solid;
+    border-right-width: 0;
+    transition: all .2s ease-out .1s;
 
     &--border-right {
-        border-right: 2px solid $grayLight;
+        border-right-width: 2px;
     }
     .subnav {
         flex-shrink: 0;
+    }
+
+    .content-nav-closed & {
+        width: 0;
+       
+        .sd-content-nav {
+            opacity: 0;
+            transition: all .1s ease-out;
+        }
+        &.sd-content-navigation-panel--border-right {
+            border-right-width: 0;
+        }        
     }
 }
 
