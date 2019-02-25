@@ -10,6 +10,8 @@ $sd-contentNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-ou
     display: block;
     overflow: auto;
     padding: 1rem 0;
+    opacity: 1;
+    transition: all .2s ease-out .3s;
 }
 .sd-content-nav__btn {
     display: block;
@@ -32,4 +34,10 @@ $sd-contentNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-ou
 .sd-content-nav-title {
     font-size: 1.5rem;
     font-weight: 300;
+
+    &--uppercase {
+        font-size: 1.3rem;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
 }

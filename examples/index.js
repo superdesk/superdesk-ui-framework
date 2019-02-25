@@ -84,6 +84,10 @@ export default angular.module('ui-docs', [
                 leftNavigation: {
                     name: 'Left navigation',
                     page: 'left-nav.html'
+                },
+                verticalTabs: {
+                    name: 'Vertical tabs',
+                    page: 'vertical-tabs.html'
                 }
             }
         },
