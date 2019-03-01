@@ -316,6 +316,18 @@ export default angular.module('ui-docs', [
             removeFooter: true,
             templateUrl: '../examples/playgrounds/swimlane-view.html'
         })
+        .when('/layout-test', {
+            title: 'Layout test',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/layout-test.html'
+        })
+        .when('/layout-test-2', {
+            title: 'Layout test 2',
+            removeHeader: true,
+            removeFooter: true,
+            templateUrl: '../examples/playgrounds/layout-test-2.html'
+        })
         .when('/publisher-website-settings', {
             title: 'Publisher Website Settings',
             playground: 'publisher',

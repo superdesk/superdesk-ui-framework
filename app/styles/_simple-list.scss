@@ -18,9 +18,40 @@ $simple-list-border-color: $neutral-border-color;
                 opacity: .75;
             }
         }
+        &--flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        &--stacked {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            .simple-list__item-data {
+                text-align: left;
+            }
+            .simple-list__item-label {
+                padding: 0 0 0.6rem 0;
+            }
+        }
         .label-icon {
             margin-right: 4px;
         }
+    }
+    .simple-list__item-label {
+        flex-grow: 0;
+        font-size: 1.1rem;
+        line-height: 100%;
+        text-transform: uppercase;
+        padding-right: 1rem;
+        margin: 0;
+        color: inherit;
+        opacity: 0.65;
+        font-weight: 500;
+    }
+    .simple-list__item-data {
+        flex-grow: 1;
+        text-align: right;
     }
     &--dotted {
         .simple-list__item {

@@ -39,7 +39,7 @@ $background-main: $sd-background;
 .sd-kanban-list__board-header {
     grid-column: 1/2;
     grid-row: 1/2;
-    z-index: 2;
+    z-index: 1;
     position: relative;
     min-height: 2rem;
     display: flex;
