@@ -365,6 +365,7 @@ a.text-link {
   color: $sd-blueMedium;
   transition: all 0.1s ease-in;
   display: inline-block;
+  cursor: pointer;
   &:hover {
     color: darken($sd-blueMedium, 10%);
     text-decoration: underline;

@@ -1,12 +1,16 @@
-<div class="sd-page-grid--basic" doc-modal>
+<div class="sd-page-grid--test" doc-modal ng-init="openHamburger = false">
+    <div class="sd-main-menu" ng-class="{'sd-main-menu--open': openHamburger}">
+        <div class="sd-main-menu__inner">
+
+        </div>
+    </div>
     <header class="sd-top-menu">
-        <a href="" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <a href="" ng-click="openHamburger = !openHamburger" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
         <p class="sd-top-menu__header">National Desk</p>
     </header>
 
-    <section class="sd-content sd-page-content--slide-in" ng-class="{
-            'sd-page-content--slide-in--open' : editorOpen}">
-
+    <section class="sd-content sd-page-content--slide-in" ng-class="{'sd-page-content--slide-in--open' : editorOpen}">
+ 
         <div class="sd-sidebar-menu sd-page-content__left-tabs">
             <ul class="authoring-active">
                 <li sd-tooltip="Dashboard" flow="right">
@@ -55,7 +59,7 @@
                 </li>
             </ul>
         </div>
-        <div id="leftContent"  ng-init="darkUI = false;  swimlaneView = true" class="sd-page-content__content-block sd-page-content__content-block--main" ng-class="{'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen, 'dark-ui': darkUI}">
+        <div id="leftContent"  ng-init="darkUI = false;  listView = true" class="sd-page-content__content-block sd-page-content__content-block--main" ng-class="{'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen, 'dark-ui': darkUI}">
             <!-- left content -->
             <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
                 <div class="subnav__sliding-toolbar" ng-show="select1 || select2 || select3 || select4 || select5 || select6 || select7 || select8 || select9 || select10 || select11 || select12 || select13 || select14 || select15 || select16 || select17 || select18 || select19 || select20 || select21 || select22 || select23 || select24 || select25 || select26 || select27 || select28 || select29 || select30 || select31 || select32 || select33 || select34 || select35 || select36">
@@ -113,6 +117,9 @@
                 </div>
             </div>
             <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+                <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
+                    <i class="icon-filter-large"></i>
+                </button>
                 <div class="subnav__stretch-bar">
                     <sd-check ng-model="planningType" ng-value="all" label-position="inside" ng-checked="true">all</sd-check>
                     <sd-check ng-model="planningType" type="radio" ng-value="text" label-position="inside"><i class="icon-text"></i></sd-check>
@@ -175,6 +182,7 @@
                 </div>
             </div>
             <div class="sd-column-box--3">
+                <div class="sd-filters-panel"></div>
                 <div class="sd-column-box__main-column">
                     <div class="sd-list-header" ng-hide="swimlaneView">
                         <span class="sd-list-header__name">Friday September 15, 2017</span>

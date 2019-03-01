@@ -324,7 +324,7 @@
 $planningEditor-width: 53rem;
 
 .sd-page-content--slide-in {
-    width: 100%;
+    // width: 100%;
     display: flex;
     flex-direction: row;
     // override basic behaviour of the sd-sidebar-menu
@@ -560,5 +560,279 @@ $planningEditor-width: 53rem;
 [class*="--dark-ui"] {
     .sd-filters-panel {
         background-color: $sd-filters-darkUI-bg;
+    }
+}
+
+
+
+
+// GRID LAYOUT TEST ------------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+// Main content structure for layouts like Monitoring list and Global Search. Consists of top toolbar (subnav), manin content area and 
+// slide-in panels on the left (filte panel) and right (preview panel).
+.sd-main-content-grid {
+    margin: 0;
+    display: grid;
+    grid-template-columns: [slideInLeft] auto [mainContent] 1fr [slideInRight] auto [overlayContainer] 0;
+    grid-template-rows: [headerToolbar] auto [contentBlock] 1fr;
+}
+.sd-main-content-grid__header {
+    grid-column: 1/4;
+    grid-row: headerToolbar;
+    display: flex;
+    flex-direction: column;
+}
+.sd-main-content-grid__content {
+    grid-column: mainContent;
+    grid-row: contentBlock;
+    overflow-y: auto;
+}
+.sd-main-content-grid__filter {
+    grid-column: slideInLeft;
+    grid-row: contentBlock;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+.sd-main-content-grid__preview {
+    grid-column: slideInRight;
+    grid-row: contentBlock;
+    overflow-y: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+.sd-main-content-grid__overlay {
+    grid-column: overlayContainer;
+    grid-row: 1/-1;
+    overflow: visible;
+    width: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    position: relative;
+}
+
+.side-panel__container {
+    grid-column: 1/2;
+    width:0;
+    overflow: hidden;
+    transition: all ease-in-out 0.1s;
+    .side-panel {
+        opacity: 0;
+        transition: opacity ease-in-out 0.4s;
+    }
+}
+
+.sd-main-content-grid__preview.open-preview {
+    .side-panel__container {
+        width:460px;
+        overflow-y: auto;
+        .side-panel {
+            opacity: 1;
+        }
+    } 
+}
+.sd-main-content-grid__filter.open-filters {
+    .side-panel__container {
+        width:360px;
+        overflow-y: auto;
+        .side-panel {
+            opacity: 1;
+        }
+    } 
+}
+
+
+// main section fot placing left navigation bar, main content, splitter and editor.
+.sd-content-wrapper { 
+    margin: 0;
+    display: grid;
+    grid-template-columns: [sideTabsLeft] auto [contentArea] 1fr [contentSplitter] auto [authoringArea] auto;
+    grid-template-rows: 1fr;
+}
+.sd-content-wrapper__left-tabs { 
+    grid-column: sideTabsLeft;
+    &.sd-sidebar-menu {
+        position: static;
+        box-shadow: 1px 0 0 rgba(0,0,0,0.08), 1px 0 4px rgba(0,0,0,0.16);
+        z-index: 10;
+    }
+}
+.sd-content-wrapper__main-content-area { 
+    grid-column: contentArea;
+    overflow: auto;
+}
+.sd-content-wrapper__content-splitter { 
+    grid-column: contentSplitter;
+
+    // this styling might be moved to an inner element
+    width: 3px;
+    background-color: #666;
+    cursor: col-resize;
+}
+.sd-content-wrapper__authoring-content-area { 
+    grid-column: authoringArea;
+    display: grid;
+}
+
+// main page structure - top bar, slide-in main navigation, content area and footer (open items bar).
+.sd-page-grid--test {
+    margin: 0;
+    display: grid;
+    grid-template-columns: [slideInNavigation] auto [contentContainer] 1fr;
+    grid-template-rows: [mainToolbar] 4.8rem [contentContainer] 1fr [footerBar] auto;
+    grid-gap: 0;
+    height: 100vh;
+    position: relative;
+    background-color: aquamarine;
+
+    .sd-main-menu {
+        grid-column: slideInNavigation;
+        grid-row: 1/-1;
+        background-color: #272727;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+
+        .sd-main-menu__inner {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr;
+            width: 0;
+            overflow: hidden;
+            transition: opacity ease-in-out 0.2s, width ease-in-out 0.1s;
+            opacity: 0;
+            box-shadow: inset -8px 0px 12px -4px rgba(0, 0, 0, 0.6);
+        }
+        &.sd-main-menu--open {
+            .sd-main-menu__inner {
+                width: 30rem;
+                opacity: 1;
+            }
+        }
+    }
+    .sd-top-menu {
+        grid-column: contentContainer;
+        grid-row: mainToolbar;
+        z-index: 2;
+        position: static;
+    }
+    .sd-content {
+        grid-column: contentContainer;
+        grid-row: contentContainer;
+        z-index: 1;
+        background-color: #f8f8f8;
+        overflow: auto;
+
+    }    
+    .bottom-bar {
+        grid-column: contentContainer;
+        grid-row: footerBar;
+        height:3rem;
+        background-color: #222;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        color: rgba(255, 255, 255, 0.75);
+        padding: 0 10px; 
+    }
+}
+
+// EDITOR 3 Layout ======================================= //
+.sd-authoring-page {
+    display: grid;
+    grid-template-columns: [authoringMain] 1fr [authoringSideTabs] auto [publishContainer] 0px;
+    grid-template-rows: [authoringHeader] auto [authoringMainRow] 1fr;
+}
+.sd-authoring-page__header {
+    grid-column: 1/3;
+    grid-row: authoringHeader;
+    display: flex;
+    flex-direction: column;
+}
+.sd-authoring-page__main-container {
+    grid-column: authoringMain;
+    grid-row: authoringMainRow;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    position: relative;
+    min-width: 60rem;
+}
+.sd-authoring-page__side-tabs {
+    grid-column: authoringSideTabs;
+    grid-row: authoringMainRow;
+    //position: relative;
+}
+.sd-authoring-page__publish-container {
+    grid-column: publishContainer;
+    grid-row: 1/-1;
+    position: relative;
+    overflow: visible;
+    width: 0 !important;
+}
+// =================================== END EDITOR 3 Layout //
+
+
+.sd-overlay-panel-2 {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: $panel-bg--03;
+    color: $sd-text;
+    overflow: hidden;
+    transition: all 0.1s ease-out;
+    .side-panel {
+        opacity: 0;
+        transition: all 0s ease-out;
+        transition-delay: 0;
+    }
+    &--left {
+        box-shadow: 2px 0px 0px 0px rgba(102, 102, 102, 1), 2px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        left:0;
+    }
+    &--right {
+        box-shadow: -2px 0px 0px 0px rgba(102, 102, 102, 1), -2px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        right:0;
+    }
+    &--dark-ui {
+        background-color: $sd-background-darkUI;
+        color: $white;
+        &.sd-overlay-panel-2--left {
+            box-shadow: 2px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        }
+        &.sd-overlay-panel-2--right {
+            box-shadow: -2px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        }
+    }
+    &--open {
+        width:32.8rem;
+        overflow: auto;
+        .side-panel {
+            opacity: 1;
+            transition: all 0.2s ease-out;
+            transition-delay: .1s;
+        }
+        &.sd-overlay-panel--medium {
+            width:40rem;
+        }
+        &.sd-overlay-panel--large {
+            width:68rem;
+        }
+    }
+}
+
+.sd-authoring-page__publish-container,
+.sd-main-content-grid__overlay {
+    .sd-overlay-panel {
+        top:0;
+        bottom:0;
+        z-index: 10;
     }
 }
