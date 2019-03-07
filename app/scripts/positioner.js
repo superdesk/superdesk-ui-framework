@@ -96,6 +96,7 @@ export class Positioner extends React.Component {
 
     componentWillUnmount() {
         this.elementForPositioner.remove();
+        ReactDOM.unmountComponentAtNode(this.elementForPositioner);
         this.triggerElement.removeEventListener('click', this.toggleDropdown);
     }
 
