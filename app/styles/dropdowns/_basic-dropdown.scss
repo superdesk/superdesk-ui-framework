@@ -121,7 +121,13 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             font-size: 1.3rem;
             text-decoration: none;
             text-align: left;
-            > i[class^="icon-"], i[class*=" icon-"] {
+            > i[class^="icon-"], i[class*=" icon-"], i[class^="filetype-icon-"] {
+                margin-right: 1rem;
+                margin-top: -0.3rem;
+                min-width: 1.9rem;
+                vertical-align: middle;
+            }
+            > i[class^="icon-"] {
                 margin-right: 1rem;
                 margin-top: -0.3rem;
                 min-width: 1.9rem;

@@ -114,12 +114,15 @@ $sd-sideTabMenu-background: #a1a1a1;
   width: $sd-sidebarMenu-width;
   top: $nav-height;
   background-color: $sd-sideTabMenu-background;
-  z-index: 20;
+  z-index: 2;
   transition: all .3s ease;
   &--right {
     right: 0;
-    box-shadow: inset 8px 0 7px -6px rgba(0,0,0,0.25);
+    box-shadow: inset 4px 0 5px -3px rgba(0, 0, 0, 0.25);
 
+  }
+  &--static {
+    position: static;
   }
 }
 
@@ -131,12 +134,11 @@ $sd-sideTabMenu-background: #a1a1a1;
   text-align: center;
   padding: 0;
   margin:0;
-  border: 1px solid rgba(0,0,0,0.12);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.12);
   border-width: 0 0 1px 0;
   background: none;
   &:hover {
     background: rgba(255,255,255,0.15);
-    border-color: rgba(0,0,0,0.18);
     cursor: pointer;
   }
 }
@@ -196,6 +198,9 @@ $sd-sideTabMenu-background: #a1a1a1;
 .sd-sidetab-menu__btn--active {
   background: rgba(255,255,255,0.2);
   border-color: rgba(0,0,0,0.18);
+  .sd-sidetab-menu__main-icon {
+    color: darken($sd-blue, 16%) !important;
+  }
   &:hover {
     .sd-sidetab-menu__helper-icon {
       opacity: 1;
