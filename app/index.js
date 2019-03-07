@@ -2,13 +2,15 @@ import './scripts';
 import './styles';
 
 export {reactToAngular1} from './scripts/helpers/react-to-angular-1';
+export {ToggleBoxNext} from './scripts/toggleBoxNext';
+export {Positioner} from './scripts/positioner';
 
 export default angular.module('superdesk-ui', [
     'superdesk-ui.helper',
     'superdesk-ui.carousel',
     'superdesk-ui.wizard',
     'superdesk-ui.dropdown',
-    'superdesk-ui.dropdown2',
+    'superdesk-ui.positioner',
     'superdesk-ui.modals',
     'superdesk-ui.switch',
     'superdesk-ui.check',
