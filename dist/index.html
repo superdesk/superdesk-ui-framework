@@ -5,7 +5,7 @@
         <title>Superdesk UI Framework</title>
     <link href="examples.bundle.css" rel="stylesheet"><link href="superdesk-ui.bundle.css" rel="stylesheet"></head>
     <body class="docs-page" ng-app="ui-docs" doc-playground>
-        <header class="docs-page__header" ng-if="!route.current.$$route.removeHeader">
+        <header class="docs-page__header" ng-if="!route.current.$$route.playground">
             <h1 class="docs-page__h1">Superdesk UI Framework</h1>
             <div class="docs-page__playground_picker">
                 <div class="form__row">
@@ -35,12 +35,17 @@
             </div>
         </header>
 
-        <main ng-class="{'docs-page__container-fluid': !route.current.$$route.removeHeader && !route.current.$$route.removeFooter}" ng-view></main>
+        <aside class="docs-page__sidebar" doc-scroll ng-class="{scroll:boolChangeClass}" ng-if="!route.current.$$route.playground">
+            <ul class="docs-page__nav" doc-nav>
+                <li ng-repeat="group in components">
+                    <span class="docs-page__nav-title">{{group.name}}</span>
+                    <ul class="docs-page__nav--sub-level">
+                        <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items"><a href="#{{name}}">{{item.name}}</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
 
-        <footer class="docs-page__footer" ng-if="!route.current.$$route.removeFooter">
-            <p class="docs-page__paragraph">
-                Superdesk is brought to you by <a href="http://www.sourcefabric.org/" class="link">Sourcefabric</a>. This work is licensed under a <a target="_top" href="https://creativecommons.org/licenses/by/3.0/" class="link">Creative Commons Attribution 3.0 Unported License</a>
-            </p>
-        </footer>
+        <main class="docs-page__content" ng-class="{'docs-page__container-fluid': !route.current.$$route.playground}" ng-view></main>
     <script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="examples.bundle.js"></script><script type="text/javascript" src="superdesk-ui.bundle.js"></script></body>
 </html>
