@@ -43,7 +43,7 @@ function docPlayground(components, $route) {
     return {
         link: function link(scope) {
             scope.components = components;
-            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && !route.playground);
+            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && route.playground === 'main');
             scope.publisherPlaygrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && route.playground === 'publisher');
             scope.route = $route;
 
@@ -77,39 +77,17 @@ function docTabs() {
     };
 }
 
-docNav.$inject = ['$window'];
-function docNav($window) {
+docNav.$inject = ['components'];
+function docNav(components) {
     return {
         link: function link(scope, elem, attr, ctrl) {
+            scope.group = components[0];
+            // scope.items = components[0].items[0];
+
+            console.log(scope.group);
+
             scope.navigateTo = function (hash, e) {
-                e.preventDefault();
-
-                var target = $('#' + hash);
-
-                if (target.length) {
-                    $('html, body').animate({
-                        scrollTop: target.offset().top
-                    }, 1000);
-                    return false;
-                }
-            };
-
-            angular.element($window).bind('scroll', onScroll);
-
-            function onScroll() {
-                var scrollPos = $(document).scrollTop();
-
-                elem.find('a').each(function () {
-                    var currLink = $(this);
-                    var refElement = $('#' + currLink.attr('href'));
-
-                    if (refElement.position() && refElement.position().top <= scrollPos + 20 && refElement.position().top + refElement.height() > scrollPos) {
-                        elem.find('a').removeClass('active');
-                        currLink.parent().addClass('active');
-                    } else {
-                        currLink.parent().removeClass('active');
-                    }
-                });
+                // e.preventDefault();
             }
         }
     };
