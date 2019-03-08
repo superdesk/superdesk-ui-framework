@@ -12,3 +12,5 @@ import './tags';
 import './lineInput';
 import './searchHandler';
 import './circularProgress';
+import './splitter';
+import './mediaQuery';

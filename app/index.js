@@ -20,4 +20,6 @@ export default angular.module('superdesk-ui', [
     'superdesk-ui.tags',
     'superdesk-ui.lineInput',
     'superdesk-ui.searchHandler',
+    'superdesk-ui.splitter',
+    'superdesk-ui.mediaQuery',
 ]);
