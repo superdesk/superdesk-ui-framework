@@ -114,7 +114,7 @@ $sd-sideTabMenu-background: #a1a1a1;
   width: $sd-sidebarMenu-width;
   top: $nav-height;
   background-color: $sd-sideTabMenu-background;
-  z-index: 2;
+  z-index: 16;
   transition: all .3s ease;
   &--right {
     right: 0;
