@@ -317,4 +317,6 @@ export default angular.module('ui-docs', [
             }
         })
         .otherwise({redirectTo: '/'});
+}).run(function ($rootScope, $route) {
+    $rootScope.$route = $route;
 });

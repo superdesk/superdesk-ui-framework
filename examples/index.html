@@ -40,7 +40,7 @@
                 <li ng-repeat="group in components">
                     <span class="docs-page__nav-title">{{group.name}}</span>
                     <ul class="docs-page__nav--sub-level">
-                        <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items"><a href="#{{name}}">{{item.name}}</a></li>
+                        <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items" ng-class="{'docs-page__nav-item--active': isActive(name)}"><a href="#{{name}}">{{item.name}}</a></li>
                     </ul>
                 </li>
             </ul>
