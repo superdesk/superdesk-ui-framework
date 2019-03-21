@@ -77,17 +77,12 @@ function docTabs() {
     };
 }
 
-docNav.$inject = ['components'];
-function docNav(components) {
+docNav.$inject = ['components', '$rootScope'];
+function docNav(components, $rootScope) {
     return {
         link: function link(scope, elem, attr, ctrl) {
-            scope.group = components[0];
-            // scope.items = components[0].items[0];
-
-            console.log(scope.group);
-
-            scope.navigateTo = function (hash, e) {
-                // e.preventDefault();
+            scope.isActive = (route) => {
+                return $rootScope.$route.current && $rootScope.$route.current.params.name === route;
             }
         }
     };
