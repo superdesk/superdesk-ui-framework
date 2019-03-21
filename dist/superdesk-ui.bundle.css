@@ -674,6 +674,24 @@ button {
 .no-line-height {
   line-height: 0 !important; }
 
+.sd-d-none {
+  display: none !important; }
+
+.sd-d-inline {
+  display: inline !important; }
+
+.sd-d-inline-block {
+  display: inline-block !important; }
+
+.sd-d-block {
+  display: block !important; }
+
+.sd-d-flex {
+  display: flex !important; }
+
+.sd-d-inline-flex {
+  display: inline-flex !important; }
+
 .sd-shadow--z1 {
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.1) !important;
   transition: box-shadow 0.3s ease-out; }
@@ -898,6 +916,12 @@ time {
 
 .sd-flex-wrap {
   flex-wrap: wrap; }
+
+.sd-flex-shrink {
+  flex-shrink: 1 !important; }
+
+.sd-flex-no-shrink {
+  flex-shrink: 0 !important; }
 
 .sd-margin-t--1 {
   margin-top: 1rem !important; }
@@ -8019,6 +8043,8 @@ tags-input {
   min-width: 20rem; }
   .sd-kanban-list__board .sd-list-item-group {
     margin: 0; }
+  .sd-kanban-list__board--wide {
+    min-width: 36rem; }
 
 .sd-kanban-list__board-header {
   grid-column: 1/2;
@@ -8047,7 +8073,7 @@ tags-input {
   grid-row: 2/3;
   z-index: 1;
   overflow: auto;
-  padding: 0.6rem 0.3rem 0.4rem 0.3rem; }
+  padding: 0.6rem 0.3rem 0.6rem 0.3rem; }
 
 [class^="--dark-ui"] .sd-kanban-list__board-header,
 [class*="--dark-ui"] .sd-kanban-list__board-header,
