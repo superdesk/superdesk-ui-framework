@@ -265,7 +265,8 @@ $sd-icon-font: (
   analytics: "\e69f",
   amp: "\e6a0",
   undo: "\e6a1",
-  redo: "\e6a2"
+  redo: "\e6a2",
+  instagram: "\e6a3"
 );
 
 @each $name, $value in $sd-icon-font {
