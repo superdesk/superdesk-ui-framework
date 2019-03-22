@@ -164,6 +164,47 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
         }
     }
+    &--has-head-foot {
+        padding: 0;
+        .dropdown__menu-label {
+            margin: 0.4rem 0;
+        }
+        .dropdown__menu-header {
+            flex: 0 0;
+            padding: 0.6rem 0;
+            margin: 0;
+            .dropdown__menu-label {
+                margin: 0.6rem 0 0.4rem;
+            }
+        }
+        .dropdown__menu-body {
+            max-height: 20rem;
+            overflow-y: auto;
+            flex: 0 1;
+            padding: 0.6rem 0;
+            &--s {
+                max-height: 16rem;
+            }
+            &--l {
+                max-height: 32rem;
+            }
+        }
+        .dropdown__menu-body:first-child {
+            .dropdown__menu-label {
+                margin: 0.6rem 0 0.4rem;
+            }
+        }
+        .dropdown__menu-footer {
+            flex: 0 0;
+            padding: 0.6rem 0;
+            margin: 0;
+            
+        }
+        &.open {
+            display: flex;
+        }
+    }
+
 }
 
 // Dividers (basically an hr) within the dropdown
@@ -238,10 +279,8 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
 }
 .dropdown__menu-header {
-    font-weight: 300;
-    font-size: 1.5rem;
-    color: $grayLight;
-    padding-left: 1.6rem;
+    border-bottom: 1px solid #e5e5e5;
+    margin-bottom: 0.6rem;
 }
 
 .dropdown__menu-footer {
@@ -250,6 +289,10 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     border-top: 1px solid #e5e5e5;
     &--align-right {
         text-align: right;
+    }
+    &--has-list {
+        padding: 0.6rem 0 0 0;
+        margin-bottom: -0.4rem;
     }
 }
 

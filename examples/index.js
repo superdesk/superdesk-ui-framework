@@ -300,6 +300,11 @@ export default angular.module('ui-docs', [
             playground: 'main',
             templateUrl: '../examples/playgrounds/layout-test-2.html'
         })
+        .when('/playground/toasts', {
+            title: 'Toasts',
+            playground: 'main',
+            templateUrl: '../examples/playgrounds/toasts.html'
+        })
         .when('/playground/publisher-website-settings', {
             title: 'Publisher Website Settings',
             playground: 'publisher',
