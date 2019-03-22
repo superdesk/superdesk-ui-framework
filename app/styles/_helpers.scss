@@ -19,6 +19,28 @@
     line-height: 0 !important;
 }
 
+// Display helper classes
+// --------------------------------------------------
+
+.sd-d-none {
+    display: none !important;
+}
+.sd-d-inline {
+    display: inline !important;
+}
+.sd-d-inline-block {
+    display: inline-block !important;
+}
+.sd-d-block {
+    display: block !important;
+}
+.sd-d-flex {
+    display: flex !important;
+}
+.sd-d-inline-flex {
+    display: inline-flex !important;
+}
+
 // Shadow helper classes
 // --------------------------------------------------
     
@@ -315,7 +337,12 @@ time {
 .sd-flex-wrap {
     flex-wrap: wrap;
 }
-
+.sd-flex-shrink {
+    flex-shrink: 1 !important;
+}
+.sd-flex-no-shrink {
+    flex-shrink: 0 !important;
+}
 
 // Common margin overrides
 // --------------------------------------------------
