@@ -178,16 +178,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
         }
         .dropdown__menu-body {
-            max-height: 20rem;
             overflow-y: auto;
             flex: 0 1;
             padding: 0.6rem 0;
-            &--s {
-                max-height: 16rem;
-            }
-            &--l {
-                max-height: 32rem;
-            }
         }
         .dropdown__menu-body:first-child {
             .dropdown__menu-label {
@@ -345,9 +338,14 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     > .dropdown__menu {
         display: block;
         &.dropdown__menu--scrollable {
-            max-height: 350px;
+            max-height: 36rem;
             overflow: auto;
             overflow-x: hidden;
+        }
+        &.dropdown__menu--has-head-foot {
+            display: flex;
+            flex-direction: column;
+            max-height: 36rem;
         }
     }
 }
