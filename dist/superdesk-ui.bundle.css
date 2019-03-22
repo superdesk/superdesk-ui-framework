@@ -12929,14 +12929,9 @@ label + .sd-radio {
       .dropdown__menu--has-head-foot .dropdown__menu-header .dropdown__menu-label {
         margin: 0.6rem 0 0.4rem; }
     .dropdown__menu--has-head-foot .dropdown__menu-body {
-      max-height: 20rem;
       overflow-y: auto;
       flex: 0 1;
       padding: 0.6rem 0; }
-      .dropdown__menu--has-head-foot .dropdown__menu-body--s {
-        max-height: 16rem; }
-      .dropdown__menu--has-head-foot .dropdown__menu-body--l {
-        max-height: 32rem; }
     .dropdown__menu--has-head-foot .dropdown__menu-body:first-child .dropdown__menu-label {
       margin: 0.6rem 0 0.4rem; }
     .dropdown__menu--has-head-foot .dropdown__menu-footer {
@@ -13054,9 +13049,13 @@ label + .sd-radio {
 .dropdown.open > .dropdown__menu {
   display: block; }
   .dropdown.open > .dropdown__menu.dropdown__menu--scrollable {
-    max-height: 350px;
+    max-height: 36rem;
     overflow: auto;
     overflow-x: hidden; }
+  .dropdown.open > .dropdown__menu.dropdown__menu--has-head-foot {
+    display: flex;
+    flex-direction: column;
+    max-height: 36rem; }
 
 .dropdown--align-right .dropdown__menu, .dropdown--align-right.dropdown__menu {
   left: auto;
