@@ -90,8 +90,12 @@ export class Positioner extends React.Component {
     }
 
     componentDidMount() {
-        this.triggerElement = document.querySelector(this.props.triggerSelector);
-        this.triggerElement.addEventListener('click', this.toggleDropdown);
+        setTimeout(() => {
+            // trigger element can rendered as a sibling to positioner
+            // so it might not be in the DOM at the same time.
+            this.triggerElement = document.querySelector(this.props.triggerSelector);
+            this.triggerElement.addEventListener('click', this.toggleDropdown);
+        });
     }
 
     componentWillUnmount() {
