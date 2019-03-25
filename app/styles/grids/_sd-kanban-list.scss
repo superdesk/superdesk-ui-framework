@@ -35,6 +35,9 @@ $background-main: $sd-background;
     .sd-list-item-group {
         margin: 0;
     }
+    &--wide {
+        min-width: 36rem;
+    }
 }
 .sd-kanban-list__board-header {
     grid-column: 1/2;
@@ -65,7 +68,7 @@ $background-main: $sd-background;
     grid-row: 2/3;
     z-index: 1;
     overflow: auto;
-    padding: 0.6rem 0.3rem 0.4rem 0.3rem;
+    padding: 0.6rem 0.3rem 0.6rem 0.3rem;
 }
 
 [class^="--dark-ui"],

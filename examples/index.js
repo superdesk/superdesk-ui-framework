@@ -14,333 +14,314 @@ export default angular.module('ui-docs', [
     'ngRoute',
     'superdesk-ui',
     'ui-docs.directives'
-
 ])
+
 .config(['$locationProvider', function ($locationProvider) {
-        return $locationProvider.hashPrefix('');
-    }])
+    return $locationProvider.hashPrefix('');
+}])
 
 .factory('components', () => ({
-        basicComponents: {
-            name: 'Basic Components',
-            items: {
-                buttons: {
-                    name: 'Buttons',
-                    page: 'buttons.html'
-                },
-                labels: {
-                    name: 'Labels',
-                    page: 'labels.html'
-                },
-                badge: {
-                    name: 'Badge',
-                    page: 'badge.html'
-                },
-                tagLabels: {
-                    name: 'Tag labels',
-                    page: 'tag-labels.html'
-                },
-                iconLabels: {
-                    name: 'Icon labels',
-                    page: 'icon-labels.html'
-                },
-                alerts: {
-                    name: 'Alerts',
-                    page: 'alerts.html'
-                },
-                dropdown: {
-                    name: 'Dropdown',
-                    page: 'dropdown.html'
-                },
-                tooltips: {
-                    name: 'Tooltips',
-                    page: 'tooltips.html'
-                },
-                tables: {
-                    name: 'Tables',
-                    page: 'tables.html'
-                },
-                panelInfo: {
-                    name: 'Panel info',
-                    page: 'panel-info.html'
-                },
-                slider: {
-                    name: 'Slider control',
-                    page: 'slider.html'
-                },
-                loader: {
-                    name: 'Animated loader',
-                    page: 'loader.html'
-                }
-            }
-        },
-        navigation: {
-            name: 'Navigation',
-            items: {
-                tabs: {
-                    name: 'Tabs',
-                    page: 'tabs.html'
-                },
-                leftNavigation: {
-                    name: 'Left navigation',
-                    page: 'left-nav.html'
-                },
-                verticalTabs: {
-                    name: 'Vertical tabs',
-                    page: 'vertical-tabs.html'
-                }
-            }
-        },
-        formElements: {
-            name: 'Form elements',
-            items: {
-                inputs: {
-                    name: 'Inputs',
-                    page: 'input.html'
-                },
-                select: {
-                    name: 'Select',
-                    page: 'select.html'
-                },
-                tagInput: {
-                    name: 'Tag Input',
-                    page: 'tag-input.html'
-                },
-                checkbox: {
-                    name: 'Checkbox',
-                    page: 'checkbox.html'
-                },
-                radio: {
-                    name: 'Radio',
-                    page: 'radio.html'
-                },
-                'switch': {
-                    name: 'Switch',
-                    page: 'switch.html'
-                },
-                form: {
-                    name: 'Form layout',
-                    page: 'form-layout.html'
-                },
-                other: {
-                    name: 'Other form elements',
-                    page: 'other-elements.html'
-                }
-            }
-        },
-        containers: {
-            name: 'Containers',
-            items: {
-                modals: {
-                    name: 'Modals',
-                    page: 'modals.html'
-                },
-                wizard: {
-                    name: 'Wizard',
-                    page: 'wizard.html'
-                },
-                carousel: {
-                    name: 'Carousel',
-                    page: 'carousel.html'
-                }
-            }
-        },
-        layout: {
-            name: 'Layout',
-            items: {
-                basicCrid: {
-                    name: 'Basic grid',
-                    page: 'basic-grid.html'
-                },
-                layoutGrid: {
-                    name: 'Layout grid',
-                    page: 'layout-grid.html'
-                }
-            }
-        },
-        layoutElements: {
-            name: 'Layout elements',
-            items: {
-                listItem: {
-                    name: 'List item',
-                    page: 'list-item.html'
-                },
-                simpleList: {
-                    name: 'Simple list',
-                    page: 'simple-list.html'
-                },
-                toggleBox: {
-                    name: 'Toggle box',
-                    page: 'toggle.html'
-                }
-            }
-        },
-        icons: {
-            name: 'Icons',
-            items: {
-                iconFont: {
-                    name: 'Icon font',
-                    page: 'icons.html'
-                },
-                bigIconFont: {
-                    name: 'Big icon font',
-                    page: 'big-icons.html'
-                }
+    basicComponents: {
+        name: 'Basic Components',
+        items: {
+            buttons: {
+                name: 'Buttons',
+                page: 'buttons.html'
+            },
+            labels: {
+                name: 'Labels',
+                page: 'labels.html'
+            },
+            badge: {
+                name: 'Badge',
+                page: 'badge.html'
+            },
+            'tag-labels': {
+                name: 'Tag labels',
+                page: 'tag-labels.html'
+            },
+            'icon-labels': {
+                name: 'Icon labels',
+                page: 'icon-labels.html'
+            },
+            alerts: {
+                name: 'Alerts',
+                page: 'alerts.html'
+            },
+            dropdown: {
+                name: 'Dropdown',
+                page: 'dropdown.html'
+            },
+            tooltips: {
+                name: 'Tooltips',
+                page: 'tooltips.html'
+            },
+            tables: {
+                name: 'Tables',
+                page: 'tables.html'
+            },
+            'panel-info': {
+                name: 'Panel info',
+                page: 'panel-info.html'
+            },
+            slider: {
+                name: 'Slider control',
+                page: 'slider.html'
+            },
+            loader: {
+                name: 'Animated loader',
+                page: 'loader.html'
             }
         }
-    }))
+    },
+    navigation: {
+        name: 'Navigation',
+        items: {
+            tabs: {
+                name: 'Tabs',
+                page: 'tabs.html'
+            },
+            'left-nav': {
+                name: 'Left navigation',
+                page: 'left-nav.html'
+            },
+            'vertical-tabs': {
+                name: 'Vertical tabs',
+                page: 'vertical-tabs.html'
+            }
+        }
+    },
+    formElements: {
+        name: 'Form elements',
+        items: {
+            input: {
+                name: 'Inputs',
+                page: 'input.html'
+            },
+            select: {
+                name: 'Select',
+                page: 'select.html'
+            },
+            'tag-input': {
+                name: 'Tag Input',
+                page: 'tag-input.html'
+            },
+            checkbox: {
+                name: 'Checkbox',
+                page: 'checkbox.html'
+            },
+            radio: {
+                name: 'Radio',
+                page: 'radio.html'
+            },
+            'switch': {
+                name: 'Switch',
+                page: 'switch.html'
+            },
+            'form-layout': {
+                name: 'Form layout',
+                page: 'form-layout.html'
+            },
+            'other-elements': {
+                name: 'Other form elements',
+                page: 'other-elements.html'
+            }
+        }
+    },
+    containers: {
+        name: 'Containers',
+        items: {
+            modals: {
+                name: 'Modals',
+                page: 'modals.html'
+            },
+            wizard: {
+                name: 'Wizard',
+                page: 'wizard.html'
+            },
+            carousel: {
+                name: 'Carousel',
+                page: 'carousel.html'
+            }
+        }
+    },
+    layout: {
+        name: 'Layout',
+        items: {
+            'basic-grid': {
+                name: 'Basic grid',
+                page: 'basic-grid.html'
+            },
+            'layout-grid': {
+                name: 'Layout grid',
+                page: 'layout-grid.html'
+            }
+        }
+    },
+    layoutElements: {
+        name: 'Layout elements',
+        items: {
+            'list-item': {
+                name: 'List item',
+                page: 'list-item.html'
+            },
+            'simple-list': {
+                name: 'Simple list',
+                page: 'simple-list.html'
+            },
+            toggle: {
+                name: 'Toggle box',
+                page: 'toggle.html'
+            }
+        }
+    },
+    icons: {
+        name: 'General',
+        items: {
+            'icons': {
+                name: 'Icon font',
+                page: 'icons.html'
+            },
+            'big-icons': {
+                name: 'Big icon font',
+                page: 'big-icons.html'
+            },
+            'colors': {
+                name: 'Colors',
+                page: 'colors.html'
+            }
+        }
+    }
+}))
 
 .config(($routeProvider) => {
     $routeProvider
         .when('/', {
             title: 'Main',
-            templateUrl: '../examples/playgrounds/main.html'
+            templateUrl: '../examples/playgrounds/buttons.html'
         })
-        .when('/react', {
+        .when('/playground/react', {
             title: 'React',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/react.html'
         })
-        .when('/planning', {
+        .when('/playground/planning', {
             title: 'Planning',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/planning.html'
         })
-        .when('/layout', {
+        .when('/playground/layout', {
             title: 'Layout Grid',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/layout-grid.html'
         })
-        .when('/cards', {
+        .when('/playground/cards', {
             title: 'Cards',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/cards.html'
         })
-        .when('/side-navigation', {
+        .when('/playground/side-navigation', {
             title: 'Side Navigation',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/side-navigation.html'
         })
-        .when('/list-item-test', {
+        .when('/playground/list-item-test', {
             title: 'List items test',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/list-item-test.html'
         })
-        .when('/playground-5', {
+        .when('/playground/playground-5', {
             title: 'Playground 5',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/playground-5.html'
         })
-        .when('/photo-desk', {
+        .when('/playground/photo-desk', {
             title: 'Photo Desk',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/photo-desk.html'
         })
-        .when('/media-carousel', {
+        .when('/playground/media-carousel', {
             title: 'Media Carousel',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/media-carousel.html'
         })
-        .when('/tags-input', {
+        .when('/playground/tags-input', {
             title: 'Tags Input',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/tags-input.html'
         })
-        .when('/circular-progress', {
+        .when('/playground/circular-progress', {
             title: 'Circular Progress',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/circular-progress.html'
         })
-        .when('/publish', {
+        .when('/playground/publish', {
             title: 'Publish pane test',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/publish.html'
         })
-        .when('/publisher-dashboard', {
+        .when('/playground/publisher-dashboard', {
             title: 'Publisher Dashboard',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-dashboard.html'
         })
-        .when('/publisher-content-lists', {
+        .when('/playground/publisher-content-lists', {
             title: 'Publisher Content Lists',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-lists.html'
         })
-        .when('/publisher-content-list-manual', {
+        .when('/playground/publisher-content-list-manual', {
             title: 'Publisher Content List Manual',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-list-manual.html'
         })
-        .when('/publisher-content-list-automatic', {
+        .when('/playground/publisher-content-list-automatic', {
             title: 'Publisher Content List Automatic',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-list-automatic.html'
         })
-        .when('/publisher-output-control', {
+        .when('/playground/publisher-output-control', {
             title: 'Publisher Output Control',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-output-control.html'
         })
-        .when('/publisher-content-analytics', {
+        .when('/playground/publisher-content-analytics', {
             title: 'Publisher Content Analytics',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-content-analytics.html'
         })
-        .when('/swimlane-view', {
+        .when('/playground/swimlane-view', {
             title: 'Swimlane View',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/swimlane-view.html'
         })
-        .when('/layout-test', {
+        .when('/playground/layout-test', {
             title: 'Layout test',
-            removeHeader: true,
-            removeFooter: true,
-            templateUrl: '../examples/playgrounds/layout-test.html'
-        })
-        .when('/layout-test-2', {
-            title: 'Layout test 2',
-            removeHeader: true,
-            removeFooter: true,
+            playground: 'main',
             templateUrl: '../examples/playgrounds/layout-test-2.html'
         })
-        .when('/publisher-website-settings', {
+        .when('/playground/toasts', {
+            title: 'Toasts',
+            playground: 'main',
+            templateUrl: '../examples/playgrounds/toasts.html'
+        })
+        .when('/playground/publisher-website-settings', {
             title: 'Publisher Website Settings',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-website-settings.html'
         })
-        .when('/publisher-website-settings-general', {
+        .when('/playground/publisher-website-settings-general', {
             title: 'Publisher Website Settings General',
             playground: 'publisher',
-            removeHeader: true,
-            removeFooter: true,
             templateUrl: '../examples/playgrounds/publisher-website-settings-general.html'
         })
+        .when('/:name*', {
+            title: 'Main',
+            templateUrl: function(urlattr){
+                return '../examples/templates/' + urlattr.name + '.html';
+            }
+        })
         .otherwise({redirectTo: '/'});
+}).run(function ($rootScope, $route) {
+    $rootScope.$route = $route;
 });
