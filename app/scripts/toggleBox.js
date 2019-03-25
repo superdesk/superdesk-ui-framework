@@ -9,7 +9,7 @@
  */
 function ToggleBoxDirective() {
     return {
-        template: '<toggle-box-next ng-if="loaded" title="title" mode="mode" style="style" is-open="isOpen"><div><div ng-transclude></div></div></toggle-box-next>',
+        template: '<toggle-box-next ng-if="loaded" data-title="title" mode="mode" style="style" is-open="isOpen"><div><div ng-transclude></div></div></toggle-box-next>',
         transclude: true,
         scope: {
 
