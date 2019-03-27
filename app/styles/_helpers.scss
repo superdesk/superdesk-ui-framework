@@ -12,6 +12,9 @@
 .no-padding {
     padding: 0 !important;
 }
+.no-margin {
+    margin: 0 !important;
+}
 .no-border {
     border: 0 !important;
 }
@@ -342,6 +345,9 @@ time {
 }
 .sd-flex-no-shrink {
     flex-shrink: 0 !important;
+}
+.sd-flex-justify-end {
+    justify-content: flex-end !important;
 }
 
 // Common margin overrides

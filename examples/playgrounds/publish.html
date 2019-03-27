@@ -799,10 +799,13 @@
                                 <!-- content lists -->
                                 <label class="form-label">Content lists</label>
                                 <div class="sd-list-item sd-list-item--no-hover sd-margin-b--1" ng-show="contentListItem">
-                                    <div class="sd-list-item__column sd-list-item__column--grow">
-                                        <div class="sd-list-item__row sd-list-item__row--only-child">
-                                            <span class="sd-margin-r--1">Choose list</span>
-                                            <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow sd-line-input--no-margin">
+                                    <div class="sd-list-item__column sd-list-item__column--large-padding sd-list-item__column--grow">
+                                        <div class="sd-list-item__row no-margin sd-flex-justify-end">
+                                            <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a>
+                                        </div>
+                                        <div class="sd-list-item__row">
+                                            <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
+                                                <label class="sd-line-input__label">Choose list</label>
                                                 <select class="sd-line-input__select">
                                                     <option value=""></option>
                                                     <option value="home">Home page</option>
@@ -810,13 +813,13 @@
                                                     <option value="business">Business</option>
                                                     <option value="Sports">Sports</option>
                                                     <option value="lifestyle">Lifestyle</option>
-                                                </select>    
+                                                </select>
                                             </div>
-                                            <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a>
+                                            <!-- <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a> -->
                                         </div>
-                                        <div class="sd-list-item__row sd-margin-b--1">
-                                            <span class="sd-margin-r--1">Set order</span>
-                                            <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow sd-line-input--no-margin sd-line-input--no-label sd-margin-r--2">
+                                        <div class="sd-list-item__row">
+                                            <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
+                                                <label class="sd-line-input__label">Set order</label>
                                                 <select class="sd-line-input__select">
                                                     <option value=""></option>
                                                     <option value="">1</option>
@@ -826,7 +829,7 @@
                                                     <option value="">5</option>
                                                 </select>
                                             </div>
-                                            <span><a href="#" class="text-link" sd-tooltip="Edit in Publisher" flow="left">Edit</a></span>
+                                            <!-- <span><a href="#" class="text-link" sd-tooltip="Edit in Publisher" flow="left">Edit</a></span> -->
                                         </div>
                                     </div>
                                 </div>
