@@ -44,6 +44,18 @@
     display: inline-flex !important;
 }
 
+// Overflow helper classes
+// --------------------------------------------------
+.overflow-auto {
+    overflow: auto !important;
+}
+.overflow-hidden {
+    overflow: hidden !important;
+}
+.overflow-x-hidden {
+    overflow-x: hidden !important;
+}
+
 // Shadow helper classes
 // --------------------------------------------------
     
@@ -450,3 +462,83 @@ $sd-padding-increment: 0.8rem;
     padding: $sd-padding-increment * 3 !important;
 }
 
+// Overlay block
+
+.sd-overlay-block {
+    position: relative;
+    
+    img {
+        width: 100%;
+    }
+    
+    &__overlay {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        background-color: rgba(0, 0, 0, 0.5);
+        transition: 0.2s linear opacity;   
+        opacity: 0;
+        color: #fff;
+    }
+
+    &:hover {
+        .sd-overlay-block__overlay {
+            opacity: 1;
+        }
+    }
+
+    &__overlay-action-group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;        
+    }
+
+    &__overlay-action {
+        flex-grow: 0;
+        flex-shrink: 0;
+        color: #fff;
+        width: 5.6rem;
+        height: 5.6rem;
+        border: 2px solid rgba(255, 255, 255, 0.5);
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s linear all;
+        cursor: pointer;
+        text-decoration: none;
+        background-color: transparent;
+    
+        i {
+            color: #fff;
+            height: 2.4rem;
+            width: 2.4rem;
+            font-size: 2.4rem;
+            line-height: 1;
+            opacity: 0.5;
+            transition: 0.2s linear all;
+        }
+
+        &:hover {
+            border-color: white;
+            background-color: rgba(0, 0, 0, 0.4);
+            text-decoration: none;
+
+            i {
+                opacity: 1;
+            }
+        }
+        + .sd-overlay-block__overlay-action {
+            margin-left: 2rem;
+        }
+    }
+}

@@ -544,10 +544,10 @@
 </div>
 
 <div class="sd-overlay-panel sd-overlay-panel--dark-ui" ng-class="{'sd-overlay-panel--open' : publishPaneOpen, 'sd-overlay-panel--large': tab === 'publish'}">
-    <div class="side-panel side-panel--shadow-right side-panel--dark-ui">
+    <div class="side-panel side-panel--shadow-right side-panel--dark-ui overflow-x-hidden">
         <div class="side-panel__header">
             <div class="side-panel__tools">
-                <a class="icn-btn" ng-click="publishPaneOpen = !publishPaneOpen"><i class="icon-close-small"></i></a>
+                <a class="icn-btn" ng-click="publishPaneOpen = !publishPaneOpen; $root.overlayPaneOpen = false"><i class="icon-close-small"></i></a>
             </div>
             <ul class="nav-tabs nav-tabs--big nav-tabs--ui-dark">
                 <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'send-to'}" class="nav-tabs__tab">
@@ -815,7 +815,6 @@
                                                     <option value="lifestyle">Lifestyle</option>
                                                 </select>
                                             </div>
-                                            <!-- <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a> -->
                                         </div>
                                         <div class="sd-list-item__row">
                                             <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
@@ -829,7 +828,6 @@
                                                     <option value="">5</option>
                                                 </select>
                                             </div>
-                                            <!-- <span><a href="#" class="text-link" sd-tooltip="Edit in Publisher" flow="left">Edit</a></span> -->
                                         </div>
                                     </div>
                                 </div>
@@ -841,7 +839,131 @@
                     </div>
                     <!-- end website 2-->
                 </div>
+                <div sd-toggle-box data-title="Related articles" data-open="false" data-style="circle">
+                    <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                        <li class="simple-list__item">
+                            <p>J.P. Morgan to settle allegations of violating sanctions: U.S. Treasury</p>
+                            <span class="label-icon label-icon--success" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                            <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                            <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                        </li>
+                        <li class="simple-list__item">
+                            <p>Republican Senator Murkowski says has not decided final Kavanaugh vote</p>
+                            <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                            <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                            <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                        </li>                        
+                        <li class="simple-list__item">
+                            <p>China bet big on quantum computing. Now the US races to keep up.</p>
+                            <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                            <span class="label-icon" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                            <span class="label-icon label-icon--success" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                        </li>
+                    </ul>
+                </div>
+                <div sd-toggle-box data-title="Social media" data-open="true" data-style="circle">
+                    <div class="form__row">
+                        <a ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" class="btn btn--hollow btn--ui-dark btn--expanded">Facebook</i></a>
+                    </div>
+                    <div class="form__row">
+                        <a ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" class="btn btn--hollow btn--ui-dark btn--expanded">Twitter</i></a>
+                    </div>
+                    <div class="form__row">
+                        <a ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" class="btn btn--hollow btn--ui-dark btn--expanded">SEO / Meta tags</i></a>
+                    </div>
+                </div>
+
+
             </div>
+
+            <!-- Social media overlay -->
+            <div class="side-panel__content-block-overlay" ng-class="{'side-panel__content-block-overlay--open' : $root.overlayPaneOpen}">
+                    <div class="side-panel side-panel--transparent">
+                        <div class="side-panel__header">
+                            <a class="icn-btn sd-margin-l--1" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen"><i class="icon-chevron-left-thin"></i></a>
+                            <h3 class="side-panel__heading side-panel__heading--big">Facebook</h3>
+                        </div>
+                        <div class="side-panel__content">
+                            <div class="side-panel__content-block">
+                                <div class="form__row">
+                                    <div class="sd-line-input">
+                                        <label class="sd-line-input__label">Post image</label>                                    
+                                        <div class="sd-overlay-block">
+                                            <div class="sd-overlay-block__overlay">
+                                                <div class="sd-overlay-block__overlay-action-group">
+                                                    <a class="sd-overlay-block__overlay-action" sd-tooltip="Upload image"><i class="icon-upload"></i></a>
+                                                </div>
+                                            </div>
+                                            <img src="app/img/overlay-img.jpg" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--required sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Headline</label>
+                                        <input class="sd-line-input__input" type="text" value="Article headline here.">
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <sd-tag-input
+                                        ng-model="tags"
+                                        data-label="Tags"
+                                        data-items="[
+                                        { text: 'Audi' },
+                                        { text: 'BMW' },
+                                        { text: 'Hyundai' },
+                                        { text: 'Opel' },
+                                        { text: 'Audi2' },
+                                        { text: 'BMW2' },
+                                        { text: 'Hyundai2' },
+                                        { text: 'Opel2' },
+                                        { text: 'Audi3' },
+                                        { text: 'BMW3' },
+                                        { text: 'Hyundai3' },
+                                        { text: 'Opel3' },
+                                        { text: 'Audi4' },
+                                        { text: 'BMW4' },
+                                        { text: 'Hyundai4' },
+                                        { text: 'Opel4' },
+                                        { text: 'Audi5' },
+                                        { text: 'BMW5' },
+                                        { text: 'Hyundai5' },
+                                        { text: 'Opel5' },
+                                        { text: 'Audi6' },
+                                        { text: 'BMW6' },
+                                        { text: 'Hyundai6' },
+                                        { text: 'Opel6' }
+                                        ]"
+                                        data-field="text"
+                                        data-freetext="false">
+                                    </sd-tag-input>
+                                </div>
+                                <div class="form__row">
+                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                        <label class="sd-line-input__label">Text body</label>
+                                        <textarea class="sd-line-input__input"></textarea>
+                                    </div>
+                                </div>
+                                <div class="form__row">
+                                    <sd-tag-input
+                                        ng-model="authors"
+                                        data-label="Authors"
+                                        data-items="[
+                                        { text: 'Author 1' },
+                                        { text: 'Author 2' },
+                                        { text: 'Author 3' },
+                                        { text: 'Author 4' },
+                                        { text: 'Author 5' }                                        
+                                        ]"
+                                        data-field="text"
+                                        data-freetext="false">
+                                    </sd-tag-input>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
         </div>
         <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="!tab || tab === 'send-to'">
             <button class="btn btn--large btn--primary btn--expanded">Send</button>
