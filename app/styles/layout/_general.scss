@@ -47,7 +47,7 @@
     }
     + .subnav,
     &--lower-z-index {
-      z-index: 2;
+      z-index: 2 !important;
   }
   .sd-check__group {
     padding: 0;
