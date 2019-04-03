@@ -55,6 +55,10 @@ function docPlayground(components, $route) {
             ];
             
             scope.freeItems = ['Audi', 'BMW', 'Opel', 'Hyundai'];
+
+            scope.console = function(...data) {
+                console.log(...data);
+            }
         }
     };
 }
