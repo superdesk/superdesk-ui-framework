@@ -542,3 +542,7 @@ $sd-padding-increment: 0.8rem;
         }
     }
 }
+
+.sd-wrap-helper {
+    display: contents !important;
+ }
