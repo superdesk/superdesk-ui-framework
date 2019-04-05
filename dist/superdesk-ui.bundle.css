@@ -1078,6 +1078,9 @@ time {
     .sd-overlay-block__overlay-action + .sd-overlay-block__overlay-action {
       margin-left: 2rem; }
 
+.sd-wrap-helper {
+  display: contents !important; }
+
 .btn {
   display: inline-block;
   vertical-align: middle;
