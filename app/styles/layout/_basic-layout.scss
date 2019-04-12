@@ -87,13 +87,15 @@
     overflow: auto;
 
     &--centered-dashboard {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        align-items: center;
+        justify-content: center;
 
         .sd-grid-list {
-            width: 70%;
-            margin: 80px auto;
+            width: 60%;
+            margin: 0 auto;
         }
     }
 }

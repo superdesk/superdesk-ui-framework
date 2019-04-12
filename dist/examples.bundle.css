@@ -9085,8 +9085,14 @@ a.text-link {
     a.text-link.text-link--white:active {
       color: white; }
 
-.text-link-group a.text-link {
-  margin: 0 .2rem; }
+.text-link__group a.text-link {
+  margin: 0.4rem 0.4rem 0.4rem 0;
+  font-size: 1.4rem;
+  padding: 0 .6rem 0 0;
+  border-right: 1px dotted rgba(123, 123, 123, 0.75); }
+  .text-link__group a.text-link:last-child {
+    padding-right: 0;
+    border-right: none; }
 
 .subnav--responsive .navbtn.navbtn--text-only {
   font-size: 1.4rem; }
@@ -9234,12 +9240,14 @@ a.text-link {
   padding: 20px;
   overflow: auto; }
   .sd-page__content--centered-dashboard {
-    display: flex;
-    flex-direction: column;
-    width: 100%; }
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center; }
     .sd-page__content--centered-dashboard .sd-grid-list {
-      width: 70%;
-      margin: 80px auto; }
+      width: 60%;
+      margin: 0 auto; }
 
 .sd-page__flex-helper {
   display: flex;
@@ -9823,6 +9831,8 @@ a.text-link {
       background-color: #fff;
       color: #333;
       box-shadow: 0 1px 0 rgba(136, 136, 136, 0.25); }
+    .sd-card .sd-card__header--gradient-1 {
+      background: linear-gradient(180deg, #60b8c2 2%, #1eb06c 90%); }
     .sd-card .sd-card__header--with-thumb {
       position: relative;
       flex-direction: column; }
@@ -10042,6 +10052,16 @@ a.text-link {
     .sd-card .sd-card__thumbnail img {
       width: 100%;
       height: auto; }
+    .sd-card .sd-card__thumbnail--size-xs {
+      padding-bottom: 35%; }
+    .sd-card .sd-card__thumbnail--size-s {
+      padding-bottom: 50%; }
+    .sd-card .sd-card__thumbnail--size-m {
+      padding-bottom: 75%; }
+    .sd-card .sd-card__thumbnail--size-l {
+      padding-bottom: 100%; }
+    .sd-card .sd-card__thumbnail--size-xl {
+      padding-bottom: 125%; }
   .sd-card .sd-card__file-type-icn {
     color: #fff;
     font-size: 5.2rem;
@@ -10053,6 +10073,23 @@ a.text-link {
     margin: -2.6rem 0 0 -2.6rem;
     line-height: 5.2rem;
     opacity: 0.5; }
+  .sd-card .sd-card__thumbnail-heading {
+    font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+    font-weight: 700;
+    font-size: 2.1rem;
+    z-index: 2;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 120%; }
 
 .sd-grid-item {
   position: relative;
