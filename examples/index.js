@@ -225,25 +225,20 @@ export default angular.module('ui-docs', [
             playground: 'main',
             templateUrl: '../examples/playgrounds/side-navigation.html'
         })
-<<<<<<< HEAD
         .when('/playground/list-item-test', {
             title: 'List items test',
             playground: 'main',
             templateUrl: '../examples/playgrounds/list-item-test.html'
         })
         .when('/playground/playground-5', {
-=======
-        .when('/settings', {
-            title: 'Settings',
-            removeHeader: true,
-            removeFooter: true,
-            templateUrl: '../examples/playgrounds/settings.html'
-        })
-        .when('/playground-5', {
->>>>>>> Settings dashboard
             title: 'Playground 5',
             playground: 'main',
             templateUrl: '../examples/playgrounds/playground-5.html'
+        })
+        .when('/playground/settings', {
+            title: 'Settings',
+            playground: 'main',
+            templateUrl: '../examples/playgrounds/settings.html'
         })
         .when('/playground/photo-desk', {
             title: 'Photo Desk',
