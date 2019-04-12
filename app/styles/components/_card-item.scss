@@ -6,7 +6,9 @@ $card-item-header-bg-normal: #607d8b;
 $card-item-header-bg-inactive: #b1b1b1;
 $card-item-header-bg-active: $sd-blueMedium;
 $card-item-header-bg-light: #bfbfbf;
+$card-item-header-bg-gradient-1: linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
 $card-item-header-bg-secondary: $subnav-background-mid-blue-grey;
+
 
 //shadows
 $card-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
@@ -88,6 +90,9 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
             background-color: $white;
             color: $sd-text;
             box-shadow: 0 1px 0 rgba(136, 136, 136, 0.25);
+        }
+        &--gradient-1 {
+            background: $card-item-header-bg-gradient-1;
         }
         &--with-thumb {
             position: relative;
@@ -379,6 +384,21 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
             width: 100%;
             height: auto;
         }
+        &--size-xs {
+            padding-bottom: 35%;
+        }
+        &--size-s {
+            padding-bottom: 50%;
+        }
+        &--size-m {
+            padding-bottom: 75%; // default value; 
+        }
+        &--size-l {
+            padding-bottom: 100%; // default value; 
+        }
+        &--size-xl {
+            padding-bottom: 125%; // default value; 
+        }
     }
     .sd-card__file-type-icn {
         color: $white;
@@ -391,5 +411,24 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         margin: -2.6rem 0 0 -2.6rem;
         line-height: 5.2rem;
         opacity: 0.5;
+    }
+    .sd-card__thumbnail-heading {
+        font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+        font-weight: 700;
+        font-size: 2.1rem; 
+        z-index: 2;
+        text-align: center;
+        color: $white;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 120%;
+
     }
 }
