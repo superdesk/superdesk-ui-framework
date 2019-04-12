@@ -11778,6 +11778,9 @@ a.text-link {
     border-bottom: 1px solid rgba(123, 123, 123, 0.3); }
     .form__row--bordered:first-child, .form__row--bordered:only-child {
       border-top: 1px solid rgba(123, 123, 123, 0.3); }
+  .form__row--flex-NEW {
+    display: flex;
+    align-items: baseline; }
 
 .form__row--flex .sd-line-input {
   flex-grow: 1; }
@@ -11844,6 +11847,58 @@ a.text-link {
   font-size: 1.6rem;
   padding-bottom: 1.2rem;
   line-height: 120%; }
+
+.form__group {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: flex-start; }
+  .form__group--rows {
+    flex-direction: column; }
+
+.form__header {
+  margin-bottom: 1rem;
+  font-size: 1.6rem; }
+
+.form__label {
+  margin-bottom: 0.8rem; }
+
+.form__item {
+  flex: 1 1 0;
+  min-width: 12rem;
+  margin: 0 0.6rem 3rem; }
+  .form__item--auto-width {
+    flex-grow: 0;
+    min-width: 0;
+    flex-basis: auto; }
+  .form__item:first-child {
+    margin-left: 0; }
+  .form__item:last-child {
+    margin-right: 0; }
+
+.form__text-block {
+  min-height: 2.8rem;
+  margin-top: 1.6rem;
+  padding-top: 0.6rem;
+  color: inherit;
+  font-size: 1.3rem; }
+
+.form__item.form__item--auto-width .btn {
+  margin-top: 1.6rem; }
+
+.form__group.form__group--inline-label .sd-input {
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: auto auto auto; }
+  .form__group.form__group--inline-label .sd-input .sd-input__label {
+    grid-row: 2/3;
+    grid-column: 1/2;
+    padding: 1rem 1rem 0 0; }
+
+.form__group.form__group--inline-label .form__text-block {
+  margin-top: 0; }
+
+.form__group.form__group--inline-label .form__item.form__item--auto-width .btn {
+  margin-top: 0; }
 
 .form-label {
   display: inline-block;
@@ -12506,15 +12561,15 @@ a.text-link {
 [class*="dark-ui"] .sd-line-input.sd-line-input--is-select::after {
   border-top-color: #fff; }
 
-.sd-line-input-NEW {
+.sd-input {
   padding-top: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: 1fr auto;
-  grid-template-rows: auto auto auto;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1.6rem auto auto;
   grid-gap: 0;
   position: relative; }
-  .sd-line-input-NEW input.sd-line-input__input, .sd-line-input-NEW textarea.sd-line-input__input, .sd-line-input-NEW select.sd-line-input__input {
+  .sd-input input.sd-input__input, .sd-input textarea.sd-input__input, .sd-input select.sd-input__input {
     width: 100%;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -12527,37 +12582,49 @@ a.text-link {
     font-size: 1.4rem;
     height: 2.4rem;
     transition: border linear 0.2s, box-shadow linear 0.2s;
+    background-color: rgba(0, 0, 0, 0.05);
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    padding: 0 0.8rem;
+    height: 2.8rem;
+    border-radius: 2px 2px 0 0;
     grid-row: 2/3;
-    grid-column: 1/3; }
-    .sd-line-input-NEW input.sd-line-input__input:hover, .sd-line-input-NEW textarea.sd-line-input__input:hover, .sd-line-input-NEW select.sd-line-input__input:hover {
+    grid-column: 2/4; }
+    .sd-input input.sd-input__input:hover, .sd-input textarea.sd-input__input:hover, .sd-input select.sd-input__input:hover {
       border-color: rgba(0, 0, 0, 0.3);
       background-color: transparent; }
-    .sd-line-input-NEW input.sd-line-input__input:focus, .sd-line-input-NEW textarea.sd-line-input__input:focus, .sd-line-input-NEW select.sd-line-input__input:focus {
+    .sd-input input.sd-input__input:focus, .sd-input textarea.sd-input__input:focus, .sd-input select.sd-input__input:focus {
       box-shadow: 0 1px 0 0 #5ea9c8;
       border-color: #5ea9c8;
       background-color: transparent; }
-  .sd-line-input-NEW input[type="file"].sd-line-input__input {
+    .sd-input input.sd-input__input:hover, .sd-input textarea.sd-input__input:hover, .sd-input select.sd-input__input:hover {
+      background-color: rgba(0, 0, 0, 0.08); }
+    .sd-input input.sd-input__input:focus, .sd-input textarea.sd-input__input:focus, .sd-input select.sd-input__input:focus {
+      background-color: rgba(94, 169, 200, 0.14); }
+  .sd-input textarea.sd-input__input {
+    height: auto;
+    min-height: 2.8rem; }
+  .sd-input input[type="file"].sd-input__input {
     height: 3rem;
     padding-top: 0.6rem;
     font-size: 1.3rem; }
-    .sd-line-input-NEW input[type="file"].sd-line-input__input:focus {
+    .sd-input input[type="file"].sd-input__input:focus {
       outline: none; }
-  .sd-line-input-NEW select {
+  .sd-input select {
     cursor: pointer; }
-    .sd-line-input-NEW select.sd-line-input__select {
+    .sd-input select.sd-input__select {
       display: block;
       position: relative;
       z-index: 2; }
-      .sd-line-input-NEW select.sd-line-input__select option {
+      .sd-input select.sd-input__select option {
         color: #333;
         font-size: 1.4rem;
         line-height: 2rem; }
-  .sd-line-input-NEW .sd-line-input__message-box {
+  .sd-input .sd-input__message-box {
     grid-row: 3/4;
-    grid-column: 1/2; }
-  .sd-line-input-NEW .sd-line-input__hint,
-  .sd-line-input-NEW .sd-line-input__message,
-  .sd-line-input-NEW .sd-line-input__char-count {
+    grid-column: 2/3; }
+  .sd-input .sd-input__hint,
+  .sd-input .sd-input__message,
+  .sd-input .sd-input__char-count {
     font-size: 1.2rem;
     line-height: 1.4rem;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
@@ -12565,13 +12632,13 @@ a.text-link {
     font-weight: 300;
     margin: 0.5rem 0;
     letter-spacing: 0.03em; }
-  .sd-line-input-NEW .sd-line-input__char-count {
+  .sd-input .sd-input__char-count {
     font-size: 1.1rem;
     font-weight: 400;
     font-style: italic;
     grid-row: 3/4;
-    grid-column: 2/3; }
-  .sd-line-input-NEW .sd-line-input__label {
+    grid-column: 3/4; }
+  .sd-input .sd-input__label {
     display: inline-block;
     font-size: 1.1rem;
     margin: 0 0.5rem 0 0;
@@ -12581,12 +12648,12 @@ a.text-link {
     font-weight: 500;
     letter-spacing: 0.08em;
     position: relative;
-    min-height: 1.4rem;
+    min-height: 1.6rem;
     line-height: 100%;
     margin: 0;
     grid-row: 1/2;
-    grid-column: 1/3; }
-    .sd-line-input-NEW .sd-line-input__label--required::after {
+    grid-column: 2/4; }
+    .sd-input .sd-input__label--required::after {
       color: #E51C23;
       content: "*";
       vertical-align: top;

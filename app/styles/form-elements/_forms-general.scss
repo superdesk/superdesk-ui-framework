@@ -28,6 +28,10 @@
             border-top: 1px solid rgba(123, 123, 123, 0.3);
         }
     }
+    &--flex-NEW {
+        display: flex;
+        align-items: baseline;
+    }
 }
 
 .form__row--flex {
@@ -106,3 +110,107 @@
     padding-bottom: 1.2rem;
     line-height: 120%;
 }
+
+/// ---------------------------- NEW FORM LAYOUT ---------------------------- ///
+
+
+
+.form__group {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    align-items: flex-start;
+    &--rows {
+        flex-direction: column;
+    }
+}
+
+.form__header {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.form__label {
+    margin-bottom: 0.8rem;
+}
+
+.form__item {
+    flex: 1 1 0;
+    min-width: 12rem;
+    margin: 0 0.6rem 3rem;
+    &--auto-width {
+        flex-grow: 0;
+        min-width: 0;
+        flex-basis: auto;
+    }
+    &:first-child {
+        margin-left: 0;
+    }
+    &:last-child {
+        margin-right: 0;
+    }
+}
+
+.form__text-block {
+    min-height: 2.8rem;
+    margin-top: $form-label-height;
+    padding-top: 0.6rem;
+    color: inherit;
+    font-size: 1.3rem;
+}
+.form__item.form__item--auto-width {
+    .btn {
+        margin-top: $form-label-height;
+    }
+}
+
+.form__group.form__group--inline-label {
+    .sd-input {
+        grid-template-columns: auto 1fr auto;
+        grid-template-rows: auto auto auto;
+        .sd-input__label {
+            grid-row: 2/3;
+            grid-column: 1/2;
+            padding: 1rem 1rem 0 0;
+        }
+    }
+    .form__text-block {
+        margin-top: 0;
+    }
+    .form__item.form__item--auto-width {
+        .btn {
+            margin-top: 0;
+        }
+    }
+}
+
+
+
+// .form__row--flex-NEW {
+//     display: flex;
+//     display: flex;
+//     align-items: baseline;
+//     .form__row-item {
+//         flex: 1 1 auto;
+//         min-width: 12rem;
+//     }
+//     .form__row-item--button-only {
+//         flex-grow: 0;
+//         align-self: flex-start;
+//         margin-top: 1.4rem;
+//         min-width: 0;
+
+//     }
+//     .form__row-item--text-only {
+//         flex-grow: 0;
+//         align-self: flex-start;
+//         margin-top: 1.9rem;
+//         min-width: 0;
+//         hyphens: auto;
+//         hyphenate-limit-chars: 6 3 3;
+//         hyphenate-limit-lines: 2;
+//         hyphenate-limit-last: always;   
+//         hyphenate-limit-zone: 8%;
+//     }
+// }
+
