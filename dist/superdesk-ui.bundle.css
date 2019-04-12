@@ -8506,6 +8506,9 @@ a.text-link {
     a.text-link.text-link--white:active {
       color: white; }
 
+.text-link-group a.text-link {
+  margin: 0 .2rem; }
+
 .subnav--responsive .navbtn.navbtn--text-only {
   font-size: 1.4rem; }
 
@@ -8651,6 +8654,13 @@ a.text-link {
   flex-grow: 1;
   padding: 20px;
   overflow: auto; }
+  .sd-page__content--centered-dashboard {
+    display: flex;
+    flex-direction: column;
+    width: 100%; }
+    .sd-page__content--centered-dashboard .sd-grid-list {
+      width: 70%;
+      margin: 80px auto; }
 
 .sd-page__flex-helper {
   display: flex;
@@ -9446,7 +9456,8 @@ a.text-link {
   .sd-card .sd-card__thumbnail {
     width: 100%;
     position: relative;
-    height: 20rem;
+    height: 0;
+    padding-bottom: 75%;
     overflow: hidden;
     text-align: center; }
     .sd-card .sd-card__thumbnail img {
@@ -9457,7 +9468,11 @@ a.text-link {
     font-size: 5.2rem;
     height: 5.2rem;
     width: 5.2rem;
-    padding-top: 8.5rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -2.6rem 0 0 -2.6rem;
+    line-height: 5.2rem;
     opacity: 0.5; }
 
 .sd-grid-item {
@@ -9835,6 +9850,8 @@ a.text-link {
     margin: 1rem; }
   .sd-grid-list--no-margin {
     margin: 0; }
+  .sd-grid-list--auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr)); }
 
 .dark-ui.sd-column-box__main-column {
   background-color: #444; }

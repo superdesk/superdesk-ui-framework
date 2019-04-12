@@ -235,6 +235,11 @@ export default angular.module('ui-docs', [
             playground: 'main',
             templateUrl: '../examples/playgrounds/playground-5.html'
         })
+        .when('/playground/settings', {
+            title: 'Settings',
+            playground: 'main',
+            templateUrl: '../examples/playgrounds/settings.html'
+        })
         .when('/playground/photo-desk', {
             title: 'Photo Desk',
             playground: 'main',
