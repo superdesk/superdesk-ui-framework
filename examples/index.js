@@ -310,6 +310,11 @@ export default angular.module('ui-docs', [
             playground: 'main',
             templateUrl: '../examples/playgrounds/toasts.html'
         })
+        .when('/playground/form-layout', {
+            title: 'Form layout',
+            playground: 'main',
+            templateUrl: '../examples/playgrounds/form-layout.html'
+        })
         .when('/playground/publisher-website-settings', {
             title: 'Publisher Website Settings',
             playground: 'publisher',
