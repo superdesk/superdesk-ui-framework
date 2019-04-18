@@ -16,6 +16,7 @@ table {
         text-align: left;
         vertical-align: top;
         border-bottom: 1px solid $sd-tableBorderColor;
+        font-weight: 500;
     }
     tr:last-child {
         td {
@@ -36,5 +37,32 @@ table {
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
     border: none;
 }
+.sd-table {
+    td {
+        vertical-align: middle;
+    }
+    th {
+        vertical-align: top;
+    }
+}
+.sd-table--action-hover {
+    td .icn-btn {
+       visibility: hidden;
+    }
 
+    tr:hover td {
+        .icn-btn {
+            visibility: visible;
+        }
+    }
+}
+.sd-table-two-rows {
+    padding: 0.8rem;
+    vertical-align: middle;
+    display: flex;
+    flex-direction: column;
 
+    span + span {
+        margin-left: .6rem;
+    }
+}
