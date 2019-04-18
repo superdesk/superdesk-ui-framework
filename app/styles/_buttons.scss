@@ -645,6 +645,9 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       opacity: 1;
     }
   }
+  &--disabled {
+    opacity: $button-opacity-disabled;
+  }
   &--overlay {
     opacity: 0.90;
     background-color: rgba(35,35,35,0.3);
@@ -656,6 +659,14 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       opacity: 1;
       background-color: rgba(35,35,35,0.8);
     }
+  }
+  &--small {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1.25em;
+    width: 1.25em;
+    padding: 0;
   }
 }
 
