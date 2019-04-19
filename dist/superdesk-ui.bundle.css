@@ -805,6 +805,9 @@ time {
   font-weight: 500;
   font-size: 1.4rem; }
 
+.sd-text__normal {
+  font-weight: 400; }
+
 .sd-text__italic {
   font-style: italic; }
 
@@ -4829,7 +4832,7 @@ table {
   display: flex;
   flex-direction: column; }
   .sd-table-two-rows span + span {
-    margin-left: .6rem; }
+    margin-left: .4rem; }
 
 /* Thanks to Jase Smith - codepen.io/jasesmith */
 [sd-tooltip],
