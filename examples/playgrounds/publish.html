@@ -862,7 +862,7 @@
                     </ul>
                 </div>
                 <div sd-toggle-box data-title="Social media" data-open="true" data-style="circle">
-                    <div class="form__row">
+                    <!-- <div class="form__row">
                         <a ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" class="btn btn--hollow btn--ui-dark btn--expanded">Facebook</i></a>
                     </div>
                     <div class="form__row">
@@ -870,7 +870,46 @@
                     </div>
                     <div class="form__row">
                         <a ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" class="btn btn--hollow btn--ui-dark btn--expanded">SEO / Meta tags</i></a>
+                    </div> -->
+                    <div class="sd-list-item-group sd-shadow--z1">
+                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis">Facebook</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <i class="icon-chevron-right-thin"></i>
+                            </div>
+                        </div>
+                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis">Twitter</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <i class="icon-chevron-right-thin"></i>
+                            </div>
+                        </div>
+                    
+                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <i class="icon-chevron-right-thin"></i>
+                            </div>
+                        </div>
                     </div>
+
+
+
                 </div>
 
 
@@ -880,7 +919,7 @@
             <div class="side-panel__content-block-overlay" ng-class="{'side-panel__content-block-overlay--open' : $root.overlayPaneOpen}">
                     <div class="side-panel side-panel--transparent">
                         <div class="side-panel__header">
-                            <a class="icn-btn sd-margin-l--1" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen"><i class="icon-chevron-left-thin"></i></a>
+                            <a class="icn-btn sd-margin-l--1" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" sd-tooltip="Back" flow="right"><i class="icon-arrow-left"></i></a>
                             <h3 class="side-panel__heading side-panel__heading--big">Facebook</h3>
                         </div>
                         <div class="side-panel__content">

@@ -6,16 +6,17 @@
 @mixin Line-input-base {
     width: 100%;
     @include appearance-reset();
+    color: inherit;
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid $sd-inputBorderColor;
+    border-bottom: 1px solid var(--color-input-border);
     background-color: transparent;
     padding: 0;
     font-size: 1.4rem;
     height: 2.4rem;
     transition: border linear 0.2s, box-shadow linear 0.2s;
     &:hover {
-        border-color: rgba(0,0,0,0.3);
+        border-color: var(--color-input-border-hover);
         background-color: transparent;
     }
     &:focus {
@@ -44,7 +45,7 @@
     font-size: 1.1rem;
     margin: 0 0.5rem 0 0;
     line-height: 2.6rem;
-    color: $grayText;
+    color: var(--color-label-text);
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -699,6 +700,7 @@
     }
 }
 
+/////////////////  -------------------- NEW INPUTS ---------------------  /////////////////
 
 .sd-input {
     padding-top: 0;
@@ -712,7 +714,7 @@
     input, textarea, select {
         &.sd-input__input {
             @include Line-input-base;
-            background-color: rgba(0, 0, 0, 0.05);
+            background-color: var(--color-input-bg);
             transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
             padding: 0 0.8rem;
             height: $form-input-height;
@@ -720,10 +722,10 @@
             grid-row: 2/3;
             grid-column: 2/4;
             &:hover {
-                background-color: rgba(0, 0, 0, 0.08);
+                background-color: var(--color-input-bg--hover);
             }
             &:focus {
-                background-color: rgba(94, 169, 200, 0.14);
+                background-color: var(--color-input-bg--focus);
             }
         }
 
@@ -748,14 +750,54 @@
         &.sd-input__select {
             display: block;
             position: relative;
-            z-index: 2;
+            @include Line-input-base;
+            background-color: var(--color-input-bg);
+            transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+            padding: 0 0.8rem;
+            height: $form-input-height;
+            border-radius: 2px 2px 0 0;
+            grid-row: 2/3;
+            grid-column: 2/4;
+            &:hover {
+                background-color: var(--color-input-bg--hover);
+            }
+            &:focus {
+                background-color: var(--color-input-bg--focus);
+            }
             option {
-                color:$sd-text;
+                color:inherit;
                 font-size: 1.4rem;
                 line-height: 2rem;
             }
         }
         cursor: pointer;
+    }
+    &.sd-input--is-select {
+        &::after {
+            position: relative;
+            z-index: 1;
+            grid-row: 2/3;
+            grid-column: 2/4;
+            align-self: center;
+            justify-self: right;
+            display: inline-block;
+            width: 0;
+            height: 0;
+            margin-right: 1rem;
+            vertical-align: middle;
+            border-left: 0.4rem solid transparent;
+            border-right: 0.4rem solid transparent;
+            border-top: 0.4rem solid var(--color-text);
+            pointer-events: none;
+            @include opacity(40);
+            content: "";
+            z-index: 0;
+        }
+        &:hover {
+            &::after {
+                @include opacity(60);
+            }
+        }
     }
     .sd-input__message-box {
         grid-row: 3/4;
@@ -779,6 +821,9 @@
         font-style: italic;
         grid-row: 3/4;
         grid-column: 3/4;
+        &--error {
+            color: $red;
+        }
     }
     .sd-input__label {
         @include Form-label-base;
@@ -794,6 +839,83 @@
             vertical-align: top;
             font-size: 1.2rem;
             padding-left: 0.3rem;
+        }
+    }
+    &--invalid {
+        input, textarea {
+            &.sd-input__input {
+                background-color: rgba(229, 28, 38, 0.075);
+                border-color: $red;
+                &:hover {
+                    background-color: rgba(229, 28, 38, 0.12);
+                    border-color: $red;
+                }
+                &:focus {
+                    background-color: rgba(229, 28, 38, 0.16);
+                    border-color: $red;
+                    box-shadow: 0 1px 0 0 $red;
+                }
+            }
+        }
+        select {
+            &.sd-input__select {
+                background-color: rgba(229, 28, 38, 0.075);
+                border-color: $red;
+                &:hover {
+                    background-color: rgba(229, 28, 38, 0.12);
+                    border-color: $red;
+                }
+                &:focus {
+                    background-color: rgba(229, 28, 38, 0.16);
+                    border-color: $red;
+                    box-shadow: 0 1px 0 0 $red;
+                }
+            }
+        }
+        .sd-input__label, .sd-input__message {
+            color: $red;
+        }
+    }
+    &--required {
+        .sd-input__label::after  {
+            color:$red;
+            content: "*";
+            vertical-align: top;
+            font-size: 1.2rem;
+            padding-left: 0.3rem;
+        }
+    }
+    &--disabled {
+        input, textarea {
+            &.sd-input__input, &.sd-input__input:hover, &.sd-input__input:focus {
+                opacity: 0.5;
+                background-color: var(--color-input-bg);
+                border-bottom: 1px dotted var(--color-input-border);
+                cursor: not-allowed !important;
+                box-shadow: none;
+            }
+        }
+        select {
+            &.sd-input__select, &.sd-input__select:hover, &.sd-input__select:focus {
+                opacity: 0.5;
+                background-color: var(--color-input-bg);
+                border-bottom: 1px dotted var(--color-input-border);
+                cursor: not-allowed !important;
+                box-shadow: none;
+            }
+            &.sd-input__select:hover {
+                &::after {
+                    @include opacity(30);
+                }
+            }
+        }
+        .sd-input__label, .sd-input__message-box, .sd-input__char-count {
+            opacity: 0.5;
+        }
+        .sd-input__hint,
+        .sd-input__message,
+        .sd-input__char-count {
+            pointer-events: none;
         }
     }
 }
