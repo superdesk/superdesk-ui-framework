@@ -569,6 +569,26 @@
 .blue-grey--500 {
   background-color: #607D8B; }
 
+:root, [data-theme="light-ui"] {
+  --color-input-bg:           rgba(0,0,0,0.05);
+  --color-input-bg--hover:    rgba(0,0,0,0.08);
+  --color-input-bg--focus:    rgba(94, 169, 200, 0.14);
+  --color-label-text:         rgba(116,116,116,1);
+  --color-input-border:       rgba(0,0,0,.15);
+  --color-input-border-hover: rgba(0,0,0,.3);
+  --color-form-bg:            rgba(255,255,255,0);
+  --color-text:               #333; }
+
+[data-theme="dark-ui"] {
+  --color-input-bg:           rgba(255,255,255,0.05);
+  --color-input-bg--hover:    rgba(255,255,255,0.08);
+  --color-input-bg--focus:    rgba(94, 169, 200, 0.14);
+  --color-label-text:         rgba(255,255,255,0.5);
+  --color-input-border:       rgba(255,255,255,0.4);
+  --color-input-border-hover: rgba(255,255,255,0.6);
+  --color-form-bg:            #3b3b3b;
+  --color-text:               #fff; }
+
 /**
  * SD Reboot
  */
@@ -9210,7 +9230,7 @@ a.text-link {
 .sd-list-item-group--dark-ui .sd-shadow--z1,
 [class^="--dark-ui"] .sd-shadow--z1,
 [class*="--dark-ui"] .sd-shadow--z1 {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.36), 0 0 1px rgba(0, 0, 0, 0.8) !important; }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.26), 0 0 1px rgba(0, 0, 0, 0.3) !important; }
 
 .sd-list-item-group--dark-ui .sd-shadow--z2,
 [class^="--dark-ui"] .sd-shadow--z2,
@@ -11488,6 +11508,26 @@ a.text-link {
 .blue-grey--500 {
   background-color: #607D8B; }
 
+:root, [data-theme="light-ui"] {
+  --color-input-bg:           rgba(0,0,0,0.05);
+  --color-input-bg--hover:    rgba(0,0,0,0.08);
+  --color-input-bg--focus:    rgba(94, 169, 200, 0.14);
+  --color-label-text:         rgba(116,116,116,1);
+  --color-input-border:       rgba(0,0,0,.15);
+  --color-input-border-hover: rgba(0,0,0,.3);
+  --color-form-bg:            rgba(255,255,255,0);
+  --color-text:               #333; }
+
+[data-theme="dark-ui"] {
+  --color-input-bg:           rgba(255,255,255,0.05);
+  --color-input-bg--hover:    rgba(255,255,255,0.08);
+  --color-input-bg--focus:    rgba(94, 169, 200, 0.14);
+  --color-label-text:         rgba(255,255,255,0.5);
+  --color-input-border:       rgba(255,255,255,0.4);
+  --color-input-border-hover: rgba(255,255,255,0.6);
+  --color-form-bg:            #3b3b3b;
+  --color-text:               #fff; }
+
 .progress-bar-container {
   display: inline-block;
   position: relative; }
@@ -11937,12 +11977,16 @@ a.text-link {
 .form__group.form__group--inline-label .form__item.form__item--auto-width .btn {
   margin-top: 0; }
 
+.sd-form-element {
+  background-color: var(--color-form-bg);
+  color: var(--color-text); }
+
 .form-label {
   display: inline-block;
   font-size: 1.1rem;
   margin: 0 0.5rem 0 0;
   line-height: 2.6rem;
-  color: #747474;
+  color: var(--color-label-text);
   text-transform: uppercase;
   font-weight: 500;
   letter-spacing: 0.08em;
@@ -11993,16 +12037,17 @@ a.text-link {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    color: inherit;
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--color-input-border);
     background-color: transparent;
     padding: 0;
     font-size: 1.4rem;
     height: 2.4rem;
     transition: border linear 0.2s, box-shadow linear 0.2s; }
     .sd-line-input input.sd-line-input__input:hover, .sd-line-input textarea.sd-line-input__input:hover {
-      border-color: rgba(0, 0, 0, 0.3);
+      border-color: var(--color-input-border-hover);
       background-color: transparent; }
     .sd-line-input input.sd-line-input__input:focus, .sd-line-input textarea.sd-line-input__input:focus {
       box-shadow: 0 1px 0 0 #5ea9c8;
@@ -12015,9 +12060,10 @@ a.text-link {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    color: inherit;
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--color-input-border);
     background-color: transparent;
     padding: 0;
     font-size: 1.4rem;
@@ -12028,7 +12074,7 @@ a.text-link {
     border: none;
     outline: none; }
     .sd-line-input input.sd-line-input__color:hover, .sd-line-input textarea.sd-line-input__color:hover {
-      border-color: rgba(0, 0, 0, 0.3);
+      border-color: var(--color-input-border-hover);
       background-color: transparent; }
     .sd-line-input input.sd-line-input__color:focus, .sd-line-input textarea.sd-line-input__color:focus {
       box-shadow: 0 1px 0 0 #5ea9c8;
@@ -12053,9 +12099,10 @@ a.text-link {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+      color: inherit;
       border-radius: 0;
       border: 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid var(--color-input-border);
       background-color: transparent;
       padding: 0;
       font-size: 1.4rem;
@@ -12065,7 +12112,7 @@ a.text-link {
       position: relative;
       z-index: 2; }
       .sd-line-input select.sd-line-input__select:hover {
-        border-color: rgba(0, 0, 0, 0.3);
+        border-color: var(--color-input-border-hover);
         background-color: transparent; }
       .sd-line-input select.sd-line-input__select:focus {
         box-shadow: 0 1px 0 0 #5ea9c8;
@@ -12103,9 +12150,10 @@ a.text-link {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+      color: inherit;
       border-radius: 0;
       border: 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid var(--color-input-border);
       background-color: transparent;
       padding: 0;
       font-size: 1.4rem;
@@ -12117,7 +12165,7 @@ a.text-link {
       height: 3.2rem;
       transition: border linear 0.2s, box-shadow linear 0.2s, background-color linear 0.2s; }
       .sd-line-input--boxed input.sd-line-input__input:hover, .sd-line-input--boxed textarea.sd-line-input__input:hover {
-        border-color: rgba(0, 0, 0, 0.3);
+        border-color: var(--color-input-border-hover);
         background-color: transparent; }
       .sd-line-input--boxed input.sd-line-input__input:focus, .sd-line-input--boxed textarea.sd-line-input__input:focus {
         box-shadow: 0 1px 0 0 #5ea9c8;
@@ -12134,9 +12182,10 @@ a.text-link {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
+      color: inherit;
       border-radius: 0;
       border: 0;
-      border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+      border-bottom: 1px solid var(--color-input-border);
       background-color: transparent;
       padding: 0;
       font-size: 1.4rem;
@@ -12148,7 +12197,7 @@ a.text-link {
       height: 3.2rem;
       transition: border linear 0.2s, box-shadow linear 0.2s, background-color linear 0.2s; }
       .sd-line-input--boxed select.sd-line-input__select:hover {
-        border-color: rgba(0, 0, 0, 0.3);
+        border-color: var(--color-input-border-hover);
         background-color: transparent; }
       .sd-line-input--boxed select.sd-line-input__select:focus {
         box-shadow: 0 1px 0 0 #5ea9c8;
@@ -12179,7 +12228,7 @@ a.text-link {
     font-size: 1.1rem;
     margin: 0 0.5rem 0 0;
     line-height: 2.6rem;
-    color: #747474;
+    color: var(--color-label-text);
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -12611,15 +12660,16 @@ a.text-link {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    color: inherit;
     border-radius: 0;
     border: 0;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--color-input-border);
     background-color: transparent;
     padding: 0;
     font-size: 1.4rem;
     height: 2.4rem;
     transition: border linear 0.2s, box-shadow linear 0.2s;
-    background-color: rgba(0, 0, 0, 0.05);
+    background-color: var(--color-input-bg);
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     padding: 0 0.8rem;
     height: 2.8rem;
@@ -12627,16 +12677,16 @@ a.text-link {
     grid-row: 2/3;
     grid-column: 2/4; }
     .sd-input input.sd-input__input:hover, .sd-input textarea.sd-input__input:hover, .sd-input select.sd-input__input:hover {
-      border-color: rgba(0, 0, 0, 0.3);
+      border-color: var(--color-input-border-hover);
       background-color: transparent; }
     .sd-input input.sd-input__input:focus, .sd-input textarea.sd-input__input:focus, .sd-input select.sd-input__input:focus {
       box-shadow: 0 1px 0 0 #5ea9c8;
       border-color: #5ea9c8;
       background-color: transparent; }
     .sd-input input.sd-input__input:hover, .sd-input textarea.sd-input__input:hover, .sd-input select.sd-input__input:hover {
-      background-color: rgba(0, 0, 0, 0.08); }
+      background-color: var(--color-input-bg--hover); }
     .sd-input input.sd-input__input:focus, .sd-input textarea.sd-input__input:focus, .sd-input select.sd-input__input:focus {
-      background-color: rgba(94, 169, 200, 0.14); }
+      background-color: var(--color-input-bg--focus); }
   .sd-input textarea.sd-input__input {
     height: auto;
     min-height: 2.8rem; }
@@ -12651,11 +12701,64 @@ a.text-link {
     .sd-input select.sd-input__select {
       display: block;
       position: relative;
-      z-index: 2; }
+      width: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      color: inherit;
+      border-radius: 0;
+      border: 0;
+      border-bottom: 1px solid var(--color-input-border);
+      background-color: transparent;
+      padding: 0;
+      font-size: 1.4rem;
+      height: 2.4rem;
+      transition: border linear 0.2s, box-shadow linear 0.2s;
+      background-color: var(--color-input-bg);
+      transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+      padding: 0 0.8rem;
+      height: 2.8rem;
+      border-radius: 2px 2px 0 0;
+      grid-row: 2/3;
+      grid-column: 2/4; }
+      .sd-input select.sd-input__select:hover {
+        border-color: var(--color-input-border-hover);
+        background-color: transparent; }
+      .sd-input select.sd-input__select:focus {
+        box-shadow: 0 1px 0 0 #5ea9c8;
+        border-color: #5ea9c8;
+        background-color: transparent; }
+      .sd-input select.sd-input__select:hover {
+        background-color: var(--color-input-bg--hover); }
+      .sd-input select.sd-input__select:focus {
+        background-color: var(--color-input-bg--focus); }
       .sd-input select.sd-input__select option {
-        color: #333;
+        color: inherit;
         font-size: 1.4rem;
         line-height: 2rem; }
+  .sd-input.sd-input--is-select::after {
+    position: relative;
+    z-index: 1;
+    grid-row: 2/3;
+    grid-column: 2/4;
+    align-self: center;
+    justify-self: right;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-right: 1rem;
+    vertical-align: middle;
+    border-left: 0.4rem solid transparent;
+    border-right: 0.4rem solid transparent;
+    border-top: 0.4rem solid var(--color-text);
+    pointer-events: none;
+    opacity: 0.4;
+    filter: "alpha(opacity=40)";
+    content: "";
+    z-index: 0; }
+  .sd-input.sd-input--is-select:hover::after {
+    opacity: 0.6;
+    filter: "alpha(opacity=60)"; }
   .sd-input .sd-input__message-box {
     grid-row: 3/4;
     grid-column: 2/3; }
@@ -12675,12 +12778,14 @@ a.text-link {
     font-style: italic;
     grid-row: 3/4;
     grid-column: 3/4; }
+    .sd-input .sd-input__char-count--error {
+      color: #E51C23; }
   .sd-input .sd-input__label {
     display: inline-block;
     font-size: 1.1rem;
     margin: 0 0.5rem 0 0;
     line-height: 2.6rem;
-    color: #747474;
+    color: var(--color-label-text);
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -12696,6 +12801,55 @@ a.text-link {
       vertical-align: top;
       font-size: 1.2rem;
       padding-left: 0.3rem; }
+  .sd-input--invalid input.sd-input__input, .sd-input--invalid textarea.sd-input__input {
+    background-color: rgba(229, 28, 38, 0.075);
+    border-color: #E51C23; }
+    .sd-input--invalid input.sd-input__input:hover, .sd-input--invalid textarea.sd-input__input:hover {
+      background-color: rgba(229, 28, 38, 0.12);
+      border-color: #E51C23; }
+    .sd-input--invalid input.sd-input__input:focus, .sd-input--invalid textarea.sd-input__input:focus {
+      background-color: rgba(229, 28, 38, 0.16);
+      border-color: #E51C23;
+      box-shadow: 0 1px 0 0 #E51C23; }
+  .sd-input--invalid select.sd-input__select {
+    background-color: rgba(229, 28, 38, 0.075);
+    border-color: #E51C23; }
+    .sd-input--invalid select.sd-input__select:hover {
+      background-color: rgba(229, 28, 38, 0.12);
+      border-color: #E51C23; }
+    .sd-input--invalid select.sd-input__select:focus {
+      background-color: rgba(229, 28, 38, 0.16);
+      border-color: #E51C23;
+      box-shadow: 0 1px 0 0 #E51C23; }
+  .sd-input--invalid .sd-input__label, .sd-input--invalid .sd-input__message {
+    color: #E51C23; }
+  .sd-input--required .sd-input__label::after {
+    color: #E51C23;
+    content: "*";
+    vertical-align: top;
+    font-size: 1.2rem;
+    padding-left: 0.3rem; }
+  .sd-input--disabled input.sd-input__input, .sd-input--disabled input.sd-input__input:hover, .sd-input--disabled input.sd-input__input:focus, .sd-input--disabled textarea.sd-input__input, .sd-input--disabled textarea.sd-input__input:hover, .sd-input--disabled textarea.sd-input__input:focus {
+    opacity: 0.5;
+    background-color: var(--color-input-bg);
+    border-bottom: 1px dotted var(--color-input-border);
+    cursor: not-allowed !important;
+    box-shadow: none; }
+  .sd-input--disabled select.sd-input__select, .sd-input--disabled select.sd-input__select:hover, .sd-input--disabled select.sd-input__select:focus {
+    opacity: 0.5;
+    background-color: var(--color-input-bg);
+    border-bottom: 1px dotted var(--color-input-border);
+    cursor: not-allowed !important;
+    box-shadow: none; }
+  .sd-input--disabled select.sd-input__select:hover::after {
+    opacity: 0.3;
+    filter: "alpha(opacity=30)"; }
+  .sd-input--disabled .sd-input__label, .sd-input--disabled .sd-input__message-box, .sd-input--disabled .sd-input__char-count {
+    opacity: 0.5; }
+  .sd-input--disabled .sd-input__hint,
+  .sd-input--disabled .sd-input__message,
+  .sd-input--disabled .sd-input__char-count {
+    pointer-events: none; }
 
 .sd-toggle {
   display: inline-block;

@@ -2,21 +2,22 @@
     <a class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
     <p class="sd-top-menu__header">Forms</p>
 </header>
-<main class="sd-page">
-    <section class="sd-page__main-content" ng-class="{'dark-ui': darkUI}">
-        <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+<main class="sd-page" ng-init="darkTheme = false" data-theme="{{darkTheme ? 'dark-ui' : 'light-ui'}}">
+    <section class="sd-page__main-content" ng-class="{'dark-ui': darkTheme == true}">
+        <div class="subnav" ng-class="{'subnav--dark-ui': darkTheme == true}">
             <h3 class="subnav__page-title">Form layout</h3>
             <span class="label label--large label--warning label--no-transform sd-margin-r--2">Work in progress!</span>
-            <button class="navbtn" ng-click="darkUI = !darkUI">
-                <i class="icon-adjust"></i>
-            </button>
+            <span sd-tooltip="Dark mode" flow="left">
+                <span sd-switch ng-model="darkTheme" class="sd-margin-r--2"></span>
+            </span>
         </div>
         <div class="sd-page__content">
-            <div style="width: 70%; margin: 100px auto; padding: 30px; max-width: 900px;" class="docs-page__code-window">
+            
+            <div style="width: 70%; margin: 100px auto; max-width: 900px;" class="docs-page__code-window">
 
-                <div class="sd-form-element">
+                <div class="sd-form-element" style="padding: 30px;" data-theme="{{darkTheme ? 'dark-ui' : 'ligh-ui'}}">
                     <div class="form__item">
-                        <div class="sd-input sd-input--boxed">
+                        <div class="sd-input">
                             <label class="sd-input__label">input field label 1</label>
                             <input class="sd-input__input" type="text">
                             <div class="sd-input__char-count">00/90</div>
@@ -28,7 +29,7 @@
 
                     <div class="form__group">
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input">
                                 <label class="sd-input__label">input field label 1</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__char-count">00/90</div>
@@ -38,18 +39,18 @@
                             </div>
                         </div>
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input sd-input--invalid">
                                 <label class="sd-input__label">label 2</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__message-box">
-                                    <div class="sd-input__hint">Hendrerit in vulputate.</div>
+                                    <div class="sd-input__message">Error hendrerit in vulputate.</div>
                                 </div>
                             </div>
                         </div>
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input sd-input--disabled">
                                 <label class="sd-input__label">input label 3</label>
-                                <input class="sd-input__input" type="text">
+                                <input class="sd-input__input" type="text" disabled>
                                 <div class="sd-input__char-count">00/90</div>
                                 <div class="sd-input__message-box">
                                     <div class="sd-input__hint">Hendrerit in vulputate.</div>
@@ -60,7 +61,7 @@
 
                     <div class="form__group">
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input">
                                 <label class="sd-input__label">input field label 1</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__char-count">00/90</div>
@@ -71,7 +72,7 @@
                         </div>
 
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input sd-input--required ">
                                 <label class="sd-input__label">input label 3</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__char-count">00/90</div>
@@ -90,7 +91,7 @@
                         </div>
 
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input">
                                 <label class="sd-input__label">Label</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__char-count">00/90</div>
@@ -107,7 +108,7 @@
                         </div>
 
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input">
                                 <label class="sd-input__label">Label</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__message-box">
@@ -124,10 +125,14 @@
 
                     <div class="form__group">
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
-                                <label class="sd-input__label">Label</label>
-                                <input class="sd-input__input" type="text">
-                                <div class="sd-input__char-count">00/90</div>
+                            <div class="sd-input sd-input--is-select ">
+                                <label class="sd-input__label">City</label>
+                                <select class="sd-input__select" type="text">
+                                    <option value="">Select your city</option>
+                                    <option value="prague">Prague</option>
+                                    <option value="belgrade">Belgrade</option>
+                                    <option value="berlin">Berlin</option>
+                                </select>
                                 <div class="sd-input__message-box">
                                     <div class="sd-input__hint">Nulla vitae elit libero, a pharetra augue.</div>
                                 </div>
@@ -136,7 +141,7 @@
 
 
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input">
                                 <label class="sd-input__label">Label</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__message-box">
@@ -152,7 +157,7 @@
 
                     <div class="form__group form__group--inline-label">
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input">
                                 <label class="sd-input__label">Label</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__char-count">00/90</div>
@@ -162,7 +167,7 @@
 
 
                         <div class="form__item">
-                            <div class="sd-input sd-input--boxed">
+                            <div class="sd-input">
                                 <label class="sd-input__label">Label</label>
                                 <input class="sd-input__input" type="text">
                                 <div class="sd-input__message-box"></div>
@@ -173,54 +178,7 @@
                             <a class="btn btn--primary">Primary</a>
                         </div>
                     </div>
-
                 </div>
-
-                <!-- <div class="form__row form__row--flex form__row--flex-NEW">
-                    <div class="form__row-item">
-                        <div class="sd-input sd-input--boxed">
-                            <label class="sd-input__label">input field label</label>
-                            <input class="sd-input__input" type="text">
-                            <div class="sd-input__char-count">00/90</div>
-                            <div class="sd-input__message-box">
-                                <div class="sd-input__hint">Hendrerit in vulputate.</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form__row-item form__row-item--no-grow form__row-item--text-only">
-                        <span>Duis autem vel dolor.</span>
-                    </div>
-
-                    <div class="form__row-item">
-                        <div class="sd-input sd-input--boxed">
-                            <label class="sd-input__label">Fild label</label>
-                            <input class="sd-input__input" type="text">
-                            <div class="sd-input__message-box">
-                                <div class="sd-input__message">Hendrerit in vulputate.</div>
-                                <div class="sd-input__message">Vulputate.</div>
-                                <div class="sd-input__message">In vulputate.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form__row-item form__row-item--no-grow form__row-item--button-only">
-                        <a class="btn">Submit</a>
-                    </div>
-                </div> -->
-
-                <!-- <div class="form__row form__row--flex form__row--flex-NEW">
-                    <div class="form__row-item">
-                        <div class="sd-input sd-input--boxed">
-                            <label class="sd-input__label">input field label</label>
-                            <input class="sd-input__input" type="text">
-                            <div class="sd-input__char-count">00/90</div>
-                            <div class="sd-input__message-box">
-                                <div class="sd-input__hint">Hendrerit in vulputate.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-
             </div>
         </div>
     </section>
