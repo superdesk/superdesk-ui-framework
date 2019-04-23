@@ -616,7 +616,7 @@
             </div>
         </div>
         <!-- Publish Tab -->
-        <div class="side-panel__content side-panel__content--split" ng-if="tab === 'publish'">
+        <div class="side-panel__content side-panel__content--split overflow-x-hidden" ng-if="tab === 'publish'">
             <!-- LEFT pane -->
             <div class="side-panel__content-block side-panel__content-block--left">
                 <div sd-toggle-box data-title="Publish from" data-style="circle" data-open="true">
@@ -917,7 +917,7 @@
 
             <!-- Social media overlay -->
             <div class="side-panel__content-block-overlay" ng-class="{'side-panel__content-block-overlay--open' : $root.overlayPaneOpen}">
-                    <div class="side-panel side-panel--transparent">
+                    <div class="side-panel">
                         <div class="side-panel__header">
                             <a class="icn-btn sd-margin-l--1" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" sd-tooltip="Back" flow="right"><i class="icon-arrow-left"></i></a>
                             <h3 class="side-panel__heading side-panel__heading--big">Facebook</h3>
@@ -1008,6 +1008,7 @@
             <button class="btn btn--large btn--primary btn--expanded">Send</button>
         </div>
         <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="tab === 'publish'">
+            <button class="btn btn--large btn--primary btn--hollow btn--expanded btn--ui-dark" disabled="disabled">publish from</button>
             <button class="btn btn--large btn--highlight btn--expanded">Publish</button>
         </div>
     </div>  
