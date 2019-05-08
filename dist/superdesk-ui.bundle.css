@@ -5924,6 +5924,13 @@ tags-input {
       justify-content: space-between; }
     .side-panel .side-panel__content-block .side-panel__heading {
       padding: 0; }
+    .side-panel .side-panel__content-block--overlay-panel-inside {
+      display: grid;
+      grid-template-columns: 1fr;
+      padding: 0;
+      overflow-x: hidden; }
+      .side-panel .side-panel__content-block--overlay-panel-inside > div {
+        padding: 2rem; }
   .side-panel .side-panel-collapsible-header {
     position: relative;
     padding: .8rem 2rem;
@@ -5991,7 +5998,8 @@ tags-input {
     grid-column: 3/4;
     grid-row: 1/2;
     overflow: hidden;
-    width: 0; }
+    width: 0;
+    padding: 0 !important; }
     .side-panel .side-panel__content-block-overlay .side-panel {
       opacity: 0;
       transition: all 0.2s ease-in-out;
