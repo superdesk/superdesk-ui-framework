@@ -190,6 +190,12 @@ $baseColors: (
 
   --color-form-bg:            rgba(255,255,255,0);
   --color-text:               #333;
+
+  --color-contrast-bg:        #fff;
+  --color-contrast-bg--hover: #f4f4f4;
+
+  --color-selected-bg:        #eaf2f5;
+  --color-selected-bg--hover: #dfebf0;
 }
 
 // CSS variables for dark theme
@@ -203,5 +209,11 @@ $baseColors: (
   --color-input-border-hover: rgba(255,255,255,0.6);
 
   --color-form-bg:            #3b3b3b;
-  --color-text:               #fff;
+  --color-text:               #f4f4f4;
+
+  --color-contrast-bg:        #333;
+  --color-contrast-bg--hover: #383838;
+  
+  --color-selected-bg:        #35393b;
+  --color-selected-bg--hover: #3b4246;
 }

@@ -1,0 +1,166 @@
+// Boxed lists
+// Simpler version of the list item.
+// ---------------------------------------------
+
+$boxed-list-palette: $sd-basic-palette;
+
+.boxed-list__item {
+    display: grid;
+    grid-template-rows: [mainRow] 1fr [footerRow] auto;
+    grid-template-columns: [mediaCol] auto [contentCol] 1fr [actionsVisible] auto [actionsHidden] auto;
+    position: relative;
+    flex-direction: row;
+    min-height: 3.2rem;
+    border-radius: 3px;
+    margin-bottom: 0.8rem;
+    padding: 1rem;
+    background-color: var(--color-contrast-bg);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.1);
+    transition: all 0.2s ease-in-out;
+    @each $name, $color in $boxed-list-palette {
+        &.boxed-list__item--#{$name} {
+            &::before {
+                content: "";
+                width: 4px;
+                height: 100%;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                background-color: $color;
+                z-index: 1;
+                border-radius: 3px 0 0 3px;
+            }
+        }
+    }
+    &--selcted {
+        box-shadow: inset 0 0 0 1px rgba(94, 169, 197, 0.6), 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.1);
+        background-color: var(--color-selected-bg);
+    }
+    &--clickable {
+        &:hover {
+            cursor: pointer;
+            background-color: var(--color-contrast-bg--hover);
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.24), 0 0 1px rgba(0, 0, 0, 0.2), 0 0 4px rgba(0,0,0,0.2);
+        }
+    }
+    &--blank {
+        background-color: transparent !important;
+        box-shadow: none;
+    }
+    &.boxed-list__item--selcted.boxed-list__item--clickable {
+        &:hover {
+            box-shadow: inset 0 0 0 1px rgba(94, 169, 197, 0.75), 0 1px 4px rgba(0, 0, 0, 0.24), 0 0 1px rgba(0, 0, 0, 0.2);
+            background-color: var(--color-selected-bg--hover);
+        }
+    }
+    &:hover {
+        .boxed-list__slide-in-actions {
+            padding-left: 0.6rem;
+            width: auto;
+            max-width: 32px;
+            overflow: visible;
+            opacity: 1;
+            transition: all ease-in 0.1s;
+            .icn-btn {
+                opacity: 0.4;
+                &:hover {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+}
+
+.boxed-list__item-media {
+    grid-column: mediaCol;
+    grid-row: mainRow;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0.2rem 0 0.4rem;
+    flex: 0 1 auto;
+    [class^="icon-"],
+    [class*="icon-"],
+    [class^="big-icon--"],
+    [class*=" big-icon--"] {
+        color: var(--color-text);
+        opacity: 0.5;
+    }
+}
+
+.boxed-list__item-content {
+    grid-column: contentCol;
+    grid-row: mainRow;
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem 0 1rem;
+    overflow: hidden;
+    position: relative;
+    &--centered {
+        align-items: center;
+        justify-content: center;
+    }
+}
+.boxed-list__item-content-row {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    &--fixed {
+        align-items: baseline;
+        white-space: nowrap;
+    }
+}
+.boxed-list__item-footer {
+    grid-column: 1/-1;
+    grid-row: footerRow;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0 1rem 0 1rem;
+    margin-top: 1rem;
+    &--allign-baseline {
+        align-items: baseline;
+    }
+}
+
+.boxed-list__item-content-row + .boxed-list__item-content-row  {
+    margin-top: 0.6rem;
+}
+
+.boxed-list__slide-in-actions,
+.boxed-list__static-actions {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    flex-grow: 0;
+    .icn-btn {
+        margin: -0.6rem -0.6rem 0.4rem 0;
+    }
+}
+
+.boxed-list__slide-in-actions {
+    grid-column: actionsHidden;
+    grid-row: mainRow;
+    width: 0;
+    max-width: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: all ease-in-out 0.2s;
+    .icn-btn {
+        flex: 0 0 auto;
+        opacity: 0;
+        transition: all ease-in-out 0.2s;
+    }
+}
+
+.boxed-list__static-actions {
+    grid-column: actionsVisible;
+    grid-row: mainRow;
+    .icn-btn {
+        opacity: 0.4;
+        &:hover {
+            opacity: 1;
+        }
+    }
+}

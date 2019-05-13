@@ -21,7 +21,6 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
 
 // Mixins
 @mixin nav-tabs-base {
-    @include clearfix();
     height: $nav-height;
     display: flex;
     flex-shrink: 0;
@@ -32,7 +31,6 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
      $link-color: $nav-tab-link-color,
      $border-bottom-hover-color: $nav-tab-link-border-color
 ) {
-    display: block;
     margin: $nav-tabs-margin;
     padding: $nav-tabs-padding;
     height: $nav-height;
@@ -43,6 +41,7 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
     border:0;
     border-bottom: 3px solid transparent;
     text-decoration: none;
+    @include text-overflow();
     &:hover {
         border-bottom-color: $border-bottom-hover-color;
         background: none;
@@ -65,10 +64,13 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
     // single tab
     &__tab {
         margin-bottom: -1px;
-
+        @include text-overflow();
+        display: flex;
+        flex-shrink: 1;
         // active state
         &--active,
         &--active:hover {
+            flex-shrink: 0;
             .nav-tabs__link {
                 @include nav-tab-link-active();
             }

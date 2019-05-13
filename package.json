@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "1.8.13",
+  "version": "1.8.14",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -14,7 +14,7 @@
     "Vladimir Stefanovic",
     "Darko Tomic",
     "Aleksandar Jelicic",
-    "Aleksandar Jovanovic"
+    "Tomas Kikutis"
   ],
   "devDependencies": {
     "angular": "^1.6.6",
