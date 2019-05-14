@@ -1,0 +1,164 @@
+<header class="sd-top-menu">
+    <a class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+    <p class="sd-top-menu__header">Boxed list</p>
+</header>
+<main class="sd-page" ng-init="darkTheme = false" data-theme="{{darkTheme ? 'dark-ui' : 'light-ui'}}">
+    <section class="sd-page__main-content" ng-class="{'dark-ui': darkTheme == true}">
+        <div class="subnav" ng-class="{'subnav--dark-ui': darkTheme == true}">
+            <h3 class="subnav__page-title">Boxed list</h3>
+            <span class="label label--large label--warning label--no-transform sd-margin-r--2">Work in progress!</span>
+            <span sd-tooltip="Dark mode" flow="left">
+                <span sd-switch ng-model="darkTheme" class="sd-margin-r--2"></span>
+            </span>
+        </div>
+        <div class="sd-page__content">
+            
+            <div style="width: 70%; margin: 100px auto; max-width: 400px; padding: 20px;" class="docs-page__code-window">
+                <ul class="boxed-list">
+                    <li class="boxed-list__item boxed-list__item--clickable">
+                        <div class="boxed-list__item-media">
+                            <figure class="avatar sd-margin-all--0 deep-orange--600">vs</figure>
+                        </div>
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row">
+                                <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum.</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="boxed-list__item boxed-list__item--success">
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row">
+                                <span>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum.</span>
+                            </div>
+                        </div>
+                        <div class="boxed-list__static-actions">
+                            <button class="icn-btn"><i class="icon-dots-vertical"></i></button>
+                        </div>
+                    </li>
+                    <li class="boxed-list__item">
+                        <div class="boxed-list__item-media">
+                            <figure class="avatar sd-margin-all--0">rb</figure>
+                        </div>
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row">
+                                <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam. Donec ullamcorper nulla non metus auctor fringilla</span>
+                            </div>
+                        </div>
+                        <div class="boxed-list__item-footer">
+                            <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum.</span>
+                        </div>
+                        <div class="boxed-list__static-actions">
+                            <button class="icn-btn"><i class="icon-dots-vertical"></i></button>
+                        </div>
+                    </li>
+                    <li class="boxed-list__item boxed-list__item--warning">
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row">
+                                <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam.</span>
+                            </div>
+                            <div class="boxed-list__item-content-row">
+                                <span>Maecenas faucibus mollis interdum.</span>
+                            </div>
+                        </div>
+                        <div class="boxed-list__slide-in-actions">
+                            <button class="icn-btn"><i class="icon-dots-vertical"></i></button>
+                        </div>
+                    </li>
+                    <li class="boxed-list__item">
+                        <div class="boxed-list__item-media">
+                            <i class="icon-slideshow icon--2x"></i>
+                        </div>
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row">
+                                <span class="sd-text__strong sd-overflow-ellipsis">Pellentesque ornare lacinia</span>
+                                <span class="label label--success ml-auto">success</span>
+                            </div>
+                            <div class="boxed-list__item-content-row">
+                                <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam.</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="boxed-list__item boxed-list__item--selcted boxed-list__item--clickable">
+                        <div class="boxed-list__item-media">
+                            <figure class="avatar sd-margin-all--0 pink--600">mm</figure>
+                        </div>
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                                <span class="sd-text__strong sd-overflow-ellipsis">Max Mustermann</span>
+                                <time class="sd-text__date-time sd-text__date-time--small ml-auto">25.04.2019</time>
+                            </div>
+                            <div class="boxed-list__item-content-row">
+                                <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam.</span>
+                            </div>
+                        </div>
+                        <div class="boxed-list__static-actions">
+                            <button class="icn-btn"><i class="icon-dots-vertical"></i></button>
+                        </div>
+                    </li>
+                    <li class="boxed-list__item boxed-list__item--clickable">
+                        <div class="boxed-list__item-media">
+                            <i class="icon-composite icon--2x"></i>
+                        </div>
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row">
+                                <span class="sd-text__strong-s">Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum.</span>
+                            </div>
+                        </div>
+                        <div class="boxed-list__static-actions">
+                            <button class="icn-btn"><i class="icon-pencil"></i></button>
+                        </div>
+                    </li>
+                    <li class="boxed-list__item">
+                        <div class="boxed-list__item-media">
+                            <figure class="avatar sd-margin-all--0 light-green--600">jd</figure>
+                        </div>
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                                <span class="sd-text__strong sd-overflow-ellipsis">Jane Doe</span>
+                                <time class="sd-text__date-time sd-text__date-time--small ml-auto">25.04.2019</time>
+                            </div>
+                            <div class="boxed-list__item-content-row">
+                                <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam.</span>
+                            </div>
+                        </div>
+                        <div class="boxed-list__static-actions">
+                            <button class="icn-btn"><i class="icon-dots-vertical"></i></button>
+                        </div>
+                    </li>
+                    <li class="boxed-list__item">
+                        <div class="boxed-list__item-content">
+                            <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                                <time class="sd-text__date-time sd-text__date-time--small">25.04.2019</time>
+                                <span class="ml-auto">by Jane Doe</span>
+                            </div>
+                            <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                                <span class="sd-text__strong sd-overflow-ellipsis">Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum. Aenean eu leo quam.</span>
+                            </div>
+                            <div class="boxed-list__item-content-row">
+                                <span><span class="sd-text__italic">desk:</span> National</span> <span class="ml-auto"><span class="sd-text__italic">stage:</span> Working</span>
+                            </div>
+                        </div>
+                        <div class="boxed-list__item-footer">
+                            <span class="sd-text__italic sd-padding-r--1">version: 25</span> <span class="label label--yellow2 label--hollow">in progress</span> <button class="btn btn--small btn--hollow ml-auto">revert</button>
+                        </div>
+
+                    </li>
+                    <li class="boxed-list__item boxed-list__item--blank">
+                        <div class="boxed-list__item-content boxed-list__item-content--centered">
+                            <div class="panel-info">
+                                <div class="panel-info__icon">
+                                    <i class="big-icon--comments"></i>
+                                </div>
+                                <h3 class="panel-info__heading">No comments so far.</h3>
+                                <p class="panel-info__description">Be the first one...</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</main>
+
+

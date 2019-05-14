@@ -315,6 +315,11 @@ export default angular.module('ui-docs', [
             playground: 'main',
             templateUrl: '../examples/playgrounds/form-layout.html'
         })
+        .when('/playground/boxed-list', {
+            title: 'Boxed-list',
+            playground: 'main',
+            templateUrl: '../examples/playgrounds/boxed-list.html'
+        })
         .when('/playground/publisher-website-settings', {
             title: 'Publisher Website Settings',
             playground: 'publisher',
