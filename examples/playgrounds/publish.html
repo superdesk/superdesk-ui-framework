@@ -663,331 +663,332 @@
             <!-- RIGHT pane -->
             <div class="side-panel__content-block side-panel__content-block--right side-panel__content-block--overlay-panel-inside">
                 <div>
-                    <div sd-toggle-box data-title="Web publishing" data-style="circle" data-open="true">
-                        <!-- website 1 -->
-                        <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen0}">
-                            <div class="sd-collapse-box__header" ng-click="isOpen0 = !isOpen0">
-                                <!-- list item  -->
-                                <div class="sd-list-item">
+                    <span>
+                        <div sd-toggle-box data-title="Web publishing" data-style="circle" data-open="true">
+                            <!-- website 1 -->
+                            <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen0}">
+                                <div class="sd-collapse-box__header" ng-click="isOpen0 = !isOpen0">
+                                    <!-- list item  -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__text-strong">www.sourcefabric.org</span></span>
+                                            </div>
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-list-item__text-label">Publish to:</span><span class="sd-overflow-ellipsis">news</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END list item  -->
+                                </div>
+                                <div class="sd-collapse-box__content-wraper">
+                                    <div class="sd-collapse-box__content">
+                                        <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged0">
+                                            <div class="sd-collapse-box__sliding-toolbar">
+                                                <div class="sliding-toolbar__inner"></div>
+                                                <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged0 = true; isOpen0 = false">Cancel</a>
+                                                <a class="btn btn--primary" ng-click="contentChanged0 = true; isOpen0 = false">Save</a>
+                                            </div>
+                                        </div>
+                                        <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
+                                            <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen0 = false">
+                                                <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
+                                            </a>
+                                            <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                        </div>
+                                        <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
+                                            <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
+                                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__text-strong">www.sourcefabric.org</span>
+                                                        <a class="icn-btn" sd-tooltip="Preview" flow="left"><i class="icon-external"></i></a>
+                                                    </div>
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-list-item__text-label sd-overflow-ellipsis">Automatically:</span><span class="sd-overflow-ellipsis">news</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
+                                                <label class="sd-line-input__label">Route</label>
+                                                <select class="sd-line-input__select">
+                                                    <option value="single">News</option>
+                                                    <option value="time">Politics</option>
+                                                    <option value="bananas">Lifestyle</option>
+                                                    <option value="indefinite">Culture</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form__row" ng-init="contentChanged0 = true">
+                                            <sd-check ng-model="contentChanged0" ng-checked="false">Publish to facebook</sd-check>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-check ng-model="dnp0">Do not publish</sd-check>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- website 2 -->
+                            <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen1}">
+                                <div class="sd-collapse-box__header" ng-click="isOpen1 = !isOpen1">
+                                    <!-- list item  -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__text-strong">www.superdesk.org</span></span>
+                                            </div>
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-list-item__text-label">Publish to:</span><span class="sd-overflow-ellipsis">news, facebook</span>
+                                            </div>
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END list item  -->
+                                </div>
+                                <div class="sd-collapse-box__content-wraper">
+                                    <div class="sd-collapse-box__content">
+                                        <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged1">
+                                            <div class="sd-collapse-box__sliding-toolbar">
+                                                <div class="sliding-toolbar__inner"></div>
+                                                <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged1 = true; isOpen1 = false">Cancel</a>
+                                                <a class="btn btn--primary" ng-click="contentChanged1 = true; isOpen1 = false">Save</a>
+                                            </div>
+                                        </div>
+                                        <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
+                                            <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen1 = false">
+                                                <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
+                                            </a>
+                                            <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                        </div>
+                                        <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
+                                            <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
+                                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__text-strong">www.superdesk.org</span>
+                                                        <a class="icn-btn" sd-tooltip="Preview" flow="left"><i class="icon-external"></i></a>
+                                                    </div>
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-list-item__text-label sd-overflow-ellipsis">Automatically:</span><span class="sd-overflow-ellipsis">news, facebook</span>
+                                                    </div>
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
+                                                <label class="sd-line-input__label">Route</label>
+                                                <select class="sd-line-input__select">
+                                                    <option value="single">News</option>
+                                                    <option value="time">Politics</option>
+                                                    <option value="bananas">Lifestyle</option>
+                                                    <option value="indefinite">Culture</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-check  ng-model="contentChanged1" ng-checked="true">Publish to facebook</sd-check>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-check ng-model="dnp1">Do not publish</sd-check>
+                                        </div>
+                                        <!-- content lists -->
+                                        <label class="form-label">Content lists</label>
+                                        <div class="sd-list-item sd-list-item--no-hover sd-margin-b--1" ng-show="contentListItem">
+                                            <div class="sd-list-item__column sd-list-item__column--large-padding sd-list-item__column--grow">
+                                                <div class="sd-list-item__row no-margin sd-flex-justify-end">
+                                                    <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a>
+                                                </div>
+                                                <div class="sd-list-item__row">
+                                                    <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
+                                                        <label class="sd-line-input__label">Choose list</label>
+                                                        <select class="sd-line-input__select">
+                                                            <option value=""></option>
+                                                            <option value="home">Home page</option>
+                                                            <option value="economy">Economy</option>
+                                                            <option value="business">Business</option>
+                                                            <option value="Sports">Sports</option>
+                                                            <option value="lifestyle">Lifestyle</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="sd-list-item__row">
+                                                    <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
+                                                        <label class="sd-line-input__label">Set order</label>
+                                                        <select class="sd-line-input__select">
+                                                            <option value=""></option>
+                                                            <option value="">1</option>
+                                                            <option value="">2</option>
+                                                            <option value="">3</option>
+                                                            <option value="">4</option>
+                                                            <option value="">5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <button class="btn btn--hollow btn--expanded btn--primary" ng-click="contentListItem = true;">Add to content list</button>      
+                                        </div>                                
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end website 2-->
+                        </div>
+                        <div sd-toggle-box data-title="Related articles" data-open="false" data-style="circle">
+                            <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                                <li class="simple-list__item">
+                                    <p>J.P. Morgan to settle allegations of violating sanctions: U.S. Treasury</p>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                    <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                </li>
+                                <li class="simple-list__item">
+                                    <p>Republican Senator Murkowski says has not decided final Kavanaugh vote</p>
+                                    <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                    <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                </li>                        
+                                <li class="simple-list__item">
+                                    <p>China bet big on quantum computing. Now the US races to keep up.</p>
+                                    <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                    <span class="label-icon" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                </li>
+                            </ul>
+                        </div>
+                        <div sd-toggle-box data-title="Social media" data-open="true" data-style="circle">
+                            <div class="sd-list-item-group sd-shadow--z1">
+                                <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
                                     <div class="sd-list-item__border"></div>
                                     <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                         <div class="sd-list-item__row">
-                                            <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__text-strong">www.sourcefabric.org</span></span>
+                                            <span class="sd-overflow-ellipsis">Facebook</span>
                                         </div>
-                                        <div class="sd-list-item__row">
-                                            <span class="sd-list-item__text-label">Publish to:</span><span class="sd-overflow-ellipsis">news</span>
-                                        </div>
+                                    </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <i class="icon-chevron-right-thin"></i>
                                     </div>
                                 </div>
-                                <!-- END list item  -->
-                            </div>
-                            <div class="sd-collapse-box__content-wraper">
-                                <div class="sd-collapse-box__content">
-                                    <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged0">
-                                        <div class="sd-collapse-box__sliding-toolbar">
-                                            <div class="sliding-toolbar__inner"></div>
-                                            <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged0 = true; isOpen0 = false">Cancel</a>
-                                            <a class="btn btn--primary" ng-click="contentChanged0 = true; isOpen0 = false">Save</a>
-                                        </div>
-                                    </div>
-                                    <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
-                                        <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen0 = false">
-                                            <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
-                                        </a>
-                                        <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
-                                    </div>
-                                    <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
-                                        <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
-                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__text-strong">www.sourcefabric.org</span>
-                                                    <a class="icn-btn" sd-tooltip="Preview" flow="left"><i class="icon-external"></i></a>
-                                                </div>
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-list-item__text-label sd-overflow-ellipsis">Automatically:</span><span class="sd-overflow-ellipsis">news</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form__row">
-                                        <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
-                                            <label class="sd-line-input__label">Route</label>
-                                            <select class="sd-line-input__select">
-                                                <option value="single">News</option>
-                                                <option value="time">Politics</option>
-                                                <option value="bananas">Lifestyle</option>
-                                                <option value="indefinite">Culture</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form__row" ng-init="contentChanged0 = true">
-                                        <sd-check ng-model="contentChanged0" ng-checked="false">Publish to facebook</sd-check>
-                                    </div>
-                                    <div class="form__row">
-                                        <sd-check ng-model="dnp0">Do not publish</sd-check>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- website 2 -->
-                        <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen1}">
-                            <div class="sd-collapse-box__header" ng-click="isOpen1 = !isOpen1">
-                                <!-- list item  -->
-                                <div class="sd-list-item">
+                                <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
                                     <div class="sd-list-item__border"></div>
                                     <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                         <div class="sd-list-item__row">
-                                            <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__text-strong">www.superdesk.org</span></span>
+                                            <span class="sd-overflow-ellipsis">Twitter</span>
                                         </div>
+                                    </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <i class="icon-chevron-right-thin"></i>
+                                    </div>
+                                </div>
+                            
+                                <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                    <div class="sd-list-item__border"></div>
+                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                         <div class="sd-list-item__row">
-                                            <span class="sd-list-item__text-label">Publish to:</span><span class="sd-overflow-ellipsis">news, facebook</span>
-                                        </div>
-                                        <div class="sd-list-item__row">
-                                            <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
+                                            <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
                                         </div>
                                     </div>
-                                </div>
-                                <!-- END list item  -->
-                            </div>
-                            <div class="sd-collapse-box__content-wraper">
-                                <div class="sd-collapse-box__content">
-                                    <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged1">
-                                        <div class="sd-collapse-box__sliding-toolbar">
-                                            <div class="sliding-toolbar__inner"></div>
-                                            <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged1 = true; isOpen1 = false">Cancel</a>
-                                            <a class="btn btn--primary" ng-click="contentChanged1 = true; isOpen1 = false">Save</a>
-                                        </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <i class="icon-chevron-right-thin"></i>
                                     </div>
-                                    <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
-                                        <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen1 = false">
-                                            <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
-                                        </a>
-                                        <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
-                                    </div>
-                                    <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
-                                        <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
-                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__text-strong">www.superdesk.org</span>
-                                                    <a class="icn-btn" sd-tooltip="Preview" flow="left"><i class="icon-external"></i></a>
-                                                </div>
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-list-item__text-label sd-overflow-ellipsis">Automatically:</span><span class="sd-overflow-ellipsis">news, facebook</span>
-                                                </div>
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form__row">
-                                        <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
-                                            <label class="sd-line-input__label">Route</label>
-                                            <select class="sd-line-input__select">
-                                                <option value="single">News</option>
-                                                <option value="time">Politics</option>
-                                                <option value="bananas">Lifestyle</option>
-                                                <option value="indefinite">Culture</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form__row">
-                                        <sd-check  ng-model="contentChanged1" ng-checked="true">Publish to facebook</sd-check>
-                                    </div>
-                                    <div class="form__row">
-                                        <sd-check ng-model="dnp1">Do not publish</sd-check>
-                                    </div>
-                                    <!-- content lists -->
-                                    <label class="form-label">Content lists</label>
-                                    <div class="sd-list-item sd-list-item--no-hover sd-margin-b--1" ng-show="contentListItem">
-                                        <div class="sd-list-item__column sd-list-item__column--large-padding sd-list-item__column--grow">
-                                            <div class="sd-list-item__row no-margin sd-flex-justify-end">
-                                                <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a>
-                                            </div>
-                                            <div class="sd-list-item__row">
-                                                <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
-                                                    <label class="sd-line-input__label">Choose list</label>
-                                                    <select class="sd-line-input__select">
-                                                        <option value=""></option>
-                                                        <option value="home">Home page</option>
-                                                        <option value="economy">Economy</option>
-                                                        <option value="business">Business</option>
-                                                        <option value="Sports">Sports</option>
-                                                        <option value="lifestyle">Lifestyle</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="sd-list-item__row">
-                                                <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
-                                                    <label class="sd-line-input__label">Set order</label>
-                                                    <select class="sd-line-input__select">
-                                                        <option value=""></option>
-                                                        <option value="">1</option>
-                                                        <option value="">2</option>
-                                                        <option value="">3</option>
-                                                        <option value="">4</option>
-                                                        <option value="">5</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="form__row">
-                                        <button class="btn btn--hollow btn--expanded btn--primary" ng-click="contentListItem = true;">Add to content list</button>      
-                                    </div>                                
                                 </div>
                             </div>
                         </div>
-                        <!-- end website 2-->
-                    </div>
-                    <div sd-toggle-box data-title="Related articles" data-open="false" data-style="circle">
-                        <ul class="simple-list simple-list--dotted simple-list--no-padding">
-                            <li class="simple-list__item">
-                                <p>J.P. Morgan to settle allegations of violating sanctions: U.S. Treasury</p>
-                                <span class="label-icon label-icon--success" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
-                                <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
-                                <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
-                            </li>
-                            <li class="simple-list__item">
-                                <p>Republican Senator Murkowski says has not decided final Kavanaugh vote</p>
-                                <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
-                                <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
-                                <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
-                            </li>                        
-                            <li class="simple-list__item">
-                                <p>China bet big on quantum computing. Now the US races to keep up.</p>
-                                <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
-                                <span class="label-icon" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
-                                <span class="label-icon label-icon--success" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
-                            </li>
-                        </ul>
-                    </div>
-                    <div sd-toggle-box data-title="Social media" data-open="true" data-style="circle">
-                        <div class="sd-list-item-group sd-shadow--z1">
-                            <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
-                                <div class="sd-list-item__border"></div>
-                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                    <div class="sd-list-item__row">
-                                        <span class="sd-overflow-ellipsis">Facebook</span>
-                                    </div>
+                        <!-- Social media overlay -->
+                        <div class="side-panel__content-block-overlay" ng-class="{'side-panel__content-block-overlay--open' : $root.overlayPaneOpen}">
+                            <div class="side-panel">
+                                <div class="side-panel__header">
+                                    <a class="icn-btn sd-margin-l--1" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" sd-tooltip="Back" flow="right"><i class="icon-arrow-left"></i></a>
+                                    <h3 class="side-panel__heading side-panel__heading--big">Facebook</h3>
                                 </div>
-                                <div class="sd-list-item__action-menu">
-                                    <i class="icon-chevron-right-thin"></i>
-                                </div>
-                            </div>
-                            <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
-                                <div class="sd-list-item__border"></div>
-                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                    <div class="sd-list-item__row">
-                                        <span class="sd-overflow-ellipsis">Twitter</span>
-                                    </div>
-                                </div>
-                                <div class="sd-list-item__action-menu">
-                                    <i class="icon-chevron-right-thin"></i>
-                                </div>
-                            </div>
-                        
-                            <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
-                                <div class="sd-list-item__border"></div>
-                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                    <div class="sd-list-item__row">
-                                        <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
-                                    </div>
-                                </div>
-                                <div class="sd-list-item__action-menu">
-                                    <i class="icon-chevron-right-thin"></i>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Social media overlay -->
-                <div class="side-panel__content-block-overlay" ng-class="{'side-panel__content-block-overlay--open' : $root.overlayPaneOpen}">
-                    <div class="side-panel">
-                        <div class="side-panel__header">
-                            <a class="icn-btn sd-margin-l--1" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" sd-tooltip="Back" flow="right"><i class="icon-arrow-left"></i></a>
-                            <h3 class="side-panel__heading side-panel__heading--big">Facebook</h3>
-                        </div>
-                        <div class="side-panel__content">
-                            <div class="side-panel__content-block">
-                                <div class="form__row">
-                                    <div class="sd-line-input">
-                                        <label class="sd-line-input__label">Post image</label>                                    
-                                        <div class="sd-overlay-block">
-                                            <div class="sd-overlay-block__overlay">
-                                                <div class="sd-overlay-block__overlay-action-group">
-                                                    <a class="sd-overlay-block__overlay-action" sd-tooltip="Upload image"><i class="icon-upload"></i></a>
+                                <div class="side-panel__content">
+                                    <div class="side-panel__content-block">
+                                        <div class="form__row">
+                                            <div class="sd-line-input">
+                                                <label class="sd-line-input__label">Post image</label>                                    
+                                                <div class="sd-overlay-block">
+                                                    <div class="sd-overlay-block__overlay">
+                                                        <div class="sd-overlay-block__overlay-action-group">
+                                                            <a class="sd-overlay-block__overlay-action" sd-tooltip="Upload image"><i class="icon-upload"></i></a>
+                                                        </div>
+                                                    </div>
+                                                    <img src="../examples/img/overlay-img.jpg" />
                                                 </div>
                                             </div>
-                                            <img src="../examples/img/overlay-img.jpg" />
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--required sd-line-input--dark-ui sd-line-input--boxed">
+                                                <label class="sd-line-input__label">Headline</label>
+                                                <input class="sd-line-input__input" type="text" value="Article headline here.">
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-tag-input
+                                                ng-model="tags"
+                                                data-label="Tags"
+                                                data-items="[
+                                                { text: 'Audi' },
+                                                { text: 'BMW' },
+                                                { text: 'Hyundai' },
+                                                { text: 'Opel' },
+                                                { text: 'Audi2' },
+                                                { text: 'BMW2' },
+                                                { text: 'Hyundai2' },
+                                                { text: 'Opel2' },
+                                                { text: 'Audi3' },
+                                                { text: 'BMW3' },
+                                                { text: 'Hyundai3' },
+                                                { text: 'Opel3' },
+                                                { text: 'Audi4' },
+                                                { text: 'BMW4' },
+                                                { text: 'Hyundai4' },
+                                                { text: 'Opel4' },
+                                                { text: 'Audi5' },
+                                                { text: 'BMW5' },
+                                                { text: 'Hyundai5' },
+                                                { text: 'Opel5' },
+                                                { text: 'Audi6' },
+                                                { text: 'BMW6' },
+                                                { text: 'Hyundai6' },
+                                                { text: 'Opel6' }
+                                                ]"
+                                                data-field="text"
+                                                data-freetext="false">
+                                            </sd-tag-input>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                                <label class="sd-line-input__label">Text body</label>
+                                                <textarea class="sd-line-input__input"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-tag-input
+                                                ng-model="authors"
+                                                data-label="Authors"
+                                                data-items="[
+                                                { text: 'Author 1' },
+                                                { text: 'Author 2' },
+                                                { text: 'Author 3' },
+                                                { text: 'Author 4' },
+                                                { text: 'Author 5' }                                        
+                                                ]"
+                                                data-field="text"
+                                                data-freetext="false">
+                                            </sd-tag-input>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--required sd-line-input--dark-ui sd-line-input--boxed">
-                                        <label class="sd-line-input__label">Headline</label>
-                                        <input class="sd-line-input__input" type="text" value="Article headline here.">
-                                    </div>
-                                </div>
-                                <div class="form__row">
-                                    <sd-tag-input
-                                        ng-model="tags"
-                                        data-label="Tags"
-                                        data-items="[
-                                        { text: 'Audi' },
-                                        { text: 'BMW' },
-                                        { text: 'Hyundai' },
-                                        { text: 'Opel' },
-                                        { text: 'Audi2' },
-                                        { text: 'BMW2' },
-                                        { text: 'Hyundai2' },
-                                        { text: 'Opel2' },
-                                        { text: 'Audi3' },
-                                        { text: 'BMW3' },
-                                        { text: 'Hyundai3' },
-                                        { text: 'Opel3' },
-                                        { text: 'Audi4' },
-                                        { text: 'BMW4' },
-                                        { text: 'Hyundai4' },
-                                        { text: 'Opel4' },
-                                        { text: 'Audi5' },
-                                        { text: 'BMW5' },
-                                        { text: 'Hyundai5' },
-                                        { text: 'Opel5' },
-                                        { text: 'Audi6' },
-                                        { text: 'BMW6' },
-                                        { text: 'Hyundai6' },
-                                        { text: 'Opel6' }
-                                        ]"
-                                        data-field="text"
-                                        data-freetext="false">
-                                    </sd-tag-input>
-                                </div>
-                                <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
-                                        <label class="sd-line-input__label">Text body</label>
-                                        <textarea class="sd-line-input__input"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form__row">
-                                    <sd-tag-input
-                                        ng-model="authors"
-                                        data-label="Authors"
-                                        data-items="[
-                                        { text: 'Author 1' },
-                                        { text: 'Author 2' },
-                                        { text: 'Author 3' },
-                                        { text: 'Author 4' },
-                                        { text: 'Author 5' }                                        
-                                        ]"
-                                        data-field="text"
-                                        data-freetext="false">
-                                    </sd-tag-input>
-                                </div>
                             </div>
                         </div>
-                    </div>
+                    </span>
                 </div>
             </div> <!-- end RIGHT pane -->
         </div>
