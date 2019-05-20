@@ -320,6 +320,11 @@ export default angular.module('ui-docs', [
             playground: 'main',
             templateUrl: '../examples/playgrounds/boxed-list.html'
         })
+        .when('/playground/video-editor', {
+            title: 'Video-editor',
+            playground: 'main',
+            templateUrl: '../examples/playgrounds/video-editor.html'
+        })
         .when('/playground/publisher-website-settings', {
             title: 'Publisher Website Settings',
             playground: 'publisher',
