@@ -4744,6 +4744,27 @@ time {
 .icon-instagram:before {
   content: "\E6A3"; }
 
+.icon-play:before {
+  content: "\E6A4"; }
+
+.icon-stop:before {
+  content: "\E6A5"; }
+
+.icon-pause:before {
+  content: "\E6A6"; }
+
+.icon-fast_rewind:before {
+  content: "\E6A7"; }
+
+.icon-fast_forward:before {
+  content: "\E6A8"; }
+
+.icon-skip_previous:before {
+  content: "\E6A9"; }
+
+.icon-skip_next:before {
+  content: "\E6AA"; }
+
 .icn-mix {
   position: relative;
   display: inline-block;

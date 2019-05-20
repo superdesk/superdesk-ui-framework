@@ -266,7 +266,14 @@ $sd-icon-font: (
   amp: "\e6a0",
   undo: "\e6a1",
   redo: "\e6a2",
-  instagram: "\e6a3"
+  instagram: "\e6a3",
+  play: "\e6a4",
+  stop: "\e6a5",
+  pause: "\e6a6",
+  fast_rewind: "\e6a7",
+  fast_forward: "\e6a8",
+  skip_previous: "\e6a9",
+  skip_next: "\e6aa"
 );
 
 @each $name, $value in $sd-icon-font {
