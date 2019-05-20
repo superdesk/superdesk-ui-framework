@@ -6157,12 +6157,23 @@ tags-input {
     .side-panel .side-panel__content-block .side-panel__heading {
       padding: 0; }
     .side-panel .side-panel__content-block--overlay-panel-inside {
-      display: grid;
-      grid-template-columns: 1fr;
       padding: 0;
-      overflow-x: hidden; }
+      overflow: hidden !important;
+      display: flex;
+      flex-direction: column; }
       .side-panel .side-panel__content-block--overlay-panel-inside > div {
-        padding: 2rem; }
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        overflow-x: hidden;
+        overflow-y: auto; }
+        .side-panel .side-panel__content-block--overlay-panel-inside > div > span {
+          position: relative;
+          display: flex;
+          flex-direction: column;
+          flex-grow: 1;
+          padding: 2rem;
+          width: 100%; }
   .side-panel .side-panel-collapsible-header {
     position: relative;
     padding: .8rem 2rem;
@@ -6226,10 +6237,11 @@ tags-input {
     .side-panel .side-panel__content-block-inner .double-size-icn {
       margin: 0.1rem 1rem 0 0; }
   .side-panel .side-panel__content-block-overlay {
-    position: relative;
-    grid-column: 3/4;
-    grid-row: 1/2;
-    overflow: hidden;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     width: 0;
     padding: 0 !important; }
     .side-panel .side-panel__content-block-overlay .side-panel {
@@ -6240,14 +6252,12 @@ tags-input {
       top: 0;
       bottom: 0;
       right: 0;
-      left: 0;
+      left: 34rem;
       background-color: #222;
       z-index: 2; }
-    .side-panel .side-panel__content-block-overlay--open {
-      overflow: visible; }
-      .side-panel .side-panel__content-block-overlay--open .side-panel {
-        left: -34rem;
-        opacity: 1; }
+    .side-panel .side-panel__content-block-overlay--open .side-panel {
+      left: 0;
+      opacity: 1; }
   .side-panel .side-panel__top-tools {
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.06);
