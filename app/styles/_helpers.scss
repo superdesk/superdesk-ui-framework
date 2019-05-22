@@ -579,6 +579,29 @@ $sd-padding-increment: 0.8rem;
             margin-left: 2rem;
         }
     }
+    .sd-overlay-block__overlay-message {
+        display: none;
+        margin-top: 1rem;
+        color: $grayText;
+    }
+
+    &--no-image {
+        height: 160px;
+        border: 2px dashed $grayDark;
+
+        .sd-overlay-block__overlay {
+            opacity: 1;
+        }
+        img {
+            display: none;
+        }
+        .sd-overlay-block__overlay-action-group {
+            flex-direction: column;
+        }
+        .sd-overlay-block__overlay-message {
+            display: block;
+        }
+    }
 }
 
 .sd-wrap-helper {

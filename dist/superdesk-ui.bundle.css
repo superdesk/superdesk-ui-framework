@@ -1142,6 +1142,21 @@ time {
         opacity: 1; }
     .sd-overlay-block__overlay-action + .sd-overlay-block__overlay-action {
       margin-left: 2rem; }
+  .sd-overlay-block .sd-overlay-block__overlay-message {
+    display: none;
+    margin-top: 1rem;
+    color: #747474; }
+  .sd-overlay-block--no-image {
+    height: 160px;
+    border: 2px dashed #333; }
+    .sd-overlay-block--no-image .sd-overlay-block__overlay {
+      opacity: 1; }
+    .sd-overlay-block--no-image img {
+      display: none; }
+    .sd-overlay-block--no-image .sd-overlay-block__overlay-action-group {
+      flex-direction: column; }
+    .sd-overlay-block--no-image .sd-overlay-block__overlay-message {
+      display: block; }
 
 .sd-wrap-helper {
   display: contents !important; }
