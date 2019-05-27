@@ -6298,6 +6298,26 @@ tags-input {
     .side-panel .side-panel__content-block-overlay--open .side-panel {
       left: 0;
       opacity: 1; }
+  .side-panel .side-panel__content-block-overlay-grid {
+    grid-column: 1/2;
+    grid-row: 2/3;
+    z-index: 1;
+    position: relative;
+    width: 0; }
+    .side-panel .side-panel__content-block-overlay-grid .side-panel {
+      opacity: 0;
+      transition: all .2s ease-in-out;
+      position: absolute;
+      width: 40rem;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 40rem;
+      background-color: #222;
+      z-index: 2; }
+    .side-panel .side-panel__content-block-overlay-grid--open .side-panel {
+      left: 0;
+      opacity: 1; }
   .side-panel .side-panel__top-tools {
     padding: 2rem;
     background-color: rgba(0, 0, 0, 0.06);
