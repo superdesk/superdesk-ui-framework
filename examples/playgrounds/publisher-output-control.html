@@ -3115,11 +3115,11 @@
                             <div class="side-panel__content-block side-panel__content-block--pad-small">
                                
                                 <!-- website 1 -->
-                                <div class="sd-collapse-box sd-shadow--z2 sd-collapse-box--lighter sd-collapse-box--margin-small" ng-class="{'sd-collapse-box--open' : isOpen0}" ng-hide="deleteTenant0">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen0}" ng-hide="deleteTenant0">
                                     <div class="sd-collapse-box__header" ng-click="isOpen0 = !isOpen0">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
-                                            <div class="sd-list-item__border sd-list-item__border--success"></div>
+                                            <div class="sd-list-item__dot sd-list-item__dot--success"></div>
                                             <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                 <div class="sd-list-item__row">
                                                     <span class="sd-overflow-ellipsis sd-list-item--element-grow">
@@ -3141,7 +3141,8 @@
                                         <!-- END list item  -->
                                     </div>
                                     <div class="sd-collapse-box__content-wraper">
-                                        <div class="sd-collapse-box__content sd-collapse-box__content--border-success">
+                                        <div class="sd-collapse-box__content">
+                                            <div class="sd-list-item__dot sd-list-item__dot--success"></div>
                                             <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged0">
                                                 <div class="sd-collapse-box__sliding-toolbar">
                                                     <div class="sliding-toolbar__inner"></div>
@@ -3182,15 +3183,56 @@
                                             <div class="form__row">
                                                 <sd-check ng-model="dnp0" ng-checked="true"><i class="icon-paywall icon--orange"></i> Paywall secured</sd-check>
                                             </div>
+                                            <div class="form__row">
+                                                <!-- Social media -->
+                                                <div sd-toggle-box data-title="Social media override" data-open="false" data-style="circle">
+                                                    <div class="sd-list-item-group sd-shadow--z1 no-margin">
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">Facebook</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">Twitter</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- website 2 -->
-                                <div class="sd-collapse-box sd-shadow--z2 sd-collapse-box--lighter sd-collapse-box--margin-small" ng-class="{'sd-collapse-box--open' : isOpen1}" ng-hide="deleteTenant1">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen1}" ng-hide="deleteTenant1">
                                     <div class="sd-collapse-box__header" ng-click="isOpen1 = !isOpen1">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
-                                            <div class="sd-list-item__border sd-list-item__border--success"></div>
+                                            <div class="sd-list-item__dot sd-list-item__dot--success"></div>
                                             <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                 <div class="sd-list-item__row">
                                                     <span class="sd-overflow-ellipsis sd-list-item--element-grow">
@@ -3209,7 +3251,8 @@
                                         <!-- END list item  -->
                                     </div>
                                     <div class="sd-collapse-box__content-wraper">
-                                        <div class="sd-collapse-box__content sd-collapse-box__content--border-success">
+                                        <div class="sd-collapse-box__content">
+                                            <div class="sd-list-item__dot sd-list-item__dot--success"></div>
                                             <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged1">
                                                 <div class="sd-collapse-box__sliding-toolbar">
                                                     <div class="sliding-toolbar__inner"></div>
@@ -3250,15 +3293,56 @@
                                             <div class="form__row">
                                                 <sd-check ng-model="dnp0"><i class="icon-paywall icon--orange"></i> Paywall secured</sd-check>
                                             </div>
+                                            <div class="form__row">
+                                                <!-- Social media -->
+                                                <div sd-toggle-box data-title="Social media override" data-open="false" data-style="circle">
+                                                    <div class="sd-list-item-group sd-shadow--z1 no-margin">
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">Facebook</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">Twitter</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- website 3 -->
-                                <div class="sd-collapse-box sd-shadow--z2 sd-collapse-box--lighter sd-collapse-box--margin-small" ng-class="{'sd-collapse-box--open' : isOpen2}" ng-hide="deleteTenant2">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen2}" ng-hide="deleteTenant2">
                                     <div class="sd-collapse-box__header" ng-click="isOpen2 = !isOpen2">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
-                                            <div class="sd-list-item__border sd-list-item__border--success"></div>
+                                            <div class="sd-list-item__dot sd-list-item__dot--success"></div>
                                             <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                 <div class="sd-list-item__row">
                                                     <span class="sd-overflow-ellipsis sd-list-item--element-grow">
@@ -3277,7 +3361,8 @@
                                         <!-- END list item  -->
                                     </div>
                                     <div class="sd-collapse-box__content-wraper">
-                                        <div class="sd-collapse-box__content sd-collapse-box__content--border-success">
+                                        <div class="sd-collapse-box__content">
+                                            <div class="sd-list-item__dot sd-list-item__dot--success"></div>
                                             <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged2">
                                                 <div class="sd-collapse-box__sliding-toolbar">
                                                     <div class="sliding-toolbar__inner"></div>
@@ -3318,15 +3403,58 @@
                                             <div class="form__row">
                                                 <sd-check ng-model="dnp0"><i class="icon-paywall icon--orange"></i> Paywall secured</sd-check>
                                             </div>
+                                            <div class="form__row">
+                                                <!-- Social media -->
+                                                <div sd-toggle-box data-title="Social media override" data-open="false" data-style="circle">
+                                                    <div class="sd-list-item-group sd-shadow--z1 no-margin">
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">Facebook</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">Twitter</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                                            <div class="sd-list-item__border"></div>
+                                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                                <div class="sd-list-item__row">
+                                                                    <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="sd-list-item__action-menu">
+                                                                <i class="icon-chevron-right-thin"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                            </div>                                            
                                         </div>
                                     </div>
                                 </div>
                                 <!-- website 4 -->
-                                <div class="sd-collapse-box sd-shadow--z2 sd-collapse-box--lighter sd-collapse-box--margin-small" ng-class="{'sd-collapse-box--open' : isOpen3}" ng-hide="deleteTenant3">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen3}" ng-hide="deleteTenant3">
                                     <div class="sd-collapse-box__header" ng-click="isOpen3 = !isOpen3">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
-                                            <div class="sd-list-item__border sd-list-item__border--locked"></div>
+                                            <div class="sd-list-item__dot sd-list-item__dot--locked"></div>
                                             <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                 <div class="sd-list-item__row">
                                                     <span class="sd-overflow-ellipsis sd-list-item--element-grow">
@@ -3342,7 +3470,8 @@
                                         <!-- END list item  -->
                                     </div>
                                     <div class="sd-collapse-box__content-wraper">
-                                        <div class="sd-collapse-box__content sd-collapse-box__content--border-locked">
+                                        <div class="sd-collapse-box__content">
+                                            <div class="sd-list-item__dot sd-list-item__dot--locked"></div>
                                             <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged3">
                                                 <div class="sd-collapse-box__sliding-toolbar">
                                                     <div class="sliding-toolbar__inner"></div>
@@ -3412,47 +3541,7 @@
                                             <span class="label-icon label-icon--success" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
                                         </li>                        
                                     </ul>
-                                </div>
-
-                                <!-- Social media -->
-                                <div sd-toggle-box data-title="Social media" data-open="true" data-style="circle">
-                                    <div class="sd-list-item-group sd-shadow--z1 no-margin">
-                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
-                                            <div class="sd-list-item__border"></div>
-                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-overflow-ellipsis">Facebook</span>
-                                                </div>
-                                            </div>
-                                            <div class="sd-list-item__action-menu">
-                                                <i class="icon-chevron-right-thin"></i>
-                                            </div>
-                                        </div>
-                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
-                                            <div class="sd-list-item__border"></div>
-                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-overflow-ellipsis">Twitter</span>
-                                                </div>
-                                            </div>
-                                            <div class="sd-list-item__action-menu">
-                                                <i class="icon-chevron-right-thin"></i>
-                                            </div>
-                                        </div>
-                                    
-                                        <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
-                                            <div class="sd-list-item__border"></div>
-                                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                                <div class="sd-list-item__row">
-                                                    <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
-                                                </div>
-                                            </div>
-                                            <div class="sd-list-item__action-menu">
-                                                <i class="icon-chevron-right-thin"></i>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                </div>                                
                             </div>                           
                         </div>
 
