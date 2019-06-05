@@ -18,7 +18,7 @@ const config = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
             'superdesk-ui': path.resolve(__dirname, './app'),
         },
@@ -27,20 +27,11 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.js/,
-                loader: 'babel-loader',
+                test: /\.(ts|tsx|js|jsx)$/,
+                loader: 'ts-loader',
                 exclude: /node_modules/,
-                query: {
-                    presets: ['es2015'],
-                },
-            },
-            {
-                test: /\.jsx?$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react'],
-                    plugins: ['transform-object-rest-spread'],
+                options: {
+                    transpileOnly: true,
                 },
             },
             {

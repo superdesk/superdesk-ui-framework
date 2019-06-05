@@ -1,9 +1,19 @@
 import './scripts';
 import './styles';
 
-export {reactToAngular1} from './scripts/helpers/react-to-angular-1';
-export {ToggleBoxNext} from './scripts/toggleBoxNext';
-export {Positioner} from './scripts/positioner';
+export { reactToAngular1 } from './scripts/helpers/react-to-angular-1';
+export { ToggleBoxNext } from './scripts/toggleBoxNext';
+export { Positioner } from './scripts/positioner';
+
+import { Input } from './components/Form/Input';
+import { Label } from './components/Form/Label';
+import { LineInput } from './components/Form/LineInput';
+
+export const Form = {
+    Label,
+    Input,
+    LineInput
+};
 
 export default angular.module('superdesk-ui', [
     'superdesk-ui.helper',

@@ -1,14 +1,12 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "1.8.18",
+  "version": "2.0.0",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/superdesk/superdesk-ui-framework.git"
   },
-  "main": "dist/superdesk-ui.bundle.js",
-  "style": "dist/superdesk-ui.bundle.css",
-  "sass": "app/styles/app.scss",
+  "main": "app/index.js",
   "contributors": [
     "Nemanja Pavlovic",
     "Vladimir Stefanovic",
@@ -60,7 +58,7 @@
     "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
-    "prepublish": "grunt build",
+    "start": "grunt server",
     "lint": "eslint app"
   },
   "dependencies": {

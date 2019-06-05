@@ -6,6 +6,7 @@ import 'code-prettify/styles/sons-of-obsidian.css';
 
 import './css/reset.css';
 import './css/docs-page.css';
+import './css/prism.css';
 import './js/doc';
 
 import 'superdesk-ui';
@@ -198,42 +199,41 @@ export default angular.module('ui-docs', [
     $routeProvider
         .when('/', {
             title: 'Main',
-            templateUrl: '../examples/playgrounds/buttons.html'
+            template: require('../examples/templates/buttons.html')
         })
-        .when('/playground/react', {
-            title: 'React',
-            playground: 'main',
-            templateUrl: '../examples/playgrounds/react.html'
+        .when('/react', {
+            title: 'Main',
+            react: true
         })
         .when('/playground/planning', {
             title: 'Planning',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/planning.html'
+            template: require('../examples/playgrounds/planning.html')
         })
         .when('/playground/layout', {
             title: 'Layout Grid',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/layout-grid.html'
+            template: require('../examples/playgrounds/layout-grid.html')
         })
         .when('/playground/cards', {
             title: 'Cards',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/cards.html'
+            template: require('../examples/playgrounds/cards.html')
         })
         .when('/playground/side-navigation', {
             title: 'Side Navigation',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/side-navigation.html'
+            template: require('../examples/playgrounds/side-navigation.html')
         })
         .when('/playground/list-item-test', {
             title: 'List items test',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/list-item-test.html'
+            template: require('../examples/playgrounds/list-item-test.html')
         })
         .when('/playground/playground-5', {
             title: 'Playground 5',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/playground-5.html'
+            template: require('../examples/playgrounds/playground-5.html')
         })
         .when('/playground/settings', {
             title: 'Settings',
@@ -243,72 +243,72 @@ export default angular.module('ui-docs', [
         .when('/playground/photo-desk', {
             title: 'Photo Desk',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/photo-desk.html'
+            template: require('../examples/playgrounds/photo-desk.html')
         })
         .when('/playground/media-carousel', {
             title: 'Media Carousel',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/media-carousel.html'
+            template: require('../examples/playgrounds/media-carousel.html')
         })
         .when('/playground/tags-input', {
             title: 'Tags Input',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/tags-input.html'
+            template: require('../examples/playgrounds/tags-input.html')
         })
         .when('/playground/circular-progress', {
             title: 'Circular Progress',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/circular-progress.html'
+            template: require('../examples/playgrounds/circular-progress.html')
         })
         .when('/playground/publish', {
             title: 'Publish pane test',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/publish.html'
+            template: require('../examples/playgrounds/publish.html')
         })
         .when('/playground/publisher-dashboard', {
             title: 'Publisher Dashboard',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-dashboard.html'
+            template: require('../examples/playgrounds/publisher-dashboard.html')
         })
         .when('/playground/publisher-content-lists', {
             title: 'Publisher Content Lists',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-content-lists.html'
+            template: require('../examples/playgrounds/publisher-content-lists.html')
         })
         .when('/playground/publisher-content-list-manual', {
             title: 'Publisher Content List Manual',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-content-list-manual.html'
+            template: require('../examples/playgrounds/publisher-content-list-manual.html')
         })
         .when('/playground/publisher-content-list-automatic', {
             title: 'Publisher Content List Automatic',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-content-list-automatic.html'
+            template: require('../examples/playgrounds/publisher-content-list-automatic.html')
         })
         .when('/playground/publisher-output-control', {
             title: 'Publisher Output Control',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-output-control.html'
+            template: require('../examples/playgrounds/publisher-output-control.html')
         })
         .when('/playground/publisher-content-analytics', {
             title: 'Publisher Content Analytics',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-content-analytics.html'
+            template: require('../examples/playgrounds/publisher-content-analytics.html')
         })
         .when('/playground/swimlane-view', {
             title: 'Swimlane View',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/swimlane-view.html'
+            template: require('../examples/playgrounds/swimlane-view.html')
         })
         .when('/playground/layout-test', {
             title: 'Layout test',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/layout-test-2.html'
+            template: require('../examples/playgrounds/layout-test-2.html')
         })
         .when('/playground/toasts', {
             title: 'Toasts',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/toasts.html'
+            template: require('../examples/playgrounds/toasts.html')
         })
         .when('/playground/form-layout', {
             title: 'Form layout',
@@ -328,17 +328,17 @@ export default angular.module('ui-docs', [
         .when('/playground/publisher-website-settings', {
             title: 'Publisher Website Settings',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-website-settings.html'
+            template: require('../examples/playgrounds/publisher-website-settings.html')
         })
         .when('/playground/publisher-website-settings-general', {
             title: 'Publisher Website Settings General',
             playground: 'publisher',
-            templateUrl: '../examples/playgrounds/publisher-website-settings-general.html'
+            template: require('../examples/playgrounds/publisher-website-settings-general.html')
         })
         .when('/:name*', {
             title: 'Main',
-            templateUrl: function(urlattr){
-                return '../examples/templates/' + urlattr.name + '.html';
+            template: function(urlattr){
+                return require('../examples/templates/' + urlattr.name + '.html');
             }
         })
         .otherwise({redirectTo: '/'});

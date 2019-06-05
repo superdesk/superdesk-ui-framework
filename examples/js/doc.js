@@ -4,7 +4,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ReactDoc from './reactDoc';
+import ReactDoc from './reactDoc.tsx';
 
 docPrettyPrint.$inject = [];
 function docPrettyPrint() {
@@ -43,8 +43,8 @@ function docPlayground(components, $route) {
     return {
         link: function link(scope) {
             scope.components = components;
-            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && route.playground === 'main');
-            scope.publisherPlaygrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && route.playground === 'publisher');
+            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'template') && route.playground === 'main');
+            scope.publisherPlaygrounds = _.filter($route.routes, (route) => _.has(route, 'template') && route.playground === 'publisher');
             scope.route = $route;
 
             scope.items = [
