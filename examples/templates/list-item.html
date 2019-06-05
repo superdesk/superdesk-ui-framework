@@ -311,6 +311,58 @@
                 </div>
             </div>
 
+            <p>&nbsp;</p>
+
+            <p class="docs-page__paragraph">// Item with colored dot indicator</p>
+            <div class="sd-list-item sd-padding-l--1 sd-shadow--z1" ng-class="{'sd-list-item--activated':itemActive1}">
+                <div class="sd-list-item__dot sd-list-item__dot--success"></div>
+                <div class="sd-list-item__column"><i class="icon-text"></i></div>
+                <div class="sd-list-item__column">
+                    <span class="badge">1</span>
+                </div>
+                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                    <div class="sd-list-item__row">
+                        <span class="sd-overflow-ellipsis">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequatvel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.</span>
+                        <time title="March 22, 2017 11:08 AM">11:08, 22.03.2017</time>
+                    </div>
+                </div>
+                <div class="sd-list-item__action-menu">
+                    <!--dropdown-->
+                    <div class="dropdown dropdown--align-right" dropdown dropdown-append-to-body is-open="itemActive1">
+                        <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                            <i class="icon-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">
+                                    Actions
+                                    <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
+                                </div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button><i class="icon-pencil"></i>Edit</button></li>
+                            <li><button><i class="icon-copy"></i>Copy</button></li>
+                            <li><button><i class="icon-trash"></i>Delete</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown__menu-label">Actions 2</div>
+                            </li>
+                            <li class="dropdown__menu-item--no-link">
+                                Just some text without a link
+                            </li>
+                            
+                            <li>
+                                <button><i class="icon-download"></i>Download</button>
+                            </li>
+                            <li>
+                                <button><i class="icon-print"></i>Print</button>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--end dropdown-->
+                </div>
+            </div>
+
         </div>
         <div class="docs-page__code-markup">
             <pre class="prettyprint lang-html linenums">
@@ -446,6 +498,24 @@
                         <button class="icn-btn">
                             <i class="icon-trash"></i>
                         </button>
+                    </div>
+                </div>
+                ...
+                <!-- Item with colored dot indicator -->
+                <div class="sd-list-item sd-shadow--z1">
+                    <div class="sd-list-item__dot sd-list-item__dot--success"></div>
+                    <div class="sd-list-item__column"><i class="icon-text"></i></div>
+                    <div class="sd-list-item__column">
+                        <span class="badge">1</span>
+                    </div>
+                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                        <div class="sd-list-item__row">
+                            <span class="sd-overflow-ellipsis">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequatvel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Lorem ipsum dolor sit amet.</span>
+                            <time title="March 22, 2017 11:08 AM">11:08, 22.03.2017</time>
+                        </div>
+                    </div>
+                    <div class="sd-list-item__action-menu">
+                        ...
                     </div>
                 </div>
                 ...

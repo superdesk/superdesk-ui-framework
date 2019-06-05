@@ -9733,11 +9733,30 @@ a.text-link {
     background: #E51C23; }
   .sd-list-item__border--success, .sd-list-item__border--active {
     background: #46a546; }
-  .sd-list-item__border--success, .sd-list-item__border--active {
-    background: #46a546; }
   .sd-list-item__border--idle {
     background: #dd8200; }
   .sd-list-item__border--dark-blue {
+    background: #4d646f; }
+
+.sd-list-item__dot {
+  content: '';
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 6px;
+  height: 6px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  background-color: transparent; }
+  .sd-list-item__dot--locked, .sd-list-item__dot--error {
+    background: #E51C23; }
+  .sd-list-item__dot--success, .sd-list-item__dot--active {
+    background: #46a546; }
+  .sd-list-item__dot--idle {
+    background: #dd8200; }
+  .sd-list-item__dot--dark-blue {
     background: #4d646f; }
 
 .sd-list-item__column {

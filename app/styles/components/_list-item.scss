@@ -114,6 +114,26 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     &--success, &--active {
         background: $green;
     }
+    &--idle {
+        background: $orange;
+    }
+    &--dark-blue {
+        background: #4d646f;
+    }
+}
+
+.sd-list-item__dot {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: 6px;
+    width: 6px;
+    height: 6px;
+    @include border-radius(50%);
+    background-color: transparent;
+    &--locked, &--error {
+        background: $red;
+    }    
     &--success, &--active {
         background: $green;
     }
@@ -124,7 +144,6 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         background: #4d646f;
     }
 }
-
 
 .sd-list-item__column {
     display: flex;
