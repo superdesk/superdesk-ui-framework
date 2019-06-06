@@ -8,11 +8,21 @@ export { Positioner } from './scripts/positioner';
 import { Input } from './components/Form/Input';
 import { Label } from './components/Form/Label';
 import { LineInput } from './components/Form/LineInput';
+import { Checkbox } from './components/Form/Checkbox';
+import { Select } from './components/Form/Select';
+import { TextArea } from './components/Form/TextArea';
+import { TextInput } from './components/Form/TextInput';
+import { TextAreaInput } from './components/Form/TextAreaInput';
 
 export const Form = {
     Label,
     Input,
-    LineInput
+    LineInput,
+    Checkbox,
+    Select,
+    TextArea,
+    TextInput,
+    TextAreaInput
 };
 
 export default angular.module('superdesk-ui', [

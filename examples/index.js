@@ -313,17 +313,17 @@ export default angular.module('ui-docs', [
         .when('/playground/form-layout', {
             title: 'Form layout',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/form-layout.html'
+            template: require('../examples/playgrounds/form-layout.html')
         })
         .when('/playground/boxed-list', {
             title: 'Boxed-list',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/boxed-list.html'
+            template: require('../examples/playgrounds/boxed-list.html')
         })
         .when('/playground/video-editor', {
             title: 'Video-editor',
             playground: 'main',
-            templateUrl: '../examples/playgrounds/video-editor.html'
+            template: require('../examples/playgrounds/video-editor.html')
         })
         .when('/playground/publisher-website-settings', {
             title: 'Publisher Website Settings',

@@ -9,7 +9,7 @@ export default class ReactDoc extends React.Component {
         let navigation = [{
             headline: 'Form components',
             items: [
-                'Labels', 'Input', 'Line Input'
+                'Labels', 'Input', 'Line Input', 'Checkbox', 'Link Input', 'Select', 'Text Area', 'Text Area Input', 'Text Input'
             ]
         }];
 
