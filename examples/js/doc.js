@@ -158,16 +158,6 @@ function reactPlayground() {
     };
 }
 
-docInclude.$inject = [];
-function docInclude() {
-    return {
-        restrict: 'AE',
-        templateUrl: function(elem, attrs) {
-            return attrs.docInclude;
-        }
-    };
-}
-
 export default angular.module('ui-docs.directives', [])
         .directive('prettyprint', docPrettyPrint)
         .directive('docPlayground', docPlayground)
@@ -175,5 +165,4 @@ export default angular.module('ui-docs.directives', [])
         .directive('docNav', docNav)
         .directive('docModal', docModal)
         .directive('docScroll', docScroll)
-        .directive('reactPlayground', reactPlayground)
-        .directive('docInclude', docInclude);
+        .directive('reactPlayground', reactPlayground);
