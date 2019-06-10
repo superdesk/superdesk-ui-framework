@@ -3091,8 +3091,8 @@
                             </div>
                             <div class="side-panel__content-block side-panel__content-block--flex side-panel__content-block--space-between">
                                 <div class="dropdown" dropdown="">
-                                    <button class="btn btn--primary btn--hollow btn--ui-dark dropdown__toggle" dropdown__toggle="">
-                                        add destination                                        
+                                    <button class="btn btn--primary btn--icon-only-circle btn--large dropdown__toggle" sd-tooltip="Add destination" flow="right" dropdown__toggle="">
+                                            <i class="icon-plus-large"></i>
                                     </button>
                                     <ul class="dropdown__menu">
                                         <li><button>Tenant 1</button></li>
@@ -3100,22 +3100,17 @@
                                         <li><button>Tenant 3</button></li>
                                         <li><button>Tenant 4</button></li>
                                     </ul>
-                                </div>
-                                <div class="dropdown dropdown--align-right" dropdown="">
-                                    <button class="dropdown__toggle" dropdown__toggle="">
-                                        Filter
-                                        <span class="dropdown__caret"></span>
-                                    </button>
-                                    <ul class="dropdown__menu">
-                                        <li><button>Published</button></li>
-                                        <li><button>Unpublished</button></li>
-                                    </ul>
+                                </div>                                
+                                <div ng-init="publishType = 'all'">
+                                    <sd-check ng-model="publishType" type="radio" ng-value="all" label-position="inside">All</sd-check>
+                                    <sd-check ng-model="publishType" type="radio" ng-value="published" label-position="inside">Published</sd-check>
+                                    <sd-check ng-model="publishType" type="radio" ng-value="unpublished" label-position="inside">Unpublished</sd-check>
                                 </div>
                             </div>
                             <div class="side-panel__content-block side-panel__content-block--pad-small">
                                
                                 <!-- website 1 -->
-                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen0}" ng-hide="deleteTenant0">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen0}" ng-hide="deleteTenant0; publishType == 'unpublished'">
                                     <div class="sd-collapse-box__header" ng-click="isOpen0 = !isOpen0">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
@@ -3228,7 +3223,7 @@
                                     </div>
                                 </div>
                                 <!-- website 2 -->
-                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen1}" ng-hide="deleteTenant1">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen1}" ng-hide="deleteTenant1; publishType == 'unpublished'">
                                     <div class="sd-collapse-box__header" ng-click="isOpen1 = !isOpen1">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
@@ -3338,7 +3333,7 @@
                                     </div>
                                 </div>
                                 <!-- website 3 -->
-                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen2}" ng-hide="deleteTenant2">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen2}" ng-hide="deleteTenant2; publishType == 'unpublished'">
                                     <div class="sd-collapse-box__header" ng-click="isOpen2 = !isOpen2">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
@@ -3448,7 +3443,7 @@
                                     </div>
                                 </div>
                                 <!-- website 4 -->
-                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen3}" ng-hide="deleteTenant3">
+                                <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen3}" ng-hide="deleteTenant3; publishType == 'published'">
                                     <div class="sd-collapse-box__header" ng-click="isOpen3 = !isOpen3">
                                         <!-- list item  -->
                                         <div class="sd-list-item">
