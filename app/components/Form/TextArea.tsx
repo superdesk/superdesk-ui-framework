@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import {debounce} from 'lodash';
 
-import './style.scss';
-
 /**
  * @ngdoc react
  * @name TextArea
