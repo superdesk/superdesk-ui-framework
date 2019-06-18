@@ -146,6 +146,7 @@
     border-left: 1px solid rgba(0, 0, 0, 0.27);
     overflow-x: hidden;
     position: relative;
+    flex-shrink: 0;
     &::before{
         display: block;
         top: 0;
