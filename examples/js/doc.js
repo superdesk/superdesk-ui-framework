@@ -4,8 +4,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ReactDoc from './reactDoc.tsx';
-
 docPrettyPrint.$inject = [];
 function docPrettyPrint() {
     return {
@@ -149,20 +147,10 @@ function docScroll($window) {
     };
 }
 
-reactPlayground.$inject = [];
-function reactPlayground() {
-    return {
-        link: function (scope, elem) {
-            ReactDOM.render(<ReactDoc />, elem[0]);
-        }
-    };
-}
-
 export default angular.module('ui-docs.directives', [])
         .directive('prettyprint', docPrettyPrint)
         .directive('docPlayground', docPlayground)
         .directive('docTabs', docTabs)
         .directive('docNav', docNav)
         .directive('docModal', docModal)
-        .directive('docScroll', docScroll)
-        .directive('reactPlayground', reactPlayground);
+        .directive('docScroll', docScroll);
