@@ -3,6 +3,7 @@
 $layout-grid-columns: 12;
 $layout-grid-gutter: 1rem;
 $layout-grid-gap: 1rem;
+$layout-grid-gap-small: .4rem; // alternative small gap
 
 // map for media breakpoints, 'small' is mandatory and reserved as mobile first
 $layout-grid-media: (
@@ -43,6 +44,15 @@ $layout-grid-media: (
     @for $i from 1 through $layout-grid-columns {
         &-#{$i} {
             $box-col-width: calc(#{($i / $layout-grid-columns) * 100%} - #{$layout-grid-gap * 2});
+            @include flex(0, 0, $box-col-width);
+            min-width: $box-col-width;
+        }
+    }
+}
+@mixin layout-grid-responsive-boxed-small {
+    @for $i from 1 through $layout-grid-columns {
+        &-#{$i} {
+            $box-col-width: calc(#{($i / $layout-grid-columns) * 100%} - #{$layout-grid-gap-small * 2});
             @include flex(0, 0, $box-col-width);
             min-width: $box-col-width;
         }
@@ -89,6 +99,21 @@ $layout-grid-media: (
             }
         }
     }
+    &--boxed-small {
+        margin-left: -$layout-grid-gap-small;
+        margin-right: -$layout-grid-gap-small;
+        .grid__item {
+            margin: $layout-grid-gap-small;
+            padding: 0;           
+        }
+        &-styled {
+            .grid__item {
+                background-color: white;
+                border-radius: 2px;
+                box-shadow: 0 1px 4px rgba(0,0,0,.12);
+            }
+        }
+    }
     & + .grid {
         margin-top: 1rem;
     }
@@ -107,6 +132,13 @@ $layout-grid-media: (
                 .grid__item {
                     &.gi-#{$name} {
                         @include layout-grid-responsive-boxed;
+                    }
+                }
+            }
+            &--boxed-small {
+                .grid__item {
+                    &.gi-#{$name} {
+                        @include layout-grid-responsive-boxed-small;
                     }
                 }
             }
