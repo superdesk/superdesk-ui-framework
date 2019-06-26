@@ -1,7 +1,7 @@
 <h2 class="docs-page__h2">Layout grid</h2>
-<p class="docs-page__paragraph">Layout grid in Superdesk is based on flex grid and works very similarly to the standard float grid. It has 12 columns setup, and column gutter of 10px so that the space between two columns is always 20px. The grid is fluid, but for now we don't have responsive behavior in terms of setting different number of columns for various screen sizes. It's because in Superdesk, layout grid will mainly be used inside other containers or components (like panes, modals etc.) so media queries do not make much sense.</p>
+<p class="docs-page__paragraph">Layout grid in Superdesk is based on flex grid and works very similarly to the standard float grid. It has 12 columns setup, and column gutter of 10px so that the space between two columns is always 20px.</p>
 <p class="docs-page__paragraph">If there is a need to have layout grid inside an element which already has default padding (like modal body for instance), just add modifier <code>.grid--padding-fix</code> to div <code>.grid</code>.</p>
-<h3 class="docs-page__h3">Examples</h3>
+<h3 class="docs-page__h3">Default Layout grid (not responsive)</h3>
 <p class="docs-page__paragraph">Add grid container with class <code>.grid</code>, and nest grid items inside. For example, grid item will be <code>.grid__item</code> with additional modifier class <code>.grid__item--col-3</code>, so number of columns is set as a modifier on a grid item div. To have a full row width, sum of items columns should be 12.</p>
 <div class="docs-page__code-window" doc-tabs>
     <div class="docs-page__window-bar">
@@ -58,7 +58,7 @@
     </div>
 </div>
 
-<h3 class="docs-page__h3">Nested grid</h3>
+<h4 class="docs-page__h4">Nested grid</h4>
 <p class="docs-page__paragraph">To have layout grid inside another one, just add whole <code>.grid</code> structure to <code>.grid__item</code> div.</p>
 <div class="docs-page__code-window" doc-tabs>
     <div class="docs-page__window-bar">
@@ -97,8 +97,8 @@
     </div>
 </div>
 
-<h3 class="docs-page__h3">Responsive grid</h3>
-<p class="docs-page__paragraph">Responsive grid is based on 12 columns and 6 breakpoints which define media queries. We use 'mobile first' approach which assumes 'min-width' as a parameter for calculation. To make it work, add a class for particular breakpoint on grid__item div block.</p>
+<h3 class="docs-page__h3">Responsive Layout grid</h3>
+<p class="docs-page__paragraph">Responsive Layout grid is based on 12 columns and 6 breakpoints which define media queries. We use 'mobile first' approach which assumes 'min-width' as a parameter for calculation. To make it work, add a class for particular breakpoint on grid__item div block.</p>
 <p class="docs-page__paragraph">Example class: <code>grid__item gi-xsmall-12 gi-small-6 gi-medium-4 gi-large-3 gi-xlarge-2 gi-xxlarge-1</code></p>
 <p class="docs-page__paragraph">Available breakpoints:</p>
 <table class="sd-table" style="width:300px; margin-bottom:30px;">
@@ -162,7 +162,7 @@
     </div>
 </div>
 
-<h4 class="docs-page__h4">Responsive grid - boxed</h4>
+<h4 class="docs-page__h4">Responsive Layout grid - boxed</h4>
 <p class="docs-page__paragraph">Boxed version is different as it has margin set between grid items, instead of padding (which is 0, by default).</p>
 <p class="docs-page__paragraph">Add <code>grid--boxed</code> modifier class to the main grid block.</p>
 
@@ -192,7 +192,7 @@
         </div>
     </div>
 </div>
-<h4 class="docs-page__h4">Responsive grid - boxed styled</h4>
+<h4 class="docs-page__h4">Responsive Layout grid - boxed styled</h4>
 <p class="docs-page__paragraph">Styled boxed version is just with added background white and box shadow to grid items.</p>
 <p class="docs-page__paragraph">To achieve this, grid block should have the class: <code>grid grid--boxed grid--boxed-styled</code></p>
 
@@ -222,4 +222,4 @@
         </div>
     </div>
 </div>
-<p class="docs-page__paragraph">More examples on the <a href="#/layout" target="_blank">playground page</a>.</p>
+<p class="docs-page__paragraph">More examples on the <a href="#/playground/layout" target="_blank">playground page</a>.</p>
