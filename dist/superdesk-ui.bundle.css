@@ -9743,7 +9743,9 @@ a.text-link {
   .avatar--no-margin {
     margin: 0; }
   .avatar--empty {
-    background-color: rgba(0, 0, 0, 0.1); }
+    background-color: rgba(123, 123, 123, 0.05);
+    color: transparent;
+    border: 1px dashed rgba(123, 123, 123, 0.6); }
   .avatar--on-right {
     margin-right: 0;
     margin-left: 0.6rem; }

@@ -421,7 +421,9 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         margin: 0;
     }
     &--empty {
-        background-color: rgba(0,0,0,0.1);
+        background-color: rgba(123, 123, 123, 0.05);
+        color: transparent;
+        border: 1px dashed rgba(123, 123, 123, 0.6);
     }
     &--on-right {
         margin-right: 0;
