@@ -46,11 +46,15 @@ table {
     }
 }
 .sd-table--action-hover {
-    td .icn-btn {
-       visibility: hidden;
+    td,
+    .sd-display-table__cell {
+        .icn-btn {
+            visibility: hidden;
+        }
     }
 
-    tr:hover td {
+    tr:hover td,
+    .sd-display-table__row:hover .sd-display-table__cell {
         .icn-btn {
             visibility: visible;
         }
@@ -64,5 +68,35 @@ table {
 
     span + span {
         margin-left: .4rem;
+    }
+}
+
+.sd-display-table {
+    display: table;
+    width: 100%;
+}
+.sd-display-table__head {
+    display: table-row-group;
+
+    .sd-display-table__cell {
+        font-weight: 600;
+        border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    }
+}
+.sd-display-table__body {
+    display: table-row-group;
+}
+.sd-display-table__row {
+    display: table-row;
+}
+.sd-display-table__cell {
+    display: table-cell;
+    padding: 1.2rem 0.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    text-align: left;
+
+    &.sd-table-two-rows {
+        padding: 0.8rem;
     }
 }
