@@ -189,28 +189,28 @@
                                 </div>
                             </div>
                             <div class="sd-column-box__main-column-inner">
-                                <table class="sd-table sd-table--shadowed sd-table--action-hover">
-                                    <thead>
-                                        <tr>
-                                            <th>Title <a class="icn-btn icn-btn--small" ng-click="ascending = !ascending">
+                                <div class="sd-display-table sd-table--shadowed">
+                                    <div class="sd-display-table__head">
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell">Title <a class="icn-btn icn-btn--small" ng-click="ascending = !ascending">
                                                 <i class="icon-chevron-down-thin" ng-show="!ascending"></i>
                                                 <i class="icon-chevron-up-thin" ng-show="ascending"></i>
-                                            </a></th>
-                                            <th></th>
-                                            <th>Page Views <a class="icn-btn icn-btn--small icn-btn--disabled">
+                                            </a></div>
+                                            <div class="sd-display-table__cell">&nbsp;</div>
+                                            <div class="sd-display-table__cell">Page Views <a class="icn-btn icn-btn--small icn-btn--disabled">
                                                     <i class="icon-chevron-down-thin"></i>
-                                            </a></th>
-                                            <th>Click Rate  <a class="icn-btn icn-btn--small icn-btn--disabled">
+                                            </a></div>
+                                            <div class="sd-display-table__cell">Click Rate  <a class="icn-btn icn-btn--small icn-btn--disabled">
                                                     <i class="icon-chevron-down-thin"></i>
-                                            </a></th>
-                                            <th>Impressions <a class="icn-btn icn-btn--small icn-btn--disabled" ng-click="ascending = !ascending">
+                                            </a></div>
+                                            <div class="sd-display-table__cell">Impressions <a class="icn-btn icn-btn--small icn-btn--disabled" ng-click="ascending = !ascending">
                                                     <i class="icon-chevron-down-thin"></i>
-                                            </a></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </a></div>
+                                        </div>
+                                    </div>
+                                    <div class="sd-display-table__body sd-table--action-hover">
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Nisi quis eiusmod nostrud pariatur amet.</strong>
                                                 </div>
@@ -219,18 +219,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Donald Duck</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>14640</td>
-                                            <td>32</td>
-                                            <td>0</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">14640</div>
+                                            <div class="sd-display-table__cell">32</div>
+                                            <div class="sd-display-table__cell">0</div>
+                                        </div>
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Ipsum consectetur enim aliquip cillum nisi nisi aliquip esse laboris velit commodo deserunt.</strong>
                                                 </div>
@@ -239,18 +239,19 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Jack Daniels, Mickey Mouse</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>3341</td>
-                                            <td>234</td>
-                                            <td>1230</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">3341</div>
+                                            <div class="sd-display-table__cell">234</div>
+                                            <div class="sd-display-table__cell">1230</div>
+                                        </div>
+
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Labore magna aute veniam incididunt commodo Lorem amet esse non.</strong>
                                                 </div>
@@ -259,18 +260,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Donald Trump</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>7689</td>
-                                            <td>6540</td>
-                                            <td>22</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">7689</div>
+                                            <div class="sd-display-table__cell">6540</div>
+                                            <div class="sd-display-table__cell">22</div>                      
+                                        </div>
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Nulla ad adipisicing sit dolor.</strong>
                                                 </div>
@@ -279,18 +280,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Johnnie Walker</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>3654</td>
-                                            <td>236</td>
-                                            <td>10</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">3654</div>
+                                            <div class="sd-display-table__cell">236</div>
+                                            <div class="sd-display-table__cell">10</div>
+                                        </div>
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Ea fugiat sit sint id esse culpa officia est culpa.</strong>
                                                 </div>
@@ -299,18 +300,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Jack Daniels, Mickey Mouse</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>1234</td>
-                                            <td>765</td>
-                                            <td>179</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">1234</div>
+                                            <div class="sd-display-table__cell">765</div>
+                                            <div class="sd-display-table__cell">179</div>
+                                        </div>
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Laboris dolore laboris reprehenderit quis enim nostrud nulla culpa aliqua laboris eiusmod quis.</strong>
                                                 </div>
@@ -319,18 +320,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Donald Trump</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>98765</td>
-                                            <td>15230</td>
-                                            <td>2342</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">98765</div>
+                                            <div class="sd-display-table__cell">15230</div>
+                                            <div class="sd-display-table__cell">2342</div>
+                                        </div>
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Minim esse nulla commodo exercitation esse laborum excepteur do.</strong>
                                                 </div>
@@ -339,18 +340,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Jane Doe</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>6576</td>
-                                            <td>10023</td>
-                                            <td>3654</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">6576</div>
+                                            <div class="sd-display-table__cell">10023</div>
+                                            <div class="sd-display-table__cell">3654</div>
+                                        </div>
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Ipsum elit tempor nostrud sint ex cillum enim.</strong>
                                                 </div>
@@ -359,18 +360,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Jack Daniels, Mickey Mouse</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>45632</td>
-                                            <td>1434</td>
-                                            <td>623</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="sd-table-two-rows">
+                                            </div>
+                                            <div class="sd-display-table__cell">45632</div>
+                                            <div class="sd-display-table__cell">1434</div>
+                                            <div class="sd-display-table__cell">623</div>
+                                        </div>
+                                        <div class="sd-display-table__row">
+                                            <div class="sd-display-table__cell sd-table-two-rows">
                                                 <div class="no-padding sd-text__strong">
                                                     <strong>Commodo culpa ipsum in consequat ut tempor ad enim ad laborum nulla magna eu excepteur.</strong>
                                                 </div>
@@ -379,18 +380,18 @@
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Mitar Miric</span>
                                                     <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
                                                 </div>
-                                            </td>
-                                            <td>
+                                            </div>
+                                            <div class="sd-display-table__cell">
                                                 <a class="icn-btn" target="_blank" href="#">
                                                     <i class="icon-external"></i>
                                                 </a>
-                                            </td>
-                                            <td>1789</td>
-                                            <td>3240</td>
-                                            <td>152</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                            </div>
+                                            <div class="sd-display-table__cell">1789</div>
+                                            <div class="sd-display-table__cell">3240</div>
+                                            <div class="sd-display-table__cell">152</div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
