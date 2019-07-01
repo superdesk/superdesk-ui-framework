@@ -216,6 +216,9 @@ time {
 .sd-text__right {
     text-align: right;
 }
+.sd-text__center {
+    text-align: center;
+}
 
 .dark-ui {
     .sd-text__slugline {
@@ -373,6 +376,9 @@ time {
 }
 .sd-flex-justify-end {
     justify-content: flex-end !important;
+}
+.sd-flex-grow {
+    flex-grow: 1 !important;
 }
 
 // Common margin overrides
