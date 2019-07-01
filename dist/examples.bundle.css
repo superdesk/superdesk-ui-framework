@@ -1434,6 +1434,9 @@ time {
 .sd-text__right {
   text-align: right; }
 
+.sd-text__center {
+  text-align: center; }
+
 .dark-ui .sd-text__slugline {
   color: #678b98; }
 
@@ -1557,6 +1560,9 @@ time {
 
 .sd-flex-justify-end {
   justify-content: flex-end !important; }
+
+.sd-flex-grow {
+  flex-grow: 1 !important; }
 
 .sd-margin-t--0 {
   margin-top: 0 !important; }
@@ -5503,11 +5509,13 @@ table {
   vertical-align: top; }
 
 .sd-table--action-hover td .icn-btn,
-.sd-table--action-hover .sd-display-table__cell .icn-btn {
+.sd-table--action-hover .sd-display-table__cell .icn-btn,
+.sd-table--action-hover .sd-flex-table__row:not(.sd-flex-table--head) .sd-flex-table__cell .icn-btn {
   visibility: hidden; }
 
 .sd-table--action-hover tr:hover td .icn-btn,
-.sd-table--action-hover .sd-display-table__row:hover .sd-display-table__cell .icn-btn {
+.sd-table--action-hover .sd-display-table__row:hover .sd-display-table__cell .icn-btn,
+.sd-table--action-hover .sd-flex-table__row:not(.sd-flex-table--head):hover .sd-flex-table__cell .icn-btn {
   visibility: visible; }
 
 .sd-table-two-rows {
@@ -5542,6 +5550,29 @@ table {
   text-align: left; }
   .sd-display-table__cell.sd-table-two-rows {
     padding: 0.8rem; }
+
+.sd-flex-table {
+  display: flex;
+  flex-direction: column; }
+
+.sd-flex-table__row {
+  display: flex;
+  flex-direction: row; }
+
+.sd-flex-table__cell {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  padding: 1.2rem 0.8rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  font-weight: 500;
+  text-align: left;
+  min-width: 120px; }
+
+.sd-flex-table--head .sd-flex-table__cell {
+  font-weight: 600;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.15); }
 
 /* Thanks to Jase Smith - codepen.io/jasesmith */
 [sd-tooltip],

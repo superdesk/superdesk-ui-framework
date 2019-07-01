@@ -47,14 +47,16 @@ table {
 }
 .sd-table--action-hover {
     td,
-    .sd-display-table__cell {
+    .sd-display-table__cell,
+    .sd-flex-table__row:not(.sd-flex-table--head) .sd-flex-table__cell {
         .icn-btn {
             visibility: hidden;
         }
     }
 
     tr:hover td,
-    .sd-display-table__row:hover .sd-display-table__cell {
+    .sd-display-table__row:hover .sd-display-table__cell,
+    .sd-flex-table__row:not(.sd-flex-table--head):hover .sd-flex-table__cell {
         .icn-btn {
             visibility: visible;
         }
@@ -71,6 +73,7 @@ table {
     }
 }
 
+// Div table
 .sd-display-table {
     display: table;
     width: 100%;
@@ -99,4 +102,29 @@ table {
     &.sd-table-two-rows {
         padding: 0.8rem;
     }
+}
+
+// Flex table
+.sd-flex-table {
+    display: flex;
+    flex-direction: column;
+}
+.sd-flex-table__row {
+    display: flex;
+    flex-direction: row;
+}
+.sd-flex-table__cell {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 1.2rem 0.8rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    font-weight: 500;
+    text-align: left;
+    min-width: 120px;
+}
+.sd-flex-table--head .sd-flex-table__cell {
+    font-weight: 600;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
 }
