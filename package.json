@@ -16,7 +16,6 @@
   ],
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
-    "server": "npm run build && webpack-dev-server --config tasks/webpack.server.js",
     "build": "webpack",
     "lint": "eslint app",
     "prepublish": "npm run build"

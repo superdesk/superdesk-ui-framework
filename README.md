@@ -19,25 +19,45 @@ After installation, the ui-framework distributive files will be available as
 import 'superdesk-ui-framework'
 ```
 
-There are also uncompressed versions (superdesk-ui-framework.js, superdesk-ui-framework.css) and sourcemaps for all of js/css-files.
-
 To use it in your angular-app you should add the module (modules)
 
 ```
 angular.module('application', ['superdesk-ui'])
-``` 
+```
+
+### React modules
+To import react modules in your application, just use
+```
+import {LineInput} from 'superdesk-ui-framework'
+```
 
 ### Contributing
 1. Fork repo https://github.com/superdesk/superdesk-ui-framework
 2. Clone `git clone https://github.com/superdesk/superdesk-ui-framework`
 3. `npm install` to install dependencies
-4. `grunt server` to run server locally
-5. Open `localhost:9100`
+4. `npm start` to run server locally
+5. Files are served on `localhost:9100`
 
-Before pushing changes, please run `grunt build` to rebuild content for example page
+### Creating playgrounds
+1. Create new `your-playground.html` file in `examples/playgrounds`
+2. Define new settings for your playground in `examples/index.js`:
+```
+.when('/playground/your-playground', {
+    title: 'My Playground',
+    playground: 'main', // can be publisher or react also
+    template: require('../examples/playgrounds/your-playground.html')
+})
+```
+3. Open your playground in browser
+
+### Continuous Development
+If you want to develop new components and see live changes on your project, you need to link `superdesk-ui-framework` with your project.
+1. In `superdesk-ui-framework` project folder run `npm link`
+2. In your project folder run `npm link superdesk-ui-framework`
+3. All changes on superdesk-ui-framework project are now automatically updated in your project
 
 ### Testing
 Runing `e2e&unit` tests
 ```
-grunt test
+npm run lint
 ```
