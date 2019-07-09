@@ -4,6 +4,7 @@ import './styles';
 export {reactToAngular1} from './scripts/helpers/react-to-angular-1';
 export {ToggleBoxNext} from './scripts/toggleBoxNext';
 export {Positioner} from './scripts/positioner';
+export {HelloWorld} from './scripts/HelloWorld';
 
 export default angular.module('superdesk-ui', [
     'superdesk-ui.helper',
