@@ -3,13 +3,13 @@ const webpackConfig = require('../webpack.config.js');
 
 module.exports = merge(webpackConfig, {
     stats: {
-        colors: true
+        colors: true,
     },
 
     devtool: 'eval',
 
     devServer: {
         open: true,
-        port: 9100
-    }
+        port: 9100,
+    },
 });

@@ -54,6 +54,7 @@ import {LineInput} from 'superdesk-ui-framework'
 If you want to develop new components and see live changes on your project, you need to link `superdesk-ui-framework` with your project.
 1. In `superdesk-ui-framework` project folder run `npm link`
 2. In your project folder run `npm link superdesk-ui-framework`
+3. Start `superdesk-ui-framework` with `npm run server` command.
 3. All changes on superdesk-ui-framework project are now automatically updated in your project
 
 ### Testing
