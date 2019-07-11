@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const path = require('path');
 
@@ -36,19 +37,18 @@ const config = {
                 },
             },
             {
-                test: /\.css$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                ],
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader!sass-loader',
+                }),
             },
             {
-                test: /\.scss$/,
-                use: [
-                    'style-loader',
-                    'css-loader',
-                    'sass-loader',
-                ],
+                test: /\.css/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: 'css-loader',
+                }),
             },
             {
                 test: /\.html$/,
@@ -70,6 +70,9 @@ const config = {
             template: 'examples/index.html',
             chunks: ['vendor', 'examples', 'superdesk-ui-react', 'superdesk-ui'],
             chunksSortMode: 'manual',
+        }),
+        new ExtractTextPlugin({
+            filename: '[name].bundle.css',
         }),
         new webpack.ProvidePlugin({
             $: 'jquery',
