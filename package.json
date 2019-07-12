@@ -7,6 +7,7 @@
     "url": "https://github.com/superdesk/superdesk-ui-framework.git"
   },
   "main": "dist/superdesk-ui.bundle.js",
+  "types": "app-typescript/dist/index.d.ts",
   "contributors": [
     "Nemanja Pavlovic",
     "Vladimir Stefanovic",
@@ -17,8 +18,8 @@
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
     "server": "webpack --watch",
-    "build": "npm run lint && webpack",
-    "lint": "eslint app && tsc -p app --noEmit && tslint -c tslint.json './**/*.{ts,tsx}'",
+    "build": "tsc && npm run lint && webpack",
+    "lint": "eslint app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
     "prepublish": "npm run build"
   },
   "devDependencies": {

@@ -29,7 +29,16 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(ts|tsx|js|jsx)$/,
+                test: /\.(js|jsx)$/,
+                loader: 'babel-loader',
+                exclude: /node_modules/,
+                query: {
+                    presets: ['es2015', 'react'],
+                    plugins: ['transform-object-rest-spread'],
+                },
+            },
+            {
+                test: /\.(ts|tsx)$/,
                 loader: 'ts-loader',
                 exclude: /node_modules/,
                 options: {
