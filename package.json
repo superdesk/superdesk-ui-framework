@@ -1,14 +1,13 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "1.8.20",
+  "version": "2.0.0",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/superdesk/superdesk-ui-framework.git"
   },
   "main": "dist/superdesk-ui.bundle.js",
-  "style": "dist/superdesk-ui.bundle.css",
-  "sass": "app/styles/app.scss",
+  "types": "app-typescript/dist/index.d.ts",
   "contributors": [
     "Nemanja Pavlovic",
     "Vladimir Stefanovic",
@@ -16,7 +15,15 @@
     "Aleksandar Jelicic",
     "Tomas Kikutis"
   ],
+  "scripts": {
+    "start": "webpack-dev-server --config tasks/webpack.dev.js",
+    "server": "webpack --watch",
+    "build": "tsc && npm run lint && webpack",
+    "lint": "eslint app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
+    "prepublish": "npm run build"
+  },
   "devDependencies": {
+    "@types/react": "16.4.9",
     "angular": "^1.6.6",
     "angular-animate": "^1.6.6",
     "angular-route": "^1.6.6",
@@ -26,23 +33,19 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "classnames": "^2.2.5",
+    "clean-webpack-plugin": "^1.0.0",
     "code-prettify": "^0.1.0",
-    "css-loader": "^0.28.7",
+    "css-loader": "^2.1.1",
     "eslint": "^4.6.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-angular": "^3.1.1",
     "eslint-plugin-react": "^7.3.0",
-    "extract-text-webpack-plugin": "^3.0.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^0.11.2",
-    "grunt": "^1.0.1",
-    "grunt-contrib-clean": "^1.1.0",
-    "grunt-webpack": "^3.0.2",
     "html-loader": "^0.5.1",
     "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1",
-    "load-grunt-config": "^0.19.2",
-    "load-grunt-tasks": "^3.5.2",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.3",
     "prop-types": "^15.6.0",
@@ -55,13 +58,13 @@
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "superdesk-code-style": "^1.1.2",
-    "url-loader": "^0.5.9",
+    "ts-loader": "^6.0.2",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.1",
+    "url-loader": "^1.1.2",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1"
-  },
-  "scripts": {
-    "prepublish": "grunt build",
-    "lint": "eslint app"
+    "webpack-dev-server": "^2.7.1",
+    "webpack-merge": "^4.2.1"
   },
   "dependencies": {
     "popper.js": "1.14.4"

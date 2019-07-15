@@ -4,8 +4,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import ReactDoc from './reactDoc';
-
 docPrettyPrint.$inject = [];
 function docPrettyPrint() {
     return {
@@ -43,8 +41,8 @@ function docPlayground(components, $route) {
     return {
         link: function link(scope) {
             scope.components = components;
-            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && route.playground === 'main');
-            scope.publisherPlaygrounds = _.filter($route.routes, (route) => _.has(route, 'templateUrl') && route.playground === 'publisher');
+            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'template') && route.playground === 'main');
+            scope.publisherPlaygrounds = _.filter($route.routes, (route) => _.has(route, 'template') && route.playground === 'publisher');
             scope.route = $route;
 
             scope.items = [
@@ -149,31 +147,10 @@ function docScroll($window) {
     };
 }
 
-reactPlayground.$inject = [];
-function reactPlayground() {
-    return {
-        link: function (scope, elem) {
-            ReactDOM.render(<ReactDoc />, elem[0]);
-        }
-    };
-}
-
-docInclude.$inject = [];
-function docInclude() {
-    return {
-        restrict: 'AE',
-        templateUrl: function(elem, attrs) {
-            return attrs.docInclude;
-        }
-    };
-}
-
 export default angular.module('ui-docs.directives', [])
         .directive('prettyprint', docPrettyPrint)
         .directive('docPlayground', docPlayground)
         .directive('docTabs', docTabs)
         .directive('docNav', docNav)
         .directive('docModal', docModal)
-        .directive('docScroll', docScroll)
-        .directive('reactPlayground', reactPlayground)
-        .directive('docInclude', docInclude);
+        .directive('docScroll', docScroll);

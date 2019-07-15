@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 const path = require('path');
 
 const config = {
@@ -18,7 +20,7 @@ const config = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx', '.json'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
         alias: {
             'superdesk-ui': path.resolve(__dirname, './app'),
         },
@@ -27,20 +29,20 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.js/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015'],
-                },
-            },
-            {
-                test: /\.jsx?$/,
+                test: /\.(js|jsx)$/,
                 loader: 'babel-loader',
                 exclude: /node_modules/,
                 query: {
                     presets: ['es2015', 'react'],
                     plugins: ['transform-object-rest-spread'],
+                },
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                loader: 'ts-loader',
+                exclude: /node_modules/,
+                options: {
+                    transpileOnly: true,
                 },
             },
             {
@@ -72,6 +74,7 @@ const config = {
     },
 
     plugins: [
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
             chunks: ['vendor', 'examples', 'superdesk-ui-react', 'superdesk-ui'],

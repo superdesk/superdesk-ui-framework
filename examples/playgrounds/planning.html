@@ -882,8 +882,8 @@
              class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" 
              ng-class="{'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
             <!-- Eitor content -->
-            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'event'" doc-include="../examples/playgrounds/planning-snippets/edit-event.html"></div>
-            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'planning'" doc-include="../examples/playgrounds/planning-snippets/edit-planning.html"></div>
+            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'event'" ng-include="'../examples/playgrounds/planning-snippets/edit-event.html'"></div>
+            <div class="side-panel side-panel--shadow-right" ng-if="!itemType || itemType === 'planning'" ng-include="'../examples/playgrounds/planning-snippets/edit-planning.html'"></div>
             <!-- END Editor content -->
         </div>
     </section>

@@ -3,6 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Superdesk UI Framework</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico" />
     </head>
     <body class="docs-page" ng-app="ui-docs" doc-playground>
         <header class="docs-page__header" ng-if="!route.current.$$route.playground">
@@ -35,7 +36,7 @@
             </div>
         </header>
 
-        <aside class="docs-page__sidebar" doc-scroll ng-class="{scroll:boolChangeClass}" ng-if="!route.current.$$route.playground">
+        <aside class="docs-page__sidebar" doc-scroll ng-class="{scroll:boolChangeClass}" ng-if="!route.current.$$route.playground && !route.current.$$route.react">
             <ul class="docs-page__nav" doc-nav>
                 <li ng-repeat="group in components">
                     <span class="docs-page__nav-title">{{group.name}}</span>

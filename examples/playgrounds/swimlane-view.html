@@ -190,7 +190,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select1"></sd-check>
                                 </div>
-                                <img src="../examples/img/d_trump.jpg" alt="Trt">
+                                <img src="/d_trump.jpg" alt="Trt">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -222,7 +222,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select2"></sd-check>
                                 </div>
-                                <img src="../examples/img/d_trump_2.jpg" alt="test">
+                                <img src="/d_trump_2.jpg" alt="test">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -253,7 +253,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select3"></sd-check>
                                 </div>
-                                <img src="../examples/img/bill.jpg" alt="test">
+                                <img src="/bill.jpg" alt="test">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -284,7 +284,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select4"></sd-check>
                                 </div>
-                                <img src="../examples/img/hillary.jpg" alt="test">
+                                <img src="/hillary.jpg" alt="test">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -315,7 +315,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select5"></sd-check>
                                 </div>
-                                <img src="../examples/img/obama_1.jpg" alt="test">
+                                <img src="/obama_1.jpg" alt="test">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -346,7 +346,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select6"></sd-check>
                                 </div>
-                                <img src="../examples/img/obama_2.jpg" alt="test">
+                                <img src="/obama_2.jpg" alt="test">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -377,7 +377,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select7"></sd-check>
                                 </div>
-                                <img src="../examples/img/bush_1.jpg" alt="test">
+                                <img src="/bush_1.jpg" alt="test">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -408,7 +408,7 @@
                                 <div class="sd-grid-item__checkbox">
                                     <sd-check ng-model="select8"></sd-check>
                                 </div>
-                                <img src="../examples/img/bush_2.jpg" alt="test">
+                                <img src="/bush_2.jpg" alt="test">
                             </div>
                             <div class="sd-grid-item__content">
                                 <time title="20.11.2017">20.11.2017</time>
@@ -1847,7 +1847,7 @@
                                 <a class="icn-btn side-panel__image-actions" ng-click="openModal('imageModal')">
                                     <i class="icon-fullscreen"></i>
                                 </a>
-                                <img src="../examples/img/d_trump.jpg" alt="test">
+                                <img src="/d_trump.jpg" alt="test">
                             </div>
                             <div class="side-panel__content-block">
                                 <div class="form__row">
@@ -1886,7 +1886,7 @@
                                     <!-- related item 1 -->
                                     <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
                                         <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/d_trump_2.jpg" alt="test">
+                                            <img src="/d_trump_2.jpg" alt="test">
                                         </div>
                                         <div class="sd-grid-item__content">
                                             <time title="20.11.2017">20.11.2017</time>
@@ -1896,7 +1896,7 @@
                                     <!-- related item 2 -->
                                     <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
                                         <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/bill.jpg" alt="test">
+                                            <img src="/bill.jpg" alt="test">
                                         </div>
                                         <div class="sd-grid-item__content">
                                             <time title="20.11.2017">20.11.2017</time>
@@ -1906,7 +1906,7 @@
                                     <!-- related item 3 -->
                                     <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
                                         <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/hillary.jpg" alt="test">
+                                            <img src="/hillary.jpg" alt="test">
                                         </div>
                                         <div class="sd-grid-item__content">
                                             <time title="20.11.2017">20.11.2017</time>
@@ -1916,7 +1916,7 @@
                                     <!-- related item 4 -->
                                     <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
                                         <div class="sd-grid-item__thumb">
-                                            <img src="../examples/img/bush_1.jpg" alt="test">
+                                            <img src="/bush_1.jpg" alt="test">
                                         </div>
                                         <div class="sd-grid-item__content">
                                             <time title="20.11.2017">20.11.2017</time>
@@ -1965,7 +1965,7 @@
             <div
             class="side-panel side-panel--shadow-right" 
             ng-if="!itemType || itemType === 'planning'"
-            doc-include="../examples/playgrounds/photo-snippets/edit-photo-metadata.html"></div>
+            ng-include="'../examples/playgrounds/photo-snippets/edit-photo-metadata.html'"></div>
             <!-- END Editor content -->
         </div>
     </section>

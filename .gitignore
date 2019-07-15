@@ -2,5 +2,8 @@ nbproject
 node_modules/
 package-lock.json
 .DS_Store
+.vscode
 app/.DS_Store
 examples/.DS_Store
+.vscode/
+dist
