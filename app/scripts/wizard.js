@@ -71,15 +71,23 @@ function WizardDirective() {
                 }
 
                 $scope.goTo = function (step) {
-                    $scope.nextStep = step.code;
-
-                    if ($scope.canChangeStep()) {
+                    const execute = () => {
                         unselectAll();
                         $scope.selectedStep = step;
                         if (!_.isUndefined($scope.currentStep)) {
                             $scope.currentStep = step.code;
                         }
                         step.selected = true;
+                    };
+
+                    if (typeof $scope.canTabChange === 'function') {
+                        $scope.canTabChange().then((result) => {
+                            if (result === true) {
+                                execute();
+                            }
+                        });
+                    } else {
+                        execute();
                     }
                 };
 
@@ -115,17 +123,6 @@ function WizardDirective() {
                         $scope.finish();
                     }
                 };
-
-                this.goToNextStep = function() {
-                    this.goTo($scope.nextStep);
-                }
-
-                $scope.canChangeStep = function () {
-                    if ($scope.canTabChange) {
-                        return $scope.canTabChange();
-                    }
-                    return true;
-                }
             }]
     };
 }
