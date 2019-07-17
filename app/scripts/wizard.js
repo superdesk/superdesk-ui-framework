@@ -78,6 +78,7 @@ function WizardDirective() {
                             $scope.currentStep = step.code;
                         }
                         step.selected = true;
+                        $scope.$apply();
                     };
 
                     if (typeof $scope.canTabChange === 'function') {
