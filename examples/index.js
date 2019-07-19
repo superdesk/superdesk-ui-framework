@@ -176,7 +176,7 @@ export default angular.module('ui-docs', [
             }
         }
     },
-    icons: {
+    general: {
         name: 'General',
         items: {
             'icons': {
@@ -190,6 +190,19 @@ export default angular.module('ui-docs', [
             'colors': {
                 name: 'Colors',
                 page: 'colors.html'
+            }
+        }
+    },
+    helpers: {
+        name: 'Helper classes',
+        items: {
+            'spacing': {
+                name: 'Spacing',
+                page: 'spacing.html'
+            },
+            'text': {
+                name: 'Text helpers',
+                page: 'text.html'
             }
         }
     }

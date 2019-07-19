@@ -1,16 +1,19 @@
 /// Padding inside buttons.
 /// @type List
-$button-padding: 0.7rem 1.4rem !default;
-$button-padding-small: 0.5rem 1rem;
-$button-padding-large: 1rem 2rem;
+$button-padding: 0 1.4rem !default;
+$button-padding-small: 0 1rem;
+$button-padding-large: 0 2rem;
 
-$button-padding-icon-only: 0.5rem 0.8rem;
-$button-padding-small-icon-only: 0.2rem 0.4rem;
-$button-padding-large-icon-only: 0.9rem 1.4rem;
+$button-height: $sd-base-increment * 4;
+$button-height-small: $sd-base-increment * 3;
+$button-height-large: $sd-base-increment * 5;
 
-$button-padding-icon-only-circle: 0.5rem 0.5rem;
-$button-padding-small-icon-only-circle: 0.2rem 0.2rem;
-$button-padding-large-icon-only-circle: 0.9rem 0.9rem;
+$button-padding-icon-only: 0 0.8rem;
+$button-padding-small-icon-only: 0 0.4rem;
+$button-padding-large-icon-only: 0 1.4rem;
+
+$button-padding-icon-only-circle: 0;
+
 
 /// Margin around buttons.
 /// @type List
@@ -73,10 +76,13 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
 // Button-base() mixin
 @mixin button-base {
   //@include disable-mouse-outline;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
   vertical-align: middle;
+  justify-content: center;
   margin: $button-margin;
   padding: $button-padding;
+  height: $button-height;
 
   -webkit-appearance: none;
   border: 1px solid transparent;
@@ -96,13 +102,12 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
 /// Expands a button to make it full-width.
 @mixin button-expand($expand: true) {
   @if $expand {
-    display: block;
     width: 100%;
     margin-right: 0;
     margin-left: 0;
   }
   @else {
-    display: inline-block;
+    display: inline-flex;
     width: auto;
     margin: $button-margin;
   }
@@ -284,9 +289,11 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
         font-size: $value;
         @if $size == btn--small {
           padding: $button-padding-small;
+          height: $button-height-small;
         }
         @if $size == btn--large {
           padding: $button-padding-large;
+          height: $button-height-large;
         }
       }
     }
@@ -494,12 +501,13 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
     }
     // Icons inside buttons (with text included as well)
     [class^="icon-"], [class*=" icon-"] {
-        margin: -0.6rem 0.6rem -0.3rem -0.3rem;
+        margin: 0 0.6rem 0 -0.3rem;
         line-height: 1;
         vertical-align: middle;
     }
     &.btn--icon-only {
       padding: $button-padding-icon-only;
+      justify-content: center;
       [class^="icon-"], [class*=" icon-"] {
           display:inline-block;
           margin: 0;
@@ -507,13 +515,17 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
       }
       &.btn--large {
         padding: $button-padding-large-icon-only;
+        
       }
       &.btn--small {
         padding: $button-padding-small-icon-only;
+        
       }
     }
     &.btn--icon-only-circle {
       padding: $button-padding-icon-only-circle;
+      width: $button-height;
+      justify-content: center;
       border-radius: 50%;
       [class^="icon-"], [class*=" icon-"] {
           display:inline-block;
@@ -521,10 +533,12 @@ $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
           vertical-align: middle;
       }
       &.btn--large {
-        padding: $button-padding-large-icon-only-circle;
+        //padding: $button-padding-icon-only-circle;
+        width: $button-height-large;
       }
       &.btn--small {
-        padding: $button-padding-small-icon-only-circle;
+        //padding: $button-padding-icon-only-circle;
+        width: $button-height-small;
       }
 
       &.btn--text-only {

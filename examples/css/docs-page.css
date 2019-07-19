@@ -50,7 +50,7 @@ h4.docs-page__h4 {
     line-height: 140%;
     margin: 0 0 0.4em 0;
 }
-p.docs-page__paragraph {
+p.docs-page__paragraph, div.docs-page__paragraph {
     font-size: 16px;
     margin: 1em 0;
     line-height: 150%;
@@ -71,8 +71,8 @@ p.docs-page__paragraph--topMarginL {
 p.docs-page__paragraph:first-child {
     margin: 0 0 1em;
 }
-p.docs-page__paragraph b {
-    font-weight: 500;
+p.docs-page__paragraph b, div.docs-page__paragraph b {
+    font-weight: 400;
 }
 .docs-page .link {
     color: #5eadc8;
@@ -217,7 +217,7 @@ p.docs-page__paragraph b {
     border-bottom: 1px solid #dfdfde;
     background: #ebebeb;
 }
-.docs-page__window-bar>a {
+.docs-page__window-bar>a, .docs-page__window-bar>span {
     font-size: 16px;
     color: #999;
     padding: 0 4px;
@@ -225,6 +225,13 @@ p.docs-page__paragraph b {
 }
 .docs-page__window-bar>a.active {
     color: #5eadc8;
+}
+.docs-page__code--large {
+    font-size: 1.5rem;
+    color: #555;
+    font-family: 'Source Code Pro', monospace;
+    line-height: 150%;
+    font-weight: 400;
 }
 .docs-page__code-example {
     padding: 20px;
@@ -272,13 +279,26 @@ pre.prettyprint {
     font-weight: 300;
 }
 
-p.docs-page__paragraph code {
+.docs-page__paragraph code {
     font-size: 85%;
     padding: 0.2em 0.4em;
     background-color: rgba(0,0,0,0.07);
     border-radius: 3px;
     font-family: 'Source Code Pro', monospace;
     font-weight: 400;
+}
+
+.docs-page__unordered-list {
+    font-size: 16px;
+    margin: 1em 0 2em;
+    line-height: 150%;
+    font-weight: 300;
+
+}
+.docs-page__unordered-list li {
+    list-style-type: disc;
+    margin-bottom: 0.25em;
+    margin-left: 1.5em;  
 }
 
 .docs-page__code-example .flex-grid .flex-grid__item,
