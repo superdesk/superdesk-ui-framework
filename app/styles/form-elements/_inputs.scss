@@ -366,6 +366,11 @@
                 }
             }
         }
+        &.sd-line-input--label-left {
+            &::after {
+                top: 1.2rem;
+            }
+        }
     }
     &.sd-line-input--is-color {
         .sd-line-input__label {
@@ -507,14 +512,17 @@
         grid-template-rows: auto auto;
         grid-gap: 0;
         .sd-line-input__label {
-            margin-top: 0.8rem;
+            margin-top: 0.1rem;
             grid-column: 1/2;
             grid-row: 1/2;
             position: static;
             min-width: 7.6rem;
             max-width: 12rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        .sd-line-input__input {
+        .sd-line-input__input, .sd-line-input__select {
             grid-row: 1/2;
             grid-column: 3/5;
         }

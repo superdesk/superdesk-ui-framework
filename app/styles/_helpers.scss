@@ -161,14 +161,6 @@
 
 // Deafult text syles based on type of data  
 // --------------------------------------------------
-
-.sd-text__slugline {
-    color: $sd-slugline;
-    font-weight: 500;
-    font-size: 1.2rem;
-    text-transform: uppercase;
-    margin-right: 1rem;
-}
 p strong {
     font-weight: 500;
 }
@@ -180,14 +172,8 @@ time {
         font-size: calc(100% - 0.1rem);
     }
 }
-.sd-text__date-time {
-    color: #747474;
-    font-weight: 300;
-    letter-spacing: .025em;
-    &--small {
-        font-size: 1.2rem;
-    }
-}
+
+// General text helpers
 .sd-text__strong-s {
     font-weight: 500;
 }
@@ -201,6 +187,28 @@ time {
 .sd-text__italic {
     font-style: italic;
 }
+.sd-text__right {
+    text-align: right;
+}
+.sd-text__center {
+    text-align: center;
+}
+// Superdesk specific text helpers 
+.sd-text__slugline {
+    color: $sd-slugline;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    margin-right: 1rem;
+}
+.sd-text__date-time {
+    color: #747474;
+    font-weight: 300;
+    letter-spacing: .025em;
+    &--small {
+        font-size: 1.2rem;
+    }
+}
 .sd-text__date-and-author {
     font-size: 1.2rem;
 }
@@ -213,18 +221,12 @@ time {
     color: $grayText;
 }
 
-.sd-text__right {
-    text-align: right;
-}
-.sd-text__center {
-    text-align: center;
-}
-
 .dark-ui {
     .sd-text__slugline {
         color: $sd-slugline-darkUI;
     }
 }
+
 
 // Dashboard content header
 .dashboard-content-header {
@@ -341,21 +343,34 @@ time {
 
 
 // auto margin
-.ml-auto {
+
+.ml-auto,
+.sd-margin-l--auto {
     margin-left: auto !important;
 }
-.mr-auto {
+.mr-auto,
+.sd-margin-r--auto {
     margin-right: auto !important;
 }
-.mt-auto {
+.mt-auto,
+.sd-margin-t--auto {
     margin-top: auto !important;
 }
-.mb-auto {
+.mb-auto,
+.sd-margin-b--auto {
     margin-bottom: auto !important;
 }
-.mlr-auto {
+.mlr-auto,
+.sd-margin-x--auto {
     margin-left: auto !important;
     margin-right: auto !important;
+}
+.sd-margin-y--auto {
+    margin-top: auto !important;
+    margin-bottom: auto !important;
+}
+.sd-margin--auto {
+    margin: auto !important;
 }
 
 
@@ -382,129 +397,116 @@ time {
 }
 
 // Common margin overrides
-// --------------------------------------------------
+// -------------------------------------------------
 
-// top
-.sd-margin-t--0 {
-    margin-top: 0 !important;
+// $sd-base-increment - default size of the increment is 0.8rem;
+// For example: .sd-margin-t--1 {margin-top: 0.8rem}, .sd-padding-l--2 {padding-left: 1.6rem}
+$sd-increments: ('0': 0, '0-5': 0.5, '1': 1, '1-5': 1.5, '2': 2, '3': 3, '4' : 4, '5' : 5); // Number of increments, genarates new classes eg. .sd-padding-top--4, .sd-margin-top--4
+$sd-sides: (top, right, bottom, left, x, y); // It's generating these sides
+$sd-properties: (padding, margin); // It's generating these properties
+
+@each $incrementName, $incrementValue in $sd-increments {
+    @each $property in $sd-properties {
+        @each $side in $sd-sides {
+            @if($side == x) {
+                .sd-#{$property}-#{$side}--#{$incrementName} {
+                    #{$property}-left: #{$sd-base-increment * $incrementValue} !important;
+                    #{$property}-right: #{$sd-base-increment * $incrementValue} !important;
+                }
+            } @else if ($side == y) {
+                .sd-#{$property}-#{$side}--#{$incrementName} {
+                    #{$property}-top: #{$sd-base-increment * $incrementValue} !important;
+                    #{$property}-bottom: #{$sd-base-increment * $incrementValue} !important;
+                }
+            } @else {
+                .sd-#{$property}-#{str-slice($side, 1, 1)}--#{$incrementName} {
+                    #{$property}-#{$side}: #{$sd-base-increment * $incrementValue} !important;
+                }
+            }
+        }
+        .sd-#{$property}--#{$incrementName} {
+            #{$property}: #{$sd-base-increment * $incrementValue} !important;
+        }
+    }
 }
-.sd-margin-t--1 {
-    margin-top: 1rem !important;
+
+// MARGIN AND PADDING MIXINS
+// You can create new classes with this syntax:
+// .customClass {@include sd-margin('0-5', 'top')}
+// Output:
+// .customClass { margin-top: 0.8rem !important; }
+// if you want the value to be applied to all sides write only the number eg. @include sd-margin('0-5')
+
+
+@mixin sd-spacing($property, $sd-incrementValue, $side) {
+    @if ($side == false) {
+        #{$property}: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
+    } @else if ($side == x) {
+        #{$property}-left: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
+        #{$property}-right: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
+    }
+    @else if ($side == y) {
+        #{$property}-top: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
+        #{$property}-bottom: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
+    }
+    @else {
+        #{$property}-#{$side}: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
+    }
 }
-.sd-margin-t--2 {
-    margin-top: 2rem !important;
+
+@mixin sd-margin($sd-incrementValue, $side: false) {
+    @include sd-spacing('margin', $sd-incrementValue, $side)
 }
-.sd-margin-t--3 {
-    margin-top: 3rem !important;
+
+@mixin sd-padding($sd-incrementValue, $side: false) {
+    @include sd-spacing('padding', $sd-incrementValue, $side)
 }
-// right
-.sd-margin-r--0 {
-    margin-right: 0 !important;
+
+//-------------------------------------------------------
+// START: This part should not be used for new stuff, it's only here for older implemetation. 
+// Once the implemented classes are refactored this should be removed
+
+// padding all
+.sd-padding-all--0 {
+    padding: 0 !important;
 }
-.sd-margin-r--1 {
-    margin-right: 1rem !important;
+.sd-padding-all--0-5 {
+    padding: $sd-base-increment * 0.5 !important;
 }
-.sd-margin-r--2 {
-    margin-right: 2rem !important;
+.sd-padding-all--1 {
+    padding: $sd-base-increment !important;
 }
-.sd-margin-r--3 {
-    margin-right: 3rem !important;
+.sd-padding-all--1-5 {
+    padding: $sd-base-increment * 1.5 !important;
 }
-// bottom
-.sd-margin-b--0 {
-    margin-bottom: 0 !important;
+.sd-padding-all--2 {
+    padding: $sd-base-increment * 2 !important;
 }
-.sd-margin-b--1 {
-    margin-bottom: 1rem !important;
+.sd-padding-all--3 {
+    padding: $sd-base-increment * 3 !important;
 }
-.sd-margin-b--2 {
-    margin-bottom: 2rem !important;
-}
-.sd-margin-b--3 {
-    margin-bottom: 3rem !important;
-}
-// left
-.sd-margin-l--0 {
-    margin-left: 0 !important;
-}
-.sd-margin-l--1 {
-    margin-left: 1rem !important;
-}
-.sd-margin-l--2 {
-    margin-left: 2rem !important;
-}
-.sd-margin-l--3 {
-    margin-left: 3rem !important;
-}
-// all
+// margin all
 .sd-margin-all--0 {
     margin: 0 !important;
 }
+.sd-margin-all--0-5 {
+    margin: $sd-base-increment * 0.5 !important;
+}
 .sd-margin-all--1 {
-    margin: 1rem !important;
+    margin: $sd-base-increment * 1 !important;
+}
+.sd-margin-all--1-5 {
+    margin: $sd-base-increment * 1.5 !important;
 }
 .sd-margin-all--2 {
-    margin: 2rem !important;
+    margin: $sd-base-increment * 2 !important;
 }
 .sd-margin-all--3 {
-    margin: 3rem !important;
+    margin: $sd-base-increment * 3 !important;
 }
+// END
+//-------------------------------------------------------
 
-// Common padding overrides -- base increment is 8 pixels
-// --------------------------------------------------
-
-$sd-padding-increment: 0.8rem;
-
-// top
-.sd-padding-t--1 {
-    padding-top: $sd-padding-increment !important;
-}
-.sd-padding-t--2 {
-    padding-top: $sd-padding-increment * 2 !important;
-}
-.sd-padding-t--3 {
-    padding-top:  $sd-padding-increment * 3 !important;
-}
-// right
-.sd-padding-r--1 {
-    padding-right: $sd-padding-increment !important;
-}
-.sd-padding-r--2 {
-    padding-right: $sd-padding-increment * 2 !important;
-}
-.sd-padding-r--3 {
-    padding-right: $sd-padding-increment * 3 !important;
-}
-// bottom
-.sd-padding-b--1 {
-    padding-bottom: $sd-padding-increment !important;
-}
-.sd-padding-b--2 {
-    padding-bottom: $sd-padding-increment * 2 !important;
-}
-.sd-padding-b--3 {
-    padding-bottom: $sd-padding-increment * 3 !important;
-}
-// left
-.sd-padding-l--1 {
-    padding-left: $sd-padding-increment !important;
-}
-.sd-padding-l--2 {
-    padding-left: $sd-padding-increment * 2 !important;
-}
-.sd-padding-l--3 {
-    padding-left: $sd-padding-increment * 3 !important;
-}
-// all
-.sd-padding-all--1 {
-    padding: $sd-padding-increment !important;
-}
-.sd-padding-all--2 {
-    padding: $sd-padding-increment * 2 !important;
-}
-.sd-padding-all--3 {
-    padding: $sd-padding-increment * 3 !important;
-}
 
 // Overlay block
 
