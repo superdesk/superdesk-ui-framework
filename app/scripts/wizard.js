@@ -31,7 +31,8 @@ function WizardDirective() {
         scope: {
             currentStep: '=',
             finish: '&',
-            name: '@'
+            name: '@',
+            canTabChange: '&?'
         },
         transclude: true,
         controller: ['$scope', 'WizardHandler',
@@ -70,12 +71,25 @@ function WizardDirective() {
                 }
 
                 $scope.goTo = function (step) {
-                    unselectAll();
-                    $scope.selectedStep = step;
-                    if (!_.isUndefined($scope.currentStep)) {
-                        $scope.currentStep = step.code;
+                    const execute = () => {
+                        unselectAll();
+                        $scope.selectedStep = step;
+                        if (!_.isUndefined($scope.currentStep)) {
+                            $scope.currentStep = step.code;
+                        }
+                        step.selected = true;
+                        $scope.$apply();
+                    };
+
+                    if (typeof $scope.canTabChange === 'function') {
+                        $scope.canTabChange().then((result) => {
+                            if (result === true) {
+                                execute();
+                            }
+                        });
+                    } else {
+                        execute();
                     }
-                    step.selected = true;
                 };
 
                 this.goTo = function (step) {
