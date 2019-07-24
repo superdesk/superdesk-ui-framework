@@ -273,7 +273,12 @@ $sd-icon-font: (
   fast_rewind: "\e6a7",
   fast_forward: "\e6a8",
   skip_previous: "\e6a9",
-  skip_next: "\e6aa"
+  skip_next: "\e6aa",
+  add-image: "\e6ab",
+  add-gallery: "\e6ac",
+  text-format: "\e6ad",
+  to-uppercase: "\e6ae",
+  to-lowercase: "\e6af"
 );
 
 @each $name, $value in $sd-icon-font {
