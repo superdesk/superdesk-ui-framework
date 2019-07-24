@@ -203,6 +203,10 @@ export default angular.module('ui-docs', [
             'text': {
                 name: 'Text helpers',
                 page: 'text.html'
+            },
+            'shadows': {
+                name: 'Shadows',
+                page: 'shadows.html'
             }
         }
     }

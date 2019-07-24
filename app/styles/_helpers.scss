@@ -58,39 +58,50 @@
 
 // Shadow helper classes
 // --------------------------------------------------
-    
-.sd-shadow--z1 {
-    box-shadow: 0 1px 3px rgba(0,0,0,.16), 0 0 1px rgba(0,0,0,.1) !important;
-    transition: box-shadow 0.3s ease-out; 
+
+$sd-shadowProperties: (
+    'z1': (0 1px 3px rgba(0,0,0,.16), 0 0 1px rgba(0,0,0,.1)),
+    'z2': (0 1px 4px rgba(0,0,0,.16), 0 2px 6px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.1)),
+    'z3': (0 1px 6px rgba(0,0,0,.16), 0 3px 8px rgba(0,0,0,.24), 0 0 1px rgba(0,0,0,.1)),
+    'z4': (0 2px 10px rgba(0,0,0,.2), 0 6px 16px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.1)),
+);
+// Add more shadow items with this syntax and new classes will be generated:
+// z5: (0 2px 10px rgba(0,0,0,.2), ... ),
+// Output:
+// .sd-shadow--z5 { 0 2px 10px rgba(0,0,0,.2),...
+
+@mixin shadowMixinExtend {
+    transition: box-shadow 0.3s ease-out;
     &.btn:active {
         box-shadow: none !important;
-        transition: box-shadow 0.4s ease-out;        
+        transition: box-shadow 0.4s ease-out;
     }
 }
-.sd-shadow--z2 {
-    box-shadow: 0 1px 4px rgba(0,0,0,.16), 0 2px 6px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.1) !important;
-    transition: box-shadow 0.3s ease-out; 
-    &.btn:active {
-        box-shadow: none !important;
-        transition: box-shadow 0.4s ease-out;        
+
+@each $name, $value in $sd-shadowProperties {
+    .sd-shadow--#{$name} {
+        box-shadow: #{$value} !important;
+        @include shadowMixinExtend;
     }
 }
-.sd-shadow--z3 {
-    box-shadow: 0 1px 6px rgba(0,0,0,.16), 0 3px 8px rgba(0,0,0,.24), 0 0 1px rgba(0,0,0,.1) !important;
-    transition: box-shadow 0.3s ease-out; 
-    &.btn:active {
-        box-shadow: none !important;
-        transition: box-shadow 0.4s ease-out;        
-    }
+
+// sd-shadow mixin
+// Uses items from $sd-shadowProperties as parameter (z1, z2...)
+// You can create new classes with this syntax:
+// .customClass { @include sd-shadow(z1); color: #fff; }
+// Output:
+// .customClass { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.1); color: #fff; }
+
+@mixin sd-shadow($sd-shadowPropertiesItem) {
+    box-shadow: #{map-get($sd-shadowProperties, $sd-shadowPropertiesItem)};
 }
-.sd-shadow--z4 {
-    box-shadow: 0 2px 10px rgba(0,0,0,.2), 0 6px 16px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.1) !important;
-    transition: box-shadow 0.3s ease-out; 
-    &.btn:active {
-        box-shadow: none !important;
-        transition: box-shadow 0.4s ease-out;        
-    }
-}
+
+// How to use sd-shadow mixin
+// .nekaKlasa {
+//     color: red;
+//     @include sd-shadow('z1');
+// }
+
 
 
 // Webkit scroll

@@ -428,6 +428,22 @@ pre.prettyprint {
     letter-spacing: 0.06em;
 }
 
+.docs-page__example-box {
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 16rem;
+    border-radius: 4px;
+}
+.docs-page__example-box p {
+    text-align: center;
+    color: #969696;
+    font-size: 1.6rem;
+    font-weight: 300; 
+    margin: 0;
+}
+
 
 /* -------------- END COLOR SWATCHES -------------- */
 
