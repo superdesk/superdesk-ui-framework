@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const path = require('path');
 
@@ -77,9 +78,12 @@ const config = {
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
-            chunks: ['vendor', 'examples', 'superdesk-ui-react', 'superdesk-ui'],
+            chunks: ['vendor', 'examples', 'superdesk-ui'],
             chunksSortMode: 'manual',
         }),
+        new CopyWebpackPlugin([
+            {from: 'examples/img/', flatten: true},
+        ]),
         new ExtractTextPlugin({
             filename: '[name].bundle.css',
         }),
