@@ -35,8 +35,8 @@ function WizardDirective() {
             canTabChange: '&?'
         },
         transclude: true,
-        controller: ['$scope', 'WizardHandler',
-            function ($scope, WizardHandler) {
+        controller: ['$scope', 'WizardHandler', '$timeout',
+            function ($scope, WizardHandler, $timeout) {
                 WizardHandler.addWizard($scope.name || WizardHandler.defaultName, this);
                 $scope.$on('$destroy', function () {
                     WizardHandler.removeWizard($scope.name || WizardHandler.defaultName);
@@ -78,13 +78,13 @@ function WizardDirective() {
                             $scope.currentStep = step.code;
                         }
                         step.selected = true;
-                        $scope.$apply();
                     };
 
                     if (typeof $scope.canTabChange === 'function') {
                         $scope.canTabChange().then((result) => {
                             if (result === true) {
-                                execute();
+                                // using $timeout as safe apply so that there is no "digest already in progress" error
+                                $timeout(() => execute());
                             }
                         });
                     } else {
