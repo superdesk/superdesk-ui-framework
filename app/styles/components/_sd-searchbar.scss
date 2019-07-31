@@ -142,3 +142,84 @@
     }
 }
 
+.flat-searchbar {
+    flex-grow: 0;
+    .search-handler {
+        min-width: 48px;
+        height: $nav-height;
+        padding: 10px 10px 10px 14px;
+        background: none;
+        display: flex;
+        border-right: 1px solid #e0e0e0;
+        white-space: nowrap;
+        @include transition(all, 0.3s, ease);
+        input {
+            height: 28px;
+            line-height: 100%;
+            font-size: 14px;
+            border: 0 !important;
+            width: 0;
+            padding: 0;
+            background-color: rgba(255,255,255,0);
+            @include transition(all, 0.3s, ease);
+            &:focus {
+                @include box-shadow(0, 0, 0, 0, #FFF);
+            }
+        }
+        .trigger-icon {
+            @include user-select(none);
+            width: 28px;
+            height: 28px;
+            display: inline-block;
+            @include opacity(50);
+            &:hover {
+                cursor: pointer;
+                @include opacity(80);
+            }
+            i {
+                padding: 7px 3px 4px 6px;
+            }
+        }
+        &--left-border {
+            border-right: 0 !important;
+            border-left: 1px solid #e0e0e0;
+        }
+    }
+    .separator-handler {
+        margin: 9px 0 0 5px;
+        border-right: 2px dotted #bcbcbc;
+        height: 30px;
+        float: left;
+    }
+
+    .search-close {
+        border: 0;
+        background: none;
+        display: none;
+        @include opacity(0);
+        &.visible {
+            @include opacity(40);
+            &:hover {
+                @include opacity(100);
+            }
+        }
+    }
+
+    &.extended {
+        flex-grow: 1;
+        background-color: white;
+        .search-handler {
+            input {
+                width: 100%;
+                padding: 0 6px;
+            }
+            border-right: 1px solid #e0e0e0;
+        }
+        .separator-handler {
+            margin-left: 14px;
+        }
+        .search-close {
+            display: inline-block;
+        }
+    }
+}

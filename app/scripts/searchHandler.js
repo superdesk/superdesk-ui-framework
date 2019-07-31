@@ -4,8 +4,11 @@
  * Creates wrapper for sd-line-input
  *
  * Usage:
- * <div sd-search-handler data-title="Some title" data-open="true" data-icon="list"></div>
- *
+ * <sd-search-handler ng-model="query.name" data-debounce="200" data-button="true" data-label="Search" data-borderleft="true"></sd-search-handler>
+ * 
+ * 'data-button' is used to show/hide search arrow button 
+ * 'data-borderleft' is used if you need left border instead of right (default one)
+ * 
  */
 function SearchHandlerDirective() {
     return {
@@ -16,12 +19,18 @@ function SearchHandlerDirective() {
         scope: {
             model: '=ngModel',
             label: '@',
+            button: '=',
+            borderleft: '=',
             debounce: '@'
         },
         link: (scope, elem, attrs, ngModel) => {
             scope.update = (value) => {
                 ngModel.$setViewValue(value);
             };
+            scope.clearInput = () => {
+                scope.model = '';
+                scope.update();
+            }
         }
     };
 }
