@@ -82,25 +82,9 @@
                 <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
                     <i class="icon-filter-large"></i>
                 </button>
-                <button class="navbtn navbtn--left" ng-click="searchActive = !searchActive">
-                    <i class="icon-search"></i>
-                </button>
-                <div class="sd-searchbar" ng-class="{
-                    'sd-searchbar--focused': focused}" ng-show="searchActive" >
-                    <input id="search-input"
-                        class="sd-searchbar__input sd-padding-l--1"
-                        type="text"
-                        placeholder="Search"
-                        ng-keyup="searchOnEnter($event)"
-                        ng-model="query"
-                        tabindex="1"
-                        ng-focus="focused = true">
-                    <button class="sd-searchbar__cancel" ng-if="query">
-                        <i class="icon-remove-sign"></i>
-                    </button>
-                </div>
-                <h3 class="subnav__page-title">Output Control</h3>
-                <div class="dropdown dropdown--align-right" dropdown="">
+                <h3 class="subnav__page-title sd-flex-no-grow">Output Control</h3>
+                <sd-search-handler ng-model="query.name" data-debounce="200" data-button="false" data-label="Search" data-borderleft="true"></sd-search-handler>
+                <div class="dropdown dropdown--align-right sd-margin-l--auto" dropdown="">
                     <button class="navbtn dropdown sd-create-btn dropdown-toggle" dropdown__toggle="" aria-haspopup="true" aria-expanded="false">
                         <i class="icon-plus-large"></i>
                         <span class="circle"></span>

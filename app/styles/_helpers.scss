@@ -406,6 +406,9 @@ time {
 .sd-flex-grow {
     flex-grow: 1 !important;
 }
+.sd-flex-no-grow {
+    flex-grow: 0 !important;
+}
 
 // Common margin overrides
 // -------------------------------------------------
