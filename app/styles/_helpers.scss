@@ -44,6 +44,11 @@
     display: inline-flex !important;
 }
 
+// Hide if empty
+.sd-empty:empty {
+    display: none !important;
+}
+
 // Overflow helper classes
 // --------------------------------------------------
 .overflow-auto {
