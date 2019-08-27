@@ -13,7 +13,7 @@ $boxed-list-palette: $sd-basic-palette;
     min-height: 3.2rem;
     border-radius: 3px;
     margin-bottom: 0.8rem;
-    padding: 1rem;
+    @include sd-padding('1-5');
     background-color: var(--color-contrast-bg);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.1);
     transition: all 0.2s ease-in-out;
@@ -76,7 +76,7 @@ $boxed-list-palette: $sd-basic-palette;
     grid-row: mainRow;
     display: flex;
     flex-direction: column;
-    padding: 0 0.2rem 0 0.4rem;
+    padding: 0 0.2rem 0 0.2rem;
     flex: 0 1 auto;
     [class^="icon-"],
     [class*="icon-"],
@@ -92,7 +92,7 @@ $boxed-list-palette: $sd-basic-palette;
     grid-row: mainRow;
     display: flex;
     flex-direction: column;
-    padding: 0 1rem 0 1rem;
+    padding: 0 0.8rem 0 0.8rem;
     overflow: hidden;
     position: relative;
     &--centered {
@@ -116,7 +116,7 @@ $boxed-list-palette: $sd-basic-palette;
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 1rem 0 1rem;
+    @include sd-padding('1-5');
     margin-top: 1rem;
     &--allign-baseline {
         align-items: baseline;

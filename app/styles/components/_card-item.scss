@@ -8,6 +8,7 @@ $card-item-header-bg-active: $sd-blueMedium;
 $card-item-header-bg-light: #bfbfbf;
 $card-item-header-bg-gradient-1: linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
 $card-item-header-bg-secondary: $subnav-background-mid-blue-grey;
+$card-item-top-border-height: 0.4rem;
 
 
 //shadows
@@ -66,7 +67,7 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         align-items: center;        
         background-color: $card-item-header-bg-normal;
         padding: 0;
-        min-height: 4rem;
+        min-height: $sd-base-increment * 5 + $card-item-top-border-height;
         color: $white;
         @include border-radius (2px 2px 0 0);
         &::before {
@@ -75,7 +76,7 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: $card-item-top-border-height;
             background-color: rgba(0,0,0,.2);
             @include border-radius (2px 2px 0 0);
         }
@@ -123,7 +124,8 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
     }
     // sd-card__heading should go inside sd-card__header
     .sd-card__heading {
-        padding: 0.4rem 1.6rem 0;
+        @include sd-padding('1-5', 'x');
+        padding-top: $card-item-top-border-height;
         flex-grow: 1;
         font-size: 1.2rem;
         line-height: 100%;
@@ -146,13 +148,16 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
     }
     .sd-card__sub-header {
         background-color: #9daeb7;
+        display: flex;
+        align-items: center;
         color: $white;
         font-size: 1.1rem;
         font-weight: 400;
         line-height: 100%;
         letter-spacing: 0.08em;
         text-transform: uppercase;
-        padding: 0.6rem 1.6rem;
+        min-height: $sd-base-increment * 3;
+        @include sd-padding('1-5', 'x');
         &--success {
             background-color: $green;
         }
@@ -191,7 +196,7 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         }
     }
     .sd-card__content {
-        padding: 1.6rem;
+        @include sd-padding('1-5');
         flex-grow: 1;
         h4 {
             text-transform: uppercase;
@@ -347,14 +352,14 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
     }
 
     .sd-card__footer {
-        padding: 0 1.6rem;
-        min-height: 4.7rem;
-        align-items: center;
-        border-top: 1px solid #dedede;
-        background-color: $sd-background;
         display: flex;
         flex-direction: row;
+        align-items: center;
+        @include sd-padding('1-5', 'x');
+        min-height: $sd-base-increment * 6;
+        background-color: $sd-background;
         @include border-radius (0 0 2px 2px);
+        box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
         &--light {
             background-color: $white;
         }

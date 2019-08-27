@@ -18,7 +18,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
 .sd-list-item {
     display: flex;
     position: relative;
-    min-height: 3.8rem;
+    min-height: $sd-base-increment * 5;
     flex-direction: row;
     background-color: $sd-ListItem-background;
     transition: background-color 0.2s linear;

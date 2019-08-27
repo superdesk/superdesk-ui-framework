@@ -99,7 +99,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         display: inline-flex;
         align-items: center;
         text-align: center;
-        height: 2.8rem;
+        height: $sd-base-increment * 4;
         @include text-overflow;
         label {
             margin:0;
@@ -172,7 +172,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 }
 
 .sd-check__wrapper + .sd-check__wrapper {
-    margin-left: 0.8rem;
+    @include sd-margin('0-5', 'left');
 }
 .sd-check__wrapper:first-child, .sd-check__wrapper:only-of-type {
     margin-left: 0;

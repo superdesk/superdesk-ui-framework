@@ -22,11 +22,11 @@ $tag-label-padding: 0em 1em 0em 1em !default;
 $tag-label-minwidth: 1.8em !default;
 
 /// Default radius of a badge.
-$tag-label-radius: 1em !default;
+$tag-label-radius: $sd-base-increment * 1.5 !default;
 
 /// Default font size and line height for badges.
-$tag-label-font-size: 1.3rem !default;
-$tag-label-lineheight: 1em !default;
+$tag-label-font-size: 1.4rem !default;
+$tag-label-lineheight: 100% !default;
 
 
 /// Generates the base styles for a badge.
@@ -43,12 +43,11 @@ $tag-label-lineheight: 1em !default;
     font-weight: 400;
     transition: background-color .2s ease-out, opacity .1s ease-out;
     margin: 0.2rem 0;
-    height: 2em;
+    height: $sd-base-increment * 3;
 }
 
 .tag-label {
     @include tag-label;
-
     background: $tag-label-background;
     color: $tag-label-color;
 
@@ -61,8 +60,8 @@ $tag-label-lineheight: 1em !default;
         border-radius: 2px;
     }
     .tag-label__remove {
-        height: 1.5385em;
-        width: 1.5385em;
+        height: 1.8rem;
+        width: 1.8rem;
         padding: 0;
         display: inline-flex;
         align-items: center;
@@ -78,8 +77,8 @@ $tag-label-lineheight: 1em !default;
         cursor: pointer;
         transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
         opacity: 0.2;
-        margin-right: -0.7695em;
-        margin-left:  0.4rem;
+        margin-right: -1rem;
+        margin-left:  0.8rem;
         i {
             font-size: 1.6rem;
             flex-grow: 0;

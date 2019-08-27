@@ -24,7 +24,7 @@
         <div class="sd-overlay-panel-2 sd-overlay-panel-2--right" ng-class="{'sd-overlay-panel-2--open' : openOverlayPanel}">
             <div class="side-panel">
                 <div class="side-panel__header side-panel__header--border-b">
-                    <a class="icn-btn side-panel__close" sd-tooltip="Close panel" flow="left" ng-click="openOverlayPanel = !openOverlayPanel"><i class="icon-close-small"></i></a>
+                    <a class="icn-btn side-panel__close" sd-tooltip="Close panel" flow="left" ng-click="openOverlayPanel = false; sidetabItemActive1 = false"><i class="icon-close-small"></i></a>
                     <h3 class="side-panel__heading">Metadata</h3>
                 </div>
                 <div class="side-panel__content">
@@ -70,24 +70,59 @@
                 </div> -->
             </div>
         </div>
+        <div class="sd-overlay-panel-2 sd-overlay-panel-2--right" ng-class="{'sd-overlay-panel-2--open' : openOverlayPanel2}">
+            <div class="side-panel">
+                <div class="side-panel__header side-panel__header--border-b">
+                    <a class="icn-btn side-panel__close" sd-tooltip="Close panel" flow="left" ng-click="openOverlayPanel2 = false; sidetabItemActive2 = false"><i class="icon-close-small"></i></a>
+                    <h3 class="side-panel__heading">Find and Replace</h3>
+                </div>
+                <div class="side-panel__content">
+                    <div class="side-panel__content-block">
+                        test
+
+                    </div>
+                </div>
+                <!-- <div class="side-panel__footer side-panel__footer--button-box-large">
+                    <button class="btn btn--primary btn--expanded btn--hollow">Some action</button>
+                </div> -->
+            </div>
+        </div>
+        <div class="sd-overlay-panel-2 sd-overlay-panel-2--right" ng-class="{'sd-overlay-panel-2--open' : openOverlayPanel3}">
+            <div class="side-panel">
+                <div class="side-panel__header side-panel__header--border-b">
+                    <a class="icn-btn side-panel__close" sd-tooltip="Close panel" flow="left" ng-click="openOverlayPanel3 = false; sidetabItemActive3 = false"><i class="icon-close-small"></i></a>
+                    <h3 class="side-panel__heading">Chat</h3>
+                </div>
+                <div class="side-panel__content">
+                    <div class="side-panel__content-block content-state--empty">
+                        <div class="content-state__empty-info">
+                            <figure class="content-state__image-l content-state__image-l--01">
+                            </figure>
+                            <h3 class="content-state__heading">No comments so far</h3>
+                            <p class="content-state__description">Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
+                            <div class="content-state__action"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <div class="sd-authoring-page__side-tabs sd-sidetab-menu sd-sidetab-menu--right sd-sidetab-menu--static">
         <ul>
             <li sd-tooltip="Info" flow="left">
-                <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive1=!sidetabItemActive1; openOverlayPanel=!openOverlayPanel" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive1}">
+                <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive1=!sidetabItemActive1; openOverlayPanel=!openOverlayPanel; openOverlayPanel2=false; openOverlayPanel3=false; sidetabItemActive2=false; sidetabItemActive3=false" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive1}">
                     <i class="sd-sidetab-menu__main-icon big-icon--info"></i>
                     <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
                 </a>
             </li>
             <li sd-tooltip="Find & Replace" flow="left">
-                <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive2=!sidetabItemActive2" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive2}">
+                <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive2=!sidetabItemActive2; openOverlayPanel2=!openOverlayPanel2; openOverlayPanel=false; openOverlayPanel3=false; sidetabItemActive1=false; sidetabItemActive3=false" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive2}">
                     <i class="sd-sidetab-menu__main-icon big-icon--find-replace"></i>
                     <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
                 </a>
             </li>
             <li sd-tooltip="Comments" flow="left">
-                <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive3=!sidetabItemActive3" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive3}">
-                    <span class="sd-sidetab-menu__info-label badge badge--success">3</span>
+                <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive3=!sidetabItemActive3; openOverlayPanel3=!openOverlayPanel3; openOverlayPanel=false; openOverlayPanel2=false; sidetabItemActive1=false; sidetabItemActive2=false" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive3}">
                     <i class="sd-sidetab-menu__main-icon big-icon--chat"></i>
                     <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
                 </a>
@@ -101,6 +136,13 @@
             <li sd-tooltip="Macros" flow="left">
                 <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive5=!sidetabItemActive5" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive5}">
                     <i class="sd-sidetab-menu__main-icon big-icon--macro"></i>
+                    <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
+                </a>
+            </li>
+            <li sd-tooltip="Macros" flow="left">
+                <a class="sd-sidetab-menu__btn" ng-click="sidetabItemActive6=!sidetabItemActive6" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive6}">
+                    <span class="sd-sidetab-menu__info-label badge badge--success">3</span>
+                    <i class="sd-sidetab-menu__main-icon big-icon--comments"></i>
                     <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
                 </a>
             </li>
