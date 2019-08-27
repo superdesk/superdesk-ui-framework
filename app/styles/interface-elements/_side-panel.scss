@@ -38,7 +38,8 @@ $side-panel-Bg-darkUi: darken($grayMedium, 4%);
     }
     
     .side-panel__heading {
-        padding: 0 2rem 0 2rem;
+        //padding: 0 2rem 0 2rem;
+        @include sd-padding('2', 'x');
         margin: 0;
         font-size: 1.5rem;
         color: inherit;
@@ -54,15 +55,15 @@ $side-panel-Bg-darkUi: darken($grayMedium, 4%);
     }
     .side-panel__close {
         position: absolute;
-        right: 1rem;
-        top: 1.1rem;
+        right: $sd-base-increment; // equals 0.8rem or 8px
+        top: $sd-base-increment;
         z-index: 2;
         color: $gray;
     }
     .side-panel__tools {
         position: absolute;
-        right: 1rem;
-        top: 1.1rem;
+        right: $sd-base-increment;
+        top: $sd-base-increment;
         z-index: 2;
         color: inherit;
         .icn-btn {
@@ -111,7 +112,7 @@ $side-panel-Bg-darkUi: darken($grayMedium, 4%);
         z-index: 2;
     }
     .side-panel__content-block {
-        padding: 2rem;
+        @include sd-padding('2');
         &--pad-top-0 {
             padding-top: 0;
         }

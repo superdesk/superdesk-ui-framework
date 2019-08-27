@@ -31,7 +31,7 @@ $modal-header-height : $nav-height;
 $modal-footer-height : 48px;
 $modal-subnav-height : $nav-height;
 
-$modal-padding : 2rem;
+$modal-padding : $sd-base-increment * 2;
 
 // Box shadow
 @mixin modal-box-shadow {
@@ -76,7 +76,7 @@ $modal-sizes: (
     @include modal-box-shadow();
 }
 @mixin modal-header() {
-    padding: $modal-padding - .8rem $modal-padding;
+    padding: $modal-padding - $sd-base-increment $modal-padding;
     border-bottom: 1px solid $modal-line-color;
     min-height: $modal-header-height;
 }
@@ -87,7 +87,7 @@ $modal-sizes: (
     position: relative;
 }
 @mixin modal-footer() {
-    padding: $modal-padding - .8rem $modal-padding;
+    padding: $modal-padding - $sd-base-increment $modal-padding;
     text-align: right; // right align buttons
     border-top: 1px solid $modal-line-color;
     min-height: $modal-footer-height;
@@ -344,6 +344,25 @@ $modal-sizes: (
         cursor: pointer;
     }
 }
+.modal__header--flex {
+    .icn-btn {
+        margin-right: - $sd-base-increment;
+    }
+}
+.modal__header {
+    .icn-btn {
+        @include opacity(30);
+        transition: opacity 0.2s ease-in-out;
+    }
+    &:hover {
+        .icn-btn {
+            @include opacity(75);
+            &:hover {
+                @include opacity(100);
+            }
+        }
+    }
+}
 .modal__heading {
     font-size: 18px;
     font-weight: 300;
@@ -366,4 +385,10 @@ $modal-sizes: (
 .modal__backdrop,
 .modal__backdrop.fade.in {
     @include opacity(30);
+}
+
+.modal--fullscreen {
+    .modal__header, .modal__body {
+        @include sd-padding('3', 'left');
+    }
 }
