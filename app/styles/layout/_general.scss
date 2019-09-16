@@ -389,10 +389,21 @@ a.text-link {
   }
 }
 .text-link__group {
-  a.text-link {
+  > a.text-link {
     margin: 0.4rem 0.4rem 0.4rem 0;
     font-size: 1.4rem;
     padding: 0 .6rem 0 0;
+    border-right: 1px dotted rgba(123, 123, 123, 0.75);
+    &:last-child {
+      padding-right: 0;
+      border-right: none;
+    }
+  }
+  .text-link__item {
+    display: inline-block;
+    padding: 0 .8rem 0 0;
+    margin: 0.6rem 0.8rem 0.6rem 0;
+    font-size: 1.4rem;
     border-right: 1px dotted rgba(123, 123, 123, 0.75);
     &:last-child {
       padding-right: 0;

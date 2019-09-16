@@ -8,45 +8,47 @@
     <body class="docs-page" ng-app="ui-docs" doc-playground>
         <header class="docs-page__header" ng-if="!route.current.$$route.playground">
             <h1 class="docs-page__h1">Superdesk UI Framework</h1>
-            <div class="docs-page__playground_picker">
-                <div class="form__row">
-                    <div class="dropdown" dropdown>
-                        <button class="dropdown__toggle" dropdown__toggle>
-                            Superdesk playground
-                            <span class="dropdown__caret"></span>
-                        </button>
-                        <ul class="dropdown__menu">
-                            <li ng-repeat="playground in playgrounds">
-                                <a href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
-                            </li>
-                        </ul>
+            <ul class="docs-page__header-nav">
+                <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#">Design</a></li>
+                <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#">Components</a></li>
+                <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#">React</a></li>
+                <li class="docs-page__header-nav-item docs-page__header-nav-item--active"><a class="docs-page__header-nav-link" href="/index-playground.html">Playground</a></li>
+            </ul>
+        </header>
+        <main class="docs-page__content">
+            <section class="docs-page__container docs-page__container--full-h">
+                <div class="flex-grid flex-grid--boxed flex-grid--wrap-items flex-grid--small-2">
+                    <div class="sd-card flex-grid__item">
+                        <div class="sd-card__header sd-card__header--with-thumb sd-card__header--gradient-1">
+                            <div class="sd-card__thumbnail sd-card__thumbnail--size-xs">
+                                <h4 class="sd-card__thumbnail-heading">Superdesk</h4>
+                            </div>
+                        </div>
+                        <div class="sd-card__content sd-padding--3">
+                            <ul class="text-link__group">
+                                <li class="text-link__item" ng-repeat="playground in playgrounds">
+                                    <a class="text-link" href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="dropdown" dropdown>
-                        <button class="dropdown__toggle" dropdown__toggle>
-                            Publisher playground
-                            <span class="dropdown__caret"></span>
-                        </button>
-                        <ul class="dropdown__menu">
-                            <li ng-repeat="playground in publisherPlaygrounds">
-                                <a href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
-                            </li>
-                        </ul>
+    
+                    <div class="sd-card flex-grid__item">
+                        <div class="sd-card__header sd-card__header--with-thumb sd-card__header--gradient-1">
+                            <div class="sd-card__thumbnail sd-card__thumbnail--size-xs">
+                                <h4 class="sd-card__thumbnail-heading">Publisher</h4>
+                            </div>
+                        </div>
+                        <div class="sd-card__content sd-padding--3">
+                            <ul class="text-link__group">
+                                <li class="text-link__item" ng-repeat="playground in publisherPlaygrounds">
+                                    <a class="text-link" href="#{{playground.originalPath}}" target="_blank">{{playground.title}}</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </header>
-
-        <aside class="docs-page__sidebar" doc-scroll ng-class="{scroll:boolChangeClass}" ng-if="!route.current.$$route.playground && !route.current.$$route.react">
-            <ul class="docs-page__nav" doc-nav>
-                <li ng-repeat="group in components">
-                    <span class="docs-page__nav-title">{{group.name}}</span>
-                    <ul class="docs-page__nav--sub-level">
-                        <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items" ng-class="{'docs-page__nav-item--active': isActive(name)}"><a href="#{{name}}">{{item.name}}</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </aside>
-
-        <main class="docs-page__content" ng-class="{'docs-page__container-fluid': !route.current.$$route.playground}" ng-view></main>
+            </section>
+        </main>
     </body>
 </html>
