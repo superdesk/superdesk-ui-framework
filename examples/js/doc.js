@@ -36,14 +36,14 @@ function docPrettyPrint() {
     };
 }
 
-docPlayground.$inject = ['components', '$route'];
-function docPlayground(components, $route) {
+docPlayground.$inject = ['components', 'playgrounds', '$route'];
+function docPlayground(components, playgrounds, $route) {
     return {
         link: function link(scope) {
             scope.components = components;
-            scope.playgrounds = _.filter($route.routes, (route) => _.has(route, 'template') && route.playground === 'main');
-            scope.publisherPlaygrounds = _.filter($route.routes, (route) => _.has(route, 'template') && route.playground === 'publisher');
-            scope.route = $route;
+            scope.playgrounds = playgrounds;
+
+            scope.page = $route.current.params.name;
 
             scope.items = [
                 { name: 'just' },
@@ -108,7 +108,7 @@ function docModal($modal) {
 
             scope.openTemplateModal = function () {
                 modal = $modal.open({
-                    template: require('../templates/modal-template.html'),
+                    template: require('../pages/components/modal-template.html'),
                     controller: docModalController,
                     size: 'large'
                 });
