@@ -1,7 +1,9 @@
 <header class="docs-page__header">
+    <a href="#/" class="docs-page__header-logo"></a>
     <h1 class="docs-page__h1">Superdesk UI Framework</h1>
     <ul class="docs-page__header-nav">
-        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design">Design</a></li>
+        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/">Home</a></li>
+        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design">Design guidelines</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/components">Components</a></li>
         <li class="docs-page__header-nav-item docs-page__header-nav-item--active"><a class="docs-page__header-nav-link" href="#/react">React</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/playgrounds">Playground</a></li>
@@ -22,4 +24,17 @@
     </ul>
 </aside>
 
-<main class="docs-page__content docs-page__container-fluid" ng-include="'../examples/pages/react/' + page + '.html'"></main>
+<main class="docs-page__content docs-page__container-fluid"  ng-if="page" ng-include="'../examples/pages/react/' + page + '.html'"></main>
+
+<main class="docs-page__content docs-page__container-fluid" ng-if="!page">
+        <section class="docs-page__container">
+            <div class="docs-page__hero">
+                <figure class="docs-page__hero-image docs-page__hero-image--s" style="opacity: 0.5;">
+                    <img src="/react-logo--vector.svg" alt="React">
+                </figure>
+                <h2 class="docs-page__hero-h2" style="color: #31c0da">Home of Superdesk React components</h2>
+                <p class="docs-page__hero-text">As the healine suggests – React components for Superdesk. Still in it's early stages, but hey, you have to start somewhere!</p>
+                <p class="docs-page__hero-text">Don't be shy, feel free to contribute!</p>
+            </div>
+        </section>
+</main>

@@ -28,7 +28,6 @@ export default angular.module('ui-docs', [
                 buttons: {
                     name: 'Buttons',
                     page: 'buttons.html',
-                    design: true
                 },
                 labels: {
                     name: 'Labels',
@@ -213,6 +212,26 @@ export default angular.module('ui-docs', [
         }
     }))
 
+    .factory('design', () => ({
+        basicComponents: {
+            name: 'Basic Components',
+            items: {
+                'buttons': {
+                    name: 'Buttons',
+                    page: 'buttons.html',
+                },
+                'checkbox-and-radio': {
+                    name: 'Checkbox & Radio',
+                    page: 'checkbox-and-radio.html',
+                },
+                'switch': {
+                    name: 'Switch',
+                    page: 'switch.html',
+                },
+            }
+        }
+    }))
+
     .factory('playgrounds', () => ({
         // Superdesk playgrounds
         superdesk: {
@@ -235,10 +254,6 @@ export default angular.module('ui-docs', [
             'list-item-test': {
                 name: 'List Item Test',
                 page: 'list-item-test.html'
-            },
-            'playground-5': {
-                name: 'Playground 5',
-                page: 'playground-5.html'
             },
             'settings': {
                 name: 'Settings',
@@ -292,35 +307,35 @@ export default angular.module('ui-docs', [
         // Publisher playgrounds
         publisher: {
             'publisher-dashboard': {
-                name: 'Publisher Dashboard',
+                name: 'Dashboard',
                 page: 'publisher-dashboard.html'
             },
             'publisher-content-lists': {
-                name: 'Publisher Content Lists',
+                name: 'Content Lists',
                 page: 'publisher-content-lists.html'
             },
             'publisher-content-list-manual': {
-                name: 'Publisher Content List Manual',
+                name: 'Content List - Manual',
                 page: 'publisher-content-list-manual.html'
             },
             'publisher-content-list-automatic': {
-                name: 'Publisher Content List Automatic',
+                name: 'Content List - Automatic',
                 page: 'publisher-content-list-automatic.html'
             },
             'publisher-output-control': {
-                name: 'Publisher Output Control',
+                name: 'Output Control',
                 page: 'publisher-output-control.html'
             },
             'publisher-content-analytics': {
-                name: 'Publisher Content Analytics',
+                name: 'Content Analytics',
                 page: 'publisher-content-analytics.html'
             },
             'publisher-website-settings': {
-                name: 'Publisher Website Settings',
+                name: 'Website Settings',
                 page: 'publisher-website-settings.html'
             },
             'publisher-website-settings-general': {
-                name: 'Publisher Website Settings General',
+                name: 'Website Settings - General',
                 page: 'publisher-website-settings-general.html'
             },
         },

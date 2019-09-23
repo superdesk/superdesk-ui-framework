@@ -36,11 +36,12 @@ function docPrettyPrint() {
     };
 }
 
-docPlayground.$inject = ['components', 'playgrounds', '$route'];
-function docPlayground(components, playgrounds, $route) {
+docPlayground.$inject = ['components', 'design', 'playgrounds', '$route'];
+function docPlayground(components, design, playgrounds, $route) {
     return {
         link: function link(scope) {
             scope.components = components;
+            scope.design = design;
             scope.playgrounds = playgrounds;
 
             scope.page = $route.current.params.name;

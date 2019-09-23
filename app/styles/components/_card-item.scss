@@ -13,7 +13,7 @@ $card-item-top-border-height: 0.4rem;
 
 //shadows
 $card-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
-$card-item-shadow-hover: 0 1px 6px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26);
+$card-item-shadow-hover: 0 1px 6px rgba(0,0,0,.16), 0 2px 12px rgba(0,0,0,.36);
 $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
 
 .sd-card {
@@ -28,8 +28,10 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
     &--with-click {
         @include transition(all, 100ms, ease-in);
         cursor: pointer;
+        text-decoration: none;
         &:hover {
             box-shadow: $card-item-shadow-hover;
+            transform: translate(0, -2px);
         }
         &:active {
             box-shadow: $card-item-shadow-active;
@@ -196,7 +198,7 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         }
     }
     .sd-card__content {
-        @include sd-padding('1-5');
+        @include sd-padding('2');
         flex-grow: 1;
         h4 {
             text-transform: uppercase;
@@ -391,6 +393,9 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         }
         &--size-xs {
             padding-bottom: 35%;
+            .sd-card__thumbnail-heading {
+                font-size: 18px;
+            }
         }
         &--size-s {
             padding-bottom: 50%;

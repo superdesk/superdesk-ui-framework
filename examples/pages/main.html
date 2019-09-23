@@ -1,13 +1,67 @@
 <header class="docs-page__header">
+    <a href="#/" class="docs-page__header-logo"></a>
     <h1 class="docs-page__h1">Superdesk UI Framework</h1>
     <ul class="docs-page__header-nav">
-        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design">Design</a></li>
+        <li class="docs-page__header-nav-item docs-page__header-nav-item--active"><a class="docs-page__header-nav-link" href="#/">Home</a></li>
+        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design">Design guidelines</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/components">Components</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/react">React</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/playgrounds">Playground</a></li>
     </ul>
 </header>
 
-<main class="docs-page__content docs-page__container-fluid">
-    This is default page
+<main class="docs-page__content">
+    <div class="docs-page__masthead">
+        <h2 class="docs-page__masthead-heading">Superdesk Design System</h2>
+        <h4 class="docs-page__masthead-subheading"></h4>
+    </div>
+    <div class="docs-page__container docs-page__container--medium">
+        <div class="flex-grid flex-grid--boxed flex-grid--wrap-items flex-grid--small-4">
+
+            <a class="sd-card sd-card--with-click flex-grid__item" href="#/design">
+                <div class="sd-card__header sd-card__header--with-thumb sd-card__header--gradient-1">
+                    <div class="sd-card__thumbnail sd-card__thumbnail--size-xs">
+                        <h4 class="sd-card__thumbnail-heading ng-binding">Design guidlines</h4>
+                    </div>
+                </div>
+                <div class="sd-card__content">
+                    <p class="docs-page__paragraph--light">What to do and what not while creating user interfaces in Superdesk.</p>
+                </div>
+            </a>
+
+            <a class="sd-card sd-card--with-click flex-grid__item" href="#/components">
+                <div class="sd-card__header sd-card__header--with-thumb sd-card__header--gradient-1">
+                    <div class="sd-card__thumbnail sd-card__thumbnail--size-xs">
+                        <h4 class="sd-card__thumbnail-heading ng-binding">Components</h4>
+                    </div>
+                </div>
+                <div class="sd-card__content sd-padding--3">
+                    <p class="docs-page__paragraph--light">Superdesk HTML/CSS and Angular UI components.</p>
+                </div>
+            </a>
+
+            <a class="sd-card sd-card--with-click flex-grid__item" href="#/react">
+                <div class="sd-card__header sd-card__header--with-thumb sd-card__header--gradient-1">
+                    <div class="sd-card__thumbnail sd-card__thumbnail--size-xs">
+                        <h4 class="sd-card__thumbnail-heading ng-binding">React</h4>
+                    </div>
+                </div>
+                <div class="sd-card__content sd-padding--3">
+                    <p class="docs-page__paragraph--light">React UI components. Still in early stages, but will hopefully grow quickly.</p> 
+                </div>
+            </a>
+
+            <a class="sd-card sd-card--with-click flex-grid__item" href="#/playgrounds">
+                <div class="sd-card__header sd-card__header--with-thumb sd-card__header--gradient-1">
+                    <div class="sd-card__thumbnail sd-card__thumbnail--size-xs">
+                        <h4 class="sd-card__thumbnail-heading ng-binding">Playground</h4>
+                    </div>
+                </div>
+                <div class="sd-card__content sd-padding--3">
+                    <p class="docs-page__paragraph--light">Examples and drafts for more complex modules and full page layouts.</p>
+                </div>
+            </a>
+
+        </div>
+    </div>
 </main>

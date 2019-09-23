@@ -40,6 +40,46 @@ h2.docs-page__group-heading {
 h2.docs-page__group-heading:first-of-type {
     margin-top: 1em;
 }
+.docs-page__hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 32px auto;
+}
+
+.docs-page__hero-h2 {
+    font-family: 'Merriweather', serif;
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 140%;
+    margin: 0 auto 0.6em;
+    text-align: center;
+    color:rgb(27, 176, 108);
+    max-width: 400px;
+
+}
+.docs-page__hero-image {
+    margin: 0 auto 1.6em;
+    text-align: center;
+    max-width: 320px;
+}
+.docs-page__hero-image.docs-page__hero-image--s {
+    max-width: 200px;
+}
+.docs-page__hero-image img {
+    max-width: 100%;
+}
+.docs-page__hero-text {
+    font-size: 18px;
+    line-height: 150%;
+    font-weight: 300;
+    opacity: 0.75;
+    max-width: 480px;
+    text-align: center;
+    margin: 0 auto 32px;
+}
 h3.docs-page__h3 {
     font-size: 23px;
     line-height: 140%;
@@ -93,6 +133,14 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     align-items: center;
     box-shadow: 0 1px 6px rgba(0,0,0,0.2), 0 1px 1px rgba(0,0,0,0.12);
     z-index: 2;
+}
+.docs-page__header-logo {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    margin: 0 16px 0 -8px;
+
 }
 .docs-page__header-nav {
     margin-left: auto;
@@ -164,6 +212,34 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     grid-row: 2 / 3;
     overflow-y: auto;
     position: relative;
+}
+.docs-page__masthead {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 400px;
+    background: rgb(30,176,108);
+    background: linear-gradient(to bottom, rgba(96,184,194,0.5) 0%, rgba(55,78,112,1) 100%), radial-gradient(at top center, rgba(30,176,108,1) 0%, rgba(0,0,0,0.10) 120%);
+    color: #fff;
+}
+.docs-page__masthead-heading {
+    font-family: 'Merriweather', serif;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 100%;
+    margin: 32px auto 0;
+}
+.docs-page__masthead-subheading {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 150%;
+    text-align: center;
+    margin: 16px auto;
+    max-width: 400px;
+    opacity: 0.75;
 }
 .docs-page__nav {
     margin-bottom: 40px;
@@ -392,6 +468,9 @@ pre.prettyprint {
 .docs-page__container--large {
     max-width: 1200px;
 }
+.docs-page__container--medium {
+    max-width: 1000px;
+}
 .docs-page__container--full-h {
     height: calc(100vh - 64px);
     margin: 0 auto;
@@ -412,17 +491,20 @@ pre.prettyprint {
     flex-direction: row;
     margin: 0 -16px;
 }
+.docs-page__content-block + .docs-page__content-block {
+    margin-top: 32px;
+}
 .docs-page__content-block-item {
     flex: 1 1;
     flex-direction: row;
     margin: 0 16px;
 }
-.docs-page__figure {
+/* .docs-page__figure {
 
-}
+} */
 .docs-page__figure-media {
     width: 100%;
-    background: #dedede;
+    background: #F8F8F8;
     border: 1px solid #cccccc;
     min-height: 200px;
     display: flex;
@@ -438,25 +520,29 @@ pre.prettyprint {
     line-height: 150%;
 }
 .docs-page__caption-heading {
-    border-top: 8px solid;
+    border-top: 6px solid;
     font-size: 15px;
     font-weight: 500;
     margin: 0;
     max-width: 100%;
-    padding: 8px 0 8px;
+    padding: 6px 0 6px 8px;
+    margin-bottom: 12px;
     line-height: 120%;
 }
 .docs-page__caption-heading--do {
-    border-color: #4caf50;
-    color: #2e7b32;
+    border-color: rgba(68, 165, 72, 1);
+    color: rgb(47, 134, 51);
+    background-color: rgba(68, 165, 72, 0.1);
 }
 .docs-page__caption-heading--dont {
-    border-color: #d32f2f;
-    color: #d32f2f;
+    border-color: rgba(222, 44, 44, 1);
+    color: rgb(197, 38, 38);
+    background-color: rgba(222, 44, 44, 0.1);
 }
 .docs-page__caption-heading--caution {
-    border-color: #f9a825;
-    color: #f57f17;
+    border-color: rgba(241, 162, 36, 1);
+    color: rgb(225, 150, 25);
+    background-color: rgba(241, 162, 36, 0.1);
 }
 
 .docs-page__text-align--center {
@@ -553,6 +639,16 @@ pre.prettyprint {
     margin: 0;
 }
 
+.docs-page__full-width-helper { /* helps to override some docs page containers in full width layouts */
+    width: 100vw;
+}
+
+.docs-page__paragraph--light {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 150%;
+    color: #747474;
+}
 
 /* -------------- END COLOR SWATCHES -------------- */
 
