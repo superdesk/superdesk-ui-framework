@@ -1,0 +1,227 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Layout grid</h2>
+    <p class="docs-page__paragraph">Layout grid in Superdesk is based on flex grid and works very similarly to the standard float grid. It has 12 columns setup, and column gutter of 10px so that the space between two columns is always 20px.</p>
+    <p class="docs-page__paragraph">If there is a need to have layout grid inside an element which already has default padding (like modal body for instance), just add modifier <code>.grid--padding-fix</code> to div <code>.grid</code>.</p>
+    <h3 class="docs-page__h3">Default Layout grid (not responsive)</h3>
+    <p class="docs-page__paragraph">Add grid container with class <code>.grid</code>, and nest grid items inside. For example, grid item will be <code>.grid__item</code> with additional modifier class <code>.grid__item--col-3</code>, so number of columns is set as a modifier on a grid item div. To have a full row width, sum of items columns should be 12.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row"> 
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                        <div class="grid__item grid__item--col-6">col-6</div>
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                    </div>
+                </div>
+                <div class="docs-page__content-row"> 
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                    </div>
+                </div>
+                <div class="docs-page__content-row"> 
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-2">col-2</div>
+                        <div class="grid__item grid__item--col-8">col-8</div>
+                        <div class="grid__item grid__item--col-2">col-2</div>
+                    </div>
+                </div>
+                <div class="docs-page__content-row"> 
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-6">col-6</div>
+                        <div class="grid__item grid__item--col-6">col-6</div>                    
+                    </div>
+                </div>
+                <div class="docs-page__content-row"> 
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-4">col-4</div>
+                        <div class="grid__item grid__item--col-4">col-4</div>
+                        <div class="grid__item grid__item--col-4">col-4</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                        <div class="grid__item grid__item--col-6">col-6</div>
+                        <div class="grid__item grid__item--col-3">col-3</div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="docs-page__h4">Nested grid</h4>
+    <p class="docs-page__paragraph">To have layout grid inside another one, just add whole <code>.grid</code> structure to <code>.grid__item</code> div.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row"> 
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-4">col-4</div>
+                        <div class="grid__item grid__item--col-4">
+                            <div class="grid">
+                                <div class="grid__item grid__item--col-6">col-6 (nested)</div>
+                                <div class="grid__item grid__item--col-6">col-6 (nested)</div>                    
+                            </div>
+                        </div>
+                        <div class="grid__item grid__item--col-4">col-4</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-4">col-4</div>
+                        <div class="grid__item grid__item--col-4">
+                            <div class="grid">
+                                <div class="grid__item grid__item--col-6">col-6 (nested)</div>
+                                <div class="grid__item grid__item--col-6">col-6 (nested)</div>
+                            </div>
+                        </div>
+                        <div class="grid__item grid__item--col-4">col-4</div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="docs-page__h3">Responsive Layout grid</h3>
+    <p class="docs-page__paragraph">Responsive Layout grid is based on 12 columns and 6 breakpoints which define media queries. We use 'mobile first' approach which assumes 'min-width' as a parameter for calculation. To make it work, add a class for particular breakpoint on grid__item div block.</p>
+    <p class="docs-page__paragraph">Example class: <code>grid__item gi-xsmall-12 gi-small-6 gi-medium-4 gi-large-3 gi-xlarge-2 gi-xxlarge-1</code></p>
+    <p class="docs-page__paragraph">Available breakpoints:</p>
+    <table class="sd-table" style="width:300px; margin-bottom:30px;">
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>value</th>            
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>xsmall</td>
+                <td>≥ 0</td>            
+            </tr>
+            <tr>
+                <td>small</td>
+                <td>≥ 640px</td>
+            </tr>
+            <tr>
+                <td>medium</td>
+                <td>≥ 960px</td>
+            </tr>
+            <tr>
+                <td>large</td>
+                <td>≥ 1024px</td>
+            </tr>
+            <tr>
+                <td>xlarge</td>
+                <td>≥ 1200px</td>
+            </tr>
+            <tr>
+                <td>xxlarge</td>
+                <td>≥ 1440px</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row"> 
+                    <div class="grid">
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-6 gi-medium-8 gi-large-10 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-6 medium-8 large-10 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-6 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-6 xxlarge-4</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <div class="grid">
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-6 gi-medium-8 gi-large-10 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-6 medium-8 large-10 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-6 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-6 xxlarge-4</div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="docs-page__h4">Responsive Layout grid - boxed</h4>
+    <p class="docs-page__paragraph">Boxed version is different as it has margin set between grid items, instead of padding (which is 0, by default).</p>
+    <p class="docs-page__paragraph">Add <code>grid--boxed</code> modifier class to the main grid block.</p>
+
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row"> 
+                    <div class="grid grid--boxed">
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-6 gi-medium-8 gi-large-10 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-6 medium-8 large-10 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-6 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-6 xxlarge-4</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <div class="grid grid--boxed">
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-6 gi-medium-8 gi-large-10 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-6 medium-8 large-10 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-1 gi-xlarge-6 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-1 xlarge-6 xxlarge-4</div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h4 class="docs-page__h4">Responsive Layout grid - boxed styled</h4>
+    <p class="docs-page__paragraph">Styled boxed version is just with added background white and box shadow to grid items.</p>
+    <p class="docs-page__paragraph">To achieve this, grid block should have the class: <code>grid grid--boxed grid--boxed-styled</code></p>
+
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row"> 
+                    <div class="grid grid--boxed grid--boxed-styled">
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-2 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-2 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-6 gi-medium-8 gi-large-8 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-6 medium-8 large-8 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-2 gi-xlarge-6 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-2 xlarge-6 xxlarge-4</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <div class="grid grid--boxed grid--boxed-styled">
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-2 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-2 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-6 gi-medium-8 gi-large-8 gi-xlarge-3 gi-xxlarge-4">xsmall-12 small-6 medium-8 large-8 xlarge-3 xxlarge-4</div>
+                        <div class="grid__item gi-xsmall-12 gi-small-3 gi-medium-4 gi-large-2 gi-xlarge-6 gi-xxlarge-4">xsmall-12 small-3 medium-4 large-2 xlarge-6 xxlarge-4</div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <p class="docs-page__paragraph">More examples on the <a href="#/playground/layout" target="_blank">playground page</a>.</p>
+</section>    

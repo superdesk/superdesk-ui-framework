@@ -1,0 +1,113 @@
+<section class="docs-page__container">    
+    <h2 class="docs-page__h2">Simple list</h2>
+    <p class="docs-page__paragraph">This is a minimal list used for vertically listing of items. By default only vertical spacing between items and on the list itself is applied. An optional looser style is provided <code>simple-list--comfortable</code>, so is a bordered option <code>simple-list--dotted</code></p> 
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <p class="docs-page__paragraph">// Default</p>
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-3" style="background-color:transparent !important; border:none;">
+                            <ul class="simple-list">
+                                <li class="simple-list__item">Nam liber tempor cum soluta</li>
+                                <li class="simple-list__item">Nobis eleifend option congue</li>
+                                <li class="simple-list__item">Sed diam nonummy nibh euismod</li>
+                                <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci.</li>
+                            </ul>
+                        </div>
+                        <div class="grid__item grid__item--col-1" style="background-color:transparent !important; border:none;"></div>
+                        <div class="grid__item grid__item--col-3" style="background-color:transparent !important; border:none;">
+                            <ul class="simple-list">
+                                <li class="simple-list__item"><span ng-model="AB" sd-switch=""></span><label>Feugiat nulla facilisis</label></li>
+                                <li class="simple-list__item"><span ng-model="BC" sd-switch=""></span><label>Sed diam nonummy</label></li>
+                                <li class="simple-list__item"><span ng-model="CD" sd-switch=""></span><label>Laoreet dolore magna</label></li>
+                                <li class="simple-list__item"><span ng-model="DE" sd-switch=""></span><label>Duis autem vel eum iriure dolor</label></li>
+                            </ul>
+                        </div>                    
+                    </div>
+
+                    <p class="docs-page__paragraph">// More space between items</p>
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-3" style="background-color:transparent !important; border:none;">
+                            <ul class="simple-list simple-list--comfortable">
+                                <li class="simple-list__item">Nam liber tempor cum soluta</li>
+                                <li class="simple-list__item">Nobis eleifend option congue</li>
+                                <li class="simple-list__item">Sed diam nonummy nibh euismod</li>
+                                <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci.</li>
+                            </ul>
+                        </div>                   
+                    </div>
+
+                    <p class="docs-page__paragraph">// With borders between items</p>
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-3" style="background-color:transparent !important; border:none;">
+                            <ul class="simple-list simple-list--dotted">
+                                <li class="simple-list__item">Nam liber tempor cum soluta</li>
+                                <li class="simple-list__item">Nobis eleifend option congue</li>
+                                <li class="simple-list__item">Sed diam nonummy nibh euismod</li>
+                                <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci.</li>
+                            </ul>
+                        </div>
+                        <div class="grid__item grid__item--col-1" style="background-color:transparent !important; border:none;"></div>
+                        <div class="grid__item grid__item--col-3" style="background-color:transparent !important; border:none;">
+                            <ul class="simple-list simple-list--dotted">
+                                <li class="simple-list__item"><span ng-model="EF" sd-switch=""></span><label>Feugiat nulla facilisis</label></li>
+                                <li class="simple-list__item"><span ng-model="FG" sd-switch=""></span><label>Sed diam nonummy</label></li>
+                                <li class="simple-list__item"><span ng-model="GH" sd-switch=""></span><label>Laoreet dolore magna</label></li>
+                                <li class="simple-list__item"><span ng-model="HI" sd-switch=""></span><label>Duis autem vel eum iriure dolor</label></li>
+                            </ul>
+                        </div>                    
+                    </div>
+
+                    <p class="docs-page__paragraph">// With borders and bigger space</p>
+                    <div class="grid">
+                        <div class="grid__item grid__item--col-7" style="background-color:transparent !important; border:none;">
+                            <ul class="simple-list simple-list--comfortable simple-list--dotted">
+                                <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</li>
+                                <li class="simple-list__item">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li>
+                                <li class="simple-list__item">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li>
+                                <li class="simple-list__item">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</li>
+                            </ul>
+                        </div>     
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!-- Default -->
+                    <ul class="simple-list">
+                        <li class="simple-list__item">Nam liber tempor cum soluta</li>
+                        <li class="simple-list__item">Nobis eleifend option congue</li>
+                        <li class="simple-list__item">Sed diam nonummy nibh euismod</li>
+                        <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci.</li>
+                    </ul>
+                    <!-- More space between items -->
+                    <ul class="simple-list simple-list--comfortable">
+                        <li class="simple-list__item">Nam liber tempor cum soluta</li>
+                        <li class="simple-list__item">Nobis eleifend option congue</li>
+                        <li class="simple-list__item">Sed diam nonummy nibh euismod</li>
+                        <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci.</li>
+                    </ul>
+                    <!-- With borders between items -->
+                    <ul class="simple-list simple-list--dotted">
+                        <li class="simple-list__item">Nam liber tempor cum soluta</li>
+                        <li class="simple-list__item">Nobis eleifend option congue</li>
+                        <li class="simple-list__item">Sed diam nonummy nibh euismod</li>
+                        <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci.</li>
+                    </ul>
+                    <!-- With borders and bigger space -->
+                    <ul class="simple-list simple-list--comfortable simple-list--dotted">
+                        <li class="simple-list__item">Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</li>
+                        <li class="simple-list__item">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, Vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.</li>
+                        <li class="simple-list__item">At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</li>
+                        <li class="simple-list__item">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</li>
+                    </ul>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

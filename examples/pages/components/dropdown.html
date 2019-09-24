@@ -1,0 +1,542 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Dropdown</h2>
+    <p class="docs-page__paragraph">
+        Dropdowns have it's specific class <code>dropdown</code> and consist of two parts, <code>dropdown__toggle</code> and <code>dropdown__menu</code> It is important to have those two in order to have porperly styled component.
+    </p>
+    <p class="docs-page__paragraph">
+        By default dropdown__menu is positioned left comparing to dropdown__toggle element. For right positioned menu (second example) add class <code>dropdown--align-right</code>
+    </p>
+    <p class="docs-page__paragraph">
+        Menu items should be <code>li</code> elements, containing either <code>button</code> or <code>a</code> tag.
+    </p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example clearfix">
+                <div class="dropdown" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Left aligned (default)
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Right aligned
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Left aligned (default)-->
+                    <div class="dropdown" dropdown ng-non-bindable>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Left aligned (default)
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li><button>Action 1</button></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                        </ul>
+                    </div>
+                    <!--Right aligned-->
+                    <div class="dropdown dropdown--align-right" dropdown ng-non-bindable>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Right aligned
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li><button>Action 1</button></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                        </ul>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="docs-page__h3">Dropdowns opened on the side of the trigger.</h3>
+    <p class="docs-page__paragraph">
+        Dropdowns have it's specific class <code>dropdown</code> and consist of two parts, <code>dropdown__toggle</code> and <code>dropdown__menu</code> It is important to have those two in order to have porperly styled component.
+    </p>
+
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example clearfix">
+                <div class="dropdown dropdown--dropleft" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Drop left
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+                <div class="dropdown dropdown--dropright" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Drop right
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu dropdown--align-right">
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Opens on the left-->
+                    <div class="dropdown dropdown--dropleft" dropdown ng-non-bindable>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Drop left
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li><button>Action 1</button></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                        </ul>
+                    </div>
+                    <!--Opens on the right-->
+                    <div class="dropdown dropdown--dropright" dropdown ng-non-bindable>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Drop right
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu dropdown--align-right">
+                            <li><button>Action 1</button></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                        </ul>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+
+    <h3 class="docs-page__h3">Dropdown Append To Body</h3>
+    <p class="docs-page__paragraph">
+        Add <code>dropdown-append-to-body</code> to the <code>dropdown</code> element to append to the inner <code>dropdown-menu</code> to the body.
+        This is useful when the dropdown button is inside a div with <code>overflow: hidden</code>, and the menu would otherwise be hidden.
+    </p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example clearfix">
+                <div class="dropdown" dropdown dropdown-append-to-body>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Action
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">
+                                Actions
+                                <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
+                            </div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button><i class="icon-pencil"></i>Edit</button></li>
+                        <li><button><i class="icon-copy"></i>Copy</button></li>
+                        <li><button><i class="icon-trash"></i>Delete</button></li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <div class="dropdown__menu-label">Actions 2</div>
+                        </li>
+                        <li class="dropdown__menu-item--no-link">
+                            Just some text without a link
+                        </li>
+                        
+                        <li>
+                            <button><i class="icon-download"></i>Download</button>
+                        </li>
+                        <li>
+                            <button><i class="icon-print"></i>Print</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <div class="dropdown" dropdown dropdown-append-to-body ng-non-bindable>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Action
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">
+                                    Actions
+                                    <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
+                                </div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button><i class="icon-pencil"></i>Edit</button></li>
+                            <li><button><i class="icon-copy"></i>Copy</button></li>
+                            <li><button><i class="icon-trash"></i>Delete</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown__menu-label">Actions 2</div>
+                            </li>
+                            <li>
+                                <button><i class="icon-download"></i>Download</button>
+                            </li>
+                            <li>
+                                <button><i class="icon-print"></i>Print</button>
+                            </li>
+                        </ul>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+
+    <h3 class="docs-page__h3">Multilevel dropdown</h3>
+    <p class="docs-page__paragraph">
+        To create a second level in the dropdown menu repeat the initial dropdown structure on the desired <code>&lt;li&gt;</code> item of the parent dropdown. 
+        The submenu opens by default on the right side of the parent menu, to open it on the left side add the <code>dropdown__menu--submenu-left</code> modifier class to the <code>dropdown__menu</code> element. 
+    </p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example clearfix">
+                <div class="dropdown" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Multilevel dropdown
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button><i class="icon-pencil"></i>Edit</button></li>
+                        <li><button><i class="icon-copy"></i>Copy</button></li>
+                        <li><button><i class="icon-trash"></i>Delete</button></li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <div class="dropdown__menu-label">Actions 2</div>
+                        </li>
+                        <li>
+                            <div class="dropdown" dropdown>
+                                <button class="dropdown__toggle" dropdown__toggle>
+                                    <i class="icon-star"></i>Second level actions
+                                </button>
+                                <ul class="dropdown__menu">
+                                    <li><a href="">Action 1</a></li>
+                                    <li><a href="">Action 2</a></li>
+                                    <li><a href="">Action 3</a></li>
+                                    <li><a href="">Action 4</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="dropdown" dropdown>
+                    <button class="dropdown__toggle" dropdown__toggle>
+                        Submenu on the left
+                        <span class="dropdown__caret"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button><i class="icon-pencil"></i>Edit</button></li>
+                        <li><button><i class="icon-copy"></i>Copy</button></li>
+                        <li><button><i class="icon-trash"></i>Delete</button></li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <div class="dropdown__menu-label">Actions 2</div>
+                        </li>
+                        <li>
+                            <div class="dropdown" dropdown>
+                                <button class="dropdown__toggle" dropdown__toggle>
+                                    <i class="icon-star"></i>Second level actions
+                                </button>
+                                <ul class="dropdown__menu dropdown__menu--submenu-left">
+                                    <li><a href="">Action 1</a></li>
+                                    <li><a href="">Action 2</a></li>
+                                    <li><a href="">Action 3</a></li>
+                                    <li><a href="">Action 4</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Multilevel dropdown; Submenu on the right (default)-->
+                    <div class="dropdown" dropdown ng-non-bindable>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Multilevel dropdown
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">Actions<button class="dropdown__menu-close"><i class="icon-close-small"></i></button></div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button><i class="icon-pencil"></i>Edit</button></li>
+                            <li><button><i class="icon-copy"></i>Copy</button></li>
+                            <li><button><i class="icon-trash"></i>Delete</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown__menu-label">Actions 2<button class="dropdown__menu-close"><i class="icon-close-small"></i></button></div>
+                            </li>
+                            <li>
+                                <div class="dropdown" dropdown ng-non-bindable>
+                                    <button class="dropdown__toggle">
+                                        <i class="icon-star"></i>Second level actions
+                                    </button>
+                                    <ul class="dropdown__menu">
+                                        <li><a href="">Action 1</a></li>
+                                        <li><a href="">Action 2</a></li>
+                                        <li><a href="">Action 3</a></li>
+                                        <li><a href="">Action 4</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--Multilevel dropdown; Submenu on the left-->
+                    <div class="dropdown" dropdown ng-non-bindable>
+                        <button class="dropdown__toggle" dropdown__toggle>
+                            Submenu on the left
+                            <span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">Actions</div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button><i class="icon-pencil"></i>Edit</button></li>
+                            <li><button><i class="icon-copy"></i>Copy</button></li>
+                            <li><button><i class="icon-trash"></i>Delete</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown__menu-label">Actions 2</div>
+                            </li>
+                            <li>
+                                <div class="dropdown" dropdown ng-non-bindable>
+                                    <button class="dropdown__toggle">
+                                        <i class="icon-star"></i>Second level actions
+                                    </button>
+                                    <ul class="dropdown__menu dropdown__menu--submenu-left">
+                                        <li><a href="">Action 1</a></li>
+                                        <li><a href="">Action 2</a></li>
+                                        <li><a href="">Action 3</a></li>
+                                        <li><a href="">Action 4</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+
+    <h3 class="docs-page__h3">Navigation dropdown</h3>
+    <p class="docs-page__paragraph">
+        Example of a dropdown inside a subnavigation element. The dropdown has additional modifiers to align the menu to the right of the toggle and to open the submenu on the left. 
+    </p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example clearfix">
+                <div class="subnav subnav--darker">
+                    <h3 class="subnav__page-title">Subnav title</h3>
+                    <div class="dropdown dropdown--align-right" dropdown>
+                        <button class="dropdown__toggle navbtn" dropdown__toggle>
+                            <i class="icon-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">Actions</div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button>Action 1</button></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown" dropdown>
+                                    <button class="dropdown__toggle"><i class="icon-star"></i>Second level actions</button>
+                                    <ul class="dropdown__menu dropdown__menu--submenu-left">
+                                        <li><a href="">Action 4</a></li>
+                                        <li><a href="">Action 5</a></li>
+                                        <li><a href="">Action 6</a></li>
+                                        <li><a href="">Action 7</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Subnav container-->
+                    <div class="subnav subnav--darker">
+                    <h3 class="subnav__page-title">Subnav title</h3>
+                    <!--dropdown menu with additional modifier .dropdown--align-right-->
+                    <div class="dropdown dropdown--align-right" dropdown>
+                        <button class="dropdown__toggle navbtn" dropdown__toggle>
+                            <i class="icon-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">Actions</div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button>Action 1</button></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown" dropdown>
+                                    <button class="dropdown__toggle"><i class="icon-star"></i>Second level actions</button>
+                                    <!--additional modifier to open the submenu on the left: dropdown__menu--submenu-left-->
+                                    <ul class="dropdown__menu dropdown__menu--submenu-left">
+                                        <li><a href="">Action 4</a></li>
+                                        <li><a href="">Action 5</a></li>
+                                        <li><a href="">Action 6</a></li>
+                                        <li><a href="">Action 7</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+
+    <h3 class="docs-page__h3">Navigation dropdown with fixed header and footer</h3>
+    <p class="docs-page__paragraph">
+        Example of a dropdown inside a subnavigation element. The dropdown has additional modifiers to align the menu to the right of the toggle and to open the submenu on the left. 
+    </p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example clearfix">
+                <div class="subnav subnav--darker">
+                    <h3 class="subnav__page-title">Subnav title</h3>
+                    <div class="dropdown dropdown--align-right" dropdown>
+                        <button class="dropdown__toggle navbtn" dropdown__toggle>
+                            <i class="icon-dots-vertical"></i>
+                        </button>
+                        <div class="dropdown__menu dropdown__menu--has-head-foot">
+                            <ul class="dropdown__menu-header">
+                                <li><div class="dropdown__menu-label">Header Actions</div></li>
+                                <li><button><i class="icon-download"></i>Header action one</button></li>
+                                <li><button><i class="icon-trash"></i>Header action two</button></li>
+                            </ul>
+                            <ul class="dropdown__menu-body">
+                                <li><div class="dropdown__menu-label">Body Actions</div></li>
+                                <li><button><i class="icon-pencil"></i>Edit item</button></li>
+                                <li><button><i class="icon-copy"></i>Copy item</button></li>
+                                <li><button><i class="icon-envelope"></i>Action 2</button></li>
+                                <li><button><i class="icon-heart"></i>Action 3</button></li>
+                                <li><button><i class="icon-print"></i>Action 4</button></li>
+                                <li><button><i class="icon-plus-sign"></i>Action 5</button></li>
+                                <li><button><i class="icon-minus-sign"></i>Action 6</button></li>
+                                <li><button><i class="icon-refresh"></i>Action 7</button></li>
+                                <li><button><i class="icon-pick"></i>Action 8</button></li>
+                                <li><button><i class="icon-bell"></i>Action 9</button></li>
+                                <li><button><i class="icon-kill"></i>Action 10</button></li>
+                                <li><button><i class="icon-settings"></i>Action 11</button></li>
+                                <li><button><i class="icon-cut"></i>Action 12</button></li>
+                            </ul>
+                            <ul class="dropdown__menu-footer dropdown__menu-footer--has-list ">
+                                <li><div class="dropdown__menu-label">Footer Actions</div></li>
+                                <li><button><i class="icon-slideshow"></i>Create gallery</button></li>
+                                <li><button><i class="icon-composite"></i>Create package</button></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Subnav container-->
+                    <div class="subnav subnav--darker">
+                    <h3 class="subnav__page-title">Subnav title</h3>
+                    <!--dropdown menu with additional modifier .dropdown--align-right-->
+                    <div class="dropdown dropdown--align-right" dropdown>
+                        <button class="dropdown__toggle navbtn" dropdown__toggle>
+                            <i class="icon-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">Actions</div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button>Action 1</button></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li>
+                                <div class="dropdown" dropdown>
+                                    <button class="dropdown__toggle"><i class="icon-star"></i>Second level actions</button>
+                                    <!--additional modifier to open the submenu on the left: dropdown__menu--submenu-left-->
+                                    <ul class="dropdown__menu dropdown__menu--submenu-left">
+                                        <li><a href="">Action 4</a></li>
+                                        <li><a href="">Action 5</a></li>
+                                        <li><a href="">Action 6</a></li>
+                                        <li><a href="">Action 7</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

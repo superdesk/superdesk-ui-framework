@@ -1,0 +1,376 @@
+<div class="sd-page-grid--basic docs-page__content" doc-modal>
+    <header class="sd-top-menu">
+        <a href="" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <p class="sd-top-menu__header">Publisher</p>
+    </header>
+
+    <section class="sd-content sd-page-content--slide-in" ng-class="{
+            'sd-page-content--slide-in--open' : editorOpen}">
+
+        <div class="sd-sidebar-menu sd-page-content__left-tabs">
+            <ul>
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Monitoring" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Highlights" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--marked-star"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Spiked" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Personal" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Search" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Publisher" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active">
+                        <i class="sd-sidebar-menu__main-icon big-icon--publisher"></i>                        
+                    </a>
+                </li>
+                <li sd-tooltip="Planning" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--calendar"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sd-sidebar-menu sd-sidebar-menu--second-level sd-page-content__left-tabs">
+            <ul>
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard-alt"></i>                       
+                    </a>
+                </li>
+                <li sd-tooltip="Output Control" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--web"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>                
+            </ul>
+        </div>
+        <div class="sd-page-content__content-block" ng-class="{'open-filters': leftFilterOpen}">
+            <div class="subnav">
+                <button class="navbtn navbtn--left">
+                    <i class="icon-arrow-left"></i>
+                </button>
+                <h3 class="subnav__page-title">Content Analytics <span>/ Daily Telegraph</span></h3>
+                <div class="dropdown dropdown--align-right" dropdown="">
+                    <button class="navbtn dropdown sd-create-btn dropdown-toggle" dropdown__toggle="" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-plus-large"></i>
+                        <span class="circle"></span>
+                    </button>   
+                    <ul class="dropdown__menu dropdown--align-right">
+                        <li>
+                            <div class="dropdown__menu-label">Create new site</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Superdesk Publisher</button></li>
+                        <li><button>Wordpress</button></li>                        
+                    </ul>
+                </div>
+            </div>
+            <div class="sd-column-box--3" ng-class="{'content-nav-closed' : closedContentNav}">
+                <!-- vert tabbed nav -->
+                <div class="nav-tabs-vertical" ng-class="{'nav-tabs-vertical--closed' : !closedContentNav }">
+                    <ul class="nav-tabs-vertical__list">
+                        <li class="nav-tabs-vertical__tab">
+                            <button ng-click="closedContentNav = !closedContentNav" class="nav-tabs-vertical__link">Website</button>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sd-content-navigation-panel sd-content-navigation-panel--border-right">
+                    <div class="subnav subnav--padded subnav--lower-z-index">
+                        <h3 class="sd-content-nav-title sd-content-nav-title--uppercase">Website</h3>       
+                        <a class="icn-btn ml-auto" ng-click="closedContentNav = !closedContentNav" ng-init="closedContentNav = false"><i class="icon-close-small"></i></a>
+                    </div>
+                    <nav class="sd-content-nav">
+                        <ul>
+                            <li><a href="#" class="sd-content-nav__btn sd-content-nav__btn--active">Daily Telegraph</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">The Torch</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">Gotham Globe</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">Daily Bugle</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">The Daily Star</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">Sourcefabric.org</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="flex-grid flex-grid--grow flex-grid--small-1">
+                    <div class="flex-grid__item flex-grid__item--d-flex flex-grid__item--column">
+                        <div class="subnav subnav--lower-z-index">
+                            <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
+                                <i class="icon-filter-large"></i>
+                            </button>
+                            
+                            <div class="subnav__stretch-bar"></div>
+                            <button class="navbtn" ng-click="chartView = !chartView;">
+                                <i class="icon-analytics ng-hide" ng-show="chartView"></i>
+                                <i class="icon-list-view" ng-hide="chartView"></i>
+                            </button>
+                        </div>
+                        
+                        <div class="sd-column-box--3">
+                            <!-- filters -->
+                            <div class="sd-filters-panel sd-filters-panel--border-right">
+                                <div class="side-panel side-panel--transparent side-panel--shadow-right">
+                                    <div class="side-panel__header side-panel__header--border-b">
+                                            <a class="icn-btn side-panel__close" sd-tooltip="Close filters" flow="left" ng-click="leftFilterOpen = !leftFilterOpen"><i class="icon-close-small"></i></a>
+                                        <h3 class="side-panel__heading side-panel__heading--big">Filter</h3>
+                                    </div>
+                                    <div class="side-panel__content">
+                                        <div class="side-panel__content-block">
+                                            <div class="form__row">
+                                                <div class="sd-line-input sd-line-input--with-button">
+                                                    <span class="sd-line-input__plus-btn"></span>
+                                                    <label class="sd-line-input__label">Author</label>
+                                                    <input class="sd-line-input__input" type="text">
+                                                </div>
+                                            </div>
+                                            <div class="form__row form__row--flex">
+                                                <div class="sd-line-input">
+                                                    <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                                    <label class="sd-line-input__label">Published before</label>
+                                                    <input class="sd-line-input__input" type="text">
+                                                </div>                                                    
+                                            </div>
+                                            <div class="form__row form__row--flex">
+                                                <div class="sd-line-input">
+                                                    <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                                    <label class="sd-line-input__label">Published after</label>
+                                                    <input class="sd-line-input__input" type="text">
+                                                </div>                                                    
+                                            </div>
+                                            <div class="form__row sd-margin-b--2">
+                                                <sd-check ng-model="ghi" label-position="inside">Yesterday</sd-check>
+                                                <sd-check ng-model="ghi2" label-position="inside">Today</sd-check>
+                                            </div>                                            
+                                            <div class="form__row">
+                                                <div class="sd-line-input sd-line-input--with-button">
+                                                    <span class="sd-line-input__plus-btn"></span>
+                                                    <label class="sd-line-input__label">Category</label>
+                                                    <input class="sd-line-input__input" type="text">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="side-panel__footer side-panel__footer--button-box">
+                                        <div class="flex-grid flex-grid--boxed-small flex-grid--small-1">
+                                            <a class="btn btn--primary btn--large">Update Criteria</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sd-column-box__main-column-inner">
+                                <!-- table -->
+                                <div class="sd-flex-table sd-table--shadowed sd-table--action-hover">
+                                    <div class="sd-flex-table__row sd-flex-table--head">
+                                        <div class="sd-flex-table__cell sd-flex-grow">
+                                            <div>
+                                                Title <a class="icn-btn icn-btn--small" ng-click="ascending = !ascending">
+                                                <i class="icon-chevron-down-thin" ng-show="!ascending"></i>
+                                                <i class="icon-chevron-up-thin" ng-show="ascending"></i>
+                                                </a> 
+                                            </div>                                         
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            &nbsp;
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            <div>
+                                                Page Views 
+                                                <a class="icn-btn icn-btn--small icn-btn--disabled">
+                                                    <i class="icon-chevron-down-thin"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            <div>
+                                                Click Rate
+                                                <a class="icn-btn icn-btn--small icn-btn--disabled">
+                                                    <i class="icon-chevron-down-thin"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            <div>
+                                                Impressions
+                                                <a class="icn-btn icn-btn--small icn-btn--disabled" ng-click="ascending = !ascending">
+                                                    <i class="icon-chevron-down-thin"></i>
+                                                </a>
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                    <div class="sd-flex-table__row">
+                                        <div class="sd-flex-table__cell sd-flex-grow">
+                                            <div class="sd-text__strong">
+                                                <strong>Nisi quis eiusmod nostrud pariatur amet.</strong>
+                                            </div>
+                                            <div>
+                                                <span class="sd-text__date-time sd-text__italic">Category:</span><span class="sd-text__normal">Culture</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Donald Duck</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-flex-table__cell sd-text__center">
+                                            <a class="icn-btn" target="_blank" href="#">
+                                                <i class="icon-external"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            1546321
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            589654
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            98652146
+                                        </div>                                        
+                                    </div>
+                                    <div class="sd-flex-table__row">
+                                        <div class="sd-flex-table__cell sd-flex-grow">
+                                            <div class="sd-text__strong">
+                                                <strong>Mollit sit ut mollit dolor laborum nisi adipisicing minim.</strong>
+                                            </div>
+                                            <div>
+                                                <span class="sd-text__date-time sd-text__italic">Category:</span><span class="sd-text__normal">Sport, News</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Jack Daniels, Mickey Mouse</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-flex-table__cell sd-text__center">
+                                            <a class="icn-btn" target="_blank" href="#">
+                                                <i class="icon-external"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            9865301
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            101
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            22
+                                        </div>                                        
+                                    </div>
+                                    <div class="sd-flex-table__row">
+                                        <div class="sd-flex-table__cell sd-flex-grow">
+                                            <div class="sd-text__strong">
+                                                <strong>Enim enim cupidatat duis eu deserunt.</strong>
+                                            </div>
+                                            <div>
+                                                <span class="sd-text__date-time sd-text__italic">Category:</span><span class="sd-text__normal">News, Business</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Donald Trump</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-flex-table__cell sd-text__center">
+                                            <a class="icn-btn" target="_blank" href="#">
+                                                <i class="icon-external"></i>
+                                            </a>
+                                        </div>                                        
+                                        <div class="sd-flex-table__cell">
+                                            65231
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            58
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            0
+                                        </div>                                        
+                                    </div>
+                                    <div class="sd-flex-table__row">
+                                        <div class="sd-flex-table__cell sd-flex-grow">
+                                            <div class="sd-text__strong">
+                                                <strong>Sit qui aliqua dolore dolor aliqua ut officia incididunt reprehenderit ad laboris qui proident.</strong>
+                                            </div>
+                                            <div>
+                                                <span class="sd-text__date-time sd-text__italic">Category:</span><span class="sd-text__normal">News, Business</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Donald Trump</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-flex-table__cell sd-text__center">
+                                            <a class="icn-btn" target="_blank" href="#">
+                                                <i class="icon-external"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            2365
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                           125845
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            43444
+                                        </div>                                        
+                                    </div>
+                                    <div class="sd-flex-table__row">
+                                        <div class="sd-flex-table__cell sd-flex-grow">
+                                            <div class="sd-text__strong">
+                                                <strong>Elit eu laboris nulla laborum irure dolor ut.</strong>
+                                            </div>
+                                            <div>
+                                                <span class="sd-text__date-time sd-text__italic">Category:</span><span class="sd-text__normal">Sport, News</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Authors:</span><span class="sd-text__normal">Jack Daniels, Mickey Mouse</span>
+                                                <span class="sd-text__date-time sd-text__italic sd-margin-l--1">Published:</span><time>1 week ago</time>
+                                            </div>
+                                        </div>
+                                        <div class="sd-flex-table__cell sd-text__center">
+                                            <a class="icn-btn" target="_blank" href="#">
+                                                <i class="icon-external"></i>
+                                            </a>
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            65231
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            58
+                                        </div>
+                                        <div class="sd-flex-table__cell">
+                                            0
+                                        </div>                                        
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+    <footer class="bottom-bar ">
+        This is the optional footer.
+    </footer>
+</div>

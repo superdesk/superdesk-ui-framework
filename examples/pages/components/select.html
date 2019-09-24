@@ -1,0 +1,160 @@
+<section class="docs-page__container">  
+    <h2 class="docs-page__h2">Select</h2>
+    <p class="docs-page__paragraph">Line select shares the same basic structure as the Line input. An additional modifier class <code>sd-line-input--is-select</code> on the <code>sd-line-input</code> element is required to add the caret. The select element must have the class <code>sd-line-input__select</code>.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <p class="docs-page__paragraph">// Select with hint text</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--is-select">
+                        <label class="sd-line-input__label">Favorite fruit</label>
+                        <select class="sd-line-input__select">
+                            <option value="apples">Apples</option>
+                            <option value="oranges">Oranges</option>
+                            <option value="bananas">Bananas</option>
+                            <option value="pears">Pears</option>
+                            <option value="peaches">Peaches</option>
+                        </select>
+                        <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+                    </div>
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Select with error message</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--is-select sd-line-input--required sd-line-input--invalid">
+                        <label class="sd-line-input__label">City</label>
+                        <select class="sd-line-input__select">
+                            <option value=""></option>
+                            <option value="prague">Prague</option>
+                            <option value="berlin">Berlin</option>
+                            <option value="belgrade">Belgrade</option>
+                            <option value="cluj-napoca">Cluj-Napoca</option>
+                            <option value="toronto">Toronto</option>
+                        </select>
+                        <div class="sd-line-input__message">This field is required.</div>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Disabled select</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--is-select sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled select</label>
+                        <select class="sd-line-input__select" disabled>
+                            <option value=""></option>
+                            <option value="prague">Prague</option>
+                            <option value="berlin">Berlin</option>
+                            <option value="belgrade">Belgrade</option>
+                            <option value="cluj-napoca">Cluj-Napoca</option>
+                            <option value="toronto">Toronto</option>
+                        </select>
+                        <div class="sd-line-input__message">This field is disabled.</div>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Alternative styling - boxed select</p>
+                <p class="docs-page__paragraph docs-page__paragraph--small">As with the input fields there is a boxed style for select fields as well. Same rule appies as well, append <code>.sd-line-input--boxed</code> to the default classes.</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--boxed sd-line-input--is-select">
+                        <label class="sd-line-input__label">Vegetable</label>
+                        <select class="sd-line-input__select">
+                            <option value=""></option>
+                            <option value="prague">Asparagus</option>
+                            <option value="berlin">Aubergine</option>
+                            <option value="belgrade">Beetroot</option>
+                            <option value="belgrade">Broccoli</option>
+                            <option value="belgrade">Carrot</option>
+                        </select>
+                        <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--boxed sd-line-input--is-select sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled</label>
+                        <select class="sd-line-input__select" disabled>
+                            <option value=""></option>
+                            <option value="prague">Asparagus</option>
+                            <option value="berlin">Aubergine</option>
+                            <option value="belgrade">Beetroot</option>
+                            <option value="belgrade">Broccoli</option>
+                            <option value="belgrade">Carrot</option>
+                        </select>
+                        <span class="sd-line-input__hint">This field is disabled.</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Select with hint text-->
+                    <div class="sd-line-input sd-line-input--is-select">
+                        <label class="sd-line-input__label">Favorite fruit</label>
+                        <select class="sd-line-input__select">
+                            <option value="apples">Apples</option>
+                            <option value="oranges">Oranges</option>
+                            <option value="bananas">Bananas</option>
+                            <option value="pears">Pears</option>
+                            <option value="peaches">Peaches</option>
+                        </select>
+                        <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+                    </div>
+                    <!--Select with error message-->
+                    <div class="sd-line-input sd-line-input--is-select sd-line-input--required sd-line-input--invalid">
+                        <label class="sd-line-input__label">City</label>
+                        <select class="sd-line-input__select">
+                            <option value=""></option>
+                            <option value="prague">Prague</option>
+                            <option value="berlin">Berlin</option>
+                            <option value="belgrade">Belgrade</option>
+                            <option value="cluj-napoca">Cluj-Napoca</option>
+                            <option value="toronto">Toronto</option>
+                        </select>
+                        <div class="sd-line-input__message">This field is required.</div>
+                    </div>
+                    <div class="sd-line-input sd-line-input--is-select sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled select</label>
+                        <select class="sd-line-input__select" disabled>
+                            <option value=""></option>
+                            <option value="prague">Prague</option>
+                            <option value="berlin">Berlin</option>
+                            <option value="belgrade">Belgrade</option>
+                            <option value="cluj-napoca">Cluj-Napoca</option>
+                            <option value="toronto">Toronto</option>
+                        </select>
+                        <div class="sd-line-input__message">This field is disabled.</div>
+                    </div>
+                    <!--Alternative styling - boxed select-->
+                    <div class="sd-line-input sd-line-input--is-select sd-line-input--boxed">
+                        <label class="sd-line-input__label">Vegetable</label>
+                        <select class="sd-line-input__select">
+                            <option value=""></option>
+                            <option value="prague">Asparagus</option>
+                            <option value="berlin">Aubergine</option>
+                            <option value="belgrade">Beetroot</option>
+                            <option value="belgrade">Broccoli</option>
+                            <option value="belgrade">Carrot</option>
+                        </select>
+                        <span class="sd-line-input__hint">Dolor in hendrerit.</span>
+                    </div>
+                    <div class="sd-line-input sd-line-input--boxed sd-line-input--is-select sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled</label>
+                        <select class="sd-line-input__select" disabled>
+                            <option value=""></option>
+                            <option value="prague">Asparagus</option>
+                            <option value="berlin">Aubergine</option>
+                            <option value="belgrade">Beetroot</option>
+                            <option value="belgrade">Broccoli</option>
+                            <option value="belgrade">Carrot</option>
+                        </select>
+                        <span class="sd-line-input__hint">This field is disabled.</span>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <!-- <h3 class="docs-page__h3">Select with label on the left</h3>
+    <p class="docs-page__paragraph">See "Input with label on the left" for details.</p> -->
+</section>  

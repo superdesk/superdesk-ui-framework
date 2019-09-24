@@ -1,0 +1,254 @@
+<div class="sd-page-grid--basic docs-page__content" doc-modal>
+    <header class="sd-top-menu">
+        <a href="" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <p class="sd-top-menu__header">Publisher</p>
+    </header>
+
+    <section class="sd-content sd-page-content--slide-in" ng-class="{
+            'sd-page-content--slide-in--open' : editorOpen}">
+
+        <div class="sd-sidebar-menu sd-page-content__left-tabs">
+            <ul>
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Monitoring" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Highlights" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--marked-star"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Spiked" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Personal" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Search" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Publisher" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active">
+                        <i class="sd-sidebar-menu__main-icon big-icon--publisher"></i>                        
+                    </a>
+                </li>
+                <li sd-tooltip="Planning" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--calendar"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sd-sidebar-menu sd-sidebar-menu--second-level sd-page-content__left-tabs">
+            <ul>
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard-alt"></i>                       
+                    </a>
+                </li>
+                <li sd-tooltip="Output Control" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--web"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>                
+            </ul>
+        </div>
+        <div class="sd-page-content__content-block">
+            <div class="subnav">
+                <button class="navbtn navbtn--left">
+                    <i class="icon-arrow-left"></i>
+                </button>
+                <h3 class="subnav__page-title">Content Lists <span>/ Daily Telegraph</span></h3>
+                <div class="dropdown dropdown--align-right" dropdown="">
+                    <button class="navbtn dropdown sd-create-btn dropdown-toggle" dropdown__toggle="" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-plus-large"></i>
+                        <span class="circle"></span>
+                    </button>   
+                    <ul class="dropdown__menu dropdown--align-right">
+                        <li>
+                            <div class="dropdown__menu-label">Create new site</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Superdesk Publisher</button></li>
+                        <li><button>Wordpress</button></li>                        
+                    </ul>
+                </div>
+            </div>
+            <div class="sd-column-box--3" ng-class="{'content-nav-closed' : closedContentNav}">
+                <!-- vert tabbed nav -->
+                <div class="nav-tabs-vertical" ng-class="{'nav-tabs-vertical--closed' : !closedContentNav }">
+                    <ul class="nav-tabs-vertical__list">
+                        <li class="nav-tabs-vertical__tab">
+                            <button ng-click="closedContentNav = !closedContentNav" class="nav-tabs-vertical__link">Website</button>
+                        </li>
+                    </ul>
+                </div>
+                <!-- left content nav-->
+                <div class="sd-content-navigation-panel sd-content-navigation-panel--border-right">
+                    <div class="subnav subnav--padded subnav--lower-z-index">
+                        <h3 class="sd-content-nav-title sd-content-nav-title--uppercase">Website</h3>       
+                        <a class="icn-btn ml-auto" ng-click="closedContentNav = !closedContentNav" ng-init="closedContentNav = false"><i class="icon-close-small"></i></a>
+                    </div>
+                    <nav class="sd-content-nav">
+                        <ul>
+                            <li><a href="#" class="sd-content-nav__btn sd-content-nav__btn--active">Daily Telegraph</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">The Torch</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">Gotham Globe</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">Daily Bugle</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">The Daily Star</a></li>
+                            <li><a href="#" class="sd-content-nav__btn">Sourcefabric.org</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="sd-column-box__main-column">
+                    <div class="subnav subnav--padded subnav--lower-z-index" ng-init="listType = 'all-lists'">
+                        <sd-check ng-model="listType" type="radio" ng-value="all-lists" label-position="inside">All</sd-check>
+                        <sd-check ng-model="listType" type="radio" ng-value="automatic" label-position="inside">Automatic</sd-check>
+                        <sd-check ng-model="listType" type="radio" ng-value="manual" label-position="inside">Manual</sd-check>                        
+                    </div>
+                    <div class="sd-grid-list sd-grid-list--large">
+                        <div class="sd-card">
+                            <div class="sd-card__header sd-card__header--padding">
+                                <div class="sd-card__heading">Breaking news</div>
+                                <div class="sd-card__actions-group">
+                                    <a class="btn btn--small btn--hollow btn--ui-dark">Edit</a>
+                                    <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                </div>                        
+                            </div>                            
+                            <div class="sd-card__content sd-card__content--scrollable">
+                                <ul class="sd-card__content-list">
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Sint ullamco eu occaecat minim aliquip.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Nisi in est irure eiusmod ipsum cupidatat in voluptate.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Duis culpa ea et ullamco ex tempor et nisi qui id eiusmod irure sunt.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Reprehenderit aliquip sit nulla qui proident consectetur.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Culpa officia ipsum amet aute eu ea et occaecat officia.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Dolor elit occaecat sint ex excepteur ipsum.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Laboris aliqua sit fugiat laboris exercitation dolor quis anim est.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Ad pariatur velit et officia do.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Sunt ex Lorem do amet consequat.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small sd-card__content-list-item--border-bottom">Nisi commodo cillum voluptate culpa exercitation aliqua.</li>
+                                </ul>
+                            </div>
+                            <div class="sd-card__footer sd-card__footer--spread">
+                                <div>
+                                    <span class="sd-text__info">Last modified:</span>
+                                    <span> a day ago</span>
+                                </div>
+                                <span class="label label--success label--hollow">active</span>
+                            </div>
+                        </div>
+                        <div class="sd-card">
+                            <div class="sd-card__header sd-card__header--padding sd-card__header--secondary-color">
+                                <div class="sd-card__heading">Politics teaser / Home</div>
+                                <div class="sd-card__actions-group">
+                                    <a class="btn btn--small btn--hollow btn--ui-dark">Edit</a>
+                                    <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                </div>                        
+                            </div>                            
+                            <div class="sd-card__content sd-card__content--scrollable">
+                                <ul class="sd-card__content-list">
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Occaecat reprehenderit quis exercitation enim aute veniam esse esse Lorem officia.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Ipsum id tempor laborum sunt fugiat nulla.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Nisi reprehenderit qui ad in ea anim eiusmod labore nulla magna exercitation minim.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Adipisicing deserunt occaecat ex eiusmod ut voluptate voluptate est elit.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Aute magna duis dolor officia ex sunt eu non commodo veniam.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Ipsum laborum officia sit laboris incididunt qui exercitation veniam exercitation cupidatat dolore pariatur.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Quis qui et excepteur duis Lorem sint ea irure mollit nulla laborum id non.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Proident culpa minim non ea do nisi duis sint cupidatat.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Amet non amet sint non qui consequat Lorem aliquip adipisicing irure id.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small sd-card__content-list-item--border-bottom">Qui eu ad velit eu qui veniam labore labore enim veniam reprehenderit.</li>
+                                </ul>
+                            </div>
+                            <div class="sd-card__footer sd-card__footer--spread">
+                                <div>
+                                    <span class="sd-text__info">Last modified:</span>
+                                    <span> a day ago</span>
+                                </div>
+                                <span class="label label--success label--hollow">active</span>
+                            </div>
+                        </div>
+                        <div class="sd-card">
+                            <div class="sd-card__header sd-card__header--padding">
+                                <div class="sd-card__heading">Entertainment teaser / Home</div>
+                                <div class="sd-card__actions-group">
+                                    <a class="btn btn--small btn--hollow btn--ui-dark">Edit</a>
+                                    <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                </div>                        
+                            </div>                            
+                            <div class="sd-card__content sd-card__content--scrollable">
+                                <ul class="sd-card__content-list">
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Sint ullamco eu occaecat minim aliquip.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Nisi in est irure eiusmod ipsum cupidatat in voluptate.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small sd-card__content-list-item--border-bottom">Duis culpa ea et ullamco ex tempor et nisi qui id eiusmod irure sunt.</li>                              
+                                </ul>
+                            </div>
+                            <div class="sd-card__footer sd-card__footer--spread">
+                                <div>
+                                    <span class="sd-text__info">Last modified:</span>
+                                    <span> a day ago</span>
+                                </div>
+                                <span class="label label--success label--hollow">active</span>
+                            </div>
+                        </div>
+                        <div class="sd-card">
+                            <div class="sd-card__header sd-card__header--padding sd-card__header--secondary-color">
+                                <div class="sd-card__heading">Custom automated list</div>
+                                <div class="sd-card__actions-group">
+                                    <a class="btn btn--small btn--hollow btn--ui-dark">Edit</a>
+                                    <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                </div>                        
+                            </div>                            
+                            <div class="sd-card__content sd-card__content--scrollable">
+                                <ul class="sd-card__content-list">
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Dolor excepteur est sit laboris dolor ipsum duis eiusmod qui voluptate ea ut sit laboris.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Non est excepteur laboris incididunt do ad aliqua aliquip.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Enim in ad anim eu qui.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Cillum magna est laborum nulla cillum.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small">Nostrud Lorem nisi duis tempor aute et est sit proident qui incididunt id id.</li>
+                                    <li class="sd-card__content-list-item sd-card__content-list-item--small sd-card__content-list-item--border-bottom">Veniam exercitation sit id sit.</li>                                    
+                                </ul>
+                            </div>
+                            <div class="sd-card__footer sd-card__footer--spread">
+                                <div>
+                                    <span class="sd-text__info">Last modified:</span>
+                                    <span> a day ago</span>
+                                </div>
+                                <span class="label label--success label--hollow">active</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+    <footer class="bottom-bar ">
+        This is the optional footer.
+    </footer>
+</div>

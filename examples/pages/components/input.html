@@ -1,0 +1,233 @@
+<section class="docs-page__container">    
+    <h2 class="docs-page__h2">Inputs</h2>
+    <p class="docs-page__paragraph">Line inputs are based on Material design style inputs. They include useful elements like hint text <code>.sd-line-input__hint</code>, error messages <code>.sd-line-input__message</code> and character count <code>.sd-line-input__char-count</code>.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <p class="docs-page__paragraph">// Input with hint text and character count</p>
+                <div class="form__row">
+                    <div class="sd-line-input">
+                        <label class="sd-line-input__label">Headline</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__char-count">00/90</div>
+                        <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                    </div>
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Required input field</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--required">
+                        <label class="sd-line-input__label">Description</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+                    </div>
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Input with error message</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--invalid sd-line-input--required">
+                        <label class="sd-line-input__label">Description</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__message">This field is required.</div>
+                    </div>
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Disabled input</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled input</label>
+                        <input class="sd-line-input__input" type="text" disabled>
+                        <div class="sd-line-input__message">This field is disabled.</div>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Input with no dedicated space for the hint text at the bottom</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin">
+                        <label class="sd-line-input__label">No margin below</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// File input</p>
+                <div class="form__row">
+                    <div class="sd-line-input">
+                        <label class="sd-line-input__label">File input</label>
+                        <input class="sd-line-input__input" type="file">
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Color input</p>
+                <div class="form__row" style="max-width: 100px;">
+                    <div class="sd-line-input sd-line-input--is-color">
+                        <label class="sd-line-input__label">Color input</label>
+                        <div class="sd-line-input--flex-row">
+                            <div class="sd-line-input__value">{{test}}</div>
+                            <input class="sd-line-input__color" type="color" value="#5eadc8" ng-init="test='#5eadc8'" ng-model="test">
+                        </div>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Alternative styling</p>
+                <p class="docs-page__paragraph docs-page__paragraph--small">An alternative styling for input fields is available in cases where the whole filed needs to be visible. The style is applied by appending <code>.sd-line-input--boxed</code> to the default classes.</p>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--boxed">
+                        <label class="sd-line-input__label">Description</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__hint">Vulputate velit esse molestie consequat.</div>
+                    </div>
+                </div>
+
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--boxed sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled</label>
+                        <input class="sd-line-input__input" type="text" disabled>
+                        <div class="sd-line-input__hint">This field is disabled.</div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Input with hint text and character count.-->
+                    <div class="sd-line-input">
+                        <label class="sd-line-input__label">Headline</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__char-count">00/90</div>
+                        <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                    </div>
+                    <!--Required input field-->
+                    <div class="sd-line-input sd-line-input--required">
+                        <label class="sd-line-input__label">Description</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
+                    </div>
+                    <!--Input with error message.-->
+                    <div class="sd-line-input sd-line-input--invalid">
+                        <label class="sd-line-input__label">Description</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__message">This field is required.</div>
+                    </div>
+                    <div class="sd-line-input sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled input</label>
+                        <input class="sd-line-input__input" type="text" disabled>
+                        <div class="sd-line-input__message">This field is disabled.</div>
+                    </div>
+                    <!-- Input with no dedicated space for the hint text at the bottom -->
+                    <div class="form__row">
+                        <div class="sd-line-input sd-line-input--no-margin">
+                            <label class="sd-line-input__label">No margin below</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                    </div>
+                    <!-- Color input -->
+                    <div class="form__row">
+                        <div class="sd-line-input sd-line-input--is-color">
+                            <label class="sd-line-input__label">Color input</label>
+                            <div class="sd-line-input--flex-row">
+                                <div class="sd-line-input__value">{{test}}</div>
+                                <input class="sd-line-input__color" type="color" value="#5eadc8" ng-init="test='#5eadc8'" ng-model="test">
+                            </div>
+                        </div>
+                    </div>
+                    <!--Alternative styling-->
+                    <!--in cases where the whole filed needs to be visible.-->
+                    <div class="sd-line-input sd-line-input--boxed">
+                        <label class="sd-line-input__label">Description</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__hint">Vulputate velit esse molestie consequat.</div>
+                    </div>
+                    <div class="sd-line-input sd-line-input--boxed sd-line-input--disabled">
+                        <label class="sd-line-input__label">Disabled</label>
+                        <input class="sd-line-input__input" type="text" disabled>
+                        <div class="sd-line-input__hint">This field is disabled.</div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="docs-page__h3">Input with label on the left</h3>
+    <p class="docs-page__paragraph">Athough displaying labels above the input is the desired option in Superdesk, in some cases this is not optimal. In those cases it is posible to displaying the label at the same line as the input, on the left, by adding modifier classes. Two options are available:  <code>.sd-line-input--label-left</code>, 
+    with a predefined minimal width for the label, and <code>.sd-line-input--label-left-auto</code> with no predifined label width.</p>
+
+    <div class="docs-page__code-window" doc-tabs>
+            <div class="docs-page__window-bar">
+                <a id="example" href="#" class="active">Example</a>
+                <a id="markup" href="#">Markup</a>
+            </div>
+            <div class="docs-page__window-content">
+                <div class="docs-page__code-example">
+                    <p class="docs-page__paragraph">// Predefined label width</p>
+                    <p class="docs-page__paragraph docs-page__paragraph--small"><strong>Usage:</strong> stacked inputs where space is limited (use form__row as a container if extra space between rows is neede).</p>
+                    <div class="sd-line-input sd-line-input--label-left">
+                        <label class="sd-line-input__label">Label one</label>
+                        <input class="sd-line-input__input" type="text">
+                        <div class="sd-line-input__char-count">00/90</div>
+                        <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                    </div>
+                    <div class="sd-line-input sd-line-input--label-left">
+                        <label class="sd-line-input__label">Label two</label>
+                        <input class="sd-line-input__input" type="text">
+                        <span class="sd-line-input__hint">Hint text. Dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                    </div>
+                    <p class="docs-page__paragraph">// No predefined label width</p>
+                    <p class="docs-page__paragraph docs-page__paragraph--small"><strong>Usage:</strong> single input fields e.g. in subnavigation bars and similar.</p>
+                    <div class="sd-line-input sd-line-input--label-left-auto">
+                        <label class="sd-line-input__label">Label</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                </div>
+                <div class="docs-page__code-markup">
+                    <pre class="prettyprint lang-html linenums">
+                        <!--Predefined label width-->
+                        <div class="sd-line-input sd-line-input--label-left">
+                            <label class="sd-line-input__label">Label one</label>
+                            <input class="sd-line-input__input" type="text">
+                            <div class="sd-line-input__char-count">00/90</div>
+                            <span class="sd-line-input__hint">This is a hint text. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                        </div>
+                        <div class="sd-line-input sd-line-input--label-left">
+                            <label class="sd-line-input__label">Label two</label>
+                            <input class="sd-line-input__input" type="text">
+                            <span class="sd-line-input__hint">Hint text. Dolor in hendrerit in vulputate velit esse molestie consequat.</span>
+                        </div>
+                        <!--No predefined label width-->
+                        <div class="sd-line-input sd-line-input--label-left-auto">
+                            <label class="sd-line-input__label">Label</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                    </pre>
+                </div>
+            </div>
+        </div>
+
+    <h3 class="docs-page__h3">Other modifiers</h3>
+
+    <ul>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>.sd-line-input--no-label</code><br> 
+            Removes the top padding reserved for the label. Use in case there is no label needed.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>.sd-line-input--no-margin</code><br> 
+                Removes the bottom margin where otherwise the hint text apears.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>.sd-line-input--with-button</code><br> 
+                Adds space before the input for the [+] <code>.sd-line-input__plus-btn</code> button.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>.sd-line-input--with-button</code><br> 
+                Adds space before the input for the [+] button.
+            </p>
+        </li>
+    </ul>
+</section>

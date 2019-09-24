@@ -1,0 +1,86 @@
+<section class="docs-page__container">  
+    <h2 class="docs-page__h2">Checkbox</h2>
+    <p class="docs-page__paragraph">
+        For creating SD styled checkboxes use the custom <code>&lt;sd-check&gt;</code> tag.
+        The text inside the tag creates the label for the sd-checkbox.
+        By default the label will be placed on the right side of checkbox, to place it on the left add the property <code>label-position="left"</code>.
+        To create the button styled checkbox add <code>label-position="inside"</code> to the sd-check tag. <code>ng-model</code> must be defined for proper functionality.
+        To initially check item, add <code>ng-checked="true"</code>.
+    </p>
+    <p class="docs-page__paragraph docs-page__paragraph--small">
+        To include an icon to the button style checkboxes add the data attribute <code>data-icon</code> to <code>sd-check</code>. Use the desired icon name, without the "icon-" prefix, as the value.
+        If the data attribute <code>data-icon</code> is present the button style will be applied automatically, there is no need to add <code>label-position="inside"</code>, although it will work with it as well.
+        For all available icons options check out the Icon font.
+    </p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <p class="docs-page__paragraph">// Basic SD checkbox</p>
+                <div class="form__row">
+                    <sd-check ng-model="abc1">Checkbox label right</sd-check>
+                    <sd-check ng-model="abc2">Check me!</sd-check>
+                    <sd-check ng-model="abc3">Check me too!</sd-check>
+                    <sd-check ng-model="abc4" disabled="disabled">I'm disabled :( </sd-check>
+                    <sd-check ng-model="abc5" disabled="disabled" ng-checked="true">I'm disabled and checked :( </sd-check>
+                </div>
+                <div class="form__row">
+                    <sd-check ng-model="def" label-position="left">Checkbox label left</sd-check>
+                </div>
+                <div class="form__row">
+                    <sd-check ng-model="aut" ng-true-value="True Value" ng-false-value="False Value">Checkbox with custom values</sd-check>
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style checkbox</p>
+                <div class="form__row">
+                    <sd-check ng-model="def1" label-position="inside">Button style checkbox</sd-check>
+                    <sd-check ng-model="def2" label-position="inside" ng-checked="true">Check this out</sd-check>
+                    <sd-check ng-model="def3" label-position="inside">Check this too!</sd-check>
+                    <sd-check ng-model="def4" label-position="inside" disabled="disabled">U can't touch this!</sd-check>
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style with icon</p>
+                <div class="form__row">
+                    <sd-check ng-model="def6" label-position="inside" data-icon="th-list">Button style with icon</sd-check>
+                    <sd-check ng-model="def7" label-position="inside" data-icon="th" ng-checked="true">I have an icon!</sd-check>
+                    <sd-check ng-model="def8" label-position="inside" data-icon="th-large">Yeah, me too!</sd-check>
+                    <sd-check ng-model="def9" data-icon="star">I have an icon :) </sd-check>
+                </div>
+            </div>
+
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Basic SD checkbox-->
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="abc1">Checkbox label right</sd-check>
+                        <sd-check ng-model="abc2">Check me!</sd-check>
+                        <sd-check ng-model="abc3">Check me too!</sd-check>
+                        <sd-check ng-model="abc4" disabled="disabled">I'm disabled :( </sd-check>
+                        <sd-check ng-model="abc5" disabled="disabled" ng-checked="true">I'm disabled and checked :( </sd-check>
+                    </div>
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="def" label-position="left">Checkbox label left</sd-check>
+                    </div>
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="aut" ng-true-value="True Value" ng-false-value="False Value">Checkbox with custom values</sd-check>
+                    </div>
+                    <!--Button style checkbox-->
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="ghi" label-position="inside">Button style checkbox</sd-check>
+                        <sd-check ng-model="jkl" label-position="inside" ng-checked="true">Check this out</sd-check>
+                        <sd-check ng-model="mn" label-position="inside">Check this too!</sd-check>
+                        <sd-check ng-model="def4" label-position="inside" disabled="disabled">U can't touch this!</sd-check>
+                    </div>
+                    <!--Button style with icon-->
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="def6" data-icon="th-list">Button style with icon</sd-check>
+                        <sd-check ng-model="def7" data-icon="th" ng-checked="true">I have an icon!</sd-check>
+                        <sd-check ng-model="def8" data-icon="th-large">Yeah, me too!</sd-check>
+                        <sd-check ng-model="def9" data-icon="star">I have an icon :) </sd-check>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>  

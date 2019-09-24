@@ -1,0 +1,12 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2 docs-page__text-align--center">Colors</h2>
+    <p class="docs-page__paragraph docs-page__text-align--center"></p>
+    <div class="doc-swatches__grid"  ng-init="colors = ['red', 'pink', 'purple', 'deep-purple', 'indigo', 'blue', 'light-blue', 'cyan', 'teal', 'green', 'light-green', 'lime', 'yellow', 'amber', 'orange', 'deep-orange', 'brown', 'grey', 'blue-grey']; shades = [50, 100, 200, 300, 400, 500, 600, 700, 800, 900]">
+        <div class="doc-swatches__wrapper" ng-repeat="color in colors">
+            <div class="{{color}}--500 doc-swatches__title">
+                <h3>{{color}}</h3>
+            </div>
+            <span ng-repeat="shade in shades" class="doc-swatches__swatch-item {{color}}--{{shade}}">{{shade}}</span>
+        </div>
+    </div>
+</section>

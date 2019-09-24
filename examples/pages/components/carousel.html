@@ -1,0 +1,77 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Carousel</h2>
+    <p class="docs-page__paragraph"></p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example" doc-modal>
+                <button class="btn" ng-click="openCarousel()">Show carousel</button>
+                <div sd-carousel data-model="carouselActive" data-finish="hideCarousel()">
+                    <!--Page 1-->
+                    <div sd-carousel-step data-code="page1">
+                        <div class="sd-carousel__page-header">
+                            <h2 class="sd-carousel__page-heading">First Page!</h2>
+                            <img class="sd-carousel__page-header-illustration" src="/illustration_users.png" alt="User rolew">
+                        </div>
+                        <div class="sd-carousel__page-text">
+                            <h3>Lorem ipsum dolor sit amet</h3>
+                            <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</p>
+                        </div>
+                        <div class="sd-carousel__page-footer">
+                            <a class="btn btn--large btn--sd-green" ng-click="hideCarousel()">Ok, i got it!</a>
+                        </div>
+                    </div>
+                    <div sd-carousel-step data-code="page2">
+                        <div class="sd-carousel__page-header sd-carousel__page-header--color-2">
+                            <h2 class="sd-carousel__page-heading">Second Page!</h2>
+                            <img class="sd-carousel__page-header-illustration" src="/illustration_user-privileges.png" alt="User rolew">
+                        </div>
+                        <div class="sd-carousel__page-text">
+                            <h3>Nam liber tempor cum</h3>
+                            <p>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis.</p>
+                            <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+                        </div>
+                        <div class="sd-carousel__page-footer">
+                            <a class="btn btn--large btn--sd-green" ng-click="hideCarousel()">Ok, i got it!</a>
+                        </div>
+                    </div>
+                    <div sd-carousel-step data-code="page3">
+                        <div class="sd-carousel__page-header sd-carousel__page-header--color-3">
+                            <h2 class="sd-carousel__page-heading">Third Page!</h2>
+                            <img class="sd-carousel__page-header-illustration" src="/illustration_users.png" alt="User rolew">
+                        </div>
+                        <div class="sd-carousel__page-text">
+                            <h3>Dolores et ea rebum</h3>
+                            <p>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <button class="btn" ng-click="openCarousel()">Show carousel</button>
+                    <div sd-carousel data-model="carouselActive" data-finish="hideCarousel" ng-non-bindable>
+                        <div sd-carousel-step data-code="page1" >
+                            <div class="sd-carousel__page-header">
+                                <h2 class="sd-carousel__page-heading">First Page!</h2>
+                                <img class="sd-carousel__page-header-illustration" src="/illustration_users.png" alt="User rolew">
+                            </div>
+                            <div class="sd-carousel__page-text">
+                                <h3>Lorem ipsum dolor sit amet</h3>
+                                <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</div>
+                            <div class="sd-carousel__page-footer">
+                                <a class="btn btn--large btn--sd-green">Ok, i got it!</a>
+                            </div>
+                        </div>
+                        <div sd-carousel-step data-code="page2"></div>
+                        <div sd-carousel-step data-code="page3"></div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,257 @@
+<section class="docs-page__container">   
+    <h2 class="docs-page__h2">Tabs</h2>
+    <h3 class="docs-page__h3">Default tabs</h3>
+    <p class="docs-page__paragraph">To have tabs like navigation add unordered list with class <code>.nav-tabs</code> and follow provided html markup. Content part is provided just as an example.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <ul class="nav-tabs">
+                        <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>                    
+                    </ul>
+                    <div class="nav-tabs__content">
+                        <div ng-if="!tab || tab === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <ul class="nav-tabs">
+                        <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>
+                    </ul>
+                    <div class="nav-tabs__content" ng-non-bindable>
+                        <div ng-if="!tab || tab === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h3 class="docs-page__h3">Large tabs</h3>
+    <p class="docs-page__paragraph">Add additional class (modifier) <code>.nav-tabs--big</code> to unordered list <code>.nav-tabs</code>.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">            
+                <div class="docs-page__content-row">
+                    <ul class="nav-tabs nav-tabs--big">
+                        <li ng-class="{'nav-tabs__tab--active': !tab2 || tab2 === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab2 = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab2 === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab2 = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab2 === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab2 = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>                    
+                    </ul>
+                    <div class="nav-tabs__content">
+                        <div ng-if="!tab2 || tab2 === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab2 === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab2 === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <ul class="nav-tabs nav-tabs--big">
+                        <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>
+                    </ul>
+                    <div class="nav-tabs__content" ng-non-bindable>
+                        <div ng-if="!tab || tab === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h3 class="docs-page__h3">Small tabs</h3>
+    <p class="docs-page__paragraph">Add additional class (modifier) <code>.nav-tabs--small</code> to unordered list <code>.nav-tabs</code>.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">            
+                <div class="docs-page__content-row">
+                    <ul class="nav-tabs nav-tabs--small">
+                        <li ng-class="{'nav-tabs__tab--active': !tab3 || tab3 === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab3 = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab3 === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab3 = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab3 === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab3 = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab3 === 'item-history'}" class="nav-tabs__tab">
+                            <button ng-click="tab3 = 'item-history'" class="nav-tabs__link"><span translate>Item History</span></button>
+                        </li>
+                    </ul>
+                    <div class="nav-tabs__content nav-tabs__content--small">
+                        <div ng-if="!tab3 || tab3 === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab3 === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab3 === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                        <div ng-if="tab3 === 'item-history'" class="nav-tabs__pane">
+                            Item history here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <ul class="nav-tabs nav-tabs--small">
+                        <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>
+                    </ul>
+                    <div class="nav-tabs__content nav-tabs__content--small" ng-non-bindable>
+                        <div ng-if="!tab || tab === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h3 class="docs-page__h3">Dark tab variation</h3>
+    <p class="docs-page__paragraph">Add additional class (modifier) <code>.nav-tabs--ui-dark</code> to unordered list <code>.nav-tabs</code>. Dark navigation also works with different sizing (big or small).</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">            
+                <div class="docs-page__content-row docs-page__content-row--ui-dark">
+                    <ul class="nav-tabs nav-tabs--ui-dark">
+                        <li ng-class="{'nav-tabs__tab--active': !tab4 || tab4 === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab4 = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab4 === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab4 = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab4 === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab4 = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>                    
+                    </ul>
+                    <div class="nav-tabs__content nav-tabs__content--ui-dark">
+                        <div ng-if="!tab4 || tab4 === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab4 === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab4 === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <ul class="nav-tabs nav-tabs--ui-dark">
+                        <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'content'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'content'" class="nav-tabs__link"><span translate>Content</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'metadata'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'metadata'" class="nav-tabs__link"><span translate>Metadata</span></button>
+                        </li>
+                        <li ng-class="{'nav-tabs__tab--active': tab === 'duplicates'}" class="nav-tabs__tab">
+                            <button ng-click="tab = 'duplicates'" class="nav-tabs__link"><span translate>Duplicates</span></button>
+                        </li>
+                    </ul>
+                    <div class="nav-tabs__content nav-tabs__content--ui-dark" ng-non-bindable>
+                        <div ng-if="!tab || tab === 'content'" class="nav-tabs__pane">
+                            Content here.
+                        </div>
+                        <div ng-if="tab === 'metadata'" class="nav-tabs__pane">
+                            Metadata here.
+                        </div>
+                        <div ng-if="tab === 'duplicates'" class="nav-tabs__pane">
+                            Duplicates here.
+                        </div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

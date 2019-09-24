@@ -1,0 +1,79 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Badge</h2>
+    <p class="docs-page__paragraph">Add the .badge class to an element to create a badge. In the code example <code>&lt;span&gt;</code> is used, but any tag will do.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <p class="docs-page__paragraph">// Circle (default)</p>
+                <div class="docs-page__content-row">
+                    <span class="badge">1</span>
+                    <span class="badge badge--primary">2</span>
+                    <span class="badge badge--success">A</span>
+                    <span class="badge badge--warning">B</span>
+                    <span class="badge badge--alert">6</span>
+                    <span class="badge badge--highlight">2318</span>
+                    <span class="badge badge--light">76</span>
+                </div>
+                <p class="docs-page__paragraph">// Square</p>
+                <p style="margin: -10px 0 20px; color: #747474;">Use this version only for single digits or numbers. For longer text use the <code>.label</code> class.</p>
+                <div class="docs-page__content-row">
+                    <span class="badge">1</span>
+                    <span class="badge badge--primary badge--square">2</span>
+                    <span class="badge badge--success badge--square">A</span>
+                    <span class="badge badge--warning badge--square">B</span>
+                    <span class="badge badge--alert badge--square">6</span>
+                    <span class="badge badge--highlight badge--square">D</span>
+                    <span class="badge badge--light badge--square">9</span>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <span class="badge">1</span>
+                    <span class="badge badge--primary">2</span>
+                    <span class="badge badge--success">A</span>
+                    <span class="badge badge--warning">B</span>
+                    <span class="badge badge--alert">6</span>
+                    <span class="badge badge--highlight">2318</span>
+                    <span class="badge badge--light">76</span>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h3 class="docs-page__h3">Element with badge</h3>
+    <p class="docs-page__paragraph">Add the div with <code>.element-with-badge</code> class and put inside your element and after it the badge.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row"> 
+                    <div class="element-with-badge">                                   
+                        <a class="btn">Default</a>
+                        <span class="badge badge--primary">8</span>
+                    </div>
+                    <div class="element-with-badge">                                   
+                    <a class="btn btn--primary">Primary</a>
+                    <span class="badge badge--light">6</span>
+                    </div>
+                    <div class="element-with-badge">                                   
+                    <a class="btn btn--hollow">Hollow</a>
+                    <span class="badge badge--highlight">4</span>
+                    </div>
+                </div>            
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <div class="element-with-badge"><a class="btn">Default</a><span class="badge badge--primary">8</span></div>
+                    <div class="element-with-badge"><a class="btn btn--primary">Primary</a><span class="badge badge--light">6</span></div>
+                    <div class="element-with-badge"><a class="btn btn--hollow">Hollow</a><span class="badge badge--highlight">4</span></div>                 
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>
