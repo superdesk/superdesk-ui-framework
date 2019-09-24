@@ -9,8 +9,6 @@ import './css/docs-page.css';
 import './css/prism.css';
 import './js/doc';
 
-import 'superdesk-ui';
-
 export default angular.module('ui-docs', [
     'ngRoute',
     'superdesk-ui',

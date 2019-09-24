@@ -83,6 +83,7 @@ const config = {
         }),
         new CopyWebpackPlugin([
             {from: 'examples/img/', flatten: true},
+            {from: 'examples/pages/'},
         ]),
         new ExtractTextPlugin({
             filename: '[name].bundle.css',
