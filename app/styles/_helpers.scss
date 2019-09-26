@@ -209,6 +209,9 @@ time {
 .sd-text__center {
     text-align: center;
 }
+.sd-text__serif {
+    font-family:'Merriweather', Georgia, 'Times New Roman', Times, serif !important;
+}
 // Superdesk specific text helpers 
 .sd-text__slugline {
     color: $sd-slugline;
@@ -485,7 +488,7 @@ $sd-properties: (padding, margin); // It's generating these properties
 // START: This part should not be used for new stuff, it's only here for older implemetation. 
 // Once the implemented classes are refactored this should be removed
 
-// padding all
+// padding all  (KILL THIS AFTER REFACTORING)
 .sd-padding-all--0 {
     padding: 0 !important;
 }
@@ -504,7 +507,7 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-padding-all--3 {
     padding: $sd-base-increment * 3 !important;
 }
-// margin all
+// margin all (KILL THIS AFTER REFACTORING)
 .sd-margin-all--0 {
     margin: 0 !important;
 }
