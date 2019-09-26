@@ -9,12 +9,14 @@ $card-item-header-bg-light: #bfbfbf;
 $card-item-header-bg-gradient-1: linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
 $card-item-header-bg-secondary: $subnav-background-mid-blue-grey;
 $card-item-top-border-height: 0.4rem;
+$card-item-rounded-radius: 8px;
 
 
 //shadows
 $card-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
 $card-item-shadow-hover: 0 1px 6px rgba(0,0,0,.16), 0 2px 12px rgba(0,0,0,.36);
 $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
+$card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17, 17, 0.16);
 
 .sd-card {
     position: relative;
@@ -37,11 +39,27 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
             box-shadow: $card-item-shadow-active;
         }
     }
+    &--rounded {
+        border-radius: $card-item-rounded-radius;
+        .sd-card__header {
+            border-radius: $card-item-rounded-radius $card-item-rounded-radius 0 0;
+            &::before {
+                border-radius: $card-item-rounded-radius $card-item-rounded-radius 0 0;
+            }
+        }
+    }
     &--flex-grow {
         flex-grow: 1;
     }
     &--auto-height {
         min-height: 0;
+    }
+    &--blank {
+        background-color: transparent;
+        box-shadow: none;
+        &:hover {
+            box-shadow: $card-item-shadow-hover-light;
+        }
     }
     .sd-card__actions   {
         margin: 0.4rem 0.4rem 0 0;
@@ -96,6 +114,12 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         }
         &--gradient-1 {
             background: $card-item-header-bg-gradient-1;
+        }
+        &--blank {
+            background-color: transparent;
+            &::before {
+                background-color: transparent;
+            }
         }
         &--with-thumb {
             position: relative;
@@ -243,6 +267,13 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         &--padd-10 {
             padding: 1rem;
         }
+    }
+    .sd-card__content-heading, h4.sd-card__content-heading {
+        text-transform: none;
+        color: inherit;
+        font-size: 1.6rem;
+        letter-spacing: initial;
+        padding-bottom: $sd-base-increment;
     }
     .sd-card__placeholder {
         padding: 16px;
@@ -393,6 +424,12 @@ $card-item-shadow-active: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
         }
         &--size-xs {
             padding-bottom: 35%;
+            .sd-card__thumbnail-heading {
+                font-size: 18px;
+            }
+        }
+        &--size-xxs {
+            padding-bottom: 16%;
             .sd-card__thumbnail-heading {
                 font-size: 18px;
             }
