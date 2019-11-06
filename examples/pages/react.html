@@ -8,33 +8,32 @@
         <li class="docs-page__header-nav-item docs-page__header-nav-item--active"><a class="docs-page__header-nav-link" href="#/react">React</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/playgrounds">Playground</a></li>
     </ul>
-
 </header>
 
-<aside class="docs-page__sidebar" doc-scroll ng-class="{scroll:boolChangeClass}">
-    <ul class="docs-page__nav" doc-nav>
-        <li ng-repeat="group in components">
+<aside class="docs-page__sidebar" doc-react-nav>
+    <ul class="docs-page__nav">
+        <li ng-repeat="group in reactComponents">
             <span class="docs-page__nav-title">{{group.name}}</span>
             <ul class="docs-page__nav--sub-level">
                 <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items"
-                    ng-class="{'docs-page__nav-item--active': isActive(name)}"><a href="#/components/{{name}}">{{item.name}}</a>
+                    ng-class="{'docs-page__nav-item--active': isActive(name)}"><a href="#/react/{{name}}">{{item.name}}</a>
                 </li>
             </ul>
         </li>
     </ul>
 </aside>
 
-<main class="docs-page__content docs-page__container-fluid"  ng-if="page" ng-include="'pages/react/' + page + '.html'"></main>
+<main class="docs-page__content docs-page__container-fluid" doc-react></main>
 
-<main class="docs-page__content docs-page__container-fluid" ng-if="!page">
-        <section class="docs-page__container">
-            <div class="docs-page__hero">
-                <figure class="docs-page__hero-image">
-                    <img src="/illustration--react.svg" alt="React">
-                </figure>
-                <h2 class="docs-page__hero-h2 docs-page__color--primary">Home of Superdesk React components</h2>
-                <p class="docs-page__hero-text">As the headline suggests – React components for Superdesk. Still in its early stages, but hey, you have to start somewhere!</p>
-                <p class="docs-page__hero-text sd-text__normal">Don't be shy, feel free to contribute!</p>
-            </div>
-        </section>
-</main>
+<!-- <main class="docs-page__content docs-page__container-fluid" ng-if="!page">
+    <section class="docs-page__container">
+        <div class="docs-page__hero">
+            <figure class="docs-page__hero-image">
+                <img src="/illustration--react.svg" alt="React">
+            </figure>
+            <h2 class="docs-page__hero-h2 docs-page__color--primary">Home of Superdesk React components</h2>
+            <p class="docs-page__hero-text">As the headline suggests – React components for Superdesk. Still in its early stages, but hey, you have to start somewhere!</p>
+            <p class="docs-page__hero-text sd-text__normal">Don't be shy, feel free to contribute!</p>
+        </div>
+    </section>
+</main> -->

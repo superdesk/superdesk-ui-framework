@@ -6,7 +6,6 @@ import 'code-prettify/styles/sons-of-obsidian.css';
 
 import './css/reset.css';
 import './css/docs-page.css';
-import './css/prism.css';
 import './js/doc';
 
 export default angular.module('ui-docs', [
@@ -210,6 +209,26 @@ export default angular.module('ui-docs', [
         }
     }))
 
+    .factory('reactComponents', () => ({
+        basicComponents: {
+            name: 'Basic Components',
+            items: {
+                'buttons': {
+                    name: 'Buttons',
+                    page: 'buttons.html',
+                },
+                'checkbox-and-radio': {
+                    name: 'Checkbox & Radio',
+                    page: 'checkbox-and-radio.html',
+                },
+                'switch': {
+                    name: 'Switch',
+                    page: 'switch.html',
+                },
+            }
+        }
+    }))
+
     .factory('design', () => ({
         basicComponents: {
             name: 'Basic Components',
@@ -361,7 +380,6 @@ export default angular.module('ui-docs', [
                 template: require('../examples/pages/react.html')
             })
             .when('/react/:name*', {
-                react: true,
                 template: require('../examples/pages/react.html')
             })
             .when('/playgrounds', {

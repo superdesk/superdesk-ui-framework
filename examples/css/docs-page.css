@@ -142,7 +142,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     height: 40px;
     width: 40px;
     margin: 0 16px 0 -8px;
-    background: url('/SD-UI-framework__logo.svg') no-repeat;
+    background: url('/sd-ui-framework__logo.svg') no-repeat;
     background-size: 100%;
 }
 .docs-page__header-nav {
