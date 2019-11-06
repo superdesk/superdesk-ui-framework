@@ -7,7 +7,7 @@ interface IProps {
     
 }
 
-export class Labels extends React.Component<IProps> {
+export class Badge extends React.Component<IProps> {
     render() {
     	let classes = ['badge'];
         this.props.types ? classes.push('badge--' + this.props.types) : null
