@@ -1,6 +1,9 @@
 /* eslint-disable */
 /* global _, PR */
 
+import { ReactNav } from './react';
+import ReactDoc from './../pages/react/index';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -52,10 +55,10 @@ function docPlayground(components, design, playgrounds, $route) {
                 { name: 'cool' },
                 { name: 'tags' }
             ];
-            
+
             scope.freeItems = ['Audi', 'BMW', 'Opel', 'Hyundai'];
 
-            scope.console = function(...data) {
+            scope.console = function (...data) {
                 console.log(...data);
             }
         }
@@ -69,12 +72,12 @@ function docTabs() {
             elem.find('.docs-page__window-bar').children('a').click(function (e) {
                 e.preventDefault();
                 $(this).addClass('active')
-                        .siblings()
-                        .removeClass('active');
+                    .siblings()
+                    .removeClass('active');
 
                 elem.find('.docs-page__code-' + $(this).attr('id')).show()
-                        .siblings()
-                        .hide();
+                    .siblings()
+                    .hide();
             });
         }
     };
@@ -134,24 +137,29 @@ function docModal($modal) {
     };
 }
 
-docScroll.$inject = ['$window'];
-function docScroll($window) {
-    return function (scope, element, attrs) {
-        angular.element($window).bind('scroll', function () {
-            if (this.pageYOffset >= 80) {
-                scope.boolChangeClass = true;
-            } else {
-                scope.boolChangeClass = false;
-            }
-            scope.$apply();
-        });
+docReact.$inject = [];
+function docReact() {
+    return {
+        link: function (scope, elem) {
+            ReactDOM.render(<ReactDoc />, elem[0]);
+        }
+    };
+}
+
+docReactNav.$inject = ['reactComponents'];
+function docReactNav(reactComponents) {
+    return {
+        link: function (scope, elem) {
+            ReactDOM.render(<ReactNav pages={reactComponents} />, elem[0]);
+        }
     };
 }
 
 export default angular.module('ui-docs.directives', [])
-        .directive('prettyprint', docPrettyPrint)
-        .directive('docPlayground', docPlayground)
-        .directive('docTabs', docTabs)
-        .directive('docNav', docNav)
-        .directive('docModal', docModal)
-        .directive('docScroll', docScroll);
+    .directive('prettyprint', docPrettyPrint)
+    .directive('docPlayground', docPlayground)
+    .directive('docTabs', docTabs)
+    .directive('docNav', docNav)
+    .directive('docModal', docModal)
+    .directive('docReact', docReact)
+    .directive('docReactNav', docReactNav);
