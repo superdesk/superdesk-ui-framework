@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ReactNav extends React.Component {
     render() {
@@ -9,14 +10,33 @@ class ReactNav extends React.Component {
             <ul className="docs-page__nav--sub-level">
                 {Object.keys(pages[group].items).map((page) =>
                     <li key={page} className="docs-page__nav-item">
-                        <a>{pages[group].items[page].name}</a>
+                        <Link to={{ pathname: '/#/react/' + page, hash: '#' }}>{pages[group].items[page].name}</Link>
                     </li>
                 )}
             </ul>
         </li>);
 
         return (
-            <ul className="docs-page__nav">{navigations}</ul>
+            <aside className="docs-page__sidebar">
+                <ul className="docs-page__nav">{navigations}</ul>
+            </aside>
+        )
+    }
+}
+
+class ReactDefault extends React.Component {
+    render() {
+        return (
+            <section className="docs-page__container">
+                <div className="docs-page__hero">
+                    <figure className="docs-page__hero-image">
+                        <img src="/illustration--react.svg" alt="React" />
+                    </figure>
+                    <h2 className="docs-page__hero-h2 docs-page__color--primary">Home of Superdesk React components</h2>
+                    <p className="docs-page__hero-text">As the headline suggests – React components for Superdesk. Still in its early stages, but hey, you have to start somewhere!</p>
+                    <p className="docs-page__hero-text sd-text__normal">Don't be shy, feel free to contribute!</p>
+                </div>
+            </section>
         )
     }
 }
@@ -69,10 +89,12 @@ class ReactMarkupCode extends React.Component {
         return (
             <div className="docs-page__code-markup"
                 style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}>
-                {this.props.children}
+                <pre className="prettyprint lang-html linenums">
+                    {this.props.children}
+                </pre>
             </div>
         )
     }
 }
 
-export { ReactNav, ReactMarkup, ReactMarkupPreview, ReactMarkupCode };
+export { ReactNav, ReactDefault, ReactMarkup, ReactMarkupPreview, ReactMarkupCode };

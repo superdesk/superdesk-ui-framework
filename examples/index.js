@@ -209,26 +209,6 @@ export default angular.module('ui-docs', [
         }
     }))
 
-    .factory('reactComponents', () => ({
-        basicComponents: {
-            name: 'Basic Components',
-            items: {
-                'buttons': {
-                    name: 'Buttons',
-                    page: 'buttons.html',
-                },
-                'checkbox-and-radio': {
-                    name: 'Checkbox & Radio',
-                    page: 'checkbox-and-radio.html',
-                },
-                'switch': {
-                    name: 'Switch',
-                    page: 'switch.html',
-                },
-            }
-        }
-    }))
-
     .factory('design', () => ({
         basicComponents: {
             name: 'Basic Components',
