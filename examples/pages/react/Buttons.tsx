@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
 
 export default class ReactDoc extends React.Component {
@@ -8,7 +7,7 @@ export default class ReactDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Buttons</h2>
                 <h3 className="docs-page__h3">Sizing</h3>
-                
+
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         This is some test content

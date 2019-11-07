@@ -2,7 +2,7 @@
 /* global _, PR */
 
 import { ReactNav } from './react';
-import ReactDoc from './../pages/react/index';
+import ReactDoc from './../pages/react/Index';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -146,20 +146,10 @@ function docReact() {
     };
 }
 
-docReactNav.$inject = ['reactComponents'];
-function docReactNav(reactComponents) {
-    return {
-        link: function (scope, elem) {
-            ReactDOM.render(<ReactNav pages={reactComponents} />, elem[0]);
-        }
-    };
-}
-
 export default angular.module('ui-docs.directives', [])
     .directive('prettyprint', docPrettyPrint)
     .directive('docPlayground', docPlayground)
     .directive('docTabs', docTabs)
     .directive('docNav', docNav)
     .directive('docModal', docModal)
-    .directive('docReact', docReact)
-    .directive('docReactNav', docReactNav);
+    .directive('docReact', docReact);
