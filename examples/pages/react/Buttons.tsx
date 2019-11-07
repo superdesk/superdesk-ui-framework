@@ -3,7 +3,7 @@ import * as Markup from '../../js/react';
 
 import { Button } from '../../../app-typescript';
 
-export default class ReactDoc extends React.Component {
+export default class ButtonsDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
@@ -152,7 +152,6 @@ export default class ReactDoc extends React.Component {
                         <Button text='default' icons='info-sign' sizes='small'/>
                         <Button text='primary' types='primary' icons='plus-sign' sizes='small'/>
                     </div>
-                    
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                        
@@ -199,7 +198,6 @@ export default class ReactDoc extends React.Component {
                         <Button types='primary' icons='plus-large' sizes='small' circle={true}/>
                         <Button types='sd-green' icons='star' sizes='small' circle={true}/>
                     </div>
-                    
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                        
@@ -264,7 +262,6 @@ export default class ReactDoc extends React.Component {
                         <Button text='highlight' types='highlight' textOnly={true} disabled={true} dark={true}/>
                         <Button text='sd-green' types='sd-green' textOnly={true} disabled={true} dark={true}/>
                     </div>
-
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                        
@@ -273,20 +270,26 @@ export default class ReactDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Plain icon button</h3>
                 <p className="docs-page__paragraph ng-scope">
-                Plain icon buttons don't use the base <code>.btn</code> class like other buttons, instead a separate class ( <code>.icn-btn</code> ) 
-                is used to simpify the implementation and make it more flexible. It is intended mostly for actions on list items, toolbars etc. 
-                 The font color is set to inherit so it will take it from the nearest parent where the color is defined. Tooltips are also suppored 
-                (see the Tooltip section for implementation details).  
+                    Plain icon buttons don't use the base <code>.btn</code> class like other buttons, instead a separate class ( <code>.icn-btn</code> ) 
+                    is used to simpify the implementation and make it more flexible. It is intended mostly for actions on list items, toolbars etc. 
+                    The font color is set to inherit so it will take it from the nearest parent where the color is defined. Tooltips are also suppored 
+                    (see the Tooltip section for implementation details).  
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                    <div className='docs-page__code-example clearfix'>
-                        <Button icons='close-small'/>
-                        <Button icons='plus-large'/>
-                        <Button icons='dots-vertical'/>
-                        <Button icons='trash'/>
-                        <Button icons='pencil'/>
-                    </div>
+                        <Button iconBtn={true} icons='close-small' tooltip='I support tooltips!'/>
+                        <Button iconBtn={true} icons='plus-large'/>
+                        <Button iconBtn={true} icons='dots-vertical'/>
+                        <Button iconBtn={true} icons='trash'/>
+                        <Button iconBtn={true} icons='close-small' tooltip='My tooltip is on right.' flow='right'/>
+                        <p className="docs-page__paragraph">// Dark UI</p>
+                        <div className="docs-page__content-row docs-page__content-row--ui-dark" style={{color:'white'}}>
+                            <Button iconBtn={true} icons='close-small' tooltip='I support tooltips!' dark={true}/>
+                            <Button iconBtn={true} icons='plus-large' dark={true}/>
+                            <Button iconBtn={true} icons='dots-vertical' dark={true}/>
+                            <Button iconBtn={true} icons='trash' dark={true}/>
+                            <Button iconBtn={true} icons='close-small' tooltip='My tooltip is on right.' flow='right' dark={true}/>
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                        

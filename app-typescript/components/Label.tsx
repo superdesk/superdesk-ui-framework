@@ -1,8 +1,9 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 interface IProps {
     text?: string;
-	link?: string;
+    link?: string;
     sizes?: string;
     noTransform?: boolean;
     types?: string;
@@ -11,15 +12,19 @@ interface IProps {
 
 export class Label extends React.Component<IProps> {
     render() {
-    	let classes = ['label'];
-    	this.props.sizes ? classes.push('label--' + this.props.sizes) : null
-        this.props.noTransform ? classes.push('label--no-transform') : null
-        this.props.types ? classes.push('label--' + this.props.types) : null
-        this.props.hollow ? classes.push('label--hollow') : null
+        let classes = classNames('label', {
+            [`label--${this.props.sizes}`]: this.props.sizes,
+            'label--no-transform': this.props.noTransform,
+            [`label--${this.props.types}`]: this.props.types,
+            'label--hollow': this.props.hollow,
+        });
 
         return (
             <React.Fragment>
-                {this.props.link? <a href= {this.props.link} className = {classes.join(' ')}>{this.props.text}</a> : <span className = {classes.join(' ')}>{this.props.text}</span>}
+                {this.props.link ? <a href={this.props.link} className={classes}>
+                    {this.props.text}
+                    </a> : <span className={classes}>{this.props.text}
+                    </span>}
             </React.Fragment>
         );
     }

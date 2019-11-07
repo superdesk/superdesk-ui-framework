@@ -1,7 +1,8 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 interface IProps {
-	text?: string;
+    text?: string;
     sizes?: string;
     expanded?: boolean;
     types?: string;
@@ -12,26 +13,32 @@ interface IProps {
     dark?: boolean;
     iconBtn?: boolean;
     circle?: boolean;
+    tooltip?: string;
+    flow?: string;
 }
 
 export class Button extends React.Component<IProps> {
     render() {
-    	let classes = [];
-        this.props.iconBtn ? classes.push('icn-btn') : classes.push('btn');
-        this.props.expanded ? classes.push('btn--expanded') : null;
-    	this.props.sizes ? classes.push('btn--' + this.props.sizes) : null;
-    	this.props.types ? classes.push('btn--' + this.props.types) : null;
-    	this.props.hollow ? classes.push('btn--hollow') : null;
-    	this.props.textOnly ? classes.push('btn--text-only') : null;
-    	this.props.disabled ? classes.push('btn--disabled') : null;
-    	!this.props.text ? classes.push('btn--icon-only') : null;
-        this.props.dark ? classes.push('btn--ui-dark') : null;
-        this.props.circle ? classes.push('btn--icon-only-circle'): null;
+        let classes = classNames({
+            'icn-btn': this.props.iconBtn,
+            'btn': !this.props.iconBtn,
+            'btn--expanded': this.props.expanded,
+            [`btn--${this.props.sizes}`]: this.props.sizes,
+            [`btn--${this.props.types}`]: this.props.types,
+            'btn--hollow': this.props.hollow,
+            'btn--text-only': this.props.textOnly,
+            'btn--disabled': this.props.disabled,
+            'btn--icon-only': !this.props.text,
+            'btn--ui-dark': this.props.dark,
+            'btn--icon-only-circle': this.props.circle,
+        });
 
         return (
             <React.Fragment>
-                <button className={classes.join(' ')}>
-                    {this.props.icons ? <i className = {'icon-' + this.props.icons}></i> : null}
+                <button className={classes}
+                    data-sd-tooltip={this.props.tooltip ? this.props.tooltip : null}
+                    data-flow={this.props.flow}>
+                    {this.props.icons ? <i className={'icon-' + this.props.icons}></i> : null}
                     {this.props.text}
                 </button>
             </React.Fragment>

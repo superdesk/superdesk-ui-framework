@@ -9,7 +9,9 @@ import {
 
 } from "react-router-dom";
 
-import Buttons from './Buttons';
+import ButtonsDoc from './Buttons';
+import LabelsDoc from './Labels';
+import BadgesDoc from './Badges';
 
 const pages = {
     basicComponents: {
@@ -17,15 +19,12 @@ const pages = {
         items: {
             'buttons': {
                 name: 'Buttons',
-                page: 'buttons.html',
             },
-            'checkbox-and-radio': {
-                name: 'Checkbox & Radio',
-                page: 'checkbox-and-radio.html',
+            'labels': {
+                name: 'Labels',
             },
-            'switch': {
-                name: 'Switch',
-                page: 'switch.html',
+            'badges': {
+                name: 'Badges',
             },
         }
     }
@@ -40,7 +39,13 @@ export default class ReactDoc extends React.Component {
                     <main className="docs-page__content docs-page__container-fluid">
                         <Switch>
                             <Route path="/#/react/buttons">
-                                <Buttons />
+                                <ButtonsDoc />
+                            </Route>
+                            <Route path="/#/react/labels">
+                                <LabelsDoc />
+                            </Route>
+                            <Route path="/#/react/badges">
+                                <BadgesDoc />
                             </Route>
                             <Route path="/">
                                 <ReactDefault />
