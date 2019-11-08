@@ -110,7 +110,26 @@ export default class LabelsDoc extends React.Component {
                        
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-                
+
+                <h2 className="docs-page__h2">Icon Labels</h2>
+                <p className="docs-page__paragraph">Icon labels are inline styles for displaying icon with text label. Use color classes to change label's color.</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                    <div className='docs-page__content-row'>
+                        <Label text='Default label' iconLabel={true} icon='photo'/>
+                        <Label text='Label primary'  iconLabel={true} icon='facebook' typesLabelIcon='primary'/>
+                        <Label text='Label success' iconLabel={true} icon='text' typesLabelIcon='success'/>
+                        <Label text='Label warning' iconLabel={true} icon='paywall' typesLabelIcon='warning'/>
+                        <Label text='Label alert'  iconLabel={true} icon='trash' typesLabelIcon='alert'/>
+                        <Label text='Label highlight' iconLabel={true} icon='composite' typesLabelIcon='highlight'/>
+                        <Label text='Label sd-green' iconLabel={true} icon='video' typesLabelIcon='sd-green'/>
+                    </div>
+
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>
+                       
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
             </section>
         )
     }

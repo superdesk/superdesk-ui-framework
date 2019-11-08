@@ -12,6 +12,7 @@ export {
     Button,
     Label,
     Badge,
+    Alert,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

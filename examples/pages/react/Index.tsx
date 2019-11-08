@@ -12,6 +12,7 @@ import {
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
 import BadgesDoc from './Badges';
+import AlertDoc from './Alerts'
 
 const pages = {
     basicComponents: {
@@ -25,6 +26,9 @@ const pages = {
             },
             'badges': {
                 name: 'Badges',
+            },
+            'alerts': {
+                name: 'Alerts'
             },
         }
     }
@@ -46,6 +50,9 @@ export default class ReactDoc extends React.Component {
                             </Route>
                             <Route path="/#/react/badges">
                                 <BadgesDoc />
+                            </Route>
+                            <Route path="/#/react/alerts">
+                                <AlertDoc />
                             </Route>
                             <Route path="/">
                                 <ReactDefault />

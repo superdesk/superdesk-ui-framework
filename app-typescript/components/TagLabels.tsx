@@ -15,14 +15,12 @@ export class TagLabels extends React.Component<IProps> {
         });
 
         return (
-            <React.Fragment>
-                <div className = {classes}>
-                    {this.props.text}
-                    <button className = 'tag-label__remove'>
-                        <i className = 'icon-close-small'></i>
-                    </button>
-                </div>
-            </React.Fragment>
+            <div className = {classes}>
+                {this.props.text}
+                <button className = 'tag-label__remove'>
+                    <i className = 'icon-close-small'></i>
+                </button>
+            </div>
         );
     }
 }

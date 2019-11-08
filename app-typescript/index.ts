@@ -5,3 +5,4 @@ export {HelloWorld} from './components/HelloWorld';
 export {Button} from './components/Button';
 export {Label} from './components/Label';
 export {Badge} from './components/Badge';
+export {Alert} from './components/Alert';
