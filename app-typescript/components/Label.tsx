@@ -3,14 +3,14 @@ import classNames from 'classnames';
 
 interface IProps {
     text?: string;
-    link?: string;
-    sizes?: string;
+    icon?: string; // https://ui-framework.superdesk.org/#/components/icons
+    color?: string;  //  https://ui-framework.superdesk.org/#/components/colors
+    size?: 'small' | 'normal' | 'large';
+    onClick?(): void;
     noTransform?: boolean;
-    types?: string;
-    typesLabelIcon?: string;
-    hollow?: boolean;
+    style?: 'filled' | 'hollow';
     iconLabel?: boolean;
-    icon?: string;
+    typesLabelIcon?: string;
 }
 
 export class Label extends React.Component<IProps> {
@@ -18,16 +18,16 @@ export class Label extends React.Component<IProps> {
         let classes = classNames({
             'label': !this.props.iconLabel,
             'label-icon': this.props.iconLabel,
-            [`label--${this.props.sizes}`]: this.props.sizes,
+            [`label--${this.props.size}`]: this.props.size,
             'label--no-transform': this.props.noTransform,
-            [`label--${this.props.types}`]: this.props.types,
-            'label--hollow': this.props.hollow,
+            [`label--${this.props.color}`]: this.props.color,
+            'label--hollow': this.props.style === 'hollow',
             [`label-icon--${this.props.typesLabelIcon}`]: this.props.typesLabelIcon,
         });
 
         return (
             <React.Fragment>
-                {this.props.link ? <a href={this.props.link} className={classes}>
+                {this.props.onClick ? <a href='' className={classes}>
                     {this.props.text}
                 </a> : <span className={classes}>{this.props.iconLabel ?
                     <i className={'icon-' + this.props.icon}></i> : null}{this.props.text}

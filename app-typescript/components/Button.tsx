@@ -1,44 +1,42 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-interface IProps {
-    text?: string;
-    sizes?: string;
-    expanded?: boolean;
-    types?: string;
-    hollow?: boolean;
-    textOnly?: boolean;
+interface IButtonBase {
+    theme?: 'light' | 'dark';
+    icon?: string;
     disabled?: boolean;
-    icons?: string;
-    dark?: boolean;
-    iconBtn?: boolean;
-    circle?: boolean;
-    tooltip?: string;
-    flow?: string;
+    type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
+    size?: 'small' | 'normal' | 'large';
+    children?: never;
 }
 
-export class Button extends React.Component<IProps> {
+interface IPropsButton extends IButtonBase {
+    text?: string;
+    expand?: boolean;
+    style?: 'filled' | 'hollow' | 'text-only';
+}
+
+interface IPropsIconButton extends IButtonBase {
+    shape?: 'square' | 'round';
+}
+
+export class Button extends React.Component<IButtonBase & IPropsButton & IPropsIconButton> {
     render() {
-        let classes = classNames({
-            'icn-btn': this.props.iconBtn,
-            'btn': !this.props.iconBtn,
-            'btn--expanded': this.props.expanded,
-            [`btn--${this.props.sizes}`]: this.props.sizes,
-            [`btn--${this.props.types}`]: this.props.types,
-            'btn--hollow': this.props.hollow,
-            'btn--text-only': this.props.textOnly,
+        let classes = classNames('btn', {
+            'btn--expanded': this.props.expand,
+            [`btn--${this.props.size}`]: this.props.size !== 'normal',
+            [`btn--${this.props.type}`]: this.props.type !== 'default',
+            [`btn--${this.props.style}`]: this.props.style !== 'filled',
             'btn--disabled': this.props.disabled,
             'btn--icon-only': !this.props.text,
-            'btn--ui-dark': this.props.dark,
-            'btn--icon-only-circle': this.props.circle,
+            'btn--ui-dark': this.props.theme === 'dark',
+            'btn--icon-only-circle': this.props.shape === 'round',
         });
 
         return (
             <React.Fragment>
-                <button className={classes}
-                    data-sd-tooltip={this.props.tooltip ? this.props.tooltip : null}
-                    data-flow={this.props.flow}>
-                    {this.props.icons ? <i className={'icon-' + this.props.icons}></i> : null}
+                <button className={classes}>
+                    {this.props.icon ? <i className={'icon-' + this.props.icon}></i> : null}
                     {this.props.text}
                 </button>
             </React.Fragment>

@@ -12,7 +12,9 @@ import {
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
 import BadgesDoc from './Badges';
-import AlertDoc from './Alerts'
+import AlertDoc from './Alerts';
+import IconButtonDoc from './IconButtons';
+import IconLabelDoc from './IconLabels';
 
 const pages = {
     basicComponents: {
@@ -21,8 +23,14 @@ const pages = {
             'buttons': {
                 name: 'Buttons',
             },
+            'icon-buttons':{
+                name: 'Icon Buttons'
+            },
             'labels': {
                 name: 'Labels',
+            },
+            'icon-labels':{
+                name: 'Icon Labels'
             },
             'badges': {
                 name: 'Badges',
@@ -45,8 +53,14 @@ export default class ReactDoc extends React.Component {
                             <Route path="/#/react/buttons">
                                 <ButtonsDoc />
                             </Route>
+                            <Route path="/#/react/icon-buttons">
+                                <IconButtonDoc />
+                            </Route>
                             <Route path="/#/react/labels">
                                 <LabelsDoc />
+                            </Route>
+                            <Route path="/#/react/icon-labels">
+                                <IconLabelDoc />
                             </Route>
                             <Route path="/#/react/badges">
                                 <BadgesDoc />

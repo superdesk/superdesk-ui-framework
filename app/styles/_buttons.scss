@@ -845,4 +845,27 @@ $button-nav-color: currentColor;
       }
     }
   }
+
+    // BUTTON GROUPS 
+  // --------------------------------------------------
+  .button-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    &--left {
+      margin-right: auto;
+    }
+    &--left {
+      margin-left: auto;
+    }
+    &--center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &--vertical {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+    }
+  }
 }

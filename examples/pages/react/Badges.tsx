@@ -15,24 +15,24 @@ export default class BadgeDoc extends React.Component {
                     <p className="docs-page__paragraph">// Circle (default)</p>
                     <div className='docs-page__content-row'>
                         <Badge text='1'/>
-                        <Badge text='2' types='primary'/>
-                        <Badge text='a' types='success'/>
-                        <Badge text='b' types='warning'/>
-                        <Badge text='6' types='alert'/>
-                        <Badge text='2318' types='highlight'/>
-                        <Badge text='76' types='light'/>
+                        <Badge text='2' color='primary' style='round'/>
+                        <Badge text='a' color='success' style='round'/>
+                        <Badge text='b' color='warning' style='round'/>
+                        <Badge text='6' color='alert' style='round'/>
+                        <Badge text='2318' color='highlight' style='round'/>
+                        <Badge text='76' color='light' style='round'/>
                     </div>
 
                     <p className="docs-page__paragraph">// Square</p>
                     <p style={{margin: '-10px 0 20px', color: '#747474'}}>Use this version only for single digits or numbers. For longer text use the <code>.label</code> class.</p>
                     <div className='docs-page__content-row'>
                         <Badge text='1'/>
-                        <Badge text='2' types='primary' square={true}/>
-                        <Badge text='a' types='success' square={true}/>
-                        <Badge text='b' types='warning' square={true}/>
-                        <Badge text='6' types='alert' square={true}/>
-                        <Badge text='d' types='highlight' square={true}/>
-                        <Badge text='9' types='light' square={true}/>
+                        <Badge text='2' color='primary' style='square'/>
+                        <Badge text='a' color='success' style='square'/>
+                        <Badge text='b' color='warning' style='square'/>
+                        <Badge text='6' color='alert' style='square'/>
+                        <Badge text='d' color='highlight' style='square'/>
+                        <Badge text='9' color='light' style='square'/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -45,14 +45,14 @@ export default class BadgeDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
-                        <Badge text='8' types='primary' element={true}>
+                        <Badge text='8' color='primary'>
                             <Button text='default'/>
                         </Badge>
-                        <Badge text='6' types='light' element={true}>
-                            <Button text='primary' types='primary'/>
+                        <Badge text='6' color='light'>
+                            <Button text='primary' type='primary'/>
                         </Badge>
-                        <Badge text='4' types='highlight' element={true}>
-                            <Button text='hollow' hollow={true}/>
+                        <Badge text='4' color='highlight'>
+                            <Button text='hollow' style='hollow'/>
                         </Badge>
                     </div>
                     </Markup.ReactMarkupPreview>

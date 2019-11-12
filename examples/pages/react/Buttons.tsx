@@ -13,18 +13,18 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
-                        <Button text='button small' sizes='small'/>
+                        <Button text='button small' size='small'/>
                         <Button text='button default'/>
-                        <Button text='button large' sizes='large'/>
+                        <Button text='button large' size='large'/>
                     </div>
                     <div className='docs-page__content-row'>
-                        <Button text='small expanded button' expanded={true} sizes='small'/>
+                        <Button text='small expanded button' expand={true} size='small'/>
                     </div>                    
                     <div className='docs-page__content-row'>
-                        <Button text='default expanded button' expanded={true}/>
+                        <Button text='default expanded button' expand={true}/>
                     </div>
                     <div className='docs-page__content-row'>
-                        <Button text='large expanded button' expanded={true} sizes='large'/>
+                        <Button text='large expanded button' expand={true} size='large'/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -37,12 +37,12 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
                         <Button text='default'/>
-                        <Button text='primary' types='primary'/>
-                        <Button text='success' types='success'/>
-                        <Button text='warning' types='warning'/>
-                        <Button text='alert' types='alert'/>
-                        <Button text='highlight' types='highlight'/>
-                        <Button text='sd-green' types='sd-green'/>
+                        <Button text='primary' type='primary'/>
+                        <Button text='success' type='success'/>
+                        <Button text='warning' type='warning'/>
+                        <Button text='alert' type='alert'/>
+                        <Button text='highlight' type='highlight'/>
+                        <Button text='sd-green' type='sd-green'/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -54,13 +54,13 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
-                        <Button text='default' hollow={true}/>
-                        <Button text='primary' types='primary' hollow={true}/>
-                        <Button text='success' types='success' hollow={true}/>
-                        <Button text='warning' types='warning' hollow={true}/>
-                        <Button text='alert' types='alert' hollow={true}/>
-                        <Button text='highlight' types='highlight' hollow={true}/>
-                        <Button text='sd-green' types='sd-green' hollow={true}/>
+                        <Button text='default' style='hollow'/>
+                        <Button text='primary' type='primary' style='hollow'/>
+                        <Button text='success' type='success' style='hollow'/>
+                        <Button text='warning' type='warning' style='hollow'/>
+                        <Button text='alert' type='alert' style='hollow'/>
+                        <Button text='highlight' type='highlight' style='hollow'/>
+                        <Button text='sd-green' type='sd-green' style='hollow'/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -72,13 +72,13 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
-                        <Button text='default' textOnly={true}/>
-                        <Button text='primary' types='primary' textOnly={true}/>
-                        <Button text='success' types='success' textOnly={true}/>
-                        <Button text='warning' types='warning' textOnly={true}/>
-                        <Button text='alert' types='alert' textOnly={true}/>
-                        <Button text='highlight' types='highlight' textOnly={true}/>
-                        <Button text='sd-green' types='sd-green' textOnly={true}/>
+                        <Button text='default' style='text-only'/>
+                        <Button text='primary' type='primary' style='text-only'/>
+                        <Button text='success' type='success' style='text-only'/>
+                        <Button text='warning' type='warning' style='text-only'/>
+                        <Button text='alert' type='alert' style='text-only'/>
+                        <Button text='highlight' type='highlight' style='text-only'/>
+                        <Button text='sd-green' type='sd-green' style='text-only'/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -91,30 +91,30 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
                         <Button text='default' disabled={true}/>
-                        <Button text='primary' types='primary' disabled={true}/>
-                        <Button text='success' types='success' disabled={true}/>
-                        <Button text='warning' types='warning' disabled={true}/>
-                        <Button text='alert' types='alert' disabled={true}/>
-                        <Button text='highlight' types='highlight' disabled={true}/>
-                        <Button text='sd-green' types='sd-green' disabled={true}/>
+                        <Button text='primary' type='primary' disabled={true}/>
+                        <Button text='success' type='success' disabled={true}/>
+                        <Button text='warning' type='warning' disabled={true}/>
+                        <Button text='alert' type='alert' disabled={true}/>
+                        <Button text='highlight' type='highlight' disabled={true}/>
+                        <Button text='sd-green' type='sd-green' disabled={true}/>
                     </div>
                     <div className='docs-page__content-row'>
-                        <Button text='default' hollow={true} disabled={true}/>
-                        <Button text='primary' types='primary' hollow={true} disabled={true}/>
-                        <Button text='success' types='success' hollow={true} disabled={true}/>
-                        <Button text='warning' types='warning' hollow={true} disabled={true}/>
-                        <Button text='alert' types='alert' hollow={true} disabled={true}/>
-                        <Button text='highlight' types='highlight' hollow={true} disabled={true}/>
-                        <Button text='sd-green' types='sd-green' hollow={true} disabled={true}/>
+                        <Button text='default' style='hollow' disabled={true}/>
+                        <Button text='primary' type='primary' style='hollow' disabled={true}/>
+                        <Button text='success' type='success' style='hollow' disabled={true}/>
+                        <Button text='warning' type='warning' style='hollow' disabled={true}/>
+                        <Button text='alert' type='alert' style='hollow' disabled={true}/>
+                        <Button text='highlight' type='highlight' style='hollow' disabled={true}/>
+                        <Button text='sd-green' type='sd-green' style='hollow' disabled={true}/>
                     </div>
                     <div className='docs-page__content-row'>
-                        <Button text='default' textOnly={true} disabled={true}/>
-                        <Button text='primary' types='primary' textOnly={true} disabled={true}/>
-                        <Button text='success' types='success' textOnly={true} disabled={true}/>
-                        <Button text='warning' types='warning' textOnly={true} disabled={true}/>
-                        <Button text='alert' types='alert' textOnly={true} disabled={true}/>
-                        <Button text='highlight' types='highlight' textOnly={true} disabled={true}/>
-                        <Button text='sd-green' types='sd-green' textOnly={true} disabled={true}/>
+                        <Button text='default' style='text-only' disabled={true}/>
+                        <Button text='primary' type='primary' style='text-only' disabled={true}/>
+                        <Button text='success' type='success' style='text-only' disabled={true}/>
+                        <Button text='warning' type='warning' style='text-only' disabled={true}/>
+                        <Button text='alert' type='alert' style='text-only' disabled={true}/>
+                        <Button text='highlight' type='highlight' style='text-only' disabled={true}/>
+                        <Button text='sd-green' type='sd-green' style='text-only' disabled={true}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -128,29 +128,29 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default size</p>
                     <div className='docs-page__content-row'>
-                        <Button text='default' icons='info-sign'/>
-                        <Button text='primary' types='primary' icons='plus-sign'/>
-                        <Button text='success' types='success' icons='ok'/>
-                        <Button text='alert' types='alert' icons='warning-sign'/>
-                        <Button text='default' icons='info-sign' hollow={true}/>
-                        <Button text='primary' types='primary' icons='plus-sign' hollow={true}/>
-                        <Button text='success' types='success' icons='ok'  hollow={true}/>
-                        <Button text='warning' types='warning' icons='warning-sign' hollow={true}/>
-                        <Button text='default' icons='info-sign' disabled={true}/>
-                        <Button text='primary' types='primary' icons='plus-sign' disabled={true}/>
+                        <Button text='default' icon='info-sign'/>
+                        <Button text='primary' type='primary' icon='plus-sign'/>
+                        <Button text='success' type='success' icon='ok'/>
+                        <Button text='alert' type='alert' icon='warning-sign'/>
+                        <Button text='default' icon='info-sign' style='hollow'/>
+                        <Button text='primary' type='primary' icon='plus-sign' style='hollow'/>
+                        <Button text='success' type='success' icon='ok' style='hollow'/>
+                        <Button text='warning' type='warning' icon='warning-sign' style='hollow'/>
+                        <Button text='default' icon='info-sign' disabled={true}/>
+                        <Button text='primary' type='primary' icon='plus-sign' disabled={true}/>
                     </div>
                     <p className="docs-page__paragraph">// Large size</p>
                     <div className='docs-page__content-row'>
-                        <Button text='default' icons='info-sign' sizes='large'/>
-                        <Button text='primary' types='primary' icons='plus-sign' sizes='large'/>
-                        <Button text='success' types='success' icons='ok' sizes='large'/>
-                        <Button text='default' icons='info-sign' hollow={true} sizes='large'/>
-                        <Button text='primary' types='primary' icons='plus-sign' hollow={true} sizes='large'/>
+                        <Button text='default' icon='info-sign' size='large'/>
+                        <Button text='primary' type='primary' icon='plus-sign' size='large'/>
+                        <Button text='success' type='success' icon='ok' size='large'/>
+                        <Button text='default' icon='info-sign' style='hollow' size='large'/>
+                        <Button text='primary' type='primary' icon='plus-sign' style='hollow' size='large'/>
                     </div>
                     <p className="docs-page__paragraph">// Small size</p>
                     <div className='docs-page__content-row'>
-                        <Button text='default' icons='info-sign' sizes='small'/>
-                        <Button text='primary' types='primary' icons='plus-sign' sizes='small'/>
+                        <Button text='default' icon='info-sign' size='small'/>
+                        <Button text='primary' type='primary' icon='plus-sign' size='small'/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -164,39 +164,39 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default</p>
                     <div className='docs-page__content-row'>
-                        <Button icons='info-sign'/>
-                        <Button types='primary' icons='plus-sign'/>
-                        <Button types='success' icons='ok'/>
+                        <Button icon='info-sign'/>
+                        <Button type='primary' icon='plus-sign'/>
+                        <Button type='success' icon='ok'/>
                     </div>
                     <p className="docs-page__paragraph">// Large</p>
                     <div className='docs-page__content-row'>
-                        <Button types='warning' icons='exclamation-sign' sizes='large'/>
-                        <Button types='primary' icons='plus-sign' hollow={true} sizes='large'/>
-                        <Button types='highlight' icons='bell' sizes='large'/>
+                        <Button type='warning' icon='exclamation-sign' size='large'/>
+                        <Button type='primary' icon='plus-sign' style='hollow' size='large'/>
+                        <Button type='highlight' icon='bell' size='large'/>
                     </div>
                     <p className="docs-page__paragraph">// Small</p>
                     <div className='docs-page__content-row'>
-                        <Button types='alert' hollow={true} icons='kill' sizes='small'/>
-                        <Button icons='calendar' sizes='small'/>
-                        <Button types='primary' hollow={true} icons='refresh' sizes='small'/>
+                        <Button type='alert' style='hollow' icon='kill' size='small'/>
+                        <Button icon='calendar' size='small'/>
+                        <Button type='primary' style='hollow' icon='refresh' size='small'/>
                     </div>
                     <p className="docs-page__paragraph">// Circle default</p>
                     <div className='docs-page__content-row'>
-                        <Button icons='info-sign' circle={true}/>
-                        <Button types='primary' icons='plus-large' circle={true}/>
-                        <Button types='success' icons='ok' circle={true}/>
+                        <Button icon='info-sign' shape='round'/>
+                        <Button type='primary' icon='plus-large' shape='round'/>
+                        <Button type='success' icon='ok' shape='round'/>
                     </div>
                     <p className="docs-page__paragraph">// Circle large</p>
                     <div className='docs-page__content-row'>
-                        <Button types='warning' icons='exclamation-sign' sizes='large' circle={true}/>
-                        <Button types='primary' icons='plus-large' hollow={true} sizes='large' circle={true}/>
-                        <Button types='highlight' icons='bell' sizes='large' circle={true}/>
+                        <Button type='warning' icon='exclamation-sign' size='large' shape='round'/>
+                        <Button type='primary' icon='plus-large' style='hollow' size='large' shape='round'/>
+                        <Button type='highlight' icon='bell' size='large' shape='round'/>
                     </div>
                     <p className="docs-page__paragraph">// Circle small</p>
                     <div className='docs-page__content-row'>
-                        <Button types='alert' icons='close-small' sizes='small' circle={true}/>
-                        <Button types='primary' icons='plus-large' sizes='small' circle={true}/>
-                        <Button types='sd-green' icons='star' sizes='small' circle={true}/>
+                        <Button type='alert' icon='close-small' size='small' shape='round'/>
+                        <Button type='primary' icon='plus-large' size='small' shape='round'/>
+                        <Button type='sd-green' icon='star' size='small' shape='round'/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -210,86 +210,58 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default style</p>
                     <div className='docs-page__content-row docs-page__content-row--ui-dark'>
-                        <Button text='default' dark={true}/>
-                        <Button text='primary' types='primary' dark={true}/>
-                        <Button text='success' types='success' dark={true}/>
-                        <Button text='warning' types='warning' dark={true}/>
-                        <Button text='alert' types='alert' dark={true}/>
-                        <Button text='highlight' types='highlight' dark={true}/>
-                        <Button text='sd-green' types='sd-green' dark={true}/>
+                        <Button text='default' theme='dark'/>
+                        <Button text='primary' type='primary' theme='dark'/>
+                        <Button text='success' type='success' theme='dark'/>
+                        <Button text='warning' type='warning' theme='dark'/>
+                        <Button text='alert' type='alert' theme='dark'/>
+                        <Button text='highlight' type='highlight' theme='dark'/>
+                        <Button text='sd-green' type='sd-green' theme='dark'/>
                     </div>
                     <p className="docs-page__paragraph">// Hollow style</p>
                     <div className='docs-page__content-row docs-page__content-row--ui-dark'>
-                        <Button text='default' hollow={true} dark={true}/>
-                        <Button text='primary' types='primary' hollow={true} dark={true}/>
-                        <Button text='success' types='success' hollow={true} dark={true}/>
-                        <Button text='warning' types='warning' hollow={true} dark={true}/>
-                        <Button text='alert' types='alert' hollow={true} dark={true}/>
-                        <Button text='highlight' types='highlight' hollow={true} dark={true}/>
-                        <Button text='sd-green' types='sd-green' hollow={true} dark={true}/>
+                        <Button text='default' style='hollow' theme='dark'/>
+                        <Button text='primary' type='primary' style='hollow' theme='dark'/>
+                        <Button text='success' type='success' style='hollow' theme='dark'/>
+                        <Button text='warning' type='warning' style='hollow' theme='dark'/>
+                        <Button text='alert' type='alert' style='hollow' theme='dark'/>
+                        <Button text='highlight' type='highlight' style='hollow' theme='dark'/>
+                        <Button text='sd-green' type='sd-green' style='hollow' theme='dark'/>
                     </div>
                     <p className="docs-page__paragraph">// Text only style</p>
                     <div className='docs-page__content-row docs-page__content-row--ui-dark'>
-                        <Button text='default' textOnly={true} dark={true}/>
-                        <Button text='primary' types='primary' textOnly={true} dark={true}/>
-                        <Button text='success' types='success' textOnly={true} dark={true}/>
-                        <Button text='warning' types='warning' textOnly={true} dark={true}/>
-                        <Button text='alert' types='alert' textOnly={true} dark={true}/>
-                        <Button text='highlight' types='highlight' textOnly={true} dark={true}/>
-                        <Button text='sd-green' types='sd-green' textOnly={true} dark={true}/>
+                        <Button text='default' theme='dark'/>
+                        <Button text='primary' type='primary' theme='dark'/>
+                        <Button text='success' type='success' theme='dark'/>
+                        <Button text='warning' type='warning' theme='dark'/>
+                        <Button text='alert' type='alert' theme='dark'/>
+                        <Button text='highlight' type='highlight' theme='dark'/>
+                        <Button text='sd-green' type='sd-green' theme='dark'/>
                     </div>
                     <p className="docs-page__paragraph">// Disabled</p>
                     <div className='docs-page__content-row docs-page__content-row--ui-dark'>
-                        <Button text='default' disabled={true} dark={true}/>
-                        <Button text='primary' types='primary' disabled={true} dark={true}/>
-                        <Button text='success' types='success' disabled={true} dark={true}/>
-                        <Button text='warning' types='warning' disabled={true} dark={true}/>
-                        <Button text='alert' types='alert' disabled={true} dark={true}/>
-                        <Button text='highlight' types='highlight' disabled={true} dark={true}/>
-                        <Button text='sd-green' types='sd-green' disabled={true} dark={true}/>
-                        <Button text='default' hollow={true} disabled={true} dark={true}/>
-                        <Button text='primary' types='primary' hollow={true} disabled={true} dark={true}/>
-                        <Button text='success' types='success' hollow={true} disabled={true} dark={true}/>
-                        <Button text='warning' types='warning' hollow={true} disabled={true} dark={true}/>
-                        <Button text='alert' types='alert' hollow={true} disabled={true} dark={true}/>
-                        <Button text='highlight' types='highlight' hollow={true} disabled={true} dark={true}/>
-                        <Button text='sd-green' types='sd-green' hollow={true} disabled={true} dark={true}/>
-                        <Button text='default' textOnly={true} disabled={true} dark={true}/>
-                        <Button text='primary' types='primary' textOnly={true} disabled={true} dark={true}/>
-                        <Button text='success' types='success' textOnly={true} disabled={true} dark={true}/>
-                        <Button text='warning' types='warning' textOnly={true} disabled={true} dark={true}/>
-                        <Button text='alert' types='alert' textOnly={true} disabled={true} dark={true}/>
-                        <Button text='highlight' types='highlight' textOnly={true} disabled={true} dark={true}/>
-                        <Button text='sd-green' types='sd-green' textOnly={true} disabled={true} dark={true}/>
+                        <Button text='default' disabled={true} theme='dark'/>
+                        <Button text='primary' type='primary' disabled={true} theme='dark'/>
+                        <Button text='success' type='success' disabled={true} theme='dark'/>
+                        <Button text='warning' type='warning' disabled={true} theme='dark'/>
+                        <Button text='alert' type='alert' disabled={true} theme='dark'/>
+                        <Button text='highlight' type='highlight' disabled={true} theme='dark'/>
+                        <Button text='sd-green' type='sd-green' disabled={true} theme='dark'/>
+                        <Button text='default' style='hollow' disabled={true} theme='dark'/>
+                        <Button text='primary' type='primary' style='hollow' disabled={true} theme='dark'/>
+                        <Button text='success' type='success' style='hollow' disabled={true} theme='dark'/>
+                        <Button text='warning' type='warning' style='hollow' disabled={true} theme='dark'/>
+                        <Button text='alert' type='alert' style='hollow' disabled={true} theme='dark'/>
+                        <Button text='highlight' type='highlight' style='hollow' disabled={true} theme='dark'/>
+                        <Button text='sd-green' type='sd-green' style='hollow' disabled={true} theme='dark'/>
+                        <Button text='default' disabled={true} theme='dark'/>
+                        <Button text='primary' type='primary' disabled={true} theme='dark'/>
+                        <Button text='success' type='success' disabled={true} theme='dark'/>
+                        <Button text='warning' type='warning' disabled={true} theme='dark'/>
+                        <Button text='alert' type='alert' disabled={true} theme='dark'/>
+                        <Button text='highlight' type='highlight' disabled={true} theme='dark'/>
+                        <Button text='sd-green' type='sd-green' disabled={true} theme='dark'/>
                     </div>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                       
-                    </Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
-                <h3 className="docs-page__h3">Plain icon button</h3>
-                <p className="docs-page__paragraph ng-scope">
-                    Plain icon buttons don't use the base <code>.btn</code> class like other buttons, instead a separate class ( <code>.icn-btn</code> ) 
-                    is used to simpify the implementation and make it more flexible. It is intended mostly for actions on list items, toolbars etc. 
-                    The font color is set to inherit so it will take it from the nearest parent where the color is defined. Tooltips are also suppored 
-                    (see the Tooltip section for implementation details).  
-                </p>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                        <Button iconBtn={true} icons='close-small' tooltip='I support tooltips!'/>
-                        <Button iconBtn={true} icons='plus-large'/>
-                        <Button iconBtn={true} icons='dots-vertical'/>
-                        <Button iconBtn={true} icons='trash'/>
-                        <Button iconBtn={true} icons='close-small' tooltip='My tooltip is on right.' flow='right'/>
-                        <p className="docs-page__paragraph">// Dark UI</p>
-                        <div className="docs-page__content-row docs-page__content-row--ui-dark" style={{color:'white'}}>
-                            <Button iconBtn={true} icons='close-small' tooltip='I support tooltips!' dark={true}/>
-                            <Button iconBtn={true} icons='plus-large' dark={true}/>
-                            <Button iconBtn={true} icons='dots-vertical' dark={true}/>
-                            <Button iconBtn={true} icons='trash' dark={true}/>
-                            <Button iconBtn={true} icons='close-small' tooltip='My tooltip is on right.' flow='right' dark={true}/>
-                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                        

@@ -13,6 +13,8 @@ export {
     Label,
     Badge,
     Alert,
+    IconButton,
+    IconLabel,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

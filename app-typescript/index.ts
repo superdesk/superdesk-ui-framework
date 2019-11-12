@@ -6,3 +6,5 @@ export {Button} from './components/Button';
 export {Label} from './components/Label';
 export {Badge} from './components/Badge';
 export {Alert} from './components/Alert';
+export {IconButton} from './components/IconButton';
+export {IconLabel} from './components/IconLabel';
