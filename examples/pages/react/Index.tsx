@@ -15,6 +15,7 @@ import BadgesDoc from './Badges';
 import AlertDoc from './Alerts';
 import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
+import TooltipDoc from './Tooltips';
 
 const pages = {
     basicComponents: {
@@ -37,6 +38,9 @@ const pages = {
             },
             'alerts': {
                 name: 'Alerts'
+            },
+            'tooltips': {
+                name: 'Tooltips'
             },
         }
     }
@@ -67,6 +71,9 @@ export default class ReactDoc extends React.Component {
                             </Route>
                             <Route path="/#/react/alerts">
                                 <AlertDoc />
+                            </Route>
+                            <Route path="/#/react/tooltips">
+                                <TooltipDoc />
                             </Route>
                             <Route path="/">
                                 <ReactDefault />

@@ -3,15 +3,15 @@ import classNames from 'classnames';
 
 interface IProps {
     text?: string;
-    color?: 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
-    style?: 'round' | 'square';
+    type?: 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
+    style?: 'round' | 'square'; // defaults to 'round'
     children?: React.ReactNode;
 }
 
 export class Badge extends React.Component<IProps> {
     render() {
         let classes = classNames('badge', {
-            [`badge--${this.props.color}`]: this.props.color,
+            [`badge--${this.props.type}`]: this.props.type,
             'badge--square': this.props.style === 'square',
         });
 

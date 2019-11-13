@@ -2,8 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IProps {
-    orientation?: string;
-    spaces?: string;
+    orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
+    spaces?: 'small' | 'normal'; // defaults to 'normal'
+    align?: 'left' | 'right' | 'center'; // defaults to 'left'
 }
 
 export class ButtonGroup extends React.Component<IProps> {

@@ -15,6 +15,7 @@ export {
     Alert,
     IconButton,
     IconLabel,
+    Tooltip,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

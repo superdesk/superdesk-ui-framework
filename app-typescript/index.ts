@@ -8,3 +8,4 @@ export {Badge} from './components/Badge';
 export {Alert} from './components/Alert';
 export {IconButton} from './components/IconButton';
 export {IconLabel} from './components/IconLabel';
+export {Tooltip} from './components/Tooltip';

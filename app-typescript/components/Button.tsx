@@ -2,25 +2,22 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IButtonBase {
-    theme?: 'light' | 'dark';
+    theme?: 'light' | 'dark'; // defaults to 'light'
+    type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
+    size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
+    children?: never;
     icon?: string;
     disabled?: boolean;
-    type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
-    size?: 'small' | 'normal' | 'large';
-    children?: never;
 }
 
 interface IPropsButton extends IButtonBase {
     text?: string;
     expand?: boolean;
-    style?: 'filled' | 'hollow' | 'text-only';
+    style?: 'filled' | 'hollow' | 'text-only'; // defaults to 'filled'
+    shape?: 'square' | 'round'; // defaults to 'square'
 }
 
-interface IPropsIconButton extends IButtonBase {
-    shape?: 'square' | 'round';
-}
-
-export class Button extends React.Component<IButtonBase & IPropsButton & IPropsIconButton> {
+export class Button extends React.Component<IPropsButton> {
     render() {
         let classes = classNames('btn', {
             'btn--expanded': this.props.expand,

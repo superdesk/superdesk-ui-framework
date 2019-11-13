@@ -8,7 +8,7 @@ export default class IconButtonDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
-                <h3 className="docs-page__h3">Plain icon button</h3>
+                <h2 className="docs-page__h2">Plain icon button</h2>
                 <p className="docs-page__paragraph ng-scope">
                     Plain icon buttons don't use the base <code>.btn</code> class like other buttons, instead a separate class ( <code>.icn-btn</code> ) 
                     is used to simpify the implementation and make it more flexible. It is intended mostly for actions on list items, toolbars etc. 
