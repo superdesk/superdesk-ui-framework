@@ -17,10 +17,10 @@ export default class TooltipDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Tooltip text="Top" tooltip="I'm on top"/>
-                        <Tooltip text="Bottom" tooltip="I'm at the Bottom" flow="down"/>
-                        <Tooltip text="Left" tooltip="I open on the left" flow="left"/>
-                        <Tooltip text="right" tooltip="Right on!" flow="right"/>
+                        <Tooltip text="top" tooltip={{text:"I'm on top"}}  onClick = { ()=> false}/>
+                        <Tooltip text="bottom" tooltip={{text:"I'm at the Bottom",flow:"down"}}  onClick = { ()=> false}/>
+                        <Tooltip text="left" tooltip={{text:"I open on the left",flow:"left"}}  onClick = { ()=> false}/>
+                        <Tooltip text="right" tooltip={{text:"Right on!", flow:"right"}}  onClick = { ()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>

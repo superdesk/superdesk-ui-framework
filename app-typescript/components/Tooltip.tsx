@@ -1,9 +1,12 @@
 import * as React from 'react';
 
 interface IProps {
-    text?: string;
-    tooltip?: string;
-    flow?: 'top' | 'left' | 'right' | 'down'; // defaults to 'top'
+    text: string;
+    tooltip?: {
+        text: string;
+        flow?: 'top' | 'left' | 'right' | 'down'; // defaults to 'top'
+    };
+    onClick(): void;
 }
 
 export class Tooltip extends React.Component<IProps> {
@@ -11,8 +14,8 @@ export class Tooltip extends React.Component<IProps> {
         return (
             <React.Fragment>
                 <a className="btn"
-                    data-sd-tooltip={this.props.tooltip}
-                    data-flow={this.props.flow !== 'top' ? this.props.flow : null}>
+                    data-sd-tooltip={this.props.tooltip.text}
+                    data-flow={this.props.tooltip.flow !== 'top' ? this.props.tooltip.flow : null}>
                     {this.props.text}
                 </a>
             </React.Fragment>

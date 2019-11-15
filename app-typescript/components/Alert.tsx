@@ -18,10 +18,10 @@ export class Alert extends React.Component<IProps, IState> {
         this.state = {
             open: true,
         };
-        this.onClose = this.onClose.bind(this);
+        this.onToggle = this.onToggle.bind(this);
     }
 
-    onClose() {
+    onToggle() {
         this.setState((state) => ({
             open: !state.open,
         }));
@@ -42,12 +42,14 @@ export class Alert extends React.Component<IProps, IState> {
         return (
             <div className='sd-alert__container'>
                 <div className={classesAlert}>
-                    <button className='sd-alert__close' onClick={this.onClose} ></button>
+                    <button className='sd-alert__close' onClick={this.onToggle} ></button>
                     {this.props.children}
                 </div>
-                <span className={classesInfoBtn} onClick={this.onClose}>
-                    <i className={this.props.icon === 'help' ? 'icon-help-large' : 'icon-info-large'}></i>
-                </span>
+                {this.props.icon ?
+                    <span className={classesInfoBtn} onClick={this.onToggle}>
+                        <i className={this.props.icon === 'help' ? 'icon-help-large' : 'icon-info-large'}></i>
+                    </span> : null
+                }
             </div>
         );
     }

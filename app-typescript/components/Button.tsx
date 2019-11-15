@@ -8,6 +8,7 @@ interface IButtonBase {
     children?: never;
     icon?: string;
     disabled?: boolean;
+    onClick(): void;
 }
 
 interface IPropsButton extends IButtonBase {
@@ -21,9 +22,9 @@ export class Button extends React.Component<IPropsButton> {
     render() {
         let classes = classNames('btn', {
             'btn--expanded': this.props.expand,
-            [`btn--${this.props.size}`]: this.props.size !== 'normal',
-            [`btn--${this.props.type}`]: this.props.type !== 'default',
-            [`btn--${this.props.style}`]: this.props.style !== 'filled',
+            [`btn--${this.props.size}`]: this.props.size !== 'normal' && this.props.size !== undefined,
+            [`btn--${this.props.type}`]: this.props.type !== 'default' && this.props.type !== undefined,
+            [`btn--${this.props.style}`]: this.props.style !== 'filled' && this.props.style !== undefined,
             'btn--disabled': this.props.disabled,
             'btn--icon-only': !this.props.text,
             'btn--ui-dark': this.props.theme === 'dark',
