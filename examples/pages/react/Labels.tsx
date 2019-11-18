@@ -35,7 +35,7 @@ export default class LabelsDoc extends React.Component {
                 </Markup.ReactMarkup>
                 
                 <h3 className="docs-page__h3">Coloring</h3>
-                <p className="docs-page__paragraph">By default labels have a wider color palette than buttons and badges.</p>
+                <p className="docs-page__paragraph">By default labels have a wider color <a href='https://ui-framework.superdesk.org/#/components/colors'>palette</a> than buttons and badges.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>

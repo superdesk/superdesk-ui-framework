@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 interface IProps {
     text?: string;
-    color?: string;
+    color?: string; //  https://ui-framework.superdesk.org/#/components/colors
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
     onClick?(): void;
     noTransform?: boolean;

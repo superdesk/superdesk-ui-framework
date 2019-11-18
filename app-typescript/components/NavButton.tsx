@@ -5,7 +5,7 @@ import { Button } from './Button';
 interface IProps {
     icon?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
-    color?: string;
+    color?: string; // https://ui-framework.superdesk.org/#/components/colors
     disabled?: boolean;
     onClick(): void;
 }
