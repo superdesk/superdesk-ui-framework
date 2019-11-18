@@ -13,8 +13,9 @@ export class Tooltip extends React.Component<IProps> {
     render() {
         return (
             <a className="btn"
-                data-sd-tooltip={this.props.tooltip.text}
-                data-flow={this.props.tooltip.flow !== 'top' ? this.props.tooltip.flow : null}>
+                data-sd-tooltip={this.props.tooltip ? this.props.tooltip.text : null}
+                data-flow={this.props.tooltip ?
+                    (this.props.tooltip.flow !== 'top' ? this.props.tooltip.flow : null) : null}>
                 {this.props.text}
             </a>
         );
