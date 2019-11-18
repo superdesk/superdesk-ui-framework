@@ -22,8 +22,8 @@ export default class LabelsDoc extends React.Component {
                         <p style={{margin: '-10 0 20', color:' #747474'}}>This version should be used only in combination with <code>label--large</code></p>
                     </div>                    
                     <div className='docs-page__content-row'>
-                        <Label text='No text transform here' size='large' transform={true} color='primary'/>
-                        <Label text='No text transform' size='large' transform={true} color='success'/>
+                        <Label text='No text transform here' size='large' noTransform={true} color='primary'/>
+                        <Label text='No text transform' size='large' noTransform={true} color='success'/>
                     </div>
                     <div className='docs-page__content-row'>
                         
@@ -81,7 +81,7 @@ export default class LabelsDoc extends React.Component {
                     <div className='docs-page__content-row'>
                         <Label text='hollow large' size='large' style='hollow'/>
                         <Label text='hollow large' size='large' color='primary' style='hollow'/>
-                        <Label text='Hollow, large & no text transformation' color='highlight2' size='large' style='hollow' transform={true}/>
+                        <Label text='Hollow, large & no text transformation' color='highlight2' size='large' style='hollow' noTransform={true}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>

@@ -17,19 +17,19 @@ export default class IconButtonDoc extends React.Component {
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <IconButton icon='close-small' tooltip='I support tooltips!'/>
-                        <IconButton icon='plus-large' tooltip=''/>
-                        <IconButton icon='dots-vertical'/>
-                        <IconButton icon='trash'/>
-                        <IconButton icon='close-small' tooltip='My tooltip is on right.' flow='right'/>
+                        <IconButton icon='close-small' tooltip={{text:'I support tooltips!'}} onClick = { ()=> false}/>
+                        <IconButton icon='plus-large' onClick = { ()=> false}/>
+                        <IconButton icon='dots-vertical' onClick = { ()=> false}/>
+                        <IconButton icon='trash' onClick = { ()=> false}/>
+                        <IconButton icon='close-small' tooltip={{text:'My tooltip is on right.', flow:'right'}} onClick = { ()=> false}/>
                         <p className="docs-page__paragraph">// Dark UI</p>
                         <div className="docs-page__content-row docs-page__content-row--ui-dark" style={{color:'white'}}>
-                            <IconButton icon='close-small' tooltip='I support tooltips!'/>
-                            <IconButton icon='plus-large'/>
-                            <IconButton icon='dots-vertical'/>
-                            <IconButton icon='trash'/>
-                            <IconButton icon='close-small' tooltip='My tooltip is on right.' flow='right'/>
-                        </div>
+                            <IconButton icon='close-small' tooltip={{text:'I support tooltips!'}} onClick = { ()=> false}/>
+                            <IconButton icon='plus-large' onClick = { ()=> false}/>
+                            <IconButton icon='dots-vertical' onClick = { ()=> false}/>
+                            <IconButton icon='trash' onClick = { ()=> false}/>
+                            <IconButton icon='close-small' tooltip={{text:'My tooltip is on right.', flow:'right'}} onClick = { ()=> false}/>
+                        </div> 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                        

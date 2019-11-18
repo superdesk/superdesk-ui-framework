@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IButtonBase {
+    navClass?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
@@ -32,12 +33,10 @@ export class Button extends React.Component<IPropsButton> {
         });
 
         return (
-            <React.Fragment>
-                <button className={classes}>
-                    {this.props.icon ? <i className={'icon-' + this.props.icon}></i> : null}
-                    {this.props.text}
-                </button>
-            </React.Fragment>
+            <button className={this.props.navClass ? this.props.navClass : classes}>
+                {this.props.icon ? <i className={'icon-' + this.props.icon}></i> : null}
+                {this.props.text}
+            </button>
         );
     }
 }

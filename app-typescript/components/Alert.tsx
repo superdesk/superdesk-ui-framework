@@ -5,7 +5,7 @@ interface IProps {
     type?: 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     style?: 'filled' | 'hollow'; // defaults to 'filled'
     size?: 'normal' | 'small'; // defaults to 'normal'
-    icon?: 'info' | 'help'; // defaults to 'info'
+    restoreIcon?: 'info' | 'help'; // defaults to 'info'
 }
 
 interface IState {
@@ -45,9 +45,9 @@ export class Alert extends React.Component<IProps, IState> {
                     <button className='sd-alert__close' onClick={this.onToggle} ></button>
                     {this.props.children}
                 </div>
-                {this.props.icon ?
+                {this.props.restoreIcon ?
                     <span className={classesInfoBtn} onClick={this.onToggle}>
-                        <i className={this.props.icon === 'help' ? 'icon-help-large' : 'icon-info-large'}></i>
+                        <i className={this.props.restoreIcon === 'help' ? 'icon-help-large' : 'icon-info-large'}></i>
                     </span> : null
                 }
             </div>

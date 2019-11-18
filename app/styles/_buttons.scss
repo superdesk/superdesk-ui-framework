@@ -845,6 +845,7 @@ $button-nav-color: currentColor;
       }
     }
   }
+}
 
   // BUTTON GROUPS 
   // --------------------------------------------------
@@ -852,6 +853,7 @@ $button-nav-color: currentColor;
     display: flex;
     flex-direction: row;
     align-items: center;
+    
     .btn {
       margin: 0;
     }
@@ -937,4 +939,3 @@ $button-nav-color: currentColor;
       }
     }
   }
-}
