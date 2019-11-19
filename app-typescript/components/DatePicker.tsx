@@ -1,8 +1,9 @@
 import * as React from 'react';
 import addDays from 'date-fns/addDays';
+import format from 'date-fns/format';
 import {Calendar, LocaleSettings} from 'primereact/calendar';
 
-interface IProps {
+interface IDatePicker {
     value: Date;
     onChange(valueNext: Date): void;
     disabled?: boolean;
@@ -83,8 +84,8 @@ interface IPrivatePrimeReactCalendarApi {
     hideOverlay?(): void;
 }
 
-export class DatePicker extends React.PureComponent<IProps> {
-    private instance: IPrivatePrimeReactCalendarApi;
+export class DatePicker extends React.PureComponent<IDatePicker> {
+    private instance: IPrivatePrimeReactCalendarApi | undefined;
 
     render() {
         return (
@@ -128,6 +129,26 @@ export class DatePicker extends React.PureComponent<IProps> {
                 )}
                 appendTo={document.body} // making it work inside `overflow:hidden`
                 disabled={this.props.disabled}
+            />
+        );
+    }
+}
+
+interface IDatePickerISO {
+    value: string;
+    onChange(valueNext: string): void;
+    disabled?: boolean;
+    shortcuts?: Array<{days: number, label: string}>;
+}
+
+export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
+    render() {
+        return (
+            <DatePicker
+                value={new Date(this.props.value)}
+                onChange={(valueNext) => this.props.onChange(format(valueNext, 'YYYY-MM-DD'))}
+                disabled={this.props.disabled}
+                shortcuts={this.props.shortcuts}
             />
         );
     }
