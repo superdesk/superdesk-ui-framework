@@ -20,7 +20,8 @@
     "server": "webpack --watch",
     "build": "tsc && npm run lint && webpack",
     "lint": "eslint app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@types/react": "16.8.23",
@@ -51,6 +52,7 @@
     "jquery-ui": "^1.12.1",
     "lodash": "^4.17.4",
     "node-sass": "^4.5.3",
+    "patch-package": "6.2.0",
     "prop-types": "^15.6.0",
     "react": "16.8.6",
     "react-bootstrap": "^0.31.2",
@@ -71,6 +73,9 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "popper.js": "1.14.4"
+    "date-fns": "2.7.0",
+    "popper.js": "1.14.4",
+    "primeicons": "2.0.0",
+    "primereact": "3.3.2"
   }
 }
