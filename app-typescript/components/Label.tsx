@@ -19,14 +19,18 @@ export class Label extends React.Component<IProps> {
             'label--hollow': this.props.style === 'hollow',
         });
 
-        return (
-            <React.Fragment>
-                {this.props.onClick ? <a href='' className={classes}>
+        if (this.props.onClick) {
+            return (
+                <a href='' className={classes}>
                     {this.props.text}
-                </a> : <span className={classes}>
-                        {this.props.text}
-                    </span>}
-            </React.Fragment>
-        );
+                </a>
+            );
+        } else {
+            return (
+                <span className={classes}>
+                    {this.props.text}
+                </span>
+            );
+        }
     }
 }
