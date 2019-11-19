@@ -5,7 +5,6 @@ interface IProps {
     text: string;
     color?: string;  //  https://ui-framework.superdesk.org/#/components/colors
     icon?: string;
-
 }
 
 export class IconLabel extends React.Component<IProps> {
