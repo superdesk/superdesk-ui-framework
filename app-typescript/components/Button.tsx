@@ -29,7 +29,7 @@ export class Button extends React.Component<IPropsButton> {
             'btn--disabled': this.props.disabled,
             'btn--icon-only': !this.props.text,
             'btn--ui-dark': this.props.theme === 'dark',
-            'btn--icon-only-circle': this.props.shape === 'round',
+            'btn--icon-only-circle': this.props.shape === 'round' && !this.props.text,
         });
 
         return (
