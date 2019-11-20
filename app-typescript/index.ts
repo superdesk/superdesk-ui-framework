@@ -2,3 +2,10 @@
 // all exports in this file must also be exported from ../app/index.js
 
 export {HelloWorld} from './components/HelloWorld';
+export {Button} from './components/Button';
+export {Label} from './components/Label';
+export {Badge} from './components/Badge';
+export {Alert} from './components/Alert';
+export {IconButton} from './components/IconButton';
+export {IconLabel} from './components/IconLabel';
+export {Tooltip} from './components/Tooltip';

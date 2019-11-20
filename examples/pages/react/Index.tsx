@@ -9,7 +9,13 @@ import {
 
 } from "react-router-dom";
 
-import Buttons from './Buttons';
+import ButtonsDoc from './Buttons';
+import LabelsDoc from './Labels';
+import BadgesDoc from './Badges';
+import AlertDoc from './Alerts';
+import IconButtonDoc from './IconButtons';
+import IconLabelDoc from './IconLabels';
+import TooltipDoc from './Tooltips';
 
 const pages = {
     basicComponents: {
@@ -17,15 +23,24 @@ const pages = {
         items: {
             'buttons': {
                 name: 'Buttons',
-                page: 'buttons.html',
             },
-            'checkbox-and-radio': {
-                name: 'Checkbox & Radio',
-                page: 'checkbox-and-radio.html',
+            'icon-buttons':{
+                name: 'Icon Buttons'
             },
-            'switch': {
-                name: 'Switch',
-                page: 'switch.html',
+            'labels': {
+                name: 'Labels',
+            },
+            'icon-labels':{
+                name: 'Icon Labels'
+            },
+            'badges': {
+                name: 'Badges',
+            },
+            'alerts': {
+                name: 'Alerts'
+            },
+            'tooltips': {
+                name: 'Tooltips'
             },
         }
     }
@@ -40,7 +55,25 @@ export default class ReactDoc extends React.Component {
                     <main className="docs-page__content docs-page__container-fluid">
                         <Switch>
                             <Route path="/#/react/buttons">
-                                <Buttons />
+                                <ButtonsDoc />
+                            </Route>
+                            <Route path="/#/react/icon-buttons">
+                                <IconButtonDoc />
+                            </Route>
+                            <Route path="/#/react/labels">
+                                <LabelsDoc />
+                            </Route>
+                            <Route path="/#/react/icon-labels">
+                                <IconLabelDoc />
+                            </Route>
+                            <Route path="/#/react/badges">
+                                <BadgesDoc />
+                            </Route>
+                            <Route path="/#/react/alerts">
+                                <AlertDoc />
+                            </Route>
+                            <Route path="/#/react/tooltips">
+                                <TooltipDoc />
                             </Route>
                             <Route path="/">
                                 <ReactDefault />
