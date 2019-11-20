@@ -46,13 +46,13 @@ export default class BadgeDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
                         <Badge text='8' type='primary'>
-                            <Button text='default'/>
+                            <Button text='default' onClick = { ()=> false}/>
                         </Badge>
-                        <Badge text='6' type='light'>
-                            <Button text='primary' type='primary'/>
+                        <Badge text='6'>
+                            <Button text='primary' type='primary' onClick = { ()=> false}/>
                         </Badge>
                         <Badge text='4' type='highlight'>
-                            <Button text='hollow' style='hollow'/>
+                            <Button text='hollow' style='hollow' onClick = { ()=> false}/>
                         </Badge>
                     </div>
                     </Markup.ReactMarkupPreview>
@@ -60,6 +60,7 @@ export default class BadgeDoc extends React.Component {
                        
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                
             </section>
         )
     }
