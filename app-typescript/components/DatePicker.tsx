@@ -146,7 +146,7 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
         return (
             <DatePicker
                 value={new Date(this.props.value)}
-                onChange={(valueNext) => this.props.onChange(format(valueNext, 'YYYY-MM-DD'))}
+                onChange={(valueNext) => this.props.onChange(format(valueNext, 'yyyy-MM-dd'))}
                 disabled={this.props.disabled}
                 shortcuts={this.props.shortcuts}
             />
