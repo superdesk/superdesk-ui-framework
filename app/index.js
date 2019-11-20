@@ -16,6 +16,7 @@ export {
     IconButton,
     IconLabel,
     Tooltip,
+    Switch,
     ButtonGroup,
 } from '../app-typescript/index';
 

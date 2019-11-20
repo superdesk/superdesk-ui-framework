@@ -16,6 +16,7 @@ import AlertDoc from './Alerts';
 import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
+import SwitchDoc from './Switch';
 
 const pages = {
     basicComponents: {
@@ -74,6 +75,9 @@ export default class ReactDoc extends React.Component {
                             </Route>
                             <Route path="/#/react/tooltips">
                                 <TooltipDoc />
+                            </Route>
+                            <Route path="/#/react/switch">
+                                <SwitchDoc />
                             </Route>
                             <Route path="/">
                                 <ReactDefault />
