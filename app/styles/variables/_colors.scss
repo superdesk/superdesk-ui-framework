@@ -176,6 +176,16 @@ $baseColors: (
   .#{$color} { 
     background-color: $value;
   }
+  .hollow-#{$color} { 
+    color: $value !important;
+    border-color: $value !important;
+    &:hover{
+      color: $value !important;
+    }
+  }
+  .text-#{$color} { 
+    color: $value;
+  }
 }
 
 // CSS variables for default (light) theme

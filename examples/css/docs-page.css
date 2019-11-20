@@ -29,11 +29,13 @@ h1.docs-page__h1 {
     letter-spacing: 0.02em;
 }
 h2.docs-page__h2 {
-    font-size: 30px;
-    font-weight: 500;
+    font-size: 32px;
+    font-weight: 700;
     line-height: 140%;
+    font-family: 'Merriweather', serif;
     margin: 0 0 0.6em 0;
 }
+
 h2.docs-page__group-heading {
     font-size: 36px;
     font-weight: 300;
@@ -52,6 +54,29 @@ h2.docs-page__group-heading:first-of-type {
     justify-content: center;
     text-align: center;
     margin: 32px auto;
+}
+
+h3.docs-page__h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 140%;
+    font-family: 'Merriweather', serif;
+    margin: 2em 0 0.4em 0;
+}
+.docs-page__rule {
+    border: none;
+    border-width: 2px;
+    height: 1px;
+    border-radius: 1px;
+    background-color: rgba(0, 0, 0, 0.2);
+    margin: 0 0 2.4rem 0;
+}
+.docs-page__rule--large {
+    border-width: 4px;
+    height: 3px;
+    border-radius: 2px;
+    background-color: var(--docs-page-color-highlight);
+    margin: 0 0 2.4rem 0;
 }
 
 .docs-page__hero-h2 {
@@ -84,11 +109,7 @@ h2.docs-page__group-heading:first-of-type {
     text-align: center;
     margin: 0 auto 32px;
 }
-h3.docs-page__h3 {
-    font-size: 23px;
-    line-height: 140%;
-    margin: 0 0 0.4em 0;
-}
+
 h4.docs-page__h4 {
     font-size: 18px;
     line-height: 140%;
@@ -259,9 +280,9 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 }
 .docs-page__nav-title {
     text-transform: uppercase;
-    color: #333;
+    color: #222;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 500;
     letter-spacing: 0.1em;
     display: inline-block;
     margin-top: 20px;
@@ -272,11 +293,65 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     margin-top: 0;
 }
 
+.docs-page__button-grid {
+    margin: 2.4rem 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.docs-page__graphic-btn {
+    min-width: 240px;
+    margin-right: 16px;
+    background-color: #fff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+    transition: 0.2s ease-in-out;
+    height: 72px;
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+}
+.docs-page__graphic-btn:hover {
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1), 0 2px 8px rgba(31, 17, 17, 0.16);
+    transform: translate(0, -1px);
+}
+.docs-page__graphic-btn-graphic {
+    width: 56px;
+    border-radius: 3px;
+    background: linear-gradient(180deg, rgba(233,249,245,1) 4%, rgba(200,231,238,1) 96%);
+    position: relative;
+}
+.docs-page__graphic-btn-graphic img {
+    max-width: 100%;
+    height: auto;
+}
+.docs-page__graphic-btn-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 0.8rem 0 1.6rem;
+    color: var(--docs-page-color-primary);
+    font-size: 1.6rem;
+    line-height: 140%;
+    pointer-events: none;
+}
+.docs-page__small-text {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: #333;
+    opacity: 0.7;
+}
+
 .docs-page__nav-item {
     position: relative;
     font-size: 16px;
     line-height: 24px;
-    color: #666;
+    font-weight: 300;
+    color: #444;
     border-left: 4px solid transparent;
 }
 .docs-page__nav-item a {
@@ -284,7 +359,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     line-height: 32px;
     display: block;
     padding-left: 24px;
-    color: #666;
+    color: #444;
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
     text-decoration: none;
@@ -296,13 +371,13 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 }
 .docs-page__nav-item a:active {
     color: #333;
-    
     background-color: rgba(94, 169, 200, 0.2);
 }
 
 .docs-page__nav-item.docs-page__nav-item--active {
     border-color: rgba(94, 169, 200, 1);
     background-color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
 }
 
 .docs-page__nav-item.docs-page__nav-item--active a {
@@ -417,12 +492,19 @@ pre.prettyprint {
     margin: 1em 0 2em;
     line-height: 150%;
     font-weight: 300;
-
 }
 .docs-page__unordered-list li {
     list-style-type: disc;
     margin-bottom: 0.25em;
     margin-left: 1.5em;  
+}
+.docs-page__unordered-list--plain {
+    font-weight: 300;
+}
+.docs-page__unordered-list--plain li {
+    font-weight: 300;
+    list-style-type: none;
+    margin-left: 0;
 }
 
 .docs-page__code-example .flex-grid .flex-grid__item,
@@ -509,7 +591,6 @@ pre.prettyprint {
 }
 .docs-page__content-block-item {
     flex: 1 1;
-    flex-direction: row;
     margin: 0 16px;
 }
 /* .docs-page__figure {
@@ -523,9 +604,13 @@ pre.prettyprint {
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 4px;
 }
 .docs-page__figure-media img {
     max-width: 100%;
+}
+.docs-page__figure-media--light {
+    background: #FFF;
 }
 .docs-page__figure-caption {
     font-size: 14px;
@@ -668,6 +753,23 @@ pre.prettyprint {
 .docs-page__color--highlight {
     color: var(--docs-page-color-highlight) !important;
 }
+
+.docs-page__test-helper {
+    padding: 4px !important;
+    border: 1px dashed rgba(255, 0, 255, 0.4);
+    border-radius: 2px;
+}
+
+.docs-page__test-helper-2 {
+    padding: 4px !important;
+    border: 1px dashed rgba(100, 100, 100, 0.3);
+    border-radius: 2px;
+}
+
+doc-gif-img:hover img {
+    cursor: pointer;
+}
+
 /* -------------- END COLOR SWATCHES -------------- */
 
 /*// extra large screen media query /100em = 1600px/*/

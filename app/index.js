@@ -7,9 +7,18 @@ export {Positioner} from './scripts/positioner';
 
 // TypeScript exports
 // Must contain the same exports as in '../app-typescript/index'
-export {HelloWorld} from '../app-typescript/index';
-export {DatePicker} from '../app-typescript/index';
-export {DatePickerISO} from '../app-typescript/index';
+export {
+    HelloWorld,
+    Button,
+    Label,
+    Badge,
+    Alert,
+    IconButton,
+    IconLabel,
+    Tooltip,
+    DatePicker,
+    DatePickerISO,
+} from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
     'superdesk-ui.helper',
