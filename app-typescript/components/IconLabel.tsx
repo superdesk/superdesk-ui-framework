@@ -3,14 +3,15 @@ import classNames from 'classnames';
 
 interface IProps {
     text: string;
-    color?: string;  //  https://ui-framework.superdesk.org/#/components/colors
+    type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     icon?: string;
 }
 
 export class IconLabel extends React.Component<IProps> {
     render() {
         let classes = classNames('label-icon', {
-            [`label-icon--${this.props.color}`]: this.props.color,
+            [`label-icon--${this.props.type}`]: this.props.type !== undefined,
+
         });
 
         return (

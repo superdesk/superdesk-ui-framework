@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IProps {
-    text?: string;
+    text: string;
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     color?: string; //  https://ui-framework.superdesk.org/#/components/colors
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'

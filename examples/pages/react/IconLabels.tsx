@@ -12,19 +12,19 @@ export default class IconLabelDoc extends React.Component {
                 <p className="docs-page__paragraph">Icon labels are inline styles for displaying icon with text label. Use color classes to change label's color.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                    <div className='docs-page__content-row'>
-                        <IconLabel text='Default label' icon='photo'/>
-                        <IconLabel text='Label primary'  icon='facebook' color='primary'/>
-                        <IconLabel text='Label success' icon='text' color='success'/>
-                        <IconLabel text='Label warning' icon='paywall' color='warning'/>
-                        <IconLabel text='Label alert' icon='trash' color='alert'/>
-                        <IconLabel text='Label highlight' icon='composite' color='highlight'/>
-                        <IconLabel text='Label sd-green' icon='video' color='sd-green'/>
-                    </div>
+                        <div className='docs-page__content-row'>
+                            <IconLabel text='Default label' icon='photo' />
+                            <IconLabel text='Label primary' icon='facebook' type='primary' />
+                            <IconLabel text='Label success' icon='text' type='success' />
+                            <IconLabel text='Label warning' icon='paywall' type='warning' />
+                            <IconLabel text='Label alert' icon='trash' type='alert' />
+                            <IconLabel text='Label highlight' icon='composite' type='highlight' />
+                            <IconLabel text='Label sd-green' icon='video' type='sd-green' />
+                        </div>
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
-                       
+
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>
