@@ -3,7 +3,21 @@ import * as Markup from '../../js/react';
 
 import { Switch } from '../../../app-typescript';
 
-export default class SwitchDoc extends React.Component {
+interface IState {
+    value1: boolean;
+    value2: boolean;
+}
+
+export default class SwitchDoc extends React.Component<{}, IState> {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value1: false,
+            value2: true,
+        };
+    }
+
     render() {
         return (
             <section className="docs-page__container">
@@ -13,11 +27,11 @@ export default class SwitchDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="form__row">
-                            <label>Label on left</label>
-                            <Switch onChange={(value) => value} />
+                            <label>Label on left {this.state.value1}</label>
+                            <Switch value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                         </div>
                         <div className="form__row">
-                            <Switch onChange={(value) => value} disabled={true} />
+                            <Switch value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} disabled={true} />
                             <label>Label on right with disabled state</label>
                         </div>
                     </Markup.ReactMarkupPreview>

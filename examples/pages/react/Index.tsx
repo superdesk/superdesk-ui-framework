@@ -43,6 +43,9 @@ const pages = {
             'tooltips': {
                 name: 'Tooltips'
             },
+            'switch': {
+                name: 'Switch'
+            },
         }
     }
 }
