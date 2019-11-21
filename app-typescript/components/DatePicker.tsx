@@ -2,6 +2,7 @@ import * as React from 'react';
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import {Calendar, LocaleSettings, CalendarProps} from 'primereact/calendar';
+import {throttle} from 'lodash';
 
 interface IDatePicker {
     value: Date | null;
@@ -80,8 +81,13 @@ const dateFormat = new Date('2000-11-22').toLocaleDateString()
     .replace('11', 'mm')
     .replace('2000', 'yy');
 
+const internalPrimereactClassnames = {
+    overlayVisible: 'p-input-overlay-visible',
+};
+
 interface IPrivatePrimeReactCalendarApi {
     hideOverlay?(): void;
+    panel?: HTMLElement;
 }
 
 interface IState {
@@ -115,6 +121,7 @@ function parseToPrimeReactCalendarFormat(value: IDatePicker['value']): CalendarP
 
 export class DatePicker extends React.PureComponent<IDatePicker, IState> {
     private instance: IPrivatePrimeReactCalendarApi | undefined;
+    hidePopupOnScroll: () => void;
 
     constructor(props: IDatePicker) {
         super(props);
@@ -123,6 +130,25 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
             value: parseToPrimeReactCalendarFormat(this.props.value),
             valid: true,
         };
+
+        this.hidePopupOnScroll = throttle(() => {
+            if (
+                this.instance != null
+                && this.instance.panel != null
+                && this.instance.hideOverlay != null
+                && this.instance.panel.classList.contains(internalPrimereactClassnames.overlayVisible)
+            ) {
+                this.instance.hideOverlay();
+            }
+        }, 300);
+    }
+
+    componentDidMount() {
+        document.addEventListener('scroll', this.hidePopupOnScroll, true);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('scroll', this.hidePopupOnScroll);
     }
 
     componentDidUpdate(prevProps: IDatePicker) {
