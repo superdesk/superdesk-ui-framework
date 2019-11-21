@@ -22,7 +22,7 @@ export class Switch extends React.Component<IProps> {
             return;
         }
 
-        return this.props.onChange(!this.props.value);
+        this.props.onChange(!this.props.value);
     }
 
     render() {
