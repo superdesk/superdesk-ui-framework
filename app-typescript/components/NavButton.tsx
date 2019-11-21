@@ -18,7 +18,7 @@ export class NavButton extends React.Component<IProps> {
         });
 
         return (
-            <Button navClass={classes} icon={this.props.icon} onClick={() => false}></Button>
+            <Button navClass={classes} icon={this.props.icon} onClick={this.props.onClick}></Button>
         );
     }
 }

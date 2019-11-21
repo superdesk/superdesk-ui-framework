@@ -230,13 +230,13 @@ export default class ButtonsDoc extends React.Component {
                     </div>
                     <p className="docs-page__paragraph">// Text only style</p>
                     <div className='docs-page__content-row docs-page__content-row--ui-dark'>
-                        <Button text='default' theme='dark' onClick = { ()=> false}/>
-                        <Button text='primary' type='primary' theme='dark' onClick = { ()=> false}/>
-                        <Button text='success' type='success' theme='dark' onClick = { ()=> false}/>
-                        <Button text='warning' type='warning' theme='dark' onClick = { ()=> false}/>
-                        <Button text='alert' type='alert' theme='dark' onClick = { ()=> false}/>
-                        <Button text='highlight' type='highlight' theme='dark' onClick = { ()=> false}/>
-                        <Button text='sd-green' type='sd-green' theme='dark' onClick = { ()=> false}/>
+                        <Button text='default' theme='dark' style='text-only' onClick = { ()=> false}/>
+                        <Button text='primary' type='primary' style='text-only' theme='dark' onClick = { ()=> false}/>
+                        <Button text='success' type='success' style='text-only' theme='dark' onClick = { ()=> false}/>
+                        <Button text='warning' type='warning' style='text-only' theme='dark' onClick = { ()=> false}/>
+                        <Button text='alert' type='alert' style='text-only' theme='dark' onClick = { ()=> false}/>
+                        <Button text='highlight' type='highlight' style='text-only' theme='dark' onClick = { ()=> false}/>
+                        <Button text='sd-green' type='sd-green' style='text-only' theme='dark' onClick = { ()=> false}/>
                     </div>
                     <p className="docs-page__paragraph">// Disabled</p>
                     <div className='docs-page__content-row docs-page__content-row--ui-dark'>
@@ -254,13 +254,13 @@ export default class ButtonsDoc extends React.Component {
                         <Button text='alert' type='alert' style='hollow' disabled={true} theme='dark' onClick = { ()=> false}/>
                         <Button text='highlight' type='highlight' style='hollow' disabled={true} theme='dark' onClick = { ()=> false}/>
                         <Button text='sd-green' type='sd-green' style='hollow' disabled={true} theme='dark' onClick = { ()=> false}/>
-                        <Button text='default' disabled={true} theme='dark' onClick = { ()=> false}/>
-                        <Button text='primary' type='primary' disabled={true} theme='dark' onClick = { ()=> false}/>
-                        <Button text='success' type='success' disabled={true} theme='dark' onClick = { ()=> false}/>
-                        <Button text='warning' type='warning' disabled={true} theme='dark' onClick = { ()=> false}/>
-                        <Button text='alert' type='alert' disabled={true} theme='dark' onClick = { ()=> false}/>
-                        <Button text='highlight' type='highlight' disabled={true} theme='dark' onClick = { ()=> false}/>
-                        <Button text='sd-green' type='sd-green' disabled={true} theme='dark' onClick = { ()=> false}/>
+                        <Button text='default' disabled={true} style='text-only' theme='dark' onClick = { ()=> false}/>
+                        <Button text='primary' type='primary' style='text-only' disabled={true} theme='dark' onClick = { ()=> false}/>
+                        <Button text='success' type='success' style='text-only' disabled={true} theme='dark' onClick = { ()=> false}/>
+                        <Button text='warning' type='warning' style='text-only' disabled={true} theme='dark' onClick = { ()=> false}/>
+                        <Button text='alert' type='alert' style='text-only' disabled={true} theme='dark' onClick = { ()=> false}/>
+                        <Button text='highlight' type='highlight' style='text-only' disabled={true} theme='dark' onClick = { ()=> false}/>
+                        <Button text='sd-green' type='sd-green' style='text-only' disabled={true} theme='dark' onClick = { ()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
