@@ -1,11 +1,11 @@
 import * as React from 'react';
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
-import {Calendar, LocaleSettings} from 'primereact/calendar';
+import {Calendar, LocaleSettings, CalendarProps} from 'primereact/calendar';
 
 interface IDatePicker {
-    value: Date;
-    onChange(valueNext: Date): void;
+    value: Date | null;
+    onChange(valueNext: Date | null): void;
     disabled?: boolean;
 
     // shortcuts can be used to jump to a date relative to today
@@ -84,8 +84,60 @@ interface IPrivatePrimeReactCalendarApi {
     hideOverlay?(): void;
 }
 
-export class DatePicker extends React.PureComponent<IDatePicker> {
+interface IState {
+    // required for allowing free text input into the date input field
+    // but calling `props.onChange` only when a valid date is entered
+    value: CalendarProps['value'];
+
+    // valid means it can be parsed
+    // if a value is invalid on blur, it will be set to an empty string and `props.onChange` called with `null`
+    valid: boolean;
+}
+
+// tries to parse primereact/calendar value format to IDatePicker['value']
+function parseFromPrimeReactCalendarFormat(value: CalendarProps['value']): IDatePicker['value'] | 'failed-to-parse' {
+    if (Array.isArray(value)) {
+        return 'failed-to-parse'; // arrays aren't supported
+    } else if (value instanceof Date) {
+        return value;
+    } else if (value === '') {
+        return null;
+    } else {
+        // at this point value is a free input string that can't be parsed to a Date inside primereact/calendar
+
+        return 'failed-to-parse';
+    }
+}
+
+function parseToPrimeReactCalendarFormat(value: IDatePicker['value']): CalendarProps['value'] {
+    return value === null ? undefined : value;
+}
+
+export class DatePicker extends React.PureComponent<IDatePicker, IState> {
     private instance: IPrivatePrimeReactCalendarApi | undefined;
+
+    constructor(props: IDatePicker) {
+        super(props);
+
+        this.state = {
+            value: parseToPrimeReactCalendarFormat(this.props.value),
+            valid: true,
+        };
+    }
+
+    componentDidUpdate(prevProps: IDatePicker) {
+        // sync internal state with props
+        // the check is more complex than a === b, because value equality is checked rather than reference equality
+        // which prevents infinite loops that may happen otherwise
+        if (this.props.value === null || prevProps.value === null) {
+            // at least one of the values is null so strict comparison can be used
+            if (this.props.value !== prevProps.value) {
+                this.setState({value: parseToPrimeReactCalendarFormat(this.props.value), valid: true});
+            }
+        } else if (this.props.value.getTime() !== prevProps.value.getTime()) { // comparing by value
+            this.setState({value: parseToPrimeReactCalendarFormat(this.props.value), valid: true});
+        }
+    }
 
     render() {
         return (
@@ -94,12 +146,16 @@ export class DatePicker extends React.PureComponent<IDatePicker> {
                 ref={(ref) => {
                     this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;
                 }}
-                value={this.props.value}
+                value={this.state.value === null ? undefined : this.state.value}
                 onChange={(event) => {
-                    if (Array.isArray(event.value)) {
-                        throw new Error('arrays are not supported');
+                    const result = parseFromPrimeReactCalendarFormat(event.value);
+
+                    if (result !== 'failed-to-parse') {
+                        this.setState({value: event.value, valid: true});
+                        this.props.onChange(result);
                     } else {
-                        this.props.onChange(event.value);
+                        // updating internal state so a user can continue typing and enter a valid value
+                        this.setState({value: event.value, valid: false});
                     }
                 }}
                 locale={currentLocale}
@@ -129,14 +185,20 @@ export class DatePicker extends React.PureComponent<IDatePicker> {
                 )}
                 appendTo={document.body} // making it work inside `overflow:hidden`
                 disabled={this.props.disabled}
+                onBlur={() => {
+                    if (this.state.valid === false) {
+                        // restoring internal state to current props value
+                        this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
+                    }
+                }}
             />
         );
     }
 }
 
 interface IDatePickerISO {
-    value: string;
-    onChange(valueNext: string): void;
+    value: string; // can be an empty string
+    onChange(value: string): void; // value can be an empty string
     disabled?: boolean;
     shortcuts?: Array<{days: number, label: string}>;
 }
@@ -146,7 +208,13 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
         return (
             <DatePicker
                 value={new Date(this.props.value)}
-                onChange={(valueNext) => this.props.onChange(format(valueNext, 'yyyy-MM-dd'))}
+                onChange={(value) => {
+                    if (value === null) {
+                        this.props.onChange('');
+                    } else {
+                        this.props.onChange(format(value, 'yyyy-MM-dd'));
+                    }
+                }}
                 disabled={this.props.disabled}
                 shortcuts={this.props.shortcuts}
             />

@@ -16,6 +16,7 @@ import AlertDoc from './Alerts';
 import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
+import InputsDoc from './Inputs';
 
 const pages = {
     basicComponents: {
@@ -23,6 +24,9 @@ const pages = {
         items: {
             'buttons': {
                 name: 'Buttons',
+            },
+            'inputs': {
+                name: 'Inputs',
             },
             'icon-buttons':{
                 name: 'Icon Buttons'
@@ -56,6 +60,9 @@ export default class ReactDoc extends React.Component {
                         <Switch>
                             <Route path="/#/react/buttons">
                                 <ButtonsDoc />
+                            </Route>
+                            <Route path="/#/react/inputs">
+                                <InputsDoc />
                             </Route>
                             <Route path="/#/react/icon-buttons">
                                 <IconButtonDoc />
