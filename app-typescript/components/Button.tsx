@@ -33,7 +33,7 @@ export class Button extends React.Component<IPropsButton> {
         });
 
         return (
-            <button className={this.props.navClass ? this.props.navClass : classes}>
+            <button className={this.props.navClass ? this.props.navClass : classes} onClick={this.props.onClick}>
                 {this.props.icon ? <i className={'icon-' + this.props.icon}></i> : null}
                 {this.props.text}
             </button>
