@@ -17,7 +17,7 @@ import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
 import SwitchDoc from './Switch';
 
-import * as Playgrounds from '../playgrounds/react-playground/Index';
+import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
 const pages = {
     basicComponents: {
