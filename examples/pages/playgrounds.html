@@ -19,7 +19,7 @@
             and full-page layouts.</p>
     </div>
     <section class="docs-page__container sd-margin-t--0">
-        <div class="flex-grid flex-grid--boxed flex-grid--wrap-items flex-grid--small-2">
+        <div class="flex-grid flex-grid--boxed flex-grid--wrap-items flex-grid--small-3">
 
             <div class="sd-card flex-grid__item" ng-repeat="(group, content) in playgrounds">
                 <div class="sd-card__header sd-card__header--with-thumb sd-card__header--gradient-1">
@@ -30,7 +30,8 @@
                 <div class="sd-card__content">
                     <ul class="text-link__group">
                         <li class="text-link__item" ng-repeat="(route, page) in content">
-                            <a class="text-link" href="#/playgrounds/{{route}}" target="_blank">{{page.name}}</a>
+                            <a class="text-link" href="#/playgrounds/{{route}}" target="_blank" ng-if="!page.component">{{page.name}}</a>
+                            <a class="text-link" href="#/playgrounds/react/{{route}}" target="_blank" ng-if="page.component">{{page.name}}</a>
                         </li>
                     </ul>
                 </div>
