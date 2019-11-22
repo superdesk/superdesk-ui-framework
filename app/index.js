@@ -18,6 +18,7 @@ export {
     Tooltip,
     DatePicker,
     DatePickerISO,
+    FormLabel,
     Switch,
     ButtonGroup,
 } from '../app-typescript/index';
