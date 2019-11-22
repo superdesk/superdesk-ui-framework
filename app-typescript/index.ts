@@ -14,3 +14,7 @@ export {DatePickerISO} from './components/DatePicker';
 export {FormLabel} from './components/FormLabel';
 export {Switch} from './components/Switch';
 export {ButtonGroup} from './components/ButtonGroup';
+
+// declare non-typescript exports to prevent errors
+export declare const ToggleBoxNext: any;
+export declare const reactToAngular1: any;
