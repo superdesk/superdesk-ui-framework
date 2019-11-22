@@ -10,7 +10,7 @@ class ReactNav extends React.Component {
             <ul className="docs-page__nav--sub-level">
                 {Object.keys(pages[group].items).map((page) =>
                     <li key={page} className="docs-page__nav-item">
-                        <Link to={{ pathname: '/#/react/' + page, hash: '#' }}>{pages[group].items[page].name}</Link>
+                        <Link to={{ pathname: '/react/' + page }}>{pages[group].items[page].name}</Link>
                     </li>
                 )}
             </ul>
