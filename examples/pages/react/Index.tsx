@@ -63,7 +63,7 @@ class ReactDoc extends React.Component {
                 <main className="docs-page__content docs-page__container-fluid">
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
-                        <Route path="/#/react/inputs" component={InputsDoc} />
+                        <Route path="/react/inputs" component={InputsDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />
                         <Route path="/react/labels" component={LabelsDoc} />
                         <Route path="/react/icon-labels" component={IconLabelDoc} />
