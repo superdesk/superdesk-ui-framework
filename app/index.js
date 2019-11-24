@@ -18,6 +18,7 @@ export {
     Tooltip,
     DatePicker,
     DatePickerISO,
+    TimePicker,
     FormLabel,
     Switch,
     ButtonGroup,

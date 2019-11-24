@@ -223,7 +223,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 }
 
 interface IDatePickerISO {
-    value: string; // can be an empty string
+    value: string; // will output date formatted according to ISO8601; value can be an empty string
     onChange(value: string): void; // value can be an empty string
     disabled?: boolean;
     shortcuts?: Array<{days: number, label: string}>;
