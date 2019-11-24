@@ -336,6 +336,12 @@ export default angular.module('ui-docs', [
                 page: 'publisher-website-settings-general.html'
             },
         },
+        react: {
+            'first-playground': {
+                name: 'First playground',
+                component: 'FirstPlayground'
+            }
+        }
     }))
 
     .config(($routeProvider) => {
@@ -364,6 +370,9 @@ export default angular.module('ui-docs', [
             })
             .when('/playgrounds', {
                 template: require('../examples/pages/playgrounds.html')
+            })
+            .when('/playgrounds/react/:name*', {
+                template: '<doc-react-playground />'
             })
             .when('/playgrounds/:name*', {
                 template: function (urlattr) {

@@ -1,8 +1,8 @@
 /* eslint-disable */
 /* global _, PR */
 
-import { ReactNav } from './react';
-import ReactDoc from './../pages/react/Index';
+import { ReactDoc, ReactPlayground } from './../pages/react/Index';
+import { HashRouter } from 'react-router-dom';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -141,7 +141,22 @@ docReact.$inject = [];
 function docReact() {
     return {
         link: function (scope, elem) {
-            ReactDOM.render(<ReactDoc />, elem[0]);
+            ReactDOM.render(
+                <HashRouter>
+                    <ReactDoc />
+                </HashRouter>, elem[0]);
+        }
+    };
+}
+
+docReactPlayground.$inject = ['playgrounds'];
+function docReactPlayground(playgrounds) {
+    return {
+        link: function (scope, elem) {
+            ReactDOM.render(
+                <HashRouter>
+                    <ReactPlayground playgrounds={playgrounds.react} />
+                </HashRouter>, elem[0]);
         }
     };
 }
@@ -152,4 +167,5 @@ export default angular.module('ui-docs.directives', [])
     .directive('docTabs', docTabs)
     .directive('docNav', docNav)
     .directive('docModal', docModal)
-    .directive('docReact', docReact);
+    .directive('docReact', docReact)
+    .directive('docReactPlayground', docReactPlayground);
