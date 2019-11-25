@@ -1,0 +1,38 @@
+diff --git a/node_modules/primereact/components/calendar/Calendar.d.ts b/node_modules/primereact/components/calendar/Calendar.d.ts
+index ca0ce06..fc37044 100644
+--- a/node_modules/primereact/components/calendar/Calendar.d.ts
++++ b/node_modules/primereact/components/calendar/Calendar.d.ts
+@@ -24,7 +24,7 @@ export interface DateMetaData {
+ interface CalendarProps {
+     id?: string;
+     name?: string;
+-    value?: Date|Date[];
++    value?: Date|Date[]|string;
+     viewDate?: Date;
+     style?: object;
+     className?: string;
+@@ -83,7 +83,7 @@ interface CalendarProps {
+     onBlur?(event: Event): void;
+     onInput?(event: Event): void;
+     onSelect?(e: {originalEvent: Event, value: Date}): void;
+-    onChange?(e: {originalEvent: Event, value: Date|Date[]}): void;
++    onChange?(e: {originalEvent: Event, value: Date|Date[]|string}): void;
+     onTodayButtonClick?(event: Event): void;
+     onClearButtonClick?(event: Event): void;
+     onViewDateChange?(e: {originalEvent: Event, value: Date}): void;
+diff --git a/node_modules/primereact/components/calendar/Calendar.js b/node_modules/primereact/components/calendar/Calendar.js
+index f394886..e96d4f3 100644
+--- a/node_modules/primereact/components/calendar/Calendar.js
++++ b/node_modules/primereact/components/calendar/Calendar.js
+@@ -1882,9 +1882,9 @@ function (_Component) {
+       return _react.default.createElement("div", {
+         key: monthMetaData.month,
+         className: "p-datepicker-group"
+-      }, _react.default.createElement("div", {
++      }, header, _react.default.createElement("div", {
+         className: "p-datepicker-header"
+-      }, header, backwardNavigator, forwardNavigator, title), dateViewGrid);
++      }, backwardNavigator, forwardNavigator, title), dateViewGrid);
+     }
+   }, {
+     key: "renderMonths",

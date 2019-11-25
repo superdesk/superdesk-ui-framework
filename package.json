@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "2.0.11",
+  "version": "2.1.0",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -18,12 +18,14 @@
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
     "server": "webpack --watch",
-    "build": "tsc && npm run lint && webpack",
+    "build": "npm run lint && webpack && tsc",
     "lint": "eslint app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "postinstall": "patch-package"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.9",
+    "@types/lodash": "4.14.149",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.0",
     "@types/react-router-dom": "^5.1.2",
@@ -50,8 +52,9 @@
     "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1",
-    "lodash": "^4.17.4",
+    "lodash": "4.17.15",
     "node-sass": "^4.5.3",
+    "patch-package": "6.2.0",
     "prop-types": "^15.6.0",
     "react": "16.8.6",
     "react-bootstrap": "^0.31.2",
@@ -72,6 +75,9 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "popper.js": "1.14.4"
+    "date-fns": "2.7.0",
+    "popper.js": "1.14.4",
+    "primeicons": "2.0.0",
+    "primereact": "3.3.2"
   }
 }
