@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -71,7 +71,8 @@
     "typescript": "^3.5.1",
     "url-loader": "^1.1.2",
     "webpack": "^3.5.5",
-    "webpack-dev-server": "^2.7.1",
+    "webpack-cli": "3.3.10",
+    "webpack-dev-server": "2.11.1",
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
