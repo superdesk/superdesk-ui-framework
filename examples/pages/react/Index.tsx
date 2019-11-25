@@ -10,6 +10,7 @@ import {
 
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
+import ButtonGroupsDoc from './ButtonGroups';
 import BadgesDoc from './Badges';
 import AlertDoc from './Alerts';
 import IconButtonDoc from './IconButtons';
@@ -28,6 +29,9 @@ const pages = {
             },
             'icon-buttons': {
                 name: 'Icon Buttons'
+            },
+            'button-groups':{
+                name: 'Button Groups'
             },
             'labels': {
                 name: 'Labels',
@@ -60,6 +64,7 @@ class ReactDoc extends React.Component {
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />
+                        <Route path="/react/button-groups" component={ButtonGroupsDoc} />
                         <Route path="/react/labels" component={LabelsDoc} />
                         <Route path="/react/icon-labels" component={IconLabelDoc} />
                         <Route path="/react/badges" component={BadgesDoc} />
