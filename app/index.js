@@ -10,6 +10,7 @@ export {Positioner} from './scripts/positioner';
 export {
     HelloWorld,
     Button,
+    ButtonGroup,
     Label,
     Badge,
     Alert,
@@ -21,7 +22,7 @@ export {
     TimePicker,
     FormLabel,
     Switch,
-    ButtonGroup,
+    Loader,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
