@@ -16,6 +16,7 @@ import AlertDoc from './Alerts';
 import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
+import InputsDoc from './Inputs';
 import SwitchDoc from './Switch';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
@@ -26,6 +27,9 @@ const pages = {
         items: {
             'buttons': {
                 name: 'Buttons',
+            },
+            'inputs': {
+                name: 'Inputs',
             },
             'icon-buttons': {
                 name: 'Icon Buttons'
@@ -63,6 +67,7 @@ class ReactDoc extends React.Component {
                 <main className="docs-page__content docs-page__container-fluid">
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
+                        <Route path="/react/inputs" component={InputsDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />
                         <Route path="/react/button-groups" component={ButtonGroupsDoc} />
                         <Route path="/react/labels" component={LabelsDoc} />
