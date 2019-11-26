@@ -608,6 +608,7 @@ pre.prettyprint {
 }
 .docs-page__figure-media img {
     max-width: 100%;
+    display: block;
 }
 .docs-page__figure-media--light {
     background: #FFF;
