@@ -15,6 +15,7 @@ export {TimePicker} from './components/TimePicker';
 export {FormLabel} from './components/FormLabel';
 export {Switch} from './components/Switch';
 export {ButtonGroup} from './components/ButtonGroup';
+export {Loader} from './components/Loader';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
