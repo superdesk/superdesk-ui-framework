@@ -1,8 +1,11 @@
 import * as React from 'react';
+import { SidebarMenu } from './SidebarMenu';
+import { AuthoringContent } from './AuthoringContent';
 
 interface IProps {
     header: string;
     children?: React.ReactNode;
+    openA?: boolean;
 }
 
 export class Layout extends React.Component<IProps> {
@@ -19,10 +22,11 @@ export class Layout extends React.Component<IProps> {
                     <p className='sd-top-menu__header'>{this.props.header}</p>
                 </header>
                 <section className='sd-content sd-content-wrapper'>
-                    <div className='sd-sidebar-menu sd-content-wrapper__left-tabs'></div>
+                    <SidebarMenu />
                     <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                         {this.props.children}
                     </div>
+                    <AuthoringContent open={this.props.openA} />
                 </section>
                 <footer className='bottom-bar'>
                     This is the footer.
