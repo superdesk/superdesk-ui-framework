@@ -1,0 +1,65 @@
+<header class="sd-top-menu">
+    <a class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+    <p class="sd-top-menu__header">Nav buttons</p>
+</header>
+<main class="sd-page">
+    <section class="sd-page__main-content" ng-class="{'dark-ui': darkUI}">
+        <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+
+            <div class="button-group button-group--left">
+                <button class="sd-navbtn sd-navbtn--darker">
+                    <i class="big-icon--dashboard"></i>
+                </button>
+                <button class="sd-navbtn">
+                    <i class="icon-slideshow"></i>
+                </button>
+            </div>
+
+            <div class="button-group button-group--center">
+                <button class="sd-navbtn">
+                    <i class="icon-align-left"></i>
+                </button>
+                <button class="sd-navbtn sd-navbtn--primary">
+                    <i class="icon-align-center"></i>
+                </button>
+                <button class="sd-navbtn sd-navbtn--highlight">
+                    <i class="icon-align-right"></i>
+                </button>
+            </div>
+
+            <div class="button-group button-group--right">
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="sd-navbtn" dropdown__toggle>
+                        <i class="icon-dots-vertical"></i>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Action 1</button></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+
+                <button class="sd-navbtn">
+                    <i class="icon-copy"></i>
+                </button>
+
+                <button class="sd-navbtn" ng-click="darkUI = !darkUI">
+                    <i class="icon-adjust"></i>
+                </button>
+            </div>
+
+        </div>
+        <div class="sd-page__content">
+            <div class="grid grid--boxed" style="max-width: 500px; margin: 0 auto">
+                <div class="grid__item">
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -161,6 +161,34 @@ function docReactPlayground(playgrounds) {
     };
 }
 
+docGifImg.$inject = [];
+function docGifImg() {
+    return {
+        scope: {
+            src: '@'
+        },
+        template: '<img src="{{activeImage}}" ng-click="playGif()" />',
+        link: function (scope) {
+            scope.image = scope.src.replace('.gif', '.png');
+            scope.animation = scope.src;
+
+            // Default settings
+            scope.played = false;
+            scope.activeImage = scope.image;
+
+            scope.playGif = () => {
+                if (scope.played) {
+                    scope.activeImage = scope.image;
+                    scope.played = false;
+                } else {
+                    scope.activeImage = scope.animation;
+                    scope.played = true;
+                }
+            };
+        }
+    };
+}
+
 export default angular.module('ui-docs.directives', [])
     .directive('prettyprint', docPrettyPrint)
     .directive('docPlayground', docPlayground)
@@ -168,4 +196,5 @@ export default angular.module('ui-docs.directives', [])
     .directive('docNav', docNav)
     .directive('docModal', docModal)
     .directive('docReact', docReact)
-    .directive('docReactPlayground', docReactPlayground);
+    .directive('docReactPlayground', docReactPlayground)
+    .directive('docGifImg', docGifImg);

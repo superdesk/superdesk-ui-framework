@@ -225,8 +225,30 @@ export default angular.module('ui-docs', [
                     name: 'Switch',
                     page: 'switch.html',
                 },
-            }
+            },
+        },
+        layoutComponents: {
+            name: 'Layout',
+            items: {
+                'layout-principles': {
+                    name: 'Layout principles',
+                    page: 'layout-principles.html',
+                },
+                'application-structure': {
+                    name: 'Main application structure',
+                    page: 'application-structure.html',
+                },
+                'pages': {
+                    name: 'Page layouts',
+                    page: 'pages.html',
+                },
+                'modules': {
+                    name: 'Modules',
+                    page: 'modules.html',
+                },
+            },
         }
+        
     }))
 
     .factory('playgrounds', () => ({
@@ -299,6 +321,10 @@ export default angular.module('ui-docs', [
             'video-editor': {
                 name: 'Video editor',
                 page: 'video-editor.html'
+            },
+            'nav-buttons': {
+                name: 'Nav buttons',
+                page: 'nav-buttons.html'
             },
         },
         // Publisher playgrounds

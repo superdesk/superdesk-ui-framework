@@ -847,95 +847,104 @@ $button-nav-color: currentColor;
   }
 }
 
-  // BUTTON GROUPS 
-  // --------------------------------------------------
-  .button-group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    
+// BUTTON GROUPS 
+// --------------------------------------------------
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .btn {
+    margin: 0;
+  }
+  &--left {
+    margin-right: auto;
     .btn {
-      margin: 0;
+      @include sd-margin('1', 'right');
+      &:last-child {
+        margin-right: 0;
+      }
     }
-    &--left {
-      margin-right: auto;
+    .sd-navbtn {
+      border-width: 0 1px 0 0;
+    }
+    &.button-group--compact {
       .btn {
-        @include sd-margin('1', 'right');
+        @include sd-margin('0-5', 'right');
         &:last-child {
           margin-right: 0;
         }
       }
-      &.button-group--compact {
-        .btn {
-          @include sd-margin('0-5', 'right');
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-      } 
-    }
-    &--right {
-      margin-left: auto;
-      .btn {
-        @include sd-margin('1', 'left');
-        &:first-child {
-          margin-left: 0;
-        }
-      }
-      &.button-group--compact {
-        .btn {
-          @include sd-margin('0-5', 'left');
-          &:first-child {
-            margin-right: 0;
-          }
-        }
+    } 
+  }
+  &--right {
+    margin-left: auto;
+    .btn {
+      @include sd-margin('1', 'left');
+      &:first-child {
+        margin-left: 0;
       }
     }
-    &--center {
-      margin-left: auto;
-      margin-right: auto;
+    &.button-group--compact {
       .btn {
-        @include sd-margin('0-5', 'x');
+        @include sd-margin('0-5', 'left');
         &:first-child {
-          margin-left: 0;
-        }
-        &:last-child {
           margin-right: 0;
-        }
-      }
-      &.button-group--compact {
-        .btn {
-          margin: 0 0.2rem;
-          &:first-child {
-            margin-left: 0;
-          }
-          &:last-child {
-            margin-right: 0;
-          }
-        }
-      }
-    }
-    &--vertical {
-      flex-grow: 1;
-      flex-direction: column;
-      align-items: stretch;
-      justify-content: center;
-      .btn {
-        @include sd-margin('1', 'top');
-        &:first-child, &:only-child {
-          margin-top: 0;
-        }
-      }
-      &.button-group--compact {
-        .btn {
-          @include sd-margin('0-5', 'top');
-          &:first-child {
-            margin-left: 0;
-          }
-          &:last-child {
-            margin-right: 0;
-          }
         }
       }
     }
   }
+  &--center {
+    margin-left: auto;
+    margin-right: auto;
+    .btn {
+      @include sd-margin('0-5', 'x');
+      &:first-child {
+        margin-left: 0;
+      }
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .sd-navbtn {
+      border-width: 0 1px 0 0;
+      &:first-child {
+        border-width: 0 1px 0 1px;
+      }
+    }
+    &.button-group--compact {
+      .btn {
+        margin: 0 0.2rem;
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  &--vertical {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    .btn {
+      @include sd-margin('1', 'top');
+      &:first-child, &:only-child {
+        margin-top: 0;
+      }
+    }
+    &.button-group--compact {
+      .btn {
+        @include sd-margin('0-5', 'top');
+        &:first-child {
+          margin-left: 0;
+        }
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
