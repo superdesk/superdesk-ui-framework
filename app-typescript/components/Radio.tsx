@@ -31,7 +31,7 @@ export class Radio extends React.Component<IProps> {
                     {this.props.side === 'left' ?
                         (item.disabled ? <label className='sd-label--disabled'>{item.label}</label> :
                             (<label className={this.props.value === item.value ? 'label--active' : ''}>
-                                {item.text}</label>)) : null}
+                                {item.label}</label>)) : null}
                     <span className={'sd-checkbox sd-checkbox--radio' +
                         (item.disabled ? ' sd-checkbox--disabled' :
                             (this.props.value === item.value ? ' checked' : ''))}
@@ -39,7 +39,7 @@ export class Radio extends React.Component<IProps> {
                     {!this.props.side ? (
                         item.disabled ? <label className='sd-label--disabled'>{item.label}
                         </label> : (<label className={this.props.value === item.value ? 'label--active' : ''}>
-                            {item.text}</label>)) : null}
+                            {item.label}</label>)) : null}
                 </span>
             ))
         );
