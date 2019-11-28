@@ -23,7 +23,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
             value2: false,
             value3: false,
             value4: false,
-            value5: false,
+            value5: true,
             value6: false,
             value7: false,
         };
@@ -53,7 +53,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                             <Checkbox value= {this.state.value2} label={{text:'Check me!'}} onChange={(value) => this.setState(() => ({ value2: value }))}/>
                             <Checkbox value= {this.state.value3} label={{text:'Check me too!'}} onChange={(value) => this.setState(() => ({ value3: value }))}/>
                             <Checkbox value= {this.state.value4} label={{text:"I'm disabled:("}} disabled= {true} onChange={(value) => this.setState(() => ({ value4: value }))}/>
-                            <Checkbox value= {this.state.value5} label={{text:"I'm disabled and checked :("}} active= {true} disabled= {true} onChange={(value) => this.setState(() => ({ value5: value }))}/>
+                            <Checkbox value= {this.state.value5} label={{text:"I'm disabled and checked :("}} disabled= {true} onChange={(value) => this.setState(() => ({ value5: value }))}/>
                         </div>
                         <div className='form__row'>
                             <Checkbox value= {this.state.value6} label={{text:'Checkbox label left', side:'left'}} onChange={(value) => this.setState(() => ({ value6: value }))}/>

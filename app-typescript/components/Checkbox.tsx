@@ -7,7 +7,6 @@ interface IProps {
         side?: 'left' | 'right',
     };
     disabled?: boolean;
-    active?: boolean;
     side?: string;
     onChange(nextValue: boolean): void;
 }
@@ -26,17 +25,17 @@ export class Checkbox extends React.Component<IProps> {
         return (
             <span className='sd-check__wrapper'>
                 {this.props.label.side === 'left' ?
-                    (this.props.disabled ? (this.props.active ?
+                    (this.props.disabled ? (this.props.value ?
                         <label className='sd-label--disabled label--active'>{this.props.label.text}
                         </label> : <label className='sd-label--disabled'>{this.props.label.text}
                         </label>) : (<label className={this.props.value ? 'label--active' : ''}>
                             {this.props.label.text}</label>)) : null}
                 <span className={'sd-checkbox' +
-                    (this.props.disabled ? (this.props.active ? ' sd-checkbox--disabled checked' : ' sd-checkbox--disabled') :
+                    (this.props.disabled ? (this.props.value ? ' sd-checkbox--disabled checked' : ' sd-checkbox--disabled') :
                         (this.props.value ? ' checked' : ''))}
                     onClick={this.handleChange}></span>
                 {!this.props.label.side ?
-                    (this.props.disabled ? (this.props.active ?
+                    (this.props.disabled ? (this.props.value ?
                         <label className='sd-label--disabled label--active'>{this.props.label.text}
                         </label> : <label className='sd-label--disabled'>{this.props.label.text}
                         </label>) : (<label className={this.props.value ? 'label--active' : ''}>

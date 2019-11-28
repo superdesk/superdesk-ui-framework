@@ -9,7 +9,7 @@ interface IOption {
 interface IProps {
     value: any;
     options: Array<IOption>;
-    side?: 'left' | 'right';
+    labelSide?: 'left' | 'right';
     onChange(nextValue: string): void;
 }
 
@@ -28,7 +28,7 @@ export class Radio extends React.Component<IProps> {
         return (
             this.props.options.map((item: any, index: number) => (
                 <span className='sd-check__wrapper' key={index}>
-                    {this.props.side === 'left' ?
+                    {this.props.labelSide === 'left' ?
                         (item.disabled ? <label className='sd-label--disabled'>{item.label}</label> :
                             (<label className={this.props.value === item.value ? 'label--active' : ''}>
                                 {item.label}</label>)) : null}
@@ -36,7 +36,7 @@ export class Radio extends React.Component<IProps> {
                         (item.disabled ? ' sd-checkbox--disabled' :
                             (this.props.value === item.value ? ' checked' : ''))}
                         onClick={() => this.handleChange(item.value)}></span>
-                    {!this.props.side ? (
+                    {!this.props.labelSide ? (
                         item.disabled ? <label className='sd-label--disabled'>{item.label}
                         </label> : (<label className={this.props.value === item.value ? 'label--active' : ''}>
                             {item.label}</label>)) : null}

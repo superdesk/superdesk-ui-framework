@@ -35,7 +35,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                         </div>
                         <p className="docs-page__paragraph">// Basic - labels on the left</p>
                         <div className='form__row'>
-                            <Radio value={this.state.value2} options={[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]} side='left' onChange={(value) => this.setState(() => ({ value2: value }))}/>
+                            <Radio value={this.state.value2} options={[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]} labelSide='left' onChange={(value) => this.setState(() => ({ value2: value }))}/>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
