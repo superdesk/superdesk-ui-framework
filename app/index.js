@@ -23,6 +23,8 @@ export {
     FormLabel,
     Switch,
     Loader,
+    Radio,
+    CheckBox,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
