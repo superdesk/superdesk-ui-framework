@@ -113,6 +113,134 @@
   }
 }
 
+
+// ============================================================================
+// NEW NAVBUTTONS
+// ============================================================================
+
+:root {
+  --color-navbutton-border:            rgba(0,0,0,.1);
+  --color-navbutton-bg-hover:          rgba(0,0,0, 0.05);
+  --color-navbutton-bg-active:         rgba(255,255,255,1);
+  --color-navbutton-dropdown-open-bg:  rgba(255, 255, 255, 1);
+  --color-navbutton-bg-100:            rgba(0,0,0,.06);
+  --color-navbutton-bg-100-hover:      rgba(0,0,0,.12);
+}
+
+.subnav--dark-ui,
+[data-theme="dark-ui"] {
+  --color-navbutton-border:            rgba(0,0,0,.15);
+  --color-navbutton-bg-hover:          rgba(0,0,0,.1);
+  --color-navbutton-bg-active:         rgba(255,255,255,.08);
+  --color-navbutton-bg-100:            rgba(0,0,0,.1);
+  --color-navbutton-bg-100-hover:      rgba(0,0,0,.2);
+}
+
+$navbutton-border-color: var(--color-navbutton-border);
+$navbutton-bg-color: transparent;
+$navbutton-transition: background-color 0.2s ease-out, color 0.1s ease-out;
+$navbutton-bg-color-hover: var(--color-navbutton-bg-hover);
+$navbutton-bg-color-active: var(--color-navbutton-bg-active);
+$navbutton-bg-color-darker: var(--color-navbutton-bg-100);
+$navbutton-bg-color-darker-hover: var(--color-navbutton-bg-100-hover);
+
+@mixin navbutton-base {
+  position: relative;
+  height: $subnav-height;
+  width: 4.8rem;
+
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  
+  background: $navbutton-bg-color;
+  color: inherit;
+  text-align: center;
+
+  text-decoration: none;
+  border: 0;
+  border: 1px solid $navbutton-border-color;
+  border-width: 0 0 0 1px;
+  cursor: pointer;
+  transition: $navbutton-transition;
+
+  i {
+    opacity: 0.75;
+    vertical-align: baseline !important;
+    transition: opacity 0.2s ease-out;
+  }
+  [class^="big-icon--"], [class*=" big-icon--"],
+  [class^="icon-"], [class*=" icon-"] {
+    color: currentColor;
+  }
+  &:hover {
+    background: $navbutton-bg-color-hover;
+      > i {
+          opacity: 1;
+      }
+  }
+  &:active{
+    background: $navbutton-bg-color-active;
+      > i {
+          opacity: 1;
+      }
+  }
+}
+
+.sd-navbtn {
+  @include navbutton-base;
+  &.sd-navbtn--primary, &.sd-navbtn--active {
+    background: $sd-blue;
+    border-color: darken($sd-blue, 5%);
+    color: $white;
+    &:hover {
+      background-color: darken($sd-blue, 5%);
+      border-color: darken($sd-blue, 10%);
+    }
+    &:active{
+      background-color: lighten($sd-blue, 5%);
+      border-color: darken($sd-blue, 5%);
+    }
+  }
+  &.sd-navbtn--highlight {
+    background: $purple;
+    border-color: darken($purple, 5%);
+    color: $white;
+    &:hover {
+      background-color: darken($purple, 5%);
+      border-color: darken($purple, 10%);
+    }
+    &:active {
+      background-color: lighten($purple, 5%);
+      border-color: darken($purple, 5%);
+    }
+  }
+  &.sd-navbtn--darker {
+    background: $navbutton-bg-color-darker;
+    &:hover {
+      background-color: $navbutton-bg-color-darker-hover;
+    }
+    &:active {
+      background-color: $navbutton-bg-color-active;
+    }
+  }
+}
+
+.dropdown.open {
+  .sd-navbtn {
+    background-color: var(--color-navbutton-dropdown-open-bg);
+    position: relative;
+    box-shadow: 0 8px 0 0px var(--color-navbutton-dropdown-open-bg), -2px -1px 8px -2px rgba(0, 0, 0, 0.24), 3px -1px 8px -2px rgba(0, 0, 0, 0.24);
+    border-color: transparent !important;
+    z-index: 1001;
+    i {
+      opacity: 1;
+      color: $sd-blue;
+    }
+  }
+}
+
 .navbtn {
     position: relative;
     display: inline-block;

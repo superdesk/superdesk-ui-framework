@@ -529,25 +529,103 @@
     </div>
 </section>
 <section class="docs-page__container">
-    <h2 class="docs-page__h2">Usage guidlines</h2>
-    <div class="docs-page__content-block">
-        <div class="docs-page__content-block-item">
-            <figure class="docs-page__figure-media">
-                <img src="/buttons--00-01.png" alt="Buttons - Don't">
-            </figure>
-            <figcaption class="docs-page__figure-caption">
-                <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't.</p>
-                <p class="docs-page__caption-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit sit amet non magna. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-            </figcaption>
+    <h2 class="docs-page__h2">Button groups</h2>
+    <div class="sd-alert sd-alert--hollow sd-alert--primary sd-alert--small">
+        The dashed border and padding around the button groups are only added for presentational purposes and is not part of the component.
+    </div>
+    <h3 class="docs-page__h3">Horizontal</h3>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
         </div>
-        <div class="docs-page__content-block-item">
-            <figure class="docs-page__figure-media">
-                <img src="/buttons--00-02.png" alt="Buttons - Do">
-            </figure>
-            <figcaption class="docs-page__figure-caption">
-                <p class="docs-page__caption-heading docs-page__caption-heading--do">Do.</p>
-                <p>Cras mattis consectetur purus sit amet fermentum. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus.</p>
-            </figcaption>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example clearfix">
+
+                <p class="docs-page__paragraph">// Left</p>
+                <div class="form__row form__row--flex docs-page__test-helper-2">
+                    <div class="button-group button-group--left docs-page__test-helper">
+                        <a class="btn btn--hollow">one</a>
+                        <a class="btn btn--hollow">two</a>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph">// Right</p>
+                <div class="form__row form__row--flex docs-page__test-helper-2">
+                    <div class="button-group button-group--right docs-page__test-helper">
+                        <a class="btn btn--hollow">Cancel</a>
+                        <a class="btn btn--primary">Save</a>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph">// Center</p>
+                <div class="form__row form__row--flex docs-page__test-helper-2">
+                    <div class="button-group button-group--center docs-page__test-helper">
+                        <a class="btn btn--hollow">one</a>
+                        <a class="btn btn--hollow">two</a>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph">// Left + Right</p>
+                <div class="form__row form__row--flex docs-page__test-helper-2">
+                    <div class="button-group button-group--left docs-page__test-helper">
+                        <a class="btn btn--hollow">one</a>
+                        <a class="btn btn--hollow">two</a>
+                    </div>
+            
+                    <div class="button-group button-group--right docs-page__test-helper">
+                        <a class="btn btn--hollow">Cancel</a>
+                        <a class="btn btn--primary">Save</a>
+                    </div>
+                </div>
+
+                <p class="docs-page__paragraph">// Left + Center + Right</p>
+                <div class="form__row form__row--flex docs-page__test-helper-2">
+                    <div class="button-group button-group--left docs-page__test-helper">
+                        <a class="btn btn--hollow">one</a>
+                        <a class="btn btn--hollow">two</a>
+                    </div>
+            
+                    <div class="button-group button-group--center docs-page__test-helper">
+                        <a class="btn btn--hollow">three</a>
+                        <a class="btn btn--hollow">four</a>
+                    </div>
+            
+                    <div class="button-group button-group--right docs-page__test-helper">
+                        <a class="btn btn--hollow">Cancel</a>
+                        <a class="btn btn--primary">Save</a>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+
+                </pre>
+            </div>
         </div>
     </div>
+    <h3 class="docs-page__h3">Vertical</h3>
+    <div class="docs-page__code-window" doc-tabs>
+            <div class="docs-page__window-bar">
+                <a id="example" href="#" class="active">Example</a>
+                <a id="markup" href="#">Markup</a>
+            </div>
+            <div class="docs-page__window-content">
+                <div class="docs-page__code-example clearfix">
+    
+                    <!-- <p class="docs-page__paragraph">// Left</p> -->
+                    <div class="form__row form__row--flex docs-page__test-helper-2">
+                        <div class="button-group button-group--vertical docs-page__test-helper">
+                            <a class="btn btn--hollow">one</a>
+                            <a class="btn btn--hollow">two</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="docs-page__code-markup">
+                    <pre class="prettyprint lang-html linenums">
+    
+                    </pre>
+                </div>
+            </div>
+        </div>
 </section>
