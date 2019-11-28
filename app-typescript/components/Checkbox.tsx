@@ -7,7 +7,6 @@ interface IProps {
         side?: 'left' | 'right',
     };
     disabled?: boolean;
-    side?: string;
     onChange(nextValue: boolean): void;
 }
 
