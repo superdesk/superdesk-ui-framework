@@ -1,44 +1,44 @@
 import * as React from 'react';
 
-interface IValue {
+interface IOption {
     value: any;
-    text: string;
+    label: string;
     disabled?: boolean;
 }
 
 interface IProps {
-    model: any;
-    values: Array<IValue>;
-    side?: string;
-    onClick(nextValue: string): void;
+    value: any;
+    options: Array<IOption>;
+    side?: 'left' | 'right';
+    onChange(nextValue: string): void;
 }
 
 export class Radio extends React.Component<IProps> {
     constructor(props: IProps) {
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleChange = this.handleChange.bind(this);
     }
 
-    handleClick(value: string) {
-        this.props.onClick(value);
+    handleChange(value: string) {
+        this.props.onChange(value);
     }
 
     render() {
 
         return (
-            this.props.values.map((item: any, index: number) => (
+            this.props.options.map((item: any, index: number) => (
                 <span className='sd-check__wrapper' key={index}>
                     {this.props.side === 'left' ?
-                        (item.disabled ? <label className='sd-label--disabled'>{item.text}</label> :
-                            (<label className={this.props.model === item.value ? 'label--active' : ''}>
+                        (item.disabled ? <label className='sd-label--disabled'>{item.label}</label> :
+                            (<label className={this.props.value === item.value ? 'label--active' : ''}>
                                 {item.text}</label>)) : null}
                     <span className={'sd-checkbox sd-checkbox--radio' +
                         (item.disabled ? ' sd-checkbox--disabled' :
-                            (this.props.model === item.value ? ' checked' : ''))}
-                        onClick={() => this.handleClick(item.value)}></span>
+                            (this.props.value === item.value ? ' checked' : ''))}
+                        onClick={() => this.handleChange(item.value)}></span>
                     {!this.props.side ? (
-                        item.disabled ? <label className='sd-label--disabled'>{item.text}
-                        </label> : (<label className={this.props.model === item.value ? 'label--active' : ''}>
+                        item.disabled ? <label className='sd-label--disabled'>{item.label}
+                        </label> : (<label className={this.props.value === item.value ? 'label--active' : ''}>
                             {item.text}</label>)) : null}
                 </span>
             ))

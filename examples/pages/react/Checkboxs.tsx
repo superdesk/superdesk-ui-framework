@@ -3,8 +3,32 @@ import * as Markup from '../../js/react';
 
 import { Checkbox } from '../../../app-typescript';
 
-export default class CheckboxsDoc extends React.Component<{}> {
-    
+interface IState {
+    value1: boolean;
+    value2: boolean;
+    value3: boolean;
+    value4: boolean;
+    value5: boolean;
+    value6: boolean;
+    value7: boolean;
+}
+
+
+export default class CheckboxsDoc extends React.Component<{}, IState> {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            value1: false,
+            value2: false,
+            value3: false,
+            value4: false,
+            value5: false,
+            value6: false,
+            value7: false,
+        };
+    }
+
     render() {
         return (
             <section className="docs-page__container">
@@ -25,17 +49,17 @@ export default class CheckboxsDoc extends React.Component<{}> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic SD checkbox</p>
                         <div className='form__row'>
-                            <Checkbox value= 'value1' text='Checkbox label right'/>
-                            <Checkbox value= 'value2' text='Check me!'/>
-                            <Checkbox value= 'value3' text='Check me too!'/>
-                            <Checkbox value= 'value4' text="I'm disabled:(" disabled= {true}/>
-                            <Checkbox value= 'value4' text="I'm disabled and checked :(" active= {true} disabled= {true}/>
+                            <Checkbox value= {this.state.value1} label={{text:'Checkbox label right'}} onChange={(value) => this.setState(() => ({ value1: value }))}/>
+                            <Checkbox value= {this.state.value2} label={{text:'Check me!'}} onChange={(value) => this.setState(() => ({ value2: value }))}/>
+                            <Checkbox value= {this.state.value3} label={{text:'Check me too!'}} onChange={(value) => this.setState(() => ({ value3: value }))}/>
+                            <Checkbox value= {this.state.value4} label={{text:"I'm disabled:("}} disabled= {true} onChange={(value) => this.setState(() => ({ value4: value }))}/>
+                            <Checkbox value= {this.state.value5} label={{text:"I'm disabled and checked :("}} active= {true} disabled= {true} onChange={(value) => this.setState(() => ({ value5: value }))}/>
                         </div>
                         <div className='form__row'>
-                            <Checkbox value= 'value5' text='Checkbox label left' side='left'/>
+                            <Checkbox value= {this.state.value6} label={{text:'Checkbox label left', side:'left'}} onChange={(value) => this.setState(() => ({ value6: value }))}/>
                         </div>
                         <div className='form__row'>
-                            <Checkbox value= 'value6' text='Checkbox with custom values'/>
+                            <Checkbox value= {this.state.value7} label={{text:'Checkbox with custom values'}} onChange={(value) => this.setState(() => ({ value7: value }))}/>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>

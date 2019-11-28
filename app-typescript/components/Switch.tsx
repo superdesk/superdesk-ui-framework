@@ -10,10 +10,6 @@ interface IProps {
 export class Switch extends React.Component<IProps> {
     constructor(props: IProps) {
         super(props);
-        this.state = {
-            checked: this.props.value || false,
-        };
-
         this.onClick = this.onClick.bind(this);
     }
 

@@ -31,11 +31,11 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic SD Radio buttons</p>
                         <div className='form__row'>
-                            <Radio model={this.state.value1} values={[{value:'test1', text:'Default label'}, {value:'test2', text:'Default label'}, {value:'test3', text:'Default label'}, {value:'test4', text:'Disabled state', disabled: true}]} onClick={(value) => this.setState(() => ({ value1: value }))}/>
+                            <Radio value={this.state.value1} options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}, {value:'test3', label:'Default label'}, {value:'test4', label:'Disabled state', disabled: true}]} onChange={(value) => this.setState(() => ({ value1: value }))}/>
                         </div>
                         <p className="docs-page__paragraph">// Basic - labels on the left</p>
                         <div className='form__row'>
-                            <Radio model={this.state.value2} values={[{value:'test5', text:'Label on the left'}, {value:'test6', text:'Label on the left'}, {value:'test7', text:'Label on the left'}]} side='left' onClick={(value) => this.setState(() => ({ value2: value }))}/>
+                            <Radio value={this.state.value2} options={[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]} side='left' onChange={(value) => this.setState(() => ({ value2: value }))}/>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
