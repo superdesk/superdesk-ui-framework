@@ -12,7 +12,7 @@ interface IState {
     open: boolean;
 }
 
-export class Alert extends React.Component<IProps, IState> {
+export class Alert extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {

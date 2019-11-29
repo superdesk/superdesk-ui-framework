@@ -8,7 +8,7 @@ interface IProps {
     children: React.ReactNode;
 }
 
-export class ButtonGroup extends React.Component<IProps> {
+export class ButtonGroup extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('button-group', {
             [`button-group--${this.props.align}`]: this.props.align,

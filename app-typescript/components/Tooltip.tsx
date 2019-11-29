@@ -9,7 +9,7 @@ interface IProps {
     onClick(): void;
 }
 
-export class Tooltip extends React.Component<IProps> {
+export class Tooltip extends React.PureComponent<IProps> {
     render() {
         return (
             <a className="btn"

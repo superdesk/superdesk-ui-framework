@@ -10,7 +10,7 @@ interface IProps {
     onClick(): void;
 }
 
-export class NavButton extends React.Component<IProps> {
+export class NavButton extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('button-nav', {
             'button-nav--ui-dark': this.props.theme === 'dark',

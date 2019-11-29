@@ -11,7 +11,7 @@ interface IProps {
     style?: 'filled' | 'hollow'; // defaults to 'filled'
 }
 
-export class Label extends React.Component<IProps> {
+export class Label extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('label', {
             [`label--${this.props.size}`]: this.props.size !== 'normal' && this.props.size !== undefined,

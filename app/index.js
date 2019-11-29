@@ -25,6 +25,8 @@ export {
     Loader,
     Radio,
     CheckBox,
+    RadioButton,
+    CheckboxButton,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

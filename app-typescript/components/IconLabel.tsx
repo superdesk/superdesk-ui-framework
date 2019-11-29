@@ -7,7 +7,7 @@ interface IProps {
     icon?: string;
 }
 
-export class IconLabel extends React.Component<IProps> {
+export class IconLabel extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('label-icon', {
             [`label-icon--${this.props.type}`]: this.props.type !== undefined,

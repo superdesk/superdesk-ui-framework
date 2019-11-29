@@ -19,7 +19,7 @@ interface IPropsButton extends IButtonBase {
     shape?: 'square' | 'round'; // defaults to 'square'
 }
 
-export class Button extends React.Component<IPropsButton> {
+export class Button extends React.PureComponent<IPropsButton> {
     render() {
         let classes = classNames('btn', {
             'btn--expanded': this.props.expand,

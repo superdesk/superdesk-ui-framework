@@ -1,7 +1,8 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 interface IProps {
-    value: any;
+    checked: boolean;
     label: {
         text: string,
         side?: 'left' | 'right',
@@ -14,31 +15,31 @@ export class Checkbox extends React.Component<IProps> {
     constructor(props: IProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
+        this.handleLabel = this.handleLabel.bind(this);
     }
 
     handleChange() {
-        this.props.onChange(!this.props.value);
+        this.props.onChange(!this.props.checked);
+    }
+
+    handleLabel(){
+        const classes = classNames({
+            'sd-label--disabled': this.props.disabled,
+            'label--active': this.props.checked,
+        });
+
+        return <label className={classes}>{this.props.label.text}</label>;
     }
 
     render() {
         return (
             <span className='sd-check__wrapper'>
-                {this.props.label.side === 'left' ?
-                    (this.props.disabled ? (this.props.value ?
-                        <label className='sd-label--disabled label--active'>{this.props.label.text}
-                        </label> : <label className='sd-label--disabled'>{this.props.label.text}
-                        </label>) : (<label className={this.props.value ? 'label--active' : ''}>
-                            {this.props.label.text}</label>)) : null}
+                {this.props.label.side === 'left' ? this.handleLabel() : null}
                 <span className={'sd-checkbox' +
-                    (this.props.disabled ? (this.props.value ? ' sd-checkbox--disabled checked' : ' sd-checkbox--disabled') :
-                        (this.props.value ? ' checked' : ''))}
+                    (this.props.disabled ? (this.props.checked ? ' sd-checkbox--disabled checked' : ' sd-checkbox--disabled') :
+                        (this.props.checked ? ' checked' : ''))}
                     onClick={this.handleChange}></span>
-                {!this.props.label.side ?
-                    (this.props.disabled ? (this.props.value ?
-                        <label className='sd-label--disabled label--active'>{this.props.label.text}
-                        </label> : <label className='sd-label--disabled'>{this.props.label.text}
-                        </label>) : (<label className={this.props.value ? 'label--active' : ''}>
-                            {this.props.label.text}</label>)) : null}
+                {!this.props.label.side ? this.handleLabel(): null}
             </span>
         );
     }
