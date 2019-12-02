@@ -17,21 +17,22 @@ export class CheckboxButton extends React.PureComponent<IProps> {
     }
 
     handleChange() {
+        if (this.props.disabled) {
+            return;
+        }
         this.props.onChange(!this.props.checked);
     }
 
     render() {
         return (
-            <span className='sd-check__wrapper'>
-                <span className={'sd-checkbox sd-checkbox--button-style' +
-                    (this.props.disabled ? ' sd-checkbox--disabled' :
-                        (this.props.checked ? ' checked' : ''))}
-                    onClick={this.handleChange}>
-                    {this.props.icon ? <i className={`icon-${this.props.icon}`}></i> : null}
-                    {this.props.disabled ? (<label className='sd-label--disabled'>{this.props.label.text}
-                    </label>) : (<label className={this.props.checked ? 'label--active' : ''}>
-                        {this.props.label.text}</label>)}
-                </span>
+            <span className={'sd-check-button' +
+                (this.props.disabled ? ' sd-check-new--disabled' :
+                    (this.props.checked ? ' checked' : ''))}
+                onClick={this.handleChange}>
+                {this.props.icon ? <i className={`icon-${this.props.icon}`}></i> : null}
+                {this.props.disabled ?
+                    (<label className='sd-check-button__text-label sd-label--disabled'>{this.props.label.text}
+                    </label>) : (<label className='sd-check-button__text-label'>{this.props.label.text}</label>)}
             </span>
         );
     }

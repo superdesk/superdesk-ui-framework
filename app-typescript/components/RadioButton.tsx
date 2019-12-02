@@ -28,15 +28,13 @@ export class RadioButton extends React.PureComponent<IProps> {
 
         return (
             this.props.options.map((item: any, index: number) => (
-                <span className='sd-check__wrapper' key={index}>
-                    <span className={'sd-checkbox sd-checkbox--button-style sd-checkbox--radio' +
-                        (item.disabled ? ' sd-checkbox--disabled' :
-                            (this.props.value === item.value ? ' checked' : ''))}
-                        onClick={() => this.handleChange(item.value)}>
-                        {item.icon ? <i className={`icon-${item.icon}`}></i> : null}
-                        {item.disabled ? <label className='sd-label--disabled'>{item.label}
-                        </label> : <label>{item.label}</label>}
-                    </span>
+                <span key={index} className={'sd-check-button' +
+                    (item.disabled ? ' sd-checkbox--disabled' :
+                        (this.props.value === item.value ? ' checked' : ''))}
+                    onClick={() => this.handleChange(item.value)}>
+                    {item.icon ? <i className={`icon-${item.icon}`}></i> : null}
+                    {item.disabled ? <label className='sd-check-button__text-label sd-label--disabled'>{item.label}
+                    </label> : <label className='sd-check-button__text-label'>{item.label}</label>}
                 </span>
             ))
         );

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import { Radio, RadioButton } from '../../../app-typescript';
+import { Radio, RadioButton, CheckGroup, CheckButtonGroup } from '../../../app-typescript';
 
 interface IState {
     value1: any;
@@ -30,20 +30,28 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic SD Radio buttons</p>
-                        <div className='form__row'>
-                            <Radio value={this.state.value1} options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}, {value:'test3', label:'Default label'}, {value:'test4', label:'Disabled state', disabled: true}]} onChange={(value) => this.setState(() => ({ value1: value }))}/>
+                        <div className='form__group'>
+                            <CheckGroup>
+                                <Radio value={this.state.value1} options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}, {value:'test3', label:'Default label'}, {value:'test4', label:'Disabled state', disabled: true}]} onChange={(value) => this.setState(() => ({ value1: value }))}/>
+                            </CheckGroup>
                         </div>
                         <p className="docs-page__paragraph">// Basic - labels on the left</p>
-                        <div className='form__row'>
-                            <Radio value={this.state.value2} options={[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]} labelSide='left' onChange={(value) => this.setState(() => ({ value2: value }))}/>
+                        <div className='form__group'>
+                            <CheckGroup>
+                                <Radio value={this.state.value2} options={[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]} labelSide='left' onChange={(value) => this.setState(() => ({ value2: value }))}/>
+                            </CheckGroup>
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Button styled radio buttons</p>
-                        <div className='form__row'>
-                            <RadioButton value={this.state.value3} options={[{value:'test6', label:'Button style radio'}, {value:'test7', label:'Button style'}, {value:'test8', label:'Button style'}, {value:'test9', label:'Button style disabled', disabled:true}]} onChange={(value) => this.setState(() => ({ value3: value }))}/>
+                        <div className='form__group'>
+                            <CheckButtonGroup>
+                                <RadioButton value={this.state.value3} options={[{value:'test6', label:'Button style radio'}, {value:'test7', label:'Button style'}, {value:'test8', label:'Button style'}, {value:'test9', label:'Button style disabled', disabled:true}]} onChange={(value) => this.setState(() => ({ value3: value }))}/>
+                            </CheckButtonGroup>
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style radio with icon</p>
-                        <div className='form__row'>
-                            <RadioButton value={this.state.value4} options={[{value:'test10', label:'Radio button with icon', icon:'list-view'}, {value:'test11', label:'I have an icon!', icon:'grid-view'}, {value:'test12', label:'Yeah, me too!', icon:'kanban-view'}]} onChange={(value) => this.setState(() => ({ value4: value }))}/>
+                        <div className='form__group'>
+                            <CheckButtonGroup>
+                                <RadioButton value={this.state.value4} options={[{value:'test10', label:'Radio button with icon', icon:'list-view'}, {value:'test11', label:'I have an icon!', icon:'grid-view'}, {value:'test12', label:'Yeah, me too!', icon:'kanban-view'}]} onChange={(value) => this.setState(() => ({ value4: value }))}/>
+                            </CheckButtonGroup>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>

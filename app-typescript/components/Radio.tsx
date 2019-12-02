@@ -9,17 +9,17 @@ interface IProps<T> {
         disabled?: boolean,
     }>;
     labelSide?: 'left' | 'right';
-    onChange: (value: T)=> void;
+    onChange: (value: T) => void;
 }
 
-export class Radio extends React.PureComponent<IProps> {
-    constructor(props: IProps) {
+export class Radio<T> extends React.PureComponent<IProps<T>> {
+    constructor(props: IProps<T>) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleLabel = this.handleLabel.bind(this);
     }
 
-    handleChange(value: string) {
+    handleChange(value: T) {
         this.props.onChange(value);
     }
 
@@ -35,9 +35,9 @@ export class Radio extends React.PureComponent<IProps> {
     render() {
         return (
             this.props.options.map((item: any, index: number) => (
-                <span className='sd-check__wrapper' key={index}>
+                <span className='sd-check-new__wrapper' key={index} label-position={this.props.labelSide === 'left' ? 'left' : null}>
                     {this.props.labelSide === 'left' ? this.handleLabel(item) : null}
-                    <span className={'sd-checkbox sd-checkbox--radio' +
+                    <span className={'sd-radio-new' +
                         (item.disabled ? ' sd-checkbox--disabled' :
                             (this.props.value === item.value ? ' checked' : ''))}
                         onClick={() => this.handleChange(item.value)}></span>

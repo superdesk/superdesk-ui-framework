@@ -20,6 +20,8 @@ export {Radio} from './components/Radio';
 export {Checkbox} from './components/Checkbox';
 export {RadioButton} from './components/RadioButton';
 export {CheckboxButton} from './components/CheckboxButton';
+export {CheckGroup} from './components/CheckGroup';
+export {CheckButtonGroup} from './components/CheckButtonGroup';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

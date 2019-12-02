@@ -27,6 +27,8 @@ export {
     CheckBox,
     RadioButton,
     CheckboxButton,
+    CheckGroup,
+    CheckButtonGroup,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
