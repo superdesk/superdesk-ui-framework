@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import { Button } from '../../../app-typescript';
+import { Button, ButtonGroup } from '../../../app-typescript';
 
 export default class ButtonsDoc extends React.Component {
     render() {
