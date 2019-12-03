@@ -20,7 +20,8 @@
     "server": "webpack --watch",
     "build": "npm run lint && webpack && tsc",
     "lint": "eslint app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
-    "prepublish": "patch-package && npm run build"
+    "prepublishOnly": "npm run build",
+    "prepublish": "patch-package"
   },
   "devDependencies": {
     "@types/classnames": "^2.2.9",
