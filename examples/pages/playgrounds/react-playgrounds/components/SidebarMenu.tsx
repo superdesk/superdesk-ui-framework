@@ -5,7 +5,7 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class SidebarMenu extends React.Component<IProps> {
+export class SidebarMenu extends React.PureComponent<IProps> {
     render() {
         return (
             <div className='sd-sidebar-menu sd-content-wrapper__left-tabs'>

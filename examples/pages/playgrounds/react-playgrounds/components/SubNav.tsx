@@ -6,14 +6,14 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class SubNav extends React.Component<IProps> {
+export class SubNav extends React.PureComponent<IProps> {
     render() {
-        let classes = classNames({
+        let classes = classNames('subnav',{
             'subnav-darker': this.props.color,
         });
 
         return (
-            <div className='subnav'>
+            <div className={classes}>
                 {this.props.children}
             </div>
         );

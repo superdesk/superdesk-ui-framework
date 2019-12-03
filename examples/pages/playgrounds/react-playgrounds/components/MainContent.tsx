@@ -11,7 +11,7 @@ interface IState {
     openA: boolean;
 }
 
-export class MainContent extends React.Component<IProps, IState> {
+export class MainContent extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {

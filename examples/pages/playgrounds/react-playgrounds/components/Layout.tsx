@@ -8,7 +8,7 @@ interface IProps {
     openA?: boolean;
 }
 
-export class Layout extends React.Component<IProps> {
+export class Layout extends React.PureComponent<IProps> {
     render() {
         return (
             <div className='sd-page-grid--test docs-page__full-width-helper'>
