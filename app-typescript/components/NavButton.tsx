@@ -5,16 +5,15 @@ import { Button } from './Button';
 interface IProps {
     icon?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
-    color?: string; // https://ui-framework.superdesk.org/#/components/colors
-    disabled?: boolean;
+    type?: 'default' | 'primary' | 'highlight' | 'darker';
     onClick(): void;
 }
 
-export class NavButton extends React.Component<IProps> {
+export class NavButton extends React.PureComponent<IProps> {
     render() {
-        let classes = classNames('button-nav', {
-            'button-nav--ui-dark': this.props.theme === 'dark',
-            [`button-nav--${this.props.color}`]: this.props.color,
+        let classes = classNames('sd-navbtn', {
+            'sd-navbtn-dark': this.props.theme === 'dark',
+            [`sd-navbtn--${this.props.type}`]: this.props.type,
         });
 
         return (

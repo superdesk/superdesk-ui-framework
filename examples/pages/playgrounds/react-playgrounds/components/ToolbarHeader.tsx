@@ -4,7 +4,7 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class ToolbarHeader extends React.Component<IProps> {
+export class ToolbarHeader extends React.PureComponent<IProps> {
     render() {
         return (
             <div className='sd-main-content-grid__header'>

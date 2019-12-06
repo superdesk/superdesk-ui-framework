@@ -9,7 +9,7 @@ interface IProps {
     onClick(): void;
 }
 
-export class IconButton extends React.Component<IProps> {
+export class IconButton extends React.PureComponent<IProps> {
     render() {
         return (
             <a

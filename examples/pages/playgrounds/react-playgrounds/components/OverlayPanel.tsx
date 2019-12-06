@@ -4,7 +4,7 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class OverlayPanel extends React.Component<IProps> {
+export class OverlayPanel extends React.PureComponent<IProps> {
     render() {
         return (
             <div className='sd-main-content-grid__overlay'>

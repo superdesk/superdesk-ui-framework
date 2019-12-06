@@ -6,7 +6,7 @@ interface IProps {
     open?: boolean;
 }
 
-export class AuthoringContent extends React.Component<IProps> {
+export class AuthoringContent extends React.PureComponent<IProps> {
     render() {
         if (this.props.open) {
             return (

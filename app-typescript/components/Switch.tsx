@@ -7,13 +7,9 @@ interface IProps {
     onChange(nextValue: boolean): void;
 }
 
-export class Switch extends React.Component<IProps> {
+export class Switch extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
-        this.state = {
-            checked: this.props.value || false,
-        };
-
         this.onClick = this.onClick.bind(this);
     }
 

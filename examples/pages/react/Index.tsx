@@ -18,6 +18,8 @@ import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
 import InputsDoc from './Inputs';
 import SwitchDoc from './Switch';
+import RadiosDoc from './Radios';
+import CheckboxsDoc from './Checkboxs';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -55,6 +57,12 @@ const pages = {
             'switch': {
                 name: 'Switch'
             },
+            'radio': {
+                name: 'Radio'
+            },
+            'checkbox': {
+                name: 'Checkbox'
+            },
         }
     }
 }
@@ -76,6 +84,8 @@ class ReactDoc extends React.Component {
                         <Route path="/react/alerts" component={AlertDoc} />
                         <Route path="/react/tooltips" component={TooltipDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
+                        <Route path="/react/radio" component={RadiosDoc} />
+                        <Route path="/react/checkbox" component={CheckboxsDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

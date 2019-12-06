@@ -6,7 +6,7 @@ interface IProps {
     open?: boolean;
 }
 
-export class PreviewPanel extends React.Component<IProps> {
+export class PreviewPanel extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-main-content-grid__preview', {
             'open-preview': this.props.open,

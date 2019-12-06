@@ -8,7 +8,7 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class Badge extends React.Component<IProps> {
+export class Badge extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('badge', {
             [`badge--${this.props.type}`]: this.props.type,
