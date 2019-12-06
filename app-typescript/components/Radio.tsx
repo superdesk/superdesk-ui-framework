@@ -15,7 +15,6 @@ interface IProps<T> {
 export class Radio<T> extends React.PureComponent<IProps<T>> {
     constructor(props: IProps<T>) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
         this.handleLabel = this.handleLabel.bind(this);
     }
 
