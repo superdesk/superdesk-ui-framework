@@ -17,7 +17,6 @@ interface IProps {
 export class RadioButton extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
-        this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(value: string) {
