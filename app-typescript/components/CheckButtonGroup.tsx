@@ -5,7 +5,6 @@ interface IProps {
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
     grid?: boolean;
     align?: 'left' | 'right' | 'center'; // defaults to 'left'
-    children: React.ReactNode;
 }
 
 export class CheckButtonGroup extends React.PureComponent<IProps> {
