@@ -21,10 +21,22 @@ index ca0ce06..fc37044 100644
      onClearButtonClick?(event: Event): void;
      onViewDateChange?(e: {originalEvent: Event, value: Date}): void;
 diff --git a/node_modules/primereact/components/calendar/Calendar.js b/node_modules/primereact/components/calendar/Calendar.js
-index f394886..e96d4f3 100644
+index f394886..aece52d 100644
 --- a/node_modules/primereact/components/calendar/Calendar.js
 +++ b/node_modules/primereact/components/calendar/Calendar.js
-@@ -1882,9 +1882,9 @@ function (_Component) {
+@@ -1490,6 +1490,11 @@ function (_Component) {
+         throw new Error('Invalid arguments');
+       }
+ 
++      if (value.length !== format.length + 2) { // +2 is added because four digit year is represented as "yy" in primereact calendar format
++        // workaround for https://github.com/primefaces/primereact/issues/1119
++        throw new Error("User input doesn't match the format");
++      }
++
+       value = _typeof(value) === "object" ? value.toString() : value + "";
+ 
+       if (value === "") {
+@@ -1882,9 +1887,9 @@ function (_Component) {
        return _react.default.createElement("div", {
          key: monthMetaData.month,
          className: "p-datepicker-group"

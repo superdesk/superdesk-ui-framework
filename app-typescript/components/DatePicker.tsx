@@ -4,14 +4,18 @@ import format from 'date-fns/format';
 import {Calendar, LocaleSettings, CalendarProps} from 'primereact/calendar';
 import {throttle} from 'lodash';
 
-interface IDatePicker {
-    value: Date | null;
-    onChange(valueNext: Date | null): void;
+interface IDatePickerBase {
     disabled?: boolean;
+    dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
 
     // shortcuts can be used to jump to a date relative to today
     // for example [{label: 'tomorrow', days: 1}, {label: 'yesterday', days: -1}]
     shortcuts?: Array<{days: number, label: string}>;
+}
+
+interface IDatePicker extends IDatePickerBase {
+    value: Date | null;
+    onChange(valueNext: Date | null): void;
 }
 
 let currentLocale: LocaleSettings = {
@@ -74,12 +78,6 @@ let currentLocale: LocaleSettings = {
     today: 'today', // not used
     clear: 'clear', // not used
 };
-
-// get date format from current locale
-const dateFormat = new Date('2000-11-22').toLocaleDateString()
-    .replace('22', 'dd')
-    .replace('11', 'mm')
-    .replace('2000', 'yy');
 
 const internalPrimereactClassnames = {
     overlayVisible: 'p-input-overlay-visible',
@@ -185,7 +183,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                     }
                 }}
                 locale={currentLocale}
-                dateFormat={dateFormat}
+                dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
                 showIcon={true}
                 icon="icon-calendar"
                 headerTemplate={() => this.props.shortcuts == null ? null : (
@@ -222,11 +220,9 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
     }
 }
 
-interface IDatePickerISO {
+interface IDatePickerISO extends IDatePickerBase {
     value: string; // will output date formatted according to ISO8601; value can be an empty string
     onChange(value: string): void; // value can be an empty string
-    disabled?: boolean;
-    shortcuts?: Array<{days: number, label: string}>;
 }
 
 export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
@@ -243,6 +239,7 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 }}
                 disabled={this.props.disabled}
                 shortcuts={this.props.shortcuts}
+                dateFormat={this.props.dateFormat}
             />
         );
     }
