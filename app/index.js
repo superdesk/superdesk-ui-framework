@@ -30,6 +30,8 @@ export {
     CheckGroup,
     CheckButtonGroup,
     NavButton,
+    Tab,
+    TabList,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
