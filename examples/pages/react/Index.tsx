@@ -20,6 +20,7 @@ import InputsDoc from './Inputs';
 import SwitchDoc from './Switch';
 import RadiosDoc from './Radios';
 import CheckboxsDoc from './Checkboxs';
+import TabsDoc from './Tabs';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -63,6 +64,9 @@ const pages = {
             'checkbox': {
                 name: 'Checkbox'
             },
+            'tab': {
+                name: 'Tabs'
+            },
         }
     }
 }
@@ -86,6 +90,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/switch" component={SwitchDoc} />
                         <Route path="/react/radio" component={RadiosDoc} />
                         <Route path="/react/checkbox" component={CheckboxsDoc} />
+                        <Route path="/react/tab" component={TabsDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
