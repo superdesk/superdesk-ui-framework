@@ -28,7 +28,7 @@ export class Checkbox extends React.Component<IProps> {
             'label--active': this.props.checked,
         });
 
-        return <label className={classes}>{this.props.label.text}</label>;
+        return <label className={classes} onClick={this.handleChange}>{this.props.label.text}</label>;
     }
 
     render() {
