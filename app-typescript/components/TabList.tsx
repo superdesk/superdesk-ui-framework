@@ -41,7 +41,7 @@ class TabList extends React.PureComponent<ITabList, IState> {
         });
     }
 
-    goTo(label: string) {
+    public goTo(label: string) {
         const refLabel = this.props.children.find((item) => item.props.label === label);
         this.setState({
             index: this.props.children.indexOf(refLabel),
