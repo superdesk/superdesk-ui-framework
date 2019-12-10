@@ -6,6 +6,12 @@ import { Tab, TabList } from '../../../app-typescript';
 
 
 export default class TabsDoc extends React.Component<{}> {
+    tabs: TabList;
+
+    componentDidMount() {
+        this.tabs.goTo('Content')
+    }
+
     render() {
         return (
             <section className="docs-page__container">
@@ -15,10 +21,12 @@ export default class TabsDoc extends React.Component<{}> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
-                            <TabList>
-                                <Tab text='Content'>Content here.</Tab>
-                                <Tab text='Metadata'>Metadata here.</Tab>
-                                <Tab text='Duplicates'>Duplicates here.</Tab>
+                            <TabList ref={(tabs) => {
+                                this.tabs = tabs;
+                            }}>
+                                <Tab label='Content'>Content here.</Tab>
+                                <Tab label='Metadata'>Metadata here.</Tab>
+                                <Tab label='Duplicates'>Duplicates here.</Tab>
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -33,9 +41,9 @@ export default class TabsDoc extends React.Component<{}> {
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
                             <TabList size='big'>
-                                <Tab text='Content'>Content here.</Tab>
-                                <Tab text='Metadata'>Metadata here.</Tab>
-                                <Tab text='Duplicates'>Duplicates here.</Tab>
+                                <Tab label='Content'>Content here.</Tab>
+                                <Tab label='Metadata'>Metadata here.</Tab>
+                                <Tab label='Duplicates'>Duplicates here.</Tab>
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -50,9 +58,9 @@ export default class TabsDoc extends React.Component<{}> {
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
                             <TabList size='small'>
-                                <Tab text='Content'>Content here.</Tab>
-                                <Tab text='Metadata'>Metadata here.</Tab>
-                                <Tab text='Duplicates'>Duplicates here.</Tab>
+                                <Tab label='Content'>Content here.</Tab>
+                                <Tab label='Metadata'>Metadata here.</Tab>
+                                <Tab label='Duplicates'>Duplicates here.</Tab>
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -67,9 +75,9 @@ export default class TabsDoc extends React.Component<{}> {
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--ui-dark'>
                             <TabList theme='dark'>
-                                <Tab text='Content'>Content here.</Tab>
-                                <Tab text='Metadata'>Metadata here.</Tab>
-                                <Tab text='Duplicates'>Duplicates here.</Tab>
+                                <Tab label='Content'>Content here.</Tab>
+                                <Tab label='Metadata'>Metadata here.</Tab>
+                                <Tab label='Duplicates'>Duplicates here.</Tab>
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>

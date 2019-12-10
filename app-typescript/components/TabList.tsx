@@ -12,7 +12,7 @@ interface IState {
 }
 
 interface ITab {
-    text: string;
+    label: string;
 }
 
 class Tab extends React.PureComponent<ITab> {
@@ -32,11 +32,19 @@ class TabList extends React.PureComponent<ITabList, IState> {
             index: 0,
         };
         this.handleChange = this.handleChange.bind(this);
+        this.goTo = this.goTo.bind(this);
     }
 
-    handleChange(index: number) {
+    private handleChange(index: number) {
         this.setState({
             index: index,
+        });
+    }
+
+    goTo(label: string) {
+        const refLabel = this.props.children.find((item) => item.props.label === label);
+        this.setState({
+            index: this.props.children.indexOf(refLabel),
         });
     }
 
@@ -52,7 +60,7 @@ class TabList extends React.PureComponent<ITabList, IState> {
                     {this.props.children.map((item, index) =>
                         <li key={index} className={'nav-tabs__tab' + (this.state.index === index ? ' nav-tabs__tab--active' : '')}>
                             <button className='nav-tabs__link' onClick={() => this.handleChange(index)}>
-                                <span>{item.props.text}</span>
+                                <span>{item.props.label}</span>
                             </button>
                         </li>)}
                 </ul>
