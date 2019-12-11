@@ -28,7 +28,7 @@ export class Radio<T> extends React.PureComponent<IProps<T>> {
             'label--active': this.props.value === item.value,
         });
 
-        return <label className={classes}>{item.label}</label>;
+        return <label className={classes} onClick={() => this.handleChange(item.value)}>{item.label}</label>;
     }
 
     render() {
