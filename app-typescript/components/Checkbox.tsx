@@ -5,7 +5,7 @@ interface IProps {
     checked: boolean;
     label: {
         text: string,
-        side?: 'left' | 'right',
+        side?: 'left' | 'right', // defaults to 'right'
     };
     disabled?: boolean;
     onChange(nextValue: boolean): void;

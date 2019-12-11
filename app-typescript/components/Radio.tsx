@@ -8,7 +8,7 @@ interface IProps<T> {
         value: T,
         disabled?: boolean,
     }>;
-    labelSide?: 'left' | 'right';
+    labelSide?: 'left' | 'right'; // defaults to 'right'
     onChange: (value: T) => void;
 }
 
