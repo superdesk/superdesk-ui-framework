@@ -32,6 +32,7 @@ export {
     NavButton,
     Tab,
     TabList,
+    Menu,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

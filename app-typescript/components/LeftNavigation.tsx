@@ -1,44 +1,45 @@
 import * as React from 'react';
 
-interface INavigationList {
-    header: string;
+interface IMenuItem {
+    id: string;
+    label: string;
 }
 
-interface INavigationItems {
-    text: string;
+interface IMenuGroup {
+    label: string;
+    items: Array<IMenuItem>;
 }
 
-class NavigationList extends React.PureComponent<INavigationList> {
+interface IMenu {
+    groups: Array<IMenuGroup>;
+    activeItemId: string;
+    onSelect(id: string): void;
+}
+
+export class Menu extends React.PureComponent<IMenu> {
     render() {
         return (
             <React.Fragment>
-                <li className='sd-left-nav__group-header'>{this.props.header}</li>
-                {this.props.children}
+                {this.props.groups.map((group, i) => {
+                    return (
+                        <ul key={i}>
+                            <li className='sd-left-nav__group-header'>{group.label}</li>
+                            {group.items.map((item, j) => {
+                                return (
+                                    <li
+                                        key={j}
+                                        onClick={() => {
+                                            this.props.onSelect(item.id);
+                                        }}
+                                    >
+                                        <a href='#' className="sd-left-nav__btn">{item.label}</a>
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    );
+                })}
             </React.Fragment>
         );
     }
 }
-class NavigationItem extends React.PureComponent<INavigationItems> {
-    render() {
-        return (
-            <li>
-                <a href='#' className="sd-left-nav__btn">{this.props.text}</a>
-            </li>
-        );
-    }
-}
-
-class LeftNavigation extends React.PureComponent {
-    render() {
-
-        return (
-            <nav className='sd-left-nav sd-left-nav--absolute' style={{ top: '48px' }}>
-                <ul>
-                    {this.props.children}
-                </ul>
-            </nav>
-        );
-    }
-}
-
-export { NavigationItem, NavigationList, LeftNavigation };
