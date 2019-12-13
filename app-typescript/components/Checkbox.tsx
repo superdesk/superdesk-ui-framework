@@ -19,7 +19,9 @@ export class Checkbox extends React.Component<IProps> {
     }
 
     handleChange() {
-        this.props.onChange(!this.props.checked);
+        if (!this.props.disabled) {
+            this.props.onChange(!this.props.checked);
+        }
     }
 
     handleLabel() {

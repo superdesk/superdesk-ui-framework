@@ -18,8 +18,10 @@ export class Radio<T> extends React.PureComponent<IProps<T>> {
         this.handleLabel = this.handleLabel.bind(this);
     }
 
-    handleChange(value: T) {
-        this.props.onChange(value);
+    handleChange(item: any) {
+        if (!item.disabled) {
+            this.props.onChange(item.value);
+        }
     }
 
     handleLabel(item: any) {
@@ -28,7 +30,7 @@ export class Radio<T> extends React.PureComponent<IProps<T>> {
             'label--active': this.props.value === item.value,
         });
 
-        return <label className={classes} onClick={() => this.handleChange(item.value)}>{item.label}</label>;
+        return <label className={classes} onClick={() => this.handleChange(item)}>{item.label}</label>;
     }
 
     render() {
@@ -39,7 +41,7 @@ export class Radio<T> extends React.PureComponent<IProps<T>> {
                     <span className={'sd-radio-new' +
                         (item.disabled ? ' sd-checkbox--disabled' :
                             (this.props.value === item.value ? ' checked' : ''))}
-                        onClick={() => this.handleChange(item.value)}></span>
+                        onClick={() => this.handleChange(item)}></span>
                     {!this.props.labelSide ? this.handleLabel(item) : null}
                 </span>
             ))
