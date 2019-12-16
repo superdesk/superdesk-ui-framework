@@ -1,4 +1,10 @@
 import React from 'react';
+
+import Prism from 'prismjs';
+import NormalizeWhitespace from 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
+import LineNumbers from 'prismjs/plugins/line-numbers/prism-line-numbers';
+import Markdown from 'prismjs/components/prism-markdown';
+
 import { Link } from 'react-router-dom';
 
 class ReactNav extends React.Component {
@@ -87,10 +93,11 @@ class ReactMarkupPreview extends React.Component {
 class ReactMarkupCode extends React.Component {
     render() {
         return (
-            <div className="docs-page__code-markup"
-                style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}>
-                <pre className="prettyprint lang-html linenums">
-                    {this.props.children}
+            <div className="docs-page__code-markup" style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}>
+                <pre className="line-numbers">
+                    <code className="language-markdown">
+                        {this.props.children}
+                    </code>
                 </pre>
             </div>
         )

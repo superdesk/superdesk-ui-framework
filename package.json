@@ -55,6 +55,7 @@
     "lodash": "4.17.15",
     "node-sass": "^4.5.3",
     "patch-package": "6.2.0",
+    "prismjs": "^1.17.1",
     "prop-types": "^15.6.0",
     "react": "16.8.6",
     "react-bootstrap": "^0.31.2",
