@@ -5,7 +5,7 @@ interface IProps {
     checked: boolean;
     label: {
         text: string,
-        side?: 'left' | 'right',
+        side?: 'left' | 'right', // defaults to 'right'
     };
     disabled?: boolean;
     onChange(nextValue: boolean): void;
@@ -19,7 +19,9 @@ export class Checkbox extends React.Component<IProps> {
     }
 
     handleChange() {
-        this.props.onChange(!this.props.checked);
+        if (!this.props.disabled) {
+            this.props.onChange(!this.props.checked);
+        }
     }
 
     handleLabel() {

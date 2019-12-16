@@ -2,8 +2,8 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface ITabList {
-    size?: 'normal' | 'big' | 'small';
-    theme?: 'light' | 'dark';
+    size?: 'normal' | 'big' | 'small'; // defaults to 'normal'
+    theme?: 'light' | 'dark'; // defaults to 'light'
     children: Array<any>;
 }
 

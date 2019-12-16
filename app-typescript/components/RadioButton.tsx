@@ -10,7 +10,7 @@ interface IOption {
 interface IProps {
     value: any;
     options: Array<IOption>;
-    labelSide?: 'left' | 'right';
+    labelSide?: 'left' | 'right'; // defaults to 'right'
     onChange(nextValue: string): void;
 }
 
