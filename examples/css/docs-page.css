@@ -462,7 +462,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 }
 .docs-page__code-markup {
     display: none;
-    background-color: #000;
+    background-color: #272822;
     padding: 16px 16px 16px 36px;
     overflow-y: scroll;
 }
