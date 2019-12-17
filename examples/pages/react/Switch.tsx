@@ -6,6 +6,7 @@ import { Switch } from '../../../app-typescript';
 interface IState {
     value1: boolean;
     value2: boolean;
+    value3: boolean;
 }
 
 export default class SwitchDoc extends React.Component<{}, IState> {
@@ -15,6 +16,7 @@ export default class SwitchDoc extends React.Component<{}, IState> {
         this.state = {
             value1: false,
             value2: true,
+            value3: false,
         };
     }
 
@@ -26,12 +28,20 @@ export default class SwitchDoc extends React.Component<{}, IState> {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
+                    <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Label on the right (default)</p>
                         <div className="form__row">
-                            <label>Label on left {this.state.value1}</label>
                             <Switch value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                            <label>Label on right {this.state.value1}</label>
                         </div>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Labels on the left</p>
+                        <p className="" style= {{margin: '-10px 0 20px', color: '#747474'}}>This option should be used only in cases when the switch is aligned to the right.</p>
                         <div className="form__row">
-                            <Switch value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} disabled={true} />
+                            <label>Label on left {this.state.value2}</label>
+                            <Switch value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
+                        </div>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Disabled</p>
+                        <div className="form__row">
+                            <Switch value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} disabled={true} />
                             <label>Label on right with disabled state</label>
                         </div>
                     </Markup.ReactMarkupPreview>

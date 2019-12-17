@@ -49,18 +49,9 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Checkbox</h2>
-                <p className="docs-page__paragraph">
-                    For creating SD styled checkboxes use the custom <code>&lt;sd-check&gt;</code> tag.
-                    The text inside the tag creates the label for the sd-checkbox.
-                    By default the label will be placed on the right side of checkbox, to place it on the left add the property <code>label-position="left"</code>.
-                    To create the button styled checkbox add <code>label-position="inside"</code> to the sd-check tag. <code>ng-model</code> must be defined for proper functionality.
-                    To initially check item, add <code>ng-checked="true"</code>.
-                </p>
-                <p className="docs-page__paragraph docs-page__paragraph--small">
-                    To include an icon to the button style checkboxes add the data attribute <code>data-icon</code> to <code>sd-check</code>. Use the desired icon name, without the "icon-" prefix, as the value.
-                    If the data attribute <code>data-icon</code> is present the button style will be applied automatically, there is no need to add <code>label-position="inside"</code>, although it will work with it as well.
-                    For all available icons options check out the Icon font.
-                </p>
+                <p className="docs-page__paragraph"></p>
+
+                <h3 className="docs-page__h3">Basic Checkbox</h3>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic SD checkbox</p>
@@ -73,16 +64,29 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                 <Checkbox checked= {this.state.value5} label={{text:"I'm disabled and checked :("}} disabled= {true} onChange={(value) => this.setState(() => ({ value5: value }))}/>
                             </CheckGroup>
                         </div>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Label on the left</p>
+                        <p className="" style= {{margin: '-10px 0 20px', color: '#747474'}}>This option should be avoided in general use.</p>
                         <div className='form__row'>
                             <CheckGroup>
                                 <Checkbox checked= {this.state.value6} label={{text:'Checkbox label left', side:'left'}} onChange={(value) => this.setState(() => ({ value6: value }))}/>
                             </CheckGroup>
                         </div>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Checkbox with custom values</p>
                         <div className='form__row'>
                             <CheckGroup>
                                 <Checkbox checked= {this.state.value7} label={{text:'Checkbox with custom values'}} onChange={(value) => this.setState(() => ({ value7: value }))}/>
                             </CheckGroup>
                         </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>
+                       
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+
+                <h3 className="docs-page__h3">Button style checkbox</h3>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style checkbox</p>
                         <div className='form__group'>
                             <CheckButtonGroup>

@@ -9,7 +9,7 @@ export default class BadgeDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Badge</h2>
-                <p className="docs-page__paragraph">Add the .badge class to an element to create a badge. In the code example <code>&lt;span&gt;</code> is used, but any tag will do.</p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Circle (default)</p>
@@ -41,7 +41,7 @@ export default class BadgeDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Element with badge</h3>
-                <p className="docs-page__paragraph">Add the div with <code>.element-with-badge</code> class and put inside your element and after it the badge.</p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
