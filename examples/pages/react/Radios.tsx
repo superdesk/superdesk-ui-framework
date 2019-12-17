@@ -25,22 +25,36 @@ export default class RadiosDoc extends React.Component<{}, IState> {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Radio button</h2>
-                <p className="docs-page__paragraph">Radio buttons are created the same way the SD checkboxes with the addition of the property <code>type="radio"</code>.</p>
+                <p className="docs-page__paragraph"></p>
+
+                <h3 className="docs-page__h3">Basic Radio button</h3>
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// Basic SD Radio buttons</p>
+                        <p className="docs-page__paragraph">// Label on the right (default)</p>
                         <div className='form__group'>
                             <CheckGroup>
                                 <Radio value={this.state.value1} options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}, {value:'test3', label:'Default label'}, {value:'test4', label:'Disabled state', disabled: true}]} onChange={(value) => this.setState(() => ({ value1: value }))}/>
                             </CheckGroup>
                         </div>
-                        <p className="docs-page__paragraph">// Basic - labels on the left</p>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Labels on the left</p>
+                        <p className="" style= {{margin: '-10px 0 20px', color: '#747474'}}>This option should be avoided in general use.</p>
                         <div className='form__group'>
                             <CheckGroup>
                                 <Radio value={this.state.value2} options={[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]} labelSide='left' onChange={(value) => this.setState(() => ({ value2: value }))}/>
                             </CheckGroup>
                         </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>
+                       
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Button style radio</h3>
+
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Button styled radio buttons</p>
                         <div className='form__group'>
                             <CheckButtonGroup>

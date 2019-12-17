@@ -17,7 +17,7 @@ export default class TabsDoc extends React.Component<{}> {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Tabs</h2>
                 <h3 className="docs-page__h3">Default tabs</h3>
-                <p className="docs-page__paragraph">To have tabs like navigation add unordered list with class <code>.nav-tabs</code> and follow provided html markup. Content part is provided just as an example.</p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -36,7 +36,7 @@ export default class TabsDoc extends React.Component<{}> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Large tabs</h3>
-                <p className="docs-page__paragraph">Add additional class (modifier) <code>.nav-tabs--big</code> to unordered list <code>.nav-tabs</code>.</p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -53,7 +53,7 @@ export default class TabsDoc extends React.Component<{}> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Small tabs</h3>
-                <p className="docs-page__paragraph">Add additional class (modifier) <code>.nav-tabs--small</code> to unordered list <code>.nav-tabs</code>.</p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -70,7 +70,7 @@ export default class TabsDoc extends React.Component<{}> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Dark tab variation</h3>
-                <p className="docs-page__paragraph">Add additional class (modifier) <code>.nav-tabs--ui-dark</code> to unordered list <code>.nav-tabs</code>. Dark navigation also works with different sizing (big or small).</p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--ui-dark'>

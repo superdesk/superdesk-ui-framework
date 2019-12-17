@@ -9,3 +9,4 @@ examples/.DS_Store
 .vscode/
 dist
 debug.log
+yarn-error.log

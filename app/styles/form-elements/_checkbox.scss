@@ -317,7 +317,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     line-height: 1;
     border: 1px solid $checkButtonBorderColor;
     @include border-radius(2px);
-    @include transition(all, 0.2s, ease-out);
+    @include transition(all, 0.2s, ease-in-out);
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -331,7 +331,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         cursor: pointer;
         @include text-overflow;
         opacity: 0.8;
-        @include transition(all, 0.2s, ease-out);
+        @include transition(opacity, 0.2s, ease-in-out);
     }
     [class^="icon-"], [class*=" icon-"] {
         color: currentColor;
