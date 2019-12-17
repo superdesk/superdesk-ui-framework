@@ -7,6 +7,14 @@ export default class ButtonGroupsDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
+                <h2 className="docs-page__h2">Button group</h2>
+                <Markup.ReactMarkupCodePreview>{`
+                    <ButtonGroup align='left'>
+                        <Button text='one' style='hollow'/>
+                        <Button text='two' style='hollow'/>
+                    </ButtonGroup>
+                `}
+                </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Horizontal</h3>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
@@ -47,8 +55,33 @@ export default class ButtonGroupsDoc extends React.Component {
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                       
+                    <Markup.ReactMarkupCode>{`
+                        // Left
+                        <ButtonGroup align='left'>
+                            <Button text='one' style='hollow'/>
+                            <Button text='two' style='hollow'/>
+                        </ButtonGroup>
+
+                        // Right
+                        <ButtonGroup align='right'>
+                            <Button text='Cancel' style='hollow'/>
+                            <Button text='Save' type='primary'/>
+                        </ButtonGroup>
+
+                        // Left + Center + Right
+                        <ButtonGroup align='left'>
+                            <Button text='one' style='hollow'/>
+                            <Button text='two' style='hollow'/>
+                        </ButtonGroup>
+                        <ButtonGroup align='center'>
+                            <Button text='three' style='hollow'/>
+                            <Button text='four' style='hollow'/>
+                        </ButtonGroup>
+                        <ButtonGroup align='right'>
+                            <Button text='Cancel' style='hollow'/>
+                            <Button text='Save' type='primary'/>
+                        </ButtonGroup>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -62,8 +95,12 @@ export default class ButtonGroupsDoc extends React.Component {
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                       
+                    <Markup.ReactMarkupCode>{`
+                        <ButtonGroup orientation='vertical'>
+                            <Button text='one' style='hollow'/>
+                            <Button text='two' style='hollow'/>
+                        </ButtonGroup>
+                    `}   
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>

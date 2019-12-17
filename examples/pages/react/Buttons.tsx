@@ -8,8 +8,11 @@ export default class ButtonsDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Buttons</h2>
+                <Markup.ReactMarkupCodePreview>{`
+                    <Button text="button default"/>
+                `}
+                </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Sizing</h3>
-
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
