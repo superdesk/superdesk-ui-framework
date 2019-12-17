@@ -7,7 +7,7 @@ import Markdown from 'prismjs/components/prism-markdown';
 
 import { Link } from 'react-router-dom';
 
-class ReactNav extends React.Component {
+class ReactNav extends React.PureComponent {
     render() {
         const pages = this.props.pages;
 
@@ -30,7 +30,7 @@ class ReactNav extends React.Component {
     }
 }
 
-class ReactDefault extends React.Component {
+class ReactDefault extends React.PureComponent {
     render() {
         return (
             <section className="docs-page__container">
@@ -47,7 +47,7 @@ class ReactDefault extends React.Component {
     }
 }
 
-class ReactMarkup extends React.Component {
+class ReactMarkup extends React.PureComponent {
     constructor(props) {
         super(props);
         this.state = {
@@ -79,7 +79,7 @@ class ReactMarkup extends React.Component {
     }
 }
 
-class ReactMarkupPreview extends React.Component {
+class ReactMarkupPreview extends React.PureComponent {
     render() {
         return (
             <div className="docs-page__code-example"
@@ -90,7 +90,7 @@ class ReactMarkupPreview extends React.Component {
     }
 }
 
-class ReactMarkupCode extends React.Component {
+class ReactMarkupCode extends React.PureComponent {
     render() {
         return (
             <div className="docs-page__code-markup" style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}>
@@ -104,4 +104,16 @@ class ReactMarkupCode extends React.Component {
     }
 }
 
-export { ReactNav, ReactDefault, ReactMarkup, ReactMarkupPreview, ReactMarkupCode };
+class ReactMarkupCodePreview extends React.PureComponent {
+    render() {
+        return (
+            <pre>
+                <code className="language-markdown">
+                    {this.props.children}
+                </code>
+            </pre>
+        )
+    }
+}
+
+export { ReactNav, ReactDefault, ReactMarkup, ReactMarkupPreview, ReactMarkupCode, ReactMarkupCodePreview };
