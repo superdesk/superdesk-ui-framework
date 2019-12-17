@@ -9,6 +9,10 @@ export default class LabelsDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Labels</h2>
+                <Markup.ReactMarkupCodePreview>{`
+                    <Label text='default label'/>
+                `}
+                </Markup.ReactMarkupCodePreview>
                 <p className="docs-page__paragraph">Labels are inline styles that can be dropped into body text. For example, labels are used to show the state of items in Superdesk.</p>
                 <h3 className="docs-page__h3">Sizing</h3>
                 <Markup.ReactMarkup>
@@ -29,8 +33,14 @@ export default class LabelsDoc extends React.Component {
                         
                     </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                       
+                    <Markup.ReactMarkupCode>{`
+                        <Label text='default label'/>
+                        <Label text='large label' size='large'/>
+                        
+                        // No text transformation
+                        <Label text='No text transform here' size='large' noTransform={true} type='primary'/>
+                        <Label text='No text transform' size='large' noTransform={true} type='success'/>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
                 
@@ -48,8 +58,15 @@ export default class LabelsDoc extends React.Component {
                         <Label text='sd-green label' type='sd-green'/>  
                     </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                       
+                    <Markup.ReactMarkupCode>{`
+                        <Label text='default label'/>
+                        <Label text='primary label' type='primary'/>
+                        <Label text='success label' type='success'/>
+                        <Label text='warning label' type='warning'/>
+                        <Label text='alert label' type='alert'/>
+                        <Label text='highlight label' type='highlight'/>
+                        <Label text='sd-green label' type='sd-green'/> 
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -71,8 +88,19 @@ export default class LabelsDoc extends React.Component {
                         <Label text='Hollow, large & no text transformation' type='highlight' size='large' style='hollow' noTransform={true}/>
                     </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                       
+                    <Markup.ReactMarkupCode>{`
+                        <Label text='default label' style='hollow'/>
+                        <Label text='primary label' type='primary' style='hollow'/>
+                        <Label text='success label' type='success' style='hollow'/>
+                        <Label text='warning label' type='warning' style='hollow'/>
+                        <Label text='alert label' type='alert' style='hollow'/>
+                        <Label text='highlight label' type='highlight' style='hollow'/>
+                        <Label text='sd-gren label' type='sd-green' style='hollow'/>
+
+                        <Label text='hollow large' size='large' style='hollow'/>
+                        <Label text='hollow large' size='large' type='primary' style='hollow'/>
+                        <Label text='Hollow, large & no text transformation' type='highlight' size='large' style='hollow' noTransform={true}/>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -93,8 +121,17 @@ export default class LabelsDoc extends React.Component {
                         <Label text='alert label' type='alert' style='hollow' onClick = { ()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                       
+                    <Markup.ReactMarkupCode>{`
+                        <Label text='default label'/>
+                        <Label text='primary label' type='primary'/>
+                        <Label text='success label' type='success'/>
+                        <Label text='alert label' type='alert'/>
+
+                        <Label text='default label' style='hollow'/>
+                        <Label text='primary label' type='primary' style='hollow'/>
+                        <Label text='success label' type='success' style='hollow'/>
+                        <Label text='alert label' type='alert' style='hollow'/>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>
