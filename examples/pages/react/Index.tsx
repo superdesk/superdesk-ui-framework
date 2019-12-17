@@ -32,13 +32,10 @@ const pages = {
             'buttons': {
                 name: 'Buttons',
             },
-            'inputs': {
-                name: 'Inputs',
-            },
             'icon-buttons': {
                 name: 'Icon Buttons'
             },
-            'button-groups':{
+            'button-groups': {
                 name: 'Button Groups'
             },
             'labels': {
@@ -55,6 +52,25 @@ const pages = {
             },
             'tooltips': {
                 name: 'Tooltips'
+            }
+        }
+    },
+    navigationComponents: {
+        name: "Navigation",
+        items: {
+            'tab': {
+                name: 'Tabs'
+            },
+            'left-navigation': {
+                name: 'Left navigation'
+            },
+        }
+    },
+    formComponents: {
+        name: "Form Components",
+        items: {
+            'inputs': {
+                name: 'Inputs',
             },
             'switch': {
                 name: 'Switch'
@@ -64,13 +80,7 @@ const pages = {
             },
             'checkbox': {
                 name: 'Checkbox'
-            },
-            'tab': {
-                name: 'Tabs'
-            },
-            'left-navigation': {
-                name: 'Left navigation'
-            },
+            }
         }
     }
 }
