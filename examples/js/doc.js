@@ -7,6 +7,8 @@ import { HashRouter } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import app from '../../package.json';
+
 docPrettyPrint.$inject = [];
 function docPrettyPrint() {
     return {
@@ -43,6 +45,7 @@ docPlayground.$inject = ['components', 'design', 'playgrounds', '$route'];
 function docPlayground(components, design, playgrounds, $route) {
     return {
         link: function link(scope) {
+            scope.version = app.version;
             scope.components = components;
             scope.design = design;
             scope.playgrounds = playgrounds;

@@ -364,6 +364,8 @@ export default angular.module('ui-docs', [
                 page: 'publisher-website-settings-general.html'
             },
         },
+
+        // React playgrounds
         react: {
             'first-playground': {
                 name: 'First playground',
