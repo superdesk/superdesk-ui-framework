@@ -25,7 +25,10 @@ export default class SwitchDoc extends React.Component<{}, IState> {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Switch</h2>
                 <p></p>
-
+                <Markup.ReactMarkupCodePreview>{`
+                    <Switch value={this.state.value1}/>
+                `}
+                </Markup.ReactMarkupCodePreview>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Label on the right (default)</p>
@@ -45,8 +48,16 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                             <label>Label on right with disabled state</label>
                         </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-                        This is also some test content
+                    <Markup.ReactMarkupCode>{`
+                        // Label on the right (default)
+                            <Switch value={this.state.value1}/>
+                            
+                        // Labels on the left
+                            <Switch value={this.state.value2}/>
+
+                        // Disabled
+                            <Switch value={this.state.value3}/>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>

@@ -9,11 +9,12 @@ export default class LabelsDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Labels</h2>
+                <p className="docs-page__paragraph">Labels are inline styles that can be dropped into body text. For example, labels are used to show the state of items in Superdesk.</p>
                 <Markup.ReactMarkupCodePreview>{`
                     <Label text='default label'/>
                 `}
                 </Markup.ReactMarkupCodePreview>
-                <p className="docs-page__paragraph">Labels are inline styles that can be dropped into body text. For example, labels are used to show the state of items in Superdesk.</p>
+               
                 <h3 className="docs-page__h3">Sizing</h3>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>

@@ -12,6 +12,7 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Left navigation</h2>
                 <p className="docs-page__paragraph">...</p>
+
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -29,8 +30,11 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                             </div>
                         </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-
+                    <Markup.ReactMarkupCode>{`
+                        <Menu activeItemId='1' groups="{[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
+                        { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
+                        { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}"/>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
