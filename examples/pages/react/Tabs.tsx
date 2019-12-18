@@ -16,6 +16,14 @@ export default class TabsDoc extends React.Component<{}> {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Tabs</h2>
+                <Markup.ReactMarkupCodePreview>{`
+                    <TabList>
+                        <Tab label='Content'>Content here.</Tab>
+                        <Tab label='Metadata'>Metadata here.</Tab>
+                        <Tab label='Duplicates'>Duplicates here.</Tab>
+                    </TabList>
+                `}
+                </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Default tabs</h3>
                 <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
@@ -30,8 +38,13 @@ export default class TabsDoc extends React.Component<{}> {
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-
+                    <Markup.ReactMarkupCode>{`
+                        <TabList>
+                            <Tab label='Content'>Content here.</Tab>
+                            <Tab label='Metadata'>Metadata here.</Tab>
+                            <Tab label='Duplicates'>Duplicates here.</Tab>
+                        </TabList>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -47,8 +60,13 @@ export default class TabsDoc extends React.Component<{}> {
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-
+                    <Markup.ReactMarkupCode>{`
+                        <TabList size='big'>
+                            <Tab label='Content'>Content here.</Tab>
+                            <Tab label='Metadata'>Metadata here.</Tab>
+                            <Tab label='Duplicates'>Duplicates here.</Tab>
+                        </TabList>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -64,8 +82,13 @@ export default class TabsDoc extends React.Component<{}> {
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-
+                    <Markup.ReactMarkupCode>{`
+                        <TabList size='small'>
+                            <Tab label='Content'>Content here.</Tab>
+                            <Tab label='Metadata'>Metadata here.</Tab>
+                            <Tab label='Duplicates'>Duplicates here.</Tab>
+                        </TabList>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -81,8 +104,13 @@ export default class TabsDoc extends React.Component<{}> {
                             </TabList>
                         </div>
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>
-
+                    <Markup.ReactMarkupCode>{`
+                        <TabList theme='dark'>
+                            <Tab label='Content'>Content here.</Tab>
+                            <Tab label='Metadata'>Metadata here.</Tab>
+                            <Tab label='Duplicates'>Duplicates here.</Tab>
+                        </TabList>
+                    `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>

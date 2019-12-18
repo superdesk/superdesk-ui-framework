@@ -56,6 +56,9 @@ export default class IconLabelDoc extends React.Component {
                             <DatePickerExample />
                         </div>
                     </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                         <DatePickerExample />
+                    `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
                 <h2 className="docs-page__h2">Time picker</h2>
@@ -65,6 +68,9 @@ export default class IconLabelDoc extends React.Component {
                             <TimePickerExample />
                         </div>
                     </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <TimePickerExample />
+                    `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>
         );

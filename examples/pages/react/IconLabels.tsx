@@ -9,11 +9,12 @@ export default class IconLabelDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Icon Labels</h2>
+                <p className="docs-page__paragraph">Icon labels are inline styles for displaying icon with text label. Use color classes to change label's color.</p>
                 <Markup.ReactMarkupCodePreview>{`
                     <IconLabel text='Label primary' icon='facebook' type='primary'/>
                 `}
                 </Markup.ReactMarkupCodePreview>
-                <p className="docs-page__paragraph">Icon labels are inline styles for displaying icon with text label. Use color classes to change label's color.</p>
+               
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
