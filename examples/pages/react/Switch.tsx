@@ -26,7 +26,7 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                 <h2 className="docs-page__h2">Switch</h2>
                 <p></p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Switch value={this.state.value1}/>
+                    <Switch value={value1} onChange={(value) => this.setState(() => ({ value1: value }))}/>
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <Markup.ReactMarkup>
@@ -50,13 +50,13 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Label on the right (default)
-                            <Switch value={this.state.value1}/>
+                            <Switch value={value1} onChange={(value) => this.setState(() => ({ value1: value }))}/>
                             
                         // Labels on the left
-                            <Switch value={this.state.value2}/>
+                            <Switch value={value2} onChange={(value) => this.setState(() => ({ value2: value }))}/>
 
                         // Disabled
-                            <Switch value={this.state.value3}/>
+                            <Switch value={value3} onChange={(value) => this.setState(() => ({ value3: value }))} disabled={true}/>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

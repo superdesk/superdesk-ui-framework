@@ -4,6 +4,7 @@ import Prism from 'prismjs';
 import NormalizeWhitespace from 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
 import LineNumbers from 'prismjs/plugins/line-numbers/prism-line-numbers';
 import Markdown from 'prismjs/components/prism-markdown';
+import JSX from 'prismjs/components/prism-jsx';
 
 import { Link } from 'react-router-dom';
 
@@ -95,7 +96,7 @@ class ReactMarkupCode extends React.PureComponent {
         return (
             <div className="docs-page__code-markup" style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}>
                 <pre className="line-numbers">
-                    <code className="language-markdown">
+                    <code className="language-jsx">
                         {this.props.children}
                     </code>
                 </pre>
@@ -108,7 +109,7 @@ class ReactMarkupCodePreview extends React.PureComponent {
     render() {
         return (
             <pre>
-                <code className="language-markdown">
+                <code className="language-jsx">
                     {this.props.children}
                 </code>
             </pre>

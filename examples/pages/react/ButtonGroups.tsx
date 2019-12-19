@@ -10,8 +10,8 @@ export default class ButtonGroupsDoc extends React.Component {
                 <h2 className="docs-page__h2">Button group</h2>
                 <Markup.ReactMarkupCodePreview>{`
                     <ButtonGroup align='left'>
-                        <Button text='one' style='hollow'/>
-                        <Button text='two' style='hollow'/>
+                        <Button text='one' style='hollow' onClick={()=> false}/>
+                        <Button text='two' style='hollow' onClick={()=> false}/>
                     </ButtonGroup>
                 `}
                 </Markup.ReactMarkupCodePreview>
@@ -21,65 +21,65 @@ export default class ButtonGroupsDoc extends React.Component {
                     <p className="docs-page__paragraph">// Left</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
                         <ButtonGroup align='left'>
-                            <Button text='one' style='hollow' onClick = { ()=> false}/>
-                            <Button text='two' style='hollow' onClick = { ()=> false}/>
+                            <Button text='one' style='hollow' onClick={()=> false}/>
+                            <Button text='two' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                     </div>
                     <p className="docs-page__paragraph">// Right</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
                         <ButtonGroup align='right'>
-                            <Button text='Cancel' style='hollow' onClick = { ()=> false}/>
-                            <Button text='Save' type='primary' onClick = { ()=> false}/>
+                            <Button text='Cancel' style='hollow' onClick={()=> false}/>
+                            <Button text='Save' type='primary' onClick={()=> false}/>
                         </ButtonGroup>
                     </div>
                     <p className="docs-page__paragraph">// Center</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
                         <ButtonGroup align='center'>
-                            <Button text='one' style='hollow' onClick = { ()=> false}/>
-                            <Button text='two' style='hollow' onClick = { ()=> false}/>
+                            <Button text='one' style='hollow' onClick={()=> false}/>
+                            <Button text='two' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                     </div>
                     <p className="docs-page__paragraph">// Left + Center + Right</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
                         <ButtonGroup align='left'>
-                            <Button text='one' style='hollow' onClick = { ()=> false}/>
-                            <Button text='two' style='hollow' onClick = { ()=> false}/>
+                            <Button text='one' style='hollow' onClick={()=> false}/>
+                            <Button text='two' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                         <ButtonGroup align='center'>
-                            <Button text='three' style='hollow' onClick = { ()=> false}/>
-                            <Button text='four' style='hollow' onClick = { ()=> false}/>
+                            <Button text='three' style='hollow' onClick={()=> false}/>
+                            <Button text='four' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                         <ButtonGroup align='right'>
-                            <Button text='Cancel' style='hollow' onClick = { ()=> false}/>
-                            <Button text='Save' type='primary' onClick = { ()=> false}/>
+                            <Button text='Cancel' style='hollow' onClick={()=> false}/>
+                            <Button text='Save' type='primary' onClick={()=> false}/>
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Left
                         <ButtonGroup align='left'>
-                            <Button text='one' style='hollow'/>
-                            <Button text='two' style='hollow'/>
+                            <Button text='one' style='hollow' onClick={()=> false}/>
+                            <Button text='two' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
 
                         // Right
                         <ButtonGroup align='right'>
-                            <Button text='Cancel' style='hollow'/>
-                            <Button text='Save' type='primary'/>
+                            <Button text='Cancel' style='hollow' onClick={()=> false}/>
+                            <Button text='Save' type='primary' onClick={()=> false}/>
                         </ButtonGroup>
 
                         // Left + Center + Right
                         <ButtonGroup align='left'>
-                            <Button text='one' style='hollow'/>
-                            <Button text='two' style='hollow'/>
+                            <Button text='one' style='hollow' onClick={()=> false}/>
+                            <Button text='two' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                         <ButtonGroup align='center'>
-                            <Button text='three' style='hollow'/>
-                            <Button text='four' style='hollow'/>
+                            <Button text='three' style='hollow' onClick={()=> false}/>
+                            <Button text='four' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                         <ButtonGroup align='right'>
-                            <Button text='Cancel' style='hollow'/>
-                            <Button text='Save' type='primary'/>
+                            <Button text='Cancel' style='hollow' onClick={()=> false}/>
+                            <Button text='Save' type='primary' onClick={()=> false}/>
                         </ButtonGroup>
                     `}
                     </Markup.ReactMarkupCode>
@@ -90,15 +90,15 @@ export default class ButtonGroupsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
                         <ButtonGroup orientation='vertical'>
-                            <Button text='one' style='hollow' onClick = { ()=> false}/>
-                            <Button text='two' style='hollow' onClick = { ()=> false}/>
+                            <Button text='one' style='hollow' onClick={()=> false}/>
+                            <Button text='two' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <ButtonGroup orientation='vertical'>
-                            <Button text='one' style='hollow'/>
-                            <Button text='two' style='hollow'/>
+                            <Button text='one' style='hollow' onClick={()=> false}/>
+                            <Button text='two' style='hollow' onClick={()=> false}/>
                         </ButtonGroup>
                     `}   
                     </Markup.ReactMarkupCode>

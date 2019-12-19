@@ -9,7 +9,7 @@ export default class BadgeDoc extends React.Component {
         return (
             <section className="docs-page__container"> 
                 <h2 className="docs-page__h2">Badge</h2>
-                <p className="docs-page__paragraph">Add the .badge class to an element to create a badge. In the code example <code>&lt;span&gt;</code> is used, but any tag will do.</p>
+                <p></p>
                 <Markup.ReactMarkupCodePreview>{`
                    <Badge text='2' type='primary' style='round'/>
                 `}
@@ -68,25 +68,25 @@ export default class BadgeDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
                         <Badge text='8' type='primary'>
-                            <Button text='default' onClick = { ()=> false}/>
+                            <Button text='default' onClick={()=> false}/>
                         </Badge>
                         <Badge text='6'>
-                            <Button text='primary' type='primary' onClick = { ()=> false}/>
+                            <Button text='primary' type='primary' onClick={()=> false}/>
                         </Badge>
                         <Badge text='4' type='highlight'>
-                            <Button text='hollow' style='hollow' onClick = { ()=> false}/>
+                            <Button text='hollow' style='hollow' onClick={()=> false}/>
                         </Badge>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Badge text='8' type='primary'>
-                            <Button text='default'/>
+                            <Button text='default' onClick={()=> false}/>
                         </Badge>
                         <Badge text='6'>
-                            <Button text='primary' type='primary'/>
+                            <Button text='primary' type='primary' onClick={()=> false}/>
                         </Badge>
                         <Badge text='4' type='highlight'>
-                            <Button text='hollow' style='hollow'/>
+                            <Button text='hollow' style='hollow' onClick={()=> false}/>
                         </Badge>
                     `}
                     </Markup.ReactMarkupCode>
