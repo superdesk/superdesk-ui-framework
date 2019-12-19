@@ -58,6 +58,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Basic Checkbox</h3>
+                <p className="docs-page__paragraph"><code>CheckGroup</code> is a helpful wrapper component used to group <code>Checkbox</code> components.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic SD checkbox</p>
