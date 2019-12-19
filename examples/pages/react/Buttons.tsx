@@ -172,7 +172,7 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Buttons with icon font and text</h3>
-                <p className="docs-page__paragraph ng-scope">Buttons can be combined with the the icon font. No extra modifiers are needed, just adding any of the available classes from the Icon font to an <code>&lt;i&gt;</code> tag placed before the button text.</p>
+                <p className="docs-page__paragraph ng-scope">Buttons can be combined with the icon font. No extra modifiers are needed, just add any of the available classes from the Icon font to a prop icon of button component, like <code>icon=’photo’</code>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default size</p>
@@ -229,7 +229,7 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Buttons with icon font only</h3>
-                <p className="docs-page__paragraph ng-scope">For buttons without any text, only an icon, the modifier <code>btn--icon-only</code> is needed to ajust the padding and width of the button.</p>
+                <p className="docs-page__paragraph ng-scope">For buttons without any text, only an icon, just add any of the available classes from the Icon font to a prop icon and not define text to prop text.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default</p>
@@ -303,7 +303,7 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Dark UI</h3>
-                <p className="docs-page__paragraph ng-scope">To have appropriate button colors on dark background, just add class <code>btn--ui-dark</code> to regular markup.</p>
+                <p className="docs-page__paragraph ng-scope">To have appropriate button colors on dark background, just add ‘dark’ to prop theme of button component <code>theme=’dark’</code>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default style</p>

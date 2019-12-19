@@ -9,7 +9,7 @@ export default class IconButtonDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Plain icon button</h2>
-                <p className="docs-page__paragraph ng-scope"></p>
+                <p className="docs-page__paragraph ng-scope">Tooltip can be set with defining text of tooltip prop, also it can be defined placment of tooltip with prop flow.</p>
                 <Markup.ReactMarkupCodePreview>{`
                     <IconButton icon='close-small'/>
                 `}

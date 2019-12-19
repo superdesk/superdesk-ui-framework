@@ -9,7 +9,7 @@ export default class TooltipDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Tooltips</h2>
-                <p className="docs-page__paragraph"></p>
+                <p className="docs-page__paragraph">It can be chosed from 4 choices to set placment of <code>Tooltip</code>. Choices are <code>’left’</code>, <code>’right’</code>, <code>’bottom’</code>, and <code>’top’</code> as defaut choice. </p>
                 <Markup.ReactMarkupCodePreview>{`
                     <Tooltip text="top" tooltip={{text:"I'm on top"}} onClick={() => false}/>
                 `}

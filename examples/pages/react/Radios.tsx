@@ -34,6 +34,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Basic Radio button</h3>
+                <p className="docs-page__paragraph"><code>CheckGroup</code> is a helpful wrapper component used to group <code>Radio</code> components.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Label on the right (default)</p>
