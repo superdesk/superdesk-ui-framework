@@ -110,28 +110,28 @@ export default class LabelsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
-                        <Label text='default label' onClick = { ()=> false}/>
-                        <Label text='primary label' type='primary' onClick = { ()=> false}/>
-                        <Label text='success label' type='success' onClick = { ()=> false}/>
-                        <Label text='alert label' type='alert' onClick = { ()=> false}/>
+                        <Label text='default label' onClick={()=> false}/>
+                        <Label text='primary label' type='primary' onClick={()=> false}/>
+                        <Label text='success label' type='success' onClick={()=> false}/>
+                        <Label text='alert label' type='alert' onClick={()=> false}/>
                     </div>
                     <div className='docs-page__content-row'>
-                        <Label text='default label' style='hollow' onClick = { ()=> false}/>
-                        <Label text='primary label' type='primary' style='hollow' onClick = { ()=> false}/>
-                        <Label text='success label' type='success' style='hollow' onClick = { ()=> false}/>
-                        <Label text='alert label' type='alert' style='hollow' onClick = { ()=> false}/>
+                        <Label text='default label' style='hollow' onClick={()=> false}/>
+                        <Label text='primary label' type='primary' style='hollow' onClick={()=> false}/>
+                        <Label text='success label' type='success' style='hollow' onClick={()=> false}/>
+                        <Label text='alert label' type='alert' style='hollow' onClick={()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Label text='default label'/>
-                        <Label text='primary label' type='primary'/>
-                        <Label text='success label' type='success'/>
+                        <Label text='default label' onClick={()=> false}/>
+                        <Label text='primary label' type='primary' onClick={()=> false}/>
+                        <Label text='success label' type='success' onClick={()=> false}/>
                         <Label text='alert label' type='alert'/>
 
-                        <Label text='default label' style='hollow'/>
-                        <Label text='primary label' type='primary' style='hollow'/>
-                        <Label text='success label' type='success' style='hollow'/>
-                        <Label text='alert label' type='alert' style='hollow'/>
+                        <Label text='default label' style='hollow' onClick={()=> false}/>
+                        <Label text='primary label' type='primary' style='hollow' onClick={()=> false}/>
+                        <Label text='success label' type='success' style='hollow' onClick={()=> false}/>
+                        <Label text='alert label' type='alert' style='hollow' onClick={()=> false}/>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

@@ -28,8 +28,8 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                 <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkupCodePreview>{`
                     <CheckGroup>
-                        <Radio value={this.state.value1} 
-                               options="{[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}]}"/>
+                        <Radio value={value1} 
+                               options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}]}/>
                     </CheckGroup>
                 `}
                 </Markup.ReactMarkupCodePreview>
@@ -53,12 +53,14 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         // Label on the right (default)
                         <CheckGroup>
-                            <Radio value={this.state.value1} options="{[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}, {value:'test3', label:'Default label'}, {value:'test4', label:'Disabled state', disabled: true}]}"/>
+                            <Radio value={value1} 
+                                   options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}, {value:'test3', label:'Default label'}, {value:'test4', label:'Disabled state', disabled: true}]}/>
                         </CheckGroup>
 
                         // Labels on the left
                         <CheckGroup>
-                            <Radio value={this.state.value2} options="{[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]}" labelSide='left'/>
+                            <Radio value={value2} 
+                                   options={[{value:'test5', label:'Label on the left'}, {value:'test6', label:'Label on the left'}, {value:'test7', label:'Label on the left'}]} labelSide='left'/>
                         </CheckGroup>
                     `}
                     </Markup.ReactMarkupCode>
@@ -85,12 +87,14 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         // Button styled radio buttons
                             <CheckButtonGroup>
-                                <RadioButton value={this.state.value3} options="{[{value:'test6', label:'Button style radio'}, {value:'test7', label:'Button style'}, {value:'test8', label:'Button style'}, {value:'test9', label:'Button style disabled', disabled:true}]}"/>
+                                <RadioButton value={value3} 
+                                             options={[{value:'test6', label:'Button style radio'}, {value:'test7', label:'Button style'}, {value:'test8', label:'Button style'}, {value:'test9', label:'Button style disabled', disabled:true}]}/>
                             </CheckButtonGroup>
 
                         // Button styled radio with icon
                             <CheckButtonGroup>
-                                <RadioButton value={this.state.value4} options="{[{value:'test10', label:'Radio button with icon', icon:'list-view'}, {value:'test11', label:'I have an icon!', icon:'grid-view'}, {value:'test12', label:'Yeah, me too!', icon:'kanban-view'}]}"/>
+                                <RadioButton value={value4} 
+                                             options={[{value:'test10', label:'Radio button with icon', icon:'list-view'}, {value:'test11', label:'I have an icon!', icon:'grid-view'}, {value:'test12', label:'Yeah, me too!', icon:'kanban-view'}]}/>
                             </CheckButtonGroup>
                     `}
                     </Markup.ReactMarkupCode>

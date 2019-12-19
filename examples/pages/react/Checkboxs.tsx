@@ -52,7 +52,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                 <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkupCodePreview>{`
                     <CheckGroup>
-                        <Checkbox checked={this.state.value1} label={{text:'Checkbox label right'}} 
+                        <Checkbox checked={value1} label={{text:'Checkbox label right'}} 
                                   onChange={(value) => this.setState(() => ({ value1: value }))}/>
                     </CheckGroup>
                 `}
@@ -87,27 +87,27 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         // Basic SD checkbox
                         <CheckGroup>
-                            <Checkbox checked={this.state.value1} label={{text:'Checkbox label right'}}
+                            <Checkbox checked={value1} label={{text:'Checkbox label right'}}
                                       onChange={(value) => this.setState(() => ({ value1: value }))}/>
-                            <Checkbox checked={this.state.value2} label={{text:'Check me!'}}
+                            <Checkbox checked={value2} label={{text:'Check me!'}}
                                       onChange={(value) => this.setState(() => ({ value2: value }))}/>
-                            <Checkbox checked={this.state.value3} label={{text:'Check me too!'}}
+                            <Checkbox checked={value3} label={{text:'Check me too!'}}
                                       onChange={(value) => this.setState(() => ({ value3: value }))}/>
-                            <Checkbox checked={this.state.value4} label={{text:'I"m disabled:('}} disabled= {true}
+                            <Checkbox checked={value4} label={{text:"I'm disabled:("}} disabled={true}
                                       onChange={(value) => this.setState(() => ({ value4: value }))}/>
-                            <Checkbox checked={this.state.value5} label={{text:"I'm disabled and checked :("}} disabled= {true}
+                            <Checkbox checked={value5} label={{text:"I'm disabled and checked :("}} disabled={true}
                                       onChange={(value) => this.setState(() => ({ value5: value }))}/>
                         </CheckGroup>
 
                         // Label on the left
                         <CheckGroup>
-                            <Checkbox checked={this.state.value6} label={{text:'Checkbox label left', side:'left'}}
+                            <Checkbox checked={value6} label={{text:'Checkbox label left', side:'left'}}
                                       onChange={(value) => this.setState(() => ({ value6: value }))}/>
                         </CheckGroup>
 
                         // Checkbox with custom values
                         <CheckGroup>
-                            <Checkbox checked={this.state.value7} label={{text:'Checkbox with custom values'}}
+                            <Checkbox checked={value7} label={{text:'Checkbox with custom values'}}
                                       onChange={(value) => this.setState(() => ({ value7: value }))}/>
                         </CheckGroup>
                     `}
@@ -140,25 +140,25 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         // Button style checkbox
                         <CheckButtonGroup>
-                            <CheckboxButton checked={this.state.value8} label={{text:'Button style checkbox'}}
+                            <CheckboxButton checked={value8} label={{text:'Button style checkbox'}}
                                             onChange={(value) => this.setState(() => ({ value8: value }))}/>
-                            <CheckboxButton checked={this.state.value9} label={{text:'Check this out'}}
+                            <CheckboxButton checked={value9} label={{text:'Check this out'}}
                                             onChange={(value) => this.setState(() => ({ value9: value }))}/>
-                            <CheckboxButton checked={this.state.value10} label={{text:'Check this too!'}}
+                            <CheckboxButton checked={value10} label={{text:'Check this too!'}}
                                             onChange={(value) => this.setState(() => ({ value10: value }))}/>
-                            <CheckboxButton checked={this.state.value11} label={{text:"U can't touch this"}}
+                            <CheckboxButton checked={value11} label={{text:"U can't touch this"}}
                                             onChange={(value) => this.setState(() => ({ value11: value }))}/>
                         </CheckButtonGroup>
 
                         // Button style with icon
                         <CheckButtonGroup>
-                            <CheckboxButton checked={this.state.value12} label={{text:'Button style with icon'}} icon='th-list'
+                            <CheckboxButton checked={value12} label={{text:'Button style with icon'}} icon='th-list'
                                             onChange={(value) => this.setState(() => ({ value12: value }))}/>
-                            <CheckboxButton checked={this.state.value13} label={{text:'I have an icon!'}} icon='th'
+                            <CheckboxButton checked={value13} label={{text:'I have an icon!'}} icon='th'
                                             onChange={(value) => this.setState(() => ({ value13: value }))}/>
-                            <CheckboxButton checked={this.state.value14} label={{text:'Yeah, me too!'}} icon='th-large'
+                            <CheckboxButton checked={value14} label={{text:'Yeah, me too!'}} icon='th-large'
                                             onChange={(value) => this.setState(() => ({ value14: value }))}/>
-                            <CheckboxButton checked={this.state.value15} label={{text:'I have an icon :)'}} icon='star'
+                            <CheckboxButton checked={value15} label={{text:'I have an icon :)'}} icon='star'
                                             onChange={(value) => this.setState(() => ({ value15: value }))}/>
                         </CheckButtonGroup>
                     `}
