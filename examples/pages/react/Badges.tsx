@@ -63,7 +63,7 @@ export default class BadgeDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Element with badge</h3>
-                <p className="docs-page__paragraph"></p>
+                <p className="docs-page__paragraph">Badge can be applied to its children, as adding the button component inside of badge component.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>

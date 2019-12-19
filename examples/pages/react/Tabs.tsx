@@ -25,7 +25,7 @@ export default class TabsDoc extends React.Component<{}> {
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Default tabs</h3>
-                <p className="docs-page__paragraph"></p>
+                <p className="docs-page__paragraph">To have tabs like navigation add <code>TabList</code> component and inside of it add tabs.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -49,7 +49,7 @@ export default class TabsDoc extends React.Component<{}> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Large tabs</h3>
-                <p className="docs-page__paragraph"></p>
+                <p className="docs-page__paragraph">Add ‘large’ to size prop of the <code>TabList</code> component.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -71,7 +71,7 @@ export default class TabsDoc extends React.Component<{}> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Small tabs</h3>
-                <p className="docs-page__paragraph"></p>
+                <p className="docs-page__paragraph">Add ‘small’ to size prop of the <code>TabList</code> component.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -93,7 +93,7 @@ export default class TabsDoc extends React.Component<{}> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Dark tab variation</h3>
-                <p className="docs-page__paragraph"></p>
+                <p className="docs-page__paragraph">Add ‘dark’ to theme prop of the <code>TabList</code> component.. Dark navigation also works with different sizing (big or small).</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--ui-dark'>
