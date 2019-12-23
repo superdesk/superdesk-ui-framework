@@ -22,6 +22,7 @@ import RadiosDoc from './Radios';
 import CheckboxsDoc from './Checkboxs';
 import TabsDoc from './Tabs';
 import LeftNavigationsDoc from './LeftNavigations';
+import NavButtonsDoc from './NavButtons';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -52,6 +53,9 @@ const pages = {
             },
             'tooltips': {
                 name: 'Tooltips'
+            },
+            'nav-buttons': {
+                name: 'Nav buttons'
             }
         }
     },
@@ -106,6 +110,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/checkbox" component={CheckboxsDoc} />
                         <Route path="/react/tab" component={TabsDoc} />
                         <Route path="/react/left-navigation" component={LeftNavigationsDoc} />
+                        <Route path="/react/nav-buttons" component={NavButtonsDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

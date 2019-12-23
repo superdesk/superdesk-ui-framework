@@ -33,6 +33,7 @@ export {
     Tab,
     TabList,
     Menu,
+    SubNav,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
