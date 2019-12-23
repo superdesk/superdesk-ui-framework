@@ -48,25 +48,18 @@ export default class LabelsDoc extends React.Component {
                 <p className="docs-page__paragraph">By default, labels use the standard semantic colour palette (e.g. primary, success, warning etc.). Due to the substantial use of the label component in Superdesk this standard palette is often very limiting. In such cases, the colours can be extended with the by adding the <code>color</code> prop with a value of any of the colours from the <a className='link' href='#/components/colors' target='blank'>extended colour palette</a>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// Basic colour palette</p>
-                        <div className='docs-page__content-row'>
-                            <Label text='default label'/>
-                            <Label text='primary label' type='primary'/>
-                            <Label text='success label' type='success'/>
-                            <Label text='warning label' type='warning'/>
-                            <Label text='alert label' type='alert'/>
-                            <Label text='highlight label' type='highlight'/>
-                            <Label text='sd-green label' type='sd-green'/>  
-                        </div>
-                        <p className="docs-page__paragraph">// Extended colour examples</p>
-                        <div className='docs-page__content-row'>
-                            <Label text='indigo--700' color='indigo--700'/>
-                            <Label text='pink--400' color='pink--400'/>
-                            <Label text='cyan--600' color='cyan--600'/>
-                            <Label text='light-green--700' color='light-green--700'/>
-                            <Label text='deep-orange--700' color='deep-orange--700'/>
-                            <Label text='lime--700' color='lime--700'/>  
-                        </div>
+                    <div className='docs-page__content-row'>
+                        <Label text='default label'/>
+                        <Label text='primary label' type='primary'/>
+                        <Label text='success label' type='success'/>
+                        <Label text='warning label' type='warning'/>
+                        <Label text='alert label' type='alert'/>
+                        <Label text='highlight label' type='highlight'/>
+                        <Label text='sd-green label' type='sd-green'/>  
+
+                        <Label text='alert label' color='indigo--700'/>
+                        <Label text='alert label' color='indigo--700' style='hollow'/>
+                    </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Label text='default label'/>
