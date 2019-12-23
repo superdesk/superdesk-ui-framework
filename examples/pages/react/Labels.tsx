@@ -55,7 +55,7 @@ export default class LabelsDoc extends React.Component {
                         <Label text='warning label' type='warning'/>
                         <Label text='alert label' type='alert'/>
                         <Label text='highlight label' type='highlight'/>
-                        <Label text='sd-green label' type='sd-green'/>  
+                        <Label text='sd-green label' type='sd-green'/> 
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
