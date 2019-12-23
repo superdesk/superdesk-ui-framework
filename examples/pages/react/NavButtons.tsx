@@ -16,7 +16,7 @@ export default class NavButtonsDoc extends React.Component {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        
+                       
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`        
                     `}
