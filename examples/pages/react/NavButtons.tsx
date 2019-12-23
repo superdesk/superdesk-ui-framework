@@ -16,7 +16,14 @@ export default class NavButtonsDoc extends React.Component {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                       
+                        <p className='docs-page__paragraph'>Navigation button</p>
+                        <div className='docs-page__content-row'>
+                            <SubNav zIndex={3}>
+                                <ButtonGroup align='center'>
+                                    <NavButton icon='photo' theme='dark' onClick={()=> false}></NavButton>
+                                </ButtonGroup>
+                            </SubNav>
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`        
                     `}

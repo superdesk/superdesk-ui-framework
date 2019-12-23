@@ -9,7 +9,7 @@ interface IProps {
 export class SubNav extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('subnav', {
-            [this.props.color]: this.props.color || this.props.color !== undefined,
+            [`${this.props.color}`]: this.props.color || this.props.color !== undefined,
         });
         let style = {
           zIndex: 1000 + this.props.zIndex,
