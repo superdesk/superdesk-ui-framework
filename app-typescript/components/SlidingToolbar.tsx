@@ -7,7 +7,7 @@ interface IProps {
 export class SlidingToolbar extends React.PureComponent<IProps> {
     render() {
         return (
-            <div className={this.props.multi ? 'multi-action-bar' : 'action-bar'}>
+            <div className='subnav__sliding-toolbar'>
                 {this.props.children}
             </div>
         );

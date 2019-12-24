@@ -34,6 +34,8 @@ export {
     TabList,
     Menu,
     SubNav,
+    SlidingToolbar,
+    StrechBar,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

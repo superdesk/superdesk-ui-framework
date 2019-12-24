@@ -2,11 +2,11 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { SubNav, NavButton, ButtonGroup } from '../../../app-typescript';
+import { SubNav, NavButton, ButtonGroup} from '../../../app-typescript';
 
 export default class NavButtonsDoc extends React.Component {
-    render(){
-        return(
+    render() {
+        return (
             <section className='docs-page__container'>
                 <h2 className='docs-page__h2'>Navigation button</h2>
                 <p></p>
@@ -16,7 +16,7 @@ export default class NavButtonsDoc extends React.Component {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                       
+                        
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`        
                     `}
