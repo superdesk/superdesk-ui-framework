@@ -1,9 +1,9 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Button } from './Button';
 
 interface IProps {
     icon?: string;
+    iconSize?: 'small' | 'big'; // defaults to 'small'
     theme?: 'light' | 'dark'; // defaults to 'light'
     type?: 'default' | 'primary' | 'highlight' | 'darker';
     onClick(): void;
@@ -16,8 +16,15 @@ export class NavButton extends React.PureComponent<IProps> {
             [`sd-navbtn--${this.props.type}`]: this.props.type,
         });
 
+        let iconClasses = classNames({
+            [`big-icon--${this.props.icon}`]: this.props.iconSize,
+            [`${this.props.icon}`]: !this.props.iconSize,
+        });
+
         return (
-            <Button navClass={classes} icon={this.props.icon} onClick={this.props.onClick}></Button>
+            <button className={classes} onClick={this.props.onClick}>
+                {this.props.icon ? <i className={this.props.iconSize === 'big' ? 'big-icon--' + this.props.icon : 'icon-' + this.props.icon}></i> : null}
+            </button>
         );
     }
 }

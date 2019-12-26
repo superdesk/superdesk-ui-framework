@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IButtonBase {
-    navClass?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
@@ -33,7 +32,7 @@ export class Button extends React.PureComponent<IPropsButton> {
         });
 
         return (
-            <button className={this.props.navClass ? this.props.navClass : classes} onClick={this.props.onClick}>
+            <button className={classes} onClick={this.props.onClick}>
                 {this.props.icon ? <i className={'icon-' + this.props.icon}></i> : null}
                 {this.props.text}
             </button>
