@@ -17,11 +17,10 @@ export class Label extends React.PureComponent<IProps> {
             [`label--${this.props.size}`]: this.props.size !== 'normal' && this.props.size !== undefined,
             'label--no-transform': this.props.noTransform,
             [`label--${this.props.type}`]: this.props.type !== undefined && !this.props.color,
-            [`${this.props.color}`]: this.props.color !== undefined && !this.props.type,
+            [`${this.props.color}`]: this.props.color !== undefined && !this.props.type && !this.props.style,
             'label--hollow': this.props.style === 'hollow',
-            [`hollow-${this.props.color}`]: this.props.color,
+            [`hollow-${this.props.color}`]: this.props.color && this.props.style === 'hollow',
         });
-
         if (this.props.onClick) {
             return (
                 <a href='' className={classes}>

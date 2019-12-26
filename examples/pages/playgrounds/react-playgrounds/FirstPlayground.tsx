@@ -37,7 +37,9 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                 {/* FILTER PANEL*/}
                 <Components.FilterPanel />
                 {/* MAIN CONTENT (Monitoring) */}
-                <Components.MainContent handleClick={this.handleClick} handleClickA={this.handleClickA} />
+                <Components.MainContent handleClick={this.handleClick} handleClickA={this.handleClickA}>
+
+                </Components.MainContent>
                 {/* PREVIEW PANEL*/}
                 <Components.PreviewPanel open={this.state.open} />
                 {/* OVERLAY PANEL (Send To) */}

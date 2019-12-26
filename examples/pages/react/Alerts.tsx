@@ -9,14 +9,14 @@ export default class AlertDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Alerts</h2>
-                <p className="docs-page__paragraph">Provide contextual feedback or info messages for user actions with the handful of available alert box options.</p>
                 <Markup.ReactMarkupCodePreview>{`
-                   <Alert style='hollow' size='normal' type='sd-green' restoreIcon='help'>
-                        In mattis tellus odio, quis dictum sapien pellentesque in. Phasellus dignissim tempus ante at congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus bibendum lacinia.
+                   <Alert style='hollow' size='normal' type='primary' restoreIcon='info'>
+                        This is an info text example.
                    </Alert>
                 `}
                 </Markup.ReactMarkupCodePreview>
-                
+                <p className="docs-page__paragraph">Provide contextual feedback or info messages for user actions with the handful of available alert box options.</p>
+
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Hollow style (preferred usage)</p>

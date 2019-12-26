@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
+import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
 import { Switch } from '../../../app-typescript';
 
@@ -37,7 +38,7 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                             <label>Label on right {this.state.value1}</label>
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Labels on the left</p>
-                        <p className="" style= {{margin: '-10px 0 20px', color: '#747474'}}>This option should be used only in cases when the switch is aligned to the right.</p>
+                        <p className="docs-page__paragraph--small">This option should be used only in cases when the switch is aligned to the right.</p>
                         <div className="form__row">
                             <label>Label on left {this.state.value2}</label>
                             <Switch value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
@@ -60,6 +61,9 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                <Components.GraphicButtonsGroup>
+                    <Components.GraphicButton graphic='design' text='Switch usage guidelines' smallText='Design guidelines' link='#/design/switch' />
+                </Components.GraphicButtonsGroup>
             </section>
         )
     }

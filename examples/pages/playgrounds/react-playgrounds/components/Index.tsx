@@ -5,3 +5,5 @@ export { OverlayPanel } from './OverlayPanel';
 export { PreviewPanel } from './PreviewPanel';
 export { FilterPanel } from './FilterPanel';
 export { SubNav } from './SubNav';
+export { GraphicButtonsGroup } from './GraphicButtonsGroup';
+export { GraphicButton } from './GraphicButton';

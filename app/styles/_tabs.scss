@@ -124,7 +124,7 @@ $nav-tab-active-link-border-color-dark: $sd-blue;
     }
     
     // Bigger nav tabs
-    &--big {
+    &--big, &--large {
         .nav-tabs {
             &__link {                
                 font-size: $nav-tabs-font-size-big;                

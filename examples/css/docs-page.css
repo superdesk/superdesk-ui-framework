@@ -63,6 +63,9 @@ h3.docs-page__h3 {
     font-family: 'Merriweather', serif;
     margin: 2em 0 0.4em 0;
 }
+h3.docs-page__h3--small-top-m {
+    margin-top: 1em;
+}
 .docs-page__rule {
     border: none;
     border-width: 2px;
@@ -121,6 +124,19 @@ p.docs-page__paragraph, div.docs-page__paragraph {
     line-height: 150%;
     font-weight: 300;
 }
+p.docs-page__paragraph em,
+div.docs-page__paragraph em {
+    font-style: italic;
+    font-weight: 400;
+}
+.docs-page__paragraph--small {
+    font-size: 13px;
+    margin: 0 0px 20px; 
+    color: rgb(116, 116, 116);
+}
+p.docs-page__paragraph + .docs-page__paragraph--small {
+    margin-top: -10px;
+}
 .docs-page__code-example p.docs-page__paragraph {
     color: #7abcd1;
 }
@@ -129,8 +145,6 @@ p.docs-page__paragraph--topMarginL {
     margin-top: 3em;
 }
 .docs-page__code-example p.docs-page__paragraph--small {
-    color: #999;
-    font-size: 14px;
     margin: -1em 0 1em;
 }
 p.docs-page__paragraph:first-child {
@@ -452,9 +466,17 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 .docs-page__content-row {
     margin-bottom: 20px;
 }
-.docs-page__content-row--ui-dark {
+.docs-page__content-row--no-margin {
+    margin-bottom: 0;
+}
+.docs-page__content-row--ui-dark,
+.docs-page__content-row--white {
     background: #3b3b3b;
-    padding: 10px;
+    padding: 8px;
+    border-radius: 4px;
+}
+.docs-page__content-row--white {
+    background: #fff;
 }
 .docs-page__content-row--gray {
     background: #F2F2F2;
@@ -770,8 +792,15 @@ pre.prettyprint {
 doc-gif-img:hover img {
     cursor: pointer;
 }
-
 /* -------------- END COLOR SWATCHES -------------- */
+
+/* -------------- PrismJS overrides -------------- */
+code[class*="language-"],
+pre[class*="language-"] {
+    font-family: 'Source Code Pro', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    font-size: 1.1em;
+    border-radius: 0.4rem;
+}
 
 /*// extra large screen media query /100em = 1600px/*/
 @media only screen and (min-width: 100em) {
