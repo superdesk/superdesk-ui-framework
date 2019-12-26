@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface ITabList {
-    size?: 'normal' | 'big' | 'small'; // defaults to 'normal'
+    size?: 'normal' | 'large' | 'small'; // defaults to 'normal'
     theme?: 'light' | 'dark'; // defaults to 'light'
     children: Array<any>;
 }

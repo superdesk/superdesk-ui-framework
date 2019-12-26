@@ -3,7 +3,7 @@
 import 'angular-route';
 import 'code-prettify/src/prettify';
 import 'code-prettify/styles/sons-of-obsidian.css';
-import 'prismjs/themes/prism-okaidia.css';
+import 'prismjs/themes/prism-tomorrow.css';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 
 import './css/reset.css';

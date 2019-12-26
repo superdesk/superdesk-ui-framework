@@ -9,12 +9,11 @@ export default class BadgeDoc extends React.Component {
         return (
             <section className="docs-page__container"> 
                 <h2 className="docs-page__h2">Badge</h2>
-                <p></p>
                 <Markup.ReactMarkupCodePreview>{`
                    <Badge text='2' type='primary' style='round'/>
                 `}
                 </Markup.ReactMarkupCodePreview>
-                
+                <p className="docs-page__paragraph">Badges are inline styles that can be dropped into a text. They are usualy used for displaying digits or single uppercase letters. For full words the Label component should be used.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Circle (default)</p>
@@ -29,7 +28,7 @@ export default class BadgeDoc extends React.Component {
                     </div>
 
                     <p className="docs-page__paragraph">// Square</p>
-                    <p style={{margin: '-10px 0 20px', color: '#747474'}}>Use this version only for single digits or numbers. For longer text use the <code>.label</code> class.</p>
+                    <p className="docs-page__paragraph--small">Use this version only for single digits or numbers. For longer text use the <code>.label</code> class.</p>
                     <div className='docs-page__content-row'>
                         <Badge text='1'/>
                         <Badge text='2' type='primary' style='square'/>
@@ -63,7 +62,7 @@ export default class BadgeDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Element with badge</h3>
-                <p className="docs-page__paragraph">Wrapping component with badge component, so that badge is applied to its children.</p>
+                <p className="docs-page__paragraph">Wrap another component with the Badge component, so that badge is applied to its children.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>

@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as Markup from "../../js/react";
-
 import { Button } from "../../../app-typescript";
+import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
 export default class ButtonsDoc extends React.Component {
     render() {
@@ -12,46 +12,20 @@ export default class ButtonsDoc extends React.Component {
                     <Button text="button default" onClick={()=> false}/>
                 `}
                 </Markup.ReactMarkupCodePreview>
-                <h3 className="docs-page__h3">Sizing</h3>
+                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Coloring</h3>
+                <p className="docs-page__paragraph">For Superdesk only <em>Default</em> and <em>Primary</em> buttons should be used in most cases. Other semantic colour options are allowed but should be used only in cases where a clear distinction between similarly important actions is needed (e.g. <em>Send To</em> versus <em>Publish</em> action).</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Button text="button small" size="small" onClick={()=> false}/>
-                        <Button text="button default" onClick={()=> false}/>
-                        <Button text="button large" size="large" onClick={()=> false}/>
+                        <Button text="default" onClick = { ()=> false}/>
+                        <Button text="primary" type="primary" onClick = { ()=> false}/>
                     </div>
-                    <div className="docs-page__content-row">
-                        <Button text="small expanded button" expand={true} size="small" onClick={()=> false}/>
-                    </div>                    
-                    <div className="docs-page__content-row">
-                        <Button text="default expanded button" expand={true} onClick={()=> false}/>
-                    </div>
-                    <div className="docs-page__content-row">
-                        <Button text="large expanded button" expand={true} size="large" onClick={()=> false}/>
-                    </div>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>{`
-                        <Button text="button small" size="small" onClick={()=> false}/>
-                        <Button text="button default" onClick={()=> false}/>
-                        <Button text="button large" size="large" onClick={()=> false}/>
-
-                        <Button text="small expanded button" expand={true} size="small" onClick={()=> false}/>
-                        <Button text="default expanded button" expand={true} onClick={()=> false}/>
-                        <Button text="large expanded button" expand={true} size="large" onClick={()=> false}/>
-                    `}</Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
-                <h3 className="docs-page__h3">Coloring</h3>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                    <div className="docs-page__content-row">
-                        <Button text="default" onClick={()=> false}/>
-                        <Button text="primary" type="primary" onClick={()=> false}/>
-                        <Button text="success" type="success" onClick={()=> false}/>
-                        <Button text="warning" type="warning" onClick={()=> false}/>
-                        <Button text="alert" type="alert" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" onClick={()=> false}/>
+                    <div className="docs-page__content-row docs-page__content-row--no-margin">
+                        <Button text="success" type="success" onClick = { ()=> false}/>
+                        <Button text="warning" type="warning" onClick = { ()=> false}/>
+                        <Button text="alert" type="alert" onClick = { ()=> false}/>
+                        <Button text="highlight" type="highlight" onClick = { ()=> false}/>
+                        <Button text="sd-green" type="sd-green" onClick = { ()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -64,18 +38,25 @@ export default class ButtonsDoc extends React.Component {
                         <Button text="sd-green" type="sd-green" onClick={()=> false}/>
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <Components.GraphicButtonsGroup>
+                    <Components.GraphicButton graphic='design' text='View design guidelines' smallText='Design guidelines' link='#/design/buttons' />
+                </Components.GraphicButtonsGroup>
 
                 <h3 className="docs-page__h3">Hollow style</h3>
+                <p className="docs-page__paragraph">Define prop <code>style="hollow"</code> to create a hollow buttons.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Button text="default" style="hollow" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" onClick={()=> false}/>
-                        <Button text="success" type="success" style="hollow" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" onClick={()=> false}/>
+                        <Button text="default" style="hollow" onClick = { ()=> false}/>
+                        <Button text="primary" type="primary" style="hollow" onClick = { ()=> false}/>
+                    </div>
+                    <div className="docs-page__content-row docs-page__content-row--no-margin">
+                        <Button text="success" type="success" style="hollow" onClick = { ()=> false}/>
+                        <Button text="warning" type="warning" style="hollow" onClick = { ()=> false}/>
+                        <Button text="alert" type="alert" style="hollow" onClick = { ()=> false}/>
+                        <Button text="highlight" type="highlight" style="hollow" onClick = { ()=> false}/>
+                        <Button text="sd-green" type="sd-green" style="hollow" onClick = { ()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -90,16 +71,17 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Text only (without background)</h3>
+                <p className="docs-page__paragraph">Define prop <code>style="text-only</code> for buttons without a background.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                    <div className="docs-page__content-row">
-                        <Button text="default" style="text-only" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" onClick={()=> false}/>
+                    <div className="docs-page__content-row docs-page__content-row--no-margin">
+                        <Button text="default" style="text-only" onClick = { ()=> false}/>
+                        <Button text="primary" type="primary" style="text-only" onClick = { ()=> false}/>
+                        <Button text="success" type="success" style="text-only" onClick = { ()=> false}/>
+                        <Button text="warning" type="warning" style="text-only" onClick = { ()=> false}/>
+                        <Button text="alert" type="alert" style="text-only" onClick = { ()=> false}/>
+                        <Button text="highlight" type="highlight" style="text-only" onClick = { ()=> false}/>
+                        <Button text="sd-green" type="sd-green" style="text-only" onClick = { ()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -110,10 +92,36 @@ export default class ButtonsDoc extends React.Component {
                         <Button text="alert" type="alert" style="text-only" onClick={()=> false}/>
                         <Button text="highlight" type="highlight" style="text-only" onClick={()=> false}/>
                         <Button text="sd-green" type="sd-green" style="text-only" onClick={()=> false}/>
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Sizing</h3>
+                <p className="docs-page__paragraph">For the default button, no size has to be specified. To change the default size set the <code>size</code> value either to <code>small</code> or <code>large</code>. For the button to take the full width of the container add <code>expand={'{true}'}</code>.</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                    <div className="docs-page__content-row">
+                        <Button text="button small" size="small" onClick = { ()=> false}/>
+                        <Button text="button default" onClick = { ()=> false}/>
+                        <Button text="button large" size="large" onClick = { ()=> false}/>
+                    </div>
+                    <div className="docs-page__content-row">
+                        <Button text="small expanded button" expand={true} size="small" onClick = { ()=> false}/>
+                    </div>                    
+                    <div className="docs-page__content-row">
+                        <Button text="default expanded button" expand={true} onClick = { ()=> false}/>
+                    </div>
+                    <div className="docs-page__content-row">
+                        <Button text="large expanded button" expand={true} size="large" onClick = { ()=> false}/>
+                    </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Button text="button default" size="default" />
+                        <Button text="button expanded" expand={true} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Disabled</h3>
+                <p className="docs-page__paragraph"><code>disabled={'{true}'}</code></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
@@ -134,14 +142,14 @@ export default class ButtonsDoc extends React.Component {
                         <Button text="highlight" type="highlight" style="hollow" disabled={true} onClick={()=> false}/>
                         <Button text="sd-green" type="sd-green" style="hollow" disabled={true} onClick={()=> false}/>
                     </div>
-                    <div className="docs-page__content-row">
-                        <Button text="default" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} onClick={()=> false}/>
+                    <div className="docs-page__content-row docs-page__content-row--no-margin">
+                        <Button text="default" style="text-only" disabled={true} onClick = { ()=> false}/>
+                        <Button text="primary" type="primary" style="text-only" disabled={true} onClick = { ()=> false}/>
+                        <Button text="success" type="success" style="text-only" disabled={true} onClick = { ()=> false}/>
+                        <Button text="warning" type="warning" style="text-only" disabled={true} onClick = { ()=> false}/>
+                        <Button text="alert" type="alert" style="text-only" disabled={true} onClick = { ()=> false}/>
+                        <Button text="highlight" type="highlight" style="text-only" disabled={true} onClick = { ()=> false}/>
+                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} onClick = { ()=> false}/>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -171,8 +179,8 @@ export default class ButtonsDoc extends React.Component {
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h3 className="docs-page__h3">Buttons with icon font and text</h3>
-                <p className="docs-page__paragraph ng-scope">Buttons can be combined with the icon font. No extra modifiers are needed, just add any of the available classes from the Icon font to a prop icon of button component, like <code>icon=’photo’</code>.</p>
+                <h3 className="docs-page__h3">Buttons with icon and text</h3>
+                <p className="docs-page__paragraph">Buttons can be combined with icons from the icon font. Just add any of the available classes from the Icon font as a value of the <code>icon</code> prop.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default size</p>
@@ -229,7 +237,7 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Buttons with icon font only</h3>
-                <p className="docs-page__paragraph ng-scope">For buttons without any text, only an icon, just add any of the available classes from the Icon font to a prop icon and not define text to prop text.</p>
+                <p className="docs-page__paragraph">Buttons can also contain only an icon, without any text. To achieve this the <code>icon</code> value needs to be specified and the <code>text</code> prop left out completely.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default</p>
@@ -303,7 +311,7 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Dark UI</h3>
-                <p className="docs-page__paragraph ng-scope">To have appropriate button colors on dark background, just add ‘dark’ to prop theme of button component <code>theme=’dark’</code>.</p>
+                <p className="docs-page__paragraph">To directly modify the button styles for a dark background set the prop <code>theme</code> to <code>"dark"</code>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default style</p>

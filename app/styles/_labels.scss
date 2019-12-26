@@ -31,7 +31,7 @@ $label-sizes: (
 /// Removes background fill for hollow buttons.
 @mixin label-hollow-style($color: $label-color-alt) {
     border: 1px solid $color;
-    background-color: transparent;
+    background-color: transparent !important;
     color: $color;
 }
 
@@ -76,6 +76,7 @@ $label-sizes: (
     }
     &.label--hollow {
         @include label-hollow-style;
+        
 
         @each $name, $color in $label-palette {
             &.label--#{$name} {
