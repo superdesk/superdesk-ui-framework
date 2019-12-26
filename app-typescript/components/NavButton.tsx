@@ -16,11 +16,6 @@ export class NavButton extends React.PureComponent<IProps> {
             [`sd-navbtn--${this.props.type}`]: this.props.type,
         });
 
-        let iconClasses = classNames({
-            [`big-icon--${this.props.icon}`]: this.props.iconSize,
-            [`${this.props.icon}`]: !this.props.iconSize,
-        });
-
         return (
             <button className={classes} onClick={this.props.onClick}>
                 {this.props.icon ? <i className={this.props.iconSize === 'big' ? 'big-icon--' + this.props.icon : 'icon-' + this.props.icon}></i> : null}
