@@ -20,6 +20,7 @@ export default class ButtonsDoc extends React.Component {
                         <Button text="default" onClick = { ()=> false}/>
                         <Button text="primary" type="primary" onClick = { ()=> false}/>
                     </div>
+                    <p className="docs-page__paragraph">// Other colour options</p>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
                         <Button text="success" type="success" onClick = { ()=> false}/>
                         <Button text="warning" type="warning" onClick = { ()=> false}/>
@@ -31,6 +32,7 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupCode>{`
                         <Button text="default" onClick={()=> false}/>
                         <Button text="primary" type="primary" onClick={()=> false}/>
+                        // Other colour options
                         <Button text="success" type="success" onClick={()=> false}/>
                         <Button text="warning" type="warning" onClick={()=> false}/>
                         <Button text="alert" type="alert" onClick={()=> false}/>
@@ -51,6 +53,7 @@ export default class ButtonsDoc extends React.Component {
                         <Button text="default" style="hollow" onClick = { ()=> false}/>
                         <Button text="primary" type="primary" style="hollow" onClick = { ()=> false}/>
                     </div>
+                    <p className="docs-page__paragraph">// Other colour options</p>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
                         <Button text="success" type="success" style="hollow" onClick = { ()=> false}/>
                         <Button text="warning" type="warning" style="hollow" onClick = { ()=> false}/>
@@ -62,6 +65,7 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupCode>{`
                         <Button text="default" style="hollow" onClick={()=> false}/>
                         <Button text="primary" type="primary" style="hollow" onClick={()=> false}/>
+                        // Other colour options
                         <Button text="success" type="success" style="hollow" onClick={()=> false}/>
                         <Button text="warning" type="warning" style="hollow" onClick={()=> false}/>
                         <Button text="alert" type="alert" style="hollow" onClick={()=> false}/>
