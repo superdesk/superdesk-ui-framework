@@ -25,6 +25,9 @@ export {CheckButtonGroup} from './components/CheckButtonGroup';
 export {NavButton} from './components/NavButton';
 export {Tab, TabList} from './components/TabList';
 export {Menu} from './components/Menu';
+export {SubNav} from './components/SubNav';
+export {SlidingToolbar}  from './components/SlidingToolbar';
+export {StrechBar}  from './components/StrechBar';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

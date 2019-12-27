@@ -9,7 +9,7 @@ export default class ButtonsDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Buttons</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Button text="button default" onClick={()=> false}/>
+                    <Button text="button default" onClick={()=> false} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">Coloring</h3>
@@ -17,27 +17,27 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Button text="default" onClick = { ()=> false}/>
-                        <Button text="primary" type="primary" onClick = { ()=> false}/>
+                        <Button text="default" onClick={()=> false} />
+                        <Button text="primary" type="primary" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Other colour options</p>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
-                        <Button text="success" type="success" onClick = { ()=> false}/>
-                        <Button text="warning" type="warning" onClick = { ()=> false}/>
-                        <Button text="alert" type="alert" onClick = { ()=> false}/>
-                        <Button text="highlight" type="highlight" onClick = { ()=> false}/>
-                        <Button text="sd-green" type="sd-green" onClick = { ()=> false}/>
+                        <Button text="success" type="success" onClick={()=> false} />
+                        <Button text="warning" type="warning" onClick={()=> false} />
+                        <Button text="alert" type="alert" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="default" onClick={()=> false}/>
-                        <Button text="primary" type="primary" onClick={()=> false}/>
+                        <Button text="default" onClick={()=> false} />
+                        <Button text="primary" type="primary" onClick={()=> false} />
                         // Other colour options
-                        <Button text="success" type="success" onClick={()=> false}/>
-                        <Button text="warning" type="warning" onClick={()=> false}/>
-                        <Button text="alert" type="alert" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" onClick={()=> false}/>
+                        <Button text="success" type="success" onClick={()=> false} />
+                        <Button text="warning" type="warning" onClick={()=> false} />
+                        <Button text="alert" type="alert" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -50,27 +50,27 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Button text="default" style="hollow" onClick = { ()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" onClick = { ()=> false}/>
+                        <Button text="default" style="hollow" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Other colour options</p>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
-                        <Button text="success" type="success" style="hollow" onClick = { ()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" onClick = { ()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" onClick = { ()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" onClick = { ()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" onClick = { ()=> false}/>
+                        <Button text="success" type="success" style="hollow" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="default" style="hollow" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" onClick={()=> false}/>
+                        <Button text="default" style="hollow" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" onClick={()=> false} />
                         // Other colour options
-                        <Button text="success" type="success" style="hollow" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" onClick={()=> false}/>
+                        <Button text="success" type="success" style="hollow" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -79,23 +79,23 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
-                        <Button text="default" style="text-only" onClick = { ()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" onClick = { ()=> false}/>
-                        <Button text="success" type="success" style="text-only" onClick = { ()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" onClick = { ()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" onClick = { ()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" onClick = { ()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" onClick = { ()=> false}/>
+                        <Button text="default" style="text-only" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="default" style="text-only" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" onClick={()=> false}/>
+                        <Button text="default" style="text-only" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -104,18 +104,18 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Button text="button small" size="small" onClick = { ()=> false}/>
-                        <Button text="button default" onClick = { ()=> false}/>
-                        <Button text="button large" size="large" onClick = { ()=> false}/>
+                        <Button text="button small" size="small" onClick={()=> false} />
+                        <Button text="button default" onClick={()=> false} />
+                        <Button text="button large" size="large" onClick={()=> false} />
                     </div>
                     <div className="docs-page__content-row">
-                        <Button text="small expanded button" expand={true} size="small" onClick = { ()=> false}/>
+                        <Button text="small expanded button" expand={true} size="small" onClick={()=> false} />
                     </div>                    
                     <div className="docs-page__content-row">
-                        <Button text="default expanded button" expand={true} onClick = { ()=> false}/>
+                        <Button text="default expanded button" expand={true} onClick={()=> false} />
                     </div>
                     <div className="docs-page__content-row">
-                        <Button text="large expanded button" expand={true} size="large" onClick = { ()=> false}/>
+                        <Button text="large expanded button" expand={true} size="large" onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -129,57 +129,57 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Button text="default" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" disabled={true} onClick={()=> false}/>
-                        <Button text="success" type="success" disabled={true} onClick={()=> false}/>
-                        <Button text="warning" type="warning" disabled={true} onClick={()=> false}/>
-                        <Button text="alert" type="alert" disabled={true} onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" disabled={true} onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" disabled={true} onClick={()=> false}/>
+                        <Button text="default" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" disabled={true} onClick={()=> false} />
+                        <Button text="success" type="success" disabled={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" disabled={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" disabled={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" disabled={true} onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" disabled={true} onClick={()=> false} />
                     </div>
                     <div className="docs-page__content-row">
-                        <Button text="default" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="success" type="success" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} onClick={()=> false}/>
+                        <Button text="default" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="success" type="success" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} onClick={()=> false} />
                     </div>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
-                        <Button text="default" style="text-only" disabled={true} onClick = { ()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" disabled={true} onClick = { ()=> false}/>
-                        <Button text="success" type="success" style="text-only" disabled={true} onClick = { ()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" disabled={true} onClick = { ()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" disabled={true} onClick = { ()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" disabled={true} onClick = { ()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} onClick = { ()=> false}/>
+                        <Button text="default" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="default" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" disabled={true} onClick={()=> false}/>
-                        <Button text="success" type="success" disabled={true} onClick={()=> false}/>
-                        <Button text="warning" type="warning" disabled={true} onClick={()=> false}/>
-                        <Button text="alert" type="alert" disabled={true} onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" disabled={true} onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" disabled={true} onClick={()=> false}/>
+                        <Button text="default" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" disabled={true} onClick={()=> false} />
+                        <Button text="success" type="success" disabled={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" disabled={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" disabled={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" disabled={true} onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" disabled={true} onClick={()=> false} />
 
-                        <Button text="default" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="success" type="success" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" disabled={true} onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} onClick={()=> false}/>
+                        <Button text="default" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="success" type="success" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" disabled={true} onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} onClick={()=> false} />
 
-                        <Button text="default" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" disabled={true} onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} onClick={()=> false}/>
+                        <Button text="default" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" disabled={true} onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -189,54 +189,54 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default size</p>
                     <div className="docs-page__content-row">
-                        <Button text="default" icon="info-sign" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" onClick={()=> false}/>
-                        <Button text="success" type="success" icon="ok" onClick={()=> false}/>
-                        <Button text="alert" type="alert" icon="warning-sign" onClick={()=> false}/>
-                        <Button text="default" icon="info-sign" style="hollow" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" onClick={()=> false}/>
-                        <Button text="success" type="success" icon="ok" style="hollow" onClick={()=> false}/>
-                        <Button text="warning" type="warning" icon="warning-sign" style="hollow" onClick={()=> false}/>
-                        <Button text="default" icon="info-sign" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" disabled={true} onClick={()=> false}/>
+                        <Button text="default" icon="info-sign" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" onClick={()=> false} />
+                        <Button text="success" type="success" icon="ok" onClick={()=> false} />
+                        <Button text="alert" type="alert" icon="warning-sign" onClick={()=> false} />
+                        <Button text="default" icon="info-sign" style="hollow" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" onClick={()=> false} />
+                        <Button text="success" type="success" icon="ok" style="hollow" onClick={()=> false} />
+                        <Button text="warning" type="warning" icon="warning-sign" style="hollow" onClick={()=> false} />
+                        <Button text="default" icon="info-sign" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" disabled={true} onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Large size</p>
                     <div className="docs-page__content-row">
-                        <Button text="default" icon="info-sign" size="large" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" size="large" onClick={()=> false}/>
-                        <Button text="success" type="success" icon="ok" size="large" onClick={()=> false}/>
-                        <Button text="default" icon="info-sign" style="hollow" size="large" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false}/>
+                        <Button text="default" icon="info-sign" size="large" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" size="large" onClick={()=> false} />
+                        <Button text="success" type="success" icon="ok" size="large" onClick={()=> false} />
+                        <Button text="default" icon="info-sign" style="hollow" size="large" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Small size</p>
                     <div className="docs-page__content-row">
-                        <Button text="default" icon="info-sign" size="small" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" size="small" onClick={()=> false}/>
+                        <Button text="default" icon="info-sign" size="small" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" size="small" onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Default size
-                        <Button text="default" icon="info-sign" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" onClick={()=> false}/>
-                        <Button text="success" type="success" icon="ok" onClick={()=> false}/>
-                        <Button text="alert" type="alert" icon="warning-sign" onClick={()=> false}/>
-                        <Button text="default" icon="info-sign" style="hollow" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" onClick={()=> false}/>
-                        <Button text="success" type="success" icon="ok" style="hollow" onClick={()=> false}/>
-                        <Button text="warning" type="warning" icon="warning-sign" style="hollow" onClick={()=> false}/>
-                        <Button text="default" icon="info-sign" disabled={true} onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" disabled={true} onClick={()=> false}/>
+                        <Button text="default" icon="info-sign" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" onClick={()=> false} />
+                        <Button text="success" type="success" icon="ok" onClick={()=> false} />
+                        <Button text="alert" type="alert" icon="warning-sign" onClick={()=> false} />
+                        <Button text="default" icon="info-sign" style="hollow" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" onClick={()=> false} />
+                        <Button text="success" type="success" icon="ok" style="hollow" onClick={()=> false} />
+                        <Button text="warning" type="warning" icon="warning-sign" style="hollow" onClick={()=> false} />
+                        <Button text="default" icon="info-sign" disabled={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" disabled={true} onClick={()=> false} />
 
                         // Large size
-                        <Button text="default" icon="info-sign" size="large" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" size="large" onClick={()=> false}/>
-                        <Button text="success" type="success" icon="ok" size="large" onClick={()=> false}/>
-                        <Button text="default" icon="info-sign" style="hollow" size="large" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false}/>
+                        <Button text="default" icon="info-sign" size="large" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" size="large" onClick={()=> false} />
+                        <Button text="success" type="success" icon="ok" size="large" onClick={()=> false} />
+                        <Button text="default" icon="info-sign" style="hollow" size="large" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false} />
 
                         // Small size
-                        <Button text="default" icon="info-sign" size="small" onClick={()=> false}/>
-                        <Button text="primary" type="primary" icon="plus-sign" size="small" onClick={()=> false}/>
+                        <Button text="default" icon="info-sign" size="small" onClick={()=> false} />
+                        <Button text="primary" type="primary" icon="plus-sign" size="small" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -246,71 +246,71 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default</p>
                     <div className="docs-page__content-row">
-                        <Button icon="info-sign" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-sign" onClick={()=> false}/>
-                        <Button type="success" icon="ok" onClick={()=> false}/>
+                        <Button icon="info-sign" onClick={()=> false} />
+                        <Button type="primary" icon="plus-sign" onClick={()=> false} />
+                        <Button type="success" icon="ok" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Large</p>
                     <div className="docs-page__content-row">
-                        <Button type="warning" icon="exclamation-sign" size="large" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false}/>
-                        <Button type="highlight" icon="bell" size="large" onClick={()=> false}/>
+                        <Button type="warning" icon="exclamation-sign" size="large" onClick={()=> false} />
+                        <Button type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false} />
+                        <Button type="highlight" icon="bell" size="large" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Small</p>
                     <div className="docs-page__content-row">
-                        <Button type="alert" style="hollow" icon="kill" size="small" onClick={()=> false}/>
-                        <Button icon="calendar" size="small" onClick={()=> false}/>
-                        <Button type="primary" style="hollow" icon="refresh" size="small" onClick={()=> false}/>
+                        <Button type="alert" style="hollow" icon="kill" size="small" onClick={()=> false} />
+                        <Button icon="calendar" size="small" onClick={()=> false} />
+                        <Button type="primary" style="hollow" icon="refresh" size="small" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Circle default</p>
                     <div className="docs-page__content-row">
-                        <Button size="normal" icon="info-sign" shape="round" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-large" shape="round" onClick={()=> false}/>
-                        <Button type="success" icon="ok" shape="round" onClick={()=> false}/>
+                        <Button size="normal" icon="info-sign" shape="round" onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" shape="round" onClick={()=> false} />
+                        <Button type="success" icon="ok" shape="round" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Circle large</p>
                     <div className="docs-page__content-row">
-                        <Button type="warning" icon="exclamation-sign" size="large" shape="round" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-large" style="hollow" size="large" shape="round" onClick={()=> false}/>
-                        <Button type="highlight" icon="bell" size="large" shape="round" onClick={()=> false}/>
+                        <Button type="warning" icon="exclamation-sign" size="large" shape="round" onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" style="hollow" size="large" shape="round" onClick={()=> false} />
+                        <Button type="highlight" icon="bell" size="large" shape="round" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Circle small</p>
                     <div className="docs-page__content-row">
-                        <Button type="alert" icon="close-small" size="small" shape="round" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-large" size="small" shape="round" onClick={()=> false}/>
-                        <Button type="sd-green" icon="star" size="small" shape="round" onClick={()=> false}/>
+                        <Button type="alert" icon="close-small" size="small" shape="round" onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" size="small" shape="round" onClick={()=> false} />
+                        <Button type="sd-green" icon="star" size="small" shape="round" onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Default
-                        <Button icon="info-sign" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-sign" onClick={()=> false}/>
-                        <Button type="success" icon="ok" onClick={()=> false}/>
+                        <Button icon="info-sign" onClick={()=> false} />
+                        <Button type="primary" icon="plus-sign" onClick={()=> false} />
+                        <Button type="success" icon="ok" onClick={()=> false} />
 
                         // Large
-                        <Button type="warning" icon="exclamation-sign" size="large" onClick={()=> false}/>
+                        <Button type="warning" icon="exclamation-sign" size="large" onClick={()=> false} />
                         <Button type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false} />
-                        <Button type="highlight" icon="bell" size="large" onClick={()=> false}/>
+                        <Button type="highlight" icon="bell" size="large" onClick={()=> false} />
 
                         // Small
-                        <Button type="alert" style="hollow" icon="kill" size="small" onClick={()=> false}/>
-                        <Button icon="calendar" size="small" onClick={()=> false}/>
-                        <Button type="primary" style="hollow" icon="refresh" size="small" onClick={()=> false}/>
+                        <Button type="alert" style="hollow" icon="kill" size="small" onClick={()=> false} />
+                        <Button icon="calendar" size="small" onClick={()=> false} />
+                        <Button type="primary" style="hollow" icon="refresh" size="small" onClick={()=> false} />
 
                         // Circle default
-                        <Button size="normal" icon="info-sign" shape="round" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-large" shape="round" onClick={()=> false}/>
-                        <Button type="success" icon="ok" shape="round" onClick={()=> false}/>
+                        <Button size="normal" icon="info-sign" shape="round" onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" shape="round" onClick={()=> false} />
+                        <Button type="success" icon="ok" shape="round" onClick={()=> false} />
 
                         // Circle large
-                        <Button type="warning" icon="exclamation-sign" size="large" shape="round" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-large" style="hollow" size="large" shape="round" onClick={()=> false}/>
-                        <Button type="highlight" icon="bell" size="large" shape="round" onClick={()=> false}/>
+                        <Button type="warning" icon="exclamation-sign" size="large" shape="round" onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" style="hollow" size="large" shape="round" onClick={()=> false} />
+                        <Button type="highlight" icon="bell" size="large" shape="round" onClick={()=> false} />
 
                         // Circle small
-                        <Button type="alert" icon="close-small" size="small" shape="round" onClick={()=> false}/>
-                        <Button type="primary" icon="plus-large" size="small" shape="round" onClick={()=> false}/>
-                        <Button type="sd-green" icon="star" size="small" shape="round" onClick={()=> false}/>
+                        <Button type="alert" icon="close-small" size="small" shape="round" onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" size="small" shape="round" onClick={()=> false} />
+                        <Button type="sd-green" icon="star" size="small" shape="round" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -320,109 +320,109 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default style</p>
                     <div className="docs-page__content-row docs-page__content-row--ui-dark">
-                        <Button text="default" theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" theme="dark" onClick={()=> false}/>
+                        <Button text="default" theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" theme="dark" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Hollow style</p>
                     <div className="docs-page__content-row docs-page__content-row--ui-dark">
-                        <Button text="default" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" theme="dark" onClick={()=> false}/>
+                        <Button text="default" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" theme="dark" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Text only style</p>
                     <div className="docs-page__content-row docs-page__content-row--ui-dark">
-                        <Button text="default" theme="dark" style="text-only" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" theme="dark" onClick={()=> false}/>
+                        <Button text="default" theme="dark" style="text-only" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" theme="dark" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Disabled</p>
                     <div className="docs-page__content-row docs-page__content-row--ui-dark">
-                        <Button text="default" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="default" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="default" disabled={true} style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
+                        <Button text="default" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="default" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="default" disabled={true} style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Defaut size
-                        <Button text="default" theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" theme="dark" onClick={()=> false}/>
+                        <Button text="default" theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" theme="dark" onClick={()=> false} />
 
                         // Hollow style
-                        <Button text="default" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" theme="dark" onClick={()=> false}/>
+                        <Button text="default" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" theme="dark" onClick={()=> false} />
 
                         // Text only style
-                        <Button text="default" theme="dark" style="text-only" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" theme="dark" onClick={()=> false}/>
+                        <Button text="default" theme="dark" style="text-only" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" theme="dark" onClick={()=> false} />
 
                         // Disabled
-                        <Button text="default" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="default" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="default" disabled={true} style="text-only" theme="dark" onClick={()=> false}/>
-                        <Button text="primary" type="primary" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="success" type="success" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="warning" type="warning" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="alert" type="alert" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="highlight" type="highlight" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
-                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} theme="dark" onClick={()=> false}/>
+                        <Button text="default" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="default" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="hollow" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="default" disabled={true} style="text-only" theme="dark" onClick={()=> false} />
+                        <Button text="primary" type="primary" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="success" type="success" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="warning" type="warning" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="alert" type="alert" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="highlight" type="highlight" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
+                        <Button text="sd-green" type="sd-green" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>

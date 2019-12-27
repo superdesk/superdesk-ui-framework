@@ -4,6 +4,7 @@ import classNames from 'classnames';
 interface IProps {
     text?: string;
     type?: 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
+    color?: string; // https://ui-framework.superdesk.org/#/components/colors
     style?: 'round' | 'square'; // defaults to 'round'
     children?: React.ReactNode;
 }
@@ -11,7 +12,8 @@ interface IProps {
 export class Badge extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('badge', {
-            [`badge--${this.props.type}`]: this.props.type,
+            [`badge--${this.props.type}`]: this.props.type && !this.props.color,
+            [`${this.props.color}`] : this.props.color && !this.props.type,
             'badge--square': this.props.style === 'square',
         });
 

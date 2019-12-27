@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-
 interface IProps {
     text: string;
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
@@ -10,7 +9,6 @@ interface IProps {
     noTransform?: boolean;
     style?: 'filled' | 'hollow'; // defaults to 'filled'
 }
-
 export class Label extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('label', {
