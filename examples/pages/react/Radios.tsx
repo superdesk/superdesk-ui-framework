@@ -154,7 +154,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
 
                 <h3 className="docs-page__h3">Button style radio Groups</h3>          
                 <p className="docs-page__paragraph"><code>CheckButtonGroup</code> is a helpful wrapper component used to group <code>RadioButton</code> components. By default the RadioButton components are grouped horizontaly. A few more options are available compared to the <code>CheckGroup</code> component – alignment (left, right and center) and grid layout. </p>
-                <Alert style='hollow' size='small' type='primary' restoreIcon='info'>
+                <Alert style='hollow' size='small' type='primary'>
                     NOTE: Alignment will work only in parent elements with display: flex;
                 </Alert>
                 <Markup.ReactMarkup>

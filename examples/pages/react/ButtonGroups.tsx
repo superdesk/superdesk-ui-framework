@@ -19,7 +19,7 @@ export default class ButtonGroupsDoc extends React.Component {
                 <p className="docs-page__paragraph">By default the buttons components are grouped horizontally, to group them vertical add <code>orientation='vertical'</code>. Note that vertical alignment will stretch the buttons to the full width of the container, as it is intended for use in narrower layout modules.</p>
                 <p className="docs-page__paragraph">Other available options are alignment (left, right and center) and compact mode (less space between buttons).</p>
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m ">Horizontal</h3>
-                <Alert style='hollow' size='small' type='primary' restoreIcon='info'>
+                <Alert style='hollow' size='small' type='primary'>
                     NOTE: Alignment will work only in parent elements with display: flex;
                 </Alert>
                 <Markup.ReactMarkup>
