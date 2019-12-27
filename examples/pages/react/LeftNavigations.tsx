@@ -35,7 +35,7 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                               groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
                               { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
                               { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
-                              onSelect={() => false}/>
+                              onSelect={() => false} />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

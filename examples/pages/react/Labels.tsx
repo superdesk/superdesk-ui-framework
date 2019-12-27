@@ -10,7 +10,7 @@ export default class LabelsDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Labels</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Label text='default label'/>
+                    <Label text='default label' />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className="docs-page__paragraph">Labels are inline styles that can be dropped into body text. For example, labels are used to show the state of items in Superdesk.</p>
@@ -18,28 +18,28 @@ export default class LabelsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
-                        <Label text='default label'/>
-                        <Label text='large label' size='large'/>
+                        <Label text='default label' />
+                        <Label text='large label' size='large' />
                     </div>
                     <div className='docs-page__content-row'>
                         <p className="docs-page__paragraph">// No text transformation</p>
                         <p className="docs-page__paragraph--small">This version should be used only in combination with <code>label--large</code></p>
                     </div>                    
                     <div className='docs-page__content-row'>
-                        <Label text='No text transform here' size='large' noTransform={true} type='primary'/>
-                        <Label text='No text transform' size='large' noTransform={true} type='success'/>
+                        <Label text='No text transform here' size='large' noTransform={true} type='primary' />
+                        <Label text='No text transform' size='large' noTransform={true} type='success' />
                     </div>
                     <div className='docs-page__content-row'>
                         
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Label text='default label'/>
-                        <Label text='large label' size='large'/>
+                        <Label text='default label' />
+                        <Label text='large label' size='large' />
                         
                         // No text transformation
-                        <Label text='No text transform here' size='large' noTransform={true} type='primary'/>
-                        <Label text='No text transform' size='large' noTransform={true} type='success'/>
+                        <Label text='No text transform here' size='large' noTransform={true} type='primary' />
+                        <Label text='No text transform' size='large' noTransform={true} type='success' />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -49,30 +49,30 @@ export default class LabelsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className='docs-page__content-row'>
-                        <Label text='default label'/>
-                        <Label text='primary label' type='primary'/>
-                        <Label text='success label' type='success'/>
-                        <Label text='warning label' type='warning'/>
-                        <Label text='alert label' type='alert'/>
-                        <Label text='highlight label' type='highlight'/>
-                        <Label text='sd-green label' type='sd-green'/> 
+                        <Label text='default label' />
+                        <Label text='primary label' type='primary' />
+                        <Label text='success label' type='success' />
+                        <Label text='warning label' type='warning' />
+                        <Label text='alert label' type='alert' />
+                        <Label text='highlight label' type='highlight' />
+                        <Label text='sd-green label' type='sd-green' /> 
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Label text='default label'/>
-                        <Label text='primary label' type='primary'/>
-                        <Label text='success label' type='success'/>
-                        <Label text='warning label' type='warning'/>
-                        <Label text='alert label' type='alert'/>
-                        <Label text='highlight label' type='highlight'/>
-                        <Label text='sd-green label' type='sd-green'/>
+                        <Label text='default label' />
+                        <Label text='primary label' type='primary' />
+                        <Label text='success label' type='success' />
+                        <Label text='warning label' type='warning' />
+                        <Label text='alert label' type='alert' />
+                        <Label text='highlight label' type='highlight' />
+                        <Label text='sd-green label' type='sd-green' />
                         // Extended colour examples
-                        <Label text='indigo--700' color='indigo--700'/>
-                        <Label text='pink--400' color='pink--400'/>
-                        <Label text='cyan--600' color='cyan--600'/>
-                        <Label text='light-green--700' color='light-green--700'/>
-                        <Label text='deep-orange--700' color='deep-orange--700'/>
-                        <Label text='lime--700' color='lime--700'/>  
+                        <Label text='indigo--700' color='indigo--700' />
+                        <Label text='pink--400' color='pink--400' />
+                        <Label text='cyan--600' color='cyan--600' />
+                        <Label text='light-green--700' color='light-green--700' />
+                        <Label text='deep-orange--700' color='deep-orange--700' />
+                        <Label text='lime--700' color='lime--700' />  
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -82,47 +82,47 @@ export default class LabelsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
-                            <Label text='default label' style='hollow'/>
-                            <Label text='primary label' type='primary' style='hollow'/>
-                            <Label text='success label' type='success' style='hollow'/>
-                            <Label text='warning label' type='warning' style='hollow'/>
-                            <Label text='alert label' type='alert' style='hollow'/>
-                            <Label text='highlight label' type='highlight' style='hollow'/>
-                            <Label text='sd-gren label' type='sd-green' style='hollow'/>
+                            <Label text='default label' style='hollow' />
+                            <Label text='primary label' type='primary' style='hollow' />
+                            <Label text='success label' type='success' style='hollow' />
+                            <Label text='warning label' type='warning' style='hollow' />
+                            <Label text='alert label' type='alert' style='hollow' />
+                            <Label text='highlight label' type='highlight' style='hollow' />
+                            <Label text='sd-gren label' type='sd-green' style='hollow' />
                         </div>
                         <div className='docs-page__content-row'>
-                            <Label text='hollow large' size='large' style='hollow'/>
-                            <Label text='hollow large' size='large' type='primary' style='hollow'/>
-                            <Label text='Hollow, large & no text transformation' type='highlight' size='large' style='hollow' noTransform={true}/>
+                            <Label text='hollow large' size='large' style='hollow' />
+                            <Label text='hollow large' size='large' type='primary' style='hollow' />
+                            <Label text='Hollow, large & no text transformation' type='highlight' size='large' style='hollow' noTransform={true} />
                         </div>
                         <p className="docs-page__paragraph">// Hollow style with extended colour palette</p>
                         <div className='docs-page__content-row'>
-                            <Label text='blue--800 label' style='hollow' color='blue--800'/>
-                            <Label text='purple--400 label' style='hollow' color='purple--400'/>
-                            <Label text='blue-grey--600 label' style='hollow' color='blue-grey--600'/>
-                            <Label text='light-green--700 label' style='hollow' color='light-green--700'/>
-                            <Label text='deep-purple--600 label' style='hollow' color='deep-purple--600'/>
+                            <Label text='blue--800 label' style='hollow' color='blue--800' />
+                            <Label text='purple--400 label' style='hollow' color='purple--400' />
+                            <Label text='blue-grey--600 label' style='hollow' color='blue-grey--600' />
+                            <Label text='light-green--700 label' style='hollow' color='light-green--700' />
+                            <Label text='deep-purple--600 label' style='hollow' color='deep-purple--600' />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Label text='default label' style='hollow'/>
-                        <Label text='primary label' type='primary' style='hollow'/>
-                        <Label text='success label' type='success' style='hollow'/>
-                        <Label text='warning label' type='warning' style='hollow'/>
-                        <Label text='alert label' type='alert' style='hollow'/>
-                        <Label text='highlight label' type='highlight' style='hollow'/>
-                        <Label text='sd-gren label' type='sd-green' style='hollow'/>
+                        <Label text='default label' style='hollow' />
+                        <Label text='primary label' type='primary' style='hollow' />
+                        <Label text='success label' type='success' style='hollow' />
+                        <Label text='warning label' type='warning' style='hollow' />
+                        <Label text='alert label' type='alert' style='hollow' />
+                        <Label text='highlight label' type='highlight' style='hollow' />
+                        <Label text='sd-gren label' type='sd-green' style='hollow' />
 
-                        <Label text='hollow large' size='large' style='hollow'/>
-                        <Label text='hollow large' size='large' type='primary' style='hollow'/>
-                        <Label text='Hollow, large & no text transformation' type='highlight' size='large' style='hollow' noTransform={true}/>
+                        <Label text='hollow large' size='large' style='hollow' />
+                        <Label text='hollow large' size='large' type='primary' style='hollow' />
+                        <Label text='Hollow, large & no text transformation' type='highlight' size='large' style='hollow' noTransform={true} />
 
                         // Hollow style with extended colour palette
-                        <Label text='blue--800 label' style='hollow' color='blue--800'/>
-                        <Label text='purple--400 label' style='hollow' color='purple--400'/>
-                        <Label text='blue-grey--600 label' style='hollow' color='blue-grey--600'/>
-                        <Label text='light-green--700 label' style='hollow' color='light-green--700'/>
-                        <Label text='deep-purple--600 label' style='hollow' color='deep-purple--600'/>
+                        <Label text='blue--800 label' style='hollow' color='blue--800' />
+                        <Label text='purple--400 label' style='hollow' color='purple--400' />
+                        <Label text='blue-grey--600 label' style='hollow' color='blue-grey--600' />
+                        <Label text='light-green--700 label' style='hollow' color='light-green--700' />
+                        <Label text='deep-purple--600 label' style='hollow' color='deep-purple--600' />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -132,28 +132,28 @@ export default class LabelsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
-                            <Label text='default label' onClick={()=> false}/>
-                            <Label text='primary label' type='primary' onClick={()=> false}/>
-                            <Label text='success label' type='success' onClick={()=> false}/>
-                            <Label text='alert label' type='alert' onClick={()=> false}/>
+                            <Label text='default label' onClick={()=> false} />
+                            <Label text='primary label' type='primary' onClick={()=> false} />
+                            <Label text='success label' type='success' onClick={()=> false} />
+                            <Label text='alert label' type='alert' onClick={()=> false} />
                         </div>
                         <div className='docs-page__content-row'>
-                            <Label text='default label' style='hollow' onClick={()=> false}/>
-                            <Label text='primary label' type='primary' style='hollow' onClick={()=> false}/>
-                            <Label text='success label' type='success' style='hollow' onClick={()=> false}/>
-                            <Label text='alert label' type='alert' style='hollow' onClick={()=> false}/>
+                            <Label text='default label' style='hollow' onClick={()=> false} />
+                            <Label text='primary label' type='primary' style='hollow' onClick={()=> false} />
+                            <Label text='success label' type='success' style='hollow' onClick={()=> false} />
+                            <Label text='alert label' type='alert' style='hollow' onClick={()=> false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Label text='default label' onClick={()=> false}/>
-                        <Label text='primary label' type='primary' onClick={()=> false}/>
-                        <Label text='success label' type='success' onClick={()=> false}/>
-                        <Label text='alert label' type='alert'/>
+                        <Label text='default label' onClick={()=> false} />
+                        <Label text='primary label' type='primary' onClick={()=> false} />
+                        <Label text='success label' type='success' onClick={()=> false} />
+                        <Label text='alert label' type='alert' />
 
-                        <Label text='default label' style='hollow' onClick={()=> false}/>
-                        <Label text='primary label' type='primary' style='hollow' onClick={()=> false}/>
-                        <Label text='success label' type='success' style='hollow' onClick={()=> false}/>
-                        <Label text='alert label' type='alert' style='hollow' onClick={()=> false}/>
+                        <Label text='default label' style='hollow' onClick={()=> false} />
+                        <Label text='primary label' type='primary' style='hollow' onClick={()=> false} />
+                        <Label text='success label' type='success' style='hollow' onClick={()=> false} />
+                        <Label text='alert label' type='alert' style='hollow' onClick={()=> false} />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
