@@ -95,7 +95,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                 <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkupCodePreview>{`
                     <Checkbox checked={value1} label={{text:'Checkbox label right'}} 
-                              onChange={(value) => this.setState(() => ({ value1: value }))}/>
+                              onChange={(value) => this.setState(() => ({ value1: value }))} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Basic Checkbox</h3>

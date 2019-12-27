@@ -27,7 +27,7 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                 <h2 className="docs-page__h2">Switch</h2>
                 <p></p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Switch value={value1} onChange={(value) => this.setState(() => ({ value1: value }))}/>
+                    <Switch value={value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <Markup.ReactMarkup>

@@ -37,7 +37,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                 <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkupCodePreview>{`
                     <Radio value={value1} 
-                           options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}]}/>
+                           options={[{value:'test1', label:'Default label'}, {value:'test2', label:'Default label'}]} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Basic Radio button</h3>

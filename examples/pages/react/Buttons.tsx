@@ -9,7 +9,7 @@ export default class ButtonsDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Buttons</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Button text="button default" onClick={()=> false}/>
+                    <Button text="button default" onClick={()=> false} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">Coloring</h3>

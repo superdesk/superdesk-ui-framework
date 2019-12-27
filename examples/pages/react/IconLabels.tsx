@@ -10,7 +10,7 @@ export default class IconLabelDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Icon Labels</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    <IconLabel text='Label primary' icon='facebook' type='primary'/>
+                    <IconLabel text='Label primary' icon='facebook' type='primary' />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className="docs-page__paragraph">Icon labels are inline styles for displaying a combination of icons from the icon font with a text label. Use the <code>type</code> prop to change semantic colour values based on the intended purpose.</p>

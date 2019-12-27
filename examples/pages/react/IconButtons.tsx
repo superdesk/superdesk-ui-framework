@@ -10,7 +10,7 @@ export default class IconButtonDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Plain icon button</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    <IconButton icon="close-small"/>
+                    <IconButton icon="close-small" />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className="docs-page__paragraph">Plain icon button are mostly used for toolbars inside other UI components. They have a built in support for custom tooltips.</p>
