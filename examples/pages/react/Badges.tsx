@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Badge, Button } from '../../../app-typescript';
+import { Badge, Button} from '../../../app-typescript';
 
 export default class BadgeDoc extends React.Component {
     render() {
@@ -90,6 +90,7 @@ export default class BadgeDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
             </section>
         )
     }

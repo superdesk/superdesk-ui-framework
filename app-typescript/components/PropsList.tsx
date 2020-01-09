@@ -14,7 +14,7 @@ class Prop extends React.PureComponent<IProps> {
             <React.Fragment>
                 <tr>
                     <td>{this.props.name}</td>
-                    <td>{this.props.isRequered ? 'yes' : 'optional'}</td>
+                    <td>{this.props.isRequered ? 'yes' : 'no'}</td>
                     <td>{this.props.type}</td>
                     <td>{this.props.default}</td>
                     <td>{this.props.description}</td>
@@ -30,8 +30,8 @@ class PropsList extends React.PureComponent {
             <table>
                 <thead>
                     <tr>
-                        <th>Prop Name</th>
-                        <th>Is Required</th>
+                        <th>Name</th>
+                        <th>Required</th>
                         <th>Type</th>
                         <th>Default Value</th>
                         <th>Description</th>
