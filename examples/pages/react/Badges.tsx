@@ -90,7 +90,7 @@ export default class BadgeDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-  
+
             </section>
         )
     }
