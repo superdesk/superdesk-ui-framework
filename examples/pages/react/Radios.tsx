@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
-import { Radio, RadioButton, CheckGroup, CheckButtonGroup, Alert } from '../../../app-typescript';
+import { Radio, RadioButton, CheckGroup, CheckButtonGroup, Alert, Prop, PropsList } from '../../../app-typescript';
 
 interface IState {
     value1: any;
@@ -243,6 +243,27 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <p className="docs-page__paragraph">Radio</p>
+                <PropsList>
+                    <Prop name='value' isRequered={true} type='T' default='/' description='The value of the checked button.'/>
+                    <Prop name='options' isRequered={true} type='Array' default='/' description='Array of Radio options.'/>
+                    <Prop name='options label' isRequered={true} type='string' default='/' description='Label text value for Radio.'/>
+                    <Prop name='options value' isRequered={true} type='T' default='/' description=''/>
+                    <Prop name='options disabled' isRequered={true} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
+                    <Prop name='labelSide' isRequered={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                </PropsList>
+                <p className="docs-page__paragraph">Radio Button</p>
+                <PropsList>
+                    <Prop name='value' isRequered={true} type='any' default='/' description='The value of the checked button.'/>
+                    <Prop name='options' isRequered={true} type='Array<option>' default='/' description='Array of RadioButton options.'/>
+                    <Prop name='option label' isRequered={true} type='string' default='/' description='Label text value for RadioButton.'/>
+                    <Prop name='option value' isRequered={true} type='any' default='/' description='Value of the Radio.'/>
+                    <Prop name='option disabled' isRequered={true} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
+                    <Prop name='option icon' isRequered={true} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='labelSide' isRequered={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                </PropsList>
             </section>
         )
     }

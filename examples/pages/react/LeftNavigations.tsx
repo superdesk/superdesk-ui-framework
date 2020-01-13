@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Menu } from '../../../app-typescript';
+import { Menu, Prop, PropsList } from '../../../app-typescript';
 
 
 export default class LeftNavigationsDoc extends React.Component<{}> {
@@ -40,6 +40,15 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='groups' isRequered={true} type='Array<menugroup>' default='/' description='Array of groups'/>
+                    <Prop name='activeItemId' isRequered={true} type='string' default='/' description='Id of active item'/>
+                    <Prop name='menugroup label' isRequered={true} type='string' default='/' description='Menugroup label text value.'/>
+                    <Prop name='menugroup items' isRequered={true} type='Array<menuitem>' default='/' description='Array of items'/>
+                    <Prop name='menuitem id' isRequered={true} type='string' default='/' description='Menugroup id value'/>
+                    <Prop name='menuitem label' isRequered={true} type='string' default='/' description='Menugroup label text value.'/>
+                </PropsList>
             </section>
         )
     }

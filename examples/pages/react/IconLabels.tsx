@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { IconLabel } from '../../../app-typescript';
+import { IconLabel, Prop, PropsList } from '../../../app-typescript';
 
 export default class IconLabelDoc extends React.Component {
     render() {
@@ -38,6 +38,13 @@ export default class IconLabelDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='text' isRequered={true} type='string' default='/' description='IconLabel text value.'/>
+                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
+                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                </PropsList>
             </section>
         )
     }

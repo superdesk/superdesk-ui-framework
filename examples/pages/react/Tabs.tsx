@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Tab, TabList } from '../../../app-typescript';
+import { Tab, TabList, Prop, PropsList } from '../../../app-typescript';
 
 
 export default class TabsDoc extends React.Component<{}> {
@@ -135,6 +135,13 @@ export default class TabsDoc extends React.Component<{}> {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='tablist size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
+                    <Prop name='tablist theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
+                    <Prop name='tab label' isRequered={false} type='string' default='/' description='Text value of Tab label'/>
+                </PropsList>
             </section>
         )
     }

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { IconButton } from '../../../app-typescript';
+import { IconButton, Prop, PropsList } from '../../../app-typescript';
 
 export default class IconButtonDoc extends React.Component {
     render() {
@@ -50,6 +50,13 @@ export default class IconButtonDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='tooltip text' isRequered={true} type='string' default='/' description='Text for the tooltip.'/>
+                    <Prop name='tooltip flow' isRequered={false} type='top | left | right | down' default='top' description='Position of tooltip text.'/>
+                </PropsList>
             </section>
         )
     }

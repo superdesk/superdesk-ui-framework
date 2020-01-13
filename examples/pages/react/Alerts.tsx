@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Alert } from '../../../app-typescript';
+import { Alert, Prop, PropsList } from '../../../app-typescript';
 
 export default class AlertDoc extends React.Component {
     render() {
@@ -84,6 +84,14 @@ export default class AlertDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.)'/>
+                    <Prop name='style' isRequered={false} type='filled | hollow' default='filled' description='Alerts may be one of styles such as hollow alerts, alerts without background (text-only) or default filled.'/>
+                    <Prop name='size' isRequered={false} type='normal | small' default='normal' description='Specifies a small or normal alert.'/>
+                    <Prop name='restoreIcon' isRequered={false} type='info | help' default='info' description=''/>
+                </PropsList>
             </section>
         )
     }
