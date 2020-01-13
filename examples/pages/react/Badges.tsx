@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Badge, Button} from '../../../app-typescript';
+import { Badge, Button, Prop, PropsList } from '../../../app-typescript';
 
 export default class BadgeDoc extends React.Component {
     render() {
@@ -31,12 +31,12 @@ export default class BadgeDoc extends React.Component {
                     <p className="docs-page__paragraph--small">Use this version only for single digits or numbers. For longer text use the <code>.label</code> class.</p>
                     <div className='docs-page__content-row'>
                         <Badge text='1'/>
-                        <Badge text='2' type='primary' style='square' />
-                        <Badge text='a' type='success' style='square' />
-                        <Badge text='b' type='warning' style='square' />
-                        <Badge text='6' type='alert' style='square' />
-                        <Badge text='d' type='highlight' style='square' />
-                        <Badge text='9' type='light' style='square' />
+                        <Badge text='2' type='primary' shape='square' />
+                        <Badge text='a' type='success' shape='square' />
+                        <Badge text='b' type='warning' shape='square' />
+                        <Badge text='6' type='alert' shape='square' />
+                        <Badge text='d' type='highlight' shape='square' />
+                        <Badge text='9' type='light' shape='square' />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -51,12 +51,12 @@ export default class BadgeDoc extends React.Component {
 
                         // Square
                         <Badge text='1'/>
-                        <Badge text='2' type='primary' style='square' />
-                        <Badge text='a' type='success' style='square' />
-                        <Badge text='b' type='warning' style='square' />
-                        <Badge text='6' type='alert' style='square' />
-                        <Badge text='d' type='highlight' style='square' />
-                        <Badge text='9' type='light' style='square' />
+                        <Badge text='2' type='primary' shape='square' />
+                        <Badge text='a' type='success' shape='square' />
+                        <Badge text='b' type='warning' shape='square' />
+                        <Badge text='6' type='alert' shape='square' />
+                        <Badge text='d' type='highlight' shape='square' />
+                        <Badge text='9' type='light' shape='square' />
                     `}          
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -91,6 +91,13 @@ export default class BadgeDoc extends React.Component {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='text' isRequered={false} type='string' default='/' description='Badge text value.'/>
+                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.)'/>
+                    <Prop name='color' isRequered={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The badge can have either a Type or Color defined, not both at the same time.'/>
+                    <Prop name='shape' isRequered={false} type='round | square' default='round' description='Make shape of badge square or default round.'/>
+                </PropsList>
             </section>
         )
     }

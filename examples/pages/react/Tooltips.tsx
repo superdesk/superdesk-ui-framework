@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Tooltip } from '../../../app-typescript';
+import { Tooltip, Prop, PropsList } from '../../../app-typescript';
 
 export default class TooltipDoc extends React.Component {
     render() {
@@ -31,6 +31,13 @@ export default class TooltipDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='text' isRequered={true} type='string' default='/' description='Text value of component'/>
+                    <Prop name='tooltip text' isRequered={true} type='string' default='/' description='Tooltip text value.'/>
+                    <Prop name='tooltip flow' isRequered={false} type='top | left | right | down' default='top' description='Position of tooltip text.'/>
+                </PropsList>
             </section>
         )
     }

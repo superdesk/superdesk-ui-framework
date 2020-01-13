@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Label } from '../../../app-typescript';
+import { Label, Prop, PropsList } from '../../../app-typescript';
 
 export default class LabelsDoc extends React.Component {
     render() {
@@ -157,6 +157,16 @@ export default class LabelsDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='text' isRequered={true} type='string' default='/' description='Label text value'/>
+                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
+                    <Prop name='color' isRequered={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The label can have either a Type or Color defined, not both at the same time.'/>
+                    <Prop name='size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large label.'/>
+                    <Prop name='noTransform' isRequered={false} type='boolean' default='false' description='Transforms text to uppercase.'/>
+                    <Prop name='style' isRequered={false} type='filled | hollow' default='filled' description='Label may be one of styles hollow label or default filled.'/>
+                </PropsList>
             </section>
         )
     }

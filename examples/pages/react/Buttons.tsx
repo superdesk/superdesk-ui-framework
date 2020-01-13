@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Markup from "../../js/react";
-import { Button } from "../../../app-typescript";
+import { Button, Prop, PropsList } from "../../../app-typescript";
 import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
 export default class ButtonsDoc extends React.Component {
@@ -75,7 +75,7 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Text only (without background)</h3>
-                <p className="docs-page__paragraph">Define prop <code>style="text-only</code> for buttons without a background.</p>
+                <p className="docs-page__paragraph">Define prop <code>style="text-only"</code> for buttons without a background.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
@@ -425,6 +425,20 @@ export default class ButtonsDoc extends React.Component {
                         <Button text="sd-green" type="sd-green" style="text-only" disabled={true} theme="dark" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='text' isRequered={false} type='string' default='/' description='Button text value.'/>
+                    <Prop name='expand' isRequered={false} type='boolean' default='false' description='Spans the full width of the Button parent.'/>
+                    <Prop name='style' isRequered={false} type='filled | hollow | text-only' default='filled' description='Buttons may be one of styles such as hollow buttons, buttons without background (text-only) or default filled.'/>
+                    <Prop name='shape' isRequered={false} type='square | round' default='square' description='Make shape of button round or default square.'/>
+                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
+                    <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Styles button for diffrent background.'/>
+                    <Prop name='size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
+                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Disables the Button, preventing mouse events.'/>
+                    <Prop name='onClick' isRequered={true} type='function' default='false' description='Callback fired when a button is pressed.'/>
+                </PropsList>
             </section>
         )
     }

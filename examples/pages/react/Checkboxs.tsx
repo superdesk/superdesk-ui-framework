@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
-import { Checkbox, CheckboxButton, CheckGroup, CheckButtonGroup, Alert } from '../../../app-typescript';
+import { Checkbox, CheckboxButton, CheckGroup, CheckButtonGroup, Alert, Prop, PropsList } from '../../../app-typescript';
 
 interface IState {
     value1: boolean;
@@ -383,6 +383,22 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+                <h3 className="docs-page__h3">Props</h3>
+                <p className="docs-page__paragraph">Checkbox</p>
+                <PropsList>
+                    <Prop name='checked' isRequered={true} type='boolean' default='false' description='The checked state of the input.'/>
+                    <Prop name='label text' isRequered={true} type='string' default='/' description='Label text value.'/>
+                    <Prop name='label side' isRequered={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                    <Prop name='disabled' isRequered={true} type='boolean' default='false' description='The disabled state of Checkbox.'/>
+                </PropsList>
+                <p className="docs-page__paragraph">Checkbox Button</p>
+                <PropsList>
+                    <Prop name='checked' isRequered={true} type='boolean' default='/' description='The checked state of the input'/>
+                    <Prop name='label text' isRequered={true} type='string' default='/' description='Label text value.'/>
+                    <Prop name='option label' isRequered={true} type='string' default='/' description='Option label value.'/>
+                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='disabled' isRequered={true} type='boolean' default='false' description='The disabled state of CheckboxButton'/>
+                </PropsList>
             </section>
         )
     }
