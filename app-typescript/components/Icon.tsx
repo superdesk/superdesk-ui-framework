@@ -10,10 +10,11 @@ interface IProps {
 export class Icon extends React.PureComponent<IProps> {
     render() {
         let classes = classNames({
-            [`icon-${this.props.name}`]: (this.props.name && !this.props.size) || (this.props.name && this.props.size === 'small'),
+            [`icon-${this.props.name}`]:
+            (this.props.name && !this.props.size) || (this.props.name && this.props.size === 'small'),
             [`big-icon--${this.props.name}`]: this.props.name && this.props.size === 'big',
             [`${this.props.type}`]: this.props.type,
-        })
+        });
         return (
             <i className={classes}></i>
         );

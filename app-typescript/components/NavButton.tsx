@@ -18,7 +18,7 @@ export class NavButton extends React.PureComponent<IProps> {
 
         return (
             <button className={classes} onClick={this.props.onClick}>
-                {this.props.icon ? <Icon name={this.props.icon} size={this.props.iconSize} /> : null}               
+                {this.props.icon ? <Icon name={this.props.icon} size={this.props.iconSize} /> : null};
             </button>
         );
     }
