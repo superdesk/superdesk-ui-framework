@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import {Icon} from './Icon';
 interface IProps {
     icon?: string;
     tooltip?: {
@@ -18,7 +18,7 @@ export class IconButton extends React.PureComponent<IProps> {
                 data-sd-tooltip={this.props.tooltip ? this.props.tooltip.text : null}
                 data-flow={this.props.tooltip ?
                     (this.props.tooltip.flow !== 'top' ? this.props.tooltip.flow : null) : null}>
-                <i className={'icon-' + this.props.icon}></i>
+                <Icon name={this.props.icon}/>
             </a>
         );
     }

@@ -29,6 +29,7 @@ export {SubNav} from './components/SubNav';
 export {SlidingToolbar}  from './components/SlidingToolbar';
 export {StrechBar}  from './components/StrechBar';
 export {PropsList, Prop} from './components/PropsList';
+export {Icon} from './components/Icon';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-
+import {Icon} from './Icon'
 interface IProps {
     text: string;
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
@@ -16,7 +16,7 @@ export class IconLabel extends React.PureComponent<IProps> {
 
         return (
             <span className={classes}>
-                <i className={'icon-' + this.props.icon}></i> {this.props.text}
+                <Icon name={this.props.icon}/> {this.props.text}
             </span>
         );
     }
