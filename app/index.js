@@ -38,6 +38,7 @@ export {
     StrechBar,
     PropsList,
     Prop,
+    Icon,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

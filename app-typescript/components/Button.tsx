@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import {Icon} from './Icon';
 
 interface IButtonBase {
     theme?: 'light' | 'dark'; // defaults to 'light'
@@ -33,7 +34,7 @@ export class Button extends React.PureComponent<IPropsButton> {
 
         return (
             <button className={classes} onClick={this.props.onClick}>
-                {this.props.icon ? <i className={'icon-' + this.props.icon}></i> : null}
+                {this.props.icon ? <Icon name={this.props.icon}/> : null}
                 {this.props.text}
             </button>
         );
