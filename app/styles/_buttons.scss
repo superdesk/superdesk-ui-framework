@@ -948,3 +948,108 @@ $button-nav-color: currentColor;
     }
   }
 }
+
+
+
+.subnav {
+  .button-group--right {
+    .btn:last-of-type {
+      @include sd-margin('2', 'right');
+    }
+  }
+}
+.button-group__divider {
+  width: 1px;
+  height: $button-height;
+  &--mini {
+    @include sd-padding('1-5', 'left');
+    width: 0;
+    border: none !important;
+  }
+  &--small {
+    @include sd-margin('1', 'x');
+  }
+  &--medium {
+    @include sd-margin('1-5', 'x');
+  }
+  &--large {
+    @include sd-margin('2', 'x');
+  }
+  &--border {
+    border-left: 1px dotted rgba(123, 123, 123, 0.6);
+  }
+}
+
+
+
+.button-group--right {
+  .button-group__divider {
+    &--border {
+      &.button-group__divider--small {
+        @include sd-margin('0-5', 'right');
+        @include sd-margin('1-5', 'left');
+      }
+      &.button-group__divider--medium {
+        @include sd-margin('1', 'right');
+        @include sd-margin('2', 'left');
+      }
+      &.button-group__divider--large {
+        @include sd-margin('1-5', 'right');
+        margin-left: $sd-base-increment * 2.5;
+      }
+    }
+  }
+  &.button-group--padded {
+    @include sd-margin('1-5', 'right');
+  }
+}
+
+.button-group--left {
+  .button-group__divider {
+    &--border {
+      &.button-group__divider--small {
+        @include sd-margin('0-5', 'left');
+        @include sd-margin('1-5', 'right');
+      }
+      &.button-group__divider--medium {
+        @include sd-margin('1', 'left');
+        @include sd-margin('2', 'right');
+      }
+      &.button-group__divider--large {
+        @include sd-margin('1-5', 'left');
+        margin-right: $sd-base-increment * 2.5;
+      }
+    }
+  }
+  &.button-group--padded {
+    @include sd-margin('1-5', 'left');
+  }
+}
+
+.button-group--vertical {
+  .button-group__divider {
+    height: 1px;
+    width: auto;
+    @include sd-margin('0', 'x');
+
+    &--border {
+      border-left: none;
+      border-top: 1px dotted rgba(123, 123, 123, 0.6);
+    }
+    &.button-group__divider--mini {
+      @include sd-padding('1-5', 'top');
+    }
+    &.button-group__divider--small {
+      @include sd-margin('0-5', 'bottom');
+      @include sd-margin('1-5', 'top');
+    }
+    &.button-group__divider--medium {
+      @include sd-margin('1', 'bottom');
+      @include sd-margin('2', 'top');
+    }
+    &.button-group__divider--large {
+      @include sd-margin('1-5', 'bottom');
+      margin-top: $sd-base-increment * 2.5;
+    }
+  }
+}

@@ -25,6 +25,7 @@ import LeftNavigationsDoc from './LeftNavigations';
 import NavButtonsDoc from './NavButtons';
 import IconFontDoc from './IconFont';
 import BigIconFontDoc from './BigIconFont';
+import SubNavDoc from './SubNav';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -69,6 +70,9 @@ const pages = {
             },
             'left-navigation': {
                 name: 'Left navigation'
+            },
+            'sub-navigation': {
+                name: 'Sub navigation bar'
             },
         }
     },
@@ -126,6 +130,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/nav-buttons" component={NavButtonsDoc} />
                         <Route path="/react/icon-font" component={IconFontDoc} />
                         <Route path="/react/big-icon-font" component={BigIconFontDoc} />
+                        <Route path="/react/sub-navigation" component={SubNavDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

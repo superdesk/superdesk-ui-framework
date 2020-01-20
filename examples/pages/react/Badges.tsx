@@ -60,6 +60,61 @@ export default class BadgeDoc extends React.Component {
                     `}          
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                <h3 className="docs-page__h3">Colours</h3>
+                <p className="docs-page__paragraph">By default, badges use the standard semantic colour palette (e.g. primary, success, warning etc.). Due to the considerable use of the badge component in Superdesk the standard palette is often not enough. In such cases, the colours can be extended by adding the <code>color</code> prop with a value of any of the colours from the <a className='link' href='#/components/colors' target='blank'>extended colour palette</a>.</p>
+                <Markup.ReactMarkup>
+                <Markup.ReactMarkupPreview>
+                    <p className="docs-page__paragraph">// Basic colour palette</p>
+                    <div className='docs-page__content-row'>
+                        <Badge text='1' shape='square'/>
+                        <Badge text='A' type='primary' shape='square'/>
+                        <Badge text='2' type='success' shape='square'/>
+                        <Badge text='B' type='warning' shape='square'/>
+                        <Badge text='3' type='alert'/>
+                        <Badge text='C' type='highlight'/>
+                        <Badge text='4' type='light'/>
+                    </div>
+                    <p className="docs-page__paragraph">// Extended colour palette examples</p>
+                    <div className='docs-page__content-row'>
+                        <Badge text='1' color='indigo--300'/>
+                        <Badge text='2' color='indigo--400'/>
+                        <Badge text='3' color='indigo--500'/>
+                        <Badge text='A' color='deep-orange--400' shape='square'/>
+                        <Badge text='B' color='deep-orange--500' shape='square'/>
+                        <Badge text='C' color='deep-orange--600' shape='square'/>
+                        <Badge text='4' color='light-green--500'/>
+                        <Badge text='5' color='light-green--600'/>
+                        <Badge text='6' color='light-green--700'/>
+                        <Badge text='D' color='purple--300' shape='square'/>
+                        <Badge text='E' color='purple--400' shape='square'/>
+                        <Badge text='F' color='purple--500' shape='square'/>
+                    </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        // Basic colour palette
+                        <Badge text='1' shape='square'/>
+                        <Badge text='A' type='primary' shape='square'/>
+                        <Badge text='2' type='success' shape='square'/>
+                        <Badge text='B' type='warning' shape='square'/>
+                        <Badge text='3' type='alert'/>
+                        <Badge text='C' type='highlight'/>
+                        <Badge text='4' type='light'/>
+                        // Extended colour palette examples
+                        <Badge text='1' color='indigo--300'/>
+                        <Badge text='2' color='indigo--400'/>
+                        <Badge text='3' color='indigo--500'/>
+                        <Badge text='A' color='deep-orange--400' shape='square'/>
+                        <Badge text='B' color='deep-orange--500' shape='square'/>
+                        <Badge text='C' color='deep-orange--600' shape='square'/>
+                        <Badge text='4' color='light-green--500'/>
+                        <Badge text='5' color='light-green--600'/>
+                        <Badge text='6' color='light-green--700'/>
+                        <Badge text='D' color='purple--300' shape='square'/>
+                        <Badge text='E' color='purple--400' shape='square'/>
+                        <Badge text='F' color='purple--500' shape='square'/>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Element with badge</h3>
                 <p className="docs-page__paragraph">Wrap another component with the Badge component, so that badge is applied to its children.</p>
