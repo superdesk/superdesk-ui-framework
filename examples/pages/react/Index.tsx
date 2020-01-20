@@ -23,6 +23,8 @@ import CheckboxsDoc from './Checkboxs';
 import TabsDoc from './Tabs';
 import LeftNavigationsDoc from './LeftNavigations';
 import NavButtonsDoc from './NavButtons';
+import IconFontDoc from './IconFont';
+import BigIconFontDoc from './BigIconFont';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -86,6 +88,17 @@ const pages = {
                 name: 'Checkbox'
             }
         }
+    },
+    generalComponents: {
+        name: "General",
+        items: {
+            'icon-font': {
+                name: 'Icon font',
+            },
+            'big-icon-font': {
+                name: 'Big icon font'
+            }
+        }
     }
 }
 
@@ -111,6 +124,8 @@ class ReactDoc extends React.Component {
                         <Route path="/react/tab" component={TabsDoc} />
                         <Route path="/react/left-navigation" component={LeftNavigationsDoc} />
                         <Route path="/react/nav-buttons" component={NavButtonsDoc} />
+                        <Route path="/react/icon-font" component={IconFontDoc} />
+                        <Route path="/react/big-icon-font" component={BigIconFontDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

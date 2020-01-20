@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-
 interface IProps {
     text?: string;
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
