@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import { ButtonGroup, Button, IconButton, Alert, Prop, PropsList} from '../../../app-typescript';
+import { ButtonGroup, Button, IconButton, Tooltip, Alert, Divider, Prop, PropsList} from '../../../app-typescript';
 
 export default class ButtonGroupsDoc extends React.Component {
     render() {
@@ -126,6 +126,7 @@ export default class ButtonGroupsDoc extends React.Component {
                         <ButtonGroup orientation='vertical'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
+                            <Button text='three' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
@@ -133,6 +134,7 @@ export default class ButtonGroupsDoc extends React.Component {
                         <ButtonGroup orientation='vertical'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
+                            <Button text='three' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
                     `}   
                     </Markup.ReactMarkupCode>
@@ -143,6 +145,7 @@ export default class ButtonGroupsDoc extends React.Component {
                     <Prop name='orientation' isRequered={false} type='horizontal | vertical' default='horizontal' description='Specifies orientation for child components of ButtonGroup'/>
                     <Prop name='spaces' isRequered={false} type='comfort | compact' default='comfort' description='Space between buttons: comfort (default) or compact.'/>
                     <Prop name='align' isRequered={false} type='left | right | center' default='left' description='Alignment in relation to the parent element.'/>
+                    <Prop name='padded' isRequered={false} type='boolean' default='false' description='Adds predefined space to the side based on alignment and orientation.'/>
                 </PropsList>
             </section>
         )

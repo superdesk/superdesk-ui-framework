@@ -80,11 +80,21 @@ $comment-color:         #fff16f;
 
 $sd-inputBorderColor-darkUi: $transparent-white;
 
-$subnav-background: $grayLighter;
-$subnav-background-darkUi: #404040;
-$subnav-background-darker: #dedede;
-$subnav-background-dark-blue-grey: #59727d;
-$subnav-background-mid-blue-grey:#747c87;
+//Subnav colours
+:root {
+--subNavBG-50: #F5F5F5;
+--subNavBG-100: #dedede;
+--subNavBG-blueGrey-500: #607D8B;
+--subNavBG-blueGrey-600: #4d6570;
+--subNavBG-darkUi: #404040;
+}
+
+$subnav-background: var(--subNavBG-50);
+$subnav-background-darker: var(--subNavBG-100);
+$subnav-background-blue-grey: var(--subNavBG-blueGrey-500);
+$subnav-background-blue-grey-darker: var(--subNavBG-blueGrey-600);
+$subnav-background-dark-blue-grey: var(--subNavBG-blueGrey-600);
+$subnav-background-darkUi: var(--subNavBG-darkUi);
 
 $sd-basic-palette: (
   default: $grayDark,

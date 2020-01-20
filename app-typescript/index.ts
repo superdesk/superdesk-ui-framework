@@ -30,6 +30,7 @@ export {SlidingToolbar}  from './components/SlidingToolbar';
 export {StrechBar}  from './components/StrechBar';
 export {PropsList, Prop} from './components/PropsList';
 export {Icon} from './components/Icon';
+export {Divider}  from './components/Divider';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
