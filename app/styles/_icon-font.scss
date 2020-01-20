@@ -11,6 +11,8 @@
 // <i class="icon-ok icon--white"></i>
 
 /// Default color for icons.
+@import 'variables/colors';
+
 $icon-color: $grayDark !default;
 
 @font-face {
@@ -296,6 +298,9 @@ $sd-icon-font: (
   }
 }
 
+:export {
+  icon: map-keys($sd-icon-font);
+}
 
 // Combining 2 icons
 .icn-mix {

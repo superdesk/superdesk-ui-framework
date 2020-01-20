@@ -6,6 +6,9 @@
 // of .i and are then given a unique class to add width, height,
 // and font specification. Your resulting HTML will look like
 // <i class="icon-ok"></i>.
+@import 'variables/colors';
+
+$icon-color: $grayDark !default;
 
 @font-face {
   font-family: 'sd_big-icons';
@@ -114,3 +117,6 @@ $sd-big-icon-font: (
   }
 }
 
+:export {
+  icon: map-keys($sd-big-icon-font);
+}
