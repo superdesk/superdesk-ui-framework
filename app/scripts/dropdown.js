@@ -15,7 +15,7 @@ function sdDropdown($window) {
 
             function closeToBottom() {
                 return button && button.offset() ?
-                        checkEnvironment().bottom <
+                        checkEnvironment().bottom <=
                         menu.outerHeight() + button.outerHeight() : false;
             }
 
@@ -30,7 +30,7 @@ function sdDropdown($window) {
 
             function closeToRight() {
                 return button && button.offset() ?
-                        $window.innerWidth - button.offset().left - button.outerWidth() < menu.outerWidth() : false;
+                        $window.innerWidth - button.offset().left - button.outerWidth() <= menu.outerWidth() : false;
             }
 
             function checkEnvironment() {
