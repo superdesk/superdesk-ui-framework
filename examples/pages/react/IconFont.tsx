@@ -11,7 +11,7 @@ export default class IconFontDoc extends React.PureComponent{
         const icons = array.map((icon, index) =>
             <li key={index}>
                 <Icon name={icon}/>
-                <span>icon-{icon}</span>
+                <span>{icon}</span>
             </li>
             );
         return(
