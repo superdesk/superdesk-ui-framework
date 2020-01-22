@@ -960,7 +960,7 @@ $button-nav-color: currentColor;
 }
 .button-group__divider {
   width: 1px;
-  height: $button-height;
+  height: $sd-base-increment * 3;
   &--mini {
     @include sd-padding('1-5', 'left');
     width: 0;

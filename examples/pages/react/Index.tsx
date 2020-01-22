@@ -40,7 +40,7 @@ const pages = {
                 name: 'Icon Buttons'
             },
             'button-groups': {
-                name: 'Button Groups'
+                name: 'Button Group & Divider'
             },
             'labels': {
                 name: 'Labels',
