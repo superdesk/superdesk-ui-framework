@@ -11,7 +11,7 @@ export default class BigIconFontDoc extends React.PureComponent{
         const icons = array.map((icon, index) =>
             <li key={index}>
                 <Icon name={icon} size='big'/>
-                <span>big-icon--{icon}</span>
+                <span>{icon}</span>
             </li>
             );
         return(
