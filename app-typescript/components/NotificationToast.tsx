@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { Icon } from './Icon';
 import classNames from 'classnames';
-import { isThisHour } from 'date-fns';
 
 interface IProps {
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
