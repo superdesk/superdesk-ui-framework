@@ -13,6 +13,7 @@ import LabelsDoc from './Labels';
 import ButtonGroupsDoc from './ButtonGroups';
 import BadgesDoc from './Badges';
 import AlertDoc from './Alerts';
+import AvatarDoc from './Avatar';
 import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
@@ -53,6 +54,9 @@ const pages = {
             },
             'alerts': {
                 name: 'Alerts'
+            },
+            'avatar': {
+                name: 'Avatar',
             },
             'tooltips': {
                 name: 'Tooltips'
@@ -121,6 +125,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/icon-labels" component={IconLabelDoc} />
                         <Route path="/react/badges" component={BadgesDoc} />
                         <Route path="/react/alerts" component={AlertDoc} />
+                        <Route path="/react/avatar" component={AvatarDoc} />
                         <Route path="/react/tooltips" component={TooltipDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
                         <Route path="/react/radio" component={RadiosDoc} />
