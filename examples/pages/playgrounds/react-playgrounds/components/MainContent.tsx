@@ -1,9 +1,11 @@
 import * as React from 'react';
-
+import {ThemeDropdown} from '../components/ThemeDropdown';
+import { string } from 'prop-types';
 interface IProps {
     children?: React.ReactNode;
     handleClick(child): void;
     handleClickA(child): void;
+    sendTheme(child): void;
 }
 
 interface IState {
@@ -35,12 +37,17 @@ export class MainContent extends React.PureComponent<IProps, IState> {
         }));
         this.props.handleClickA(this.state.openA);
     }
+    
+    handleThemeParent = (childData) => {
+        this.props.sendTheme(childData);
+    }
 
-    render() {
+    render() { 
         return (
             <div className='sd-main-content-grid__content sd-padding--2'>
                 <button onClick={this.handleClick}>Test preview</button>
                 <button onClick={this.handleClickA}>Test authoring</button>
+                <ThemeDropdown handleThemeParent = {this.handleThemeParent}/>
                 {this.props.children}
             </div>
         );

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import { SidebarMenu } from './SidebarMenu';
 import { AuthoringContent } from './AuthoringContent';
 
@@ -6,10 +7,14 @@ interface IProps {
     header: string;
     children?: React.ReactNode;
     openA?: boolean;
+    theme?: string;
 }
 
 export class Layout extends React.PureComponent<IProps> {
     render() {
+        let classes = classNames('sd-content sd-content-wrapper', {
+            [`${this.props.theme}`]: this.props.theme,
+        })
         return (
             <div className='sd-page-grid--test docs-page__full-width-helper'>
                 <div className='sd-main-menu'>
@@ -21,7 +26,7 @@ export class Layout extends React.PureComponent<IProps> {
                     </a>
                     <p className='sd-top-menu__header'>{this.props.header}</p>
                 </header>
-                <section className='sd-content sd-content-wrapper'>
+                <section className={classes}>
                     <SidebarMenu />
                     <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                         {this.props.children}
