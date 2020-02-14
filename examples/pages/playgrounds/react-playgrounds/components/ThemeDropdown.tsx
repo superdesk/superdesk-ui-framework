@@ -35,7 +35,6 @@ export class ThemeDropdown extends React.PureComponent<IProps, IState> {
         })
 
         let themes = ['light', 'dark'];
-
         return (
             <div className={classes}>
                 <button className="dropdown__toggle" aria-expanded="false" onClick={this.handleClick}>

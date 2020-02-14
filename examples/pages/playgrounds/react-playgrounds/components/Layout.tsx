@@ -11,6 +11,19 @@ interface IProps {
 }
 
 export class Layout extends React.PureComponent<IProps> {
+    componentDidMount(){
+        let element = document.getElementById('1');
+        let attr = document.createAttribute('theme');
+        attr.value = this.props.theme;
+        element.setAttributeNode(attr);
+    }
+    
+    componentDidUpdate() {
+        let element = document.getElementById('1');
+        let attr = document.createAttribute('theme');
+        attr.value = this.props.theme;
+        element.setAttributeNode(attr);
+    }
     render() {
         let classes = classNames('sd-content sd-content-wrapper', {
             [`${this.props.theme}`]: this.props.theme,
@@ -26,7 +39,7 @@ export class Layout extends React.PureComponent<IProps> {
                     </a>
                     <p className='sd-top-menu__header'>{this.props.header}</p>
                 </header>
-                <section className={classes}>
+                <section id='1' className={classes}>
                     <SidebarMenu />
                     <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                         {this.props.children}

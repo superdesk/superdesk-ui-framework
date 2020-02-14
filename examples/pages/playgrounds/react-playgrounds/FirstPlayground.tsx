@@ -17,7 +17,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
         this.state = {
             open: false,
             openA: false,
-            theme: '',
+            theme: 'light',
         }
         this.handleClick = this.handleClick.bind(this);
         this.handleClickA = this.handleClickA.bind(this);
