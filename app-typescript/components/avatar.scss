@@ -1,0 +1,98 @@
+.avatar {
+    display: block;
+    position: relative; // required for absolutely positioned indicators
+
+    &--indicator-status--offline {
+        display: block;
+        background-color: #fff;
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        position: absolute;
+        bottom: -1px;
+        right: -4px;
+        box-shadow: 0px 0 0 2px #fff;
+        border: 1px solid #a2c59e;
+        box-sizing: border-box;
+    }
+
+    &--indicator-status--online {
+        @extend .avatar--indicator-status--offline;
+    
+        background-color: #67b461;
+        border: 1px solid #67b461;
+    }
+
+    &--indicator-admin {
+        @include border-radius(50%);
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        z-index: 1;
+    
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            background: #fff;
+            width: 8px;
+            height: 8px;
+            z-index: -1;
+        }
+    }
+
+    &--small {
+        height: 24px;
+        width: 24px;
+        font-size: 1rem;
+    }
+
+    &--medium {
+        height: 30px;
+        width: 30px;
+        font-size: 1rem;
+    }
+
+    &--large {
+        height: 48px;
+        width: 48px;
+        font-size: 1.8rem;
+
+        .avatar--indicator-status--offline,
+        .avatar--indicator-status--online {
+            right: 0;
+        }
+    }
+
+    .avatar-content {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+    
+        border-radius: 50%;
+        color: $white;
+        text-transform: uppercase;
+        letter-spacing: -0.03em;
+        overflow: hidden;
+        border-radius: 50%;
+    
+        > img {
+            width: 100%;
+        }
+
+        &--text {
+            background-color: #005b7f;
+        }
+    
+        &--empty {
+            background-color: #005b7f;
+            background-image: url('~../../images/avatar_64.png');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+}

@@ -47,6 +47,7 @@ export default class SubNavDoc extends React.Component {
                                 <NavButton icon='dots-vertical' onClick={()=> false} />
                             </ButtonGroup>
                         </SubNav>
+                        <br />
                         <SubNav color='darker' zIndex={2}>
                             <ButtonGroup align='left' padded={true}>
                             <Button text='Something' onClick={()=> false} />
@@ -56,6 +57,7 @@ export default class SubNavDoc extends React.Component {
                                 <Button text='Save' type='primary' onClick={()=> false} />
                             </ButtonGroup>
                         </SubNav>
+                        <br />
                         <SubNav color='darker' zIndex={1}>
                             <ButtonGroup align='center'>
                             <Button text='One' onClick={()=> false} />

@@ -404,47 +404,6 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     }
 }
 
-
-.avatar {
-    display: inline-block;
-    height: 3rem;
-    width: 3rem;
-    background-color: $avatarBG;
-    border-radius: 50%;
-    margin-right: 0.6rem;
-    color: $white;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 1.2rem;
-    line-height: 3.2rem;
-    letter-spacing: -0.03em;
-    vertical-align: middle;
-    &--small {
-        height: 2.4rem;
-        width: 2.4rem;
-        font-size: 1rem;
-        line-height: 2.5rem;
-    }
-    &--large {
-        height: 4.8rem;
-        width: 4.8rem;
-        font-size: 1.8rem;
-        line-height: 5rem;
-    }
-    &--no-margin {
-        margin: 0;
-    }
-    &--empty {
-        background-color: rgba(123, 123, 123, 0.05);
-        color: transparent;
-        border: 1px dashed rgba(123, 123, 123, 0.6);
-    }
-    &--on-right {
-        margin-right: 0;
-        margin-left: 0.6rem;
-    }
-}
-
 .dropdown__toggle {
     &:hover {
         [class^="icon-"],
