@@ -1,6 +1,7 @@
-$sd-sidebarMenu-background: #dedede;
+
+$sd-sidebarMenu-background: var(--color-bg-150);
 $sd-sidebarMenu-secondLevel-background: #b7bec1;
-$sd-sideTabMenu-background: #a1a1a1;
+$sd-sideTabMenu-background: var(--color-bg-200);
 
 .sd-sidebar-menu {
   position: absolute;

@@ -1,4 +1,4 @@
-<div class="sd-page-grid--test docs-page__full-width-helper" doc-modal ng-init="openHamburger = false, darkUI = false" data-theme="{{darkUI ? 'dark-ui' : 'light-ui'}}">
+<div class="sd-page-grid--test docs-page__full-width-helper" doc-modal ng-init="openHamburger = false, accessibleUI = false" data-theme="{{accessibleUI ? 'accessible-light-ui' : 'light-ui'}}">
     <div class="sd-main-menu" ng-class="{'sd-main-menu--open': openHamburger}">
         <div class="sd-main-menu__inner">
 
@@ -57,10 +57,10 @@
                 </li>
             </ul>
         </div>
-        <div id="leftContent" sd-media-query min-width="880" max-width="1100" ng-init="darkUI = false; listView = true" class="sd-content-wrapper__main-content-area sd-main-content-grid" ng-class="{'dark-ui': darkUI}">
+        <div id="leftContent" sd-media-query min-width="880" max-width="1100" ng-init="accessibleUI = false; listView = true" class="sd-content-wrapper__main-content-area sd-main-content-grid" ng-class="{'dark-ui': darkUI}">
             <!-- TOOLBAR HEADER -->
             <div class="sd-main-content-grid__header">
-                <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+                <div class="subnav" ng-class="{'subnav--accessible-light-ui': accessibleUI}">
                     <div class="subnav__sliding-toolbar" ng-show="select1 || select2 || select3 || select4 || select5 || select6 || select7 || select8 || select9 || select10 || select11 || select12 || select13 || select14 || select15 || select16 || select17 || select18 || select19 || select20 || select21 || select22 || select23 || select24 || select25 || select26 || select27 || select28 || select29 || select30 || select31 || select32 || select33 || select34 || select35 || select36">
                         <div class="sliding-toolbar__inner">
                             <a class="btn" ng-click="select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false">Cancel</a>
@@ -149,7 +149,7 @@
                         <a class="icn-btn" sd-tooltip="Ascending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-show="!sortDesc"><i class="icon-ascending"></i></a>
     
                     </div>
-                    <button class="navbtn" ng-click="darkUI = !darkUI">
+                    <button class="navbtn" ng-click="accessibleUI = !accessibleUI">
                         <i class="icon-adjust"></i>
                     </button>
                     <div class="dropdown dropdown--align-right" dropdown>
@@ -695,7 +695,10 @@
                             </div>
                             <ul class="nav-tabs nav-tabs--big nav-tabs--ui-dark">
                                 <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'send-to'}" class="nav-tabs__tab">
-                                    <button class="nav-tabs__link"><span translate="">Send to</span></button>
+                                    <button class="nav-tabs__link"><span translate>Send to</span></button>
+                                </li>
+                                <li class="nav-tabs__tab">
+                                    <button class="nav-tabs__link"><span translate>Publish</span></button>
                                 </li>
                             </ul>
                         </div>

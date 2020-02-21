@@ -37,7 +37,7 @@
         grid-column: 2/3;
         grid-row: 2/3;
         z-index: 1;
-        background-color: #f8f8f8;
+        background-color: var(--color-bg-50);
         overflow: auto;
     }    
     .bottom-bar {
@@ -724,8 +724,8 @@ $planningEditor-width: 53rem;
         grid-column: contentContainer;
         grid-row: contentContainer;
         z-index: 1;
-        background-color: #f8f8f8;
         overflow: auto;
+        background-color: var(--color-bg-50);
 
     }    
     .bottom-bar {

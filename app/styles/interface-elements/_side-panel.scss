@@ -1,5 +1,5 @@
-$side-panel-Bg: $white;
-$side-panel-Bg-darkUi: darken($grayMedium, 4%);
+$side-panel-Bg: var(--color-bg-100);
+$side-panel-Bg-darkUi: #4a4a4a;
 
 .side-panel {
     margin: 0;
@@ -19,6 +19,7 @@ $side-panel-Bg-darkUi: darken($grayMedium, 4%);
         display: flex;
         flex-direction: row;
         align-items: center;
+        background-color: $side-panel-Bg;
         &--border-b {
             box-shadow: 0 1px 0 rgba(0,0,0,.12);
         }
@@ -437,7 +438,7 @@ $side-panel-Bg-darkUi: darken($grayMedium, 4%);
 [class^="--dark-ui"],
 [class*="--dark-ui"] {
     .side-panel {
-        background-color: $side-panel-Bg-darkUi;
+        //background-color: $side-panel-Bg-darkUi;
         color: $white;
         &.side-panel--transparent {
             background-color: transparent;
