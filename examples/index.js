@@ -328,6 +328,10 @@ export default angular.module('ui-docs', [
                 name: 'Nav buttons',
                 page: 'nav-buttons.html'
             },
+            'accessible-theme-test': {
+                name: 'Accessible theme',
+                page: 'accessible-theme-test.html'
+            },
         },
         // Publisher playgrounds
         publisher: {

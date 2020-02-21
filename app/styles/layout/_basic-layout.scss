@@ -123,9 +123,12 @@
         opacity: 0;
         transition: all 0.2s ease-out;
         transition-delay: .1s;
+        .side-panel__header {
+            background-color: $sd-background-darkUI;
+        }
     }
     &--dark-ui {
-        background-color: $sd-background-darkUI;
+        background-color: $sd-background-darkUI !important;
         color: $white;
     }
     &--open {
