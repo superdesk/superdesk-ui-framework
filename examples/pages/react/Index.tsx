@@ -105,7 +105,7 @@ const pages = {
             },
             'big-icon-font': {
                 name: 'Big icon font'
-            }
+            },
         }
     }
 }

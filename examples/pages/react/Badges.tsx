@@ -2,10 +2,11 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Badge, Button, Prop, PropsList } from '../../../app-typescript';
+import { Badge, Button, Prop, PropsList} from '../../../app-typescript';
 
 export default class BadgeDoc extends React.Component {
     render() {
+
         return (
             <section className="docs-page__container"> 
                 <h2 className="docs-page__h2">Badge</h2>
@@ -26,7 +27,7 @@ export default class BadgeDoc extends React.Component {
                         <Badge text='2318' type='highlight' />
                         <Badge text='76' type='light' />
                     </div>
-
+                    
                     <p className="docs-page__paragraph">// Square</p>
                     <p className="docs-page__paragraph--small">Use this version only for single digits or numbers. For longer text use the <code>.label</code> class.</p>
                     <div className='docs-page__content-row'>
@@ -145,7 +146,7 @@ export default class BadgeDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-
+                
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='text' isRequered={false} type='string' default='/' description='Badge text value.'/>
