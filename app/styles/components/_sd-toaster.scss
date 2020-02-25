@@ -62,7 +62,7 @@ $toast-sizes: (
     &--enter-active {
         transform: translateY(0);
         transition: transform cubic-bezier(.54, 1.12, .38, 1.11) .3s;
-        transition-delay: 0
+        transition-delay: 0;
     }
     &.sd-toast--appear ~ .sd-toast,
     &.sd-toast--enter ~ .sd-toast {
@@ -74,6 +74,29 @@ $toast-sizes: (
             display: block;
             margin: 0.6rem 0.4rem 0.6rem 0.6rem;
         }
+    }
+    &--exit {
+        opacity: 1;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+    }
+    &--exit-active {
+        opacity: 0;
+        filter: blur(10px);
+        transition-property: opacity, filter;
+        transition-duration: .3s;
+        transition-timing-function: cubic-bezier(.4, 1, .75, .9);
+        transition-delay: 0;
+    }
+    &.sd-toast--exit ~ .sd-toast {
+        transform: translateY(0);
+    }
+    &.sd-toast--exit-active ~ .sd-toast {
+        transform: translateY(-40px);
+        transition-property: transform;
+        transition-duration: .1s;
+        transition-timing-function: cubic-bezier(.4, 1, .75, .9);
+        transition-delay: 50ms;
     }
 
     @each $name, $color in $toast-palette {
