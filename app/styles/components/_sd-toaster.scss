@@ -28,16 +28,31 @@ $toast-sizes: (
         top: 0;
         bottom: auto;
     }
+    &.sd-toast__container--top-left {
+        top: 0;
+        bottom: auto;
+        align-items: flex-start;
+    }
+    &.sd-toast__container--top-right {
+        top: 0;
+        bottom: auto;
+        align-items: flex-end;
+    }
     &.sd-toast__container--bottom {
         flex-direction: column-reverse;
         top: auto;
         bottom: 0;
     }
-    &.sd-toast__container--left {
+    &.sd-toast__container--bottom-left {
+        flex-direction: column-reverse;
+        top: auto;
+        bottom: 0;
         align-items: flex-start;
     }
-    
-    &.sd-toast__container--right {
+    &.sd-toast__container--bottom-right {
+        flex-direction: column-reverse;
+        top: auto;
+        bottom: 0;
         align-items: flex-end;
     }
 }
