@@ -36,8 +36,6 @@ export const Message = ({
     const [show, setShow] = React.useState(true);
     const intervalRef = React.useRef();
     const intervalShow = React.useRef();
-    console.log(intervalRef);
-    console.log(intervalShow);
     React.useEffect(() => {
         TestTimeout(id, duration);
     });
