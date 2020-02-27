@@ -6,22 +6,21 @@ export type MessageProp =
     | React.ReactNode
     | string;
 
-export type Position = 'top' | 'bottom' | 'right' | 'left';
+export type Position = 'top' | 'bottom' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 
-export type  NotesType = 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
+export type NotesType = 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
 
 export interface IMessageOptions {
-    id: string;
-    avatar?: string;
+    id?: string;
     duration?: number | null;
     type?: NotesType;
-    position: Position;
+    position?: Position;
     icon?: string;
+    show?: boolean;
 }
 
 interface IProps extends IMessageOptions {
     message: MessageProp;
-    position: Position;
     closeElement(id, position): void;
 }
 
@@ -30,22 +29,28 @@ export const Message = ({
     message,
     type,
     icon,
-    avatar,
     duration,
     position,
     closeElement,
 }: IProps) => {
-    const container = React.useRef<HTMLDivElement | null>(null);
-    const [durationTime, setDurationTime] = React.useState(duration);
+    const [show, setShow] = React.useState(true);
     const intervalRef = React.useRef();
-
+    const intervalShow = React.useRef();
+    console.log(intervalRef);
+    console.log(intervalShow);
     React.useEffect(() => {
-        TestTimeout(id, durationTime);
-    }, [durationTime]);
+        TestTimeout(id, duration);
+    });
 
     function TestTimeout(element: string, timeout: number | null) {
         let timer;
-        if (typeof timeout === "number" && timeout !== null) {
+        let timerShow;
+        if (typeof timeout === "number") {
+            timerShow = setTimeout(() => {
+                setShow(false);
+            }, timeout - 1000);
+            intervalShow.current = timerShow;
+
             timer = setTimeout(() => {
                 close(element, position);
             }, timeout);
@@ -56,36 +61,32 @@ export const Message = ({
 
     function onMouseEnter() {
         clearInterval(intervalRef.current);
+        clearInterval(intervalShow.current);
     }
 
     function onMouseLeave() {
-        TestTimeout(id, durationTime);
+        TestTimeout(id, duration);
     }
 
     function close(element: string, elementPosition: string) {
-        closeElement(element, elementPosition);
-    }
-
-    function showMessage() {
-        if (typeof message === "string" || React.isValidElement(message)) {
-            return <Text id={id} title={message} icon={icon} avatar={avatar} onClose={() => close(id, position)} />;
-        }
-        return null;
+        setShow(false);
+        setTimeout(() => {
+            closeElement(element, elementPosition);
+        }, 1000);
     }
 
     const classes = classNames('sd-toast', {
         [`sd-toast--${type}`]: type,
+        ['show']: show,
     });
 
     return (
         <div
-            ref={container}
             className={classes}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            {showMessage()}
+            <Text id={id} title={message} icon={icon} onClose={() => close(id, position)} />
         </div>
-
     );
 };

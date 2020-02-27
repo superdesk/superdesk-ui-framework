@@ -1,17 +1,9 @@
 import * as React from 'react';
-import { Message, MessageProp, IMessageOptions, Position, NotesType } from './Message';
+import { Message, MessageProp, IMessageOptions } from './Message';
 import { Icon } from './Icon';
 
 interface IProps {
   notify: (fn: (...args: any) => any) => void;
-}
-
-export interface IOptions {
-  type?: NotesType;
-  icon?: string;
-  avatar?: string;
-  position?: Position;
-  duration?: number | null;
 }
 
 interface IArgs extends IMessageOptions {
@@ -21,15 +13,19 @@ interface IArgs extends IMessageOptions {
 type State = {
   top: Array<IArgs>;
   bottom: Array<IArgs>;
-  right: Array<IArgs>;
-  left: Array<IArgs>;
+  'top-right': Array<IArgs>;
+  'top-left': Array<IArgs>;
+  'bottom-right': Array<IArgs>;
+  'bottom-left': Array<IArgs>;
 };
 
 const firstState: State = {
   top: [],
   bottom: [],
-  right: [],
-  left: [],
+  'top-right': [],
+  'top-left': [],
+  'bottom-right': [],
+  'bottom-left': [],
 };
 
 type Keys = keyof State;
@@ -44,11 +40,11 @@ export default class Wrapper extends React.PureComponent<IProps, State> {
     props.notify(this.notify);
   }
 
-  notify = (message: string, options: IOptions) => {
+  notify = (message: string, options: IMessageOptions) => {
     const toast = this.createToastState(message, options);
     const { position } = toast;
 
-    const isTop = position.includes("top");
+    const isTop = position === 'top';
     this.setState((prev) => {
       return {
         ...prev,
@@ -62,13 +58,10 @@ export default class Wrapper extends React.PureComponent<IProps, State> {
 
   createToastState = (
     message: string,
-    options: IOptions,
+    options: IMessageOptions,
   ) => {
     const id = ++Wrapper.idCounter;
-    const position = options.hasOwnProperty("position") && typeof options.position === "string"
-      ? options.position
-      : "top";
-
+    const position = options.position ?? 'top';
     return {
       id,
       message,
@@ -76,7 +69,6 @@ export default class Wrapper extends React.PureComponent<IProps, State> {
       position,
       duration: options.duration,
       type: options.type,
-      avatar: options.avatar,
     };
   }
 
@@ -100,7 +92,7 @@ export default class Wrapper extends React.PureComponent<IProps, State> {
         >
           {toasts.map((toast: IArgs) => {
             return <Message position={pos} type={toast.type} icon={toast.icon} closeElement={this.requestClose}
-              avatar={toast.avatar} duration={toast.duration} key={toast.id} {...toast} />;
+              duration={toast.duration} key={toast.id} show={toast.show} {...toast} />;
           })}
         </div>
       );

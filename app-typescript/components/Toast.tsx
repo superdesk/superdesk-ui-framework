@@ -1,13 +1,13 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
 import Text from './Text';
-import { IOptions } from './Wrapper';
+import { IMessageOptions } from './Message';
 import Wrapper from './Wrapper';
 
 const TOAST_ID = "react-toast";
 
 class Toasted {
-    createToast?(message: string | React.ReactNode, options: IOptions): void;
+    createToast?(message: string | React.ReactNode, options: IMessageOptions): void;
 
     constructor() {
         let element;
@@ -19,9 +19,7 @@ class Toasted {
             const el = document.createElement("div");
             el.id = TOAST_ID;
             el.className = "sd-toast__container sd-toast__container--top ng-scope";
-            if (document.body != null) {
                 document.body.appendChild(el);
-            }
             element = el;
         }
         ReactDOM.render(
@@ -30,9 +28,9 @@ class Toasted {
 
     bind = (fn: () => void) => {
         this.createToast = fn;
+        console.log(this.notify);
     }
-
-    notify = (message: string | React.ReactNode, options: IOptions) => {
+    notify = (message: string | React.ReactNode, options: IMessageOptions) => {
         if (this.createToast) {
             return this.createToast(message, options);
         }
