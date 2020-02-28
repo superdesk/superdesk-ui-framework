@@ -92,7 +92,7 @@ export default class Wrapper extends React.PureComponent<IProps, State> {
         >
           {toasts.map((toast: IArgs) => {
             return <Message position={pos} type={toast.type} icon={toast.icon} closeElement={this.requestClose}
-              duration={toast.duration} key={toast.id} show={toast.show} {...toast} />;
+              duration={toast.duration} key={toast.id} show={toast.show} id={toast.id} message={toast.message} />;
           })}
         </div>
       );
