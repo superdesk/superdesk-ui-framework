@@ -91,4 +91,4 @@ interface IState {
             <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} />
         </div>
     );
-}; 
+};
