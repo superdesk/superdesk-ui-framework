@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Message, MessageProp, IMessageOptions } from './Message';
+import { ToastMessage, MessageProp, IMessageOptions } from './ToastMessage';
 import { Icon } from './Icon';
 
 interface IProps {
@@ -30,7 +30,7 @@ const firstState: State = {
 
 type Keys = keyof State;
 
-export default class Wrapper extends React.PureComponent<IProps, State> {
+export default class ToastWrapper extends React.PureComponent<IProps, State> {
   static idCounter = 0;
 
   state: State = firstState;
@@ -60,7 +60,7 @@ export default class Wrapper extends React.PureComponent<IProps, State> {
     message: string,
     options: IMessageOptions,
   ) => {
-    const id = ++Wrapper.idCounter;
+    const id = ++ToastWrapper.idCounter;
     const position = options.position ?? 'top';
     return {
       id,
@@ -91,7 +91,7 @@ export default class Wrapper extends React.PureComponent<IProps, State> {
           className={"sd-toast__container sd-toast__container--" + pos}
         >
           {toasts.map((toast: IArgs) => {
-            return <Message position={pos} type={toast.type} icon={toast.icon} closeElement={this.requestClose}
+            return <ToastMessage position={pos} type={toast.type} icon={toast.icon} closeElement={this.requestClose}
               duration={toast.duration} key={toast.id} show={toast.show} id={toast.id} message={toast.message} />;
           })}
         </div>

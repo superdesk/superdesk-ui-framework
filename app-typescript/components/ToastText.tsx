@@ -8,7 +8,7 @@ interface IProps {
   onClose: () => void;
 }
 
-const Text = ({ id, title, icon, onClose }: IProps) => {
+const ToastText = ({ id, title, icon, onClose }: IProps) => {
   return (
     <React.Fragment>
       {icon ?
@@ -34,4 +34,4 @@ const Close = ({ onClose }: { onClose: () => void }) => (
   </button>
 );
 
-export default Text;
+export default ToastText;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Text from './Text';
+import ToastText from './ToastText';
 import classNames from 'classnames';
 
 export type MessageProp =
@@ -24,7 +24,7 @@ interface IProps extends IMessageOptions {
     closeElement(id, position): void;
 }
 
-export const Message = ({
+export const ToastMessage = ({
     id,
     message,
     type,
@@ -84,7 +84,7 @@ export const Message = ({
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            <Text id={id} title={message} icon={icon} onClose={() => close(id, position)} />
+            <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} />
         </div>
     );
 };

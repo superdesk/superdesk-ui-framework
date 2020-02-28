@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
-import Text from './Text';
-import { IMessageOptions } from './Message';
-import Wrapper from './Wrapper';
+import { IMessageOptions } from './ToastMessage';
+import ToastWrapper from './ToastWrapper';
 
 const TOAST_ID = "react-toast";
 
@@ -23,12 +22,11 @@ class Toasted {
             element = el;
         }
         ReactDOM.render(
-            <Wrapper notify={this.bind as any} />, element);
+            <ToastWrapper notify={this.bind as any} />, element);
     }
 
     bind = (fn: () => void) => {
         this.createToast = fn;
-        console.log(this.notify);
     }
     notify = (message: string | React.ReactNode, options: IMessageOptions) => {
         if (this.createToast) {
