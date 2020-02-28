@@ -24,7 +24,11 @@ interface IProps extends IMessageOptions {
     closeElement(id, position): void;
 }
 
-export const ToastMessage = ({
+interface IState {
+    show: boolean;
+}
+
+ export const ToastMessage = ({
     id,
     message,
     type,
@@ -87,4 +91,4 @@ export const ToastMessage = ({
             <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} />
         </div>
     );
-};
+}; 

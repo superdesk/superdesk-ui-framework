@@ -39,7 +39,6 @@ export default class ToastWrapper extends React.PureComponent<IProps, State> {
     super(props);
     props.notify(this.notify);
   }
-
   notify = (message: string, options: IMessageOptions) => {
     const toast = this.createToastState(message, options);
     const { position } = toast;
