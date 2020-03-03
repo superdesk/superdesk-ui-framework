@@ -28,7 +28,7 @@ interface IState {
     show: boolean;
 }
 
- export const ToastMessage = ({
+export const ToastMessage = ({
     id,
     message,
     type,
@@ -39,42 +39,34 @@ interface IState {
 }: IProps) => {
     const [show, setShow] = React.useState(true);
     const intervalRef = React.useRef();
-    const intervalShow = React.useRef();
+    let timer;
     React.useEffect(() => {
-        TestTimeout(id, duration);
+        Timeout(id, duration);
+        return () => clearTimeout(timer);
     });
 
-    function TestTimeout(element: string, timeout: number | null) {
-        let timer;
-        let timerShow;
+    function Timeout(element: string, timeout: number | null) {
         if (typeof timeout === "number") {
-            timerShow = setTimeout(() => {
-                setShow(false);
-            }, timeout - 1000);
-            intervalShow.current = timerShow;
-
             timer = setTimeout(() => {
-                close(element, position);
+                setShow(false);
+                setTimeout(() => {
+                    close(element, position);
+                }, 1000)
             }, timeout);
             intervalRef.current = timer;
-            return () => intervalRef.current;
         }
     }
 
     function onMouseEnter() {
         clearInterval(intervalRef.current);
-        clearInterval(intervalShow.current);
     }
 
     function onMouseLeave() {
-        TestTimeout(id, duration);
+        Timeout(id, duration);
     }
 
     function close(element: string, elementPosition: string) {
-        setShow(false);
-        setTimeout(() => {
-            closeElement(element, elementPosition);
-        }, 1000);
+        closeElement(element, elementPosition);
     }
 
     const classes = classNames('sd-toast', {
