@@ -51,7 +51,7 @@ export const ToastMessage = ({
                 setShow(false);
                 setTimeout(() => {
                     close(element, position);
-                }, 1000)
+                }, 1000);
             }, timeout);
             intervalRef.current = timer;
         }
