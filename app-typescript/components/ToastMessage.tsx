@@ -42,7 +42,6 @@ export const ToastMessage = ({
     let timer;
     React.useEffect(() => {
         Timeout(id, duration);
-        return () => clearTimeout(timer);
     });
 
     function Timeout(element: string, timeout: number | null) {
@@ -54,6 +53,7 @@ export const ToastMessage = ({
                 }, 1000);
             }, timeout);
             intervalRef.current = timer;
+            return () => clearTimeout(timer);
         }
     }
 
