@@ -38,31 +38,26 @@ export const ToastMessage = ({
     closeElement,
 }: IProps) => {
     const [show, setShow] = React.useState(true);
-    const intervalRef = React.useRef();
+    const [enter, setEnter] = React.useState(false);
     let timer;
     React.useEffect(() => {
-        Timeout(id, duration);
-    });
-
-    function Timeout(element: string, timeout: number | null) {
-        if (typeof timeout === "number") {
+        if (typeof duration === "number") {
             timer = setTimeout(() => {
                 setShow(false);
                 setTimeout(() => {
-                    close(element, position);
+                    close(id, position);
                 }, 1000);
-            }, timeout);
-            intervalRef.current = timer;
+            }, duration);
             return () => clearTimeout(timer);
         }
-    }
+    }, [enter]);
 
     function onMouseEnter() {
-        clearInterval(intervalRef.current);
+        clearInterval(timer);
     }
 
     function onMouseLeave() {
-        Timeout(id, duration);
+        setEnter(!enter);
     }
 
     function close(element: string, elementPosition: string) {
