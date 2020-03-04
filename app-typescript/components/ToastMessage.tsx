@@ -11,6 +11,7 @@ export type Position = 'top' | 'bottom' | 'top-right' | 'top-left' | 'bottom-rig
 export type NotesType = 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
 
 export interface IMessageOptions {
+    message: MessageProp;
     id?: string;
     duration?: number | null;
     type?: NotesType;
@@ -19,7 +20,6 @@ export interface IMessageOptions {
 }
 
 interface IProps extends IMessageOptions {
-    message: MessageProp;
     closeElement(id, position): void;
 }
 

@@ -1,22 +1,18 @@
 import * as React from 'react';
-import { ToastMessage, MessageProp, IMessageOptions } from './ToastMessage';
+import { ToastMessage, IMessageOptions } from './ToastMessage';
 import { Icon } from './Icon';
 
 interface IProps {
   notify: (fn: (...args: any) => any) => void;
 }
 
-interface IArgs extends IMessageOptions {
-  message: MessageProp;
-}
-
 type State = {
-  top: Array<IArgs>;
-  bottom: Array<IArgs>;
-  'top-right': Array<IArgs>;
-  'top-left': Array<IArgs>;
-  'bottom-right': Array<IArgs>;
-  'bottom-left': Array<IArgs>;
+  top: Array<IMessageOptions>;
+  bottom: Array<IMessageOptions>;
+  'top-right': Array<IMessageOptions>;
+  'top-left': Array<IMessageOptions>;
+  'bottom-right': Array<IMessageOptions>;
+  'bottom-left': Array<IMessageOptions>;
 };
 
 const firstState: State = {
@@ -27,8 +23,6 @@ const firstState: State = {
   'bottom-right': [],
   'bottom-left': [],
 };
-
-type Keys = keyof State;
 
 export default class ToastWrapper extends React.PureComponent<IProps, State> {
   static idCounter = 0;
@@ -89,7 +83,7 @@ export default class ToastWrapper extends React.PureComponent<IProps, State> {
           key={position}
           className={"sd-toast__container sd-toast__container--" + pos}
         >
-          {toasts.map((toast: IArgs) => {
+          {toasts.map((toast: IMessageOptions) => {
             return <ToastMessage position={pos} type={toast.type} icon={toast.icon} closeElement={this.requestClose}
                 duration={toast.duration} key={toast.id} id={toast.id} message={toast.message} />;
           })}
