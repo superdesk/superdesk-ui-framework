@@ -16,16 +16,11 @@ export interface IMessageOptions {
     type?: NotesType;
     position?: Position;
     icon?: string;
-    show?: boolean;
 }
 
 interface IProps extends IMessageOptions {
     message: MessageProp;
     closeElement(id, position): void;
-}
-
-interface IState {
-    show: boolean;
 }
 
 export const ToastMessage = ({
