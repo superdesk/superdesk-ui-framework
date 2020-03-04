@@ -1,15 +1,15 @@
 import * as React from 'react';
 import * as ReactDOM from "react-dom";
-import { IMessageOptions } from './ToastMessage';
+import { MessageProp, IMessageOptions } from './ToastMessage';
 import ToastWrapper from './ToastWrapper';
 
 const TOAST_ID = "react-toast";
 
 class Toasted {
-    createToast?(message: string | React.ReactNode, options: IMessageOptions): void;
-
+    componentRef: ToastWrapper | null;
     constructor() {
-        let element;
+        this.componentRef = null;
+        let element = null;
         const existingElement = document.getElementById(TOAST_ID);
 
         if (existingElement) {
@@ -22,15 +22,15 @@ class Toasted {
             element = el;
         }
         ReactDOM.render(
-            <ToastWrapper notify={this.bind as any} />, element);
+            <ToastWrapper ref={(ref) => {
+                this.componentRef = ref;
+            }} />, element);
     }
 
-    bind = (fn: () => void) => {
-        this.createToast = fn;
-    }
-
-    notify = (message: string | React.ReactNode, options: IMessageOptions) => {
-        return this.createToast(message, options);
+    notify(message: MessageProp, options: IMessageOptions) {
+        if (this.componentRef != null) {
+            this.componentRef.notify(message, options);
+        }
     }
 }
 

@@ -20,7 +20,7 @@ export interface IMessageOptions {
 }
 
 interface IProps extends IMessageOptions {
-    closeElement(id, position): void;
+    closeElement(id: string, position: string): void;
 }
 
 export const ToastMessage = ({
@@ -34,11 +34,10 @@ export const ToastMessage = ({
 }: IProps) => {
     const [show, setShow] = React.useState(true);
     const [enter, setEnter] = React.useState(false);
-    let timer;
+    let timer = null;
     React.useEffect(() => {
         if (typeof duration === "number") {
             timer = setTimeout(() => {
-                setShow(false);
                 close(id, position);
             }, duration);
             return () => clearTimeout(timer);

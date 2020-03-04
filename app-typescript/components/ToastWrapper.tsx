@@ -1,10 +1,5 @@
 import * as React from 'react';
-import { ToastMessage, IMessageOptions } from './ToastMessage';
-import { Icon } from './Icon';
-
-interface IProps {
-  notify: (fn: (...args: any) => any) => void;
-}
+import { ToastMessage, MessageProp, IMessageOptions } from './ToastMessage';
 
 type State = {
   top: Array<IMessageOptions>;
@@ -24,16 +19,17 @@ const firstState: State = {
   'bottom-left': [],
 };
 
-export default class ToastWrapper extends React.PureComponent<IProps, State> {
+export default class ToastWrapper extends React.PureComponent<{}, State> {
   static idCounter = 0;
 
   state: State = firstState;
 
-  constructor(props: IProps) {
+  constructor(props: {}) {
     super(props);
-    props.notify(this.notify);
+    this.notify = this.notify.bind(this);
   }
-  notify = (message: string, options: IMessageOptions) => {
+
+  notify = (message: MessageProp, options: IMessageOptions) => {
     const toast = this.createToastState(message, options);
     const { position } = toast;
 
@@ -50,7 +46,7 @@ export default class ToastWrapper extends React.PureComponent<IProps, State> {
   }
 
   createToastState = (
-    message: string,
+    message: MessageProp,
     options: IMessageOptions,
   ) => {
     const id = ++ToastWrapper.idCounter;
@@ -85,7 +81,7 @@ export default class ToastWrapper extends React.PureComponent<IProps, State> {
         >
           {toasts.map((toast: IMessageOptions) => {
             return <ToastMessage position={pos} type={toast.type} icon={toast.icon} closeElement={this.requestClose}
-                duration={toast.duration} key={toast.id} id={toast.id} message={toast.message} />;
+              duration={toast.duration} key={toast.id} id={toast.id} message={toast.message} />;
           })}
         </div>
       );
