@@ -27,7 +27,7 @@ class Toasted {
             }} />, element);
     }
 
-    notify(message: MessageProp, options: IMessageOptions) {
+    notify(message: MessageProp, options: Omit<IMessageOptions, 'id'>) {
         if (this.componentRef != null) {
             this.componentRef.notify(message, options);
         }
