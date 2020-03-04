@@ -44,9 +44,7 @@ export const ToastMessage = ({
         if (typeof duration === "number") {
             timer = setTimeout(() => {
                 setShow(false);
-                setTimeout(() => {
-                    close(id, position);
-                }, 1000);
+                close(id, position);
             }, duration);
             return () => clearTimeout(timer);
         }
@@ -61,7 +59,10 @@ export const ToastMessage = ({
     }
 
     function close(element: string, elementPosition: string) {
-        closeElement(element, elementPosition);
+        setShow(false);
+        setTimeout(() => {
+            closeElement(element, elementPosition);
+        }, 1000);
     }
 
     const classes = classNames('sd-toast', {
