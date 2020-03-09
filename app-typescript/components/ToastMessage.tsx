@@ -38,10 +38,9 @@ export const ToastMessage = ({
     const [enter, setEnter] = React.useState(true);
     let timer = null;
 
+    React.useEffect(() => setShow(true), []);
+
     React.useEffect(() => {
-        if (show === undefined) {
-            setShow(true);
-        }
         if (typeof duration === "number") {
             setEnter(true);
             timer = setTimeout(() => {
