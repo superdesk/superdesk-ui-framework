@@ -114,14 +114,7 @@ $toast-sizes: (
         transition-timing-function: cubic-bezier(.4, 1, .75, .9);
         transition-delay: 50ms;
     }
-    &--apF{
-        transform: translateY(-40px);
-    }
-    &--ap{
-        opacity: 1;
-        transition: transform cubic-bezier(.54, 1.12, .38, 1.11) .3s;;
-        transform: translateY(0);
-    }
+
     @each $name, $color in $toast-palette {
         &.sd-toast--#{$name} {
             &::before {

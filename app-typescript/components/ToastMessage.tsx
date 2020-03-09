@@ -17,6 +17,7 @@ export interface IMessageOptions {
     type?: NotesType;
     position?: Position;
     icon?: string;
+    size?: 'fixed-s' | 'fixed-m' | 'fixed-l' | 'fixed-xl';
 }
 
 interface IProps extends IMessageOptions {
@@ -28,6 +29,7 @@ export const ToastMessage = ({
     message,
     type,
     icon,
+    size,
     duration,
     position,
     closeElement,
@@ -61,13 +63,14 @@ export const ToastMessage = ({
         setShow(false);
         setTimeout(() => {
             closeElement(element, elementPosition);
-        }, 400);
+        }, 150);
     }
-
     const classes = classNames('sd-toast', {
         [`sd-toast--${type}`]: type,
+        [`sd-toast--${size}`]: size,
         ['sd-toast--enter']: show === undefined,
         ['sd-toast--enter-active']: show,
+        ['sd-toast--exit']: enter && !show,
         ['sd-toast--exit-active']: !show,
     });
 
