@@ -35,7 +35,7 @@ export const ToastMessage = ({
     closeElement,
 }: IProps) => {
     const [show, setShow] = React.useState();
-    const [enter, setEnter] = React.useState(false);
+    const [enter, setEnter] = React.useState(true);
     let timer = null;
 
     React.useEffect(() => {
@@ -52,11 +52,11 @@ export const ToastMessage = ({
     }, [enter]);
 
     function onMouseEnter() {
-        clearInterval(timer);
+        clearTimeout(timer);
     }
 
     function onMouseLeave() {
-        setEnter(!enter);
+        setEnter(false);
     }
 
     function close(element: string, elementPosition: Position) {
