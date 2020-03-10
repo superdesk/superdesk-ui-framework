@@ -34,7 +34,7 @@ export const ToastMessage = ({
     position,
     closeElement,
 }: IProps) => {
-    const [show, setShow] = React.useState();
+    const [show, setShow] = React.useState(false);
     const [enter, setEnter] = React.useState(true);
     let timer = null;
 
@@ -62,12 +62,12 @@ export const ToastMessage = ({
         setShow(false);
         setTimeout(() => {
             closeElement(element, elementPosition);
-        }, 150);
+        }, 100);
     }
     const classes = classNames('sd-toast', {
         [`sd-toast--${type}`]: type,
         [`sd-toast--${size}`]: size,
-        ['sd-toast--enter']: show === undefined,
+        ['sd-toast--enter']: !show,
         ['sd-toast--enter-active']: show,
         ['sd-toast--exit']: enter && !show,
         ['sd-toast--exit-active']: !show,
