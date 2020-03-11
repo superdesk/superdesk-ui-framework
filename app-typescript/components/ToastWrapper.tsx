@@ -80,8 +80,8 @@ export default class ToastWrapper extends React.PureComponent<{}, State> {
           key={position}
           className={"sd-toast__container sd-toast__container--" + pos}
         >
-          {(pos === 'bottom' || pos === 'bottom-left' || pos === 'bottom-right' ?
-            [...toasts].reverse() : toasts).map((toast: IMessageOptions) => {
+          {(pos === 'top' ?
+            toasts : [...toasts].reverse()).map((toast: IMessageOptions) => {
               return <ToastMessage position={pos} type={toast.type} icon={toast.icon} closeElement={this.requestClose}
                 duration={toast.duration} key={toast.id} id={toast.id} message={toast.message} size={toast.size} />;
             })}
