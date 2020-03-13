@@ -3,15 +3,21 @@
 sdModal.$inject = ['$document', '$rootScope'];
 function sdModal($document, $rootScope) {
     return {
-        template: [
-            '<div class="modal" data-backdrop="static">',
-            '<div class="modal__dialog" ng-if="model"><div class="modal__content" ng-transclude></div></div>',
-            '</div><div class="modal__backdrop fade in" ng-if="model"></div>'].join(''),
+        template:
+`<div class="modal" data-backdrop="static" data-test-id="{{testId}}">
+    <div class="modal__dialog" ng-if="model">
+        <div class="modal__content" ng-transclude></div>
+    </div>
+</div>
+<div class="modal__backdrop fade in" ng-if="model"></div>`,
         transclude: true,
         scope: {
-            model: '='
+            model: '=',
+            testId: '=?',
         },
         link: function (scope, element) {
+            scope.testId = scope.testId || '';
+
             $rootScope.modals = $rootScope.modals ? $rootScope.modals : 0;
             var content, _initialized = false;
 

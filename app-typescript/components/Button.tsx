@@ -10,6 +10,7 @@ interface IButtonBase {
     icon?: string;
     disabled?: boolean;
     onClick(): void;
+    'data-test-id'?: string;
 }
 
 interface IPropsButton extends IButtonBase {
@@ -33,7 +34,7 @@ export class Button extends React.PureComponent<IPropsButton> {
         });
 
         return (
-            <button className={classes} onClick={this.props.onClick}>
+            <button className={classes} onClick={this.props.onClick} data-test-id={this.props['data-test-id']}>
                 {this.props.icon ? <Icon name={this.props.icon}/> : null}
                 {this.props.text}
             </button>
