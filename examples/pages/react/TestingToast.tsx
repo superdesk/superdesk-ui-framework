@@ -58,6 +58,16 @@ export default class TestDoc extends React.Component {
     showRight = () => {
         toast.notify(<HeadingText heading='Martin Mustermann' text='Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.' timestamp={new Date('August 19, 2019 23:15:30')} />, { position: 'bottom-right', type: 'alert' })
     }
+
+    //all positions
+    showAll = () => {
+        toast.notify('top', { position: 'top' });
+        toast.notify('top-left', { position: 'top-left' });
+        toast.notify('top-right', { position: 'top-right' });
+        toast.notify('bottom', { position: 'bottom' });
+        toast.notify('bottom-left', { position: 'bottom-left' });
+        toast.notify('bottom-right', { position: 'bottom-right' });
+    }
     render() {
         return (
             <section className="docs-page__container">
@@ -85,6 +95,9 @@ export default class TestDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Datestamp</h3>
                 <button className='btn btn--alert' onClick={this.showRight}>datestamp, customized</button>
+
+                <h3 className="docs-page__h3">All positions</h3>
+                <button className='btn' onClick={this.showAll}>all</button>
             </section>
         )
     }
