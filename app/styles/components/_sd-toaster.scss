@@ -78,6 +78,7 @@ $toast-sizes: (
         transform: translateY(0);
         transition: transform cubic-bezier(.54, 1.12, .38, 1.11) .3s;
         transition-delay: 0;
+        -webkit-transition-delay: 0;
     }
     &.sd-toast--appear ~ .sd-toast,
     &.sd-toast--enter ~ .sd-toast {
