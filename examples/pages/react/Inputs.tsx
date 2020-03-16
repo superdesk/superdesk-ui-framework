@@ -1,78 +1,84 @@
 import * as React from 'react';
 
 import * as Markup from '../../js/react';
-import {DatePicker} from '../../../app';
-import {TimePicker} from '../../../app-typescript/components/TimePicker';
 
-class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
-    constructor(props) {
-        super(props);
+import { Input, CheckGroup, Checkbox, PropsList, Prop } from '../../../app-typescript';
 
-        this.state = {
-            date: new Date(),
-        };
-    }
-    render() {
-        return (
-            <DatePicker
-                value={this.state.date}
-                dateFormat="YYYY-MM-DD"
-                onChange={(date) => {
-                    this.setState({date});
-                }}
-            />
-        );
-    }
+interface IState {
+    required: boolean;
+    disabled: boolean;
+    invalid: boolean;
 }
 
-class TimePickerExample extends React.PureComponent<{}, {time: string}> {
+export default class InputsDoc extends React.Component<{}, IState> {
     constructor(props) {
         super(props);
-
         this.state = {
-            time: '',
-        };
+            required: true,
+            disabled: false,
+            invalid: false
+        }
     }
+    
     render() {
         return (
-            <TimePicker
-                value={this.state.time}
-                onChange={(time) => {
-                    this.setState({time});
-                }}
-            />
-        );
-    }
-}
-
-export default class IconLabelDoc extends React.Component {
-    render() {
-        return (
-            <section className="docs-page__container">
-                <h2 className="docs-page__h2">Date picker</h2>
+            <section className='docs-page__container'>
+                <h2 className='docs-page__h2'>Inputs</h2>
+                <Markup.ReactMarkupCodePreview>{`
+                    <Input value={value} maxLength={30} required={true} />
+                `}
+                </Markup.ReactMarkupCodePreview>
+                <p className='docs-page__paragraph'></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row'>
-                            <DatePickerExample />
+                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
+                            <div className='form__row'>
+                                <CheckGroup>
+                                    <Checkbox checked={this.state.required} label={{text:'Required input'}} onChange={(value) => {this.setState({required: value})}} />
+                                    <Checkbox checked={this.state.disabled} label={{text:'Disabled input'}} onChange={(value) => {this.setState({disabled: value})}} />
+                                    <Checkbox checked={this.state.invalid} label={{text:'Invalid input'}} onChange={(value) => {this.setState({invalid: value})}} />
+                                </CheckGroup>
+                            </div>
+
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value='This is some value'
+                                    maxLength={30}
+                                    error='This is error message'
+                                    info='This is some hint message'
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    onChange={(value) => {}} />
+                            </div>
                         </div>
+
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                         <DatePickerExample />
+                        <Input label='Input label'
+                            value='This is some value'
+                            maxLength={30}
+                            error='This is error message'
+                            info='This is some hint message'
+                            required={true}
+                            disabled={false}
+                            invalid={false}
+                            onChange={(value) => {}} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h2 className="docs-page__h2">Time picker</h2>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row'>
-                            <TimePickerExample />
-                        </div>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>{`
-                        <TimePickerExample />
-                    `}</Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
+                <h3 className='docs-page__h3'>Props</h3>
+                <PropsList>
+                    <Prop name='value' isRequered={false} type='string' default='/' description='Item value'/>
+                    <Prop name='label' isRequered={false} type='string' default='/' description='Input label'/>
+                    <Prop name='maxLength' isRequered={false} type='number' default='/' description='Sets max length for input text'/>
+                    <Prop name='info' isRequered={false} type='string' default='/' description='Hint text'/>
+                    <Prop name='error' isRequered={false} type='string' default='/' description='Error text'/>
+                    <Prop name='required' isRequered={false} type='boolean' default='false' description='Mark field as required'/>
+                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Mark field as disabled'/>
+                    <Prop name='invalid' isRequered={false} type='boolean' default='false' description='Mark field as invalid'/>
+                </PropsList>
             </section>
-        );
+        )
     }
 }
