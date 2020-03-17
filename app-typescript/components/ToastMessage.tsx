@@ -36,8 +36,8 @@ export const ToastMessage = ({
 }: IProps) => {
     const [show, setShow] = React.useState(false);
     const [enter, setEnter] = React.useState(false);
+    const [height, setHeight] = React.useState(0);
     let timer = null;
-
     React.useEffect(() => setShow(true), []);
 
     React.useEffect(() => {
@@ -73,13 +73,18 @@ export const ToastMessage = ({
         ['sd-toast--exit-active']: !show,
     });
 
+    function addHeight(textHeight: number) {
+        setHeight(textHeight + 25);
+    }
+
     return (
         <div
             className={classes}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
+            style={{ height: height }}
         >
-            <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} />
+            <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} textHeight={addHeight} />
         </div>
     );
 };

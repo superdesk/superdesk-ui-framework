@@ -68,15 +68,19 @@ $toast-sizes: (
 	background-color: $white;
 	min-width: $sd-toast-min-width;
     max-width: $sd-toast-max-width;
-    pointer-events: all;
+    pointer-events: all; 
     &--appear,
     &--enter {
-        transform: translateY(-40px);
+        transform: translateY(-40px); 
+        height: 0px;  
     }
     &--appear-active,
     &--enter-active {
         transform: translateY(0);
-        transition: transform cubic-bezier(.54, 1.12, .38, 1.11) .3s;
+        transition-property: transform, height;
+        transition-duration:.3s;
+        transition-timing-function: cubic-bezier(.54, 1.12, .38, 1.11);
+        //transition: transform cubic-bezier(.54, 1.12, .38, 1.11) .3s;
         transition-delay: 0;
         -webkit-transition-delay: 0;
     }
