@@ -8,6 +8,7 @@ import {
 
 } from "react-router-dom";
 
+import InputsDoc from './Inputs';
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
 import ButtonGroupsDoc from './ButtonGroups';
@@ -17,7 +18,7 @@ import AvatarDoc from './Avatar';
 import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
-import InputsDoc from './Inputs';
+import DatePickerDoc from './DatePicker';
 import SwitchDoc from './Switch';
 import RadiosDoc from './Radios';
 import CheckboxsDoc from './Checkboxs';
@@ -34,6 +35,9 @@ const pages = {
     basicComponents: {
         name: 'Basic Components',
         items: {
+            'inputs': {
+                name: 'Inputs',
+            },
             'buttons': {
                 name: 'Buttons',
             },
@@ -119,6 +123,7 @@ class ReactDoc extends React.Component {
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
                         <Route path="/react/inputs" component={InputsDoc} />
+                        <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />
                         <Route path="/react/button-groups" component={ButtonGroupsDoc} />
                         <Route path="/react/labels" component={LabelsDoc} />
