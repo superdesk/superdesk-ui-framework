@@ -184,7 +184,7 @@ $toast-sizes: (
     margin: 0.6rem 0.4rem 0.6rem 0.6rem;
 }
 
-.sd-toast__container--bottom .sd-toast {
+.sd-toast__container--bottom .sd-toast, .sd-toast__container--bottom-left .sd-toast, .sd-toast__container--bottom-right .sd-toast {
     &.sd-toast--enter:not(.sd-toast--enter-active),
     &.sd-toast--enter:not(.sd-toast--enter-active) ~ .sd-toast,
     &.sd-toast--leave-active ~ .sd-toast {
