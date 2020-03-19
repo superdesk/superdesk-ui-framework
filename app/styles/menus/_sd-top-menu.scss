@@ -21,6 +21,7 @@ $sd-topMenu-background: var(--color-bg-800);
     padding: 0;
     background-color: #101010;
     box-shadow: 2px 0 5px 0 rgba(0,0,0,.35);
+    position: relative;
     &:hover {
         background: #000;
         cursor: pointer;

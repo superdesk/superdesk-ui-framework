@@ -394,6 +394,7 @@ $baseColors: (
       font-size: 1.4rem;
       time {
         font-weight: 400;
+        color: #595959;
       }
     }
     &.side-panel--dark-ui {
@@ -570,5 +571,20 @@ $baseColors: (
         opacity: 1;
       }
     }
+  }
+  .badge {
+    &.badge--primary {
+      background-color: var(--color-accessible-primary);
+    }
+    &.badge--success {
+      background-color: #006115;
+    }
+    &.badge--warning {
+      background-color: #854900;
+    }
+  }
+  .sd-sidebar-menu__btn--active, .sd-sidebar-menu__btn--active:hover {
+    background-color: var(--color-accessible-primary);
+
   }
 }
