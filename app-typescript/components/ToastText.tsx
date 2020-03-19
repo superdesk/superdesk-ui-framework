@@ -12,7 +12,6 @@ interface IProps {
 const ToastText = ({ id, title, icon, onClose, textHeight }: IProps) => {
   const ref = React.useRef(null);
   React.useEffect(() => textHeight(ref.current.clientHeight), []);
-  
   return (
     <React.Fragment>
       {icon ?
