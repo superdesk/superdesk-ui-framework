@@ -5,32 +5,39 @@
         </div>
     </div>
     <header class="sd-top-menu">
-        <a href="" ng-click="openHamburger = !openHamburger" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
-        <p class="sd-top-menu__header">National Desk // Layou test 2</p>
+        <a href="" ng-click="openHamburger = !openHamburger" class="sd-top-menu__collapse-nav">
+            <span class="sd-accessibility__btn-text--invisible">Main menu</span>
+            <i class="icon-collapse icon--white"></i>
+        </a>
+        <h1 class="sd-top-menu__header">National Desk // Layou test 2</h1>
     </header>
     <section class="sd-content sd-content-wrapper">
         <div class="sd-sidebar-menu sd-content-wrapper__left-tabs">
             <ul class="authoring-active">
                 <li sd-tooltip="Dashboard" flow="right">
                     <a href="" class="sd-sidebar-menu__btn">
+                        <span class="sd-accessibility__btn-text--invisible">Dashboard</span>
                         <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
                         <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                     </a>
                 </li>
                 <li sd-tooltip="Monitoring" flow="right">
                     <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active" ng-click="menuItemActive1 = !menuItemActive1" ng-class="{'sd-sidebar-menu__btn--closed': menuItemActive1}">
+                        <span class="sd-accessibility__btn-text--invisible">Monitoring</span>
                         <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
                         <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                     </a>
                 </li>
                 <li sd-tooltip="Highlights" flow="right">
                     <a href="" class="sd-sidebar-menu__btn">
+                        <span class="sd-accessibility__btn-text--invisible">Highlights</span>
                         <i class="sd-sidebar-menu__main-icon big-icon--marked-star"></i>
                         <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                     </a>
                 </li>
                 <li sd-tooltip="Spiked" flow="right">
                     <a href="" class="sd-sidebar-menu__btn">
+                        <span class="sd-accessibility__btn-text--invisible">Spiked</span>
                         <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
                         <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                     </a>
@@ -39,18 +46,21 @@
                 </li>
                 <li sd-tooltip="Personal" flow="right">
                     <a href="" class="sd-sidebar-menu__btn">
+                        <span class="sd-accessibility__btn-text--invisible">Personal</span>
                         <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
                         <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                     </a>
                 </li>
                 <li sd-tooltip="Search" flow="right">
                     <a href="" class="sd-sidebar-menu__btn">
+                        <span class="sd-accessibility__btn-text--invisible">Search</span>
                         <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
                         <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                     </a>
                 </li>
                 <li sd-tooltip="Media archive" flow="right">
                     <a href="" class="sd-sidebar-menu__btn">
+                        <span class="sd-accessibility__btn-text--invisible">Media archive</span>
                         <i class="sd-sidebar-menu__main-icon big-icon--picture"></i>
                         <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                     </a>
@@ -80,7 +90,9 @@
                     </div>
                     <div class="subnav__spacer subnav__spacer--no-margin"></div>
                     <div class="sd-searchbar" ng-class="{'sd-searchbar--focused': focused}" >
-                        <label for="search-input" class="sd-searchbar__icon"></label>
+                        <label for="search-input" class="sd-searchbar__icon">
+                            <span class="sd-accessibility__btn-text--invisible">Search</span>
+                        </label>
                         <input id="search-input"
                                 class="sd-searchbar__input"
                                 type="text"
@@ -90,14 +102,17 @@
                                 tabindex="1"
                                 ng-focus="focused = true">
                         <button class="sd-searchbar__cancel" ng-if="query">
+                            <span class="sd-accessibility__btn-text--invisible">Clear search</span>
                             <i class="icon-remove-sign"></i>
                         </button>
                         <button id="sd-searchbar__search-btn" class="sd-searchbar__search-btn" ng-if="focused" tabindex="2">
+                            <span class="sd-accessibility__btn-text--invisible">Start search</span>
                             <i class="big-icon--chevron-right"></i>
                         </button>
                     </div>
                     <div class="dropdown dropdown--align-right" dropdown>
                         <button class="dropdown__toggle navbtn sd-create-btn" dropdown__toggle>
+                            <span class="sd-accessibility__btn-text--invisible">Add / Create</span>
                             <i class="icon-plus-large"></i>
                             <span class="circle"></span>
                         </button>
@@ -116,7 +131,8 @@
                     </div>
                 </div>
                 <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
-                    <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
+                    <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}" value="Advanced Filters" title="Advanced Filters">
+                        <span class="sd-accessibility__btn-text--invisible">Advanced Filters</span>
                         <i class="icon-filter-large"></i>
                     </button>
                     <div class="subnav__stretch-bar">
@@ -150,10 +166,12 @@
     
                     </div>
                     <button class="navbtn" ng-click="accessibleUI = !accessibleUI">
+                        <span class="sd-accessibility__btn-text--invisible">Change theme</span>
                         <i class="icon-adjust"></i>
                     </button>
                     <div class="dropdown dropdown--align-right" dropdown>
                         <button class="navbtn" dropdown__toggle>
+                            <span class="sd-accessibility__btn-text--invisible">Change view</span>
                             <i class="icon-list-view" ng-show="listView"></i>
                             <i class="icon-kanban-view" ng-show="swimlaneView"></i>
                             <i class="icon-grid-view" ng-show="gridView"></i>
@@ -167,6 +185,7 @@
                     </div>
                     <div class="dropdown dropdown--align-right" dropdown>
                         <button class="dropdown__toggle navbtn" dropdown__toggle>
+                            <span class="sd-accessibility__btn-text--invisible">More options</span>
                             <i class="icon-dots-vertical"></i>
                         </button>
                         <ul class="dropdown__menu">
@@ -194,16 +213,16 @@
                                 <div class="form__group">
                                     <div class="form__item">
                                         <div class="sd-input">
-                                            <label class="sd-input__label">Title</label>
-                                            <input class="sd-input__input" type="text">
+                                            <label for="title" class="sd-input__label">Title</label>
+                                            <input id="title" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form__group">
                                     <div class="form__item">
                                         <div class="sd-input sd-input--is-select">
-                                            <label class="sd-input__label">Source</label>
-                                            <select class="sd-input__select">
+                                            <label for="source" class="sd-input__label">Source</label>
+                                            <select id="source" class="sd-input__select">
                                                 <option value="">Select ingest source...</option>
                                                 <option value="">Associated Press</option>
                                                 <option value="">Reuters</option>
@@ -214,8 +233,8 @@
                                 <div class="form__group">
                                     <div class="form__item">
                                         <div class="sd-input">
-                                            <label class="sd-input__label">Location</label>
-                                            <input class="sd-input__input" type="text">
+                                            <label for="location" class="sd-input__label">Location</label>
+                                            <input id="location" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -223,8 +242,8 @@
                                     <div class="form__item">
                                         <div class="sd-input sd-input--with-button">
                                             <span class="sd-input__plus-btn"></span>
-                                            <label class="sd-input__label">Category</label>
-                                            <input class="sd-input__input" type="text">
+                                            <label for="category" class="sd-input__label">Category</label>
+                                            <input id="category" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -232,8 +251,8 @@
                                     <div class="form__item">
                                         <div class="sd-input sd-input--with-button">
                                             <span class="sd-input__plus-btn"></span>
-                                            <label class="sd-input__label">Subject</label>
-                                            <input class="sd-input__input" type="text">
+                                            <label for="subject" class="sd-input__label">Subject</label>
+                                            <input id="subject" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -241,8 +260,8 @@
                                 <div class="form__group">
                                     <div class="form__item">
                                         <div class="sd-input sd-input--is-select ">
-                                            <label class="sd-input__label">Usage right</label>
-                                            <select class="sd-input__select">
+                                            <label for="usage-right" class="sd-input__label">Usage right</label>
+                                            <select id="usage-right" class="sd-input__select">
                                                 <option value="">--- Not selected ---</option>
                                                 <option value="single">Single usage</option>
                                                 <option value="time">Time restricted</option>
@@ -259,14 +278,15 @@
                                     <div class="form__item">
                                         <div class="sd-input">
                                             <a class="icn-btn sd-input__icon-right"><i class="icon-calendar"></i></a>
-                                            <label class="sd-input__label">From</label>
-                                            <input class="sd-input__input" type="text">
+                                            <label for="date-from" class="sd-input__label">From</label>
+                                            <input id="date-from" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                     <div class="form__item">
                                         <div class="sd-input">
+                                            <label for="time-from" class="sd-accessibility__btn-text--invisible">Time from</label>
                                             <a class="icn-btn sd-input__icon-right"><i class="icon-time"></i></a>
-                                            <input class="sd-input__input" type="text">
+                                            <input id="time-from" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -274,14 +294,15 @@
                                     <div class="form__item">
                                         <div class="sd-input">
                                             <a class="icn-btn sd-input__icon-right"><i class="icon-calendar"></i></a>
-                                            <label class="sd-input__label">To</label>
-                                            <input class="sd-input__input" type="text">
+                                            <label for="date-to" class="sd-input__label">To</label>
+                                            <input id="date-to" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                     <div class="form__item">
                                         <div class="sd-input">
+                                            <label for="time-to" class="sd-accessibility__btn-text--invisible">Time to</label>
                                             <a class="icn-btn sd-input__icon-right"><i class="icon-time"></i></a>
-                                            <input class="sd-input__input" type="text">
+                                            <input id="time-to" class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -333,9 +354,11 @@
                         </div>
                         <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
                             <button class="icn-btn" ng-click="sendToOpen = !sendToOpen">
+                                <span class="sd-accessibility__btn-text--invisible">Send to</span>
                                 <i class="icon-expand-thin"></i>
                             </button>
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -365,6 +388,7 @@
                         </div>
                         <div class="sd-list-item__action-menu">
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -394,6 +418,7 @@
                         </div>
                         <div class="sd-list-item__action-menu">
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -423,6 +448,7 @@
                         </div>
                         <div class="sd-list-item__action-menu">
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -453,6 +479,7 @@
                         </div>
                         <div class="sd-list-item__action-menu">
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -482,6 +509,7 @@
                         </div>
                         <div class="sd-list-item__action-menu">
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -511,6 +539,7 @@
                         </div>
                         <div class="sd-list-item__action-menu">
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -540,6 +569,7 @@
                         </div>
                         <div class="sd-list-item__action-menu">
                             <button class="icn-btn">
+                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
                                 <i class="icon-dots-vertical"></i>
                             </button>
                         </div>
@@ -708,7 +738,9 @@
                                 <div sd-toggle-box data-title="Destination" data-style="circle" data-open="true">
                                     <div class="form__row">
                                         <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-label sd-line-input--no-margin">
-                                            <select class="sd-line-input__select">
+                                            <label for="desk" class="sd-accessibility__btn-text--invisible">Desk</label>
+
+                                            <select id="desk" class="sd-line-input__select">
                                                 <option value="single">Politics desk</option>
                                                 <option value="time">Sports desk</option>
                                                 <option value="bananas">Features desk</option>
@@ -730,12 +762,13 @@
                                     <div class="form__row form__row--flex  form__row--small-padding">
                                         <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
-                                            <label class="sd-line-input__label">Embargo till</label>
-                                            <input class="sd-line-input__input" type="text">
+                                            <label for="embargo" class="sd-line-input__label">Embargo till</label>
+                                            <input id="embargo" class="sd-line-input__input" type="text">
                                         </div>
                                         <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                            <label class="sd-accessibility__btn-text--invisible" for="embargo-time">Embargo till - time</label>
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
-                                            <input class="sd-line-input__input" type="text">
+                                            <input id="embargo-time" class="sd-line-input__input" type="text">
                                         </div>
                                     </div>
                                     <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear embargo</a>
@@ -744,12 +777,13 @@
                                     <div class="form__row form__row--flex  form__row--small-padding">
                                         <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
-                                            <label class="sd-line-input__label">Publish on</label>
-                                            <input class="sd-line-input__input" type="text">
+                                            <label for="publish-on" class="sd-line-input__label">Publish on</label>
+                                            <input id="publish-on" class="sd-line-input__input" type="text">
                                         </div>
                                         <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                            <label for="publish-time" class="sd-accessibility__btn-text--invisible">Publish on - time</label>
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
-                                            <input class="sd-line-input__input" type="text">
+                                            <input id="publish-time" class="sd-line-input__input" type="text">
                                         </div>
                                     </div>
                                     <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear schedule</a>
