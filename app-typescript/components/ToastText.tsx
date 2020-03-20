@@ -6,16 +6,20 @@ interface IProps {
   title?: string | React.ReactNode;
   icon?: string;
   onClose: () => void;
+  textHeight(height: number): void;
 }
 
-const ToastText = ({ id, title, icon, onClose }: IProps) => {
+const ToastText = ({ id, title, icon, onClose, textHeight }: IProps) => {
+  const ref = React.useRef(null);
+  React.useEffect(() => textHeight(ref.current.clientHeight), []);
+
   return (
     <React.Fragment>
       {icon ?
         <div className='sd-toast__icon'>
           <Icon name={icon} />
         </div> : null}
-      <div id={id} className='sd-toast__message'>
+      <div ref={ref} id={id} className='sd-toast__message'>
         {title}
       </div>
       {onClose && <Close onClose={onClose} />}
