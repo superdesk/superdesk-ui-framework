@@ -11,14 +11,14 @@ export const Dropdown = ({
     const [open, setOpen] = React.useState(false);
     const classes = classNames('dropdown', {
         [`open`]: open,
-        ['dropdown--align-right']: align==='right',
+        ['dropdown--align-right']: align === 'right',
     });
-    function isOpen(){
+    function isOpen() {
         setOpen(true);
         document.addEventListener('click', closeMenu);
     }
-    
-    function closeMenu(){
+
+    function closeMenu() {
         setOpen(false);
         document.removeEventListener('click', closeMenu);
     }
@@ -31,5 +31,5 @@ export const Dropdown = ({
                 <li><button>three</button></li>
             </ul>
         </div>
-    )
-}
+    );
+};
