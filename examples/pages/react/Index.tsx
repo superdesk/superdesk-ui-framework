@@ -28,6 +28,7 @@ import NavButtonsDoc from './NavButtons';
 import IconFontDoc from './IconFont';
 import BigIconFontDoc from './BigIconFont';
 import SubNavDoc from './SubNav';
+import DropdownDoc from './Dropdowns';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -64,6 +65,9 @@ const pages = {
             },
             'tooltips': {
                 name: 'Tooltips'
+            },
+            'dropdowns': {
+                name: 'Dropdowns'
             },
             'nav-buttons': {
                 name: 'Nav buttons'
@@ -141,6 +145,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/icon-font" component={IconFontDoc} />
                         <Route path="/react/big-icon-font" component={BigIconFontDoc} />
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
+                        <Route path="/react/dropdowns" component={DropdownDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
