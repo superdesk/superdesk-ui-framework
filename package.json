@@ -13,7 +13,8 @@
     "Vladimir Stefanovic",
     "Darko Tomic",
     "Aleksandar Jelicic",
-    "Tomas Kikutis"
+    "Tomas Kikutis",
+    "Dragana Zivkovic"
   ],
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
@@ -80,6 +81,7 @@
     "date-fns": "2.7.0",
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",
-    "primereact": "3.3.2"
+    "primereact": "3.3.2",
+    "react-id-generator": "^3.0.0"
   }
 }
