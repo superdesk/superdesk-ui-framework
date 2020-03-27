@@ -1,5 +1,5 @@
 import * as React from 'react';
-
+import nextId from "react-id-generator";
 interface IOption {
     value: any;
     label: string;
@@ -18,7 +18,7 @@ export class RadioButton extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
     }
-
+    htmlId = nextId();
     handleChange(value: string) {
         this.props.onChange(value);
     }
@@ -27,14 +27,23 @@ export class RadioButton extends React.PureComponent<IProps> {
 
         return (
             this.props.options.map((item: any, index: number) => (
-                <span key={index} className={'sd-check-button' +
-                    (item.disabled ? ' sd-checkbox--disabled' :
-                        (this.props.value === item.value ? ' checked' : ''))}
-                    onClick={() => this.handleChange(item.value)}>
-                    {item.icon ? <i className={`icon-${item.icon}`}></i> : null}
-                    {item.disabled ? <label className='sd-check-button__text-label sd-label--disabled'>{item.label}
-                    </label> : <label className='sd-check-button__text-label'>{item.label}</label>}
-                </span>
+                <React.Fragment key={index + 1}>
+                    <input type='checkbox' className='visuallyhidden' id={this.htmlId + index} />
+                    <span key={index} className={'sd-check-button' +
+                        (item.disabled ? ' sd-checkbox--disabled' :
+                            (this.props.value === item.value ? ' checked' : ''))}
+                        onClick={() => this.handleChange(item.value)}>
+                        {item.icon ? <i className={`icon-${item.icon}`}></i> : null}
+                        {item.disabled ?
+                            <label
+                                className='sd-check-button__text-label sd-label--disabled'
+                                htmlFor={this.htmlId + index}>
+                                {item.label}</label> :
+                            <label
+                                className='sd-check-button__text-label'
+                                htmlFor={this.htmlId + index}>{item.label}</label>}
+                    </span>
+                </React.Fragment>
             ))
         );
     }
