@@ -33,8 +33,10 @@ export class CheckboxButton extends React.PureComponent<IProps> {
                     onClick={this.handleChange}>
                     {this.props.icon ? <i className={`icon-${this.props.icon}`}></i> : null}
                     {this.props.disabled ?
-                        (<label className='sd-check-button__text-label sd-label--disabled' htmlFor={this.htmlId}>{this.props.label.text}
-                        </label>) : (<label className='sd-check-button__text-label' htmlFor={this.htmlId}>{this.props.label.text}</label>)}
+                        (<label className='sd-check-button__text-label sd-label--disabled' htmlFor={this.htmlId}>
+                            {this.props.label.text}</label>) :
+                        (<label className='sd-check-button__text-label' htmlFor={this.htmlId}>
+                            {this.props.label.text}</label>)}
                 </span>
             </React.Fragment>
         );
