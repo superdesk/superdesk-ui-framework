@@ -83,6 +83,8 @@ export const ToastMessage = ({
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
             style={{ height: height }}
+            aria-live="assertive"
+            aria-atomic="true"
         >
             <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} textHeight={addHeight} />
         </div>
