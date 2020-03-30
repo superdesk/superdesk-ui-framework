@@ -17,7 +17,7 @@ export class AvatarContentText extends React.PureComponent<ITextAvatar> {
     render() {
         return (
             <span
-                className="avatar-content avatar-content--text"
+                className="sd-avatar-content sd-avatar-content--text"
                 title={this.props.tooltipText}
             >
                 <span>{this.props.text.slice(0, 3)}</span>
@@ -29,10 +29,10 @@ export class AvatarContentText extends React.PureComponent<ITextAvatar> {
 export class AvatarContentImage extends React.PureComponent<IImageAvatar> {
     render() {
         if (this.props.imageUrl == null) {
-            return <span className="avatar-content avatar-content--empty" title={this.props.tooltipText} />;
+            return <span className="sd-avatar-content sd-avatar-content--empty" title={this.props.tooltipText} />;
         } else {
             return (
-                <span className="avatar-content" title={this.props.tooltipText} >
+                <span className="sd-avatar-content" title={this.props.tooltipText} >
                     <img src={this.props.imageUrl} />
                 </span>
             );
@@ -58,10 +58,10 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
     render() {
         return (
             <span
-                className={classNames('avatar', {
-                    'avatar--small': this.props.size === 'small',
-                    'avatar--medium': this.props.size === 'medium' || this.props.size == null,
-                    'avatar--large': this.props.size === 'large',
+                className={classNames('sd-avatar', {
+                    'sd-avatar--small': this.props.size === 'small',
+                    'sd-avatar--medium': this.props.size === 'medium' || this.props.size == null,
+                    'sd-avatar--large': this.props.size === 'large',
                 })}
                 data-test-id={this.props['data-test-id']}
             >
@@ -73,8 +73,8 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                             <span
                                 className={
                                     this.props.statusIndicator.status === 'online'
-                                        ? 'avatar--indicator-status--online'
-                                        : 'avatar--indicator-status--offline'
+                                        ? 'sd-avatar--indicator-status--online'
+                                        : 'sd-avatar--indicator-status--offline'
                                 }
                                 title={this.props.statusIndicator.tooltipText}
                             />
@@ -86,7 +86,7 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                     this.props.administratorIndicator?.enabled === true
                         ? (
                             <i
-                                className="icon-settings avatar--indicator-admin"
+                                className="icon-settings sd-avatar--indicator-admin"
                                 title={this.props.administratorIndicator.tooltipText}
                             />
                         )
