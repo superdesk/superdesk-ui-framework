@@ -17,7 +17,7 @@
     }
 
     &--indicator-status--online {
-        @extend .avatar--indicator-status--offline;
+        @extend .sd-avatar--indicator-status--offline;
     
         background-color: #67b461;
         border: 1px solid #67b461;
@@ -60,8 +60,8 @@
         width: 48px;
         font-size: 1.8rem;
 
-        .avatar--indicator-status--offline,
-        .avatar--indicator-status--online {
+        .sd-avatar--indicator-status--offline,
+        .sd-avatar--indicator-status--online {
             right: 0;
         }
     }
