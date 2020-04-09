@@ -36,9 +36,6 @@ const pages = {
     basicComponents: {
         name: 'Basic Components',
         items: {
-            'inputs': {
-                name: 'Inputs',
-            },
             'buttons': {
                 name: 'Buttons',
             },
@@ -91,6 +88,9 @@ const pages = {
             'inputs': {
                 name: 'Inputs',
             },
+            'date-picker': {
+                name: 'Date Picker',
+            },
             'switch': {
                 name: 'Switch'
             },
@@ -126,8 +126,6 @@ class ReactDoc extends React.Component {
                 <main className="docs-page__content docs-page__container-fluid">
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
-                        <Route path="/react/inputs" component={InputsDoc} />
-                        <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />
                         <Route path="/react/button-groups" component={ButtonGroupsDoc} />
                         <Route path="/react/labels" component={LabelsDoc} />
@@ -136,6 +134,8 @@ class ReactDoc extends React.Component {
                         <Route path="/react/alerts" component={AlertDoc} />
                         <Route path="/react/avatar" component={AvatarDoc} />
                         <Route path="/react/tooltips" component={TooltipDoc} />
+                        <Route path="/react/inputs" component={InputsDoc} />
+                        <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
                         <Route path="/react/radio" component={RadiosDoc} />
                         <Route path="/react/checkbox" component={CheckboxsDoc} />
