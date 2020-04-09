@@ -11,6 +11,7 @@ interface IButtonBase {
     disabled?: boolean;
     value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
     onClick(): void;
+    'data-test-id'?: string;
 }
 
 interface IPropsButton extends IButtonBase {
@@ -36,8 +37,8 @@ export class Button extends React.PureComponent<IPropsButton> {
         const value = this.props.value === undefined ? 'button' : this.props.value;
 
         return (
-            <button className={classes} onClick={this.props.onClick}>
-                {this.props.icon ? <Icon name={this.props.icon} /> : null}
+            <button className={classes} onClick={this.props.onClick} data-test-id={this.props['data-test-id']}>
+                {this.props.icon ? <Icon name={this.props.icon}/> : null}
                 {this.props.text ? this.props.text : <span className='visuallyhidden'>{value}</span>}
             </button>
         );
