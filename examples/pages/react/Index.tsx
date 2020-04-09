@@ -8,6 +8,7 @@ import {
 
 } from "react-router-dom";
 
+import InputsDoc from './Inputs';
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
 import ButtonGroupsDoc from './ButtonGroups';
@@ -17,7 +18,7 @@ import AvatarDoc from './Avatar';
 import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
-import InputsDoc from './Inputs';
+import DatePickerDoc from './DatePicker';
 import SwitchDoc from './Switch';
 import RadiosDoc from './Radios';
 import CheckboxsDoc from './Checkboxs';
@@ -27,6 +28,7 @@ import NavButtonsDoc from './NavButtons';
 import IconFontDoc from './IconFont';
 import BigIconFontDoc from './BigIconFont';
 import SubNavDoc from './SubNav';
+import TestDoc from './TestingToast';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -34,6 +36,9 @@ const pages = {
     basicComponents: {
         name: 'Basic Components',
         items: {
+            'inputs': {
+                name: 'Inputs',
+            },
             'buttons': {
                 name: 'Buttons',
             },
@@ -105,6 +110,9 @@ const pages = {
             },
             'big-icon-font': {
                 name: 'Big icon font'
+            },
+            'test': {
+                name: 'Testing'
             }
         }
     }
@@ -119,6 +127,7 @@ class ReactDoc extends React.Component {
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
                         <Route path="/react/inputs" component={InputsDoc} />
+                        <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />
                         <Route path="/react/button-groups" component={ButtonGroupsDoc} />
                         <Route path="/react/labels" component={LabelsDoc} />
@@ -136,6 +145,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/icon-font" component={IconFontDoc} />
                         <Route path="/react/big-icon-font" component={BigIconFontDoc} />
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
+                        <Route path="/react/test" component={TestDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

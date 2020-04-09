@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {Icon} from './Icon';
+import { Icon } from './Icon';
 
 interface IButtonBase {
     theme?: 'light' | 'dark'; // defaults to 'light'
@@ -9,6 +9,7 @@ interface IButtonBase {
     children?: never;
     icon?: string;
     disabled?: boolean;
+    value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
     onClick(): void;
     'data-test-id'?: string;
 }
@@ -33,10 +34,12 @@ export class Button extends React.PureComponent<IPropsButton> {
             'btn--icon-only-circle': this.props.shape === 'round' && !this.props.text,
         });
 
+        const value = this.props.value === undefined ? 'button' : this.props.value;
+
         return (
             <button className={classes} onClick={this.props.onClick} data-test-id={this.props['data-test-id']}>
                 {this.props.icon ? <Icon name={this.props.icon}/> : null}
-                {this.props.text}
+                {this.props.text ? this.props.text : <span className='visuallyhidden'>{value}</span>}
             </button>
         );
     }

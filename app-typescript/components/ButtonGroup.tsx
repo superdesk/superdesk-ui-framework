@@ -18,7 +18,7 @@ export class ButtonGroup extends React.PureComponent<IProps> {
             [`button-group--padded`]: this.props.padded === true,
         });
         return (
-            <div className={classes}>
+            <div className={classes} role='group'>
                 {this.props.children}
             </div>
         );

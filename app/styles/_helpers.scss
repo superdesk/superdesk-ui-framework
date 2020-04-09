@@ -648,3 +648,12 @@ $sd-properties: (padding, margin); // It's generating these properties
  .sd-word-break--all {
     word-break: break-all;
  }
+
+ .sd-accessibility__btn-text--invisible, .sd-accessibility__screenreader-text {
+     position: absolute;
+     top: 0;
+     left: 0;
+     font-size: 0.1rem;
+     color: transparent !important;
+     pointer-events: none;
+ }

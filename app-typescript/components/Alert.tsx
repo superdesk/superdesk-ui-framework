@@ -43,7 +43,7 @@ export class Alert extends React.PureComponent<IProps, IState> {
             <div className='sd-alert__container'>
                 <div className={classesAlert}>
                     {this.props.restoreIcon ?
-                        <button className='sd-alert__close' onClick={this.onToggle} ></button> : null}
+                        <button className='sd-alert__close' onClick={this.onToggle} aria-label="Close"></button> : null}
                     {this.props.children}
                 </div>
                 {this.props.restoreIcon ?

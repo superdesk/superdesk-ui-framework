@@ -3,6 +3,7 @@
 
 export {HelloWorld} from './components/HelloWorld';
 export {Button} from './components/Button';
+export {Input} from './components/Input';
 export {Label} from './components/Label';
 export {Badge} from './components/Badge';
 export {Alert} from './components/Alert';
@@ -34,7 +35,7 @@ export {StrechBar}  from './components/StrechBar';
 export {PropsList, Prop} from './components/PropsList';
 export {Icon} from './components/Icon';
 export {Divider}  from './components/Divider';
-export {NotificationToast} from './components/NotificationToast';
+export {HeadingText} from './components/HeadingText';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
