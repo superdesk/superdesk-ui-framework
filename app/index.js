@@ -42,7 +42,6 @@ export {
     PropsList,
     Prop,
     Icon,
-    NotificationToast,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
