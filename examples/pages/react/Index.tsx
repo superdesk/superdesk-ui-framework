@@ -28,6 +28,7 @@ import NavButtonsDoc from './NavButtons';
 import IconFontDoc from './IconFont';
 import BigIconFontDoc from './BigIconFont';
 import SubNavDoc from './SubNav';
+import TestDoc from './TestingToast';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -110,6 +111,9 @@ const pages = {
             'big-icon-font': {
                 name: 'Big icon font'
             },
+            'test': {
+                name: 'Testing'
+            }
         }
     }
 }
@@ -141,6 +145,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/icon-font" component={IconFontDoc} />
                         <Route path="/react/big-icon-font" component={BigIconFontDoc} />
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
+                        <Route path="/react/test" component={TestDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

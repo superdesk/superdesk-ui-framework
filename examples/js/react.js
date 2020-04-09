@@ -92,6 +92,9 @@ class ReactMarkupPreview extends React.PureComponent {
 }
 
 class ReactMarkupCode extends React.PureComponent {
+    componentDidMount() {
+        Prism.highlightAll();
+    }
     render() {
         return (
             <div className="docs-page__code-markup" style={this.props.active === 'markup' ? { display: 'block' } : { display: 'none' }}>
@@ -106,6 +109,9 @@ class ReactMarkupCode extends React.PureComponent {
 }
 
 class ReactMarkupCodePreview extends React.PureComponent {
+    componentDidMount() {
+        Prism.highlightAll();
+    }
     render() {
         return (
             <pre>
