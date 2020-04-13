@@ -5,11 +5,6 @@ import { HeadingText, Button } from '../../../app-typescript';
 import toast from '../../../app-typescript/components/Toast';
 
 export default class ToastsDoc extends React.Component {
-    //datestamp
-    showRight = () => {
-        toast.notify(<HeadingText heading='Martin Mustermann' text='Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.' timestamp={new Date('August 19, 2019 23:15:30')} />, { position: 'bottom-right', type: 'alert' })
-    }
-
     // default
     showDefault = () => {
         toast.notify("I'm a tasty default Toast message!", {});
@@ -60,17 +55,19 @@ export default class ToastsDoc extends React.Component {
         toast.notify(<HeadingText heading='I have Toaster heading!' text='Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.' />, { type: 'primary', icon: 'info-sign', position: 'bottom' });
     }
     showAnotherCustomElement = () => {
-        toast.notify(<React.Fragment>
-        <div className="sd-toast__icon"></div>
-        <figure className="sd-toast__avatar avatar">sd</figure>
-        <div className="sd-toast__message">
-            <div className="sd-toast__message-header">
-                <h4 className="sd-toast__heading">Martin Mustermann</h4>
+        toast.notify(
+        <React.Fragment>
+            <div className="sd-toast__icon"></div>
+                <figure className="sd-toast__avatar avatar">sd</figure>
+                <div className="sd-toast__message">
+                    <div className="sd-toast__message-header">
+                        <h4 className="sd-toast__heading">Martin Mustermann</h4>
+                        <time title="March 22, 2017 11:08 AM">16:50, 16.03.2019</time>
+                    </div>
+                    <p>Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
             </div>
-            <p>Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-        </div>
         </React.Fragment>
-    , { position: 'bottom', size: 'fixed-l' });
+        , { position: 'bottom-right', size: 'fixed-l' });
     }
     
     render() {
@@ -169,8 +166,20 @@ export default class ToastsDoc extends React.Component {
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        toast.notify("I'm a tasty default Toast message!", { type: 'success', icon: 'ok'});
-                        toast.notify("Danger! Condimentum ridiculus ultricies ornare mollis.", { type: 'alert', icon: 'exclamation-sign', position: 'bottom'});
+                        toast.notify(<HeadingText heading='I have Toaster heading!' text='Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.' />, { type: 'primary', icon: 'info-sign', position: 'bottom' });
+                        toast.notify(
+                        <React.Fragment>
+                            <div className="sd-toast__icon"></div>
+                            <figure className="sd-toast__avatar avatar">sd</figure>
+                            <div className="sd-toast__message">
+                                <div className="sd-toast__message-header">
+                                    <h4 className="sd-toast__heading">Martin Mustermann</h4>
+                                    <time title="March 22, 2017 11:08 AM">16:50, 16.03.2019</time>
+                                </div>
+                                <p>Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                            </div>
+                        </React.Fragment>
+                        , { position: 'bottom-right', size: 'fixed-l' });
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

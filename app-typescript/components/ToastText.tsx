@@ -19,10 +19,10 @@ const ToastText = ({ id, title, icon, onClose, textHeight }: IProps) => {
           <Icon name={icon} />
         </div> : null}
       {typeof title === 'string' ?
-        (<span ref={ref} id={id}>
+        (<span style={{width: '100%'}} ref={ref} id={id}>
           <div className='sd-toast__message'>{title}</div>
         </span>) :
-        <span ref={ref} id={id}>
+        <span style={{width: '100%', display: 'inherit'}} ref={ref} id={id}>
           {title}
         </span>}
       {onClose && <Close onClose={onClose} />}
