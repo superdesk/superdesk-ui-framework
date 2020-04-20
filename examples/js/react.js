@@ -40,8 +40,8 @@ class ReactDefault extends React.PureComponent {
                         <img src="/illustration--react.svg" alt="React" />
                     </figure>
                     <h2 className="docs-page__hero-h2 docs-page__color--primary">Home of Superdesk React components</h2>
-                    <p className="docs-page__hero-text">As the headline suggests – React components for Superdesk. Still in its early stages, but hey, you have to start somewhere!</p>
-                    <p className="docs-page__hero-text sd-text__normal">Don't be shy, feel free to contribute!</p>
+                    <p className="docs-page__hero-text">As the headline suggests – React components for Superdesk. Work in progress!</p>
+                    <p className="docs-page__hero-text sd-text__normal">Feel free to contribute!</p>
                 </div>
             </section>
         )

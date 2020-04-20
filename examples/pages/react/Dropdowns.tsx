@@ -15,8 +15,7 @@ export default class DropdownDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph"></p>
-                        <Dropdown name='testiranje'/>
-                        <Dropdown name='testiranje2' align='right'/>
+                        
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         

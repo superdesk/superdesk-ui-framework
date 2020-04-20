@@ -43,7 +43,9 @@ $sd-topMenu-background: var(--color-bg-800);
     position: relative;
     padding: 0 10px;
     width: 48px;
-
+    .avatar {
+        @include border-radius(50%);
+    }
     .label {
         position: absolute;
         top: 3px;

@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { PropsList } from './PropsList';
 interface IProps {
     name: string;
     align?: 'left' | 'right';

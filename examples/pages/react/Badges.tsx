@@ -3,7 +3,6 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 
 import { Badge, Button, Prop, PropsList} from '../../../app-typescript';
-
 export default class BadgeDoc extends React.Component {
     render() {
 
@@ -146,7 +145,7 @@ export default class BadgeDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-                
+
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='text' isRequered={false} type='string' default='/' description='Badge text value.'/>

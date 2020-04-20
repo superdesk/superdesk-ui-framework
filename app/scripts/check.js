@@ -7,8 +7,10 @@ function sdCheck($parse) {
         replace: true,
         transclude: true,
         template: '<span class="sd-check__wrapper">' +
-                '<span class="sd-checkbox"></span><label ng-transclude></label></span>',
+                '<span class="sd-checkbox"></span><label data-test-id="{{testId}}" ng-transclude></label></span>',
         link: function ($scope, element, attrs, ngModel) {
+            $scope.testId = attrs.testId || '';
+
             var label = element.find('label'),
                     checkbox = element.find('span'),
                     isChecked = $parse(attrs.ngChecked)($scope);
