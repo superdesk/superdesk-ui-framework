@@ -2,10 +2,9 @@ import * as React from 'react';
 import classNames from 'classnames';
 import nextId from "react-id-generator";
 
-interface IProps {
+interface ISelect {
     value?: string;
     label?: string;
-    maxLength?: number;
     info?: string;
     error?: string;
     required?: boolean;
@@ -20,8 +19,8 @@ interface IState {
     invalid: boolean;
 }
 
-export class Input extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+class Select extends React.Component<ISelect, IState> {
+    constructor(props: ISelect) {
         super(props);
 
         this.state = {
@@ -34,17 +33,13 @@ export class Input extends React.Component<IProps, IState> {
 
     htmlId = nextId();
 
-    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
         this.setState({ value: event.target.value });
         this.props.onChange(event.target.value);
-
-        if (this.props.maxLength && !this.props.invalid) {
-            this.setState({ invalid: event.target.value.length > this.props.maxLength });
-        }
     }
 
     render() {
-        const classes = classNames('sd-input', {
+        const classes = classNames('sd-input sd-input--is-select', {
             'sd-input--inline-label': this.props.inlineLabel,
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
@@ -53,21 +48,18 @@ export class Input extends React.Component<IProps, IState> {
 
         return (
             <div className={classes}>
-                {this.props.label ? <label className='sd-input__label'
-                    htmlFor={this.htmlId}>{this.props.label}</label> : null}
+                {this.props.label ?
+                    <label className='sd-input__label' htmlFor={this.htmlId}>{this.props.label}</label> : null}
 
-                <input className='sd-input__input'
-                    type='text'
+                <select className='sd-input__select'
                     id={this.htmlId}
                     value={this.state.value}
                     aria-label={this.props.label}
                     aria-describedby={this.htmlId}
                     onChange={this.handleChange}
-                    disabled={this.props.disabled} />
-
-                {this.props.maxLength ?
-                    <div className='sd-input__char-count'>{this.state.value.length} / {this.props.maxLength}</div>
-                    : null}
+                    disabled={this.props.disabled}>
+                    {this.props.children}
+                </select>
 
                 <div className='sd-input__message-box'>
                     {this.props.info && !this.props.invalid && !this.state.invalid ?
@@ -80,3 +72,17 @@ export class Input extends React.Component<IProps, IState> {
         );
     }
 }
+
+interface IOption {
+    value?: string;
+}
+
+class Option extends React.PureComponent<IOption> {
+    render() {
+        return (
+            <option value={this.props.value}>{this.props.children}</option>
+        );
+    }
+}
+
+export { Select, Option };
