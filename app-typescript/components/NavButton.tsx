@@ -19,9 +19,8 @@ export class NavButton extends React.PureComponent<IProps> {
         const value = this.props.value === undefined ? 'button' : this.props.value;
 
         return (
-            <button className={classes} onClick={this.props.onClick}>
+            <button className={classes} onClick={this.props.onClick} aria-label={value}>
                 {this.props.icon ? <Icon name={this.props.icon} size={this.props.iconSize} /> : null}
-                <span className='visuallyhidden'>{value}</span>
             </button>
         );
     }
