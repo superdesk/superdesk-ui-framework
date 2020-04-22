@@ -48,7 +48,8 @@ class Select extends React.Component<ISelect, IState> {
 
         return (
             <div className={classes}>
-                {this.props.label ? <label className='sd-input__label' htmlFor={this.htmlId}>{this.props.label}</label> : null}
+                {this.props.label ?
+                    <label className='sd-input__label' htmlFor={this.htmlId}>{this.props.label}</label> : null}
 
                 <select className='sd-input__select'
                     id={this.htmlId}
@@ -80,7 +81,7 @@ class Option extends React.PureComponent<IOption> {
     render() {
         return (
             <option value={this.props.value}>{this.props.children}</option>
-        )
+        );
     }
 }
 

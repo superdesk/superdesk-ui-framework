@@ -35,11 +35,11 @@ export class Input extends React.Component<IProps, IState> {
     htmlId = nextId();
 
     handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.setState({value: event.target.value});
+        this.setState({ value: event.target.value });
         this.props.onChange(event.target.value);
 
         if (this.props.maxLength && !this.props.invalid) {
-            this.setState({invalid: event.target.value.length > this.props.maxLength});
+            this.setState({ invalid: event.target.value.length > this.props.maxLength });
         }
     }
 
@@ -53,7 +53,8 @@ export class Input extends React.Component<IProps, IState> {
 
         return (
             <div className={classes}>
-                { this.props.label ? <label className='sd-input__label' htmlFor={this.htmlId}>{this.props.label}</label> : null }
+                {this.props.label ? <label className='sd-input__label'
+                    htmlFor={this.htmlId}>{this.props.label}</label> : null}
 
                 <input className='sd-input__input'
                     type='text'
@@ -64,16 +65,16 @@ export class Input extends React.Component<IProps, IState> {
                     onChange={this.handleChange}
                     disabled={this.props.disabled} />
 
-                { this.props.maxLength ?
+                {this.props.maxLength ?
                     <div className='sd-input__char-count'>{this.state.value.length} / {this.props.maxLength}</div>
-                    : null }
+                    : null}
 
                 <div className='sd-input__message-box'>
-                    { this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null }
-                    { this.props.invalid || this.state.invalid ?
+                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                        <div className='sd-input__hint'>{this.props.info}</div> : null}
+                    {this.props.invalid || this.state.invalid ?
                         <div className='sd-input__message'>{this.props.error}</div>
-                        : null }
+                        : null}
                 </div>
             </div>
         );
