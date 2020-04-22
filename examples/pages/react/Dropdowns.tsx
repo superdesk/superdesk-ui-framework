@@ -15,7 +15,25 @@ export default class DropdownDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph"></p>
-                        
+                        <Dropdown name='test'>
+                            <Dropdown.Item text='one' />
+                            <Dropdown.Item text='two' icon='pencil' />
+                            <Dropdown.Item text='PROBA'/>
+                            <Dropdown name='inside' level={true} icon='pencil'>
+                                <Dropdown.Item text='four' />
+                            </Dropdown>
+                        </Dropdown>
+                        <Dropdown name='test' icon='dots'>
+                            <Dropdown.Item text='one' />
+                            <Dropdown.Item text='two' icon='pencil' />
+                            <Dropdown.Item text='PROBA'/>
+                            <Dropdown name='inside' level={true} icon='pencil'>
+                                <Dropdown.Item text='four' />
+                            </Dropdown>
+                        </Dropdown>
+                        <Dropdown name='buttons' headerFooter={true}>
+                            <Dropdown.Item text='first'/>
+                        </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         

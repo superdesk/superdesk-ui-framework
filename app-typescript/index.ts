@@ -37,6 +37,9 @@ export {Icon} from './components/Icon';
 export {Divider}  from './components/Divider';
 export {HeadingText} from './components/HeadingText';
 export {Dropdown} from './components/Dropdown';
+export {DropdownItem} from './components/Dropdown';
+export {DropdownLabel} from './components/Dropdown';
+export {DropdownDivider} from './components/Dropdown';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

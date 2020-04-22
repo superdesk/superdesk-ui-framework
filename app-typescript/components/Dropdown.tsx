@@ -4,6 +4,9 @@ interface IProps {
     name: string;
     align?: 'left' | 'right';
     side?: 'left' | 'right';
+    icon?: string;
+    level?: boolean;
+    headerFooter?: boolean;
     children: React.ReactNode;
 }
 
@@ -16,10 +19,18 @@ interface IPropsLabel {
     text: string;
 }
 
+interface IPropsMenu {
+    title: string;
+    children: React.ReactNode;
+}
+
 export const Dropdown = ({
     name,
     align,
     side,
+    level,
+    icon,
+    headerFooter,
     children,
 }: IProps) => {
     const [open, setOpen] = React.useState(false);
@@ -73,15 +84,52 @@ export const Dropdown = ({
         return el.clientHeight;
     }
 
-    return (
-        <div className={classes} >
-            <button className='dropdown__toggle dropdown-toggle' onClick={isOpen}>{name}
-                <span className="dropdown__caret"></span></button>
-            <ul className='dropdown__menu' ref={ref}>
-                {children}
-            </ul>
-        </div>
-    );
+    if (headerFooter) {
+        return (
+            <div className={classes} >
+                <button className='dropdown__toggle dropdown-toggle' onClick={isOpen}>
+                    {icon ?
+                        (<i className={"icon-" + icon}></i>) :
+                        (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)
+                    }</button>
+                <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref}>
+                    {children}
+                </div>
+            </div >
+        );
+
+    } else {
+        if (level) {
+            return (
+                <li>
+                    <div className={classes}>
+                        <button className='dropdown__toggle dropdown-toggle'>
+                            {icon && level ? <i className={icon ? ('icon-' + icon) : ''}></i> : null}
+                            {name}
+                        </button>
+                        <ul className='dropdown__menu' ref={ref}>
+                            {children}
+                        </ul>
+                    </div></li>
+
+            );
+        } else {
+            return (
+                <div className={classes} >
+                    <button className='dropdown__toggle dropdown-toggle' onClick={isOpen}>
+                        {icon ?
+                            (<i className={"icon-" + icon}></i>) :
+                            (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)
+                        }</button>
+                    <ul className='dropdown__menu' ref={ref}>
+                        {children}
+                    </ul>
+                </div >
+            );
+        }
+
+    }
+
 };
 
 export const DropdownItem = ({
@@ -107,3 +155,49 @@ export const DropdownLabel = ({
         </li>
     );
 };
+
+export const DropdownHeader = ({
+    title,
+    children,
+}: IPropsMenu) => {
+
+    return (
+        <ul className='dropdown__menu-header'>
+            <DropdownLabel text={title}/>
+            {children}
+        </ul>
+    );
+};
+
+export const DropdownBody = ({
+    title,
+    children,
+}: IPropsMenu) => {
+
+    return (
+        <ul className='dropdown__menu-body'>
+            <DropdownLabel text={title}/>
+            {children}
+        </ul>
+    );
+};
+
+export const DropdownFooter = ({
+    title,
+    children,
+}: IPropsMenu) => {
+
+    return (
+        <ul className='dropdown__menu-footer dropdown__menu-footer--has-list'>
+            <DropdownLabel text={title}/>
+            {children}
+        </ul>
+    );
+};
+
+Dropdown.Item = DropdownItem;
+Dropdown.Divider = DropdownDivider;
+Dropdown.Label = DropdownLabel;
+Dropdown.Header = DropdownHeader;
+Dropdown.Body = DropdownBody;
+Dropdown.Footer = DropdownFooter;
