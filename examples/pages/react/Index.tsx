@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import InputsDoc from './Inputs';
+import SelectsDoc from './Selects';
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
 import ButtonGroupsDoc from './ButtonGroups';
@@ -30,6 +31,7 @@ import BigIconFontDoc from './BigIconFont';
 import SubNavDoc from './SubNav';
 import DropdownDoc from './Dropdowns';
 
+import ToastsDoc from './Toasts';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -69,6 +71,9 @@ const pages = {
             },
             'nav-buttons': {
                 name: 'Nav buttons'
+            },
+            'toast': {
+                name: 'Toasts'
             }
         }
     },
@@ -92,6 +97,9 @@ const pages = {
             'inputs': {
                 name: 'Inputs',
             },
+            'select': {
+                name: 'Select',
+            },
             'date-picker': {
                 name: 'Date Picker',
             },
@@ -114,9 +122,6 @@ const pages = {
             },
             'big-icon-font': {
                 name: 'Big icon font'
-            },
-            'test': {
-                name: 'Testing'
             }
         }
     }
@@ -139,6 +144,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/avatar" component={AvatarDoc} />
                         <Route path="/react/tooltips" component={TooltipDoc} />
                         <Route path="/react/inputs" component={InputsDoc} />
+                        <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
                         <Route path="/react/radio" component={RadiosDoc} />
@@ -150,6 +156,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/big-icon-font" component={BigIconFontDoc} />
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
                         <Route path="/react/dropdowns" component={DropdownDoc} />
+                        <Route path="/react/toast" component={ToastsDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

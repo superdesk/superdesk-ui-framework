@@ -18,9 +18,13 @@ const ToastText = ({ id, title, icon, onClose, textHeight }: IProps) => {
         <div className='sd-toast__icon'>
           <Icon name={icon} />
         </div> : null}
-      <div ref={ref} id={id} className='sd-toast__message'>
-        {title}
-      </div>
+      {typeof title === 'string' ?
+        (<span style={{width: '100%'}} ref={ref} id={id}>
+          <div className='sd-toast__message'>{title}</div>
+        </span>) :
+        <span style={{width: '100%', display: 'inherit'}} ref={ref} id={id}>
+          {title}
+        </span>}
       {onClose && <Close onClose={onClose} />}
     </React.Fragment>
   );
