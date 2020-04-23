@@ -1,5 +1,8 @@
 $side-panel-Bg: var(--color-bg-100);
-$side-panel-Bg-darkUi: #4a4a4a;
+$side-panel-Bg-00: var(--color-bg-00);
+$side-panel-Bg-darkUi: #2d2d2d;
+
+
 
 .side-panel {
     margin: 0;
@@ -19,7 +22,7 @@ $side-panel-Bg-darkUi: #4a4a4a;
         display: flex;
         flex-direction: row;
         align-items: center;
-        background-color: $side-panel-Bg;
+        background-color: inherit;
         &--border-b {
             box-shadow: 0 1px 0 rgba(0,0,0,.12);
         }
@@ -39,7 +42,6 @@ $side-panel-Bg-darkUi: #4a4a4a;
     }
     
     .side-panel__heading {
-        //padding: 0 2rem 0 2rem;
         @include sd-padding('2', 'x');
         margin: 0;
         font-size: 1.5rem;
@@ -417,9 +419,7 @@ $side-panel-Bg-darkUi: #4a4a4a;
             }
         }
         .side-panel__footer--button-box, .side-panel__footer--button-box-large {
-            //background-color: scale-color($sd-background-darkUI, $lightness: -12%);
             background-color: rgba(94, 169, 200, 0.03);
-            //border-top: 1px solid rgba(0,0,0,.04);
             &::before {
                 background-image: linear-gradient(to top,rgba(0,0,0,.14) 0%,rgba(0,0,0,0) 100%);
             }
@@ -428,6 +428,9 @@ $side-panel-Bg-darkUi: #4a4a4a;
             border-top: 4px solid #FFF;
             opacity: .6;
         }
+    }
+    &--bg-00 {
+        background-color: $side-panel-Bg-00;
     }
 }
 
@@ -438,13 +441,13 @@ $side-panel-Bg-darkUi: #4a4a4a;
 [class^="--dark-ui"],
 [class*="--dark-ui"] {
     .side-panel {
-        //background-color: $side-panel-Bg-darkUi;
+        background-color: $side-panel-Bg-darkUi;
         color: $white;
         &.side-panel--transparent {
             background-color: transparent;
             .side-panel__header {
                 box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
-                background-color: rgba(94, 169, 200, 0.03);
+                // background-color: rgba(94, 169, 200, 0.03);
             }
             .side-panel__footer {
                 &--button-box, &--button-box-large {
