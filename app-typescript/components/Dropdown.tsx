@@ -5,6 +5,7 @@ interface IProps {
     align?: 'left' | 'right';
     side?: 'left' | 'right';
     icon?: string;
+    navDropdown?: boolean;
     level?: boolean;
     headerFooter?: boolean;
     children: React.ReactNode;
@@ -31,20 +32,31 @@ export const Dropdown = ({
     level,
     icon,
     headerFooter,
+    navDropdown,
     children,
 }: IProps) => {
     const [open, setOpen] = React.useState(false);
     const [height, setHeight] = React.useState(false);
     const ref = React.useRef(null);
+
     React.useEffect(() => {
-        let number = getOffset(ref.current);
-        let second = getBodyOffset();
-        let heightEl = heightElement(ref.current);
-        if (heightEl > second - number.bottom) {
-            setHeight(true);
-        } else {
-            setHeight(false);
+        // temporary solution for smart scroll
+        function calculate() {
+            let number = getOffset(ref.current);
+            let second = screen.height;
+            let heightEl = heightElement(ref.current);
+
+            if (heightEl > second - number.bottom) {
+                setHeight(true);
+            } else {
+                setHeight(false);
+            }
         }
+        calculate();
+        window.addEventListener("wheel", function() { calculate(); }, { passive: false });
+        return () => {
+            window.removeEventListener("wheel", function() { calculate(); });
+        };
     }, [open]);
 
     const classes = classNames('dropdown', {
@@ -75,11 +87,6 @@ export const Dropdown = ({
             bottom: rect.bottom + window.scrollY,
         };
     }
-
-    function getBodyOffset() {
-        return screen.height;
-    }
-
     function heightElement(el: any) {
         return el.clientHeight;
     }
@@ -87,7 +94,7 @@ export const Dropdown = ({
     if (headerFooter) {
         return (
             <div className={classes} >
-                <button className='dropdown__toggle dropdown-toggle' onClick={isOpen}>
+                <button className={navDropdown ? 'dropdown__toggle navbtn dropdown-toggle' : 'dropdown__toggle nav-btn dropdown-toggle'} onClick={isOpen}>
                     {icon ?
                         (<i className={"icon-" + icon}></i>) :
                         (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)
@@ -100,6 +107,9 @@ export const Dropdown = ({
 
     } else {
         if (level) {
+            const classesMenu = classNames('dropdown__menu', {
+                ['dropdown__menu--submenu-left']: align === 'left',
+            });
             return (
                 <li>
                     <div className={classes}>
@@ -107,7 +117,7 @@ export const Dropdown = ({
                             {icon && level ? <i className={icon ? ('icon-' + icon) : ''}></i> : null}
                             {name}
                         </button>
-                        <ul className='dropdown__menu' ref={ref}>
+                        <ul className={classesMenu} ref={ref}>
                             {children}
                         </ul>
                     </div></li>
@@ -116,7 +126,7 @@ export const Dropdown = ({
         } else {
             return (
                 <div className={classes} >
-                    <button className='dropdown__toggle dropdown-toggle' onClick={isOpen}>
+                    <button className={navDropdown ? 'dropdown__toggle navbtn dropdown-toggle' : 'dropdown__toggle nav-btn dropdown-toggle'} onClick={isOpen}>
                         {icon ?
                             (<i className={"icon-" + icon}></i>) :
                             (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)
@@ -163,7 +173,7 @@ export const DropdownHeader = ({
 
     return (
         <ul className='dropdown__menu-header'>
-            <DropdownLabel text={title}/>
+            <DropdownLabel text={title} />
             {children}
         </ul>
     );
@@ -176,7 +186,7 @@ export const DropdownBody = ({
 
     return (
         <ul className='dropdown__menu-body'>
-            <DropdownLabel text={title}/>
+            <DropdownLabel text={title} />
             {children}
         </ul>
     );
@@ -189,7 +199,7 @@ export const DropdownFooter = ({
 
     return (
         <ul className='dropdown__menu-footer dropdown__menu-footer--has-list'>
-            <DropdownLabel text={title}/>
+            <DropdownLabel text={title} />
             {children}
         </ul>
     );
