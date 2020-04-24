@@ -1,0 +1,702 @@
+<div class="sd-page-grid--test docs-page__full-width-helper" doc-modal ng-init="openHamburger = false, darkUI = false" data-theme="{{darkUI ? 'dark-ui' : 'light-ui'}}">
+    <div class="sd-main-menu" ng-class="{'sd-main-menu--open': openHamburger}">
+        <div class="sd-main-menu__inner">
+
+        </div>
+    </div>
+    <header class="sd-top-menu">
+        <a href="" ng-click="openHamburger = !openHamburger" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <p class="sd-top-menu__header">Master Desk</p>
+    </header>
+    <section class="sd-content sd-content-wrapper">
+        <div class="sd-sidebar-menu sd-content-wrapper__left-tabs">
+            <ul class="authoring-active">
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Monitoring" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Highlights" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--marked-star"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Spiked" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Personal" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Search" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Monitoring" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active">
+                        <i class="sd-sidebar-menu__main-icon big-icon--master"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="leftContent" sd-media-query min-width="880" max-width="1100" ng-init="darkUI = false; listView = true" class="sd-content-wrapper__main-content-area sd-main-content-grid" ng-class="{'dark-ui': darkUI}">
+            <!-- TOOLBAR HEADER -->
+            <div class="sd-main-content-grid__header">
+                <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+                    <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
+                        <i class="icon-filter-large"></i>
+                    </button>
+                    <div class="subnav__stretch-bar">
+                        <sd-check ng-model="masterDeskView" type="radio" ng-value="overview" label-position="inside" ng-checked="true">Overview</sd-check>
+                        <sd-check ng-model="masterDeskView" type="radio" ng-value="users" label-position="inside">Users</sd-check>
+                        <sd-check ng-model="masterDeskView" type="radio" ng-value="assignments" label-position="inside">Assignments</sd-check>
+                    </div>
+                     <!--<div class="subnav__spacer subnav__spacer--no-margin"></div>
+                    <div class="subnav__content-bar">
+                        <div class="dropdown dropdown--align-right" dropdown>
+                            <button class="dropdown__toggle" dropdown__toggle>
+                                Updated<span class="dropdown__caret"></span>
+                            </button>
+                            <ul class="dropdown__menu">
+                                <li><button>Updated</button></li>
+                                <li><button>Created</button></li>
+                                <li><button>Urgency</button></li>
+                                <li><button>Category</button></li>
+                                <li><button>Slugline</button></li>
+                                <li><button>Priority</button></li>
+                                <li><button>Genre</button></li>
+                            </ul>
+                        </div>
+                        <a class="icn-btn" sd-tooltip="Descending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-hide="!sortDesc"><i class="icon-descending"></i></a>
+                        <a class="icn-btn" sd-tooltip="Ascending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-show="!sortDesc"><i class="icon-ascending"></i></a>
+    
+                    </div> -->
+                    <button class="navbtn" ng-click="darkUI = !darkUI">
+                        <i class="icon-adjust"></i>
+                    </button>
+                    <div class="dropdown dropdown--align-right" dropdown>
+                        <button class="dropdown__toggle navbtn" dropdown__toggle>
+                            <i class="icon-switches"></i>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li>
+                                <div class="dropdown__menu-label">Actions</div>
+                            </li>
+                            <li class="dropdown__menu-divider"></li>
+                            <li><button>Action 2</button></li>
+                            <li><button>Action 3</button></li>
+                            <li><button ng-click="editArticle = !editArticle">Open editor</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- FILTER PANEL -->
+            <div class="sd-main-content-grid__filter" ng-class="{'open-filters': leftFilterOpen}">
+                <div class="side-panel__container">
+                    <div class="side-panel side-panel--shadow-left">
+                        <div class="side-panel__header side-panel__header--border-b">
+                            <a class="icn-btn side-panel__close" sd-tooltip="Close filters" flow="left" ng-click="leftFilterOpen = !leftFilterOpen"><i class="icon-close-small"></i></a>
+                            <h3 class="side-panel__heading">Advanced filters</h3>  
+                        </div>
+                        <div class="side-panel__content">
+                            <div class="side-panel__content-block">
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input">
+                                            <label class="sd-input__label">Title</label>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input sd-input--is-select">
+                                            <label class="sd-input__label">Source</label>
+                                            <select class="sd-input__select">
+                                                <option value="">Select ingest source...</option>
+                                                <option value="">Associated Press</option>
+                                                <option value="">Reuters</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input">
+                                            <label class="sd-input__label">Location</label>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input sd-input--with-button">
+                                            <span class="sd-input__plus-btn"></span>
+                                            <label class="sd-input__label">Category</label>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input sd-input--with-button">
+                                            <span class="sd-input__plus-btn"></span>
+                                            <label class="sd-input__label">Subject</label>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input sd-input--is-select ">
+                                            <label class="sd-input__label">Usage right</label>
+                                            <select class="sd-input__select">
+                                                <option value="">--- Not selected ---</option>
+                                                <option value="single">Single usage</option>
+                                                <option value="time">Time restricted</option>
+                                                <option value="bananas">Indefinite usage</option>
+                                                <option value="indefinite">Pears</option>
+                                            </select>
+                                            <div class="sd-input__message-box">
+                                                <span class="sd-input__hint">Dolor in hendrerit.</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input">
+                                            <a class="icn-btn sd-input__icon-right"><i class="icon-calendar"></i></a>
+                                            <label class="sd-input__label">From</label>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form__item">
+                                        <div class="sd-input">
+                                            <a class="icn-btn sd-input__icon-right"><i class="icon-time"></i></a>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <div class="sd-input">
+                                            <a class="icn-btn sd-input__icon-right"><i class="icon-calendar"></i></a>
+                                            <label class="sd-input__label">To</label>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                    <div class="form__item">
+                                        <div class="sd-input">
+                                            <a class="icn-btn sd-input__icon-right"><i class="icon-time"></i></a>
+                                            <input class="sd-input__input" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form__group">
+                                    <div class="form__item">
+                                        <sd-check ng-model="abc2">Check me!</sd-check>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel__footer side-panel__footer--button-box">
+                            <div class="flex-grid flex-grid--boxed-small flex-grid--wrap-items flex-grid--small-2">
+                                <a class="btn btn--hollow">Clear</a>
+                                <a class="btn btn--primary">Submit</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- MAIN CONTENT (Desks overview) -->
+            <div class="sd-main-content-grid__content">
+                <!-- Desk grid item view -->
+                <div class="sd-grid-list sd-grid-list--medium sd-grid-list--gap-xl sd-margin-x--5">
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk One</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">105</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">105</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5" >25</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">34</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk Two</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">98</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">98</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600">25</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600">24</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600">24</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk Three</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">69</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">69</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">21</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">26</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk Four</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">92</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">92</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk Five</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">68</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">68</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk Six</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">74</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">74</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk Seven</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">123</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">123</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-board">
+                        <div class="sd-board__header">
+                            <h3 class="sd-board__header-title">Desk Eight</h3>
+                        </div>
+                        <div class="sd-board__content sd-padding-t--1">
+                            <div class="sd-board__content-block">
+                                <ul class="sd-board__list">
+                                    <li class="sd-board__list-item">
+                                        <span class="sd-board__item-count--large">83</span>
+                                        <p class="sd-board__count-label">items in production</p>
+                                        <div class="sd-board__doughnut-chart">
+                                            <span class="sd-board__doughnut-chart-number">83</span>
+                                        </div>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                    <li class="sd-board__list-item">
+                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- PREVIEW PANEL -->
+            <div class="sd-main-content-grid__preview"  ng-class="{'open-preview': leftPreviewOpen}">
+                <div class="side-panel__container">
+                    <div class="side-panel side-panel--bg-00 side-panel--shadow-right" ng-class="{'side-panel--dark-ui' : darkUI}">
+                        <div class="side-panel__header">
+                            <div class="side-panel__tools">
+                                <!-- <a class="icn-btn" sd-tooltip="Edit details" flow="top" ng-click="editorOpen = true; leftPreviewOpen = false"><i class="icon-pencil"></i></a> -->
+                                <a class="icn-btn" sd-tooltip="Close details" flow="top" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1"><i class="icon-close-small"></i></a>
+                            </div>
+                            <ul class="nav-tabs" ng-class="{'nav-tabs--ui-dark' : darkUI}">
+                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'event-details'}" class="nav-tabs__tab">
+                                    <button ng-click="tab = 'event-details'" class="nav-tabs__link"><span translate="">Content</span></button>
+                                </li>
+                                <li ng-class="{'nav-tabs__tab--active': tab === 'event-history'}" class="nav-tabs__tab">
+                                    <button ng-click="tab = 'event-history'" class="nav-tabs__link"><span translate="">History</span></button>
+                                </li>
+                            </ul> 
+                        </div>
+                        <div class="side-panel__content" ng-if="!tab || tab === 'event-details'">
+                            <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
+                                <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                                    <p class="sd-text__date-and-author"><time>Created 23.08.2017 by </time> <span class="sd-text__author">Mika Karapet</span></p> 
+                                    <p class="sd-text__date-and-author"><time>Updated 3 hours ago by</time> <span class="sd-text__author">John Doe</span></p>
+                                </div>
+                                <div class="side-panel__content-block-inner side-panel__content-block-inner--right">
+                                    <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                </div>
+                            </div>
+                            <div class="side-panel__content-block side-panel__content-block--image">
+                                <a class="icn-btn side-panel__image-actions" ng-click="openModal('imageModal')">
+                                    <i class="icon-fullscreen"></i>
+                                </a>
+                                <img src="/d_trump.jpg" alt="test">
+                            </div>
+                            <div class="side-panel__content-block">
+                                <div class="form__row">
+                                    <label class="form-label form-label--light">Slugline</label>
+                                    <p class="sd-text__slugline">This is a slugline</p>
+                                </div>
+                                <div class="form__row">
+                                    <label class="form-label form-label--light">Description</label>
+                                    <p>Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.</p>
+                                </div>
+
+                                <div sd-toggle-box data-title="Details" data-style="circle">
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Usage right</label>
+                                        <p>Single usage</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Category</label>
+                                        <p>Some category</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Subject</label>
+                                        <p>Arts, culture and entertainment, Music</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Long Description</label>
+                                        <p>Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+                                    </div>
+                                    <div class="form__row">
+                                        <label class="form-label form-label--light">Internal Note</label>
+                                        <p>Lorem ipsum dolor sit amet, consetetur sadipscing.</p>
+                                    </div>
+                                </div>
+                                <h3 class="side-panel__heading side-panel__heading--big" ng-hide="multiEdit">Related items</h3>
+                                <div class="sd-grid-list sd-grid-list--small sd-grid-list--no-rl-margin" ng-hide="multiEdit">
+                                    <!-- related item 1 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="/d_trump_2.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 2 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="/bill.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 3 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="/hillary.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                    <!-- related item 4 -->
+                                    <div class="sd-grid-item sd-grid-item--small sd-grid-item--with-click">
+                                        <div class="sd-grid-item__thumb">
+                                            <img src="/bush_1.jpg" alt="test">
+                                        </div>
+                                        <div class="sd-grid-item__content">
+                                            <time title="20.11.2017">20.11.2017</time>
+                                            <span class="sd-grid-item__slugline">This is a slugline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel__content" ng-if="tab === 'event-history'">
+                            <div class="side-panel__content-block">
+                                <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                                    <li class="simple-list__item">
+                                        <p><strong>Created by</strong> Mika Karapet</p>
+                                        <time class="small">Tuesday, 12. September 13:10</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Coverage created by</strong> Vince Ryan</p>
+                                        <time class="small">Tuesday, 12. September 13:13</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Updated by</strong> Karel Petrak</p>
+                                        <time class="small">Tuesday, 12. September 13:13</time>
+                                    </li>
+                                    <li class="simple-list__item">
+                                        <p><strong>Coverage updated by</strong> John Doe</p>
+                                        <time class="small">Tuesday, 12. September 13:21</time>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="side-panel__footer">
+
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <!-- OVERLAY PANEL ( Send To ) -->
+            <div class="sd-main-content-grid__overlay">
+                <div class="sd-overlay-panel sd-overlay-panel--dark-ui" ng-class="{'sd-overlay-panel--open' : sendToOpen}">
+                    <div class="side-panel side-panel--dark-ui">
+                        <div class="side-panel__header">
+                            <div class="side-panel__tools">
+                                <a class="icn-btn" ng-click="sendToOpen = !sendToOpen"><i class="icon-close-small"></i></a>
+                            </div>
+                            <ul class="nav-tabs nav-tabs--big nav-tabs--ui-dark">
+                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'send-to'}" class="nav-tabs__tab">
+                                    <button class="nav-tabs__link"><span translate="">Send to</span></button>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Send To Tab -->
+                        <div class="side-panel__content">
+                            <div class="side-panel__content-block">
+                                <div sd-toggle-box data-title="Destination" data-style="circle" data-open="true">
+                                    <div class="form__row">
+                                        <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-label sd-line-input--no-margin">
+                                            <select class="sd-line-input__select">
+                                                <option value="single">Politics desk</option>
+                                                <option value="time">Sports desk</option>
+                                                <option value="bananas">Features desk</option>
+                                                <option value="indefinite">Photo desk</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form__row form__row--no-padding">
+                                        <div class="flex-grid flex-grid--boxed-small flex-grid--wrap-items flex-grid--small-2">
+                                            <button class="btn__check btn__check--active flex-grid__item" disabled="disabled">Active disabled</button>
+                                            <button class="btn__check flex-grid__item" disabled="disabled">Disabled</button>
+                                            <button ng-click="stageActive0 = !stageActive0" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive0}">Incoming stage</button>
+                                            <button ng-click="stageActive1 = !stageActive1" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive1}">Working stage</button>
+                                            <button ng-click="stageActive2 = !stageActive2" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive2}">Revise stage</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div sd-toggle-box data-title="Embargo" data-style="circle" data-open="true">
+                                    <div class="form__row form__row--flex  form__row--small-padding">
+                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                            <label class="sd-line-input__label">Embargo till</label>
+                                            <input class="sd-line-input__input" type="text">
+                                        </div>
+                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                                            <input class="sd-line-input__input" type="text">
+                                        </div>
+                                    </div>
+                                    <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear embargo</a>
+                                </div>
+                                <div sd-toggle-box data-title="Publish schedule" data-style="circle" data-open="true">
+                                    <div class="form__row form__row--flex  form__row--small-padding">
+                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                            <label class="sd-line-input__label">Publish on</label>
+                                            <input class="sd-line-input__input" type="text">
+                                        </div>
+                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                                            <input class="sd-line-input__input" type="text">
+                                        </div>
+                                    </div>
+                                    <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear schedule</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="!tab || tab === 'send-to'">
+                            <button class="btn btn--large btn--primary btn--expanded">Send</button>
+                        </div>
+                        <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="tab === 'publish'">
+                            <button class="btn btn--large btn--highlight btn--expanded">Publish</button>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+            <!-- END OVERLAY PANEL -->
+            <!-- END left content -->
+        </div>
+        <div class="sd-content-wrapper__content-splitter" ng-if="editArticle" sd-splitter="authoringContent" splitter-max="1000" splitter-min="650"></div>
+        <div id="authoringContent" class="sd-content-wrapper__authoring-content-area" ng-include="'playgrounds/layout-snippets/edit-article.html'" ng-if="editArticle">
+
+        </div>
+    </section>
+    <footer class="bottom-bar">
+        This is the optional footer.
+    </footer>
+</div>

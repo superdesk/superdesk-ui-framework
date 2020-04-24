@@ -1,0 +1,101 @@
+$board-header-border-color: var(--color-kanban-border);
+
+.sd-board {
+    display: grid;
+    grid-template-rows: auto 1fr;
+}
+.sd-board__header {
+    grid-row: 1/2;
+    position: relative;
+    min-height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 4px solid $board-header-border-color;
+    @include sd-padding('0-5', 'bottom');
+}
+.sd-board__header-title {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: .08em;
+    font-weight: 500;
+    flex-grow: 1;
+    color: var(--color-text);
+}
+.sd-board__content {
+    grid-row: 2/3;
+}
+
+.sd-board__content-block {
+    border-radius: 2px;
+    background-color: var(--color-bg-00);
+    display: flex;
+    flex-direction: column;
+    @include sd-shadow('z2');
+}
+.sd-board__list {
+    display: flex;
+    flex-direction: column;
+}
+.sd-board__list-item {
+    border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include sd-padding('1-5', 'x');
+    @include sd-padding('1', 'y');
+    &:last-child {
+        border-bottom: none;
+    }
+}
+.sd-board__list-item-title {
+    flex-grow: 1;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: var(--color-text-light);
+}
+.sd-board__list-item-badge {
+    @include sd-margin('0-5', 'right');
+}
+.sd-board__item-count--large {
+    color: var(--color-text-light);
+    font-size: 3.6rem;
+    font-weight: 300;
+    @include sd-margin('1', 'right');
+}
+
+.sd-board__count-label {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    text-transform: uppercase;
+    font-weight: 400;
+    color: $gray--400;
+    max-width: 10rem;
+}
+.sd-board__doughnut-chart {
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    flex-grow: 0;
+    background-color: $gray--400;
+    margin-left: auto;
+    margin-right: - $sd-base-increment/2;
+}
+.sd-board__doughnut-chart-number {
+    border-radius: 50%;
+    background-color: var(--color-bg-00);
+    height: 2.4rem;
+    width: 2.4rem;
+    font-size: 1.1rem;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-light);
+    font-weight: 600;
+    text-align: center;
+}
