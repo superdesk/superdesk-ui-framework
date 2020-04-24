@@ -481,8 +481,11 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         grid-gap: 1.6rem;
         margin: 2rem;
     }
+    &--medium {
+        grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    }
     &--large {
-        grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
     }
     &--no-rl-margin {
         margin-left:0;
@@ -497,6 +500,13 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     &--auto-fit {
         grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     }
+    &--gap-l {
+        grid-gap: 3.2rem;
+    }
+    &--gap-xl {
+        grid-gap: 4rem;
+    }
+
 
 }
 
