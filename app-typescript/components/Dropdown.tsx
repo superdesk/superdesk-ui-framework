@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 interface IProps {
     name: string;
+    appendBody?: boolean;
     align?: 'left' | 'right';
     side?: 'left' | 'right';
     icon?: string;
@@ -14,10 +15,12 @@ interface IProps {
 interface IPropsItem {
     text: string;
     icon?: string;
+    children?: never;
 }
 
 interface IPropsLabel {
     text: string;
+    children?: never;
 }
 
 interface IPropsMenu {
@@ -36,34 +39,12 @@ export const Dropdown = ({
     children,
 }: IProps) => {
     const [open, setOpen] = React.useState(false);
-    const [height, setHeight] = React.useState(false);
     const ref = React.useRef(null);
-
-    React.useEffect(() => {
-        // temporary solution for smart scroll
-        function calculate() {
-            let number = getOffset(ref.current);
-            let second = screen.height;
-            let heightEl = heightElement(ref.current);
-
-            if (heightEl > second - number.bottom) {
-                setHeight(true);
-            } else {
-                setHeight(false);
-            }
-        }
-        calculate();
-        window.addEventListener("wheel", function() { calculate(); }, { passive: false });
-        return () => {
-            window.removeEventListener("wheel", function() { calculate(); });
-        };
-    }, [open]);
 
     const classes = classNames('dropdown', {
         ['open']: open,
         ['dropdown--align-right']: align === 'right',
         [`dropdown--drop${side}`]: side,
-        ['dropdown--dropup']: height,
     });
 
     function isOpen() {
@@ -76,19 +57,8 @@ export const Dropdown = ({
     }
 
     function closeMenu() {
-        setOpen(false);
         document.removeEventListener('click', closeMenu);
-    }
-
-    function getOffset(el: any) {
-        const rect = el.getBoundingClientRect();
-        return {
-            left: rect.left + window.scrollX,
-            bottom: rect.bottom + window.scrollY,
-        };
-    }
-    function heightElement(el: any) {
-        return el.clientHeight;
+        setOpen(false); 
     }
 
     if (headerFooter) {
@@ -104,7 +74,6 @@ export const Dropdown = ({
                 </div>
             </div >
         );
-
     } else {
         if (level) {
             const classesMenu = classNames('dropdown__menu', {
@@ -137,9 +106,7 @@ export const Dropdown = ({
                 </div >
             );
         }
-
     }
-
 };
 
 export const DropdownItem = ({
