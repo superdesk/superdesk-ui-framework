@@ -69,26 +69,7 @@
                         <sd-check ng-model="masterDeskView" type="radio" ng-value="users" label-position="inside">Users</sd-check>
                         <sd-check ng-model="masterDeskView" type="radio" ng-value="assignments" label-position="inside">Assignments</sd-check>
                     </div>
-                     <!--<div class="subnav__spacer subnav__spacer--no-margin"></div>
-                    <div class="subnav__content-bar">
-                        <div class="dropdown dropdown--align-right" dropdown>
-                            <button class="dropdown__toggle" dropdown__toggle>
-                                Updated<span class="dropdown__caret"></span>
-                            </button>
-                            <ul class="dropdown__menu">
-                                <li><button>Updated</button></li>
-                                <li><button>Created</button></li>
-                                <li><button>Urgency</button></li>
-                                <li><button>Category</button></li>
-                                <li><button>Slugline</button></li>
-                                <li><button>Priority</button></li>
-                                <li><button>Genre</button></li>
-                            </ul>
-                        </div>
-                        <a class="icn-btn" sd-tooltip="Descending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-hide="!sortDesc"><i class="icon-descending"></i></a>
-                        <a class="icn-btn" sd-tooltip="Ascending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-show="!sortDesc"><i class="icon-ascending"></i></a>
-    
-                    </div> -->
+
                     <button class="navbtn" ng-click="darkUI = !darkUI">
                         <i class="icon-adjust"></i>
                     </button>
@@ -110,75 +91,29 @@
             </div>
             <!-- FILTER PANEL -->
             <div class="sd-main-content-grid__filter" ng-class="{'open-filters': leftFilterOpen}">
-                <div class="side-panel__container">
-                    <div class="side-panel side-panel--shadow-left">
+                <div class="side-panel__container side-panel__container--small">
+                    <div class="side-panel side-panel--shadow-left side-panel--bg-00">
                         <div class="side-panel__header side-panel__header--border-b">
                             <a class="icn-btn side-panel__close" sd-tooltip="Close filters" flow="left" ng-click="leftFilterOpen = !leftFilterOpen"><i class="icon-close-small"></i></a>
-                            <h3 class="side-panel__heading">Advanced filters</h3>  
+                            <h3 class="side-panel__heading">Filters</h3>  
                         </div>
                         <div class="side-panel__content">
                             <div class="side-panel__content-block">
+
                                 <div class="form__group">
                                     <div class="form__item">
-                                        <div class="sd-input">
-                                            <label class="sd-input__label">Title</label>
-                                            <input class="sd-input__input" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form__group">
-                                    <div class="form__item">
-                                        <div class="sd-input sd-input--is-select">
-                                            <label class="sd-input__label">Source</label>
-                                            <select class="sd-input__select">
-                                                <option value="">Select ingest source...</option>
-                                                <option value="">Associated Press</option>
-                                                <option value="">Reuters</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form__group">
-                                    <div class="form__item">
-                                        <div class="sd-input">
-                                            <label class="sd-input__label">Location</label>
-                                            <input class="sd-input__input" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form__group">
-                                    <div class="form__item">
-                                        <div class="sd-input sd-input--with-button">
-                                            <span class="sd-input__plus-btn"></span>
-                                            <label class="sd-input__label">Category</label>
-                                            <input class="sd-input__input" type="text">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="form__group">
-                                    <div class="form__item">
-                                        <div class="sd-input sd-input--with-button">
-                                            <span class="sd-input__plus-btn"></span>
-                                            <label class="sd-input__label">Subject</label>
-                                            <input class="sd-input__input" type="text">
+                                        <div class="sd-inset-search" ng-class="{'sd-inset-search--focused': focused}">
+                                            <input id="search-input" class="sd-inset-search__input" type="text" placeholder="Search desk" ng-keyup="searchOnEnter($event)" ng-model="query" tabindex="1" ng-focus="focused = true" aria-label="Search desk">
+                                            <button class="sd-inset-search__cancel" ng-if="query"><i class="icon-remove-sign"></i></button>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="form__group">
                                     <div class="form__item">
-                                        <div class="sd-input sd-input--is-select ">
-                                            <label class="sd-input__label">Usage right</label>
-                                            <select class="sd-input__select">
-                                                <option value="">--- Not selected ---</option>
-                                                <option value="single">Single usage</option>
-                                                <option value="time">Time restricted</option>
-                                                <option value="bananas">Indefinite usage</option>
-                                                <option value="indefinite">Pears</option>
-                                            </select>
-                                            <div class="sd-input__message-box">
-                                                <span class="sd-input__hint">Dolor in hendrerit.</span>
-                                            </div>
+                                        <div class="sd-input">
+                                            <label class="sd-input__label">Slugline</label>
+                                            <input class="sd-input__input" type="text">
                                         </div>
                                     </div>
                                 </div>
@@ -212,265 +147,271 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form__group">
-                                    <div class="form__item">
-                                        <sd-check ng-model="abc2">Check me!</sd-check>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="side-panel__footer side-panel__footer--button-box">
-                            <div class="flex-grid flex-grid--boxed-small flex-grid--wrap-items flex-grid--small-2">
-                                <a class="btn btn--hollow">Clear</a>
-                                <a class="btn btn--primary">Submit</a>
-                            </div>
+                            <a class="btn btn--primary btn--expanded">Apply filters</a>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- MAIN CONTENT (Desks overview) -->
-            <div class="sd-main-content-grid__content">
-                <!-- Desk grid item view -->
-                <div class="sd-grid-list sd-grid-list--medium sd-grid-list--gap-xl sd-margin-x--5">
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk One</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">105</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">105</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5" >25</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">34</span>
-                                    </li>
-                                </ul>
+            <div class="sd-main-content-grid__content sd-main-content-grid__content--with-filters">
+                <div class="sd-main-content-grid__content-filter-bar sd-search-tags__bar">
+                    <ul class="sd-search-tags__tag-list">
+                        <li class="sd-search-tags__tag tag-label tag-label--highlight1">
+                            Lipsum slugline
+                            <button class="tag-label__remove"><i class="icon-close-small"></i></button>
+                        </li>
+                        <li class="sd-search-tags__tag tag-label tag-label--highlight1">
+                            Lorem slugline
+                            <button class="tag-label__remove"><i class="icon-close-small"></i></button>
+                        </li>
+                    </ul>
+                    <a class="text-link sd-margin-l--auto" href="#">Clear all filters</a>
+                </div>
+                <div class="sd-main-content-grid__content-inner">
+                    <!-- Desk grid view -->
+                    <div class="sd-grid-list sd-grid-list--medium sd-grid-list--gap-xl sd-margin-x--5">
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk One</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">105</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">105</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5" >25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">34</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk Two</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">98</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">98</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600">25</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600">24</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600">24</span>
-                                    </li>
-                                </ul>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Two</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">98</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">98</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600">24</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk Three</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">69</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">69</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">21</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">26</span>
-                                    </li>
-                                </ul>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Three</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">69</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">69</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">21</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">26</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk Four</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">92</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">92</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                </ul>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Four</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">92</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">92</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk Five</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">68</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">68</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                </ul>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Five</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">68</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">68</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk Six</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">74</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">74</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                </ul>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Six</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">74</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">74</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk Seven</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">123</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">123</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                </ul>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Seven</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">123</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">123</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="sd-board">
-                        <div class="sd-board__header">
-                            <h3 class="sd-board__header-title">Desk Eight</h3>
-                        </div>
-                        <div class="sd-board__content sd-padding-t--1">
-                            <div class="sd-board__content-block">
-                                <ul class="sd-board__list">
-                                    <li class="sd-board__list-item">
-                                        <span class="sd-board__item-count--large">83</span>
-                                        <p class="sd-board__count-label">items in production</p>
-                                        <div class="sd-board__doughnut-chart">
-                                            <span class="sd-board__doughnut-chart-number">83</span>
-                                        </div>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                    <li class="sd-board__list-item">
-                                        <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
-                                    </li>
-                                </ul>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Eight</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">83</span>
+                                            <p class="sd-board__count-label">items in production</p>
+                                            <div class="sd-board__doughnut-chart">
+                                                <span class="sd-board__doughnut-chart-number">83</span>
+                                            </div>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Incoming</h6><span class="badge orange--600 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Working</h6><span class="badge light-blue--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Sub-editor</h6><span class="badge purple--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
             <!-- PREVIEW PANEL -->
             <div class="sd-main-content-grid__preview"  ng-class="{'open-preview': leftPreviewOpen}">

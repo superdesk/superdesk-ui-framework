@@ -99,3 +99,85 @@ $board-header-border-color: var(--color-kanban-border);
     font-weight: 600;
     text-align: center;
 }
+
+
+.sd-inset-search {
+    display: flex;
+    align-items: stretch;
+    position: relative;
+    background-color: var(--color-inset-search-bg);
+    border-radius: 3px;
+    transition: all 0.2s ease-out;
+    height: 4rem;
+    border: 1px solid var(--color-inset-search-border);
+    color: inherit;
+    box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.12);
+    &:hover {
+        border-color: var(--color-inset-search-border-hover);
+        box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.18);
+    }
+    &:focus-within {
+        border-color: $sd-blue;
+        box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.18), 0 0 0 3px rgba(94,169,200,0.3);
+    }
+    &::before {
+        content: "\e618";
+        z-index: 1;
+        pointer-events: none;
+        position: absolute;
+        top: 1.2rem;
+        left: 0.8rem;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        font-size: 16px;
+        font-family: 'sd_icons';
+        opacity: 0.4;
+    }
+}
+.sd-inset-search__input {
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 1.4rem;
+    padding: 0;
+    color: inherit;
+    align-self: auto;
+    background-color: transparent;
+    border: 0;
+    box-shadow: none !important;
+    padding: 0 1rem 0 3rem;
+    height: auto;
+    color: inherit;
+    &::-ms-clear {
+        display: none;
+    }
+    &:focus {
+        box-shadow: unset !important;
+    }
+    &::placeholder {
+        opacity: 0.8;
+        font-weight: 300;
+    }
+
+}
+
+.sd-inset-search__cancel {
+    height: 1.6rem;
+    width: 1.6rem;
+    align-self: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    margin: 0 1.2rem 0 0;
+    padding: 0;
+    opacity: 0.35;
+    transition: opacity 0.2s ease-out;
+    i {
+        color: inherit;
+    }
+    &:hover {
+        opacity: 0.75;
+    }
+    &:active {
+        opacity: 1;
+    }
+}
