@@ -19,10 +19,6 @@ export default class DropdownDoc extends React.Component {
                             <Dropdown.Item text='Action 1' />
                             <Dropdown.Item text='Action 2' />
                             <Dropdown.Item text='Action 3' />
-
-                            <Dropdown name='inside' level={true} icon='pencil'>
-                                <Dropdown.Item text='four' />
-                            </Dropdown>
                         </Dropdown>
                         <Dropdown name='Right aligned' align='right'>
                             <Dropdown.Item text='Action 1' />
@@ -61,7 +57,7 @@ export default class DropdownDoc extends React.Component {
                 <p className='docs-page__paragraph'>IN PROGRESS</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <Dropdown name='Drop left' side='left'>
+                        <Dropdown name='Drop left' side='left' appendBody={true}>
                             <Dropdown.Item text='Action 1' />
                             <Dropdown.Item text='Action 2' />
                             <Dropdown.Item text='Action 3' />
