@@ -246,6 +246,10 @@ $baseColors: (
   --color-bg-800:             #2c2c2c;
 
   --color-kanban-border:      #4d4d4d;
+
+  --color-inset-search-bg:    #ffffff;
+  --color-inset-search-border:       rgba(0,0,0,.20);
+  --color-inset-search-border-hover: rgba(0,0,0,.35);
 }
 
 // CSS variables for dark theme
@@ -280,6 +284,10 @@ $baseColors: (
   --color-bg-800:             #212121;
 
   --color-kanban-border:      #8e8e8e;
+
+  --color-inset-search-bg:    rgba(0,0,0,0.2);
+  --color-inset-search-border:       rgba(255,255,255,0.35);
+  --color-inset-search-border-hover: rgba(255,255,255,0.55);
   
   [class^="big-icon--"],
   [class*=" big-icon--"] {
