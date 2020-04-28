@@ -58,7 +58,7 @@ export const Dropdown = ({
 
     function closeMenu() {
         document.removeEventListener('click', closeMenu);
-        setOpen(false); 
+        setOpen(false);
     }
 
     if (headerFooter) {
