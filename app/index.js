@@ -44,21 +44,30 @@ export {
     Icon,
 } from '../app-typescript/index';
 
-export default angular.module('superdesk-ui', [
-    'superdesk-ui.helper',
-    'superdesk-ui.carousel',
-    'superdesk-ui.wizard',
-    'superdesk-ui.dropdown',
-    'superdesk-ui.positioner',
-    'superdesk-ui.modals',
-    'superdesk-ui.switch',
-    'superdesk-ui.check',
-    'superdesk-ui.circularProgress',
-    'superdesk-ui.toggleBox',
-    'superdesk-ui.toggleBoxNext',
-    'superdesk-ui.tags',
-    'superdesk-ui.lineInput',
-    'superdesk-ui.searchHandler',
-    'superdesk-ui.splitter',
-    'superdesk-ui.mediaQuery',
-]);
+// For applications that don't need angular
+var angularComponents;
+
+if (typeof angular !== 'undefined') {
+    export {reactToAngular1} from './scripts/helpers/react-to-angular-1';
+
+    angularComponents = angular.module('superdesk-ui', [
+        'superdesk-ui.helper',
+        'superdesk-ui.carousel',
+        'superdesk-ui.wizard',
+        'superdesk-ui.dropdown',
+        'superdesk-ui.positioner',
+        'superdesk-ui.modals',
+        'superdesk-ui.switch',
+        'superdesk-ui.check',
+        'superdesk-ui.circularProgress',
+        'superdesk-ui.toggleBox',
+        'superdesk-ui.toggleBoxNext',
+        'superdesk-ui.tags',
+        'superdesk-ui.lineInput',
+        'superdesk-ui.searchHandler',
+        'superdesk-ui.splitter',
+        'superdesk-ui.mediaQuery',
+    ]);
+}
+
+export default angularComponents;
