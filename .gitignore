@@ -8,5 +8,6 @@ app/.DS_Store
 examples/.DS_Store
 .vscode/
 dist
+react
 debug.log
 yarn-error.log

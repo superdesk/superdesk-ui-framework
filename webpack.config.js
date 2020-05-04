@@ -10,8 +10,7 @@ const config = {
     entry: {
         vendor: './app/vendor.js',
         examples: './examples/index.js',
-        index: './app/index.js',
-        'react/index': './app-typescript/index.ts'
+        'superdesk-ui': './app/index.js'
     },
 
     output: {
@@ -76,7 +75,7 @@ const config = {
     },
 
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['dist', 'react']),
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
             chunks: ['vendor', 'examples', 'superdesk-ui'],
@@ -85,6 +84,7 @@ const config = {
         new CopyWebpackPlugin([
             {from: 'examples/img/', flatten: true},
             {from: 'examples/pages/'},
+            {from: 'app-typescript/dist', to: '../react'}
         ]),
         new ExtractTextPlugin({
             filename: '[name].bundle.css',
