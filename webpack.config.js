@@ -10,7 +10,8 @@ const config = {
     entry: {
         vendor: './app/vendor.js',
         examples: './examples/index.js',
-        'superdesk-ui': './app/index.js',
+        index: './app/index.js',
+        'react/index': './app-typescript/index.ts'
     },
 
     output: {
