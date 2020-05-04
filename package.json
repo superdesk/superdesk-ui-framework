@@ -19,7 +19,7 @@
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
     "server": "webpack --watch",
-    "build": "webpack && npm run lint && tsc",
+    "build": "tsc && webpack && npm run lint",
     "lint": "eslint app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
     "prepublishOnly": "npm run build",
     "prepublish": "patch-package"
