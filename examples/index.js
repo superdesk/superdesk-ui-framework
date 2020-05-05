@@ -332,6 +332,10 @@ export default angular.module('ui-docs', [
                 name: 'Accessible theme',
                 page: 'accessible-theme-test.html'
             },
+            'master-desk': {
+                name: 'Master Desk',
+                page: 'master-desk.html'
+            },
         },
         // Publisher playgrounds
         publisher: {

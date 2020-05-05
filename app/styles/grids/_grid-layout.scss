@@ -587,7 +587,27 @@ $planningEditor-width: 53rem;
     grid-column: mainContent;
     grid-row: contentBlock;
     overflow-y: auto;
+    &.sd-main-content-grid__content--with-filters {
+        display: grid;
+        grid-template-rows: [filterBar] auto [innerContent] 1fr;
+    }
 }
+//---- With filter tags on top -----------
+// use this combination when there is a filter bar on top of the content (e.g. Global Search)
+.sd-main-content-grid__content {
+    &.sd-main-content-grid__content--with-filters {
+        display: grid;
+        grid-template-rows: [filterBar] auto [innerContent] 1fr;
+    }
+}
+.sd-main-content-grid__content-filter-bar {
+    grid-row: filterBar;
+}
+.sd-main-content-grid__content-inner {
+    grid-row: innerContent;
+    overflow-y: auto;
+}
+
 .sd-main-content-grid__filter {
     grid-column: slideInLeft;
     grid-row: contentBlock;
@@ -642,6 +662,10 @@ $planningEditor-width: 53rem;
         .side-panel {
             opacity: 1;
         }
+        &.side-panel__container--small {
+            width: 300px;
+        }
+
     } 
 }
 

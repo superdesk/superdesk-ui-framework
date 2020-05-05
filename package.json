@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "2.1.17",
+  "version": "2.2.0",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
     "server": "webpack --watch",
-    "build": "webpack && npm run lint && tsc",
+    "build": "tsc && webpack && npm run lint",
     "lint": "eslint app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
     "prepublishOnly": "npm run build",
     "prepublish": "patch-package"

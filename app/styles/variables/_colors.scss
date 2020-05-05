@@ -228,7 +228,8 @@ $baseColors: (
   --color-input-border-hover: rgba(0,0,0,.3);
 
   --color-form-bg:            rgba(255,255,255,0);
-  --color-text:               #333;
+  --color-text:               rgb(51, 51, 51); // equals #333;
+  --color-text-light:         rgba(51,51,51,0.75);
 
   --color-contrast-bg:        #fff;
   --color-contrast-bg--hover: #f4f4f4;
@@ -243,6 +244,16 @@ $baseColors: (
   --color-bg-200:             #a1a1a1;
 
   --color-bg-800:             #2c2c2c;
+
+  --color-kanban-border:      #4d4d4d;
+
+  --color-inset-search-bg:           #ffffff;
+  --color-inset-search-border:       rgba(0,0,0,.20);
+  --color-inset-search-border-hover: rgba(0,0,0,.35);
+
+  --color-assignment-to-do:      #c4170b; //red--700
+  --color-assignment-progress:   #d17d00; //orange--600
+  --color-assignment-completed:  #74a838; //light-green--600
 }
 
 // CSS variables for dark theme
@@ -259,7 +270,8 @@ $baseColors: (
   --color-input-border-hover: rgba(255,255,255,0.6);
 
   --color-form-bg:            #3b3b3b;
-  --color-text:               #f4f4f4;
+  --color-text:               rgb(244, 244, 244);
+  --color-text-light:         rgba(244, 244, 244,0.75);
 
   --color-contrast-bg:        #333;
   --color-contrast-bg--hover: #383838;
@@ -274,6 +286,12 @@ $baseColors: (
   --color-bg-200:             #484848;
 
   --color-bg-800:             #212121;
+
+  --color-kanban-border:      #8e8e8e;
+
+  --color-inset-search-bg:    rgba(0,0,0,0.2);
+  --color-inset-search-border:       rgba(255,255,255,0.35);
+  --color-inset-search-border-hover: rgba(255,255,255,0.55);
   
   [class^="big-icon--"],
   [class*=" big-icon--"] {
