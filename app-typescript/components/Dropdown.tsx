@@ -66,7 +66,6 @@ export const Dropdown = ({
     React.useLayoutEffect(() => {
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
-        
         parentElement.parentNode.addEventListener("scroll", debounce(50));
 
         calculate();
