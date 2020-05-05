@@ -247,9 +247,13 @@ $baseColors: (
 
   --color-kanban-border:      #4d4d4d;
 
-  --color-inset-search-bg:    #ffffff;
+  --color-inset-search-bg:           #ffffff;
   --color-inset-search-border:       rgba(0,0,0,.20);
   --color-inset-search-border-hover: rgba(0,0,0,.35);
+
+  --color-assignment-to-do:      #c4170b; //red--700
+  --color-assignment-progress:   #d17d00; //orange--600
+  --color-assignment-completed:  #74a838; //light-green--600
 }
 
 // CSS variables for dark theme

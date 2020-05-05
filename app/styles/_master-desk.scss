@@ -53,6 +53,20 @@ $board-header-border-color: var(--color-kanban-border);
     text-transform: uppercase;
     font-size: 1.2rem;
     color: var(--color-text-light);
+    &.sd-board__list-item-title--to-do {
+        color: var(--color-assignment-to-do);
+    }
+    &.sd-board__list-item-title--progress {
+        color: var(--color-assignment-progress);
+    }
+    &.sd-board__list-item-title--completed {
+        color: var(--color-assignment-completed);
+    }
+    &.sd-board__list-item-title--to-do,
+    &.sd-board__list-item-title--progress,
+    &.sd-board__list-item-title--completed {
+        font-weight: 500;
+    }
 }
 .sd-board__list-item-badge {
     @include sd-margin('0-5', 'right');
@@ -61,6 +75,7 @@ $board-header-border-color: var(--color-kanban-border);
     color: var(--color-text-light);
     font-size: 3.6rem;
     font-weight: 300;
+    line-height: 4rem;
     @include sd-margin('1', 'right');
 }
 
@@ -71,6 +86,14 @@ $board-header-border-color: var(--color-kanban-border);
     font-weight: 400;
     color: $gray--400;
     max-width: 10rem;
+    &--l {
+        max-width: 14rem;
+    }
+    strong {
+        font-weight: 500;
+        color: $gray--700;
+        font-size: 1.3rem;
+    }
 }
 .sd-board__doughnut-chart {
     border-radius: 50%;
