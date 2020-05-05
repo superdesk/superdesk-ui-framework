@@ -12,7 +12,7 @@ export default class DropdownDoc extends React.Component {
                     
                 `}
                 </Markup.ReactMarkupCodePreview>
-                <p className='docs-page__paragraph'>The basic Dropdown is composed of a wrapping Dropdown and inner 'DropdownMenu, and DropdownToggle. By default the DropdownTogglewill render a Button component and accepts all the same props.</p>
+                <p className='docs-page__paragraph'>The basic Dropdown is composed of a wrapping Dropdown and inner DropdownItem.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown name='Left aligned (default)'>
@@ -57,10 +57,13 @@ export default class DropdownDoc extends React.Component {
                 <p className='docs-page__paragraph'>IN PROGRESS</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <Dropdown name='Drop left' side='left' appendBody={true}>
+                        <Dropdown name='Drop append to body'>
                             <Dropdown.Item text='Action 1' />
                             <Dropdown.Item text='Action 2' />
                             <Dropdown.Item text='Action 3' />
+                            <Dropdown.Item text='Action 4' />
+                            <Dropdown.Item text='Action 5' />
+                            <Dropdown.Item text='Action 6' />
                         </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`

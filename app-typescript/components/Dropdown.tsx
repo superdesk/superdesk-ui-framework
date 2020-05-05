@@ -2,7 +2,6 @@ import * as React from 'react';
 import classNames from 'classnames';
 interface IProps {
     name: string;
-    appendBody?: boolean;
     align?: 'left' | 'right';
     side?: 'left' | 'right';
     icon?: string;
@@ -43,11 +42,11 @@ export const Dropdown = ({
     const ref = React.useRef(null);
 
     function calculate() {
-        let number = getOffset(ref.current);
+        let number = getDimensions(ref.current);
         let second = screen.height;
         let heightEl = heightElement(ref.current);
 
-        if (heightEl > second - number.bottom) {
+        if ((second - number.bottom) < (heightEl + 100) && (number.top > heightEl)) {
             setHeight(true);
         } else {
             setHeight(false);
@@ -75,17 +74,6 @@ export const Dropdown = ({
         };
     }, [open]);
 
-    // scrollable
-    function getScrollParent(node: Element): any {
-        if (node.scrollHeight > node.clientHeight) {
-            return node;
-        } else {
-            if (node.parentElement !== null) {
-                let newElement = node.parentElement;
-                return getScrollParent(newElement);
-            }
-        }
-    }
     const classes = classNames('dropdown', {
         ['open']: open,
         ['dropdown--align-right']: align === 'right',
@@ -107,9 +95,10 @@ export const Dropdown = ({
         setOpen(false);
     }
 
-    function getOffset(el: any) {
+    function getDimensions(el: any) {
         const rect = el.getBoundingClientRect();
         return {
+            top: rect.top,
             bottom: rect.bottom,
         };
     }
@@ -118,6 +107,17 @@ export const Dropdown = ({
         return el.clientHeight;
     }
 
+    // scrollable
+    function getScrollParent(node: Element): any {
+        if (node.scrollHeight > node.clientHeight) {
+            return node;
+        } else {
+            if (node.parentElement !== null) {
+                let newElement = node.parentElement;
+                return getScrollParent(newElement);
+            }
+        }
+    }
     if (headerFooter) {
         return (
             <div className={classes} >
