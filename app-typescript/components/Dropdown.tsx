@@ -76,14 +76,17 @@ export const Dropdown = ({
     }, [open]);
 
     // scrollable
-    function getScrollParent(node: any) {
+    function getScrollParent(node: Element): any {
         if (node == null) {
             return null;
         }
         if (node.scrollHeight > node.clientHeight) {
             return node;
         } else {
-            return getScrollParent(node.parentNode);
+            if (node.parentElement !== null) {
+                let newElement = node.parentElement;
+                return getScrollParent(newElement);
+            }
         }
     }
     const classes = classNames('dropdown', {
