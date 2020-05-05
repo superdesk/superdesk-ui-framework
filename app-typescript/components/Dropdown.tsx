@@ -39,12 +39,58 @@ export const Dropdown = ({
     children,
 }: IProps) => {
     const [open, setOpen] = React.useState(false);
+    const [height, setHeight] = React.useState(false);
     const ref = React.useRef(null);
 
+    function calculate() {
+        let number = getOffset(ref.current);
+        let second = screen.height;
+        let heightEl = heightElement(ref.current);
+
+        if (heightEl > second - number.bottom) {
+            setHeight(true);
+        } else {
+            setHeight(false);
+        }
+    }
+
+    const debounce = (delay: number) => {
+        let inDebounce = 0;
+        return function() {
+            const context = children;
+            clearTimeout(inDebounce);
+            inDebounce = setTimeout(() => calculate.apply(context), delay);
+        };
+    };
+
+    React.useLayoutEffect(() => {
+        let element = document.getElementsByClassName('dropdown')[0];
+        let parentElement = getScrollParent(element);
+        parentElement.parentNode.addEventListener("scroll", debounce(50));
+
+        calculate();
+
+        return () => {
+            parentElement.removeEventListener("scroll", debounce(50));
+        };
+    }, [open]);
+
+    // scrollable
+    function getScrollParent(node: any) {
+        if (node == null) {
+            return null;
+        }
+        if (node.scrollHeight > node.clientHeight) {
+            return node;
+        } else {
+            return getScrollParent(node.parentNode);
+        }
+    }
     const classes = classNames('dropdown', {
         ['open']: open,
         ['dropdown--align-right']: align === 'right',
         [`dropdown--drop${side}`]: side,
+        ['dropdown--dropup']: height,
     });
 
     function isOpen() {
@@ -59,6 +105,17 @@ export const Dropdown = ({
     function closeMenu() {
         document.removeEventListener('click', closeMenu);
         setOpen(false);
+    }
+
+    function getOffset(el: any) {
+        const rect = el.getBoundingClientRect();
+        return {
+            bottom: rect.bottom,
+        };
+    }
+
+    function heightElement(el: any) {
+        return el.clientHeight;
     }
 
     if (headerFooter) {
