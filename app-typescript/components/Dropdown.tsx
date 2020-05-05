@@ -66,6 +66,7 @@ export const Dropdown = ({
     React.useLayoutEffect(() => {
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
+        
         parentElement.parentNode.addEventListener("scroll", debounce(50));
 
         calculate();
@@ -77,9 +78,6 @@ export const Dropdown = ({
 
     // scrollable
     function getScrollParent(node: Element): any {
-        if (node == null) {
-            return null;
-        }
         if (node.scrollHeight > node.clientHeight) {
             return node;
         } else {

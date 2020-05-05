@@ -1,11 +1,11 @@
 import './scripts';
 import './styles';
 
-export {reactToAngular1} from './scripts/helpers/react-to-angular-1';
-export {ToggleBoxNext} from './scripts/toggleBoxNext';
-export {Positioner} from './scripts/positioner';
+export { reactToAngular1 } from './scripts/helpers/react-to-angular-1';
+export { ToggleBoxNext } from './scripts/toggleBoxNext';
+export { Positioner } from './scripts/positioner';
 
-<<<<<<< HEAD
+
 // TypeScript exports
 // Must contain the same exports as in '../app-typescript/index'
 export {
@@ -47,8 +47,6 @@ export {
     Dropdown,
 } from '../app-typescript/index';
 
-=======
->>>>>>> master
 export default angular.module('superdesk-ui', [
     'superdesk-ui.helper',
     'superdesk-ui.carousel',
