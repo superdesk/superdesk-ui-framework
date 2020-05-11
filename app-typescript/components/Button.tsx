@@ -35,10 +35,13 @@ export class Button extends React.PureComponent<IPropsButton> {
         });
 
         const value = this.props.value === undefined ? 'button' : this.props.value;
-
         return (
-            <button className={classes} onClick={this.props.onClick} aria-label={value} data-test-id={this.props['data-test-id']}>
-                {this.props.icon ? <Icon name={this.props.icon}/> : null}
+            <button
+                className={classes}
+                onClick={this.props.disabled ? () => false : this.props.onClick}
+                aria-label={value}
+                data-test-id={this.props['data-test-id']}>
+                {this.props.icon ? <Icon name={this.props.icon} /> : null}
                 {this.props.text}
             </button>
         );
