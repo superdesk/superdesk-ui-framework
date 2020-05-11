@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { Icon } from './Icon';
 
 interface IButtonBase {
+    id?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
@@ -37,6 +38,7 @@ export class Button extends React.PureComponent<IPropsButton> {
         const value = this.props.value === undefined ? 'button' : this.props.value;
         return (
             <button
+                id={this.props.id}
                 className={classes}
                 onClick={this.props.disabled ? () => false : this.props.onClick}
                 aria-label={value}
