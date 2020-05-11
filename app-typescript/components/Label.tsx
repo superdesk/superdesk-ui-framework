@@ -20,9 +20,9 @@ export class Label extends React.PureComponent<IProps> {
             'label--hollow': this.props.style === 'hollow',
             [`hollow-${this.props.color}`]: this.props.color && this.props.style === 'hollow',
         });
-        if (this.props.onClick) {
+        if (this.props.link || this.props.onClick) {
             return (
-                <a href={this.props.link} className={classes}>
+                <a href={this.props.link} className={classes} onClick={this.props.onClick}>
                     {this.props.text}
                 </a>
             );
