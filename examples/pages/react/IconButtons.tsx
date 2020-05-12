@@ -46,7 +46,7 @@ export default class IconButtonDoc extends React.Component {
                         <Tooltip text='I support tooltips!'>
                             <IconButton icon='close-small' onClick={()=> false} />
                         </Tooltip>
-                        <IconButton icon='plus-large' onClick ={()=> false} />
+                        <IconButton icon='plus-large' onClick={()=> false} />
                         <IconButton icon='dots-vertical' onClick={()=> false} />
                         <IconButton icon='trash' onClick={()=> false} />
                         <Tooltip text='My tooltip is on right.' flow='right'>

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { SubNav, NavButton, ButtonGroup, Tooltip } from '../../../app-typescript';
+import { SubNav, NavButton, ButtonGroup, Tooltip, PropsList, Prop } from '../../../app-typescript';
 
 export default class NavButtonsDoc extends React.Component {
     render() {
@@ -56,6 +56,15 @@ export default class NavButtonsDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.' />
+                    <Prop name='iconSize' isRequered={false} type='small | big' default='small' description='Specifies a small or big button' />
+                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).' />
+                    <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Styles nav button for diffrent background.' />
+                    <Prop name='value' isRequered={false} type='button | submit | reset' default='button' description='Specifies a value of nav button' />
+                </PropsList>
             </section>
         );
     }
