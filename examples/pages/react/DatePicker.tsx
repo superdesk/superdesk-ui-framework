@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as Markup from '../../js/react';
-import {DatePicker} from '../../../app';
+import {DatePicker} from '../../../app-typescript';
 import {TimePicker} from '../../../app-typescript/components/TimePicker';
 
 class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
