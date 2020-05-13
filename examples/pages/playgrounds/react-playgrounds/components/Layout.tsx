@@ -16,15 +16,6 @@ export const Layout = ({
     openA,
     theme,
 }: IProps) => {
-    function UpdateTheme() {
-        React.useEffect(() => {
-            let element = document.getElementById('1');
-            let attr = document.createAttribute('theme');
-            attr.value = theme;
-            element.setAttributeNode(attr);
-        }, [theme])
-    }
-
     let classes = classNames('sd-content sd-content-wrapper', {
         [`${theme}`]: theme,
     });
@@ -50,5 +41,5 @@ export const Layout = ({
                 This is the footer.
             </footer>
         </div>
-        );
+    );
 }
