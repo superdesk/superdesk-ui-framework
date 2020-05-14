@@ -14,6 +14,7 @@ interface IProps {
 interface IPropsItem {
     text: string;
     icon?: string;
+    onSelect(): void;
     children?: never;
 }
 
@@ -146,7 +147,8 @@ export const Dropdown = ({
                         <ul className={classesMenu} ref={ref}>
                             {children}
                         </ul>
-                    </div></li>
+                    </div>
+                </li>
 
             );
         } else {
@@ -169,10 +171,11 @@ export const Dropdown = ({
 export const DropdownItem = ({
     text,
     icon,
+    onSelect,
 }: IPropsItem) => {
 
     return (
-        <li><button><i className={icon ? ('icon-' + icon) : ''}></i>{text}</button></li>
+        <li><button onSelect={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{text}</button></li>
     );
 };
 

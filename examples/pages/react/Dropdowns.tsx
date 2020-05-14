@@ -16,14 +16,14 @@ export default class DropdownDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown name='Left aligned (default)'>
-                            <Dropdown.Item text='Action 1' />
-                            <Dropdown.Item text='Action 2' />
-                            <Dropdown.Item text='Action 3' />
+                            <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 3' onSelect={()=>1} />
                         </Dropdown>
                         <Dropdown name='Right aligned' align='right'>
-                            <Dropdown.Item text='Action 1' />
-                            <Dropdown.Item text='Action 2' />
-                            <Dropdown.Item text='Action 3' />
+                            <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 3' onSelect={()=>1} />
                         </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -37,14 +37,14 @@ export default class DropdownDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown name='Drop left' side='left'>
-                            <Dropdown.Item text='Action 1' />
-                            <Dropdown.Item text='Action 2' />
-                            <Dropdown.Item text='Action 3' />
+                            <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 3' onSelect={()=>1} />
                         </Dropdown>
                         <Dropdown name='Drop right' side='right'>
-                            <Dropdown.Item text='Action 1' />
-                            <Dropdown.Item text='Action 2' />
-                            <Dropdown.Item text='Action 3' />
+                            <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 3' onSelect={()=>1} />
                         </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -58,12 +58,12 @@ export default class DropdownDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown name='Drop append to body'>
-                            <Dropdown.Item text='Action 1' />
-                            <Dropdown.Item text='Action 2' />
-                            <Dropdown.Item text='Action 3' />
-                            <Dropdown.Item text='Action 4' />
-                            <Dropdown.Item text='Action 5' />
-                            <Dropdown.Item text='Action 6' />
+                            <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 3' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 4' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 5' onSelect={()=>1} />
+                            <Dropdown.Item text='Action 6' onSelect={()=>1} />
                         </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -79,30 +79,32 @@ export default class DropdownDoc extends React.Component {
                         <Dropdown name='Multilevel dropdown'>
                             <Dropdown.Label text='actions' />
                             <Dropdown.Divider />
-                            <Dropdown.Item text='Edit' icon='pencil' />
-                            <Dropdown.Item text='Copy' icon='copy' />
-                            <Dropdown.Item text='Delete' icon='trash' />
+                            <Dropdown.Item text='Edit' icon='pencil' onSelect={()=>1} />
+                            <Dropdown.Item text='Copy' icon='copy' onSelect={()=>1} />
+                            <Dropdown.Item text='Delete' icon='trash' onSelect={()=>1} />
+                            <Dropdown.Divider />
                             <Dropdown.Label text='actions 2' />
                             <Dropdown name='Second level actions' level={true} icon='star' align='left'>
-                                <Dropdown.Item text='Action 1' />
-                                <Dropdown.Item text='Action 2' />
-                                <Dropdown.Item text='Action 3' />
-                                <Dropdown.Item text='Action 4' />
+                                <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                                <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                                <Dropdown.Item text='Action 3' onSelect={()=>1} />
+                                <Dropdown.Item text='Action 4' onSelect={()=>1} />
                             </Dropdown>
                         </Dropdown>
 
                         <Dropdown name='Submenu on the left'>
                             <Dropdown.Label text='actions' />
                             <Dropdown.Divider />
-                            <Dropdown.Item text='Edit' icon='pencil' />
-                            <Dropdown.Item text='Copy' icon='copy' />
-                            <Dropdown.Item text='Delete' icon='trash' />
+                            <Dropdown.Item text='Edit' icon='pencil' onSelect={()=>1} />
+                            <Dropdown.Item text='Copy' icon='copy' onSelect={()=>1} />
+                            <Dropdown.Item text='Delete' icon='trash' onSelect={()=>1} />
+                            <Dropdown.Divider />
                             <Dropdown.Label text='actions 2' />
                             <Dropdown name='Second level actions' level={true} icon='star' side='left'>
-                                <Dropdown.Item text='Action 1' />
-                                <Dropdown.Item text='Action 2' />
-                                <Dropdown.Item text='Action 3' />
-                                <Dropdown.Item text='Action 4' />
+                                <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                                <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                                <Dropdown.Item text='Action 3' onSelect={()=>1} />
+                                <Dropdown.Item text='Action 4' onSelect={()=>1} />
                             </Dropdown>
                         </Dropdown>
                     </Markup.ReactMarkupPreview>
@@ -113,7 +115,7 @@ export default class DropdownDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Navigation dropdown</h3>
-                <p className='docs-page__paragraph'></p>
+                <p className='docs-page__paragraph'>Example of a dropdown inside a subnavigation element. The dropdown has additional modifiers to align the menu to the right of the toggle and to open the submenu on the left.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <SubNav zIndex={1} color='darker'>
@@ -121,15 +123,15 @@ export default class DropdownDoc extends React.Component {
                             <Dropdown name='dots' icon='dots-vertical' navDropdown={true}>
                                 <Dropdown.Label text='actions' />
                                 <Dropdown.Divider />
-                                <Dropdown.Item text='Edit' icon='pencil' />
-                                <Dropdown.Item text='Copy' icon='copy' />
-                                <Dropdown.Item text='Delete' icon='trash' />
-                                <Dropdown.Label text='actions 2' />
+                                <Dropdown.Item text='Edit' icon='pencil' onSelect={()=>1} />
+                                <Dropdown.Item text='Copy' icon='copy' onSelect={()=>1} />
+                                <Dropdown.Item text='Delete' icon='trash' onSelect={()=>1} />
+                                <Dropdown.Divider />
                                 <Dropdown name='Second level actions' level={true} icon='star' align='left'>
-                                    <Dropdown.Item text='Action 1' />
-                                    <Dropdown.Item text='Action 2' />
-                                    <Dropdown.Item text='Action 3' />
-                                    <Dropdown.Item text='Action 4' />
+                                    <Dropdown.Item text='Action 1' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 2' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 3' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 4' onSelect={()=>1} />
                                 </Dropdown>
                             </Dropdown>
                         </SubNav>
@@ -141,34 +143,34 @@ export default class DropdownDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Navigation dropdown with fixed header and footer</h3>
-                <p className='docs-page__paragraph'></p>
+                <p className='docs-page__paragraph'>Example of a dropdown inside a subnavigation element. The dropdown has additional modifiers to align the menu to the right of the toggle and to open the submenu on the left.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <SubNav zIndex={1} color='darker'>
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown name='dots' icon='dots-vertical' navDropdown={true} headerFooter={true}>
                                 <Dropdown.Header title='header actions'>
-                                    <Dropdown.Item text='Header action one' icon='download' />
-                                    <Dropdown.Item text='Header action one' icon='trash' />
+                                    <Dropdown.Item text='Header action one' icon='download' onSelect={()=>1} />
+                                    <Dropdown.Item text='Header action one' icon='trash' onSelect={()=>1} />
                                 </Dropdown.Header>
                                 <Dropdown.Body title='body actions'>
-                                    <Dropdown.Item text='Edit' icon='pencil' />
-                                    <Dropdown.Item text='Copy Item' icon='copy' />
-                                    <Dropdown.Item text='Action 2' icon='envelope' />
-                                    <Dropdown.Item text='Action 3' icon='heart' />
-                                    <Dropdown.Item text='Action 4' icon='print' />
-                                    <Dropdown.Item text='Action 5' icon='plus-sign' />
-                                    <Dropdown.Item text='Action 6' icon='minus-sign' />
-                                    <Dropdown.Item text='Action 7' icon='refresh' />
-                                    <Dropdown.Item text='Action 8' icon='pick' />
-                                    <Dropdown.Item text='Action 9' icon='bell' />
-                                    <Dropdown.Item text='Action 10' icon='kill' />
-                                    <Dropdown.Item text='Action 11' icon='settings' />
-                                    <Dropdown.Item text='Action 12' icon='cut' />
+                                    <Dropdown.Item text='Edit' icon='pencil' onSelect={()=>1} />
+                                    <Dropdown.Item text='Copy Item' icon='copy' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 2' icon='envelope' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 3' icon='heart' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 4' icon='print' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 5' icon='plus-sign' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 6' icon='minus-sign' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 7' icon='refresh' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 8' icon='pick' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 9' icon='bell' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 10' icon='kill' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 11' icon='settings' onSelect={()=>1} />
+                                    <Dropdown.Item text='Action 12' icon='cut' onSelect={()=>1} />
                                 </Dropdown.Body>
                                 <Dropdown.Footer title='footer actions'>
-                                    <Dropdown.Item text='Create gallery' icon='slideshow' />
-                                    <Dropdown.Item text='Create package' icon='composite' />
+                                    <Dropdown.Item text='Create gallery' icon='slideshow' onSelect={()=>1} />
+                                    <Dropdown.Item text='Create package' icon='composite' onSelect={()=>1} />
                                 </Dropdown.Footer>
                             </Dropdown>
                         </SubNav>
@@ -178,6 +180,7 @@ export default class DropdownDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                
             </section>
 
         )
