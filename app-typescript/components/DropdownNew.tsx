@@ -25,11 +25,14 @@ interface IMenu {
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+    children?: React.ReactNode;
 }
 
 export const DropdownNew = ({
     items,
+    children,
     header,
+    footer,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [height, setHeight] = React.useState(false);
@@ -160,17 +163,35 @@ export const DropdownNew = ({
         }
     }
 
+    const headerElements = header?.map((el, index) => {
+        return each(el, index);
+    });
+
     const dropdownElements = items.map((el, index) => {
+        return each(el, index);
+    });
+
+    const footerElements = footer?.map((el, index) => {
         return each(el, index);
     });
 
     return (
         <div className={classes} >
-            <button className='dropdown__toggle nav-btn dropdown-toggle' onClick={isOpen}>
+            <button className='dropdown__toggle dropdown-toggle' onClick={isOpen}>
                 +
             </button>
             {header ?
-                <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} ></div> :
+                <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                    <ul className='dropdown__menu-header'>
+                        {headerElements}
+                    </ul>
+                    <ul className='dropdown__menu-body'>
+                        {dropdownElements}
+                    </ul>
+                    <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                        {footerElements}
+                    </ul>
+                </div> :
                 <ul className='dropdown__menu' ref={ref} >
                     {dropdownElements}
                 </ul>}
