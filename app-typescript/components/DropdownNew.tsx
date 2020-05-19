@@ -30,7 +30,6 @@ interface IMenu {
 
 export const DropdownNew = ({
     items,
-    children,
     header,
     footer,
 }: IMenu) => {
