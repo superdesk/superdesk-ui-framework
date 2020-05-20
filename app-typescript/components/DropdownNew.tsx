@@ -142,6 +142,7 @@ export const DropdownNew = ({
                 <li key={index}>
                     <div className='dropdown'>
                         <button className='dropdown__toggle dropdown-toggle'>
+                            {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                             {item['label']}
                         </button>
                         <ul className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'} ref={ref}>
