@@ -22,6 +22,8 @@ interface IMenuGroup {
 
 interface IMenu {
     label?: string;
+    align?: 'left' | 'right';
+    side?: 'left' | 'right';
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
@@ -33,6 +35,8 @@ export const DropdownNew = ({
     header,
     footer,
     children,
+    align,
+    side,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [height, setHeight] = React.useState(false);
@@ -109,7 +113,6 @@ export const DropdownNew = ({
         } else {
             setWidth(false);
         }
-
     }
 
     const debounce = (delay: number) => {
@@ -120,11 +123,13 @@ export const DropdownNew = ({
         };
     };
 
-    const classes = classNames('dropdown', {
-        ['open']: open,
-        ['dropdown--dropup']: height,
-        ['dropdown--align-right']: width,
-    });
+    function elementAlign() {
+        if (align) {
+            return align === 'right' ? 'right' : '';
+        } else {
+            return width ? 'right' : '';
+        }
+    }
 
     function each(item: any, index: number) {
         if (item['type'] === 'submenu') {
@@ -161,7 +166,7 @@ export const DropdownNew = ({
             );
 
         } else if (item === 'divider') {
-            return (<DropdownDivider key={index} />);
+            return (<li className="dropdown__menu-divider" key={index}></li>);
         } else {
             return (
                 <DropdownItem
@@ -184,6 +189,12 @@ export const DropdownNew = ({
         return each(el, index);
     });
 
+    const classes = classNames('dropdown', {
+        ['open']: open,
+        ['dropdown--dropup']: height,
+        ['dropdown--align-right']: elementAlign() === 'right',
+        [`dropdown--drop${side}`]: side,
+    });
     return (
         <div className={classes} >
             <button
@@ -220,8 +231,4 @@ const DropdownItem = ({
         <li><button onSelect={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
     );
 
-};
-
-const DropdownDivider = ({ }) => {
-    return (<li className="dropdown__menu-divider"></li>);
 };
