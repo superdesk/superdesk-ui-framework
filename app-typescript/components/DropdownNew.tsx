@@ -36,6 +36,7 @@ export const DropdownNew = ({
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [height, setHeight] = React.useState(false);
+    const [width, setWidth] = React.useState(false);
     const ref = React.useRef(null);
     let inDebounce = 0;
 
@@ -73,6 +74,7 @@ export const DropdownNew = ({
         return {
             top: rect.top,
             bottom: rect.bottom,
+            right: rect.right,
         };
     }
 
@@ -102,6 +104,12 @@ export const DropdownNew = ({
         } else {
             setHeight(false);
         }
+        if (second < number.right) {
+            setWidth(true);
+        } else {
+            setWidth(false);
+        }
+
     }
 
     const debounce = (delay: number) => {
@@ -115,6 +123,7 @@ export const DropdownNew = ({
     const classes = classNames('dropdown', {
         ['open']: open,
         ['dropdown--dropup']: height,
+        ['dropdown--align-right']: width,
     });
 
     function each(item: any, index: number) {
@@ -130,7 +139,7 @@ export const DropdownNew = ({
                         <button className='dropdown__toggle dropdown-toggle'>
                             {item['label']}
                         </button>
-                        <ul className={'dropdown__menu'} ref={ref}>
+                        <ul className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'} ref={ref}>
                             {submenuItems}
                         </ul>
                     </div>
