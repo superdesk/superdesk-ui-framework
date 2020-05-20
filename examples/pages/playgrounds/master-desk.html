@@ -59,15 +59,19 @@
         </div>
         <div id="leftContent" sd-media-query min-width="880" max-width="1100" ng-init="darkUI = false; listView = true" class="sd-content-wrapper__main-content-area sd-main-content-grid" ng-class="{'dark-ui': darkUI}">
             <!-- TOOLBAR HEADER -->
-            <div class="sd-main-content-grid__header">
+            <div class="sd-main-content-grid__header" ng-init="masterDeskView = 'overview'">
                 <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
                     <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
                         <i class="icon-filter-large"></i>
                     </button>
-                    <div class="subnav__stretch-bar">
-                        <sd-check ng-model="masterDeskView" type="radio" ng-value="overview" label-position="inside" ng-checked="true">Overview</sd-check>
+                    <div class="button-group button-group--left button-group--padded">
+                        <sd-check ng-model="masterDeskView" type="radio" ng-value="overview" label-position="inside">Overview</sd-check>
                         <sd-check ng-model="masterDeskView" type="radio" ng-value="users" label-position="inside">Users</sd-check>
                         <sd-check ng-model="masterDeskView" type="radio" ng-value="assignments" label-position="inside">Assignments</sd-check>
+                        <div class="button-group__divider button-group__divider--small button-group__divider--border sd-margin-l--2" ng-show="masterDeskView === 'users'"></div>
+                        <span ng-show="masterDeskView === 'users'">
+                            <span ng-model="AB" sd-switch></span><label>Show only online users</label>
+                        </span>
                     </div>
 
                     <button class="navbtn" ng-click="darkUI = !darkUI">
@@ -155,8 +159,9 @@
                     </div>
                 </div>
             </div>
-            <!-- MAIN CONTENT (Desks overview) -->
-            <div class="sd-main-content-grid__content sd-main-content-grid__content--with-filters">
+            <!-- MAIN CONTENT -->
+            <!-- (Overview) -->
+            <div class="sd-main-content-grid__content sd-main-content-grid__content--with-filters" ng-show="masterDeskView === 'overview'">
                 <div class="sd-main-content-grid__content-filter-bar sd-search-tags__bar">
                     <ul class="sd-search-tags__tag-list">
                         <li class="sd-search-tags__tag tag-label tag-label--highlight1">
@@ -174,11 +179,11 @@
                     <!-- Desk grid view -->
                     <div class="sd-grid-list sd-grid-list--medium sd-grid-list--gap-xl sd-margin-x--5">
                         <div class="sd-board">
-                            <div class="sd-board__header">
+                            <div class="sd-board__header sd-board__header--clickable">
                                 <h3 class="sd-board__header-title">Desk One</h3>
                             </div>
                             <div class="sd-board__content sd-padding-t--1">
-                                <div class="sd-board__content-block">
+                                <div class="sd-board__content-block sd-board__content-block--clickable">
                                     <ul class="sd-board__list">
                                         <li class="sd-board__list-item">
                                             <span class="sd-board__item-count--large">105</span>
@@ -405,6 +410,959 @@
                                         </li>
                                         <li class="sd-board__list-item">
                                             <h6 class="sd-board__list-item-title">Routed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- (Users) -->
+            <div class="sd-main-content-grid__content sd-main-content-grid__content--with-filters" ng-show="masterDeskView === 'users'">
+
+                <div class="sd-main-content-grid__content-inner">
+                    <!-- Desk kanban view -->
+                    <div class="sd-kanban-list sd-pdding-x--2 sd-padding-t--2">
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk one</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>CJM</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Carla Jean Moss</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>3</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(6) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>LM</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Llewelyn Moss</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Sub-Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>AC</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Anton Chigurh</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Two</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(4) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>VS</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Vladimir Stefanovic</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>3</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(8) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>CW</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Carson Wells</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Three</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(2) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>BL</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Bunny Lebowski</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>3</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>2</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(6) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>WS</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Walter Sobchak</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Sub-Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>DK</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Donny Kerabatsos</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Producer</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(2) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>JL</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Jeff Lebowski</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Four</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(2) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>JT</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Jackie Treehorn</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(5) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>JQ</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Jesus Quintana</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Sub-Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>KH</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Karl Hungus</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Five</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>JL</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Jerry Lundegaard</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(5) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>GG</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Gaear Grimsrud</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Sub-Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>WG</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Wade Gustafson</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Six</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>SP</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Shep Proudfoot</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(7) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>BF</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Barton Fink</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Sub-Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(4) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>CM</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Charlie Meadows</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Seven</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(2) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>LB</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Lou Breeze</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(5) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>BB</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Bernie Bernbaum</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Sub-Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>CF</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Chad Feldheimer</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Eight</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(2) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>RC</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Rooster Cogburn</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Journalist</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(5) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>MR</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Mattie Ross</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>Buster Scruggs
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Sub-Editor</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(3) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>TC</span></span>
+                                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Tom Chaney</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="sd-board__subheader">
+                                    <h5 class="sd-board__subheader-title">Producer</h5>
+                                </div>
+                                <ul class="sd-list-item-group sd-shadow--z2">
+                                    <li class="sd-list-item"  ng-repeat="i in [].constructor(2) track by $index">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--no-border sd-padding-x--0-5">
+                                            <span class="sd-avatar sd-avatar--small">
+                                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>BS</span></span>
+                                                <span class="sd-avatar--indicator-status--offline" title="Offline"></span>
+                                            </span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="">Buster Scruggs</span></span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--locked"><i class="icon-lock"></i>6</span>
+                                                <span class="sd-text-icon sd-text-icon--aligned-r user-items--assigned"><i class="icon-pick"></i>3</span>
+                                            </div>
+                                        </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <span class="sd-accessibility__btn-text--invisible">More actions</span>
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- (Assignments) -->
+            <div class="sd-main-content-grid__content sd-main-content-grid__content--with-filters" ng-show="masterDeskView === 'assignments'">
+                <div class="sd-main-content-grid__content-filter-bar sd-search-tags__bar">
+                    <ul class="sd-search-tags__tag-list">
+                        <li class="sd-search-tags__tag tag-label tag-label--highlight1">
+                            Lipsum slugline
+                            <button class="tag-label__remove"><i class="icon-close-small"></i></button>
+                        </li>
+                        <li class="sd-search-tags__tag tag-label tag-label--highlight1">
+                            Lorem slugline
+                            <button class="tag-label__remove"><i class="icon-close-small"></i></button>
+                        </li>
+                    </ul>
+                    <a class="text-link sd-margin-l--auto" href="#">Clear all filters</a>
+                </div>
+                <div class="sd-main-content-grid__content-inner">
+                    <!-- Desk grid view -->
+                    <div class="sd-grid-list sd-grid-list--medium sd-grid-list--gap-xl sd-margin-x--5">
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk One</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">34</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>105</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700 sd-margin-r--0-5" >25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600 sd-margin-r--0-5">34</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Two</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">30</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>98</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Three</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">20</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>69</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700 sd-margin-r--0-5">21</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600 sd-margin-r--0-5">26</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Four</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">17</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>92</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Five</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">32</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>68</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Six</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">37</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>74</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Seven</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">43</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>123</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sd-board">
+                            <div class="sd-board__header">
+                                <h3 class="sd-board__header-title">Desk Eight</h3>
+                            </div>
+                            <div class="sd-board__content sd-padding-t--1">
+                                <div class="sd-board__content-block">
+                                    <ul class="sd-board__list">
+                                        <li class="sd-board__list-item">
+                                            <span class="sd-board__item-count--large">29</span>
+                                            <p class="sd-board__count-label sd-board__count-label--l">unassigned items<br> of <strong>83</strong> in production</p>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--to-do">To Do</h6><span class="badge red--700 sd-margin-r--0-5">25</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--progress">In Progress</h6><span class="badge orange--600 sd-margin-r--0-5">22</span>
+                                        </li>
+                                        <li class="sd-board__list-item">
+                                            <h6 class="sd-board__list-item-title sd-board__list-item-title--completed">Completed</h6><span class="badge light-green--600 sd-margin-r--0-5">24</span>
                                         </li>
                                     </ul>
                                 </div>

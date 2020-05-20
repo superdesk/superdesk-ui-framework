@@ -13,6 +13,13 @@ $board-header-border-color: var(--color-kanban-border);
     align-items: center;
     border-bottom: 4px solid $board-header-border-color;
     @include sd-padding('0-5', 'bottom');
+    &--clickable {
+        transition: border-color ease-in-out .2s;
+        cursor: pointer;
+        &:hover {
+           border-bottom-color: $sd-blue; 
+        }
+    }
 }
 .sd-board__header-title {
     text-transform: uppercase;
@@ -32,6 +39,14 @@ $board-header-border-color: var(--color-kanban-border);
     display: flex;
     flex-direction: column;
     @include sd-shadow('z2');
+    &--clickable {
+        transition: box-shadow ease-in-out .2s;
+        cursor: pointer;
+        &:hover {
+           @include sd-shadow('z3');
+           outline: 1px solid rgba(61, 143, 177, 0.35);
+        }
+    }
 }
 .sd-board__list {
     display: flex;
@@ -53,6 +68,20 @@ $board-header-border-color: var(--color-kanban-border);
     text-transform: uppercase;
     font-size: 1.2rem;
     color: var(--color-text-light);
+    &.sd-board__list-item-title--to-do {
+        color: var(--color-assignment-to-do);
+    }
+    &.sd-board__list-item-title--progress {
+        color: var(--color-assignment-progress);
+    }
+    &.sd-board__list-item-title--completed {
+        color: var(--color-assignment-completed);
+    }
+    &.sd-board__list-item-title--to-do,
+    &.sd-board__list-item-title--progress,
+    &.sd-board__list-item-title--completed {
+        font-weight: 500;
+    }
 }
 .sd-board__list-item-badge {
     @include sd-margin('0-5', 'right');
@@ -61,6 +90,7 @@ $board-header-border-color: var(--color-kanban-border);
     color: var(--color-text-light);
     font-size: 3.6rem;
     font-weight: 300;
+    line-height: 4rem;
     @include sd-margin('1', 'right');
 }
 
@@ -71,6 +101,14 @@ $board-header-border-color: var(--color-kanban-border);
     font-weight: 400;
     color: $gray--400;
     max-width: 10rem;
+    &--l {
+        max-width: 14rem;
+    }
+    strong {
+        font-weight: 500;
+        color: $gray--700;
+        font-size: 1.3rem;
+    }
 }
 .sd-board__doughnut-chart {
     border-radius: 50%;
@@ -179,5 +217,68 @@ $board-header-border-color: var(--color-kanban-border);
     }
     &:active {
         opacity: 1;
+    }
+}
+
+.sd-board__subheader {
+    position: relative;
+    min-height: 2rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    @include sd-padding('0-5', 'bottom');
+    &--clickable {
+        transition: border-color ease-in-out .2s;
+        cursor: pointer;
+        &:hover {
+           border-bottom-color: $sd-blue; 
+        }
+    }
+}
+.sd-board__subheader-title {
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    letter-spacing: .08em;
+    font-weight: 500;
+    flex-grow: 1;
+    color: var(--color-text);
+    opacity: 0.75;
+}
+.sd-list-item-group + .sd-board__subheader {
+    @include sd-margin('2', 'top');
+}
+
+.sd-kanban-list {
+    .sd-board {
+        flex: 1 1 0;
+        margin: 0 1.2rem;
+        min-width: 24rem;
+    }
+    .sd-board__content {
+        padding: 0.6rem 0.3rem 0.6rem 0.3rem;
+        overflow-y: auto;
+    }
+}
+
+.user-items--locked {
+    color: #c4170b;
+    i {
+        color: #c4170b;
+        font-size: 1.2rem;
+        width: 1.2rem;
+        height: 1.2rem;
+        opacity: 1 !important;
+    }
+
+}
+
+.user-items--assigned {
+    color: #009688;
+    i {
+        color: #009688;
+        font-size: 1.4rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        opacity: 1 !important;
     }
 }
