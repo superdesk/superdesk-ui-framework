@@ -25,13 +25,14 @@ interface IMenu {
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
-    children?: React.ReactNode;
+    children: React.ReactNode;
 }
 
 export const DropdownNew = ({
     items,
     header,
     footer,
+    children,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [height, setHeight] = React.useState(false);
@@ -176,8 +177,11 @@ export const DropdownNew = ({
 
     return (
         <div className={classes} >
-            <button className='dropdown__toggle dropdown-toggle' onClick={isOpen}>
-                +
+            <button
+                className={(typeof children === 'object' ? 'navbtn' : 'nav-btn') + ' dropdown__toggle dropdown-toggle'}
+                onClick={isOpen}>
+                {children}
+                {typeof children === 'object' ? null : <span className="dropdown__caret"></span>}
             </button>
             {header ?
                 <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
