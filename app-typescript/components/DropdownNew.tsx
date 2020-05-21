@@ -48,12 +48,12 @@ export const DropdownNew = ({
     React.useLayoutEffect(() => {
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
-        parentElement.parentNode.addEventListener("scroll", debounce(20));
+        parentElement.parentNode.addEventListener("scroll", debounce(50));
 
         calculate();
 
         return () => {
-            parentElement.removeEventListener("scroll", debounce(20));
+            parentElement.removeEventListener("scroll", debounce(50));
             clearTimeout(inDebounce);
         };
     }, [open]);
@@ -101,19 +101,20 @@ export const DropdownNew = ({
 
     function calculate() {
         let number = getDimensions(ref.current);
-        let second = screen.height;
+        let screenHeight = screen.height;
         let heightEl = heightElement(ref.current);
 
-        if ((second - number.bottom) < (heightEl + 70) && (number.top > heightEl)) {
+        if ((screenHeight - number.bottom) < (heightEl + 40) && (number.top > heightEl)) {
             setHeight(true);
         } else {
             setHeight(false);
         }
-        if (second < number.right) {
+        if (screenHeight < number.right) {
             setWidth(true);
         } else {
             setWidth(false);
         }
+
     }
 
     function calculateTwo() {
