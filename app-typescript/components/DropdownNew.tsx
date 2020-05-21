@@ -235,9 +235,10 @@ export const DropdownNew = ({
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
                     </ul>
-                    <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                        {footerElements}
-                    </ul>
+                    {footer ?
+                        <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                            {footerElements}
+                        </ul> : null}
                 </div> :
                 <ul className='dropdown__menu' ref={ref} >
                     {dropdownElements}
