@@ -39,6 +39,7 @@ export const DropdownNew = ({
     side,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
+    const [change, setChange] = React.useState(false);
     const [height, setHeight] = React.useState(false);
     const [submenu, setSubmenu] = React.useState(false);
     const [width, setWidth] = React.useState(false);
@@ -48,14 +49,21 @@ export const DropdownNew = ({
     React.useLayoutEffect(() => {
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
-        parentElement.parentNode.addEventListener("scroll", debounce(50));
+        function applyScroll() {
+            return change ? debounce(50) : null;
+        }
+        parentElement.parentNode.addEventListener("scroll", applyScroll());
 
         calculate();
 
         return () => {
-            parentElement.removeEventListener("scroll", debounce(50));
+            parentElement.removeEventListener("scroll", applyScroll());
             clearTimeout(inDebounce);
         };
+    }, [open]);
+
+    React.useEffect(() => {
+        setChange(true);
     }, [open]);
 
     // open close
@@ -98,13 +106,19 @@ export const DropdownNew = ({
             }
         }
     }
-
+    function heightSet(test: boolean) {
+        if (change) {
+            return test ? true : false;
+        } else {
+            return '';
+        }
+    }
     function calculate() {
         let number = getDimensions(ref.current);
         let screenHeight = screen.height;
         let heightEl = heightElement(ref.current);
 
-        if ((screenHeight - number.bottom) < (heightEl + 40) && (number.top > heightEl)) {
+        if ((screenHeight - number.bottom) < heightEl) {
             setHeight(true);
         } else {
             setHeight(false);
@@ -114,7 +128,6 @@ export const DropdownNew = ({
         } else {
             setWidth(false);
         }
-
     }
 
     function calculateTwo() {
@@ -122,7 +135,7 @@ export const DropdownNew = ({
         let second = screen.height;
         let heightEl = heightElement(ref.current);
 
-        if ((second - number.bottom) < (heightEl + 10) && (number.top > heightEl)) {
+        if ((second - number.bottom) < (heightEl) && (number.top > heightEl)) {
             setSubmenu(true);
         } else {
             setSubmenu(false);
@@ -207,7 +220,7 @@ export const DropdownNew = ({
 
     const classes = classNames('dropdown', {
         ['open']: open,
-        ['dropdown--dropup']: height,
+        ['dropdown--dropup']: heightSet(height),
         ['dropdown--align-right']: elementAlign() === 'right',
         [`dropdown--drop${side}`]: side,
     });
