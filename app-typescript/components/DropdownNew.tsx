@@ -43,6 +43,7 @@ export const DropdownNew = ({
     const [height, setHeight] = React.useState(false);
     const [submenu, setSubmenu] = React.useState(false);
     const [width, setWidth] = React.useState(false);
+    const [dSide, setDSide] = React.useState('');
     const ref = React.useRef(null);
     let inDebounce = 0;
 
@@ -50,7 +51,7 @@ export const DropdownNew = ({
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
         function applyScroll() {
-            return change ? debounce(50) : null;
+            return change ? debounce(20) : null;
         }
         parentElement.parentNode.addEventListener("scroll", applyScroll());
 
@@ -87,6 +88,7 @@ export const DropdownNew = ({
         return {
             top: rect.top,
             bottom: rect.bottom,
+            left: rect.left,
             right: rect.right,
         };
     }
@@ -117,16 +119,28 @@ export const DropdownNew = ({
         let number = getDimensions(ref.current);
         let screenHeight = screen.height;
         let heightEl = heightElement(ref.current);
+        let first = screen.height - number.bottom;
 
-        if ((screenHeight - number.bottom) < heightEl) {
-            setHeight(true);
+        if ((first < heightEl) && number.top < heightEl) {
+            if (!side) {
+                if (number.left < 200) {
+                    setDSide('right');
+                } else {
+                    setDSide('left');
+                }
+            }
         } else {
-            setHeight(false);
-        }
-        if (screenHeight < number.right) {
-            setWidth(true);
-        } else {
-            setWidth(false);
+            setDSide('');
+            if ((screenHeight - number.bottom) < heightEl) {
+                setHeight(true);
+            } else {
+                setHeight(false);
+            }
+            if (screenHeight < number.right) {
+                setWidth(true);
+            } else {
+                setWidth(false);
+            }
         }
     }
 
@@ -223,6 +237,7 @@ export const DropdownNew = ({
         ['dropdown--dropup']: heightSet(height),
         ['dropdown--align-right']: elementAlign() === 'right',
         [`dropdown--drop${side}`]: side,
+        [`dropdown--drop${dSide}`]: dSide,
     });
 
     return (
