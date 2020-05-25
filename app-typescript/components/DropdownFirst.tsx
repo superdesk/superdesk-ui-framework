@@ -178,7 +178,7 @@ export const DropdownItem = ({
     onSelect,
 }: IPropsItem) => {
     if (noLink) {
-        return <li className='dropdown__menu-item--no-link'>{text}</li>
+        return <li className='dropdown__menu-item--no-link'>{text}</li>;
     } else {
         return (
             <li><button onSelect={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{text}</button></li>
