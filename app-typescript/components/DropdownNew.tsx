@@ -244,7 +244,7 @@ export const DropdownNew = ({
         <div className={classes} >
             {typeof children === 'object' ?
                 (React.isValidElement(children) ? React.cloneElement(children, {
-                    className: children.props.className + ' dropdown__toggle dropdown-toggle',
+                    className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
                     onClick: isOpen,
                 }) : null)
                 :
