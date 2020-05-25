@@ -1,87 +1,73 @@
 import * as React from 'react';
 import classNames from 'classnames';
-interface IProps {
-    name: string;
-    align?: 'left' | 'right';
-    side?: 'left' | 'right';
-    icon?: string;
-    navDropdown?: boolean;
-    level?: boolean;
-    headerFooter?: boolean;
-    children: React.ReactNode;
-}
 
-interface IPropsItem {
-    text: string;
+export interface IMenuItem {
+    label: string;
     icon?: string;
     onSelect(): void;
-    children?: never;
 }
 
-interface IPropsLabel {
-    text: string;
-    children?: never;
+export interface ISubmenu {
+    type: 'submenu';
+    label: string;
+    icon?: string;
+    items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
 }
 
-interface IPropsMenu {
-    title: string;
+export interface IMenuGroup {
+    type: 'group';
+    label?: string;
+    items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+}
+
+interface IMenu {
+    label?: string;
+    align?: 'left' | 'right';
+    side?: 'left' | 'right';
+    items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+    header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+    footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     children: React.ReactNode;
 }
 
 export const Dropdown = ({
-    name,
+    items,
+    header,
+    footer,
+    children,
     align,
     side,
-    level,
-    icon,
-    headerFooter,
-    navDropdown,
-    children,
-}: IProps) => {
+}: IMenu) => {
     const [open, setOpen] = React.useState(false);
+    const [change, setChange] = React.useState(false);
     const [height, setHeight] = React.useState(false);
+    const [submenu, setSubmenu] = React.useState(false);
+    const [width, setWidth] = React.useState(false);
+    const [dSide, setDSide] = React.useState('');
     const ref = React.useRef(null);
-
-    function calculate() {
-        let number = getDimensions(ref.current);
-        let second = screen.height;
-        let heightEl = heightElement(ref.current);
-
-        if ((second - number.bottom) < (heightEl + 100) && (number.top > heightEl)) {
-            setHeight(true);
-        } else {
-            setHeight(false);
-        }
-    }
-
-    const debounce = (delay: number) => {
-        let inDebounce = 0;
-        return function() {
-            const context = children;
-            clearTimeout(inDebounce);
-            inDebounce = setTimeout(() => calculate.apply(context), delay);
-        };
-    };
+    let inDebounce = 0;
 
     React.useLayoutEffect(() => {
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
-        parentElement.parentNode.addEventListener("scroll", debounce(50));
+        function applyScroll() {
+            return change ? debounce(20) : null;
+        }
+        parentElement.parentNode.addEventListener("scroll", applyScroll());
 
         calculate();
 
         return () => {
-            parentElement.removeEventListener("scroll", debounce(50));
+            parentElement.removeEventListener("scroll", applyScroll());
+            clearTimeout(inDebounce);
         };
     }, [open]);
 
-    const classes = classNames('dropdown', {
-        ['open']: open,
-        ['dropdown--align-right']: align === 'right',
-        [`dropdown--drop${side}`]: side,
-        ['dropdown--dropup']: height,
-    });
+    React.useEffect(() => {
+        setChange(true);
+    }, [open]);
 
+    // open close
     function isOpen() {
         if (!open) {
             setOpen(true);
@@ -96,11 +82,14 @@ export const Dropdown = ({
         setOpen(false);
     }
 
+    // position on screen
     function getDimensions(el: any) {
         const rect = el.getBoundingClientRect();
         return {
             top: rect.top,
             bottom: rect.bottom,
+            left: rect.left,
+            right: rect.right,
         };
     }
 
@@ -119,122 +108,180 @@ export const Dropdown = ({
             }
         }
     }
-    if (headerFooter) {
-        return (
-            <div className={classes} >
-                <button className={navDropdown ? 'dropdown__toggle navbtn dropdown-toggle' : 'dropdown__toggle nav-btn dropdown-toggle'} onClick={isOpen}>
-                    {icon ?
-                        (<i className={"icon-" + icon}></i>) :
-                        (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)
-                    }</button>
-                <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref}>
-                    {children}
-                </div>
-            </div >
-        );
-    } else {
-        if (level) {
-            const classesMenu = classNames('dropdown__menu', {
-                ['dropdown__menu--submenu-left']: align === 'left',
+    function heightSet(test: boolean) {
+        if (change) {
+            return test ? true : false;
+        } else {
+            return '';
+        }
+    }
+    function calculate() {
+        let number = getDimensions(ref.current);
+        let screenHeight = screen.height;
+        let heightEl = heightElement(ref.current);
+        let first = screen.height - number.bottom;
+
+        if ((first < heightEl) && number.top < heightEl) {
+            if (!side) {
+                if (number.left < 200) {
+                    setDSide('right');
+                } else {
+                    setDSide('left');
+                }
+            }
+        } else {
+            setDSide('');
+            if ((screenHeight - number.bottom) < heightEl) {
+                setHeight(true);
+            } else {
+                setHeight(false);
+            }
+            if (screenHeight < number.right) {
+                setWidth(true);
+            } else {
+                setWidth(false);
+            }
+        }
+    }
+
+    function calculateTwo() {
+        let number = getDimensions(ref.current);
+        let second = screen.height;
+        let heightEl = heightElement(ref.current);
+
+        if ((second - number.bottom) < (heightEl) && (number.top > heightEl)) {
+            setSubmenu(true);
+        } else {
+            setSubmenu(false);
+        }
+    }
+
+    const debounce = (delay: number) => {
+        return function() {
+            const context = dropdownElements;
+            clearTimeout(inDebounce);
+            inDebounce = setTimeout(() => calculate.apply(context), delay);
+        };
+    };
+
+    function elementAlign() {
+        if (align) {
+            return align === 'right' ? 'right' : '';
+        } else {
+            return width ? 'right' : '';
+        }
+    }
+
+    function each(item: any, index: number) {
+        if (item['type'] === 'submenu') {
+            let submenuItems: any = [];
+            item['items'].forEach((el: any, key: number) => {
+                submenuItems.push(each(el, key));
             });
             return (
-                <li>
-                    <div className={classes}>
-                        <button className='dropdown__toggle dropdown-toggle'>
-                            {icon && level ? <i className={icon ? ('icon-' + icon) : ''}></i> : null}
-                            {name}
+                <li key={index}>
+                    <div className={(submenu ? 'dropdown--dropup' : '') + ' dropdown'} >
+                        <button
+                            className='dropdown__toggle dropdown-toggle'
+                            onMouseOver={() => submenuItems.map((element: any) => { calculateTwo.apply(element); })} >
+                            {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
+                            {item['label']}
                         </button>
-                        <ul className={classesMenu} ref={ref}>
-                            {children}
+                        <ul className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'} ref={ref}>
+                            {submenuItems}
                         </ul>
                     </div>
                 </li>
-
             );
+
+        } else if (item['type'] === 'group') {
+            let groupItems: any = [];
+            item['items'].forEach((el: any, key: number) => {
+                groupItems.push(each(el, key));
+            });
+            return (
+                <React.Fragment key={index}>
+                    <li>
+                        <div className="dropdown__menu-label">{item['label']}</div>
+                    </li>
+                    {groupItems}
+                </React.Fragment>
+            );
+
+        } else if (item === 'divider') {
+            return (<li className="dropdown__menu-divider" key={index}></li>);
         } else {
             return (
-                <div className={classes} >
-                    <button className={navDropdown ? 'dropdown__toggle navbtn dropdown-toggle' : 'dropdown__toggle nav-btn dropdown-toggle'} onClick={isOpen}>
-                        {icon ?
-                            (<i className={"icon-" + icon}></i>) :
-                            (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)
-                        }</button>
-                    <ul className='dropdown__menu' ref={ref}>
-                        {children}
-                    </ul>
-                </div >
-            );
+                <DropdownItem
+                    key={index}
+                    label={item['label']}
+                    icon={item['icon']}
+                    onSelect={item['onSelect']} />);
         }
     }
+
+    const headerElements = header?.map((el, index) => {
+        return each(el, index);
+    });
+
+    const dropdownElements = items.map((el, index) => {
+        return each(el, index);
+    });
+
+    const footerElements = footer?.map((el, index) => {
+        return each(el, index);
+    });
+
+    const classes = classNames('dropdown', {
+        ['open']: open,
+        ['dropdown--dropup']: heightSet(height),
+        ['dropdown--align-right']: elementAlign() === 'right',
+        [`dropdown--drop${side}`]: side,
+        [`dropdown--drop${dSide}`]: dSide,
+    });
+
+    return (
+        <div className={classes} >
+            {typeof children === 'object' ?
+                (React.isValidElement(children) ? React.cloneElement(children, {
+                    className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
+                    onClick: isOpen,
+                }) : null)
+                :
+                <button
+                    className=' dropdown__toggle dropdown-toggle'
+                    onClick={isOpen}>
+                    {children}
+                    <span className="dropdown__caret"></span>
+                </button>}
+
+            {header ?
+                <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                    <ul className='dropdown__menu-header'>
+                        {headerElements}
+                    </ul>
+                    <ul className='dropdown__menu-body'>
+                        {dropdownElements}
+                    </ul>
+                    {footer ?
+                        <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                            {footerElements}
+                        </ul> : null}
+                </div> :
+                <ul className='dropdown__menu' ref={ref} >
+                    {dropdownElements}
+                </ul>}
+        </div >
+    );
 };
 
-export const DropdownItem = ({
-    text,
+const DropdownItem = ({
+    label,
     icon,
     onSelect,
-}: IPropsItem) => {
-
+}: IMenuItem) => {
     return (
-        <li><button onSelect={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{text}</button></li>
+        <li><button onSelect={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
     );
+
 };
-
-export const DropdownDivider = ({ }) => {
-    return (<li className="dropdown__menu-divider"></li>);
-};
-
-export const DropdownLabel = ({
-    text,
-}: IPropsLabel) => {
-    return (
-        <li>
-            <div className="dropdown__menu-label">{text}</div>
-        </li>
-    );
-};
-
-export const DropdownHeader = ({
-    title,
-    children,
-}: IPropsMenu) => {
-
-    return (
-        <ul className='dropdown__menu-header'>
-            <DropdownLabel text={title} />
-            {children}
-        </ul>
-    );
-};
-
-export const DropdownBody = ({
-    title,
-    children,
-}: IPropsMenu) => {
-
-    return (
-        <ul className='dropdown__menu-body'>
-            <DropdownLabel text={title} />
-            {children}
-        </ul>
-    );
-};
-
-export const DropdownFooter = ({
-    title,
-    children,
-}: IPropsMenu) => {
-
-    return (
-        <ul className='dropdown__menu-footer dropdown__menu-footer--has-list'>
-            <DropdownLabel text={title} />
-            {children}
-        </ul>
-    );
-};
-
-Dropdown.Item = DropdownItem;
-Dropdown.Divider = DropdownDivider;
-Dropdown.Label = DropdownLabel;
-Dropdown.Header = DropdownHeader;
-Dropdown.Body = DropdownBody;
-Dropdown.Footer = DropdownFooter;

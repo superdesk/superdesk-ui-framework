@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import { SubNav } from '../../../app-typescript';
-import { DropdownNew } from '../../../app-typescript/components/DropdownNew';
+import { Dropdown } from '../../../app-typescript';
 export default class DropdownDoc extends React.Component {
     render() {
         return (
@@ -9,21 +9,29 @@ export default class DropdownDoc extends React.Component {
                 <section className="docs-page__container">
                     <h2 className="docs-page__h2">Dropdown</h2>
                     <Markup.ReactMarkupCodePreview>{`
+                    <Dropdown
+                        items={[
+                            { label: 'Action 1', onSelect: () => 1 },
+                            { label: 'Action 2', onSelect: () => 1 },
+                            { label: 'Action 3', onSelect: () => 1 },
+                        ]}>
+                       Toogle button
+                    </Dropdown>
                     
                 `}
                     </Markup.ReactMarkupCodePreview>
                     <p className='docs-page__paragraph'>The basic Dropdown is composed of a wrapping Dropdown and inner DropdownItem.</p>
                     <Markup.ReactMarkup>
                         <Markup.ReactMarkupPreview>
-                            <DropdownNew
+                            <Dropdown
                                 items={[
                                     { label: 'Action 1', onSelect: () => 1 },
                                     { label: 'Action 2', onSelect: () => 1 },
                                     { label: 'Action 3', onSelect: () => 1 },
                                 ]}>
                                 Left aligned (default)
-                            </DropdownNew>
-                            <DropdownNew
+                            </Dropdown>
+                            <Dropdown
                                 align='right'
                                 items={[
                                     { label: 'Action 1', onSelect: () => 1 },
@@ -31,10 +39,26 @@ export default class DropdownDoc extends React.Component {
                                     { label: 'Action 3', onSelect: () => 1 },
                                 ]}>
                                 Right aligned
-                            </DropdownNew>
+                            </Dropdown>
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
-                        
+                        <Dropdown
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                            ]}>
+                            Left aligned (default)
+                        </Dropdown>
+                        <Dropdown
+                            align='right'
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                            ]}>
+                            Right aligned
+                        </Dropdown>
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
@@ -43,7 +67,7 @@ export default class DropdownDoc extends React.Component {
                     <p className='docs-page__paragraph'></p>
                     <Markup.ReactMarkup>
                         <Markup.ReactMarkupPreview>
-                            <DropdownNew
+                            <Dropdown
                                 side='left'
                                 items={[
                                     { label: 'Action 1', onSelect: () => 1 },
@@ -51,8 +75,8 @@ export default class DropdownDoc extends React.Component {
                                     { label: 'Action 3', onSelect: () => 1 },
                                 ]}>
                                 Drop left
-                            </DropdownNew>
-                            <DropdownNew
+                            </Dropdown>
+                            <Dropdown
                                 side='right'
                                 items={[
                                     { label: 'Action 1', onSelect: () => 1 },
@@ -60,10 +84,27 @@ export default class DropdownDoc extends React.Component {
                                     { label: 'Action 3', onSelect: () => 1 },
                                 ]}>
                                 Drop right
-                            </DropdownNew>
+                            </Dropdown>
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
-                        
+                        <Dropdown
+                            side='left'
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                            ]}>
+                            Drop left
+                        </Dropdown>
+                        <Dropdown
+                            side='right'
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                            ]}>
+                            Drop right
+                        </Dropdown>  
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
@@ -72,7 +113,7 @@ export default class DropdownDoc extends React.Component {
                     <p className='docs-page__paragraph'>IN PROGRESS</p>
                     <Markup.ReactMarkup>
                         <Markup.ReactMarkupPreview>
-                            <DropdownNew
+                            <Dropdown
                                 items={[
                                     { label: 'Action 1', onSelect: () => 1 },
                                     { label: 'Action 2', onSelect: () => 1 },
@@ -82,10 +123,20 @@ export default class DropdownDoc extends React.Component {
                                     { label: 'Action 6', onSelect: () => 1 },
                                 ]}>
                                 Drop append to body
-                            </DropdownNew>
+                            </Dropdown>
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
-                        
+                        <Dropdown
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                                { label: 'Action 4', onSelect: () => 1 },
+                                { label: 'Action 5', onSelect: () => 1 },
+                                { label: 'Action 6', onSelect: () => 1 },
+                            ]}>
+                            Drop append to body
+                        </Dropdown>
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
@@ -94,7 +145,7 @@ export default class DropdownDoc extends React.Component {
                     <p className='docs-page__paragraph'></p>
                     <Markup.ReactMarkup>
                         <Markup.ReactMarkupPreview>
-                            <DropdownNew
+                            <Dropdown
                                 items={[
                                     {
                                         type: 'group', label: 'actions', items: [
@@ -114,9 +165,8 @@ export default class DropdownDoc extends React.Component {
                                         ]
                                     }]}>
                                 Multilevel dropdown
-                            </DropdownNew>
-
-                            <DropdownNew
+                            </Dropdown>
+                            <Dropdown
                                 items={[
                                     {
                                         type: 'group', label: 'actions', items: [
@@ -136,10 +186,51 @@ export default class DropdownDoc extends React.Component {
                                         ]
                                     }]}>
                                 Submenu on the left
-                            </DropdownNew>
+                            </Dropdown>
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
-                        
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group', label: 'actions', items: [
+                                        'divider',
+                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                        'divider',
+                                    ]
+                                },
+                                {
+                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                        { label: 'Action 1', onSelect: () => 1 },
+                                        { label: 'Action 2', onSelect: () => 1 },
+                                        { label: 'Action 3', onSelect: () => 1 },
+                                        { label: 'Action 4', onSelect: () => 1 },
+                                    ]
+                                }]}>
+                            Multilevel dropdown
+                        </Dropdown>
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group', label: 'actions', items: [
+                                        'divider',
+                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                        'divider',
+                                    ]
+                                },
+                                {
+                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                        { label: 'Action 1', onSelect: () => 1 },
+                                        { label: 'Action 2', onSelect: () => 1 },
+                                        { label: 'Action 3', onSelect: () => 1 },
+                                        { label: 'Action 4', onSelect: () => 1 },
+                                    ]
+                                }]}>
+                            Submenu on the left
+                        </Dropdown>    
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
@@ -150,7 +241,7 @@ export default class DropdownDoc extends React.Component {
                         <Markup.ReactMarkupPreview>
                             <SubNav zIndex={1} color='darker'>
                                 <h3 className="subnav__page-title">Subnav title</h3>
-                                <DropdownNew
+                                <Dropdown
                                     items={[
                                         {
                                             type: 'group', label: 'actions', items: [
@@ -172,11 +263,36 @@ export default class DropdownDoc extends React.Component {
                                     <button className='navbtn'>
                                         <i className="icon-dots-vertical"></i>
                                     </button>
-                                </DropdownNew>
+                                </Dropdown>
                             </SubNav>
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
-                        
+                        <SubNav zIndex={1} color='darker'>
+                            <h3 className="subnav__page-title">Subnav title</h3>
+                            <Dropdown
+                                items={[
+                                    {
+                                        type: 'group', label: 'actions', items: [
+                                            'divider',
+                                            { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                            { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                            { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                            'divider',
+                                        ]
+                                    },
+                                    {
+                                        type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                            { label: 'Action 1', onSelect: () => 1 },
+                                            { label: 'Action 2', onSelect: () => 1 },
+                                            { label: 'Action 3', onSelect: () => 1 },
+                                            { label: 'Action 4', onSelect: () => 1 },
+                                        ]
+                                    }]}>
+                                <button className='navbtn'>
+                                    <i className="icon-dots-vertical"></i>
+                                </button>
+                            </Dropdown>
+                        </SubNav>
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
@@ -187,7 +303,7 @@ export default class DropdownDoc extends React.Component {
                         <Markup.ReactMarkupPreview>
                             <SubNav zIndex={1} color='darker'>
                                 <h3 className="subnav__page-title">Subnav title</h3>
-                                <DropdownNew
+                                <Dropdown
                                     header={[
                                         {
                                             type: 'group', label: 'header actions', items: [
@@ -226,11 +342,53 @@ export default class DropdownDoc extends React.Component {
                                     <button className='navbtn'>
                                         <i className="icon-dots-vertical"></i>
                                     </button>
-                                </DropdownNew>
+                                </Dropdown>
                             </SubNav>
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
-                        
+                        <SubNav zIndex={1} color='darker'>
+                            <h3 className="subnav__page-title">Subnav title</h3>
+                            <Dropdown
+                                header={[
+                                    {
+                                        type: 'group', label: 'header actions', items: [
+                                            { label: 'Header action one', icon: 'download', onSelect: () => 1 },
+                                            { label: 'Header action two', icon: 'trash', onSelect: () => 1 },
+                                        ]
+                                    },
+                                ]}
+                                items={[
+                                    {
+                                        type: 'group', label: 'body actions', items: [
+                                            { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                            { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                            { label: 'Action 2', icon: 'envelope', onSelect: () => 1 },
+                                            { label: 'Action 3', icon: 'heart', onSelect: () => 1 },
+                                            { label: 'Action 4', icon: 'print', onSelect: () => 1 },
+                                            { label: 'Action 5', icon: 'plus-sign', onSelect: () => 1 },
+                                            { label: 'Action 6', icon: 'minus-sign', onSelect: () => 1 },
+                                            { label: 'Action 7', icon: 'refresh', onSelect: () => 1 },
+                                            { label: 'Action 8', icon: 'pick', onSelect: () => 1 },
+                                            { label: 'Action 9', icon: 'bell', onSelect: () => 1 },
+                                            { label: 'Action 10', icon: 'kill', onSelect: () => 1 },
+                                            { label: 'Action 11', icon: 'settings', onSelect: () => 1 },
+                                            { label: 'Action 12', icon: 'cut', onSelect: () => 1 },
+                                        ]
+                                    },
+                                ]}
+                                footer={[
+                                    {
+                                        type: 'group', label: 'footer actions', items: [
+                                            { label: 'Create gallery', icon: 'slideshow', onSelect: () => 1 },
+                                            { label: 'Create package', icon: 'composite', onSelect: () => 1 },
+                                        ]
+                                    },
+                                ]}>
+                                <button className='navbtn'>
+                                    <i className="icon-dots-vertical"></i>
+                                </button>
+                            </Dropdown>
+                        </SubNav>
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>

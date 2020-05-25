@@ -37,11 +37,11 @@ export {PropsList, Prop} from './components/PropsList';
 export {Icon} from './components/Icon';
 export {Divider}  from './components/Divider';
 export {HeadingText} from './components/HeadingText';
+export {DropdownFirst} from './components/DropdownFirst';
+export {DropdownItem} from './components/DropdownFirst';
+export {DropdownLabel} from './components/DropdownFirst';
+export {DropdownDivider} from './components/DropdownFirst';
 export {Dropdown} from './components/Dropdown';
-export {DropdownItem} from './components/Dropdown';
-export {DropdownLabel} from './components/Dropdown';
-export {DropdownDivider} from './components/Dropdown';
-export {DropdownNew} from './components/DropdownNew';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
