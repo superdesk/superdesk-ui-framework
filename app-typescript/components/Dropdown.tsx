@@ -23,7 +23,6 @@ export interface IMenuGroup {
 interface IMenu {
     label?: string;
     align?: 'left' | 'right';
-    side?: 'left' | 'right';
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
@@ -36,14 +35,12 @@ export const Dropdown = ({
     footer,
     children,
     align,
-    side,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
     const [height, setHeight] = React.useState(false);
     const [submenu, setSubmenu] = React.useState(false);
     const [width, setWidth] = React.useState(false);
-    const [dSide, setDSide] = React.useState('');
     const ref = React.useRef(null);
     let inDebounce = 0;
 
@@ -51,7 +48,7 @@ export const Dropdown = ({
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
         function applyScroll() {
-            return change ? debounce(20) : null;
+            return change ? debounce(50) : null;
         }
         parentElement.parentNode.addEventListener("scroll", applyScroll());
 
@@ -88,7 +85,6 @@ export const Dropdown = ({
         return {
             top: rect.top,
             bottom: rect.bottom,
-            left: rect.left,
             right: rect.right,
         };
     }
@@ -119,29 +115,18 @@ export const Dropdown = ({
         let number = getDimensions(ref.current);
         let screenHeight = screen.height;
         let heightEl = heightElement(ref.current);
-        let first = screen.height - number.bottom;
 
-        if ((first < heightEl) && number.top < heightEl) {
-            if (!side) {
-                if (number.left < 200) {
-                    setDSide('right');
-                } else {
-                    setDSide('left');
-                }
-            }
+        if ((screenHeight - number.bottom) < heightEl) {
+            setHeight(true);
         } else {
-            setDSide('');
-            if ((screenHeight - number.bottom) < heightEl) {
-                setHeight(true);
-            } else {
-                setHeight(false);
-            }
-            if (screenHeight < number.right) {
-                setWidth(true);
-            } else {
-                setWidth(false);
-            }
+            setHeight(false);
         }
+        if (screenHeight < number.right) {
+            setWidth(true);
+        } else {
+            setWidth(false);
+        }
+
     }
 
     function calculateTwo() {
@@ -236,8 +221,6 @@ export const Dropdown = ({
         ['open']: open,
         ['dropdown--dropup']: heightSet(height),
         ['dropdown--align-right']: elementAlign() === 'right',
-        [`dropdown--drop${side}`]: side,
-        [`dropdown--drop${dSide}`]: dSide,
     });
 
     return (
