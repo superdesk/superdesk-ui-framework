@@ -24,6 +24,12 @@ function sdSwitch() {
                 backspace: 8
             };
 
+            function setValue(value) {
+                if (element.hasClass('disabled') !== true) {
+                    ngModel.$setViewValue(value);
+                }
+            }
+
             ngModel.$render = function () {
                 render(element, ngModel.$viewValue);
             };
@@ -32,7 +38,7 @@ function sdSwitch() {
                 if (e.keyCode === Keys.enter || e.keyCode === Keys.space) {
                     e.preventDefault();
                     $scope.$apply(function () {
-                        ngModel.$setViewValue(!ngModel.$viewValue);
+                        setValue(!ngModel.$viewValue);
                     });
 
                     return false;
@@ -43,9 +49,13 @@ function sdSwitch() {
                 render(element, ngModel.$viewValue);
             });
 
+            $scope.$watch(attrs.disabled, function (value) {
+                render(element, ngModel.$viewValue, value === true);
+            });
+
             element.on('click', function (e) {
                 $scope.$apply(function () {
-                    ngModel.$setViewValue(!ngModel.$viewValue);
+                    setValue(!ngModel.$viewValue);
                 });
 
                 return false;
@@ -56,9 +66,13 @@ function sdSwitch() {
                 element.off('click');
             });
 
-            function render(element, value) {
+            function render(element, value, disabled) {
                 element.toggleClass('checked', !!value);
                 element.attr('checked', !!value);
+                
+                if (disabled != null) {
+                    element.toggleClass('disabled', disabled);
+                }
             }
         }
     };
