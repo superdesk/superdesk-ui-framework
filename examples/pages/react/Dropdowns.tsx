@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import { SubNav } from '../../../app-typescript';
 import { Dropdown } from '../../../app-typescript';
+
 export default class DropdownDoc extends React.Component {
     render() {
         return (
@@ -40,6 +41,7 @@ export default class DropdownDoc extends React.Component {
                                 ]}>
                                 Right aligned
                             </Dropdown>
+
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
                         <Dropdown
@@ -59,52 +61,6 @@ export default class DropdownDoc extends React.Component {
                             ]}>
                             Right aligned
                         </Dropdown>
-                    `}
-                        </Markup.ReactMarkupCode>
-                    </Markup.ReactMarkup>
-
-                    <h3 className="docs-page__h3">Dropdowns opened on the side of the trigger.</h3>
-                    <p className='docs-page__paragraph'></p>
-                    <Markup.ReactMarkup>
-                        <Markup.ReactMarkupPreview>
-                            <Dropdown
-                                side='left'
-                                items={[
-                                    { label: 'Action 1', onSelect: () => 1 },
-                                    { label: 'Action 2', onSelect: () => 1 },
-                                    { label: 'Action 3', onSelect: () => 1 },
-                                ]}>
-                                Drop left
-                            </Dropdown>
-                            <Dropdown
-                                side='right'
-                                items={[
-                                    { label: 'Action 1', onSelect: () => 1 },
-                                    { label: 'Action 2', onSelect: () => 1 },
-                                    { label: 'Action 3', onSelect: () => 1 },
-                                ]}>
-                                Drop right
-                            </Dropdown>
-                        </Markup.ReactMarkupPreview>
-                        <Markup.ReactMarkupCode>{`
-                        <Dropdown
-                            side='left'
-                            items={[
-                                { label: 'Action 1', onSelect: () => 1 },
-                                { label: 'Action 2', onSelect: () => 1 },
-                                { label: 'Action 3', onSelect: () => 1 },
-                            ]}>
-                            Drop left
-                        </Dropdown>
-                        <Dropdown
-                            side='right'
-                            items={[
-                                { label: 'Action 1', onSelect: () => 1 },
-                                { label: 'Action 2', onSelect: () => 1 },
-                                { label: 'Action 3', onSelect: () => 1 },
-                            ]}>
-                            Drop right
-                        </Dropdown>  
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
