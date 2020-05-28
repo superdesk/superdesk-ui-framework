@@ -36,26 +36,27 @@ export const Dropdown = ({
     children,
     align,
 }: IMenu) => {
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpenState] = React.useState(false);
     const [change, setChange] = React.useState(false);
     const [height, setHeight] = React.useState(false);
     const [submenu, setSubmenu] = React.useState(false);
     const [width, setWidth] = React.useState(false);
     const ref = React.useRef(null);
+    const refSubMenu = React.useRef(null);
     let inDebounce = 0;
 
     React.useLayoutEffect(() => {
         let element = document.getElementsByClassName('dropdown')[0];
         let parentElement = getScrollParent(element);
-        function applyScroll() {
+        function applyDebounce() {
             return change ? debounce(50) : null;
         }
-        parentElement.parentNode.addEventListener("scroll", applyScroll());
+        parentElement.parentNode.addEventListener("scroll", applyDebounce());
 
         calculate();
 
         return () => {
-            parentElement.removeEventListener("scroll", applyScroll());
+            parentElement.removeEventListener("scroll", applyDebounce());
             clearTimeout(inDebounce);
         };
     }, [open]);
@@ -65,18 +66,18 @@ export const Dropdown = ({
     }, [open]);
 
     // open close
-    function isOpen() {
+    function toggleDisplay() {
         if (!open) {
-            setOpen(true);
+            setOpenState(true);
             document.addEventListener('click', closeMenu);
         } else {
-            setOpen(false);
+            setOpenState(false);
         }
     }
 
     function closeMenu() {
         document.removeEventListener('click', closeMenu);
-        setOpen(false);
+        setOpenState(false);
     }
 
     // position on screen
@@ -129,7 +130,7 @@ export const Dropdown = ({
 
     }
 
-    function calculateTwo() {
+    function calculateSubmenu() {
         let number = getDimensions(ref.current);
         let second = screen.height;
         let heightEl = heightElement(ref.current);
@@ -149,30 +150,35 @@ export const Dropdown = ({
         };
     };
 
-    function elementAlign() {
-        if (align) {
-            return align === 'right' ? 'right' : '';
+    function shouldAlignRight() {
+        if (align === 'right') {
+            return true;
+        } else if (width) {
+            return true;
         } else {
-            return width ? 'right' : '';
+            return false;
         }
     }
 
     function each(item: any, index: number) {
         if (item['type'] === 'submenu') {
             let submenuItems: any = [];
-            item['items'].forEach((el: any, key: number) => {
-                submenuItems.push(each(el, key));
+            item['items'].forEach((el: any, i: number) => {
+                submenuItems.push(each(el, i));
             });
             return (
                 <li key={index}>
                     <div className={(submenu ? 'dropdown--dropup' : '') + ' dropdown'} >
                         <button
                             className='dropdown__toggle dropdown-toggle'
-                            onMouseOver={() => submenuItems.map((element: any) => { calculateTwo.apply(element); })} >
+                            onMouseOver={() => submenuItems.map((element: any) => {
+                                calculateSubmenu.apply(element);
+                            })} >
                             {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                             {item['label']}
                         </button>
-                        <ul className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'} ref={ref}>
+                        <ul className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'}
+                            ref={refSubMenu}>
                             {submenuItems}
                         </ul>
                     </div>
@@ -220,7 +226,7 @@ export const Dropdown = ({
     const classes = classNames('dropdown', {
         ['open']: open,
         ['dropdown--dropup']: heightSet(height),
-        ['dropdown--align-right']: elementAlign() === 'right',
+        ['dropdown--align-right']: shouldAlignRight(),
     });
 
     return (
@@ -228,32 +234,58 @@ export const Dropdown = ({
             {typeof children === 'object' ?
                 (React.isValidElement(children) ? React.cloneElement(children, {
                     className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
-                    onClick: isOpen,
+                    onClick: toggleDisplay,
                 }) : null)
                 :
                 <button
                     className=' dropdown__toggle dropdown-toggle'
-                    onClick={isOpen}>
+                    onClick={toggleDisplay}>
                     {children}
                     <span className="dropdown__caret"></span>
                 </button>}
-
-            {header ?
-                <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
-                    <ul className='dropdown__menu-header'>
-                        {headerElements}
-                    </ul>
-                    <ul className='dropdown__menu-body'>
+            {(function() {
+                if (header && footer) {
+                    return (
+                        <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                            <ul className='dropdown__menu-header'>
+                                {headerElements}
+                            </ul>
+                            <ul className='dropdown__menu-body'>
+                                {dropdownElements}
+                            </ul>
+                            <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                                {footerElements}
+                            </ul>
+                        </div>
+                        );
+                } else if (header) {
+                    return (
+                        <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                            <ul className='dropdown__menu-header'>
+                                {headerElements}
+                            </ul>
+                            <ul className='dropdown__menu-body'>
+                                {dropdownElements}
+                            </ul>
+                        </div>
+                        );
+                } else if (footer) {
+                    return (
+                        <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                            <ul className='dropdown__menu-body'>
+                                {dropdownElements}
+                            </ul>
+                            <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                                {footerElements}
+                            </ul>
+                        </div>
+                    );
+                } else {
+                    return <ul className='dropdown__menu' ref={ref} >
                         {dropdownElements}
-                    </ul>
-                    {footer ?
-                        <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                            {footerElements}
-                        </ul> : null}
-                </div> :
-                <ul className='dropdown__menu' ref={ref} >
-                    {dropdownElements}
-                </ul>}
+                    </ul>;
+                }
+            })()}
         </div >
     );
 };
