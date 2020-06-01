@@ -121,7 +121,7 @@ export const Dropdown = ({
             );
         } else {
             return (
-                <ul className={'dropdown dropdown__menu more-activity-menu ' + classesMenu}
+                <ul className='dropdown dropdown__menu more-activity-menu '
                     style={{
                         display: 'block',
                         top: top,
@@ -152,7 +152,7 @@ export const Dropdown = ({
     }, [open]);
 
     React.useEffect(() => {
-        let element = null;
+        let element;
         const existingElement = document.getElementById(DROPDOWN_ID);
         if (existingElement) {
             element = existingElement;
@@ -338,12 +338,6 @@ export const Dropdown = ({
     // style dropdown
     const classes = classNames('dropdown', {
         ['open']: open,
-        ['dropdown--dropup']: heightSet(height),
-        ['dropdown--align-right']: shouldAlignRight(),
-    });
-
-    // style menuAppend
-    const classesMenu = classNames('tu sam', {
         ['dropdown--dropup']: heightSet(height),
         ['dropdown--align-right']: shouldAlignRight(),
     });
