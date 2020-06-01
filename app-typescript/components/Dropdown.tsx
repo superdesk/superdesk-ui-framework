@@ -152,11 +152,8 @@ export const Dropdown = ({
     }, [open]);
 
     React.useEffect(() => {
-        let holder = null;
         const existingElement = document.getElementById(DROPDOWN_ID);
-        if (existingElement) {
-            holder = existingElement;
-        } else {
+        if (!existingElement) {
             const el = document.createElement("div");
             el.id = DROPDOWN_ID;
             // style placeholder
@@ -167,9 +164,7 @@ export const Dropdown = ({
             el.style.height = '1px';
 
             document.body.appendChild(el);
-            holder = el;
         }
-
         if (append && change) {
             setMenuAppend(createAppendMenu(
                 getDimensions(buttonRef.current).bottom,
@@ -178,7 +173,6 @@ export const Dropdown = ({
         }
         setChange(true);
     }, [open]);
-
     // open close
     function toggleDisplay() {
         if (!open) {
@@ -251,10 +245,10 @@ export const Dropdown = ({
         }
     }
 
-    function calculateTwo() {
-        let number = getDimensions(ref.current);
+    function calculateSubmenu() {
+        let number = getDimensions(refSubMenu.current);
         let second = screen.height;
-        let heightEl = heightElement(ref.current);
+        let heightEl = heightElement(refSubMenu.current);
 
         if ((second - number.bottom) < (heightEl) && (number.top > heightEl)) {
             setSubmenu(true);
@@ -297,7 +291,9 @@ export const Dropdown = ({
                     <div className={(submenu ? 'dropdown--dropup' : '') + ' dropdown'} >
                         <button
                             className='dropdown__toggle dropdown-toggle'
-                            onMouseOver={() => submenuItems.map((element: any) => { calculateTwo.apply(element); })} >
+                            onMouseOver={() => submenuItems.map((element: any) => {
+                                calculateSubmenu.apply(element);
+                            })} >
                             {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                             {item['label']}
                         </button>
