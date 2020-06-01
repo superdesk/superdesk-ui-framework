@@ -64,8 +64,7 @@ export default class DropdownDoc extends React.Component {
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
 
-                    <h3 className="docs-page__h3">Dropdown Append To Body</h3>
-                    <p className='docs-page__paragraph'>IN PROGRESS</p>
+                    <p className='docs-page__paragraph'>The basic Dropdown is composed of a wrapping Dropdown and inner DropdownItem.</p>
                     <Markup.ReactMarkup>
                         <Markup.ReactMarkupPreview>
                             <Dropdown
@@ -73,9 +72,63 @@ export default class DropdownDoc extends React.Component {
                                     { label: 'Action 1', onSelect: () => 1 },
                                     { label: 'Action 2', onSelect: () => 1 },
                                     { label: 'Action 3', onSelect: () => 1 },
-                                    { label: 'Action 4', onSelect: () => 1 },
-                                    { label: 'Action 5', onSelect: () => 1 },
-                                    { label: 'Action 6', onSelect: () => 1 },
+                                ]}>
+                                Left aligned (default)
+                            </Dropdown>
+                            <Dropdown
+                                align='right'
+                                items={[
+                                    { label: 'Action 1', onSelect: () => 1 },
+                                    { label: 'Action 2', onSelect: () => 1 },
+                                    { label: 'Action 3', onSelect: () => 1 },
+                                ]}>
+                                Right aligned
+                            </Dropdown>
+                        </Markup.ReactMarkupPreview>
+                        <Markup.ReactMarkupCode>{`
+                        <Dropdown
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                            ]}>
+                            Left aligned (default)
+                        </Dropdown>
+                        <Dropdown
+                            align='right'
+                            items={[
+                                { label: 'Action 1', onSelect: () => 1 },
+                                { label: 'Action 2', onSelect: () => 1 },
+                                { label: 'Action 3', onSelect: () => 1 },
+                            ]}>
+                            Right aligned
+                        </Dropdown>
+                    `}
+                        </Markup.ReactMarkupCode>
+                    </Markup.ReactMarkup>
+
+                    <h3 className="docs-page__h3">Dropdown Append To Body</h3>
+                    <p className='docs-page__paragraph'>This is useful when the dropdown button is inside a div with overflow: hidden, and the menu would otherwise be hidden.</p>
+                    <Markup.ReactMarkup>
+                        <Markup.ReactMarkupPreview>
+                            <Dropdown
+                                append={true}
+                                items={[
+                                    {
+                                        type: 'group', label: 'actions', items: [
+                                            'divider',
+                                            { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                            { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                            { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                            'divider',
+                                        ]
+                                    },
+                                    {
+                                        type: 'group', label: 'actions 2', items: [
+                                            { label: 'Download', icon: 'download', onSelect: () => 1 },
+                                            { label: 'Print', icon: 'print', onSelect: () => 1 },
+                                        ]
+                                    }
                                 ]}>
                                 Drop append to body
                             </Dropdown>

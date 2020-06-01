@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import * as ReactDOM from 'react-dom';
 
 export interface IMenuItem {
     label: string;
@@ -21,6 +22,7 @@ export interface IMenuGroup {
 }
 
 interface IMenu {
+    append?: boolean;
     label?: string;
     align?: 'left' | 'right';
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
@@ -35,15 +37,102 @@ export const Dropdown = ({
     footer,
     children,
     align,
+    append,
 }: IMenu) => {
-    const [open, setOpenState] = React.useState(false);
+    const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
     const [height, setHeight] = React.useState(false);
     const [submenu, setSubmenu] = React.useState(false);
     const [width, setWidth] = React.useState(false);
+    const [menuAppend, setMenuAppend] = React.useState(<p></p>);
+    const DROPDOWN_ID = "react-placeholder";
     const ref = React.useRef(null);
     const refSubMenu = React.useRef(null);
+    const buttonRef = React.useRef(null);
     let inDebounce = 0;
+
+    const headerElements = header?.map((el, index) => {
+        return each(el, index);
+    });
+
+    const dropdownElements = items.map((el, index) => {
+        return each(el, index);
+    });
+
+    const footerElements = footer?.map((el, index) => {
+        return each(el, index);
+    });
+
+    // structure for append menu
+    function createAppendMenu(top: number, left: number) {
+        if (header && footer) {
+            return (
+                <div className='dropdown__menu dropdown__menu--has-head-foot'
+                    ref={ref}
+                    style={{
+                        display: 'block',
+                        top: top,
+                        left: left,
+                    }}  >
+                    <ul className='dropdown__menu-header'>
+                        {headerElements}
+                    </ul>
+                    <ul className='dropdown__menu-body'>
+                        {dropdownElements}
+                    </ul>
+                    <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                        {footerElements}
+                    </ul>
+                </div>
+            );
+        } else if (header) {
+            return (
+                <div className='dropdown__menu dropdown__menu--has-head-foot'
+                    ref={ref}
+                    style={{
+                        display: 'block',
+                        top: top,
+                        left: left,
+                    }}  >
+                    <ul className='dropdown__menu-header'>
+                        {headerElements}
+                    </ul>
+                    <ul className='dropdown__menu-body'>
+                        {dropdownElements}
+                    </ul>
+                </div>
+            );
+        } else if (footer) {
+            return (
+                <div className='dropdown__menu dropdown__menu--has-head-foot'
+                    ref={ref}
+                    style={{
+                        display: 'block',
+                        top: top,
+                        left: left,
+                    }}  >
+                    <ul className='dropdown__menu-body'>
+                        {dropdownElements}
+                    </ul>
+                    <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                        {footerElements}
+                    </ul>
+                </div>
+            );
+        } else {
+            return (
+                <ul className={'dropdown dropdown__menu more-activity-menu ' + classesMenu}
+                    style={{
+                        display: 'block',
+                        top: top,
+                        left: left,
+                    }}
+                    ref={ref} >
+                    {dropdownElements}
+                </ul>
+            );
+        }
+    }
 
     React.useLayoutEffect(() => {
         let element = document.getElementsByClassName('dropdown')[0];
@@ -51,10 +140,11 @@ export const Dropdown = ({
         function applyDebounce() {
             return change ? debounce(50) : null;
         }
-        parentElement.parentNode.addEventListener("scroll", applyDebounce());
+        if (!append) {
+            parentElement.parentNode.addEventListener("scroll", applyDebounce());
 
-        calculate();
-
+            calculate();
+        }
         return () => {
             parentElement.removeEventListener("scroll", applyDebounce());
             clearTimeout(inDebounce);
@@ -62,22 +152,52 @@ export const Dropdown = ({
     }, [open]);
 
     React.useEffect(() => {
+        let element = null;
+        const existingElement = document.getElementById(DROPDOWN_ID);
+        if (existingElement) {
+            element = existingElement;
+        } else {
+            const el = document.createElement("div");
+            el.id = DROPDOWN_ID;
+            // style placeholder
+            el.style.position = 'absolute';
+            el.style.top = '0';
+            el.style.left = '0';
+            el.style.width = '1px';
+            el.style.height = '1px';
+
+            document.body.appendChild(el);
+            element = el;
+        }
+
+        if (append && change) {
+            setMenuAppend(createAppendMenu(
+                getDimensions(buttonRef.current).bottom,
+                getDimensions(buttonRef.current).left));
+            addInPlaceholder();
+        }
         setChange(true);
     }, [open]);
 
     // open close
     function toggleDisplay() {
         if (!open) {
-            setOpenState(true);
+            setOpen(true);
+            setMenuAppend(createAppendMenu(
+                getDimensions(buttonRef.current).bottom,
+                getDimensions(buttonRef.current).left));
             document.addEventListener('click', closeMenu);
         } else {
-            setOpenState(false);
+            setOpen(false);
+            setMenuAppend(<p></p>);
         }
     }
 
     function closeMenu() {
         document.removeEventListener('click', closeMenu);
-        setOpenState(false);
+        setMenuAppend(<p></p>);
+        setOpen(false);
+
     }
 
     // position on screen
@@ -87,6 +207,7 @@ export const Dropdown = ({
             top: rect.top,
             bottom: rect.bottom,
             right: rect.right,
+            left: rect.left,
         };
     }
 
@@ -105,13 +226,14 @@ export const Dropdown = ({
             }
         }
     }
-    function heightSet(test: boolean) {
+    function heightSet(heightExists: boolean) {
         if (change) {
-            return test ? true : false;
+            return heightExists ? true : false;
         } else {
             return '';
         }
     }
+
     function calculate() {
         let number = getDimensions(ref.current);
         let screenHeight = screen.height;
@@ -127,10 +249,9 @@ export const Dropdown = ({
         } else {
             setWidth(false);
         }
-
     }
 
-    function calculateSubmenu() {
+    function calculateTwo() {
         let number = getDimensions(ref.current);
         let second = screen.height;
         let heightEl = heightElement(ref.current);
@@ -160,25 +281,28 @@ export const Dropdown = ({
         }
     }
 
+    function addInPlaceholder() {
+        const placeholder = document.getElementById(DROPDOWN_ID);
+        return ReactDOM.render(menuAppend, placeholder);
+    }
+
     function each(item: any, index: number) {
         if (item['type'] === 'submenu') {
             let submenuItems: any = [];
-            item['items'].forEach((el: any, i: number) => {
-                submenuItems.push(each(el, i));
+            item['items'].forEach((el: any, key: number) => {
+                submenuItems.push(each(el, key));
             });
             return (
                 <li key={index}>
                     <div className={(submenu ? 'dropdown--dropup' : '') + ' dropdown'} >
                         <button
                             className='dropdown__toggle dropdown-toggle'
-                            onMouseOver={() => submenuItems.map((element: any) => {
-                                calculateSubmenu.apply(element);
-                            })} >
+                            onMouseOver={() => submenuItems.map((element: any) => { calculateTwo.apply(element); })} >
                             {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                             {item['label']}
                         </button>
-                        <ul className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'}
-                            ref={refSubMenu}>
+                        <ul ref={refSubMenu}
+                            className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'}>
                             {submenuItems}
                         </ul>
                     </div>
@@ -211,20 +335,15 @@ export const Dropdown = ({
         }
     }
 
-    const headerElements = header?.map((el, index) => {
-        return each(el, index);
-    });
-
-    const dropdownElements = items.map((el, index) => {
-        return each(el, index);
-    });
-
-    const footerElements = footer?.map((el, index) => {
-        return each(el, index);
-    });
-
+    // style dropdown
     const classes = classNames('dropdown', {
         ['open']: open,
+        ['dropdown--dropup']: heightSet(height),
+        ['dropdown--align-right']: shouldAlignRight(),
+    });
+
+    // style menuAppend
+    const classesMenu = classNames('tu sam', {
         ['dropdown--dropup']: heightSet(height),
         ['dropdown--align-right']: shouldAlignRight(),
     });
@@ -235,57 +354,60 @@ export const Dropdown = ({
                 (React.isValidElement(children) ? React.cloneElement(children, {
                     className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
                     onClick: toggleDisplay,
+                    ref: buttonRef,
                 }) : null)
                 :
-                <button
+                <button ref={buttonRef}
                     className=' dropdown__toggle dropdown-toggle'
                     onClick={toggleDisplay}>
                     {children}
                     <span className="dropdown__caret"></span>
                 </button>}
-            {(function() {
-                if (header && footer) {
-                    return (
-                        <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
-                            <ul className='dropdown__menu-header'>
-                                {headerElements}
-                            </ul>
-                            <ul className='dropdown__menu-body'>
-                                {dropdownElements}
-                            </ul>
-                            <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                                {footerElements}
-                            </ul>
-                        </div>
+
+            {append ?
+                null : (function() {
+                    if (header && footer) {
+                        return (
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                                <ul className='dropdown__menu-header'>
+                                    {headerElements}
+                                </ul>
+                                <ul className='dropdown__menu-body'>
+                                    {dropdownElements}
+                                </ul>
+                                <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                                    {footerElements}
+                                </ul>
+                            </div>
                         );
-                } else if (header) {
-                    return (
-                        <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
-                            <ul className='dropdown__menu-header'>
-                                {headerElements}
-                            </ul>
-                            <ul className='dropdown__menu-body'>
-                                {dropdownElements}
-                            </ul>
-                        </div>
+                    } else if (header) {
+                        return (
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                                <ul className='dropdown__menu-header'>
+                                    {headerElements}
+                                </ul>
+                                <ul className='dropdown__menu-body'>
+                                    {dropdownElements}
+                                </ul>
+                            </div>
                         );
-                } else if (footer) {
-                    return (
-                        <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
-                            <ul className='dropdown__menu-body'>
-                                {dropdownElements}
-                            </ul>
-                            <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                                {footerElements}
-                            </ul>
-                        </div>
-                    );
-                } else {
-                    return <ul className='dropdown__menu' ref={ref} >
-                        {dropdownElements}
-                    </ul>;
-                }
-            })()}
+                    } else if (footer) {
+                        return (
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                                <ul className='dropdown__menu-body'>
+                                    {dropdownElements}
+                                </ul>
+                                <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
+                                    {footerElements}
+                                </ul>
+                            </div>
+                        );
+                    } else {
+                        return <ul className='dropdown__menu' ref={ref} >
+                            {dropdownElements}
+                        </ul>;
+                    }
+                })()}
         </div >
     );
 };
