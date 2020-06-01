@@ -152,10 +152,10 @@ export const Dropdown = ({
     }, [open]);
 
     React.useEffect(() => {
-        let element;
+        let holder = null;
         const existingElement = document.getElementById(DROPDOWN_ID);
         if (existingElement) {
-            element = existingElement;
+            holder = existingElement;
         } else {
             const el = document.createElement("div");
             el.id = DROPDOWN_ID;
@@ -167,7 +167,7 @@ export const Dropdown = ({
             el.style.height = '1px';
 
             document.body.appendChild(el);
-            element = el;
+            holder = el;
         }
 
         if (append && change) {
