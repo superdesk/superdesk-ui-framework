@@ -51,6 +51,13 @@ export const Dropdown = ({
     const buttonRef = React.useRef(null);
     let inDebounce = 0;
 
+    // style dropdown
+    const classes = classNames('dropdown', {
+        ['open']: open,
+        ['dropdown--dropup']: heightSet(height),
+        ['dropdown--align-right']: shouldAlignRight(),
+    });
+
     const headerElements = header?.map((el, index) => {
         return each(el, index);
     });
@@ -62,6 +69,43 @@ export const Dropdown = ({
     const footerElements = footer?.map((el, index) => {
         return each(el, index);
     });
+
+    // testing new implementation for append dropdown
+    React.useEffect(() => {
+        const existingElement = document.getElementById(DROPDOWN_ID);
+        if (!existingElement) {
+            const el = document.createElement("div");
+            el.id = DROPDOWN_ID;
+            // style placeholder
+            el.style.position = 'absolute';
+            el.style.top = '0';
+            el.style.left = '0';
+            el.style.width = '1px';
+            el.style.height = '1px';
+
+            document.body.appendChild(el);
+        }
+    }, [change]);
+
+    React.useLayoutEffect(() => {
+        let element = document.getElementsByClassName('dropdown')[0];
+        let parentElement = getScrollParent(element);
+        function applyDebounce() {
+            return change ? debounce(50) : null;
+        }
+        if (!append) {
+            parentElement.parentNode.addEventListener("scroll", applyDebounce());
+            calculate();
+        }
+        if (append && change) {
+            addInPlaceholder();
+        }
+        setChange(true);
+        return () => {
+            parentElement.removeEventListener("scroll", applyDebounce());
+            clearTimeout(inDebounce);
+        };
+    }, [open]);
 
     // structure for append menu
     function createAppendMenu(top: number, left: number) {
@@ -121,7 +165,7 @@ export const Dropdown = ({
             );
         } else {
             return (
-                <ul className='dropdown dropdown__menu more-activity-menu '
+                <ul className='dropdown__menu '
                     style={{
                         display: 'block',
                         top: top,
@@ -134,64 +178,25 @@ export const Dropdown = ({
         }
     }
 
-    React.useLayoutEffect(() => {
-        let element = document.getElementsByClassName('dropdown')[0];
-        let parentElement = getScrollParent(element);
-        function applyDebounce() {
-            return change ? debounce(50) : null;
-        }
-        if (!append) {
-            parentElement.parentNode.addEventListener("scroll", applyDebounce());
-
-            calculate();
-        }
-        return () => {
-            parentElement.removeEventListener("scroll", applyDebounce());
-            clearTimeout(inDebounce);
-        };
-    }, [open]);
-
-    React.useEffect(() => {
-        const existingElement = document.getElementById(DROPDOWN_ID);
-        if (!existingElement) {
-            const el = document.createElement("div");
-            el.id = DROPDOWN_ID;
-            // style placeholder
-            el.style.position = 'absolute';
-            el.style.top = '0';
-            el.style.left = '0';
-            el.style.width = '1px';
-            el.style.height = '1px';
-
-            document.body.appendChild(el);
-        }
-        if (append && change) {
-            setMenuAppend(createAppendMenu(
-                getDimensions(buttonRef.current).bottom,
-                getDimensions(buttonRef.current).left));
-            addInPlaceholder();
-        }
-        setChange(true);
-    }, [open]);
-    // open close
+    // toggle menu
     function toggleDisplay() {
         if (!open) {
             setOpen(true);
             setMenuAppend(createAppendMenu(
                 getDimensions(buttonRef.current).bottom,
                 getDimensions(buttonRef.current).left));
+
             document.addEventListener('click', closeMenu);
         } else {
             setOpen(false);
-            setMenuAppend(<p></p>);
+            setMenuAppend(<br />);
         }
     }
 
     function closeMenu() {
         document.removeEventListener('click', closeMenu);
-        setMenuAppend(<p></p>);
+        setMenuAppend(<br />);
         setOpen(false);
-
     }
 
     // position on screen
@@ -330,13 +335,6 @@ export const Dropdown = ({
                     onSelect={item['onSelect']} />);
         }
     }
-
-    // style dropdown
-    const classes = classNames('dropdown', {
-        ['open']: open,
-        ['dropdown--dropup']: heightSet(height),
-        ['dropdown--align-right']: shouldAlignRight(),
-    });
 
     return (
         <div className={classes} >
