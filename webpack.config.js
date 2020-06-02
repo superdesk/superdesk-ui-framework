@@ -75,7 +75,7 @@ const config = {
     },
 
     plugins: [
-        new CleanWebpackPlugin(['dist', 'react']),
+        new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
             chunks: ['vendor', 'examples', 'superdesk-ui'],
@@ -83,8 +83,7 @@ const config = {
         }),
         new CopyWebpackPlugin([
             {from: 'examples/img/', flatten: true},
-            {from: 'examples/pages/'},
-            {from: 'app-typescript/dist', to: '../react'}
+            {from: 'examples/pages/'}
         ]),
         new ExtractTextPlugin({
             filename: '[name].bundle.css',

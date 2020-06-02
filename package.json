@@ -1,13 +1,13 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "2.2.1",
+  "version": "2.2.2",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
     "url": "https://github.com/superdesk/superdesk-ui-framework.git"
   },
   "main": "dist/superdesk-ui.bundle.js",
-  "types": "app-typescript/dist/index.d.ts",
+  "types": "react/index.d.ts",
   "contributors": [
     "Nemanja Pavlovic",
     "Vladimir Stefanovic",
