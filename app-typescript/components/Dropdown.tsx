@@ -70,7 +70,6 @@ export const Dropdown = ({
         return each(el, index);
     });
 
-    // testing new implementation for append dropdown
     React.useEffect(() => {
         const existingElement = document.getElementById(DROPDOWN_ID);
         if (!existingElement) {
