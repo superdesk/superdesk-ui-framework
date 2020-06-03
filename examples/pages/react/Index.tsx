@@ -30,6 +30,7 @@ import IconFontDoc from './IconFont';
 import BigIconFontDoc from './BigIconFont';
 import SubNavDoc from './SubNav';
 import DropdownDoc from './Dropdowns';
+import TagInputDoc from './TagInputs';
 
 import ToastsDoc from './Toasts';
 
@@ -97,6 +98,9 @@ const pages = {
             'inputs': {
                 name: 'Inputs',
             },
+            'tag-input': {
+                name: 'Tag Inputs',
+            },
             'select': {
                 name: 'Select',
             },
@@ -157,6 +161,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
                         <Route path="/react/dropdowns" component={DropdownDoc} />
                         <Route path="/react/toast" component={ToastsDoc} />
+                        <Route path="/react/tag-input" component={TagInputDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
