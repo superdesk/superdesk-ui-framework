@@ -1,6 +1,6 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import * as ReactDOM from 'react-dom';
+import { createPopper } from '@popperjs/core';
 
 export interface IMenuItem {
     label: string;
@@ -36,27 +36,16 @@ export const Dropdown = ({
     header,
     footer,
     children,
-    align,
     append,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
-    const [height, setHeight] = React.useState(false);
-    const [submenu, setSubmenu] = React.useState(false);
-    const [width, setWidth] = React.useState(false);
     const [menuAppend, setMenuAppend] = React.useState(<p></p>);
     const DROPDOWN_ID = "react-placeholder";
     const ref = React.useRef(null);
     const refSubMenu = React.useRef(null);
     const buttonRef = React.useRef(null);
-    let inDebounce = 0;
-
-    // style dropdown
-    const classes = classNames('dropdown', {
-        ['open']: open,
-        ['dropdown--dropup']: heightSet(height),
-        ['dropdown--align-right']: shouldAlignRight(),
-    });
+    const refButtonSubMenu = React.useRef(null);
 
     const headerElements = header?.map((el, index) => {
         return each(el, index);
@@ -84,26 +73,14 @@ export const Dropdown = ({
 
             document.body.appendChild(el);
         }
+
     }, [change]);
 
     React.useLayoutEffect(() => {
-        let element = document.getElementsByClassName('dropdown')[0];
-        let parentElement = getScrollParent(element);
-        function applyDebounce() {
-            return change ? debounce(50) : null;
-        }
-        if (!append) {
-            parentElement.parentNode.addEventListener("scroll", applyDebounce());
-            calculate();
-        }
         if (append && change) {
             addInPlaceholder();
         }
         setChange(true);
-        return () => {
-            parentElement.removeEventListener("scroll", applyDebounce());
-            clearTimeout(inDebounce);
-        };
     }, [open]);
 
     // structure for append menu
@@ -111,7 +88,6 @@ export const Dropdown = ({
         if (header && footer) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    ref={ref}
                     style={{
                         display: 'block',
                         top: top,
@@ -131,7 +107,6 @@ export const Dropdown = ({
         } else if (header) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    ref={ref}
                     style={{
                         display: 'block',
                         top: top,
@@ -148,7 +123,6 @@ export const Dropdown = ({
         } else if (footer) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    ref={ref}
                     style={{
                         display: 'block',
                         top: top,
@@ -169,8 +143,7 @@ export const Dropdown = ({
                         display: 'block',
                         top: top,
                         left: left,
-                    }}
-                    ref={ref} >
+                    }} >
                     {dropdownElements}
                 </ul>
             );
@@ -184,7 +157,15 @@ export const Dropdown = ({
             setMenuAppend(createAppendMenu(
                 getDimensions(buttonRef.current).bottom,
                 getDimensions(buttonRef.current).left));
-
+            if (!append) {
+                let menuRef = ref.current;
+                let toggleRef = buttonRef.current;
+                if (toggleRef && menuRef) {
+                    createPopper(toggleRef, menuRef, {
+                        placement: 'bottom-start',
+                    });
+                }
+            }
             document.addEventListener('click', closeMenu);
         } else {
             setOpen(false);
@@ -209,76 +190,6 @@ export const Dropdown = ({
         };
     }
 
-    function heightElement(el: any) {
-        return el.clientHeight;
-    }
-
-    // scrollable
-    function getScrollParent(node: Element): any {
-        if (node.scrollHeight > node.clientHeight) {
-            return node;
-        } else {
-            if (node.parentElement !== null) {
-                let newElement = node.parentElement;
-                return getScrollParent(newElement);
-            }
-        }
-    }
-    function heightSet(heightExists: boolean) {
-        if (change) {
-            return heightExists ? true : false;
-        } else {
-            return '';
-        }
-    }
-
-    function calculate() {
-        let number = getDimensions(ref.current);
-        let screenHeight = screen.height;
-        let heightEl = heightElement(ref.current);
-
-        if ((screenHeight - number.bottom) < heightEl) {
-            setHeight(true);
-        } else {
-            setHeight(false);
-        }
-        if (screenHeight < number.right) {
-            setWidth(true);
-        } else {
-            setWidth(false);
-        }
-    }
-
-    function calculateSubmenu() {
-        let number = getDimensions(refSubMenu.current);
-        let second = screen.height;
-        let heightEl = heightElement(refSubMenu.current);
-
-        if ((second - number.bottom) < (heightEl) && (number.top > heightEl)) {
-            setSubmenu(true);
-        } else {
-            setSubmenu(false);
-        }
-    }
-
-    const debounce = (delay: number) => {
-        return function() {
-            const context = dropdownElements;
-            clearTimeout(inDebounce);
-            inDebounce = setTimeout(() => calculate.apply(context), delay);
-        };
-    };
-
-    function shouldAlignRight() {
-        if (align === 'right') {
-            return true;
-        } else if (width) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
     function addInPlaceholder() {
         const placeholder = document.getElementById(DROPDOWN_ID);
         return ReactDOM.render(menuAppend, placeholder);
@@ -292,17 +203,24 @@ export const Dropdown = ({
             });
             return (
                 <li key={index}>
-                    <div className={(submenu ? 'dropdown--dropup' : '') + ' dropdown'} >
+                    <div className='dropdown' >
                         <button
+                            ref={refButtonSubMenu}
                             className='dropdown__toggle dropdown-toggle'
-                            onMouseOver={() => submenuItems.map((element: any) => {
-                                calculateSubmenu.apply(element);
-                            })} >
+                            onMouseOver={() => {
+                                let subMenuRef = refSubMenu.current;
+                                let subToggleRef = refButtonSubMenu.current;
+                                if (subMenuRef && subToggleRef) {
+                                    createPopper(subToggleRef, subMenuRef, {
+                                        placement: 'right-start',
+                                    });
+                                }
+                            }}>
                             {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                             {item['label']}
                         </button>
                         <ul ref={refSubMenu}
-                            className={(width ? 'dropdown__menu--submenu-left ' : '') + 'dropdown__menu'}>
+                            className='dropdown__menu'>
                             {submenuItems}
                         </ul>
                     </div>
@@ -336,7 +254,7 @@ export const Dropdown = ({
     }
 
     return (
-        <div className={classes} >
+        <div className={'dropdown ' + (open ? 'open' : '')} >
             {typeof children === 'object' ?
                 (React.isValidElement(children) ? React.cloneElement(children, {
                     className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
