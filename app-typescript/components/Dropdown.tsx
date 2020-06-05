@@ -22,12 +22,12 @@ export interface IMenuGroup {
 }
 
 interface IMenu {
-    append?: boolean;
     label?: string;
     align?: 'left' | 'right';
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
+    append?: boolean;
     children: React.ReactNode;
 }
 
@@ -37,6 +37,7 @@ export const Dropdown = ({
     footer,
     children,
     append,
+    align,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
@@ -162,7 +163,7 @@ export const Dropdown = ({
                 let toggleRef = buttonRef.current;
                 if (toggleRef && menuRef) {
                     createPopper(toggleRef, menuRef, {
-                        placement: 'bottom-start',
+                        placement: checkAlign() ? 'bottom-end' : 'bottom-start',
                     });
                 }
             }
@@ -177,6 +178,14 @@ export const Dropdown = ({
         document.removeEventListener('click', closeMenu);
         setMenuAppend(<br />);
         setOpen(false);
+    }
+
+    function checkAlign() {
+        if (align === 'right') {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     // position on screen

@@ -20,7 +20,7 @@ export default class DropdownDoc extends React.Component {
                     
                 `}
                 </Markup.ReactMarkupCodePreview>
-                <p className='docs-page__paragraph'>The basic Dropdown is composed of a wrapping Dropdown and inner DropdownItem.</p>
+                <p className='docs-page__paragraph'>By default dropdown menu is positioned left comparing to dropdown toggle button element. For right positioned menu (second example) add prop value <code>align = 'right'</code></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown
@@ -64,7 +64,7 @@ export default class DropdownDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Dropdown Append To Body</h3>
-                <p className='docs-page__paragraph'>This is useful when the dropdown button is inside a div with overflow: hidden, and the menu would otherwise be hidden.</p>
+                <p className='docs-page__paragraph'>Add prop value <code>append = true</code> to the dropdown element to append to the inner dropdown menu to the body. This is useful when the dropdown button is inside a div with overflow: hidden, and the menu would otherwise be hidden.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown
@@ -106,7 +106,8 @@ export default class DropdownDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Multilevel dropdown</h3>
-                <p className='docs-page__paragraph'></p>
+                <p className='docs-page__paragraph'>To create a second level in the dropdown menu add item with props <code>type = 'submenu'</code> and <code>item</code>. 
+                The submenu opens by default on the right side of the parent menu.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown
@@ -200,12 +201,13 @@ export default class DropdownDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Navigation dropdown</h3>
-                <p className='docs-page__paragraph'>Example of a dropdown inside a subnavigation element. The dropdown has additional modifiers to align the menu to the right of the toggle and to open the submenu on the left.</p>
+                <p className='docs-page__paragraph'>Example of a dropdown inside a subnavigation element.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <SubNav zIndex={1} color='darker'>
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
+                                align='right'
                                 items={[
                                     {
                                         type: 'group', label: 'actions', items: [
@@ -262,12 +264,13 @@ export default class DropdownDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Navigation dropdown with fixed header and footer</h3>
-                <p className='docs-page__paragraph'>Example of a dropdown inside a subnavigation element. The dropdown has additional modifiers to align the menu to the right of the toggle and to open the submenu on the left.</p>
+                <p className='docs-page__paragraph'></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <SubNav zIndex={1} color='darker'>
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
+                                align='right'
                                 header={[
                                     {
                                         type: 'group', label: 'header actions', items: [
@@ -356,7 +359,6 @@ export default class DropdownDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-
             </section>
         )
     }
