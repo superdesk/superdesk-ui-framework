@@ -75,7 +75,7 @@ const config = {
     },
 
     plugins: [
-        new CleanWebpackPlugin(['dist']),
+        new CleanWebpackPlugin(['dist', 'react']),
         new HtmlWebpackPlugin({
             template: 'examples/index.html',
             chunks: ['vendor', 'examples', 'superdesk-ui'],
