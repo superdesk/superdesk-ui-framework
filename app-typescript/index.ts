@@ -42,6 +42,7 @@ export {DropdownItem} from './components/DropdownFirst';
 export {DropdownLabel} from './components/DropdownFirst';
 export {DropdownDivider} from './components/DropdownFirst';
 export {Dropdown} from './components/Dropdown';
+export {TagInput} from './components/TagInput';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

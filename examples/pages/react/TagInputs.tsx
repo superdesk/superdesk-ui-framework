@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
+import { TagInput } from '../../../app-typescript';
 
 export default class TagInputDoc extends React.Component {
     render() {
@@ -17,7 +18,7 @@ export default class TagInputDoc extends React.Component {
 
                         </Markup.ReactMarkupPreview>
                         <Markup.ReactMarkupCode>{`
-    
+
                     `}
                         </Markup.ReactMarkupCode>
                     </Markup.ReactMarkup>
