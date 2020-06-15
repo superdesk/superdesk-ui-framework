@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as Markup from '../../js/react';
-import { HeadingText, Button } from '../../../app-typescript';
+import { HeadingText, Button, Prop, PropsList } from '../../../app-typescript';
 import toast from '../../../app-typescript/components/Toast';
 
 export default class ToastsDoc extends React.Component {
@@ -183,6 +183,16 @@ export default class ToastsDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='message' isRequered={true} type='string | React.ReactNode' default='normal' description='Message value or custom message element'/>
+                    <Prop name='icon' isRequered={false} type='string' default='' description='Icon class name without the icon- part.'/>
+                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | light' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
+                    <Prop name='position' isRequered={false} type='top | bottom | top-right | top-left | bottom-right | bottom-left' default='top' description='Position of the toast'/>
+                    <Prop name='size' isRequered={false} type='fixed-s | fixed-m | fixed-l | fixed-xl' default='normal' description='Specifies a different sizes of toast.'/>
+                    <Prop name='duration' isRequered={false} type='number | null' default='null' description='Specifies a duration time of toast.'/>
+                </PropsList>
             </section>
         )
     }

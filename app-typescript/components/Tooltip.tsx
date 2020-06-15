@@ -1,23 +1,28 @@
 import * as React from 'react';
-
+import nextId from "react-id-generator";
 interface IProps {
     text: string;
-    tooltip?: {
-        text: string;
-        flow?: 'top' | 'left' | 'right' | 'down'; // defaults to 'top'
-    };
-    onClick(): void;
+    flow?: 'top' | 'left' | 'right' | 'down'; // defaults to 'top'
 }
 
 export class Tooltip extends React.PureComponent<IProps> {
+    htmlId = nextId();
+    componentDidMount() {
+        let tooltip = document.getElementById('t' + this.htmlId);
+        tooltip?.setAttribute('data-sd-tooltip', this.props.text);
+        if (this.props.flow) {
+            tooltip?.setAttribute('data-flow', this.props.flow);
+        }
+    }
     render() {
-        return (
-            <a className="btn"
-                data-sd-tooltip={this.props.tooltip ? this.props.tooltip.text : null}
-                data-flow={this.props.tooltip ?
-                    (this.props.tooltip.flow !== 'top' ? this.props.tooltip.flow : null) : null}>
-                {this.props.text}
-            </a>
-        );
+        if (React.isValidElement(this.props.children)) {
+            return (
+                React.cloneElement(this.props.children, { id: 't' + this.htmlId })
+            );
+        } else {
+            return (
+                <React.Fragment />
+            );
+        }
     }
 }

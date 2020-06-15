@@ -1,7 +1,7 @@
 {
     "files": ["./app-typescript/index.ts"],
     "compilerOptions": {
-        "outDir": "./app-typescript/dist",
+        "outDir": "./react",
         "module": "commonjs",
         "declaration": true,
 
@@ -22,10 +22,10 @@
         "noImplicitAny": true,
         "noImplicitReturns": true,
         "noImplicitThis": true,
-        
+
         "forceConsistentCasingInFileNames": true,
         "noFallthroughCasesInSwitch": true,
         "noUnusedLocals": true,
-        "noUnusedParameters": true,
-    },
+        "noUnusedParameters": true
+    }
 }
