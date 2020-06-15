@@ -106,7 +106,7 @@ export default class DropdownDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Multilevel dropdown</h3>
-                <p className='docs-page__paragraph'>To create a second level in the dropdown menu add item with props <code>type = 'submenu'</code> and <code>item</code>. 
+                <p className='docs-page__paragraph'>To create a second level in the dropdown menu add item with props <code>type = 'submenu'</code> and <code>item</code>.
                 The submenu opens by default on the right side of the parent menu.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>

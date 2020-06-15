@@ -85,14 +85,12 @@ export const Dropdown = ({
     }, [open]);
 
     // structure for append menu
-    function createAppendMenu(top: number, left: number) {
+    function createAppendMenu() {
         if (header && footer) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
                     style={{
                         display: 'block',
-                        top: top,
-                        left: left,
                     }}  >
                     <ul className='dropdown__menu-header'>
                         {headerElements}
@@ -110,8 +108,6 @@ export const Dropdown = ({
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
                     style={{
                         display: 'block',
-                        top: top,
-                        left: left,
                     }}  >
                     <ul className='dropdown__menu-header'>
                         {headerElements}
@@ -126,8 +122,6 @@ export const Dropdown = ({
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
                     style={{
                         display: 'block',
-                        top: top,
-                        left: left,
                     }}  >
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
@@ -142,9 +136,8 @@ export const Dropdown = ({
                 <ul className='dropdown__menu '
                     style={{
                         display: 'block',
-                        top: top,
-                        left: left,
-                    }} >
+                    }}
+                    ref={ref} >
                     {dropdownElements}
                 </ul>
             );
@@ -155,9 +148,7 @@ export const Dropdown = ({
     function toggleDisplay() {
         if (!open) {
             setOpen(true);
-            setMenuAppend(createAppendMenu(
-                getDimensions(buttonRef.current).bottom,
-                getDimensions(buttonRef.current).left));
+            setMenuAppend(createAppendMenu());
             if (!append) {
                 let menuRef = ref.current;
                 let toggleRef = buttonRef.current;
@@ -166,6 +157,18 @@ export const Dropdown = ({
                         placement: checkAlign() ? 'bottom-end' : 'bottom-start',
                     });
                 }
+            } else {
+                setTimeout(() => {
+                    let menuRef = ref.current;
+                    let toggleRef = buttonRef.current;
+                    if (toggleRef && menuRef) {
+                        createPopper(toggleRef, menuRef, {
+                            placement: checkAlign() ? 'bottom-end' : 'bottom-start',
+                            strategy: 'fixed',
+                        });
+                    }
+                }, 0);
+
             }
             document.addEventListener('click', closeMenu);
         } else {
@@ -186,17 +189,6 @@ export const Dropdown = ({
         } else {
             return false;
         }
-    }
-
-    // position on screen
-    function getDimensions(el: any) {
-        const rect = el.getBoundingClientRect();
-        return {
-            top: rect.top,
-            bottom: rect.bottom,
-            right: rect.right,
-            left: rect.left,
-        };
     }
 
     function addInPlaceholder() {
