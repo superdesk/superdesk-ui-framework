@@ -12,7 +12,27 @@ export default class TagInputDoc extends React.Component {
                     
                 `}
                     </Markup.ReactMarkupCodePreview>
-                    <p className='docs-page__paragraph'></p>
+                    <p className='docs-page__paragraph'>TESTING</p>
+                    <Markup.ReactMarkup>
+                        <Markup.ReactMarkupPreview>
+                        <TagInput />
+                        </Markup.ReactMarkupPreview>
+                        <Markup.ReactMarkupCode>{`
+
+                    `}
+                        </Markup.ReactMarkupCode>
+                    </Markup.ReactMarkup>
+                    <p className='docs-page__paragraph'>TESTING</p>
+                    <Markup.ReactMarkup>
+                        <Markup.ReactMarkupPreview>
+                        <TagInput items={['one', 'two', 'three']}/>
+                        </Markup.ReactMarkupPreview>
+                        <Markup.ReactMarkupCode>{`
+
+                    `}
+                        </Markup.ReactMarkupCode>
+                    </Markup.ReactMarkup>
+                    <p className='docs-page__paragraph'>TESTING</p>
                     <Markup.ReactMarkup>
                         <Markup.ReactMarkupPreview>
 

@@ -65,7 +65,7 @@ export const TagInput = ({ items }: ITagInput) => {
         return (
             <AutoComplete value={selectedItems} suggestions={filteredMultiple} completeMethod={filterMultiple}
                 minLength={1} placeholder="test placeholder" multiple={true} onChange={(e) => setSelectedItems(e.value)}
-                inputClassName='test-class-input' />
+                inputClassName='tags-input__input' />
         );
     } else {
         return (
