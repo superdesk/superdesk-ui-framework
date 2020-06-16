@@ -150,7 +150,7 @@ export const Dropdown = ({
                 }
             } else {
                 setTimeout(() => {
-                    let menuRef = ref.current;
+                    let menuRef: any = ref.current;
                     let toggleRef = buttonRef.current;
                     if (toggleRef && menuRef) {
                         createPopper(toggleRef, menuRef, {
