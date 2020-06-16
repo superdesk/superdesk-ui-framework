@@ -33,7 +33,10 @@ export const TagInput = ({ items }: ITagInput) => {
         const val = e.target.value;
         if (e.key === 'Enter' && val) {
             setTags((tag) => tag.concat(val));
-            inputRef.current.value = null;
+            let inputRefVariable: any = inputRef.current;
+            if (inputRefVariable) {
+                inputRefVariable.value = null;
+            }
         } else if (e.key === 'Backspace' && !val) {
             setSelectNumber(tags.length - 1);
             if (selectNumber !== -1) {
