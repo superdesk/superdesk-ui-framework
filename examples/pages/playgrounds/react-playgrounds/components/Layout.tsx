@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import { SidebarMenu } from './SidebarMenu';
 import { AuthoringContent } from './AuthoringContent';
 
@@ -16,11 +15,8 @@ export const Layout = ({
     openA,
     theme,
 }: IProps) => {
-    let classes = classNames('sd-content sd-content-wrapper', {
-        [`${theme}`]: theme,
-    });
     return (
-        <div className='sd-page-grid--test docs-page__full-width-helper'>
+        <div className='sd-page-grid--test docs-page__full-width-helper' data-theme={theme === 'dark' ? 'dark-ui' : null}>
             <div className='sd-main-menu'>
                 <div className='sd-main-menu__inner'></div>
             </div>
@@ -30,7 +26,7 @@ export const Layout = ({
                 </a>
                 <p className='sd-top-menu__header'>{header}</p>
             </header>
-            <section id='1' className={classes}>
+            <section id='1' className='sd-content sd-content-wrapper'>
                 <SidebarMenu />
                 <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                     {children}
