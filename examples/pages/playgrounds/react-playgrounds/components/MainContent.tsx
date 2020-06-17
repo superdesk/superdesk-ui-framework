@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {ThemeDropdown} from '../components/ThemeDropdown';
-import { string } from 'prop-types';
 interface IProps {
     children?: React.ReactNode;
     handleClick(child): void;
