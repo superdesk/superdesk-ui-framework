@@ -48,11 +48,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
         return (
             <Components.Layout header='SAMS playground' theme={this.state.theme}>
                 {/* TOOLBAR HEADER */}
-                <Components.ToolbarHeader />
-                {/* FILTER PANEL*/}
-                <Components.FilterPanel />
-                {/* MAIN CONTENT (Monitoring) */}
-                <Components.MainContent >
+                <Components.ToolbarHeader >
                     <SubNav theme={this.state.theme}>
                         <ButtonGroup align='inline'>
                             <Dropdown
@@ -89,8 +85,11 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                             <NavButton icon='th-list' onClick={() => false} />
                         </ButtonGroup>
                     </SubNav>
-
-                </Components.MainContent>
+                </Components.ToolbarHeader>
+                {/* FILTER PANEL*/}
+                <Components.FilterPanel />
+                {/* MAIN CONTENT (Monitoring) */}
+                <Components.MainContent />
                 {/* PREVIEW PANEL*/}
                 <Components.PreviewPanel open={this.state.openPreview} />
                 {/* OVERLAY PANEL (Send To) */}
