@@ -89,9 +89,7 @@ export const Dropdown = ({
         if (header && footer) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    style={{
-                        display: 'block',
-                    }}  >
+                    ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
                     </ul>
@@ -106,9 +104,7 @@ export const Dropdown = ({
         } else if (header) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    style={{
-                        display: 'block',
-                    }}  >
+                    ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
                     </ul>
@@ -120,9 +116,7 @@ export const Dropdown = ({
         } else if (footer) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    style={{
-                        display: 'block',
-                    }}  >
+                    ref={ref}>
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
                     </ul>
@@ -134,10 +128,7 @@ export const Dropdown = ({
         } else {
             return (
                 <ul className='dropdown__menu '
-                    style={{
-                        display: 'block',
-                    }}
-                    ref={ref} >
+                    ref={ref}>
                     {dropdownElements}
                 </ul>
             );
@@ -159,13 +150,14 @@ export const Dropdown = ({
                 }
             } else {
                 setTimeout(() => {
-                    let menuRef = ref.current;
+                    let menuRef: any = ref.current;
                     let toggleRef = buttonRef.current;
                     if (toggleRef && menuRef) {
                         createPopper(toggleRef, menuRef, {
                             placement: checkAlign() ? 'bottom-end' : 'bottom-start',
                             strategy: 'fixed',
                         });
+                        menuRef.style.display = 'block';
                     }
                 }, 0);
 
