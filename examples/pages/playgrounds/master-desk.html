@@ -61,7 +61,7 @@
             <!-- TOOLBAR HEADER -->
             <div class="sd-main-content-grid__header" ng-init="masterDeskView = 'overview'">
                 <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
-                    <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
+                    <button class="sd-navbtn sd-navbtn--left sd-navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'sd-navbtn--active': leftFilterOpen}">
                         <i class="icon-filter-large"></i>
                     </button>
                     <div class="button-group button-group--left button-group--padded">
@@ -72,13 +72,28 @@
                         <span ng-show="masterDeskView === 'users'">
                             <span ng-model="AB" sd-switch></span><label>Show only online users</label>
                         </span>
+                        <div class="dropdown dropdown--align-left sd-margin-l--1-5" dropdown>    
+                            <button class="dropdown__toggle sd-navbtn sd-navbtn--textual" dropdown__toggle>
+                                <i class="icon-switches"></i>
+                                <span class="sd-navbtn__text">Something</span>
+                            </button>
+                            <ul class="dropdown__menu">
+                                <li>
+                                    <div class="dropdown__menu-label">Actions</div>
+                                </li>
+                                <li class="dropdown__menu-divider"></li>
+                                <li><button>Action 2</button></li>
+                                <li><button>Action 3</button></li>
+                                <li><button ng-click="editArticle = !editArticle">Open editor</button></li>
+                            </ul>
+                        </div>
                     </div>
 
-                    <button class="navbtn" ng-click="darkUI = !darkUI">
+                    <button class="sd-navbtn" ng-click="darkUI = !darkUI">
                         <i class="icon-adjust"></i>
                     </button>
                     <div class="dropdown dropdown--align-right" dropdown>
-                        <button class="dropdown__toggle navbtn" dropdown__toggle>
+                        <button class="dropdown__toggle sd-navbtn" dropdown__toggle>
                             <i class="icon-switches"></i>
                         </button>
                         <ul class="dropdown__menu">

@@ -144,7 +144,7 @@ export default class ButtonGroupsDoc extends React.Component {
                 <PropsList>
                     <Prop name='orientation' isRequered={false} type='horizontal | vertical' default='horizontal' description='Specifies orientation for child components of ButtonGroup'/>
                     <Prop name='spaces' isRequered={false} type='comfort | compact' default='comfort' description='Space between buttons: comfort (default) or compact.'/>
-                    <Prop name='align' isRequered={false} type='left | right | center' default='left' description='Alignment in relation to the parent element.'/>
+                    <Prop name='align' isRequered={false} type='left | right | center | inline' default='left' description='Alignment in relation to the parent element. Inline value renders the ButtonGroup without pushing surrounding elements.'/>
                     <Prop name='padded' isRequered={false} type='boolean' default='false' description='Adds predefined space to the side based on alignment and orientation.'/>
                 </PropsList>
 

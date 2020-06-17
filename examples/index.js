@@ -378,6 +378,10 @@ export default angular.module('ui-docs', [
             'first-playground': {
                 name: 'First playground',
                 component: 'FirstPlayground'
+            },
+            'sams-playground': {
+                name: 'SAMS',
+                component: 'SamsPlayground'
             }
         }
     }))
