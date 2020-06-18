@@ -43,6 +43,7 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
                                 </a>
                             </li>)
                     })}
+
                 </ul>
             </div>
         );
