@@ -1,9 +1,8 @@
 import * as React from 'react';
-import {ThemeDropdown} from '../components/ThemeDropdown';
+
 interface IProps {
     children?: React.ReactNode;
 }
-
 
 export class MainContent extends React.PureComponent<IProps> {
     render() { 
