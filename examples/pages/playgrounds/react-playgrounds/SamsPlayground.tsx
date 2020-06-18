@@ -48,7 +48,8 @@ export class SamsPlayground extends React.Component<IProps, IState> {
         return (
             <Components.Layout header='SAMS playground' theme={this.state.theme}>
                 {/* TOOLBAR HEADER */}
-                <Components.ToolbarHeader >
+                <Components.ToolbarHeader>
+
                     <SubNav theme={this.state.theme}>
                         <ButtonGroup align='inline'>
                             <Dropdown
@@ -62,7 +63,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                             { label: 'AP images', onSelect: () => this.setState({ dropDownState: 'AP archive' }) },
                                         ]
                                     }]}>
-                                <NavButton text={this.state.dropDownState ? this.state.dropDownState : 'All Archives'} onClick={() => false} />
+                                    <NavButton text={this.state.dropDownState ? this.state.dropDownState : 'All Archives'} onClick={()=> false} />
                             </Dropdown>
                         </ButtonGroup>
                         <ButtonGroup align='right'>
@@ -74,7 +75,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                             <NavButton icon='filter-large' onClick={this.handlePreview} />
                         </ButtonGroup>
                         <CheckButtonGroup padded>
-                            <RadioButton value={this.state.itemType} onChange={(value) => this.setState({ itemType: value })} options={[
+                            <RadioButton value={this.state.itemType} onChange={(value)=> this.setState({itemType: value})} options={[
                                 { value: 'itemtype01', label: 'All item types' },
                                 { value: 'itemtype02', label: 'Images only' },
                                 { value: 'itemtype03', label: 'Videos only' },
@@ -88,6 +89,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                 </Components.ToolbarHeader>
                 {/* FILTER PANEL*/}
                 <Components.FilterPanel />
+
                 {/* MAIN CONTENT (Monitoring) */}
                 <Components.MainContent />
                 {/* PREVIEW PANEL*/}
