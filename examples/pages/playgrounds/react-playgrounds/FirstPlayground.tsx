@@ -9,33 +9,26 @@ interface IProps {
 }
 
 interface IState {
-    openA: boolean;
-    openFilter: boolean;
     theme: 'dark' | 'light';
     itemType: string;
     dropDownState: string;
     openPreview: boolean;
+    openFilter: boolean;
 }
 
 export class FirstPlayground extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            openA: false,
-            openFilter: false,
             theme: 'light',
             itemType: 'itemtype01',
             dropDownState: '',
             openPreview: false,
+            openFilter: false,
         }
-        this.handleClickA = this.handleClickA.bind(this);
         this.handleFilter = this.handleFilter.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
         this.handleTheme = this.handleTheme.bind(this);
-    }
-
-    handleClickA(child: boolean) {
-        this.setState({ openA: child })
     }
 
     handleFilter() {
@@ -64,7 +57,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
 
     render() {
         return (
-            <Components.Layout header='First playground' openA={this.state.openA} theme={this.state.theme}>
+            <Components.Layout header='First playground' theme={this.state.theme}>
                 {/* TOOLBAR HEADER */}
                 <Components.ToolbarHeader >
                     <SubNav theme={this.state.theme}>
@@ -197,7 +190,6 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                             <Button text='Submit' type='primary' onClick={() => false} />
                         </div>
                     </div>
-
                 </Components.FilterPanel>
                 {/* MAIN CONTENT (Monitoring) */}
                 <Components.MainContent>

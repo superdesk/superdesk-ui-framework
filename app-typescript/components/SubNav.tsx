@@ -4,7 +4,7 @@ import classNames from 'classnames';
 interface IProps {
     color?: 'light' | 'darker' | 'blueGrey' | 'blueGreyDarker' | 'darkUi'; // defaults to 'light'
     zIndex?: number;
-    theme?: 'light' | 'dark' // defaults to 'light;
+    theme?: 'light' | 'dark'; // defaults to 'light
 }
 
 export class SubNav extends React.PureComponent<IProps> {
