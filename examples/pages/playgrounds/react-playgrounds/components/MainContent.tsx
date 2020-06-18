@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {ThemeDropdown} from '../components/ThemeDropdown';
-import { string } from 'prop-types';
 interface IProps {
     children?: React.ReactNode;
     handleClick(child): void;
@@ -17,8 +16,8 @@ export class MainContent extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            open: false,
-            openA: false,
+            open: true,
+            openA: true,
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleClickA = this.handleClickA.bind(this);
