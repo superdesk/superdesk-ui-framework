@@ -11,6 +11,7 @@ interface IState {
     itemType: string;
     dropDownState: string;
     openPreview: boolean;
+    openFilter: boolean;
 }
 
 export class SamsPlayground extends React.Component<IProps, IState> {
@@ -21,9 +22,18 @@ export class SamsPlayground extends React.Component<IProps, IState> {
             itemType: 'itemtype01',
             dropDownState: '',
             openPreview: false,
+            openFilter: false,
         }
+        this.handleFilter = this.handleFilter.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
         this.handleTheme = this.handleTheme.bind(this);
+    }
+
+
+    handleFilter() {
+        this.setState((state) => ({
+            openFilter: !state.openFilter,
+        }));
     }
 
     handlePreview() {
@@ -72,7 +82,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     </SubNav>
                     <SubNav theme={this.state.theme}>
                         <ButtonGroup align='inline'>
-                            <NavButton icon='filter-large' onClick={this.handlePreview} />
+                            <NavButton icon='filter-large'  onClick={this.handleFilter} />
                         </ButtonGroup>
                         <CheckButtonGroup padded>
                             <RadioButton value={this.state.itemType} onChange={(value)=> this.setState({itemType: value})} options={[
@@ -88,10 +98,12 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     </SubNav>
                 </Components.ToolbarHeader>
                 {/* FILTER PANEL*/}
-                <Components.FilterPanel />
+                <Components.FilterPanel openF={this.state.openFilter} />
 
                 {/* MAIN CONTENT (Monitoring) */}
-                <Components.MainContent />
+                <Components.MainContent >
+                    <Button text='Open preview' onClick={this.handlePreview} />
+                </Components.MainContent>
                 {/* PREVIEW PANEL*/}
                 <Components.PreviewPanel open={this.state.openPreview} />
                 {/* OVERLAY PANEL (Send To) */}
