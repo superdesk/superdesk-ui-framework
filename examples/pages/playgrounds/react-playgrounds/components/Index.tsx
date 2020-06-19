@@ -11,3 +11,4 @@ export { SidePanel } from './SidePanel';
 export { SidePanelContent } from './SidePanelContent';
 export { SidePanelHeader } from './SidePanelHeader';
 export { SidePanelFooter } from './SidePanelFooter';
+export { SidebarMenu } from './SidebarMenu';

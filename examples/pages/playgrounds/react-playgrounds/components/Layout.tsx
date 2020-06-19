@@ -5,14 +5,12 @@ import { AuthoringContent } from './AuthoringContent';
 interface IProps {
     header: string;
     children?: React.ReactNode;
-    openA?: boolean;
     theme?: string;
 }
 
 export const Layout = ({
     header,
     children,
-    openA,
     theme,
 }: IProps) => {
     return (
@@ -27,19 +25,7 @@ export const Layout = ({
                 <p className='sd-top-menu__header'>{header}</p>
             </header>
             <section id='1' className='sd-content sd-content-wrapper'>
-                <SidebarMenu
-                    items={[
-                        { icon: 'dashboard', size: 'big' },
-                        { icon: 'view', size: 'big' },
-                        { icon: 'marked-star', size: 'big' },
-                        { icon: 'spike', size: 'big' },
-                        { icon: 'personal', size: 'big' },
-                        { icon: 'global-search', size: 'big' },
-                        { icon: 'picture', size: 'big' }]} />
-                <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    {children}
-                </div>
-                <AuthoringContent open={openA} />
+                {children}
             </section>
             <footer className='bottom-bar'>
                 This is the footer.

@@ -56,7 +56,7 @@ $sd-sideTabMenu-background: var(--color-bg-200);
     background-color: darken($sd-blue, 11%);
     opacity: 1;
 
-    .sd-sidebar-menu__main-icon {
+    .sd-sidebar-menu__main-icon, .sd-sidebar-menu__main-icon>i {
       color: #fff;
     }
   }
