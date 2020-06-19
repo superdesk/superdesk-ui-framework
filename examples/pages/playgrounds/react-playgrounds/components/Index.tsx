@@ -7,3 +7,7 @@ export { FilterPanel } from './FilterPanel';
 export { SubNav } from './SubNav';
 export { GraphicButtonsGroup } from './GraphicButtonsGroup';
 export { GraphicButton } from './GraphicButton';
+export { SidePanel } from './SidePanel';
+export { ContentPanel } from './ContentPanel';
+export { HeaderPanel } from './HeaderPanel';
+export { FooterPanel } from './FooterPanel';
