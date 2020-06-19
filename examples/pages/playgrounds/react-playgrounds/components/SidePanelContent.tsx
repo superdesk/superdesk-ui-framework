@@ -4,7 +4,7 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class ContentPanel extends React.PureComponent<IProps> {
+export class SidePanelContent extends React.PureComponent<IProps> {
     render() {
         return (
             <div className="side-panel__content">

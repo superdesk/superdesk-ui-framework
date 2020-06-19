@@ -4,7 +4,7 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class FooterPanel extends React.PureComponent<IProps> {
+export class SidePanelFooter extends React.PureComponent<IProps> {
     render() {
         return (
             <div className="side-panel__footer side-panel__footer--button-box">

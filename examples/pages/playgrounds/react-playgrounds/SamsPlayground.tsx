@@ -100,8 +100,8 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                 {/* FILTER PANEL*/}
                 <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
                     <Components.SidePanel>
-                        <Components.HeaderPanel handleFilterParent={this.handleFilter} title='Advanced filters' />
-                        <Components.ContentPanel>
+                        <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
+                        <Components.SidePanelContent>
                             <div className="form__group">
                                 <div className="form__item">
                                     <Input label='TITLE'
@@ -176,11 +176,11 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                     </Select>
                                 </div>
                             </div>
-                        </Components.ContentPanel>
-                        <Components.FooterPanel>
+                        </Components.SidePanelContent>
+                        <Components.SidePanelFooter>
                             <Button text='Clear' style='hollow' onClick={() => false} />
                             <Button text='Submit' type='primary' onClick={() => false} />
-                        </Components.FooterPanel>
+                        </Components.SidePanelFooter>
                     </Components.SidePanel>
                 </div>
                 {/* MAIN CONTENT (Monitoring) */}
@@ -190,8 +190,8 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                 {/* PREVIEW PANEL*/}
                 <div className={'sd-main-content-grid__preview' + (this.state.openPreview ? ' open-preview' : '')}>
                     <Components.SidePanel>
-                        <Components.HeaderPanel handleFilterParent={this.handlePreview} />
-                        <Components.ContentPanel />
+                        <Components.SidePanelHeader handleFilterParent={this.handlePreview} />
+                        <Components.SidePanelContent />
                     </Components.SidePanel>
                 </div>
                 {/* OVERLAY PANEL (Send To) */}
