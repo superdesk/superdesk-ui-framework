@@ -4,10 +4,10 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class ToolbarHeader extends React.PureComponent<IProps> {
+export class LayoutContainer extends React.PureComponent<IProps> {
     render() {
         return (
-            <div className='sd-main-content-grid__header'>
+            <div className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                 {this.props.children}
             </div>
         );

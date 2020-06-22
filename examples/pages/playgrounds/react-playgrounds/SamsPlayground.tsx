@@ -67,8 +67,8 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big', active: true }]} />
 
-                <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    <Components.ToolbarHeader>
+                <Components.LayoutContainer>
+                    <Components.HeaderPanel>
                         <SubNav theme={this.state.theme}>
                             <ButtonGroup align='inline'>
                                 <Dropdown
@@ -105,8 +105,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 <NavButton icon='th-list' onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
-                    </Components.ToolbarHeader>
+                    </Components.HeaderPanel>
                     {/* TOOLBAR HEADER */}
+
                     <Components.LeftPanel open={this.state.openFilter}>
                         <Components.Panel>
                             <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
@@ -194,9 +195,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     </Components.LeftPanel>
                     {/* FILTER PANEL*/}
 
-                    <Components.MainContent >
+                    <Components.MainPanel >
                         <Button text='Open preview' onClick={this.handlePreview} />
-                    </Components.MainContent>
+                    </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
 
                     <Components.RightPanel open={this.state.openPreview}>
@@ -209,7 +210,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
 
                     <Components.OverlayPanel />
                     {/* OVERLAY PANEL (Send To) */}
-                </div>
+                </Components.LayoutContainer>
             </Components.Layout >
         );
     }

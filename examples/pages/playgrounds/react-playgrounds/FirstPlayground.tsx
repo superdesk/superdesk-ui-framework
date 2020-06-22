@@ -66,8 +66,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big' }]} />
 
-                <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    <Components.ToolbarHeader >
+                <div className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
+                    <Components.HeaderPanel >
                         <SubNav theme={this.state.theme}>
                             <ButtonGroup align='inline'>
                                 <Dropdown
@@ -104,7 +104,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                 <NavButton icon='th-list' onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
-                    </Components.ToolbarHeader>
+                    </Components.HeaderPanel>
                     {/* TOOLBAR HEADER */}
 
                     <Components.LeftPanel open={this.state.openFilter}>
@@ -194,9 +194,9 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                     </Components.LeftPanel>
                     {/* FILTER PANEL*/}
 
-                    <Components.MainContent>
+                    <Components.MainPanel>
 
-                    </Components.MainContent>
+                    </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
 
                     <Components.RightPanel open={this.state.openPreview} />

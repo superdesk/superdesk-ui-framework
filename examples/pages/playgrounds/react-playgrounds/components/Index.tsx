@@ -1,6 +1,6 @@
 export { Layout } from './Layout';
-export { ToolbarHeader } from './ToolbarHeader';
-export { MainContent } from './MainContent';
+export { HeaderPanel } from './HeaderPanel';
+export { MainPanel } from './MainPanel';
 export { OverlayPanel } from './OverlayPanel';
 export { RightPanel } from './RightPanel';
 export { LeftPanel } from './LeftPanel';
@@ -12,3 +12,4 @@ export { SidePanelContent } from './SidePanelContent';
 export { SidePanelHeader } from './SidePanelHeader';
 export { SidePanelFooter } from './SidePanelFooter';
 export { SidebarMenu } from './SidebarMenu';
+export { LayoutContainer } from './LayoutContainer';
