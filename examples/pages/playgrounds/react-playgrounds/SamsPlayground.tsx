@@ -70,7 +70,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     {/* TOOLBAR HEADER */}
                     <Components.ToolbarHeader>
 
-                        <SubNav theme={this.state.theme}>
+                        <SubNav theme={this.state.theme} zIndex={2}>
                             <ButtonGroup align='inline'>
                                 <Dropdown
                                     items={[
@@ -90,7 +90,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 <NavButton icon='dots-vertical' onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
-                        <SubNav theme={this.state.theme}>
+                        <SubNav theme={this.state.theme} zIndex={1}>
                             <ButtonGroup align='inline'>
                                 <NavButton icon='filter-large' onClick={this.handleFilter} />
                             </ButtonGroup>
@@ -109,7 +109,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     </Components.ToolbarHeader>
                     {/* FILTER PANEL*/}
                     <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
-                        <Components.SidePanel>
+                        <Components.SidePanel side="left">
                             <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
                             <Components.SidePanelContent>
                                 <div className="form__group">
@@ -199,7 +199,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     </Components.MainContent>
                     {/* PREVIEW PANEL*/}
                     <div className={'sd-main-content-grid__preview' + (this.state.openPreview ? ' open-preview' : '')}>
-                        <Components.SidePanel>
+                        <Components.SidePanel side="right">
                             <Components.SidePanelHeader handleFilterParent={this.handlePreview} />
                             <Components.SidePanelContent />
                         </Components.SidePanel>

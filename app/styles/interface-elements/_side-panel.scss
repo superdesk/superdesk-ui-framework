@@ -381,7 +381,8 @@ $side-panel-Bg-darkUi: #2d2d2d;
             }
         } 
     }
-    &.side-panel--shadow-left::after {
+    &.side-panel--shadow-left::after,
+    &.side-panel--left::after {
         display:block;
         top: 0;
         bottom: 0;
@@ -392,7 +393,8 @@ $side-panel-Bg-darkUi: #2d2d2d;
         z-index: 80;
         background-image: linear-gradient(to left,rgba(0,0,0,.12) 0%,rgba(0,0,0,0) 100%);
     }
-    &.side-panel--shadow-right::after {
+    &.side-panel--shadow-right::after,
+    &.side-panel--right::after {
         display:block;
         top: 0;
         bottom: 0;
