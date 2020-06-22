@@ -66,10 +66,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big', active: true }]} />
-                <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    {/* TOOLBAR HEADER */}
-                    <Components.ToolbarHeader>
 
+                <Components.LayoutContainer>
+                    <Components.HeaderPanel>
                         <SubNav theme={this.state.theme} zIndex={2}>
                             <ButtonGroup align='inline'>
                                 <Dropdown
@@ -106,12 +105,13 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 <NavButton icon='th-list' onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
-                    </Components.ToolbarHeader>
-                    {/* FILTER PANEL*/}
-                    <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
-                        <Components.SidePanel side="left">
-                            <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
-                            <Components.SidePanelContent>
+                    </Components.HeaderPanel>
+                    {/* TOOLBAR HEADER */}
+
+                    <Components.LeftPanel open={this.state.openFilter}>
+                        <Components.Panel side='left'>
+                            <Components.PanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
+                            <Components.PanelContent>
                                 <div className="form__group">
                                     <div className="form__item">
                                         <Input label='TITLE'
@@ -186,28 +186,32 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                         </Select>
                                     </div>
                                 </div>
-                            </Components.SidePanelContent>
-                            <Components.SidePanelFooter>
+                            </Components.PanelContent>
+                            <Components.PanelFooter>
                                 <Button text='Clear' style='hollow' onClick={() => false} />
                                 <Button text='Submit' type='primary' onClick={() => false} />
-                            </Components.SidePanelFooter>
-                        </Components.SidePanel>
-                    </div>
-                    {/* MAIN CONTENT (Monitoring) */}
-                    <Components.MainContent >
+                            </Components.PanelFooter>
+                        </Components.Panel>
+                    </Components.LeftPanel>
+                    {/* FILTER PANEL*/}
+
+                    <Components.MainPanel >
                         <Button text='Open preview' onClick={this.handlePreview} />
-                    </Components.MainContent>
+                    </Components.MainPanel>
+                    {/* MAIN CONTENT (Monitoring) */}
+
+                    <Components.RightPanel open={this.state.openPreview}>
+                        <Components.Panel side='right'>
+                            <Components.PanelHeader handleFilterParent={this.handlePreview} />
+                            <Components.PanelContent />
+                        </Components.Panel>
+                    </Components.RightPanel>
                     {/* PREVIEW PANEL*/}
-                    <div className={'sd-main-content-grid__preview' + (this.state.openPreview ? ' open-preview' : '')}>
-                        <Components.SidePanel side="right">
-                            <Components.SidePanelHeader handleFilterParent={this.handlePreview} />
-                            <Components.SidePanelContent />
-                        </Components.SidePanel>
-                    </div>
-                    {/* OVERLAY PANEL (Send To) */}
+
                     <Components.OverlayPanel />
-                </div>
-            </Components.Layout>
+                    {/* OVERLAY PANEL (Send To) */}
+                </Components.LayoutContainer>
+            </Components.Layout >
         );
     }
 }

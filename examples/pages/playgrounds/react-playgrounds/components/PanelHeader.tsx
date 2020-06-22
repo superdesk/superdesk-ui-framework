@@ -7,7 +7,7 @@ interface IProps {
     handleFilterParent(): void;
 }
 
-export class SidePanelHeader extends React.PureComponent<IProps> {
+export class PanelHeader extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
 

@@ -7,7 +7,7 @@ interface IProps {
     transparent?: boolean;
 }
 
-export class SidePanel extends React.PureComponent<IProps> {
+export class Panel extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('side-panel', {
             'side-panel--transparent': this.props.transparent,

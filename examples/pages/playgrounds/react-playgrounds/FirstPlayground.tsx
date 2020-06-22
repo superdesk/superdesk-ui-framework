@@ -65,9 +65,9 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big' }]} />
-                <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    {/* TOOLBAR HEADER */}
-                    <Components.ToolbarHeader >
+
+                <div className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
+                    <Components.HeaderPanel >
                         <SubNav theme={this.state.theme}>
                             <ButtonGroup align='inline'>
                                 <Dropdown
@@ -104,10 +104,11 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                 <NavButton icon='th-list' onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
-                    </Components.ToolbarHeader>
-                    {/* FILTER PANEL*/}
-                    <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
-                        <Components.SidePanel>
+                    </Components.HeaderPanel>
+                    {/* TOOLBAR HEADER */}
+
+                    <Components.LeftPanel open={this.state.openFilter}>
+                        <Components.Panel>
                             <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
                             <Components.SidePanelContent>
                                 <div className="form__group">
@@ -189,17 +190,20 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                 <Button text='Clear' style='hollow' onClick={() => false} />
                                 <Button text='Submit' type='primary' onClick={() => false} />
                             </Components.SidePanelFooter>
-                        </Components.SidePanel>
-                    </div>
+                        </Components.Panel>
+                    </Components.LeftPanel>
+                    {/* FILTER PANEL*/}
 
+                    <Components.MainPanel>
+
+                    </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
-                    <Components.MainContent>
 
-                    </Components.MainContent>
+                    <Components.RightPanel open={this.state.openPreview} />
                     {/* PREVIEW PANEL*/}
-                    <Components.PreviewPanel open={this.state.openPreview} />
-                    {/* OVERLAY PANEL (Send To) */}
+
                     <Components.OverlayPanel />
+                    {/* OVERLAY PANEL (Send To) */}
                 </div>
             </Components.Layout >
         );
