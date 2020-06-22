@@ -107,8 +107,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                     </Components.ToolbarHeader>
                     {/* TOOLBAR HEADER */}
 
-                    <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
-                        <Components.SidePanel>
+                    <Components.LeftPanel open={this.state.openFilter}>
+                        <Components.Panel>
                             <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
                             <Components.SidePanelContent>
                                 <div className="form__group">
@@ -190,8 +190,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                 <Button text='Clear' style='hollow' onClick={() => false} />
                                 <Button text='Submit' type='primary' onClick={() => false} />
                             </Components.SidePanelFooter>
-                        </Components.SidePanel>
-                    </div>
+                        </Components.Panel>
+                    </Components.LeftPanel>
                     {/* FILTER PANEL*/}
 
                     <Components.MainContent>
@@ -199,7 +199,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                     </Components.MainContent>
                     {/* MAIN CONTENT (Monitoring) */}
 
-                    <Components.PreviewPanel open={this.state.openPreview} />
+                    <Components.RightPanel open={this.state.openPreview} />
                     {/* PREVIEW PANEL*/}
 
                     <Components.OverlayPanel />

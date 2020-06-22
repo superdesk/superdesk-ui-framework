@@ -107,9 +107,8 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                         </SubNav>
                     </Components.ToolbarHeader>
                     {/* TOOLBAR HEADER */}
-
-                    <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
-                        <Components.SidePanel>
+                    <Components.LeftPanel open={this.state.openFilter}>
+                        <Components.Panel>
                             <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
                             <Components.SidePanelContent>
                                 <div className="form__group">
@@ -191,27 +190,27 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 <Button text='Clear' style='hollow' onClick={() => false} />
                                 <Button text='Submit' type='primary' onClick={() => false} />
                             </Components.SidePanelFooter>
-                        </Components.SidePanel>
-                    </div>
+                        </Components.Panel>
+                    </Components.LeftPanel>
                     {/* FILTER PANEL*/}
-                    
+
                     <Components.MainContent >
                         <Button text='Open preview' onClick={this.handlePreview} />
                     </Components.MainContent>
                     {/* MAIN CONTENT (Monitoring) */}
 
-                    <div className={'sd-main-content-grid__preview' + (this.state.openPreview ? ' open-preview' : '')}>
-                        <Components.SidePanel>
+                    <Components.RightPanel open={this.state.openPreview}>
+                        <Components.Panel>
                             <Components.SidePanelHeader handleFilterParent={this.handlePreview} />
                             <Components.SidePanelContent />
-                        </Components.SidePanel>
-                    </div>
+                        </Components.Panel>
+                    </Components.RightPanel>
                     {/* PREVIEW PANEL*/}
-                   
+
                     <Components.OverlayPanel />
-                     {/* OVERLAY PANEL (Send To) */}
+                    {/* OVERLAY PANEL (Send To) */}
                 </div>
-            </Components.Layout>
+            </Components.Layout >
         );
     }
 }
