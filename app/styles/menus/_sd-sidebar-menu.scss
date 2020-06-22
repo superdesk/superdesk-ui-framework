@@ -44,6 +44,7 @@ $sd-sideTabMenu-background: var(--color-bg-200);
   overflow: hidden;
   transition: opacity 0.2s, background-color 0.2s;
   position: relative;
+  cursor: pointer;
   &:hover {
     opacity: 1;
     background-color: rgba(255, 255, 255, .6);
@@ -56,8 +57,14 @@ $sd-sideTabMenu-background: var(--color-bg-200);
     background-color: darken($sd-blue, 11%);
     opacity: 1;
 
-    .sd-sidebar-menu__main-icon, .sd-sidebar-menu__main-icon>i {
-      color: #fff;
+    .sd-sidebar-menu__main-icon {
+      color: $white;
+      [class^="big-icon--"],
+      [class*=" big-icon--"],
+      [class^="icon-"],
+      [class*=" icon-"] {
+        color: inherit;
+      }
     }
   }
 }
@@ -298,7 +305,7 @@ $sd-sideTabMenu-background: var(--color-bg-200);
 
 .sd-side-menu__btn--active {
   .sd-side-menu__helper-icon, .sd-side-menu__main-icon {
-    color: #fff;
+    color: $white;
   } 
   &:hover {
     .sd-side-menu__helper-icon {
