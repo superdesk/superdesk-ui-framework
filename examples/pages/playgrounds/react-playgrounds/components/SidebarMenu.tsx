@@ -6,11 +6,13 @@ interface IProps {
     items?: Array<{
         icon: string,
         size: 'small' | 'big'; // defaults to 'small',
+        active?: boolean;
     }>;
 }
 
 interface IState {
     index: number;
+    closeIndex: number;
 }
 
 export class SidebarMenu extends React.PureComponent<IProps, IState> {
@@ -18,14 +20,30 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
         super(props);
         this.state = {
             index: -1,
+            closeIndex: -1,
         }
         this.handleClick = this.handleClick.bind(this);
+        this.checkActive = this.checkActive.bind(this);
     }
 
     handleClick(indexNumber: number) {
-        this.setState(({
+        this.setState({
             index: indexNumber,
-        }));
+        });
+        if (this.state.index === indexNumber) {
+            this.setState({
+                closeIndex: indexNumber,
+            });
+        }
+    }
+
+    checkActive(number: number) {
+        if (number === this.state.index) {
+            return ' sd-sidebar-menu__btn--active'
+        }
+        else {
+            return ''
+        }
     }
 
     render() {
@@ -35,7 +53,8 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
                     {this.props.items.map((item, index) => {
                         return (
                             <li key={index}>
-                                <a className={'sd-sidebar-menu__btn' + (index === this.state.index ? ' sd-sidebar-menu__btn--active' : '')} onClick={() => this.handleClick(index)}>
+                                <a className={'sd-sidebar-menu__btn' + (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '') + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
+                                    onClick={() => this.handleClick(index)}>
                                     <span className='sd-sidebar-menu__main-icon '>
                                         <Icon size={item['size']} name={item['icon']} />
                                     </span>
@@ -43,7 +62,6 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
                                 </a>
                             </li>)
                     })}
-
                 </ul>
             </div>
         );
