@@ -65,8 +65,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big' }]} />
+
                 <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    {/* TOOLBAR HEADER */}
                     <Components.ToolbarHeader >
                         <SubNav theme={this.state.theme}>
                             <ButtonGroup align='inline'>
@@ -105,7 +105,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                             </ButtonGroup>
                         </SubNav>
                     </Components.ToolbarHeader>
-                    {/* FILTER PANEL*/}
+                    {/* TOOLBAR HEADER */}
+
                     <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
                         <Components.SidePanel>
                             <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
@@ -191,15 +192,18 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                             </Components.SidePanelFooter>
                         </Components.SidePanel>
                     </div>
+                    {/* FILTER PANEL*/}
 
-                    {/* MAIN CONTENT (Monitoring) */}
                     <Components.MainContent>
 
                     </Components.MainContent>
-                    {/* PREVIEW PANEL*/}
+                    {/* MAIN CONTENT (Monitoring) */}
+
                     <Components.PreviewPanel open={this.state.openPreview} />
-                    {/* OVERLAY PANEL (Send To) */}
+                    {/* PREVIEW PANEL*/}
+
                     <Components.OverlayPanel />
+                    {/* OVERLAY PANEL (Send To) */}
                 </div>
             </Components.Layout >
         );

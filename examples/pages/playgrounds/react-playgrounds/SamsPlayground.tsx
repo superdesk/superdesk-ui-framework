@@ -66,10 +66,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big', active: true }]} />
-                <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    {/* TOOLBAR HEADER */}
-                    <Components.ToolbarHeader>
 
+                <div id='leftContent' className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
+                    <Components.ToolbarHeader>
                         <SubNav theme={this.state.theme}>
                             <ButtonGroup align='inline'>
                                 <Dropdown
@@ -107,7 +106,8 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                             </ButtonGroup>
                         </SubNav>
                     </Components.ToolbarHeader>
-                    {/* FILTER PANEL*/}
+                    {/* TOOLBAR HEADER */}
+
                     <div className={'sd-main-content-grid__filter' + (this.state.openFilter ? ' open-filters' : '')}>
                         <Components.SidePanel>
                             <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
@@ -193,19 +193,23 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                             </Components.SidePanelFooter>
                         </Components.SidePanel>
                     </div>
-                    {/* MAIN CONTENT (Monitoring) */}
+                    {/* FILTER PANEL*/}
+                    
                     <Components.MainContent >
                         <Button text='Open preview' onClick={this.handlePreview} />
                     </Components.MainContent>
-                    {/* PREVIEW PANEL*/}
+                    {/* MAIN CONTENT (Monitoring) */}
+
                     <div className={'sd-main-content-grid__preview' + (this.state.openPreview ? ' open-preview' : '')}>
                         <Components.SidePanel>
                             <Components.SidePanelHeader handleFilterParent={this.handlePreview} />
                             <Components.SidePanelContent />
                         </Components.SidePanel>
                     </div>
-                    {/* OVERLAY PANEL (Send To) */}
+                    {/* PREVIEW PANEL*/}
+                   
                     <Components.OverlayPanel />
+                     {/* OVERLAY PANEL (Send To) */}
                 </div>
             </Components.Layout>
         );
