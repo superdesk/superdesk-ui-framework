@@ -208,7 +208,8 @@ export const Dropdown = ({
                                         placement: 'right-start',
                                     });
                                 }
-                            }}>
+                            }}
+                            onClick={item['onSelect']}>
                             {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                             {item['label']}
                         </button>
@@ -316,7 +317,7 @@ const DropdownItem = ({
     onSelect,
 }: IMenuItem) => {
     return (
-        <li><button onSelect={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
+        <li><button onClick={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
     );
 
 };
