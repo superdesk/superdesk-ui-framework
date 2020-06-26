@@ -266,7 +266,7 @@ export const Dropdown = ({
                 </button>}
 
             {append ?
-                null : (function () {
+                null : (function() {
                     if (header && footer) {
                         return (
                             <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
