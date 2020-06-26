@@ -259,6 +259,7 @@ $baseColors: (
 // CSS variables for dark theme
 
 [data-theme="dark-ui"] {
+  color: #fff;
   --sd-slugline-color:        #005b7f;
 
   --color-input-bg:           rgba(255,255,255,0.05);

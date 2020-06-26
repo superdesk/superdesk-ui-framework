@@ -46,6 +46,15 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
         }
     }
 
+    checkActive(number: number) {
+        if (number === this.state.index) {
+            return ' sd-sidebar-menu__btn--active'
+        }
+        else {
+            return ''
+        }
+    }
+
     render() {
         return (
             <div className='sd-sidebar-menu sd-content-wrapper__left-tabs'>
@@ -53,6 +62,7 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
                     {this.props.items.map((item, index) => {
                         return (
                             <li key={index}>
+
                                 <a className={'sd-sidebar-menu__btn' + (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '') + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
                                     onClick={() => this.handleClick(index)}>
                                     <span className='sd-sidebar-menu__main-icon '>

@@ -4,7 +4,7 @@ import classNames from 'classnames';
 interface IProps {
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
     spaces?: 'comfort' | 'compact'; // defaults to 'comfort'
-    align?: 'left' | 'right' | 'center'; // defaults to 'left'
+    align?: 'left' | 'right' | 'center' | 'inline'; // defaults to 'left'
     padded?: boolean; // adds predefined space to the side based on the alignment and orientation.
     children: React.ReactNode;
 }
