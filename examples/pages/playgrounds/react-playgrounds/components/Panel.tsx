@@ -4,14 +4,14 @@ import classNames from 'classnames';
 interface IProps {
     children?: React.ReactNode;
     side?: 'left' | 'right';
-    transparent?: boolean;
+    background?: 'transparent' | 'light' | 'grey' | 'dark'; // defaults to light (white) 
 }
 
 export class Panel extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('side-panel', {
-            'side-panel--transparent': this.props.transparent,
             [`side-panel--${this.props.side}`] : this.props.side,
+            [`side-panel--${this.props.background}`]: this.props.background !== 'light' && this.props.background !== undefined,
         });
         return (
             <div className='side-panel__container'>

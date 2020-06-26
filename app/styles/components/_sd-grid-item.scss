@@ -113,7 +113,6 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             height: 1.6rem;
             width: 1.6rem;
             margin: 0;
-            position: absolute;
             top:-4px;
             left:-2px;
         }
@@ -125,12 +124,27 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             top: -2px;
             left: -2px;
         }
+        .sd-check-new__wrapper {
+            visibility: hidden;
+            padding: 0;
+            position: absolute;
+            height: 1.6rem;
+            width: 1.6rem;
+            margin: 0;
+            top:-2px;
+            left:-2px;
+            .sd-check-new {
+                position: absolute;
+                height: 1.6rem;
+                width: 1.6rem;
+                margin: 0;
+            }
+        }
 
     }
 
     &:hover {
-        .sd-grid-item__actions, 
-        .sd-grid-item__checkbox {
+        .sd-grid-item__actions {
             visibility: visible;
         }
         .sd-grid-item__remove  {
@@ -138,6 +152,13 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             &:hover {
                 opacity: 1;
             }
+        }
+        .sd-grid-item__checkbox {
+            visibility: visible;
+            .sd-check-new__wrapper {
+                visibility: visible;
+            }
+
         }
     }
     &.sd-grid-item--selected, &.selected {
@@ -384,7 +405,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     }
 
     .sd-grid-item__type-icn {
-        opacity: 0.4;
+        opacity: 0.75;
     }
 
     .sd-grid-item__slugline {

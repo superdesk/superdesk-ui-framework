@@ -8,9 +8,7 @@ export class PanelContent extends React.PureComponent<IProps> {
     render() {
         return (
             <div className="side-panel__content">
-                <div className="side-panel__content-block" >
-                    {this.props.children}
-                </div>
+                {this.props.children}
             </div>
         );
     }
