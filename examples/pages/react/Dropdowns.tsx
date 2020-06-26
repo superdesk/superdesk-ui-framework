@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { SubNav } from '../../../app-typescript';
+import { SubNav, IconButton, Button } from '../../../app-typescript';
 import { Dropdown } from '../../../app-typescript';
 
 export default class DropdownDoc extends React.Component {
@@ -40,6 +40,7 @@ export default class DropdownDoc extends React.Component {
                             ]}>
                             Right aligned
                             </Dropdown>
+
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Dropdown
