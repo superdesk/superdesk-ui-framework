@@ -40,6 +40,7 @@ export default class DropdownDoc extends React.Component {
                             ]}>
                             Right aligned
                             </Dropdown>
+
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Dropdown

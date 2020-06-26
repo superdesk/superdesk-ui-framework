@@ -246,15 +246,17 @@ export const Dropdown = ({
                     onSelect={item['onSelect']} />);
         }
     }
-
     return (
         <div className={'dropdown ' + (open ? 'open' : '')} >
             {typeof children === 'object' ?
-                (React.isValidElement(children) ? React.cloneElement(children, {
-                    className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
-                    onClick: toggleDisplay,
-                    ref: buttonRef,
-                }) : null)
+                (React.isValidElement(children) ?
+                    <div ref={buttonRef} style={{display: 'content'}}>
+                        {React.cloneElement(children, {
+                            className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
+                            onClick: toggleDisplay,
+                            ref: buttonRef,
+                        })}
+                    </div> : null)
                 :
                 <button ref={buttonRef}
                     className=' dropdown__toggle dropdown-toggle'
