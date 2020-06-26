@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { SubNav, IconButton, Button } from '../../../app-typescript';
+import { SubNav } from '../../../app-typescript';
 import { Dropdown } from '../../../app-typescript';
 
 export default class DropdownDoc extends React.Component {
