@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createPopper } from '@popperjs/core';
+import { useId } from "react-id-generator";
 
 export interface IMenuItem {
     label: string;
@@ -41,13 +42,12 @@ export const Dropdown = ({
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
-    const [menuAppend, setMenuAppend] = React.useState(<p></p>);
+    const [menuID] = useId();
     const DROPDOWN_ID = "react-placeholder";
     const ref = React.useRef(null);
     const refSubMenu = React.useRef(null);
     const buttonRef = React.useRef(null);
     const refButtonSubMenu = React.useRef(null);
-
     const headerElements = header?.map((el, index) => {
         return each(el, index);
     });
@@ -59,7 +59,6 @@ export const Dropdown = ({
     const footerElements = footer?.map((el, index) => {
         return each(el, index);
     });
-
     React.useEffect(() => {
         const existingElement = document.getElementById(DROPDOWN_ID);
         if (!existingElement) {
@@ -82,6 +81,7 @@ export const Dropdown = ({
             addInPlaceholder();
         }
         setChange(true);
+
     }, [open]);
 
     // structure for append menu
@@ -89,6 +89,7 @@ export const Dropdown = ({
         if (header && footer) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
+                    id={menuID}
                     ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
@@ -104,6 +105,7 @@ export const Dropdown = ({
         } else if (header) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
+                    id={menuID}
                     ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
@@ -116,6 +118,7 @@ export const Dropdown = ({
         } else if (footer) {
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
+                    id={menuID}
                     ref={ref}>
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
@@ -128,6 +131,7 @@ export const Dropdown = ({
         } else {
             return (
                 <ul className='dropdown__menu '
+                    id={menuID}
                     ref={ref}>
                     {dropdownElements}
                 </ul>
@@ -139,7 +143,6 @@ export const Dropdown = ({
     function toggleDisplay() {
         if (!open) {
             setOpen(true);
-            setMenuAppend(createAppendMenu());
             if (!append) {
                 let menuRef = ref.current;
                 let toggleRef = buttonRef.current;
@@ -165,13 +168,11 @@ export const Dropdown = ({
             document.addEventListener('click', closeMenu);
         } else {
             setOpen(false);
-            setMenuAppend(<br />);
         }
     }
 
     function closeMenu() {
         document.removeEventListener('click', closeMenu);
-        setMenuAppend(<br />);
         setOpen(false);
     }
 
@@ -185,7 +186,15 @@ export const Dropdown = ({
 
     function addInPlaceholder() {
         const placeholder = document.getElementById(DROPDOWN_ID);
-        return ReactDOM.render(menuAppend, placeholder);
+        let menu = createAppendMenu();
+        if (open) {
+            return ReactDOM.render(menu, placeholder);
+        } else {
+            const menuDOM = document.getElementById(menuID);
+            if (menuDOM) {
+                menuDOM.style.display = 'none';
+            }
+        }
     }
 
     function each(item: any, index: number) {
@@ -220,7 +229,6 @@ export const Dropdown = ({
                     </div>
                 </li>
             );
-
         } else if (item['type'] === 'group') {
             let groupItems: any = [];
             item['items'].forEach((el: any, key: number) => {
@@ -234,7 +242,6 @@ export const Dropdown = ({
                     {groupItems}
                 </React.Fragment>
             );
-
         } else if (item === 'divider') {
             return (<li className="dropdown__menu-divider" key={index}></li>);
         } else {
@@ -246,11 +253,12 @@ export const Dropdown = ({
                     onSelect={item['onSelect']} />);
         }
     }
+
     return (
         <div className={'dropdown ' + (open ? 'open' : '')} >
             {typeof children === 'object' ?
                 (React.isValidElement(children) ?
-                    <div ref={buttonRef} style={{display: 'content'}}>
+                    <div ref={buttonRef} style={{ display: 'content' }}>
                         {React.cloneElement(children, {
                             className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
                             onClick: toggleDisplay,
@@ -304,9 +312,11 @@ export const Dropdown = ({
                             </div>
                         );
                     } else {
-                        return <ul className='dropdown__menu' ref={ref} >
-                            {dropdownElements}
-                        </ul>;
+                        return (
+                            <ul className='dropdown__menu' ref={ref} >
+                                {dropdownElements}
+                            </ul>
+                        );
                     }
                 })()}
         </div >
