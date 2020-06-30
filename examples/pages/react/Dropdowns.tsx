@@ -88,7 +88,7 @@ export default class DropdownDoc extends React.Component {
                                 }
                             ]}>
                             Drop append to body
-                            </Dropdown>
+                        </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Dropdown
