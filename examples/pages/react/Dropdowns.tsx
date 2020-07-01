@@ -40,6 +40,7 @@ export default class DropdownDoc extends React.Component {
                             ]}>
                             Right aligned
                             </Dropdown>
+
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Dropdown
@@ -87,7 +88,7 @@ export default class DropdownDoc extends React.Component {
                                 }
                             ]}>
                             Drop append to body
-                            </Dropdown>
+                        </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Dropdown
@@ -226,7 +227,7 @@ export default class DropdownDoc extends React.Component {
                                             { label: 'Action 4', onSelect: () => 1 },
                                         ]
                                     }]}>
-                                <button className='navbtn'>
+                                <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
                             </Dropdown>
@@ -254,7 +255,7 @@ export default class DropdownDoc extends React.Component {
                                             { label: 'Action 4', onSelect: () => 1 },
                                         ]
                                     }]}>
-                                <button className='navbtn'>
+                                <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
                             </Dropdown>
@@ -306,7 +307,7 @@ export default class DropdownDoc extends React.Component {
                                         ]
                                     },
                                 ]}>
-                                <button className='navbtn'>
+                                <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
                             </Dropdown>
@@ -351,7 +352,7 @@ export default class DropdownDoc extends React.Component {
                                         ]
                                     },
                                 ]}>
-                                <button className='navbtn'>
+                                <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
                             </Dropdown>

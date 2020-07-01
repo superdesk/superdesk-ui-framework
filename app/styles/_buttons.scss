@@ -877,6 +877,34 @@ $button-nav-color: currentColor;
       }
     } 
   }
+  &--inline {
+    margin-right: 0;
+    .btn {
+      @include sd-margin('1', 'right');
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+    .sd-navbtn {
+      border-width: 0 1px 0 0;
+    }
+    &.button-group--compact {
+      .btn {
+        @include sd-margin('0-5', 'right');
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    } 
+    &.button-group--compact {
+      .btn {
+        @include sd-margin('0-5', 'right');
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    } 
+  }
   &--right {
     margin-left: auto;
     .btn {
@@ -1023,6 +1051,12 @@ $button-nav-color: currentColor;
   }
   &.button-group--padded {
     @include sd-margin('1-5', 'left');
+  }
+}
+
+.button-group--inline {
+  &.button-group--padded {
+    @include sd-margin('1-5', 'x');
   }
 }
 

@@ -329,6 +329,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         margin:0;
         text-align: center;
         cursor: pointer;
+        padding: 2px 0;
         @include text-overflow;
         opacity: 0.8;
         @include transition(opacity, 0.2s, ease-in-out);
@@ -398,7 +399,10 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
                     margin-right: 0;
                 }
             }
-        } 
+        }
+        &.sd-check-button__group--padded {
+            @include sd-margin('1-5', 'left');
+        }
     }
     &--right {
         margin-left: auto;
@@ -415,6 +419,9 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
                     margin-right: 0;
                 }
             }
+        }
+        &.sd-check-button__group--padded {
+            @include sd-margin('1-5', 'right');
         }
     }
     &--center {
@@ -441,6 +448,33 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             }
         }
     }
+    &--inline {
+        margin-left: 0;
+        margin-right: 0;
+        .sd-check-button  {
+            @include sd-margin('0-5', 'x');
+            &:first-child {
+                margin-left: 0;
+            }
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        &.sd-check-button__group--compact {
+            .sd-check-button  {
+                margin: 0 0.2rem;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+        &.sd-check-button__group--padded {
+            @include sd-margin('1-5', 'x');
+        }
+    }
     &--grid {
         flex: 1 1 0;
         display: grid;
@@ -452,6 +486,9 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         &.sd-check-button__group--compact {
             grid-gap: $sd-base-increment / 2;
         }
+    }
+    &.sd-check-button__group--padded {
+        @include sd-margin('1-5', 'x');
     }
 }
 

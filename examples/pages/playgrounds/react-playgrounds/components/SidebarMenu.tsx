@@ -1,58 +1,77 @@
 import * as React from 'react';
-
+import { Icon } from '../../../../../app-typescript/components/Icon';
 
 interface IProps {
     children?: React.ReactNode;
+    items?: Array<{
+        icon: string,
+        size: 'small' | 'big'; // defaults to 'small',
+        active?: boolean;
+    }>;
 }
 
-export class SidebarMenu extends React.PureComponent<IProps> {
+interface IState {
+    index: number;
+    closeIndex: number;
+}
+
+export class SidebarMenu extends React.PureComponent<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            index: -1,
+            closeIndex: -1,
+        }
+        this.handleClick = this.handleClick.bind(this);
+        this.checkActive = this.checkActive.bind(this);
+    }
+
+    handleClick(indexNumber: number) {
+        this.setState({
+            index: indexNumber,
+        });
+        if (this.state.index === indexNumber) {
+            this.setState({
+                closeIndex: indexNumber,
+            });
+        }
+    }
+
+    checkActive(number: number) {
+        if (number === this.state.index) {
+            return ' sd-sidebar-menu__btn--active'
+        }
+        else {
+            return ''
+        }
+    }
+
+    checkActive(number: number) {
+        if (number === this.state.index) {
+            return ' sd-sidebar-menu__btn--active'
+        }
+        else {
+            return ''
+        }
+    }
+
     render() {
         return (
             <div className='sd-sidebar-menu sd-content-wrapper__left-tabs'>
                 <ul className='authoring-active'>
-                    <li>
-                        <a className='sd-sidebar-menu__btn'>
-                            <i className='sd-sidebar-menu__main-icon big-icon--dashboard'></i>
-                            <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a className='sd-sidebar-menu__btn sd-sidebar-menu__btn--active'>
-                            <i className='sd-sidebar-menu__main-icon big-icon--view'></i>
-                            <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a className='sd-sidebar-menu__btn'>
-                            <i className='sd-sidebar-menu__main-icon big-icon--marked-star'></i>
-                            <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a className='sd-sidebar-menu__btn'>
-                            <i className='sd-sidebar-menu__main-icon big-icon--spike'></i>
-                            <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
-                        </a>
-                    </li>
-                    <li className='sd-sidebar-menu__spacer'></li>
-                    <li>
-                        <a className='sd-sidebar-menu__btn'>
-                            <i className='sd-sidebar-menu__main-icon big-icon--personal'></i>
-                            <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a className='sd-sidebar-menu__btn'>
-                            <i className='sd-sidebar-menu__main-icon big-icon--global-search'></i>
-                            <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a className='sd-sidebar-menu__btn'>
-                            <i className='sd-sidebar-menu__main-icon big-icon--picture'></i>
-                            <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
-                        </a>
-                    </li>
+                    {this.props.items.map((item, index) => {
+                        return (
+                            <li key={index}>
+
+                                <a className={'sd-sidebar-menu__btn' + (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '') + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
+                                    onClick={() => this.handleClick(index)}>
+                                    <span className='sd-sidebar-menu__main-icon '>
+                                        <Icon size={item['size']} name={item['icon']} />
+                                    </span>
+                                    <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
+                                </a>
+                            </li>)
+                    })}
                 </ul>
             </div>
         );

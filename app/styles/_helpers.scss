@@ -224,6 +224,24 @@ time {
     text-transform: uppercase;
     margin-right: 1rem;
 }
+.sd-text__title {
+    color: inherit;
+    font-weight: 500;
+    font-size: 1.6rem;
+    line-height: 1.4;
+}
+
+.sd-text {
+    color: inherit;
+    font-weight: 300;
+    line-height: 1.5;
+    &--medium {
+        font-size: 1.4rem;
+    }
+    &--large {
+        font-size: 1.6rem;
+    }
+}
 .sd-text__date-time {
     color: #747474;
     font-weight: 300;
