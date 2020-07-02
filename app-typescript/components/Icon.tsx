@@ -16,7 +16,7 @@ export class Icon extends React.PureComponent<IProps> {
             [`${this.props.type}`]: this.props.type,
         });
         return (
-            <i className={classes}></i>
+            <i className={classes} aria-label={this.props.name}></i>
         );
     }
 }
