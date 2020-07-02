@@ -10,7 +10,7 @@ export default class IconFontDoc extends React.PureComponent{
         const array = iconFont.icon.split(', ');
         const icons = array.map((icon, index) =>
             <li key={index}>
-                <Icon name={icon}/>
+                <Icon name={icon} />
                 <span>{icon}</span>
             </li>
             );

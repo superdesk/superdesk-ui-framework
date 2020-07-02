@@ -16,7 +16,7 @@ export class IconLabel extends React.PureComponent<IProps> {
 
         return (
             <span className={classes}>
-                <Icon name={this.props.icon}/> {this.props.text}
+                <Icon name={this.props.icon} /> {this.props.text}
             </span>
         );
     }
