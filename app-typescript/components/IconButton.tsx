@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Icon} from './Icon';
 interface IProps {
-    id?: string;
+    id?: string; // used for tooltip
     icon?: string;
     ariaValue: string;
     onClick(): void;
