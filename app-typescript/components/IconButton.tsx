@@ -3,6 +3,7 @@ import {Icon} from './Icon';
 interface IProps {
     id?: string;
     icon?: string;
+    ariaValue: string;
     onClick(): void;
 }
 
@@ -12,7 +13,8 @@ export class IconButton extends React.PureComponent<IProps> {
             <a
                 id={this.props.id}
                 onClick={this.props.onClick}
-                className="icn-btn">
+                className="icn-btn"
+                aria-label={this.props.ariaValue}>
                 <Icon name={this.props.icon}/>
             </a>
         );
