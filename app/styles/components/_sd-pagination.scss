@@ -1,0 +1,62 @@
+.sd-pagination {
+    margin: 0 auto;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+.sd-pagination__button {
+    display: inline-flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    color: inherit;
+    height: 3.2rem;
+    margin: 0 0.3rem;
+    padding: 0 0.6rem;
+    font-size: 1.4rem;
+    min-width: 3.2rem;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 400;
+    line-height: 2rem;
+    border-radius: 16px;
+    letter-spacing: 0.01em;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: transparent;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+    i {
+        color: inherit;
+    }
+    &:hover {
+        background-color: rgba(123, 123, 123, 0.12);
+    }
+    &:active {
+        background-color: rgba(123, 123, 123, 0.24);
+    }
+    &--selected {
+        background-color: rgba(61, 143, 177, 0.24);
+        color: $sd-blue;
+        &:hover {
+            background-color: rgba(61, 143, 177, 0.32);
+        }
+        &:active {
+            background-color: rgba(61, 143, 177, 0.48);
+            color: currentColor
+        }
+
+    }
+    &--disabled {
+        pointer-events: none;
+        opacity: 0.4;
+    }
+    &--ellipsis {
+        pointer-events: none;
+        height: auto;
+    }
+}

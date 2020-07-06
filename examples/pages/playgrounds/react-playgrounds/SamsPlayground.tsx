@@ -91,7 +91,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                     <NavButton text={this.state.dropDownState ? this.state.dropDownState : 'All Archives'} onClick={() => false} />
                                 </Dropdown>
                             </ButtonGroup>
-                            <Components.SearchBar placeholder='Search media'></Components.SearchBar>
+                            <Components.SearchBar placeholder='Search media' type='expanded' focused></Components.SearchBar>
 
                             <ButtonGroup align='right'>
                                 <NavButton icon='dots-vertical' onClick={() => false} />
@@ -121,6 +121,11 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                             <Components.PanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
                             <Components.PanelContent>
                                 <Components.PanelContentBlock>
+                                <div className="form__group">
+                                        <div className="form__item">
+                                            <Components.SearchBar placeholder='Search media' type='boxed' focused></Components.SearchBar>
+                                        </div>
+                                    </div>
                                     <div className="form__group">
                                         <div className="form__item">
                                             <Input label='Title'
@@ -187,8 +192,39 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     {/* FILTER PANEL*/}
 
                     <Components.MainPanel >
+                        
+                            <ul className="sd-pagination">
+                                <li>
+                                    <button className="sd-pagination__button sd-pagination__button--disabled">
+                                        <Icon name="chevron-left-thin" />
+                                    </button>
+                                </li>
+                                <li>
+                                    <button className="sd-pagination__button sd-pagination__button--selected">1</button>
+                                </li>
+                                <li>
+                                    <button className="sd-pagination__button">2</button>
+                                </li>
+                                <li>
+                                    <button className="sd-pagination__button">3</button>
+                                </li>
+                                <li>
+                                    <button className="sd-pagination__button">4</button>
+                                </li>
+                                <li>
+                                    <button className="sd-pagination__button sd-pagination__button--ellipsis">…</button>
+                                </li>
+                                <li>
+                                    <button className="sd-pagination__button">16</button>
+                                </li>
+                                <li>
+                                    <button className="sd-pagination__button">
+                                        <Icon name="chevron-right-thin" />
+                                    </button>
+                                </li>
+                            </ul>
+                        
                         <div className="sd-grid-list sd-margin--1">
-
                             <div className="sd-grid-item sd-grid-item--with-click" onClick={this.handlePreview}>
                                 <div className="sd-grid-item__thumb">
                                     <div className="sd-grid-item__checkbox">
@@ -230,7 +266,6 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 </div>
                                 <div className="sd-grid-item__state-border"></div>
                             </div>
-
 
                             <div className="sd-grid-item sd-grid-item--with-click locked">
                                 <div className="sd-grid-item__thumb">
@@ -371,7 +406,6 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                         </Components.Panel>
                     </Components.RightPanel>
                     {/* PREVIEW PANEL*/}
-
                     <Components.OverlayPanel />
                     {/* OVERLAY PANEL (Send To) */}
                 </Components.LayoutContainer>

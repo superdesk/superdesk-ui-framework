@@ -215,7 +215,6 @@ $baseColors: (
     color: $value;
   }
 }
-
 // CSS variables for default (light) theme
 
 :root, [data-theme="light-ui"] {  
@@ -254,6 +253,8 @@ $baseColors: (
   --color-assignment-to-do:      #c4170b; //red--700
   --color-assignment-progress:   #d17d00; //orange--600
   --color-assignment-completed:  #74a838; //light-green--600
+
+  --color-grid-item-Bg: #fff;
 }
 
 // CSS variables for dark theme
@@ -298,6 +299,7 @@ $baseColors: (
   [class*=" big-icon--"] {
     color: $white;
   }
+  --color-grid-item-Bg: #272727;
 }
 
 [data-theme="accessible-light-ui"] {
