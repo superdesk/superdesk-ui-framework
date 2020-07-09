@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { AutoComplete } from 'primereact/autocomplete';
 
 import { clone } from 'lodash';
 
@@ -11,23 +10,15 @@ export const TagInput = ({ items }: ITagInput) => {
     const [tags, setTags] = React.useState<Array<any>>([]);
     const inputRef = React.useRef(null);
 
-    // autocomlete
-    const [filteredMultiple, setFilteredMultiple] = React.useState<Array<any>>([]);
-    const [selectedItems, setSelectedItems] = React.useState<Array<any>>([]);
-
     // number for select
     const [selectNumber, setSelectNumber] = React.useState(-1);
 
-    const filterMultiple = (event: { query: string }) => {
-        if (items) {
-            setTimeout(() => {
-                let results = items.filter((country: any) => {
-                    return country.toLowerCase().startsWith(event.query.toLowerCase());
-                });
-                setFilteredMultiple(results);
-            }, 250);
-        }
-    };
+    // autocomplete
+    const [suggestions, setSuggestions] = React.useState<Array<any>>([]);
+    // const [selectItem, setSelectItem] = React.useState(-1);
+
+    // focused
+    const [focus, setFocus] = React.useState(false);
 
     function inputKeyDown(e: any) {
         const val = e.target.value;
@@ -64,34 +55,89 @@ export const TagInput = ({ items }: ITagInput) => {
         setTags(newTags);
     }
 
-    if (items) {
+    function onTextChanged(e: any) {
+        if (items) {
+            const value = e.target.value;
+            let newSuggestions = [];
+            if (value.length > 1) {
+                const regex = new RegExp(`^${value}`, 'i');
+                newSuggestions = items.sort().filter((v) => regex.test(v));
+            }
+            setSuggestions(newSuggestions);
+        }
+    }
+
+    function addTag(item: any) {
+        setTags((tag) => tag.concat(item));
+        let inputRefVariable: any = inputRef.current;
+        if (inputRefVariable) {
+            inputRefVariable.value = null;
+        }
+        setSuggestions([]);
+    }
+
+    function renderSuggestions() {
+        if (suggestions.length === 0) {
+            return null;
+        }
+
         return (
-            <AutoComplete value={selectedItems} suggestions={filteredMultiple} completeMethod={filterMultiple}
-                minLength={1} placeholder="test placeholder" multiple={true} onChange={(e) => setSelectedItems(e.value)}
-                inputClassName='tags-input__input' />
-        );
-    } else {
-        return (
-            <div className='tags-input'>
-                <div className='tags-input__tags'>
-                    <ul className='tags-input__tag-list'>
-                        {tags.map((tag, i) => {
-                            return (
-                                <li className={'tags-input__tag-item' + (selectNumber === i ? ' selected' : '')}
-                                    key={i}>
-                                    {tag}
-                                    <a type='button' className='tags-input__remove-button' onClick={() => removeTag(i)}>
-                                        <i className='icon-close-small'></i>
-                                    </a>
-                                </li>
-                            );
-                        })}
-                        <li className='input-tag__tags__input'>
-                            <input type='text' className='tags-input__input' onKeyDown={inputKeyDown} ref={inputRef} />
-                        </li>
-                    </ul>
-                </div>
+            <div className='autocomplete' style={{ display: suggestions.length === 0 ? 'none' : 'block' }}>
+                <ul className='suggestion-list'>
+                    {suggestions.map((item, index) =>
+                        <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
+                            onClick={() => addTag(item)}
+                            key={index}>
+                            {item}
+                        </li>,
+                    )}
+                </ul>
             </div>
         );
     }
+
+    function toggleFocus() {
+        if (!focus) {
+            setFocus(true);
+            document.addEventListener('click', closeMenu);
+        } else {
+            setFocus(false);
+        }
+    }
+
+    function closeMenu() {
+        document.removeEventListener('click', closeMenu);
+        setFocus(false);
+    }
+
+    return (
+        <div className='tags-input'>
+            <div className={'tags-input__tags' + (focus ? ' focused' : '')}>
+                {items ? <button className="tags-input__add-button"><i className="icon-plus-large"></i></button> : null}
+                <ul className='tags-input__tag-list'>
+                    {tags.map((tag, i) => {
+                        return (
+                            <li className={'tags-input__tag-item' + (selectNumber === i ? ' selected' : '')}
+                                key={i}>
+                                {tag}
+                                <a type='button' className='tags-input__remove-button' onClick={() => removeTag(i)}>
+                                    <i className='icon-close-small'></i>
+                                </a>
+                            </li>
+                        );
+                    })}
+                    <li className='input-tag__tags__input'>
+                        <input
+                            type='text'
+                            className='tags-input__input'
+                            onChange={onTextChanged}
+                            ref={inputRef}
+                            onKeyDown={inputKeyDown}
+                            onClick={toggleFocus} />
+                    </li>
+                </ul>
+            </div>
+            {items ? renderSuggestions() : null}
+        </div>
+    );
 };
