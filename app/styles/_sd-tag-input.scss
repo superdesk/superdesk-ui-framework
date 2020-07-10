@@ -339,7 +339,6 @@ tags-input {
                     }
                 }
             }
-
             ti-tag-item {
                 display: flex;
                 flex-direction: row;
@@ -371,7 +370,7 @@ tags-input {
             }
 
             // Override width and box-shadow from superdesk-client-core
-            width: 20px;
+
             &:focus {
                 box-shadow: unset !important;
             }
@@ -418,6 +417,10 @@ tags-input {
                 cursor: default;
             }
         }
+    }
+    .tag-input__invalid-tag{
+        border-bottom: 1px solid #E51C23 !important;
+        box-shadow: 0 1px 0 #E51C23 !important;
     }
     .tags-input__add-button {
         float: left;
@@ -473,6 +476,9 @@ tags-input {
             color: $sd-text;
             background-color: $white;
             transition: all ease-in-out 0.1s;
+            &:hover {
+                background-color: scale-color($sd-blue, $alpha: -70%);
+            }
             &.selected {
                 background-color: scale-color($sd-blue, $alpha: -70%);
                 &:active {

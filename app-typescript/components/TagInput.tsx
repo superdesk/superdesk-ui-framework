@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 import { clone } from 'lodash';
 
@@ -20,13 +21,24 @@ export const TagInput = ({ items }: ITagInput) => {
     // focused
     const [focus, setFocus] = React.useState(false);
 
+    // invalid-tag
+    const [invalid, setInvalid] = React.useState(false);
+
     function inputKeyDown(e: any) {
         const val = e.target.value;
+        if (val.length > 1) {
+            setInvalid(false);
+        }
         if (e.key === 'Enter' && val) {
-            setTags((tag) => tag.concat(val));
-            let inputRefVariable: any = inputRef.current;
-            if (inputRefVariable) {
-                inputRefVariable.value = null;
+            if (val.length > 2) {
+                setInvalid(false);
+                setTags((tag) => tag.concat(val));
+                let inputRefVariable: any = inputRef.current;
+                if (inputRefVariable) {
+                    inputRefVariable.value = null;
+                }
+            } else {
+                setInvalid(true);
             }
         } else if (e.key === 'Backspace' && !val) {
             setSelectNumber(tags.length - 1);
@@ -110,9 +122,14 @@ export const TagInput = ({ items }: ITagInput) => {
         setFocus(false);
     }
 
+    let classes = classNames('tags-input__tags', {
+        'focused': focus,
+        'tag-input__invalid-tag' : invalid,
+    });
+
     return (
         <div className='tags-input'>
-            <div className={'tags-input__tags' + (focus ? ' focused' : '')}>
+            <div className={classes} >
                 {items ? <button className="tags-input__add-button"><i className="icon-plus-large"></i></button> : null}
                 <ul className='tags-input__tag-list'>
                     {tags.map((tag, i) => {
@@ -129,7 +146,7 @@ export const TagInput = ({ items }: ITagInput) => {
                     <li className='input-tag__tags__input'>
                         <input
                             type='text'
-                            className='tags-input__input'
+                            className={'tags-input__input' + (invalid ? ' invalid-tag' : '')}
                             onChange={onTextChanged}
                             ref={inputRef}
                             onKeyDown={inputKeyDown}
