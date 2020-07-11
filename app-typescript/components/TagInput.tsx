@@ -5,9 +5,10 @@ import { clone } from 'lodash';
 
 interface ITagInput {
     items?: Array<any>;
+    label: string;
 }
 
-export const TagInput = ({ items }: ITagInput) => {
+export const TagInput = ({ items, label }: ITagInput) => {
     const [tags, setTags] = React.useState<Array<any>>([]);
     const inputRef = React.useRef(null);
 
@@ -124,37 +125,41 @@ export const TagInput = ({ items }: ITagInput) => {
 
     let classes = classNames('tags-input__tags', {
         'focused': focus,
-        'tag-input__invalid-tag' : invalid,
+        'tag-input__invalid-tag': invalid,
     });
 
     return (
-        <div className='tags-input'>
-            <div className={classes} >
-                {items ? <button className="tags-input__add-button"><i className="icon-plus-large"></i></button> : null}
-                <ul className='tags-input__tag-list'>
-                    {tags.map((tag, i) => {
-                        return (
-                            <li className={'tags-input__tag-item' + (selectNumber === i ? ' selected' : '')}
-                                key={i}>
-                                {tag}
-                                <a type='button' className='tags-input__remove-button' onClick={() => removeTag(i)}>
-                                    <i className='icon-close-small'></i>
-                                </a>
-                            </li>
-                        );
-                    })}
-                    <li className='input-tag__tags__input'>
-                        <input
-                            type='text'
-                            className={'tags-input__input' + (invalid ? ' invalid-tag' : '')}
-                            onChange={onTextChanged}
-                            ref={inputRef}
-                            onKeyDown={inputKeyDown}
-                            onClick={toggleFocus} />
-                    </li>
-                </ul>
+        <div className='sd-tag-input' data-label={label}>
+            <label className='tags-input__label'>{label}</label>
+            <div className='tags-input'>
+                <div className={classes} >
+                    {items ?
+                        <button className="tags-input__add-button"><i className="icon-plus-large"></i></button> : null}
+                    <ul className='tags-input__tag-list'>
+                        {tags.map((tag, i) => {
+                            return (
+                                <li className={'tags-input__tag-item' + (selectNumber === i ? ' selected' : '')}
+                                    key={i}>
+                                    {tag}
+                                    <a type='button' className='tags-input__remove-button' onClick={() => removeTag(i)}>
+                                        <i className='icon-close-small'></i>
+                                    </a>
+                                </li>
+                            );
+                        })}
+                        <li className='input-tag__tags__input'>
+                            <input
+                                type='text'
+                                className={'tags-input__input' + (invalid ? ' invalid-tag' : '')}
+                                onChange={onTextChanged}
+                                ref={inputRef}
+                                onKeyDown={inputKeyDown}
+                                onClick={toggleFocus} />
+                        </li>
+                    </ul>
+                </div>
+                {items ? renderSuggestions() : null}
             </div>
-            {items ? renderSuggestions() : null}
         </div>
     );
 };

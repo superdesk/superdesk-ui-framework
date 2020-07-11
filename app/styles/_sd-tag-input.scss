@@ -6,6 +6,18 @@ sd-tag-input {
         padding-top: 1rem;
     }
 }
+
+// Testing
+.sd-tag-input {
+    display: block;
+    padding-bottom: 3rem;   
+    &[data-label] {
+        position: relative;
+        padding-top: 1rem;
+    }
+}
+// Testing
+
 .tags-input__label {
     position: absolute;
     display: inline-block;
