@@ -1,6 +1,5 @@
 import * as React from 'react';
 import classNames from 'classnames';
-
 import { clone } from 'lodash';
 
 interface ITagInput {
@@ -10,7 +9,10 @@ interface ITagInput {
 
 export const TagInput = ({ items, label }: ITagInput) => {
     const [tags, setTags] = React.useState<Array<any>>([]);
+    const [openSuggestion, setOpenSuggestion] = React.useState(false);
     const inputRef = React.useRef(null);
+    const refTagInput = React.useRef(null);
+    const refSuggestions = React.useRef(null);
 
     // number for select
     const [selectNumber, setSelectNumber] = React.useState(-1);
@@ -89,37 +91,75 @@ export const TagInput = ({ items, label }: ITagInput) => {
         setSuggestions([]);
     }
 
-    function renderSuggestions() {
-        if (suggestions.length === 0) {
-            return null;
+    function toggleSuggestions() {
+        if (!openSuggestion) {
+            setOpenSuggestion(true);
+            document.addEventListener('click', closeSuggestions);
+        } else {
+            setOpenSuggestion(false);
         }
+    }
 
-        return (
-            <div className='autocomplete' style={{ display: suggestions.length === 0 ? 'none' : 'block' }}>
-                <ul className='suggestion-list'>
-                    {suggestions.map((item, index) =>
-                        <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
-                            onClick={() => addTag(item)}
-                            key={index}>
-                            {item}
-                        </li>,
-                    )}
-                </ul>
-            </div>
-        );
+    function closeSuggestions() {
+        document.removeEventListener('click', closeSuggestions);
+        setOpenSuggestion(false);
+    }
+
+    function renderSuggestions() {
+        if (openSuggestion) {
+            return (
+                <div className='autocomplete' ref={refSuggestions}>
+                    <ul className='suggestion-list' >
+                        {suggestions.length !== 0 ? (
+                            suggestions.map((item, index) =>
+                                <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
+                                    onClick={() => addTag(item)}
+                                    key={index}>
+                                    {item}
+                                </li>,
+                            )
+                        ) : (
+                                items?.map((item, index) =>
+                                    <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
+                                        onClick={() => addTag(item)}
+                                        key={index}>
+                                        {item}
+                                    </li>,
+                                )
+                            )}
+                    </ul>
+                </div>
+            );
+        } else if (suggestions.length === 0) {
+            return null;
+        } else {
+            return (
+                <div className='autocomplete' ref={refSuggestions}>
+                    <ul className='suggestion-list' >
+                        {suggestions.map((item, index) =>
+                            <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
+                                onClick={() => addTag(item)}
+                                key={index}>
+                                {item}
+                            </li>,
+                        )}
+                    </ul>
+                </div>
+            );
+        }
     }
 
     function toggleFocus() {
         if (!focus) {
             setFocus(true);
-            document.addEventListener('click', closeMenu);
+            document.addEventListener('click', removeFocus);
         } else {
             setFocus(false);
         }
     }
 
-    function closeMenu() {
-        document.removeEventListener('click', closeMenu);
+    function removeFocus() {
+        document.removeEventListener('click', removeFocus);
         setFocus(false);
     }
 
@@ -132,9 +172,12 @@ export const TagInput = ({ items, label }: ITagInput) => {
         <div className='sd-tag-input' data-label={label}>
             <label className='tags-input__label'>{label}</label>
             <div className='tags-input'>
-                <div className={classes} >
+                <div className={classes} ref={refTagInput}>
                     {items ?
-                        <button className="tags-input__add-button"><i className="icon-plus-large"></i></button> : null}
+                        <button className="tags-input__add-button"
+                            onClick={toggleSuggestions}>
+                            <i className="icon-plus-large"></i>
+                        </button> : null}
                     <ul className='tags-input__tag-list'>
                         {tags.map((tag, i) => {
                             return (
