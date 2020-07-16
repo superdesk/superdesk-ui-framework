@@ -31,6 +31,7 @@ import BigIconFontDoc from './BigIconFont';
 import SubNavDoc from './SubNav';
 import DropdownDoc from './Dropdowns';
 import ToastsDoc from './Toasts';
+import TagDoc from './Tags';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -64,6 +65,9 @@ const pages = {
             },
             'tooltips': {
                 name: 'Tooltips'
+            },
+            'tags': {
+                name: 'Tags'
             },
             'dropdowns': {
                 name: 'Dropdowns'
@@ -142,6 +146,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/alerts" component={AlertDoc} />
                         <Route path="/react/avatar" component={AvatarDoc} />
                         <Route path="/react/tooltips" component={TooltipDoc} />
+                        <Route path="/react/tags" component={TagDoc} />
                         <Route path="/react/inputs" component={InputsDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
