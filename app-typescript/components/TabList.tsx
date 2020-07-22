@@ -18,9 +18,9 @@ interface ITab {
 class Tab extends React.PureComponent<ITab> {
     render() {
         return (
-            <React.Fragment>
+            <div className='nav-tabs__pane' role='tabpanel'>
                 {this.props.children}
-            </React.Fragment>
+            </div>
         );
     }
 }
@@ -56,10 +56,13 @@ class TabList extends React.PureComponent<ITabList, IState> {
 
         return (
             <React.Fragment>
-                <ul className={classes}>
+                <ul className={classes} role='tablist'>
                     {this.props.children.map((item, index) =>
                         <li key={index} className={'nav-tabs__tab' + (this.state.index === index ? ' nav-tabs__tab--active' : '')}>
-                            <button className='nav-tabs__link' onClick={() => this.handleChange(index)}>
+                            <button
+                                className='nav-tabs__link'
+                                onClick={() => this.handleChange(index)}
+                                role='tab' aria-selected={this.state.index === index ? 'true' : 'false'}>
                                 <span>{item.props.label}</span>
                             </button>
                         </li>)}
