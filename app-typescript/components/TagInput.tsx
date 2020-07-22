@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import { createPopper } from '@popperjs/core';
 import { clone } from 'lodash';
 
 interface ITagInput {
@@ -26,6 +27,16 @@ export const TagInput = ({ items, label }: ITagInput) => {
 
     // invalid-tag
     const [invalid, setInvalid] = React.useState(false);
+
+    React.useEffect(() => {
+        let menuRef = refSuggestions.current;
+        let toggleRef = refTagInput.current;
+        if (toggleRef && menuRef) {
+            createPopper(toggleRef, menuRef, {
+                placement: 'bottom-start',
+            });
+        }
+    }, [suggestions]);
 
     function inputKeyDown(e: any) {
         const val = e.target.value;
@@ -169,10 +180,10 @@ export const TagInput = ({ items, label }: ITagInput) => {
     });
 
     return (
-        <div className='sd-tag-input' data-label={label}>
+        <div className='sd-tag-input' data-label={label} >
             <label className='tags-input__label'>{label}</label>
-            <div className='tags-input'>
-                <div className={classes} ref={refTagInput}>
+            <div className='tags-input' ref={refTagInput}>
+                <div className={classes} >
                     {items ?
                         <button className="tags-input__add-button"
                             onClick={toggleSuggestions}>
