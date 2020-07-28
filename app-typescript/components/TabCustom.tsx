@@ -1,10 +1,11 @@
 import * as React from 'react';
-
+import classNames from 'classnames';
 interface ITabs {
-    onClick(i: any): void;
     size?: 'normal' | 'large' | 'small'; // defaults to 'normal'
     theme?: 'light' | 'dark'; // defaults to 'light'
+    ariaLabel?: string;
     children: Array<any>;
+    onClick(i: any): void;
 }
 
 interface ITabLabel {
@@ -29,7 +30,7 @@ export const TabLabel = ({ label }: ITabLabel) => {
     );
 };
 
-export const Tabs = ({ children, onClick }: ITabs) => {
+export const Tabs = ({ size, theme, ariaLabel, children, onClick }: ITabs) => {
     const [index, setIndex] = React.useState(0);
 
     function handleSelected(i: number) {
@@ -41,10 +42,14 @@ export const Tabs = ({ children, onClick }: ITabs) => {
         onClick(i);
     };
 
+    let classes = classNames('nav-tabs', {
+        [`nav-tabs--${size}`]: size && size !== undefined,
+        'nav-tabs--ui-dark': theme === 'dark',
+    });
     return (
-        <ul className='nav-tabs' role='tablist'>
+        <ul className={classes} role='tablist' aria-label={ariaLabel ? ariaLabel : 'tabs'}>
             {children.map((item, i) =>
-                <li key={i} className={'nav-tabs__tab' + (index === i ? ' nav-tabs__tab--active' : '')} >
+                <li key={i} className={'nav-tabs__tab' + (index === i ? ' nav-tabs__tab--active' : '')} aria-controls={'tabpanel-' + i}>
                     <button
                         className='nav-tabs__link'
                         onClick={() => handleSelected(i)}
@@ -63,7 +68,9 @@ export const TabContent = ({ theme, children, activePanel }: ITabPanel) => {
             (theme === 'dark' ? ' nav-tabs__content--ui-dark' : '')}>
             {children.map((panel: any, i: number) =>
                 panel.props.indexValue === activePanel ?
-                    <div className="nav-tabs__pane" role="tabpanel" key={i}>{panel}</div> : null)}
+                    <div className="nav-tabs__pane" role="tabpanel" aria-labelledby={'tab-' + activePanel} key={i}>
+                        {panel}
+                    </div> : null)}
         </div>
     );
 };
