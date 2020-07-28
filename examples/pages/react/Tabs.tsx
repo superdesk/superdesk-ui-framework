@@ -153,7 +153,8 @@ export default class TabsDoc extends React.Component<{}, IState> {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h3 className="docs-page__h3">TAB CUSTOM </h3>
+                <h3 className="docs-page__h3">Tabs with two components ( <code>Tabs</code> and <code> TabContent</code> ) </h3>
+                <p className="docs-page__paragraph">If you want to use on one place list of tabs and on another place content of tabs, wrap all <code>TabLabel</code> with <code>Tabs</code> component and all <code>TabPanel</code> components with <code>TabContent.</code></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -176,7 +177,27 @@ export default class TabsDoc extends React.Component<{}, IState> {
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                       
+                    const [activeIndex, setActiveIndex] = React.useState(0);
+                    const handleClick = (index: number) => {
+                        setActiveIndex(index);
+                    }
+
+                       <Tabs onClick={handleClick}>
+                            <TabLabel label='Content' indexValue={0}/>
+                            <TabLabel label='Metadata' indexValue={1}/>
+                            <TabLabel label='Duplicates' indexValue={2}/>
+                        </Tabs>
+                        <TabContent activePanel={activeIndex}>
+                            <TabPanel indexValue={0}>
+                                Content here.
+                            </TabPanel>
+                            <TabPanel indexValue={1}>
+                                Metadata here.
+                            </TabPanel>
+                            <TabPanel indexValue={2}>
+                                Duplicates here.
+                            </TabPanel>
+                        </TabContent>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -186,6 +207,20 @@ export default class TabsDoc extends React.Component<{}, IState> {
                     <Prop name='tablist size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
                     <Prop name='tablist theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
                     <Prop name='tab label' isRequered={false} type='string' default='/' description='Text value of Tab label'/>
+                </PropsList>
+                <br/>
+                <h4 className="docs-page__h4">Tabs Custom</h4>
+                <PropsList>
+                    <Prop name='tabs size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
+                    <Prop name='tabs theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
+                    <Prop name='tabs ariaLabel' isRequered={false} type='string' default='/' description='Text value of aria-label'/>
+                    <Prop name='tabs onClick' isRequered={true} type='function' default='/' description='Use to return value of clicked label'/>
+                    <Prop name='tablabel indexValue' isRequered={true} type='number' default='/' description='Index value of label'/>
+                    <Prop name='tablabel label' isRequered={true} type='string' default='/' description='Text value of Tab label'/>
+
+                    <Prop name='tabcontent theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
+                    <Prop name='tabcontent activePanel' isRequered={true} type='number' default='/' description='Index value of active Tab'/>
+                    <Prop name='tabpanel indexValue' isRequered={true} type='number' default='/' description='Index value of Tab Panel'/>
                 </PropsList>
             </section>
         )
