@@ -61,7 +61,7 @@ export const TabContent = ({ theme, children, activePanel }: ITabPanel) => {
     return (
         <div className={'nav-tabs__content' +
             (theme === 'dark' ? ' nav-tabs__content--ui-dark' : '')}>
-            {children.map((panel, i) =>
+            {children.map((panel: any, i: number) =>
                 panel.props.indexValue === activePanel ?
                     <div className="nav-tabs__pane" role="tabpanel" key={i}>{panel}</div> : null)}
         </div>
