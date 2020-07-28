@@ -223,7 +223,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                             { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
                                                         ]
                                                     }]}>
-                                                <IconButton icon='dots-vertical' onClick={() => false} />
+                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
                                             </Dropdown>
                                         </div>
                                     </div>
@@ -266,7 +266,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                             { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
                                                         ]
                                                     }]}>
-                                                <IconButton icon='dots-vertical' onClick={() => false} />
+                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
                                             </Dropdown>
                                         </div>
                                     </div>
@@ -308,7 +308,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                             { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
                                                         ]
                                                     }]}>
-                                                <IconButton icon='dots-vertical' onClick={() => false} />
+                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
                                             </Dropdown>
                                         </div>
                                     </div>
@@ -343,13 +343,13 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                         { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
                                                     ]
                                                 }]}>
-                                            <IconButton icon='dots-vertical' onClick={() => false} />
+                                            <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
                                         </Dropdown>
                                     </div>
                                 </Components.PanelContentBlock>
                                 <Components.PanelContentBlock padding='0' className='side-panel__content-block--image'>
                                     <span className="side-panel__image-actions">
-                                        <IconButton icon='fullscreen' onClick={() => false} />
+                                        <IconButton ariaValue='button-fullscreen' icon='fullscreen' onClick={() => false} />
                                     </span>
                                     <img src="/d_trump.jpg" alt="test" />
                                 </Components.PanelContentBlock>
