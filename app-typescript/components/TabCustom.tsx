@@ -5,7 +5,7 @@ interface ITabs {
     theme?: 'light' | 'dark'; // defaults to 'light'
     ariaLabel?: string;
     children: Array<any>;
-    onClick(i: any): void;
+    onClick(i: number): void;
 }
 
 interface ITabLabel {
@@ -13,13 +13,13 @@ interface ITabLabel {
     indexValue: number;
 }
 
-interface ITabPanel {
+interface ITabContent {
     theme?: 'light' | 'dark'; // defaults to 'light'
     children: any;
     activePanel: number;
 }
 
-interface ITabContent {
+interface ITabPanel {
     indexValue: number;
     children: any;
 }
@@ -62,7 +62,7 @@ export const Tabs = ({ size, theme, ariaLabel, children, onClick }: ITabs) => {
     );
 };
 
-export const TabContent = ({ theme, children, activePanel }: ITabPanel) => {
+export const TabContent = ({ theme, children, activePanel }: ITabContent) => {
     return (
         <div className={'nav-tabs__content' +
             (theme === 'dark' ? ' nav-tabs__content--ui-dark' : '')}>
@@ -75,7 +75,7 @@ export const TabContent = ({ theme, children, activePanel }: ITabPanel) => {
     );
 };
 
-export const TabPanel = ({ children, indexValue }: ITabContent) => {
+export const TabPanel = ({ children, indexValue }: ITabPanel) => {
     return (
         <React.Fragment key={indexValue}>
             {children}
