@@ -66,10 +66,10 @@ export default class TabsDoc extends React.Component<{}, IState> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Sizes</h3>
-                <p className="docs-page__paragraph">Tabs come in three different sizes, normal, large. Add prop <code>size='large'</code> to the <code>TabList</code> component to create large tabs or <code>size='small'</code> for small ones. The default (normal) size doesn't need the <code>size</code> prop to be specified.</p>
+                <p className="docs-page__paragraph">Tabs come in three different sizes – normal, small and large. Add prop <code>size='large'</code> to the <code>TabList</code> component to create large tabs or <code>size='small'</code> for small ones. The default (normal) size doesn't need the <code>size</code> prop to be specified.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                    <div className='docs-page__content-row'>
+                        <div className='docs-page__content-row'>
                             <p className="docs-page__paragraph">// Normal tabs (default)</p>
                             <TabList>
                                 <Tab label='Content'>Content here.</Tab>
@@ -78,30 +78,16 @@ export default class TabsDoc extends React.Component<{}, IState> {
                             </TabList>
                         </div>
                         <div className='docs-page__content-row'>
-                            <TabList size='large'>
+                            <p className="docs-page__paragraph">// Small tabs</p>
+                            <TabList size='small'>
                                 <Tab label='Content'>Content here.</Tab>
                                 <Tab label='Metadata'>Metadata here.</Tab>
                                 <Tab label='Duplicates'>Duplicates here.</Tab>
                             </TabList>
                         </div>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>{`
-                        <TabList size='large'>
-                            <Tab label='Content'>Content here.</Tab>
-                            <Tab label='Metadata'>Metadata here.</Tab>
-                            <Tab label='Duplicates'>Duplicates here.</Tab>
-                        </TabList>
-                    `}
-                    </Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
-                <h3 className="docs-page__h3">Small tabs</h3>
-                <p className="docs-page__paragraph">Add ‘small’ to size prop of the <code>TabList</code> component.</p>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
-                            <p className="docs-page__paragraph">// Small tabs</p>
-                            <TabList size='small'>
+                            <p className="docs-page__paragraph">// Large tabs</p>
+                            <TabList size='large'>
                                 <Tab label='Content'>Content here.</Tab>
                                 <Tab label='Metadata'>Metadata here.</Tab>
                                 <Tab label='Duplicates'>Duplicates here.</Tab>
