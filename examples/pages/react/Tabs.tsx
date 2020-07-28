@@ -3,13 +3,30 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 
 import { Tab, TabList, Prop, PropsList } from '../../../app-typescript';
+import {Tabs, TabLabel, TabPanel, TabContent} from '../../../app-typescript';
 
+interface IState {
+    indexValue: number;
+}
 
-export default class TabsDoc extends React.Component<{}> {
+export default class TabsDoc extends React.Component<{}, IState> {
+    constructor(props){
+        super(props);
+        this.state = {
+            indexValue: 0
+        }
+        this.handleClick=this.handleClick.bind(this);
+    }
     tabs: TabList;
 
     componentDidMount() {
         this.tabs.goTo('Content')
+    }
+
+    handleClick = (number: number) => {
+        this.setState({
+            indexValue: number,
+        })
     }
 
     render() {
@@ -132,6 +149,34 @@ export default class TabsDoc extends React.Component<{}> {
                             <Tab label='Metadata'>Metadata here.</Tab>
                             <Tab label='Duplicates'>Duplicates here.</Tab>
                         </TabList>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">TAB CUSTOM </h3>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row'>
+                            <Tabs onClick={this.handleClick}>
+                                <TabLabel label='Content' indexValue={0}/>
+                                <TabLabel label='Metadata' indexValue={1}/>
+                                <TabLabel label='Duplicates' indexValue={2}/>
+                            </Tabs>
+                            <TabContent activePanel={this.state.indexValue}>
+                                <TabPanel indexValue={0}>
+                                    Content here.
+                                </TabPanel>
+                                <TabPanel indexValue={1}>
+                                    Metadata here.
+                                </TabPanel>
+                                <TabPanel indexValue={2}>
+                                    Duplicates here.
+                                </TabPanel>
+                            </TabContent>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                       
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
