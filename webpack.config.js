@@ -27,6 +27,11 @@ const config = {
         },
     },
 
+    externals: [
+        'react',
+        'react-dom',
+    ],
+
     module: {
         rules: [
             {
