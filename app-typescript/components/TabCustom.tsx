@@ -57,8 +57,8 @@ export const Tabs = ({ size, theme, ariaLabel, children, onClick }: ITabs) => {
                     role='tab'
                     aria-selected={index === i ? 'true' : 'false'} >
                     {item}
-                </button>
-            )}
+                </button>)
+            }
         </div>
     );
 };
