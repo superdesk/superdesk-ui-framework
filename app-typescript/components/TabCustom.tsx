@@ -42,33 +42,34 @@ export const Tabs = ({ size, theme, ariaLabel, children, onClick }: ITabs) => {
         onClick(i);
     };
 
-    let classes = classNames('nav-tabs', {
-        [`nav-tabs--${size}`]: size && size !== undefined,
-        'nav-tabs--ui-dark': theme === 'dark',
+    let classes = classNames('sd-nav-tabs', {
+        [`sd-nav-tabs--${size}`]: size && size !== undefined,
+        'sd-nav-tabs--ui-dark': theme === 'dark',
     });
     return (
-        <ul className={classes} role='tablist' aria-label={ariaLabel ? ariaLabel : 'tabs'}>
+        <div className={classes} role='tablist' aria-label={ariaLabel ? ariaLabel : 'tabs'}>
             {children.map((item, i) =>
-                <li key={i} className={'nav-tabs__tab' + (index === i ? ' nav-tabs__tab--active' : '')} aria-controls={'tabpanel-' + i}>
-                    <button
-                        className='nav-tabs__link'
-                        onClick={() => handleSelected(i)}
-                        role='tab'
-                        aria-selected={index === i ? 'true' : 'false'} >
-                        {item}
-                    </button>
-                </li>)}
-        </ul>
+                <button
+                    key={i}
+                    aria-controls={'tabpanel-' + i}
+                    className={'sd-nav-tabs__tab' + (index === i ? ' sd-nav-tabs__tab--active' : '')}
+                    onClick={() => handleSelected(i)}
+                    role='tab'
+                    aria-selected={index === i ? 'true' : 'false'} >
+                    {item}
+                </button>
+            )}
+        </div>
     );
 };
 
 export const TabContent = ({ theme, children, activePanel }: ITabContent) => {
     return (
-        <div className={'nav-tabs__content' +
-            (theme === 'dark' ? ' nav-tabs__content--ui-dark' : '')}>
+        <div className={'sd-nav-tabs__content' +
+            (theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '')}>
             {children.map((panel: any, i: number) =>
                 panel.props.indexValue === activePanel ?
-                    <div className="nav-tabs__pane" role="tabpanel" aria-labelledby={'tab-' + activePanel} key={i}>
+                    <div className='sd-nav-tabs__pane' role='tabpanel' aria-labelledby={'tab-' + activePanel} key={i}>
                         {panel}
                     </div> : null)}
         </div>
