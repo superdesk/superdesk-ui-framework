@@ -11,15 +11,17 @@ interface IMenuGroup {
 }
 
 interface IMenu {
+    navClass?: string;
     groups: Array<IMenuGroup>;
     activeItemId: string;
+    ariaLabel?: string;
     onSelect(id: string): void;
 }
 
-export class Menu extends React.PureComponent<IMenu> {
+export class LeftMenu extends React.PureComponent<IMenu> {
     render() {
         return (
-            <React.Fragment>
+            <nav className={this.props.navClass} aria-label={this.props.ariaLabel}>
                 {this.props.groups.map((group, i) => {
                     return (
                         <ul key={i}>
@@ -39,7 +41,7 @@ export class Menu extends React.PureComponent<IMenu> {
                         </ul>
                     );
                 })}
-            </React.Fragment>
+            </nav>
         );
     }
 }

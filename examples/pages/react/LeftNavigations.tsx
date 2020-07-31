@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Menu, Prop, PropsList } from '../../../app-typescript';
+import { LeftMenu, Prop, PropsList } from '../../../app-typescript';
 
 
 export default class LeftNavigationsDoc extends React.Component<{}> {
@@ -22,7 +22,7 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                                     <p className="sd-top-menu__header">Top menu</p>
                                 </div>
                                 <nav className='sd-left-nav sd-left-nav--absolute' style={{ top: '48px' }}>
-                                    <Menu activeItemId='1' groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
+                                    <LeftMenu activeItemId='1' groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
                                     { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
                                     { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
                                         onSelect={() => false} />
@@ -31,7 +31,7 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Menu activeItemId='1' 
+                        <LeftMenu activeItemId='1' 
                               groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
                               { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
                               { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
