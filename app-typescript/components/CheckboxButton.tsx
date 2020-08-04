@@ -6,6 +6,7 @@ interface IProps {
         text: string,
     };
     icon?: string;
+    iconOnly?: boolean;
     disabled?: boolean;
     onChange(nextValue: boolean): void;
 }
@@ -33,10 +34,18 @@ export class CheckboxButton extends React.PureComponent<IProps> {
                     onClick={this.handleChange}>
                     {this.props.icon ? <i className={`icon-${this.props.icon}`}></i> : null}
                     {this.props.disabled ?
-                        (<label className='sd-check-button__text-label sd-label--disabled' htmlFor={this.htmlId}>
-                            {this.props.label.text}</label>) :
-                        (<label className='sd-check-button__text-label' htmlFor={this.htmlId}>
-                            {this.props.label.text}</label>)}
+                        (<label
+                            className='sd-check-button__text-label sd-label--disabled'
+                            aria-label={this.props.iconOnly ? this.props.label.text : ''}
+                            htmlFor={this.htmlId}>
+                            {!this.props.iconOnly ? this.props.label.text : null}
+                        </label>) :
+                        (<label
+                            className='sd-check-button__text-label'
+                            aria-label={this.props.iconOnly ? this.props.label.text : ''}
+                            htmlFor={this.htmlId}>
+                            {!this.props.iconOnly ? this.props.label.text : null}
+                        </label>)}
                 </span>
             </React.Fragment>
         );
