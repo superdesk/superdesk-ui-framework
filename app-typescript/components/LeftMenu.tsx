@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 interface IMenuItem {
     id: string;
@@ -20,8 +21,12 @@ interface IMenu {
 
 export class LeftMenu extends React.PureComponent<IMenu> {
     render() {
+        let classes = classNames('sd-left-nav', {
+            [`${this.props.navClass}`]: this.props.navClass
+        });
+
         return (
-            <nav className={this.props.navClass} aria-label={this.props.ariaLabel}>
+            <nav className={classes} aria-label={this.props.ariaLabel}>
                 {this.props.groups.map((group, i) => {
                     return (
                         <ul key={i}>
