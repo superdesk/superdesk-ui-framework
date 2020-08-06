@@ -29,6 +29,8 @@ $sd-leftNavBtn-borderActive: 4px solid rgba(94,169,200,1);
 }
 
 .sd-left-nav__btn {
+    width: 100%;
+    text-align: left;
     display: block;
     font-size: 1.3rem;
     line-height: 100%;

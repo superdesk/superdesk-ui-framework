@@ -4,6 +4,7 @@ import classNames from 'classnames';
 interface IMenuItem {
     id: string;
     label: string;
+    route?: string;
 }
 
 interface IMenuGroup {
@@ -16,7 +17,7 @@ interface IMenu {
     groups: Array<IMenuGroup>;
     activeItemId: string;
     ariaLabel?: string;
-    onSelect(id: string): void;
+    onSelect(id: string, route: string): void;
 }
 
 export class LeftMenu extends React.PureComponent<IMenu> {
@@ -29,21 +30,18 @@ export class LeftMenu extends React.PureComponent<IMenu> {
             <nav className={classes} aria-label={this.props.ariaLabel}>
                 {this.props.groups.map((group, i) => {
                     return (
-                        <ul key={i}>
-                            <li className='sd-left-nav__group-header'>{group.label}</li>
+                        <React.Fragment key={i}>
+                            <span className='sd-left-nav__group-header'>{group.label}</span>
                             {group.items.map((item, j) => {
                                 return (
-                                    <li
-                                        key={j}
+                                    <button key={j}
                                         onClick={() => {
-                                            this.props.onSelect(item.id);
-                                        }}
-                                    >
-                                        <a href='#' className="sd-left-nav__btn">{item.label}</a>
-                                    </li>
+                                            this.props.onSelect(item.id, item.route ? item.route : '');
+                                        }} className="sd-left-nav__btn">{item.label}</button>
+
                                 );
                             })}
-                        </ul>
+                        </React.Fragment>
                     );
                 })}
             </nav>
