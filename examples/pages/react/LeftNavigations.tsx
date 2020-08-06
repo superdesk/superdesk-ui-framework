@@ -1,9 +1,6 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
-
 import { LeftMenu, Prop, PropsList } from '../../../app-typescript';
-
 
 export default class LeftNavigationsDoc extends React.Component<{}> {
     render() {
@@ -16,26 +13,27 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
-                            <div style={{ position: 'relative', minHeight: '600px', backgroundColor: '#efefef', overflow: 'hidden', border: '1px solid #dadada' }}>
-                                <div className="sd-top-menu">
-                                    <a className="sd-top-menu__collapse-nav"><i className="icon-collapse icon--white"></i></a>
-                                    <p className="sd-top-menu__header">Top menu</p>
+                            <div className='docs-page__grid-page-example'>
+                                <div className='docs-page__grid-page-example__top'>
+                                    <div className="sd-top-menu">
+                                        <a className="sd-top-menu__collapse-nav"><i className="icon-collapse icon--white"></i></a>
+                                        <p className="sd-top-menu__header">Top menu</p>
+                                    </div>
                                 </div>
-                                <nav className='sd-left-nav sd-left-nav--absolute' style={{ top: '48px' }}>
-                                    <LeftMenu activeItemId='1' groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
-                                    { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
-                                    { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
+                                    <LeftMenu ariaLabel={'Left navigation'} navClass={'docs-page__grid-page-example__side'} activeItemId='1' 
+                                        groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
+                                                 { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
+                                                 { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
                                         onSelect={() => false} />
-                                </nav>
+                                <div className='docs-page__grid-page-example__main'></div>
                             </div>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <LeftMenu activeItemId='1' 
-                              groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
-                              { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
-                              { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
-                              onSelect={() => false} />
+                        <LeftMenu ariaLabel={'Left navigation'} navClass={'some-optional-class'} activeItemId='1' groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
+                            { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
+                            { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
+                            onSelect={() => false} />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
