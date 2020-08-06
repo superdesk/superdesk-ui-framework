@@ -246,71 +246,71 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default</p>
                     <div className="docs-page__content-row">
-                        <Button icon="info-sign" onClick={()=> false} />
-                        <Button type="primary" icon="plus-sign" onClick={()=> false} />
-                        <Button type="success" icon="ok" onClick={()=> false} />
+                        <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-sign" text="plus-sign" iconOnly={true} onClick={()=> false} />
+                        <Button type="success" icon="ok" text="ok" iconOnly={true} onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Large</p>
                     <div className="docs-page__content-row">
-                        <Button type="warning" icon="exclamation-sign" size="large" onClick={()=> false} />
-                        <Button type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false} />
-                        <Button type="highlight" icon="bell" size="large" onClick={()=> false} />
+                        <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-sign" text="plus-sign" style="hollow" size="large" iconOnly={true} onClick={()=> false} />
+                        <Button type="highlight" icon="bell" text="bell" size="large" iconOnly={true} onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Small</p>
                     <div className="docs-page__content-row">
-                        <Button type="alert" style="hollow" icon="kill" size="small" onClick={()=> false} />
-                        <Button icon="calendar" size="small" onClick={()=> false} />
-                        <Button type="primary" style="hollow" icon="refresh" size="small" onClick={()=> false} />
+                        <Button type="alert" style="hollow" icon="kill" text="kill" size="small" iconOnly={true} onClick={()=> false} />
+                        <Button icon="calendar" size="small" text="calendar" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" style="hollow" icon="refresh" text="refresh" size="small" iconOnly={true} onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Circle default</p>
                     <div className="docs-page__content-row">
-                        <Button size="normal" icon="info-sign" shape="round" onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" shape="round" onClick={()=> false} />
-                        <Button type="success" icon="ok" shape="round" onClick={()=> false} />
+                        <Button size="normal" icon="info-sign" text="info-sign" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" text="plus-large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="success" icon="ok" text="ok" shape="round" iconOnly={true} onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Circle large</p>
                     <div className="docs-page__content-row">
-                        <Button type="warning" icon="exclamation-sign" size="large" shape="round" onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" style="hollow" size="large" shape="round" onClick={()=> false} />
-                        <Button type="highlight" icon="bell" size="large" shape="round" onClick={()=> false} />
+                        <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" text="plus-large" style="hollow" size="large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="highlight" icon="bell" text="bell" size="large" shape="round" iconOnly={true} onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Circle small</p>
                     <div className="docs-page__content-row">
-                        <Button type="alert" icon="close-small" size="small" shape="round" onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" size="small" shape="round" onClick={()=> false} />
-                        <Button type="sd-green" icon="star" size="small" shape="round" onClick={()=> false} />
+                        <Button type="alert" icon="close-small" text="close-small" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" text="plus-large" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="sd-green" icon="star" text="star" size="small" shape="round" iconOnly={true} onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Default
-                        <Button icon="info-sign" onClick={()=> false} />
-                        <Button type="primary" icon="plus-sign" onClick={()=> false} />
-                        <Button type="success" icon="ok" onClick={()=> false} />
+                        <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-sign" text="plus-sign" iconOnly={true} onClick={()=> false} />
+                        <Button type="success" icon="ok" text="ok" iconOnly={true} onClick={()=> false} />
 
                         // Large
-                        <Button type="warning" icon="exclamation-sign" size="large" onClick={()=> false} />
-                        <Button type="primary" icon="plus-sign" style="hollow" size="large" onClick={()=> false} />
-                        <Button type="highlight" icon="bell" size="large" onClick={()=> false} />
+                        <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-sign" text="plus-sign" style="hollow" size="large" iconOnly={true} onClick={()=> false} />
+                        <Button type="highlight" icon="bell" text="bell" size="large" iconOnly={true} onClick={()=> false} />
 
                         // Small
-                        <Button type="alert" style="hollow" icon="kill" size="small" onClick={()=> false} />
-                        <Button icon="calendar" size="small" onClick={()=> false} />
-                        <Button type="primary" style="hollow" icon="refresh" size="small" onClick={()=> false} />
+                        <Button type="alert" style="hollow" icon="kill" text="kill" size="small" iconOnly={true} onClick={()=> false} />
+                        <Button icon="calendar" size="small" text="calendar" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" style="hollow" icon="refresh" text="refresh" size="small" iconOnly={true} onClick={()=> false} />
 
                         // Circle default
-                        <Button size="normal" icon="info-sign" shape="round" onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" shape="round" onClick={()=> false} />
-                        <Button type="success" icon="ok" shape="round" onClick={()=> false} />
+                        <Button size="normal" icon="info-sign" text="info-sign" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" text="plus-large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="success" icon="ok" text="ok" shape="round" iconOnly={true} onClick={()=> false} />
 
                         // Circle large
-                        <Button type="warning" icon="exclamation-sign" size="large" shape="round" onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" style="hollow" size="large" shape="round" onClick={()=> false} />
-                        <Button type="highlight" icon="bell" size="large" shape="round" onClick={()=> false} />
+                        <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" text="plus-large" style="hollow" size="large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="highlight" icon="bell" text="bell" size="large" shape="round" iconOnly={true} onClick={()=> false} />
 
                         // Circle small
-                        <Button type="alert" icon="close-small" size="small" shape="round" onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" size="small" shape="round" onClick={()=> false} />
-                        <Button type="sd-green" icon="star" size="small" shape="round" onClick={()=> false} />
+                        <Button type="alert" icon="close-small" text="close-small" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" text="plus-large" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="sd-green" icon="star" text="star" size="small" shape="round" iconOnly={true} onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
