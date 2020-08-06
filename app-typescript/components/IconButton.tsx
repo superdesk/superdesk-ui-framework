@@ -4,7 +4,7 @@ interface IProps {
     id?: string; // used for tooltip
     icon?: string;
     ariaValue: string;
-    onClick(): void;
+    onClick(event: React.MouseEvent<HTMLAnchorElement>): void;
 }
 
 export class IconButton extends React.PureComponent<IProps> {
