@@ -22,7 +22,7 @@ interface IMenu {
 export class LeftMenu extends React.PureComponent<IMenu> {
     render() {
         let classes = classNames('sd-left-nav', {
-            [`${this.props.navClass}`]: this.props.navClass
+            [`${this.props.navClass}`]: this.props.navClass,
         });
 
         return (
