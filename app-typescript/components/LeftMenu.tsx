@@ -20,7 +20,25 @@ interface IMenu {
     onSelect(id: string, route: string): void;
 }
 
-export class LeftMenu extends React.PureComponent<IMenu> {
+interface IState {
+    active: string;
+}
+export class LeftMenu extends React.PureComponent<IMenu, IState> {
+    constructor(props: IMenu) {
+        super(props);
+
+        this.state = {
+            active: '',
+        };
+    }
+
+    handleClick(id: string, route: string) {
+        this.setState({
+            active: id,
+        });
+        this.props.onSelect(id, route);
+    }
+
     render() {
         let classes = classNames('sd-left-nav', {
             [`${this.props.navClass}`]: this.props.navClass,
@@ -34,10 +52,14 @@ export class LeftMenu extends React.PureComponent<IMenu> {
                             <span className='sd-left-nav__group-header'>{group.label}</span>
                             {group.items.map((item, j) => {
                                 return (
-                                    <button key={j}
+                                    <button
+                                        key={j}
                                         onClick={() => {
-                                            this.props.onSelect(item.id, item.route ? item.route : '');
-                                        }} className="sd-left-nav__btn">{item.label}</button>
+                                            this.handleClick(item.id, item.route ? item.route : '');
+                                        }}
+                                        className={item.id === this.state.active ? 'sd-left-nav__btn sd-left-nav__btn--active' : 'sd-left-nav__btn'}>
+                                        {item.label}
+                                    </button>
 
                                 );
                             })}
