@@ -29,7 +29,7 @@ export {CheckGroup} from './components/CheckGroup';
 export {CheckButtonGroup} from './components/CheckButtonGroup';
 export {NavButton} from './components/NavButton';
 export {Tab, TabList} from './components/TabList';
-export {Menu} from './components/Menu';
+export {LeftMenu} from './components/LeftMenu';
 export {SubNav} from './components/SubNav';
 export {SlidingToolbar}  from './components/SlidingToolbar';
 export {StrechBar}  from './components/StrechBar';
