@@ -15,7 +15,7 @@ export class IconButton extends React.PureComponent<IProps> {
                 onClick={this.props.onClick}
                 className="icn-btn"
                 aria-label={this.props.ariaValue}>
-                <Icon name={this.props.icon}/>
+                <Icon name={this.props.icon} ariaHidden={true}/>
             </a>
         );
     }
