@@ -100,7 +100,11 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Sizing</h3>
-                <p className="docs-page__paragraph">For the default button, no size has to be specified. To change the default size set the <code>size</code> value either to <code>small</code> or <code>large</code>. For the button to take the full width of the container add <code>expand={'{true}'}</code>.</p>
+                <p className="docs-page__paragraph">
+                    For the default button, no size has to be specified. 
+                    To change the default size set the <code>size</code> value either to <code>small</code> or <code>large</code>. 
+                    For the button to take the full width of the container add <code>expand={'{true}'}</code>.
+                </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
@@ -241,7 +245,8 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Buttons with icon font only</h3>
-                <p className="docs-page__paragraph">Buttons can also contain only an icon, without any text. To achieve this the <code>icon</code> value needs to be specified and the <code>text</code> prop left out completely.</p>
+                <p className="docs-page__paragraph">Buttons can also contain only an icon, without any visible text. To achieve this specify the <code>icon</code> value and set <code>iconOnly={true}</code>. 
+                The specified text value will be used for the <code>aria-label</code>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default</p>
@@ -428,9 +433,10 @@ export default class ButtonsDoc extends React.Component {
                 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='text' isRequered={false} type='string' default='/' description='Button text value.'/>
+                    <Prop name='text' isRequered={true} type='string' default='/' description='Text value of the Button. In the case of iconOnly buttons the value will be set to the aria-label.'/>
+                    <Prop name='iconOnly' isRequered={false} type='boolean' default='false' description='This prop is used for Buttons with icons only. It set to true, it will visually hide the text and use the value for the aria-label.'/>
                     <Prop name='expand' isRequered={false} type='boolean' default='false' description='Spans the full width of the Button parent.'/>
-                    <Prop name='style' isRequered={false} type='filled | hollow | text-only' default='filled' description='Buttons may be one of styles such as hollow buttons, buttons without background (text-only) or default filled.'/>
+                    <Prop name='style' isRequered={false} type='filled | hollow | text-only' default='filled' description='Buttons may be one of styles such as hollow buttons, buttons without background (text-only) or filled (default).'/>
                     <Prop name='shape' isRequered={false} type='square | round' default='square' description='Make shape of button round or default square.'/>
                     <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
                     <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Styles button for diffrent background.'/>
