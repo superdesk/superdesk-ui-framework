@@ -195,7 +195,7 @@ export default class TabsDoc extends React.Component<{}, IState> {
                     <Prop name='tab label' isRequered={false} type='string' default='/' description='Text value of Tab label'/>
                 </PropsList>
                 <br/>
-                <h4 className="docs-page__h4">Tabs Custom</h4>
+                <h4 className="docs-page__h4--props-subtitle">Tabs Custom</h4>
                 <PropsList>
                     <Prop name='tabs size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
                     <Prop name='tabs theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>

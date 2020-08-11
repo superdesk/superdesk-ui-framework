@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import { ButtonGroup, Button, IconButton, Tooltip, Alert, Divider, Prop, PropsList} from '../../../app-typescript';
+import { ButtonGroup, Button, IconButton, Alert, Divider, Prop, PropsList} from '../../../app-typescript';
 
 export default class ButtonGroupsDoc extends React.Component {
     render() {
@@ -33,9 +33,9 @@ export default class ButtonGroupsDoc extends React.Component {
                     </div>
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
                         <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                            <IconButton icon='home' ariaValue='Home' onClick={()=> false} />
+                            <IconButton icon='bell' ariaValue='Notifications' onClick={()=> false} />
+                            <IconButton icon='heart' ariaValue='Favorites' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     
@@ -48,9 +48,9 @@ export default class ButtonGroupsDoc extends React.Component {
                     </div>
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
                         <ButtonGroup align='right'>
-                            <IconButton icon='trash' tooltip={{text:'Delete'}} onClick={()=> false} />
-                            <IconButton icon='pencil' tooltip={{text:'Edit'}} onClick={()=> false} />
-                            <IconButton icon='close-small' tooltip={{text:'Close'}} onClick={()=> false} />
+                            <IconButton icon='trash' ariaValue='Delete' onClick={()=> false} />
+                            <IconButton icon='pencil' ariaValue='Edit' onClick={()=> false} />
+                            <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     <p className="docs-page__paragraph">// Center</p>
@@ -83,9 +83,9 @@ export default class ButtonGroupsDoc extends React.Component {
                             <Button text='two' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
                         <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                            <IconButton icon='home' ariaValue='Home' onClick={()=> false} />
+                            <IconButton icon='bell' ariaValue='Notifications' onClick={()=> false} />
+                            <IconButton icon='heart' ariaValue='Favorites' onClick={()=> false} />
                         </ButtonGroup>
 
                         // Right
@@ -95,9 +95,9 @@ export default class ButtonGroupsDoc extends React.Component {
                         </ButtonGroup>
 
                         <ButtonGroup align='right'>
-                            <IconButton icon='trash' tooltip={{text:'Delete'}} onClick={()=> false} />
-                            <IconButton icon='pencil' tooltip={{text:'Edit'}} onClick={()=> false} />
-                            <IconButton icon='close-small' tooltip={{text:'Close'}} onClick={()=> false} />
+                            <IconButton icon='trash' ariaValue='Delete' onClick={()=> false} />
+                            <IconButton icon='pencil' ariaValue='Edit' onClick={()=> false} />
+                            <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
                         </ButtonGroup>
 
                         // Left + Center + Right
@@ -183,29 +183,29 @@ export default class ButtonGroupsDoc extends React.Component {
 
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
                         <ButtonGroup align='center'>
-                            <IconButton icon='undo' tooltip={{text:'Undo'}} onClick={()=> false} />
-                            <IconButton icon='redo' tooltip={{text:'Redo'}} onClick={()=> false} />
-                            <IconButton icon='print' tooltip={{text:'Print'}} onClick={()=> false} />
+                            <IconButton icon='undo' ariaValue='Undo' onClick={()=> false} />
+                            <IconButton icon='redo' ariaValue='Redo' onClick={()=> false} />
+                            <IconButton icon='print' ariaValue='Print' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='bold' tooltip={{text:'Bold'}} onClick={()=> false} />
-                            <IconButton icon='italic' tooltip={{text:'Italic'}} onClick={()=> false} />
-                            <IconButton icon='underline' tooltip={{text:'Underline'}} onClick={()=> false} />
-                            <IconButton icon='strikethrough' tooltip={{text:'Strikethrough'}} onClick={()=> false} />
+                            <IconButton icon='bold' ariaValue='Bold' onClick={()=> false} />
+                            <IconButton icon='italic' ariaValue='Italic' onClick={()=> false} />
+                            <IconButton icon='underline' ariaValue='Underline' onClick={()=> false} />
+                            <IconButton icon='strikethrough' ariaValue='Strikethrough' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='align-left' tooltip={{text:'Align left'}} onClick={()=> false} />
-                            <IconButton icon='align-center' tooltip={{text:'Align center'}} onClick={()=> false} />
-                            <IconButton icon='align-right' tooltip={{text:'Align right'}} onClick={()=> false} />
+                            <IconButton icon='align-left' ariaValue='Align left' onClick={()=> false} />
+                            <IconButton icon='align-center' ariaValue='Align center' onClick={()=> false} />
+                            <IconButton icon='align-right' ariaValue='Align right' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
 
                     <p className="docs-page__paragraph">// Medium</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
                         <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='slideshow' tooltip={{text:'Gallery'}} onClick={()=> false} />
+                            <IconButton icon='home' ariaValue='Home' onClick={()=> false} />
+                            <IconButton icon='slideshow' ariaValue='Gallery' onClick={()=> false} />
                             <Divider size='medium' />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                            <IconButton icon='bell' ariaValue='Notifications' onClick={()=> false} />
+                            <IconButton icon='heart' ariaValue='Favorites' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
@@ -229,27 +229,27 @@ export default class ButtonGroupsDoc extends React.Component {
                         </ButtonGroup>
 
                         <ButtonGroup align='center'>
-                            <IconButton icon='undo' tooltip={{text:'Undo'}} onClick={()=> false} />
-                            <IconButton icon='redo' tooltip={{text:'Redo'}} onClick={()=> false} />
-                            <IconButton icon='print' tooltip={{text:'Print'}} onClick={()=> false} />
+                            <IconButton icon='undo' ariaValue='Undo' onClick={()=> false} />
+                            <IconButton icon='redo' ariaValue='Redo' onClick={()=> false} />
+                            <IconButton icon='print' ariaValue='Print' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='bold' tooltip={{text:'Bold'}} onClick={()=> false} />
-                            <IconButton icon='italic' tooltip={{text:'Italic'}} onClick={()=> false} />
-                            <IconButton icon='underline' tooltip={{text:'Underline'}} onClick={()=> false} />
-                            <IconButton icon='strikethrough' tooltip={{text:'Strikethrough'}} onClick={()=> false} />
+                            <IconButton icon='bold' ariaValue='Bold' onClick={()=> false} />
+                            <IconButton icon='italic' ariaValue='Italic' onClick={()=> false} />
+                            <IconButton icon='underline' ariaValue='Underline' onClick={()=> false} />
+                            <IconButton icon='strikethrough' ariaValue='Strikethrough' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='align-left' tooltip={{text:'Align left'}} onClick={()=> false} />
-                            <IconButton icon='align-center' tooltip={{text:'Align center'}} onClick={()=> false} />
-                            <IconButton icon='align-right' tooltip={{text:'Align right'}} onClick={()=> false} />
+                            <IconButton icon='align-left' ariaValue='Align left' onClick={()=> false} />
+                            <IconButton icon='align-center' ariaValue='Align center' onClick={()=> false} />
+                            <IconButton icon='align-right' ariaValue='Align right' onClick={()=> false} />
                         </ButtonGroup>
 
                         // Medium
                         <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='slideshow' tooltip={{text:'Gallery'}} onClick={()=> false} />
+                            <IconButton icon='home' ariaValue='Home' onClick={()=> false} />
+                            <IconButton icon='slideshow' ariaValue='Gallery' onClick={()=> false} />
                             <Divider size='medium' />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                            <IconButton icon='bell' ariaValue='Notifications' onClick={()=> false} />
+                            <IconButton icon='heart' ariaValue='Favorites' onClick={()=> false} />
                         </ButtonGroup>
                     `}
                     </Markup.ReactMarkupCode>

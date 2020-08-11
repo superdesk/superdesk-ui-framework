@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Icon} from './Icon';
 interface IProps {
     id?: string; // used for tooltip
-    icon?: string;
+    icon: string;
     ariaValue: string;
     onClick(event: React.MouseEvent<HTMLAnchorElement>): void;
 }

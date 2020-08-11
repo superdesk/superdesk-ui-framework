@@ -7,7 +7,7 @@ interface IProps {
 export class LeftPanel extends React.PureComponent<IProps> {
     render() {
         return (
-            <div className={'sd-main-content-grid__filter' + (this.props.open ? ' open-filters' : '')}>
+            <div className={'sd-main-content-grid__filter' + (this.props.open ? ' open-panel' : '')}>
                 {this.props.children}
             </div>
         );

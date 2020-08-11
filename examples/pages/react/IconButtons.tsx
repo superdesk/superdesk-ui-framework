@@ -13,7 +13,7 @@ export default class IconButtonDoc extends React.Component {
                     <IconButton icon="close-small" ariaValue="aria-value" onClick={()=> false} />
                 `}
                 </Markup.ReactMarkupCodePreview>
-                <p className="docs-page__paragraph">Plain icon button are mostly used for toolbars inside other UI components. They have a built in support for custom tooltips.</p>
+                <p className="docs-page__paragraph">Plain icon button are mostly used for toolbars inside other UI components. You can easily add a custom tooltip to the <code>IconButton</code> by wrapping it with a <code>Tooltip</code> component.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default look</p>
@@ -32,7 +32,7 @@ export default class IconButtonDoc extends React.Component {
                         <p className="docs-page__paragraph">// Dark UI</p>
                         <div className="docs-page__content-row docs-page__content-row--ui-dark" style={{color:'white'}}>
                             <Tooltip text='I support tooltips!'>
-                                    <IconButton icon='close-small' ariaValue='close' onClick={()=> false} />
+                                <IconButton icon='close-small' ariaValue='close' onClick={()=> false} />
                             </Tooltip>
                             <IconButton icon='plus-large' ariaValue='plus' onClick={()=> false} />
                             <IconButton icon='dots-vertical' ariaValue='dots' onClick={()=> false} />
@@ -46,7 +46,7 @@ export default class IconButtonDoc extends React.Component {
                         <Tooltip text='I support tooltips!'>
                             <IconButton icon='close-small' ariaValue='close' onClick={()=> false} />
                         </Tooltip>
-                        <IconButton icon='plus-large' ariaValue='plus' onClick ={()=> false} />
+                        <IconButton icon='plus-large' ariaValue='plus' onClick={()=> false} />
                         <IconButton icon='dots-vertical' ariaValue='dots' onClick={()=> false} />
                         <IconButton icon='trash' ariaValue='trash' onClick={()=> false} />
                         <Tooltip text='My tooltip is on right.' flow='right'>
@@ -69,7 +69,7 @@ export default class IconButtonDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='icon' isRequered={true} type='string' default='/' description='Icon class name without the icon- part.'/>
                     <Prop name='ariaValue' isRequered={true} type='string' default='/' description='Description for screen readers'/>
                 </PropsList>
             </section>

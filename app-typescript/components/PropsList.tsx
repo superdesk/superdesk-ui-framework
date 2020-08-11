@@ -17,7 +17,7 @@ class Prop extends React.PureComponent<IProps> {
                     <td>{this.props.isRequered ? 'yes' : 'no'}</td>
                     <td>{this.props.type}</td>
                     <td>{this.props.default}</td>
-                    <td>{this.props.description}</td>
+                    <td style={{width:'360px'}}>{this.props.description}</td>
                 </tr>
             </React.Fragment>
         );
@@ -27,14 +27,14 @@ class Prop extends React.PureComponent<IProps> {
 class PropsList extends React.PureComponent {
     render() {
         return (
-            <table>
+            <table style={{marginBottom:'40px'}}>
                 <thead>
                     <tr>
                         <th>Name</th>
                         <th>Required</th>
                         <th>Type</th>
                         <th>Default Value</th>
-                        <th>Description</th>
+                        <th style={{width:'360px'}}>Description</th>
                     </tr>
                 </thead>
                 <tbody>

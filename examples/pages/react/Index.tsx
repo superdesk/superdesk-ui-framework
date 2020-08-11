@@ -32,6 +32,9 @@ import SubNavDoc from './SubNav';
 import DropdownDoc from './Dropdowns';
 import ToastsDoc from './Toasts';
 import TagDoc from './Tags';
+import PanelDoc from './Panel';
+import SearchBarDoc from './SearchBar';
+import PaginationDoc from './Pagination';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -77,6 +80,9 @@ const pages = {
             },
             'toast': {
                 name: 'Toasts'
+            },
+            'search-bar': {
+                name: 'Search Bar'
             }
         }
     },
@@ -91,6 +97,9 @@ const pages = {
             },
             'sub-navigation': {
                 name: 'Sub navigation bar'
+            },
+            'pagination': {
+                name: 'Pagination'
             },
         }
     },
@@ -114,6 +123,14 @@ const pages = {
             },
             'checkbox': {
                 name: 'Checkbox'
+            }
+        }
+    },
+    layoutComponents: {
+        name: "Layout",
+        items: {
+            'panel': {
+                name: 'Panel',
             }
         }
     },
@@ -161,6 +178,9 @@ class ReactDoc extends React.Component {
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
                         <Route path="/react/dropdowns" component={DropdownDoc} />
                         <Route path="/react/toast" component={ToastsDoc} />
+                        <Route path="/react/panel" component={PanelDoc} />
+                        <Route path="/react/search-bar" component={SearchBarDoc} />
+                        <Route path="/react/pagination" component={PaginationDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

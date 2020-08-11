@@ -8,7 +8,7 @@ interface IProps {
 export class RightPanel extends React.PureComponent<IProps> {
     render() {
         return (
-            <div className={'sd-main-content-grid__preview' + (this.props.open ? ' open-preview' : '')}>
+            <div className={'sd-main-content-grid__preview' + (this.props.open ? ' open-panel' : '')}>
                 {this.props.children}
             </div>
         );

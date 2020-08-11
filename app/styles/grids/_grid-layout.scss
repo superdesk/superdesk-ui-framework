@@ -646,16 +646,7 @@ $planningEditor-width: 53rem;
     }
 }
 
-.sd-main-content-grid__preview.open-preview {
-    .side-panel__container {
-        width:460px;
-        overflow-y: auto;
-        .side-panel {
-            opacity: 1;
-        }
-    } 
-}
-.sd-main-content-grid__filter.open-filters {
+.open-panel {
     .side-panel__container {
         width:360px;
         overflow-y: auto;
@@ -666,6 +657,11 @@ $planningEditor-width: 53rem;
             width: 300px;
         }
 
+    } 
+}
+.sd-main-content-grid__preview.open-panel {
+    .side-panel__container {
+        width:460px;
     } 
 }
 

@@ -1,26 +1,25 @@
 import * as React from 'react';
-import { Icon } from '../../../../../app-typescript/index';
+import { Icon, IconButton } from '../../../../../app-typescript/index';
 
 interface IProps {
     children?: React.ReactNode;
     title?: string;
-    handleFilterParent(): void;
+    handlePanelParent(): void;
 }
 
 export class PanelHeader extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
-
-        this.handleFilter=this.handleFilter.bind(this);
+        this.handlePanel=this.handlePanel.bind(this);
     }
 
-    handleFilter() {
-        this.props.handleFilterParent();
+    handlePanel() {
+        this.props.handlePanelParent();
     }
     render() {
         return (
             <div className="side-panel__header side-panel__header--border-b">
-                <a className="icn-btn side-panel__close" onClick={this.handleFilter}>
+                <a aria-abel='Close' className="icn-btn side-panel__close" onClick={this.handlePanel}>
                     <Icon name='close-small' />
                 </a>
                 <h3 className="side-panel__heading">{this.props.title}</h3>

@@ -118,7 +118,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
 
                     <Components.LeftPanel open={this.state.openFilter}>
                         <Components.Panel side='left' background='grey'>
-                            <Components.PanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
+                            <Components.PanelHeader handlePanelParent={this.handleFilter} title='Advanced filters' />
                             <Components.PanelContent>
                                 <Components.PanelContentBlock>
                                     <div className="form__group">
@@ -323,7 +323,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
 
                     <Components.RightPanel open={this.state.openPreview}>
                         <Components.Panel side='right'>
-                            <Components.PanelHeader title='Item details' handleFilterParent={this.handlePreview} />
+                            <Components.PanelHeader title='Item details' handlePanelParent={this.handlePreview} />
                             <Components.PanelContent>
                                 <Components.PanelContentBlock flex={true}>
                                     <div className="side-panel__content-block-inner side-panel__content-block-inner--grow">
