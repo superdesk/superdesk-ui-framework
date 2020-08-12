@@ -2,9 +2,7 @@ import * as React from 'react';
 import nextId from "react-id-generator";
 interface IProps {
     checked: boolean;
-    label: {
-        text: string,
-    };
+    label: string;
     icon?: string;
     iconOnly?: boolean;
     disabled?: boolean;
@@ -36,15 +34,15 @@ export class CheckboxButton extends React.PureComponent<IProps> {
                     {this.props.disabled ?
                         (<label
                             className='sd-check-button__text-label sd-label--disabled'
-                            aria-label={this.props.iconOnly ? this.props.label.text : ''}
+                            aria-label={this.props.iconOnly ? this.props.label : ''}
                             htmlFor={this.htmlId}>
-                            {!this.props.iconOnly ? this.props.label.text : null}
+                            {!this.props.iconOnly ? this.props.label : null}
                         </label>) :
                         (<label
                             className='sd-check-button__text-label'
-                            aria-label={this.props.iconOnly ? this.props.label.text : ''}
+                            aria-label={this.props.iconOnly ? this.props.label : ''}
                             htmlFor={this.htmlId}>
-                            {!this.props.iconOnly ? this.props.label.text : null}
+                            {!this.props.iconOnly ? this.props.label : null}
                         </label>)}
                 </span>
             </React.Fragment>
