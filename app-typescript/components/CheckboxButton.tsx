@@ -33,13 +33,13 @@ export class CheckboxButton extends React.PureComponent<IProps> {
                     {this.props.icon ? <i className={`icon-${this.props.icon}`}></i> : null}
                     {this.props.disabled ?
                         (<label
-                            className='sd-check-button__text-label sd-label--disabled'
+                            className={'sd-check-button__text-label sd-label--disabled ' + (this.props.iconOnly ? 'visuallyhidden' : '')}
                             aria-label={this.props.iconOnly ? this.props.label : ''}
                             htmlFor={this.htmlId}>
                             {!this.props.iconOnly ? this.props.label : null}
                         </label>) :
                         (<label
-                            className='sd-check-button__text-label'
+                            className={'sd-check-button__text-label ' + (this.props.iconOnly ? 'visuallyhidden' : '')}
                             aria-label={this.props.iconOnly ? this.props.label : ''}
                             htmlFor={this.htmlId}>
                             {!this.props.iconOnly ? this.props.label : null}
