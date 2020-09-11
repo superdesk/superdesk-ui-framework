@@ -78,6 +78,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@popperjs/core": "^2.4.0",
     "date-fns": "2.7.0",
     "popper.js": "1.14.4",
