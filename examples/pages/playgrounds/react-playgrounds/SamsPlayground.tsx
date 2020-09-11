@@ -199,7 +199,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 </div>
                                 <div className="sd-grid-item__content">
                                     <time title="20.11.2017">19.06.2020</time>
-                                    <span className="sd-grid-item__title">Cursus Aenean</span>
+                                    <span className="sd-grid-item__title">Supercalifragilisticexpialidocious</span>
                                     <p className="sd-grid-item--element-grow">
                                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur, vestibulum eros.
                                     </p>              
