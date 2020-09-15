@@ -281,7 +281,8 @@ $sd-icon-font: (
   text-format: "\e6ad",
   to-uppercase: "\e6ae",
   to-lowercase: "\e6af",
-  arrow-small: "\e6b0"
+  arrow-small: "\e6b0",
+  clear-all: "\e6b1"
 );
 
 @each $name, $value in $sd-icon-font {
