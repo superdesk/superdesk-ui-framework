@@ -99,6 +99,10 @@
   --color-navbutton-bg-100:            rgba(0,0,0,.06);
   --color-navbutton-bg-100-hover:      rgba(0,0,0,.12);
 }
+
+.sd-top-menu {
+  --color-navbutton-border:            rgba(255,255,255,0.06);
+}
   
 .subnav--dark-ui,
 [data-theme="dark-ui"] {
@@ -215,6 +219,12 @@ $navbutton-bg-color-darker-hover: var(--color-navbutton-bg-100-hover);
     i {
       margin-left: $sd-base-increment / 2;
     }
+  }
+  .badge {
+    position: absolute;
+    top: $sd-base-increment / 2;
+    right: $sd-base-increment / 2;
+    z-index: 1;
   }
 }
 .dropdown {

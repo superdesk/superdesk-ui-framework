@@ -10,6 +10,10 @@ $sd-topMenu-background: var(--color-bg-800);
     z-index: $zindexFixedNavbar;
     margin-bottom: 0;
     transition: all 0.3s ease;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    color: $white;
 }
 
 .sd-top-menu__collapse-nav {
@@ -52,4 +56,24 @@ $sd-topMenu-background: var(--color-bg-800);
         left: 3px;
         text-shadow: none;
     }
+}
+
+.current-user-details--compact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include sd-padding('1');
+    color: $sd-text;
+    min-width: 26rem;
+}
+.current-user-details__full-name {
+    font-weight: 400;
+    font-size: 1.8rem;
+    margin: 16px 0 2px;
+
+}
+.current-user-details__username {
+    opacity: 0.75;
+    font-size: 1.4rem;
 }
