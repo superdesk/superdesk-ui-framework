@@ -44,6 +44,7 @@ export {DropdownDivider} from './components/DropdownFirst';
 export {Dropdown} from './components/Dropdown';
 export {Tag} from './components/Tag';
 export {TabLabel, TabPanel, TabContent, Tabs} from './components/TabCustom';
+export {EmptyState} from './components/EmptyState';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

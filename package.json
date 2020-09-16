@@ -79,6 +79,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.4.0",
+    "@types/node": "^14.10.2",
     "date-fns": "2.7.0",
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",
