@@ -45,6 +45,7 @@ export {Dropdown} from './components/Dropdown';
 export {Tag} from './components/Tag';
 export {TabLabel, TabPanel, TabContent, Tabs} from './components/TabCustom';
 export {Autocomplete} from './components/Autocomplete';
+export {DonutChart} from './components/DonutChart';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
