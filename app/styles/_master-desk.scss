@@ -111,7 +111,6 @@ $board-header-border-color: var(--color-kanban-border);
     }
 }
 .sd-board__doughnut-chart {
-    border-radius: 50%;
     height: 4rem;
     width: 4rem;
     display: flex;
@@ -119,13 +118,11 @@ $board-header-border-color: var(--color-kanban-border);
     justify-content: center;
     flex-shrink: 0;
     flex-grow: 0;
-    background-color: $gray--400;
     margin-left: auto;
     margin-right: - $sd-base-increment/2;
 }
 .sd-board__doughnut-chart-number {
-    border-radius: 50%;
-    background-color: var(--color-bg-00);
+    position: absolute;
     height: 2.4rem;
     width: 2.4rem;
     font-size: 1.1rem;
