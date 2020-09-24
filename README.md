@@ -1,7 +1,8 @@
 # Superdesk UI Framework
 
 ### Status
-[![Build Status](https://travis-ci.org/superdesk/superdesk-client-core.svg?branch=master)](https://travis-ci.org/superdesk/superdesk-ui-framework)
+[![Build Status](https://travis-ci.com/superdesk/superdesk-ui-framework.svg?branch=master)](https://travis-ci.org/superdesk/superdesk-ui-framework)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/baf374b3-b994-4563-b4f0-f61e83c4e33a/deploy-status)](https://app.netlify.com/sites/inspiring-pasteur-fc7efb/deploys)
 
 ### Documentation
 Documentation page can be accessed via this link: https://ui-framework.superdesk.org/

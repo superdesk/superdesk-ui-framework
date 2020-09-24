@@ -42,6 +42,7 @@ $tag-label-lineheight: 100% !default;
     font-weight: 400;
     transition: background-color .2s ease-out, opacity .1s ease-out;
     margin: 0.2rem 0;
+    margin-right: 0.3rem;
     height: $sd-base-increment * 3;
     color: var(--color-text);
 }
@@ -98,9 +99,6 @@ $tag-label-lineheight: 100% !default;
             }
         }
     }
-}
-.tag-label + .tag-label {
-    margin-left: 0.3rem;
 }
 
 // ----------------- SEARCH TAGS -----------------
