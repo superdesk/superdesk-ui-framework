@@ -10,14 +10,11 @@ interface IProps {
 
 export class EmptyState extends React.PureComponent<IProps> {
     render() {
-        let defaultIlustrations = ['default']; // value of svg default, naming svg for default state 'empty-state_value'
-        let randomIlustration = defaultIlustrations[Math.floor(Math.random() * defaultIlustrations.length)];
         let classes = classNames('content-state__image-l', {
-            [`${randomIlustration}`]: this.props.ilustration === undefined,
             [`${this.props.size}`]: this.props.size !== 'normal' && this.props.size !== undefined,
         });
 
-        let image = require(`../../app/img/empty_states/empty-state_${randomIlustration}.svg`);
+        let image = require(`../../app/img/empty_states/empty-state_${this.props.ilustration ? this.props.ilustration : 'default'}.svg`);
 
         return (
             <div className='content-state__empty-info'>
