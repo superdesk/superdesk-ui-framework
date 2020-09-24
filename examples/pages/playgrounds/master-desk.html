@@ -8,7 +8,7 @@
         <a href="" ng-click="openHamburger = !openHamburger" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
         <h1 class="sd-top-menu__header">Master Desk</h1>
         <div class="button-group button-group--right">
-            <button class="sd-navbtn" aria-label="Notifications">
+            <button class="sd-navbtn" aria-label="Notifications" ng-click="notificationsOpen = !notificationsOpen" ng-class="{'sd-navbtn--active' : notificationsOpen}">
                 <span class="badge badge--highlight">9</span>
                 <i class="icon-bell"></i>
             </button>
@@ -1561,84 +1561,6 @@
                     </div>  
                 </div>
             </div>
-            <!-- OVERLAY PANEL ( Send To ) -->
-            <div class="sd-main-content-grid__overlay">
-                <div class="sd-overlay-panel sd-overlay-panel--dark-ui" ng-class="{'sd-overlay-panel--open' : sendToOpen}">
-                    <div class="side-panel side-panel--dark-ui">
-                        <div class="side-panel__header">
-                            <div class="side-panel__tools">
-                                <a class="icn-btn" ng-click="sendToOpen = !sendToOpen"><i class="icon-close-small"></i></a>
-                            </div>
-                            <ul class="nav-tabs nav-tabs--big nav-tabs--ui-dark">
-                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'send-to'}" class="nav-tabs__tab">
-                                    <button class="nav-tabs__link"><span translate="">Send to</span></button>
-                                </li>
-                            </ul>
-                        </div>
-                        <!-- Send To Tab -->
-                        <div class="side-panel__content">
-                            <div class="side-panel__content-block">
-                                <div sd-toggle-box data-title="Destination" data-style="circle" data-open="true">
-                                    <div class="form__row">
-                                        <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-label sd-line-input--no-margin">
-                                            <select class="sd-line-input__select">
-                                                <option value="single">Politics desk</option>
-                                                <option value="time">Sports desk</option>
-                                                <option value="bananas">Features desk</option>
-                                                <option value="indefinite">Photo desk</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="form__row form__row--no-padding">
-                                        <div class="flex-grid flex-grid--boxed-small flex-grid--wrap-items flex-grid--small-2">
-                                            <button class="btn__check btn__check--active flex-grid__item" disabled="disabled">Active disabled</button>
-                                            <button class="btn__check flex-grid__item" disabled="disabled">Disabled</button>
-                                            <button ng-click="stageActive0 = !stageActive0" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive0}">Incoming stage</button>
-                                            <button ng-click="stageActive1 = !stageActive1" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive1}">Working stage</button>
-                                            <button ng-click="stageActive2 = !stageActive2" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive2}">Revise stage</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div sd-toggle-box data-title="Embargo" data-style="circle" data-open="true">
-                                    <div class="form__row form__row--flex  form__row--small-padding">
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
-                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
-                                            <label class="sd-line-input__label">Embargo till</label>
-                                            <input class="sd-line-input__input" type="text">
-                                        </div>
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
-                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
-                                            <input class="sd-line-input__input" type="text">
-                                        </div>
-                                    </div>
-                                    <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear embargo</a>
-                                </div>
-                                <div sd-toggle-box data-title="Publish schedule" data-style="circle" data-open="true">
-                                    <div class="form__row form__row--flex  form__row--small-padding">
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
-                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
-                                            <label class="sd-line-input__label">Publish on</label>
-                                            <input class="sd-line-input__input" type="text">
-                                        </div>
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
-                                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
-                                            <input class="sd-line-input__input" type="text">
-                                        </div>
-                                    </div>
-                                    <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear schedule</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="!tab || tab === 'send-to'">
-                            <button class="btn btn--large btn--primary btn--expanded">Send</button>
-                        </div>
-                        <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="tab === 'publish'">
-                            <button class="btn btn--large btn--highlight btn--expanded">Publish</button>
-                        </div>
-                    </div>  
-                </div>
-            </div>
-            <!-- END OVERLAY PANEL -->
             <!-- END left content -->
         </div>
         <div class="sd-content-wrapper__content-splitter" ng-if="editArticle" sd-splitter="authoringContent" splitter-max="1000" splitter-min="650"></div>
@@ -1649,4 +1571,110 @@
     <footer class="bottom-bar">
         This is the optional footer.
     </footer>
+</div>
+
+<div class="sd-overlay-panel sd-overlay-panel--dark-ui" ng-class="{'sd-overlay-panel--open' : notificationsOpen}">
+    <div class="side-panel side-panel--shadow-right side-panel--dark-ui overflow-x-hidden">
+        <div class="side-panel__header">
+            <h3 class="side-panel__heading">Notification</h3>
+            <div class="side-panel__tools">
+                <a class="icn-btn" ng-click="notificationsOpen = !notificationsOpen"><i class="icon-close-small"></i></a>
+            </div>
+        </div>
+        <div class="side-panel__content">
+            <ul class="boxed-list sd-margin--2">
+                <li class="boxed-list__item">
+                    <div class="boxed-list__item-media">
+                        <figure class="avatar sd-margin--0 pink--600">MM</figure>
+                    </div>
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                            <span class="sd-text__strong sd-overflow-ellipsis">Max Mustermann</span>
+                            <time class="sd-text__date-time sd-text__date-time--small ml-auto">25.09.2020</time>
+                        </div>
+                        <div class="boxed-list__item-content-row">
+                            <span>Pellentesque ornare sem lacinia quam venenatis vestibulum. Maecenas faucibus mollis interdum.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item boxed-list__item--success">
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row">
+                            <span>Nullam quis risus eget urna mollis ornare vel eu leo. Aenean lacinia bibendum nulla sed consectetur. Curabitur blandit tempus porttitor.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item boxed-list__item--success">
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row">
+                            <span>Curabitur blandit tempus porttitor. Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item boxed-list__item--success">
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row">
+                            <span>Vestibulum id ligula porta felis euismod semper. Maecenas faucibus mollis interdum.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item boxed-list__item--alert">
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row">
+                            <span>Sed posuere consectetur est at lobortis. Maecenas faucibus mollis interdum.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item">
+                    <div class="boxed-list__item-media">
+                        <figure class="avatar sd-margin--0 teal--500">WS</figure>
+                    </div>
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                            <span class="sd-text__strong sd-overflow-ellipsis">Walter Sobchak</span>
+                            <time class="sd-text__date-time sd-text__date-time--small ml-auto">25.09.2020</time>
+                        </div>
+                        <div class="boxed-list__item-content-row">
+                            <span>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Curabitur blandit tempus porttitor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item">
+                    <div class="boxed-list__item-media">
+                        <figure class="avatar sd-margin--0 light-green--700">JL</figure>
+                    </div>
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                            <span class="sd-text__strong sd-overflow-ellipsis">Jeff Lebowski</span>
+                            <time class="sd-text__date-time sd-text__date-time--small ml-auto">25.09.2020</time>
+                        </div>
+                        <div class="boxed-list__item-content-row">
+                            <span>Maecenas faucibus mollis interdum. Nullam quis risus eget urna mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item">
+                    <div class="boxed-list__item-media">
+                        <figure class="avatar sd-margin--0 purple--500">BL</figure>
+                    </div>
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row boxed-list__item-content-row--fixed">
+                            <span class="sd-text__strong sd-overflow-ellipsis">Bunny Lebowski</span>
+                            <time class="sd-text__date-time sd-text__date-time--small ml-auto">25.09.2020</time>
+                        </div>
+                        <div class="boxed-list__item-content-row">
+                            <span>Donec sed odio dui. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</span>
+                        </div>
+                    </div>
+                </li>
+                <li class="boxed-list__item boxed-list__item--warning">
+                    <div class="boxed-list__item-content">
+                        <div class="boxed-list__item-content-row">
+                            <span>Curabitur blandit tempus porttitor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
