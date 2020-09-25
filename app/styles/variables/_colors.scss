@@ -300,6 +300,12 @@ $baseColors: (
   }
 }
 
+[class^="--dark-ui"],
+[class*="--dark-ui"] {
+  --color-contrast-bg:        #333;
+  --color-contrast-bg--hover: #383838;
+}
+
 [data-theme="accessible-light-ui"] {
   --font-size-large: 1.5rem;
 

@@ -111,6 +111,7 @@ $board-header-border-color: var(--color-kanban-border);
     }
 }
 .sd-board__doughnut-chart {
+    position: relative;
     height: 4rem;
     width: 4rem;
     display: flex;
