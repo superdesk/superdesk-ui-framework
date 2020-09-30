@@ -1,9 +1,10 @@
 import * as React from 'react';
 import {Icon} from './Icon';
 interface IProps {
-    id?: string;
+    id?: string; // used for tooltip
     icon?: string;
-    onClick(): void;
+    ariaValue: string;
+    onClick(event: React.MouseEvent<HTMLAnchorElement>): void;
 }
 
 export class IconButton extends React.PureComponent<IProps> {
@@ -12,8 +13,9 @@ export class IconButton extends React.PureComponent<IProps> {
             <a
                 id={this.props.id}
                 onClick={this.props.onClick}
-                className="icn-btn">
-                <Icon name={this.props.icon}/>
+                className="icn-btn"
+                aria-label={this.props.ariaValue}>
+                <Icon name={this.props.icon} ariaHidden={true}/>
             </a>
         );
     }

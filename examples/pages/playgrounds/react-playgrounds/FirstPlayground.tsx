@@ -58,10 +58,11 @@ export class FirstPlayground extends React.Component<IProps, IState> {
             <Components.Layout header='First playground' theme={this.state.theme}>
                 <Components.SidebarMenu
                     items={[
-                        { icon: 'dashboard', size: 'big' },
+                        { icon: 'dashboard', size: 'big', tooltip: 'Dashboard' },
                         { icon: 'view', size: 'big' },
                         { icon: 'marked-star', size: 'big' },
                         { icon: 'spike', size: 'big' },
+                        'divider',
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big' }]} />
@@ -109,87 +110,89 @@ export class FirstPlayground extends React.Component<IProps, IState> {
 
                     <Components.LeftPanel open={this.state.openFilter}>
                         <Components.Panel>
-                            <Components.SidePanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
-                            <Components.SidePanelContent>
-                                <div className="form__group">
-                                    <div className="form__item">
-                                        <Input label='TITLE'
-                                            error='This is error message'
-                                            inlineLabel={false}
-                                            disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => { }} />
+                            <Components.PanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
+                            <Components.PanelContent>
+                                <Components.PanelContentBlock>
+                                    <div className="form__group">
+                                        <div className="form__item">
+                                            <Input label='TITLE'
+                                                error='This is error message'
+                                                inlineLabel={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => { }} />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form__group">
-                                    <div className="form__item">
-                                        <Select label='Source'
-                                            value='Select ingest source...'
-                                            error='This is error message'
-                                            inlineLabel={false}
-                                            disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => { }}>
-                                            <Option value="option-1">Select ingest source...</Option>
-                                            <Option value="option-2">Associated Press</Option>
-                                            <Option value="option-3">Reuters</Option>
-                                        </Select>
+                                    <div className="form__group">
+                                        <div className="form__item">
+                                            <Select label='Source'
+                                                value='Select ingest source...'
+                                                error='This is error message'
+                                                inlineLabel={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => { }}>
+                                                <Option value="option-1">Select ingest source...</Option>
+                                                <Option value="option-2">Associated Press</Option>
+                                                <Option value="option-3">Reuters</Option>
+                                            </Select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form__group" >
-                                    <div className="form__item">
-                                        <Input label='LOCATION'
-                                            error='This is error message'
-                                            inlineLabel={false}
-                                            disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => { }} />
+                                    <div className="form__group" >
+                                        <div className="form__item">
+                                            <Input label='LOCATION'
+                                                error='This is error message'
+                                                inlineLabel={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => { }} />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form__group">
-                                    <div className="form__item">
-                                        <Input label='CATEGORY'
-                                            error='This is error message'
-                                            inlineLabel={false}
-                                            disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => { }} />
+                                    <div className="form__group">
+                                        <div className="form__item">
+                                            <Input label='CATEGORY'
+                                                error='This is error message'
+                                                inlineLabel={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => { }} />
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="form__group">
-                                    <div className="form__item">
-                                        <Input label='SUBJECT'
-                                            error='This is error message'
-                                            inlineLabel={false}
-                                            disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => { }} />
+                                    <div className="form__group">
+                                        <div className="form__item">
+                                            <Input label='SUBJECT'
+                                                error='This is error message'
+                                                inlineLabel={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => { }} />
+                                        </div>
                                     </div>
-                                </div>
 
-                                <div className="form__group">
-                                    <div className="form__item">
-                                        <Select label='Usage right'
-                                            value='--- Not selected ---'
-                                            error='This is error message'
-                                            info='Dolor in hendrerit.'
-                                            inlineLabel={false}
-                                            disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => { }}>
-                                            <Option value="">--- Not selected ---</Option>
-                                            <Option value="single">Single usage</Option>
-                                            <Option value="time">Time restricted</Option>
-                                            <Option value="bananas">Indefinite usage</Option>
-                                            <Option value="indefinite">Pears</Option>
-                                        </Select>
+                                    <div className="form__group">
+                                        <div className="form__item">
+                                            <Select label='Usage right'
+                                                value='--- Not selected ---'
+                                                error='This is error message'
+                                                info='Dolor in hendrerit.'
+                                                inlineLabel={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => { }}>
+                                                <Option value="">--- Not selected ---</Option>
+                                                <Option value="single">Single usage</Option>
+                                                <Option value="time">Time restricted</Option>
+                                                <Option value="bananas">Indefinite usage</Option>
+                                                <Option value="indefinite">Pears</Option>
+                                            </Select>
+                                        </div>
                                     </div>
-                                </div>
-                            </Components.SidePanelContent>
-                            <Components.SidePanelFooter>
+                                </Components.PanelContentBlock>
+                            </Components.PanelContent>
+                            <Components.PanelFooter>
                                 <Button text='Clear' style='hollow' onClick={() => false} />
                                 <Button text='Submit' type='primary' onClick={() => false} />
-                            </Components.SidePanelFooter>
+                            </Components.PanelFooter>
                         </Components.Panel>
                     </Components.LeftPanel>
                     {/* FILTER PANEL*/}

@@ -10,13 +10,13 @@ interface IButtonBase {
     children?: never;
     icon?: string;
     disabled?: boolean;
-    value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
+    iconOnly?: boolean;
     onClick(): void;
     'data-test-id'?: string;
 }
 
 interface IPropsButton extends IButtonBase {
-    text?: string;
+    text: string;
     expand?: boolean;
     style?: 'filled' | 'hollow' | 'text-only'; // defaults to 'filled'
     shape?: 'square' | 'round'; // defaults to 'square'
@@ -30,21 +30,20 @@ export class Button extends React.PureComponent<IPropsButton> {
             [`btn--${this.props.type}`]: this.props.type !== 'default' && this.props.type !== undefined,
             [`btn--${this.props.style}`]: this.props.style !== 'filled' && this.props.style !== undefined,
             'btn--disabled': this.props.disabled,
-            'btn--icon-only': !this.props.text,
+            'btn--icon-only': this.props.iconOnly,
             'btn--ui-dark': this.props.theme === 'dark',
-            'btn--icon-only-circle': this.props.shape === 'round' && !this.props.text,
+            'btn--icon-only-circle': this.props.shape === 'round' && this.props.iconOnly,
         });
 
-        const value = this.props.value === undefined ? 'button' : this.props.value;
         return (
             <button
                 id={this.props.id}
                 className={classes}
                 onClick={this.props.disabled ? () => false : this.props.onClick}
-                aria-label={value}
+                aria-label={this.props.iconOnly ? this.props.text : ''}
                 data-test-id={this.props['data-test-id']}>
                 {this.props.icon ? <Icon name={this.props.icon} /> : null}
-                {this.props.text}
+                {this.props.iconOnly ? null : this.props.text}
             </button>
         );
     }

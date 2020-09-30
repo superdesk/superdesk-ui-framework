@@ -3,12 +3,17 @@ import classNames from 'classnames';
 import { createPopper } from '@popperjs/core';
 import { clone } from 'lodash';
 
+//   work in progress from scratch miss:
+//  1. css for selected item
+//  2. category select
+//  3. json as items
 interface ITagInput {
     items?: Array<any>;
     label: string;
+    freetype?: boolean;
 }
 
-export const TagInput = ({ items, label }: ITagInput) => {
+export const TagInput = ({ items, label, freetype }: ITagInput) => {
     const [tags, setTags] = React.useState<Array<any>>([]);
     const [openSuggestion, setOpenSuggestion] = React.useState(false);
     const inputRef = React.useRef(null);
@@ -20,7 +25,6 @@ export const TagInput = ({ items, label }: ITagInput) => {
 
     // autocomplete
     const [suggestions, setSuggestions] = React.useState<Array<any>>([]);
-    // const [selectItem, setSelectItem] = React.useState(-1);
 
     // focused
     const [focus, setFocus] = React.useState(false);
@@ -44,12 +48,14 @@ export const TagInput = ({ items, label }: ITagInput) => {
             setInvalid(false);
         }
         if (e.key === 'Enter' && val) {
-            if (val.length > 2) {
+            if (val.length > 2 && freetype) {
                 setInvalid(false);
-                setTags((tag) => tag.concat(val));
-                let inputRefVariable: any = inputRef.current;
-                if (inputRefVariable) {
-                    inputRefVariable.value = null;
+                if (checkTag(val) === 0) {
+                    setTags((tag) => tag.concat(val));
+                    let inputRefVariable: any = inputRef.current;
+                    if (inputRefVariable) {
+                        inputRefVariable.value = null;
+                    }
                 }
             } else {
                 setInvalid(true);
@@ -75,6 +81,16 @@ export const TagInput = ({ items, label }: ITagInput) => {
         }
     }
 
+    function checkTag(newTag: any) {
+        let count = 0;
+        tags.forEach(function(tag) {
+            if (tag === newTag) {
+                count = 1;
+            }
+        });
+        return count;
+    }
+
     function removeTag(i: number) {
         let newTags = clone(tags);
         newTags.splice(i, 1);
@@ -94,10 +110,12 @@ export const TagInput = ({ items, label }: ITagInput) => {
     }
 
     function addTag(item: any) {
-        setTags((tag) => tag.concat(item));
-        let inputRefVariable: any = inputRef.current;
-        if (inputRefVariable) {
-            inputRefVariable.value = null;
+        if (checkTag(item) === 0) {
+            setTags((tag) => tag.concat(item));
+            let inputRefVariable: any = inputRef.current;
+            if (inputRefVariable) {
+                inputRefVariable.value = null;
+            }
         }
         setSuggestions([]);
     }
@@ -116,6 +134,20 @@ export const TagInput = ({ items, label }: ITagInput) => {
         setOpenSuggestion(false);
     }
 
+    function toggleFocus() {
+        if (!focus) {
+            setFocus(true);
+            document.addEventListener('click', removeFocus);
+        } else {
+            setFocus(false);
+        }
+    }
+
+    function removeFocus() {
+        document.removeEventListener('click', removeFocus);
+        setFocus(false);
+    }
+
     function renderSuggestions() {
         if (openSuggestion) {
             return (
@@ -123,7 +155,7 @@ export const TagInput = ({ items, label }: ITagInput) => {
                     <ul className='suggestion-list' >
                         {suggestions.length !== 0 ? (
                             suggestions.map((item, index) =>
-                                <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
+                                <li className={'suggestion-item'}
                                     onClick={() => addTag(item)}
                                     key={index}>
                                     {item}
@@ -131,7 +163,7 @@ export const TagInput = ({ items, label }: ITagInput) => {
                             )
                         ) : (
                                 items?.map((item, index) =>
-                                    <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
+                                    <li className={'suggestion-item'}
                                         onClick={() => addTag(item)}
                                         key={index}>
                                         {item}
@@ -148,7 +180,7 @@ export const TagInput = ({ items, label }: ITagInput) => {
                 <div className='autocomplete' ref={refSuggestions}>
                     <ul className='suggestion-list' >
                         {suggestions.map((item, index) =>
-                            <li className={'suggestion-item' + (index === 0 ? ' selected' : '')}
+                            <li className={'suggestion-item'}
                                 onClick={() => addTag(item)}
                                 key={index}>
                                 {item}
@@ -158,20 +190,6 @@ export const TagInput = ({ items, label }: ITagInput) => {
                 </div>
             );
         }
-    }
-
-    function toggleFocus() {
-        if (!focus) {
-            setFocus(true);
-            document.addEventListener('click', removeFocus);
-        } else {
-            setFocus(false);
-        }
-    }
-
-    function removeFocus() {
-        document.removeEventListener('click', removeFocus);
-        setFocus(false);
     }
 
     let classes = classNames('tags-input__tags', {

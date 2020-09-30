@@ -18,9 +18,9 @@ interface ITab {
 class Tab extends React.PureComponent<ITab> {
     render() {
         return (
-            <React.Fragment>
+            <div className='sd-nav-tabs__pane' role='tabpanel'>
                 {this.props.children}
-            </React.Fragment>
+            </div>
         );
     }
 }
@@ -49,23 +49,26 @@ class TabList extends React.PureComponent<ITabList, IState> {
     }
 
     render() {
-        let classes = classNames('nav-tabs', {
-            [`nav-tabs--${this.props.size}`]: this.props.size && this.props.size !== undefined,
-            'nav-tabs--ui-dark': this.props.theme === 'dark',
+        let classes = classNames('sd-nav-tabs', {
+            [`sd-nav-tabs--${this.props.size}`]: this.props.size && this.props.size !== undefined,
+            'sd-nav-tabs--ui-dark': this.props.theme === 'dark',
         });
 
         return (
             <React.Fragment>
-                <ul className={classes}>
+                <div className={classes} role='tablist'>
                     {this.props.children.map((item, index) =>
-                        <li key={index} className={'nav-tabs__tab' + (this.state.index === index ? ' nav-tabs__tab--active' : '')}>
-                            <button className='nav-tabs__link' onClick={() => this.handleChange(index)}>
-                                <span>{item.props.label}</span>
-                            </button>
-                        </li>)}
-                </ul>
-                <div className={'nav-tabs__content' +
-                    (this.props.theme === 'dark' ? ' nav-tabs__content--ui-dark' : '')}>
+                        <button
+                            key={index}
+                            onClick={() => this.handleChange(index)}
+                            role='tab'
+                            aria-selected={this.state.index === index ? 'true' : 'false'}
+                            className={'sd-nav-tabs__tab' + (this.state.index === index ? ' sd-nav-tabs__tab--active' : '')}>
+                            <span>{item.props.label}</span>
+                        </button>)}
+                </div>
+                <div className={'sd-nav-tabs__content' +
+                    (this.props.theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '')}>
                     {this.props.children[this.state.index]}
                 </div>
             </React.Fragment>

@@ -421,6 +421,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         letter-spacing: 0.03em;
         font-size: 1.4rem;
         margin-bottom: 1rem;
+        word-break: break-all;
     }
 
     .sd-grid-item__text-light {

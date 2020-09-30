@@ -41,7 +41,7 @@ export class AvatarContentImage extends React.PureComponent<IImageAvatar> {
 }
 
 interface IPropsAvatarWrapper {
-    size?: 'small' | 'medium' | 'large'; // defaults to medium
+    size?: 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';  // defaults to medium
     statusIndicator?: {
         status: 'online' | 'offline';
         tooltipText?: string;
@@ -62,6 +62,8 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                     'sd-avatar--small': this.props.size === 'small',
                     'sd-avatar--medium': this.props.size === 'medium' || this.props.size == null,
                     'sd-avatar--large': this.props.size === 'large',
+                    'sd-avatar--x-large': this.props.size === 'x-large',
+                    'sd-avatar--xx-large': this.props.size === 'xx-large',
                 })}
                 data-test-id={this.props['data-test-id']}
             >

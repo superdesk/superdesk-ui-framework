@@ -109,6 +109,7 @@ $sd-big-icon-font: (
     annotation: "\e631",
     suggestion: "\e632",
     publisher: "\e633",
+    tag: "\e634",
 );
 
 @each $name, $value in $sd-big-icon-font {

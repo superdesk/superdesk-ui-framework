@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -25,8 +25,9 @@
     "prepublish": "patch-package"
   },
   "devDependencies": {
+    "@types/chart.js": "^2.9.24",
     "@types/classnames": "^2.2.9",
-    "@types/lodash": "4.14.149",
+    "@types/lodash": "^4.14.161",
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.0",
     "@types/react-router-dom": "^5.1.2",
@@ -53,7 +54,7 @@
     "html-webpack-plugin": "^2.30.1",
     "jquery": "^3.1.1",
     "jquery-ui": "^1.12.1",
-    "lodash": "4.17.15",
+    "lodash": "4.17.20",
     "node-sass": "^4.5.3",
     "patch-package": "6.2.0",
     "prismjs": "^1.17.1",
@@ -78,7 +79,10 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
+    "@material-ui/lab": "^4.0.0-alpha.56",
     "@popperjs/core": "^2.4.0",
+    "@types/node": "^14.10.2",
+    "chart.js": "^2.9.3",
     "date-fns": "2.7.0",
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",

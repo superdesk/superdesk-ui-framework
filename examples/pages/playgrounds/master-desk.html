@@ -6,7 +6,43 @@
     </div>
     <header class="sd-top-menu">
         <a href="" ng-click="openHamburger = !openHamburger" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
-        <p class="sd-top-menu__header">Master Desk</p>
+        <h1 class="sd-top-menu__header">Master Desk</h1>
+        <div class="button-group button-group--right">
+            <button class="sd-navbtn" aria-label="Notifications">
+                <span class="badge badge--highlight">9</span>
+                <i class="icon-bell"></i>
+            </button>
+            <div class="dropdown dropdown--align-right" dropdown>    
+                <button class="dropdown__toggle sd-navbtn" dropdown__toggle aria-label="Personal menu">
+                    <span class="sd-avatar sd-avatar--medium">
+                        <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>WD</span>
+                    </span>
+                </span>
+                </button>
+                <ul class="dropdown__menu" aria-labelledby="a11y-personal-menu">
+                    <li>
+                        <h4 id="a11y-personal-menu" class="a11y-only">Personal menu</h4>
+                    </li>
+                    <li>
+                        <div class="current-user-details--compact">
+                            <span class="sd-avatar sd-avatar--x-large">
+                                <span class="sd-avatar-content sd-avatar-content--text" title="John Doe"><span>WD</span></span>
+                                <span class="sd-avatar--indicator-status--online" title="Online"></span>
+                                <i class="icon-settings sd-avatar--indicator-admin" title="Administrator"></i>
+                            </span>
+                            <h5 class="current-user-details__full-name">Walter D'admin</h5>
+                            <p class="current-user-details__username">dadmin</p>
+                        </div>
+                    </li>
+                    <li class="dropdown__menu-divider"></li>
+                    <li class="sd-padding-x--2 sd-padding-y--0-5"><button class="btn btn--hollow btn--expanded">Manage profile</button></li>
+                    <li class="sd-padding-x--2 sd-padding-y--0-5"><button class="btn btn--hollow btn--expanded">Sign out</button></li>
+                </ul>
+            </div>
+        </div>
+
+
+
     </header>
     <section class="sd-content sd-content-wrapper">
         <div class="sd-sidebar-menu sd-content-wrapper__left-tabs">
@@ -1395,14 +1431,14 @@
                                 <!-- <a class="icn-btn" sd-tooltip="Edit details" flow="top" ng-click="editorOpen = true; leftPreviewOpen = false"><i class="icon-pencil"></i></a> -->
                                 <a class="icn-btn" sd-tooltip="Close details" flow="top" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1"><i class="icon-close-small"></i></a>
                             </div>
-                            <ul class="nav-tabs" ng-class="{'nav-tabs--ui-dark' : darkUI}">
-                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'event-details'}" class="nav-tabs__tab">
-                                    <button ng-click="tab = 'event-details'" class="nav-tabs__link"><span translate="">Content</span></button>
-                                </li>
-                                <li ng-class="{'nav-tabs__tab--active': tab === 'event-history'}" class="nav-tabs__tab">
-                                    <button ng-click="tab = 'event-history'" class="nav-tabs__link"><span translate="">History</span></button>
-                                </li>
-                            </ul> 
+                            <div class="sd-nav-tabs" ng-class="{'sd-nav-tabs--ui-dark' : darkUI}">
+                                <button ng-click="tab = 'event-details'" ng-class="{'sd-nav-tabs__tab--active': !tab || tab === 'event-details'}" class="sd-nav-tabs__tab">
+                                    <span translate>Content</span>
+                                </button>
+                                <button ng-click="tab = 'event-history'" ng-class="{'sd-nav-tabs__tab--active': tab === 'event-history'}" class="sd-nav-tabs__tab">
+                                    <span translate>History</span>
+                                </button>
+                            </div> 
                         </div>
                         <div class="side-panel__content" ng-if="!tab || tab === 'event-details'">
                             <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
