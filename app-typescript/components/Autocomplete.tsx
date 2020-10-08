@@ -45,8 +45,9 @@ export class Autocomplete extends React.Component<IProps, IState> {
                 filteredItems = [...this.props.items];
             } else {
                 filteredItems = this.props.items.filter((item) => {
-                    if (this.props.keyValue)
+                    if (this.props.keyValue) {
                         return item[this.props.keyValue].toLowerCase().startsWith(event.query.toLowerCase());
+                    }
 
                     return item.toLowerCase().startsWith(event.query.toLowerCase());
                 });
@@ -65,7 +66,7 @@ export class Autocomplete extends React.Component<IProps, IState> {
     }
 
     handleChange(event: {originalEvent: Event, value: any}) {
-        this.setState({ selectedItem: event.value })
+        this.setState({ selectedItem: event.value });
         this.props.onChange(event.value);
     }
 
