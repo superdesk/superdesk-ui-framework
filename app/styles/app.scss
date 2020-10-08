@@ -57,19 +57,20 @@
 @import 'components/sd-toaster';
 @import 'components/subnav';
 
-// Form elements
-@import 'form-elements/forms-general';
-@import 'form-elements/inputs';
-@import 'form-elements/switch';
-@import 'form-elements/checkbox';
-@import 'form-elements/radio';
-
 // Dropdowns
 @import 'dropdowns/basic-dropdown';
 @import 'dropdowns/nested-dropdown';
 @import 'dropdowns/input-dropdown';
 @import 'dropdowns/_navigation_dropdown';
 @import 'dropdowns/dropdown2';
+
+// Form elements
+@import 'form-elements/forms-general';
+@import 'form-elements/inputs';
+@import 'form-elements/switch';
+@import 'form-elements/checkbox';
+@import 'form-elements/radio';
+@import 'form-elements/autocomplete';
 
 // Menus
 @import 'menus/sd-sidebar-menu';
