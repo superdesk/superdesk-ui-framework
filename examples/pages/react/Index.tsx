@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import InputsDoc from './Inputs';
+import AutocompleteDoc from './Autocomplete';
 import SelectsDoc from './Selects';
 import ButtonsDoc from './Buttons';
 import LabelsDoc from './Labels';
@@ -101,6 +102,9 @@ const pages = {
             'inputs': {
                 name: 'Inputs',
             },
+            'autocomplete': {
+                name: 'Autocomplete',
+            },
             'tag-input': {
                 name: 'Tag Inputs',
             },
@@ -152,6 +156,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/tooltips" component={TooltipDoc} />
                         <Route path="/react/tags" component={TagDoc} />
                         <Route path="/react/inputs" component={InputsDoc} />
+                        <Route path="/react/autocomplete" component={AutocompleteDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
