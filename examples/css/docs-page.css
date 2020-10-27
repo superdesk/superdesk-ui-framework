@@ -817,6 +817,10 @@ pre.prettyprint {
 doc-gif-img:hover img {
     cursor: pointer;
 }
+
+.docs-page__container table{
+    margin-bottom: 32px;
+}
 /* -------------- END COLOR SWATCHES -------------- */
 
 /* -------------- PrismJS overrides -------------- */
@@ -832,12 +836,4 @@ pre[class*="language-"] {
     .docs-page__section {
         max-width: 80%;
     } 
-    /* .docs-page__container-fluid .docs-page__h2,
-    .docs-page__container-fluid .docs-page__paragraph,
-    .docs-page__container-fluid .docs-page__code-window {
-        max-width: 72%;
-    } 
-    .doc-swatches__grid {
-        max-width: 80%;
-    }*/
 }
