@@ -9,7 +9,7 @@ class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
         super(props);
 
         this.state = {
-            date: new Date(),
+            date: null,
         };
     }
     render() {

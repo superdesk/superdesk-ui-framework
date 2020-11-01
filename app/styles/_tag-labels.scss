@@ -59,6 +59,12 @@ $tag-label-lineheight: 100% !default;
     &--square {
         border-radius: 2px;
     }
+    > span {
+        max-width: 235px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
     .tag-label__remove {
         height: 1.8rem;
         width: 1.8rem;

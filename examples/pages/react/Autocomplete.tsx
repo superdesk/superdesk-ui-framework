@@ -10,6 +10,8 @@ interface IState {
     required: boolean;
     disabled: boolean;
     invalid: boolean;
+    onChanged: any;
+    onSelected: any;
 }
 
 export default class AutocompleteDoc extends React.Component<{}, IState> {
@@ -20,7 +22,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
             inlineLabel: false,
             required: true,
             disabled: false,
-            invalid: false
+            invalid: false,
+            onChanged: null,
+            onSelected: null
         }
     }
 
@@ -53,7 +57,18 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
-                                    onChange={(value) => { }} />
+                                    onChange={(value) => {this.setState({onChanged: JSON.stringify(value)})}}
+                                    onSelect={(value) => {this.setState({onSelected: JSON.stringify(value)})}} />
+                            </div>
+
+                            <div className='form__row'>
+                                <button onClick={() => this.setState({items: ['item changed 1', 'item changed 2']})}>Update list items</button>
+
+                                Available items: {JSON.stringify(this.state.items)}
+                                <br/>
+                                On selected vlaue: {this.state.onSelected}
+                                <br/>
+                                On selected vlaue: {this.state.onSelected}
                             </div>
                         </div>
 

@@ -7,6 +7,7 @@ interface IProps {
     items: Array<any>;
     keyValue?: string; // Field of a suggested object to resolve and display
     minLength?: number; // Minimum number of characters to initiate a search
+    value?: string;
     label?: string;
     info?: string;
     error?: string;
@@ -15,6 +16,7 @@ interface IProps {
     invalid?: boolean;
     inlineLabel?: boolean;
     onChange(newValue: string): void;
+    onSelect?(suggestion: string): void;
 }
 
 interface IState {
@@ -70,6 +72,10 @@ export class Autocomplete extends React.Component<IProps, IState> {
         this.props.onChange(event.value);
     }
 
+    handleSelect(event: {originalEvent: Event, value: any}) {
+        this.props.onSelect ? this.props.onSelect(event.value) : false;
+    }
+
     render() {
         const classes = classNames('sd-input', {
             'sd-input--inline-label': this.props.inlineLabel,
@@ -92,7 +98,8 @@ export class Autocomplete extends React.Component<IProps, IState> {
                     field={this.props.keyValue}
                     disabled={this.props.disabled}
                     minLength={this.props.minLength ? this.props.minLength : 1}
-                    onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)} />
+                    onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)}
+                    onSelect={(event: {originalEvent: Event, value: any}) => this.handleSelect(event)} />
 
                 <div className='sd-input__message-box'>
                     {this.props.info && !this.props.invalid && !this.state.invalid ?
