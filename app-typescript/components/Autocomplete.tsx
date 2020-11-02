@@ -7,6 +7,7 @@ interface IProps {
     items: Array<any>;
     keyValue?: string; // Field of a suggested object to resolve and display
     minLength?: number; // Minimum number of characters to initiate a search
+    value?: string | object;
     label?: string;
     info?: string;
     error?: string;
@@ -14,7 +15,9 @@ interface IProps {
     disabled?: boolean;
     invalid?: boolean;
     inlineLabel?: boolean;
+    search?(searhString: string, callback: (result: Array<any>) => void): {cancel: () => void};
     onChange(newValue: string): void;
+    onSelect?(suggestion: string): void;
 }
 
 interface IState {
@@ -24,10 +27,12 @@ interface IState {
 }
 
 export class Autocomplete extends React.Component<IProps, IState> {
+    latestCall?: {cancel: () => void};
+
     constructor(props: IProps) {
         super(props);
         this.state = {
-            selectedItem: null,
+            selectedItem: this.props.value ?? null,
             filteredItems: null,
             invalid: this.props.invalid ?? false,
         };
@@ -38,7 +43,24 @@ export class Autocomplete extends React.Component<IProps, IState> {
 
     htmlId = nextId();
 
+    search(term: string) {
+        if (!this.props.search) {
+            return;
+        }
+
+        this.latestCall?.cancel();
+
+        this.latestCall = this.props.search(term, (results) => {
+            console.log(results);
+            this.setState({filteredItems: results});
+        });
+    }
+
     searchItem(event: any) {
+        if (this.props.search) {
+            return this.search(event.query);
+        }
+
         setTimeout(() => {
             let filteredItems;
             if (!event.query.trim().length) {
@@ -70,6 +92,13 @@ export class Autocomplete extends React.Component<IProps, IState> {
         this.props.onChange(event.value);
     }
 
+    handleSelect(event: {originalEvent: Event, value: any}) {
+        this.setState({ selectedItem: event.value });
+        if (this.props.onSelect) {
+            this.props.onSelect(event.value);
+        }
+    }
+
     render() {
         const classes = classNames('sd-input', {
             'sd-input--inline-label': this.props.inlineLabel,
@@ -92,7 +121,8 @@ export class Autocomplete extends React.Component<IProps, IState> {
                     field={this.props.keyValue}
                     disabled={this.props.disabled}
                     minLength={this.props.minLength ? this.props.minLength : 1}
-                    onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)} />
+                    onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)}
+                    onSelect={(event: {originalEvent: Event, value: any}) => this.handleSelect(event)} />
 
                 <div className='sd-input__message-box'>
                     {this.props.info && !this.props.invalid && !this.state.invalid ?
