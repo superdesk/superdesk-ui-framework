@@ -10,30 +10,60 @@ interface IState {
     required: boolean;
     disabled: boolean;
     invalid: boolean;
-    onChanged: any;
-    onSelected: any;
 }
 
 export default class AutocompleteDoc extends React.Component<{}, IState> {
     constructor(props) {
         super(props);
         this.state = {
-            items: ['Item 1', 'Item 2', 'Item 3'],
+            items: [
+                { name: 'Item 1', value: 'item-1' },
+                { name: 'Item 2', value: 'item-2' },
+                { name: 'Item 3', value: 'item-3' },
+                { name: 'Item 4', value: 'item-4' }
+            ],
             inlineLabel: false,
             required: true,
             disabled: false,
             invalid: false,
-            onChanged: null,
-            onSelected: null
         }
+    }
+
+    searchFunction(searchString, callback) {
+        let cancelled = false;
+
+        let items = [
+            { name: 'Item Custom Search 1', value: 'item-1' },
+            { name: 'Item Custom Search 2', value: 'item-2' },
+            { name: 'Item Custom Search 3', value: 'item-3' }
+        ]
+
+        let filteredItems = items.filter((item) =>
+            item.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1 ? item : false);
+
+        callback(filteredItems);
+
+        return {
+            cancel: () => {
+                cancelled = true;
+            },
+        };
     }
 
     render() {
         return (
             <section className='docs-page__container'>
                 <h2 className='docs-page__h2'>Autocomplete</h2>
+                <p className='docs-page__paragraph'></p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Autocomplete text="Name" items={this.props.items} maxLength={30} />
+                    import {Autocomplete} from 'superdesk-ui-framework/react'
+                    `}
+                </Markup.ReactMarkupCodePreview>
+
+                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Basic Autocomplete</h3>
+                <p className="docs-page__paragraph">For basic usage of autocomplete, you need to pass value for prop <code>name</code> and <code>items</code>. Items can be passed as array of strings or array of objects. If you pass array of objects, you need to define prop <code>keyValue</code> as object key, so autocomplete can know which propery to use as display option.</p>
+                <Markup.ReactMarkupCodePreview>{`
+                    <Autocomplete text="Name" keyValue="name" items={items} maxLength={30} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className='docs-page__paragraph'></p>
@@ -53,36 +83,108 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                 <Autocomplete
                                     label='Autocomplete label'
                                     items={this.state.items}
+                                    keyValue="name"
+                                    info="Try typing `item`...'"
                                     inlineLabel={this.state.inlineLabel}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
-                                    onChange={(value) => {this.setState({onChanged: JSON.stringify(value)})}}
-                                    onSelect={(value) => {this.setState({onSelected: JSON.stringify(value)})}} />
-                            </div>
-
-                            <div className='form__row'>
-                                <button onClick={() => this.setState({items: ['item changed 1', 'item changed 2']})}>Update list items</button>
-
-                                Available items: {JSON.stringify(this.state.items)}
-                                <br/>
-                                On selected vlaue: {this.state.onSelected}
-                                <br/>
-                                On selected vlaue: {this.state.onSelected}
+                                    onChange={() => { }}
+                                    onSelect={() => { }} />
                             </div>
                         </div>
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Autocomplete items={this.state.items} />
+                        let items = items: [
+                            { name: 'Item 1', value: 'item-1' },
+                            { name: 'Item 2', value: 'item-2' },
+                            { name: 'Item 3', value: 'item-3' },
+                            { name: 'Item 4', value: 'item-4' }
+                        ];
+
+                        <Autocomplete
+                            label='Autocomplete label'
+                            items={this.state.items}
+                            keyValue="name"
+                            inlineLabel="Autocomplete label
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            onChange={() => { }}
+                            onSelect={() => { }} />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Autocomplete with custom search function</h3>
+                <p className="docs-page__paragraph">Define prop <code>search</code> with custom function.</p>
+                <Markup.ReactMarkupCodePreview>{`
+                    <Autocomplete text="Name" items={this.props.items} search={this.search} />
+                `}
+                </Markup.ReactMarkupCodePreview>
+                <p className='docs-page__paragraph'></p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
+                            <div className='form__row'>
+                                <Autocomplete
+                                    label='Autocomplete label'
+                                    items={this.state.items}
+                                    keyValue="name"
+                                    info="Try typing `item custom`...'"
+                                    search={this.searchFunction}
+                                    inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    onChange={(value) => { this.setState({ }) }}
+                                    onSelect={(value) => { this.setState({ }) }} />
+                            </div>
+                        </div>
+
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        searchFunction(searchString, callback) {
+                            let cancelled = false;
+
+                            let items = [
+                                { name: 'Item Custom Search 1', value: 'item-1' },
+                                { name: 'Item Custom Search 2', value: 'item-2' },
+                                { name: 'Item Custom Search 3', value: 'item-3' }
+                            ]
+
+                            let filteredItems = items.filter((item) =>
+                                item.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1 ? item : false);
+
+                            callback(filteredItems);
+
+                            return {
+                                cancel: () => {
+                                    cancelled = true;
+                                },
+                            };
+                        }
+
+                        <Autocomplete
+                            label='Autocomplete label'
+                            items={this.state.items}
+                            keyValue="name"
+                            search={this.searchFunction}
+                            inlineLabel={this.state.inlineLabel}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            onChange={(value) => { this.setState({ }) }}
+                            onSelect={(value) => { this.setState({ }) }} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
                     <Prop name='items' isRequered={true} type='array' default='/' description='Array of values for autocomplete' />
-                    <Prop name='keyValue' isRequered={true} type='string' default='/' description='Key value if array is combined of objects' />
-                    <Prop name='minLength' isRequered={true} type='number' default='1' description='Minimum number of characters to initiate a search' />
+                    <Prop name='value' isRequered={false} type='any' default='/' description='Value to be predefined on component load' />
+                    <Prop name='keyValue' isRequered={false} type='string' default='/' description='Key value if array is combined of objects' />
+                    <Prop name='minLength' isRequered={false} type='number' default='1' description='Minimum number of characters to initiate a search' />
                     <Prop name='label' isRequered={false} type='string' default='/' description='Input label' />
                     <Prop name='info' isRequered={false} type='string' default='/' description='Hint text' />
                     <Prop name='error' isRequered={false} type='string' default='/' description='Error text' />
@@ -90,6 +192,13 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                     <Prop name='required' isRequered={false} type='boolean' default='false' description='Mark field as required' />
                     <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Mark field as disabled' />
                     <Prop name='invalid' isRequered={false} type='boolean' default='false' description='Mark field as invalid' />
+                </PropsList>
+
+                <h3 className='docs-page__h3'>Events</h3>
+                <PropsList>
+                    <Prop name='search' isRequered={false} type='function' default='/' description='Custom function for filtering items' />
+                    <Prop name='onChange' isRequered={true} type='function' default='/' description='Returns value of text input' />
+                    <Prop name='onSelect' isRequered={false} type='function' default='/' description='Returns selected value' />
                 </PropsList>
             </section>
         )

@@ -7,7 +7,7 @@ interface IProps {
     items: Array<any>;
     keyValue?: string; // Field of a suggested object to resolve and display
     minLength?: number; // Minimum number of characters to initiate a search
-    value?: string;
+    value?: string | object;
     label?: string;
     info?: string;
     error?: string;
@@ -15,6 +15,7 @@ interface IProps {
     disabled?: boolean;
     invalid?: boolean;
     inlineLabel?: boolean;
+    search?(searhString: string, callback: (result: Array<any>) => void): {cancel: () => void};
     onChange(newValue: string): void;
     onSelect?(suggestion: string): void;
 }
@@ -26,10 +27,12 @@ interface IState {
 }
 
 export class Autocomplete extends React.Component<IProps, IState> {
+    latestCall?: {cancel: () => void};
+
     constructor(props: IProps) {
         super(props);
         this.state = {
-            selectedItem: null,
+            selectedItem: this.props.value ?? null,
             filteredItems: null,
             invalid: this.props.invalid ?? false,
         };
@@ -40,7 +43,24 @@ export class Autocomplete extends React.Component<IProps, IState> {
 
     htmlId = nextId();
 
+    search(term: string) {
+        if (!this.props.search) {
+            return;
+        }
+
+        this.latestCall?.cancel();
+
+        this.latestCall = this.props.search(term, (results) => {
+            console.log(results);
+            this.setState({filteredItems: results});
+        });
+    }
+
     searchItem(event: any) {
+        if (this.props.search) {
+            return this.search(event.query);
+        }
+
         setTimeout(() => {
             let filteredItems;
             if (!event.query.trim().length) {
@@ -73,7 +93,10 @@ export class Autocomplete extends React.Component<IProps, IState> {
     }
 
     handleSelect(event: {originalEvent: Event, value: any}) {
-        this.props.onSelect ? this.props.onSelect(event.value) : false;
+        this.setState({ selectedItem: event.value });
+        if (this.props.onSelect) {
+            this.props.onSelect(event.value);
+        }
     }
 
     render() {
