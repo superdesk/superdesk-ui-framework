@@ -61,7 +61,7 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                 </Markup.ReactMarkupCodePreview>
 
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">Basic Autocomplete</h3>
-                <p className="docs-page__paragraph">For basic usage of autocomplete, you need to pass value for prop <code>name</code> and <code>items</code>. Items can be passed as array of strings or array of objects. If you pass array of objects, you need to define prop <code>keyValue</code> as object key, so autocomplete can know which propery to use as display option.</p>
+                <p className="docs-page__paragraph">For basic usage of autocomplete, you need to pass value for prop <code>text</code> and <code>items</code>. Items can be passed as array of strings or array of objects. If you pass array of objects, you need to define prop <code>keyValue</code> as object key, so autocomplete can know which propery to use as display option.</p>
                 <Markup.ReactMarkupCodePreview>{`
                     <Autocomplete text="Name" keyValue="name" items={items} maxLength={30} />
                 `}
@@ -96,7 +96,7 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        let items = items: [
+                        let items = [
                             { name: 'Item 1', value: 'item-1' },
                             { name: 'Item 2', value: 'item-2' },
                             { name: 'Item 3', value: 'item-3' },
