@@ -15,6 +15,7 @@ interface IProps {
     disabled?: boolean;
     invalid?: boolean;
     inlineLabel?: boolean;
+    listItemTemplate?(value: any): any;
     search?(searhString: string, callback: (result: Array<any>) => void): {cancel: () => void};
     onChange(newValue: string): void;
     onSelect?(suggestion: string): void;
@@ -38,7 +39,6 @@ export class Autocomplete extends React.Component<IProps, IState> {
         };
 
         this.searchItem = this.searchItem.bind(this);
-        this.itemTemplate = this.itemTemplate.bind(this);
     }
 
     htmlId = nextId();
@@ -51,7 +51,6 @@ export class Autocomplete extends React.Component<IProps, IState> {
         this.latestCall?.cancel();
 
         this.latestCall = this.props.search(term, (results) => {
-            console.log(results);
             this.setState({filteredItems: results});
         });
     }
@@ -77,14 +76,6 @@ export class Autocomplete extends React.Component<IProps, IState> {
 
             this.setState({ filteredItems });
         }, 250);
-    }
-
-    itemTemplate(item: any) {
-        return (
-            <div>
-                <div>{this.props.keyValue ? item[this.props.keyValue] : item}</div>
-            </div>
-        );
     }
 
     handleChange(event: {originalEvent: Event, value: any}) {
@@ -118,6 +109,7 @@ export class Autocomplete extends React.Component<IProps, IState> {
                     value={this.state.selectedItem}
                     suggestions={this.state.filteredItems}
                     completeMethod={this.searchItem}
+                    itemTemplate={this.props.listItemTemplate}
                     field={this.props.keyValue}
                     disabled={this.props.disabled}
                     minLength={this.props.minLength ? this.props.minLength : 1}

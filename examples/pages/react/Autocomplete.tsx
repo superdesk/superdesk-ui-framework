@@ -17,10 +17,10 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
         super(props);
         this.state = {
             items: [
-                { name: 'Item 1', value: 'item-1' },
-                { name: 'Item 2', value: 'item-2' },
-                { name: 'Item 3', value: 'item-3' },
-                { name: 'Item 4', value: 'item-4' }
+                { name: 'Item 1', value: 'item-1', description: 'Some description for item 1' },
+                { name: 'Item 2', value: 'item-2', description: 'Some description for item 2' },
+                { name: 'Item 3', value: 'item-3', description: 'Some description for item 3' },
+                { name: 'Item 4', value: 'item-4', description: 'Some description for item 4'}
             ],
             inlineLabel: false,
             required: true,
@@ -48,6 +48,15 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                 cancelled = true;
             },
         };
+    }
+
+    customListTemplate(item: any) {
+        return (
+            <div className="list-item">
+                <b>{item.name}</b>
+                <p>{item.description}</p>
+            </div>
+        )
     }
 
     render() {
@@ -179,12 +188,63 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Autocomplete with custom list template</h3>
+                <p className="docs-page__paragraph">Define prop <code>listItemTemplate</code> with function that returns structure for list item. Function returns item, string or object.</p>
+                <Markup.ReactMarkupCodePreview>{`
+                    <Autocomplete text="Name" items={this.props.items} listItemTemplate={this.customListTemplate} />
+                `}
+                </Markup.ReactMarkupCodePreview>
+                <p className='docs-page__paragraph'></p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
+                            <div className='form__row'>
+                                <Autocomplete
+                                    label='Autocomplete label'
+                                    items={this.state.items}
+                                    keyValue='name'
+                                    listItemTemplate={this.customListTemplate}
+                                    info="Try typing `item custom`...'"
+                                    inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    onChange={(value) => { this.setState({ }) }}
+                                    onSelect={(value) => { this.setState({ }) }} />
+                            </div>
+                        </div>
+
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        customListTemplate(item: any) {
+                            return (
+                                <div className="list-item">
+                                    <b>{item.name}</b>
+                                    <p>{item.description}</p>
+                                </div>
+                            )
+                        }
+
+                        <Autocomplete
+                            label='Autocomplete label'
+                            items={this.state.items}
+                            listItemTemplate={this.customListTemplate}
+                            inlineLabel={this.state.inlineLabel}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            onChange={(value) => { this.setState({ }) }}
+                            onSelect={(value) => { this.setState({ }) }} />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
                     <Prop name='items' isRequered={true} type='array' default='/' description='Array of values for autocomplete' />
                     <Prop name='value' isRequered={false} type='any' default='/' description='Value to be predefined on component load' />
                     <Prop name='keyValue' isRequered={false} type='string' default='/' description='Key value if array is combined of objects' />
                     <Prop name='minLength' isRequered={false} type='number' default='1' description='Minimum number of characters to initiate a search' />
+                    <Prop name='listItemTemplate' isRequered={false} type='function' default='/' description='Create custom view of list item' />
                     <Prop name='label' isRequered={false} type='string' default='/' description='Input label' />
                     <Prop name='info' isRequered={false} type='string' default='/' description='Hint text' />
                     <Prop name='error' isRequered={false} type='string' default='/' description='Error text' />
