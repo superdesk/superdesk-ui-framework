@@ -7,12 +7,3 @@ before_install:
 - npm i -g npm
 script:
 - yarn run lint
-deploy:
-  provider: npm
-  email: jasekpetr@gmail.com
-  api_key:
-    secure: X1DlzDz/TmSRRC39LD2kgtvr267DVlSBHSL2PMK60R/WVCfZk2ZewCk9JLXvGPX9FMGuzxpf6jNeZFpPY1yqB1+uDTqE0JYJq5+/WOx5R1QEKkZ2fmUgpdK7qhOfrPDZYu2xg0CoLMzw+tX2xI0NuzTaNh2wX+N9UiZiU43NODi4YSsb13FN2ZjsqRpzSVJ0+BOyHM5HLRmYhtXbVjVKxnCwlts7Yt0h27zq2nLdsXQ9rGpXrYdYwrq/YYCUNnorRM14uqqq0UzBSbfsPYyEd3YWWi+FsMO/VhuaeDSBV4gk8SuSYmkGfFYPdr0SWc+QfUDRk8OXyDzHrD6UDUqec2H/lB1skCZKb8Z6pXuYRkUGXNsgIRSowZD7dCOqGeQRJAR4zEDjsTPpKEAS7KMHn8ubrSphabn1wMwlVqMjUf09UWfqGsXkRg3Y95noyAruRt1mwY1invNnpJrfbqV5MP5z1BEU48Fecb4jJkyZNu66Nhpm2Plf1zZp+WGAlsvqgy+8nhbe0OOY8KLn33qhvsihTWre5J1cZmraKl48Q5vVvzzo9o1O/NKwpE22Mlcr//ES1Rk+3AITo6LvUfZt48oI5O2+P4lCi+vK+vF5pa+iwLOtOumNSrhmZOAgLdEbRaQgyrK7j5+hAun4mHeXiGnXwriaJIhOewKD2tMruAI=
-  on:
-    tags: true
-    repo: superdesk/superdesk-ui-framework
-  skip_cleanup: true
