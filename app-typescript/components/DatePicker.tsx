@@ -4,6 +4,8 @@ import format from 'date-fns/format';
 import {Calendar, LocaleSettings, CalendarProps} from 'primereact/calendar';
 import {throttle} from 'lodash';
 
+export type DatePickerLocaleSettings = Omit<LocaleSettings, 'today' | 'clear'>;
+
 interface IDatePickerBase {
     disabled?: boolean;
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
@@ -11,73 +13,28 @@ interface IDatePickerBase {
     // shortcuts can be used to jump to a date relative to today
     // for example [{label: 'tomorrow', days: 1}, {label: 'yesterday', days: -1}]
     shortcuts?: Array<{days: number, label: string}>;
+
+    // ability to provide localisation. for example (see https://primefaces.org/primereact/showcase/#/calendar):
+    /*
+        locale={{
+            firstDayOfWeek: 1,
+            dayNames: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
+            dayNamesShort: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
+            dayNamesMin: ["D", "L", "M", "X", "J", "V", "S"],
+            monthNames: [
+                "enero", "febrero", "marzo", "abril", "mayo", "junio",
+                "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
+            ],
+            monthNamesShort: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
+        }}
+     */
+    locale?: DatePickerLocaleSettings;
 }
 
 interface IDatePicker extends IDatePickerBase {
     value: Date | null;
     onChange(valueNext: Date | null): void;
 }
-
-let currentLocale: LocaleSettings = {
-    firstDayOfWeek: 1, // no easy way to get it from Intl API yet https://github.com/tc39/ecma402/issues/6
-    dayNames: [
-        new Intl.DateTimeFormat(undefined, {weekday: 'long'}).format(new Date('2000-01-01')), // sunday
-        new Intl.DateTimeFormat(undefined, {weekday: 'long'}).format(new Date('2000-01-02')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'long'}).format(new Date('2000-01-03')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'long'}).format(new Date('2000-01-04')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'long'}).format(new Date('2000-01-05')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'long'}).format(new Date('2000-01-06')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'long'}).format(new Date('2000-01-07')),
-    ],
-    dayNamesShort: [
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-01')), // sunday
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-02')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-03')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-04')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-05')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-06')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-07')),
-    ],
-    dayNamesMin: [
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-01')), // sunday
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-02')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-03')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-04')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-05')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-06')),
-        new Intl.DateTimeFormat(undefined, {weekday: 'short'}).format(new Date('2000-01-07')),
-    ],
-    monthNames: [
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-01-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-02-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-03-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-04-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-05-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-06-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-07-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-08-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-09-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-10-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-11-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'long'}).format(new Date('2000-12-01')),
-    ],
-    monthNamesShort: [
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-01-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-02-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-03-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-04-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-05-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-06-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-07-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-08-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-09-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-10-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-11-01')),
-        new Intl.DateTimeFormat(undefined, {month: 'short'}).format(new Date('2000-12-01')),
-    ],
-    today: 'today', // not used
-    clear: 'clear', // not used
-};
 
 const internalPrimereactClassnames = {
     overlayVisible: 'p-input-overlay-visible',
@@ -182,7 +139,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                         this.setState({value: event.value, valid: false});
                     }
                 }}
-                locale={currentLocale}
+                locale={this.props.locale}
                 dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
                 showIcon={true}
                 icon="icon-calendar"
@@ -240,6 +197,7 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 disabled={this.props.disabled}
                 shortcuts={this.props.shortcuts}
                 dateFormat={this.props.dateFormat}
+                locale={this.props.locale}
             />
         );
     }
