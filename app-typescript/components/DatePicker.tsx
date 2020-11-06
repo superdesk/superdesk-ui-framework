@@ -121,6 +121,16 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
     }
 
     render() {
+        let locale: LocaleSettings | undefined;
+
+        if (this.props.locale != null) {
+            locale = {
+                ...this.props.locale,
+                today: 'today',
+                clear: 'clear',
+            };
+        }
+
         return (
             // a patch for primereact/calendar is used for fixing https://github.com/primefaces/primereact/issues/1086
             <Calendar
@@ -139,7 +149,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                         this.setState({value: event.value, valid: false});
                     }
                 }}
-                locale={this.props.locale}
+                locale={locale}
                 dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
                 showIcon={true}
                 icon="icon-calendar"
