@@ -16,6 +16,7 @@ export { IconLabel } from './components/IconLabel';
 export { Tooltip } from './components/Tooltip';
 export { DatePicker } from './components/DatePicker';
 export { DatePickerISO } from './components/DatePicker';
+export { DatePickerLocaleSettings } from './components/DatePicker';
 export { TimePicker } from './components/TimePicker';
 export { FormLabel } from './components/FormLabel';
 export { Switch } from './components/Switch';
