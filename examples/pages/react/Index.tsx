@@ -21,6 +21,7 @@ import IconButtonDoc from './IconButtons';
 import IconLabelDoc from './IconLabels';
 import TooltipDoc from './Tooltips';
 import DatePickerDoc from './DatePicker';
+import TimePickerDoc from './TimePicker';
 import SwitchDoc from './Switch';
 import RadiosDoc from './Radios';
 import CheckboxsDoc from './Checkboxs';
@@ -114,6 +115,9 @@ const pages = {
             'date-picker': {
                 name: 'Date Picker',
             },
+            'time-picker': {
+                name: 'Time Picker',
+            },
             'switch': {
                 name: 'Switch'
             },
@@ -159,6 +163,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/autocomplete" component={AutocompleteDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
+                        <Route path="/react/time-picker" component={TimePickerDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
                         <Route path="/react/radio" component={RadiosDoc} />
                         <Route path="/react/checkbox" component={CheckboxsDoc} />
