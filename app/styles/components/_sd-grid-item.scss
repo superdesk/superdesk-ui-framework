@@ -43,7 +43,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             box-shadow: $sd-grid-item-shadow-activated;
         }
     }
-    &--activated, &--active, &.active {
+    &--activated, &--active, &.active, &.activated {
         outline: 1px solid scale-color($sd-blue, $alpha: -60%);
         background-color: $sd-grid-item-Bg-activated;
         &:hover {
@@ -52,6 +52,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
 
     }
     &.actioning {
+        pointer-events: none;
         &::before {
             content: '';
             position: absolute;
@@ -65,13 +66,14 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             background-position: center center;
             background-size: 60px;
             background-color: rgba(255, 255, 255, 0.85);
+            pointer-events: none;
         }
     }
     
     &--selected, &.selected {
         outline: 2px solid $sd-blue;
     }
-    .sd-grid-item__actions   {
+    .sd-grid-item__actions {
         margin:0;
         visibility: hidden;
         &--top {
@@ -79,6 +81,37 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             top: 0.8rem;
             right: 0.5rem;
             z-index: 2;
+        }
+    }
+    .sd-grid-item__footer-actions {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: auto;
+        justify-content: flex-end;
+        visibility: hidden;
+        &--visible {
+            visibility: visible;
+            opacity: 0.5;
+        }
+    }
+
+    .sd-grid-item__top-actions {
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: row;
+        visibility: hidden;
+        color: $white;
+        padding: 4px 4px 0 0;
+        * {
+            opacity: 0.75;
+            transition: opacity 0.2s ease-in-out;
+            &:hover {
+                opacity: 1;
+            }
         }
     }
     .sd-grid-item__remove  {
@@ -98,8 +131,8 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     .sd-grid-item__checkbox {
         visibility: hidden;
         position: absolute;
-        top: 0.8rem;
-        left: 0.8rem;
+        top: 12px;
+        left: 12px;
         padding: 0.2rem;
         background: rgba(255,255,255,.15);
         border-radius: 2px;
@@ -140,7 +173,50 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
                 margin: 0;
             }
         }
+    }
 
+    .sd-grid-item__checkbox-wrapper {
+        position: absolute;
+        margin: 4px auto 0 4px;
+        padding: 0.2rem;
+        background: rgba(255,255,255,.15);
+        border-radius: 2px;
+        z-index: 3;
+        height: 1.6rem;
+        width: 1.6rem;
+        border: 2px solid rgba(255,255,255, 0.4);
+        outline: 2px solid rgba(0,0,0,.25);
+        .sd-check__wrapper {
+            position: absolute;
+            height: 1.6rem;
+            width: 1.6rem;
+            margin: 0;
+            top:-4px;
+            left:-2px;
+        }
+        > .sd-checkbox {
+            position: absolute;
+            height: 1.6rem;
+            width: 1.6rem;
+            margin: 0;
+            top: -2px;
+            left: -2px;
+        }
+        .sd-check-new__wrapper {
+            padding: 0;
+            position: absolute;
+            height: 1.6rem;
+            width: 1.6rem;
+            margin: 0;
+            top:-2px;
+            left:-2px;
+            .sd-check-new {
+                position: absolute;
+                height: 1.6rem;
+                width: 1.6rem;
+                margin: 0;
+            }
+        }
     }
 
     &:hover {
@@ -160,10 +236,22 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             }
 
         }
+        .sd-grid-item__footer-actions {
+            visibility: visible;
+            &--visible {
+                opacity: 1;
+            }
+        }
+        .sd-grid-item__top-actions {
+            visibility: visible; 
+        }
     }
     &.sd-grid-item--selected, &.selected {
         .sd-grid-item__checkbox {
             visibility: visible;
+            .sd-check-new__wrapper {
+                visibility: visible;
+            }
         }
         &:hover {
             .sd-grid-item__checkbox {
@@ -173,12 +261,12 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     }
     &.sd-grid-item--overflow-v {
         overflow: visible;
-        .sd-grid-item__thumb {
+        .sd-grid-item__thumb, .sd-grid-item__media {
             overflow: visible;
         }
     }
 
-    .sd-grid-item__thumb {
+    .sd-grid-item__thumb, .sd-grid-item__media {
         position: relative;
         flex-grow: 0;
         flex-shrink: 0;
@@ -191,7 +279,6 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         color: $white;
         @include border-radius (2px 2px 0 0);
         width: 100%;
-        position: relative;
         height: 14rem;
         overflow: hidden;
         text-align: center;
@@ -269,41 +356,41 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         display: flex;
         flex-direction: column;
         position: relative;
-        h4 {
-            text-transform: uppercase;
-            font-size: 11px;
-            color: rgba(0,0,0,.5);
-            letter-spacing: 0.04em;
-            margin-bottom: 4px;
-            &.with-value {
-                margin-bottom: 0;
-            }
-            .label {
-                float: right;
-                height: 15px;
-                margin: auto 0;
-                padding: 3px 5px 0;
-                border-radius: 8px;
-                color: rgba(255,255,255,1);
-                background: rgba(0,0,0,.25);
-                font-size: 10px;
-                line-height: 100%;
-                letter-spacing: .06em;
-                font-weight: 400;
-            }
-            .value-label {
-                float: right;
-                font-size: 13px;
-                color: #333;
-                font-weight: 400;
-                text-transform: none;
-                letter-spacing: 0em;
-            }
-            &.sd-grid-item__h4--normal-case {
-                font-size: 12px;
-                text-transform: initial;
-            }
-        }
+        // h4 {
+        //     text-transform: uppercase;
+        //     font-size: 11px;
+        //     color: rgba(0,0,0,.5);
+        //     letter-spacing: 0.04em;
+        //     margin-bottom: 4px;
+        //     &.with-value {
+        //         margin-bottom: 0;
+        //     }
+        //     .label {
+        //         float: right;
+        //         height: 15px;
+        //         margin: auto 0;
+        //         padding: 3px 5px 0;
+        //         border-radius: 8px;
+        //         color: rgba(255,255,255,1);
+        //         background: rgba(0,0,0,.25);
+        //         font-size: 10px;
+        //         line-height: 100%;
+        //         letter-spacing: .06em;
+        //         font-weight: 400;
+        //     }
+        //     .value-label {
+        //         float: right;
+        //         font-size: 13px;
+        //         color: #333;
+        //         font-weight: 400;
+        //         text-transform: none;
+        //         letter-spacing: 0em;
+        //     }
+        //     &.sd-grid-item__h4--normal-case {
+        //         font-size: 12px;
+        //         text-transform: initial;
+        //     }
+        // }
         &--scrollable {
             max-height: 20vh;
             overflow-y: auto;
@@ -358,6 +445,9 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             padding: 0.4rem 1.2rem;
         }
         .sd-grid-item__footer-block {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             &--multi-l {
                 flex-grow: 1;
                 display: flex;
@@ -375,6 +465,21 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             }
             &--single-r {
                 flex-grow: 0;
+            }
+            &--left {
+                margin-right: auto;
+                justify-content: flex-start;
+                @include sd-padding('0-5');
+                > * {
+                    margin: 0 0.4rem;
+                }
+            }
+            &--right {
+                margin-left: auto;
+                justify-content: flex-end;
+                > * {
+                    margin: 0 0.4rem;
+                }
             }
         }
         .sd-grid-item__footer-block-item {
@@ -417,11 +522,11 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         margin-right: 1rem;
     }
     .sd-grid-item__title {
-        font-weight: 400;
-        letter-spacing: 0.03em;
+        font-weight: 600;
+        letter-spacing: 0.02em;
         font-size: 1.4rem;
         margin-bottom: 1rem;
-        word-break: break-all;
+        word-break: break-word;
     }
 
     .sd-grid-item__text-light {
@@ -448,7 +553,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         }
     }
     &--small {
-        .sd-grid-item__thumb {
+        .sd-grid-item__thumb, .sd-grid-item__media {
             height: 10rem;
         }
     }
@@ -463,7 +568,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             background: $red;
         }
     }
-    &.archived, &--archived {
+    &.archived, &--archived, &.fetched, &--fetched {
         .sd-grid-item__content {
             //position: relative;
             &:after {
@@ -479,7 +584,84 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
                 opacity: 0.14;
             }
         }
-    }   
+    }
+    
+    .sd-grid-item__media {
+        &::before {
+            font-family: 'sd_icons';
+            content:"\e605";
+            position: absolute;
+            top: 50%;
+            margin: auto;
+            margin-top: -2.4rem;
+            font-size: 4.8rem;
+            line-height: 4.8rem;
+            color: currentColor;
+            opacity: 0.25;
+            z-index: 0;
+        }
+        img {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    &.sd-grid-item__type--file {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e605";
+            }
+        }
+    }
+    &.sd-grid-item__type--audio {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e608";
+            }
+        }
+    }
+    &.sd-grid-item__type--composite {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e607";
+            }
+        }
+    }
+    &.sd-grid-item__type--graphic {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e66d";
+            }
+        }
+    }
+    &.sd-grid-item__type--photo {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e600";
+            }
+        }
+    }
+    &.sd-grid-item__type--slideshow {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e603";
+            }
+        }
+    }
+    &.sd-grid-item__type--text {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e604";
+            }
+        }
+    }
+    &.sd-grid-item__type--video {
+        .sd-grid-item__media {
+            &::before {
+                content:"\e601";
+            }
+        }
+    }
 }
 
 .sd-grid-item__text-label {
@@ -496,12 +678,13 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
 .sd-grid-list {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    grid-gap: 2rem;
+    grid-gap: 2.4rem;
     margin: 2.4rem;
-    &--small {
+    &--x-small {
         grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-        grid-gap: 1.6rem;
-        margin: 2rem;
+    }
+    &--small {
+        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     }
     &--medium {
         grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
@@ -509,27 +692,30 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     &--large {
         grid-template-columns: repeat(auto-fill, minmax(32rem, 1fr));
     }
-    &--no-rl-margin {
-        margin-left:0;
-        margin-right: 0;
-    }
+
     &--small-margin {
         margin: 1rem;
     }
     &--no-margin {
         margin: 0;
     }
-    &--auto-fit {
-        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+    &--gap-s, &--gap-small {
+        grid-gap: 1.6rem;
     }
-    &--gap-l {
+    &--gap-m, &--gap-medium {
+        grid-gap: 2.4rem;
+    }
+    &--gap-l, &--gap-large {
         grid-gap: 3.2rem;
     }
-    &--gap-xl {
+    &--gap-xl, &--gap-x-large {
         grid-gap: 4rem;
     }
 
-
+    &--auto-fit {
+        grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    }
 }
 
 .dark-ui {
@@ -543,7 +729,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         background-color: $sd-grid-item-Bg-darkUI;
         color: rgba(255,255,255, 0.6);
         box-shadow: $sd-grid-item-shadow-darkUI;
-        .sd-grid-item__thumb {
+        .sd-grid-item__thumb, .sd-grid-item__media {
             background-color: #212121;
         }
         .sd-grid-item__footer {
@@ -567,7 +753,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             color: #fff;
             opacity: 0.5;
         }
-        &--activated {
+        &--activated, &.activated {
             background-color: $sd-grid-item-Bg-darkUI-activated;
             &:hover {
                 background-color: darken($sd-grid-item-Bg-darkUI-activated, 2%);
@@ -578,7 +764,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
                 box-shadow: $sd-grid-item-shadow-darkUI-hover;
                 background-color: lighten($sd-grid-item-Bg-darkUI, 2%);
             }
-            &.sd-grid-item--activated {
+            &.sd-grid-item--activated, &.activated {
                 &:hover {
                     background-color: darken($sd-grid-item-Bg-darkUI-activated, 2%);
                 }
