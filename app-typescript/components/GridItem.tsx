@@ -47,7 +47,7 @@ interface IPropsFooterBlock {
 
 class GridItemFooterBlock extends React.PureComponent<IPropsFooterBlock> {
     static defaultProps = {
-        align: 'left'
+        align: 'left',
     };
     render() {
         let classes = classNames('sd-grid-item__footer-block', {
@@ -67,7 +67,7 @@ interface IPropsFooterActions {
 
 class GridItemFooterActions extends React.PureComponent<IPropsFooterActions> {
     static defaultProps = {
-        autohide: true
+        autohide: true,
     };
     render() {
         let classes = classNames('sd-grid-item__footer-actions', {
@@ -157,7 +157,7 @@ export default class GridItem extends React.PureComponent<IProps> {
         locked: false,
         fetched: false,
         itemtype: 'file',
-        status: []
+        status: [],
     };
 
     render() {
@@ -177,4 +177,7 @@ export default class GridItem extends React.PureComponent<IProps> {
     }
 }
 
-export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock, GridItemTime, GridItemTitle, GridItemText, GridItemSlug, GridItemFooterBlock, GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper };
+export { 
+    GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock, GridItemTime, GridItemTitle, 
+    GridItemText, GridItemSlug, GridItemFooterBlock, GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper 
+};

@@ -51,8 +51,9 @@ export { DonutChart } from './components/DonutChart';
 export { TagInput } from './components/TagInput';
 export { TagInputTest } from './components/TagInputTest';
 export { GridList } from './components/GridList';
-export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock, GridItemTime, GridItemTitle, GridItemText, GridItemSlug, GridItemFooterBlock, GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper } from './components/GridItem';
-
+export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock, GridItemTime, 
+    GridItemTitle, GridItemText, GridItemSlug, GridItemFooterBlock, GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper 
+} from './components/GridItem';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

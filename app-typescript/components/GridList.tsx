@@ -7,11 +7,10 @@ interface IProps {
     gap?: 'small' | 'medium' | 'large' | 'x-large';
 }
 
-
 export class GridList extends React.PureComponent<IProps> {
     static defaultProps = {
         size: 'small',
-        gap: 'small'
+        gap: 'small',
     };
 
     render() {
@@ -19,8 +18,8 @@ export class GridList extends React.PureComponent<IProps> {
             `sd-grid-list--${this.props.size}`,
             `sd-grid-list--gap-${this.props.gap}`,
             {
-                [`sd-margin--${this.props.margin}`]: this.props.margin
-            }
+                [`sd-margin--${this.props.margin}`]: this.props.margin,
+            },
         ]);
 
         return (
