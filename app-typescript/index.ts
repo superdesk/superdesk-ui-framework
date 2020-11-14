@@ -54,7 +54,7 @@ export { GridList } from './components/GridList';
 export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock,
     GridItemTime, GridItemTitle, GridItemText, GridItemSlug, GridItemFooterBlock,
     GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper
-} from './components/GridItem'
+} from './components/GridItem';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
