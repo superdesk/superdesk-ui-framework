@@ -165,7 +165,7 @@ export default class GridItem extends React.PureComponent<IProps> {
             `sd-grid-item__type--${this.props.itemtype}`, {
                 'locked': this.props.locked,
                 'sd-grid-item--with-click' : this.props.onClick,
-                'fetched': this.props.fetched
+                'fetched': this.props.fetched,
             }], this.props.status);
 
         return (
@@ -177,7 +177,7 @@ export default class GridItem extends React.PureComponent<IProps> {
     }
 }
 
-export { 
-    GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock, GridItemTime, GridItemTitle, 
-    GridItemText, GridItemSlug, GridItemFooterBlock, GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper 
+export {
+    GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock, GridItemTime, GridItemTitle,
+    GridItemText, GridItemSlug, GridItemFooterBlock, GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper
 };
