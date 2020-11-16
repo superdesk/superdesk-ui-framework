@@ -1,6 +1,10 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioButton, Input, Select, Option, Label, Icon, IconButton, Checkbox } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioButton, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
+import * as GridElements from '../../../../app-typescript/components/GridItem';
+
+import dummy_items from '../dummy-data/items';
+
 
 interface IProps {
     children?: React.ReactNode;
@@ -15,6 +19,7 @@ interface IState {
     itemSelected1: boolean;
     itemSelected2: boolean;
     itemSelected3: boolean;
+    value1: boolean;
 }
 
 export class SamsPlayground extends React.Component<IProps, IState> {
@@ -29,12 +34,12 @@ export class SamsPlayground extends React.Component<IProps, IState> {
             itemSelected1: false,
             itemSelected2: false,
             itemSelected3: false,
+            value1: false,
         }
         this.handleFilter = this.handleFilter.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
         this.handleTheme = this.handleTheme.bind(this);
     }
-
 
     handleFilter() {
         this.setState((state) => ({
@@ -57,6 +62,14 @@ export class SamsPlayground extends React.Component<IProps, IState> {
             this.setState({
                 theme: 'light'
             })
+        }
+    }
+
+    changeStatus(item: any, status: string) {
+        if (item.status.includes(status)) {
+            item.status.splice(item.status.indexOf(status), 1);
+        } else {
+            item.status.push(status);
         }
     }
 
@@ -187,137 +200,41 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     {/* FILTER PANEL*/}
 
                     <Components.MainPanel >
-                        <div className="sd-grid-list sd-margin--1">
 
-                            <div className="sd-grid-item sd-grid-item--with-click" onClick={this.handlePreview}>
-                                <div className="sd-grid-item__thumb">
-                                    <div className="sd-grid-item__checkbox">
-                                        <Checkbox checked={this.state.itemSelected1} label={{text:''}} 
-                                                  onChange={(value) => this.setState(() => ({ itemSelected1: value }))} />
-                                    </div>
-                                    <img src="/d_trump.jpg" alt="Moron" />
-                                </div>
-                                <div className="sd-grid-item__content">
-                                    <time title="20.11.2017">19.06.2020</time>
-                                    <span className="sd-grid-item__title">Supercalifragilisticexpialidocious</span>
-                                    <p className="sd-grid-item--element-grow">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur, vestibulum eros.
-                                    </p>              
-                                </div>
-                                <div className="sd-grid-item__footer">
-                                    <div className="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
-                                        <Icon name="photo" className='sd-grid-item__type-icn sd-grid-item__footer-block-item' />
-                                        <Label text='Public' type='success' style='hollow' />
-                                    </div>
-                                    <div className="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
-                                        <div className="sd-grid-item__actions">
-                                            <Dropdown
-                                                align = 'right'
-                                                append = {true}
-                                                items={[
-                                                    {
-                                                        type: 'group', label: 'Actions', items: [
-                                                            'divider',
-                                                            { label: 'Edit', icon: 'pencil', onSelect: () => this.setState({ dropDownState: 'Edit ' }) },
-                                                            { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
-                                                            { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
-                                                        ]
-                                                    }]}>
-                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
-                                            </Dropdown>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="sd-grid-item__state-border"></div>
-                            </div>
+                        <GridList size="small" gap="medium" margin="1">
+                            {dummy_items.map((item, index) =>
+                                <GridElements.GridItem locked={item.locked} status={item.status} onClick={this.handlePreview} itemtype={item.type} key={index}>
+                                    <GridElements.GridItemCheckWrapper>
+                                        <Checkbox checked={item.selected} label={{text:''}} onChange={(value) => {
+                                            item.selected = value;
+                                            this.changeStatus(item, 'selected');
+                                        }} />
+                                    </GridElements.GridItemCheckWrapper>
+                                    <GridElements.GridItemTopActions>
+                                        <IconButton icon='fullscreen' ariaValue='More actions' onClick={()=> false} />
+                                    </GridElements.GridItemTopActions>
+                                    <GridElements.GridItemMedia>
+                                        { item.image ? <img src={item.image} alt={item.imageAlt}/> : null }
+                                    </GridElements.GridItemMedia>
+                                    <GridElements.GridItemContent>
+                                        <GridElements.GridItemTime time={item.date} />
+                                        <GridElements.GridItemTitle>{item.title}</GridElements.GridItemTitle>
+                                        <GridElements.GridItemText>{item.description}</GridElements.GridItemText>
+                                    </GridElements.GridItemContent>
+                                    <GridElements.GridItemFooter>
+                                        <GridElements.GridItemFooterBlock align='left'>
+                                            <Icon name={item.type} className='sd-grid-item__type-icn' />
+                                            <Badge text={item.urgency} color={item.urgencyColor} />
+                                            <Badge text={item.priority} shape='square' color={item.priorityColor} />
+                                        </GridElements.GridItemFooterBlock>
+                                        <GridElements.GridItemFooterActions>
+                                            <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> this.changeStatus(item, 'archived')} />
+                                        </GridElements.GridItemFooterActions>
+                                    </GridElements.GridItemFooter>
+                                </GridElements.GridItem>
+                            )}
+                        </GridList>
 
-
-                            <div className="sd-grid-item sd-grid-item--with-click locked">
-                                <div className="sd-grid-item__thumb">
-                                    <div className="sd-grid-item__checkbox">
-                                        <Checkbox checked={this.state.itemSelected2} label={{text:''}} 
-                                                  onChange={(value) => this.setState(() => ({ itemSelected2: value }))} />
-                                    </div>
-                                    <img src="/bush_2.jpg" alt="Moron" />
-                                </div>
-                                <div className="sd-grid-item__content">
-                                    <time title="20.11.2017">20.06.2020</time>
-                                    <span className="sd-grid-item__title">Egestas Magna Tristique</span>
-                                    <p className="sd-grid-item--element-grow">
-                                        Donec sed odio dui. Maecenas sed diam eget risus varius blandit sit amet non magna.
-                                    </p>
-                                </div>
-                                <div className="sd-grid-item__footer">
-                                    <div className="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
-                                        <Icon name="photo" className='sd-grid-item__type-icn sd-grid-item__footer-block-item' />
-                                        <Label text='Public' type='success' style='hollow' />
-                                    </div>
-                                    <div className="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
-                                        <div className="icn-btn sd-grid-item__actions">
-                                            <Dropdown
-                                                align = 'right'
-                                                append = {true}
-                                                items={[
-                                                    {
-                                                        type: 'group', label: 'Actions', items: [
-                                                            'divider',
-                                                            { label: 'Edit', icon: 'pencil', onSelect: () => this.setState({ dropDownState: 'Edit ' }) },
-                                                            { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
-                                                            { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
-                                                        ]
-                                                    }]}>
-                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
-                                            </Dropdown>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="sd-grid-item__state-border"></div>
-                            </div>
-
-                            <div className="sd-grid-item sd-grid-item--with-click">
-                                <div className="sd-grid-item__thumb">
-                                    <div className="sd-grid-item__checkbox">
-                                    <Checkbox checked={this.state.itemSelected3} label={{text:''}} 
-                                                  onChange={(value) => this.setState(() => ({ itemSelected3: value }))} />
-                                    </div>
-                                    <img src="/obama_2.jpg" alt="Obama" />
-                                </div>
-                                <div className="sd-grid-item__content">
-                                    <time title="20.11.2017">19.06.2020</time>
-                                    <span className="sd-grid-item__title">Cras justo odio</span>
-                                    <p className="sd-grid-item--element-grow">
-                                        Fusce risus nisl, viverra et, tempor et, pretium in, sapien. Praesent nonummy mi in odio.
-                                    </p>    
-                                </div>
-                                <div className="sd-grid-item__footer">
-                                    <div className="sd-grid-item__footer-block sd-grid-item__footer-block--multi-l">
-                                        <Icon name="photo" className='sd-grid-item__type-icn sd-grid-item__footer-block-item' />
-                                        <Label text='Private' style='hollow' color='red--800'/>
-                                    </div>
-                                    <div className="sd-grid-item__footer-block sd-grid-item__footer-block--single-r">
-                                        <div className="sd-grid-item__actions">
-                                            <Dropdown
-                                                align = 'right'
-                                                append = {true}
-                                                items={[
-                                                    {
-                                                        type: 'group', label: 'Actions', items: [
-                                                            'divider',
-                                                            { label: 'Edit', icon: 'pencil', onSelect: () => this.setState({ dropDownState: 'Edit ' }) },
-                                                            { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
-                                                            { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
-                                                        ]
-                                                    }]}>
-                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
-                                            </Dropdown>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div className="sd-grid-item__state-border"></div>
-                            </div>
-
-
-                        </div>
                     </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
 

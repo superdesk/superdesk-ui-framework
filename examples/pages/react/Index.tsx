@@ -35,6 +35,9 @@ import DropdownDoc from './Dropdowns';
 import TagInputDoc from './TagInputs';
 import ToastsDoc from './Toasts';
 import TagDoc from './Tags';
+import EmptyStateDoc from './EmptyStates';
+import GridListDoc from './GridList';
+import GridItemDoc from './GridItem';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 
@@ -94,6 +97,25 @@ const pages = {
             },
             'sub-navigation': {
                 name: 'Sub navigation bar'
+            },
+        }
+    },
+    containerComponents: {
+        name: "Containers",
+        items: {
+            'empty-states': {
+                name: 'Empty states'
+            },
+            'grid-item': {
+                name: 'Grid Item'
+            },
+        }
+    },
+    layoutComponents: {
+        name: "Layot",
+        items: {
+            'grid-list': {
+                name: 'Grid List'
             },
         }
     },
@@ -176,6 +198,9 @@ class ReactDoc extends React.Component {
                         <Route path="/react/dropdowns" component={DropdownDoc} />
                         <Route path="/react/toast" component={ToastsDoc} />
                         <Route path="/react/tag-input" component={TagInputDoc} />
+                        <Route path="/react/empty-states" component={EmptyStateDoc} />
+                        <Route path="/react/grid-list" component={GridListDoc} />
+                        <Route path="/react/grid-item" component={GridItemDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
