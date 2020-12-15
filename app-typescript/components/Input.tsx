@@ -54,14 +54,14 @@ export class Input extends React.Component<IProps, IState> {
         return (
             <div className={classes}>
                 {this.props.label ? <label className='sd-input__label'
-                    htmlFor={this.htmlId}>{this.props.label}</label> : null}
+                    htmlFor={this.htmlId} id={this.htmlId+'label'}>{this.props.label}</label> : null}
 
                 <input className='sd-input__input'
                     type='text'
                     id={this.htmlId}
                     value={this.state.value}
                     aria-label={this.props.label}
-                    aria-describedby={this.htmlId}
+                    aria-describedby={this.htmlId+'label'}
                     onChange={this.handleChange}
                     disabled={this.props.disabled} />
 

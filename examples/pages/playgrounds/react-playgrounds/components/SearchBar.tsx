@@ -4,17 +4,19 @@ import {Icon}  from '../../../../../app-typescript/index';
 
 interface IProps {
     type?: 'expanded' | 'collapsed' | 'boxed';
-    placeholder: string; // defaults to light (white) 
+    placeholder: string;
+    focused? : boolean;
 }
 
 export class SearchBar extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-searchbar', {
             [`sd-searchbar--${this.props.type}`] : this.props.type,
-            [`sd-searchbar--${this.props.type}`]: this.props.type !== 'expanded' && this.props.type !== undefined,
+            'sd-searchbar--expanded': this.props.type === 'expanded' || this.props.type === undefined,
+            'sd-searchbar--focused' : this.props.focused,
         });
         return (
-            <div className="sd-searchbar">
+            <div className={classes}>
                 <label className="sd-searchbar__icon"></label>
                 <input id="search-input"
                     className="sd-searchbar__input"
@@ -24,7 +26,7 @@ export class SearchBar extends React.PureComponent<IProps> {
                     <Icon name='remove-sign' />
                 </button>
                 <button id="sd-searchbar__search-btn" className="sd-searchbar__search-btn">
-                    <Icon size='big' name='chevron-right' />
+                    <Icon name='chevron-right-thin' />
                 </button>
             </div>
         );
