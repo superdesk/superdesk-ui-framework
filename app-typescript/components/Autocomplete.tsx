@@ -16,7 +16,7 @@ interface IProps {
     disabled?: boolean;
     invalid?: boolean;
     inlineLabel?: boolean;
-    isSearchField?:  boolean;
+    isSearchField?: boolean;
     listItemTemplate?(value: any): any;
     search?(searhString: string, callback: (result: Array<any>) => void): {cancel: () => void};
     onChange(newValue: string): void;
@@ -126,7 +126,7 @@ export class Autocomplete extends React.Component<IProps, IState> {
                 <div className={classes}>
                     {this.props.label && !this.props.isSearchField ? <label className='sd-input__label'
                         htmlFor={this.htmlId}>{this.props.label}</label> : null}
-                
+
                     {this.props.label && this.props.isSearchField ? <label className='sd-searchbar__icon'
                         htmlFor={this.htmlId} aria-label={this.props.label}></label> : null}
 
@@ -141,8 +141,8 @@ export class Autocomplete extends React.Component<IProps, IState> {
                         field={this.props.keyValue}
                         disabled={this.props.disabled}
                         minLength={this.props.minLength ? this.props.minLength : 1}
-                        onFocus={() => {this.setState({focused: true})}}
-                        onBlur={() => {this.setState({focused: false})}}
+                        onFocus={() => {this.setState({focused: true});}}
+                        onBlur={() => {this.setState({focused: false});}}
                         onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)}
                         onSelect={(event: {originalEvent: Event, value: any}) => this.handleSelect(event)} />
 
