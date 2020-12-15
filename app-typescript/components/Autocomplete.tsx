@@ -141,8 +141,8 @@ export class Autocomplete extends React.Component<IProps, IState> {
                         field={this.props.keyValue}
                         disabled={this.props.disabled}
                         minLength={this.props.minLength ? this.props.minLength : 1}
-                        onFocus={() => {this.setState({focused: true});}}
-                        onBlur={() => {this.setState({focused: false});}}
+                        onFocus={() => {this.setState({focused: true}); }}
+                        onBlur={() => {this.setState({focused: false}); }}
                         onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)}
                         onSelect={(event: {originalEvent: Event, value: any}) => this.handleSelect(event)} />
 
