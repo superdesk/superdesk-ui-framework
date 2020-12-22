@@ -86,7 +86,7 @@
     "date-fns": "2.7.0",
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",
-    "primereact": "3.3.2",
+    "superdesk-primereact": "5.0.2",
     "react-id-generator": "^3.0.0",
     "react-popper": "^2.2.3"
   }

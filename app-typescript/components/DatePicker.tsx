@@ -154,7 +154,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 showIcon={true}
                 icon="icon-calendar"
                 headerTemplate={() => this.props.shortcuts == null ? null : (
-                    <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
+                    <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
                         {
                             this.props.shortcuts.map(({label, days}, i) => (
                                 <button

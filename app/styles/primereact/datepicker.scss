@@ -1,0 +1,110 @@
+.p-datepicker {
+    color: $sd-text;
+    background: $white;
+    @include modal-box-shadow();
+    padding: 10px;
+    border-radius: 4px;
+    
+    .p-datepicker-title {
+        text-transform: uppercase;
+        font-weight: bold;
+        line-height: 1;
+        margin: 0 2.3em;
+        text-align: center;
+    }
+
+    .p-datepicker-header {
+        position: relative;
+        flex-wrap: wrap;
+        padding: .5em 0;
+    }
+
+    table {
+        border: none;
+    }
+}
+
+// display month and year on separate lines
+.p-datepicker-month,
+p-datepicker-year {
+    display: block;
+}
+
+.p-datepicker {
+    td, th {
+        border: 0;
+        padding: 0
+    }
+}
+
+// add background when hovering a selectable date
+.p-datepicker table td > span {
+    &:not(.p-highlight):not(.p-disabled) {
+        &:hover {
+            background-color: $sd-hover;
+        }
+    }
+}
+
+// styles for a day box
+.p-datepicker table td > span {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+    font-weight: normal;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+
+// selected date style
+.p-datepicker .p-highlight {
+    background-color: $sd-blue;
+    color: $white;
+}
+
+
+// calendar icon button
+.p-datepicker-trigger {
+    @extend .p-inputtext;
+    font-size: 1.4em;
+    cursor: pointer;
+
+
+    .p-button-icon-left {
+        color: #7F7F7F;
+    }
+
+    &:not(.p-disabled) .p-button-icon-left:hover {
+        color: $sd-blue;
+    }
+}
+
+.p-calendar {
+    .p-inputtext {
+        color: $sd-text;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid var(--color-input-border);
+        font-size: 14px;
+        padding-top: 3px;
+        padding-bottom: 2px;
+    }
+}
+
+.p-calendar-w-btn {
+    width: 110px;
+
+    .p-inputtext {
+        width: calc(100% - 24px);
+    }
+
+    .p-datepicker-trigger {
+        width: 24px;
+        margin: 0;
+    }
+}
