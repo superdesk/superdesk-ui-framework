@@ -1,7 +1,7 @@
 import * as React from 'react';
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
-import {Calendar, LocaleSettings, CalendarProps} from 'primereact/calendar';
+import {Calendar, LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
 import {throttle} from 'lodash';
 
 export type DatePickerLocaleSettings = Omit<LocaleSettings, 'today' | 'clear'>;
@@ -132,7 +132,6 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
         }
 
         return (
-            // a patch for primereact/calendar is used for fixing https://github.com/primefaces/primereact/issues/1086
             <Calendar
                 ref={(ref) => {
                     this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;

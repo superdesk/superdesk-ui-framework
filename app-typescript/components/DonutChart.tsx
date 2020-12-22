@@ -1,5 +1,5 @@
 import React from 'react';
-import { Chart } from 'primereact/chart';
+import { Chart } from '@superdesk/primereact/chart';
 import { ChartData, ChartOptions } from 'chart.js';
 
 interface IProps {

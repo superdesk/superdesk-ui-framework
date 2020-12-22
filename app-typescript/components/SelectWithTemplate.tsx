@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Dropdown} from 'primereact/dropdown';
+import {Dropdown} from '@superdesk/primereact/dropdown';
 
 interface IProps<T> {
     getItems(searchString: string | null): Promise<Array<T>>;
