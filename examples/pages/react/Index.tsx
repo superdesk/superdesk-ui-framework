@@ -40,6 +40,7 @@ import GridListDoc from './GridList';
 import GridItemDoc from './GridItem';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
+import {SelectWithTemplateDocs} from './SelectWithTemplate';
 
 const pages = {
     basicComponents: {
@@ -134,6 +135,9 @@ const pages = {
             'select': {
                 name: 'Select',
             },
+            'select-with-template': {
+                name: 'Select with template',
+            },
             'date-picker': {
                 name: 'Date Picker',
             },
@@ -184,6 +188,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/inputs" component={InputsDoc} />
                         <Route path="/react/autocomplete" component={AutocompleteDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
+                        <Route path="/react/select-with-template" component={SelectWithTemplateDocs} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />

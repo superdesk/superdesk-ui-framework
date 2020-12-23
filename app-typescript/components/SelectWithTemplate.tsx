@@ -2,13 +2,14 @@ import * as React from 'react';
 import {Dropdown} from '@superdesk/primereact/dropdown';
 
 interface IProps<T> {
+    // Don't forget to cancel unfinished requests every the prop is called.
     getItems(searchString: string | null): Promise<Array<T>>;
     value: T;
     getLabel(option: T): string;
     onChange(value: T): void;
-    areEqual(a: T, b: T): boolean;
+    areEqual(a: T, b: T): boolean; // Using reference equality for objects is error prone.
     itemTemplate: React.ComponentType<{option: T | null}>;
-    noResultsFoundMessage?: string;
+    noResultsFoundMessage: string;
     filterPlaceholder?: string;
 
     disabled?: boolean;
