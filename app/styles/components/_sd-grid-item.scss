@@ -4,8 +4,8 @@
 $sd-grid-item-thumb-bg: rgba(44,44,44,1);
 
 //background color 
-$sd-grid-item-Bg: $white;
-$sd-grid-item-Bg-selected: $white;
+$sd-grid-item-Bg: var(--color-grid-item-Bg);
+$sd-grid-item-Bg-selected: var(--color-grid-item-Bg);
 $sd-grid-item-Bg-activated: #e3f1f6;
 //background color - dark UI
 $sd-grid-item-Bg-darkUI: $grayDark;
@@ -26,8 +26,8 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     position: relative;
     @include border-radius(2px);
     box-shadow: $sd-grid-item-shadow;
-    background-color: $white;
-    color: $sd-text;
+    background-color: $sd-grid-item-Bg;
+    color: inherit;
     // min-height: 12rem;
     display: flex;
     flex-direction: column;
@@ -37,7 +37,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         cursor: pointer;
         &:hover {
             box-shadow: $sd-grid-item-shadow-hover;
-            background-color: darken($sd-grid-item-Bg, 2%);
+            //background-color: darken($sd-grid-item-Bg, 2%);
         }
         &:active {
             box-shadow: $sd-grid-item-shadow-activated;
@@ -47,7 +47,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         outline: 1px solid scale-color($sd-blue, $alpha: -60%);
         background-color: $sd-grid-item-Bg-activated;
         &:hover {
-            background-color: darken($sd-grid-item-Bg-activated, 2%);
+            //background-color: darken($sd-grid-item-Bg-activated, 2%);
         }
 
     }
@@ -425,7 +425,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
 
     .sd-grid-item__footer {
         padding: 0.4rem 0.2rem;
-        border-top: 1px solid #dedede8c;
+        border-top: 1px solid rgba(123,123,123,0.24);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -511,6 +511,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
 
     .sd-grid-item__type-icn {
         opacity: 0.75;
+        color: inherit;
     }
 
     .sd-grid-item__slugline {
@@ -718,7 +719,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     }
 }
 
-.dark-ui {
+.dark-ui, [data-theme="dark-ui"] {
     &.sd-column-box__main-column {
         background-color: #444;
     }
@@ -781,7 +782,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         }
         &.actioning {
             &::before {
-                background-color: rgba(51, 51, 51, 0.85);
+                background-color: rgba(35, 35, 35, 0.85);
             }
         }
     }

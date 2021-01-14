@@ -35,3 +35,40 @@
         }
     }
 }
+
+.sd-searchbar, .sd-input--inline-label {
+    .p-autocomplete-panel {
+        margin-top: 0;
+    }
+}
+
+.p-autocomplete-loader {
+    &.pi {
+        color: inherit !important;
+        z-index: 1;
+        border-radius: 50%;
+
+    }
+}
+.sd-searchbar {
+    .p-autocomplete-loader {
+        &.pi {
+            font-size: 2.4rem !important;
+            background-color: $white;
+        }
+    }
+}
+.sd-input {
+    .p-autocomplete-loader {
+        margin-top: -1.4rem;
+        &.pi {
+            font-size: 2rem !important;
+            background-color: transparent;
+        }
+    }
+}
+.sd-input.sd-input--inline-label {
+    .p-autocomplete-loader {
+        margin-top: -2.2rem;
+    }
+}

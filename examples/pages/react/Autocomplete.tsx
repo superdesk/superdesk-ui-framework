@@ -70,9 +70,10 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                 </Markup.ReactMarkupCodePreview>
 
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">Basic Autocomplete</h3>
-                <p className="docs-page__paragraph">For basic usage of autocomplete, you need to pass value for prop <code>text</code> and <code>items</code>. Items can be passed as array of strings or array of objects. If you pass array of objects, you need to define prop <code>keyValue</code> as object key, so autocomplete can know which propery to use as display option.</p>
+                <p className="docs-page__paragraph">For basic usage of autocomplete, you need to pass value for prop <code>text</code> and <code>items</code>. Items can be passed as array of strings or array of objects. 
+                If you pass array of objects, you need to define prop <code>keyValue</code> as object key, so autocomplete can know which propery to use as display option.</p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Autocomplete text="Name" keyValue="name" items={items} maxLength={30} />
+                    <Autocomplete label='Autocomplete label' keyValue="name" items={items} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className='docs-page__paragraph'></p>
@@ -93,7 +94,8 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     label='Autocomplete label'
                                     items={this.state.items}
                                     keyValue="name"
-                                    info="Try typing `item`...'"
+                                    info='Try typing `item`...'
+                                    error='This is an error message'
                                     inlineLabel={this.state.inlineLabel}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
@@ -116,7 +118,59 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                             label='Autocomplete label'
                             items={this.state.items}
                             keyValue="name"
+                            info='Type item...'
                             inlineLabel="Autocomplete label
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            onChange={() => { }}
+                            onSelect={() => { }} />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Autocomplete with Search field</h3>
+                <p className="docs-page__paragraph">Set prop <code>isSearchField</code> to <code>{true}</code> to enable this option.
+                The search field does't have a visible lable. The value of the label prop will be used for the aria-label.</p>
+                <Markup.ReactMarkupCodePreview>{`
+                    <Autocomplete label='Search' keyValue="name" items={items} isSearchField={true} />
+                `}
+                </Markup.ReactMarkupCodePreview>
+                <p className='docs-page__paragraph'></p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
+                            <div className='form__row'>
+                                <Autocomplete
+                                    label='Search items'
+                                    items={this.state.items}
+                                    keyValue="name"
+                                    error='There was an error using the search'
+                                    isSearchField={true}
+                                    placeholder='Search'
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    onChange={() => { }}
+                                    onSelect={() => { }} />
+                            </div>
+                        </div>
+
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        let items = [
+                            { name: 'Item 1', value: 'item-1' },
+                            { name: 'Item 2', value: 'item-2' },
+                            { name: 'Item 3', value: 'item-3' },
+                            { name: 'Item 4', value: 'item-4' }
+                        ];
+
+                        <Autocomplete
+                            label='Search items'
+                            items={this.state.items}
+                            keyValue="name"
+                            error='There was an error using the search'
+                            isSearchField={true}
+                            placeholder='Search'
                             required={this.state.required}
                             disabled={this.state.disabled}
                             invalid={this.state.invalid}
@@ -128,7 +182,7 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">Autocomplete with custom search function</h3>
                 <p className="docs-page__paragraph">Define prop <code>search</code> with custom function.</p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Autocomplete text="Name" items={this.props.items} search={this.search} />
+                    <Autocomplete label="Autocomplete label" items={this.props.items} search={this.search} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className='docs-page__paragraph'></p>
@@ -191,7 +245,7 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">Autocomplete with custom list template</h3>
                 <p className="docs-page__paragraph">Define prop <code>listItemTemplate</code> with function that returns structure for list item. Function returns item, string or object.</p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Autocomplete text="Name" items={this.props.items} listItemTemplate={this.customListTemplate} />
+                    <Autocomplete label="Autocomplete label" items={this.props.items} listItemTemplate={this.customListTemplate} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className='docs-page__paragraph'></p>
@@ -248,6 +302,10 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                     <Prop name='label' isRequered={false} type='string' default='/' description='Input label' />
                     <Prop name='info' isRequered={false} type='string' default='/' description='Hint text' />
                     <Prop name='error' isRequered={false} type='string' default='/' description='Error text' />
+                    <Prop name='placeholder' isRequered={false} type='string' default='/' description='Placeholder text for the input field.' />
+                    <Prop name='isSearchField' isRequered={false} type='boolean' default='false' 
+                          description='Styles the input as a search field, adds a search icon and the option to clear the field. No visible 
+                                       lable is present in this option.' />
                     <Prop name='inlineLabel' isRequered={false} type='boolean' default='false' description='Position labels as inline' />
                     <Prop name='required' isRequered={false} type='boolean' default='false' description='Mark field as required' />
                     <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Mark field as disabled' />
