@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoComplete } from 'primereact/autocomplete';
+import { AutoComplete } from '@superdesk/primereact/autocomplete';
 
 //   work in progress used Autocomplete from primereact miss:
 //  1. style for component

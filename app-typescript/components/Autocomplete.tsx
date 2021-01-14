@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoComplete } from 'primereact/autocomplete';
+import { AutoComplete } from '@superdesk/primereact/autocomplete';
 import classNames from 'classnames';
 import nextId from "react-id-generator";
 

@@ -5,6 +5,7 @@ export { HelloWorld } from './components/HelloWorld';
 export { Button } from './components/Button';
 export { Input } from './components/Input';
 export { Select, Option } from './components/Select';
+export { SelectWithTemplate } from './components/SelectWithTemplate';
 export { Label } from './components/Label';
 export { Badge } from './components/Badge';
 export { Alert } from './components/Alert';
