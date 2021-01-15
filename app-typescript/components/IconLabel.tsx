@@ -12,7 +12,7 @@ export class IconLabel extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('label-icon', {
             [`label-icon--${this.props.type}`]: this.props.type !== undefined,
-            'label-icon--translucent': this.props.style === 'translucent'
+            'label-icon--translucent': this.props.style === 'translucent',
         });
 
         return (
