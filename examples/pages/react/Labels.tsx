@@ -137,6 +137,42 @@ export default class LabelsDoc extends React.Component {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+                <h3 className="docs-page__h3">Translucent style</h3>
+                <p className="docs-page__paragraph">Add prop<code>style='translucent'</code>. <br />
+                <strong>Note:</strong> The translucent style does't support the extended colour palette yet.</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row'>
+                            <Label text='default label' style='translucent'/>
+                            <Label text='primary label' type='primary' style='translucent'/>
+                            <Label text='success label' type='success' style='translucent'/>
+                            <Label text='warning label' type='warning' style='translucent'/>
+                            <Label text='alert label' type='alert' style='translucent'/>
+                            <Label text='highlight label' type='highlight' style='translucent'/>
+                            <Label text='sd-gren label' type='sd-green' style='translucent'/>
+                        </div>
+                        <div className='docs-page__content-row'>
+                            <Label text='Translucent large' size='large' style='translucent'/>
+                            <Label text='Translucent large' size='large' type='primary' style='translucent'/>
+                            <Label text='Translucent, large & no text transformation' type='highlight' size='large' style='translucent' noTransform={true}/>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Label text='default label' style='hollow'/>
+                        <Label text='primary label' type='primary' style='translucent'/>
+                        <Label text='success label' type='success' style='translucent'/>
+                        <Label text='warning label' type='warning' style='translucent'/>
+                        <Label text='alert label' type='alert' style='translucent'/>
+                        <Label text='highlight label' type='highlight' style='translucent'/>
+                        <Label text='sd-gren label' type='sd-green' style='translucent'/>
+
+                        <Label text='Translucent large' size='large' style='translucent'/>
+                        <Label text='Translucent large' size='large' type='primary' style='translucent'/>
+                        <Label text='Translucent, large & no text transformation' type='highlight' size='large' style='translucent' noTransform={true}/>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
                 <h3 className="docs-page__h3">Link label</h3>
                 <p className="docs-page__paragraph">This type of label should be used only in highly specific cases (for instance inline with other regular labels inside a list item). For most other scenarios, use of the button component is strongly suggested.</p>
                 <Markup.ReactMarkup>
@@ -153,6 +189,12 @@ export default class LabelsDoc extends React.Component {
                             <Label text='success label' type='success' style='hollow' onClick={()=> false}/>
                             <Label text='alert label' type='alert' style='hollow' onClick={()=> false}/>
                         </div>
+                        <div className='docs-page__content-row'>
+                            <Label text='default label' style='translucent' onClick={()=> false}/>
+                            <Label text='primary label' type='primary' style='translucent' onClick={()=> false}/>
+                            <Label text='success label' type='success' style='translucent' onClick={()=> false}/>
+                            <Label text='alert label' type='alert' style='translucent' onClick={()=> false}/>
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Label text='default label' onClick={()=> false}/>
@@ -164,6 +206,11 @@ export default class LabelsDoc extends React.Component {
                         <Label text='primary label' type='primary' style='hollow' onClick={()=> false}/>
                         <Label text='success label' type='success' style='hollow' onClick={()=> false}/>
                         <Label text='alert label' type='alert' style='hollow' onClick={()=> false}/>
+
+                        <Label text='default label' style='translucent' onClick={()=> false}/>
+                        <Label text='primary label' type='primary' style='translucent' onClick={()=> false}/>
+                        <Label text='success label' type='success' style='translucent' onClick={()=> false}/>
+                        <Label text='alert label' type='alert' style='translucent' onClick={()=> false}/>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -175,7 +222,7 @@ export default class LabelsDoc extends React.Component {
                     <Prop name='color' isRequered={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The label can have either a Type or Color defined, not both at the same time.'/>
                     <Prop name='size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large label.'/>
                     <Prop name='noTransform' isRequered={false} type='boolean' default='false' description='Transforms text to uppercase.'/>
-                    <Prop name='style' isRequered={false} type='filled | hollow' default='filled' description='Label may be one of styles hollow label or default filled.'/>
+                    <Prop name='style' isRequered={false} type='filled | hollow | translucent' default='filled' description='Label may have one of these styles - filled (default), hollow or translucent.'/>
                 </PropsList>
             </section>
         )

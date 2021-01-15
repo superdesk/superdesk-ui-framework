@@ -17,6 +17,7 @@ export default class IconLabelDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
+                            <p className="docs-page__paragraph">// Basic</p>
                             <IconLabel text='Default label' icon='photo' />
                             <IconLabel text='Label primary' icon='facebook' type='primary' />
                             <IconLabel text='Label success' icon='text' type='success' />
@@ -24,10 +25,19 @@ export default class IconLabelDoc extends React.Component {
                             <IconLabel text='Label alert' icon='trash' type='alert' />
                             <IconLabel text='Label highlight' icon='composite' type='highlight' />
                             <IconLabel text='Label sd-green' icon='video' type='sd-green' />
+
+                            <p className="docs-page__paragraph">// Translucent</p>
+                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                            <IconLabel style='translucent' text='Label warning' type='warning' icon='time' />
+                            <IconLabel style='translucent' text='Label alert' type='alert' icon='time' />
+                            <IconLabel style='translucent' text='Label highlight' type='highlight' icon='calendar' />
+                            <IconLabel style='translucent' text='Label sd-green' type='sd-green' icon='calendar' />
+                            <IconLabel style='translucent' text='Default label' icon='bell' />
                         </div>
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
+                        // Basic
                         <IconLabel text='Default label' icon='photo' />
                         <IconLabel text='Label primary' icon='facebook' type='primary' />
                         <IconLabel text='Label success' icon='text' type='success' />
@@ -35,6 +45,14 @@ export default class IconLabelDoc extends React.Component {
                         <IconLabel text='Label alert' icon='trash' type='alert' />
                         <IconLabel text='Label highlight' icon='composite' type='highlight' />
                         <IconLabel text='Label sd-green' icon='video' type='sd-green' />
+
+                        // Translucent
+                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                        <IconLabel style='translucent' text='Label warning' type='warning' icon='time' />
+                        <IconLabel style='translucent' text='Label alert' type='alert' icon='time' />
+                        <IconLabel style='translucent' text='Label highlight' type='highlight' icon='calendar' />
+                        <IconLabel style='translucent' text='Label sd-green' type='sd-green' icon='calendar' />
+                        <IconLabel style='translucent' text='Default label' icon='bell' />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -44,6 +62,7 @@ export default class IconLabelDoc extends React.Component {
                     <Prop name='text' isRequered={true} type='string' default='/' description='IconLabel text value.'/>
                     <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
                     <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='style' isRequered={false} type='basic | translucent' default='basic' description='Defines the style of the label (basic or translucent).'/>
                 </PropsList>
             </section>
         )

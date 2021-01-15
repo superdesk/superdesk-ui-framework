@@ -8,7 +8,7 @@ interface IProps {
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
     onClick?(): void;
     noTransform?: boolean;
-    style?: 'filled' | 'hollow'; // defaults to 'filled'
+    style?: 'filled' | 'hollow' | 'translucent'; // defaults to 'filled'
 }
 export class Label extends React.PureComponent<IProps> {
     render() {
@@ -17,7 +17,7 @@ export class Label extends React.PureComponent<IProps> {
             'label--no-transform': this.props.noTransform,
             [`label--${this.props.type}`]: this.props.type !== undefined && !this.props.color,
             [`${this.props.color}`]: this.props.color !== undefined && !this.props.type && !this.props.style,
-            'label--hollow': this.props.style === 'hollow',
+            [`label--${this.props.style}`]: this.props.style !== 'filled' && this.props.style !== undefined,
             [`hollow-${this.props.color}`]: this.props.color && this.props.style === 'hollow',
         });
         if (this.props.link || this.props.onClick) {
