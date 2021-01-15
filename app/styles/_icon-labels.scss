@@ -2,9 +2,10 @@
 
 /// Default background color for icon labels.
 $label-icon-background: transparent !default;
+$label-icon-background-translucent: rgba(123,123,123,0.16);
 
 /// Default text color for icon labels.
-$label-icon-color: $gray !default;
+$label-icon-color: var(--color-label-text);
 
 /// Alternate text color for icon labels.
 $label-icon-color-alt: $white !default;
@@ -15,16 +16,25 @@ $label-icon-palette: $sd-basic-palette;
 /// Default padding inside labels.
 $label-icon-padding: 0 0.6rem 0 0 !default;
 
+$label-icon-radius: 8px !default;
+
 /// Generates base styles for a icon label.
 @mixin label-icon {
     display: inline-flex;
     padding: $label-icon-padding;
     vertical-align: middle;
     align-items: center;
-    line-height: 1.4rem;
+    line-height: 1;
     font-size: 13px;
     white-space: nowrap;
     cursor: default;
+}
+
+@mixin label-icon-translucent {
+    font-size: 12px;
+    height: 24px;
+    border-radius: 12px;
+    padding: 0 12px 0 8px;
 }
 
 
@@ -36,15 +46,26 @@ $label-icon-padding: 0 0.6rem 0 0 !default;
     
     [class^="icon-"], & [class*=" icon-"] {
         color: $label-icon-color;
-        margin-right: .6rem;
+        margin-right: .4rem;
+        opacity: 1 !important;
     }
 
     @each $name, $color in $label-icon-palette {
         &.label-icon--#{$name} {
             color: $color;
             [class^="icon-"], & [class*=" icon-"] {
-                color: $color;
+                color: $color !important;
             }
         }
-    }    
+    }
+    &.label-icon--translucent {
+        @include label-icon-translucent;
+        background-color: $label-icon-background-translucent;
+        @each $name, $color in $label-icon-palette {
+            &.label-icon--#{$name} {
+                background-color: scale-color($color, $alpha: -88%);
+            }
+        }
+    }
+
 }

@@ -8,6 +8,7 @@ $label-color: $white !default;
 
 /// Alternate text color for labels.
 $label-color-alt: $gray !default;
+$label-background-translucent: rgba(123,123,123,0.16);
 
 /// Coloring classes. A map of classes to output in the CSS.
 $label-palette: $sd-extended-palette;
@@ -32,6 +33,10 @@ $label-sizes: (
 @mixin label-hollow-style($color: $label-color-alt) {
     border: 1px solid $color;
     background-color: transparent !important;
+    color: $color;
+}
+@mixin label-translucent-style($color: $label-color-alt) {
+    background-color: $label-background-translucent;
     color: $color;
 }
 
@@ -84,6 +89,17 @@ $label-sizes: (
             }
         }
     }
+    &.label--translucent {
+        @include label-translucent-style;
+        
+
+        @each $name, $color in $label-palette {
+            &.label--#{$name} {
+                @include label-translucent-style($color);
+                background-color: scale-color($color, $alpha: -88%);
+            }
+        }
+    }
     &--annotation {
         background-color: $annotation-color;
         color: $grayMedium;
@@ -126,10 +142,5 @@ a.label {
 
     &:hover, &:focus {
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
-    }
-    &:not(.label--hollow) {
-        &:hover, &:focus {
-            color: white;
-        }
     }
 }

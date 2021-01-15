@@ -459,8 +459,8 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 .docs-page__code-example .docs-page__content-row > .label,
 .docs-page__code-example .docs-page__content-row > .badge,
 .docs-page__code-example .docs-page__content-row > .label-icon {
-    margin-right: 6px;
-    margin-bottom: 10px;
+    margin-right: 12px;
+    margin-bottom: 14px;
 }
 
 .docs-page__content-row {
