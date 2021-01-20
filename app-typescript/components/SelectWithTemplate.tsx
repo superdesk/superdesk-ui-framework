@@ -46,7 +46,7 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
         this.props.getItems(null).then((_options) => {
             this.setState({options: _options, loading: false});
 
-            if (this.props.autoOpen) {
+            if (this.props.autoFocus && this.props.autoOpen) {
                 (this.componentRef as unknown as any)?.showOverlay();
             }
         });
@@ -109,12 +109,14 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
                 onFilterInputChange={(searchString) => {
                     this.setState({loading: true});
 
+                    console.log('change');
+
                     getItems(searchString).then((_options) => {
                         this.setState({options: _options, loading: false});
                     });
                 }}
                 zIndex={zIndex}
-                style={width === '100%' ? {display: 'flex'} : {}}
+                style={width === '100%' ? {display: 'flex', width: '100%'} : {}}
                 ref={(componentRef) => {
                     this.componentRef = componentRef;
                 }}
