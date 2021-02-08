@@ -3,7 +3,7 @@
 
 $sd-tableBgColor: #fff;
 
-table {
+.table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0px;
@@ -32,6 +32,13 @@ table {
         vertical-align: bottom;
     }
 }
+
+.table-inside { // separate class in order to avoid putting a class directly on editor3 content
+    table {
+        @extend .table;
+    }
+}
+
 .sd-table--shadowed {
     background-color: $sd-tableBgColor;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
