@@ -22,7 +22,8 @@ export class NavButton extends React.PureComponent<IProps> {
         return (
             <button type={value} className={classes} onClick={this.props.onClick} aria-label={this.props.text}>
                 {this.props.icon ? <Icon name={this.props.icon} size={this.props.iconSize} /> : null}
-                {!this.props.icon && this.props.text ? <span className="sd-navbtn__text">{this.props.text}</span> : null}
+                {!this.props.icon && this.props.text ?
+                    <span className="sd-navbtn__text">{this.props.text}</span> : null}
             </button>
         );
     }
