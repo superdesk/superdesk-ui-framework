@@ -382,6 +382,10 @@ export default angular.module('ui-docs', [
             'sams-playground': {
                 name: 'SAMS',
                 component: 'SamsPlayground'
+            },
+            'test-ground': {
+                name: 'Test Ground',
+                component: 'TestGround'
             }
         }
     }))

@@ -26,7 +26,6 @@ export class Checkbox extends React.Component<IProps> {
     handleLabel(text: string) {
         const classes = classNames({
             'sd-label--disabled': this.props.disabled,
-            'label--active': this.props.checked,
         });
 
         return <label className={classes} htmlFor={this.htmlId} onClick={this.handleChange}>{text}</label>;
@@ -35,10 +34,10 @@ export class Checkbox extends React.Component<IProps> {
     render() {
         return (
             <span className='sd-check-new__wrapper' label-position={this.props.label ?
-                (this.props.label.side === 'left' ? 'left' : null) : null}>
+                (this.props.label.side === 'left' ? 'left' : null) : null} tabIndex={-1}>
                 {this.props.label ? (this.props.label.side === 'left' ?
                     this.handleLabel(this.props.label.text) : null) : null}
-                <input type='checkbox' className='visuallyhidden' id={this.htmlId} />
+                <input type='checkbox' className='sd-check-new__input' id={this.htmlId} tabIndex={0}/>
                 <span className={'sd-check-new' +
                     (this.props.disabled ? (this.props.checked ? ' sd-check-new--disabled checked' : ' sd-check-new--disabled') :
                         (this.props.checked ? ' checked' : ''))}
