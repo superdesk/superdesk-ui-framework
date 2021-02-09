@@ -16,6 +16,7 @@ export class Tooltip extends React.PureComponent<IProps> {
     }
     render() {
         if (React.isValidElement(this.props.children)) {
+            console.log(this.props.children);
             return (
                 React.cloneElement(this.props.children, { id: 't' + this.htmlId })
             );
