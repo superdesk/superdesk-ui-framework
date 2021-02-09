@@ -44,6 +44,7 @@ export {
     Icon,
     NotificationToast,
     Dropdown,
+    Popover,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [
