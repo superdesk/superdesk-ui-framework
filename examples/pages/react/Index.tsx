@@ -41,6 +41,7 @@ import GridItemDoc from './GridItem';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import {SelectWithTemplateDocs} from './SelectWithTemplate';
+import {PopoverDoc} from './Popover';
 
 const pages = {
     basicComponents: {
@@ -84,6 +85,9 @@ const pages = {
             },
             'toast': {
                 name: 'Toasts'
+            },
+            'popover': {
+                name: 'Popover'
             }
         }
     },
@@ -189,6 +193,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/autocomplete" component={AutocompleteDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/select-with-template" component={SelectWithTemplateDocs} />
+                        <Route path="/react/popover" component={PopoverDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
