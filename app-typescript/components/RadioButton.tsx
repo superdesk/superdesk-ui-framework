@@ -1,50 +1,57 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
-interface IOption {
-    value: any;
-    label: string;
-    disabled?: boolean;
-    icon?: string;
+interface IProps<T> {
+    value?: T;
+    options: Array<{
+        label: string,
+        value: T,
+        icon?: string;
+        labelHidden?: boolean,
+        disabled?: boolean
+    }>;
+    required?: boolean;
+    onChange(nextValue: boolean): void;
 }
-
-interface IProps {
-    value: any;
-    options: Array<IOption>;
-    labelSide?: 'left' | 'right'; // defaults to 'right'
-    onChange(nextValue: string): void;
-}
-
-export class RadioButton extends React.PureComponent<IProps> {
-    constructor(props: IProps) {
-        super(props);
-    }
+export class RadioButton<T> extends React.Component<IProps<T>> {
     htmlId = nextId();
-    handleChange(value: string) {
-        this.props.onChange(value);
+
+    constructor(props: IProps<T>) {
+        super(props);
+        this.handleChange = this.handleChange.bind(this);
+    }
+
+    handleChange(item: any) {
+        if (!item.disabled) {
+            this.props.onChange(item.value);
+        }
     }
 
     render() {
-
         return (
-            this.props.options.map((item: any, index: number) => (
-                <React.Fragment key={index + 1}>
-                    <input type='checkbox' className='visuallyhidden' id={this.htmlId + index} />
-                    <span key={index} className={'sd-check-button' +
-                        (item.disabled ? ' sd-checkbox--disabled' :
-                            (this.props.value === item.value ? ' checked' : ''))}
-                        onClick={() => this.handleChange(item.value)}>
-                        {item.icon ? <i className={`icon-${item.icon}`}></i> : null}
-                        {item.disabled ?
-                            <label
-                                className='sd-check-button__text-label sd-label--disabled'
-                                htmlFor={this.htmlId + index}>
-                                {item.label}</label> :
-                            <label
-                                className='sd-check-button__text-label'
-                                htmlFor={this.htmlId + index}>{item.label}</label>}
+            <div className="sd-check-button__group sd-check-button__group--left">{
+                this.props.options.map((item: any, index: number) => (
+                    <span className="sd-check-button sd-check-button--native"
+                        key={index}
+                        tabIndex={-1}>
+
+                        <input type="radio" className="sd-check-button__input"
+                            id={this.htmlId + index}
+                            tabIndex={0}
+                            name={this.htmlId}
+                            onChange={() => this.handleChange(item)}
+                            disabled={item.disabled}
+                            required={this.props.required} />
+
+                        <label className="sd-check-button__text-label" htmlFor={this.htmlId + index} 
+                            aria-label={item.labelHidden ? item.label : undefined}>
+
+                            { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }
+                            { !item.labelHidden || !item.icon ?
+                                <span className="sd-check-button__text-label-inner">Button style rules!</span> : null }
+                        </label>
                     </span>
-                </React.Fragment>
-            ))
+                ))
+            }</div>
         );
     }
 }
