@@ -35,6 +35,10 @@ p-datepicker-year {
         border: 0;
         padding: 0
     }
+
+    &.p-component {
+        display: block !important;
+    }
 }
 
 // add background when hovering a selectable date
