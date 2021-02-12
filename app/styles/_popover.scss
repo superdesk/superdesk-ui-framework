@@ -1,19 +1,21 @@
 .sd-popover {
     background: #333;
     color: #fff;
-    padding: 10px;
+    padding: 8px 12px 12px;
     border-radius: 4px;
     box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    max-width: 320px !important;
 }
 
-.sd-popover--header {
+.sd-popover__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 4px;
+    min-height: 20px;
 }
 
-.sd-popover--title {
+.sd-popover__title {
     font-size: 11px;
     line-height: 1;
     text-transform: uppercase;
@@ -23,14 +25,6 @@
 }
 
 
-.sd-popover--close {
-    padding: 0;
-    margin: 0;
-    line-height: 1;
-
-    &:hover, &:active {
-        [class^="icon-"], [class*=" icon-"] {
-            color: $sd-blue;
-        }
-    }
+.sd-popover__close {
+    margin-right: -4px;
 }

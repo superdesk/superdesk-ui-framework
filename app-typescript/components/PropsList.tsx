@@ -27,7 +27,7 @@ class Prop extends React.PureComponent<IProps> {
 class PropsList extends React.PureComponent {
     render() {
         return (
-            <table>
+            <table className="table">
                 <thead>
                     <tr>
                         <th>Name</th>

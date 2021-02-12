@@ -28,7 +28,7 @@ export class RadioButton<T> extends React.Component<IProps<T>> {
 
     render() {
         return (
-            <div className="sd-check-button__group sd-check-button__group--left">{
+            <React.Fragment>{
                 this.props.options.map((item: any, index: number) => (
                     <span className="sd-check-button sd-check-button--native"
                         key={index}
@@ -47,11 +47,11 @@ export class RadioButton<T> extends React.Component<IProps<T>> {
 
                             { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }
                             { !item.labelHidden || !item.icon ?
-                                <span className="sd-check-button__text-label-inner">Button style rules!</span> : null }
+                                <span className="sd-check-button__text-label-inner">{item.label}</span> : null }
                         </label>
                     </span>
                 ))
-            }</div>
+            }</React.Fragment>
         );
     }
 }

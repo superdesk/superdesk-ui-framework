@@ -39,7 +39,7 @@ export class CheckboxButton extends React.Component<IProps> {
 
                     { this.props.label.icon ? <i className={`icon-${this.props.label.icon}`} aria-hidden="true" /> : null }
                     { !this.props.label.hidden || !this.props.label.icon ?
-                        <span className="sd-check-button__text-label-inner">Button style rules!</span> : null }
+                        <span className="sd-check-button__text-label-inner">{this.props.label.text}</span> : null }
                 </label>
             </span>
         );

@@ -502,8 +502,13 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         line-height: 100%;
         margin: 0;
     }
-    .sd-check-new + label, .sd-radio-new + label {
+    .sd-check-new + label,
+    .sd-radio-new + label {
         @include sd-margin('1', 'left');
+    }
+    .sd-check-new + label:empty,
+    .sd-radio-new + label:empty {
+        margin: 0 !important;
     }
     .sd-label--disabled { 
         opacity: 0.40;
@@ -512,6 +517,9 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         label {
             @include sd-margin('1', 'right');
             margin-left: 0;
+            &:empty {
+                margin: 0 !important;
+            }
         }
         .sd-check-new__input {
             left: auto;
@@ -632,6 +640,10 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             white-space: nowrap;
             text-overflow: ellipsis;
             cursor: pointer;
+            width: 100%;
+            .sd-check-button__text-label-inner {
+                user-select: none;
+            }
             i + .sd-check-button__text-label-inner {
                 margin-left: 8px;
             }

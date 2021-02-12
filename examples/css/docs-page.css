@@ -19,6 +19,13 @@
     --docs-page-color-highlight: #33C5A0;
 }
 
+hr {
+    border: transparent;
+    border: 1px dotted rgba(128, 128, 128, 0.75);
+    border-width: 1px 0 0;
+    margin: 24px 0;
+}
+
 h1.docs-page__h1 {
     font-size: 18px;
     font-weight: 400;
