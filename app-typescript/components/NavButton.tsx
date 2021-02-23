@@ -22,6 +22,7 @@ export class NavButton extends React.PureComponent<IProps> {
         return (
             <button type={value}
                 className={classes}
+                tabIndex={0}
                 onClick={this.props.onClick}
                 aria-label={this.props.text}
                 id={this.props.id}>

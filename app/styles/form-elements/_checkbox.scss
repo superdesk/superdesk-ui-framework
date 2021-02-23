@@ -496,20 +496,105 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     display: inline-flex;
     flex-direction: row;
     align-items: center;
+    user-select: none;
+    position: relative;
     label {
         line-height: 100%;
         margin: 0;
     }
-    .sd-check-new + label, .sd-radio-new + label {
+    .sd-check-new + label,
+    .sd-radio-new + label {
         @include sd-margin('1', 'left');
+    }
+    .sd-check-new + label:empty,
+    .sd-radio-new + label:empty {
+        margin: 0 !important;
     }
     .sd-label--disabled { 
         opacity: 0.40;
     }
-    &[label-position="left"]
-    label {
-        @include sd-margin('1', 'right');
+    &[label-position="left"] {
+        label {
+            @include sd-margin('1', 'right');
+            margin-left: 0;
+            &:empty {
+                margin: 0 !important;
+            }
+        }
+        .sd-check-new__input {
+            left: auto;
+            right: 0;
+        }
+        .sd-check-new, .sd-radio-new {
+            order: 2;
+        }
     }
+    input:hover {
+        & ~ .sd-check-new,
+        & ~ .sd-radio-new  {
+            border-color: var(--color-checkbox-border-hover);
+        }
+    }
+
+    input:checked {
+        & ~ .sd-check-new,
+        & ~ .sd-radio-new  {
+            border-color: #5ea9c8;
+            background: #5ea9c8;
+            &::after {
+                opacity: 1;
+                transform: scale(1, 1);
+            }
+        }
+        & ~ .sd-radio-new {
+            background: transparent;
+        }
+        & ~ label {
+            color: #5ea9c8;
+        }
+    }
+
+    input:focus {
+        & ~ .sd-check-new,
+        & ~ .sd-radio-new  {
+            box-shadow: 0 0 0 3px rgba(94, 169, 200, 0.35);
+        }
+    }
+
+    input:disabled {
+        cursor: not-allowed;
+        & ~ label {
+            opacity: 0.6;
+        }
+        & ~ .sd-check-new,
+        & ~ .sd-radio-new  {
+            opacity: 0.6;
+        }
+        &:hover {
+            & ~ .sd-check-new,
+            & ~ .sd-radio-new  {
+                border-color: var(--color-checkbox-border);
+            }
+        }
+    }
+
+    .sd-check-new__input {
+        top: 0;
+        left: 0;
+        width: 16px;
+        cursor: inherit;
+        height: 16px;
+        margin: 0;
+        opacity: 0;
+        padding: 0;
+        z-index: 1;
+        position: absolute;
+        cursor: pointer;
+    }
+}
+.sd-check-new, .sd-radio-new {
+    pointer-events: none;
+    z-index: 0;
 }
 
 .sd-check__group-new {
@@ -528,6 +613,86 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
                 margin-bottom: 0;
             }
         }
+    }
+}
+
+.sd-check-button {
+    &.sd-check-button--native {
+        position: relative;
+        padding: 0;
+        border: none;
+        box-shadow: none !important;
+        background: transparent;
+        overflow: visible;
+        .sd-check-button__text-label {
+            padding-left: 1.2rem;
+            padding-right: 1.2rem;
+            line-height: 1;
+            border: 1px solid rgba(140, 140, 140, 0.5);
+            border-radius: 2px;
+            transition: all 0.2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 3.2rem;
+            color: inherit;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            cursor: pointer;
+            width: 100%;
+            .sd-check-button__text-label-inner {
+                user-select: none;
+            }
+            i + .sd-check-button__text-label-inner {
+                margin-left: 8px;
+            }
+        }
+    }
+
+
+    .sd-check-button__input {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        pointer-events: none;
+        height:100%;
+        width: 100%;
+        padding: 0;
+        border: 0;
+        overflow: hidden;
+        outline: none !important;
+        z-index: 1;
+    }
+
+    .sd-check-button__input:checked {
+        & ~ label {
+            opacity: 1;
+            color: $white;
+            background-color: #3d8fb1;
+            border-color: #3d8fb1;
+            border-top-color: #245569;
+            box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
+        }
+    }
+    .sd-check-button__input:disabled {
+        & ~ label {
+            opacity: 0.5;
+            cursor: not-allowed;
+            box-shadow: none !important;
+        }
+    }
+    &:focus-within {
+        .sd-check-button__text-label {
+            box-shadow: 0 0 0 3px rgba(94, 169, 200, 0.40);
+        }
+        .sd-check-button__input:checked {
+            & ~ label {
+                box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(94, 169, 200, 0.40);
+            }
+        }
+        
     }
 }
 

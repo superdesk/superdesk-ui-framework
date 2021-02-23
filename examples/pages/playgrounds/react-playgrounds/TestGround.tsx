@@ -1,0 +1,104 @@
+import * as React from 'react';
+import * as Components from './components/Index';
+import { Checkbox, Radio, CheckboxButton, RadioButton, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge } from '../../../../app-typescript/index';
+import * as GridElements from '../../../../app-typescript/components/GridItem';
+
+import dummy_items from '../dummy-data/items';
+
+
+interface IProps {
+    children?: React.ReactNode;
+}
+
+interface IState {
+    itemType: string;
+    itemSelected1: boolean;
+    itemSelected2: boolean;
+    itemSelected3: boolean;
+    value1: boolean;
+    value2: boolean;
+    value3: boolean;
+    value4: boolean;
+}
+
+export class TestGround extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            itemType: 'itemtype01',
+            itemSelected1: false,
+            itemSelected2: false,
+            itemSelected3: false,
+            value1: false,
+            value2: false,
+            value3: false,
+            value4: false,
+        }
+    }
+
+    changeStatus(item: any, status: string) {
+        if (item.status.includes(status)) {
+            item.status.splice(item.status.indexOf(status), 1);
+        } else {
+            item.status.push(status);
+        }
+    }
+
+    render() {
+        return (
+            <Components.Layout header='Testing Ground'>
+                <Components.LayoutContainer>
+                    <Components.MainPanel>
+                        <h3 className="docs-page__h3 sd-margin-y--0">Checkbox</h3>
+                        <hr />
+                        <div className="sd-check__group-new sd-check__group-new--vertical">
+                            <Checkbox label={{text: 'Label side not defined'}} onChange={(value) => console.log('value changed', value)} />
+                            <Checkbox label={{text: 'Defined label side - right', side: 'right'}} onChange={(value) => console.log('value changed', value)} />
+                            <Checkbox label={{text: 'This checkbox is disabled'}} onChange={(value) => console.log('value changed', value)} disabled={true}/>
+                        </div>
+
+                        <hr />
+
+                        <Checkbox label={{text: 'Defined label side - left', side: 'left'}} onChange={(value) => console.log('value changed', value)} />
+
+                        <hr />
+
+                        <Checkbox label={{text: 'The label is hidden here', hidden: true}} onChange={(value) => console.log('value changed', value)} />
+                        
+                        <hr />
+
+                        <div className="sd-check__group-new sd-check-button__group--left">
+                            <CheckboxButton label={{text: 'CheckboxButton rules!'}} onChange={(value) => console.log('value changed', value)} />
+                            <CheckboxButton label={{text: 'CheckboxButton rules again!', icon: 'th'}} onChange={(value) => console.log('value changed', value)} />
+                            <CheckboxButton label={{text: 'Hell yeah!'}} onChange={(value) => console.log('value changed', value)} />
+                        </div>
+
+                        <hr /><hr />
+
+                        <h3 className="docs-page__h3 sd-margin-t--2 sd-margin-b--0">Radio</h3>
+                        <hr />
+                        <div className="sd-check__group-new">
+                            <Radio options={[
+                                {label: "Radio 1", value: "Value 1"},
+                                {label: "Radio 2", value: "Value 2"},
+                                {label: "Radio 3", value: "Value 3"},
+                            ]} onChange={(value) => console.log('value changed', value)} />
+                        </div>
+
+                        <hr />
+
+                        <div className="sd-check__group-new sd-check-button__group--left">
+                            <RadioButton options={[
+                                {label: "RadioButton with an icon", value: "Value 1", icon: "th-list"},
+                                {label: "RadioButton with no visible text, only an icon", value: "Value 2", icon: "th", labelHidden: true},
+                                {label: "Normal RadioButton", value: "Value 3"},
+                            ]} onChange={(value) => console.log('value changed', value)} />
+                        </div>
+                        <hr />
+                    </Components.MainPanel>
+                    {/* MAIN CONTENT (Monitoring) */}
+                </Components.LayoutContainer>
+            </Components.Layout >
+        );
+    }
+}

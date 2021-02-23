@@ -92,6 +92,8 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
                     }
                 }}
                 tabIndex={0}
+                role='dialog'
+                aria-labelledby='popoverTitle'
                 onKeyDown={(event) => {
                     if (event.key === 'Escape') {
                         event.preventDefault();

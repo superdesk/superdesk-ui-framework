@@ -1,49 +1,43 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import nextId from "react-id-generator";
 interface IProps {
-    checked: boolean;
-    label?: {
+    label: {
         text: string,
         side?: 'left' | 'right', // defaults to 'right'
+        hidden?: boolean,
     };
+    checked?: boolean;
     disabled?: boolean;
+    required?: boolean;
     onChange(nextValue: boolean): void;
 }
 export class Checkbox extends React.Component<IProps> {
+    htmlId = nextId();
+
     constructor(props: IProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
-        this.handleLabel = this.handleLabel.bind(this);
     }
-    htmlId = nextId();
-    handleChange() {
+
+    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         if (!this.props.disabled) {
-            this.props.onChange(!this.props.checked);
+            this.props.onChange(event.target.checked);
         }
-    }
-
-    handleLabel(text: string) {
-        const classes = classNames({
-            'sd-label--disabled': this.props.disabled,
-            'label--active': this.props.checked,
-        });
-
-        return <label className={classes} htmlFor={this.htmlId} onClick={this.handleChange}>{text}</label>;
     }
 
     render() {
         return (
-            <span className='sd-check-new__wrapper' label-position={this.props.label ?
-                (this.props.label.side === 'left' ? 'left' : null) : null}>
-                {this.props.label ? (this.props.label.side === 'left' ?
-                    this.handleLabel(this.props.label.text) : null) : null}
-                <input type='checkbox' className='visuallyhidden' id={this.htmlId} />
-                <span className={'sd-check-new' +
-                    (this.props.disabled ? (this.props.checked ? ' sd-check-new--disabled checked' : ' sd-check-new--disabled') :
-                        (this.props.checked ? ' checked' : ''))}
-                    onClick={this.handleChange} aria-label={String(this.props.checked)}></span>
-                {this.props.label ? (!this.props.label.side ? this.handleLabel(this.props.label.text) : null) : null}
+            <span className="sd-check-new__wrapper" label-position={this.props.label.side || null} tabIndex={-1}>
+                <input type="checkbox" className="sd-check-new__input" id={this.htmlId} tabIndex={0}
+                    checked={this.props.checked}
+                    onChange={this.handleChange}
+                    disabled={this.props.disabled}
+                    required={this.props.required} />
+
+                <span className="sd-check-new"></span>
+
+                { this.props.label.hidden ? <label htmlFor={this.htmlId}  aria-label={this.props.label.text} /> : null }
+                { !this.props.label.hidden ? <label htmlFor={this.htmlId} >{this.props.label.text}</label> : null }
             </span>
         );
     }

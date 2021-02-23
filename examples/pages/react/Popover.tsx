@@ -19,6 +19,7 @@ export class PopoverDoc extends React.Component {
                             <div className='form__row'>
                                 <button
                                     className="btn btn-default btn--small"
+                                    aria-haspopup="true"
                                     id="button-view-content"
                                 >
                                     View content
@@ -27,10 +28,10 @@ export class PopoverDoc extends React.Component {
                                 <Popover
                                     triggerSelector="#button-view-content"
                                     title="Popover test"
-                                    placement="bottom-end"
+                                    placement="top-end"
                                     zIndex={999}
                                 >
-                                    <div>Content</div>
+                                    <div>Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.</div>
                                 </Popover>
                             </div>
                         </div>

@@ -1,51 +1,47 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
 interface IProps {
-    checked: boolean;
-    label: string;
-    icon?: string;
-    iconOnly?: boolean;
+    label: {
+        text: string,
+        icon?: string;
+        hidden?: boolean,
+    };
+    checked?: boolean;
     disabled?: boolean;
+    required?: boolean;
     onChange(nextValue: boolean): void;
 }
+export class CheckboxButton extends React.Component<IProps> {
+    htmlId = nextId();
 
-export class CheckboxButton extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
     }
-    htmlId = nextId();
-    handleChange() {
-        if (this.props.disabled) {
-            return;
+
+    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+        if (!this.props.disabled) {
+            this.props.onChange(event.target.checked);
         }
-        this.props.onChange(!this.props.checked);
     }
 
     render() {
         return (
-            <React.Fragment>
-                <input type='checkbox' className='visuallyhidden' id={this.htmlId} />
-                <span className={'sd-check-button' +
-                    (this.props.disabled ? ' sd-check-new--disabled' :
-                        (this.props.checked ? ' checked' : ''))}
-                    onClick={this.handleChange}>
-                    {this.props.icon ? <i className={`icon-${this.props.icon}`}></i> : null}
-                    {this.props.disabled ?
-                        (<label
-                            className={'sd-check-button__text-label sd-label--disabled ' + (this.props.iconOnly ? 'visuallyhidden' : '')}
-                            aria-label={this.props.iconOnly ? this.props.label : ''}
-                            htmlFor={this.htmlId}>
-                            {!this.props.iconOnly ? this.props.label : null}
-                        </label>) :
-                        (<label
-                            className={'sd-check-button__text-label ' + (this.props.iconOnly ? 'visuallyhidden' : '')}
-                            aria-label={this.props.iconOnly ? this.props.label : ''}
-                            htmlFor={this.htmlId}>
-                            {!this.props.iconOnly ? this.props.label : null}
-                        </label>)}
-                </span>
-            </React.Fragment>
+            <span className="sd-check-button sd-check-button--native" tabIndex={-1}>
+                <input type="checkbox" className="sd-check-button__input" id={this.htmlId} tabIndex={0}
+                    checked={this.props.checked}
+                    onChange={this.handleChange}
+                    disabled={this.props.disabled}
+                    required={this.props.required} />
+
+                <label className="sd-check-button__text-label" htmlFor={this.htmlId}
+                    aria-label={this.props.label.hidden ? this.props.label.text : undefined}>
+                    { this.props.label.icon ?
+                        <i className={`icon-${this.props.label.icon}`} aria-hidden="true" /> : null }
+                    { !this.props.label.hidden || !this.props.label.icon ?
+                        <span className="sd-check-button__text-label-inner">{this.props.label.text}</span> : null }
+                </label>
+            </span>
         );
     }
 }
