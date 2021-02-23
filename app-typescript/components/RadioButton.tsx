@@ -42,7 +42,7 @@ export class RadioButton<T> extends React.Component<IProps<T>> {
                             disabled={item.disabled}
                             required={this.props.required} />
 
-                        <label className="sd-check-button__text-label" htmlFor={this.htmlId + index} 
+                        <label className="sd-check-button__text-label" htmlFor={this.htmlId + index}
                             aria-label={item.labelHidden ? item.label : undefined}>
 
                             { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }

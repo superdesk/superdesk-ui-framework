@@ -34,10 +34,11 @@ export class CheckboxButton extends React.Component<IProps> {
                     disabled={this.props.disabled}
                     required={this.props.required} />
 
-                <label className="sd-check-button__text-label" htmlFor={this.htmlId} 
+                <label className="sd-check-button__text-label" htmlFor={this.htmlId}
                     aria-label={this.props.label.hidden ? this.props.label.text : undefined}>
 
-                    { this.props.label.icon ? <i className={`icon-${this.props.label.icon}`} aria-hidden="true" /> : null }
+                    { this.props.label.icon ? 
+                        <i className={`icon-${this.props.label.icon}`} aria-hidden="true" /> : null }
                     { !this.props.label.hidden || !this.props.label.icon ?
                         <span className="sd-check-button__text-label-inner">{this.props.label.text}</span> : null }
                 </label>

@@ -7,7 +7,7 @@ interface IProps<T> {
         value: T,
         disabled?: boolean
     }>;
-    labelSide?: 'left' | 'right', // defaults to 'right'
+    labelSide?: 'left' | 'right'; // defaults to 'right'
     required?: boolean;
     onChange(nextValue: boolean): void;
 }
