@@ -58,7 +58,7 @@ $badge-lineheight: 1.1em !default;
         font-weight: 500;
     }
     &--square {
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
     }
 }
 

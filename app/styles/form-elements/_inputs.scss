@@ -21,14 +21,14 @@
         background-color: transparent;
     }
     &:focus {
-        box-shadow: 0 1px 0 0 $sd-blue;
-        border-color: $sd-blue;
+        box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
+        border-color: $sd-colour-interactive__base;
         background-color: transparent;
     }
 }
 @mixin Line-input-boxed {
     @include Line-input-base;
-    border-radius: 2px;
+    border-radius: $border-radius__base--x-small;
     background-color: rgba(0, 0, 0, 0.05);
     padding: 0 1rem;
     height: 3.2rem;
@@ -390,8 +390,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-blue;
-                    border-color: $sd-blue;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
+                    border-color: $sd-colour-interactive__base;
                 }
             }
         }
@@ -403,8 +403,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-blue;
-                    border-color: $sd-blue;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
+                    border-color: $sd-colour-interactive__base;
                 }
             }
         }
@@ -568,9 +568,9 @@
         left: 0;
         height: 2.2rem;
         width: 2.2rem;
-        background-color: scale-color($sd-blue, $alpha: -25%);
+        background-color: scale-color($sd-colour-interactive__base, $alpha: -25%);
         transition: $button-transition;
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         cursor: pointer;
         text-align: center;
         &::before {
@@ -582,7 +582,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
         &:hover {
-            background-color: $sd-blue;
+            background-color: $sd-colour-interactive__base;
         }
     }
 
@@ -609,8 +609,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-blue;
-                    border-color: $sd-blue;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
+                    border-color: $sd-colour-interactive__base;
                 }
             }
         }
@@ -622,8 +622,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-blue;
-                    border-color: $sd-blue;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
+                    border-color: $sd-colour-interactive__base;
                 }
             }
         }
@@ -727,14 +727,14 @@
             transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
             padding: 0 0.8rem;
             height: $form-input-height;
-            border-radius: 2px 2px 0 0;
+            border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
             grid-row: 2/3;
             grid-column: 2/4;
             &:hover {
                 background-color: var(--color-input-bg--hover);
             }
             &:focus {
-                background-color: var(--color-input-bg--focus);
+                background-color: scale-color($sd-colour-interactive__base, $alpha: -86%);
             }
         }
 
@@ -764,14 +764,14 @@
             transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
             padding: 0 0.8rem;
             height: $form-input-height;
-            border-radius: 2px 2px 0 0;
+            border-radius: $border-radius__base--x-small $border-radius__base--x-small$border-radius__base--x-small 0 0;
             grid-row: 2/3;
             grid-column: 2/4;
             &:hover {
                 background-color: var(--color-input-bg--hover);
             }
             &:focus {
-                background-color: var(--color-input-bg--focus);
+                background-color: scale-color($sd-colour-interactive__base, $alpha: -86%);
             }
             option {
                 color:inherit;

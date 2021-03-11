@@ -1,12 +1,4 @@
 /// Padding inside buttons.
-/// @type List
-$button-padding: 0 1.4rem !default;
-$button-padding-small: 0 1rem;
-$button-padding-large: 0 2rem;
-
-$button-height: $sd-base-increment * 4;
-$button-height-small: $sd-base-increment * 3;
-$button-height-large: $sd-base-increment * 5;
 
 $button-padding-icon-only: 0 0.8rem;
 $button-padding-small-icon-only: 0 0.4rem;
@@ -21,7 +13,7 @@ $button-margin: 0 !default;
 
 /// Default background color for buttons.
 /// @type Color
-$button-background: scale-color($default-color, $alpha: -75%) !default;
+$button-background: scale-color($default-color, $alpha: -80%) !default;
 
 /// Background color on hover for buttons.
 /// @type Color
@@ -72,23 +64,22 @@ $button-background-hover-lightness-ui-dark: -20% !default;
 /// transitions for buttons.
 $button-transition: background-color 0.2s ease-out, color 0.1s ease-out !default;
 $button-hover-box-shadow: 0 1px 2px 0 rgba(0,0,0,.3) !default;
-$button-focus-box-shadow: 0 0 0 3px rgba(94, 169, 200, 0.30);
-$icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
+$button-focus-box-shadow: 0 0 0 3px $sd-colour-interactive__base--focus-shadow;
+$icn-button-focus-box-shadow: 0 0 0 2px $sd-colour-interactive__base--focus-shadow;
 
 // Button-base() mixin
 @mixin button-base {
-  //@include disable-mouse-outline;
   display: inline-flex;
   align-items: center;
   vertical-align: middle;
   justify-content: center;
   margin: $button-margin;
-  padding: $button-padding;
-  height: $button-height;
+  padding: $padding__button--default;
+  height: $height__button--default;
 
   -webkit-appearance: none;
   border: 1px solid transparent;
-  border-radius: $button-radius;
+  border-radius: $border-radius__base--small;
   transition: $button-transition;
 
   font-size: map-get($button-sizes, btn--default);
@@ -301,12 +292,12 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
       &.#{$size} {
         font-size: $value;
         @if $size == btn--small {
-          padding: $button-padding-small;
-          height: $button-height-small;
+          padding: $padding__button--small;
+          height: $height__button--small;
         }
         @if $size == btn--large {
-          padding: $button-padding-large;
-          height: $button-height-large;
+          padding: $padding__button--large;
+          height: $height__button--large;
         }
       }
     }
@@ -540,7 +531,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
     }
     &.btn--icon-only-circle {
       padding: $button-padding-icon-only-circle;
-      width: $button-height;
+      width: $height__button--default;
       justify-content: center;
       border-radius: 50%;
       [class^="icon-"], [class*=" icon-"] {
@@ -549,12 +540,10 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
           vertical-align: middle;
       }
       &.btn--large {
-        //padding: $button-padding-icon-only-circle;
-        width: $button-height-large;
+        width: $height__button--large;
       }
       &.btn--small {
-        //padding: $button-padding-icon-only-circle;
-        width: $button-height-small;
+        width: $height__button--small;
       }
 
       &.btn--text-only {
@@ -614,7 +603,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
         padding: 0;
         margin-top: 1.1rem;
         border-radius: 50%;
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive__base;
         color: $white;
         position: relative;
         @include transition(all, 60ms, ease-in);
@@ -645,8 +634,8 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
   justify-content: center;
   font-size: 1.6rem;
   transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-  height: $sd-base-increment * 4;
-  width: $sd-base-increment * 4;
+  height: $height__button--default;
+  width: $height__button--default;
   border-radius: 50%;
   background-color: transparent;
   opacity: 0.75;
@@ -661,10 +650,11 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
   &:hover {
     opacity: 1;
     text-decoration: none;
+    background-color: rgba(155,155,155,0.20);
   }
   &:focus {
     opacity: 1;
-    background-color: rgba(155,155,155,0.15);
+    background-color: rgba(155,155,155,0.20);
     box-shadow: $icn-button-focus-box-shadow;
     [class^="icon-"], [class*=" icon-"] {
       opacity: 1;
@@ -672,9 +662,9 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
   }
   &:active {
     opacity: 1;
-    background-color: rgba(155,155,155,0.25);
+    background-color: rgba(155,155,155,0.30);
     [class^="icon-"], [class*=" icon-"] {
-      color: $sd-blue;
+      color: $sd-colour-interactive__base;
       opacity: 1;
     }
   }
@@ -686,8 +676,8 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
 .icn-btn {
   @include icn-btn-style;
   &--small {
-    height: 1.25em;
-    width: 1.25em;
+    height: $height__button--small;
+    width: $height__button--small;
   }
 }
 
@@ -814,7 +804,7 @@ $button-nav-color: currentColor;
 [class^="--dark-ui"],
 [class*="--dark-ui"] {
   .btn.btn--ui-dark.btn--hollow.btn--active {
-    color: $sd-blue;
+    color: $sd-colour-interactive__base;
     background-color: rgba(0, 0, 0, 0.3);
     box-shadow: inset 0 2px 0 rgba(0,0,0,0.8);
     i {
@@ -854,6 +844,8 @@ $button-nav-color: currentColor;
     }
   }
 }
+
+
 
 // BUTTON GROUPS 
 // --------------------------------------------------

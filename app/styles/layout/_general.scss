@@ -26,12 +26,12 @@
 
 a.text-link {
   text-decoration: none;
-  color: $sd-blueMedium;
+  color: darken($sd-colour-interactive__base, 10%);;
   transition: all 0.1s ease-in;
   display: inline-block;
   cursor: pointer;
   &:hover {
-    color: darken($sd-blueMedium, 10%);
+    color: darken($sd-colour-interactive__base, 20%);
     text-decoration: underline;
   }
   [class^="icon-"], [class*=" icon-"] {

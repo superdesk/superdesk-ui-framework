@@ -9,7 +9,8 @@ $card-item-header-bg-light: #bfbfbf;
 $card-item-header-bg-gradient-1: linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
 $card-item-header-bg-secondary: $subnav-background-blue-grey-darker;
 $card-item-top-border-height: 0.4rem;
-$card-item-rounded-radius: 8px;
+$card-item-rounded-radius: $border-radius__base--large;
+$card-item-default-radius: $border-radius__base--medium;
 
 
 //shadows
@@ -20,7 +21,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
 .sd-card {
     position: relative;
-    @include border-radius(2px);
+    border-radius: $card-item-default-radius;
     box-shadow: $card-item-shadow;
     background-color: $white;
     color: $sd-text;
@@ -89,7 +90,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         padding: 0;
         min-height: $sd-base-increment * 5 + $card-item-top-border-height;
         color: $white;
-        @include border-radius (2px 2px 0 0);
+        border-radius: $card-item-default-radius $card-item-default-radius 0 0;
         &::before {
             content: "";
             position: absolute;
@@ -98,7 +99,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             right: 0;
             height: $card-item-top-border-height;
             background-color: rgba(0,0,0,.2);
-            @include border-radius (2px 2px 0 0);
+            border-radius: $card-item-default-radius $card-item-default-radius 0 0;
         }
         // use only for positioning, not for styling
         &--empty {
@@ -391,7 +392,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         @include sd-padding('1-5', 'x');
         min-height: $sd-base-increment * 6;
         background-color: $sd-background;
-        @include border-radius (0 0 2px 2px);
+        border-radius: 0 0 $card-item-default-radius $card-item-default-radius;
         box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
         &--light {
             background-color: $white;

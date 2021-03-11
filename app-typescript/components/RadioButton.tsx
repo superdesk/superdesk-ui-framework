@@ -10,7 +10,7 @@ interface IProps<T> {
         disabled?: boolean
     }>;
     required?: boolean;
-    onChange(nextValue: boolean): void;
+    onChange(nextValue: any): void;
 }
 export class RadioButton<T> extends React.Component<IProps<T>> {
     htmlId = nextId();

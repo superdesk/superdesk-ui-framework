@@ -4,7 +4,7 @@
 
 .comment-box__input {
     padding: 0.4rem;
-    border-radius: 2px;
+    border-radius: $border-radius__base--x-small;
     border: 1px solid rgba(123,123,123,0.4);
     height: 2.8rem;
     resize: none;

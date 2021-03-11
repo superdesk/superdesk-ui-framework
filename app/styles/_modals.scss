@@ -24,7 +24,7 @@ $modal-x-large-width : 1000px;
 $modal-fill-width: 100%;
 $modal-fullscreen-width: 100%;
 
-$modal-border-radius: 4px;
+$modal-border-radius: $border-radius__base--large;
 $modal-line-color: #e4e4e4;
 
 $modal-header-height : $nav-height;
@@ -72,7 +72,7 @@ $modal-sizes: (
     display: flex;
     flex-direction: column;
     margin: 10px 0;
-    @include border-radius($modal-border-radius);
+    border-radius: $modal-border-radius;
     @include modal-box-shadow();
 }
 @mixin modal-header() {
@@ -217,7 +217,7 @@ $modal-sizes: (
                 .modal__content {
                     flex: 0 0 100%;
                     margin: 0;
-                    @include border-radius(0);
+                    border-radius: 0;
                 }
                 .modal__body {
                     max-height: none;

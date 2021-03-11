@@ -4,13 +4,13 @@
 //background color 
 $sd-ListItem-background: #fff;
 $sd-ListItem-background-hover: #f4f4f4;
-$sd-ListItem-background-selected: #c8e4ee;
-$sd-ListItem-background-activated: #e3f1f6;
+$sd-ListItem-background-selected: scale-color($sd-colour-interactive__base, $lightness: 90%);
+$sd-ListItem-background-activated: scale-color($sd-colour-interactive__base, $lightness: 94%);
 
 //background color - dark UI
 $sd-ListItem-background-darkUI: $grayDark;
-$sd-ListItem-background-darkUI-selected: #283237;
-$sd-ListItem-background-darkUI-activated: #35393b; 
+$sd-ListItem-background-darkUI-selected: scale-color($sd-colour-interactive__base, $lightness: -72%);
+$sd-ListItem-background-darkUI-activated: scale-color($sd-colour-interactive__base, $lightness: -82%); 
 
 //column border color
 $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
@@ -31,7 +31,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     }
     &--selected, &--selected:hover, &.selected, &.selected:hover  {
         background-color: $sd-ListItem-background-selected;
-        outline: 1px solid rgba(94, 169, 200, 0.5);
+        outline: 1px solid scale-color($sd-colour-interactive__base, $alpha: -50%);
     }
     &--activated, &--activated:hover {
         background-color: $sd-ListItem-background-activated;
@@ -129,7 +129,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
     left: 6px;
     width: 6px;
     height: 6px;
-    @include border-radius(50%);
+    border-radius: 50%;
     background-color: transparent;
     &--locked, &--error {
         background: $red;
@@ -456,7 +456,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         [class^="icon-"],
         [class*=" icon-"] {
             opacity: 1;
-            color: $sd-blue;
+            color: $sd-colour-interactive__base;
         }
     }
 }
@@ -466,7 +466,7 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         [class^="icon-"],
         [class*=" icon-"] {
             opacity: 1;
-            color: $sd-blue;
+            color: $sd-colour-interactive__base;
         }
     }
 }
@@ -556,12 +556,12 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         text-transform: uppercase;
         color: $gray;
         a {
-            color: $sd-blue;
+            color: $sd-colour-interactive__base;
             text-decoration: none;
             display: inline-block;
             line-height: 1;
             &:hover {
-                color: scale-color($sd-blue, $lightness: -20%);
+                color: scale-color($sd-colour-interactive__base, $lightness: -20%);
                 border-bottom: 1px dotted currentColor;
             }
         }  
@@ -613,14 +613,14 @@ $sd-ListItem-column-border: scale-color($grayNeutral, $alpha: -82%);
         }
         &.sd-list-item--activated {
             background-color: $sd-ListItem-background-darkUI-activated;
-            outline: 1px solid rgba(94, 169, 200, 0.2);
+            outline: 1px solid scale-color($sd-colour-interactive__base, $alpha: -80%);
             &:hover {
                 background-color: darken($sd-ListItem-background-darkUI-activated, 2%);
             }
         }
         &.sd-list-item--selected {
             background-color: $sd-ListItem-background-darkUI-selected;
-            outline: 1px solid rgba(94, 169, 200, 0.8);
+            outline: 1px solid scale-color($sd-colour-interactive__base, $alpha: -20%);
             &:hover {
                 background-color: darken($sd-ListItem-background-darkUI-selected, 2%);
             }

@@ -1,44 +1,14 @@
-.p-autocomplete {
-    display: contents;
-}
-
-.p-autocomplete-panel {
-    margin-top: 15px;
-    padding: 1rem 0;
-    background-color: $white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
-
-    .p-autocomplete-items {
-        padding: 0;
-    }
-
-    .p-autocomplete-list-item {
-        display: block;
-        font-weight: normal;
-        line-height: $baseLineHeight;
-        white-space: nowrap;
-        color: $dropdownLinkColor;
-        background: none;
-        padding: 0.6rem 1.6rem;
-        margin-bottom: 0.2rem;
-        font-size: 1.3rem;
-        text-decoration: none;
-        text-align: left;
-
-        &:hover,
-        &:active,
-        &:focus,
-        &.p-highlight {
-            background: $dropdownLinkBackgroundHover;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    }
-}
-
+// Superdesk specific
 .sd-searchbar, .sd-input--inline-label {
     .p-autocomplete-panel {
         margin-top: 0;
+    }
+}
+.sd-input--inline-label {
+    .p-autocomplete {
+        display: block;
+        grid-row: 2/3;
+        grid-column: 2/4;
     }
 }
 
@@ -47,6 +17,7 @@
         color: inherit !important;
         z-index: 1;
         border-radius: 50%;
+        right:8px;
 
     }
 }
@@ -69,6 +40,6 @@
 }
 .sd-input.sd-input--inline-label {
     .p-autocomplete-loader {
-        margin-top: -2.2rem;
+        margin-top: -1rem;
     }
 }

@@ -10,17 +10,17 @@
     position: relative;
     background: transparent;
     border: 2px solid rgba(0, 0, 0, 0.2);
-    @include border-radius(50%);
+    border-radius: 50%;
     vertical-align: middle;
     margin-right: 0.8rem;
     @include transition(all, 0.2s, ease-out);
     &::after {
         height: 0.8rem;
         width: 0.8rem;
-        @include border-radius(50%);
+        border-radius: 50%;
         content:' ';
         position: absolute;
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive__base;
         top: 0.2rem;
         left: 0.2rem;
         @include opacity(0);
@@ -32,15 +32,15 @@
         cursor: pointer;
     }
     &.checked, &[checked="checked"] {
-        border-color: $sd-blue;
+        border-color: $sd-colour-interactive__base;
         &::after {
             @include opacity(100);
             transform: scale(1, 1);
         }
         &:hover {
-            border-color: darken($sd-blue, 10%);
+            border-color: darken($sd-colour-interactive__base, 10%);
              &::after {
-                background-color: darken($sd-blue, 10%);
+                background-color: darken($sd-colour-interactive__base, 10%);
             }
         }
     }

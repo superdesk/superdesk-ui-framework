@@ -1,6 +1,6 @@
 // EDITOR Themes
-$color-swatch-border-color: scale-color($sd-blue, $alpha: -100%);
-$color-swatch-border-active-color: $sd-blue;
+$color-swatch-border-color: scale-color($sd-colour-interactive__base, $alpha: -100%);
+$color-swatch-border-active-color: $sd-colour-interactive__base;
 
 $color-swatch-size: 6.8rem;
 $color-swatch-inner-size: 6rem;
@@ -71,7 +71,7 @@ $body-font-size: (
     display: inline-block;
     padding: 0.4rem 0.7rem 0.3rem 0.7rem;
     vertical-align: middle;
-    border-radius: 2px;
+    border-radius: $border-radius__base--x-small;
     text-transform: uppercase;
     line-height: 1rem;
     letter-spacing: 0.05em;

@@ -28,7 +28,7 @@ $sd-contentNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-ou
     }
     &:active, &--active {
         background-color: $sd-contentNavBtn-bgActiveColor;
-        color: $sd-blue;
+        color: $sd-colour-interactive__base;
     }
 }
 .sd-content-nav-title {

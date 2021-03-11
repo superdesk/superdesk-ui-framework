@@ -57,8 +57,8 @@ tags-input {
         }
         &.focused {
             outline: none;
-            border-bottom: 1px solid $sd-blue;
-            box-shadow: 0 1px 0  $sd-blue;
+            border-bottom: 1px solid $sd-colour-interactive__base;
+            box-shadow: 0 1px 0  $sd-colour-interactive__base;
             .tags-input__input {
                 width: auto;
             }
@@ -76,7 +76,7 @@ tags-input {
             background: $tag-label-background;
             color: currentColor;
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -35%);
+                background-color: scale-color($sd-colour-interactive__base, $alpha: -35%);
 
             }
             .tags-input__remove-button {
@@ -109,7 +109,7 @@ tags-input {
                     opacity: 1;
                     background-color: rgba(255,255,255,0.85);
                     [class^="icon-"], [class*=" icon-"] {
-                      color: $sd-blue;
+                      color: $sd-colour-interactive__base;
                       opacity: 1;
                     }
                 }
@@ -159,7 +159,7 @@ tags-input {
         &--boxed {
             background-color: rgba(0, 0, 0, 0.05);
             padding-left: 0.4rem;
-            border-radius: 2px;
+            border-radius: $border-radius__base--x-small;
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
             }
@@ -198,14 +198,14 @@ tags-input {
         float: left;
         height: $sd-base-increment * 3;
         width: $sd-base-increment * 3;
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive__base;
         color: $white;
         display: flex;
         align-items: center;
         text-align: center;
         margin: 0.2rem 0.4rem 0.2rem 0;
         transition: all 0.3s;
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         opacity: 0.5;
         padding: 0;
         justify-content: center;
@@ -249,9 +249,9 @@ tags-input {
             background-color: $white;
             transition: all ease-in-out 0.1s;
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -70%);
+                background-color: scale-color($sd-colour-interactive__base, $alpha: -70%);
                 &:active {
-                    background-color: scale-color($sd-blue, $alpha: -25%);
+                    background-color: scale-color($sd-colour-interactive__base, $alpha: -25%);
                     color: $white;
                 }
             }
@@ -294,8 +294,8 @@ tags-input {
         }
         &.focused {
             outline: none;
-            border-bottom: 1px solid $sd-blue;
-            box-shadow: 0 1px 0  $sd-blue;
+            border-bottom: 1px solid $sd-colour-interactive__base;
+            box-shadow: 0 1px 0  $sd-colour-interactive__base;
             .tags-input__input {
                 width: auto;
             }
@@ -313,7 +313,7 @@ tags-input {
             background: $tag-label-background;
             color: currentColor;
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -35%);
+                background-color: scale-color($sd-colour-interactive__base, $alpha: -35%);
 
             }
             .tags-input__remove-button {
@@ -346,7 +346,7 @@ tags-input {
                     opacity: 1;
                     background-color: rgba(255,255,255,0.85);
                     [class^="icon-"], [class*=" icon-"] {
-                      color: $sd-blue;
+                      color: $sd-colour-interactive__base;
                       opacity: 1;
                     }
                 }
@@ -395,7 +395,7 @@ tags-input {
         &--boxed {
             background-color: rgba(0, 0, 0, 0.05);
             padding-left: 0.4rem;
-            border-radius: 2px;
+            border-radius: $border-radius__base--x-small;
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
             }
@@ -438,14 +438,14 @@ tags-input {
         float: left;
         height: $sd-base-increment * 3;
         width: $sd-base-increment * 3;
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive__base;
         color: $white;
         display: flex;
         align-items: center;
         text-align: center;
         margin: 0.2rem 0.4rem 0.2rem 0;
         transition: all 0.3s;
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         opacity: 0.5;
         padding: 0;
         justify-content: center;
@@ -489,12 +489,12 @@ tags-input {
             background-color: $white;
             transition: all ease-in-out 0.1s;
             &:hover {
-                background-color: scale-color($sd-blue, $alpha: -70%);
+                background-color: $sd-colour-background__menu-item--hover;
             }
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -70%);
+                background-color: $sd-colour-background__menu-item--hover;
                 &:active {
-                    background-color: scale-color($sd-blue, $alpha: -25%);
+                    background-color: scale-color($sd-colour-interactive__base, $alpha: -25%);
                     color: $white;
                 }
             }
@@ -521,12 +521,12 @@ tags-input {
                 border-bottom-color: $sd-inputBorderColor-darkUi;
             }
             &.focused {
-                border-bottom-color: $sd-blue;
+                border-bottom-color: $sd-colour-interactive__base;
             }
             .tags-input__tag-item {
                 background: $tag-label-background-darkUi;
                 &.selected {
-                    background-color: scale-color($sd-blue, $alpha: -25%);
+                    background-color: scale-color($sd-colour-interactive__base, $alpha: -25%);
                 }
             }
             &--boxed {

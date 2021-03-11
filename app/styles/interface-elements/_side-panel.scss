@@ -123,7 +123,7 @@ $side-panel-Bg-darkUi: #2d2d2d;
         }
         &--boxed {
             padding: 1.6rem;
-            border-radius: 3px;
+            border-radius: $border-radius__base--medium;
             margin-bottom: 1rem;
         }
         &--pad-small {
@@ -465,11 +465,10 @@ $side-panel-Bg-darkUi: #2d2d2d;
             background-color: transparent;
             .side-panel__header {
                 box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
-                // background-color: rgba(94, 169, 200, 0.03);
             }
             .side-panel__footer {
                 &--button-box, &--button-box-large {
-                    background-color: rgba(94, 169, 200, 0.1);
+                    background-color: scale-color($sd-colour-interactive__base, $alpha: -90%);
                 }
             }
         }

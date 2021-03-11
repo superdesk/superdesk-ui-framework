@@ -41,7 +41,7 @@
     }
 
     .dropdown__menu {
-        @include border-radius(0px);
+        border-radius: 0px;
         border:0;
         z-index: 2;
         margin-top: -1px;
@@ -74,19 +74,19 @@
                     height: 41px;
                     padding: 10px 10px;
                     border-top: 1px solid #e0e0e0;
-                    @include border-radius(0px);
+                    border-radius: 0px;
                     i {
                         margin-right: 10px;
                     }
                     &:hover {
-                        background: $sd-blue;
+                        background: $sd-colour-interactive__base;
                         color: #fff;
                     }
                 }
             }
             &:active {
                 > button {
-                    background: $sd-blue;
+                    background: $sd-colour-interactive__base;
                     color: #fff;
                 }
             }

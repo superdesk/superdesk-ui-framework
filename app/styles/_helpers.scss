@@ -194,15 +194,15 @@ time {
 }
 
 // General text helpers
-.sd-text__strong-s {
-    font-weight: 500;
-}
-.sd-text__strong {
-    font-weight: 500;
-    font-size: 1.4rem;
+
+.sd-text__normal {
+    font-weight: 400;
 }
 .sd-text__normal {
     font-weight: 400;
+}
+.sd-text__strong, .sd-text__strong-s {
+    font-weight: 500;
 }
 .sd-text__italic {
     font-style: italic;
@@ -323,13 +323,13 @@ time {
         }
     }
     &__link {
-        color: $sd-blue;
+        color: $sd-colour-interactive__base;
         text-decoration: none;
-        border-bottom: 1px dotted $sd-blue;
+        border-bottom: 1px dotted $sd-colour-interactive__base;
         &:hover {
-            border-bottom: 1px solid $sd-blue;
+            border-bottom: 1px solid $sd-colour-interactive__base;
             text-decoration: none;
-            color: $sd-blue;
+            color: $sd-colour-interactive__base;
         }
     }
 }

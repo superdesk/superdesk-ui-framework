@@ -40,7 +40,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__toggle:active,
 .dropdown.open .dropdown__toggle {
     outline: 0;
-    color: $sd-blue;
+    color: $sd-colour-interactive__base;
 }
 
 .dropdown.open .dropdown .dropdown__toggle {
@@ -84,7 +84,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 }
 
 .dropdown.open .dropdown__caret {
-    border-top-color: $sd-blue;
+    border-top-color: $sd-colour-interactive__base;
 }
 
 // The dropdown menu
@@ -115,12 +115,13 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             min-width: 200px;
             position: relative;
             color: $dropdownLinkColor;
-            background: none;
+            background-color: $sd-colour-background__menu-item;
             padding: .6rem 1.6rem;
             margin-bottom: .2rem;
             font-size: 1.3rem;
             text-decoration: none;
             text-align: left;
+            transition: $sd-transition__menu-item;
             > i[class^="icon-"], i[class*=" icon-"], i[class^="filetype-icon-"] {
                 margin-right: 1rem;
                 margin-top: -0.3rem;
@@ -139,20 +140,20 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         }
         a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
             &:hover, &:focus {
-                background: $dropdownLinkBackgroundHover;
+                background-color: $sd-colour-background__menu-item--hover;
                 text-decoration: none;
                 cursor: pointer;
             }
             &:active {
-                background: darken($dropdownLinkBackgroundHover, 10%);
+                background-color: $sd-colour-background__menu-item--active;
             }
             &.disabled:hover, &[disabled]:hover {
-                background: none;
+                background-color: none;
                 cursor: default;
             }
         }
         .preferred-desk {
-            background-color: lighten($sd-blue, 30%) !important;
+            background-color: lighten($sd-colour-interactive__base, 30%) !important;
         }
     }
     &.dropdown__menu--plain {
@@ -213,7 +214,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__menu {
     .dropdown__menu-item--active {
         button, button:hover {
-            background-color: lighten($sd-blue, 10%) !important;
+            background-color: lighten($sd-colour-interactive__base, 10%) !important;
             color: white !important;
             [class^="icon-"], [class*=" icon-"],
             [class^="filetype-icon-"], [class*=" filetype-icon-"] {
@@ -221,7 +222,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
         }
         button:hover {
-            background-color: $sd-blue !important;
+            background-color: $sd-colour-interactive__base !important;
         }
     }
     .dropdown__menu-item--highlighted {
@@ -319,7 +320,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__menu {
     .menu-item--active {
         button, button:hover {
-            background-color: lighten($sd-blue, 10%);
+            background-color: lighten($sd-colour-interactive__base, 10%);
             color: white;
             [class^="icon-"], [class*=" icon-"],
             [class^="filetype-icon-"], [class*=" filetype-icon-"] {
@@ -327,7 +328,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
         }
         button:hover {
-            background-color: $sd-blue;
+            background-color: $sd-colour-interactive__base;
         }
     }
 }
@@ -377,7 +378,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
     &.open {
         .dropdown__caret {
-            border-bottom-color: $sd-blue !important;
+            border-bottom-color: $sd-colour-interactive__base !important;
         }
     }
 }
@@ -529,7 +530,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         text-align: left;
         background: rgba(127,127,127,.5);
         padding: 0.7rem 1.5rem;
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         color: #fff;
         .dropdown__caret {
             border-top-color: $white;
@@ -550,9 +551,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
                 background-color: rgba(255, 255, 255, 0.1);
             }
             &:focus {
-                border-color: $sd-blue;
+                border-color: $sd-colour-interactive__base;
                 background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-blue;
+                box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
             }
         }
     }
@@ -564,7 +565,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
             &--line {
                 background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-blue, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
+                box-shadow: 0 1px 0 0 $sd-colour-interactive__base, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
             }
         }
     }
@@ -621,7 +622,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         border-top-color: $white;
     }
     .dropdown.open .dropdown__caret {
-        border-top-color: #5ea9c8;
+        border-top-color: $sd-colour-interactive__base;
     }
 }
 

@@ -11,13 +11,13 @@ $nav-tabs-font-size-big: 1.6rem;
 $nav-tab-link-color: $grayText; // default text color
 $nav-tab-active-link-color: $grayDark; // active state text color
 $nav-tab-link-border-color: #d8d8d8; // hover state, border bottom color  
-$nav-tab-active-link-border-color: $sd-blue;  // active state border bottom color
+$nav-tab-active-link-border-color: $sd-colour-interactive__base;  // active state border bottom color
 
 // UI dark colors
 $nav-tab-link-color-dark: scale-color($white, $alpha: -40%);
 $nav-tab-active-link-color-dark: $white;
 $nav-tab-link-border-color-dark: rgba(255, 255, 255, 0.2);
-$nav-tab-active-link-border-color-dark: $sd-blue;
+$nav-tab-active-link-border-color-dark: $sd-colour-interactive__base;
 
 // Mixins
 @mixin nav-tabs-base {
