@@ -37,7 +37,7 @@ $sd-sideTabMenu-background: var(--color-bg-200);
 .sd-sidebar-menu__btn {
   display: block;
   margin: 0.6rem auto;
-  border-radius: 50%;
+  border-radius: $border-radius__base--full;
   height:3.6rem;
   width: 3.6rem;
   opacity: .7;
@@ -230,7 +230,7 @@ $sd-sideTabMenu-background: var(--color-bg-200);
 .sd-side-menu__btn {
   display: block;
   margin: 0.6rem auto;
-  border-radius: 50%;
+  border-radius: $border-radius__base--full;
   height:3.6rem;
   width: 3.6rem;
   opacity: .7;

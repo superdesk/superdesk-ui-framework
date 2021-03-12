@@ -11,7 +11,7 @@
 // <i class="icon-ok icon--white"></i>
 
 /// Default color for icons.
-@import 'variables/colors';
+@import 'variables';
 
 $icon-color: $grayDark !default;
 
@@ -323,7 +323,7 @@ $sd-icon-font: (
     height: 1em;
     width: 1em;
     background-color: $white;
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     padding: 1px;
     z-index: 1;
     opacity: 1 !important;

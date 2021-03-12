@@ -73,7 +73,7 @@ $background: rgba(255,255,255,0.3),
 $background-hover: scale-color($background, $alpha: 50%),
 $background-active: scale-color($background, $alpha: 100%)) 
 {
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     cursor: pointer;
     height: 3.6rem;
     line-height: 3.6rem;
@@ -127,7 +127,7 @@ $background-active: scale-color($background, $alpha: 100%))
     &--next-inner {
         right: 0;
         color: $sd-text;
-        border-radius: 50% 0 0 50%;
+        border-radius: $border-radius__base--full 0 0 $border-radius__base--full;
         box-shadow: none;
         &::after {
             content: "\e643";
@@ -136,7 +136,7 @@ $background-active: scale-color($background, $alpha: 100%))
     &--prev-inner {
         left: 0;
         color: $sd-text;
-        border-radius: 0 50% 50% 0;
+        border-radius: 0 $border-radius__base--full $border-radius__base--full 0;
         box-shadow: none;
         &::after {
             content: "\e642";
@@ -191,7 +191,7 @@ $background-active: scale-color($background, $alpha: 100%))
 .sd-media-carousel__page-indicator {
     background-color: rgba(255,255,255,.2);
     border: 1px solid rgba(0,0,0,.4);
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     cursor: pointer;
     display: inline-block;
     height: 1.4rem;
@@ -266,8 +266,6 @@ $background-active: scale-color($background, $alpha: 100%))
     img {
         max-width: 100%;
         max-height: 6rem;
-        // width: auto;
-        //margin: auto;
         object-fit: cover;
         object-position: 50% 50%;
     }

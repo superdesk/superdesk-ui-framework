@@ -127,7 +127,7 @@
     opacity: 0.6;
     transition: all 0.2s ease-out;
     background-color: scale-color($sd-colour-interactive__base, $alpha: -65%);
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     display: flex;
     align-items: center;
     justify-content: center;

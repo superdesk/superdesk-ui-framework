@@ -11,12 +11,12 @@ export class TimePicker extends React.PureComponent<IProps> {
     render() {
         return (
             <div
-                className="sd-line-input sd-line-input--no-margin sd-line-input--no-label"
-                style={{display: 'inline-block'}}
+                className="sd-input sd-input--no-label sd-input--no-margin"
+                style={{display: 'inline-flex'}}
             >
                 <input
                     type="time"
-                    className="sd-line-input__input"
+                    className="sd-input__input"
                     value={this.props.value}
                     required={this.props.required}
                     disabled={this.props.disabled}

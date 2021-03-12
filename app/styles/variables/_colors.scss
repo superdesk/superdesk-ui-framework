@@ -7,7 +7,6 @@
 $sd-colour-background__base: #fff;
 $sd-colour-background__panel--default: #fff;
 
-
 $sd-colour-brand__base--supedesk: rgba(30, 176, 108, 1);
 $sd-colour-brand__base--primary: rgba(51, 197, 160, 1);
 $sd-colour-brand__base--secondary: rgba(109, 176, 182, 1);
@@ -16,8 +15,8 @@ $sd-colour-text__base: var(--color-text);
 $sd-colour-text__base--light: var(--color-text-light);
 $sd-colour-text__slugline: var(--sd-slugline-color);
 
-// $sd-colour-interactive__base: rgba(94, 169, 200, 1);
-$sd-colour-interactive__base: rgb(197, 34, 143);
+$sd-colour-interactive__base: rgba(94, 169, 200, 1);
+// $sd-colour-interactive__base: rgb(197, 34, 143); // needed for testing
 $sd-colour-interactive__base--hover: scale-color($sd-colour-interactive__base, $lightness: -16%);
 $sd-colour-interactive__base--active: scale-color($sd-colour-interactive__base, $lightness: -24%);
 $sd-colour-interactive__base--focus-shadow: scale-color($sd-colour-interactive__base, $alpha: -65%);
@@ -560,8 +559,6 @@ $baseColors: (
     background-color: rgba(123, 123, 123, 0.5);
     height: 2rem;
     width: 2rem;
-    text-align: center;
-    border-radius: 50%;
   }
   .toggle-box__label {
     font-size: 1.4rem;

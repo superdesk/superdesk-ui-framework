@@ -19,7 +19,7 @@ $badge-padding: 0.4em 0.5em 0.3em!default;
 $badge-minwidth: 1.8em !default;
 
 /// Default radius of a badge.
-$badge-radius: 1em !default;
+$badge-radius: $border-radius__base--full;
 
 /// Default font size and line height for badges.
 $badge-font-size: 1rem !default;

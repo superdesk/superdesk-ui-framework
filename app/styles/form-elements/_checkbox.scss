@@ -67,11 +67,11 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
     // Modifier for .sd-checkbox to create a radio button
     &--radio {
-        border-radius: 50%;
+        border-radius: $border-radius__base--full;
         &::after {
             height: 0.8rem;
             width: 0.8rem;
-            border-radius: 50%;
+            border-radius: $border-radius__base--full;
             content:' ';
             position: absolute;
             background-color: $sd-colour-interactive__base;
@@ -271,7 +271,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
 }
 .sd-radio-new {
     @include check-base;
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     &:hover {
         border-color: $checkBoxBorderColorHover;
         cursor: pointer;
@@ -279,7 +279,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     &::after {
         height: 0.8rem;
         width: 0.8rem;
-        border-radius: 50%;
+        border-radius: $border-radius__base--full;
         content:' ';
         position: absolute;
         background-color: $sd-colour-interactive__base;

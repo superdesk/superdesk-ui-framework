@@ -3,8 +3,6 @@ $tag-label-background: rgba(123,123,123,0.25);
 $tag-label-background-darker: rgba(123,123,123,0.45);
 $tag-label-background-darkUi: rgba(255,255,255,0.2);
 
-
-
 $tag-bg-colors: (
   default: $tag-label-background,
   darker: $tag-label-background-darker,
@@ -21,7 +19,7 @@ $tag-label-padding: 0em 1em 0em 1em !default;
 $tag-label-minwidth: 1.8em !default;
 
 /// Default radius of a badge.
-$tag-label-radius: $sd-base-increment * 1.5 !default;
+$tag-label-radius: $border-radius__base--full;
 
 /// Default font size and line height for badges.
 $tag-label-font-size: 1.4rem !default;
@@ -77,7 +75,7 @@ $tag-label-lineheight: 100% !default;
         text-decoration: none;
         text-align: center;
         vertical-align: middle;
-        border-radius: 50%;
+        border-radius: $border-radius__base--full;
         background-color: rgba(255,255,255,0.35);
         color: inherit;
         cursor: pointer;

@@ -93,7 +93,7 @@ $body-font-size: (
     height: $color-swatch-size;
     width: $color-swatch-size;
     padding: 0.2rem;
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     border: 2px solid $color-swatch-border-color;
 }
 @mixin color-swatch-inner-base() {
@@ -102,7 +102,7 @@ $body-font-size: (
     align-items: center;
     height: $color-swatch-inner-size;
     width: $color-swatch-inner-size;
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     background-color: $white;
     color: $sd-text;
     text-align: center;

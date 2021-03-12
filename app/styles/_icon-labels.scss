@@ -33,7 +33,7 @@ $label-icon-radius: 8px !default;
 @mixin label-icon-translucent {
     font-size: 12px;
     height: 24px;
-    border-radius: 12px;
+    border-radius: $border-radius__base--full;
     padding: 0 12px 0 8px;
 }
 

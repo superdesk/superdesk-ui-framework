@@ -125,7 +125,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     opacity: .2;
     line-height: 2.1rem;
     color: inherit;
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     &::after {
         font-family: sd_icons;
         font-size: 16px;
@@ -188,7 +188,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     color:white;
     text-align: center;
     display: inline-block;
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     flex-grow: 0;
     flex-shrink: 1;
     transition: all linear 100ms 0.2s, background ease-in 200ms;

@@ -16,7 +16,7 @@
     &.pi {
         color: inherit !important;
         z-index: 1;
-        border-radius: 50%;
+        border-radius: $border-radius__base--full;
         right:8px;
 
     }

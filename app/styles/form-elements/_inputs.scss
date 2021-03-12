@@ -941,4 +941,7 @@
             pointer-events: none;
         }
     }
+    &--no-label {
+        grid-template-rows: auto auto auto;
+    }
 }

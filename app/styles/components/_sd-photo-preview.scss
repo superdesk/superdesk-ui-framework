@@ -219,7 +219,7 @@ $photo-nav-transition: all 0.2s ease-out;
     width: 4.8rem;
     height: 4.8rem;
     border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -301,7 +301,7 @@ $photo-nav-transition: all 0.2s ease-out;
     $background-hover: scale-color($background, $alpha: -10%),
     $background-active: $sd-colour-interactive__base) 
 {
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     cursor: pointer;
     height: 5.6rem;
     line-height: 5.6rem;

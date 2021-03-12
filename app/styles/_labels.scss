@@ -21,7 +21,7 @@ $label-link-padding: 0 1.8rem 0 0.8rem;
 $label-lineheight-large: 1;
 
 /// Default radius of labels.
-$label-radius: 8px !default;
+$label-radius: $border-radius__base--full !default;
 $label-radius-large: 1.2rem;
 
 $label-sizes: (
@@ -67,7 +67,6 @@ $label-sizes: (
         @if $size == label--large {
           padding: $label-padding-large;
           line-height: $label-lineheight-large;
-          border-radius: $label-radius-large;
         }
       }
     }
