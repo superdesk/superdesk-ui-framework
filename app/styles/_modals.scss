@@ -181,7 +181,7 @@ $modal-sizes: (
             margin-bottom: 2rem;
             line-height: 100%;
             &--inactive {
-                color: scale-color($sd-text, $lightness: 60%)
+                color: $sd-text-light;
             }
             .badge {
                 vertical-align: bottom;

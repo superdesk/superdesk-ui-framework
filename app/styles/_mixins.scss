@@ -87,9 +87,9 @@
     right: 0;
     z-index: 3;
     padding: 0 16px;
-    color: $sd-text;
+    color: $sd-colour-text__base;
     animation: dropOut2 .3s cubic-bezier(.695,.105,.285,1.275) 1;
-    background-color: #d2e5ed;
+    background-color: $sd-colour-background__sliding-toolbar;
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
     &--right {
         text-align: right;
@@ -110,7 +110,9 @@
     .btn + .sliding-toolbar__info-text {
         margin-left: 1rem;
     }
-  }
+}
+
+
 
 // User select
 // For selecting text on the page

@@ -3,10 +3,6 @@
 
 // Custom checkox & Radio buttons 
 
-:root {
-    --color-checkbox-border: rgba(0,0,0,0.2);
-    --color-checkbox-border-hover: rgba(0,0,0,0.4);
-}
 
 $checkBoxBorderColor: var(--color-checkbox-border);
 $checkBoxBorderColorHover: var(--color-checkbox-border-hover);
@@ -703,9 +699,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
 
 [class^="--dark-ui"],
 [class*="--dark-ui"],
+[data-theme="dark-ui"],
 .dark-ui {
-    --color-checkbox-border: rgba(255, 255, 255, 0.2);
-    --color-checkbox-border-hover: rgba(255, 255, 255, 0.4);
     .sd-checkbox {
         border-color: rgba(255, 255, 255, 0.4);
         &:hover {
@@ -721,6 +716,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
     .sd-checkbox--button-style {
         color: $checkButtonTextColor-darkUI;
+        border-color: rgba(255, 255, 255, 0.18);
         &:hover {
             color: scale-color($checkButtonTextColor-darkUI, $alpha: 100%);
         }

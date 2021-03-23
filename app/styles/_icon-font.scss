@@ -13,7 +13,7 @@
 /// Default color for icons.
 @import 'variables';
 
-$icon-color: $grayDark !default;
+$icon-color: var(--color-icon-default) !default;
 
 @font-face {
   font-family: 'sd_icons';

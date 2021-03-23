@@ -22,7 +22,7 @@ interface IState {
     value1: boolean;
 }
 
-export class SamsPlayground extends React.Component<IProps, IState> {
+export class UiPlayground extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
@@ -55,7 +55,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
 
     handleTheme(newTheme: string) {
         this.setState({
-            theme: newTheme,
+            theme: newTheme
         })
     }
 
@@ -69,7 +69,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
 
     render() {
         return (
-            <Components.Layout header='SAMS playground' theme={this.state.theme}>
+            <Components.Layout header='UI Playground' theme={this.state.theme}>
                 <Components.SidebarMenu
                     items={[
                         { icon: 'dashboard', size: 'big' },
@@ -121,8 +121,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                         {
                                             type: 'group', label: 'Chose a theme', items: [
                                                 'divider',
-                                                { label: 'Light', onSelect: () => this.handleTheme('light-ui')},
-                                                { label: 'Dark', onSelect: () => this.handleTheme('dark-ui')},
+                                                { label: 'Light', icon: 'adjust', onSelect: () => this.handleTheme('light-ui')},
+                                                { label: 'Dark', icon: 'adjust', onSelect: () => this.handleTheme('dark-ui')},
+                                                { label: 'Accessible Light', icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui')},
                                             ]
                                         },
                                     ]}>
@@ -206,7 +207,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
 
                     <Components.MainPanel >
 
-                        <GridList size="small" gap="medium" margin="1">
+                        <GridList size="small" gap="medium" margin="3">
                             {dummy_items.map((item, index) =>
                                 <GridElements.GridItem locked={item.locked} status={item.status} onClick={this.handlePreview} itemtype={item.type} key={index}>
                                     <GridElements.GridItemCheckWrapper>
@@ -239,6 +240,33 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 </GridElements.GridItem>
                             )}
                         </GridList>
+                        <GridList size="small" gap="medium" margin="3">
+                            <GridElements.GridItem>
+                                <GridElements.GridItemContent>
+                                    <div className="test-div test-div--1"></div>
+                                    <div className="test-div test-div--2"></div>
+                                    <div className="test-div test-div--3"></div>
+                                    <div className="test-div test-div--4"></div>
+                                    <div className="test-div test-div--5"></div>
+                                    <div className="test-div test-div--6"></div>
+                                    <div className="test-div test-div--7"></div>
+                                    <div className="test-div test-div--8"></div>
+                                </GridElements.GridItemContent>
+                            </GridElements.GridItem>
+                            <GridElements.GridItem>
+                                <GridElements.GridItemContent>
+                                    <div className="test-div test-div--1"></div>
+                                    <div className="test-div test-div--2"></div>
+                                    <div className="test-div test-div--3"></div>
+                                    <div className="test-div test-div--4"></div>
+                                    <div className="test-div test-div--5"></div>
+                                    <div className="test-div test-div--6"></div>
+                                    <div className="test-div test-div--7"></div>
+                                    <div className="test-div test-div--8"></div>
+                                </GridElements.GridItemContent>
+                            </GridElements.GridItem>
+                        </GridList>
+
                     </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
 

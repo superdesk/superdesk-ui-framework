@@ -171,13 +171,40 @@ const pages = {
         }
     }
 }
+interface IProps {
+    theme?: string;
+}
+interface IState {
+    theme: string;
+}
 
-class ReactDoc extends React.Component {
+class ReactDoc extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            theme: 'light-ui',
+        }
+        this.handleTheme = this.handleTheme.bind(this);
+    }
+    handleTheme() {
+        if (this.state.theme === 'light-ui') {
+            this.setState({
+                theme: 'dark-ui'
+            })
+        } else {
+            this.setState({
+                theme: 'light-ui'
+            })
+        }
+    }
     render() {
         return (
             <React.Fragment>
                 <ReactNav pages={pages} />
-                <main className="docs-page__content docs-page__container-fluid">
+                <main className="docs-page__content docs-page__container-fluid" data-theme={this.state.theme}>
+                    <button className="docs-page__fla-button" aria-label="Change theme" onClick={this.handleTheme}>
+                        <i className="icon-adjust"></i>
+                    </button>
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />

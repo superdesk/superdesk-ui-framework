@@ -1,40 +1,90 @@
 // variables/colors.scss
-// -----------------------------------------------------
+// -------------------------------------------------------------------------
 
+
+
+// Basic colors
+$sd-blue:               hsla(198, 49%, 58%, 1);
+$sd-blueMedium:         hsla(198, 49%, 47%, 1);
+$sd-blueDark:           hsla(197, 100%, 25%, 1);
+$sd-green:              hsla(152, 71%, 40%, 1);
+
+$green:                 hsla(120, 40%, 46%, 1);
+$red:                   hsla(358, 79%, 50%, 1);
+$yellow:                hsla(45, 100%, 53%, 1);
+$orange:                hsla(35, 100%, 43%, 1);
+$purple:                hsla(291, 64%, 42%, 1);
 
 // NEWLY DEFINED COLOURS
-// =======================================================
-$sd-colour-background__base: #fff;
-$sd-colour-background__panel--default: #fff;
+// =========================================================================
+$sd-colour-background__base:                        hsla(0, 0%, 100%, 1);
+$sd-colour-background__panel--default:              hsla(0, 0%, 100%, 1);
 
-$sd-colour-brand__base--supedesk: rgba(30, 176, 108, 1);
-$sd-colour-brand__base--primary: rgba(51, 197, 160, 1);
-$sd-colour-brand__base--secondary: rgba(109, 176, 182, 1);
+$sd-colour-brand__base--supedesk:                   hsla(152, 71%, 40%, 1);
+$sd-colour-brand__base--primary:                    hsla(165, 59%, 49%, 1);
+$sd-colour-brand__base--secondary:                  hsla(185, 33%, 57%, 1);
 
-$sd-colour-text__base: var(--color-text);
-$sd-colour-text__base--light: var(--color-text-light);
-$sd-colour-text__slugline: var(--sd-slugline-color);
+$sd-colour-text__base:                              var(--color-text);
+$sd-colour-text__base--light:                       var(--color-text-light);
+$sd-colour-text__slugline:                          var(--sd-slugline-color); 
 
-$sd-colour-interactive__base: rgba(94, 169, 200, 1);
-// $sd-colour-interactive__base: rgb(197, 34, 143); // needed for testing
-$sd-colour-interactive__base--hover: scale-color($sd-colour-interactive__base, $lightness: -16%);
-$sd-colour-interactive__base--active: scale-color($sd-colour-interactive__base, $lightness: -24%);
-$sd-colour-interactive__base--focus-shadow: scale-color($sd-colour-interactive__base, $alpha: -65%);
+:root {
+  --sd-hsla-test-primary:                           198, 49%;
+  --sd-hsla-interactive-test-base:                  hsla(var(--sd-hsla-test-primary), 58%, 1);
+  --sd-hsla-interactive-test-base--hover:           hsla(var(--sd-hsla-test-primary), 48%, 1);
+  --sd-hsla-interactive-test-base--active:          hsla(var(--sd-hsla-test-primary), 68%, 1);
 
-$sd-colour-background__menu-item: transparent;
-$sd-colour-background__menu-item--hover: scale-color($sd-colour-interactive__base, $alpha: -90%);
-$sd-colour-background__menu-item--active: scale-color($sd-colour-interactive__base, $alpha: -80%);
+  --sd-hsla-interactive-test-base--opacity-40:      hsla(var(--sd-hsla-test-primary), 58%, 0.5);
+  --sd-hsla-interactive-test-base--opacity-24:      hsla(var(--sd-hsla-test-primary), 58%, 0.24);
+  --sd-hsla-interactive-test-base--opacity-12:      hsla(var(--sd-hsla-test-primary), 58%, 0.12);
+}
 
-$sd-colour-background__button-primary--normal: $sd-colour-interactive__base;
-$sd-colour-background__button-primary--hover: scale-color($sd-colour-background__button-primary--normal, $lightness: -20%);
-$sd-colour-background__button-primary--active: scale-color($sd-colour-background__button-primary--normal, $lightness: -25%);
+//$sd-colour-interactive__base:                       hsla(198, 49%, 58%, 1);
+$sd-colour-interactive__base:                       hsla(165, 59%, 49%, 1);
+$sd-colour-interactive__base--hover:                scale-color($sd-colour-interactive__base, $lightness: -16%);
+$sd-colour-interactive__base--active:               scale-color($sd-colour-interactive__base, $lightness: -24%);
+$sd-colour-interactive__base--focus-shadow:         scale-color($sd-colour-interactive__base, $alpha: -55%);
 
-// =======================================================
+$sd-colour-background__sliding-toolbar:             scale-color($sd-colour-interactive__base, $lightness: 66%);
+$sd-colour-background__sliding-toolbar-dark-UI:     scale-color($sd-colour-interactive__base, $saturation: -19%, $lightness: -58%);
 
+$sd-colour-background__menu-item:                   transparent;
+$sd-colour-background__menu-item--hover:            scale-color($sd-colour-interactive__base, $alpha: -85%);
+$sd-colour-background__menu-item--active:           scale-color($sd-colour-interactive__base, $alpha: -75%);
+
+$sd-colour-background__button-primary--normal:      $sd-colour-interactive__base;
+$sd-colour-background__button-primary--hover:       scale-color($sd-colour-background__button-primary--normal, $lightness: -20%);
+$sd-colour-background__button-primary--active:      scale-color($sd-colour-background__button-primary--normal, $lightness: -25%);
+
+$sd-colour-background__button-secondary--normal:    $sd-colour-brand__base--secondary;
+$sd-colour-background__button-secondary--hover:     scale-color($sd-colour-background__button-secondary--normal, $lightness: -20%);
+$sd-colour-background__button-secondary--active:    scale-color($sd-colour-background__button-secondary--normal, $lightness: -25%);
+
+$sd-colour-background__button-success--normal:      $green;
+$sd-colour-background__button-success--hover:       scale-color($sd-colour-background__button-success--normal, $lightness: -20%);
+$sd-colour-background__button-success--active:      scale-color($sd-colour-background__button-success--normal, $lightness: -25%);
+
+$sd-colour-background__button-warning--normal:      $orange;
+$sd-colour-background__button-warning--hover:       scale-color($sd-colour-background__button-warning--normal, $lightness: -20%);
+$sd-colour-background__button-warning--active:      scale-color($sd-colour-background__button-warning--normal, $lightness: -25%);
+
+$sd-colour-background__button-alert--normal:        $red;
+$sd-colour-background__button-alert--hover:         scale-color($sd-colour-background__button-alert--normal, $lightness: -20%);
+$sd-colour-background__button-alert--active:        scale-color($sd-colour-background__button-alert--normal, $lightness: -25%);
+
+$sd-colour-background__button-highlight--normal:    $purple;
+$sd-colour-background__button-highlight--hover:     scale-color($sd-colour-background__button-highlight--normal, $lightness: -20%);
+$sd-colour-background__button-highlight--active:    scale-color($sd-colour-background__button-highlight--normal, $lightness: -25%);
+
+$sd-colour-background__button-sd-green--normal:     $sd-green;
+$sd-colour-background__button-sd-green--hover:      scale-color($sd-colour-background__button-sd-green--normal, $lightness: -20%);
+$sd-colour-background__button-sd-green--active:     scale-color($sd-colour-background__button-sd-green--normal, $lightness: -25%);
+
+// =========================================================================
 
 $black:                 #000;
 $grayDarker:            #222;
-$grayDark:              #333;
+$grayDark:              #333333;
 $grayMedium:            #444;
 $gray:                  #666;
 $grayNeutral:           #7b7b7b;
@@ -56,26 +106,15 @@ $gray--100:             #dedede;
 $gray--75:              #ededed;
 $grey--50:              #F5F5F5;
 
-// Basic colors
-$sd-blue:               #5ea9c8;
-$sd-blueMedium:         #3d8fb1;
-$sd-blueDark:           #005b7f;
-$sd-green:              #1eb06c;
-
-$green:                 #46a546;
-$red:                   #E51C23;
-$yellow:                #ffc40d;
-$orange:                #dd8200;
-$purple:                #9c27b0;
 // Extended colors
-$fernGreen:             #56812e;
-$oldGold:               #d2a800;
-$darkOrange:            #da7200;
-$fireBrick:             #be1600;
-$deepPink:              #e30083;
-$darkMagenta:           #8b008b;
-$darkViolet:            #7300ab;
-$navy:                  #000080;
+$fernGreen:             hsla(91, 47%, 34%, 1);
+$oldGold:               hsla(48, 100%, 41%, 1);
+$darkOrange:            hsla(31, 100%, 43%, 1);
+$fireBrick:             hsla(7, 100%, 37%, 1);
+$deepPink:              hsla(325, 100%, 45%, 1);
+$darkMagenta:           hsla(300, 100%, 27%, 1);
+$darkViolet:            hsla(280, 100%, 34%, 1);
+$navy:                  hsla(240, 100%, 25%, 1);
 
 // Panel backgrounds
 $panel-bg--00:          #fff;
@@ -85,16 +124,11 @@ $panel-bg--03:          #ededed;
 $panel-bg--04:          #dedede;
 $panel-bg--05:          #a1a1a1;
 
-
-
-
 // Text specific colors
 //Subnav colours
-:root {
-  --sd-slugline-color: rgb(0, 91, 127);
-  }
 
-$sd-text:               $grayDark;
+$sd-text:               var(--color-text);
+$sd-text-light:         var(--color-text-light);
 $sd-slugline:           var(--sd-slugline-color);
 $sd-slugline-darkUI:    rgb(103, 139, 152);
 
@@ -102,38 +136,33 @@ $sd-slugline-darkUI:    rgb(103, 139, 152);
 $neutral-border-color: scale-color($grayNeutral, $alpha: -50%);
 
 // Misc
-$avatarBG:              #67afa1;
-$sd-background:         #f8f8f8;
-$sd-background-darkUI:  #3b3b3b;
-$sd-filters-bg:         #ededed;
-$sd-filters-darkUI-bg:  #333;
+$avatarBG:                            hsla(168, 31%, 55%, 1);
+$sd-background:                       hsla(0, 0%, 97%, 1);
+$sd-background-darkUI:                hsla(0, 0%, 23%, 1);
+$sd-filters-bg:                       hsla(0, 0%, 93%, 1);
+$sd-filters-darkUI-bg:                hsla(0, 0%, 20%, 1);
 
-$sd-hover:              #eff7fa;
-$transparent-gray:      rgba(0,0,0,.15);
-$transparent-white:     rgba(255,255,255,0.4);
-$sd-inputBorderColor:   $transparent-gray;
-$sd-tableBorderColor:   $transparent-gray;
-$photoBG-dark:          #2c2c2c;
-$annotation-color:      #a2df56;
-$comment-color:         #fff16f;
+$sd-hover:                            hsla(196, 52%, 96%, 1);
+$transparent-gray:                    hsla(0, 0%, 0%, 0.15);
+$transparent-white:                   hsla(0, 0%, 100%, 0.4);
+$sd-inputBorderColor:                 $transparent-gray;
+$sd-tableBorderColor:                 $transparent-gray;
+$photoBG-dark:                        hsla(0, 0%, 17%, 1);
+$annotation-color:                    hsla(87, 68%, 61%, 1);
+$comment-color:                       hsla(54, 100%, 72%, 1);
 
-$sd-inputBorderColor-darkUi: $transparent-white;
+$sd-inputBorderColor-darkUi:          $transparent-white;
 
 //Subnav colours
-:root {
---subNavBG-50: #F5F5F5;
---subNavBG-100: #dedede;
---subNavBG-blueGrey-500: #607D8B;
---subNavBG-blueGrey-600: #4d6570;
---subNavBG-darkUi: #404040;
-}
 
-$subnav-background: var(--subNavBG-50);
-$subnav-background-darker: var(--subNavBG-100);
-$subnav-background-blue-grey: var(--subNavBG-blueGrey-500);
-$subnav-background-blue-grey-darker: var(--subNavBG-blueGrey-600);
-$subnav-background-dark-blue-grey: var(--subNavBG-blueGrey-600);
-$subnav-background-darkUi: var(--subNavBG-darkUi);
+$subnav-background:                   var(--color-subnav-bg--00);
+$subnav-background-darker:            var(--color-subnav-bg--10);
+$subnav-background-blue-grey:         var(--color-subnav-bg--blueGrey-00);
+$subnav-background-blue-grey-darker:  var(--color-subnav-bg--blueGrey-10);
+$subnav-background-dark-blue-grey:    var(--color-subnav-bg--blueGrey-10);
+$subnav-background-darkUi:            var(--color-subnav-bg--00);
+
+$mainListBackGround:                  var(--sd-colour-background__main-list);
 
 $sd-basic-palette: (
   default: rgba(128,128,128,1),
@@ -176,34 +205,32 @@ $sd-basic-palette-ui-dark: (
 
 // Dark UI
 
-
 // Internal variables used for colors
 $primary-color: map-get($sd-basic-palette, primary);
 $default-color: map-get($sd-basic-palette, default);
 $default-color-ui-dark: map-get($sd-basic-palette-ui-dark, default);
 
-
 // Additional colors with shades -- Material design based
 $baseColors: (
-  red:          #F44336,
-  pink:         #E91E63,
-  purple:       #9C27B0,
-  deep-purple:  #673AB7,
-  indigo:       #3F51B5,
-  blue:         #2196F3,
-  light-blue:   #03A9F4,
-  cyan:         #00BCD4,
-  teal:         #009688,
-  green:        #4CAF50,
-  light-green:  #8BC34A,
-  lime:         #CDDC39,
-  yellow:       #FFEB3B,
-  amber:        #FFC107,
-  orange:       #FF9800,
-  deep-orange:  #FF5722,
-  brown:        #795548,
-  grey:         #929292,
-  blue-grey:    #607D8B
+  red:          hsla(4, 90%, 58%, 1),
+  pink:         hsla(340, 82%, 52%, 1),
+  purple:       hsla(291, 64%, 42%, 1),
+  deep-purple:  hsla(262, 52%, 47%, 1),
+  indigo:       hsla(231, 48%, 48%, 1),
+  blue:         hsla(207, 90%, 54%, 1),
+  light-blue:   hsla(199, 98%, 48%, 1),
+  cyan:         hsla(187, 100%, 42%, 1),
+  teal:         hsla(174, 100%, 29%, 1),
+  green:        hsla(122, 39%, 49%, 1),
+  light-green:  hsla(88, 50%, 53%, 1),
+  lime:         hsla(66, 70%, 54%, 1),
+  yellow:       hsla(54, 100%, 62%, 1),
+  amber:        hsla(45, 100%, 51%, 1),
+  orange:       hsla(36, 100%, 50%, 1),
+  deep-orange:  hsla(14, 100%, 57%, 1),
+  brown:        hsla(16, 25%, 38%, 1),
+  grey:         hsla(0, 0%, 57%, 1),
+  blue-grey:    hsla(200, 18%, 46%, 1)
 );
 
 @function colorMap($baseColors, $variations) {
@@ -252,177 +279,248 @@ $baseColors: (
 
 // CSS variables for default (light) theme
 
-:root, [data-theme="light-ui"] {  
-  --color-input-bg:           rgba(0,0,0,0.05);
-  --color-input-bg--hover:    rgba(0,0,0,0.08);
-  --color-input-bg--focus:    rgba(94, 169, 200, 0.14);
-  --color-label-text:         rgba(116,116,116,1);
+:root, [data-theme="light-ui"] {
 
-  --color-input-border:       rgba(0,0,0,.15);
-  --color-input-border-hover: rgba(0,0,0,.3);
+  --color-background-topmenu:           hsla(0, 0%, 17%, 1);
+  --color-background-bottom-bar:        hsla(0, 0%, 10%, 1);
+  --sd-colour-background__main-list:    hsla(0, 0%, 97%, 1);
+  --sd-colour-background__tooltip:      hsla(0, 0%, 20%, 1);
+  --sd-colour-background__left-nav:     hsla(0, 0%, 100%, 1);
 
-  --color-form-bg:            rgba(255,255,255,0);
-  --color-text:               rgb(51, 51, 51); // equals #333;
-  --color-text-light:         rgba(51,51,51,0.75);
+  --sd-colour-background__base--00:     hsla(0, 0%, 100%, 1);
+  --sd-colour-background__base--10:     hsla(0, 0%, 90%, 1);
+  --sd-colour-background__base--20:     hsla(0, 0%, 80%, 1);
+  --sd-colour-background__base--30:     hsla(0, 0%, 70%, 1);
 
-  --color-contrast-bg:        #fff;
-  --color-contrast-bg--hover: #f4f4f4;
 
-  --color-selected-bg:        #eaf2f5;
-  --color-selected-bg--hover: #dfebf0;
+  --color-text:                         hsla(0, 0%, 20%, 1); // equals #333;
+  --color-text-light:                   hsla(0, 0%, 20%, 0.75);
+  --color-icon-default:                 hsla(0, 0%, 20%, 1);
+  --sd-slugline-color:                  hsla(197, 100%, 25%, 1);
+  
+  // Inputs & Form elements
+  --color-input-bg:                     hsla(0, 0%, 0%, 0.05);
+  --color-input-bg--hover:              hsla(0, 0%, 0%, 0.08);
+  --color-input-bg--focus:              hsla(198, 49%, 58%, 0.14);
+  --color-label-text:                   hsla(0, 0%, 45%, 1);
+  --color-input-border:                 hsla(0, 0%, 0%, 0.15);
+  --color-input-border-hover:           hsla(0, 0%, 0%, 0.3);
+  --color-form-bg:                      hsla(0, 0%, 100%, 0);
+  --color-checkbox-border:              hsla(0, 0%, 0%, 0.2);
+  --color-checkbox-border-hover:        hsla(0, 0%, 0%, 0.4);
 
-  --color-bg-00:              #ffffff;
-  --color-bg-50:              #f8f8f8;
-  --color-bg-100:             #ededed;
-  --color-bg-150:             #dfdfdf;
-  --color-bg-200:             #a1a1a1;
+  --color-contrast-bg:                  hsla(0, 0%, 100%, 1);
+  --color-contrast-bg--hover:           hsla(0, 0%, 96%, 1);
 
-  --color-bg-800:             #2c2c2c;
+  --color-selected-bg:                  hsla(196, 35%, 94%, 1);
+  --color-selected-bg--hover:           hsla(198, 36%, 91%, 1);
 
-  --color-kanban-border:      #4d4d4d;
+  --color-bg-00:                        hsla(0, 0%, 100%, 1);
+  --color-bg-50:                        hsla(0, 0%, 97%, 1);
+  --color-bg-100:                       hsla(0, 0%, 93%, 1);
+  --color-bg-150:                       hsla(0, 0%, 87%, 1);
+  --color-bg-200:                       hsla(0, 0%, 63%, 1);
+  --color-bg-800:                       hsla(0, 0%, 17%, 1);
 
-  --color-inset-search-bg:           #ffffff;
-  --color-inset-search-border:       rgba(0,0,0,.20);
-  --color-inset-search-border-hover: rgba(0,0,0,.35);
+  --color-kanban-border:                hsla(0, 0%, 30%, 1);
 
-  --color-assignment-to-do:      #c4170b; //red--700
-  --color-assignment-progress:   #d17d00; //orange--600
-  --color-assignment-completed:  #74a838; //light-green--600
+  // Search
+  --color-inset-search-bg:              hsla(0, 0%, 100%, 1);
+  --color-inset-search-border:          hsla(0, 0%, 0%, 0.2);
+  --color-inset-search-border-hover:    hsla(0, 0%, 0%, 0.35);
 
-  --color-grid-item-Bg: #fff;
+  --color-assignment-to-do:             hsla(4, 89%, 41%, 1); //red--700
+  --color-assignment-progress:          hsla(36, 100%, 41%, 1); //orange--600
+  --color-assignment-completed:         hsla(88, 50%, 44%, 1); //light-green--600
 
-  --color-dropdown-menu-Bg: rgb(255,255,255);
-  --color-dropdown-menu-text: rgb(51, 51, 51);
+  --color-grid-item-Bg:                 hsla(0, 0%, 100%, 1);
 
+  // Dropdown
+  --color-dropdown-menu-Bg:             hsla(0, 0%, 100%, 1);
+  --color-dropdown-menu-text:           hsla(0, 0%, 20%, 1);
+  --color-navbutton-dropdown-open-bg:   hsla(0, 0%, 100%);
+
+  --color-border-line--light:           hsla(0, 0%, 90%, 1);
+  --color-border-line--medium:          hsla(0, 0%, 80%, 1);
+
+  // SubNav & Nav Buttons
+  --color-subnav-bg--00:                hsla(0, 0%, 96%, 1);
+  --color-subnav-bg--10:                hsla(0, 0%, 87%, 1);
+  --color-subnav-bg--blueGrey-00:       hsla(200, 18%, 46%, 1);
+  --color-subnav-bg--blueGrey-10:       hsla(200, 18%, 37%, 1);
+  --color-navbutton-border:             hsla(0, 0%, 0%, 0.1);
+  --color-navbutton-bg-hover:           hsla(0, 0%, 0%, 0.05);
+  --color-navbutton-bg-active:          hsla(0, 0%, 100%);
+  --color-navbutton-bg-100:             hsla(0, 0%, 0%, 0.06);
+  --color-navbutton-bg-100-hover:       hsla(0, 0%, 0%, 0.12);
 }
 
 // CSS variables for dark theme
 
-[data-theme="dark-ui"] {
-  color: #fff;
-  --sd-slugline-color:        rgb(103, 139, 152);
+[data-theme="dark-ui"], .dark-ui {
 
-  --color-input-bg:           rgba(255,255,255,0.05);
-  --color-input-bg--hover:    rgba(255,255,255,0.08);
-  --color-input-bg--focus:    rgba(94,169,200,0.14);
-  --color-label-text:         rgba(255,255,255,0.5);
+  --color-background-topmenu:           hsla(0, 0%, 10%, 1);
+  --color-background-bottom-bar:        hsla(0, 0%, 7%, 1);
+  --sd-colour-background__main-list:    hsla(0, 0%, 12%, 1);
+  --sd-colour-background__tooltip:      hsla(0, 0%, 6%, 1);
+  --sd-colour-background__left-nav:     hsla(0, 0%, 16%, 1);
 
-  --color-input-border:       rgba(255,255,255,0.4);
-  --color-input-border-hover: rgba(255,255,255,0.6);
-
-  --color-form-bg:            #3b3b3b;
-  --color-text:               rgb(244, 244, 244);
-  --color-text-light:         rgba(244, 244, 244,0.75);
-
-  --color-contrast-bg:        #333;
-  --color-contrast-bg--hover: #383838;
+  --sd-colour-background__base--00:     hsla(0, 0%, 0%, 1);
+  --sd-colour-background__base--10:     hsla(0, 0%, 10%, 1);
+  --sd-colour-background__base--20:     hsla(0, 0%, 20%, 1);
+  --sd-colour-background__base--30:     hsla(0, 0%, 30%, 1);
   
-  --color-selected-bg:        #35393b;
-  --color-selected-bg--hover: #3b4246;
+  color:                                hsla(0, 0%, 100%, 1);
+  --color-text:                         hsla(0, 0%, 96%, 1);
+  --color-text-light:                   hsla(0, 0%, 96%, 0.75);
+  --color-icon-default:                 hsla(0, 0%, 96%, 0.45);
+  --sd-slugline-color:                  hsla(196, 19%, 50%, 1);
 
-  --color-bg-00:              #111111;
-  --color-bg-50:              #3f3f3f;
-  --color-bg-100:             #3a3a3a;
-  --color-bg-150:             #303030;
-  --color-bg-200:             #484848;
+  // Inputs & Form elements
+  --color-label-text:                   hsla(0, 0%, 100%, 0.5);
+  --color-input-bg:                     hsla(0, 0%, 100%, 0.05);
+  --color-input-bg--hover:              hsla(0, 0%, 100%, 0.08);
+  --color-input-bg--focus:              hsla(198, 49%, 58%, 0.14);
+  --color-input-border:                 hsla(0, 0%, 100%, 0.4);
+  --color-input-border-hover:           hsla(0, 0%, 100%, 0.6);
+  --color-form-bg:                      hsla(0, 0%, 23%, 1);
+  --color-checkbox-border:              hsla(0, 0%, 100%, 0.2);
+  --color-checkbox-border-hover:        hsla(0, 0%, 100%, 0.4);
 
-  --color-bg-800:             #212121;
-
-  --color-kanban-border:      #8e8e8e;
-
-  --color-inset-search-bg:    rgba(0,0,0,0.2);
-  --color-inset-search-border:       rgba(255,255,255,0.35);
-  --color-inset-search-border-hover: rgba(255,255,255,0.55);
+  --color-contrast-bg:                  hsla(0, 0%, 20%, 1);
+  --color-contrast-bg--hover:           hsla(0, 0%, 22%, 1);
   
+  --color-selected-bg:                  hsla(200, 5%, 22%, 1);
+  --color-selected-bg--hover:           hsla(202, 9%, 25%, 1);
+
+  --color-bg-00:                        hsla(0, 0%, 7%, 1);
+  --color-bg-50:                        hsla(0, 0%, 25%, 1);
+  --color-bg-100:                       hsla(0, 0%, 23%, 1);
+  --color-bg-150:                       hsla(0, 0%, 19%, 1);
+  --color-bg-200:                       hsla(0, 0%, 28%, 1);
+  --color-bg-800:                       hsla(0, 0%, 13%, 1);
+
+  --color-kanban-border:                hsla(0, 0%, 56%, 1);
+
+    // Search
+  --color-inset-search-bg:              hsla(0, 0%, 0%, 0.2);
+  --color-inset-search-border:          hsla(0, 0%, 100%, 0.35);
+  --color-inset-search-border-hover:    hsla(0, 0%, 100%, 0.55);
+  
+  --color-grid-item-Bg:                 hsla(0, 0%, 20%, 1);
+
+  // Dropdown
+  --color-dropdown-menu-Bg:             hsla(0, 0%, 10%, 1);
+  --color-dropdown-menu-text:           hsla(0, 0%, 90%, 1);
+  --color-navbutton-dropdown-open-bg:   hsla(0, 0%, 16%, 1);
+
+  --color-border-line--light:           hsla(0, 0%, 100%, 0.1);
+  --color-border-line--medium:          hsla(0, 0%, 100%, 0.2);
+  
+  //SubNav & Nav Buttons
+  --color-subnav-bg--00:                hsla(0, 0%, 16%, 1);
+  --color-subnav-bg--10:                hsla(0, 0%, 32%, 1);
+  --color-subnav-bg--blueGrey-00:       hsla(200, 18%, 46%, 1);
+  --color-subnav-bg--blueGrey-10:       hsla(200, 18%, 37%, 1);
+
+  --color-navbutton-border:             hsla(0, 0%, 0%, 0.15);
+  --color-navbutton-bg-hover:           hsla(0, 0%, 0%, 0.1);
+  --color-navbutton-bg-active:          hsla(0, 0%, 100%, 0.08);
+  --color-navbutton-bg-100:             hsla(0, 0%, 0%, 0.1);
+  --color-navbutton-bg-100-hover:       hsla(0, 0%, 0%, 0.2);
+
   [class^="big-icon--"],
   [class*=" big-icon--"] {
-    color: $white;
+    color:                              var(--color-text);
   }
-  --color-grid-item-Bg: #272727;
+  [class^="__sliding-toolbar"],
+  [class*="__sliding-toolbar"] {
+    background-color:                   $sd-colour-background__sliding-toolbar-dark-UI;
+  }
 }
 
 [class^="--dark-ui"],
 [class*="--dark-ui"] {
-  --color-contrast-bg:        #333;
-  --color-contrast-bg--hover: #383838;
+  --color-contrast-bg:                  hsla(0, 0%, 20%, 1);
+  --color-contrast-bg--hover:           hsla(0, 0%, 22%, 1);
 }
 
 [data-theme="accessible-light-ui"] {
   --font-size-large: 1.5rem;
 
-  --color-accessible-text:    #111;
-  --sd-slugline-color:        #0400ff;
+  --color-accessible-text:              hsla(0, 0%, 7%, 1);
+  --sd-slugline-color:                  hsla(241, 100%, 50%, 1);
 
   color: #000;
 
-  --color-input-bg:           rgba(0,0,0,0.05);
-  --color-input-bg--hover:    rgba(0,0,0,0.08);
-  --color-input-bg--focus:    rgba(94, 169, 200, 0.14);
-  --color-label-text:         rgb(63, 63, 63);
+  --color-input-bg:                     hsla(0, 0%, 0%, 0.05);
+  --color-input-bg--hover:              hsla(0, 0%, 0%, 0.08);
+  --color-input-bg--focus:              hsla(198, 49%, 58%, 0.14);
+  --color-label-text:                   hsla(0, 0%, 25%, 1);
 
-  --color-input-border:       rgba(0,0,0,.35);
-  --color-input-border-hover: rgba(0,0,0,.8);
+  --color-input-border:                 hsla(0, 0%, 0%, 0.35);
+  --color-input-border-hover:           hsla(0, 0%, 0%, 0.8);
 
-  --color-form-bg:            rgba(255,255,255,0);
-  --color-text:               #111;
+  --color-form-bg:                      hsla(0, 0%, 100%, 0);
+  --color-text:                         hsla(0, 0%, 7%, 1);
 
-  --color-contrast-bg:        #fff;
-  --color-contrast-bg--hover: #f4f4f4;
+  --color-contrast-bg:                  hsla(0, 0%, 100%, 1);
+  --color-contrast-bg--hover:           hsla(0, 0%, 96%, 1);
 
-  --color-selected-bg:        #eaf2f5;
-  --color-selected-bg--hover: #dfebf0;
+  --color-selected-bg:                  hsla(196, 35%, 94%, 1);
+  --color-selected-bg--hover:           hsl(198, 36%, 91%, 1);
 
-  --color-bg-00:              #ffffff;
-  --color-bg-50:              #f8f8f8;
-  --color-bg-100:             #ededed;
-  --color-bg-150:             #dfdfdf;
-  --color-bg-200:             #a1a1a1;
+  --color-bg-00:                        hsla(0, 0%, 100%, 1);
+  --color-bg-50:                        hsla(0, 0%, 97%, 1);
+  --color-bg-100:                       hsla(0, 0%, 93%, 1);
+  --color-bg-150:                       hsla(0, 0%, 87%, 1);
+  --color-bg-200:                       hsla(0, 0%, 63%, 1);
 
-  --color-bg-800:             #2c2c2c;
+  --color-bg-800:                       hsla(0, 0%, 17%, 1);
 
 
-  --color-accessible-primary: #0400ff;
+  --color-accessible-primary:           hsla(241, 100%, 50%, 1);
 
   [class^="icon-"],
   [class*=" icon-"],
   [class^="big-icon--"],
   [class*=" big-icon--"] {
-    color: #000;
+    color:                              hsla(0, 0%, 0%, 1);
   }
 
   .sd-checkbox--button-style {
-    color: #111;
+    color:                              hsla(0, 0%, 7%, 1);
   }
   .sd-checkbox--button-style.checked,
   .sd-checkbox--button-style[checked="checked"] {
-    background-color: var(--color-accessible-primary);
-    border-color: var(--color-accessible-primary);
-    border-top-color: #020158;
-    color: #fff;
+    background-color:                   var(--color-accessible-primary);
+    border-color:                       var(--color-accessible-primary);
+    border-top-color:                   hsla(241, 98%, 17%, 1);
+    color:                              hsla(0, 0%, 100%, 1);
     &:hover {
-      background-color: #020166;
-      border-color: #020166;
-      border-top-color: #010036;
+      background-color:                 hsla(241, 98%, 20%, 1);
+      border-color:                     hsla(241, 98%, 20%, 1);
+      border-top-color:                 hsla(241, 100%, 11%, 1);
     }
   }
   .sd-create-btn .circle {
-    background-color: var(--color-accessible-primary);
+    background-color:                   var(--color-accessible-primary);
   }
 
   .navbtn.navbtn--active {
-    background-color: #444;
-    color: $white;
+    background-color:                   hsla(0, 0%, 27%, 1);
+    color:                              $white;
   }
   .btn {
     color: var(--color-accessible-text);
     font-weight: 600;
     font-size: 1.4rem;
     &.btn--primary {
-      background-color: var(--color-accessible-primary);
-      color: $white;
+      background-color:                 var(--color-accessible-primary);
+      color:                            $white;
     }
     &.btn--hollow {
-      background-color: $white;
+      background-color:                 $white;
     }
   }
 
@@ -432,7 +530,7 @@ $baseColors: (
       font-size: 1.3rem;
     }
     time {
-      color: #484848;
+      color:                            hsla(0, 0%, 28%, 1);
       font-weight: 400;
     }
   }
@@ -445,35 +543,35 @@ $baseColors: (
     background-color: $white;
     color: var(--color-accessible-text);
     .side-panel__header {
-      background-color: $white;
+      background-color:               $white;
     }
     .side-panel__heading {
       font-weight: 500;
-      color: var(--color-accessible-text);
+      color:                          var(--color-accessible-text);
     }
     p {
       font-size: 1.6rem;
       line-height: 1.5;
-      color: var(--color-accessible-text);
+      color:                          var(--color-accessible-text);
     }
     .sd-text__date-and-author {
       font-size: 1.4rem;
       time {
         font-weight: 400;
-        color: #595959;
+        color:                        hsla(0, 0%, 35%, 1);
       }
     }
     &.side-panel--dark-ui {
       background-color: var(--color-bg-800);
       color: $white;
      i[class^="icon-"] {
-        color: $white;
+        color:                        $white;
       }
       .side-panel__header {
-        background-color: var(--color-bg-800);
-        color: $white !important;
+        background-color:             var(--color-bg-800);
+        color:                        $white !important;
         i[class^="icon-"] {
-          color: $white !important;
+          color:                      $white !important;
         }
         
       }
@@ -495,7 +593,7 @@ $baseColors: (
       margin: 0.8rem 0;
     }
     .sd-input__hint {
-      color: #444;
+      color:                          hsla(0, 0%, 27%, 1);
     }
   }
 
@@ -503,7 +601,7 @@ $baseColors: (
     font-size: 1.2rem;
     font-weight: 500;
     &.form-label--light {
-      color: #525252;
+      color:                          hsla(0, 0%, 32%, 1);
     }
   }
 
@@ -516,7 +614,7 @@ $baseColors: (
 
   .dropdown__menu-label {
     font-size: 1.2rem;
-    color: #585858;
+    color:                            hsla(0, 0%, 35%, 1);
   }
   .dropdown__toggle:active,
   .dropdown.open .dropdown__toggle {
@@ -526,9 +624,9 @@ $baseColors: (
   .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button),
   .dropdown__menu .dropdown__menu-item a:not(.btn), 
   .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
-    color: currentColor;
     font-size: 1.5rem;
     font-weight: 500;
+    color:                            currentColor;
   }
   .dropdown__menu li a:not(.btn):hover,
   .dropdown__menu li a:not(.btn):focus,
@@ -538,37 +636,35 @@ $baseColors: (
   .dropdown__menu .dropdown__menu-item a:not(.btn):focus,
   .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):hover,
   .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):focus {
-    background: var(--color-accessible-primary);
-    color: $white;
+    background:                       var(--color-accessible-primary);
+    color:                            $white;
      > i[class^="icon-"] {
-      color: $white;
+      color:                          $white;
     }
   }
   .dropdown.open .navbtn > i {
-    color: var(--color-accessible-primary);
+    color:                            var(--color-accessible-primary);
   }
-
-
 
   .sd-text__slugline,
   p.sd-text__slugline {
-    color: var(--color-accessible-primary) !important;
+    color:                            var(--color-accessible-primary) !important;
   }
 
   .toggle-box--circle .toggle-box__chevron {
-    background-color: rgba(123, 123, 123, 0.5);
+    background-color:                 hsla(0, 0%, 48%, 0.5);
     height: 2rem;
     width: 2rem;
   }
   .toggle-box__label {
     font-size: 1.4rem;
-    color: var(--color-label-text);
+    color:                            var(--color-label-text);
     font-weight: 500;
   }
 
   .sd-grid-item {
     time {
-      color: #484848;
+      color:                          hsla(0, 0%, 28%, 1);
       font-size: 1.3rem;
       font-weight: 400;
     }
@@ -591,8 +687,8 @@ $baseColors: (
   .nav-tabs__tab--active, 
   .nav-tabs__tab--active:hover {
     .nav-tabs__link {
-      border-bottom-color: var(--color-accessible-primary);
-      color: var(--color-accessible-text);
+      border-bottom-color:          var(--color-accessible-primary);
+      color:                        var(--color-accessible-text);
     }
   }
 
@@ -600,36 +696,36 @@ $baseColors: (
     .nav-tabs__tab {
         .nav-tabs__link {
           border-bottom-color: transparent;
-          color: $white;
+          color:                    $white;
           opacity: 0.6;
       }
       &:hover {
         .nav-tabs__link {
-          border-bottom-color: rgba(255,255,255,.25);
+          border-bottom-color:      hsla(0, 0%, 100%, 0.25);
           opacity: 1;
         }
       }
       &.nav-tabs__tab--active,
       &.nav-tabs__tab--active:hover {
         .nav-tabs__link {
-          border-bottom-color: hsla(240, 100%, 65%, 1);
-          color: $white;
+          border-bottom-color:      hsla(240, 100%, 65%, 1);
+          color:                    $white;
           opacity: 1;
         }
       }
     }
 
     .toggle-box__label {
-      color: $white;
+      color:                        $white;
     }
 
     .sd-line-input .sd-line-input__label {
-      color: $white;
+      color:                        $white;
       opacity: 0.7;
     }
 
     a.text-link.text-link--white {
-      color: $white;
+      color:                        $white;
       opacity: 0.75;
       &:hover {
         opacity: 1;
@@ -641,14 +737,44 @@ $baseColors: (
       background-color: var(--color-accessible-primary);
     }
     &.badge--success {
-      background-color: #006115;
+      background-color:             hsla(133, 100%, 19%, 1);
     }
     &.badge--warning {
-      background-color: #854900;
+      background-color:             hsla(33, 100%, 26%, 1);
     }
   }
-  .sd-sidebar-menu__btn--active, .sd-sidebar-menu__btn--active:hover {
-    background-color: var(--color-accessible-primary);
+  .sd-sidebar-menu__btn--active,
+  .sd-sidebar-menu__btn--active:hover {
+    background-color:               var(--color-accessible-primary);
 
   }
+}
+
+//TEMP
+.test-div {
+  height: 4rem;
+} 
+.test-div--1 {
+  background-color: hsla(0, 0%, 27%, 1);
+}
+.test-div--2 {
+  background-color: hsla(0, 0%, 30%, 1);
+}
+.test-div--3 {
+  background-color: var(--sd-hsla-interactive-test-base--active);
+}
+.test-div--4 {
+  background-color: var(--sd-hsla-interactive-test-base--opacity-40);
+}
+.test-div--5 {
+  background-color: var(--sd-hsla-interactive-test-base--opacity-24);
+}
+.test-div--6 {
+  background-color: var(--sd-hsla-interactive-test-base--opacity-12);
+}
+.test-div--7 {
+  background-color: saturate($sd-colour-interactive__base, 100%);
+}
+.test-div--8 {
+  background-color: darken($sd-colour-interactive__base, 20%);
 }

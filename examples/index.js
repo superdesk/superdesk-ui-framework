@@ -386,6 +386,10 @@ export default angular.module('ui-docs', [
             'test-ground': {
                 name: 'Test Ground',
                 component: 'TestGround'
+            },
+            'ui-playground': {
+                name: 'UI',
+                component: 'UiPlayground'
             }
         }
     }))

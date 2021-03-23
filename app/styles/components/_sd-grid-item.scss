@@ -1,27 +1,27 @@
 // Default sd-card  styling
 // ---------------------------------------------
 
-$sd-grid-item-thumb-bg: rgba(44,44,44,1);
+$sd-grid-item-thumb-bg:                 hsla(0, 0%, 17%, 1);
 //background color 
-$sd-grid-item-Bg: var(--color-grid-item-Bg);
-$sd-grid-item-Bg-selected: scale-color($sd-colour-interactive__base, $lightness: 96%);
-$sd-grid-item-Bg-activated: scale-color($sd-colour-interactive__base, $lightness: 96%);
+$sd-grid-item-Bg:                       var(--color-grid-item-Bg);
+$sd-grid-item-Bg-selected:              scale-color($sd-colour-interactive__base, $lightness: 96%);
+$sd-grid-item-Bg-activated:             scale-color($sd-colour-interactive__base, $lightness: 96%);
 //background color - dark UI
-$sd-grid-item-Bg-darkUI: $grayDark;
-$sd-grid-item-Bg-darkUI-selected: scale-color($sd-colour-interactive__base, $lightness: -82%);
-$sd-grid-item-Bg-darkUI-activated: scale-color($sd-colour-interactive__base, $lightness: -82%);
+$sd-grid-item-Bg-darkUI:                var(--color-grid-item-Bg);
+$sd-grid-item-Bg-darkUI-selected:       scale-color($sd-colour-interactive__base, $saturation: -20%, $lightness: -82%);
+$sd-grid-item-Bg-darkUI-activated:      scale-color($sd-colour-interactive__base, $saturation: -20%, $lightness: -82%);
 //border-radius
-$sd-grid-item-border-radius: $border-radius__base--medium;
+$sd-grid-item-border-radius:            $border-radius__base--medium;
 //shadows
-$sd-grid-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
-$sd-grid-item-shadow-hover: 0 1px 6px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26);
-$sd-grid-item-shadow-selected: 0 0 0 2px $sd-colour-interactive__base, 0 0 0 5px scale-color($sd-colour-interactive__base, $alpha: -72%);
-$sd-grid-item-shadow-activated: 0 0 0 2px  scale-color($sd-colour-interactive__base, $alpha: -50%);
+$sd-grid-item-shadow:                   0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
+$sd-grid-item-shadow-hover:             0 1px 6px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26);
+$sd-grid-item-shadow-selected:          0 0 0 2px $sd-colour-interactive__base, 0 0 0 5px scale-color($sd-colour-interactive__base, $alpha: -72%);
+$sd-grid-item-shadow-activated:         0 0 0 2px  scale-color($sd-colour-interactive__base, $alpha: -50%);
 //shadows - dark UI
-$sd-grid-item-shadow-darkUI: 0 1px 4px rgba(0, 0, 0, 0.6), 0 1px 5px rgba(0, 0, 0, 0.36);
-$sd-grid-item-shadow-darkUI-hover: 0 1px 6px rgba(0, 0, 0, 0.8), 0 1px 10px rgba(0, 0, 0, 0.46);
-$sd-grid-item-shadow-darkUI-selected: 0 0 0 2px $sd-colour-interactive__base, 0 0 0 5px scale-color($sd-colour-interactive__base, $alpha: -64%);
-$sd-grid-item-shadow-darkUI-activated: 0 0 0 2px  scale-color($sd-colour-interactive__base, $alpha: -40%);
+$sd-grid-item-shadow-darkUI:            0 1px 4px rgba(0, 0, 0, 0.6), 0 1px 5px rgba(0, 0, 0, 0.36);
+$sd-grid-item-shadow-darkUI-hover:      0 1px 6px rgba(0, 0, 0, 0.8), 0 1px 10px rgba(0, 0, 0, 0.46);
+$sd-grid-item-shadow-darkUI-selected:   0 0 0 2px $sd-colour-interactive__base, 0 0 0 5px scale-color($sd-colour-interactive__base, $alpha: -64%);
+$sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-interactive__base, $alpha: -40%);
 
 
 .sd-grid-item {
@@ -29,7 +29,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 0 0 2px  scale-color($sd-colour-interac
     border-radius: $sd-grid-item-border-radius;
     box-shadow: $sd-grid-item-shadow;
     background-color: $sd-grid-item-Bg;
-    color: inherit;
+    color: $sd-text;
     // min-height: 12rem;
     display: flex;
     flex-direction: column;
@@ -688,37 +688,17 @@ $sd-grid-item-shadow-darkUI-activated: 0 0 0 2px  scale-color($sd-colour-interac
 
 .dark-ui, [data-theme="dark-ui"] {
     &.sd-column-box__main-column {
-        background-color: #444;
+        //background-color: #444;
     }
     .sd-column-box__main-column {
-        background-color: #444;
+        //background-color: #444;
     }
     .sd-grid-item {
-        background-color: $sd-grid-item-Bg-darkUI;
-        color: rgba(255,255,255, 0.6);
         box-shadow: $sd-grid-item-shadow-darkUI;
-        .sd-grid-item__thumb, .sd-grid-item__media {
-            background-color: #212121;
-        }
-        .sd-grid-item__footer {
-            border-top: 1px solid rgba(255,255,255,0.03);
-            color: rgba(255,255,255, 0.6);
-        }
-        .sd-grid-item__content {
-            color: rgba(255,255,255, 0.6);
-        }
-        .sd-grid-item__slugline {
-            color: $sd-slugline-darkUI;
-        }
-        .sd-grid-item__type-icn {
-            color: $white;
-        }
         .sd-grid-item__text-label {
-            color: #fff;
             opacity: 0.4;
         }
         .sd-grid-item__text-strong {
-            color: #fff;
             opacity: 0.5;
         }
         &--activated, &.activated {
@@ -731,18 +711,15 @@ $sd-grid-item-shadow-darkUI-activated: 0 0 0 2px  scale-color($sd-colour-interac
         &--with-click {
             &:hover {
                 box-shadow: $sd-grid-item-shadow-darkUI-hover;
-                background-color: lighten($sd-grid-item-Bg-darkUI, 2%);
             }
             &.sd-grid-item--activated, &.activated {
                 &:hover {
-                    background-color: darken($sd-grid-item-Bg-darkUI-activated, 1%);
                     box-shadow: $sd-grid-item-shadow-darkUI-activated;
                 }
             }
             &.sd-grid-item--selected, &.selected  {
                 background-color: $sd-grid-item-Bg-darkUI-selected;
                 &:hover {
-                    background-color: darken($sd-grid-item-Bg-darkUI-selected, 1%);
                     box-shadow: $sd-grid-item-shadow-darkUI-selected;
                 }
             }
@@ -752,7 +729,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 0 0 2px  scale-color($sd-colour-interac
         }
         &.actioning {
             &::before {
-                background-color: rgba(35, 35, 35, 0.85);
+                background-color: hsla(0, 0%, 14%, 0.85);
             }
         }
     }

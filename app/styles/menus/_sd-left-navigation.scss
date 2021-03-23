@@ -1,8 +1,8 @@
 // LEFT NAVIGATION
 // ----
 
-$sd-leftNav-bgColor: $white;
-$sd-leftNav-borderColor: #dedede;
+$sd-leftNav-bgColor: var(--sd-colour-background__left-nav);
+$sd-leftNav-borderColor: var(--color-border-line--light);
 $sd-leftNav-width: 20rem;
 
 $sd-leftNavBtn-bgColor: transparent;
@@ -35,7 +35,6 @@ $sd-leftNavBtn-borderActive: 4px solid $sd-colour-interactive__base--active;
     font-size: 1.3rem;
     line-height: 100%;
     text-decoration: none;
-    color: $grayDark;
     background-color: $sd-leftNavBtn-bgColor;
     padding: 1.6rem 0 1.6rem 3rem;
     border-right: $sd-leftNavBtn-border;

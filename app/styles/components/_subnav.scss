@@ -90,28 +90,6 @@
 // ============================================================================
 // NEW NAVBUTTONS
 // ============================================================================
-
-:root {
-  --color-navbutton-border:            rgba(0,0,0,.1);
-  --color-navbutton-bg-hover:          rgba(0,0,0, 0.05);
-  --color-navbutton-bg-active:         rgba(255,255,255,1);
-  --color-navbutton-dropdown-open-bg:  rgba(255, 255, 255, 1);
-  --color-navbutton-bg-100:            rgba(0,0,0,.06);
-  --color-navbutton-bg-100-hover:      rgba(0,0,0,.12);
-}
-
-.sd-top-menu {
-  --color-navbutton-border:            rgba(255,255,255,0.06);
-}
-  
-.subnav--dark-ui,
-[data-theme="dark-ui"] {
-  --color-navbutton-border:            rgba(0,0,0,.15);
-  --color-navbutton-bg-hover:          rgba(0,0,0,.1);
-  --color-navbutton-bg-active:         rgba(255,255,255,.08);
-  --color-navbutton-bg-100:            rgba(0,0,0,.1);
-  --color-navbutton-bg-100-hover:      rgba(0,0,0,.2);
-}
   
 $navbutton-border-color: var(--color-navbutton-border);
 $navbutton-bg-color: transparent;
@@ -265,9 +243,9 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px scale-color($sd-colour-interactive_
   
 .dropdown.open {
   .sd-navbtn {
-    background-color: var(--color-navbutton-dropdown-open-bg);
+    background-color: var(--color-dropdown-menu-Bg);
     position: relative;
-    box-shadow: 0 8px 0 0px var(--color-navbutton-dropdown-open-bg), -2px -1px 8px -2px rgba(0, 0, 0, 0.24), 3px -1px 8px -2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 8px 0 0px var(--color-dropdown-menu-Bg), -2px -1px 8px -2px rgba(0, 0, 0, 0.24), 3px -1px 8px -2px rgba(0, 0, 0, 0.24);
     border-color: transparent !important;
     z-index: 1001;
     i {
@@ -276,6 +254,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px scale-color($sd-colour-interactive_
     }
     &.sd-navbtn--textual {
       .sd-navbtn__text {
+        color: $sd-colour-interactive__base;
         &::after {
           opacity: 1;
         }
@@ -375,7 +354,8 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px scale-color($sd-colour-interactive_
 }
 .dropdown.open {
     .navbtn {
-        background: rgba(255, 255, 255, 1);
+        background: var(--color-dropdown-menu-Bg);
+        color: $sd-colour-interactive__base;
         box-shadow: -2px -1px 5px -2px rgba(0, 0, 0, 0.2), 3px -1px 5px -2px rgba(0, 0, 0, 0.2);
         z-index: $zindexDropdown + 1;
         > i {

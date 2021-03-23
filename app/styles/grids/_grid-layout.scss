@@ -42,7 +42,7 @@
     }    
     .bottom-bar {
         height:3rem;
-        background-color: #222;
+        background-color: var(--color-background-bottom-bar);
         grid-column: 2/3;
         grid-row: 4/5;
         z-index: 2;
@@ -89,8 +89,8 @@
 .sd-column-box__main-column {
     flex-grow: 1;
     flex-shrink: 1;
-    // width: 50%;
     overflow: auto;
+    background-color: $mainListBackGround;
     &--padded {
         padding: 2rem;
     }
@@ -587,6 +587,7 @@ $planningEditor-width: 53rem;
     grid-column: mainContent;
     grid-row: contentBlock;
     overflow-y: auto;
+    background-color: $mainListBackGround;
     &.sd-main-content-grid__content--with-filters {
         display: grid;
         grid-template-rows: [filterBar] auto [innerContent] 1fr;
@@ -756,7 +757,7 @@ $planningEditor-width: 53rem;
         grid-column: contentContainer;
         grid-row: footerBar;
         height:3rem;
-        background-color: #222;
+        background-color: var(--color-background-bottom-bar);
         z-index: 2;
         display: flex;
         align-items: center;

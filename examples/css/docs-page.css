@@ -7,7 +7,7 @@
     line-height: 140%;
     margin: 0;
     padding: 0;
-    background-color: #f8f8f8;
+    background-color: var(--docs-page-color-bg-default);
     color: #333;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -17,6 +17,39 @@
 .docs-page {
     --docs-page-color-primary: #1397B9;
     --docs-page-color-highlight: #33C5A0;
+}
+:root, [data-theme="light-ui"] {
+    --docs-page-color-bg-default: hsl(0, 0%, 97%);
+    --docs-page-color-bg-00: hsla(0, 0%, 97%, 1);
+    --docs-page-color-bg-10: hsla(0, 0%, 100%, 1);
+    --docs-page-color-bg__window-bar: hsl(0, 0%, 92%);
+
+    --docs-page-color-bg__content-row--white: hsla(0, 0%, 100%, 1);
+    --docs-page-color-bg__content-row--grey: hsla(0, 0%, 95%, 1);
+    --docs-page-color-bg__example-box: hsla(0, 0%, 95%, 1);
+    --docs-page-color-bg__graphic-btn: hsla(0, 0%, 100%, 1);
+    --docs-page-color-bg__graphic-btn-graphic: linear-gradient(180deg, hsla(165, 57%, 95%, 1) 4%, hsla(191, 53%, 86%, 1) 96%);
+
+    --docs-page-border__window-bar--top: hsla(0, 0%, 100%, 0.9);
+    --docs-page-border__window-bar--bottom: hsla(0, 0%, 88%, 1);
+    --docs-page-border__table: hsla(0, 0%, 0%, 0.16);
+}
+
+[data-theme="dark-ui"] {
+    --docs-page-color-bg-default: hsla(0, 0%, 12%, 1);
+    --docs-page-color-bg-00: hsla(0, 0%, 12%, 1);
+    --docs-page-color-bg-10: hsla(0, 0%, 7%, 1);
+    --docs-page-color-bg__window-bar: hsl(0, 0%, 8%);
+
+    --docs-page-color-bg__content-row--white: hsla(0, 0%, 8%, 1);
+    --docs-page-color-bg__content-row--grey: hsla(0, 0%, 12%, 1);
+    --docs-page-color-bg__example-box: hsla(0, 0%, 18%, 1);
+    --docs-page-color-bg__graphic-btn: hsla(0, 0%, 19%, 1);
+    --docs-page-color-bg__graphic-btn-graphic: linear-gradient(180deg, hsla(165, 57%, 95%, 0.1) 4%, hsla(191, 53%, 86%, 0.1) 96%);
+
+    --docs-page-border__window-bar--top: hsla(0, 0%, 91%, 0.02);
+    --docs-page-border__window-bar--bottom: hsla(0, 0%, 88%, 0.12);
+    --docs-page-border__table: hsla(0, 0%, 100%, 0.2);
 }
 
 hr {
@@ -257,6 +290,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     grid-row: 2 / 3;
     overflow-y: auto;
     position: relative;
+    background-color: var(--docs-page-color-bg-00);
 }
 .docs-page__masthead {
     display: flex;
@@ -320,10 +354,46 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     flex-direction: row;
     align-items: center;
 }
+
+.docs-page__fla-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    cursor: pointer;
+    height: 4.8rem;
+    width: 4.8rem;
+    position: fixed;
+    top: 90px;
+    right:32px;
+    z-index: 10;
+    /* left: calc(100vw - 380px); */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 6px 24px rgba(0, 0, 0, 0.16);
+    transition: all 0.2s ease;
+    background-color: var(--sd-colour-background__base--00);
+}
+.docs-page__fla-button i[class^="icon-"] {
+    color: var(--color-text);
+    transition: all 0.2s ease;
+    opacity: 0.8;
+}
+.docs-page__fla-button:hover {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16), 0 6px 32px rgba(0, 0, 0, 0.18);
+}
+.docs-page__fla-button:hover i[class^="icon-"] {
+    opacity: 1;
+}
+.docs-page__fla-button:active {
+    background-color: var(--docs-page-color-highlight);
+    box-shadow: 0 0px 2px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.24);
+}
+.docs-page__fla-button:active i[class^="icon-"] {
+    color: hsl(0, 0%, 100%);
+}
 .docs-page__graphic-btn {
     min-width: 240px;
     margin-right: 16px;
-    background-color: #fff;
+    background-color: var(--docs-page-color-bg__graphic-btn);
     box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
     transition: 0.2s ease-in-out;
     height: 72px;
@@ -342,7 +412,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 .docs-page__graphic-btn-graphic {
     width: 56px;
     border-radius: 3px;
-    background: linear-gradient(180deg, rgba(233,249,245,1) 4%, rgba(200,231,238,1) 96%);
+    background: var(--docs-page-color-bg__graphic-btn-graphic);
     position: relative;
 }
 .docs-page__graphic-btn-graphic img {
@@ -363,7 +433,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 .docs-page__small-text {
     font-size: 1.3rem;
     font-weight: 300;
-    color: #333;
+    color: var(--color-text-light);
     opacity: 0.7;
 }
 
@@ -433,9 +503,9 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 }
 .docs-page__window-bar {
     padding: 10px;
-    border-top: 1px solid #eaeae9;
-    border-bottom: 1px solid #dfdfde;
-    background: #ebebeb;
+    border-top: 1px solid var(--docs-page-border__window-bar--top);
+    border-bottom: 1px solid var(--docs-page-border__window-bar--bottom);
+    background: var(--docs-page-color-bg__window-bar);
 }
 .docs-page__window-bar>a, .docs-page__window-bar>span {
     font-size: 16px;
@@ -483,10 +553,10 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     border-radius: 4px;
 }
 .docs-page__content-row--white {
-    background: #fff;
+    background: var(--docs-page-color-bg__content-row--white);
 }
 .docs-page__content-row--gray {
-    background: #F2F2F2;
+    background: var(--docs-page-color-bg__content-row--grey);;
     padding: 10px;
 }
 .docs-page__code-markup {
@@ -555,7 +625,7 @@ pre.prettyprint {
     padding: 20px;
 }
 .docs-page__code-example .flex-grid.flex-grid--boxed .flex-grid__item {
-    background-color: #fff !important;
+    background-color: var(--docs-page-color-bg-10) !important;
     border:none;
     border-radius: 2px;
     box-shadow: 0 1px 4px rgba(0,0,0,.12) !important;
@@ -582,7 +652,6 @@ pre.prettyprint {
 
 .docs-page__icon-font-list li i {
     margin-bottom: 8px;
-    color: #000;
 }
 
 .docs-page__container {
@@ -713,9 +782,9 @@ pre.prettyprint {
 .docs-page__grid-page-example {
     position: relative;
     min-height: 600px;
-    background-color: rgb(239, 239, 239);
+    background-color: var(--sd-colour-background__main-list);
     overflow: hidden;
-    border: 1px solid rgb(218, 218, 218);
+    border: 1px solid var(--color-border-line--light);
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: auto 1fr;
@@ -777,7 +846,7 @@ pre.prettyprint {
 }
 
 .docs-page__example-box {
-    background-color: #fff;
+    background-color: var(--docs-page-color-bg__example-box);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -825,8 +894,13 @@ doc-gif-img:hover img {
     cursor: pointer;
 }
 
-.docs-page__container table{
+.docs-page__container table {
     margin-bottom: 32px;
+    border-color: var(--docs-page-border__table) !important;
+}
+.docs-page__container table th,
+.docs-page__container table td {
+    border-color: var(--docs-page-border__table) !important;
 }
 /* -------------- END COLOR SWATCHES -------------- */
 

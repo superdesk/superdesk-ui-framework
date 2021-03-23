@@ -1,13 +1,15 @@
 // DROPDOWN MENUS : Basic : dropdowns/basic-dropdowns.scss
 // --------------
 
-$dropdownBackground:            $white;
+
+
+$dropdownBackground:            var(--color-dropdown-menu-Bg);
 $dropdownBorder:                1px solid #c6c6c6;
-$dropdownLinkColor:             $sd-text;
+$dropdownLinkColor:             var(--color-dropdown-menu-text);
 $dropdownLinkColorHover:        $sd-text;
 $dropdownLinkBackgroundHover:   $sd-hover;
 
-$dropdownMenuBorderRadius: $border-radius__base--small;
+$dropdownMenuBorderRadius:      $border-radius__base--small;
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropdown {
@@ -70,7 +72,7 @@ $dropdownMenuBorderRadius: $border-radius__base--small;
     margin-left: 4px;
     border-left:  4px solid transparent;
     border-right: 4px solid transparent;
-    border-top:   4px solid $black;
+    border-top:   4px solid currentColor;
     opacity: .3;
     content: "";
     @include transition(all, 0.1s, ease-in);
@@ -129,12 +131,14 @@ $dropdownMenuBorderRadius: $border-radius__base--small;
                 margin-top: -0.3rem;
                 min-width: 1.9rem;
                 vertical-align: middle;
+                color: var(--color-text-light);
             }
             > i[class^="icon-"] {
                 margin-right: 1rem;
                 margin-top: -0.3rem;
                 min-width: 1.9rem;
                 vertical-align: middle;
+                color: var(--color-icon-default);
             }
             &.disabled, &[disabled] {
                 opacity: .5;
@@ -208,7 +212,7 @@ $dropdownMenuBorderRadius: $border-radius__base--small;
     height: 1px;
     margin: 0.8rem 0;
     overflow: hidden;
-    background-color: #e5e5e5;
+    background-color: var(--color-border-line--light);
 }
 
 // Button variation for menu items with active state (.dropdown__menu-item--active); 
@@ -275,14 +279,14 @@ $dropdownMenuBorderRadius: $border-radius__base--small;
     }
 }
 .dropdown__menu-header {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--color-border-line--light);
     margin-bottom: 0.6rem;
 }
 
 .dropdown__menu-footer {
     padding: 1rem;
     margin-top: 0.6rem;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--color-border-line--light);
     &--align-right {
         text-align: right;
     }

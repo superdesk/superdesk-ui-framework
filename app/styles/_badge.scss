@@ -52,9 +52,8 @@ $badge-lineheight: 1.1em !default;
     }
     // light gray
     &--light {
-        background-color: #ddd;
-        background-color: scale-color($grayNeutral, $alpha: -80%);
-        color: $grayDark;
+        background-color: scale-color($grayNeutral, $alpha: -70%);
+        color: $sd-text;
         font-weight: 500;
     }
     &--square {
