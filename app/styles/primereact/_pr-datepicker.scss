@@ -1,10 +1,7 @@
 .p-datepicker {
-    color: $sd-text;
-    background: $white;
-    @include modal-box-shadow();
-    padding: 10px;
-    border-radius: 4px;
-    
+    @include pr-dropdown-panel-base;
+    padding: 12px;
+    margin-top: 1px;
     .p-datepicker-title {
         text-transform: uppercase;
         font-weight: bold;
@@ -45,7 +42,10 @@ p-datepicker-year {
 .p-datepicker table td > span {
     &:not(.p-highlight):not(.p-disabled) {
         &:hover {
-            background-color: $sd-hover;
+            background-color: $sd-colour-background__menu-item--hover;
+        }
+        &:active {
+            background-color: $sd-colour-background__menu-item--active;
         }
     }
 }
@@ -58,16 +58,17 @@ p-datepicker-year {
     justify-content: center;
     width: 28px;
     height: 28px;
-    border-radius: 2px;
+    border-radius: $border-radius__base--x-small;
     font-weight: normal;
     margin-left: 3px;
     margin-right: 3px;
+    transition: $sd-transition__menu-item;
 }
 
 
 // selected date style
 .p-datepicker .p-highlight {
-    background-color: $sd-blue;
+    background-color: $sd-colour-interactive__base;
     color: $white;
 }
 
@@ -84,31 +85,47 @@ p-datepicker-year {
     }
 
     &:not(.p-disabled) .p-button-icon-left:hover {
-        color: $sd-blue;
+        color: $sd-colour-interactive__base;
     }
 }
 
 .p-calendar {
+    @include pr-input-item-base;
     .p-inputtext {
-        color: $sd-text;
+        color: inherit;
+        height: $height-input--default;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid var(--color-input-border);
-        font-size: 14px;
-        padding-top: 3px;
-        padding-bottom: 2px;
+        font-size: 1.4rem;
+        padding: 0.2rem 0.8rem 0;
+        width: 100%;
     }
 }
 
 .p-calendar-w-btn {
-    width: 110px;
+    width: 116px;
 
     .p-inputtext {
         width: calc(100% - 24px);
     }
 
     .p-datepicker-trigger {
-        width: 24px;
-        margin: 0;
+        width: 2.4rem;
+        height: 2.4rem;
+        color: inherit;
+        margin: 0 4px 0 0;
+        [class^="icon-"],
+        [class*=" icon-"] {
+            color: inherit;
+            margin-top: -2px;
+            opacity: 0.75;
+        }
+        &:hover {
+            [class^="icon-"],
+            [class*=" icon-"] {
+                opacity: 0.99;
+            }
+        }
+
     }
 }

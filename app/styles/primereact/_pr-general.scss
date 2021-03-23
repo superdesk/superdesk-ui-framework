@@ -1,0 +1,60 @@
+// GENERAL STYLES & MIXINS
+
+@mixin pr-menu-item-base {
+    display: block;
+    font-weight: normal;
+    line-height: 1.2;
+    min-height: 3rem;
+    white-space: nowrap;
+    color: inherit;
+    background-color: transparent;
+    padding: 0.6rem 1.6rem;
+    margin-bottom: 0.2rem;
+    font-size: 1.3rem;
+    text-decoration: none;
+    text-align: left;
+    transition: $sd-transition__menu-item;
+    &:hover,
+    &:focus,
+    &.p-highlight {
+        background-color: $sd-colour-background__menu-item--hover;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    &:active {
+        background-color: $sd-colour-background__menu-item--active;
+    }
+}
+
+@mixin pr-input-item-base {
+display: inline-flex;
+align-items: center;
+height: $height-input--default; 
+border-bottom: 1px solid var(--color-input-border);
+background-color: var(--color-input-bg);
+font-size: 1.4rem;
+transition: border linear 0.2s, box-shadow linear 0.2s;
+transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
+
+    &:hover {
+        background-color: var(--color-input-bg--hover);
+        border-color: var(--color-input-border-hover);
+    }
+    &:focus, &:focus-within, &.p-focus {
+        background-color: scale-color($sd-colour-interactive__base, $alpha: -86%);
+        box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
+        border-color: $sd-colour-interactive__base;
+    }
+}
+
+@mixin pr-dropdown-panel-base {
+    background-color: var(--color-dropdown-menu-Bg);
+    color: var(--color-dropdown-menu-text);
+    box-shadow: $shadow__dropdown--default;
+    border-radius: $border-radius__base--small;
+}
+
+.p-disabled {
+    opacity: 0.5;
+}
