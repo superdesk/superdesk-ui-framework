@@ -5,7 +5,7 @@ import ToastWrapper from './ToastWrapper';
 
 const TOAST_ID = "react-toast";
 
-class Toasted {
+export class Toasted {
     componentRef: ToastWrapper | null;
     constructor() {
         this.componentRef = null;
@@ -33,7 +33,3 @@ class Toasted {
         }
     }
 }
-
-const toast = new Toasted();
-
-export default toast;

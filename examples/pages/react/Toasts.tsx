@@ -2,60 +2,62 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 import { HeadingText, Button, Prop, PropsList } from '../../../app-typescript';
-import toast from '../../../app-typescript/components/Toast';
+import { Toasted } from '../../../app-typescript/components/Toast';
 
 export default class ToastsDoc extends React.Component {
+    private toast = new Toasted();
+
     // default
     showDefault = () => {
-        toast.notify("I'm a tasty default Toast message!", {});
+        this.toast.notify("I'm a tasty default Toast message!", {});
     }
 
     // all positions
     showAll = () => {
-        toast.notify('Position top', { position: 'top' });
-        toast.notify('Position top-left', { position: 'top-left' });
-        toast.notify('Position top-right', { position: 'top-right' });
-        toast.notify('Position bottom', { position: 'bottom' });
-        toast.notify('Position bottom-left', { position: 'bottom-left' });
-        toast.notify('Position bottom-right', { position: 'bottom-right' });
+        this.toast.notify('Position top', { position: 'top' });
+        this.toast.notify('Position top-left', { position: 'top-left' });
+        this.toast.notify('Position top-right', { position: 'top-right' });
+        this.toast.notify('Position bottom', { position: 'bottom' });
+        this.toast.notify('Position bottom-left', { position: 'bottom-left' });
+        this.toast.notify('Position bottom-right', { position: 'bottom-right' });
     }
 
     // duration
     showDuration = () => {
-        toast.notify("Curabitur blandit tempus porttitor.", { duration: 3000 });
+        this.toast.notify("Curabitur blandit tempus porttitor.", { duration: 3000 });
     }
     showNull = () => {
-        toast.notify("Curabitur blandit tempus porttitor.", {});
+        this.toast.notify("Curabitur blandit tempus porttitor.", {});
     }
 
     // coloring and icon
     showSuccess = () => {
-        toast.notify("I'm a tasty default Toast message!", { type: 'success', icon: 'ok'});
+        this.toast.notify("I'm a tasty default Toast message!", { type: 'success', icon: 'ok'});
     }
     showAlert = () => {
-        toast.notify("Danger! Condimentum ridiculus ultricies ornare mollis.", { type: 'alert', icon: 'exclamation-sign', position: 'bottom'});
+        this.toast.notify("Danger! Condimentum ridiculus ultricies ornare mollis.", { type: 'alert', icon: 'exclamation-sign', position: 'bottom'});
     }
 
     // size
     showSizeS = () => {
-        toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-s' });
+        this.toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-s' });
     }
     showSizeM = () => {
-        toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-m' });
+        this.toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-m' });
     }
     showSizeL = () => {
-        toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-l' });
+        this.toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-l' });
     }
     showSizeXL = () => {
-        toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-xl' });
+        this.toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-xl' });
     }
 
     // custom element
     showCustomHeading = () => {
-        toast.notify(<HeadingText heading='I have Toaster heading!' text='Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.' />, { type: 'primary', icon: 'info-sign', position: 'bottom' });
+        this.toast.notify(<HeadingText heading='I have Toaster heading!' text='Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.' />, { type: 'primary', icon: 'info-sign', position: 'bottom' });
     }
     showAnotherCustomElement = () => {
-        toast.notify(
+        this.toast.notify(
         <React.Fragment>
             <div className="sd-toast__icon"></div>
                 <figure className="sd-toast__avatar avatar">sd</figure>
@@ -75,6 +77,8 @@ export default class ToastsDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Toasts</h2>
                 <Markup.ReactMarkupCodePreview>{`
+                    const toast = new Toasted();
+
                    toast.notify("I'm a tasty default Toast message!", {});
                 `}
                 </Markup.ReactMarkupCodePreview>
@@ -89,6 +93,8 @@ export default class ToastsDoc extends React.Component {
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
+                        const toast = new Toasted();
+
                         toast.notify("I'm a tasty default Toast message!", {});
 
                         toast.notify('Position top', { position: 'top' });
@@ -112,6 +118,8 @@ export default class ToastsDoc extends React.Component {
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
+                        const toast = new Toasted();
+
                         toast.notify("Curabitur blandit tempus porttitor.", { duration: 3000 });
                         toast.notify("Curabitur blandit tempus porttitor.", {});
                     `}
@@ -130,6 +138,8 @@ export default class ToastsDoc extends React.Component {
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
+                        const toast = new Toasted();
+
                         toast.notify("I'm a tasty default Toast message!", { type: 'success', icon: 'ok'});
                         toast.notify("Danger! Condimentum ridiculus ultricies ornare mollis.", { type: 'alert', icon: 'exclamation-sign', position: 'bottom'});
                     `}
@@ -148,6 +158,8 @@ export default class ToastsDoc extends React.Component {
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
+                        const toast = new Toasted();
+
                        toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-s' });
                        toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-m' });
                        toast.notify("Et harum quidem rerum facilis est et expedita distinctio.", { position: 'top-left', size: 'fixed-l' });
@@ -166,6 +178,8 @@ export default class ToastsDoc extends React.Component {
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
+                        const toast = new Toasted();
+
                         toast.notify(<HeadingText heading='I have Toaster heading!' text='Nulla vitae elit libero, a pharetra augue. Nullam id dolor id nibh ultricies vehicula ut id elit. Donec id elit non mi porta gravida at eget metus.' />, { type: 'primary', icon: 'info-sign', position: 'bottom' });
                         toast.notify(
                         <React.Fragment>
