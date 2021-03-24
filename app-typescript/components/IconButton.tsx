@@ -6,7 +6,7 @@ interface IProps {
     icon?: string;
     ariaValue: string;
     size?: 'small';
-    onClick(): void;
+    onClick(event: React.MouseEvent): void;
 }
 
 export class IconButton extends React.PureComponent<IProps> {
