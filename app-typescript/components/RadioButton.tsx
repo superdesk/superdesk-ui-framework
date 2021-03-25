@@ -1,21 +1,21 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
-interface IProps<T> {
-    value?: T;
+interface IProps {
+    value?: string;
     options: Array<{
         label: string,
-        value: T,
+        value: string,
         icon?: string;
         labelHidden?: boolean,
         disabled?: boolean
     }>;
     required?: boolean;
-    onChange(nextValue: any): void;
+    onChange(nextValue: string): void;
 }
-export class RadioButton<T> extends React.Component<IProps<T>> {
+export class RadioButton extends React.Component<IProps> {
     htmlId = nextId();
 
-    constructor(props: IProps<T>) {
+    constructor(props: IProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
     }

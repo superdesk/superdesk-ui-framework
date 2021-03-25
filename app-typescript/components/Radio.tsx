@@ -1,20 +1,20 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
-interface IProps<T> {
-    value?: T;
+interface IProps {
+    value?: string;
     options: Array<{
         label: string,
-        value: T,
+        value: string,
         disabled?: boolean
     }>;
     labelSide?: 'left' | 'right'; // defaults to 'right'
     required?: boolean;
-    onChange(nextValue: boolean): void;
+    onChange(nextValue: string): void;
 }
-export class Radio<T> extends React.Component<IProps<T>> {
+export class Radio extends React.Component<IProps> {
     htmlId = nextId();
 
-    constructor(props: IProps<T>) {
+    constructor(props: IProps) {
         super(props);
         this.handleChange = this.handleChange.bind(this);
     }
