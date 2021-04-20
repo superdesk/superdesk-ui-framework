@@ -158,7 +158,7 @@ $background-active: scale-color($background, $alpha: 100%))
     &--next-inner, &--prev-inner {
         &:active {
             &::after {
-                color: $sd-colour-interactive__base;
+                color: $sd-colour-interactive;
             }
         }
     } 
@@ -227,7 +227,7 @@ $background-active: scale-color($background, $alpha: 100%))
         border: 1px solid rgba(255,255,255,0.4);
     }
     &--active {
-        outline: 1px solid $sd-colour-interactive__base;
+        outline: 1px solid $sd-colour-interactive;
         border: 1px solid rgba(255,255,255,0.8);
         box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
         cursor: default;
@@ -293,11 +293,11 @@ $background-active: scale-color($background, $alpha: 100%))
     transition: all ease-in-out 0.2s; 
     &[contenteditable="true"] {
         &:hover {
-            border-color: scale-color($sd-colour-interactive__base, $alpha: -60%);
+            border-color: var(--sd-colour-interactive--alpha-60);
         }
         &:focus {
-            border-color: scale-color($sd-colour-interactive__base, $alpha: 100%);
-            box-shadow: inset 0 -1px 0 0 $sd-colour-interactive__base;
+            border-color: $sd-colour-interactive;
+            box-shadow: inset 0 -1px 0 0 $sd-colour-interactive;
         }
         &:empty {
             &:before {

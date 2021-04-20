@@ -21,7 +21,7 @@
         @include transition(all, 0.2s, ease-out);
     }
     &.checked {
-        background: $sd-colour-interactive__base--active;
+        background: var(--sd-colour-interactive--active);
         .inner {
             left:2.4rem;
         }

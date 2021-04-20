@@ -91,7 +91,7 @@
     }
 }
 .label--active {
-    color: darken($sd-colour-interactive__base, 6%);
+    color: var(--sd-colour-interactive--darken-10);
 }
 
 .form__block {

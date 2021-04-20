@@ -26,26 +26,154 @@
     cursor: pointer;
 }
 
-// Display helper classes
+// DISPLAY HELPERS
 // --------------------------------------------------
+// Use classes with the form '.sd-display-- ', others will be deprecated
 
-.sd-d-none {
+.sd-display--none {
     display: none !important;
 }
-.sd-d-inline {
+.sd-display--inline {
     display: inline !important;
 }
-.sd-d-inline-block {
+.sd-display--inline-block {
     display: inline-block !important;
 }
-.sd-d-block {
+.sd-display--block {
     display: block !important;
 }
-.sd-d-flex {
+
+// Browser ignores this element from the flow. 
+// Use it to wrap other elements without breaking the layout (e.g. flex or grid)
+.sd-display--contents { 
+    display: contents !important;
+}
+
+// Display Table
+.sd-display--table {
+    display: table;
+}
+.sd-display--table-cell {
+    display: table-cell;
+}
+.sd-display--table-row {
+    display: table-row;
+}
+.sd-display--table-column {
+    display: table-column;
+}
+.sd-display--table-column-group {
+    display: table-column-group;
+}
+.sd-display--table-row-group {
+    display: table-row-group;
+}
+.sd-display--table-footer-group {
+    display: table-footer-group;
+}
+.sd-display--table-header-group {
+    display: table-header-group;
+}
+.sd-display--table-caption {
+    display: table-caption;
+}
+
+
+.sd-display--inline-flex {
+    display: inline-flex !important;
+}
+.sd-display--flex {
     display: flex !important;
 }
-.sd-d-inline-flex {
-    display: inline-flex !important;
+
+
+// FLEXBOX PROPERTIES
+
+// Flex direction
+.sd-flex--direction-row {
+    flex-direction: row;
+}
+.sd-flex--direction-col {
+    flex-direction: column;
+}
+.sd-flex--direction-row-reverse {
+    flex-direction: row-reverse;
+}
+.sd-flex--direction-col-reverse {
+    flex-direction: column-reverse;
+}
+// Flex wrap
+.sd-flex--wrap {
+    flex-wrap: wrap;
+}
+.sd-flex--wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+.sd-flex--nowrap {
+    flex-wrap: nowrap;
+}
+// Flex flex
+.sd-flex--flex-1 {
+    flex: 1 1 0%;
+}
+.sd-flex--flex-1 {
+    flex: 1 1 0%;
+}
+.sd-flex--flex-auto {
+    flex: 1 1 auto;
+}
+.sd-flex--flex-initial {
+    flex: 0 1 auto;
+}
+.sd-flex--flex-none {
+    flex: none;
+}
+// Flex shrink & grow
+.sd-flex--shrink {
+    flex-shrink: 1 !important;
+}
+.sd-flex--shrink-0 {
+    flex-shrink: 0 !important;
+}
+.sd-flex--grow {
+    flex-grow: 1 !important;
+}
+.sd-flex--grow-0 {
+    flex-grow: 0 !important;
+}
+// Flex alignment
+.sd-flex--justify-start {
+    justify-content: flex-start !important;
+}
+.sd-flex--justify-end {
+    justify-content: flex-end !important;
+}
+.sd-flex--justify-center {
+    justify-content: center !important;
+}
+.sd-flex--justify-between {
+    justify-content: space-between !important;
+}
+.sd-flex--justify-around {
+    justify-content: space-around !important;
+}
+.sd-flex--justify-evenly {
+    justify-content: space-evenly !important;
+}
+.sd-flex--items-start {
+    align-items: flex-start !important;
+}
+.sd-flex--items-end {
+    align-items: flex-end !important;
+}
+.sd-flex--items-center {
+    align-items: center !important;
+}
+.sd-flex--items-baseline {
+    align-items: baseline !important;
+}
+.sd-flex--items-stretch {
+    align-items: stretch !important;
 }
 
 // Hide if empty
@@ -53,19 +181,124 @@
     display: none !important;
 }
 
-// Overflow helper classes
+// POSITION HELPERS
 // --------------------------------------------------
-.overflow-auto {
-    overflow: auto !important;
+.sd-position--static {
+    position: static;
 }
-.overflow-hidden {
-    overflow: hidden !important;
+.sd-position--fixed {
+    position: fixed;
 }
-.overflow-x-hidden {
-    overflow-x: hidden !important;
+.sd-position--relative {
+    position: relative;
+}
+.sd-position--absolute {
+    position: absolute;
+}
+.sd-position--sticky {
+    position: sticky;
 }
 
-// Shadow helper classes
+// OVERFLOW HELPERS
+// --------------------------------------------------
+
+.sd-overflow--auto {
+    overflow: auto !important;
+}
+.sd-overflow--hidden {
+    overflow: hidden !important;
+}
+.sd-overflow--visible {
+    overflow: visible !important;
+}
+.sd-overflow--scroll {
+    overflow: scroll !important;
+}
+.sd-overflow--x-auto {
+    overflow-x: auto !important;
+}
+.sd-overflow--y-auto {
+    overflow-y: auto !important;
+}
+.sd-overflow--x-hidden {
+    overflow-x: hidden !important;
+}
+.sd-overflow--y-hidden {
+    overflow-y: hidden !important;
+}
+.sd-overflow--x-visible {
+    overflow-x: visible !important;
+}
+.sd-overflow--y-visible {
+    overflow-y: visible !important;
+}
+.sd-overflow--x-scroll {
+    overflow-x: scroll !important;
+}
+.sd-overflow--y-scroll {
+    overflow-y: scroll !important;
+}
+
+// Text overflow
+.sd-overflow-ellipsis, .sd-overflow--ellipsis {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+// OBJECT FIT HELPERS
+// --------------------------------------------------
+
+.sd-object-fit--contain {
+    object-fit: contain;
+}
+.sd-object-fit--cover {
+    object-fit: cover;
+}
+.sd-object-fit--fill {
+    object-fit: fill;
+}
+.sd-object-fit--none {
+    object-fit: none;
+}
+.sd-object-fit--scale-down {
+    object-fit: scale-down;
+}
+
+// OBJECT POSITION HELPERS
+// --------------------------------------------------
+// Defines the positin of any selected replaced element (e.g., an <img>)
+// within the box that contains it. For it to work it must be used with 'sd-object-fit--none' (object-fit: none;)
+
+.sd-object-position--bottom {
+    object-position: bottom;
+}
+.sd-object-position--center {
+    object-position: center;
+}
+.sd-object-position--left {
+    object-position: left;
+}
+.sd-object-position--left-bottom {
+    object-position: left bottom;
+}
+.sd-object-position--left-top {
+    object-position: left top;
+}
+.sd-object-position--right {
+    object-position: right;
+}
+.sd-object-position--right-bottom {
+    object-position: right bottom;
+}
+.sd-object-position--right-top {
+    object-position: right top;
+}
+.sd-object-position--top {
+    object-position: top;
+}
+
+// SHADOW HELPER CLASSES
 // --------------------------------------------------
 
 $sd-shadowProperties: (
@@ -113,7 +346,7 @@ $sd-shadowProperties: (
 
 
 
-// Webkit scroll
+// WEBKIT SCROLL
 // --------------------------------------------------
 
 ::-webkit-scrollbar {
@@ -136,42 +369,7 @@ $sd-shadowProperties: (
     cursor: pointer;
 }
 
-// text overflow
-// --------------------------------------------------
-
-.sd-overflow-ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-// content no wrap 
-// --------------------------------------------------
-
-.sd-no-wrap {
-    white-space: nowrap;
-}
-
-// Element with badge
-.element-with-badge {
-    display: inline-block;
-    position: relative;
-    .badge {
-      position: absolute;
-      top: -.9rem;
-      right: -.9rem;
-    }
-    + .element-with-badge, + .btn {
-      margin-left: 1.2rem;
-      vertical-align: top;
-    }
-}
-.btn + .element-with-badge {
-    margin-left: 1.2rem;
-    vertical-align: top;
-}
-
-// Deafult headings 
+// HEADINGS 
 // --------------------------------------------------
 
 .sd-heading-3 {
@@ -193,29 +391,161 @@ time {
     }
 }
 
-// General text helpers
+// TYPOGRAPHY HELPERS
+// -------------------------------------------------
 
-.sd-text__normal {
+// .sd-text {
+//     color: inherit;
+//     font-weight: 300;
+//     line-height: 1.5;
+//     &--medium {
+//         font-size: 1.4rem;
+//     }
+//     &--large {
+//         font-size: 1.6rem;
+//     }
+// }
+
+// Font weights 
+.sd-text__light,
+.sd-text--light {
+    font-weight: 300;
+}
+.sd-text__normal,
+.sd-text--normal {
     font-weight: 400;
 }
-.sd-text__normal {
-    font-weight: 400;
-}
-.sd-text__strong, .sd-text__strong-s {
+.sd-text--medium  {
     font-weight: 500;
 }
-.sd-text__italic {
+.sd-text__strong,
+.sd-text--strong  {
+    font-weight: 500;
+}
+.sd-text--bold  {
+    font-weight: 700;
+}
+// Font style
+.sd-text__italic,
+.sd-text--italic {
     font-style: italic;
 }
-.sd-text__right {
-    text-align: right;
+.sd-text--non-italic {
+    font-style: normal;
 }
-.sd-text__center {
+// Text alignment
+.sd-text-align--left {
+    text-align: left;
+}
+.sd-text__center,
+.sd-text-align--center {
     text-align: center;
 }
-.sd-text__serif {
-    font-family:'Merriweather', Georgia, 'Times New Roman', Times, serif !important;
+.sd-text__right,
+.sd-text-align--right {
+    text-align: right;
 }
+.sd-text-align--justify {
+    text-align: justify;
+}
+// Font family
+.sd-text__serif,
+.sd-text--serif  {
+    font-family: $baseFontFamilySerif;
+}
+.sd-text--sans  {
+    font-family: $baseFontFamily;
+}
+.sd-text--mono  {
+    font-family: $baseFontFamilyMono;
+}
+// Word Break
+.sd-word-break--normal {
+    overflow-wrap: normal;
+    word-break: normal;
+}
+.sd-word-break--words {
+    overflow-wrap: break-word;
+}
+.sd-word-break--all {
+    word-break: break-all;
+}
+// Whitespace
+.sd-whitespace--normal {
+    white-space: normal;
+}
+.sd-whitespace--nowrap {
+    white-space: nowrap;
+}
+.sd-whitespace--pre {
+    white-space: pre;
+}
+.sd-whitespace--pre-line {
+    white-space: pre-line;
+}
+.sd-whitespace--pre-wrap {
+    white-space: pre-wrap;
+}
+// Text Transform
+.sd-txt-transform--upercase {
+    text-transform: uppercase;
+}
+.sd-txt-transform--lowercase {
+    text-transform: lowercase;
+}
+.sd-txt-transform--capitalize {
+    text-transform: capitalize;
+}
+.sd-txt-transform--none {
+    text-transform: none;
+}
+// Text Decoration
+.sd-txt-decoration--underline {
+    text-decoration: underline;
+}
+.sd-txt-decoration--line-through {
+    text-decoration: line-through;
+}
+.sd-txt-decoration--none {
+    text-decoration: none;
+}
+
+// Line Clamp
+// limit the number of horizontal lines in an elemnt (e.g. <p>)
+// it doesn't work if the element has set flex-grow: 1;
+@mixin line-clamp-base {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.sd-line-clamp--1 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 1;
+}
+.sd-line-clamp--2 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 2;
+}
+.sd-line-clamp--3 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 3;
+}
+.sd-line-clamp--4 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 4;
+}
+.sd-line-clamp--5 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 5;
+}
+.sd-line-clamp--6 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 6;
+}
+.sd-line-clamp--none {
+    -webkit-line-clamp: unset;
+}
+
 // Superdesk specific text helpers 
 .sd-text__slugline {
     color: $sd-slugline;
@@ -231,17 +561,6 @@ time {
     line-height: 1.4;
 }
 
-.sd-text {
-    color: inherit;
-    font-weight: 300;
-    line-height: 1.5;
-    &--medium {
-        font-size: 1.4rem;
-    }
-    &--large {
-        font-size: 1.6rem;
-    }
-}
 .sd-text__date-time {
     color: #747474;
     font-weight: 300;
@@ -255,83 +574,11 @@ time {
 }
 .sd-text__author {
     font-weight: 500;
-    //color: $sd-text;
 }
+
 .sd-text__info {
     font-weight: 300;
     color: $grayText;
-}
-
-.dark-ui {
-    .sd-text__slugline {
-        color: $sd-slugline-darkUI;
-    }
-}
-
-
-// Dashboard content header
-.dashboard-content-header {
-    display: flex;
-    padding: 1.5rem;
-}
-
-.big-number-block {
-    display: flex;
-    color: $grayNeutral;
-
-    &__number {
-        font-size: 3.6rem;
-        font-weight: 300;
-        line-height: 100%;
-        letter-spacing: -.02em;
-    }
-    &__text {
-        margin: 0 1rem;
-        line-height: 120%;
-        font-weight: 300;
-    }
-
-    &--grow {
-        flex-grow: 1;
-    }
-    &--center {
-        align-items: center;
-    }
-}
-.dashboard-thumbnail-block {
-    display: flex;
-
-    &__image {
-        border: 1px solid #d6d6d6;
-    }
-    &__meta {
-        padding: 0 1rem;
-        display: flex;
-        flex-direction: column;
-    }
-    &__label {
-        font-size: 1.2rem;
-        color: $grayLight;
-    }
-    &__heading {
-        display: flex;
-        font-weight: 700;
-        padding: .3rem 0;
-
-        i {
-            margin-right: .5rem;
-        }
-    }
-    &__link {
-        color: $sd-colour-interactive__base;
-        text-decoration: none;
-        border-bottom: 1px dotted $sd-colour-interactive__base;
-        &:hover {
-            border-bottom: 1px solid $sd-colour-interactive__base;
-            text-decoration: none;
-            color: $sd-colour-interactive__base;
-        }
-    }
 }
 
 .sd-text-icon {
@@ -348,7 +595,9 @@ time {
     margin-left: 1rem;
 }
 
-// opacity
+// Opacity helpers
+// -------------------------------------------------
+
 .sd-opacity--20 {
     opacity: 0.2 !important;
 }
@@ -372,18 +621,8 @@ time {
 }
 
 
-// panel border
-.panel-border-left {
-    border-right: 0;
-    border-left: 2px solid rgba(0, 0, 0, 0.4);
-}
-.panel-border-right {
-    border-left: 0;
-    border-right: 2px solid rgba(0, 0, 0, 0.4);
-}
-
-
-// auto margin
+// Margin auto
+// -------------------------------------------------
 
 .ml-auto,
 .sd-margin-l--auto {
@@ -412,35 +651,6 @@ time {
 }
 .sd-margin--auto {
     margin: auto !important;
-}
-
-
-// flex
-.sd-display-flex-column {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-}
-.sd-flex-wrap {
-    flex-wrap: wrap;
-}
-.sd-flex-shrink {
-    flex-shrink: 1 !important;
-}
-.sd-flex-no-shrink {
-    flex-shrink: 0 !important;
-}
-.sd-flex-justify-end {
-    justify-content: flex-end !important;
-}
-.sd-flex-align-items-center {
-    align-items: center !important;
-}
-.sd-flex-grow {
-    flex-grow: 1 !important;
-}
-.sd-flex-no-grow {
-    flex-grow: 0 !important;
 }
 
 // Common margin overrides
@@ -555,123 +765,97 @@ $sd-properties: (padding, margin); // It's generating these properties
 //-------------------------------------------------------
 
 
-// Overlay block
-
-.sd-overlay-block {
-    position: relative;
-    
-    img {
-        width: 100%;
-    }
-    
-    &__overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-        background-color: rgba(0, 0, 0, 0.5);
-        transition: 0.2s linear opacity;   
-        opacity: 0;
-        color: #fff;
-    }
-
-    &:hover {
-        .sd-overlay-block__overlay {
-            opacity: 1;
-        }
-    }
-
-    &__overlay-action-group {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 1;        
-    }
-
-    &__overlay-action {
-        flex-grow: 0;
-        flex-shrink: 0;
-        color: #fff;
-        width: 5.6rem;
-        height: 5.6rem;
-        border: 2px solid rgba(255, 255, 255, 0.5);
-        border-radius: $border-radius__base--full;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        transition: 0.2s linear all;
-        cursor: pointer;
-        text-decoration: none;
-        background-color: transparent;
-    
-        i {
-            color: #fff;
-            height: 2.4rem;
-            width: 2.4rem;
-            font-size: 2.4rem;
-            line-height: 1;
-            opacity: 0.5;
-            transition: 0.2s linear all;
-        }
-
-        &:hover {
-            border-color: white;
-            background-color: rgba(0, 0, 0, 0.4);
-            text-decoration: none;
-
-            i {
-                opacity: 1;
-            }
-        }
-        + .sd-overlay-block__overlay-action {
-            margin-left: 2rem;
-        }
-    }
-    .sd-overlay-block__overlay-message {
-        display: none;
-        margin-top: 1rem;
-        color: $grayText;
-    }
-
-    &--no-image {
-        height: 160px;
-        border: 2px dashed $grayDark;
-
-        .sd-overlay-block__overlay {
-            opacity: 1;
-        }
-        img {
-            display: none;
-        }
-        .sd-overlay-block__overlay-action-group {
-            flex-direction: column;
-        }
-        .sd-overlay-block__overlay-message {
-            display: block;
-        }
-    }
-}
-
 .sd-wrap-helper {
     display: contents !important;
- }
+}
 
- .sd-word-break--all {
-    word-break: break-all;
- }
 
- .sd-accessibility__btn-text--invisible, .sd-accessibility__screenreader-text {
-     position: absolute;
-     top: 0;
-     left: 0;
-     font-size: 0.1rem;
-     color: transparent !important;
-     pointer-events: none;
- }
+
+.sd-accessibility__btn-text--invisible,
+.sd-accessibility__screenreader-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-size: 0.1rem;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+
+// remove this after refactoring
+// --------------------------------------------
+.overflow-auto {
+    overflow: auto !important;
+}
+.overflow-hidden {
+    overflow: hidden !important;
+}
+.overflow-x-hidden {
+    overflow-x: hidden !important;
+}
+.sd-d-none {
+    display: none !important;
+}
+.sd-d-inline {
+    display: inline !important;
+}
+.sd-d-inline-block {
+    display: inline-block !important;
+}
+.sd-d-block {
+    display: block !important;
+}
+.sd-d-flex {
+    display: flex !important;
+}
+.sd-d-inline-flex {
+    display: inline-flex !important;
+}
+
+.ml-auto {
+    margin-left: auto !important;
+}
+.mr-auto {
+    margin-right: auto !important;
+}
+.mt-auto {
+    margin-top: auto !important;
+}
+.mb-auto {
+    margin-bottom: auto !important;
+}
+.mlr-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.sd-display-flex-column {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.sd-flex-wrap {
+    flex-wrap: wrap;
+}
+.sd-flex-shrink {
+    flex-shrink: 1 !important;
+}
+.sd-flex-no-shrink {
+    flex-shrink: 0 !important;
+}
+.sd-flex-justify-end {
+    justify-content: flex-end !important;
+}
+.sd-flex-align-items-center {
+    align-items: center !important;
+}
+.sd-flex-grow {
+    flex-grow: 1 !important;
+}
+.sd-flex-no-grow {
+    flex-grow: 0 !important;
+}
+
+.sd-no-wrap {
+    white-space: nowrap;
+}
+// --------------------------------------------

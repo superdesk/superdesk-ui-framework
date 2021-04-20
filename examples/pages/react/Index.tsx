@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { ReactNav, ReactDefault } from '../../js/react';
+import { ButtonGroup, Button, NavButton, Dropdown } from '../../../app-typescript/index';
 
 import {
     Switch,
@@ -175,36 +176,44 @@ interface IProps {
     theme?: string;
 }
 interface IState {
-    theme: string;
+    theme: 'dark' | 'light' | string;
 }
 
 class ReactDoc extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            theme: 'light-ui',
+            theme: 'light',
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
-    handleTheme() {
-        if (this.state.theme === 'light-ui') {
-            this.setState({
-                theme: 'dark-ui'
-            })
-        } else {
-            this.setState({
-                theme: 'light-ui'
-            })
-        }
+    handleTheme(newTheme: string) {
+        this.setState({
+            theme: newTheme
+        })
     }
     render() {
         return (
             <React.Fragment>
                 <ReactNav pages={pages} />
                 <main className="docs-page__content docs-page__container-fluid" data-theme={this.state.theme}>
-                    <button className="docs-page__fla-button" aria-label="Change theme" onClick={this.handleTheme}>
-                        <i className="icon-adjust"></i>
-                    </button>
+                    <div className="docs-page__fla-button-container">
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group', label: 'Chose a theme', items: [
+                                        'divider',
+                                        { label: 'Light', icon: 'adjust', onSelect: () => this.handleTheme('light-ui')},
+                                        { label: 'Dark', icon: 'adjust', onSelect: () => this.handleTheme('dark-ui')},
+                                        { label: 'Accessible Light', icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui')},
+                                    ]
+                                },
+                            ]}>
+                            <button className="docs-page__fla-button" aria-label="Change theme" onClick={()=> false}>
+                                <i className="icon-adjust"></i>
+                            </button>
+                        </Dropdown>
+                    </div>
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />

@@ -60,18 +60,22 @@
         <div id="leftContent" sd-media-query min-width="880" max-width="1100" ng-init="darkUI = false; listView = true" class="sd-content-wrapper__main-content-area sd-main-content-grid" ng-class="{'dark-ui': darkUI}">
             <!-- TOOLBAR HEADER -->
             <div class="sd-main-content-grid__header">
-                <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+                <div class="subnav">
                     <div class="subnav__sliding-toolbar" ng-show="select1 || select2 || select3 || select4 || select5 || select6 || select7 || select8 || select9 || select10 || select11 || select12 || select13 || select14 || select15 || select16 || select17 || select18 || select19 || select20 || select21 || select22 || select23 || select24 || select25 || select26 || select27 || select28 || select29 || select30 || select31 || select32 || select33 || select34 || select35 || select36">
                         <div class="sliding-toolbar__inner">
-                            <a class="btn" ng-click="select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false">Cancel</a>
+                            <button class="btn" ng-click="select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false">Cancel</button>
                             <span class="sliding-toolbar__info-text">1 item selected</span>
                         </div>
-                        <a class="btn btn--primary" ng-click="openModal('imageModal'); multiEdit = true; select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false; select11 = true; select12 = true; select13 = true; select14 = true">Edit metadata</a>
-                        <a class="btn btn--alert"><i class="icon-trash"></i>Delete</a>
+                        <div class="button-group button-group--right">
+                            <button class="btn btn--primary">Edit metadata</button>
+                            <button class="btn btn--alert"><i class="icon-trash"></i>Delete</button>
+                        </div>
                     </div>
                     <div class="dropdown" dropdown="">
-                        <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">Monitoring<span class="dropdown__caret"></span></button>
-                        <ul class="dropdown__menu scrollable" style="">
+                        <button class="dropdown__toggle sd-navbtn sd-navbtn--textual dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">
+                            <span class="sd-navbtn__text">Monitoring</span>
+                        </button>
+                        <ul class="dropdown__menu scrollable">
                             <li><div class="dropdown__menu-label ng-binding">Monitoring</div></li>
                             <li><button>Incoming stage</button></li>
                             <li><button>Working stage</button></li>
@@ -79,8 +83,8 @@
                         </ul>
                     </div>
                     <div class="subnav__spacer subnav__spacer--no-margin"></div>
-                    <div class="sd-searchbar" ng-class="{'sd-searchbar--focused': focused}" >
-                        <label for="search-input" class="sd-searchbar__icon"></label>
+                    <div class="sd-searchbar sd-searchbar--expanded" ng-class="{'sd-searchbar--focused': focused}" >
+                        <label for="search-input" class="sd-searchbar__icon" aria-hidden="Search content"></label>
                         <input id="search-input"
                                 class="sd-searchbar__input"
                                 type="text"
@@ -89,15 +93,15 @@
                                 ng-model="query"
                                 tabindex="1"
                                 ng-focus="focused = true">
-                        <button class="sd-searchbar__cancel" ng-if="query">
-                            <i class="icon-remove-sign"></i>
+                        <button class="sd-searchbar__cancel" ng-if="query" aria-label="Reset search">
+                            <i class="icon-remove-sign" aria-hidden="true"></i>
                         </button>
-                        <button id="sd-searchbar__search-btn" class="sd-searchbar__search-btn" ng-if="focused" tabindex="2">
-                            <i class="big-icon--chevron-right"></i>
+                        <button id="sd-searchbar__search-btn" aria-label="Start search" class="sd-searchbar__search-btn" ng-if="focused" tabindex="2">
+                            <i class="icon-chevron-right-thin" aria-hidden="true"></i>
                         </button>
                     </div>
                     <div class="dropdown dropdown--align-right" dropdown>
-                        <button class="dropdown__toggle navbtn sd-create-btn" dropdown__toggle>
+                        <button class="dropdown__toggle sd-navbtn sd-create-btn" dropdown__toggle>
                             <i class="icon-plus-large"></i>
                             <span class="circle"></span>
                         </button>
@@ -115,8 +119,8 @@
                         </ul>
                     </div>
                 </div>
-                <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
-                    <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
+                <div class="subnav">
+                    <button class="sd-navbtn sd-navbtn--left sd-navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'sd-navbtn--active': leftFilterOpen}">
                         <i class="icon-filter-large"></i>
                     </button>
                     <div class="subnav__stretch-bar">
@@ -149,11 +153,11 @@
                         <a class="icn-btn" sd-tooltip="Ascending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-show="!sortDesc"><i class="icon-ascending"></i></a>
     
                     </div>
-                    <button class="navbtn" ng-click="darkUI = !darkUI">
+                    <button class="sd-navbtn" ng-click="darkUI = !darkUI">
                         <i class="icon-adjust"></i>
                     </button>
                     <div class="dropdown dropdown--align-right" dropdown>
-                        <button class="navbtn" dropdown__toggle>
+                        <button class="sd-navbtn" dropdown__toggle>
                             <i class="icon-list-view" ng-show="listView"></i>
                             <i class="icon-kanban-view" ng-show="swimlaneView"></i>
                             <i class="icon-grid-view" ng-show="gridView"></i>
@@ -166,7 +170,7 @@
                         </ul>
                     </div>
                     <div class="dropdown dropdown--align-right" dropdown>
-                        <button class="dropdown__toggle navbtn" dropdown__toggle>
+                        <button class="dropdown__toggle sd-navbtn" dropdown__toggle>
                             <i class="icon-dots-vertical"></i>
                         </button>
                         <ul class="dropdown__menu">
@@ -184,7 +188,7 @@
             <!-- FILTER PANEL -->
             <div class="sd-main-content-grid__filter" ng-class="{'open-filters': leftFilterOpen}">
                 <div class="side-panel__container">
-                    <div class="side-panel side-panel--shadow-left">
+                    <div class="side-panel side-panel--grey side-panel--left">
                         <div class="side-panel__header side-panel__header--border-b">
                             <a class="icn-btn side-panel__close" sd-tooltip="Close filters" flow="left" ng-click="leftFilterOpen = !leftFilterOpen"><i class="icon-close-small"></i></a>
                             <h3 class="side-panel__heading">Advanced filters</h3>  
@@ -564,18 +568,18 @@
             <!-- PREVIEW PANEL -->
             <div class="sd-main-content-grid__preview"  ng-class="{'open-preview': leftPreviewOpen}">
                 <div class="side-panel__container">
-                    <div class="side-panel side-panel--bg-00 side-panel--shadow-right" ng-class="{'side-panel--dark-ui' : darkUI}">
+                    <div class="side-panel side-panel--bg-00 side-panel--shadow-right">
                         <div class="side-panel__header">
                             <div class="side-panel__tools">
                                 <!-- <a class="icn-btn" sd-tooltip="Edit details" flow="top" ng-click="editorOpen = true; leftPreviewOpen = false"><i class="icon-pencil"></i></a> -->
                                 <a class="icn-btn" sd-tooltip="Close details" flow="top" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1"><i class="icon-close-small"></i></a>
                             </div>
-                            <ul class="nav-tabs" ng-class="{'nav-tabs--ui-dark' : darkUI}">
-                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'event-details'}" class="nav-tabs__tab">
-                                    <button ng-click="tab = 'event-details'" class="nav-tabs__link"><span translate="">Content</span></button>
+                            <ul class="sd-nav-tabs">
+                                <li ng-class="{'sd-nav-tabs__tab--active': !tab || tab === 'event-details'}" class="sd-nav-tabs__tab">
+                                    <button ng-click="tab = 'event-details'" class="sd-nav-tabs__link"><span translate="">Content</span></button>
                                 </li>
-                                <li ng-class="{'nav-tabs__tab--active': tab === 'event-history'}" class="nav-tabs__tab">
-                                    <button ng-click="tab = 'event-history'" class="nav-tabs__link"><span translate="">History</span></button>
+                                <li ng-class="{'sd-nav-tabs__tab--active': tab === 'event-history'}" class="sd-nav-tabs__tab">
+                                    <button ng-click="tab = 'event-history'" class="sd-nav-tabs__link"><span translate="">History</span></button>
                                 </li>
                             </ul> 
                         </div>
@@ -701,16 +705,16 @@
                 </div>
             </div>
             <!-- OVERLAY PANEL ( Send To ) -->
-            <div class="sd-main-content-grid__overlay">
-                <div class="sd-overlay-panel sd-overlay-panel--dark-ui" ng-class="{'sd-overlay-panel--open' : sendToOpen}">
-                    <div class="side-panel side-panel--dark-ui">
+            <div class="sd-main-content-grid__overlay" data-theme="dark-ui">
+                <div class="sd-overlay-panel" ng-class="{'sd-overlay-panel--open' : sendToOpen}">
+                    <div class="side-panel">
                         <div class="side-panel__header">
                             <div class="side-panel__tools">
                                 <a class="icn-btn" ng-click="sendToOpen = !sendToOpen"><i class="icon-close-small"></i></a>
                             </div>
-                            <ul class="nav-tabs nav-tabs--big nav-tabs--ui-dark">
-                                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'send-to'}" class="nav-tabs__tab">
-                                    <button class="nav-tabs__link"><span translate="">Send to</span></button>
+                            <ul class="sd-nav-tabs sd-nav-tabs--big">
+                                <li ng-class="{'sd-nav-tabs__tab--active': !tab || tab === 'send-to'}" class="sd-nav-tabs__tab">
+                                    <button class="sd-nav-tabs__link"><span translate="">Send to</span></button>
                                 </li>
                             </ul>
                         </div>
@@ -719,7 +723,7 @@
                             <div class="side-panel__content-block">
                                 <div sd-toggle-box data-title="Destination" data-style="circle" data-open="true">
                                     <div class="form__row">
-                                        <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-label sd-line-input--no-margin">
+                                        <div class="sd-line-input sd-line-input--is-select sd-line-input--boxed sd-line-input--no-label sd-line-input--no-margin">
                                             <select class="sd-line-input__select">
                                                 <option value="single">Politics desk</option>
                                                 <option value="time">Sports desk</option>
@@ -740,12 +744,12 @@
                                 </div>
                                 <div sd-toggle-box data-title="Embargo" data-style="circle" data-open="true">
                                     <div class="form__row form__row--flex  form__row--small-padding">
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                        <div class="sd-line-input sd-line-input--boxed sd-line-input--no-margin">
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
                                             <label class="sd-line-input__label">Embargo till</label>
                                             <input class="sd-line-input__input" type="text">
                                         </div>
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                        <div class="sd-line-input sd-line-input--boxed sd-line-input--no-margin">
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
                                             <input class="sd-line-input__input" type="text">
                                         </div>
@@ -754,12 +758,12 @@
                                 </div>
                                 <div sd-toggle-box data-title="Publish schedule" data-style="circle" data-open="true">
                                     <div class="form__row form__row--flex  form__row--small-padding">
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                        <div class="sd-line-input sd-line-input--boxed sd-line-input--no-margin">
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
                                             <label class="sd-line-input__label">Publish on</label>
                                             <input class="sd-line-input__input" type="text">
                                         </div>
-                                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                        <div class="sd-line-input sd-line-input--boxed sd-line-input--no-margin">
                                             <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
                                             <input class="sd-line-input__input" type="text">
                                         </div>

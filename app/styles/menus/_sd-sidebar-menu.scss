@@ -1,7 +1,7 @@
 
-$sd-sidebarMenu-background: var(--color-bg-150);
-$sd-sidebarMenu-secondLevel-background: #b7bec1;
-$sd-sideTabMenu-background: var(--color-bg-200);
+$sd-sidebarMenu-background: var(--sd-colour-sidebar-menu--00);
+$sd-sidebarMenu-secondLevel-background: var(--sd-colour-sidebar-menu--10);
+$sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
 .sd-sidebar-menu {
   position: absolute;
@@ -50,11 +50,11 @@ $sd-sideTabMenu-background: var(--color-bg-200);
     background-color: rgba(255, 255, 255, .6);
   }
   &:active {
-    background-color: $sd-colour-interactive__base;
+    background-color: $sd-colour-interactive;
     opacity: 1;
   }
   &--active, &--active:hover {
-    background-color: $sd-colour-interactive__base--active;
+    background-color: var(--sd-colour-interactive--active);
     opacity: 1;
 
     .sd-sidebar-menu__main-icon {
@@ -206,7 +206,7 @@ $sd-sideTabMenu-background: var(--color-bg-200);
   background: rgba(255,255,255,0.2);
   border-color: rgba(0,0,0,0.18);
   .sd-sidetab-menu__main-icon {
-    color: $sd-colour-interactive__base--active !important;
+    color: var(--sd-colour-interactive--active) !important;
   }
   &:hover {
     .sd-sidetab-menu__helper-icon {
@@ -242,11 +242,11 @@ $sd-sideTabMenu-background: var(--color-bg-200);
     background-color: rgba(255, 255, 255, .6);
   }
   &:active {
-    background-color: $sd-colour-interactive__base;
+    background-color: $sd-colour-interactive;
     opacity: 1;
   }
   &--active, &--active:hover {
-    background-color: $sd-colour-interactive__base--active;
+    background-color: var(--sd-colour-interactive--active);
     opacity: 1;
   }
 }

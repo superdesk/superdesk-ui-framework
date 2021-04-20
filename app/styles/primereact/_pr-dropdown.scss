@@ -36,8 +36,8 @@
     height: 28px;
     transition: all ease 0.2s;
     &:focus {
-        border: 1px solid $sd-colour-interactive__base;
-        box-shadow: inset scale-color($sd-colour-interactive__base, $alpha: -80%) 0px 0px 0px 0.2rem;
+        border: 1px solid $sd-colour-interactive;
+        box-shadow: inset var(--sd-colour-interactive--alpha-20) 0px 0px 0px 0.2rem;
     }
 }
 

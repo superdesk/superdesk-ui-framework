@@ -68,7 +68,7 @@ p-datepicker-year {
 
 // selected date style
 .p-datepicker .p-highlight {
-    background-color: $sd-colour-interactive__base;
+    background-color: $sd-colour-interactive;
     color: $white;
 }
 
@@ -85,7 +85,7 @@ p-datepicker-year {
     }
 
     &:not(.p-disabled) .p-button-icon-left:hover {
-        color: $sd-colour-interactive__base;
+        color: $sd-colour-interactive;
     }
 }
 

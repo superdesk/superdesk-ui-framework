@@ -85,6 +85,7 @@
     flex-grow: 1;
     padding: 20px;
     overflow: auto;
+    background-color: $mainListBackGround;
 
     &--centered-dashboard {
         display: grid;
@@ -123,13 +124,6 @@
         opacity: 0;
         transition: all 0.2s ease-out;
         transition-delay: .1s;
-        .side-panel__header {
-            background-color: $sd-background-darkUI;
-        }
-    }
-    &--dark-ui {
-        background-color: $sd-background-darkUI !important;
-        color: $white;
     }
     &--open {
         width:40rem;
@@ -141,12 +135,14 @@
             width:68rem;
         }
     }
-
 }
 
-.dark-ui {
-    .sd-page__content {
-        background-color: $grayMedium;
-        color: $white;
+[data-theme="dark-ui"] {
+    .sd-overlay-panel {
+        .side-panel {
+            .side-panel__header {
+                background-color: var(--sd-colour-bg--01);
+            }
+        }
     }
 }

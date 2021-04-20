@@ -44,7 +44,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
 .dropdown__toggle:active,
 .dropdown.open .dropdown__toggle {
     outline: 0;
-    color: $sd-colour-interactive__base;
+    color: $sd-colour-interactive;
 }
 
 .dropdown.open .dropdown .dropdown__toggle {
@@ -88,7 +88,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
 }
 
 .dropdown.open .dropdown__caret {
-    border-top-color: $sd-colour-interactive__base;
+    border-top-color: $sd-colour-interactive;
 }
 
 // The dropdown menu
@@ -104,7 +104,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
     margin: 0; // override default ul
     list-style: none;
     background-color: $dropdownBackground;
-    box-shadow: 0 2px 10px rgba(0,0,0,.4),0 3px 1px -2px rgba(0,0,0,.1);
+    box-shadow: $shadow__dropdown--default;
     border-radius: $dropdownMenuBorderRadius;
     text-align: left;
 
@@ -159,7 +159,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
             }
         }
         .preferred-desk {
-            background-color: lighten($sd-colour-interactive__base, 30%) !important;
+            background-color: var(--sd-colour-interactive--lighten-30) !important;
         }
     }
     &.dropdown__menu--plain {
@@ -220,7 +220,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
 .dropdown__menu {
     .dropdown__menu-item--active {
         button, button:hover {
-            background-color: lighten($sd-colour-interactive__base, 10%) !important;
+            background-color: var(--sd-colour-interactive--lighten-10) !important;
             color: white !important;
             [class^="icon-"], [class*=" icon-"],
             [class^="filetype-icon-"], [class*=" filetype-icon-"] {
@@ -228,7 +228,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
             }
         }
         button:hover {
-            background-color: $sd-colour-interactive__base !important;
+            background-color: $sd-colour-interactive !important;
         }
     }
     .dropdown__menu-item--highlighted {
@@ -326,7 +326,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
 .dropdown__menu {
     .menu-item--active {
         button, button:hover {
-            background-color: lighten($sd-colour-interactive__base, 10%);
+            background-color: var(--sd-colour-interactive--lighten-10);
             color: white;
             [class^="icon-"], [class*=" icon-"],
             [class^="filetype-icon-"], [class*=" filetype-icon-"] {
@@ -334,7 +334,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
             }
         }
         button:hover {
-            background-color: $sd-colour-interactive__base;
+            background-color: $sd-colour-interactive;
         }
     }
 }
@@ -384,7 +384,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
     }
     &.open {
         .dropdown__caret {
-            border-bottom-color: $sd-colour-interactive__base !important;
+            border-bottom-color: $sd-colour-interactive !important;
         }
     }
 }
@@ -557,9 +557,9 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
                 background-color: rgba(255, 255, 255, 0.1);
             }
             &:focus {
-                border-color: $sd-colour-interactive__base;
+                border-color: $sd-colour-interactive;
                 background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
+                box-shadow: 0 1px 0 0 $sd-colour-interactive;
             }
         }
     }
@@ -571,7 +571,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
             }
             &--line {
                 background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-colour-interactive__base, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
+                box-shadow: 0 1px 0 0 $sd-colour-interactive, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
             }
         }
     }
@@ -628,7 +628,7 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
         border-top-color: $white;
     }
     .dropdown.open .dropdown__caret {
-        border-top-color: $sd-colour-interactive__base;
+        border-top-color: $sd-colour-interactive;
     }
 }
 

@@ -1,6 +1,6 @@
 // EDITOR Themes
-$color-swatch-border-color: scale-color($sd-colour-interactive__base, $alpha: -100%);
-$color-swatch-border-active-color: $sd-colour-interactive__base;
+$color-swatch-border-color: transparent;
+$color-swatch-border-active-color: $sd-colour-interactive;
 
 $color-swatch-size: 6.8rem;
 $color-swatch-inner-size: 6rem;
@@ -10,9 +10,9 @@ $theme-color: $sd-text !default;
 
 
 // Theme fonts
-$font-sans-1: 'Roboto', sans-serif;
-$font-serif-1: 'Merriweather', serif;
-$font-monospace-1: 'Roboto Mono', monospace;
+$font-sans-1: $baseFontFamily;
+$font-serif-1: $baseFontFamilySerif;
+$font-monospace-1: $baseFontFamilyMono;
 
 $theme-font-list: (
   sans: $font-sans-1,

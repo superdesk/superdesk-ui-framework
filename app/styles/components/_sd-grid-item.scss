@@ -1,36 +1,20 @@
 // Default sd-card  styling
 // ---------------------------------------------
 
-$sd-grid-item-thumb-bg:                 hsla(0, 0%, 17%, 1);
-//background color 
-$sd-grid-item-Bg:                       var(--color-grid-item-Bg);
-$sd-grid-item-Bg-selected:              scale-color($sd-colour-interactive__base, $lightness: 96%);
-$sd-grid-item-Bg-activated:             scale-color($sd-colour-interactive__base, $lightness: 96%);
-//background color - dark UI
-$sd-grid-item-Bg-darkUI:                var(--color-grid-item-Bg);
-$sd-grid-item-Bg-darkUI-selected:       scale-color($sd-colour-interactive__base, $saturation: -20%, $lightness: -82%);
-$sd-grid-item-Bg-darkUI-activated:      scale-color($sd-colour-interactive__base, $saturation: -20%, $lightness: -82%);
 //border-radius
 $sd-grid-item-border-radius:            $border-radius__base--medium;
 //shadows
 $sd-grid-item-shadow:                   0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
 $sd-grid-item-shadow-hover:             0 1px 6px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26);
-$sd-grid-item-shadow-selected:          0 0 0 2px $sd-colour-interactive__base, 0 0 0 5px scale-color($sd-colour-interactive__base, $alpha: -72%);
-$sd-grid-item-shadow-activated:         0 0 0 2px  scale-color($sd-colour-interactive__base, $alpha: -50%);
-//shadows - dark UI
-$sd-grid-item-shadow-darkUI:            0 1px 4px rgba(0, 0, 0, 0.6), 0 1px 5px rgba(0, 0, 0, 0.36);
-$sd-grid-item-shadow-darkUI-hover:      0 1px 6px rgba(0, 0, 0, 0.8), 0 1px 10px rgba(0, 0, 0, 0.46);
-$sd-grid-item-shadow-darkUI-selected:   0 0 0 2px $sd-colour-interactive__base, 0 0 0 5px scale-color($sd-colour-interactive__base, $alpha: -64%);
-$sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-interactive__base, $alpha: -40%);
-
+$sd-grid-item-shadow-selected:          var(--sd-shadow__item--selected);
+$sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--alpha-50);
 
 .sd-grid-item {
     position: relative;
     border-radius: $sd-grid-item-border-radius;
     box-shadow: $sd-grid-item-shadow;
-    background-color: $sd-grid-item-Bg;
+    background-color: var(--sd-item__main-Bg);
     color: $sd-text;
-    // min-height: 12rem;
     display: flex;
     flex-direction: column;
     @include transition(all, 100ms, ease-in);
@@ -46,7 +30,6 @@ $sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-intera
     }
     &--activated, &--active, &.active, &.activated {
         box-shadow: $sd-grid-item-shadow-activated;
-        background-color: $sd-grid-item-Bg-activated;
 
     }
     &.actioning {
@@ -63,7 +46,7 @@ $sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-intera
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 60px;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: var(--sd-colour-overlay-actioning);
             pointer-events: none;
             border-radius: $sd-grid-item-border-radius;
         }
@@ -71,7 +54,7 @@ $sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-intera
     
     &--selected, &.selected {
         box-shadow: $sd-grid-item-shadow-selected;
-        background-color: $sd-grid-item-Bg-selected;
+        background-color: var(--sd-colour-bg__grid-item--selected);
     }
     .sd-grid-item__actions {
         margin:0;
@@ -273,7 +256,7 @@ $sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-intera
         display: flex;
         flex-direction: column;
         align-items: center;        
-        background-color: $sd-grid-item-thumb-bg;
+        background-color: var(--sd-item__thumb-Bg);
         padding: 0;
         min-height: 4rem;
         color: $white;
@@ -391,7 +374,7 @@ $sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-intera
 
     .sd-grid-item__footer {
         padding: 0.4rem 0.2rem;
-        border-top: 1px solid rgba(123,123,123,0.24);
+        border-top: 1px solid var(--sd-colour-line--x-light);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -686,55 +669,6 @@ $sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-intera
     }
 }
 
-.dark-ui, [data-theme="dark-ui"] {
-    &.sd-column-box__main-column {
-        //background-color: #444;
-    }
-    .sd-column-box__main-column {
-        //background-color: #444;
-    }
-    .sd-grid-item {
-        box-shadow: $sd-grid-item-shadow-darkUI;
-        .sd-grid-item__text-label {
-            opacity: 0.4;
-        }
-        .sd-grid-item__text-strong {
-            opacity: 0.5;
-        }
-        &--activated, &.activated {
-            background-color: $sd-grid-item-Bg-darkUI-activated;
-            box-shadow: $sd-grid-item-shadow-darkUI-activated;
-        }
-        &--selected, &.selected {
-            box-shadow: $sd-grid-item-shadow-darkUI-selected;
-        }
-        &--with-click {
-            &:hover {
-                box-shadow: $sd-grid-item-shadow-darkUI-hover;
-            }
-            &.sd-grid-item--activated, &.activated {
-                &:hover {
-                    box-shadow: $sd-grid-item-shadow-darkUI-activated;
-                }
-            }
-            &.sd-grid-item--selected, &.selected  {
-                background-color: $sd-grid-item-Bg-darkUI-selected;
-                &:hover {
-                    box-shadow: $sd-grid-item-shadow-darkUI-selected;
-                }
-            }
-            &:active {
-                box-shadow: $sd-grid-item-shadow-darkUI-activated;
-            }
-        }
-        &.actioning {
-            &::before {
-                background-color: hsla(0, 0%, 14%, 0.85);
-            }
-        }
-    }
-}
-
 .sd-grid-item-wrapper {
     display: flex;
     flex-direction: column;
@@ -774,6 +708,17 @@ $sd-grid-item-shadow-darkUI-activated:  0 0 0 2px  scale-color($sd-colour-intera
                     border-bottom-style: solid;
                 }
             }
+        }
+    }
+}
+
+.dark-ui, [data-theme="dark-ui"] {
+    .sd-grid-item {
+        .sd-grid-item__text-label {
+            opacity: 0.4;
+        }
+        .sd-grid-item__text-strong {
+            opacity: 0.5;
         }
     }
 }

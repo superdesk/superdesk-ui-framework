@@ -1,3 +1,4 @@
+@import 'variables';
 @mixin clearfix {
     *zoom: 1;
     &:before,
@@ -89,7 +90,7 @@
     padding: 0 16px;
     color: $sd-colour-text__base;
     animation: dropOut2 .3s cubic-bezier(.695,.105,.285,1.275) 1;
-    background-color: $sd-colour-background__sliding-toolbar;
+    background-color: var(--sd-colour-bg__sliding-toolbar);
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
     &--right {
         text-align: right;

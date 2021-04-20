@@ -22,7 +22,7 @@
     &.open {
         & > .dropdown__toggle {
             background-color: var(--color-dropdown-menu-Bg);
-            color: $sd-colour-interactive__base;
+            color: $sd-colour-interactive;
             box-shadow:-3px 0px 1px -2px #999,3px 0px 1px -2px #999;
             z-index: 3;
             &.sd-create-btn {
@@ -79,14 +79,14 @@
                         margin-right: 10px;
                     }
                     &:hover {
-                        background: $sd-colour-interactive__base;
+                        background: $sd-colour-interactive;
                         color: #fff;
                     }
                 }
             }
             &:active {
                 > button {
-                    background: $sd-colour-interactive__base;
+                    background: $sd-colour-interactive;
                     color: #fff;
                 }
             }

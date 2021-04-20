@@ -243,10 +243,10 @@ $photo-nav-transition: all 0.2s ease-out;
         }
     }
     &:active {
-        border-color: $sd-colour-interactive__base;
+        border-color: $sd-colour-interactive;
         background-color: rgba(0, 0, 0, 0.8);
         i {
-            color: $sd-colour-interactive__base;
+            color: $sd-colour-interactive;
         }
     }
 }
@@ -299,7 +299,7 @@ $photo-nav-transition: all 0.2s ease-out;
     $background: rgba(0,0,0,1),
     $background-normal: scale-color($background, $alpha: -20%),
     $background-hover: scale-color($background, $alpha: -10%),
-    $background-active: $sd-colour-interactive__base) 
+    $background-active: $sd-colour-interactive) 
 {
     border-radius: $border-radius__base--full;
     cursor: pointer;
@@ -364,7 +364,7 @@ $photo-nav-transition: all 0.2s ease-out;
         opacity: 1;
     }
     &:active {
-        background-color: $sd-colour-interactive__base;
+        background-color: $sd-colour-interactive;
         opacity: 1;
     }
 }
@@ -394,8 +394,8 @@ $photo-nav-transition: all 0.2s ease-out;
     bottom: 0; 
     left:0;
     z-index: 0;
-    border: 2px dashed $sd-colour-interactive__base;
-    background-color: scale-color($sd-colour-interactive__base, $alpha: -90%);
+    border: 2px dashed $sd-colour-interactive;
+    background-color: var(--sd-colour-interactive--alpha-10);
 }
 
 .upload__info {

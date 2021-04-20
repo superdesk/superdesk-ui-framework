@@ -13,21 +13,21 @@
     height: 100%; // adapts to the height of the parent element, usually .subnav. 
     max-height: $subnav-height;
     &--focused {
-        background-color: $white;
-        box-shadow: inset 0 0 0 1px scale-color($sd-colour-interactive__base, $alpha: -50%), inset 0 0 0 6px scale-color($sd-colour-interactive__base, $alpha: -85%);
+        background-color: var(--sd-colour-bg__searchbar);
+        box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 6px var(--sd-colour-interactive--alpha-20);
     }
     &--border-r {
-        border-right: 1px solid #dfdfdf;
+        border-right: 1px solid var(--sd-colour-line--x-light);
     }
     &--border-l {
-        border-left: 1px solid #dfdfdf;
+        border-left: 1px solid var(--sd-colour-line--x-light);
     }
     &--border-l-r {
-        border-right: 1px solid #dfdfdf;
-        border-left: 1px solid #dfdfdf;
+        border-right: 1px solid var(--sd-colour-line--x-light);
+        border-left: 1px solid var(--sd-colour-line--x-light);
     }
     &--border-bottom {
-        border-bottom: 1px solid rgba(123,123,123,0.2);
+        border-bottom: 1px solid var(--sd-colour-line--light);
     }
     &--small {
         height: 3.6rem;
@@ -36,14 +36,16 @@
         height: 4rem;
         border-radius: $border-radius__base--medium;
         border: 1px solid rgba(123,123,123,0.4);
-        background-color: $white;
+        background-color: var(--sd-colour-bg__searchbar);
         box-shadow: inset 0 2px 4px rgba(0,0,0,0.14);
+        transition: box-shadow 0.2s ease-out;
         &:hover {
             border-color: rgba(123,123,123,0.6);
         }
         &.sd-searchbar--focused {
-            border-color: scale-color($sd-colour-interactive__base, $alpha: 0.75);
-            box-shadow: inset 0 0 0 1px scale-color($sd-colour-interactive__base, $alpha: -90%), inset 0 0 0 4px scale-color($sd-colour-interactive__base, $alpha: -90%);
+            transition: box-shadow 0.2s ease-out;
+            border-color: var(--sd-colour-interactive--alpha-70);
+            box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
 
         }
         &.sd-searchbar--invalid {
@@ -124,25 +126,26 @@
     align-self: center;
     margin: 0 0.8rem 0 0;
     padding: 0;
-    opacity: 0.6;
+    opacity: 0.8;
     transition: all 0.2s ease-out;
-    background-color: scale-color($sd-colour-interactive__base, $alpha: -65%);
+    background-color: var(--sd-colour-interactive--alpha-30);
     border-radius: $border-radius__base--full;
     display: flex;
     align-items: center;
     justify-content: center;
     i {
         transition: color 0.2s ease-out;
-        color: $sd-colour-interactive__base;
+        color: $sd-colour-interactive;
     }
     &:hover {
-        background-color: scale-color($sd-colour-interactive__base, $alpha: -30%);
+        background-color: var(--sd-colour-interactive--alpha-80);
         i {
             color: $white;
         }
     }
     &:active {
-        background-color: scale-color($sd-colour-interactive__base, $alpha: -4%);
+        background-color: $sd-colour-interactive;
+        opacity: 1;
         i {
             color: $white;
         }
@@ -282,11 +285,9 @@
 [data-theme="dark-ui"] {
     .sd-searchbar--boxed {
         background-color: rgba(0,0,0,0.2);
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.4);
         &.sd-searchbar--focused {
-            border-color: rgba(61,143,177,0.75);
             background-color: rgba(0,0,0,0.25) !important;
-            box-shadow: inset 0 0 0 1px rgba(61,143,177,0.2), inset 0 0 0 4px rgba(61,143,177,0.16);
+            //box-shadow: inset 0 0 0 1px rgba(61,143,177,0.2), inset 0 0 0 4px rgba(61,143,177,0.16);
         }
 
     }

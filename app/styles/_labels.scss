@@ -1,33 +1,19 @@
-/// @group label
 
-/// Default background color for labels.
-$label-background: $gray !default;
-
-/// Default text color for labels.
-$label-color: $white !default;
+$label-background: var(--sd-colour-bg--08) !default;
+$label-color: var(--color-text--inverse) !default;
 
 /// Alternate text color for labels.
-$label-color-alt: $gray !default;
-$label-background-translucent: rgba(123,123,123,0.16);
+$label-color-alt: var(--sd-colour-btn-txt-neutral) !default;
+$label-background-translucent: var(--sd-colour-bg-translucent--08);
 
 /// Coloring classes. A map of classes to output in the CSS.
 $label-palette: $sd-extended-palette;
 
-/// Default padding inside labels.
-$label-padding: 0 0.8rem !default;
-$label-padding-large: 0.5rem 1.2rem;
+
 $label-link-padding: 0 1.8rem 0 0.8rem;
 
-$label-lineheight-large: 1;
-
-/// Default radius of labels.
-$label-radius: $border-radius__base--full !default;
-$label-radius-large: 1.2rem;
-
-$label-sizes: (
-  label--default: 0.9rem,
-  label--large: 1.2rem,
-) !default;
+$font-size__label--default: 0.9rem;
+$font-size__label--large: 1.2rem;
 
 /// Removes background fill for hollow buttons.
 @mixin label-hollow-style($color: $label-color-alt) {
@@ -42,35 +28,58 @@ $label-sizes: (
 
 /// Generates base styles for a label.
 @mixin label {
-    display: inline-block;
-    padding: $label-padding;
+    display: inline-flex;
+    align-items: center;
     vertical-align: middle;
-    border-radius: $label-radius;
+    justify-content: center;
+    padding: $padding__label--default;
+    vertical-align: middle;
+    border-radius: $border-radius__base--full;
     text-transform: uppercase;
-    line-height: 1.4rem;
+    line-height: 1;
+    height: $height__label--default;
     letter-spacing: 0.125em;
-    font-size: map-get($label-sizes, label--default);
+    font-size: $font-size__label--default;
     white-space: nowrap;
     cursor: default;
     border: 1px solid transparent;
     font-weight: 500;
+    &--large {
+        padding: $padding__label--large;
+        font-size: $font-size__label--large;
+        height: $height__label--large;
+    }
 }
+
+@mixin label-base {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
+    justify-content: center;
+    margin: $label-margin;
+    padding: $padding__label--default;
+    height: $height__label--default;
+    font-size: $font-size__label--default;
+    border: none;
+    border-radius: $border-radius__base--full;
+    text-transform: uppercase;
+    line-height: 1;
+    font-weight: 500;
+    letter-spacing: 0.125em;
+    text-align: center;
+    white-space: nowrap;
+    color: var(--color-text--inverse);
+
+    background-color: var(--sd-lbl-bg);
+
+    [class^="icon-"], [class*=" icon-"] {
+      color: currentColor;
+    }
+  }
 
 
 .label {
     @include label;
-
-    // Sizes
-    @each $size, $value in map-remove($label-sizes, label--default) {
-      &.#{$size} {
-        font-size: $value;
-        @if $size == label--large {
-          padding: $label-padding-large;
-          line-height: $label-lineheight-large;
-        }
-      }
-    }
-
     background: $label-background;
     color: $label-color;
     @each $name, $color in $label-palette {
@@ -80,8 +89,6 @@ $label-sizes: (
     }
     &.label--hollow {
         @include label-hollow-style;
-        
-
         @each $name, $color in $label-palette {
             &.label--#{$name} {
                 @include label-hollow-style($color);
@@ -90,19 +97,16 @@ $label-sizes: (
     }
     &.label--translucent {
         @include label-translucent-style;
-        
-
         @each $name, $color in $label-palette {
             &.label--#{$name} {
                 @include label-translucent-style($color);
-                background-color: scale-color($color, $alpha: -88%);
+                background-color: scale-color($color, $alpha: -80%);
             }
         }
     }
     &--annotation {
         background-color: $annotation-color;
         color: $grayMedium;
-
     }
     &--comment {
         background-color: $comment-color;
@@ -132,13 +136,11 @@ a.label {
         height: 1.6rem;
         font-size: 1.6rem;
         font-family: 'sd_icons';
-        speak: none;
         font-style: normal;
         font-weight: normal;
         font-variant: normal;
         text-transform: none;
     }
-
     &:hover, &:focus {
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     }

@@ -6,8 +6,8 @@ $tag-label-background-darkUi: rgba(255,255,255,0.2);
 $tag-bg-colors: (
   default: $tag-label-background,
   darker: $tag-label-background-darker,
-  highlight1: scale-color($sd-colour-interactive__base, $alpha: -70%),
-  highlight2: scale-color($sd-colour-interactive__base, $alpha: -35%),
+  highlight1: var(--sd-colour-interactive--alpha-70),
+  highlight2: var(--sd-colour-interactive--alpha-40),
 );
 /// Coloring classes. A map of classes to output in the CSS.
 $tag-label-palette: $tag-bg-colors !default;
@@ -98,7 +98,7 @@ $tag-label-lineheight: 100% !default;
             opacity: 1;
             background-color: rgba(255,255,255,0.85);
             [class^="icon-"], [class*=" icon-"] {
-              color: $sd-colour-interactive__base;
+              color: $sd-colour-interactive;
               opacity: 1;
             }
         }
@@ -141,7 +141,7 @@ $tag-label-lineheight: 100% !default;
         background-color: rgba(255, 255, 255, 0.06);
     }
     .tag-label.tag-label--highlight1 {
-        background: scale-color($sd-colour-interactive__base, $alpha: -50%);
+        background: var(--sd-colour-interactive--alpha-50);
     }
     .tag-label .tag-label__remove {
         background-color: rgba(0, 0, 0, 0.45);

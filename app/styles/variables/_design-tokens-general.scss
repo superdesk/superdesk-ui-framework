@@ -40,6 +40,9 @@ $height__button--default: $height-input--default;
 $height__button--small: $sd-base-increment * 3;
 $height__button--large: $sd-base-increment * 5;
 
+$height__label--default: $sd-base-increment * 2;
+$height__label--large: $sd-base-increment * 3;
+
 $height__icon-button--default: $height-input--default;
 $height__icon-button--small: $sd-base-increment * 3;
 
@@ -47,6 +50,9 @@ $height__icon-button--small: $sd-base-increment * 3;
 $padding__button--default: 0 1.2rem !default;
 $padding__button--small: 0 0.8rem;
 $padding__button--large: 0 1.6rem;
+
+$padding__label--default: 0 0.8rem;
+$padding__label--large: 0.5rem 1.2rem;
 
 // Border Radius
 $border-radius__base--x-small: 2px;
@@ -56,7 +62,16 @@ $border-radius__base--large: 6px;
 $border-radius__base--x-large: 8px;
 $border-radius__base--full: 9999px;
 
-
+:root, [data-theme="light-ui"] {
+    --sd-shadow-outline: hsla(0, 0%, 0%, 0);
+    --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.4), 0 3px 1px -2px hsla(0, 0%, 0%, 0.1);
+    --sd-shadow__modal: 0 0 0 1px var(--sd-shadow-outline), 0 0 8px 2px hsla(0, 0%, 0%, 0.3);
+}
+[data-theme="dark-ui"], .dark-ui {
+    --sd-shadow-outline: hsla(0, 0%, 100%, 0.08);
+    --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.6), 0 3px 1px -2px hsla(0, 0%, 0%, 0.2);
+    --sd-shadow__modal: 0 0 0 1px var(--sd-shadow-outline), 0 0 8px 2px hsla(0, 0%, 0%, 0.4);
+}
 
 // ELEVATIONS
 // ----------------------------------------------------
@@ -66,8 +81,8 @@ $shadow__base--z2: 0 1px 4px rgba(0,0,0,.16), 0 2px 6px rgba(0,0,0,.12), 0 0 1px
 $shadow__base--z3: 0 1px 6px rgba(0,0,0,.16), 0 3px 8px rgba(0,0,0,.24), 0 0 1px rgba(0,0,0,.1);
 $shadow__base--z4: 0 2px 10px rgba(0,0,0,.2), 0 6px 16px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.1);
 
-$shadow__dropdown--default: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
-$shadow__modal--default: 0 0 8px 2px rgba(0, 0, 0, 0.3);
+$shadow__dropdown--default: var(--sd-shadow__dropdown);
+$shadow__modal--default: var(--sd-shadow__modal);
 
 
 // TRANSITIONS

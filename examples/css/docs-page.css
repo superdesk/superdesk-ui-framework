@@ -355,6 +355,14 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     align-items: center;
 }
 
+.docs-page__fla-button-container {
+    position: fixed;
+    top: 90px;
+    right:32px;
+    z-index: 10;
+    height: 4.8rem;
+    width: 4.8rem;
+}
 .docs-page__fla-button {
     display: flex;
     align-items: center;
@@ -363,10 +371,10 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     cursor: pointer;
     height: 4.8rem;
     width: 4.8rem;
-    position: fixed;
+    /* position: fixed;
     top: 90px;
     right:32px;
-    z-index: 10;
+    z-index: 10; */
     /* left: calc(100vw - 380px); */
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12), 0 6px 24px rgba(0, 0, 0, 0.16);
     transition: all 0.2s ease;

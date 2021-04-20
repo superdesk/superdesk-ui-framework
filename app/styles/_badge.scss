@@ -1,13 +1,11 @@
-/// @group badge
 
-/// Default background color for badges.
-$badge-background: $gray !default;
 
-/// Default text color for badges.
-$badge-color: $white !default;
 
-/// Alternate text color for badges.
-$badge-color-alt: $gray !default;
+/// Default colors for badges.
+$badge-background: var(--sd-colour-bg--08) !default;
+$badge-background-translucent: var(--sd-colour-bg-translucent--08);
+$badge-color: var(--color-text--inverse) !default;
+$badge-color-alt: var(--sd-colour-btn-txt-neutral) !default;
 
 /// Coloring classes. A map of classes to output in the CSS.
 $badge-palette: $sd-basic-palette !default;
@@ -15,11 +13,9 @@ $badge-palette: $sd-basic-palette !default;
 /// Default padding inside badges.
 $badge-padding: 0.4em 0.5em 0.3em!default;
 
-/// Minimum width of a badge.
+
 $badge-minwidth: 1.8em !default;
 
-/// Default radius of a badge.
-$badge-radius: $border-radius__base--full;
 
 /// Default font size and line height for badges.
 $badge-font-size: 1rem !default;
@@ -30,34 +26,68 @@ $badge-lineheight: 1.1em !default;
     display: inline-block;
     min-width: $badge-minwidth;
     padding: $badge-padding;
-    border-radius: $badge-radius;
+    border-radius: $border-radius__base--full;
     font-size: $badge-font-size;
     line-height: $badge-lineheight;
     text-align: center;
     text-transform: uppercase;
     font-weight: 400;
-}
-
-.badge {
-    @include badge;
-
-    background: $badge-background;
-    color: $badge-color;
-
-    @each $name, $color in $badge-palette {
-        &.badge--#{$name} {
-        background: $color;
-        //color: color-pick-contrast($color, ($badge-color, $badge-color-alt));
-        }
-    }
-    // light gray
-    &--light {
-        background-color: scale-color($grayNeutral, $alpha: -70%);
-        color: $sd-text;
-        font-weight: 500;
-    }
+    --sd-badge-bg: var(--sd-colour-bg--08);
+    background-color: var(--sd-badge-bg);
+    color: var(--color-text--inverse);
     &--square {
         border-radius: $border-radius__base--x-small;
     }
 }
+
+.badge {
+    @include badge;
+    &.badge--primary {
+        --sd-badge-bg: var(--sd-colour-primary);
+    }
+    &.badge--success {
+        --sd-badge-bg: var(--sd-colour-success);
+    }
+    &.badge--warning {
+        --sd-badge-bg: var(--sd-colour-warning);
+    }
+    &.badge--alert {
+        --sd-badge-bg: var(--sd-colour-alert);
+    }
+    &.badge--highlight {
+        --sd-badge-bg: var(--sd-colour-highlight);
+    }
+    &.badge--sd-green {
+        --sd-badge-bg: var(--sd-colour-superdesk);
+    }
+    &.badge--secondary {
+        --sd-btn-bg: var(--sd-colour-secondary);
+    }
+    // light gray
+    &.badge--light {
+        background-color: var(--sd-colour-bg-translucent--08);
+        color: $sd-text;
+        font-weight: 500;
+    }
+}
+
+// Element with badge
+.element-with-badge {
+    display: inline-block;
+    position: relative;
+    .badge {
+      position: absolute;
+      top: -.9rem;
+      right: -.9rem;
+    }
+    + .element-with-badge, + .btn {
+      margin-left: 1.2rem;
+      vertical-align: top;
+    }
+}
+.btn + .element-with-badge {
+    margin-left: 1.2rem;
+    vertical-align: top;
+}
+
 

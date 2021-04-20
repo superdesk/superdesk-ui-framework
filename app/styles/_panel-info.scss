@@ -11,7 +11,7 @@
         padding-top: 1.6rem;
         height: 9rem;
         width: 9rem;
-        background-color: #fff;
+        background-color: var(--sd-item__main-Bg);
         border-radius: $border-radius__base--full;
         margin: 0 auto;
         @include box-shadow(0, 0, 6px, 1px, rgba(0,0,0,.08));

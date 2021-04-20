@@ -42,7 +42,7 @@
     }    
     .bottom-bar {
         height:3rem;
-        background-color: var(--color-background-bottom-bar);
+        background-color: var(--sd-colour-bottom-bar);
         grid-column: 2/3;
         grid-row: 4/5;
         z-index: 2;
@@ -555,13 +555,13 @@ $planningEditor-width: 53rem;
 // DARK UI ---------------------------------------------
 //------------------------------------------------------
 
-.dark-ui,
-[class^="--dark-ui"],
-[class*="--dark-ui"] {
-    .sd-filters-panel {
-        background-color: $sd-filters-darkUI-bg;
-    }
-}
+// .dark-ui,
+// [class^="--dark-ui"],
+// [class*="--dark-ui"] {
+//     .sd-filters-panel {
+//         background-color: $sd-filters-darkUI-bg;
+//     }
+// }
 
 
 
@@ -757,7 +757,7 @@ $planningEditor-width: 53rem;
         grid-column: contentContainer;
         grid-row: footerBar;
         height:3rem;
-        background-color: var(--color-background-bottom-bar);
+        background-color: var(--sd-colour-bottom-bar);
         z-index: 2;
         display: flex;
         align-items: center;

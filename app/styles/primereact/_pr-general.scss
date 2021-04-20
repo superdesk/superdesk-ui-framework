@@ -42,9 +42,9 @@ border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
         border-color: var(--color-input-border-hover);
     }
     &:focus, &:focus-within, &.p-focus {
-        background-color: scale-color($sd-colour-interactive__base, $alpha: -86%);
-        box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
-        border-color: $sd-colour-interactive__base;
+        background-color: var(--sd-colour-interactive--alpha-20);
+        box-shadow: 0 1px 0 0 $sd-colour-interactive;
+        border-color: $sd-colour-interactive;
     }
 }
 

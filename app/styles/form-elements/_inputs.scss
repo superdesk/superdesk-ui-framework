@@ -21,8 +21,8 @@
         background-color: transparent;
     }
     &:focus {
-        box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
-        border-color: $sd-colour-interactive__base;
+        box-shadow: 0 1px 0 0 $sd-colour-interactive;
+        border-color: $sd-colour-interactive;
         background-color: transparent;
     }
 }
@@ -390,8 +390,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
-                    border-color: $sd-colour-interactive__base;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
+                    border-color: $sd-colour-interactive;
                 }
             }
         }
@@ -403,8 +403,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
-                    border-color: $sd-colour-interactive__base;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
+                    border-color: $sd-colour-interactive;
                 }
             }
         }
@@ -568,7 +568,7 @@
         left: 0;
         height: 2.2rem;
         width: 2.2rem;
-        background-color: scale-color($sd-colour-interactive__base, $alpha: -25%);
+        background-color: var(--sd-colour-interactive--alpha-70);
         transition: $button-transition;
         border-radius: $border-radius__base--x-small;
         cursor: pointer;
@@ -582,7 +582,7 @@
             -moz-osx-font-smoothing: grayscale;
         }
         &:hover {
-            background-color: $sd-colour-interactive__base;
+            background-color: $sd-colour-interactive;
         }
     }
 
@@ -609,8 +609,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
-                    border-color: $sd-colour-interactive__base;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
+                    border-color: $sd-colour-interactive;
                 }
             }
         }
@@ -622,8 +622,8 @@
                     border-bottom-color: $sd-inputBorderColor-darkUi;
                 }
                 &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive__base;
-                    border-color: $sd-colour-interactive__base;
+                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
+                    border-color: $sd-colour-interactive;
                 }
             }
         }
@@ -734,7 +734,7 @@
                 background-color: var(--color-input-bg--hover);
             }
             &:focus {
-                background-color: scale-color($sd-colour-interactive__base, $alpha: -86%);
+                background-color: var(--sd-colour-interactive--alpha-20);
             }
         }
 
@@ -771,7 +771,7 @@
                 background-color: var(--color-input-bg--hover);
             }
             &:focus {
-                background-color: scale-color($sd-colour-interactive__base, $alpha: -86%);
+                background-color: var(--sd-colour-interactive--alpha-20);
             }
             option {
                 color:inherit;

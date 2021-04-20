@@ -20,7 +20,7 @@
         border-radius: $border-radius__base--full;
         content:' ';
         position: absolute;
-        background-color: $sd-colour-interactive__base;
+        background-color: $sd-colour-interactive;
         top: 0.2rem;
         left: 0.2rem;
         @include opacity(0);
@@ -32,15 +32,15 @@
         cursor: pointer;
     }
     &.checked, &[checked="checked"] {
-        border-color: $sd-colour-interactive__base;
+        border-color: $sd-colour-interactive;
         &::after {
             @include opacity(100);
             transform: scale(1, 1);
         }
         &:hover {
-            border-color: darken($sd-colour-interactive__base, 10%);
+            border-color: var(--sd-colour-interactive--darken-10);
              &::after {
-                background-color: darken($sd-colour-interactive__base, 10%);
+                background-color: var(--sd-colour-interactive--darken-10);
             }
         }
     }
