@@ -22,6 +22,7 @@ export { DatePickerLocaleSettings } from './components/DatePicker';
 export { TimePicker } from './components/TimePicker';
 export { FormLabel } from './components/FormLabel';
 export { Switch } from './components/Switch';
+export { SwitchGroup } from './components/SwitchGroup';
 export { ButtonGroup } from './components/ButtonGroup';
 export { Loader } from './components/Loader';
 export { Radio } from './components/Radio';
