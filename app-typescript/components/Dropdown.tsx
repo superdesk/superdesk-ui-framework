@@ -209,6 +209,7 @@ export const Dropdown = ({
                         <button
                             ref={refButtonSubMenu}
                             className='dropdown__toggle dropdown-toggle'
+                            aria-haspopup="true"
                             onMouseOver={() => {
                                 let subMenuRef = refSubMenu.current;
                                 let subToggleRef = refButtonSubMenu.current;
@@ -261,6 +262,8 @@ export const Dropdown = ({
                     <div ref={buttonRef} style={{ display: 'content' }}>
                         {React.cloneElement(children, {
                             className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
+                            'aria-haspopup': "true",
+                            'aria-expanded': open,
                             onClick: toggleDisplay,
                             ref: buttonRef,
                         })}
@@ -268,6 +271,8 @@ export const Dropdown = ({
                 :
                 <button ref={buttonRef}
                     className=' dropdown__toggle dropdown-toggle'
+                    aria-haspopup="true"
+                    aria-expanded={open}
                     onClick={toggleDisplay}>
                     {children}
                     <span className="dropdown__caret"></span>

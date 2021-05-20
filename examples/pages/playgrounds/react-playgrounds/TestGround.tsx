@@ -95,6 +95,60 @@ export class TestGround extends React.Component<IProps, IState> {
                             ]} onChange={(value) => console.log('value changed', value)} />
                         </div>
                         <hr />
+                        <div className="sd-thumb-carousel" data-theme="dark-ui">
+                            <div className="sd-thumb-carousel__header">
+                                <h4 className="sd-thumb-carousel__heading">Mountain bike Championships gallery</h4>
+                                <Badge text='6' type='light' />
+                                <div className="sd-thumb-carousel__header-block--r">
+                                    <time>Today, 08. April 14:25</time>
+                                    <IconButton icon="trash" ariaValue="Remove" onClick={()=> false} />
+                                </div>
+                            </div>
+                            <div className="sd-thumb-carousel__content">
+                                <div className="sd-thumb-carousel__container">
+                                    <button className="icn-btn sd-thumb-carousel__btn--prev" aria-label="Previous">
+                                        <Icon name="chevron-left-thin" />
+                                    </button>
+                                    <div className="sd-thumb-carousel__items-content">
+                                        <div className="sd-thumb-carousel__items-container">
+                                            <div className="sd-thumb-carousel__item">
+                                                <div className="sd-thumb-carousel__cover-image-icon">
+                                                    <Icon name="star" />
+                                                </div>
+                                                <div className="sd-thumb-carousel__item-inner">
+                                                    <img src="/carousel-thumb--01.jpg" alt="test" />
+                                                </div>
+                                            </div>
+                                            <div className="sd-thumb-carousel__item">
+                                                <div className="sd-thumb-carousel__item-inner">
+                                                    <img src="/carousel-thumb--02.jpg" alt="test" />
+                                                </div>
+                                            </div>
+                                            <div className="sd-thumb-carousel__item">
+                                                <div className="sd-thumb-carousel__item-inner">
+                                                    <img src="/d_trump_2.jpg" alt="test" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button className="icn-btn sd-thumb-carousel__btn--next" aria-label="Next">
+                                        <Icon name="chevron-right-thin" />
+                                    </button>
+                                </div>
+                                <ul className="sd-thumb-carousel__indicators">
+                                    <li className="sd-thumb-carousel__indicator sd-thumb-carousel__indicator--highlight"><button aria-label="1"></button></li>
+                                    <li className="sd-thumb-carousel__indicator"><button aria-label="2"></button></li>
+                                    <li className="sd-thumb-carousel__indicator"><button aria-label="3"></button></li>
+
+                                </ul>
+                            </div>
+                            <div className="sd-thumb-carousel__description">
+                                Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. 
+                                Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. 
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis 
+                                parturient montes, nascetur ridiculus mus.
+                            </div>
+                        </div>
                     </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
                 </Components.LayoutContainer>

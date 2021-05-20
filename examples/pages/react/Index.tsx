@@ -117,7 +117,7 @@ const pages = {
         }
     },
     layoutComponents: {
-        name: "Layot",
+        name: "Layout",
         items: {
             'grid-list': {
                 name: 'Grid List'

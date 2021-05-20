@@ -20,17 +20,17 @@ export default class NavButtonsDoc extends React.Component {
                         <SubNav zIndex={2}>
                             <ButtonGroup align='left'>
                                 <Tooltip text='Filters' flow='right'>
-                                    <NavButton icon='filter-large' type='darker' onClick={() => false} />
+                                    <NavButton icon='filter-large' type='darker' state="active" text="Filter" onClick={() => false} />
                                 </Tooltip>
-                                <NavButton icon='search' onClick={() => false} />
+                                <NavButton icon='search' text="Search" onClick={() => false} />
                             </ButtonGroup>
                             <ButtonGroup align='right'>
-                                <NavButton icon='list-plus' onClick={() => false} />
+                                <NavButton icon='list-plus' text="Add to list" onClick={() => false} />
                                 <Tooltip text='More actions' flow='down'>
-                                    <NavButton icon='dots-vertical' onClick={() => false} />
+                                    <NavButton icon='dots-vertical' text="More actions" onClick={() => false} />
                                 </Tooltip>
                                 <Tooltip text='Send to / Publish' flow='left'>
-                                    <NavButton icon='expand-thin' type='highlight' onClick={() => false} />
+                                    <NavButton icon='expand-thin' text='Send to / Publish' type='highlight' onClick={() => false} />
                                 </Tooltip>
                             </ButtonGroup>
                         </SubNav>
@@ -39,17 +39,17 @@ export default class NavButtonsDoc extends React.Component {
                         <SubNav zIndex={2}>
                             <ButtonGroup align='left'>
                                 <Tooltip text='Filters' flow='right'>
-                                    <NavButton icon='filter-large' type='darker' onClick={() => false} />
+                                    <NavButton icon='filter-large' type='darker' state="active" text="Filter" onClick={() => false} />
                                 </Tooltip>
-                                <NavButton icon='search' onClick={() => false} />
+                                <NavButton icon='search' text="Search" onClick={() => false} />
                             </ButtonGroup>
                             <ButtonGroup align='right'>
-                                <NavButton icon='list-plus' onClick={() => false} />
+                                <NavButton icon='list-plus' text="Add to list" onClick={() => false} />
                                 <Tooltip text='More actions' flow='down'>
-                                    <NavButton icon='dots-vertical' onClick={() => false} />
+                                    <NavButton icon='dots-vertical' text="More actions" onClick={() => false} />
                                 </Tooltip>
                                 <Tooltip text='Send to / Publish' flow='left'>
-                                    <NavButton icon='expand-thin' type='highlight' onClick={() => false} />
+                                    <NavButton icon='expand-thin' text='Send to / Publish' type='highlight' onClick={() => false} />
                                 </Tooltip>
                             </ButtonGroup>
                         </SubNav>        
@@ -60,8 +60,10 @@ export default class NavButtonsDoc extends React.Component {
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.' />
+                    <Prop name='text' isRequered={false} type='string' default='/' description='Defines the value for aria-label, for screen-readers accessibility.' />
                     <Prop name='iconSize' isRequered={false} type='small | big' default='small' description='Specifies a small or big button' />
                     <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).' />
+                    <Prop name='state' isRequered={false} type='normal | active' default='normal' description='Defines the optional state of the button (e.g. active)' />
                     <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Styles nav button for diffrent background.' />
                     <Prop name='value' isRequered={false} type='button | submit | reset' default='button' description='Specifies a value of nav button' />
                 </PropsList>

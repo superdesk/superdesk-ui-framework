@@ -36,8 +36,8 @@ export class Checkbox extends React.Component<IProps> {
 
                 <span className="sd-check-new"></span>
 
-                { this.props.label.hidden ? <label htmlFor={this.htmlId}  aria-label={this.props.label.text} /> : null }
-                { !this.props.label.hidden ? <label htmlFor={this.htmlId} >{this.props.label.text}</label> : null }
+                { this.props.label.hidden ? <label htmlFor={this.htmlId} aria-label={this.props.label.text} /> : null }
+                { !this.props.label.hidden ? <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null }
             </span>
         );
     }
