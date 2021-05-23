@@ -51,6 +51,8 @@ export { TabLabel, TabPanel, TabContent, Tabs } from './components/TabCustom';
 export { EmptyState } from './components/EmptyState';
 export { Autocomplete } from './components/Autocomplete';
 export { DonutChart } from './components/DonutChart';
+export { Carousel } from './components/Carousel';
+export { Modal } from './components/Modal';
 export { TagInput } from './components/TagInput';
 export { TagInputTest } from './components/TagInputTest';
 export { GridList } from './components/GridList';
