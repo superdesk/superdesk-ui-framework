@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Components from './components/Index';
 import { Checkbox, Radio, CheckboxButton, RadioButton, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge } from '../../../../app-typescript/index';
+import { Carousel } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
 import dummy_items from '../dummy-data/items';
@@ -94,6 +95,12 @@ export class TestGround extends React.Component<IProps, IState> {
                                 {label: "Normal RadioButton", value: "Value 3"},
                             ]} onChange={(value) => console.log('value changed', value)} />
                         </div>
+
+
+                        <hr />
+                        
+                        <Carousel></Carousel>
+
                         <hr />
                         <div className="sd-thumb-carousel" data-theme="dark-ui">
                             <div className="sd-thumb-carousel__header">
