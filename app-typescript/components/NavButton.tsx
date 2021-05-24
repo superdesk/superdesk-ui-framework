@@ -8,6 +8,7 @@ interface IProps {
     iconSize?: 'small' | 'big'; // defaults to 'small'
     theme?: 'light' | 'dark'; // defaults to 'light'
     type?: 'default' | 'primary' | 'highlight' | 'darker';
+    state?: 'normal' | 'active'; // defaults to 'normal'
     value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
     onClick(): void;
 }
@@ -15,6 +16,7 @@ export class NavButton extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-navbtn', {
             'sd-navbtn-dark': this.props.theme === 'dark',
+            'sd-navbtn--active': this.props.state === 'active',
             [`sd-navbtn--${this.props.type}`]: this.props.type,
             'sd-navbtn--textual': !this.props.icon && this.props.text,
         });

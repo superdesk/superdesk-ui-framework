@@ -39,6 +39,8 @@ import TagDoc from './Tags';
 import EmptyStateDoc from './EmptyStates';
 import GridListDoc from './GridList';
 import GridItemDoc from './GridItem';
+import ModalDoc from './Modal';
+import CarouselDoc from './Carousel';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import {SelectWithTemplateDocs} from './SelectWithTemplate';
@@ -89,6 +91,12 @@ const pages = {
             },
             'popover': {
                 name: 'Popover'
+            },
+            'modal': {
+                name: 'Modal'
+            },
+            'carousel': {
+                name: 'Carousel'
             }
         }
     },
@@ -118,7 +126,7 @@ const pages = {
         }
     },
     layoutComponents: {
-        name: "Layot",
+        name: "Layout",
         items: {
             'grid-list': {
                 name: 'Grid List'
@@ -247,6 +255,8 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/empty-states" component={EmptyStateDoc} />
                         <Route path="/react/grid-list" component={GridListDoc} />
                         <Route path="/react/grid-item" component={GridItemDoc} />
+                        <Route path="/react/modal" component={ModalDoc} />
+                        <Route path="/react/carousel" component={CarouselDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

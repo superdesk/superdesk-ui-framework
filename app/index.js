@@ -25,6 +25,7 @@ export {
     TimePicker,
     FormLabel,
     Switch,
+    SwitchGroup,
     Loader,
     Radio,
     CheckBox,

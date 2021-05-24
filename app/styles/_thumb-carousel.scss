@@ -1,0 +1,226 @@
+:root {
+    --sd-thumb-carousel__shadow-line: hsla(214, 13%, 80%, 1);
+    --sd-thumb-carousel__shadow: 0 0 0 1px var(--sd-thumb-carousel__shadow-line), 0 0 1px hsla(0, 0%, 0%, 0.1), 0 1px 4px hsla(0, 0%, 0%, 0.2);
+    --sd-thumb-carousel__colour-bg: hsla(214, 13%, 100%, 1);
+    --sd-thumb-carousel__colour-img-bg: hsla(214, 13%, 12%, 1);
+    --sd-thumb-carousel__colour-txt: hsla(214, 13%, 10%, 1);
+    --sd-thumb-carousel__border-radius: 4px;
+    --sd-thumb-carousel__colour-btn: hsla(214, 13%, 100%, 1);
+    --sd-thumb-carousel__colour-indicator: hsla(214, 13%, 80%, 1);
+    --sd-thumb-carousel__colour-indicator--highlight: hsla(198, 49%, 58%, 1);
+}
+[data-theme="dark-ui"] {
+    --sd-thumb-carousel__shadow-line: hsla(214, 13%, 20%, 1);
+    --sd-thumb-carousel__colour-bg: hsla(214, 13%, 25%, 1);
+    --sd-thumb-carousel__colour-txt: hsla(214, 13%, 96%, 1);
+    --sd-thumb-carousel__colour-indicator: hsla(214, 13%, 80%, 0.5);
+
+    .badge--light {
+        background-color: hsla(214, 13%, 40%, 1);
+        color: hsla(214, 13%, 96%, 1);
+    }
+    .badge--light {
+        background-color: hsla(214, 13%, 40%, 1);
+        color: hsla(214, 13%, 96%, 1);
+    }
+}
+
+.sd-thumb-carousel,
+.p-carousel {
+    display: flex;
+    flex-direction: column;
+    color: var(--sd-thumb-carousel__colour-txt);
+    box-shadow: var(--sd-thumb-carousel__shadow);
+    background-color: var(--sd-thumb-carousel__colour-bg);
+    border-radius: var(--sd-thumb-carousel__border-radius);
+
+    // min-height: 100px;
+    // min-width: 300px;
+    // max-width: 600px;
+    margin-bottom: 60px;
+}
+.sd-thumb-carousel__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    min-height: 2.4rem;
+    padding: 12px 8px 12px 16px;
+    time {
+        font-size: 1.2rem;
+        color: var(--sd-thumb-carousel__colour-txt);
+        opacity: 0.75;
+        @include text-overflow;
+        padding-left: 16px;
+    }
+}
+.sd-thumb-carousel__heading {
+    flex-grow: 0;
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-right: 8px;
+}
+.sd-thumb-carousel__header-block--r {
+    margin-left:auto;
+    display: flex;
+    align-items: center;
+    & > * + * {
+        margin-left: 8px;
+    }
+}
+.sd-thumb-carousel__content,
+.p-carousel-content {
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+.sd-thumb-carousel__container {
+    display: flex;
+    flex-direction: row;
+}
+.sd-thumb-carousel__description {
+    flex-grow: 0;
+    font-size: 1.4rem;
+    line-height: 150%;
+    opacity: 0.75;
+    font-weight: 400;
+    @include sd-padding('2');
+    padding-top: 2px;
+}
+
+.sd-thumb-carousel__items-content {
+    overflow: hidden;
+    width: 100%;
+}
+
+.sd-thumb-carousel__items-container {
+    display: flex;
+    flex-direction: row;
+}
+.sd-thumb-carousel__item {
+    display: flex;
+    flex-direction: column;
+    height: 134px;
+    flex: 1 0 33.333333333333336%;
+    position: relative;
+}
+.sd-thumb-carousel__item-inner {
+    margin: 5px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: var(--sd-thumb-carousel__colour-img-bg);
+    box-shadow: 0 0 1px hsla(0, 0%, 0%, 0.12), 0 1px 4px hsla(0, 0%, 0%, 0.20);
+    border-radius: $border-radius__base--small;
+    overflow: hidden;
+    img {
+        max-width: 100%;
+        max-height: 100%;
+        height: auto;
+        margin: auto;
+        pointer-events: none;
+    }
+}
+.sd-thumb-carousel__indicators {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 8px;
+}
+.sd-thumb-carousel__indicator,
+.p-carousel-indicator {
+    margin: 4px;
+    > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 8px;
+        height: 8px;
+        transition: all 0.2s ease;
+        border-radius: $border-radius__base--full;
+        opacity: 1;
+        background-color: var(--sd-thumb-carousel__colour-indicator);
+        padding: 0;
+        margin: 0;
+        &:hover {
+            opacity: 0.6;
+        }
+    }
+    &--highlight, &.p-highlight {
+        > button {
+            width: 16px;
+            background-color: var(--sd-thumb-carousel__colour-indicator--highlight);
+            &:hover {
+                opacity: 1;
+            }
+        }
+        
+    }
+}
+
+.sd-thumb-carousel__btn--prev, .sd-thumb-carousel__btn--next,
+.p-carousel-prev, .p-carousel-next {
+    @extend .icn-btn;
+
+    display: flex;
+    align-self: center;
+    flex-grow: 0;
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    background-color: var(--sd-thumb-carousel__colour-btn);
+    box-shadow: 0 0 1px hsla(0, 0%, 0%, 0.12), 0 2px 6px hsla(0, 0%, 0%, 0.20);
+    opacity: 1;
+    transition: all 0.2 ease !important;
+    color: hsla(0, 0%, 20%, 0.6);
+    &:hover {
+        opacity: 1;
+        box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.16), 0 4px 12px hsla(0, 0%, 0%, 0.24);
+        color: hsla(0, 0%, 20%, 1);
+    }
+    &:active {
+        opacity: 1;
+        background-color: var(--sd-thumb-carousel__colour-btn);
+        box-shadow: 0 0 1px hsla(0, 0%, 0%, 0.1), 0 1px 2px hsla(0, 0%, 0%, 0.12);
+        color: $sd-blue;
+    }
+    &:focus {
+        opacity: 1;
+        background-color: var(--sd-thumb-carousel__colour-btn);
+    }
+    &.sd-disabled, &.p-disabled {
+        visibility: hidden;
+        pointer-events: none;
+    }
+}
+.sd-thumb-carousel__btn--prev, .p-carousel-prev {
+    left: -16px;
+    margin-right: -26px;
+}
+.sd-thumb-carousel__btn--next, .p-carousel-next{
+    right: -16px;
+    margin-left: -26px;
+}
+.sd-thumb-carousel__cover-image-icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    border-radius: $border-radius__base--full;
+    color: var(--sd-thumb-carousel__colour-indicator--highlight);
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    i {
+        color: var(--sd-thumb-carousel__colour-indicator--highlight) !important;
+        margin-top: -2px;
+    }
+}
