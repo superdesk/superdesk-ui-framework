@@ -1,12 +1,12 @@
-import React from 'react';
+import * as React from 'react';
 import { Carousel as PrimeCarousel } from '@superdesk/primereact/carousel';
 
-interface IProps {
+interface IProps<T> {
     id?: string;
     className?: string;
     theme?: string;
     page?: number;
-    items: any;
+    items: Array<T>;
     circular?: boolean;
     autoplayInterval?: number;
     numVisible?: number;
@@ -24,7 +24,7 @@ interface IPropsResponsive {
     numScroll: number;
 }
 
-export class Carousel extends React.Component<IProps, {}> {
+export class Carousel<T> extends React.PureComponent<IProps<T>, {}> {
     render() {
         return <div style={{display: 'content'}}
             data-theme={this.props.theme !== 'dark' ? '' : 'dark-ui' }
