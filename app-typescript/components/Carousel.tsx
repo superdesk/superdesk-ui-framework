@@ -4,7 +4,7 @@ import { Badge } from './Badge';
 
 interface IImage {
     src: string;
-    alt: string;
+    alt?: string;
 }
 
 interface IProps {
@@ -13,7 +13,8 @@ interface IProps {
     description?: string;
     /** total number of images in the gallery, fallback to images.length */
     imageCount?: number;
-    headerActions?: JSX.Element;
+    /** header metadata section */
+    headerMeta?: JSX.Element;
     id?: string;
     className?: string;
     theme?: string;
@@ -38,13 +39,14 @@ export class Carousel extends React.PureComponent<IProps, {}> {
         const header = (
             <div className="sd-thumb-carousel__header">
                 {this.props.title && (
-                    <h4 className="sd-thumb-carousel__heading">{this.props.title}</h4>
+                    <>
+                        <h4 className="sd-thumb-carousel__heading">{this.props.title}</h4>
+                        <Badge text={'' + (this.props.imageCount || this.props.images.length)} type='light' />
+                    </>
                 )}
-                <Badge text={'' + (this.props.imageCount || this.props.images.length)} type='light' />
-                )}
-                {this.props.headerActions && (
+                {this.props.headerMeta && (
                     <div className="sd-thumb-carousel__header-block--r">
-                        {this.props.headerActions}
+                        {this.props.headerMeta}
                     </div>
                 )}
             </div>
