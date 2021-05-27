@@ -8,21 +8,21 @@ interface IImage {
 }
 
 interface IProps {
+    images: Array<IImage>;
+    title?: string;
+    description?: string;
+    imageCount?: number;
+    headerActions?: JSX.Element;
     id?: string;
     className?: string;
     theme?: string;
-    page?: number;
-    images: Array<IImage>;
-    circular?: boolean;
-    autoplayInterval?: number;
     numVisible?: number;
     numScroll?: number;
+    page?: number;
+    circular?: boolean;
+    autoplayInterval?: number;
     responsiveOptions?: Array<IPropsResponsive>;
     onPageChange?(e: {page: number}): void;
-    title?: string;
-    imageCount?: number;
-    description?: string;
-    headerActions?: JSX.Element;
 }
 
 interface IPropsResponsive {
