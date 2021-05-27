@@ -11,6 +11,7 @@ interface IProps {
     images: Array<IImage>;
     title?: string;
     description?: string;
+    /** total number of images in the gallery, fallback to images.length */
     imageCount?: number;
     headerActions?: JSX.Element;
     id?: string;
@@ -39,8 +40,7 @@ export class Carousel extends React.PureComponent<IProps, {}> {
                 {this.props.title && (
                     <h4 className="sd-thumb-carousel__heading">{this.props.title}</h4>
                 )}
-                {this.props.imageCount && (
-                    <Badge text={'' + this.props.imageCount} type='light' />
+                <Badge text={'' + (this.props.imageCount || this.props.images.length)} type='light' />
                 )}
                 {this.props.headerActions && (
                     <div className="sd-thumb-carousel__header-block--r">
