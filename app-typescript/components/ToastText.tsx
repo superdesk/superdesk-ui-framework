@@ -2,16 +2,14 @@ import * as React from 'react';
 import { Icon } from './Icon';
 
 interface IProps {
-  id: string;
+  id?: string;
   title?: string | React.ReactNode;
   icon?: string;
   onClose: () => void;
-  textHeight(height: number): void;
 }
 
-const ToastText = ({ id, title, icon, onClose, textHeight }: IProps) => {
+const ToastText = ({ id, title, icon, onClose}: IProps) => {
   const ref = React.useRef(null);
-  React.useEffect(() => textHeight(ref.current.clientHeight), []);
   return (
     <React.Fragment>
       {icon ?

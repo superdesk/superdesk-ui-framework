@@ -11,11 +11,11 @@ export type Position = 'top' | 'bottom' | 'top-right' | 'top-left' | 'bottom-rig
 export type NotesType = 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
 
 export interface IMessageOptions {
+    id: string;
+    position: Position;
     message?: MessageProp;
-    id?: string;
     duration?: number | null;
     type?: NotesType;
-    position?: Position;
     icon?: string;
     size?: 'fixed-s' | 'fixed-m' | 'fixed-l' | 'fixed-xl';
 }
@@ -36,19 +36,17 @@ export const ToastMessage = ({
 }: IProps) => {
     const [show, setShow] = React.useState(false);
     const [enter, setEnter] = React.useState(false);
-    const [height, setHeight] = React.useState(0);
-    let timer = null;
+    let timer: number;
     React.useEffect(() => setShow(true), []);
 
-    React.useEffect(() => {
-        if (typeof duration === "number") {
-            setEnter(true);
-            timer = setTimeout(() => {
+    if (typeof duration === "number") {
+        React.useEffect(() => {
+            timer = window.setTimeout(() => {
                 close(id, position);
             }, duration);
             return () => clearTimeout(timer);
-        }
-    }, [enter]);
+        }, [enter]);
+    }
 
     function onMouseEnter() {
         clearTimeout(timer);
@@ -73,20 +71,15 @@ export const ToastMessage = ({
         ['sd-toast--exit-active']: !show,
     });
 
-    function addHeight(textHeight: number) {
-        setHeight(textHeight + 25);
-    }
-
     return (
         <div
             className={classes}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
-            style={{ height: height }}
             aria-live="assertive"
             aria-atomic="true"
         >
-            <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} textHeight={addHeight} />
+            <ToastText id={id} title={message} icon={icon} onClose={() => close(id, position)} />
         </div>
     );
 };
