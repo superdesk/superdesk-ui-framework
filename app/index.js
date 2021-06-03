@@ -36,6 +36,7 @@ export {
     NavButton,
     Tab,
     TabList,
+    toasted,
     Menu,
     SubNav,
     SlidingToolbar,
@@ -46,6 +47,7 @@ export {
     NotificationToast,
     Dropdown,
     Popover,
+    Carousel,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

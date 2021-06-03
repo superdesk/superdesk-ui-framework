@@ -25,16 +25,16 @@ $toast-sizes: (
     padding: 0 20px 20px;
     pointer-events: none;
     &.sd-toast__container--top {
-        top: 0;
+        top: 56px;
         bottom: auto;
     }
     &.sd-toast__container--top-left {
-        top: 0;
+        top: 56px;
         bottom: auto;
         align-items: flex-start;
     }
     &.sd-toast__container--top-right {
-        top: 0;
+        top: 56px;
         bottom: auto;
         align-items: flex-end;
     }
