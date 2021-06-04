@@ -109,8 +109,6 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
                 onFilterInputChange={(searchString) => {
                     this.setState({loading: true});
 
-                    console.log('change');
-
                     getItems(searchString).then((_options) => {
                         this.setState({options: _options, loading: false});
                     });
