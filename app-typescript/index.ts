@@ -61,6 +61,7 @@ export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemConte
     GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper
 } from './components/GridItem';
 export { toasted } from './components/Toast';
+export { Menu } from './components/Menu';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
