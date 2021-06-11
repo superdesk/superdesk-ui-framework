@@ -27,19 +27,25 @@ import {TieredMenu} from '@superdesk/primereact/tieredmenu';
 
 export type IMenuItem = IMenuBranch | IMenuLeaf | ISeparator;
 
+/**
+ * Available icons are listed here:
+ * https://ui-framework.superdesk.org/#/components/icons
+ */
+type IIconName = string;
+
 interface ISeparator {
     separator: true;
 }
 
 interface IMenuLeaf {
     label: string;
-    icon?: string;
+    icon?: IIconName;
     onClick(): void;
 }
 
 interface IMenuBranch {
     label: string;
-    icon?: string;
+    icon?: IIconName;
     children: Array<IMenuItem>;
 }
 
