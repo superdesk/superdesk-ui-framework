@@ -69,7 +69,7 @@ export class Menu extends React.Component<IProps, {}> {
         this.toPrimeReactInterface = this.toPrimeReactInterface.bind(this);
     }
 
-    toPrimeReactInterface(items: Array<any>): any {
+    private toPrimeReactInterface(items: Array<any>): any {
         return items.map((item) => {
             if (item.separator != null) {
                 return {separator: true};
@@ -92,11 +92,11 @@ export class Menu extends React.Component<IProps, {}> {
         });
     }
 
-    toggle(event: SyntheticEvent) {
+    private toggle(event: SyntheticEvent) {
         this.menu?.toggle(event);
     }
 
-    close(event: SyntheticEvent) {
+    private close(event: SyntheticEvent) {
         this.menu?.toggle(event);
 
         if (this.focusedBefore instanceof HTMLElement) {
