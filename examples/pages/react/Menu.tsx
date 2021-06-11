@@ -70,9 +70,6 @@ export class MenuDocs extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
-                                <input type="text" />
-                            </div>
-                            <div className='form__row'>
                                 <Menu items={menuItems}>
                                     {(toggle) => (
                                         <Button
