@@ -59,13 +59,13 @@ export default class NavButtonsDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.' />
-                    <Prop name='text' isRequered={false} type='string' default='/' description='Defines the value for aria-label, for screen-readers accessibility.' />
-                    <Prop name='iconSize' isRequered={false} type='small | big' default='small' description='Specifies a small or big button' />
-                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).' />
-                    <Prop name='state' isRequered={false} type='normal | active' default='normal' description='Defines the optional state of the button (e.g. active)' />
-                    <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Styles nav button for diffrent background.' />
-                    <Prop name='value' isRequered={false} type='button | submit | reset' default='button' description='Specifies a value of nav button' />
+                    <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.' />
+                    <Prop name='text' isRequired={false} type='string' default='/' description='Defines the value for aria-label, for screen-readers accessibility.' />
+                    <Prop name='iconSize' isRequired={false} type='small | big' default='small' description='Specifies a small or big button' />
+                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).' />
+                    <Prop name='state' isRequired={false} type='normal | active' default='normal' description='Defines the optional state of the button (e.g. active)' />
+                    <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Styles nav button for diffrent background.' />
+                    <Prop name='value' isRequired={false} type='button | submit | reset' default='button' description='Specifies a value of nav button' />
                 </PropsList>
             </section>
         );

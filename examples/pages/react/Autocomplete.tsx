@@ -294,29 +294,29 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
-                    <Prop name='items' isRequered={true} type='array' default='/' description='Array of values for autocomplete' />
-                    <Prop name='value' isRequered={false} type='any' default='/' description='Value to be predefined on component load' />
-                    <Prop name='keyValue' isRequered={false} type='string' default='/' description='Key value if array is combined of objects' />
-                    <Prop name='minLength' isRequered={false} type='number' default='1' description='Minimum number of characters to initiate a search' />
-                    <Prop name='listItemTemplate' isRequered={false} type='function' default='/' description='Create custom view of list item' />
-                    <Prop name='label' isRequered={false} type='string' default='/' description='Input label' />
-                    <Prop name='info' isRequered={false} type='string' default='/' description='Hint text' />
-                    <Prop name='error' isRequered={false} type='string' default='/' description='Error text' />
-                    <Prop name='placeholder' isRequered={false} type='string' default='/' description='Placeholder text for the input field.' />
-                    <Prop name='isSearchField' isRequered={false} type='boolean' default='false' 
+                    <Prop name='items' isRequired={true} type='array' default='/' description='Array of values for autocomplete' />
+                    <Prop name='value' isRequired={false} type='any' default='/' description='Value to be predefined on component load' />
+                    <Prop name='keyValue' isRequired={false} type='string' default='/' description='Key value if array is combined of objects' />
+                    <Prop name='minLength' isRequired={false} type='number' default='1' description='Minimum number of characters to initiate a search' />
+                    <Prop name='listItemTemplate' isRequired={false} type='function' default='/' description='Create custom view of list item' />
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Input label' />
+                    <Prop name='info' isRequired={false} type='string' default='/' description='Hint text' />
+                    <Prop name='error' isRequired={false} type='string' default='/' description='Error text' />
+                    <Prop name='placeholder' isRequired={false} type='string' default='/' description='Placeholder text for the input field.' />
+                    <Prop name='isSearchField' isRequired={false} type='boolean' default='false' 
                           description='Styles the input as a search field, adds a search icon and the option to clear the field. No visible 
                                        lable is present in this option.' />
-                    <Prop name='inlineLabel' isRequered={false} type='boolean' default='false' description='Position labels as inline' />
-                    <Prop name='required' isRequered={false} type='boolean' default='false' description='Mark field as required' />
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Mark field as disabled' />
-                    <Prop name='invalid' isRequered={false} type='boolean' default='false' description='Mark field as invalid' />
+                    <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline' />
+                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required' />
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />
+                    <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid' />
                 </PropsList>
 
                 <h3 className='docs-page__h3'>Events</h3>
                 <PropsList>
-                    <Prop name='search' isRequered={false} type='function' default='/' description='Custom function for filtering items' />
-                    <Prop name='onChange' isRequered={true} type='function' default='/' description='Returns value of text input' />
-                    <Prop name='onSelect' isRequered={false} type='function' default='/' description='Returns selected value' />
+                    <Prop name='search' isRequired={false} type='function' default='/' description='Custom function for filtering items' />
+                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Returns value of text input' />
+                    <Prop name='onSelect' isRequired={false} type='function' default='/' description='Returns selected value' />
                 </PropsList>
             </section>
         )

@@ -81,9 +81,9 @@ export default class IconButtonDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
-                    <Prop name='ariaValue' isRequered={true} type='string' default='/' description='Description for screen readers'/>
-                    <Prop name='size' isRequered={false} type='small' default='normal' description='Creates an IconButton with a smaller footprint.'/>
+                    <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='ariaValue' isRequired={true} type='string' default='/' description='Description for screen readers'/>
+                    <Prop name='size' isRequired={false} type='small' default='normal' description='Creates an IconButton with a smaller footprint.'/>
                 </PropsList>
             </section>
         )

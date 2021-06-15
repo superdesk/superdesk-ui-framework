@@ -415,19 +415,19 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <p className="docs-page__paragraph">Checkbox</p>
                 <PropsList>
-                    <Prop name='checked' isRequered={true} type='boolean' default='false' description='The checked state of the input.'/>
-                    <Prop name='label text' isRequered={true} type='string' default='/' description='Label text value.'/>
-                    <Prop name='label side' isRequered={false} type='left | right' default='right' description='Position of label relative to the button.'/>
-                    <Prop name='label hidden' isRequered={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='The disabled state of Checkbox.'/>
+                    <Prop name='checked' isRequired={true} type='boolean' default='false' description='The checked state of the input.'/>
+                    <Prop name='label text' isRequired={true} type='string' default='/' description='Label text value.'/>
+                    <Prop name='label side' isRequired={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                    <Prop name='label hidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of Checkbox.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">Checkbox Button</p>
                 <PropsList>
-                    <Prop name='checked' isRequered={true} type='boolean' default='/' description='The checked state of the input'/>
-                    <Prop name='label text' isRequered={true} type='string' default='/' description='Label text value.'/>
-                    <Prop name='label icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
-                    <Prop name='label hidden' isRequered={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='The disabled state of CheckboxButton'/>
+                    <Prop name='checked' isRequired={true} type='boolean' default='/' description='The checked state of the input'/>
+                    <Prop name='label text' isRequired={true} type='string' default='/' description='Label text value.'/>
+                    <Prop name='label icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='label hidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of CheckboxButton'/>
                 </PropsList>
             </section>
         )

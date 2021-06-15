@@ -40,12 +40,12 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='groups' isRequered={true} type='Array<menugroup>' default='/' description='Array of groups'/>
-                    <Prop name='activeItemId' isRequered={true} type='string' default='/' description='Id of active item'/>
-                    <Prop name='menugroup label' isRequered={true} type='string' default='/' description='Menugroup label text value.'/>
-                    <Prop name='menugroup items' isRequered={true} type='Array<menuitem>' default='/' description='Array of items'/>
-                    <Prop name='menuitem id' isRequered={true} type='string' default='/' description='Menugroup id value'/>
-                    <Prop name='menuitem label' isRequered={true} type='string' default='/' description='Menugroup label text value.'/>
+                    <Prop name='groups' isRequired={true} type='Array<menugroup>' default='/' description='Array of groups'/>
+                    <Prop name='activeItemId' isRequired={true} type='string' default='/' description='Id of active item'/>
+                    <Prop name='menugroup label' isRequired={true} type='string' default='/' description='Menugroup label text value.'/>
+                    <Prop name='menugroup items' isRequired={true} type='Array<menuitem>' default='/' description='Array of items'/>
+                    <Prop name='menuitem id' isRequired={true} type='string' default='/' description='Menugroup id value'/>
+                    <Prop name='menuitem label' isRequired={true} type='string' default='/' description='Menugroup label text value.'/>
                 </PropsList>
             </section>
         )

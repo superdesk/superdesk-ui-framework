@@ -378,26 +378,26 @@ export default class GridItemDoc extends React.Component<{}, IState> {
                 
                 <h3 className="docs-page__h3">GridItem Props</h3>
                 <PropsList>
-                    <Prop name='status' isRequered={false} type='actioning | selected | activated | string' default='/' description='Specifies the status of the item. Multiple values are possible.'/>
-                    <Prop name='itemtype' isRequered={false} type='audio | composite | file | graphic | photo | slideshow | text | video | string' default='file' description='Specifies the file type of the item.'/>
-                    <Prop name='fetched' isRequered={false} type='boolean' default='false' description='If set to true it will add a visual marker in the content area indicating that the item was fetched.'/>
-                    <Prop name='locked' isRequered={false} type='boolean' default='false' description='Visual indication if the item is locked (red border at the bottom).'/>
-                    <Prop name='onClick' isRequered={false} type='function' default='false' description='Callback fired when when the item is pressed. Should be added only if there is a click action on the whole item. Adds pointer cursor and hover action to the item if present.'/>
+                    <Prop name='status' isRequired={false} type='actioning | selected | activated | string' default='/' description='Specifies the status of the item. Multiple values are possible.'/>
+                    <Prop name='itemtype' isRequired={false} type='audio | composite | file | graphic | photo | slideshow | text | video | string' default='file' description='Specifies the file type of the item.'/>
+                    <Prop name='fetched' isRequired={false} type='boolean' default='false' description='If set to true it will add a visual marker in the content area indicating that the item was fetched.'/>
+                    <Prop name='locked' isRequired={false} type='boolean' default='false' description='Visual indication if the item is locked (red border at the bottom).'/>
+                    <Prop name='onClick' isRequired={false} type='function' default='false' description='Callback fired when when the item is pressed. Should be added only if there is a click action on the whole item. Adds pointer cursor and hover action to the item if present.'/>
                 </PropsList>
 
                 <h3 className="docs-page__h3">GridItemFooterBlock Props</h3>
                 <PropsList>
-                    <Prop name='align' isRequered={false} type='left | right' default='left' description='Sets the alignment of items inside the footer. Must be placed inside the GridItemFooter component.'/>
+                    <Prop name='align' isRequired={false} type='left | right' default='left' description='Sets the alignment of items inside the footer. Must be placed inside the GridItemFooter component.'/>
                 </PropsList>
 
                 <h3 className="docs-page__h3">GridItemFooterActions Props</h3>
                 <PropsList>
-                    <Prop name='autohide' isRequered={false} type='boolean' default='true' description='Action buttons in the footer are by default hidden and revealed only when the cursor hovers the item. Set to false to make the action buttons always visible.'/>
+                    <Prop name='autohide' isRequired={false} type='boolean' default='true' description='Action buttons in the footer are by default hidden and revealed only when the cursor hovers the item. Set to false to make the action buttons always visible.'/>
                 </PropsList>
 
                 <h3 className="docs-page__h3">GridItemTime Props</h3>
                 <PropsList>
-                    <Prop name='time' isRequered={true} type='sring' default='/' description='Sets the value of the time component.'/>
+                    <Prop name='time' isRequired={true} type='sring' default='/' description='Sets the value of the time component.'/>
                 </PropsList>
 
                 

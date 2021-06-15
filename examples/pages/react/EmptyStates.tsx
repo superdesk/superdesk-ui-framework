@@ -124,10 +124,10 @@ export default class EmptyStateDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='title' isRequered={true} type='string' default='false' description='Title of the Empty state info block.'/>
-                    <Prop name='description' isRequered={false} type='string' default='false' description='Additional information e.g. suggested actions etc.'/>
-                    <Prop name='size' isRequered={false} type='small | large' default='small' description='Specifies the size and type of the illustration. Small should be used for narrow areas, like side panels, while large is suited for wider content areas. '/>
-                    <Prop name='illustration' isRequered={false} type='string' default='1' description='In combination with the size prop this defines the illustration. Possible values: 1, 2, 3 and dashboard (with size large only).'/>
+                    <Prop name='title' isRequired={true} type='string' default='false' description='Title of the Empty state info block.'/>
+                    <Prop name='description' isRequired={false} type='string' default='false' description='Additional information e.g. suggested actions etc.'/>
+                    <Prop name='size' isRequired={false} type='small | large' default='small' description='Specifies the size and type of the illustration. Small should be used for narrow areas, like side panels, while large is suited for wider content areas. '/>
+                    <Prop name='illustration' isRequired={false} type='string' default='1' description='In combination with the size prop this defines the illustration. Possible values: 1, 2, 3 and dashboard (with size large only).'/>
                 </PropsList>
 
             </section>

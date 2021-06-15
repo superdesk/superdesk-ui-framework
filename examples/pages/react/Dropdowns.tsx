@@ -362,33 +362,33 @@ export default class DropdownDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='label' isRequered={false} type='string' default='/' description='Text value of label.'/>
-                    <Prop name='align' isRequered={false} type='left | right' default='left' description='Position of dropdown menu based on button'/>
-                    <Prop name='append' isRequered={false} type='boolean' default='false' description='Append inner dropdown menu to the body'/>
-                    <Prop name='items' isRequered={true} type='Array<menuitem | submenu | menugroup | "divider">' default='/' description='Items, divider, groups or submenu of dropdown menu'/>
-                    <Prop name='children' isRequered={true} type='React.ReactNode' default='/' description='If children is "string" type than button have default style with arrow, also children can be custom styled buttons'/>
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Text value of label.'/>
+                    <Prop name='align' isRequired={false} type='left | right' default='left' description='Position of dropdown menu based on button'/>
+                    <Prop name='append' isRequired={false} type='boolean' default='false' description='Append inner dropdown menu to the body'/>
+                    <Prop name='items' isRequired={true} type='Array<menuitem | submenu | menugroup | "divider">' default='/' description='Items, divider, groups or submenu of dropdown menu'/>
+                    <Prop name='children' isRequired={true} type='React.ReactNode' default='/' description='If children is "string" type than button have default style with arrow, also children can be custom styled buttons'/>
                 </PropsList>
 
                 <p className='docs-page__paragraph'>Items: Menu item</p>
                 <PropsList>
-                    <Prop name='label' isRequered={true} type='string' default='/' description='Text value of label.'/>
-                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
-                    <Prop name='onSelect' isRequered={false} type='function' default='false' description='Callback fired when a item is select.'/>
+                    <Prop name='label' isRequired={true} type='string' default='/' description='Text value of label.'/>
+                    <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='onSelect' isRequired={false} type='function' default='false' description='Callback fired when a item is select.'/>
                 </PropsList>
 
                 <p className='docs-page__paragraph'>Items: Menu group</p>
                 <PropsList>
-                    <Prop name='label' isRequered={false} type='string' default='/' description='Text value of label.'/>
-                    <Prop name='type' isRequered={true} type='group' default='group' description='/'/>
-                    <Prop name='items' isRequered={true} type='Array<menuitem | submenu | menugroup | "divider">' default='/' description='Items, divider, groups or submenu of group in dropdown menu'/>
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Text value of label.'/>
+                    <Prop name='type' isRequired={true} type='group' default='group' description='/'/>
+                    <Prop name='items' isRequired={true} type='Array<menuitem | submenu | menugroup | "divider">' default='/' description='Items, divider, groups or submenu of group in dropdown menu'/>
                 </PropsList>
 
                 <p className='docs-page__paragraph'>Items: Submenu</p>
                 <PropsList>
-                    <Prop name='label' isRequered={true} type='string' default='/' description='Text value of label.'/>
-                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
-                    <Prop name='type' isRequered={true} type='submenu' default='submenu' description='/'/>
-                    <Prop name='items' isRequered={true} type='Array<menuitem | submenu | menugroup | "divider">' default='/' description='Items, divider, groups or submenu of submenu in dropdown menu'/>
+                    <Prop name='label' isRequired={true} type='string' default='/' description='Text value of label.'/>
+                    <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='type' isRequired={true} type='submenu' default='submenu' description='/'/>
+                    <Prop name='items' isRequired={true} type='Array<menuitem | submenu | menugroup | "divider">' default='/' description='Items, divider, groups or submenu of submenu in dropdown menu'/>
                 </PropsList>
             </section>
         )

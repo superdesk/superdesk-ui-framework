@@ -98,16 +98,16 @@ export default class DatePickerDoc extends React.Component {
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequered={false} type='Date' default='/' description='Item value' />
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Mark field as disabled' />
-                    <Prop name='dateFormat' isRequered={true} type='string' default='/' description='Date format to use, i.e. "MM/DD/YYYY"' />
-                    <Prop name='shortcuts' isRequered={false} type='string' default='/' description='Shortcuts for calendar popup, i.e. [{label: "tomorrow", days: 1}]' />
-                    <Prop name='locale' isRequered={false} type='string' default='/' description='see: https://primefaces.org/primereact/showcase/#/calendar' />
+                    <Prop name='value' isRequired={false} type='Date' default='/' description='Item value' />
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />
+                    <Prop name='dateFormat' isRequired={true} type='string' default='/' description='Date format to use, i.e. "MM/DD/YYYY"' />
+                    <Prop name='shortcuts' isRequired={false} type='string' default='/' description='Shortcuts for calendar popup, i.e. [{label: "tomorrow", days: 1}]' />
+                    <Prop name='locale' isRequired={false} type='string' default='/' description='see: https://primefaces.org/primereact/showcase/#/calendar' />
                 </PropsList>
 
                 <h3 className='docs-page__h3'>Events</h3>
                 <PropsList>
-                    <Prop name='onChange' isRequered={true} type='function' default='/' description='Returns value of date input' />
+                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Returns value of date input' />
                 </PropsList>
             </section>
         );

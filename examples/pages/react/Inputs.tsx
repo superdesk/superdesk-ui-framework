@@ -74,15 +74,15 @@ export default class InputsDoc extends React.Component<{}, IState> {
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequered={false} type='string' default='/' description='Item value'/>
-                    <Prop name='label' isRequered={false} type='string' default='/' description='Input label'/>
-                    <Prop name='maxLength' isRequered={false} type='number' default='/' description='Sets max length for input text'/>
-                    <Prop name='info' isRequered={false} type='string' default='/' description='Hint text'/>
-                    <Prop name='error' isRequered={false} type='string' default='/' description='Error text'/>
-                    <Prop name='inlineLabel' isRequered={false} type='boolean' default='false' description='Position labels as inline'/>
-                    <Prop name='required' isRequered={false} type='boolean' default='false' description='Mark field as required'/>
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Mark field as disabled'/>
-                    <Prop name='invalid' isRequered={false} type='boolean' default='false' description='Mark field as invalid'/>
+                    <Prop name='value' isRequired={false} type='string' default='/' description='Item value'/>
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Input label'/>
+                    <Prop name='maxLength' isRequired={false} type='number' default='/' description='Sets max length for input text'/>
+                    <Prop name='info' isRequired={false} type='string' default='/' description='Hint text'/>
+                    <Prop name='error' isRequired={false} type='string' default='/' description='Error text'/>
+                    <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline'/>
+                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled'/>
+                    <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid'/>
                 </PropsList>
             </section>
         )
