@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import {Button, Menu} from '../../../app-typescript';
+import {Button, Menu, Prop, PropsList} from '../../../app-typescript';
 import {IMenuItem} from '../../../app-typescript/components/Menu';
 
 const menuItems: Array<IMenuItem> = [
@@ -112,6 +112,45 @@ export class MenuDocs extends React.Component {
                         </Menu>
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+
+                <PropsList>
+                    <Prop name='items' isRequered={true} type='array' default='' description='Array of objects. Allowed objects are: "Menu branch", "Menu leaf" or "Divider"'/>
+
+                    <Prop
+                        name='children'
+                        isRequered={true}
+                        type='function'
+                        default=''
+                        description='Will have `toggle` function as an argument. Has to return a JSX element that will act a trigger for the menu.'
+                    />
+                </PropsList>
+
+                <p className='docs-page__paragraph'>Menu branch</p>
+                <PropsList>
+                    <Prop name='label' isRequered={true} type='string' default='' description='Name for menu group'/>
+                    <Prop name='icon' isRequered={false} type='string' default='' description='Available icons are listed in /#/react/icon-font'/>
+                    <Prop
+                        name='children'
+                        isRequered={true}
+                        type='array'
+                        default=''
+                        description='Array of objects. Allowed objects are: "Menu branch", "Menu leaf" or "Divider"'
+                    />
+                </PropsList>
+
+                <p className='docs-page__paragraph'>Menu leaf</p>
+                <PropsList>
+                    <Prop name='label' isRequered={true} type='string' default='' description='Name for menu item'/>
+                    <Prop name='icon' isRequered={false} type='string' default='' description='Available icons are listed in /#/react/icon-font'/>
+                    <Prop name='onClick' isRequered={true} type='function' default='' description=''/>
+                </PropsList>
+
+                <p className='docs-page__paragraph'>Menu separator</p>
+                <PropsList>
+                    <Prop name='separator' isRequered={true} type='boolean' default='' description='Adds a separator between items.'/>
+                </PropsList>
             </section>
         )
     }
