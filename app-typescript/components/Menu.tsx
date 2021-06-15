@@ -134,6 +134,7 @@ export class Menu extends React.Component<IProps, {}> {
                                 firstMenuItem.focus();
                             }
                         }}
+                        data-test-id="menu"
                     />
                 </div>
             </div>
