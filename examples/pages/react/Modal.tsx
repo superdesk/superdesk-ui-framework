@@ -72,15 +72,15 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='id' isRequered={false} type='string' default='null' description='Unique identifier of the element' />
-                    <Prop name='className' isRequered={false} type='string' default='null' description='Style class of the component' />
-                    <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Item style' />
-                    <Prop name='visible' isRequered={true} type='boolean' default='false' description='Specifies the visibility of the dialog' />
-                    <Prop name='headerTemplate' isRequered={false} type='element' default='null' description='Label of header' />
-                    <Prop name='footerTemplate' isRequered={false} type='element' default='null' description='Label of footer' />
-                    <Prop name='closeOnEscape' isRequered={false} type='boolean' default='null' description='An array of objects to display' />
-                    <Prop name='onShow' isRequered={false} type='function' default='null' description='Callback to invoke after modal is opened' />
-                    <Prop name='onHide' isRequered={true} type='function' default='null' description='Callback to invoke after modal is closed' />
+                    <Prop name='id' isRequired={false} type='string' default='null' description='Unique identifier of the element' />
+                    <Prop name='className' isRequired={false} type='string' default='null' description='Style class of the component' />
+                    <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Item style' />
+                    <Prop name='visible' isRequired={true} type='boolean' default='false' description='Specifies the visibility of the dialog' />
+                    <Prop name='headerTemplate' isRequired={false} type='element' default='null' description='Label of header' />
+                    <Prop name='footerTemplate' isRequired={false} type='element' default='null' description='Label of footer' />
+                    <Prop name='closeOnEscape' isRequired={false} type='boolean' default='null' description='An array of objects to display' />
+                    <Prop name='onShow' isRequired={false} type='function' default='null' description='Callback to invoke after modal is opened' />
+                    <Prop name='onHide' isRequired={true} type='function' default='null' description='Callback to invoke after modal is closed' />
                 </PropsList>
             </section>
         )

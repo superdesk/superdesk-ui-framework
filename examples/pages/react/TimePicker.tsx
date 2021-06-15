@@ -67,14 +67,14 @@ export default class TimePickerDoc extends React.Component {
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequered={true} type='string' default='/' description='Item value' />
-                    <Prop name='required' isRequered={false} type='boolean' default='false' description='Mark field as required' />
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Mark field as disabled' />
+                    <Prop name='value' isRequired={true} type='string' default='/' description='Item value' />
+                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required' />
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />
                 </PropsList>
 
                 <h3 className='docs-page__h3'>Events</h3>
                 <PropsList>
-                    <Prop name='onChange' isRequered={true} type='function' default='/' description='Returns value of time input' />
+                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Returns value of time input' />
                 </PropsList>
             </section>
         );
