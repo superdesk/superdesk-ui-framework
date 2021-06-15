@@ -310,8 +310,74 @@ $tooltip-dark-UI: #222;
   }
 }
 
+.p-tooltip {
+  position:absolute;
+  z-index: 1000;
+  min-width: 3em;
+  max-width: 21em;
+}
 
+.p-tooltip.p-tooltip-right,
+.p-tooltip.p-tooltip-left {
+  padding: 0 5px;
+}
 
+.p-tooltip.p-tooltip-top,
+.p-tooltip.p-tooltip-bottom {
+    padding: 5px 0;
+}
 
+.p-tooltip .p-tooltip-text {
+  white-space: pre-line;
+  min-width: 3em;
+  max-width: 21em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding: 0.8rem 1.2rem 0.9rem;
+  border-radius: 2px;
+  background: #333;
+  color: #fff;
+  font-weight: 400;
+}
 
+.p-tooltip-arrow {
+    border: 10px solid transparent;
+    z-index: 1001;
+    text-transform: none;
+    font-size: 1.2rem; 
+    line-height: 1;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    width: 5px;
+    height: 5px;
+}
 
+.p-tooltip-top .p-tooltip-arrow {
+    bottom: 0;
+    left: 50%;
+    border-bottom-width: 0;
+    border-top-color: #333;
+}
+
+.p-tooltip-bottom .p-tooltip-arrow {
+    top: 0;
+    left: 50%;
+    border-top-width: 0;
+    border-bottom-color: #333;
+}
+
+.p-tooltip-right .p-tooltip-arrow {
+    top: 50%;
+    left: 0;
+    border-left-width: 0;
+    border-right-color: #333;
+}
+
+.p-tooltip-left .p-tooltip-arrow {
+    top: 50%;
+    right: 0;
+    border-right-width: 0;
+    border-left-color: #333;
+}
