@@ -90,6 +90,7 @@ export const Dropdown = ({
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
                     id={menuID}
+                    role='menu'
                     ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
@@ -106,6 +107,7 @@ export const Dropdown = ({
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
                     id={menuID}
+                    role='menu'
                     ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
@@ -119,6 +121,7 @@ export const Dropdown = ({
             return (
                 <div className='dropdown__menu dropdown__menu--has-head-foot'
                     id={menuID}
+                    role='menu'
                     ref={ref}>
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
@@ -132,6 +135,7 @@ export const Dropdown = ({
             return (
                 <ul className='dropdown__menu '
                     id={menuID}
+                    role='menu'
                     ref={ref}>
                     {dropdownElements}
                 </ul>
@@ -142,18 +146,19 @@ export const Dropdown = ({
     // toggle menu
     function toggleDisplay() {
         if (!open) {
+            let menuRef: any;
             setOpen(true);
             if (!append) {
-                let menuRef = ref.current;
+                menuRef = ref.current;
                 let toggleRef = buttonRef.current;
                 if (toggleRef && menuRef) {
                     createPopper(toggleRef, menuRef, {
                         placement: checkAlign() ? 'bottom-end' : 'bottom-start',
                     });
-                }
+                }                
             } else {
                 setTimeout(() => {
-                    let menuRef: any = ref.current;
+                    menuRef = ref.current;
                     let toggleRef = buttonRef.current;
                     if (toggleRef && menuRef) {
                         createPopper(toggleRef, menuRef, {
@@ -163,9 +168,11 @@ export const Dropdown = ({
                         menuRef.style.display = 'block';
                     }
                 }, 0);
-
             }
             document.addEventListener('click', closeMenu);
+            setTimeout(() => {
+                menuRef.getElementsByTagName('button')[0].focus();
+            });
         } else {
             setOpen(false);
         }
@@ -209,7 +216,8 @@ export const Dropdown = ({
                         <button
                             ref={refButtonSubMenu}
                             className='dropdown__toggle dropdown-toggle'
-                            aria-haspopup="true"
+                            aria-haspopup="menu"
+                            tabIndex={0}
                             onMouseOver={() => {
                                 let subMenuRef = refSubMenu.current;
                                 let subToggleRef = refButtonSubMenu.current;
@@ -224,6 +232,7 @@ export const Dropdown = ({
                             {item['label']}
                         </button>
                         <ul ref={refSubMenu}
+                            role='menu' 
                             className='dropdown__menu'>
                             {submenuItems}
                         </ul>
@@ -262,7 +271,7 @@ export const Dropdown = ({
                     <div ref={buttonRef} style={{ display: 'content' }}>
                         {React.cloneElement(children, {
                             className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
-                            'aria-haspopup': "true",
+                            'aria-haspopup': "menu",
                             'aria-expanded': open,
                             onClick: toggleDisplay,
                             ref: buttonRef,
@@ -271,7 +280,8 @@ export const Dropdown = ({
                 :
                 <button ref={buttonRef}
                     className=' dropdown__toggle dropdown-toggle'
-                    aria-haspopup="true"
+                    aria-haspopup="menu"
+                    tabIndex={0}
                     aria-expanded={open}
                     onClick={toggleDisplay}>
                     {children}
@@ -282,7 +292,7 @@ export const Dropdown = ({
                 null : (function() {
                     if (header && footer) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref} >
                                 <ul className='dropdown__menu-header'>
                                     {headerElements}
                                 </ul>
@@ -296,7 +306,7 @@ export const Dropdown = ({
                         );
                     } else if (header) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref} >
                                 <ul className='dropdown__menu-header'>
                                     {headerElements}
                                 </ul>
@@ -307,7 +317,7 @@ export const Dropdown = ({
                         );
                     } else if (footer) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' ref={ref} >
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref} >
                                 <ul className='dropdown__menu-body'>
                                     {dropdownElements}
                                 </ul>
@@ -318,7 +328,7 @@ export const Dropdown = ({
                         );
                     } else {
                         return (
-                            <ul className='dropdown__menu' ref={ref} >
+                            <ul className='dropdown__menu' role='menu' ref={ref} >
                                 {dropdownElements}
                             </ul>
                         );
@@ -334,7 +344,7 @@ const DropdownItem = ({
     onSelect,
 }: IMenuItem) => {
     return (
-        <li><button onClick={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
+        <li role='none'><button tabIndex={0} role='menuitem' onClick={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
     );
 
 };

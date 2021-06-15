@@ -41,6 +41,7 @@ import GridListDoc from './GridList';
 import GridItemDoc from './GridItem';
 import ModalDoc from './Modal';
 import CarouselDoc from './Carousel';
+import ContentDividerDoc from './ContentDivider';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import {SelectWithTemplateDocs} from './SelectWithTemplate';
@@ -130,6 +131,9 @@ const pages = {
         items: {
             'grid-list': {
                 name: 'Grid List'
+            },
+            'content-divider': {
+                name: 'Content Divider'
             },
         }
     },
@@ -257,6 +261,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/grid-item" component={GridItemDoc} />
                         <Route path="/react/modal" component={ModalDoc} />
                         <Route path="/react/carousel" component={CarouselDoc} />
+                        <Route path="/react/content-divider" component={ContentDividerDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

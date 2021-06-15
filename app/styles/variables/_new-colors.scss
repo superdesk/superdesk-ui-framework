@@ -278,6 +278,7 @@ $ref-color-light-grey--08:  hsl(214, 13%, 60%);
     --sd-colour-line--x-light:              hsla(var(--sd-colour-cool-grey-l--20), 0.1);
     --sd-colour-line--light:                hsla(var(--sd-colour-cool-grey-l--20), 0.16);
     --sd-colour-line--medium:               hsla(var(--sd-colour-cool-grey-l--20), 0.2);
+    --sd-colour-line--strong:               hsla(var(--sd-colour-cool-grey-l--20), 0.48);
 
     --sd-colour-bg-translucent--08:         hsla(var(--sd-colour-cool-grey-l--50), 0.3);
     --sd-colour-overlay-actioning:          hsla(var(--sd-colour-cool-grey-l--99), 0.85);
@@ -287,8 +288,8 @@ $ref-color-light-grey--08:  hsl(214, 13%, 60%);
     --sd-item__thumb-Bg:                    var(--sd-colour-bg--03);
     --sd-item__main-Bg:                     var(--sd-colour-bg--99);
     --sd-item__main-Bg--hover:              var(--sd-colour-bg--95);
-    --sd-item__main-Bg--selected:           var(--sd-colour-interactive--lighten-30);
-    --sd-item__main-Bg--activated:          var(--sd-colour-interactive--lighten-40);
+    --sd-item__main-Bg--selected:           var(--sd-colour-interactive--lighten-40);
+    --sd-item__main-Bg--activated:          var(--sd-colour-interactive--lighten-45);
 
     --sd-colour-bg__grid-item--selected:    var(--sd-colour-interactive--lighten-45);
 
@@ -297,6 +298,8 @@ $ref-color-light-grey--08:  hsl(214, 13%, 60%);
 
     --color-dropdown-menu-Bg:               var(--sd-colour-bg--99);
 
+    --color-modal-Bg:                       var(--sd-colour-bg--99);
+    
     --sd-colour--shadow-line:               hsla(var(--sd-colour-cool-grey-l--70), 0);
     --sd-shadow__subnav:                    0 1px 0px var(--sd-colour--shadow-line), 0 1px 3px hsla(0, 0%, 0%, 0.07), 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
     
@@ -422,6 +425,7 @@ $sd-colour-background__button-primary--active:      var(--sd-colour-interactive-
     --sd-colour-line--x-light:              hsla(var(--sd-colour-cool-grey-l--70), 0.1);
     --sd-colour-line--light:                hsla(var(--sd-colour-cool-grey-l--70), 0.16);
     --sd-colour-line--medium:               hsla(var(--sd-colour-cool-grey-l--70), 0.2);
+    --sd-colour-line--strong:               hsla(var(--sd-colour-cool-grey-l--70), 0.48);
 
     --sd-colour-bg-translucent--08:         hsla(var(--sd-colour-cool-grey-l--50), 0.3);
 
@@ -442,6 +446,7 @@ $sd-colour-background__button-primary--active:      var(--sd-colour-interactive-
 
     --color-dropdown-menu-Bg:               var(--sd-colour-bg--05);
 
+    --color-modal-Bg:                       var(--sd-colour-bg--05);
     --sd-colour--shadow-line:               hsla(var(--sd-colour-cool-grey-l--70), 0.12);
     --sd-shadow__subnav:                    0 1px 0px var(--sd-colour--shadow-line), 0 1px 3px hsla(0, 0%, 0%, 0.14), 0 2px 0 0 hsla(0, 0%, 0%, 0.12);
 

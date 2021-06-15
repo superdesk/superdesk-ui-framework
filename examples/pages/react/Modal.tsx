@@ -1,9 +1,13 @@
 import * as React from "react";
 import * as Markup from "../../js/react";
-import { Button, Modal, PropsList, Prop } from "../../../app-typescript";
+import { Button, ButtonGroup, Modal, PropsList, Prop } from "../../../app-typescript";
 
 interface IState {
-    modalVisible: boolean;
+    modalBasic: boolean;
+    modalSmall: boolean;
+    modalMedium: boolean;
+    modalLarge: boolean;
+    modalXLarge: boolean;
     modalFull: boolean;
 }
 
@@ -12,12 +16,34 @@ export default class ModalDoc extends React.Component<{}, IState> {
         super(props);
 
         this.state = {
-            modalVisible: false,
+            modalBasic: false,
+            modalSmall: false,
+            modalMedium: false,
+            modalLarge: false,
+            modalXLarge: false,
             modalFull: false
         }
     }
 
     render() {
+        const modalFullFooter=(
+            <ButtonGroup align="right">
+                <Button text='Cancel' onClick={() => {this.setState({modalFull:false})}}/>
+                <Button type='primary' text='Save' onClick={() => {}}/>
+            </ButtonGroup>
+        );
+        const modalLargeFooter=(
+            <ButtonGroup align="right">
+                <Button text='Cancel' onClick={() => {this.setState({modalLarge:false})}}/>
+                <Button type='primary' text='Save' onClick={() => {}}/>
+            </ButtonGroup>
+        );
+        const modalXLargeFooter=(
+            <ButtonGroup align="right">
+                <Button text='Cancel' onClick={() => {this.setState({modalXLarge:false})}}/>
+                <Button type='primary' text='Save' onClick={() => {}}/>
+            </ButtonGroup>
+        );
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Modal</h2>
@@ -34,37 +60,163 @@ export default class ModalDoc extends React.Component<{}, IState> {
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <Button text="Open Modal" onClick={() => this.setState({modalVisible: true})} />
-                        <Modal visible={this.state.modalVisible} onHide={() => {this.setState({modalVisible: false})}}>
-                            <p>This is some content inside modal</p>
+                        <ButtonGroup align="right">
+                            <Button text="Basic (no size)" onClick={() => this.setState({modalBasic: true})} />
+                            <Button text="Small" onClick={() => this.setState({modalSmall: true})} />
+                            <Button text="Medium" onClick={() => this.setState({modalMedium: true})} />
+                            <Button text="Large with footer" onClick={() => this.setState({modalLarge: true})} />
+                            <Button text="Extra Large with footer" onClick={() => this.setState({modalXLarge: true})} />
+                        </ButtonGroup>
+
+                        <Modal headerTemplate="Basic modal"
+                               visible={this.state.modalBasic}
+                               onHide={() => {this.setState({modalBasic: false})}}>
+                            <p>This modal has no fixed size. It will adapt its size based on the content inside.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Small modal header"
+                               visible={this.state.modalSmall}
+                               size='small' onHide={() => {this.setState({modalSmall: false})}}>
+                            <p>Small modal content. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
+                            ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper.</p>
+                        </Modal>
+                        
+                        <Modal headerTemplate="Medium modal header"
+                               visible={this.state.modalMedium}
+                               size='medium' onHide={() => {this.setState({modalMedium: false})}}>
+                            <p>Medium modal content. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum.
+                            Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non
+                            commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis
+                            ornare vel eu leo. Donec id elit non mi porta gravida at eget metus. Nulla vitae elit libero, a pharetra augue.</p>
+                        </Modal>
+                        
+                        <Modal headerTemplate="Large modal header"
+                               visible={this.state.modalLarge}
+                               footerTemplate={modalLargeFooter}
+                               size='large' onHide={() => {this.setState({modalLarge: false})}}>
+                            <p>Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
+                            Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
+                            purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit
+                            sit amet non magna. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Vivamus sagittis lacus vel augue
+                            laoreet rutrum faucibus dolor auctor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                            Maecenas sed diam eget risus varius blandit sit amet non magna. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+                            eget lacinia odio sem nec elit. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Extra large modal"
+                               visible={this.state.modalXLarge}
+                               footerTemplate={modalXLargeFooter}
+                               size='x-large' onHide={() => {this.setState({modalXLarge: false})}}>
+                            <p className="sd-margin-b--3">Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
+                            Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis.</p>
+
+                            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum
+                            nibh, ut fermentum massa justo sit amet risus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh 
+                            ultricies vehicula ut id elit.</p>
                         </Modal>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="Open Modal" onClick={() => this.setState({modalVisible: true})} />
-                        <Modal visible={this.state.modalVisible} onHide={() => {this.setState({modalVisible: false})}}>
-                            <p>This is some content inside modal</p>
+                        // Basic
+                        <Button text="Basic (no size)" onClick={() => this.setState({modalBasic: true})} />
+                        <Modal headerTemplate="Basic modal"
+                               visible={this.state.modalBasic}
+                               onHide={() => {this.setState({modalBasic: false})}}>
+                            <p>Content...</p>
+                        </Modal>
+
+                        // Small
+                        <Button text="Small" onClick={() => this.setState({modalSmall: true})} />
+                        <Modal headerTemplate="Small modal header"
+                               visible={this.state.modalSmall}
+                               size='small' onHide={() => {this.setState({modalSmall: false})}}>
+                            <p>Content...</p>
+                        </Modal>
+
+                        // Medium
+                        <Button text="Medium" onClick={() => this.setState({modalMedium: true})} />
+                        <Modal headerTemplate="Medium modal header"
+                               visible={this.state.modalMedium}
+                               size='medium' onHide={() => {this.setState({modalMedium: false})}}>
+                            <p>Content...</p>
+                        </Modal>
+
+                        // Large
+                        <Button text="Large with footer" onClick={() => this.setState({modalLarge: true})} />
+                        const modalLargeFooter=(
+                            <ButtonGroup align="right">
+                                <Button text='Cancel' onClick={() => {this.setState({modalLarge:false})}}/>
+                                <Button type='primary' text='Save' onClick={() => {}}/>
+                            </ButtonGroup>
+                        );
+                        <Modal headerTemplate="Large modal header"
+                               visible={this.state.modalLarge}
+                               footerTemplate={modalLargeFooter}
+                               size='large' onHide={() => {this.setState({modalLarge: false})}}>
+                            <p>Content...</p>
+                        </Modal>
+
+                        // Extra large
+                        <Button text="Extra Large with footer" onClick={() => this.setState({modalXLarge: true})} />
+                        const modalXLargeFooter=(
+                            <ButtonGroup align="right">
+                                <Button text='Cancel' onClick={() => {this.setState({modalXLarge:false})}}/>
+                                <Button type='primary' text='Save' onClick={() => {}}/>
+                            </ButtonGroup>
+                        );
+                        <Modal headerTemplate="Extra large modal"
+                               visible={this.state.modalXLarge}
+                               footerTemplate={modalXLargeFooter}
+                               size='x-large' onHide={() => {this.setState({modalXLarge: false})}}>
+                            <p className="sd-margin-b--3">Content...</p>
+                            <p>...</p>
                         </Modal>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h3 className="docs-page__h3">Full Modal Options</h3>
+                <h3 className="docs-page__h3">Maximised modal</h3>
                 <p className="docs-page__paragraph">
-                    This is modal with all configurations set
+                    Maximised modal with footer template and forced dark theme.
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Button text="Open Modal" onClick={() => this.setState({modalFull: true})} />
-                        <Modal headerTemplate="This is some header test"
-                            visible={this.state.modalFull} 
-                            onHide={() => {this.setState({modalFull: false})}}>
-                            <p>This is some content inside modal</p>
+                        <Modal headerTemplate="Another modal header"
+                               footerTemplate={modalFullFooter}
+                               visible={this.state.modalFull} 
+                               theme='dark'
+                               maximized={true}
+                               onHide={() => {this.setState({modalFull: false})}}>
+                            <p className="sd-margin-b--3">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
+                            Vestibulum id ligula porta felis euismod semper.</p>
+
+                            <p className="sd-margin-b--3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+                            eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus.</p>
+
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
+                            Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis.</p>
                         </Modal>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="Open Modal" onClick={() => this.setState({modalVisible: true})} />
-                        <Modal visible={this.state.modalVisible} onHide={() => {this.setState({modalVisible: false})}}>
-                            <p>This is some content inside modal</p>
+                        <Button text="Open Modal" onClick={() => this.setState({modalFull: true})} />
+                        const modalFullFooter=(
+                            <ButtonGroup align="right">
+                                <Button text='Cancel' onClick={() => {this.setState({modalFull:false})}}/>
+                                <Button type='primary' text='Save' onClick={() => {}}/>
+                            </ButtonGroup>
+                        );
+                        <Modal headerTemplate="Another modal header"
+                               footerTemplate={modalFullFooter}
+                               visible={this.state.modalFull} 
+                               theme='dark'
+                               maximized={true}
+                               onHide={() => {this.setState({modalFull: false})}}>
+                            <p className="sd-margin-b--3">...</p>
+                            <p className="sd-margin-b--3">...</p>
+                            <p>...</p>
                         </Modal>
                     `}
                     </Markup.ReactMarkupCode>
@@ -75,10 +227,12 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Prop name='id' isRequered={false} type='string' default='null' description='Unique identifier of the element' />
                     <Prop name='className' isRequered={false} type='string' default='null' description='Style class of the component' />
                     <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Item style' />
+                    <Prop name='size' isRequered={false} type='small | medium | large | x-large' default='/' description='Size of the modal. If not defined it will adapt to the width of the content.' />
                     <Prop name='visible' isRequered={true} type='boolean' default='false' description='Specifies the visibility of the dialog' />
                     <Prop name='headerTemplate' isRequered={false} type='element' default='null' description='Label of header' />
-                    <Prop name='footerTemplate' isRequered={false} type='element' default='null' description='Label of footer' />
+                    <Prop name='footerTemplate' isRequered={false} type='element' default='null' description='Name of the footer template constant, created separately.' />
                     <Prop name='closeOnEscape' isRequered={false} type='boolean' default='null' description='An array of objects to display' />
+                    <Prop name='maximized' isRequered={false} type='boolean' default='null' description='Creates a full-screen mofal id set to true.' />
                     <Prop name='onShow' isRequered={false} type='function' default='null' description='Callback to invoke after modal is opened' />
                     <Prop name='onHide' isRequered={true} type='function' default='null' description='Callback to invoke after modal is closed' />
                 </PropsList>

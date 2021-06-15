@@ -29,6 +29,7 @@
 @import 'accessibility';
 @import 'popover';
 @import 'thumb-carousel';
+@import 'content-divider';
 
 // Interface elements
 @import 'interface-elements/side-panel';
@@ -90,6 +91,7 @@
 @import '../../node_modules/@superdesk/primereact/resources/primereact.min.css';
 @import '../../node_modules/primeicons/primeicons.css';
 @import 'pr-superdesk-theme';
+@import 'primereact/pr-dialog';
 
 // React Components
 @import 'avatar';

@@ -15,7 +15,7 @@ $boxed-list-palette: $sd-basic-palette;
     margin-bottom: 0.8rem;
     @include sd-padding('1-5');
     background-color: var(--sd-item__main-Bg);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 0 1px rgba(0, 0, 0, 0.1);
+    box-shadow: $shadow__base--z1;
     transition: all 0.2s ease-in-out;
     @each $name, $color in $boxed-list-palette {
         &.boxed-list__item--#{$name} {

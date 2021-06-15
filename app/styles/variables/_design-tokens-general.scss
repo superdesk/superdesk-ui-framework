@@ -3,8 +3,6 @@
 
 $sd-base-increment: 0.8rem;
 
-
-
 // TYPOGRAPHY
 // ----------------------------------------------------
 $font-size__base: 1.3rem;
@@ -46,6 +44,9 @@ $height__label--large: $sd-base-increment * 3;
 $height__icon-button--default: $height-input--default;
 $height__icon-button--small: $sd-base-increment * 3;
 
+$height__modal-header: $sd-base-increment * 6;
+$height__modal-footer: $sd-base-increment * 6;
+
 // Spaces
 $padding__button--default: 0 1.2rem !default;
 $padding__button--small: 0 0.8rem;
@@ -62,11 +63,33 @@ $border-radius__base--large: 6px;
 $border-radius__base--x-large: 8px;
 $border-radius__base--full: 9999px;
 
+
+:root {
+    // WIDTHS
+    --width__container--xx-small:  24rem;
+    --width__container--x-small:   32rem;
+    --width__container--small:     40rem;
+    --width__container--medium:    48rem;
+    --width__container--large:     56rem;
+    --width__container--x-large:   72rem;
+    --width__container--xx-large:  80rem;
+    --width__container--xxx-large: 120rem;
+    --width__container--full:      100%;
+
+    // modal sizes
+    --width__modal--small:         40rem;
+    --width__modal--medium:        64rem;
+    --width__modal--large:         80rem;
+    --width__modal--x-large:       80vw;
+}
+
+
 :root, [data-theme="light-ui"] {
     --sd-shadow-outline: hsla(0, 0%, 0%, 0);
     --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.4), 0 3px 1px -2px hsla(0, 0%, 0%, 0.1);
     --sd-shadow__modal: 0 0 0 1px var(--sd-shadow-outline), 0 0 8px 2px hsla(0, 0%, 0%, 0.3);
 }
+
 [data-theme="dark-ui"], .dark-ui {
     --sd-shadow-outline: hsla(0, 0%, 100%, 0.08);
     --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.6), 0 3px 1px -2px hsla(0, 0%, 0%, 0.2);
@@ -83,6 +106,8 @@ $shadow__base--z4: 0 2px 10px rgba(0,0,0,.2), 0 6px 16px rgba(0,0,0,.3), 0 0 1px
 
 $shadow__dropdown--default: var(--sd-shadow__dropdown);
 $shadow__modal--default: var(--sd-shadow__modal);
+
+
 
 
 // TRANSITIONS

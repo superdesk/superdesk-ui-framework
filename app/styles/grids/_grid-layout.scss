@@ -649,7 +649,7 @@ $planningEditor-width: 53rem;
 
 .sd-main-content-grid__preview.open-preview {
     .side-panel__container {
-        width:460px;
+        width: var(--width__container--medium);
         overflow-y: auto;
         .side-panel {
             opacity: 1;
@@ -658,13 +658,13 @@ $planningEditor-width: 53rem;
 }
 .sd-main-content-grid__filter.open-filters {
     .side-panel__container {
-        width:360px;
+        width: var(--width__container--x-small);
         overflow-y: auto;
         .side-panel {
             opacity: 1;
         }
         &.side-panel__container--small {
-            width: 300px;
+            width: var(--width__container--x-small);
         }
 
     } 

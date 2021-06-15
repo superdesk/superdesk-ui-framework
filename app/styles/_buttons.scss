@@ -7,13 +7,10 @@ $button-transition: all 0.2s ease-out, color 0.1s ease-out !default;
 $button-focus-box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
 $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
 
-
 ////////////////////////////// NEW BUTTONS //////////////////////////////
-
 
 $new-button-active-shadow: inset 0 1px 2px hsla(0, 0%, 0%, 0.3);
 $new-button-active-shadow-hollow: inset 0 0 0 1px;
-
 
 :root {
 
@@ -349,7 +346,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     text-decoration: none;
     background-color: rgba(155,155,155,0.20);
   }
-  &:focus {
+  &:focus-visible {
     opacity: 1;
     background-color: rgba(155,155,155,0.20);
     box-shadow: $icn-button-focus-box-shadow;
@@ -376,6 +373,21 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     height: $height__button--small;
     width: $height__button--small;
   }
+}
+.p-dialog-header-close {
+  @include icn-btn-style;
+  height: $height__button--small;
+  width: $height__button--small;
+  &:hover {
+    opacity: 1;
+    text-decoration: none;
+    background-color: rgba(155,155,155,0.20) !important;
+  }
+  &:active {
+    opacity: 1;
+    background-color: rgba(155,155,155,0.30);
+  }
+
 }
 
 // BUTTON GROUPS 

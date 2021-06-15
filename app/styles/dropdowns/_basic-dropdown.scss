@@ -10,6 +10,7 @@ $dropdownLinkColorHover:        $sd-text;
 $dropdownLinkBackgroundHover:   $sd-hover;
 
 $dropdownMenuBorderRadius:      $border-radius__base--small;
+$focus-box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropdown {
@@ -34,6 +35,9 @@ $dropdownMenuBorderRadius:      $border-radius__base--small;
 .dropdown__toggle {
     cursor: pointer;
     i { vertical-align: sub; }
+    &:focus-visible {
+        box-shadow: $focus-box-shadow;
+    }
 }
 
 // Triggers dropdown on a hover
