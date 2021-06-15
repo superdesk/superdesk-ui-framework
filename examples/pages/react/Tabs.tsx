@@ -167,23 +167,23 @@ export default class TabsDoc extends React.Component<{}, IState> {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='tablist size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
-                    <Prop name='tablist theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
-                    <Prop name='tab label' isRequered={false} type='string' default='/' description='Text value of Tab label'/>
+                    <Prop name='tablist size' isRequired={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
+                    <Prop name='tablist theme' isRequired={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
+                    <Prop name='tab label' isRequired={false} type='string' default='/' description='Text value of Tab label'/>
                 </PropsList>
                 <br/>
                 <h4 className="docs-page__h4">Tabs Custom</h4>
                 <PropsList>
-                    <Prop name='tabs size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
-                    <Prop name='tabs theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
-                    <Prop name='tabs ariaLabel' isRequered={false} type='string' default='/' description='Text value of aria-label'/>
-                    <Prop name='tabs onClick' isRequered={true} type='function' default='/' description='Use to return value of clicked label'/>
-                    <Prop name='tablabel indexValue' isRequered={true} type='number' default='/' description='Index value of label'/>
-                    <Prop name='tablabel label' isRequered={true} type='string' default='/' description='Text value of Tab label'/>
+                    <Prop name='tabs size' isRequired={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
+                    <Prop name='tabs theme' isRequired={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
+                    <Prop name='tabs ariaLabel' isRequired={false} type='string' default='/' description='Text value of aria-label'/>
+                    <Prop name='tabs onClick' isRequired={true} type='function' default='/' description='Use to return value of clicked label'/>
+                    <Prop name='tablabel indexValue' isRequired={true} type='number' default='/' description='Index value of label'/>
+                    <Prop name='tablabel label' isRequired={true} type='string' default='/' description='Text value of Tab label'/>
 
-                    <Prop name='tabcontent theme' isRequered={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
-                    <Prop name='tabcontent activePanel' isRequered={true} type='number' default='/' description='Index value of active Tab'/>
-                    <Prop name='tabpanel indexValue' isRequered={true} type='number' default='/' description='Index value of Tab Panel'/>
+                    <Prop name='tabcontent theme' isRequired={false} type='light | dark' default='light' description='Styles tablist for diffrent background.'/>
+                    <Prop name='tabcontent activePanel' isRequired={true} type='number' default='/' description='Index value of active Tab'/>
+                    <Prop name='tabpanel indexValue' isRequired={true} type='number' default='/' description='Index value of Tab Panel'/>
                 </PropsList>
             </section>
         )

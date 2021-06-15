@@ -95,9 +95,9 @@ export default class TooltipDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='text' isRequered={true} type='string' default='/' description='Tooltip text value.' />
-                    <Prop name='flow' isRequered={false} type='top | left | right | down' default='top' description='Position of tooltip text.' />
-                    <Prop name='appendToBody' isRequered={false} type='boolean' default='false' description='Appends element to body therefore avoids overflow issues.' />
+                    <Prop name='text' isRequired={true} type='string' default='/' description='Tooltip text value.' />
+                    <Prop name='flow' isRequired={false} type='top | left | right | down' default='top' description='Position of tooltip text.' />
+                    <Prop name='appendToBody' isRequired={false} type='boolean' default='false' description='Appends element to body therefore avoids overflow issues.' />
                 </PropsList>
             </section>
         )

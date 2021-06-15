@@ -140,14 +140,14 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <p className="docs-page__paragraph">Switch</p>
                 <PropsList>
-                    <Prop name='label text' isRequered={true} type='string' default='/' description='Label text value.'/>
-                    <Prop name='label side' isRequered={false} type='left | right' default='right' description='Position of label relative to the button.'/>
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='The disabled state of t.'/>
+                    <Prop name='label text' isRequired={true} type='string' default='/' description='Label text value.'/>
+                    <Prop name='label side' isRequired={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of t.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">SwitchGroup</p>
                 <PropsList>
-                    <Prop name='orientation' isRequered={false} type='vertical | horizontal' default='vertical' description='Orientation of Switch components inside the group.'/>
-                    <Prop name='align' isRequered={false} type='left | right' default='left' description='Alignment of Switch components inside the group.'/>
+                    <Prop name='orientation' isRequired={false} type='vertical | horizontal' default='vertical' description='Orientation of Switch components inside the group.'/>
+                    <Prop name='align' isRequired={false} type='left | right' default='left' description='Alignment of Switch components inside the group.'/>
                 </PropsList>
             </section>
         )

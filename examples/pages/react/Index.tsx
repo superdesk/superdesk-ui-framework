@@ -46,6 +46,7 @@ import ContentDividerDoc from './ContentDivider';
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import {SelectWithTemplateDocs} from './SelectWithTemplate';
 import {PopoverDoc} from './Popover';
+import {MenuDocs} from './Menu';
 
 const pages = {
     basicComponents: {
@@ -98,7 +99,10 @@ const pages = {
             },
             'carousel': {
                 name: 'Carousel'
-            }
+            },
+            'menu': {
+                name: 'Menu',
+            },
         }
     },
     navigationComponents: {
@@ -262,6 +266,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/modal" component={ModalDoc} />
                         <Route path="/react/carousel" component={CarouselDoc} />
                         <Route path="/react/content-divider" component={ContentDividerDoc} />
+                        <Route path="/react/menu" component={MenuDocs} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

@@ -2,7 +2,7 @@ import * as React from 'react';
 
 interface IProps {
     name: string;
-    isRequered: boolean;
+    isRequired: boolean;
     type: string;
     default: string;
     description: string;
@@ -14,7 +14,7 @@ class Prop extends React.PureComponent<IProps> {
             <React.Fragment>
                 <tr>
                     <td>{this.props.name}</td>
-                    <td>{this.props.isRequered ? 'yes' : 'no'}</td>
+                    <td>{this.props.isRequired ? 'yes' : 'no'}</td>
                     <td>{this.props.type}</td>
                     <td>{this.props.default}</td>
                     <td>{this.props.description}</td>

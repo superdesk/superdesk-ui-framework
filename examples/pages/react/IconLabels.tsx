@@ -59,10 +59,10 @@ export default class IconLabelDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='text' isRequered={true} type='string' default='/' description='IconLabel text value.'/>
-                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
-                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
-                    <Prop name='style' isRequered={false} type='basic | translucent' default='basic' description='Defines the style of the label (basic or translucent).'/>
+                    <Prop name='text' isRequired={true} type='string' default='/' description='IconLabel text value.'/>
+                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
+                    <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='style' isRequired={false} type='basic | translucent' default='basic' description='Defines the style of the label (basic or translucent).'/>
                 </PropsList>
             </section>
         )

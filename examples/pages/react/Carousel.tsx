@@ -127,21 +127,21 @@ const images = ${JSON.stringify(images, null, 2)};
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='images' isRequered={true} type='Array<{src: string; alt?: string;}' default='null' description='An array of images to display' />
-                    <Prop name='title' isRequered={false} type='string' default='null' description='Gallery title' />
-                    <Prop name='description' isRequered={false} type='string' default='null' description='Gallery description' />
-                    <Prop name='imageCount' isRequered={false} type='number' default='null' description='If there are more images in gallery than what is visible you can set total count here.' />
-                    <Prop name='headerMeta' isRequered={false} type='JSX.Element' default='null' description='Additional metadata section displayed top right if provided' />
-                    <Prop name='id' isRequered={false} type='string' default='images.length' description='Unique identifier of the element' />
-                    <Prop name='className' isRequered={false} type='string' default='null' description='Style class of the component' />
-                    <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Item style' />
-                    <Prop name='page' isRequered={false} type='number' default='0' description='Index of the first item.' />
-                    <Prop name='circular' isRequered={false} type='boolean' default='false' description='Defines if scrolling would be infinite' />
-                    <Prop name='autoplayInterval' isRequered={false} type='number' default='0' description='Time in milliseconds to scroll items automatically' />
-                    <Prop name='numVisible' isRequered={false} type='number' default='1' description='Number of items per page' />
-                    <Prop name='numScroll' isRequered={false} type='number' default='1' description='Number of items to scroll' />
-                    <Prop name='responsiveOptions' isRequered={false} type='object[]' default='null' description='An array of options for responsive design' />
-                    <Prop name='onPageChange' isRequered={false} type='function' default='null' description='Callback to invoke after scroll' />
+                    <Prop name='images' isRequired={true} type='Array<{src: string; alt?: string;}' default='null' description='An array of images to display' />
+                    <Prop name='title' isRequired={false} type='string' default='null' description='Gallery title' />
+                    <Prop name='description' isRequired={false} type='string' default='null' description='Gallery description' />
+                    <Prop name='imageCount' isRequired={false} type='number' default='null' description='If there are more images in gallery than what is visible you can set total count here.' />
+                    <Prop name='headerMeta' isRequired={false} type='JSX.Element' default='null' description='Additional metadata section displayed top right if provided' />
+                    <Prop name='id' isRequired={false} type='string' default='images.length' description='Unique identifier of the element' />
+                    <Prop name='className' isRequired={false} type='string' default='null' description='Style class of the component' />
+                    <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Item style' />
+                    <Prop name='page' isRequired={false} type='number' default='0' description='Index of the first item.' />
+                    <Prop name='circular' isRequired={false} type='boolean' default='false' description='Defines if scrolling would be infinite' />
+                    <Prop name='autoplayInterval' isRequired={false} type='number' default='0' description='Time in milliseconds to scroll items automatically' />
+                    <Prop name='numVisible' isRequired={false} type='number' default='1' description='Number of items per page' />
+                    <Prop name='numScroll' isRequired={false} type='number' default='1' description='Number of items to scroll' />
+                    <Prop name='responsiveOptions' isRequired={false} type='object[]' default='null' description='An array of options for responsive design' />
+                    <Prop name='onPageChange' isRequired={false} type='function' default='null' description='Callback to invoke after scroll' />
                 </PropsList>
             </section>
         )

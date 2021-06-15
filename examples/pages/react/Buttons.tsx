@@ -321,17 +321,17 @@ export default class ButtonsDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='text' isRequered={true} type='string' default='/' description='Text value of the Button. In the case of iconOnly buttons the value will be set to the aria-label.'/>
-                    <Prop name='iconOnly' isRequered={false} type='boolean' default='false' description='This prop is used for Buttons with icons only. It set to true, it will visually hide the text and use the value for the aria-label.'/>
-                    <Prop name='expand' isRequered={false} type='boolean' default='false' description='Spans the full width of the Button parent.'/>
-                    <Prop name='style' isRequered={false} type='filled | hollow | text-only' default='filled' description='Buttons may be one of styles such as hollow buttons, buttons without background (text-only) or filled (default).'/>
-                    <Prop name='shape' isRequered={false} type='square | round' default='square' description='Make shape of button round or default square.'/>
-                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
-                    <Prop name='theme' isRequered={false} type='light | dark' default='light' description='Styles button for diffrent background.'/>
-                    <Prop name='size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
-                    <Prop name='icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
-                    <Prop name='disabled' isRequered={false} type='boolean' default='false' description='Disables the Button, preventing mouse events.'/>
-                    <Prop name='onClick' isRequered={true} type='function' default='false' description='Callback fired when a button is pressed.'/>
+                    <Prop name='text' isRequired={true} type='string' default='/' description='Text value of the Button. In the case of iconOnly buttons the value will be set to the aria-label.'/>
+                    <Prop name='iconOnly' isRequired={false} type='boolean' default='false' description='This prop is used for Buttons with icons only. It set to true, it will visually hide the text and use the value for the aria-label.'/>
+                    <Prop name='expand' isRequired={false} type='boolean' default='false' description='Spans the full width of the Button parent.'/>
+                    <Prop name='style' isRequired={false} type='filled | hollow | text-only' default='filled' description='Buttons may be one of styles such as hollow buttons, buttons without background (text-only) or filled (default).'/>
+                    <Prop name='shape' isRequired={false} type='square | round' default='square' description='Make shape of button round or default square.'/>
+                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
+                    <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Styles button for diffrent background.'/>
+                    <Prop name='size' isRequired={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
+                    <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Disables the Button, preventing mouse events.'/>
+                    <Prop name='onClick' isRequired={true} type='function' default='false' description='Callback fired when a button is pressed.'/>
                 </PropsList>
             </section>
         )
