@@ -1,20 +1,22 @@
 .p-tieredmenu {
     &, .p-submenu-list {
-        padding-top: 0.4rem;
-        padding-bottom: 0.4rem;
-        background: $white;
-        box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+        padding-top: $sd-base-increment;
+        padding-bottom: $sd-base-increment;
+        background-color: var(--color-dropdown-menu-Bg);
+        box-shadow: $shadow__dropdown--default;
+        border-radius: $border-radius__base--small;
     }
 }
 
 .p-menuitem-text {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 
 .p-menu-separator {
     width: 100%;
     height: 1px;
-    background: #e5e5e5;
+    margin: $sd-base-increment 0;
+    background: var(--sd-colour-line--light);
 }
 
 .p-menuitem-link {
@@ -23,13 +25,8 @@
     font-size: 14px;
     color: $sd-text;
 
-    &:hover {
+    &:hover, &:focus-visible {
         background: $sd-colour-background__menu-item--hover;
-    }
-
-    &:focus {
-        outline: 2px solid $sd-colour-interactive__base;
-        outline-offset: -2px;
     }
 }
 

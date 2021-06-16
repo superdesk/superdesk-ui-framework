@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { ReactNav, ReactDefault } from '../../js/react';
+import { ButtonGroup, Button, NavButton, Dropdown } from '../../../app-typescript/index';
 
 import {
     Switch,
@@ -40,6 +41,7 @@ import GridListDoc from './GridList';
 import GridItemDoc from './GridItem';
 import ModalDoc from './Modal';
 import CarouselDoc from './Carousel';
+import ContentDividerDoc from './ContentDivider';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import {SelectWithTemplateDocs} from './SelectWithTemplate';
@@ -134,6 +136,9 @@ const pages = {
             'grid-list': {
                 name: 'Grid List'
             },
+            'content-divider': {
+                name: 'Content Divider'
+            },
         }
     },
     formComponents: {
@@ -183,13 +188,48 @@ const pages = {
         }
     }
 }
+interface IProps {
+    theme?: string;
+}
+interface IState {
+    theme: 'dark' | 'light' | string;
+}
 
-class ReactDoc extends React.Component {
+class ReactDoc extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
+        super(props);
+        this.state = {
+            theme: 'light',
+        }
+        this.handleTheme = this.handleTheme.bind(this);
+    }
+    handleTheme(newTheme: string) {
+        this.setState({
+            theme: newTheme
+        })
+    }
     render() {
         return (
             <React.Fragment>
                 <ReactNav pages={pages} />
-                <main className="docs-page__content docs-page__container-fluid">
+                <main className="docs-page__content docs-page__container-fluid" data-theme={this.state.theme}>
+                    <div className="docs-page__fla-button-container">
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group', label: 'Chose a theme', items: [
+                                        'divider',
+                                        { label: 'Light', icon: 'adjust', onSelect: () => this.handleTheme('light-ui')},
+                                        { label: 'Dark', icon: 'adjust', onSelect: () => this.handleTheme('dark-ui')},
+                                        { label: 'Accessible Light', icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui')},
+                                    ]
+                                },
+                            ]}>
+                            <button className="docs-page__fla-button" aria-label="Change theme" onClick={()=> false}>
+                                <i className="icon-adjust"></i>
+                            </button>
+                        </Dropdown>
+                    </div>
                     <Switch>
                         <Route path="/react/buttons" component={ButtonsDoc} />
                         <Route path="/react/icon-buttons" component={IconButtonDoc} />
@@ -225,6 +265,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/grid-item" component={GridItemDoc} />
                         <Route path="/react/modal" component={ModalDoc} />
                         <Route path="/react/carousel" component={CarouselDoc} />
+                        <Route path="/react/content-divider" component={ContentDividerDoc} />
                         <Route path="/react/menu" component={MenuDocs} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>

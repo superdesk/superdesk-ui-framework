@@ -36,18 +36,6 @@ export default class IconButtonDoc extends React.Component {
                             <span className="sd-margin-x--auto"></span>
                             <IconButton size='small' icon='close-small' ariaValue='Close' onClick={()=> false} />
                         </div>
-                        <p className="docs-page__paragraph">// Dark UI</p>
-                        <div className="docs-page__content-row docs-page__content-row--ui-dark" style={{color:'white'}}>
-                            <Tooltip text='I support tooltips!'>
-                                    <IconButton icon='close-small' ariaValue='close' onClick={()=> false} />
-                            </Tooltip>
-                            <IconButton icon='plus-large' ariaValue='Add item' onClick={()=> false} />
-                            <IconButton icon='dots-vertical' ariaValue='More options' onClick={()=> false} />
-                            <IconButton icon='trash' ariaValue='Delete' onClick={()=> false} />
-                            <Tooltip text='My tooltip is on the right.' flow='right'>
-                                <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
-                            </Tooltip>
-                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Tooltip text='I support tooltips!'>
@@ -64,17 +52,6 @@ export default class IconButtonDoc extends React.Component {
                         <IconButton size='small' icon='plus-large' ariaValue='Add' onClick ={()=> false} />
                         ...
                         <IconButton size='small' icon='close-small' ariaValue='Close' onClick={()=> false} />
-
-                        //Dark UI
-                        <Tooltip text='I support tooltips!'>
-                            <IconButton icon='close-small' ariaValue='close' onClick={()=> false} />
-                        </Tooltip>
-                        <IconButton icon='plus-large' ariaValue='plus' onClick={()=> false} />
-                        <IconButton icon='dots-vertical' ariaValue='dots' onClick={()=> false} />
-                        <IconButton icon='trash' ariaValue='trash' onClick={()=> false} />
-                        <Tooltip text='My tooltip is on right.' flow='right'>
-                            <IconButton icon='close-small' ariaValue='close' onClick={()=> false} />
-                        </Tooltip>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

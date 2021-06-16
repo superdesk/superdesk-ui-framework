@@ -147,7 +147,7 @@ export const DropdownFirst = ({
                             {icon && level ? <i className={icon ? ('icon-' + icon) : ''}></i> : null}
                             {name}
                         </button>
-                        <ul className={classesMenu} ref={ref}>
+                        <ul className={classesMenu} ref={ref} role='menu'>
                             {children}
                         </ul>
                     </div>

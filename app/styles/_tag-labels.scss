@@ -3,13 +3,11 @@ $tag-label-background: rgba(123,123,123,0.25);
 $tag-label-background-darker: rgba(123,123,123,0.45);
 $tag-label-background-darkUi: rgba(255,255,255,0.2);
 
-
-
 $tag-bg-colors: (
   default: $tag-label-background,
   darker: $tag-label-background-darker,
-  highlight1: scale-color($sd-blue, $alpha: -70%),
-  highlight2: scale-color($sd-blue, $alpha: -35%),
+  highlight1: var(--sd-colour-interactive--alpha-70),
+  highlight2: var(--sd-colour-interactive--alpha-40),
 );
 /// Coloring classes. A map of classes to output in the CSS.
 $tag-label-palette: $tag-bg-colors !default;
@@ -21,7 +19,7 @@ $tag-label-padding: 0em 1em 0em 1em !default;
 $tag-label-minwidth: 1.8em !default;
 
 /// Default radius of a badge.
-$tag-label-radius: $sd-base-increment * 1.5 !default;
+$tag-label-radius: $border-radius__base--full;
 
 /// Default font size and line height for badges.
 $tag-label-font-size: 1.4rem !default;
@@ -57,7 +55,7 @@ $tag-label-lineheight: 100% !default;
         }
     }
     &--square {
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
     }
     > span {
         max-width: 235px;
@@ -77,7 +75,7 @@ $tag-label-lineheight: 100% !default;
         text-decoration: none;
         text-align: center;
         vertical-align: middle;
-        border-radius: 50%;
+        border-radius: $border-radius__base--full;
         background-color: rgba(255,255,255,0.35);
         color: inherit;
         cursor: pointer;
@@ -100,7 +98,7 @@ $tag-label-lineheight: 100% !default;
             opacity: 1;
             background-color: rgba(255,255,255,0.85);
             [class^="icon-"], [class*=" icon-"] {
-              color: $sd-blue;
+              color: $sd-colour-interactive;
               opacity: 1;
             }
         }
@@ -143,7 +141,7 @@ $tag-label-lineheight: 100% !default;
         background-color: rgba(255, 255, 255, 0.06);
     }
     .tag-label.tag-label--highlight1 {
-        background: rgba(94, 169, 200, 0.5);
+        background: var(--sd-colour-interactive--alpha-50);
     }
     .tag-label .tag-label__remove {
         background-color: rgba(0, 0, 0, 0.45);

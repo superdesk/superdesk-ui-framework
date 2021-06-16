@@ -40,6 +40,7 @@ export { StrechBar } from './components/StrechBar';
 export { PropsList, Prop } from './components/PropsList';
 export { Icon } from './components/Icon';
 export { Divider } from './components/Divider';
+export { ContentDivider } from './components/ContentDivider';
 export { HeadingText } from './components/HeadingText';
 export { DropdownFirst } from './components/DropdownFirst';
 export { DropdownItem } from './components/DropdownFirst';

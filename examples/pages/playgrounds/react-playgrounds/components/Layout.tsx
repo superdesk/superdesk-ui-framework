@@ -14,7 +14,7 @@ export const Layout = ({
     theme,
 }: IProps) => {
     return (
-        <div className='sd-page-grid--test docs-page__full-width-helper' data-theme={theme === 'dark' ? 'dark-ui' : null}>
+        <div className='sd-page-grid--test docs-page__full-width-helper' data-theme={theme}>
             <div className='sd-main-menu'>
                 <div className='sd-main-menu__inner'></div>
             </div>

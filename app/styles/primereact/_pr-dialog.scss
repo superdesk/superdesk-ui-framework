@@ -1,3 +1,9 @@
+.p-dialog-mask.p-component-overlay {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+
+
 .p-dialog-mask {
     position: fixed;
     top: 0;
@@ -37,10 +43,15 @@
     align-items: center;
     justify-content: space-between;
     flex-shrink: 0;
+    height: $height__modal-header;
 }
 
 .p-dialog-footer {
     flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: $height__modal-footer;
 }
 
 .p-dialog .p-dialog-header-icons {
@@ -189,46 +200,48 @@
 
 
 .p-dialog {
-    border-radius: 3px;
-    box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+    border-radius: $border-radius__base--large;
+    box-shadow: var(--sd-shadow__modal);
     border: 0 none;
+    background-color: var(--color-modal-Bg);
 }
 
 .p-dialog .p-dialog-header {
     border-bottom: 0 none;
-    background: #ffffff;
-    color: #495057;
-    padding: 1.5rem;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
+    background: transparent;
+    padding: 0.8rem 0.8rem 0.8rem 1.6rem;
+    border-top-right-radius: $border-radius__base--large;
+    border-top-left-radius: $border-radius__base--large;
+    box-shadow: 0 1px 0 var(--sd-colour-line--x-light);
 }
 
 .p-dialog .p-dialog-header .p-dialog-title {
-    font-weight: 600;
-    font-size: 1.25rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    line-height: 27px;
+    opacity: 0.8;
+    @include sd-padding('2', 'right');
 }
 
 .p-dialog .p-dialog-header .p-dialog-header-icon {
-    width: 2rem;
-    height: 2rem;
-    color: #6c757d;
+    width: 2.4rem;
+    height: 2.4rem;
     border: 0 none;
     background: transparent;
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-    margin-right: 0.5rem;
+    margin-right: 0;
 }
 
 .p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
-    color: #495057;
     border-color: transparent;
-    background: #e9ecef;
+
 }
 
-.p-dialog .p-dialog-header .p-dialog-header-icon:focus {
+.p-dialog .p-dialog-header .p-dialog-header-icon:focus-visible {
     outline: 0 none;
     outline-offset: 0;
-    box-shadow: 0 0 0 0.2rem #a6d5fa;
+    box-shadow: $icn-button-focus-box-shadow;
 }
 
 .p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
@@ -236,19 +249,22 @@
 }
 
 .p-dialog .p-dialog-content {
-    background: #ffffff;
-    color: #495057;
-    padding: 0 1.5rem 2rem 1.5rem;
+    padding: 1.6rem;
+    background-color: transparent;
+    font-size: 1.4rem;
+    p {
+        line-height: 1.5;
+    }
 }
 
 .p-dialog .p-dialog-footer {
     border-top: 0 none;
-    background: #ffffff;
-    color: #495057;
-    padding: 0 1.5rem 1.5rem 1.5rem;
+    background-color: transparent;
+    padding: 0.8rem 1.6rem;
     text-align: right;
-    border-bottom-right-radius: 3px;
-    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: $border-radius__base--full;
+    border-bottom-left-radius: $border-radius__base--full;
+    box-shadow: 0 -1px 0 var(--sd-colour-line--x-light);
 }
 
 .p-dialog .p-dialog-footer button {
@@ -256,6 +272,57 @@
     width: auto;
 }
 
-.p-dialog-mask.p-component-overlay {
-    background-color: rgba(0, 0, 0, 0.4);
+.p-dialog-header-close {
+    .p-dialog-header-close-icon {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+        font-size: 16px;
+        font-family: 'sd_icons';
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        color: var(--color-icon-default);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        opacity: 0.6;
+        transition: color .1s ease-out, opacity .1s ease-out;
+        &::before {
+            content: "\e647";
+        }
+    }
+    &:hover {
+        .p-dialog-header-close-icon {
+            opacity: 1;
+          }
+    }
+    &:active {
+        .p-dialog-header-close-icon {
+            color: $sd-colour-interactive !important;
+            opacity: 1;
+          }
+    }
+
+    
 }
+
+.p-dialog-content {
+    p {}
+    &--small {
+        width: var(--width__modal--small);
+    }
+    &--medium {
+        width: var(--width__modal--medium);
+    }
+    &--large {
+        width: var(--width__modal--large);
+        min-height: 20rem;
+    }
+    &--x-large {
+        width: var(--width__modal--x-large);
+        min-height: 30rem;
+    }
+}
+

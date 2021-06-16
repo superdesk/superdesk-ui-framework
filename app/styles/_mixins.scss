@@ -1,3 +1,4 @@
+@import 'variables';
 @mixin clearfix {
     *zoom: 1;
     &:before,
@@ -11,9 +12,6 @@
 }
 // Border radius
 @mixin border-radius($radius) {
-    -webkit-border-radius: $radius;
-       -moz-border-radius: $radius;
-        -ms-border-radius: $radius;
             border-radius: $radius;
 }
 @mixin box-shadow-both($shadow1 , $shadow2) {
@@ -90,9 +88,9 @@
     right: 0;
     z-index: 3;
     padding: 0 16px;
-    color: $sd-text;
+    color: $sd-colour-text__base;
     animation: dropOut2 .3s cubic-bezier(.695,.105,.285,1.275) 1;
-    background-color: #d2e5ed;
+    background-color: var(--sd-colour-bg__sliding-toolbar);
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
     &--right {
         text-align: right;
@@ -113,7 +111,9 @@
     .btn + .sliding-toolbar__info-text {
         margin-left: 1rem;
     }
-  }
+}
+
+
 
 // User select
 // For selecting text on the page

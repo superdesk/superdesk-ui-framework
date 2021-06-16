@@ -94,7 +94,7 @@ $layout-grid-media: (
         &-styled {
             .grid__item {
                 background-color: white;
-                border-radius: 2px;
+                border-radius: $border-radius__base--x-small;
                 box-shadow: 0 1px 4px rgba(0,0,0,.12);
             }
         }
@@ -109,7 +109,7 @@ $layout-grid-media: (
         &-styled {
             .grid__item {
                 background-color: white;
-                border-radius: 2px;
+                border-radius: $border-radius__base--x-small;
                 box-shadow: 0 1px 4px rgba(0,0,0,.12);
             }
         }

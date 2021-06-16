@@ -3,16 +3,13 @@
 
 // Custom checkox & Radio buttons 
 
-:root {
-    --color-checkbox-border: rgba(0,0,0,0.2);
-    --color-checkbox-border-hover: rgba(0,0,0,0.4);
-}
 
 $checkBoxBorderColor: var(--color-checkbox-border);
 $checkBoxBorderColorHover: var(--color-checkbox-border-hover);
 $checkButtonTextColor-darkUI: rgba(255,255,255,0.65);
 $checkButtonTextColor: #5a5a5a;
 $checkButtonBorderColor: rgba(140,140,140,0.5);
+$checkButtonBorderRadius: $border-radius__base--small;
 
 
 @mixin check-base {
@@ -29,7 +26,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 
 .sd-checkbox {
     @include check-base;
-    @include border-radius(2px);
+    border-radius: $border-radius__base--x-small;
     &::after {
         font-family: 'sd_icons';
         content:'\e61d';
@@ -53,27 +50,27 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         cursor: pointer;
     }
     &.checked, &[checked="checked"] {
-        border-color: $sd-blue;
-        background: $sd-blue;
+        border-color: $sd-colour-interactive;
+        background: $sd-colour-interactive;
         &::after {
             @include opacity(100);
             transform: scale(1, 1);
         }
         &:hover {
-            border-color: darken($sd-blue, 10%);
-            background-color: darken($sd-blue, 10%);
+            border-color: var(--sd-colour-interactive--hover);
+            background-color: var(--sd-colour-interactive--hover);
         }
     }
     // Modifier for .sd-checkbox to create a radio button
     &--radio {
-        @include border-radius(50%);
+        border-radius: $border-radius__base--full;
         &::after {
             height: 0.8rem;
             width: 0.8rem;
-            @include border-radius(50%);
+            border-radius: $border-radius__base--full;
             content:' ';
             position: absolute;
-            background-color: $sd-blue;
+            background-color: $sd-colour-interactive;
             top: 0.2rem;
             left: 0.2rem;
             @include opacity(0);
@@ -81,7 +78,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             transform: scale(0.25, 0.25);
         }
         &.checked, &[checked="checked"] {
-            border-color: $sd-blue;
+            border-color: $sd-colour-interactive;
             background: transparent;
             &::after {
                 @include opacity(100);
@@ -99,7 +96,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         line-height: 1;
         color: $checkButtonTextColor;
         border: 1px solid $checkButtonBorderColor;
-        @include border-radius(2px);
+        border-radius: $checkButtonBorderRadius;
         @include transition(all, 0.2s, ease-out);
         display: inline-flex;
         align-items: center;
@@ -137,15 +134,15 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             @include box-shadow(0, 1px, 4px, 0, rgba(0,0,0,0.20));
         }
         &.checked, &[checked="checked"] {
-            background-color: darken($sd-blue, 11%);
-            border-color: darken($sd-blue, 11%);
-            border-top-color: darken($sd-blue, 30%);
+            background-color: var(--sd-colour-interactive--active);
+            border-color: var(--sd-colour-interactive--active);
+            border-top-color: var(--sd-colour-interactive--darken-20);
             @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
             color: $white;
             &:hover {
                 color: $white;
-                border-color: darken($sd-blue, 25%);
-                background-color: darken($sd-blue, 14%);
+                border-color: var(--sd-colour-interactive--hover);
+                background-color: var(--sd-colour-interactive--active);
                 @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
             }
             label {
@@ -222,7 +219,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 
 .sd-check-new {
     @include check-base;
-    @include border-radius(2px);
+    border-radius: $border-radius__base--x-small;
     &::after {
         font-family: 'sd_icons';
         content:'\e61d';
@@ -246,15 +243,15 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         cursor: pointer;
     }
     &.checked, &[checked="checked"] {
-        border-color: $sd-blue;
-        background: $sd-blue;
+        border-color: $sd-colour-interactive;
+        background: $sd-colour-interactive;
         &::after {
             @include opacity(100);
             transform: scale(1, 1);
         }
         &:hover {
-            border-color: darken($sd-blue, 10%);
-            background-color: darken($sd-blue, 10%);
+            border-color: var(--sd-colour-interactive--hover);
+            background-color: var(--sd-colour-interactive--hover);
         }
     }
     &--disabled, &[disabled="disabled"] {
@@ -270,7 +267,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 }
 .sd-radio-new {
     @include check-base;
-    @include border-radius(50%);
+    border-radius: $border-radius__base--full;
     &:hover {
         border-color: $checkBoxBorderColorHover;
         cursor: pointer;
@@ -278,10 +275,10 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     &::after {
         height: 0.8rem;
         width: 0.8rem;
-        @include border-radius(50%);
+        border-radius: $border-radius__base--full;
         content:' ';
         position: absolute;
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive;
         top: 0.2rem;
         left: 0.2rem;
         @include opacity(0);
@@ -289,7 +286,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         transform: scale(0.25, 0.25);
     }
     &.checked, &[checked="checked"] {
-        border-color: $sd-blue;
+        border-color: $sd-colour-interactive;
         background: transparent;
         &::after {
             @include opacity(100);
@@ -316,7 +313,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     @include sd-padding('1-5', 'x');
     line-height: 1;
     border: 1px solid $checkButtonBorderColor;
-    @include border-radius(2px);
+    border-radius: $checkButtonBorderRadius;
     @include transition(all, 0.2s, ease-in-out);
     display: inline-flex;
     align-items: center;
@@ -348,9 +345,9 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         }
     }
     &.checked, &[checked="checked"] {
-        background-color: darken($sd-blue, 11%);
-        border-color: darken($sd-blue, 11%);
-        border-top-color: darken($sd-blue, 30%);
+        background-color: var(--sd-colour-interactive--active);
+        border-color: var(--sd-colour-interactive--active);
+        border-top-color: var(--sd-colour-interactive--darken-20);
         @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
         color: $white;
         .sd-check-button__text-label {
@@ -358,8 +355,8 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         }
         &:hover {
             color: $white;
-            border-color: darken($sd-blue, 25%);
-            background-color: darken($sd-blue, 14%);
+            border-color: var(--sd-colour-interactive--active);
+            background-color: var(--sd-colour-interactive--hover);
             @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
         }
     }
@@ -539,8 +536,8 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     input:checked {
         & ~ .sd-check-new,
         & ~ .sd-radio-new  {
-            border-color: #5ea9c8;
-            background: #5ea9c8;
+            border-color: $sd-colour-interactive;
+            background: $sd-colour-interactive;
             &::after {
                 opacity: 1;
                 transform: scale(1, 1);
@@ -550,14 +547,14 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             background: transparent;
         }
         & ~ label {
-            color: #5ea9c8;
+            color: $sd-colour-interactive;
         }
     }
 
     input:focus {
         & ~ .sd-check-new,
         & ~ .sd-radio-new  {
-            box-shadow: 0 0 0 3px rgba(94, 169, 200, 0.35);
+            box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
         }
     }
 
@@ -629,7 +626,7 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
             padding-right: 1.2rem;
             line-height: 1;
             border: 1px solid rgba(140, 140, 140, 0.5);
-            border-radius: 2px;
+            border-radius: $checkButtonBorderRadius;
             transition: all 0.2s ease-in-out;
             display: inline-flex;
             align-items: center;
@@ -670,9 +667,9 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
         & ~ label {
             opacity: 1;
             color: $white;
-            background-color: #3d8fb1;
-            border-color: #3d8fb1;
-            border-top-color: #245569;
+            background-color: var(--sd-colour-interactive--active);
+            border-color: var(--sd-colour-interactive--active);
+            border-top-color: var(--sd-colour-interactive--darken-20);
             box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
         }
     }
@@ -685,11 +682,11 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
     }
     &:focus-within {
         .sd-check-button__text-label {
-            box-shadow: 0 0 0 3px rgba(94, 169, 200, 0.40);
+            box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
         }
         .sd-check-button__input:checked {
             & ~ label {
-                box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 3px rgba(94, 169, 200, 0.40);
+                box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 3px $sd-colour--focus-shadow;
             }
         }
         
@@ -702,33 +699,33 @@ $checkButtonBorderColor: rgba(140,140,140,0.5);
 
 [class^="--dark-ui"],
 [class*="--dark-ui"],
+[data-theme="dark-ui"],
 .dark-ui {
-    --color-checkbox-border: rgba(255, 255, 255, 0.2);
-    --color-checkbox-border-hover: rgba(255, 255, 255, 0.4);
     .sd-checkbox {
         border-color: rgba(255, 255, 255, 0.4);
         &:hover {
             border-color: rgba(255, 255, 255, 0.6);
         }
         &.checked, &[checked="checked"] {
-            border-color: $sd-blue;
+            border-color: $sd-colour-interactive;
             &:hover {
-                border-color: darken($sd-blue, 10%);
-                background-color: darken($sd-blue, 10%);
+                border-color: var(--sd-colour-interactive--hover);
+                background-color: var(--sd-colour-interactive--hover);
             }
         }
     }
     .sd-checkbox--button-style {
         color: $checkButtonTextColor-darkUI;
+        border-color: rgba(255, 255, 255, 0.18);
         &:hover {
             color: scale-color($checkButtonTextColor-darkUI, $alpha: 100%);
         }
         &.checked, &[checked="checked"] {
-            border-color: darken($sd-blue, 10%);
-            border-top-color: darken($sd-blue, 20%);
+            border-color: var(--sd-colour-interactive--active);
+            border-top-color: var(--sd-colour-interactive--darken-20);
             @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
             &:hover {
-                border-color: darken($sd-blue, 25%);
+                border-color: var(--sd-colour-interactive--darken-30);
             }
         }
     }

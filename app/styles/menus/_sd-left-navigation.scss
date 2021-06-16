@@ -1,17 +1,17 @@
 // LEFT NAVIGATION
 // ----
 
-$sd-leftNav-bgColor: $white;
-$sd-leftNav-borderColor: #dedede;
+$sd-leftNav-bgColor: var(--sd-colour-background__left-nav);
+$sd-leftNav-borderColor: var(--color-border-line--light);
 $sd-leftNav-width: 20rem;
 
-$sd-leftNavBtn-bgColor: rgba(94,169,200,0);
-$sd-leftNavBtn-bgHoverColor: rgba(94,169,200,0.2);
-$sd-leftNavBtn-bgActiveColor: rgba(94,169,200,0.1);
+$sd-leftNavBtn-bgColor: transparent;
+$sd-leftNavBtn-bgHoverColor: $sd-colour-background__menu-item--hover;
+$sd-leftNavBtn-bgActiveColor: var(--sd-colour-interactive--alpha-10);
 $sd-leftNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-out;
 
 $sd-leftNavBtn-border: 4px solid rgba(94,169,200,0);
-$sd-leftNavBtn-borderActive: 4px solid rgba(94,169,200,1);
+$sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
 
 .sd-left-nav {
     background: $sd-leftNav-bgColor;
@@ -35,7 +35,6 @@ $sd-leftNavBtn-borderActive: 4px solid rgba(94,169,200,1);
     font-size: 1.3rem;
     line-height: 100%;
     text-decoration: none;
-    color: $grayDark;
     background-color: $sd-leftNavBtn-bgColor;
     padding: 1.6rem 0 1.6rem 3rem;
     border-right: $sd-leftNavBtn-border;
@@ -47,7 +46,7 @@ $sd-leftNavBtn-borderActive: 4px solid rgba(94,169,200,1);
     }
     &:active, &--active {
         background-color: $sd-leftNavBtn-bgActiveColor;
-        color: $sd-blue;
+        color: $sd-colour-interactive;
     }
    &--active {
         border-right: $sd-leftNavBtn-borderActive;

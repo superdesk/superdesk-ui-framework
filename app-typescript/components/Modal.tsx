@@ -6,8 +6,10 @@ interface IProps {
     className?: string;
     theme?: string;
     visible?: boolean;
+    size?: 'small' | 'medium' | 'large' | 'x-large';
+    maximized?: boolean;
     headerTemplate?: JSX.Element | string;
-    footerTemplate?: JSX.Element;
+    footerTemplate?: JSX.Element | string;
     closeOnEscape?: boolean;
     onShow?(): void;
     onHide(): void;
@@ -24,6 +26,9 @@ export class Modal extends React.Component<IProps, {}> {
                 header={this.props.headerTemplate}
                 footer={this.props.footerTemplate}
                 closeOnEscape={this.props.closeOnEscape}
+                maximized={this.props.maximized}
+                contentClassName={this.props.size ?
+                    ('p-dialog-content--'+ this.props.size) : undefined}
                 onShow={this.props.onShow}
                 onHide={this.props.onHide}>
                 {this.props.children}

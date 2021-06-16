@@ -73,7 +73,7 @@ $background: rgba(255,255,255,0.3),
 $background-hover: scale-color($background, $alpha: 50%),
 $background-active: scale-color($background, $alpha: 100%)) 
 {
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     cursor: pointer;
     height: 3.6rem;
     line-height: 3.6rem;
@@ -127,7 +127,7 @@ $background-active: scale-color($background, $alpha: 100%))
     &--next-inner {
         right: 0;
         color: $sd-text;
-        border-radius: 50% 0 0 50%;
+        border-radius: $border-radius__base--full 0 0 $border-radius__base--full;
         box-shadow: none;
         &::after {
             content: "\e643";
@@ -136,7 +136,7 @@ $background-active: scale-color($background, $alpha: 100%))
     &--prev-inner {
         left: 0;
         color: $sd-text;
-        border-radius: 0 50% 50% 0;
+        border-radius: 0 $border-radius__base--full $border-radius__base--full 0;
         box-shadow: none;
         &::after {
             content: "\e642";
@@ -158,7 +158,7 @@ $background-active: scale-color($background, $alpha: 100%))
     &--next-inner, &--prev-inner {
         &:active {
             &::after {
-                color: $sd-blue;
+                color: $sd-colour-interactive;
             }
         }
     } 
@@ -191,7 +191,7 @@ $background-active: scale-color($background, $alpha: 100%))
 .sd-media-carousel__page-indicator {
     background-color: rgba(255,255,255,.2);
     border: 1px solid rgba(0,0,0,.4);
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     cursor: pointer;
     display: inline-block;
     height: 1.4rem;
@@ -227,7 +227,7 @@ $background-active: scale-color($background, $alpha: 100%))
         border: 1px solid rgba(255,255,255,0.4);
     }
     &--active {
-        outline: 1px solid $sd-blue;
+        outline: 1px solid $sd-colour-interactive;
         border: 1px solid rgba(255,255,255,0.8);
         box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
         cursor: default;
@@ -266,8 +266,6 @@ $background-active: scale-color($background, $alpha: 100%))
     img {
         max-width: 100%;
         max-height: 6rem;
-        // width: auto;
-        //margin: auto;
         object-fit: cover;
         object-position: 50% 50%;
     }
@@ -295,11 +293,11 @@ $background-active: scale-color($background, $alpha: 100%))
     transition: all ease-in-out 0.2s; 
     &[contenteditable="true"] {
         &:hover {
-            border-color: scale-color($sd-blue, $alpha: -60%);
+            border-color: var(--sd-colour-interactive--alpha-60);
         }
         &:focus {
-            border-color: scale-color($sd-blue, $alpha: 100%);
-            box-shadow: inset 0 -1px 0 0 $sd-blue;
+            border-color: $sd-colour-interactive;
+            box-shadow: inset 0 -1px 0 0 $sd-colour-interactive;
         }
         &:empty {
             &:before {

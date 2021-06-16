@@ -1,34 +1,20 @@
 // Default sd-card  styling
 // ---------------------------------------------
 
-$sd-grid-item-thumb-bg: rgba(44,44,44,1);
-
-//background color 
-$sd-grid-item-Bg: var(--color-grid-item-Bg);
-$sd-grid-item-Bg-selected: var(--color-grid-item-Bg);
-$sd-grid-item-Bg-activated: #e3f1f6;
-//background color - dark UI
-$sd-grid-item-Bg-darkUI: $grayDark;
-$sd-grid-item-Bg-darkUI-selected: #283237;
-$sd-grid-item-Bg-darkUI-activated: #35393b;
-
+//border-radius
+$sd-grid-item-border-radius:            $border-radius__base--medium;
 //shadows
-$sd-grid-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
-$sd-grid-item-shadow-hover: 0 1px 6px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26);
-$sd-grid-item-shadow-activated: 0 0 4px rgba(0,0,0,.1), 0 1px 2px rgba(0,0,0,.16);
-//shadows - dark UI
-$sd-grid-item-shadow-darkUI: 0 1px 4px rgba(0, 0, 0, 0.6), 0 1px 5px rgba(0, 0, 0, 0.36);
-$sd-grid-item-shadow-darkUI-hover: 0 1px 6px rgba(0, 0, 0, 0.8), 0 1px 10px rgba(0, 0, 0, 0.46);
-$sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px rgba(0, 0, 0, 0.36);
-
+$sd-grid-item-shadow:                   0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
+$sd-grid-item-shadow-hover:             0 1px 6px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26);
+$sd-grid-item-shadow-selected:          var(--sd-shadow__item--selected);
+$sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--alpha-50);
 
 .sd-grid-item {
     position: relative;
-    @include border-radius(2px);
+    border-radius: $sd-grid-item-border-radius;
     box-shadow: $sd-grid-item-shadow;
-    background-color: $sd-grid-item-Bg;
-    color: inherit;
-    // min-height: 12rem;
+    background-color: var(--sd-item__main-Bg);
+    color: $sd-text;
     display: flex;
     flex-direction: column;
     @include transition(all, 100ms, ease-in);
@@ -37,18 +23,13 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         cursor: pointer;
         &:hover {
             box-shadow: $sd-grid-item-shadow-hover;
-            //background-color: darken($sd-grid-item-Bg, 2%);
         }
         &:active {
             box-shadow: $sd-grid-item-shadow-activated;
         }
     }
     &--activated, &--active, &.active, &.activated {
-        outline: 1px solid scale-color($sd-blue, $alpha: -60%);
-        background-color: $sd-grid-item-Bg-activated;
-        &:hover {
-            //background-color: darken($sd-grid-item-Bg-activated, 2%);
-        }
+        box-shadow: $sd-grid-item-shadow-activated;
 
     }
     &.actioning {
@@ -65,13 +46,15 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 60px;
-            background-color: rgba(255, 255, 255, 0.85);
+            background-color: var(--sd-colour-overlay-actioning);
             pointer-events: none;
+            border-radius: $sd-grid-item-border-radius;
         }
     }
     
     &--selected, &.selected {
-        outline: 2px solid $sd-blue;
+        box-shadow: $sd-grid-item-shadow-selected;
+        background-color: var(--sd-colour-bg__grid-item--selected);
     }
     .sd-grid-item__actions {
         margin:0;
@@ -123,7 +106,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         opacity: 0;
         height: 2.8rem;
         width:  2.8rem;
-        border-radius: 50%;
+        border-radius: $border-radius__base--full;
         background-color: rgba(0, 0, 0, 0.5);
         transition: opacity ease-in-out 0.2;
     }
@@ -135,7 +118,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         left: 12px;
         padding: 0.2rem;
         background: rgba(255,255,255,.15);
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         z-index: 2;
         height: 1.6rem;
         width: 1.6rem;
@@ -180,7 +163,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         margin: 4px auto 0 4px;
         padding: 0.2rem;
         background: rgba(255,255,255,.15);
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         z-index: 3;
         height: 1.6rem;
         width: 1.6rem;
@@ -273,11 +256,11 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         display: flex;
         flex-direction: column;
         align-items: center;        
-        background-color: $sd-grid-item-thumb-bg;
+        background-color: var(--sd-item__thumb-Bg);
         padding: 0;
         min-height: 4rem;
         color: $white;
-        @include border-radius (2px 2px 0 0);
+        border-radius: $sd-grid-item-border-radius $sd-grid-item-border-radius 0 0;
         width: 100%;
         height: 14rem;
         overflow: hidden;
@@ -288,6 +271,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
             height: auto;
             margin: auto;
             pointer-events: none;
+            border-radius: $sd-grid-item-border-radius $sd-grid-item-border-radius 0 0;
             transition: filter ease-in-out 0.3s;
         }
         .sd-grid-item__type-icon {
@@ -331,7 +315,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         width: 5.6rem;
         top: 50%;
         margin-top: -2.8rem;
-        border-radius: 50%;
+        border-radius: $border-radius__base--full;
         background-color: rgba(0,0,0,0.3);
         padding: 0.2rem;
     }
@@ -356,41 +340,6 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         display: flex;
         flex-direction: column;
         position: relative;
-        // h4 {
-        //     text-transform: uppercase;
-        //     font-size: 11px;
-        //     color: rgba(0,0,0,.5);
-        //     letter-spacing: 0.04em;
-        //     margin-bottom: 4px;
-        //     &.with-value {
-        //         margin-bottom: 0;
-        //     }
-        //     .label {
-        //         float: right;
-        //         height: 15px;
-        //         margin: auto 0;
-        //         padding: 3px 5px 0;
-        //         border-radius: 8px;
-        //         color: rgba(255,255,255,1);
-        //         background: rgba(0,0,0,.25);
-        //         font-size: 10px;
-        //         line-height: 100%;
-        //         letter-spacing: .06em;
-        //         font-weight: 400;
-        //     }
-        //     .value-label {
-        //         float: right;
-        //         font-size: 13px;
-        //         color: #333;
-        //         font-weight: 400;
-        //         text-transform: none;
-        //         letter-spacing: 0em;
-        //     }
-        //     &.sd-grid-item__h4--normal-case {
-        //         font-size: 12px;
-        //         text-transform: initial;
-        //     }
-        // }
         &--scrollable {
             max-height: 20vh;
             overflow-y: auto;
@@ -425,13 +374,13 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
 
     .sd-grid-item__footer {
         padding: 0.4rem 0.2rem;
-        border-top: 1px solid rgba(123,123,123,0.24);
+        border-top: 1px solid var(--sd-colour-line--x-light);
         display: flex;
         flex-direction: row;
         align-items: center;
         min-height: 3.7rem;
         flex-shrink: 0;
-        @include border-radius (0 0 2px 2px);
+        border-radius: 0 0 $sd-grid-item-border-radius $sd-grid-item-border-radius;
         &--light {
             background-color: $white;
         }
@@ -563,6 +512,7 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
         flex-grow: 0;
         flex-shrink: 0;
         background: none;
+        border-radius: 0 0 $sd-grid-item-border-radius $sd-grid-item-border-radius;
     }
     &.locked, &--locked {
         .sd-grid-item__state-border {
@@ -719,75 +669,6 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
     }
 }
 
-.dark-ui, [data-theme="dark-ui"] {
-    &.sd-column-box__main-column {
-        background-color: #444;
-    }
-    .sd-column-box__main-column {
-        background-color: #444;
-    }
-    .sd-grid-item {
-        background-color: $sd-grid-item-Bg-darkUI;
-        color: rgba(255,255,255, 0.6);
-        box-shadow: $sd-grid-item-shadow-darkUI;
-        .sd-grid-item__thumb, .sd-grid-item__media {
-            background-color: #212121;
-        }
-        .sd-grid-item__footer {
-            border-top: 1px solid rgba(255,255,255,0.03);
-            color: rgba(255,255,255, 0.6);
-        }
-        .sd-grid-item__content {
-            color: rgba(255,255,255, 0.6);
-        }
-        .sd-grid-item__slugline {
-            color: $sd-slugline-darkUI;
-        }
-        .sd-grid-item__type-icn {
-            color: $white;
-        }
-        .sd-grid-item__text-label {
-            color: #fff;
-            opacity: 0.4;
-        }
-        .sd-grid-item__text-strong {
-            color: #fff;
-            opacity: 0.5;
-        }
-        &--activated, &.activated {
-            background-color: $sd-grid-item-Bg-darkUI-activated;
-            &:hover {
-                background-color: darken($sd-grid-item-Bg-darkUI-activated, 2%);
-            }
-        }
-        &--with-click {
-            &:hover {
-                box-shadow: $sd-grid-item-shadow-darkUI-hover;
-                background-color: lighten($sd-grid-item-Bg-darkUI, 2%);
-            }
-            &.sd-grid-item--activated, &.activated {
-                &:hover {
-                    background-color: darken($sd-grid-item-Bg-darkUI-activated, 2%);
-                }
-            }
-            &.sd-grid-item--selected, &.selected  {
-                background-color: $sd-grid-item-Bg-darkUI-selected;
-                &:hover {
-                    background-color: darken($sd-grid-item-Bg-darkUI-selected, 2%);
-                }
-            }
-            &:active {
-                box-shadow: $sd-grid-item-shadow-darkUI-activated;
-            }
-        }
-        &.actioning {
-            &::before {
-                background-color: rgba(35, 35, 35, 0.85);
-            }
-        }
-    }
-}
-
 .sd-grid-item-wrapper {
     display: flex;
     flex-direction: column;
@@ -827,6 +708,17 @@ $sd-grid-item-shadow-darkUI-activated: 0 1px 1px rgba(0, 0, 0, 0.7), 0 1px 3px r
                     border-bottom-style: solid;
                 }
             }
+        }
+    }
+}
+
+.dark-ui, [data-theme="dark-ui"] {
+    .sd-grid-item {
+        .sd-grid-item__text-label {
+            opacity: 0.4;
+        }
+        .sd-grid-item__text-strong {
+            opacity: 0.5;
         }
     }
 }

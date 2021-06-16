@@ -124,7 +124,7 @@ $photo-nav-transition: all 0.2s ease-out;
     padding: 0.8rem 2rem;
     margin: 1rem auto;
     line-height: 100%;
-    border-radius: 2rem;
+    border-radius: $border-radius__base--x-small;
     font-weight: 300;
     min-width: 16rem;
     @include text-overflow;
@@ -219,7 +219,7 @@ $photo-nav-transition: all 0.2s ease-out;
     width: 4.8rem;
     height: 4.8rem;
     border: 2px solid rgba(255, 255, 255, 0.6);
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -243,10 +243,10 @@ $photo-nav-transition: all 0.2s ease-out;
         }
     }
     &:active {
-        border-color: #5ea9c8;
+        border-color: $sd-colour-interactive;
         background-color: rgba(0, 0, 0, 0.8);
         i {
-            color: #5ea9c8;
+            color: $sd-colour-interactive;
         }
     }
 }
@@ -299,9 +299,9 @@ $photo-nav-transition: all 0.2s ease-out;
     $background: rgba(0,0,0,1),
     $background-normal: scale-color($background, $alpha: -20%),
     $background-hover: scale-color($background, $alpha: -10%),
-    $background-active: $sd-blue) 
+    $background-active: $sd-colour-interactive) 
 {
-    border-radius: 50%;
+    border-radius: $border-radius__base--full;
     cursor: pointer;
     height: 5.6rem;
     line-height: 5.6rem;
@@ -364,7 +364,7 @@ $photo-nav-transition: all 0.2s ease-out;
         opacity: 1;
     }
     &:active {
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive;
         opacity: 1;
     }
 }
@@ -394,8 +394,8 @@ $photo-nav-transition: all 0.2s ease-out;
     bottom: 0; 
     left:0;
     z-index: 0;
-    border: 2px dashed $sd-blue;
-    background-color: scale-color($sd-blue, $alpha: -90%);
+    border: 2px dashed $sd-colour-interactive;
+    background-color: var(--sd-colour-interactive--alpha-10);
 }
 
 .upload__info {

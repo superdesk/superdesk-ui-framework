@@ -1,4 +1,4 @@
-$sd-topMenu-background: var(--color-bg-800);
+$sd-topMenu-background: var(--sd-colour-top-menu);
 
 .sd-top-menu {
     background: $sd-topMenu-background;
@@ -23,7 +23,7 @@ $sd-topMenu-background: var(--color-bg-800);
     width: $sd-sidebarMenu-width;
     text-align: center;
     padding: 0;
-    background-color: #101010;
+    background-color: var(--sd-colour-top-menu__btn);
     box-shadow: 2px 0 5px 0 rgba(0,0,0,.35);
     position: relative;
     &:hover {
@@ -48,7 +48,7 @@ $sd-topMenu-background: var(--color-bg-800);
     padding: 0 10px;
     width: 48px;
     .avatar {
-        @include border-radius(50%);
+        border-radius: $border-radius__base--full;
     }
     .label {
         position: absolute;

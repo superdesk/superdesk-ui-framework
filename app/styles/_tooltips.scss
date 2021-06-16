@@ -32,9 +32,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0.8rem 1.2rem 0.9rem;
-    border-radius: 2px;
+    border-radius: $border-radius__base--small;
     box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.45);
-    background: #333;
+    background: var(--sd-colour-background__tooltip);
     color: #fff;
     font-weight: 400;
     z-index: 1000;
@@ -54,7 +54,7 @@
   &[flow^="up"]::before {
     bottom: 100%;
     border-bottom-width: 0;
-    border-top-color: #333;
+    border-top-color: var(--sd-colour-background__tooltip);
   }
 
   &:not([flow])::after,
@@ -73,7 +73,7 @@
   &[flow^="down"]::before {
     top: 100%;
     border-top-width: 0;
-    border-bottom-color: #333;
+    border-bottom-color: var(--sd-colour-background__tooltip);
   }
   &[flow^="down"]::after {
     top: calc(100% + 5px);
@@ -88,7 +88,7 @@
   &[flow^="left"]::before {
     top: 50%;
     border-right-width: 0;
-    border-left-color: #333;
+    border-left-color: var(--sd-colour-background__tooltip);
     left: calc(0em - 5px);
     transform: translate(-.5em, -50%);
   }
@@ -102,7 +102,7 @@
   &[flow^="right"]::before {
     top: 50%;
     border-left-width: 0;
-    border-right-color: #333;
+    border-right-color: var(--sd-colour-background__tooltip);
     right: calc(0em - 5px);
     transform: translate(.5em, -50%);
   }
@@ -137,7 +137,7 @@
   &[data-flow^="up"]::before {
     bottom: 100%;
     border-bottom-width: 0;
-    border-top-color: #333;
+    border-top-color: var(--sd-colour-background__tooltip);
   }
 
   &:not([data-flow])::after,
@@ -156,7 +156,7 @@
   &[data-flow^="down"]::before {
     top: 100%;
     border-top-width: 0;
-    border-bottom-color: #333;
+    border-bottom-color: var(--sd-colour-background__tooltip);
   }
   &[data-flow^="down"]::after {
     top: calc(100% + 5px);
@@ -171,7 +171,7 @@
   &[data-flow^="left"]::before {
     top: 50%;
     border-right-width: 0;
-    border-left-color: #333;
+    border-left-color: var(--sd-colour-background__tooltip);
     left: calc(0em - 5px);
     transform: translate(-.5em, -50%);
   }
@@ -185,7 +185,7 @@
   &[data-flow^="right"]::before {
     top: 50%;
     border-left-width: 0;
-    border-right-color: #333;
+    border-right-color: var(--sd-colour-background__tooltip);
     right: calc(0em - 5px);
     transform: translate(.5em, -50%);
   }

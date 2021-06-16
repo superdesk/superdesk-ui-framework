@@ -1,11 +1,16 @@
 // DROPDOWN MENUS : Basic : dropdowns/basic-dropdowns.scss
 // --------------
 
-$dropdownBackground:            $white;
+
+
+$dropdownBackground:            var(--color-dropdown-menu-Bg);
 $dropdownBorder:                1px solid #c6c6c6;
-$dropdownLinkColor:             $sd-text;
+$dropdownLinkColor:             var(--color-dropdown-menu-text);
 $dropdownLinkColorHover:        $sd-text;
 $dropdownLinkBackgroundHover:   $sd-hover;
+
+$dropdownMenuBorderRadius:      $border-radius__base--small;
+$focus-box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropdown {
@@ -30,6 +35,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__toggle {
     cursor: pointer;
     i { vertical-align: sub; }
+    &:focus-visible {
+        box-shadow: $focus-box-shadow;
+    }
 }
 
 // Triggers dropdown on a hover
@@ -40,7 +48,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__toggle:active,
 .dropdown.open .dropdown__toggle {
     outline: 0;
-    color: $sd-blue;
+    color: $sd-colour-interactive;
 }
 
 .dropdown.open .dropdown .dropdown__toggle {
@@ -68,7 +76,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     margin-left: 4px;
     border-left:  4px solid transparent;
     border-right: 4px solid transparent;
-    border-top:   4px solid $black;
+    border-top:   4px solid currentColor;
     opacity: .3;
     content: "";
     @include transition(all, 0.1s, ease-in);
@@ -84,7 +92,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 }
 
 .dropdown.open .dropdown__caret {
-    border-top-color: $sd-blue;
+    border-top-color: $sd-colour-interactive;
 }
 
 // The dropdown menu
@@ -100,8 +108,8 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     margin: 0; // override default ul
     list-style: none;
     background-color: $dropdownBackground;
-    box-shadow: 0 2px 10px rgba(0,0,0,.4),0 3px 1px -2px rgba(0,0,0,.1);
-    border-radius: 0;
+    box-shadow: $shadow__dropdown--default;
+    border-radius: $dropdownMenuBorderRadius;
     text-align: left;
 
     // Links within the dropdown menu
@@ -115,23 +123,26 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             min-width: 200px;
             position: relative;
             color: $dropdownLinkColor;
-            background: none;
+            background-color: $sd-colour-background__menu-item;
             padding: .6rem 1.6rem;
             margin-bottom: .2rem;
             font-size: 1.3rem;
             text-decoration: none;
             text-align: left;
+            transition: $sd-transition__menu-item;
             > i[class^="icon-"], i[class*=" icon-"], i[class^="filetype-icon-"] {
                 margin-right: 1rem;
                 margin-top: -0.3rem;
                 min-width: 1.9rem;
                 vertical-align: middle;
+                color: var(--color-text-light);
             }
             > i[class^="icon-"] {
                 margin-right: 1rem;
                 margin-top: -0.3rem;
                 min-width: 1.9rem;
                 vertical-align: middle;
+                color: var(--color-icon-default);
             }
             &.disabled, &[disabled] {
                 opacity: .5;
@@ -139,20 +150,20 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         }
         a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
             &:hover, &:focus {
-                background: $dropdownLinkBackgroundHover;
+                background-color: $sd-colour-background__menu-item--hover;
                 text-decoration: none;
                 cursor: pointer;
             }
             &:active {
-                background: darken($dropdownLinkBackgroundHover, 10%);
+                background-color: $sd-colour-background__menu-item--active;
             }
             &.disabled:hover, &[disabled]:hover {
-                background: none;
+                background-color: none;
                 cursor: default;
             }
         }
         .preferred-desk {
-            background-color: lighten($sd-blue, 30%) !important;
+            background-color: var(--sd-colour-interactive--lighten-30) !important;
         }
     }
     &.dropdown__menu--plain {
@@ -205,7 +216,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     height: 1px;
     margin: 0.8rem 0;
     overflow: hidden;
-    background-color: #e5e5e5;
+    background-color: var(--color-border-line--light);
 }
 
 // Button variation for menu items with active state (.dropdown__menu-item--active); 
@@ -213,7 +224,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__menu {
     .dropdown__menu-item--active {
         button, button:hover {
-            background-color: lighten($sd-blue, 10%) !important;
+            background-color: var(--sd-colour-interactive--lighten-10) !important;
             color: white !important;
             [class^="icon-"], [class*=" icon-"],
             [class^="filetype-icon-"], [class*=" filetype-icon-"] {
@@ -221,7 +232,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
         }
         button:hover {
-            background-color: $sd-blue !important;
+            background-color: $sd-colour-interactive !important;
         }
     }
     .dropdown__menu-item--highlighted {
@@ -272,14 +283,14 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
 }
 .dropdown__menu-header {
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--color-border-line--light);
     margin-bottom: 0.6rem;
 }
 
 .dropdown__menu-footer {
     padding: 1rem;
     margin-top: 0.6rem;
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--color-border-line--light);
     &--align-right {
         text-align: right;
     }
@@ -319,7 +330,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
 .dropdown__menu {
     .menu-item--active {
         button, button:hover {
-            background-color: lighten($sd-blue, 10%);
+            background-color: var(--sd-colour-interactive--lighten-10);
             color: white;
             [class^="icon-"], [class*=" icon-"],
             [class^="filetype-icon-"], [class*=" filetype-icon-"] {
@@ -327,7 +338,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
         }
         button:hover {
-            background-color: $sd-blue;
+            background-color: $sd-colour-interactive;
         }
     }
 }
@@ -377,7 +388,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     }
     &.open {
         .dropdown__caret {
-            border-bottom-color: $sd-blue !important;
+            border-bottom-color: $sd-colour-interactive !important;
         }
     }
 }
@@ -490,7 +501,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
     .dropdown__menu {
         min-width: 0;
         padding: 5px;
-        border-radius: 0px;
+        border-radius: $dropdownMenuBorderRadius;
         border:0;
         z-index: 1;
         margin-top: -1px;
@@ -529,7 +540,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         text-align: left;
         background: rgba(127,127,127,.5);
         padding: 0.7rem 1.5rem;
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         color: #fff;
         .dropdown__caret {
             border-top-color: $white;
@@ -550,9 +561,9 @@ $dropdownLinkBackgroundHover:   $sd-hover;
                 background-color: rgba(255, 255, 255, 0.1);
             }
             &:focus {
-                border-color: $sd-blue;
+                border-color: $sd-colour-interactive;
                 background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-blue;
+                box-shadow: 0 1px 0 0 $sd-colour-interactive;
             }
         }
     }
@@ -564,7 +575,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
             }
             &--line {
                 background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-blue, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
+                box-shadow: 0 1px 0 0 $sd-colour-interactive, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
             }
         }
     }
@@ -621,7 +632,7 @@ $dropdownLinkBackgroundHover:   $sd-hover;
         border-top-color: $white;
     }
     .dropdown.open .dropdown__caret {
-        border-top-color: #5ea9c8;
+        border-top-color: $sd-colour-interactive;
     }
 }
 

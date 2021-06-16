@@ -57,8 +57,8 @@ tags-input {
         }
         &.focused {
             outline: none;
-            border-bottom: 1px solid $sd-blue;
-            box-shadow: 0 1px 0  $sd-blue;
+            border-bottom: 1px solid $sd-colour-interactive;
+            box-shadow: 0 1px 0  $sd-colour-interactive;
             .tags-input__input {
                 width: auto;
             }
@@ -76,7 +76,7 @@ tags-input {
             background: $tag-label-background;
             color: currentColor;
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -35%);
+                background-color: var(--sd-colour-interactive--alpha-70);
 
             }
             .tags-input__remove-button {
@@ -91,7 +91,7 @@ tags-input {
                 text-decoration: none;
                 text-align: center;
                 vertical-align: middle;
-                border-radius: 50%;
+                border-radius: $border-radius__base--full;
                 background-color: rgba(255,255,255,0.35);
                 color: inherit;
                 cursor: pointer;
@@ -109,7 +109,7 @@ tags-input {
                     opacity: 1;
                     background-color: rgba(255,255,255,0.85);
                     [class^="icon-"], [class*=" icon-"] {
-                      color: $sd-blue;
+                      color: $sd-colour-interactive;
                       opacity: 1;
                     }
                 }
@@ -159,7 +159,7 @@ tags-input {
         &--boxed {
             background-color: rgba(0, 0, 0, 0.05);
             padding-left: 0.4rem;
-            border-radius: 2px;
+            border-radius: $border-radius__base--x-small;
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
             }
@@ -198,14 +198,14 @@ tags-input {
         float: left;
         height: $sd-base-increment * 3;
         width: $sd-base-increment * 3;
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive;
         color: $white;
         display: flex;
         align-items: center;
         text-align: center;
         margin: 0.2rem 0.4rem 0.2rem 0;
         transition: all 0.3s;
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         opacity: 0.5;
         padding: 0;
         justify-content: center;
@@ -229,8 +229,8 @@ tags-input {
         padding: 0.5rem 0;
         z-index: 999;
         width: 100%;
-        background-color: $white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
+        background-color: var(--color-dropdown-menu-Bg);
+        box-shadow: $shadow__dropdown--default;
         .suggestion-list {
             margin: 0;
             padding: 0;
@@ -249,9 +249,9 @@ tags-input {
             background-color: $white;
             transition: all ease-in-out 0.1s;
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -70%);
+                background-color: var(--sd-colour-interactive--alpha-30);
                 &:active {
-                    background-color: scale-color($sd-blue, $alpha: -25%);
+                    background-color: var(--sd-colour-interactive--alpha-70);
                     color: $white;
                 }
             }
@@ -294,8 +294,8 @@ tags-input {
         }
         &.focused {
             outline: none;
-            border-bottom: 1px solid $sd-blue;
-            box-shadow: 0 1px 0  $sd-blue;
+            border-bottom: 1px solid $sd-colour-interactive;
+            box-shadow: 0 1px 0  $sd-colour-interactive;
             .tags-input__input {
                 width: auto;
             }
@@ -313,7 +313,7 @@ tags-input {
             background: $tag-label-background;
             color: currentColor;
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -35%);
+                background-color: var(--sd-colour-interactive--alpha-70);
 
             }
             .tags-input__remove-button {
@@ -328,7 +328,7 @@ tags-input {
                 text-decoration: none;
                 text-align: center;
                 vertical-align: middle;
-                border-radius: 50%;
+                border-radius: $border-radius__base--full;
                 background-color: rgba(255,255,255,0.35);
                 color: inherit;
                 cursor: pointer;
@@ -346,7 +346,7 @@ tags-input {
                     opacity: 1;
                     background-color: rgba(255,255,255,0.85);
                     [class^="icon-"], [class*=" icon-"] {
-                      color: $sd-blue;
+                      color: $sd-colour-interactive;
                       opacity: 1;
                     }
                 }
@@ -395,7 +395,7 @@ tags-input {
         &--boxed {
             background-color: rgba(0, 0, 0, 0.05);
             padding-left: 0.4rem;
-            border-radius: 2px;
+            border-radius: $border-radius__base--x-small;
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
             }
@@ -438,14 +438,14 @@ tags-input {
         float: left;
         height: $sd-base-increment * 3;
         width: $sd-base-increment * 3;
-        background-color: $sd-blue;
+        background-color: $sd-colour-interactive;
         color: $white;
         display: flex;
         align-items: center;
         text-align: center;
         margin: 0.2rem 0.4rem 0.2rem 0;
         transition: all 0.3s;
-        border-radius: 2px;
+        border-radius: $border-radius__base--x-small;
         opacity: 0.5;
         padding: 0;
         justify-content: center;
@@ -469,8 +469,9 @@ tags-input {
         padding: 0.5rem 0;
         z-index: 999;
         width: 100%;
-        background-color: $white;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4), 0 3px 1px -2px rgba(0, 0, 0, 0.1);
+        border-radius: $border-radius__base--small;
+        background-color: var(--color-dropdown-menu-Bg);
+        box-shadow: $shadow__dropdown--default;
         .suggestion-list {
             margin: 0;
             padding: 0;
@@ -486,15 +487,14 @@ tags-input {
             overflow: hidden;
             text-overflow: ellipsis;
             color: $sd-text;
-            background-color: $white;
             transition: all ease-in-out 0.1s;
             &:hover {
-                background-color: scale-color($sd-blue, $alpha: -70%);
+                background-color: $sd-colour-background__menu-item--hover;
             }
             &.selected {
-                background-color: scale-color($sd-blue, $alpha: -70%);
+                background-color: $sd-colour-background__menu-item--hover;
                 &:active {
-                    background-color: scale-color($sd-blue, $alpha: -25%);
+                    background-color: var(--sd-colour-interactive--alpha-70);
                     color: $white;
                 }
             }
@@ -521,12 +521,12 @@ tags-input {
                 border-bottom-color: $sd-inputBorderColor-darkUi;
             }
             &.focused {
-                border-bottom-color: $sd-blue;
+                border-bottom-color: $sd-colour-interactive;
             }
             .tags-input__tag-item {
                 background: $tag-label-background-darkUi;
                 &.selected {
-                    background-color: scale-color($sd-blue, $alpha: -25%);
+                    background-color: var(--sd-colour-interactive--alpha-70);
                 }
             }
             &--boxed {
