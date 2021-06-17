@@ -811,6 +811,7 @@ $button-nav-color: currentColor;
 //------------------------------------------------------
 
 .dark-ui,
+[data-theme="dark-ui"],
 [class^="--dark-ui"],
 [class*="--dark-ui"] {
   .btn.btn--ui-dark.btn--hollow.btn--active {
@@ -819,6 +820,22 @@ $button-nav-color: currentColor;
     box-shadow: inset 0 2px 0 rgba(0,0,0,0.8);
     i {
       color: inherit;
+    }
+  }
+
+  .btn:not(.btn--success):not(.btn--primary):not(.btn--alert):not(.btn--warning):not(.btn--highlight):not(.btn--sd-green):not(.btn--hollow):not(.btn--text-only) {
+      color: inherit;
+      background-color: hsla(0, 0%, 50%, 0.5);
+      &:hover {
+        background-color: hsla(0, 0%, 40%, 0.5);
+      }
+  }
+  .btn.btn--text-only {
+    &:not(.btn--success):not(.btn--primary):not(.btn--alert):not(.btn--warning):not(.btn--highlight):not(.btn--sd-green):not(.btn--hollow) {
+      color: inherit;
+      &:hover {
+        background-color: hsla(0, 0%, 40%, 0.5);
+      }
     }
   }
 
