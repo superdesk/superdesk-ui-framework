@@ -24,19 +24,18 @@ $modal-x-large-width : 1000px;
 $modal-fill-width: 100%;
 $modal-fullscreen-width: 100%;
 
-$modal-border-radius: 4px;
-$modal-line-color: #e4e4e4;
+$modal-border-radius: $border-radius__base--large;
+$modal-line-color: var(--color-line__modal);
+$modal-bg-color: var(--color-bg__modal);
 
 $modal-header-height : $nav-height;
 $modal-footer-height : 48px;
 $modal-subnav-height : $nav-height;
 
 $modal-padding : $sd-base-increment * 2;
+$modal-box-shadow: 0 0 8px 2px hsla(0, 0%, 0%, 0.3);
 
-// Box shadow
-@mixin modal-box-shadow {
-    @include box-shadow(0, 0, 8px, 2px, rgba(0, 0, 0, 0.3));
-}
+
 // Map with all modal sizes
 $modal-sizes: (
   default: $modal-base-width,
@@ -68,12 +67,12 @@ $modal-sizes: (
     margin: 0 auto;
 }
 @mixin modal-content() {
-    background-color: $white;
+    background-color: $modal-bg-color;
     display: flex;
     flex-direction: column;
     margin: 10px 0;
-    @include border-radius($modal-border-radius);
-    @include modal-box-shadow();
+    border-radius: $modal-border-radius;
+    box-shadow: $modal-box-shadow;
 }
 @mixin modal-header() {
     padding: $modal-padding - $sd-base-increment $modal-padding;
@@ -81,7 +80,7 @@ $modal-sizes: (
     min-height: $modal-header-height;
 }
 @mixin modal-body() {
-    background: $sd-background;
+    background: $modal-bg-color;
     overflow-y: auto;
     padding: $modal-padding;
     position: relative;
@@ -240,11 +239,11 @@ $modal-sizes: (
         }
     }
     // modifier, change body to white background 
-    &.modal--white {
-        .modal__body {
-            background: $white !important;
-        }
-    }
+    // &.modal--white {
+    //     .modal__body {
+    //         background: $white !important;
+    //     }
+    // }
     // fix for calling a modal from another modal
     &.modal--double {
         z-index: 1060;
@@ -269,7 +268,6 @@ $modal-sizes: (
         .modal__body-header {
             height: 48px;
             width: 100%;
-            background: $white;
             border-bottom: 1px solid $modal-line-color;
             padding: 0;
             &--add-padding {
@@ -288,7 +286,6 @@ $modal-sizes: (
             width: 100%;
             overflow-y: auto;
             padding: $modal-padding;
-            background: $sd-background;
             min-height: 60px;
         }
         .modal__body-footer {
@@ -390,5 +387,14 @@ $modal-sizes: (
 .modal--fullscreen {
     .modal__header, .modal__body {
         @include sd-padding('3', 'left');
+    }
+}
+
+.dark-ui,
+[data-theme="dark-ui"] {
+    .modal__content {
+        .side-panel {
+            --color-bg-00: hsla(0, 0%, 14%, 1);
+        }
     }
 }
