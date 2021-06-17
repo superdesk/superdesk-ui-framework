@@ -40,11 +40,12 @@ import GridListDoc from './GridList';
 import GridItemDoc from './GridItem';
 import ModalDoc from './Modal';
 import CarouselDoc from './Carousel';
+import ToggleboxDocs from './Togglebox';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
-import {SelectWithTemplateDocs} from './SelectWithTemplate';
-import {PopoverDoc} from './Popover';
-import {MenuDocs} from './Menu';
+import { SelectWithTemplateDocs } from './SelectWithTemplate';
+import { PopoverDoc } from './Popover';
+import { MenuDocs } from './Menu';
 
 const pages = {
     basicComponents: {
@@ -100,7 +101,7 @@ const pages = {
             },
             'menu': {
                 name: 'Menu',
-            },
+            }
         }
     },
     navigationComponents: {
@@ -134,6 +135,9 @@ const pages = {
             'grid-list': {
                 name: 'Grid List'
             },
+            "togglebox": {
+                name: "Togglebox"
+            }
         }
     },
     formComponents: {
@@ -226,6 +230,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/modal" component={ModalDoc} />
                         <Route path="/react/carousel" component={CarouselDoc} />
                         <Route path="/react/menu" component={MenuDocs} />
+                        <Route path="/react/togglebox" component={ToggleboxDocs} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
