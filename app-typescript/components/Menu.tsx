@@ -18,10 +18,10 @@ import {TieredMenu} from '@superdesk/primereact/tieredmenu';
  * it won't change direction.
  *
  * Accessibility features:
- * * When menu closes, focus returns to the element that was focused before opening the menu
+ * * ESC closes the last sub-menu or entire menu
+ * * When menu is closed via ESC, focus returns to the element that was focused before opening the menu
  * * Focuses the first item on activation
  * * Focuses first sub-menu item when sub-menu opens
- * * ESC closes the last sub-menu or entire menu
  * * ENTER/ESC or arrow keys work for entering/leaving submenus
  */
 
@@ -98,10 +98,6 @@ export class Menu extends React.Component<IProps, {}> {
 
     private close(event: SyntheticEvent) {
         this.menu?.toggle(event);
-
-        if (this.focusedBefore instanceof HTMLElement) {
-            this.focusedBefore.focus();
-        }
     }
 
     render() {
@@ -117,6 +113,10 @@ export class Menu extends React.Component<IProps, {}> {
                             event.stopPropagation();
 
                             this.close(event);
+
+                            if (this.focusedBefore instanceof HTMLElement) {
+                                this.focusedBefore.focus();
+                            }
                         }
                     }}
                 >
