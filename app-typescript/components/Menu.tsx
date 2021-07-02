@@ -52,7 +52,10 @@ interface IMenuBranch {
 interface IProps {
     items: Array<IMenuItem>;
     children: (toggle: (event: SyntheticEvent) => void) => JSX.Element;
+    zIndex?: number;
 }
+
+const superdeskTopBarZIndex = 1030;
 
 export class Menu extends React.Component<IProps, {}> {
     private menu: TieredMenu | null;
@@ -135,6 +138,7 @@ export class Menu extends React.Component<IProps, {}> {
                             }
                         }}
                         data-test-id="menu"
+                        baseZIndex={this.props.zIndex ?? superdeskTopBarZIndex}
                     />
                 </div>
             </div>
