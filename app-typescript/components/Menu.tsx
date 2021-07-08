@@ -41,6 +41,7 @@ interface IMenuLeaf {
     label: string;
     icon?: IIconName;
     onClick(): void;
+    disabled?: boolean;
 }
 
 interface IMenuBranch {
@@ -90,6 +91,7 @@ export class Menu extends React.Component<IProps, {}> {
                         this.close(event);
                         item.onClick();
                     },
+                    disabled: item.disabled,
                 };
             }
         });

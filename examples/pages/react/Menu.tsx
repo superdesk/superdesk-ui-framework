@@ -33,6 +33,7 @@ const menuItems: Array<IMenuItem> = [
     {
         label: 'Export',
         icon: 'icon-download',
+        disabled: true,
         onClick: () => console.log('action: Export'),
     },
     {
@@ -145,6 +146,7 @@ export class MenuDocs extends React.Component {
                     <Prop name='label' isRequired={true} type='string' default='' description='Name for menu item'/>
                     <Prop name='icon' isRequired={false} type='string' default='' description='Available icons are listed in /#/react/icon-font'/>
                     <Prop name='onClick' isRequired={true} type='function' default='' description=''/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='' description=''/>
                 </PropsList>
 
                 <p className='docs-page__paragraph'>Menu separator</p>
