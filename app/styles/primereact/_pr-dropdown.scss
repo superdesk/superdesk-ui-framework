@@ -1,6 +1,7 @@
 .p-dropdown {
     @include pr-input-item-base;
     padding: 6px 8px;
+    color: $sd-text;
 }
 
 .p-dropdown-clear-icon {
@@ -24,17 +25,19 @@
 .p-dropdown-filter-container {
     border-radius: $border-radius__base--small $border-radius__base--small 0 0;
     padding: 8px;
-    box-shadow: 0 1px 0 rgba(0,0,0,0.08);
+    box-shadow: 0 1px 0 var(--sd-colour-line--light);
 }
 
 .p-dropdown-filter {
-    border: 1px solid rgba(128,128,128,0.5);
+    border: 1px solid var(--sd-colour-line--strong);
     box-shadow: inset 0px 1px 1px rgba(0,0,0,0.12);
     border-radius: $border-radius__base--small;
     padding-right: 20px;
     padding: 4px;
     height: 28px;
     transition: all ease 0.2s;
+    background-color: var(--sd-colour-bg__searchbar);
+    color: $sd-text;
     &:focus {
         border: 1px solid $sd-colour-interactive;
         box-shadow: inset var(--sd-colour-interactive--alpha-20) 0px 0px 0px 0.2rem;

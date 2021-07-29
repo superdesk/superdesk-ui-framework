@@ -1,16 +1,13 @@
 // DROPDOWN MENUS : Basic : dropdowns/basic-dropdowns.scss
 // --------------
 
-
-
 $dropdownBackground:            var(--color-dropdown-menu-Bg);
-$dropdownBorder:                1px solid #c6c6c6;
 $dropdownLinkColor:             var(--color-dropdown-menu-text);
 $dropdownLinkColorHover:        $sd-text;
 $dropdownLinkBackgroundHover:   $sd-hover;
 
 $dropdownMenuBorderRadius:      $border-radius__base--small;
-$focus-box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
+$focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
 // Use the .menu class on any <li> element within the topbar or ul.tabs and you'll get some superfancy dropdowns
 .dropdown {
@@ -76,7 +73,7 @@ $focus-box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
     margin-left: 4px;
     border-left:  4px solid transparent;
     border-right: 4px solid transparent;
-    border-top:   4px solid currentColor;
+    border-top:   4px solid $sd-text;
     opacity: .3;
     content: "";
     @include transition(all, 0.1s, ease-in);

@@ -2,7 +2,7 @@
 // ----
 
 $sd-leftNav-bgColor: var(--sd-colour-background__left-nav);
-$sd-leftNav-borderColor: var(--color-border-line--light);
+$sd-leftNav-borderColor: var(--sd-colour-line--light);
 $sd-leftNav-width: 20rem;
 
 $sd-leftNavBtn-bgColor: transparent;
@@ -32,13 +32,14 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
     width: 100%;
     text-align: left;
     display: block;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     line-height: 100%;
     text-decoration: none;
     background-color: $sd-leftNavBtn-bgColor;
     padding: 1.6rem 0 1.6rem 3rem;
     border-right: $sd-leftNavBtn-border;
     transition: $sd-leftNavBtn-transition;
+    color: $sd-text;
     &:hover {
         background-color: $sd-leftNavBtn-bgHoverColor;
         color: $sd-text;

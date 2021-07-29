@@ -335,7 +335,7 @@
             vertical-align: middle;
             border-left: 0.4rem solid transparent;
             border-right: 0.4rem solid transparent;
-            border-top: 0.4rem solid #000;
+            border-top: 0.4rem solid $sd-text;
             @include opacity(30);
             content: "";
             z-index: 0;

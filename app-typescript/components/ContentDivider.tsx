@@ -17,7 +17,8 @@ export class ContentDivider extends React.PureComponent<IProps> {
             'sd-content-divider--no-border': this.props.border === false,
             [`sd-content-divider--${this.props.type}`]: this.props.type || this.props.type !== undefined,
             [`sd-content-divider--text-${this.props.align}`]: this.props.align || this.props.align !== undefined,
-            [`sd-content-divider--${this.props.orientation}`]: this.props.orientation || this.props.orientation !== undefined,
+            [`sd-content-divider--${this.props.orientation}`]:
+            this.props.orientation || this.props.orientation !== undefined,
         });
 
         if (this.props.children) {
@@ -27,7 +28,7 @@ export class ContentDivider extends React.PureComponent<IProps> {
                 </div>
             );
         }  else {
-            return <div className={classes} role="separator"></div>
+            return <div className={classes} role="separator"></div>;
         }
     }
 }

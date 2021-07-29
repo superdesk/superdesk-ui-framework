@@ -14,7 +14,7 @@
     float: right;
     margin: 0 0 0 5px;
     .navbtn {
-      border-left: 1px solid rgba(0,0,0,0.1) !important;
+      border-left: 1px solid var(--sd-colour-line--x-light) !important;
       border-right: 0 !important;
     }
     > .btn {
@@ -31,7 +31,6 @@ a.text-link {
   display: inline-block;
   cursor: pointer;
   &:hover {
-    color: var(--sd-colour-interactive--darken-20);
     text-decoration: underline;
   }
   [class^="icon-"], [class*=" icon-"] {
@@ -57,7 +56,7 @@ a.text-link {
     margin: 0.4rem 0.4rem 0.4rem 0;
     font-size: 1.4rem;
     padding: 0 .6rem 0 0;
-    border-right: 1px dotted rgba(123, 123, 123, 0.75);
+    border-right: 1px dotted var(--sd-colour-line--medium);
     &:last-child {
       padding-right: 0;
       border-right: none;
@@ -68,7 +67,7 @@ a.text-link {
     padding: 0 .8rem 0 0;
     margin: 0.6rem 0.8rem 0.6rem 0;
     font-size: 1.4rem;
-    border-right: 1px dotted rgba(123, 123, 123, 0.75);
+    border-right: 1px dotted var(--sd-colour-line--medium);
     &:last-child {
       padding-right: 0;
       border-right: none;

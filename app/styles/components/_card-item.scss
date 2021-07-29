@@ -23,7 +23,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     position: relative;
     border-radius: $card-item-default-radius;
     box-shadow: $card-item-shadow;
-    background-color: $white;
+    background-color: var(--sd-item__main-Bg);
     color: $sd-text;
     min-height: 12rem;
     display: flex;

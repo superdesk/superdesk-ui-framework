@@ -1,4 +1,116 @@
 // EDITOR Themes
+
+
+:root {
+    --sd-editor-colour__main-bg:            hsla(0, 0%, 100%, 1);
+    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 96%, 1);
+    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
+    --sd-editor-colour__txt:                hsla(0, 0%, 20%, 1);
+    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
+    --sd-editor-colour__quote-border:       hsla(0, 0%, 20%, 0.5);
+    --sd-editor-colour__controls-bg:        hsla(214, 13%, 96%, 1);
+    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.2);
+    --sd-editor-colour__button-bg--active:  hsla(214, 13%, 96%, 0.2);
+    --sd-editor-colour__button-txt--active: var(--sd-colour-interactive);
+    --sd-editor-colour__field-label-bg:     hsla(214, 13%, 12%, 0.5);
+    --sd-editor-colour__field-label-txt:    hsla(214, 13%, 96%, 0.8);
+
+    --sd-editor-colour__float-toolbar-bg:   hsla(214, 13%, 96%, 0.96);
+
+    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
+    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
+    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
+    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
+    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
+    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
+}
+.sd-editor--theme-default {
+    --sd-editor-colour__main-bg:            hsla(0, 0%, 100%, 1);
+    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 96%, 1);
+    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
+    --sd-editor-colour__txt:                hsla(0, 0%, 20%, 1);
+    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
+    --sd-editor-colour__quote-border:       hsla(0, 0%, 20%, 0.5);
+    --sd-editor-colour__controls-bg:        hsla(214, 13%, 96%, 1);
+    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.2);
+    --sd-editor-colour__button-bg--active:  hsla(214, 13%, 99%, 0.9);
+}
+.sd-editor--theme-dark {
+    --sd-editor-colour__main-bg:            hsla(214, 13%, 12%, 1);
+    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 16%, 1);
+    --sd-editor-colour__main-border:        hsla(214, 13%, 85%, 0.2);
+    --sd-editor-colour__txt:                hsla(214, 13%, 85%, 1);
+    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
+    --sd-editor-colour__quote-border:       hsla(214, 13%, 85%, 0.5);
+    --sd-editor-colour__controls-bg:        hsla(214, 13%, 16%, 1);
+    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
+
+    --sd-editor-colour__field-label-bg:     hsla(214, 13%, 5%, 0.9);
+
+    --sd-editor-colour__float-toolbar-bg:   hsla(214, 13%, 16%, 0.96);
+
+    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.16);
+    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
+    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
+    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
+    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
+    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
+}
+.sd-editor--theme-blue {
+    --sd-editor-colour__main-bg:            hsla(212, 89%, 22%, 1);
+    --sd-editor-colour__main-bg--alt:       hsla(212, 89%, 28%, 1);
+    --sd-editor-colour__main-border:        hsla(214, 13%, 85%, 0.2);
+    --sd-editor-colour__txt:                hsla(0, 0%, 100%, 1);
+    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
+    --sd-editor-colour__quote-border:       hsla(214, 13%, 85%, 0.5);
+    --sd-editor-colour__controls-bg:        hsla(212, 89%, 26%, 1);
+    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
+}
+.sd-editor--theme-turquoise {
+    --sd-editor-colour__main-bg:            hsla(178, 49%, 57%, 1);
+    --sd-editor-colour__main-bg--alt:       hsla(178, 49%, 64%, 1);
+    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
+    --sd-editor-colour__txt:                hsla(213, 49%, 14%, 1);
+    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
+    --sd-editor-colour__quote-border:       hsla(213, 49%, 14%, 0.5);
+    --sd-editor-colour__controls-bg:        hsla(178, 49%, 61%, 1);
+    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.12);
+
+    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
+    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
+    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
+    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
+    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
+    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
+}
+.sd-editor--theme-military {
+    --sd-editor-colour__main-bg:            hsla(70, 25%, 50%, 1);
+    --sd-editor-colour__main-bg--alt:       hsla(70, 25%, 58%, 1);
+    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
+    --sd-editor-colour__txt:                hsla(71, 25%, 13%, 1);
+    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
+    --sd-editor-colour__quote-border:       hsla(71, 25%, 13%, 0.5);
+    --sd-editor-colour__controls-bg:        hsla(70, 25%, 52%, 1);
+    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.12);
+
+    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
+    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
+    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
+    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
+    --sd-editor-colour__adding:             hsla(82, 100%, 20%, 1);
+    --sd-editor-colour__adding-bg:          hsla(82, 90%, 22%, 0.16);
+}
+.sd-editor--theme-natural {
+    --sd-editor-colour__main-bg:            hsla(51, 57%, 85%, 1);
+    --sd-editor-colour__main-bg--alt:       hsla(51, 57%, 79%, 1);
+    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
+    --sd-editor-colour__txt:                hsla(0, 18%, 10%, 1);
+    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
+    --sd-editor-colour__quote-border:       hsla(0, 18%, 10%, .5);
+    --sd-editor-colour__controls-bg:        hsla(51, 57%, 82%, 1);
+    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
+}
+
 $color-swatch-border-color: transparent;
 $color-swatch-border-active-color: $sd-colour-interactive;
 
@@ -237,109 +349,7 @@ $body-font-size: (
 }
 
 // ------ THEME IN EDITOR ------ //
-:root {
-    --sd-editor-colour__main-bg:            hsla(0, 0%, 100%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 0%, 20%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(0, 0%, 20%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__button-bg--active:  hsla(214, 13%, 96%, 0.2);
-    --sd-editor-colour__field-label-bg:     hsla(214, 13%, 12%, 0.5);
 
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
-}
-.sd-editor--theme-default {
-    --sd-editor-colour__main-bg:            hsla(0, 0%, 100%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 0%, 20%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(0, 0%, 20%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__button-bg--active:  hsla(214, 13%, 99%, 0.9);
-}
-.sd-editor--theme-dark {
-    --sd-editor-colour__main-bg:            hsla(214, 13%, 12%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 16%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 85%, 0.2);
-    --sd-editor-colour__txt:                hsla(214, 13%, 85%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(214, 13%, 85%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(214, 13%, 16%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
-
-    --sd-editor-colour__field-label-bg:     hsla(214, 13%, 5%, 0.9);
-
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.16);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
-}
-.sd-editor--theme-blue {
-    --sd-editor-colour__main-bg:            hsla(212, 89%, 22%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(212, 89%, 28%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 85%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 0%, 100%, 1);
-    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
-    --sd-editor-colour__quote-border:       hsla(214, 13%, 85%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(212, 89%, 26%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
-}
-.sd-editor--theme-turquoise {
-    --sd-editor-colour__main-bg:            hsla(178, 49%, 57%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(178, 49%, 64%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(213, 49%, 14%, 1);
-    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
-    --sd-editor-colour__quote-border:       hsla(213, 49%, 14%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(178, 49%, 61%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.12);
-
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
-}
-.sd-editor--theme-military {
-    --sd-editor-colour__main-bg:            hsla(70, 25%, 50%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(70, 25%, 58%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(71, 25%, 13%, 1);
-    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
-    --sd-editor-colour__quote-border:       hsla(71, 25%, 13%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(70, 25%, 52%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.12);
-
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 100%, 20%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 22%, 0.16);
-}
-.sd-editor--theme-natural {
-    --sd-editor-colour__main-bg:            hsla(51, 57%, 85%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(51, 57%, 79%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 18%, 10%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(0, 18%, 10%, .5);
-    --sd-editor-colour__controls-bg:        hsla(51, 57%, 82%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
-}
 
 .main-article {
     background-color: var(--sd-editor-colour__main-bg);

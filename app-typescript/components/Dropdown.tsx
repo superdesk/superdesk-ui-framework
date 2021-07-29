@@ -155,7 +155,7 @@ export const Dropdown = ({
                     createPopper(toggleRef, menuRef, {
                         placement: checkAlign() ? 'bottom-end' : 'bottom-start',
                     });
-                }                
+                }
             } else {
                 setTimeout(() => {
                     menuRef = ref.current;
@@ -232,7 +232,7 @@ export const Dropdown = ({
                             {item['label']}
                         </button>
                         <ul ref={refSubMenu}
-                            role='menu' 
+                            role='menu'
                             className='dropdown__menu'>
                             {submenuItems}
                         </ul>

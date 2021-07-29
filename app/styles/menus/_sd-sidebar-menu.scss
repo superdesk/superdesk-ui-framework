@@ -30,7 +30,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 .sd-sidebar-menu__spacer {
   width: $sd-sidebarMenu-width / 2;
   margin: 1.8rem auto;
-  border-top: 1px dotted #9b9b9b;
+  border-top: 1px dotted var(--sd-colour-line--medium);
   border-bottom: 0;
 }
 
@@ -47,7 +47,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
   cursor: pointer;
   &:hover {
     opacity: 1;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: var(--sd-colour-sidebar-menu--10);
   }
   &:active {
     background-color: $sd-colour-interactive;
@@ -141,17 +141,18 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
   text-align: center;
   padding: 0;
   margin:0;
-  box-shadow: 0 1px 0 rgba(0,0,0,0.12);
+  box-shadow: 0 1px 0 var(--sd-colour-line--light);
   border-width: 0 0 1px 0;
   background: none;
   &:hover {
-    background: rgba(255,255,255,0.15);
+    background: hsla(0, 0%, 0%, 0.1);
     cursor: pointer;
   }
 }
 
 .sd-sidetab-menu__helper-icon,
 .sd-sidetab-menu__main-icon {
+  color: $sd-text-light;
   position: absolute;
   top: 10px;
   left: 10px;
@@ -183,8 +184,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
 .active {
   .sd-sidetab-menu__btn {
-    background: rgba(255,255,255,0.2);
-    border-color: rgba(0,0,0,0.18);
+    background: hsla(0, 0%, 0%, 0.2);
   }
   .sd-sidetab-menu__btn:hover {
     .sd-sidetab-menu__helper-icon {
@@ -203,8 +203,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 }
 
 .sd-sidetab-menu__btn--active {
-  background: rgba(255,255,255,0.2);
-  border-color: rgba(0,0,0,0.18);
+  background: hsla(0, 0%, 0%, 0.2);
   .sd-sidetab-menu__main-icon {
     color: var(--sd-colour-interactive--active) !important;
   }
@@ -239,7 +238,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
   position: relative;
   &:hover {
     opacity: 1;
-    background-color: rgba(255, 255, 255, .6);
+    background-color: var(--sd-colour__side-menu--hover);
   }
   &:active {
     background-color: $sd-colour-interactive;

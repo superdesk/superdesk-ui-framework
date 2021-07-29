@@ -357,15 +357,15 @@ $sd-shadowProperties: (
     right: 10px;
 }
 ::-webkit-scrollbar:hover {
-    background-color: rgba(140,140,140,.2);
+    background-color: var(--sd-colour__webkit-scrollbar--hover);
     cursor: pointer;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: rgba(0,0,0,.3);
+    background: var(--sd-colour__webkit-scrollbar-thumb);
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(0,0,0,.6);
+    background: var(--sd-colour__webkit-scrollbar-thumb--hover);
     cursor: pointer;
 }
 
@@ -383,7 +383,7 @@ p strong {
     font-weight: 500;
 }
 time {
-    color: #747474;
+    color: $sd-text-lighter;
     font-weight: 300;
     letter-spacing: .025em;
     &.small {

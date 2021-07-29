@@ -266,13 +266,14 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     width: 4.8rem;
     padding: 0 10px;
     background: transparent;
-    color: inherit;
+    color: $sd-text;
     text-align: center;
     line-height: 5.6rem;
     text-decoration: none;
     border: 0;
-    border-left: 1px solid rgba(0,0,0,.1);
+    border-left: 1px solid var(--sd-colour-line--x-light);
     cursor:pointer;
+    background: transparent;
     transition: background-color 0.2s ease-out, color 0.1s ease-out;
     i {
         opacity: 0.75;
@@ -282,7 +283,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     [class^="big-icon--"],
     [class*=" big-icon--"] {
       line-height: 1;
-      color: currentColor;
+      color: $sd-text;
       display: block;
     }
     .big-icon--send-to {
@@ -290,24 +291,24 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     }
     [class^="icon-"],
     [class*=" icon-"] {
-      color: currentColor;
+      color: $sd-text;
     }
     &:hover {
-        background: rgba(255, 255, 255, 0.5);
+        background: var(--color-navbutton-bg-hover);
         > i {
             opacity: 1;
         }
     }
     &.navbtn--left {
       border-left: none;
-      border-right: 1px solid rgba(0,0,0,.1);
+      border-right: 1px solid var(--sd-colour-line--x-light);
     }
     &.navbtn--blue {
         background: $sd-colour-interactive;
         border-left: 1px solid var(--sd-colour-interactive--lighten-10);
         color: $white;
         &.disabled {
-            background: #898989;
+            background: var(--sd-colour-interactive--lighten-30);
         }
     }
     &.navbtn--text-only {
@@ -318,7 +319,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
       font-size: 1.5rem;
     }
     &.navbtn--border-r {
-      border-right: 1px solid rgba(0,0,0,.1) !important;
+      border-right: 1px solid var(--sd-colour-line--x-light) !important;
     }
     &.navbtn--highlighted {
       background-color: $purple !important;

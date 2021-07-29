@@ -8,16 +8,11 @@ $nav-tabs-font-size: 1.4rem !default;
 $nav-tabs-font-size-small: 1.2rem;
 $nav-tabs-font-size-big: 1.6rem;
 
-$nav-tab-link-color: $grayText; // default text color
-$nav-tab-active-link-color: $grayDark; // active state text color
-$nav-tab-link-border-color: #d8d8d8; // hover state, border bottom color  
+$nav-tab-link-color: $sd-text-light; // default text color
+$nav-tab-active-link-color: $sd-text; // active state text color
+$nav-tab-link-border-color: var(--sd-colour-line--strong); // hover state, border bottom color  
 $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state border bottom color
 
-// UI dark colors
-$nav-tab-link-color-dark: scale-color($white, $alpha: -40%);
-$nav-tab-active-link-color-dark: $white;
-$nav-tab-link-border-color-dark: rgba(255, 255, 255, 0.2);
-$nav-tab-active-link-border-color-dark: $sd-colour-interactive;
 
 // Mixins
 @mixin nav-tabs-base {
@@ -49,7 +44,7 @@ $nav-tab-active-link-border-color-dark: $sd-colour-interactive;
     }
 }
 @mixin nav-tab-link-active(
-    $active-link-color: $grayDark,
+    $active-link-color: $sd-text,
     $border-bottom-color: $nav-tab-active-link-border-color
 ) {
     background: none;
@@ -69,7 +64,7 @@ $nav-tab-active-link-border-color-dark: $sd-colour-interactive;
     align-items: center;
     justify-content: center;
     font-size: $nav-tabs-font-size;
-    color: inherit;
+    color: $sd-text-light;
     background: none;
     border:0;
     border-bottom: 3px solid transparent;
@@ -98,10 +93,6 @@ $nav-tab-active-link-border-color-dark: $sd-colour-interactive;
         opacity: 1;
     }
 }
-
-
-
-
 
 
 .nav-tabs {
@@ -135,29 +126,6 @@ $nav-tab-active-link-border-color-dark: $sd-colour-interactive;
         @include nav-tab-link();
     }
 
-    // UI dark
-    &--ui-dark {
-        //box-shadow: 0 1px 0 0 rgba(255,255,255,0.1);
-        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
-        background-color: rgba(94, 169, 200, 0.03);
-        .nav-tabs {        
-            &__tab {
-                
-                // active state
-                &--active,
-                &--active:hover {
-                    .nav-tabs__link {
-                        @include nav-tab-link-active($nav-tab-active-link-color-dark, $nav-tab-active-link-border-color-dark);
-                    }
-                }
-            }
-            // tab link
-            &__link {
-                @include nav-tab-link($nav-tab-link-color-dark, $nav-tab-link-border-color-dark);
-            }
-        }
-    }
-
     // Smaller nav tabs
     &--small {
         padding: 0 .4rem;
@@ -183,10 +151,6 @@ $nav-tab-active-link-border-color-dark: $sd-colour-interactive;
         padding: 2rem;
         overflow: auto;
 
-        // UI dark
-        &--ui-dark {
-            color: $white;
-        }
         &--small {
             padding: 1.2rem;
         }
@@ -217,23 +181,7 @@ $nav-tab-active-link-border-color-dark: $sd-colour-interactive;
             margin-top: 1px;
         }
     }
-    // UI dark
-    &.sd-nav-tabs--ui-dark {
-        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);
-        background-color: rgba(94, 169, 200, 0.03);
-        color: $white;
-        .sd-nav-tabs__tab {
-            &:hover {
-                border-bottom-color: $nav-tab-link-border-color-dark;
-            }
-            // active state
-            &--active,
-            &--active:hover {
-                @include nav-tabs-tab-active($nav-tab-active-link-border-color-dark);
-            }
-        }
 
-    }
 
     // Smaller nav tabs
     &.sd-nav-tabs--small {
@@ -257,10 +205,6 @@ $nav-tab-active-link-border-color-dark: $sd-colour-interactive;
         padding: 2rem;
         overflow: auto;
 
-        // UI dark
-        &--ui-dark {
-            color: $white;
-        }
         &--small {
             padding: 1.2rem;
         }

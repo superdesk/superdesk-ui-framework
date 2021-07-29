@@ -28,10 +28,9 @@
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: #f8f8f8;
+    background-color: var(--sd-colour-panel-bg--100);
     display: flex;
     flex-direction: column;
-
     &--double-left-nav {
         left: 400px;
     } 
@@ -52,14 +51,14 @@
 .sd-page__header {
     height:48px;
     flex-shrink: 0;
-    border-bottom: 1px solid #dedede;
+    border-bottom: 1px solid var(--sd-colour-line--light);
     display: flex;
     flex-direction: row;
     align-items: center;
     padding: 0 20px;
     z-index: 2;
     &--white {
-        background-color: $white;
+        //background-color: $white;
     }
     &--justify-space-between {
         justify-content: space-between;

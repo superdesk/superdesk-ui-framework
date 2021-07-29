@@ -25,18 +25,17 @@ $modal-fill-width: 100%;
 $modal-fullscreen-width: 100%;
 
 $modal-border-radius: $border-radius__base--large;
-$modal-line-color: #e4e4e4;
+$modal-line-color: var(--sd-colour-line--x-light);
+$modal-bg-color: var(--color-modal-Bg);
 
 $modal-header-height : $nav-height;
 $modal-footer-height : 48px;
 $modal-subnav-height : $nav-height;
 
 $modal-padding : $sd-base-increment * 2;
+$modal-box-shadow: var(--sd-shadow__modal);
 
-// Box shadow
-@mixin modal-box-shadow {
-    @include box-shadow(0, 0, 8px, 2px, rgba(0, 0, 0, 0.3));
-}
+
 // Map with all modal sizes
 $modal-sizes: (
   default: $modal-base-width,
@@ -68,12 +67,12 @@ $modal-sizes: (
     margin: 0 auto;
 }
 @mixin modal-content() {
-    background-color: $white;
+    background-color: $modal-bg-color;
     display: flex;
     flex-direction: column;
     margin: 10px 0;
     border-radius: $modal-border-radius;
-    @include modal-box-shadow();
+    box-shadow: $modal-box-shadow;
 }
 @mixin modal-header() {
     padding: $modal-padding - $sd-base-increment $modal-padding;
@@ -81,7 +80,7 @@ $modal-sizes: (
     min-height: $modal-header-height;
 }
 @mixin modal-body() {
-    background: $sd-background;
+    background: $modal-bg-color;
     overflow-y: auto;
     padding: $modal-padding;
     position: relative;
@@ -113,6 +112,11 @@ $modal-sizes: (
             flex: 0 0 auto;
             width: 100%;            
         }
+        .modal__footer {
+            &> .btn + .btn {
+                margin-left: $sd-base-increment;
+            }
+        } 
         .modal__header {
             @include modal-header();
             position: relative;
@@ -217,7 +221,7 @@ $modal-sizes: (
                 .modal__content {
                     flex: 0 0 100%;
                     margin: 0;
-                    border-radius: 0;
+                    @include border-radius(0);
                 }
                 .modal__body {
                     max-height: none;
@@ -240,11 +244,11 @@ $modal-sizes: (
         }
     }
     // modifier, change body to white background 
-    &.modal--white {
-        .modal__body {
-            background: $white !important;
-        }
-    }
+    // &.modal--white {
+    //     .modal__body {
+    //         background: $white !important;
+    //     }
+    // }
     // fix for calling a modal from another modal
     &.modal--double {
         z-index: 1060;
@@ -269,7 +273,6 @@ $modal-sizes: (
         .modal__body-header {
             height: 48px;
             width: 100%;
-            background: $white;
             border-bottom: 1px solid $modal-line-color;
             padding: 0;
             &--add-padding {
@@ -288,7 +291,6 @@ $modal-sizes: (
             width: 100%;
             overflow-y: auto;
             padding: $modal-padding;
-            background: $sd-background;
             min-height: 60px;
         }
         .modal__body-footer {
@@ -338,9 +340,9 @@ $modal-sizes: (
     border: 0;
     background: 0;
     padding: 0px 4px;
-    @include opacity(30);
+    opacity: 0.3;
     &:hover {
-        @include opacity(70);
+        opacity: 0.7;
         cursor: pointer;
     }
 }
@@ -351,14 +353,14 @@ $modal-sizes: (
 }
 .modal__header {
     .icn-btn {
-        @include opacity(30);
+        opacity: 0.3;
         transition: opacity 0.2s ease-in-out;
     }
     &:hover {
         .icn-btn {
-            @include opacity(75);
+            opacity: 0.75;
             &:hover {
-                @include opacity(100);
+                opacity: 1;
             }
         }
     }
@@ -378,17 +380,26 @@ $modal-sizes: (
     bottom: 0;
     left: 0;
     z-index: $zindexModalBackdrop;
-    background-color: $black;
+    background-color: var(--sd-colour-bg--03);
     // Fade for backdrop
     &.fade { opacity: 0; }
 }
 .modal__backdrop,
 .modal__backdrop.fade.in {
-    @include opacity(30);
+    opacity: 0.5;
 }
 
 .modal--fullscreen {
     .modal__header, .modal__body {
         @include sd-padding('3', 'left');
+    }
+}
+
+.dark-ui,
+[data-theme="dark-ui"] {
+    .modal__content {
+        .side-panel {
+            --color-bg-00: hsla(0, 0%, 14%, 1);
+        }
     }
 }

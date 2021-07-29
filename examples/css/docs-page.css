@@ -1,26 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic,500italic,700italic,300,300italic');
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400&subset=latin-ext');
 
-.docs-page {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    line-height: 140%;
-    margin: 0;
-    padding: 0;
-    background-color: var(--docs-page-color-bg-default);
-    color: #333;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    grid-template-rows: auto 1fr;
-    height: 100vh;
-}
-.docs-page {
-    --docs-page-color-primary: #1397B9;
-    --docs-page-color-highlight: #33C5A0;
-}
-:root, [data-theme="light-ui"] {
+:root {
+    color: hsla(214, 13%, 12%, 1);
     --docs-page-color-bg-default: hsl(0, 0%, 97%);
-    --docs-page-color-bg-00: hsla(0, 0%, 97%, 1);
+    --docs-page-color-bg-00: hsla(214, 13%, 96%, 1);
     --docs-page-color-bg-10: hsla(0, 0%, 100%, 1);
     --docs-page-color-bg__window-bar: hsl(0, 0%, 92%);
 
@@ -35,10 +19,11 @@
     --docs-page-border__table: hsla(0, 0%, 0%, 0.16);
 }
 
-[data-theme="dark-ui"] {
-    --docs-page-color-bg-default: hsla(0, 0%, 12%, 1);
-    --docs-page-color-bg-00: hsla(0, 0%, 12%, 1);
-    --docs-page-color-bg-10: hsla(0, 0%, 7%, 1);
+:root [data-theme="dark-ui"] {
+    color: hsla(214, 13%, 96%, 1);
+    --docs-page-color-bg-default: hsla(214, 13%, 96%, 1);
+    --docs-page-color-bg-00: hsla(214, 13%, 12%, 1);
+    --docs-page-color-bg-10: hsla(214, 13%, 12%, 1);
     --docs-page-color-bg__window-bar: hsl(0, 0%, 8%);
 
     --docs-page-color-bg__content-row--white: hsla(0, 0%, 8%, 1);
@@ -51,6 +36,26 @@
     --docs-page-border__window-bar--bottom: hsla(0, 0%, 88%, 0.12);
     --docs-page-border__table: hsla(0, 0%, 100%, 0.2);
 }
+.docs-page {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    line-height: 140%;
+    margin: 0;
+    padding: 0;
+    background-color: var(--docs-page-color-bg-default);
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100vh;
+}
+
+.docs-page {
+    --docs-page-color-primary: #1397B9;
+    --docs-page-color-highlight: #33C5A0;
+}
+
+
+
 
 hr {
     border: transparent;

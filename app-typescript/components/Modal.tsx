@@ -28,7 +28,7 @@ export class Modal extends React.Component<IProps, {}> {
                 closeOnEscape={this.props.closeOnEscape}
                 maximized={this.props.maximized}
                 contentClassName={this.props.size ?
-                    ('p-dialog-content--'+ this.props.size) : undefined}
+                    ('p-dialog-content--' + this.props.size) : undefined}
                 onShow={this.props.onShow}
                 onHide={this.props.onHide}>
                 {this.props.children}
