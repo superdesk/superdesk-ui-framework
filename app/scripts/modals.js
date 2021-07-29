@@ -4,7 +4,7 @@ sdModal.$inject = ['$document', '$rootScope'];
 function sdModal($document, $rootScope) {
     return {
         template:
-`<div class="modal" data-backdrop="static" data-test-id="{{testId}}">
+`<div class="modal" data-theme="{{theme}}" data-backdrop="static" data-test-id="{{testId}}">
     <div class="modal__dialog" ng-if="model">
         <div class="modal__content" ng-transclude></div>
     </div>
@@ -14,6 +14,7 @@ function sdModal($document, $rootScope) {
         scope: {
             model: '=',
             testId: '=?',
+            theme: '@',
         },
         link: function (scope, element) {
             scope.testId = scope.testId || '';

@@ -11,6 +11,8 @@ $sd-toast-colour-text: $sd-text-light;
 $sd-toast-shadow: var(--sd-shadow__toast);
 
 $toast-palette: $sd-basic-palette;
+$sd-toast-position-top: 5.6rem;
+$sd-toast-z-index: 9999;
 
 $toast-sizes: (
     fixed-s: 32rem,
@@ -18,7 +20,6 @@ $toast-sizes: (
     fixed-l: 48rem,
     fixed-xl: 56rem,
 );
-
 
 .sd-toast__container {
     display: flex!important;

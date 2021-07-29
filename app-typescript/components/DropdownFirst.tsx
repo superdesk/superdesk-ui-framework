@@ -43,7 +43,7 @@ export const DropdownFirst = ({
     const [open, setOpen] = React.useState(false);
     const [height, setHeight] = React.useState(false);
     const ref = React.useRef(null);
-    let inDebounce: NodeJS.Timeout;
+    let inDebounce: number;
 
     function calculate() {
         let number = getDimensions(ref.current);
@@ -61,7 +61,7 @@ export const DropdownFirst = ({
         return function() {
             const context = children;
             clearTimeout(inDebounce);
-            inDebounce = setTimeout(() => calculate.apply(context), delay);
+            inDebounce = window.setTimeout(() => calculate.apply(context), delay);
         };
     };
 

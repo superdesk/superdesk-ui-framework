@@ -274,7 +274,115 @@ $baseColors: (
 
 // CSS variables for default (light) theme
 
+<<<<<<< HEAD
 
+=======
+:root, [data-theme="light-ui"] {  
+  --color-input-bg:           rgba(0,0,0,0.05);
+  --color-input-bg--hover:    rgba(0,0,0,0.08);
+  --color-input-bg--focus:    rgba(94, 169, 200, 0.14);
+  --color-label-text:         rgba(116,116,116,1);
+
+  --color-input-border:       rgba(0,0,0,.15);
+  --color-input-border-hover: rgba(0,0,0,.3);
+
+  --color-form-bg:            rgba(255,255,255,0);
+  --color-text:               rgb(51, 51, 51); // equals #333;
+  --color-text-light:         rgba(51,51,51,0.75);
+
+  --color-contrast-bg:        #fff;
+  --color-contrast-bg--hover: #f4f4f4;
+
+  --color-selected-bg:        #eaf2f5;
+  --color-selected-bg--hover: #dfebf0;
+
+  --color-bg-00:              hsl(0, 0%, 100%);
+  --color-bg-50:              hsl(0, 0%, 97%);
+  --color-bg-100:             hsl(0, 0%, 93%);
+  --color-bg-150:             hsl(0, 0%, 87%);
+  --color-bg-200:             hsl(0, 0%, 63%);
+
+  --color-bg-800:             #2c2c2c;
+
+  --color-kanban-border:      #4d4d4d;
+
+  --color-inset-search-bg:           #ffffff;
+  --color-inset-search-border:       rgba(0,0,0,.20);
+  --color-inset-search-border-hover: rgba(0,0,0,.35);
+
+  --color-assignment-to-do:          #c4170b; //red--700
+  --color-assignment-progress:       #d17d00; //orange--600
+  --color-assignment-completed:      #74a838; //light-green--600
+
+  --color-grid-item-Bg:              hsl(0, 0%, 100%);
+
+  --color-dropdown-menu-Bg:          rgb(255,255,255);
+  --color-dropdown-menu-text:        rgb(51, 51, 51);
+
+  --color-bg__modal:                 hsla(0, 0%, 100%, 1);
+  --color-line__modal:               hsla(0, 0%, 90%);
+
+  --color-bg__select-option:         hsla(0, 0%, 100%, 1);
+}
+
+// CSS variables for dark theme
+
+[data-theme="dark-ui"] {
+  color: #fff;
+  --sd-slugline-color:        #005b7f;
+
+  --color-input-bg:           rgba(255,255,255,0.05);
+  --color-input-bg--hover:    rgba(255,255,255,0.08);
+  --color-input-bg--focus:    rgba(94,169,200,0.14);
+  --color-label-text:         rgba(255,255,255,0.5);
+
+  --color-input-border:       rgba(255,255,255,0.4);
+  --color-input-border-hover: rgba(255,255,255,0.6);
+
+  --color-form-bg:            #3b3b3b;
+  --color-text:               rgb(244, 244, 244);
+  --color-text-light:         rgba(244, 244, 244,0.75);
+
+  --color-contrast-bg:        hsl(0, 0%, 20%);
+  --color-contrast-bg--hover: hsl(0, 0%, 22%);
+  
+  --color-selected-bg:        #35393b;
+  --color-selected-bg--hover: #3b4246;
+
+  --color-bg-00:              #111111;
+  --color-bg-50:              #3f3f3f;
+  --color-bg-100:             #3a3a3a;
+  --color-bg-150:             #303030;
+  --color-bg-200:             #484848;
+
+  --color-bg-800:             #212121;
+
+  --color-kanban-border:      #8e8e8e;
+
+  --color-inset-search-bg:           rgba(0,0,0,0.2);
+  --color-inset-search-border:       rgba(255,255,255,0.35);
+  --color-inset-search-border-hover: rgba(255,255,255,0.55);
+  
+  [class^="big-icon--"],
+  [class*=" big-icon--"] {
+    color: $white;
+  }
+  --color-grid-item-Bg:       hsl(0, 0%, 15%);
+  
+  --color-bg__modal:          hsla(0, 0%, 20%);
+  --color-line__modal:        hsla(0, 0%, 25%);
+
+  --color-bg__select-option:  hsla(0, 0%, 20%, 1);
+}
+
+[class^="--dark-ui"],
+[class*="--dark-ui"],
+.dark-ui {
+  --color-contrast-bg:        hsl(0, 0%, 20%);
+  --color-contrast-bg--hover: hsl(0, 0%, 22%);
+  --color-bg__select-option:  hsla(0, 0%, 20%, 1);
+}
+>>>>>>> 96ad7b2a9b1c9a900fc05b47ab1bb597a2e2902e
 
 [data-theme="accessible-light-ui"] {
 

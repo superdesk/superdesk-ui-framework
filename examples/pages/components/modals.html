@@ -202,19 +202,22 @@
                         <button class="icn-btn" ng-click="closeModal('modalActive3')"><i class="icon-close-small"></i></button>
                     </div>
                     <div class="modal__body">
-                        <p>This is sample message inside modal!</p>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. </p>
+                        <p>This is sample message inside the modal!</p>
+                        <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam id dolor id nibh
+                        ultricies vehicula ut id elit. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
+                        Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
                     </div>
                     <div class="modal__footer">
                         <button class="btn" ng-click="closeModal('modalActive3')">Cancel</button>
-                        <button class="btn btn--primary" ng-click="closeModal('modalActive3')">Ok</button>
+                        <button class="btn btn btn--primary btn" ng-click="closeModal('modalActive3')">Ok</button>
                     </div>
                 </div>
             </div>
             <div class="docs-page__code-markup">
                 <pre class="prettyprint lang-html linenums">
                     <button class="btn" ng-click="openModal('modalActive')">Show modal</button>
-                    <div sd-modal data-model="modalActive" class="modal--fill" ng-non-bindable>
+                    <div theme="dark-ui" sd-modal data-model="modalActive" class="modal--fill" ng-non-bindable>
                         <div class="modal__header modal__header--flex">
                             <h3 class="modal__heading">Modal Fill</h3>
                             <button class="icn-btn" ng-click="closeModal('modalActive')"><i class="icon-close-small"></i></button>
@@ -270,6 +273,178 @@
                         <div class="modal__footer">
                             <button class="btn" ng-click="closeModal('modalActive')">Cancel</button>
                             <button class="btn btn--primary" ng-click="closeModal('modalActive')">Ok</button>
+                        </div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h3 class="docs-page__h3">Dark modal</h3>
+    <p class="docs-page__paragraph">The modal can be rendered in dark mode by adding<code>theme="dark-ui"</code> on div <code>sd-modal</code>. This example shown uses a custom layout inside the modal body.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example" doc-modal>
+                <button class="btn" ng-click="openModal('modalActive9')">Show dark modal</button>
+                <div sd-modal theme="dark-ui" data-model="modalActive9" class="modal--fill">
+                    <div class="modal__header modal__header--flex">
+                        <h3 class="modal__heading">Modal dark (fill option)</h3>
+                        <button class="icn-btn" ng-click="closeModal('modalActive9')"><i class="icon-close-small"></i></button>
+                    </div>
+                    <div class="sd-wrap-helper">
+                        <div style="height: 100%;" class="sd-content-wrapper__main-content-area sd-main-content-grid comfort">
+                            <div class="sd-main-content-grid__content sd-padding--2">
+                                <div class="sd-grid-list">
+                                    <div class="sd-grid-item sd-grid-item__type--audio">
+                                        <div class="sd-grid-item__media"></div>
+                                        <div class="sd-grid-item__content">
+                                            Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.
+                                            Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+                                        </div>
+                                        <div class="sd-grid-item__footer">
+                                            <div class="sd-grid-item__footer-block sd-grid-item__footer-block--left">
+                                                <span class="label label--success label--translucent">Success</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="sd-grid-item sd-grid-item__type--audio">
+                                        <div class="sd-grid-item__media"></div>
+                                        <div class="sd-grid-item__content">
+                                            Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
+                                            Sed posuere consectetur est at lobortis.
+                                        </div>
+                                        <div class="sd-grid-item__footer">
+                                            <div class="sd-grid-item__footer-block sd-grid-item__footer-block--left">
+                                                <span class="label label--success label--translucent">Success</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sd-main-content-grid__preview open-preview">
+                                <div class="side-panel__container">
+                                    <div class="side-panel side-panel--right">
+                                        <div class="side-panel__content">
+                                            <div class="side-panel__content-block side-panel__content-block--flex">
+                                                <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                                                    <div class="form__item">
+                                                        <div class="sd-input">
+                                                            <label class="sd-input__label">Input label</label>
+                                                            <input class="sd-input__input" type="text">
+                                                            <div class="sd-input__char-count">00/90</div>
+                                                            <div class="sd-input__message-box">
+                                                                <div class="sd-input__hint">Hendrerit in vulputate.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form__item">
+                                                        <div class="sd-input sd-input--is-select">
+                                                            <label class="sd-input__label">Select label</label>
+                                                            <select class="sd-input__select">
+                                                                <option value="one">Option one</option>
+                                                                <option value="two">Option two</option>
+                                                                <option value="three">Option three</option>
+                                                            </select>
+                                                            <div class="sd-input__message-box">
+                                                                <div class="sd-input__hint">Maecenas faucibus mollis interdum.</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('modalActive9')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('modalActive9')">Ok</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <button class="btn" ng-click="openModal('modalActive9')">Show dark modal</button>
+                    <div sd-modal theme="dark-ui" data-model="modalActive9" class="modal--fill" ng-non-bindable>
+                        <div class="modal__header modal__header--flex">
+                            <h3 class="modal__heading">Modal dark (fill option)</h3>
+                            <button class="icn-btn" ng-click="closeModal('modalActive9')"><i class="icon-close-small"></i></button>
+                        </div>
+                        <div class="sd-wrap-helper">
+                            <div style="height: 100%;" class="sd-content-wrapper__main-content-area sd-main-content-grid comfort">
+                                <div class="sd-main-content-grid__content sd-padding--2">
+                                    <div class="sd-grid-list">
+                                        <div class="sd-grid-item sd-grid-item__type--audio">
+                                            <div class="sd-grid-item__media"></div>
+                                            <div class="sd-grid-item__content">
+                                                Donec id elit non mi porta gravida at eget metus. Nullam quis risus eget urna mollis ornare vel eu leo.
+                                                Lorem ipsum dolor sit amet,consectetur adipiscing elit.
+                                            </div>
+                                            <div class="sd-grid-item__footer">
+                                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--left">
+                                                    <span class="label label--success label--translucent">Success</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="sd-grid-item sd-grid-item__type--audio">
+                                            <div class="sd-grid-item__media"></div>
+                                            <div class="sd-grid-item__content">
+                                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
+                                                Sed posuere consectetur est at lobortis.
+                                            </div>
+                                            <div class="sd-grid-item__footer">
+                                                <div class="sd-grid-item__footer-block sd-grid-item__footer-block--left">
+                                                    <span class="label label--success label--translucent">Success</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sd-main-content-grid__preview open-preview">
+                                    <div class="side-panel__container">
+                                        <div class="side-panel side-panel--right">
+                                            <div class="side-panel__content">
+                                                <div class="side-panel__content-block side-panel__content-block--flex">
+                                                    <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                                                        <div class="form__item">
+                                                            <div class="sd-input">
+                                                                <label class="sd-input__label">Input label</label>
+                                                                <input class="sd-input__input" type="text">
+                                                                <div class="sd-input__char-count">00/90</div>
+                                                                <div class="sd-input__message-box">
+                                                                    <div class="sd-input__hint">Hendrerit in vulputate.</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form__item">
+                                                            <div class="sd-input sd-input--is-select">
+                                                                <label class="sd-input__label">Select label</label>
+                                                                <select class="sd-input__select">
+                                                                    <option value="one">Option one</option>
+                                                                    <option value="two">Option two</option>
+                                                                    <option value="three">Option three</option>
+                                                                </select>
+                                                                <div class="sd-input__message-box">
+                                                                    <div class="sd-input__hint">Maecenas faucibus mollis interdum.</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal__footer">
+                            <button class="btn" ng-click="closeModal('modalActive9')">Cancel</button>
+                            <button class="btn btn--primary" ng-click="closeModal('modalActive9')">Ok</button>
                         </div>
                     </div>
                 </pre>

@@ -18,10 +18,10 @@ import {TieredMenu} from '@superdesk/primereact/tieredmenu';
  * it won't change direction.
  *
  * Accessibility features:
- * * When menu closes, focus returns to the element that was focused before opening the menu
+ * * ESC closes the last sub-menu or entire menu
+ * * When menu is closed via ESC, focus returns to the element that was focused before opening the menu
  * * Focuses the first item on activation
  * * Focuses first sub-menu item when sub-menu opens
- * * ESC closes the last sub-menu or entire menu
  * * ENTER/ESC or arrow keys work for entering/leaving submenus
  */
 
@@ -41,6 +41,7 @@ interface IMenuLeaf {
     label: string;
     icon?: IIconName;
     onClick(): void;
+    disabled?: boolean;
 }
 
 interface IMenuBranch {
@@ -52,7 +53,10 @@ interface IMenuBranch {
 interface IProps {
     items: Array<IMenuItem>;
     children: (toggle: (event: SyntheticEvent) => void) => JSX.Element;
+    zIndex?: number;
 }
+
+const superdeskTopBarZIndex = 1030;
 
 export class Menu extends React.Component<IProps, {}> {
     private menu: TieredMenu | null;
@@ -87,6 +91,7 @@ export class Menu extends React.Component<IProps, {}> {
                         this.close(event);
                         item.onClick();
                     },
+                    disabled: item.disabled,
                 };
             }
         });
@@ -98,10 +103,6 @@ export class Menu extends React.Component<IProps, {}> {
 
     private close(event: SyntheticEvent) {
         this.menu?.toggle(event);
-
-        if (this.focusedBefore instanceof HTMLElement) {
-            this.focusedBefore.focus();
-        }
     }
 
     render() {
@@ -117,6 +118,10 @@ export class Menu extends React.Component<IProps, {}> {
                             event.stopPropagation();
 
                             this.close(event);
+
+                            if (this.focusedBefore instanceof HTMLElement) {
+                                this.focusedBefore.focus();
+                            }
                         }
                     }}
                 >
@@ -134,6 +139,8 @@ export class Menu extends React.Component<IProps, {}> {
                                 firstMenuItem.focus();
                             }
                         }}
+                        data-test-id="menu"
+                        baseZIndex={this.props.zIndex ?? superdeskTopBarZIndex}
                     />
                 </div>
             </div>
