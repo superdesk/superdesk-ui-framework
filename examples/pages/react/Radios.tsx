@@ -5,14 +5,14 @@ import * as Components from '../playgrounds/react-playgrounds/components/Index';
 import { Radio, RadioButton, CheckGroup, CheckButtonGroup, Alert, Prop, PropsList } from '../../../app-typescript';
 
 interface IState {
-    value1: any;
-    value2: any;
-    value3: any;
-    value4: any;
-    value5: any;
-    value6: any;
-    value7: any;
-    value8: any;
+    value1?: string;
+    value2?: string;
+    value3?: string;
+    value4?: string;
+    value5?: string;
+    value6?: string;
+    value7?: string;
+    value8?: string;
 }
 
 export default class RadiosDoc extends React.Component<{}, IState> {
@@ -20,14 +20,14 @@ export default class RadiosDoc extends React.Component<{}, IState> {
         super(props);
 
         this.state = {
-            value1: true,
-            value2: true,
-            value3: true,
-            value4: true,
-            value5: true,
-            value6: true,
-            value7: true,
-            value8: true,
+            value1: undefined,
+            value2: undefined,
+            value3: undefined,
+            value4: undefined,
+            value5: undefined,
+            value6: undefined,
+            value7: undefined,
+            value8: undefined,
         };
     }
     render() {

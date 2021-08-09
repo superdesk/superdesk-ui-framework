@@ -1,15 +1,18 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
+
+interface IOption {
+    label: string;
+    value: string;
+    disabled?: boolean;
+}
+
 interface IProps {
-    value?: string;
-    options: Array<{
-        label: string,
-        value: string,
-        disabled?: boolean
-    }>;
+    value?: IOption['value'];
+    options: Array<IOption>;
     labelSide?: 'left' | 'right'; // defaults to 'right'
     required?: boolean;
-    onChange(nextValue: string): void;
+    onChange(nextValue: IOption['value']): void;
 }
 export class Radio extends React.Component<IProps> {
     htmlId = nextId();
@@ -33,11 +36,17 @@ export class Radio extends React.Component<IProps> {
                     label-position={this.props.labelSide || null}
                     tabIndex={-1}>
 
-                    <input type="radio" className="sd-check-new__input" id={this.htmlId + index} tabIndex={0}
+                    <input
+                        type="radio"
+                        className="sd-check-new__input"
+                        id={this.htmlId + index}
+                        tabIndex={0}
                         name={this.htmlId}
                         onChange={() => this.handleChange(item)}
                         disabled={item.disabled}
-                        required={this.props.required} />
+                        required={this.props.required}
+                        checked={item.value === this.props.value}
+                    />
 
                     <span className="sd-radio-new"></span>
                     <label htmlFor={this.htmlId + index} >{item.label}</label>
