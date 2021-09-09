@@ -342,7 +342,7 @@ $body-font-size: (
     flex-direction: column;
 }
 .theme-preview__button-bar {
-    text-align: right;
+    text-align: end;
     .sd-check__wrapper + .sd-check__wrapper {
         margin-left: 0.2rem;
     }

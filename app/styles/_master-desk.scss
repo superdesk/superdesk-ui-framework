@@ -35,7 +35,7 @@ $board-header-border-color: var(--color-kanban-border);
 
 .sd-board__content-block {
     border-radius: $border-radius__base--x-small;
-    background-color: var(--color-bg-00);
+    background-color: var(--sd-item__main-Bg);
     display: flex;
     flex-direction: column;
     @include sd-shadow('z2');
@@ -44,7 +44,7 @@ $board-header-border-color: var(--color-kanban-border);
         cursor: pointer;
         &:hover {
            @include sd-shadow('z3');
-           outline: 1px solid rgba(61, 143, 177, 0.35);
+           outline: 1px solid var(--sd-colour-interactive--alpha-50);
         }
     }
 }
@@ -53,7 +53,7 @@ $board-header-border-color: var(--color-kanban-border);
     flex-direction: column;
 }
 .sd-board__list-item {
-    border-bottom: 1px solid rgba(127, 127, 127, 0.2);
+    border-bottom: 1px solid var(--sd-colour-line--light);
     display: flex;
     flex-direction: row;
     align-items: center;

@@ -2,8 +2,8 @@
 // ----
 
 // Variables
-$nav-tabs-padding: 0.8rem 0;
-$nav-tabs-margin: 0 1rem;
+$nav-tabs-padding: 0.8rem;
+$nav-tabs-margin: 1rem;
 $nav-tabs-font-size: 1.4rem !default;
 $nav-tabs-font-size-small: 1.2rem;
 $nav-tabs-font-size-big: 1.6rem;
@@ -19,15 +19,17 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     height: $nav-height;
     display: flex;
     flex-shrink: 0;
-    padding: 0 1rem;
+    padding-inline: 1rem 0;
     box-shadow: 0 1px 0 0 var(--color-border-line--light);
 }
 @mixin nav-tab-link(
      $link-color: $nav-tab-link-color,
      $border-bottom-hover-color: $nav-tab-link-border-color
 ) {
+    margin: 0;
     margin: $nav-tabs-margin;
-    padding: $nav-tabs-padding;
+    padding: 0;
+    padding-inline: $nav-tabs-padding;
     height: $nav-height;
     line-height: 30px;
     font-size: $nav-tabs-font-size;
@@ -58,8 +60,11 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
 @mixin nav-tabs-tab(
      $border-bottom-hover-color: $nav-tab-link-border-color
 ) {
-    margin: $nav-tabs-margin;
-    padding: $nav-tabs-padding;
+    margin: 0;
+    margin-inline-start: $nav-tabs-margin;
+    margin-inline-end: $nav-tabs-margin;
+    padding: 0;
+    padding-inline: $nav-tabs-padding;
     height: $nav-height;
     align-items: center;
     justify-content: center;
@@ -100,7 +105,7 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
 
     // single tab
     &__tab {
-        margin-bottom: -1px;
+        margin-block-end: -1px;
         @include text-overflow();
         display: flex;
         flex-shrink: 1;
@@ -178,7 +183,7 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
             padding: 2rem;
         }
         .subnav {
-            margin-top: 1px;
+            margin-block-start: 1px;
         }
     }
 
@@ -189,7 +194,9 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
         .sd-nav-tabs__tab {
             font-size: $nav-tabs-font-size-small;
             letter-spacing: 0.025em;
-            margin: 0 .8rem;
+            margin: 0;
+            margin-inline-start: .8rem;
+            margin-inline-end: .8rem;
         }
     }
     

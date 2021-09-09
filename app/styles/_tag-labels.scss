@@ -1,19 +1,22 @@
 /// Default background color for badges.
-$tag-label-background: rgba(123,123,123,0.25);
-$tag-label-background-darker: rgba(123,123,123,0.45);
-$tag-label-background-darkUi: rgba(255,255,255,0.2);
+$tag-label-BG-default:      var(--sd-colour__tag-label-Bg--1);
+$tag-label-BG-darker:       var(--sd-colour__tag-label-Bg--2);
+$tag-label-BG-highlight-1:  var(--sd-colour__tag-label-Bg--highlight-1);
+$tag-label-BG-highlight-2:  var(--sd-colour__tag-label-Bg--highlight-2);
+$tag-label-BG-inverse:      var(--sd-colour__tag-label-Bg--inverse);
+$tag-label-Txt-inverse:     var(--sd-colour__tag-label-Txt--inverse);
 
 $tag-bg-colors: (
-  default: $tag-label-background,
-  darker: $tag-label-background-darker,
-  highlight1: var(--sd-colour-interactive--alpha-70),
-  highlight2: var(--sd-colour-interactive--alpha-40),
+  default: $tag-label-BG-default,
+  darker: $tag-label-BG-darker,
+  highlight1: $tag-label-BG-highlight-1,
+  highlight2: $tag-label-BG-highlight-2,
 );
 /// Coloring classes. A map of classes to output in the CSS.
 $tag-label-palette: $tag-bg-colors !default;
 
 /// Default padding inside badges.
-$tag-label-padding: 0em 1em 0em 1em !default;
+$tag-label-padding: 1em 1em !default;
 
 /// Minimum width of a badge.
 $tag-label-minwidth: 1.8em !default;
@@ -31,7 +34,8 @@ $tag-label-lineheight: 100% !default;
     display: inline-flex;
     align-items: center;
     min-width: $tag-label-minwidth;
-    padding: $tag-label-padding;
+    padding: 0;
+    padding-inline: $tag-label-padding;
     border-radius: $tag-label-radius;
     font-size: $tag-label-font-size;
     line-height: $tag-label-lineheight;
@@ -47,7 +51,7 @@ $tag-label-lineheight: 100% !default;
 
 .tag-label {
     @include tag-label;
-    background: $tag-label-background;
+    background: $tag-label-BG-default;
 
     @each $name, $color in $tag-label-palette {
         &.tag-label--#{$name} {
@@ -76,32 +80,39 @@ $tag-label-lineheight: 100% !default;
         text-align: center;
         vertical-align: middle;
         border-radius: $border-radius__base--full;
-        background-color: rgba(255,255,255,0.35);
-        color: inherit;
+        background-color: var(--sd-colour__tag-label-remove-Bg);
+        color: var(--color-text);
         cursor: pointer;
         transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-        opacity: 0.2;
-        margin-right: -1rem;
-        margin-left:  0.8rem;
-        i {
+        margin-inline-start: 0.8rem;
+        margin-inline-end: -1rem;
+        [class^="icon-"], [class*=" icon-"] {
+            color: var(--color-text-light);
             font-size: 1.6rem;
             flex-grow: 0;
             flex-shrink: 0;
             margin-left: 1px;
+            opacity: 0.4;
+            transition: color .1s ease-out, opacity .1s ease-out;
         }
         &:hover {
-            opacity: 0.75;
             text-decoration: none;
-            background-color: rgba(255,255,255,0.65);
-          }
+            background-color: var(--sd-colour__tag-label-remove-Bg--hover);
+            [class^="icon-"], [class*=" icon-"] {
+                opacity: 0.85;
+            }
+        }
           &:active {
-            opacity: 1;
-            background-color: rgba(255,255,255,0.85);
+            background-color: var(--sd-colour__tag-label-remove-Bg--hover);
             [class^="icon-"], [class*=" icon-"] {
               color: $sd-colour-interactive;
               opacity: 1;
             }
         }
+    }
+    &.tag-label--inverse {
+        color: $tag-label-Txt-inverse;
+        background-color: $tag-label-BG-inverse;
     }
 }
 
@@ -135,21 +146,3 @@ $tag-label-lineheight: 100% !default;
     font-size: 1.3rem;
 }
 
-
-[data-theme="dark-ui"] {
-    .sd-search-tags__bar {
-        background-color: rgba(255, 255, 255, 0.06);
-    }
-    .tag-label.tag-label--highlight1 {
-        background: var(--sd-colour-interactive--alpha-50);
-    }
-    .tag-label .tag-label__remove {
-        background-color: rgba(0, 0, 0, 0.45);
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.66);
-        }
-    }
-    .tag-label .tag-label__remove i {
-        color: inherit;
-    }
-}

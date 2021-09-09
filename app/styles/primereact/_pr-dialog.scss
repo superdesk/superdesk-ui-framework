@@ -1,5 +1,7 @@
 .p-dialog-mask.p-component-overlay {
-    background-color: rgba(0, 0, 0, 0.4) !important;
+    background-color: hsla(214, 13%, 16%, 0.5) !important;
+    backdrop-filter: blur(1px);
+    -webkit-backdrop-filter: blur(1px);
 }
 
 
@@ -261,7 +263,7 @@
     border-top: 0 none;
     background-color: transparent;
     padding: 0.8rem 1.6rem;
-    text-align: right;
+    text-align: end;
     border-bottom-right-radius: $border-radius__base--full;
     border-bottom-left-radius: $border-radius__base--full;
     box-shadow: 0 -1px 0 var(--sd-colour-line--x-light);
@@ -309,7 +311,7 @@
 }
 
 .p-dialog-content {
-    p {}
+    //p {}
     &--small {
         width: var(--width__modal--small);
     }

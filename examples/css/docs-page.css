@@ -345,16 +345,17 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     font-weight: 500;
     letter-spacing: 0.1em;
     display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 6px;
-    padding-left: 20px;
+    margin-block-start: 20px;
+    margin-block-end: 6px;
+    padding-inline-start: 20px;
 }
 .docs-page__nav > li:first-child .docs-page__nav-title {
-    margin-top: 0;
+    margin-block-start: 0;
 }
 
 .docs-page__button-grid {
-    margin: 2.4rem 0;
+    margin-block-start: 2.4rem;
+    margin-block-end: 2.4rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -456,13 +457,13 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     line-height: 24px;
     font-weight: 300;
     color: #444;
-    border-left: 4px solid transparent;
+    border-inline-start: 4px solid transparent;
 }
 .docs-page__nav-item a {
     font-size: 14px;
     line-height: 32px;
     display: block;
-    padding-left: 24px;
+    padding-inline-start: 24px;
     color: #444;
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
@@ -776,7 +777,7 @@ pre.prettyprint {
 }
 
 .docs-page__playground_picker {
-    text-align: right;
+    text-align: end;
 }
 
 .docs-page__playground_picker .dropdown__toggle {

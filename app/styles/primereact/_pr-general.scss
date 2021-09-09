@@ -8,11 +8,14 @@
     white-space: nowrap;
     color: inherit;
     background-color: transparent;
-    padding: 0.6rem 1.6rem;
-    margin-bottom: 0.2rem;
+    padding-block-start: 0.6rem;
+    padding-block-end: 0.6rem;
+    padding-inline-start: 1.6rem;
+    padding-inline-end: 1.6rem;
+    margin-block-end: 0.2rem;
     font-size: 1.3rem;
     text-decoration: none;
-    text-align: left;
+    text-align: start;
     transition: $sd-transition__menu-item;
     &:hover,
     &:focus,

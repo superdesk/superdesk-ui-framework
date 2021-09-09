@@ -1,7 +1,8 @@
 // TABLES : tables.scss
 // 
 
-$sd-tableBgColor: #fff;
+$sd-tableBgColor: var(--sd-item__main-Bg);
+$sd-tableBorderColor: var(--sd-colour-line--medium);
 
 .table {
     width: 100%;
@@ -13,7 +14,7 @@ $sd-tableBgColor: #fff;
 
     th, td {
         padding: 1.2rem 0.8rem;
-        text-align: left;
+        text-align: start;
         vertical-align: top;
         border-bottom: 1px solid $sd-tableBorderColor;
         font-weight: 500;
@@ -104,7 +105,7 @@ $sd-tableBgColor: #fff;
     padding: 1.2rem 0.8rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     font-weight: 500;
-    text-align: left;
+    text-align: start;
 
     &.sd-table-two-rows {
         padding: 0.8rem;
@@ -128,7 +129,7 @@ $sd-tableBgColor: #fff;
     padding: 1.2rem 0.8rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     font-weight: 500;
-    text-align: left;
+    text-align: start;
     min-width: 120px;
 }
 .sd-flex-table--head .sd-flex-table__cell {

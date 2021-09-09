@@ -35,7 +35,7 @@
     border-radius: $border-radius__base--small;
     box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.45);
     background: var(--sd-colour-background__tooltip);
-    color: #fff;
+    color: hsl(0, 0%, 100%);
     font-weight: 400;
     z-index: 1000;
   }
@@ -245,62 +245,6 @@
 }
 
 
-$tooltip-dark-UI: #222;
-
-[class^="--dark-ui"],
-[class*="--dark-ui"] {
-
-  [sd-tooltip],
-  [data-sd-tooltip] {
-    &::after {
-      box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.75);
-      background: $tooltip-dark-UI;
-    }
-  } 
-  // [sd-tooltip] [flow]
-  [sd-tooltip] {
-    /* FLOW: UP */
-    &:not([flow])::before,
-    &[flow^="up"]::before {
-      border-top-color: $tooltip-dark-UI;
-    }
-    /* FLOW: DOWN */
-    &[flow^="down"]::before {
-      border-bottom-color: $tooltip-dark-UI;
-    }
-    /* FLOW: LEFT */
-    &[flow^="left"]::before {
-      border-left-color: $tooltip-dark-UI;
-    }
-    /* FLOW: RIGHT */
-    &[flow^="right"]::before {
-      border-right-color: $tooltip-dark-UI;
-    }
-  }
-  // [data-sd-tooltip] [data-flow]
-  [data-sd-tooltip] {
-    /* FLOW: UP */
-    &:not([data-flow])::before,
-    &[data-flow^="up"]::before {
-
-      border-top-color: $tooltip-dark-UI;
-    }
-    /* FLOW: DOWN */
-    &[data-flow^="down"]::before {
-      border-bottom-color: $tooltip-dark-UI;
-    }
-    /* FLOW: LEFT */
-    &[data-flow^="left"]::before {
-
-      border-left-color: $tooltip-dark-UI;
-    }
-    /* FLOW: RIGHT */
-    &[data-flow^="right"]::before {
-      border-right-color: $tooltip-dark-UI;
-    }
-  }
-}
-
 [disabled]:hover {
   &[sd-tooltip]::before,
   &[data-sd-tooltip]::before,
@@ -309,6 +253,8 @@ $tooltip-dark-UI: #222;
     display: none !important;
   }
 }
+
+// ====== APEND TO BODY (Prime React) ====== //
 
 .p-tooltip {
   position:absolute;
@@ -324,7 +270,7 @@ $tooltip-dark-UI: #222;
 
 .p-tooltip.p-tooltip-top,
 .p-tooltip.p-tooltip-bottom {
-    padding: 5px 0;
+  padding: 5px 0;
 }
 
 .p-tooltip .p-tooltip-text {
@@ -335,49 +281,60 @@ $tooltip-dark-UI: #222;
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0.8rem 1.2rem 0.9rem;
-  border-radius: 2px;
-  background: #333;
-  color: #fff;
+  border-radius: $border-radius__base--small;
+  background: var(--sd-colour-background__tooltip);
+  box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.45);
+  color: hsl(0, 0%, 100%);
   font-weight: 400;
+  text-transform: none;
+  font-size: 1.2rem; 
+  line-height: 1;
 }
 
 .p-tooltip-arrow {
-    border: 10px solid transparent;
-    z-index: 1001;
-    text-transform: none;
-    font-size: 1.2rem; 
-    line-height: 1;
-    user-select: none;
-    pointer-events: none;
-    position: absolute;
-    width: 5px;
-    height: 5px;
+  --tooltip-arrow_border: 6px;
+  border: var(--tooltip-arrow_border) solid transparent;
+  z-index: 1001;
+  user-select: none;
+  pointer-events: none;
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  overflow: hidden;
 }
 
 .p-tooltip-top .p-tooltip-arrow {
-    bottom: 0;
-    left: 50%;
-    border-bottom-width: 0;
-    border-top-color: #333;
+  border-width: var(--tooltip-arrow_border);
+  bottom: 0;
+  left: calc(50% - 3px);
+  border-bottom-width: 0;
+  border-top-color: var(--sd-colour-background__tooltip);
 }
 
 .p-tooltip-bottom .p-tooltip-arrow {
-    top: 0;
-    left: 50%;
-    border-top-width: 0;
-    border-bottom-color: #333;
+  border-width: var(--tooltip-arrow_border);
+  top: 0;
+  left: calc(50% - 3px);
+  border-top-width: 0;
+  border-bottom-color: var(--sd-colour-background__tooltip);
 }
 
 .p-tooltip-right .p-tooltip-arrow {
-    top: 50%;
-    left: 0;
-    border-left-width: 0;
-    border-right-color: #333;
+  border-width: var(--tooltip-arrow_border);
+  top: calc(50% - 3px);
+  left: 0;
+  border-left-width: 0;
+  border-right-color: var(--sd-colour-background__tooltip);
 }
 
 .p-tooltip-left .p-tooltip-arrow {
-    top: 50%;
-    right: 0;
-    border-right-width: 0;
-    border-left-color: #333;
+  border-width: var(--tooltip-arrow_border);
+  top: calc(50% - 3px);
+  right: 0;
+  border-right-width: 0;
+  border-left-color: var(--sd-colour-background__tooltip);
+}
+
+.p-tooltip-right {
+  margin-left: 8px;
 }

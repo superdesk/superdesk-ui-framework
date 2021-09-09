@@ -9,9 +9,6 @@ $label-background-translucent: var(--sd-colour-bg-translucent--08);
 /// Coloring classes. A map of classes to output in the CSS.
 $label-palette: $sd-extended-palette;
 
-
-$label-link-padding: 0 1.8rem 0 0.8rem;
-
 $font-size__label--default: 0.9rem;
 $font-size__label--large: 1.2rem;
 
@@ -32,7 +29,9 @@ $font-size__label--large: 1.2rem;
     align-items: center;
     vertical-align: middle;
     justify-content: center;
-    padding: $padding__label--default;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline: $padding-x__label--default;
     vertical-align: middle;
     border-radius: $border-radius__base--full;
     text-transform: uppercase;
@@ -45,7 +44,9 @@ $font-size__label--large: 1.2rem;
     border: 1px solid transparent;
     font-weight: 500;
     &--large {
-        padding: $padding__label--large;
+        padding-block-start: $padding-y__label--large;
+        padding-block-end: $padding-y__label--large;;
+        padding-inline: $padding-x__label--large;
         font-size: $font-size__label--large;
         height: $height__label--large;
     }
@@ -57,7 +58,9 @@ $font-size__label--large: 1.2rem;
     vertical-align: middle;
     justify-content: center;
     margin: $label-margin;
-    padding: $padding__label--default;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline: $padding-x__label--default;
     height: $height__label--default;
     font-size: $font-size__label--default;
     border: none;
@@ -123,15 +126,18 @@ a.label {
     position: relative;
     text-decoration: none;
     cursor: pointer;
-    padding: $label-link-padding;
+    padding-block-start: 0;
+    padding-block-end: 0;
+    padding-inline-start: 0.8rem;
+    padding-inline-end: 1.8rem;
 
     &::before {
         display: inline-block;
         font-family: 'sd_icons';
         content: '\e6b0';
         position: absolute;
-        top: 0;
-        right: 0.3rem;
+        inset-block-start: 0;
+        inset-inline-end: 0.3rem;
         width: 1.6rem;
         height: 1.6rem;
         font-size: 1.6rem;

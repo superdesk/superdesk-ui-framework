@@ -45,7 +45,7 @@ $photo-nav-transition: all 0.2s ease-out;
     grid-column: 1/2;
     grid-row: 1/2;
     text-align: center;
-    background-color: #111;
+    background-color: var(--sd-colour-bg__photo-preview);
     max-height: 100%; // needed for firefox
     &.actioning {
         &::before {
@@ -420,7 +420,7 @@ $photo-nav-transition: all 0.2s ease-out;
     text-align: center;
     padding-top: 3rem;
     text-align: center;
-    color: #a0a0a0;
+    color: var(--color-text-light);
     font-size: 2.4rem;
     font-weight: 300;
 }
@@ -429,8 +429,8 @@ $photo-nav-transition: all 0.2s ease-out;
     text-align: center;
     font-style: italic;
     margin: 2.2rem auto;
-    color: inherit;
-    opacity: 0.5;
+    color: var(--color-text-lighter);
+    opacity: 0.85;
     &::after, &::before {
         content: "___________";
         position: absolute;

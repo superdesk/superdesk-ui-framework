@@ -43,8 +43,10 @@ export default class SubNavDoc extends React.Component {
                                 <Button text='Cancel' onClick={()=> false} />
                                 <Button text='Save' type='primary' onClick={()=> false} />
                                 <Divider size="mini" />
-                                <NavButton icon='list-plus' onClick={()=> false} />
-                                <NavButton icon='dots-vertical' onClick={()=> false} />
+                                <ButtonGroup subgroup={true} spaces='no-space'>
+                                    <NavButton icon='list-plus' onClick={()=> false} />
+                                    <NavButton icon='dots-vertical' onClick={()=> false} />
+                                </ButtonGroup>
                             </ButtonGroup>
                         </SubNav>
                         <br />

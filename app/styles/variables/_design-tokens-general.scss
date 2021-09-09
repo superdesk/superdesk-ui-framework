@@ -3,6 +3,43 @@
 
 $sd-base-increment: 0.8rem;
 
+:root {
+    // GENERAL
+
+    // BORDER RADIUS
+    --b-radius--x-small: 2px;
+    --b-radius--small: 3px;
+    --b-radius--medium: 4px;
+    --b-radius--large: 6px;
+    --b-radius--x-large: 8px;
+    --b-radius--full: 9999px;
+
+    // WIDTHS
+    --width__container--xx-small:  24rem;
+    --width__container--x-small:   32rem;
+    --width__container--small:     40rem;
+    --width__container--medium:    48rem;
+    --width__container--large:     56rem;
+    --width__container--x-large:   72rem;
+    --width__container--xx-large:  80rem;
+    --width__container--xxx-large: 120rem;
+    --width__container--full:      100%;
+
+    // modal sizes
+    --width__modal--small:         40rem;
+    --width__modal--medium:        64rem;
+    --width__modal--large:         80rem;
+    --width__modal--x-large:       80vw;
+}
+
+// Border Radius
+$border-radius__base--x-small:  var(--b-radius--x-small);
+$border-radius__base--small:    var(--b-radius--small);
+$border-radius__base--medium:   var(--b-radius--medium);
+$border-radius__base--large:    var(--b-radius--large);
+$border-radius__base--x-large:  var(--b-radius--x-large);
+$border-radius__base--full:     var(--b-radius--full);
+
 // TYPOGRAPHY
 // ----------------------------------------------------
 $font-size__base: 1.3rem;
@@ -48,40 +85,18 @@ $height__modal-header: $sd-base-increment * 6;
 $height__modal-footer: $sd-base-increment * 6;
 
 // Spaces
-$padding__button--default: 0 1.2rem !default;
-$padding__button--small: 0 0.8rem;
-$padding__button--large: 0 1.6rem;
+$padding-x__button--default: 1.2rem !default;
+$padding-x__button--small: 0.8rem;
+$padding-x__button--large: 1.6rem;
 
-$padding__label--default: 0 0.8rem;
-$padding__label--large: 0.5rem 1.2rem;
-
-// Border Radius
-$border-radius__base--x-small: 2px;
-$border-radius__base--small: 3px;
-$border-radius__base--medium: 4px;
-$border-radius__base--large: 6px;
-$border-radius__base--x-large: 8px;
-$border-radius__base--full: 9999px;
+$padding-x__label--default: 0.8rem;
+$padding-y__label--large: 0.5rem;
+$padding-x__label--large: 1.2rem;
 
 
-:root {
-    // WIDTHS
-    --width__container--xx-small:  24rem;
-    --width__container--x-small:   32rem;
-    --width__container--small:     40rem;
-    --width__container--medium:    48rem;
-    --width__container--large:     56rem;
-    --width__container--x-large:   72rem;
-    --width__container--xx-large:  80rem;
-    --width__container--xxx-large: 120rem;
-    --width__container--full:      100%;
 
-    // modal sizes
-    --width__modal--small:         40rem;
-    --width__modal--medium:        64rem;
-    --width__modal--large:         80rem;
-    --width__modal--x-large:       80vw;
-}
+
+
 
 
 :root, [data-theme="light-ui"] {
@@ -90,6 +105,7 @@ $border-radius__base--full: 9999px;
     --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.4), 0 3px 1px -2px hsla(0, 0%, 0%, 0.1);
     --sd-shadow__modal: 0 0 0 1px var(--sd-shadow-outline), 0 0 8px 2px hsla(0, 0%, 0%, 0.3);
     --sd-shadow__toast: 0 0 0 1px var(--sd-shadow-outline--2), 0 2px 4px hsla(0, 0%, 0%, 0.12), 0 8px 12px hsla(0, 0%, 0%, 0.16);
+    --sd-shadow__sliding-toolbar: 0 2px 4px -1px hsla(0, 0%, 0%, 0.2), 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
 }
 
 [data-theme="dark-ui"], .dark-ui {

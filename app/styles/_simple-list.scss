@@ -28,7 +28,7 @@ $simple-list-border-color: $neutral-border-color;
             flex-direction: column;
             align-items: stretch;
             .simple-list__item-data {
-                text-align: left;
+                text-align: start;
             }
             .simple-list__item-label {
                 padding: 0 0 0.6rem 0;
@@ -51,7 +51,7 @@ $simple-list-border-color: $neutral-border-color;
     }
     .simple-list__item-data {
         flex-grow: 1;
-        text-align: right;
+        text-align: end;
     }
     &--dotted {
         .simple-list__item {

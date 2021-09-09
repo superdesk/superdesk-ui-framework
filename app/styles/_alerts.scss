@@ -1,49 +1,39 @@
 /// @group sd-alert
 
-/// Default background color for labels.
-$sd-alert-background: scale-color($grayLight, $alpha: -80%) !default;
-
-/// Default text color for sd-alerts.
-$sd-alert-color: inherit !default;
-
-/// Alternate text color for sd-alerts.
-$sd-alert-color-alt: $grayNeutral !default;
-
-/// Coloring classes. A map of classes to output in the CSS.
-$sd-alert-palette: $sd-extended-palette;
-
 /// Default padding inside sd-alerts.
 $sd-alert-padding: 1.8rem 3rem 1.8rem 2rem !default;
-
 $sd-alert-padding-small: 0.8rem 2.4rem 0.8rem 1.2rem;
-
 $sd-alert-lineheight-large: 1;
 
+$sd-alert-padding: 1.8rem 3rem 1.8rem 2rem !default;
+$sd-alert-padding-small: 0.8rem 2.4rem 0.8rem 1.2rem;
+
+$sd-alert-padding-x: 2rem 3rem !default;
+$sd-alert-padding-y: 1.8rem !default;
+$sd-alert-padding-x-small: 1.2rem 2.4rem;
+$sd-alert-padding-y-small: 0.8rem;
+
+
 /// Default radius of sd-alerts.
-$sd-alert-radius: 4px !default;
+$sd-alert-radius: var(--b-radius--medium) !default;
 
 /// Default shadow for sd-alerts.
 $sd-alert-shadow: 0 1px 4px rgba(0,0,0,.2), 0 0 1px rgba(0,0,0,.1);
 $sd-alert-shadow-small: 0 1px 2px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.08);
 
-
-/// Removes background fill for hollow buttons.
-@mixin sd-alert-hollow-style($color: $sd-alert-color-alt) {
-    border: 1px solid $color;
-    // background-color: scale-color($color, $lightness: 95%);
-    background-color: scale-color($color, $alpha: -95%);
-    color: $color;
-}
-
 /// Transition between normal and hidden state
 $sd-alert-transition: font-size ease-out 300ms, padding ease-out 300ms, max-width ease-out 200ms, max-height ease-out 300ms, opacity ease-out 200ms;
 $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max-width ease-out 100ms, max-height ease-out 80ms, opacity ease-out 160ms;
 
-//$sd-info-btn-hover: scale-color($button-background, $lightness: -85%) !default;
-
-/// Generates base styles for a sd-alert.
 @mixin sd-alert {
-    padding: $sd-alert-padding;
+    max-height: 20rem;
+    max-width: 100%;
+    height:auto;
+    transition: all linear 100ms;
+    display: flex;
+    padding-block-start: $sd-alert-padding-y;
+    padding-block-end: $sd-alert-padding-y;
+    padding-inline: $sd-alert-padding-x;
     vertical-align: middle;
     border-radius: $sd-alert-radius;
     line-height: 1.4em;
@@ -52,47 +42,13 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     font-weight: 400;
     position: relative;
     box-shadow: $sd-alert-shadow;
+    background-color: var(--sd-alert-bg);
+    margin-bottom: 2rem;
     & strong {
         font-weight: 500;
     }
-}
-
-
-.sd-alert {
-    @include sd-alert;
-    margin-bottom: 2rem;
-    background: $sd-alert-background;
-    color: $sd-alert-color;
-    max-height: 20rem;
-    max-width: 100%;
-    height:auto;
-    transition: all linear 100ms;
-    display: flex;
-        @each $name, $color in $sd-alert-palette {
-        &.sd-alert--#{$name} {
-            background: $color;
-            color: white;
-        }
-    }
-    &.sd-alert--hollow {
-        @include sd-alert-hollow-style;
-        @each $name, $color in $sd-alert-palette {
-            &.sd-alert--#{$name} {
-                @include sd-alert-hollow-style($color);
-            }
-        }
-    }
-    p {
-        font-size: 1.4rem;
-        color: inherit;
-        margin-bottom: 1em;
-    }
-    & p:last-child,
-    & p:only-child {
-        margin-bottom: 0;
-    }
     &--hidden {
-        opacity:0;
+        opacity: 0;
         max-height: 0.1rem;
         max-width: 10%;
         padding:0;
@@ -102,7 +58,9 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     }
     &--small {
         font-size: 1.3rem;
-        padding: $sd-alert-padding-small;
+        padding-block-start: $sd-alert-padding-y-small;
+        padding-block-end: $sd-alert-padding-y-small;
+        padding-inline: $sd-alert-padding-x-small;
         box-shadow: $sd-alert-shadow-small;
         transition: $sd-alert-transition-small;
     }
@@ -113,11 +71,112 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         margin-bottom: 0;
     }
 }
+@mixin sd-alert-hollow {
+    border: 1px solid var(--sd-alert-border);
+    background-color: var(--sd-alert-bg);
+    --sd-alert-hs: 214, 13%;
+    --sd-alert-l: var(--sd-alert-hs), 50%;
+    --sd-alert-txt: hsla(var(--sd-alert-l), 1);
+    --sd-alert-bg: hsla(var(--sd-alert-l), 0.05);
+    [class^="icon-"], [class*=" icon-"] {
+      color: var(--sd-alert-color);
+    }
+  }
+
+
+.sd-alert {
+    @include sd-alert;
+    color: var(--color-text-light);
+    --sd-alert-bg: var(--sd-colour-alert-bg-neutral);
+    p {
+        font-size: 1.4rem;
+        color: inherit;
+        margin-block-end: 1em;
+        &:last-child, &:only-child {
+            margin-block-end: 0;
+        }
+    }
+    &--primary, &--info, &--success, &--warning, &--alert, &--highlight, &--sd-green {
+        color: $white;
+    }
+    &--primary, &--info {
+        --sd-alert-bg: var(--sd-colour-info);
+    }
+    
+    &--success {
+        --sd-alert-bg: var(--sd-colour-success);
+    }
+    
+    &--warning {
+        --sd-alert-bg: var(--sd-colour-warning);
+    }
+    
+    &--alert {
+        --sd-alert-bg: var(--sd-colour-alert);
+    }
+    
+    &--highlight {
+        --sd-alert-bg: var(--sd-colour-highlight);
+    }
+    
+    &--sd-green {
+        --sd-alert-bg: var(--sd-colour-superdesk);
+    }
+    &.sd-alert--hollow {
+        --sd-alert-hs: 214, 13%;
+        --sd-alert-border: var(--sd-colour-line--strong);
+        --sd-alert-color: var(--color-text-light);
+        @include sd-alert-hollow;
+        &.sd-alert--primary {
+            --sd-alert-hs: var(--sd-colour-info-hs);
+            --sd-alert-border: var(--sd-colour-info);
+            --sd-alert-color: var(--sd-colour-info);
+            color: var(--sd-alert-color);
+        }
+        
+        &.sd-alert--success {
+            --sd-alert-hs: var(--sd-colour-success-hs);
+            --sd-alert-border: var(--sd-colour-success);
+            --sd-alert-color: var(--sd-colour-success);
+            color: var(--sd-alert-color);
+        }
+        
+        &.sd-alert--warning {
+            --sd-alert-hs: var(--sd-colour-warning-hs);
+            --sd-alert-border: var(--sd-colour-warning);
+            --sd-alert-color: var(--sd-colour-warning);
+            color: var(--sd-alert-color);
+        }
+    
+        &.sd-alert--alert {
+            --sd-alert-hs: var(--sd-colour-alert-hs);
+            --sd-alert-border: var(--sd-colour-alert);
+            --sd-alert-color: var(--sd-colour-alert);
+            color: var(--sd-alert-color);
+        }
+    
+        &.sd-alert--highlight {
+            --sd-alert-hs: var(--sd-colour-highlight-hs);
+            --sd-alert-border: var(--sd-colour-highlight);
+            --sd-alert-color: var(--sd-colour-highlight);
+            color: var(--sd-alert-color);
+        }
+    
+        &.sd-alert--sd-green {
+            --sd-alert-hs: var(--sd-colour-superdesk-hs);
+            --sd-alert-border: var(--sd-colour-superdesk);
+            --sd-alert-color: var(--sd-colour-superdesk);
+            color: var(--sd-alert-color);
+        }
+
+    }
+ 
+}
 
 .sd-alert__close {
     position: absolute;
-    top: 0.3rem;
-    right: 0.3rem;
+    inset-block-start: 0.3rem;
+    inset-inline: auto 0.3rem;
     width: 2.1rem;
     height: 2.1rem;
     padding: 0;
@@ -145,16 +204,17 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     }
     &:hover {
         opacity: .8;
-        background-color: rgba(255,255,255,.3);
+        background-color: hsla(0, 0%, 100%, 0.3);
     }
     &:active {
         opacity: 1;
-        background-color: rgba(255,255,255,.5);
+        background-color: hsla(0, 0%, 100%, 0.5);
     }
 }
+
 .sd-alert--small {
     .sd-alert__close {
-        top: 0.4rem;
+        inset-block-start: 0.4rem;
     }
 }
 
@@ -191,23 +251,14 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     border-radius: $border-radius__base--full;
     flex-grow: 0;
     flex-shrink: 1;
-    transition: all linear 100ms 0.2s, background ease-in 200ms;
-    background: $sd-alert-color-alt;
+    transition: all linear 100ms 0.2s, background-color ease-in 200ms;
+    background-color: var(--sd-colour-neutral);
     & [class^="icon-"], & [class*=" icon-"] {
         color:inherit;
         margin-top: 0.3rem;
     }
     &:hover {
-        background: scale-color($sd-alert-color-alt, $lightness: -20%);
-    }
-    @each $name, $color in $sd-alert-palette {
-        &.sd-alert__info-btn--#{$name} {
-            background: $color;
-            color: white;
-            &:hover {
-                background: scale-color($color, $lightness: -20%);
-    }
-        }
+        background-color: var(--sd-colour-neutral--hover);
     }
     &--hidden {
         opacity: 0;
@@ -215,6 +266,47 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         width:1px;
         flex-shrink: 1;
         transition: all linear 100ms;
+    }
+    &--primary, &--info {
+        background-color: var(--sd-colour-info);
+        &:hover {
+            background-color: var(--sd-colour-info--hover);
+        }
+    }
+    
+    &--success {
+        background-color: var(--sd-colour-success);
+        &:hover {
+            background-color: var(--sd-colour-success--hover);
+        }
+    }
+    
+    &--warning {
+        background-color: var(--sd-colour-warning);
+        &:hover {
+            background-color: var(--sd-colour-warning--hover);
+        }
+    }
+    
+    &--alert {
+        background-color: var(--sd-colour-alert);
+        &:hover {
+            background-color: var(--sd-colour-alert--hover);
+        }
+    }
+    
+    &--highlight {
+        background-color: var(--sd-colour-highlight);
+        &:hover {
+            background-color: var(--sd-colour-highlight--hover);
+        }
+    }
+    
+    &--sd-green {
+        background-color: var(--sd-colour-superdesk);
+        &:hover {
+            background-color: var(--sd-colour-superdesk--hover);
+        }
     }
 
 }

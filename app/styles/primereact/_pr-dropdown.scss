@@ -1,6 +1,9 @@
 .p-dropdown {
     @include pr-input-item-base;
-    padding: 6px 8px;
+    padding-block-start: 6px;
+    padding-block-end: 6px;
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
     color: $sd-text;
 }
 
@@ -11,7 +14,7 @@
 
 .p-dropdown-clear-icon,
 .p-dropdown-trigger-icon {
-    margin-left: 8px;
+    margin-inline-start: 8px;
 }
 
 .p-dropdown-item {
@@ -32,7 +35,7 @@
     border: 1px solid var(--sd-colour-line--strong);
     box-shadow: inset 0px 1px 1px rgba(0,0,0,0.12);
     border-radius: $border-radius__base--small;
-    padding-right: 20px;
+    padding-inline-end: 20px;
     padding: 4px;
     height: 28px;
     transition: all ease 0.2s;
@@ -46,11 +49,14 @@
 
 .p-dropdown-loader-icon {
     position: absolute;
-    top: 50%;
-    margin-top: -6px;
-    right: 12px;
+    inset-block-start: 50%;
+    margin-block-start: -6px;
+    inset-inline-end: 12px;
 }
 
 .p-dropdown-empty-message {
-    padding: 6px 8px;
+    padding-block-start: 6px;
+    padding-block-end: 6px;
+    padding-inline-start: 8px;
+    padding-inline-end: 8px;
 }

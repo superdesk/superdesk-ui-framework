@@ -55,9 +55,9 @@
                 </li>
             </ul>
         </div>
-        <div id="leftContent"  ng-init="darkUI = true; gridView = true" class="sd-page-content__content-block sd-page-content__content-block--main" ng-class="{'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen, 'dark-ui': darkUI}">
+        <div id="leftContent"  ng-init="darkUI = true; gridView = true" class="sd-page-content__content-block sd-page-content__content-block--main" ng-class="{'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen}">
             <!-- left content -->
-            <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+            <div class="subnav">
                 <div class="subnav__sliding-toolbar" ng-show="select1 || select2 || select3 || select4 || select5 || select6 || select7 || select8">
                     <div class="sliding-toolbar__inner">
                         <a class="btn" ng-click="select1 = false; select2 = false; select3 = false; select4 = false; select5 = false; select6 = false; select7 = false; select8 = false">Cancel</a>
@@ -124,7 +124,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="subnav" ng-class="{'subnav--dark-ui': darkUI}">
+            <div class="subnav">
                 <button class="navbtn navbtn--left navbtn--darker" ng-click="leftFilterOpen = !leftFilterOpen" ng-class="{'navbtn--active': leftFilterOpen}">
                     <i class="icon-filter-large"></i>
                 </button>
@@ -526,7 +526,7 @@
 
                     <!-- List item view -->
                 
-                    <div class="sd-list-item-group sd-list-item-group--space-between-items" ng-show="!gridView" ng-class="{'sd-list-item-group--dark-ui' : darkUI}">
+                    <div class="sd-list-item-group sd-list-item-group--space-between-items" ng-show="!gridView">
                         <!-- list item  1 -->
                         <div class="sd-list-item sd-shadow--z1 locked" ng-class="{'sd-list-item--selected' : select1, 'sd-list-item--activated' : selectThis1}">
                             <div class="sd-list-item__border"></div>
@@ -762,14 +762,14 @@
                         </div>
                     </div>
                 </div>
-                <div class="sd-preview-panel" ng-class="{'sd-preview-panel--dark-ui' : darkUI}">
-                    <div class="side-panel side-panel--shadow-right" ng-class="{'side-panel--dark-ui' : darkUI}">
+                <div class="sd-preview-panel">
+                    <div class="side-panel side-panel--shadow-right">
                         <div class="side-panel__header">
                             <div class="side-panel__tools">
                                 <a class="icn-btn" sd-tooltip="Edit details" flow="top" ng-click="editorOpen = true; leftPreviewOpen = false"><i class="icon-pencil"></i></a>
                                 <a class="icn-btn" sd-tooltip="Close details" flow="top" ng-click="leftPreviewOpen = !leftPreviewOpen; selectThis1 = !selectThis1"><i class="icon-close-small"></i></a>
                             </div>
-                            <ul class="nav-tabs" ng-class="{'nav-tabs--ui-dark' : darkUI}">
+                            <ul class="nav-tabs">
                                 <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'event-details'}" class="nav-tabs__tab">
                                     <button ng-click="tab = 'event-details'" class="nav-tabs__link"><span translate="">Content</span></button>
                                 </li>
@@ -916,7 +916,7 @@
     </footer>
 
     <!-- Image Edit modal -->
-    <div sd-modal data-model="imageModal" class="modal--fullscreen modal--dark-ui" ng-init="showMetadata = true">
+    <div sd-modal data-model="imageModal" class="modal--fullscreen" ng-init="showMetadata = true" data-theme="dark-ui">
         <div class="modal__header modal__header--flex">
             <div class="modal__sliding-toolbar" ng-show="!contentChanged">
                 <div class="sliding-toolbar__inner"></div>
@@ -930,7 +930,7 @@
                 <button class="button-nav__btn" ng-click="nav = 'crop'; showMetadata = false" ng-class="{'button-nav__btn--active': nav === 'crop'}">Edit crops</button>
             </div>
             <div class="modal__header-buttons modal__header-buttons--right">
-                <button class="btn btn--ui-dark btn--hollow" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">Close</button>
+                <button class="btn btn--hollow" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">Close</button>
                 <!-- <a class="icn-btn" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('imageModal')">
                     <i class="icon-close-small"></i>
                 </a> -->
@@ -950,7 +950,7 @@
                         </div>
                         <!-- THUMBS for Multiedit  -->
                         <div class="sd-photo-preview__thumb-strip" ng-hide="!multiEdit">
-                            <div class="sd-grid-list dark-ui">
+                            <div class="sd-grid-list">
                                 <!-- small item 1 -->
                                 <div class="sd-grid-item sd-grid-item--with-click" ng-click="select11 = !select11" ng-class="{'sd-grid-item--selected' : select11}">
                                     <div class="sd-grid-item__thumb">
@@ -1036,7 +1036,7 @@
                         <!-- END THUMBS for Multiedit  -->
                         <!-- THUMBS for EDIT Crops  -->
                         <div class="sd-photo-preview__thumb-strip" ng-show="nav === 'crop'">
-                            <div class="sd-grid-list dark-ui">
+                            <div class="sd-grid-list">
                                 <!-- small item 1 -->
                                 <div class="sd-grid-item sd-grid-item--with-click">
                                     <div class="sd-grid-item__thumb">
@@ -1078,7 +1078,7 @@
                         <!-- END THUMBS for EDIT Crops  -->
                     </div>
                 </div>
-                <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large sd-column-box__slide-in-column--dark-ui" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}">
+                <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}">
                     <div class="sd-column-box__slide-in-column-inner sd-slide-in-panel">
 
                         <div class="sd-slide-in-panel__header">
@@ -1088,34 +1088,34 @@
                         <div class="sd-slide-in-panel__content">
                             <div class="sd-slide-in-panel__content-block sd-slide-in-panel__content-block--first">
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--boxed">
                                         <label class="sd-line-input__label">Title</label>
                                         <input class="sd-line-input__input" type="text" value="Image title" >
                                         <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--boxed">
                                         <label class="sd-line-input__label">Description</label>
                                         <textarea class="sd-line-input__input"></textarea>
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--boxed">
                                         <span class="sd-line-input__plus-btn"></span>
                                         <label class="sd-line-input__label">Category</label>
                                         <input class="sd-line-input__input" type="text">
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--with-button sd-line-input--boxed">
                                         <span class="sd-line-input__plus-btn"></span>
                                         <label class="sd-line-input__label">Subject</label>
                                         <input class="sd-line-input__input" type="text">
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--is-select sd-line-input--boxed">
                                         <label class="sd-line-input__label">Usage right</label>
                                         <select class="sd-line-input__select">
                                             <option value="">--- Not selected ---</option>
@@ -1185,13 +1185,13 @@
 
 
     <!-- //////////////////////////////////////////////////////////////////////// mage Upload modal //////////////////////////////////////////////////////////////////////// -->
-    <div sd-modal data-model="uploadModal" class="modal--fullscreen modal--dark-ui" ng-init="showMetadata = true">
-        <div class="modal__header modal__header--flex">
+    <div sd-modal data-model="uploadModal" class="modal--fullscreen" ng-init="showMetadata = true">
+        <div class="modal__header modal__header--flex" data-theme="dark-ui">
             <h3 class="modal__heading modal__heading--no-grow">Upload media</h3>
             <div class="modal__header-element-grow"></div>
             <div class="modal__header-buttons modal__header-buttons--right">
-                <button class="btn btn--ui-dark btn--hollow" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('uploadModal')">Cancel</button>
-                <div class="dropdown dropdown--dark" dropdown is-open="isOpen">
+                <button class="btn btn--hollow" ng-click="this.$parent.$parent.$parent.multiEdit = false; closeModal('uploadModal')">Cancel</button>
+                <div class="dropdown dropdown--boxed" dropdown is-open="isOpen">
                     <button class="dropdown__toggle dropdown__toggle--small dropdown__toggle--hollow dropdown-toggle" dropdown__toggle aria-haspopup="true" aria-expanded="false">
                         <span class="dropdown__button-label">Send to:</span> <span>National</span><b class="dropdown__caret white"></b>
                     </button>
@@ -1202,10 +1202,10 @@
                         <li><button ng-click="">Lifestyle</button></li>
                     </ul>
                 </div>
-                <button class="btn btn--ui-dark btn--hollow btn--primary">Upload</button>
+                <button class="btn btn--hollow btn--primary">Upload</button>
             </div>
         </div>
-        <div class="modal__body modal__body--no-padding">
+        <div class="modal__body modal__body--no-padding" data-theme="dark-ui">
             <div class="sd-column-box--2">
                 <div class="sd-column-box__main-column sd-column-box__main-column--photo-preview">
                     <a class="sd-photo-preview__slide-in-button" ng-show="!showMetadata" ng-click="showMetadata = !showMetadata" data-sd-tooltip="Open metadata" data-flow="left">
@@ -1214,19 +1214,19 @@
                     <div class="sd-photo-preview sd-photo-preview--grid-only">
                         <!-- THUMBS for Multiedit  -->
                         <div class="sd-photo-preview__thumb-controls">
-                            <button class="btn btn--ui-dark btn--text-only">deselect all</button>
-                            <button class="btn btn--ui-dark btn--text-only" disabled>select all</button>
+                            <button class="btn btn--text-only">deselect all</button>
+                            <button class="btn btn--text-only" disabled>select all</button>
                         </div>
                         <div class="sd-photo-preview__thumb-strip" ng-class="{'sd-photo-preview__thumb-strip--with-controls' : itemsLoaded}" ng-init="itemsLoaded = true;">
                             <div class="upload__info" ng-if="!itemsLoaded">
                                 <div class="upload__info-icon"></div>
                                 <h3 class="upload__info-heading">Drag Your Files Here</h3>
                                 <div class="upload__info-label">or</div>
-                                <button class="btn btn--hollow btn--ui-dark upload__info-button">Select them from folder</button>
+                                <button class="btn btn--hollow upload__info-button">Select them from folder</button>
                             </div>
                             <div class="upload__target" ng-if="!itemsLoaded"></div>
 
-                            <div class="sd-grid-list dark-ui" ng-if="itemsLoaded" ng-init="select11 = true; select12 = true; select13 = true; select14 = true;">
+                            <div class="sd-grid-list" ng-if="itemsLoaded" ng-init="select11 = true; select12 = true; select13 = true; select14 = true;">
                                 <!-- small item 1 -->
                                 <div class="sd-grid-item sd-grid-item--with-click" ng-click="select11 = !select11" ng-class="{'sd-grid-item--selected' : select11}">
                                     <div class="sd-grid-item__thumb">
@@ -1351,7 +1351,7 @@
                     </div>
                 </div>
                 <!-- Sidebar -->
-                <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large sd-column-box__slide-in-column--dark-ui" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}"  ng-if="itemsLoaded">
+                <div class="sd-column-box__slide-in-column sd-column-box__slide-in-column--large" ng-class="{'sd-column-box__slide-in-column--closed' : !showMetadata}"  ng-if="itemsLoaded">
                     <div class="sd-column-box__slide-in-column-inner sd-slide-in-panel">
 
                         <div class="sd-slide-in-panel__header">
@@ -1363,32 +1363,32 @@
                                     <span translate="">Currently editing: 4 items</span>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--boxed">
                                         <label class="sd-line-input__label">Title</label>
                                         <input class="sd-line-input__input" type="text" value="Image title" >
                                         <div class="sd-line-input__hint">Hendrerit in vulputate velit esse molestie consequat.</div>
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--boxed">
                                         <label class="sd-line-input__label">Description</label>
                                         <textarea class="sd-line-input__input"></textarea>
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--boxed">
                                         <label class="sd-line-input__label">Category</label>
                                         <input class="sd-line-input__input" type="text">
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--boxed">
                                         <label class="sd-line-input__label">Subject</label>
                                         <input class="sd-line-input__input" type="text">
                                     </div>
                                 </div>
                                 <div class="form__row">
-                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed">
+                                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--is-select sd-line-input--boxed">
                                         <label class="sd-line-input__label">Usage right</label>
                                         <select class="sd-line-input__select">
                                             <option value="">--- Not selected ---</option>

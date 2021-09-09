@@ -14,14 +14,13 @@ $label-icon-color-alt: $white !default;
 $label-icon-palette: $sd-basic-palette;
 
 /// Default padding inside labels.
-$label-icon-padding: 0 0.6rem 0 0 !default;
-
-$label-icon-radius: 8px !default;
+$label-icon-padding: 0.6rem !default;
 
 /// Generates base styles for a icon label.
 @mixin label-icon {
     display: inline-flex;
-    padding: $label-icon-padding;
+    padding: 0;
+    padding-inline-end: $label-icon-padding;
     vertical-align: middle;
     align-items: center;
     line-height: 1;
@@ -34,7 +33,7 @@ $label-icon-radius: 8px !default;
     font-size: 12px;
     height: 24px;
     border-radius: $border-radius__base--full;
-    padding: 0 12px 0 8px;
+    padding-inline: 0.8rem 1.2rem;
 }
 
 
@@ -46,7 +45,7 @@ $label-icon-radius: 8px !default;
     
     [class^="icon-"], & [class*=" icon-"] {
         color: $label-icon-color;
-        margin-right: .4rem;
+        margin-inline-end: .4rem;
         opacity: 1 !important;
     }
 
@@ -68,7 +67,4 @@ $label-icon-radius: 8px !default;
         }
     }
 
-}
-.label-icon.label-icon--translucent {
-    
 }

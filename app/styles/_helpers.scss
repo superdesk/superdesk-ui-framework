@@ -434,16 +434,18 @@ time {
     font-style: normal;
 }
 // Text alignment
-.sd-text-align--left {
-    text-align: left;
+.sd-text-align--left,
+.sd-text-align--start {
+    text-align: start;
 }
 .sd-text__center,
 .sd-text-align--center {
     text-align: center;
 }
 .sd-text__right,
-.sd-text-align--right {
-    text-align: right;
+.sd-text-align--right,
+.sd-text-align--end {
+    text-align: end;
 }
 .sd-text-align--justify {
     text-align: justify;

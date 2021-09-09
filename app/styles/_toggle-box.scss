@@ -4,8 +4,6 @@
 .toggle-box {
     position: relative;
     margin-bottom: 30px;
-
-
     &.hidden {
         .toggle-box__chevron {
             i {
@@ -13,13 +11,13 @@
             }
             &--circle {
                 padding: 2px;
-                background-color: $grayText;
+                background-color: var(--sd-colour-btn-bg-neutral);
                 height: 20px;
                 width: 20px;
                 text-align: center;
                 border-radius: $border-radius__base--full;
                 i {
-                    color: $white;
+                    color: var(--color-text-light);
                 }
             }
         }
@@ -32,26 +30,15 @@
         }
     }
     // Stylings
-    &.toggle-box--dark {
-        .toggle-box__chevron {
-            i { color: $white;}
-        }
-        .toggle-box__label {
-            color: rgba(255, 255, 255, 0.65);
-        }
-        .toggle-box__line {
-            background: $neutral-border-color;
-        }
-    }
     &.toggle-box--circle {
         .toggle-box__chevron {
-            background-color: rgba(123,123,123,0.5);
+            background-color: var(--sd-colour-btn-bg-neutral);
             height: 2rem;
             width: 2rem;
             text-align: center;
             border-radius: $border-radius__base--full;
             i {
-                color: $white;
+                color: var(--sd-colour-btn-txt-neutral);
             }
         }
     }
@@ -76,14 +63,14 @@
     .toggle-box__label {
         font-size: 1.2rem;
         padding: 0 1rem 0 0.8rem;
-        color: #666;
+        color: var(--color-label-text);
         text-transform: uppercase;
     }
     .toggle-box__line {
         flex: 1;
         height: 1px;
         margin: auto 0.4rem auto 0;
-        background: $neutral-border-color;
+        background: var(--sd-colour-line--light);
     }
 }
 
@@ -111,20 +98,5 @@
     }
 }
 
-
-
-[class^="--dark-ui"],
-[class*="--dark-ui"] {
-    .toggle-box__header {
-        .toggle-box__label {
-            color: rgba(255, 255, 255, 0.5);
-        }
-    }
-    .toggle-box--circle {
-        .toggle-box__chevron {
-            background-color: $neutral-border-color;
-        }
-    }
-}
 
 

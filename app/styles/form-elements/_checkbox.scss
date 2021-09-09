@@ -21,7 +21,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     border: 2px solid $checkBoxBorderColor;
     vertical-align: middle;
     font-family: $baseFontFamily;
-    @include transition(all, 0.2s, ease-out);
+    transition: all 0.2s ease-out;
 }
 
 .sd-checkbox {
@@ -53,7 +53,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         border-color: $sd-colour-interactive;
         background: $sd-colour-interactive;
         &::after {
-            @include opacity(100);
+            opacity: 1;
             transform: scale(1, 1);
         }
         &:hover {
@@ -72,16 +72,16 @@ $checkButtonBorderRadius: $border-radius__base--small;
             position: absolute;
             background-color: $sd-colour-interactive;
             top: 0.2rem;
-            left: 0.2rem;
-            @include opacity(0);
-            @include transition(all, 0.1s, ease-in);
+            inset-inline-start: 0.2rem;
+            opacity: 0;
+            transition: all 0.1s ease-in;
             transform: scale(0.25, 0.25);
         }
         &.checked, &[checked="checked"] {
             border-color: $sd-colour-interactive;
             background: transparent;
             &::after {
-                @include opacity(100);
+                opacity: 1;
                 transform: scale(1, 1);
             }
             &:hover {
@@ -121,7 +121,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
             color: currentColor;
         }
         i + label {
-            margin-left: 8px;
+            margin-inline-start: 8px;
         }
 
         &::after {
@@ -137,13 +137,13 @@ $checkButtonBorderRadius: $border-radius__base--small;
             background-color: var(--sd-colour-interactive--active);
             border-color: var(--sd-colour-interactive--active);
             border-top-color: var(--sd-colour-interactive--darken-20);
-            @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+            box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
             color: $white;
             &:hover {
                 color: $white;
                 border-color: var(--sd-colour-interactive--hover);
                 background-color: var(--sd-colour-interactive--active);
-                @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+                box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
             }
             label {
                 color: $white;
@@ -171,23 +171,20 @@ $checkButtonBorderRadius: $border-radius__base--small;
     vertical-align: middle;
 }
 
-.sd-check__wrapper + .sd-check__wrapper {
-    @include sd-margin('0-5', 'left');
-}
-.sd-check__wrapper:first-child, .sd-check__wrapper:only-of-type {
-    margin-left: 0;
-}
+
 
 .sd-check__wrapper {
-    margin-left: 0.8rem;
+    margin-inline-start: 0.8rem;
     display: inline-block;
     .sd-checkbox + label {
         display: inline-block;
         vertical-align: middle;
-        margin: 0 0 0 0.6rem;
-
+        margin: 0;
+        margin-inline-start: 0.6rem;
         i {
-            margin: 0 0.4rem 0 0.8rem;
+            margin: 0;
+            margin-inline-end: 0.4rem;
+            margin-inline-start: 0.8rem;
         }
     }
     .sd-label--disabled { 
@@ -196,7 +193,10 @@ $checkButtonBorderRadius: $border-radius__base--small;
 }
 
 .sd-check__group {
-    padding: 0.6rem 0 1.2rem;
+    padding-block-start: 0.6rem;
+    padding-block-end: 1.2rem;
+    padding-inline-end: 0;
+    padding-inline-start: 0;
     &--grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
@@ -232,10 +232,10 @@ $checkButtonBorderRadius: $border-radius__base--small;
         -moz-osx-font-smoothing: grayscale;
         color: #fff;
         position: absolute;
-        top: 0;
-        left: 0;
-        @include opacity(0);
-        @include transition(all, 0.2s, ease-in);
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        opacity: 0;
+        transition: all 0.2s ease-in;
         transform: scale(0.25, 0.25);
     }
     &:hover {
@@ -246,7 +246,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         border-color: $sd-colour-interactive;
         background: $sd-colour-interactive;
         &::after {
-            @include opacity(100);
+            opacity: 1;
             transform: scale(1, 1);
         }
         &:hover {
@@ -279,17 +279,17 @@ $checkButtonBorderRadius: $border-radius__base--small;
         content:' ';
         position: absolute;
         background-color: $sd-colour-interactive;
-        top: 0.2rem;
-        left: 0.2rem;
-        @include opacity(0);
-        @include transition(all, 0.1s, ease-in);
+        inset-block-start: 0.2rem;
+        inset-inline-start: 0.2rem;
+        opacity: 0;
+        transition: all 0.1s ease-in;
         transform: scale(0.25, 0.25);
     }
     &.checked, &[checked="checked"] {
         border-color: $sd-colour-interactive;
         background: transparent;
         &::after {
-            @include opacity(100);
+            opacity: 1;
             transform: scale(1, 1);
         }
         &:hover {
@@ -314,7 +314,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     line-height: 1;
     border: 1px solid $checkButtonBorderColor;
     border-radius: $checkButtonBorderRadius;
-    @include transition(all, 0.2s, ease-in-out);
+    transition: all 0.2s ease-in-out;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -326,20 +326,22 @@ $checkButtonBorderRadius: $border-radius__base--small;
         margin:0;
         text-align: center;
         cursor: pointer;
-        padding: 2px 0;
+        padding: 0;
+        padding-block-start: 2px;
+        padding-block-end: 2px;
         @include text-overflow;
         opacity: 0.8;
-        @include transition(opacity, 0.2s, ease-in-out);
+        transition: opacity 0.2s ease-in-out;
     }
     [class^="icon-"], [class*=" icon-"] {
         color: currentColor;
     }
     i + .sd-check-button__text-label {
-        @include sd-margin('1', 'left')
+        margin-inline-start: $sd-base-increment;
     }
     &:hover {
         border-color: scale-color($checkButtonBorderColor, $alpha: 90%);
-        @include box-shadow(0, 1px, 4px, 0, rgba(0,0,0,0.20));
+        box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
         .sd-check-button__text-label {
             opacity: 1;
         }
@@ -348,7 +350,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         background-color: var(--sd-colour-interactive--active);
         border-color: var(--sd-colour-interactive--active);
         border-top-color: var(--sd-colour-interactive--darken-20);
-        @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+        box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         color: $white;
         .sd-check-button__text-label {
             opacity: 1;
@@ -357,7 +359,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
             color: $white;
             border-color: var(--sd-colour-interactive--active);
             background-color: var(--sd-colour-interactive--hover);
-            @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+            box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         }
     }
     .sd-label--disabled { 
@@ -366,126 +368,42 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
 }
 
-.sd-check-button__group {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 
 .sd-check-button__group {
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: $sd-base-increment * 1;
     flex: 0;
-    .sd-check-button {
-        margin: 0;
-    }
     &--left {
-        margin-right: auto;
-        .sd-check-button {
-            @include sd-margin('1', 'right');
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-        &.sd-check-button__group--compact {
-            .sd-check-button {
-                @include sd-margin('0-5', 'right');
-                &:last-child {
-                    margin-right: 0;
-                }
-            }
-        }
-        &.sd-check-button__group--padded {
-            @include sd-margin('1-5', 'left');
-        }
+        margin-inline-end: auto;
     }
     &--right {
-        margin-left: auto;
-        .sd-check-button {
-            @include sd-margin('1', 'left');
-            &:first-child {
-                margin-left: 0;
-            }
-        }
-        &.sd-check-button__group--compact {
-            .sd-check-button {
-                @include sd-margin('0-5', 'left');
-                &:first-child {
-                    margin-right: 0;
-                }
-            }
-        }
-        &.sd-check-button__group--padded {
-            @include sd-margin('1-5', 'right');
-        }
+        margin-inline-start: auto;
     }
     &--center {
-        margin-left: auto;
-        margin-right: auto;
-        .sd-check-button  {
-            @include sd-margin('0-5', 'x');
-            &:first-child {
-                margin-left: 0;
-            }
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-        &.sd-check-button__group--compact {
-            .sd-check-button  {
-                margin: 0 0.2rem;
-                &:first-child {
-                    margin-left: 0;
-                }
-                &:last-child {
-                    margin-right: 0;
-                }
-            }
-        }
+        margin-inline-start: auto;
+        margin-inline-end: auto;
     }
     &--inline {
-        margin-left: 0;
-        margin-right: 0;
-        .sd-check-button  {
-            @include sd-margin('0-5', 'x');
-            &:first-child {
-                margin-left: 0;
-            }
-            &:last-child {
-                margin-right: 0;
-            }
-        }
-        &.sd-check-button__group--compact {
-            .sd-check-button  {
-                margin: 0 0.2rem;
-                &:first-child {
-                    margin-left: 0;
-                }
-                &:last-child {
-                    margin-right: 0;
-                }
-            }
-        }
-        &.sd-check-button__group--padded {
-            @include sd-margin('1-5', 'x');
-        }
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
     &--grid {
         flex: 1 1 0;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
         grid-gap: $sd-base-increment;
-        .sd-check-button {
-            margin: 0;
-        }
         &.sd-check-button__group--compact {
             grid-gap: $sd-base-increment / 2;
         }
     }
     &.sd-check-button__group--padded {
-        @include sd-margin('1-5', 'x');
+        margin-inline-start: $sd-base-increment * 1.5;
+        margin-inline-end: $sd-base-increment * 1.5;
+    }
+    &.sd-check-button__group--compact {
+        gap: $sd-base-increment * 0.5;
     }
 }
 
@@ -501,7 +419,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
     .sd-check-new + label,
     .sd-radio-new + label {
-        @include sd-margin('1', 'left');
+        margin-inline-start: $sd-base-increment;
     }
     .sd-check-new + label:empty,
     .sd-radio-new + label:empty {
@@ -512,15 +430,15 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
     &[label-position="left"] {
         label {
-            @include sd-margin('1', 'right');
-            margin-left: 0;
+            margin-inline-end: $sd-base-increment;
+            margin-inline-start: 0;
             &:empty {
                 margin: 0 !important;
             }
         }
         .sd-check-new__input {
-            left: auto;
-            right: 0;
+            inset-inline-start: auto;
+            inset-inline-end: 0;
         }
         .sd-check-new, .sd-radio-new {
             order: 2;
@@ -576,8 +494,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
 
     .sd-check-new__input {
-        top: 0;
-        left: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0;
         width: 16px;
         cursor: inherit;
         height: 16px;
@@ -598,18 +516,11 @@ $checkButtonBorderRadius: $border-radius__base--small;
     display: flex;
     flex-direction: row;
     align-items: center;
-    .sd-check-new__wrapper {
-        @include sd-margin('3', 'right');
-    }
+    gap: $sd-base-increment * 3;
     &--vertical {
+        gap: $sd-base-increment * 2;
         flex-direction: column;
         align-items: flex-start;
-        .sd-check-new__wrapper {
-            @include sd-margin('2', 'bottom');
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
     }
 }
 
@@ -622,8 +533,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
         background: transparent;
         overflow: visible;
         .sd-check-button__text-label {
-            padding-left: 1.2rem;
-            padding-right: 1.2rem;
+            padding-inline-start: 1.2rem;
+            padding-inline-end: 1.2rem;
             line-height: 1;
             border: 1px solid rgba(140, 140, 140, 0.5);
             border-radius: $checkButtonBorderRadius;
@@ -642,7 +553,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
                 user-select: none;
             }
             i + .sd-check-button__text-label-inner {
-                margin-left: 8px;
+                margin-inline-start: $sd-base-increment;
             }
         }
     }
@@ -650,8 +561,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
 
     .sd-check-button__input {
         position: absolute;
-        top: 0;
-        left: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0;
         opacity: 0;
         pointer-events: none;
         height:100%;
@@ -697,36 +608,36 @@ $checkButtonBorderRadius: $border-radius__base--small;
 // END NEW CHECKBOX & RADIO
 // ============================================================================
 
-[class^="--dark-ui"],
-[class*="--dark-ui"],
-[data-theme="dark-ui"],
-.dark-ui {
-    .sd-checkbox {
-        border-color: rgba(255, 255, 255, 0.4);
-        &:hover {
-            border-color: rgba(255, 255, 255, 0.6);
-        }
-        &.checked, &[checked="checked"] {
-            border-color: $sd-colour-interactive;
-            &:hover {
-                border-color: var(--sd-colour-interactive--hover);
-                background-color: var(--sd-colour-interactive--hover);
-            }
-        }
-    }
-    .sd-checkbox--button-style {
-        color: $checkButtonTextColor-darkUI;
-        border-color: rgba(255, 255, 255, 0.18);
-        &:hover {
-            color: scale-color($checkButtonTextColor-darkUI, $alpha: 100%);
-        }
-        &.checked, &[checked="checked"] {
-            border-color: var(--sd-colour-interactive--active);
-            border-top-color: var(--sd-colour-interactive--darken-20);
-            @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
-            &:hover {
-                border-color: var(--sd-colour-interactive--darken-30);
-            }
-        }
-    }
-}
+// [class^="--dark-ui"],
+// [class*="--dark-ui"],
+// [data-theme="dark-ui"],
+// .dark-ui {
+//     .sd-checkbox {
+//         border-color: rgba(255, 255, 255, 0.4);
+//         &:hover {
+//             border-color: rgba(255, 255, 255, 0.6);
+//         }
+//         &.checked, &[checked="checked"] {
+//             border-color: $sd-colour-interactive;
+//             &:hover {
+//                 border-color: var(--sd-colour-interactive--hover);
+//                 background-color: var(--sd-colour-interactive--hover);
+//             }
+//         }
+//     }
+//     .sd-checkbox--button-style {
+//         color: $checkButtonTextColor-darkUI;
+//         border-color: rgba(255, 255, 255, 0.18);
+//         &:hover {
+//             color: scale-color($checkButtonTextColor-darkUI, $alpha: 100%);
+//         }
+//         &.checked, &[checked="checked"] {
+//             border-color: var(--sd-colour-interactive--active);
+//             border-top-color: var(--sd-colour-interactive--darken-20);
+//             @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
+//             &:hover {
+//                 border-color: var(--sd-colour-interactive--darken-30);
+//             }
+//         }
+//     }
+// }

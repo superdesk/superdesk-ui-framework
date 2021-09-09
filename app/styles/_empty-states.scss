@@ -4,12 +4,20 @@
     display: flex;
     flex-direction: column;
 }
-.content-state--empty-container {
+.content-state--empty-container,
+.content-state__empty-container {
     position: relative;
     height: 100%;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    &--absolute {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+    }
 }
 .content-state__empty-info {
     display: flex;

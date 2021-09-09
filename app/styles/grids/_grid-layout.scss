@@ -116,22 +116,29 @@
     &--photo-preview {
         display: flex;
         flex-direction: column;
-        background-color: #212121;
+        background-color: var(--sd-colour-bg__photo-preview);
         position: relative;
         .sd-photo-preview {
             flex-grow: 1;
         }
     }
     &--left {
-        border-right: 1px solid #BEBCBC;
+        border-right: 1px solid var(--sd-colour-line--light);
     }
     &--border-right {
-        border-right: 2px solid #8f8f8f;
+        border-right: 2px solid var(--sd-colour-line--medium);
     }
     &--flex {
         display: flex;
         flex-direction: column;
     }
+}
+.sd-column-box__main-column-top-bar {
+    padding: 0.8rem 2.4rem;
+    border-bottom: 1px solid var(--sd-colour-line--x-light);
+    display: flex;
+    flex-direction: row;
+    gap: $sd-base-increment;
 }
 .sd-column-box__main-column-inner {
     overflow-y: auto;
@@ -143,10 +150,11 @@
     transition: all .2s ease-out;
     display: flex;
     flex-direction: column;
-    border-left: 1px solid rgba(0, 0, 0, 0.27);
+    border-left: 1px solid var(--sd-colour-line--light);
     overflow-x: hidden;
     position: relative;
     flex-shrink: 0;
+    background-color: var(--sd-colour-bg__slide-in-column-inner);
     &::before{
         display: block;
         top: 0;
@@ -156,29 +164,20 @@
         position: absolute;
         left: 0;
         z-index: 80;
-        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.12) 0%, transparent 100%);
+        background-image: linear-gradient(to right, hsla(0, 0%, 0%, 0.12) 0%, transparent 100%);
     }
     .sd-column-box__slide-in-column-inner {
         opacity: 1;
         transition: all 0.1s ease-out;
         transition-delay: 0.2s;
-        background-color: rgba(255, 255, 255, 0.7);
+        background-color: var(--sd-colour-bg__slide-in-column-inner);
     }
     &--large {
         width: 40rem;
     }
-    &--dark-ui {
-        background-color: #3b3b3b;
-        .sd-column-box__slide-in-column-inner {
-            background-color: #3b3b3b;
-        }
-        .sd-slide-in-panel__heading {
-            color: rgba(255,255,255,0.75);
-        }
-    }
     &--closed {
         width: 0;
-        border-left: 1px solid rgba(187, 187, 187, 0);
+        border-left: 1px solid transparent;
         overflow: hidden;
         .sd-column-box__slide-in-column-inner {
             opacity: 0;
@@ -201,15 +200,16 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+    box-shadow: 0 1px 0 var(--sd-colour-line--light);
 }
 .sd-slide-in-panel__heading {
     padding: 0 2rem 0 1.6rem;
     margin: 0;
     font-size: 1.5rem;
-    color: $gray;
+    color: var(--color-text-light);
     font-weight: 300;
     letter-spacing: 0.02em;
+    margin-right: auto;
     &--marg-b10 {
         margin-bottom: 1rem;
     }
@@ -221,11 +221,9 @@
     }
 }
 .sd-slide-in-panel__close {
-    position: absolute;
-    right: 1rem;
-    top: 1.1rem;
     z-index: 2;
-    color: $gray;
+    color: var(--color-text-lighter);
+    margin-right: $sd-base-increment * 1.5;
 }
 .sd-slide-in-panel__content {
     flex-grow: 1;
@@ -238,6 +236,28 @@
     }
     .sd-slide-in-panel__heading {
         padding: 0;
+    }
+}
+.sd-slide-in-panel__footer {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    z-index: 2;
+    position: relative;
+    min-height: 4.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $sd-base-increment * 1.5 $sd-base-increment * 2;
+    &::before {
+        position: absolute;
+        content: '';
+        top: -0.4rem;
+        left: 0;
+        right: 0;
+        height: 0.4rem;
+        border-bottom: 1px solid var(--sd-colour--shadow-line);
+        background-image: linear-gradient(to top, rgba(0, 0, 0, 0.12) 0%, rgba(0, 0, 0, 0) 100%);
     }
 }
 
@@ -435,10 +455,10 @@ $planningEditor-width: 53rem;
     border-right: 0px solid rgba(0, 0, 0, 0); 
 }
 .sd-preview-panel {
-    background-color: #fff;
+    background-color: var(--sd-colour-panel-bg--100);
     border-left: 0px solid rgba(0, 0, 0, 0);
     &--dark-ui {
-        background-color: darken($grayMedium, 10%);
+        background-color: var(--sd-colour-panel-bg--100);
     }
 
 }
@@ -488,7 +508,7 @@ $planningEditor-width: 53rem;
 .text-label {
     display: inline-block;
     min-width: 4rem;
-    color: $gray;
+    color: var(--color-text-light);
     font-weight: 300;
     &--auto {
         min-width: auto;

@@ -4,40 +4,26 @@
 // input, textarea, select {
 
 @mixin Line-input-base {
-    width: 100%;
     @include appearance-reset();
-    color: inherit;
-    border-radius: 0;
+    width: 100%;
+    color: var(--color-text);
     border: 0;
     border-bottom: 1px solid var(--color-input-border);
-    background-color: transparent;
-    padding: 0;
     font-size: 1.4rem;
-    height: 2.4rem;
-    transition: border linear 0.2s, box-shadow linear 0.2s;
-    display: inline;
+    background-color: var(--color-input-bg);
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    padding: 0 0.8rem;
+    height: $form-input-height;
+    border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
+    display: block;
     &:hover {
         border-color: var(--color-input-border-hover);
-        background-color: transparent;
+        background-color: var(--color-input-bg--hover);
     }
     &:focus {
-        box-shadow: 0 1px 0 0 $sd-colour-interactive;
-        border-color: $sd-colour-interactive;
-        background-color: transparent;
-    }
-}
-@mixin Line-input-boxed {
-    @include Line-input-base;
-    border-radius: $border-radius__base--x-small;
-    background-color: rgba(0, 0, 0, 0.05);
-    padding: 0 1rem;
-    height: 3.2rem;
-    transition: border linear 0.2s, box-shadow linear 0.2s, background-color linear 0.2s;
-    &:hover {
-        background-color: rgba(0, 0, 0, 0.10);
-    }
-    &:focus {
-        background-color: rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
+        border-color: var(--sd-colour-interactive);
+        background-color: var(--sd-colour-interactive--alpha-20);
     }
 }
 
@@ -57,7 +43,7 @@
     @include Form-label-base;
     min-width: 75px;
     &--light {
-        color: $grayLight;
+        color: var(--color-text-lighter);
         font-weight: 400;
     }
     &--marg-b10 {
@@ -88,19 +74,19 @@
 .form-label__info-block {
     color: inherit;
     font-size: 1.2rem;
-    text-align: right;
+    text-align: end;
     font-weight: 300;
 }
 
 .sd-line-input {
     margin: 0 0 1.8em 0;
-    padding-top: 1.4rem;
+    padding-top: 1.8rem;
     position: relative;
 
     &--flex-row {
         display: inline-flex;
         align-items: center;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+        border-bottom: 1px solid var(--color-input-border);
         width: 100%;
     }
     &__value {
@@ -147,7 +133,7 @@
             position: relative;
             z-index: 2;
             option {
-                color:$sd-text;
+                color: var(--color-text);
                 font-size: 1.4rem;
                 line-height: 2rem;
                 background-color: var(--color-dropdown-menu-Bg);
@@ -156,7 +142,7 @@
         cursor: pointer;
     }
     textarea.sd-line-input__input {
-      padding-top: 3px;
+      padding-top: 0.6rem;
       display: block;
     }
     .sd-line-input__info-left, .sd-line-input__info-right { // use for 1-2 letter info that appear inside inputs ("W" - for width; "H" - for height; px, mm - for units, etc.)
@@ -175,56 +161,14 @@
 
     .sd-line-input__icon-left, .sd-line-input__icon-right {
         position: absolute;
-        top: 0.8rem;
+        top: 1.6rem;
         cursor: pointer;
     }
     .sd-line-input__icon-right {
-        right: 0;
+        right: 0.2rem;
     }
     .sd-line-input__icon-left {
-        left: 0;
-    }
-
-    &--boxed {
-        padding-top: 1.8rem;
-        input, textarea {
-            &.sd-line-input__input {
-                @include Line-input-boxed;
-            }
-        }
-        textarea {
-            &.sd-line-input__input {
-                padding-top: 0.6rem;
-            }
-        }
-        select {
-            &.sd-line-input__select {
-                @include Line-input-boxed;
-            }
-        }
-        &.sd-line-input--disabled {
-            input, textarea {
-                &.sd-line-input__input {
-                    background-color: rgba(0, 0, 0, 0.03);
-                    border-bottom: 1px dotted $grayLight !important;
-                }
-            }
-            select {
-                &.sd-line-input__select, &.sd-line-input__select:hover {
-                    background-color: rgba(0, 0, 0, 0.03);
-                    border-bottom: 1px dotted $grayLight !important;
-                }
-            }
-        }
-        .sd-line-input__icon-right, .sd-line-input__icon-left {
-            top: 1.6rem;
-        }
-        .sd-line-input__icon-left {
-            left: 0.2rem;
-        }
-        .sd-line-input__icon-right {
-            right: 0.2rem;
-        }
+        left: 0.2rem;
     }
 
     &.sd-line-input--indent-l30 {
@@ -262,7 +206,7 @@
         font-size: 1.2rem;
         line-height: 1.4rem;
         transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-        color: grey;
+        color: var(--color-text-light);
         font-weight: 300;
         letter-spacing: 0.03em;
     }
@@ -292,16 +236,30 @@
         }
         input, textarea {
             &.sd-line-input__input {
+                background-color: rgba(229, 28, 38, 0.075);
                 border-color: $red;
+                &:hover {
+                    background-color: rgba(229, 28, 38, 0.12);
+                    border-color: $red;
+                }
                 &:focus {
+                    background-color: rgba(229, 28, 38, 0.16);
+                    border-color: $red;
                     box-shadow: 0 1px 0 0 $red;
                 }
             }
         }
         select {
             &.sd-line-input__select {
+                background-color: rgba(229, 28, 38, 0.075);
                 border-color: $red;
+                &:hover {
+                    background-color: rgba(229, 28, 38, 0.12);
+                    border-color: $red;
+                }
                 &:focus {
+                    background-color: rgba(229, 28, 38, 0.16);
+                    border-color: $red;
                     box-shadow: 0 1px 0 0 $red;
                 }
             }
@@ -310,15 +268,21 @@
 
     &.sd-line-input--disabled {
         input, textarea {
-            &.sd-line-input__input {
-                border-bottom: 1px dotted $sd-inputBorderColor;
-                cursor: not-allowed;
+            &.sd-line-input__input, &.sd-input__input:hover, &.sd-input__input:focus {
+                opacity: 0.5;
+                background-color: var(--color-input-bg);
+                border-bottom: 1px dotted var(--color-input-border);
+                cursor: not-allowed !important;
+                box-shadow: none;
             }
         }
         select {
-            &.sd-line-input__select {
-                border-bottom: 1px dotted $sd-inputBorderColor;
-                cursor: not-allowed;
+            &.sd-line-input__select, &.sd-line-input__select:hover, &.sd-line-input__select:focus {
+                opacity: 0.5;
+                background-color: var(--color-input-bg);
+                border-bottom: 1px dotted var(--color-input-border);
+                cursor: not-allowed !important;
+                box-shadow: none;
             }
         }
     }
@@ -327,8 +291,8 @@
     &.sd-line-input--is-select {
         &::after {
             position: absolute;
-            top: 2.6rem;
-            right: 0.4rem;
+            inset-block-start: 3.2rem;
+            inset-inline-end: 0.8rem;
             display: inline-block;
             width: 0;
             height: 0;
@@ -336,36 +300,25 @@
             border-left: 0.4rem solid transparent;
             border-right: 0.4rem solid transparent;
             border-top: 0.4rem solid $sd-text;
-            @include opacity(30);
+            opacity: 0.3;
             content: "";
             z-index: 0;
         }
         &:hover {
             &::after {
-                @include opacity(60);
+                opacity: 0.6;
             }
         }
         &.sd-line-input--disabled {
             &:hover {
                 &::after {
-                    @include opacity(30);
+                    opacity: 0.3;
                 }
-            }
-        }
-        &.sd-line-input--boxed {
-            &::after {
-                top: 3.2rem;
-                right: 0.8rem;
             }
         }
         &.sd-line-input--no-label {
             &::after {
-                top: 1.2rem;
-            }
-            &.sd-line-input--boxed {
-                &::after {
-                    top: 1.4rem;
-                }
+                top: 1.4rem;
             }
         }
         &.sd-line-input--label-left {
@@ -379,117 +332,6 @@
             line-height: 140%;
         }
     } 
-    // DARK UI
-    // modifications for dark background color
-
-    &--dark-ui {
-        input, textarea, textarea {
-            &.sd-line-input__input {
-                border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2);
-                color: rgba($white, 0.8);
-                &:hover {
-                    border-bottom-color: $sd-inputBorderColor-darkUi;
-                }
-                &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
-                    border-color: $sd-colour-interactive;
-                }
-            }
-        }
-        select {
-            &.sd-line-input__select {
-                border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2);
-                color: rgba($white, 0.8);
-                &:hover {
-                    border-bottom-color: $sd-inputBorderColor-darkUi;
-                }
-                &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
-                    border-color: $sd-colour-interactive;
-                }
-            }
-        }
-        .sd-line-input__label {
-            color: rgba(255,255,255,.4);
-        }
-        &.sd-line-input--disabled {
-            input, textarea {
-                &.sd-line-input__input {
-                    border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                    &:focus, &:hover {
-                        border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                        box-shadow: none;
-                    }
-                }
-            }
-            select {
-                &.sd-line-input__select {
-                    border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                    &:focus, &:hover {
-                        border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                        box-shadow: none;
-                    }
-                }
-            }
-        }
-        &.sd-line-input--boxed {
-            input, textarea, textarea {
-                &.sd-line-input__input {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                }
-                &:focus {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-            }
-            select {
-                &.sd-line-input__select {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                }
-                &:focus {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-            }
-            &.sd-line-input--disabled {
-                input, textarea, textarea {
-                    &.sd-line-input__input {
-                        background-color: rgba(255, 255, 255, 0.03);
-                        border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2) !important;
-                    }
-                }
-                select {
-                    &.sd-line-input__select, &.sd-line-input__select:hover {
-                        background-color: rgba(255, 255, 255, 0.03);
-                        border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2) !important;
-                    }
-                }
-            }
-        }
-
-        &.sd-line-input--invalid {
-            input, textarea {
-                &.sd-line-input__input {
-                    border-color: $red;
-                }
-            }
-            select {
-                &.sd-line-input__select {
-                    border-color: $red;
-                }
-            }
-        }
-        &.sd-line-input--is-select {
-            &::after {
-                border-top-color: #fff;
-            }
-        }
-    }
-     // End DARK UI
 
     &.sd-line-input--required {
         .sd-line-input__label::after {
@@ -538,7 +380,7 @@
             position: static;
             grid-row: 2/3;
             grid-column: 5/4;
-            text-align: right;
+            text-align: end;
             padding-left: 1.6rem;
         }
     }
@@ -589,126 +431,6 @@
 
 }
 
-// DARK UI ---------------------------------------------
-//------------------------------------------------------
-
-[class^="--dark-ui"],
-[class*="--dark-ui"],
-[class^="dark-ui"],
-[class*="dark-ui"] {
-    .form-label {
-        color: inherit;
-        opacity: 0.4;
-    }
-
-    .sd-line-input {
-        input, textarea, textarea {
-            &.sd-line-input__input {
-                border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2);
-                color: rgba($white, 0.8);
-                &:hover {
-                    border-bottom-color: $sd-inputBorderColor-darkUi;
-                }
-                &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
-                    border-color: $sd-colour-interactive;
-                }
-            }
-        }
-        select {
-            &.sd-line-input__select {
-                border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2);
-                color: rgba($white, 0.8);
-                &:hover {
-                    border-bottom-color: $sd-inputBorderColor-darkUi;
-                }
-                &:focus {
-                    box-shadow: 0 1px 0 0 $sd-colour-interactive;
-                    border-color: $sd-colour-interactive;
-                }
-            }
-        }
-        .sd-line-input__label {
-            color: rgba(255,255,255,.4);
-        }
-        &.sd-line-input--disabled {
-            input, textarea {
-                &.sd-line-input__input {
-                    border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                    &:focus, &:hover {
-                        border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                        box-shadow: none;
-                    }
-                }
-            }
-            select {
-                &.sd-line-input__select {
-                    border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                    &:focus, &:hover {
-                        border-bottom: 1px dotted rgba($sd-inputBorderColor-darkUi, 0.2);
-                        box-shadow: none;
-                    }
-                }
-            }
-        }
-        &.sd-line-input--boxed {
-            input, textarea, textarea {
-                &.sd-line-input__input {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                }
-                &:focus {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-            }
-            select {
-                &.sd-line-input__select {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                }
-                &:focus {
-                    background-color: rgba(255, 255, 255, 0.05);
-                }
-            }
-            &.sd-line-input--disabled {
-                input, textarea, textarea {
-                    &.sd-line-input__input {
-                        background-color: rgba(255, 255, 255, 0.03);
-                        border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2) !important;
-                    }
-                }
-                select {
-                    &.sd-line-input__select, &.sd-line-input__select:hover {
-                        background-color: rgba(255, 255, 255, 0.03);
-                        border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2) !important;
-                    }
-                }
-            }
-        }
-
-        &.sd-line-input--invalid {
-            input, textarea {
-                &.sd-line-input__input {
-                    border-color: $red;
-                }
-            }
-            select {
-                &.sd-line-input__select {
-                    border-color: $red;
-                }
-            }
-        }
-        &.sd-line-input--is-select {
-            &::after {
-                border-top-color: #fff;
-            }
-        }
-    }
-}
 
 /////////////////  -------------------- NEW INPUTS ---------------------  /////////////////
 
@@ -791,23 +513,23 @@
             grid-row: 2/3;
             grid-column: 2/4;
             align-self: center;
-            justify-self: right;
+            justify-self: flex-end;
             display: inline-block;
             width: 0;
             height: 0;
-            margin-right: 1rem;
+            margin-inline-end: 1rem;
             vertical-align: middle;
             border-left: 0.4rem solid transparent;
             border-right: 0.4rem solid transparent;
             border-top: 0.4rem solid var(--color-text);
             pointer-events: none;
-            @include opacity(40);
+            opacity: 0.4;
             content: "";
             z-index: 0;
         }
         &:hover {
             &::after {
-                @include opacity(60);
+                opacity: 0.6;
             }
         }
     }
@@ -826,7 +548,7 @@
         font-size: 1.2rem;
         line-height: 1.4rem;
         transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-        color: grey;
+        color: var(--color-text-light);
         font-weight: 300;
         margin: 0.5rem 0;
         letter-spacing: 0.03em;

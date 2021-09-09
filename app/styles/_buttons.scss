@@ -13,33 +13,10 @@ $new-button-active-shadow: inset 0 1px 2px hsla(0, 0%, 0%, 0.3);
 $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 :root {
-
-  --sd-color-text-btn-default:          var(--sd-colour-btn-txt-neutral);
-
-  --sd-color-btn-default-base:          0, 0%;
-  --sd-color-btn-default:               hsla(var(--sd-color-btn-default-base), 20%, 0.15);
-  --sd-color-btn-default--hover:        hsla(var(--sd-color-btn-default-base), 16%, 0.20);
-  --sd-color-btn-default--active:       hsla(var(--sd-color-btn-default-base), 30%, 0.25);
-
-  --sd-color-btn-border-default:        hsla(var(--sd-color-btn-default-base), 10%, 0.4);
-  --sd-color-btn-border-default--hover: hsla(var(--sd-color-btn-default-base), 10%, 0.8);
-
   --new-button-hover-shadow: 0 0 0 1px rgba(0,0,0,.12), 0 1px 4px 0 rgba(0,0,0,.14);
-
 }
 
 [data-theme="dark-ui"], .dark-ui {
-
-  --sd-color-text-btn-default:          hsla(0, 0%, 90%, 1);
-
-  --sd-color-btn-default-base:          0, 0%;
-  --sd-color-btn-default:               hsla(var(--sd-color-btn-default-base), 100%, 0.12);
-  --sd-color-btn-default--hover:        hsla(var(--sd-color-btn-default-base), 100%, 0.18);
-  --sd-color-btn-default--active:       hsla(var(--sd-color-btn-default-base), 100%, 0.20);
-
-  --sd-color-btn-border-default:        hsla(var(--sd-color-btn-default-base), 100%, 0.4);
-  --sd-color-btn-border-default--hover: hsla(var(--sd-color-btn-default-base), 100%, 0.8);
-
   --new-button-hover-shadow: 0 0 0 1px rgba(0,0,0,.28), 0 1px 4px 0 rgba(0,0,0,.5);
 }
 
@@ -49,7 +26,9 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
   vertical-align: middle;
   justify-content: center;
   margin: $button-margin;
-  padding: $padding__button--default;
+  padding-block-start: 0;
+  padding-block-end: 0;
+  padding-inline: $padding-x__button--default;
   height: $height__button--default;
   font-size: $font-size__button--default;
   -webkit-appearance: none;
@@ -72,7 +51,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     background-color: var(--sd-btn-bg--active);
     box-shadow: $new-button-active-shadow;
   }
-  &:focus {
+  &:focus-visible {
     box-shadow: $button-focus-box-shadow;
   }
   [class^="icon-"], [class*=" icon-"] {
@@ -95,7 +74,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     border-color: var(--sd-btn-color);
     box-shadow: inset 0 0 0 2px var(--sd-btn-color);
   }
-  &:focus {
+  &:focus-visible {
     box-shadow: $button-focus-box-shadow;
   }
 }
@@ -121,7 +100,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     background-color: var(--sd-btn-bg--active);
     box-shadow: inset 0 0 0 4px var(--sd-btn-bg--shadow);
   }
-  &:focus {
+  &:focus-visible {
     box-shadow: $button-focus-box-shadow;
   }
 }
@@ -135,12 +114,12 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
   @include new-button-base;
   // Sizes
   &--small {
-    padding: $padding__button--small;
+    padding: $padding-x__button--small;
     height: $height__button--small;
     font-size: $font-size__button--small;
   }
   &--large {
-    padding: $padding__button--large;
+    padding: $padding-x__button--large;
     height: $height__button--large;
     font-size: $font-size__button--large;
   }
@@ -150,7 +129,8 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     margin-left: 0;
   }
   [class^="icon-"], [class*=" icon-"] {
-    margin: 0 0.6rem 0 -0.3rem;
+    margin-inline-start: -0.3rem;
+    margin-inline-end: 0.6rem ;
   }
   // Colours
   &--primary, &--success, &--warning, &--alert, &--highlight, &--sd-green, &--secondary {
@@ -256,7 +236,6 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
     color: var(--sd-colour-btn-txt-neutral);
     @include new-button-text-only;
-    
     
     &.btn--primary {
       --sd-btn-hs: var(--sd-colour-primary-hs);
@@ -390,245 +369,218 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 }
 
+// Button navigation 
+// --------------------------------------------------
+
+.button-nav {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  gap: $sd-base-increment;
+}
+.button-nav__btn {
+    color: var(--color-text);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0;
+    padding-block-start: 0.7rem;
+    padding-block-end: 0.7rem;
+    padding-inline: 1.8rem;
+    background: transparent;
+    -webkit-appearance: none;
+    border: none;
+    border-radius: $border-radius__base--full;
+    transition: $button-transition;
+    font-size: 1.4rem;
+    line-height: 1;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: var(--sd-colour-bg__button-nav-btn);
+    &:hover {
+        background-color: var(--sd-colour-bg__button-nav-btn--hover);
+    }
+    &:active, &--active, &--active:hover {
+        background-color: var(--sd-colour-bg__button-nav-btn--active);
+        box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.25);
+    }
+}
+
+// Button icon group 
+.btn-icon-group {
+    display: flex;
+    align-items: center;
+
+    .btn + .btn {
+        gap: 6px;
+        //margin-left: 6px;
+    }
+
+    [class^="icon-"], [class*=" icon-"] {
+        opacity: 0.6;
+    }
+}
+
+
 // BUTTON GROUPS 
 // --------------------------------------------------
 
 .button-group {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  .btn {
-    margin: 0;
-  }
-  &--left {
-    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
     .btn {
-      @include sd-margin('1', 'right');
-      &:last-child {
-        margin-right: 0;
-      }
+        margin: 0;
     }
-    .sd-navbtn {
-      border-width: 0 1px 0 0;
-    }
-    &.button-group--compact {
-      .btn {
-        @include sd-margin('0-5', 'right');
-        &:last-child {
-          margin-right: 0;
+    &--left {
+        margin-inline-end: auto;
+        .sd-navbtn {
+            border-inline-width: 0 1px;
         }
-      }
-    } 
-  }
-  &--inline {
-    margin-right: 0;
-    .btn {
-      @include sd-margin('1', 'right');
-      &:last-child {
-        margin-right: 0;
-      }
-    }
-    .sd-navbtn {
-      border-width: 0 1px 0 0;
-    }
-    &.button-group--compact {
-      .btn {
-        @include sd-margin('0-5', 'right');
-        &:last-child {
-          margin-right: 0;
+        &.button-group--compact {
+            gap: 0.5 * $sd-base-increment;
         }
-      }
-    } 
-    &.button-group--compact {
-      .btn {
-        @include sd-margin('0-5', 'right');
-        &:last-child {
-          margin-right: 0;
+        .button-group--inline {
+            .sd-navbtn {
+                border-inline-width: 0 1px;
+            }
         }
-      }
-    } 
-  }
-  &--right {
-    margin-left: auto;
-    .btn {
-      @include sd-margin('1', 'left');
-      &:first-child {
-        margin-left: 0;
-      }
     }
-    &.button-group--compact {
-      .btn {
-        @include sd-margin('0-5', 'left');
-        &:first-child {
-          margin-right: 0;
+    &--inline {
+        margin-inline-end: 0;
+        .sd-navbtn {
+            border-inline-width: 0 1px;
         }
-      }
     }
-  }
-  &--center {
-    margin-left: auto;
-    margin-right: auto;
-    .btn {
-      @include sd-margin('0-5', 'x');
-      &:first-child {
-        margin-left: 0;
-      }
-      &:last-child {
-        margin-right: 0;
-      }
+    &--right {
+        margin-inline-start: auto;
     }
-    .sd-navbtn {
-      border-width: 0 1px 0 0;
-      &:first-child {
-        border-width: 0 1px 0 1px;
-      }
-    }
-    &.button-group--compact {
-      .btn {
-        margin: 0 0.2rem;
-        &:first-child {
-          margin-left: 0;
+    &--center {
+        margin-inline-start: auto;
+        margin-inline-end: auto;
+        .sd-navbtn {
+            border-inline-width: 0 1px;
+            &:first-child {
+                border-inline-width: 1px 1px;
+            }
         }
-        &:last-child {
-          margin-right: 0;
-        }
-      }
     }
-  }
-  &--vertical {
-    flex-grow: 1;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: center;
-    .btn {
-      @include sd-margin('1', 'top');
-      &:first-child, &:only-child {
-        margin-top: 0;
-      }
+    &--vertical {
+        flex-grow: 1;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: center;
     }
-    &.button-group--compact {
-      .btn {
-        @include sd-margin('0-5', 'top');
-        &:first-child {
-          margin-left: 0;
-        }
-        &:last-child {
-          margin-right: 0;
-        }
-      }
+    &--comfort {
+        gap: $sd-base-increment;
     }
-  }
+    &--compact {
+        gap: $sd-base-increment * 0.5;
+    }
+    &--no-space {
+        gap: unset;
+    }
 }
 
-
-
-.subnav {
-  .button-group--right {
-    .btn:last-of-type {
-      @include sd-margin('2', 'right');
-    }
-  }
-}
 .button-group__divider {
-  width: 1px;
-  height: $sd-base-increment * 3;
-  &--mini {
-    @include sd-padding('1-5', 'left');
-    width: 0;
-    border: none !important;
-  }
-  &--small {
-    @include sd-margin('1', 'x');
-  }
-  &--medium {
-    @include sd-margin('1-5', 'x');
-  }
-  &--large {
-    @include sd-margin('2', 'x');
-  }
-  &--border {
-    border-left: 1px dotted rgba(123, 123, 123, 0.6);
-  }
-}
-
-
-
-.button-group--right {
-  .button-group__divider {
-    &--border {
-      &.button-group__divider--small {
-        @include sd-margin('0-5', 'right');
-        @include sd-margin('1-5', 'left');
-      }
-      &.button-group__divider--medium {
-        @include sd-margin('1', 'right');
-        @include sd-margin('2', 'left');
-      }
-      &.button-group__divider--large {
-        @include sd-margin('1-5', 'right');
-        margin-left: $sd-base-increment * 2.5;
-      }
+    width: 1px;
+    height: $sd-base-increment * 3;
+    &--mini {
+        padding: 0 !important;
+        width: 0;
+        border: none !important;
     }
-  }
-  &.button-group--padded {
-    @include sd-margin('1-5', 'right');
-  }
-}
-
-.button-group--left {
-  .button-group__divider {
-    &--border {
-      &.button-group__divider--small {
-        @include sd-margin('0-5', 'left');
-        @include sd-margin('1-5', 'right');
-      }
-      &.button-group__divider--medium {
-        @include sd-margin('1', 'left');
-        @include sd-margin('2', 'right');
-      }
-      &.button-group__divider--large {
-        @include sd-margin('1-5', 'left');
-        margin-right: $sd-base-increment * 2.5;
-      }
+    &--small {
+        @include sd-margin('0-5', 'x');
     }
-  }
-  &.button-group--padded {
-    @include sd-margin('1-5', 'left');
-  }
-}
-
-.button-group--inline {
-  &.button-group--padded {
-    @include sd-margin('1-5', 'x');
-  }
+    &--medium {
+        @include sd-margin('1', 'x');
+    }
+    &--large {
+        @include sd-margin('1-5', 'x');
+    }
+    &--border {
+        border-left: 1px dotted var(--sd-colour-line--strong);
+    }
 }
 
 .button-group--vertical {
-  .button-group__divider {
-    height: 1px;
-    width: auto;
-    @include sd-margin('0', 'x');
+    .button-group__divider {
+        height: 1px;
+        width: auto;
+        @include sd-margin('0', 'x');
+        &--border {
+            border-left: none;
+            border-top: 1px dotted var(--sd-colour-line--strong);
+        }
+        &.button-group__divider--mini {
+            @include sd-padding('1-5', 'top');
+        }
+        &.button-group__divider--small {
+            @include sd-margin('0-5', 'y');
+        }
+        &.button-group__divider--medium {
+            @include sd-margin('1', 'y');
+        }
+        &.button-group__divider--large {
+            @include sd-margin('1-5', 'y');
+        }
+    }
+}
 
-    &--border {
-      border-left: none;
-      border-top: 1px dotted rgba(123, 123, 123, 0.6);
+.sd-create-btn {
+    width: 4.8rem;
+    height: 4.8rem;
+    line-height: 4.8rem;
+    padding: 0 !important;
+    overflow: hidden;
+    position: relative;
+    background: transparent;
+    vertical-align: top;
+    display: inline-flex;
+    .circle {
+        display: inline-block;
+        text-align: center;
+        width: 2.6rem;
+        height: 2.6rem;
+        margin: 0;
+        padding: 0;
+        border-radius: 50%;
+        background-color: var(--sd-colour-interactive);
+        color: hsl(0, 0%, 100%);
+        position: relative;
+        transition: all 0.2s ease;
     }
-    &.button-group__divider--mini {
-      @include sd-padding('1-5', 'top');
+    &:hover {
+        .circle {
+            width: 3.4rem;
+            height: 3.4rem;
+            margin-inline-start: 0;
+        }
     }
-    &.button-group__divider--small {
-      @include sd-margin('0-5', 'bottom');
-      @include sd-margin('1-5', 'top');
+    &:active {
+        .circle {
+            width: 6.8rem;
+            height: 6.8rem;
+            margin-inline-start: -1rem;
+            margin-inline-end: -1rem;
+            transition: all 0.05s ease;
+        }
     }
-    &.button-group__divider--medium {
-      @include sd-margin('1', 'bottom');
-      @include sd-margin('2', 'top');
+    i {
+        position: absolute;
+        z-index: 1;
+        display: block;
+        inset-block-start: 50%;
+        margin-block-start: -0.8rem;
+        inset-inline-start: 50%;
+        inset-inline-end: auto;
+        margin-inline-start: -0.8rem;
+        opacity: 1 !important;
+        color: hsl(0, 0%, 100%) !important;
+        line-height: 1.6rem !important;
     }
-    &.button-group__divider--large {
-      @include sd-margin('1-5', 'bottom');
-      margin-top: $sd-base-increment * 2.5;
-    }
-  }
 }
 
 .visuallyhidden {

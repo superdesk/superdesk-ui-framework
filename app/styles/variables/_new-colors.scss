@@ -29,6 +29,19 @@
     --sd-colour-secondary-l--90:            var(--sd-colour-secondary-hs), 90%;
     --sd-colour-secondary-l--100:           var(--sd-colour-secondary-hs), 100%;
 
+    // INFO
+    --sd-colour-info-hs:                    198, 50%;
+    --sd-colour-info-l--10:                 var(--sd-colour-info-hs), 10%;
+    --sd-colour-info-l--20:                 var(--sd-colour-info-hs), 20%;
+    --sd-colour-info-l--30:                 var(--sd-colour-info-hs), 30%;
+    --sd-colour-info-l--40:                 var(--sd-colour-info-hs), 40%;
+    --sd-colour-info-l--50:                 var(--sd-colour-info-hs), 50%; // Default
+    --sd-colour-info-l--60:                 var(--sd-colour-info-hs), 60%;
+    --sd-colour-info-l--70:                 var(--sd-colour-info-hs), 70%;
+    --sd-colour-info-l--80:                 var(--sd-colour-info-hs), 80%;
+    --sd-colour-info-l--90:                 var(--sd-colour-info-hs), 90%;
+    --sd-colour-info-l--100:                var(--sd-colour-info-hs), 100%;
+
     // PRIMARY
     --sd-colour-primary-hs:                 198, 50%;
     --sd-colour-primary-l--10:              var(--sd-colour-primary-hs), 10%;
@@ -165,11 +178,17 @@
     --sd-colour-neutral--active:            hsla(var(--sd-colour-neutral-l--40), 0.5);
     --sd-colour-neutral-btn-border:         hsla(var(--sd-colour-neutral-l--40), 0.5);
         // ---
+    --sd-colour-info:                       hsla(var(--sd-colour-info-l--50), 1);
+    --sd-colour-info--hover:                hsla(var(--sd-colour-info-l--60), 1);
+    --sd-colour-info--active:               hsla(var(--sd-colour-info-l--40), 1);
+        // ---
     --sd-colour-btn-bg-neutral:             hsla(var(--sd-colour-neutral-l--50), 0.4);
     --sd-colour-btn-bg-neutral--hover:      hsla(var(--sd-colour-neutral-l--60), 0.5);
     --sd-colour-btn-bg-neutral--active:     hsla(var(--sd-colour-neutral-l--40), 0.5);
     --sd-colour-btn-txt-neutral:            hsla(var(--sd-colour-neutral-l--40), 1);
     --sd-colour-btn-border-neutral:         hsla(var(--sd-colour-neutral-l--50), 0.5);
+
+    --sd-colour-alert-bg-neutral:           hsla(var(--sd-colour-neutral-l--50), 0.25);
 
     --sd-colour-interactive--alpha-10:      hsla(var(--sd-colour-interactive-l--50), 0.1);
     --sd-colour-interactive--alpha-20:      hsla(var(--sd-colour-interactive-l--50), 0.2);
@@ -202,6 +221,7 @@
     --sd-colour-cool-grey-l--10:            var(--sd-colour-cool-grey-hs), 12%;
     --sd-colour-cool-grey-l--15:            var(--sd-colour-cool-grey-hs), 16%;
     --sd-colour-cool-grey-l--20:            var(--sd-colour-cool-grey-hs), 20%;
+    --sd-colour-cool-grey-l--23:            var(--sd-colour-cool-grey-hs), 22.5%;
     --sd-colour-cool-grey-l--25:            var(--sd-colour-cool-grey-hs), 25%;
     // Medium
     --sd-colour-cool-grey-l--30:            var(--sd-colour-cool-grey-hs), 30%;
@@ -219,6 +239,7 @@
     --sd-colour-cool-grey-l--85:            var(--sd-colour-cool-grey-hs), 85%;
     --sd-colour-cool-grey-l--90:            var(--sd-colour-cool-grey-hs), 92%;
     --sd-colour-cool-grey-l--95:            var(--sd-colour-cool-grey-hs), 96%;
+    --sd-colour-cool-grey-l--98:            var(--sd-colour-cool-grey-hs), 98%;
     --sd-colour-cool-grey-l--99:            var(--sd-colour-cool-grey-hs), 100%;
 
     --sd-colour-bg--00:                     hsla(var(--sd-colour-cool-grey-l--00), 1);
@@ -226,6 +247,7 @@
     --sd-colour-bg--02:                     hsla(var(--sd-colour-cool-grey-l--10), 1);
     --sd-colour-bg--03:                     hsla(var(--sd-colour-cool-grey-l--15), 1);
     --sd-colour-bg--04:                     hsla(var(--sd-colour-cool-grey-l--20), 1);
+    --sd-colour-bg--04-a:                   hsla(var(--sd-colour-cool-grey-l--23), 1);
     --sd-colour-bg--05:                     hsla(var(--sd-colour-cool-grey-l--25), 1);
     --sd-colour-bg--06:                     hsla(var(--sd-colour-cool-grey-l--30), 1);
     --sd-colour-bg--07:                     hsla(var(--sd-colour-cool-grey-l--35), 1);
@@ -238,6 +260,7 @@
     --sd-colour-bg--22:                     hsla(var(--sd-colour-cool-grey-l--75), 1);
 
     --sd-colour-bg--99:                     hsla(var(--sd-colour-cool-grey-l--99), 1);
+    --sd-colour-bg--99-a:                   hsla(var(--sd-colour-cool-grey-l--98), 1);
     --sd-colour-bg--95:                     hsla(var(--sd-colour-cool-grey-l--95), 1);
 
     --sd-colour-panel-bg--000:              hsla(var(--sd-colour-cool-grey-l--99), 1);
@@ -270,10 +293,11 @@
     --sd-item__main-Bg--hover:              var(--sd-colour-bg--95);
     --sd-item__main-Bg--selected:           var(--sd-colour-interactive--lighten-40);
     --sd-item__main-Bg--activated:          var(--sd-colour-interactive--lighten-45);
+    --sd-item__main-Bg--alternate:          var(--sd-colour-bg--99-a);
 
     --sd-colour-bg__grid-item--selected:    var(--sd-colour-interactive--lighten-45);
 
-    --sd-colour-bg__sliding-toolbar:        var(--sd-colour-interactive--lighten-30);
+    --sd-colour-bg__sliding-toolbar:        var(--sd-colour-interactive--lighten-40);
     --sd-colour-bg__searchbar:              var(--sd-colour-bg--99);
 
     --color-dropdown-menu-Bg:               var(--sd-colour-bg--99);
@@ -295,6 +319,27 @@
 
     --sd-colour__dashboard-widget-Bg:           hsla(214, 13%, 98%, 1);
     --sd-colour__side-panel-border:             var(--sd-colour-bg--20);
+
+    --sd-colour__tag-label-Bg--1:               hsla(var(--sd-colour-cool-grey-l--55), 0.3);
+    --sd-colour__tag-label-Bg--2:               hsla(var(--sd-colour-cool-grey-l--35), 0.45);
+    --sd-colour__tag-label-Bg--highlight-1:     var(--sd-colour-interactive--alpha-40);
+    --sd-colour__tag-label-Bg--highlight-2:     var(--sd-colour-interactive--alpha-70);
+
+    --sd-colour__tag-label-remove-Bg:           hsla(var(--sd-colour-cool-grey-l--90), 0.35);
+    --sd-colour__tag-label-remove-Bg--hover:    hsla(var(--sd-colour-cool-grey-l--90), 0.85);
+
+    --sd-colour-bg__photo-preview:              hsla(var(--sd-colour-cool-grey-l--10), 1);
+    --sd-colour-bg__slide-in-column-inner:      hsla(var(--sd-colour-cool-grey-l--20), 1);
+
+    --sd-colour-bg__button-nav-btn:             hsla(var(--sd-colour-cool-grey-l--80), 0);
+    --sd-colour-bg__button-nav-btn--hover:      hsla(var(--sd-colour-cool-grey-l--80), 0.5);
+    --sd-colour-bg__button-nav-btn--active:     hsla(var(--sd-colour-cool-grey-l--60), 1);
+
+    --sd-colour-bg__desk-select: var(--sd-colour-interactive);
+    --sd-colour-bg__desk-select--worspace: hsla(306, 25%, 49%, 1);
+
+    --sd-colour__tag-label-Bg--inverse: var(--sd-colour-bg--08);
+    --sd-colour__tag-label-Txt--inverse: hsla(214, 13%, 98%, 1);
 }
 
 
@@ -390,6 +435,7 @@
     --sd-item__main-Bg--hover:              var(--sd-colour-bg--05);
     --sd-item__main-Bg--selected:           var(--sd-colour-interactive--darken-30);
     --sd-item__main-Bg--activated:          var(--sd-colour-interactive--darken-40);
+    --sd-item__main-Bg--alternate:          var(--sd-colour-bg--04-a);
 
     --sd-colour-bg__grid-item--selected:    var(--sd-colour-bg--04);
 
@@ -417,6 +463,23 @@
     --sd-colour__dashboard-widget-Bg:           hsla(214, 13%, 18%, 1);
     --sd-colour__side-panel-border:             var(--sd-colour-bg--05);
 
+    --sd-colour__tag-label-Bg--1:               hsla(var(--sd-colour-cool-grey-l--40), 0.3);
+    --sd-colour__tag-label-Bg--2:               hsla(var(--sd-colour-cool-grey-l--55), 0.45);
+    --sd-colour__tag-label-Bg--highlight-1:     var(--sd-colour-interactive--alpha-30);
+    --sd-colour__tag-label-Bg--highlight-2:     var(--sd-colour-interactive--alpha-60);
+
+    --sd-colour__tag-label-remove-Bg:           hsla(var(--sd-colour-cool-grey-l--10), 0.35);
+    --sd-colour__tag-label-remove-Bg--hover:    hsla(var(--sd-colour-cool-grey-l--10), 0.75);
+
+    --sd-colour-bg__button-nav-btn:             hsla(var(--sd-colour-cool-grey-l--40), 0);
+    --sd-colour-bg__button-nav-btn--hover:      hsla(var(--sd-colour-cool-grey-l--40), 0.25);
+    --sd-colour-bg__button-nav-btn--active:     hsla(var(--sd-colour-cool-grey-l--10), 0.5);
+
+    --sd-colour-bg__desk-select: hsla(160, 50%, 50%, 0.20);
+    --sd-colour-bg__desk-select--worspace: hsla(306, 25%, 49%, 0.28);
+
+    --sd-colour__tag-label-Bg--inverse: hsla(214, 13%, 55%, 0.95);
+    --sd-colour__tag-label-Txt--inverse: hsla(214, 13%, 10%, 1);
 }
 
 
@@ -489,12 +552,12 @@
     --sd-slugline-color:                  hsla(197, 100%, 25%, 1);
     
     // Inputs & Form elements
-    --color-input-bg:                     hsla(0, 0%, 0%, 0.05);
-    --color-input-bg--hover:              hsla(0, 0%, 0%, 0.08);
-    --color-input-bg--focus:              hsla(198, 49%, 58%, 0.14);
-    --color-label-text:                   hsla(0, 0%, 45%, 1);
-    --color-input-border:                 hsla(0, 0%, 0%, 0.15);
-    --color-input-border-hover:           hsla(0, 0%, 0%, 0.3);
+    --color-input-bg:                     hsla(214, 13%, 50%, 0.1);
+    --color-input-bg--hover:              hsla(214, 13%, 50%, 0.16);
+    --color-input-bg--focus:              var(--sd-colour-interactive--alpha-20);
+    --color-label-text:                   hsla(214, 13%, 45%, 1);
+    --color-input-border:                 hsla(214, 13%, 10%, 0.2);
+    --color-input-border-hover:           hsla(214, 13%, 10%, 0.35);
     --color-form-bg:                      hsla(0, 0%, 100%, 0);
     --color-checkbox-border:              hsla(0, 0%, 0%, 0.2);
     --color-checkbox-border-hover:        hsla(0, 0%, 0%, 0.4);
@@ -564,12 +627,12 @@
     --sd-slugline-color:                  hsla(197, 60%, 75%, 1);
   
     // Inputs & Form elements
-    --color-label-text:                   hsla(0, 0%, 100%, 0.5);
-    --color-input-bg:                     hsla(0, 0%, 100%, 0.05);
-    --color-input-bg--hover:              hsla(0, 0%, 100%, 0.08);
-    --color-input-bg--focus:              hsla(198, 49%, 58%, 0.14);
-    --color-input-border:                 hsla(0, 0%, 100%, 0.4);
-    --color-input-border-hover:           hsla(0, 0%, 100%, 0.6);
+    --color-label-text:                   hsla(214, 13%, 80%, 1);
+    --color-input-bg:                     hsla(214, 13%, 80%, 0.08);
+    --color-input-bg--hover:              hsla(214, 13%, 70%, 0.12);
+    --color-input-bg--focus:              var(--sd-colour-interactive--alpha-20);
+    --color-input-border:                 hsla(214, 13%, 80%, 0.2);
+    --color-input-border-hover:           hsla(214, 13%, 80%, 0.5);
     --color-form-bg:                      hsla(0, 0%, 23%, 1);
     --color-checkbox-border:              hsla(0, 0%, 100%, 0.2);
     --color-checkbox-border-hover:        hsla(0, 0%, 100%, 0.4);

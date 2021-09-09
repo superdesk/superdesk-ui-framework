@@ -84,16 +84,17 @@
     align-items: center;
     top: 0;
     bottom: 0;
-    left: 0;
+    left: 1px;
     right: 0;
     z-index: 3;
     padding: 0 16px;
     color: $sd-colour-text__base;
     animation: dropOut2 .3s cubic-bezier(.695,.105,.285,1.275) 1;
     background-color: var(--sd-colour-bg__sliding-toolbar);
-    box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
+    box-shadow: var(--sd-shadow__sliding-toolbar);
+    gap: $sd-base-increment;
     &--right {
-        text-align: right;
+        text-align: end;
         justify-content: flex-end;
     }
     .sliding-toolbar__inner {
@@ -101,15 +102,12 @@
         display: flex;
         align-items: center;
         &--right {
-            text-align: right;
+            text-align: end;
         }
     }
     .sliding-toolbar__info-text {
         font-weight: 300;
         opacity: 0.75;
-    }
-    .btn + .sliding-toolbar__info-text {
-        margin-left: 1rem;
     }
 }
 

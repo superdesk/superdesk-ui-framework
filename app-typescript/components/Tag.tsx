@@ -4,7 +4,7 @@ import classNames from 'classnames';
 interface IProps {
     text: string;
     keyValue?: number;
-    shade?: 'light' | 'darker' | 'highlight1' | 'highlight2'; // default light
+    shade?: 'light' | 'darker' | 'highlight1' | 'highlight2' | 'inverse'; // default light
     shape?: 'round' | 'square'; // default round
     onClick(): void;
 }

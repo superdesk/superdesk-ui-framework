@@ -25,7 +25,7 @@ sd-tag-input {
     margin: 0;
     top:0;
     line-height: 100%;
-    color: $grayText;
+    color: var(--color-text-light);
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -67,13 +67,13 @@ tags-input {
             margin: 0;
             padding: 0;
             list-style-type: none;
+            display: flex;
+            gap: $sd-base-increment;
         }
         .tags-input__tag-item {
             @include tag-label;
-            margin: 2px 4px 2px 0;
-            float: left;
             transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-            background: $tag-label-background;
+            background: $tag-label-BG-default;
             color: currentColor;
             &.selected {
                 background-color: var(--sd-colour-interactive--alpha-70);
@@ -92,22 +92,31 @@ tags-input {
                 text-align: center;
                 vertical-align: middle;
                 border-radius: $border-radius__base--full;
-                background-color: rgba(255,255,255,0.35);
-                color: inherit;
+                background-color: var(--sd-colour__tag-label-remove-Bg);
+                color: var(--color-text);
                 cursor: pointer;
                 transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-                opacity: 0.2;
                 margin-right: -1rem;
                 margin-left:  0.8rem;
+                [class^="icon-"], [class*=" icon-"] {
+                    color: var(--color-text-light);
+                    font-size: 1.6rem;
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    margin-left: 1px;
+                    opacity: 0.4;
+                    transition: color .1s ease-out, opacity .1s ease-out;
+                }
                 &:hover {
-                    opacity: 0.75;
                     text-decoration: none;
-                    background-color: rgba(255,255,255,0.65);
+                    background-color: var(--sd-colour__tag-label-remove-Bg--hover);
+                    [class^="icon-"], [class*=" icon-"] {
+                        opacity: 0.85;
+                    }
                   }
 
                 &:active {
-                    opacity: 1;
-                    background-color: rgba(255,255,255,0.85);
+                    background-color: var(--sd-colour__tag-label-remove-Bg--hover);
                     [class^="icon-"], [class*=" icon-"] {
                       color: $sd-colour-interactive;
                       opacity: 1;
@@ -289,6 +298,7 @@ tags-input {
         transition: border linear 0.2s, box-shadow linear 0.2s;
         border-bottom: 1px solid $sd-inputBorderColor;
         height: 100%;
+        display: flex;
         &:hover {
             border-color: rgba(0,0,0,0.3);
         }
@@ -304,13 +314,16 @@ tags-input {
             margin: 0;
             padding: 0;
             list-style-type: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: $sd-base-increment / 4; 
         }
         .tags-input__tag-item {
             @include tag-label;
-            margin: 2px 4px 2px 0;
+            //margin: 2px 4px 2px 0;
             float: left;
             transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-            background: $tag-label-background;
+            background: $tag-label-BG-default;
             color: currentColor;
             &.selected {
                 background-color: var(--sd-colour-interactive--alpha-70);
@@ -329,22 +342,30 @@ tags-input {
                 text-align: center;
                 vertical-align: middle;
                 border-radius: $border-radius__base--full;
-                background-color: rgba(255,255,255,0.35);
-                color: inherit;
+                background-color: var(--sd-colour__tag-label-remove-Bg);
+                color: var(--color-text);
                 cursor: pointer;
                 transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-                opacity: 0.2;
-                margin-right: -1rem;
-                margin-left:  0.8rem;
+                margin-inline-end: -1rem;
+                margin-inline-start:  0.8rem;
+                [class^="icon-"], [class*=" icon-"] {
+                    color: var(--color-text-light);
+                    font-size: 1.6rem;
+                    flex-grow: 0;
+                    flex-shrink: 0;
+                    margin-inline-start: 1px;
+                    opacity: 0.4;
+                    transition: color .1s ease-out, opacity .1s ease-out;
+                }
                 &:hover {
-                    opacity: 0.75;
                     text-decoration: none;
-                    background-color: rgba(255,255,255,0.65);
-                  }
-
+                    background-color: var(--sd-colour__tag-label-remove-Bg--hover);
+                    [class^="icon-"], [class*=" icon-"] {
+                        opacity: 0.85;
+                    }
+                }
                 &:active {
-                    opacity: 1;
-                    background-color: rgba(255,255,255,0.85);
+                    background-color: var(--sd-colour__tag-label-remove-Bg--hover);
                     [class^="icon-"], [class*=" icon-"] {
                       color: $sd-colour-interactive;
                       opacity: 1;
@@ -370,7 +391,6 @@ tags-input {
             outline: none;
             margin: 0.2rem;
             padding: 0;
-            float: left;
             height: 26px;
             color: currentColor;
             background-color: transparent;
@@ -394,7 +414,7 @@ tags-input {
         }
         &--boxed {
             background-color: rgba(0, 0, 0, 0.05);
-            padding-left: 0.4rem;
+            padding-inline-start: 0.4rem;
             border-radius: $border-radius__base--x-small;
             &:hover {
                 background-color: rgba(0, 0, 0, 0.1);
@@ -435,7 +455,6 @@ tags-input {
         box-shadow: 0 1px 0 #E51C23 !important;
     }
     .tags-input__add-button {
-        float: left;
         height: $sd-base-increment * 3;
         width: $sd-base-increment * 3;
         background-color: $sd-colour-interactive;
@@ -443,12 +462,16 @@ tags-input {
         display: flex;
         align-items: center;
         text-align: center;
-        margin: 0.2rem 0.4rem 0.2rem 0;
+        margin-block-start: 0.2rem;
+        margin-block-end: 0.2rem;
+        margin-inline-start: 0;
+        margin-inline-end: 0.4rem;
         transition: all 0.3s;
         border-radius: $border-radius__base--x-small;
         opacity: 0.5;
         padding: 0;
         justify-content: center;
+        flex-shrink: 0;
         i {
             color: inherit;
         }
@@ -464,9 +487,11 @@ tags-input {
         }
     }
     .autocomplete {
-        margin-top: 0.5rem;
+        margin-block-start: 0.5rem;
         position: absolute;
-        padding: 0.5rem 0;
+        padding: 0;
+        padding-block-start: 0.5rem;
+        padding-block-end: 0.5rem;
         z-index: 999;
         width: 100%;
         border-radius: $border-radius__base--small;
@@ -508,44 +533,5 @@ tags-input {
     }
 }
 
-// DARK UI ---------------------------------------------
-//------------------------------------------------------
-
-.dark-ui,
-[class^="--dark-ui"],
-[class*="--dark-ui"] {
-    tags-input {
-        .tags-input__tags {
-            border-bottom-color: rgba($sd-inputBorderColor-darkUi, 0.2);
-            &:hover {
-                border-bottom-color: $sd-inputBorderColor-darkUi;
-            }
-            &.focused {
-                border-bottom-color: $sd-colour-interactive;
-            }
-            .tags-input__tag-item {
-                background: $tag-label-background-darkUi;
-                &.selected {
-                    background-color: var(--sd-colour-interactive--alpha-70);
-                }
-            }
-            &--boxed {
-                background-color: rgba(255, 255, 255, 0.05);
-                &:hover {
-                    background-color: rgba(255, 255, 255, 0.1);
-                }
-            }
-        }
-        .tags-input__add-button {
-            &[disabled], [disabled]:hover, [disabled]:active {
-                background-color: rgba(123, 123, 123, 0.6);
-                color: scale-color($white, $alpha: -70%);
-            }
-        }
-    }
-    .tags-input__label {
-        color: rgba(255, 255, 255, 0.4);
-    }
-}
 
 

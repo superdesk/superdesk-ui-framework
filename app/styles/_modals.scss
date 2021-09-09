@@ -78,6 +78,7 @@ $modal-sizes: (
     padding: $modal-padding - $sd-base-increment $modal-padding;
     border-bottom: 1px solid $modal-line-color;
     min-height: $modal-header-height;
+    background-color: $modal-bg-color
 }
 @mixin modal-body() {
     background: $modal-bg-color;
@@ -87,7 +88,7 @@ $modal-sizes: (
 }
 @mixin modal-footer() {
     padding: $modal-padding - $sd-base-increment $modal-padding;
-    text-align: right; // right align buttons
+    text-align: end; // right align buttons
     border-top: 1px solid $modal-line-color;
     min-height: $modal-footer-height;
     @include clearfix(); // clear it in case folks use .pull-* classes on buttons
@@ -105,94 +106,7 @@ $modal-sizes: (
         max-width: map-get($modal-sizes, default);
         width: 100%;
     }
-    .modal__content {
-        @include modal-content();
-        flex: 0 0 100%;
-        .modal__header, .modal__footer {
-            flex: 0 0 auto;
-            width: 100%;            
-        }
-        .modal__footer {
-            &> .btn + .btn {
-                margin-left: $sd-base-increment;
-            }
-        } 
-        .modal__header {
-            @include modal-header();
-            position: relative;
-            &--padding-20 {
-                padding: 10px 20px;
-            }
-            &--flex {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                .modal__heading {
-                    flex-grow: 1;
-                    &--no-grow {
-                        flex-grow: 0;
-                    }
-                }
-            }
-        }
-        .modal__sliding-toolbar {
-            @include sliding-toolbar;
-            max-height: 5.4rem;
-        }
-        .modal__header-element-grow {
-            flex-grow: 1;
-        }
-        .modal__header-buttons {
-            display: flex;
-            align-content: center;
-            &--right {
-                justify-content: right;
-                .btn, .dropdown {
-                    margin: 0 0 0 1rem;
-                }
-            }
-            &--center {
-                justify-content: center;
-            }
-            &--grow {
-                flex-grow: 1;
-            }
-        }
-        .modal__footer {
-            @include modal-footer();
-        }
-        .modal__body {
-            @include modal-body();
-            flex: 0 1 auto;
-            width: 100%; 
-            max-width: $modal-base-width;
-            // modifier to add min height, if needed
-            &--add-min-height {
-                min-height: 300px; 
-                // we reset this value if the screen height is lower than 500px
-                @media (max-height: 500px) {
-                    min-height: auto;
-                }
-            }
-            &--no-padding {
-                padding: 0;
-            }           
-        }
-        .modal__body-heading {
-            font-size: 1.8rem;
-            color: $sd-text;
-            font-weight: 400;
-            margin-bottom: 2rem;
-            line-height: 100%;
-            &--inactive {
-                color: $sd-text-light;
-            }
-            .badge {
-                vertical-align: bottom;
-                margin-right: 0.6rem;
-            }
-        }
-    }
+
     // loop for different modal sizes
     @each $name, $value in $modal-sizes {
         // fill modal
@@ -297,36 +211,124 @@ $modal-sizes: (
             flex: 0 0 auto;
             padding: $modal-padding - .8rem $modal-padding;
             border-top: 1px solid $modal-line-color;
-            text-align: right;
+            text-align: end;
             min-height: $modal-footer-height;
         }
     }
     p {
         margin: 0 0 1em 0;
     }
-    &.modal--dark-ui {
-        .modal__content {
-            background-color: #333;
-            color: $white;
-            .modal__body-header {
-                background-color: #333;
-                color: $white;
+    // &.modal--dark-ui {
+    //     .modal__content {
+    //         background-color: #333;
+    //         color: $white;
+    //         .modal__body-header {
+    //             background-color: #333;
+    //             color: $white;
+    //         }
+    //         .modal__body-content, .modal__body {
+    //             background-color: #444;
+    //             color: $white;  
+    //         }
+    //         .modal__header {
+    //             border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    //         }
+    //         .modal__footer {
+    //             border-top: 1px solid rgba(0, 0, 0, 0.12);
+    //         }
+    //         .subnav {
+    //             background-color: #292929;
+    //             color: $white;
+    //             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 0 0 rgba(0, 0, 0, 0.3);
+    //         }  
+    //     }
+    // }
+}
+.modal__content {
+    @include modal-content();
+    flex: 0 0 100%;
+    .modal__header, .modal__footer {
+        flex: 0 0 auto;
+        width: 100%;            
+    }
+    .modal__footer {
+        &> .btn + .btn {
+            margin-left: $sd-base-increment;
+        }
+    } 
+    .modal__header {
+        @include modal-header();
+        position: relative;
+        &--padding-20 {
+            padding: 10px 20px;
+        }
+        &--flex {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            .modal__heading {
+                flex-grow: 1;
+                &--no-grow {
+                    flex-grow: 0;
+                }
             }
-            .modal__body-content, .modal__body {
-                background-color: #444;
-                color: $white;  
+        }
+    }
+    .modal__sliding-toolbar {
+        @include sliding-toolbar;
+        max-height: 5.4rem;
+    }
+    .modal__header-element-grow {
+        flex-grow: 1;
+    }
+    .modal__header-buttons {
+        display: flex;
+        align-content: center;
+        &--right {
+            justify-content: right;
+            .btn, .dropdown {
+                margin: 0 0 0 1rem;
             }
-            .modal__header {
-                border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+        &--center {
+            justify-content: center;
+        }
+        &--grow {
+            flex-grow: 1;
+        }
+    }
+    .modal__footer {
+        @include modal-footer();
+    }
+    .modal__body {
+        @include modal-body();
+        flex: 0 1 auto;
+        width: 100%; 
+        max-width: $modal-base-width;
+        // modifier to add min height, if needed
+        &--add-min-height {
+            min-height: 300px; 
+            // we reset this value if the screen height is lower than 500px
+            @media (max-height: 500px) {
+                min-height: auto;
             }
-            .modal__footer {
-                border-top: 1px solid rgba(0, 0, 0, 0.12);
-            }
-            .subnav {
-                background-color: #292929;
-                color: $white;
-                box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 0 0 rgba(0, 0, 0, 0.3);
-            }  
+        }
+        &--no-padding {
+            padding: 0 !important;
+        }           
+    }
+    .modal__body-heading {
+        font-size: 1.8rem;
+        color: $sd-text;
+        font-weight: 400;
+        margin-bottom: 2rem;
+        line-height: 100%;
+        &--inactive {
+            color: $sd-text-light;
+        }
+        .badge {
+            vertical-align: bottom;
+            margin-right: 0.6rem;
         }
     }
 }
@@ -369,6 +371,7 @@ $modal-sizes: (
     font-size: 18px;
     font-weight: 300;
     line-height: 27px;
+    color: var(--color-text-light);
 
 }
 
@@ -392,6 +395,9 @@ $modal-sizes: (
 .modal--fullscreen {
     .modal__header, .modal__body {
         @include sd-padding('3', 'left');
+    }
+    .modal__heading {
+        min-width: 12rem;
     }
 }
 

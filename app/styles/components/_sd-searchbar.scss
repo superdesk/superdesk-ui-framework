@@ -120,12 +120,13 @@
 
 }
 .sd-searchbar__search-btn {
-    height: 2.8rem;;
-    width: 2.8rem;;
+    height: 2.8rem;
+    width: 2.8rem;
     flex-grow: 0;
     flex-shrink: 0;
     align-self: center;
-    margin: 0 0.8rem 0 0;
+    margin: 0;
+    margin-inline-end: 0.8rem;
     padding: 0;
     opacity: 0.8;
     transition: all 0.2s ease-out;
@@ -152,13 +153,21 @@
         }
     }
 }
+[dir="rtl"] {
+    .sd-searchbar__search-btn {
+        i.icon-chevron-right-thin {
+            transform: rotate(180deg);
+        }
+    }
+}
 .sd-searchbar__cancel {
     height: 1.6rem;
     width: 1.6rem;
     align-self: center;
     flex-grow: 0;
     flex-shrink: 0;
-    margin: 0 1rem 0 0;
+    margin: 0;
+    margin-inline-end: 1rem;
     padding: 0;
     opacity: 0.35;
     transition: opacity 0.2s ease-out;
@@ -185,18 +194,6 @@
     margin-top: 8px;
     .sd-searchbar__message {
         color: $red;
-    }
-}
-
-.subnav--dark-ui {
-    .sd-searchbar--focused {
-        background-color: rgba(0,0,0,0.25);
-    }
-    .sd-searchbar__search-btn {
-      [class^="big-icon--"],
-      [class*=" big-icon--"] {
-        color: $white;
-      }
     }
 }
 

@@ -10,7 +10,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
     constructor(props){
         super(props);
         this.state = {
-            tags: [{text: 'This is a tag'},{text: 'This is another tag', shade:'darker'},{text: 'Lorem ipsum', shade:'highlight1'}, {text: 'Dolor amet', shade:'highlight2', shape:'square'}],
+            tags: [{text: 'This is a tag'},{text: 'This is another tag', shade:'darker'}, {text: 'Inverse tag', shade:'inverse'}, {text: 'Lorem ipsum', shade:'highlight1'}, {text: 'Dolor amet', shade:'highlight2', shape:'square'}],
         }
         this.handleClick=this.handleClick.bind(this);
     }
@@ -56,7 +56,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
             <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='text' isRequired={true} type='string' default='/' description='Tag text value.'/>
-                    <Prop name='shade' isRequired={false} type='light | darker | highlight1 | highlight2' default='light' description='Shade colour of tag'/>
+                    <Prop name='shade' isRequired={false} type='light | darker | highlight1 | highlight2 | inverse' default='light' description='Shade colour of tag'/>
                     <Prop name='shape' isRequired={false} type='round | square' default='round' description='Make shape of tag square or default round.'/>
                     <Prop name='keyValue' isRequired={false} type='number' default='/' description='Value of tag key'/>
                 </PropsList>

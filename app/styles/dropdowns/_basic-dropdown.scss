@@ -69,8 +69,8 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     width: 0;
     height: 0;
     vertical-align: middle;
-    margin-top: -2px;
-    margin-left: 4px;
+    margin-block-start: -2px;
+    margin-inline-start: 4px;
     border-left:  4px solid transparent;
     border-right: 4px solid transparent;
     border-top:   4px solid $sd-text;
@@ -97,7 +97,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 .dropdown__menu {
     position: absolute;
     top: 100%;
-    left: 0;
+    inset-inline-start: 0;
     z-index: $zindexDropdown;
     display: none; // none by default, but block on "open" of the menu
     min-width: 200px;
@@ -107,7 +107,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     background-color: $dropdownBackground;
     box-shadow: $shadow__dropdown--default;
     border-radius: $dropdownMenuBorderRadius;
-    text-align: left;
+    text-align: start;
 
     // Links within the dropdown menu
     li, .dropdown__menu-item {
@@ -122,21 +122,21 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
             color: $dropdownLinkColor;
             background-color: $sd-colour-background__menu-item;
             padding: .6rem 1.6rem;
-            margin-bottom: .2rem;
+            margin-block-end: .2rem;
             font-size: 1.3rem;
             text-decoration: none;
-            text-align: left;
+            text-align: start;
             transition: $sd-transition__menu-item;
             > i[class^="icon-"], i[class*=" icon-"], i[class^="filetype-icon-"] {
-                margin-right: 1rem;
-                margin-top: -0.3rem;
+                margin-inline-end: 1rem;
+                margin-block-start: -0.3rem;
                 min-width: 1.9rem;
                 vertical-align: middle;
                 color: var(--color-text-light);
             }
             > i[class^="icon-"] {
-                margin-right: 1rem;
-                margin-top: -0.3rem;
+                margin-inline-end: 1rem;
+                margin-block-start: -0.3rem;
                 min-width: 1.9rem;
                 vertical-align: middle;
                 color: var(--color-icon-default);
@@ -243,7 +243,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         padding: .6rem 1.6rem;
         margin-bottom: .2rem;
         font-size: 1.3rem;
-        text-align: left;
+        text-align: start;
     }
     label {
         display: inline-block;
@@ -257,14 +257,14 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 .dropdown__menu-label {
     text-transform: uppercase;
     font-size: 1.1rem;
-    color: $grayLight;
+    color: var(--color-text-lighter);
     font-weight: 500;
-    padding-left: 1.6rem;
-    margin-bottom: .6rem;
+    padding-inline-start: 1.6rem;
+    margin-block-end: .6rem;
     .dropdown__menu-close {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        inset-block-start: 1rem;
+        inset-inline-end: 1rem;
         padding: 0;
         margin: 0;
         border: 0;
@@ -281,19 +281,20 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 }
 .dropdown__menu-header {
     border-bottom: 1px solid var(--color-border-line--light);
-    margin-bottom: 0.6rem;
+    margin-block-end: 0.6rem;
 }
 
 .dropdown__menu-footer {
     padding: 1rem;
-    margin-top: 0.6rem;
+    margin-block-start: 0.6rem;
     border-top: 1px solid var(--color-border-line--light);
     &--align-right {
-        text-align: right;
+        text-align: end;
     }
     &--has-list {
-        padding: 0.6rem 0 0 0;
-        margin-bottom: -0.4rem;
+        padding: 0;
+        padding-block-start: 0.6rem;
+        margin-block-end: -0.4rem;
     }
 }
 
@@ -305,13 +306,13 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 .dropdown__menu-item {
     padding: 0;
     &--left-10 {
-        padding-left: 1rem;
+        padding-inline-start: 1rem;
     }
 }
 
 .dropdown__menu--padded-l10 {
     > li {
-        padding-left: 1rem;
+        padding-inline-start: 1rem;
     }
     .dropdown__menu-item {
         padding: 0;
@@ -320,8 +321,8 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
 // Aligns the dropdown menu to right
 .dropdown__menu--right {
-    right: 0;
-    left: auto;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
 }
 
 .dropdown__menu {
@@ -360,11 +361,11 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
 //Right aligned dropdowns
 .dropdown--align-right .dropdown__menu, .dropdown--align-right.dropdown__menu {
-    left: auto;
-    right: 0;
+    inset-inline-start: auto;
+    inset-inline-end: 0;
     &:before {
-        left: auto;
-        right:10px;
+        inset-inline-start: auto;
+        inset-inline-end:10px;
     }
 }
 
@@ -395,8 +396,8 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     vertical-align: middle;
     .dropdown__menu {
         top: -2.3rem;
-        left: auto;
-        right: calc(100% + 0.3rem);
+        inset-inline-start: auto;
+        inset-inline-end: calc(100% + 0.3rem);
     }
 }
 
@@ -405,7 +406,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     vertical-align: middle;
     .dropdown__menu {
         top: -2.3rem;
-        left: 100%;
+        inset-inline-start: 100%;
     }
 }
 .dropdown--dropright.open {
@@ -532,47 +533,54 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
 // Dark dropdowns
 // -------------------------------------------------
-.dropdown.dropdown--dark {
+.dropdown.dropdown--boxed {
     .dropdown__toggle {
-        text-align: left;
-        background: rgba(127,127,127,.5);
+        text-align: start;
+        background: transparent;
+        height: $form-input-height;
         padding: 0.7rem 1.5rem;
-        border-radius: $border-radius__base--x-small;
-        color: #fff;
+        border-radius: $border-radius__base--small;
+        color: var(--color-text);
+        transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
         .dropdown__caret {
-            border-top-color: $white;
-            margin-left: 1rem;
+            border-top-color: var(--color-text);
+            margin-inline-start: 1rem;
         }
         &--small {
             padding: 0.5rem 1.5rem;
         }
         &--hollow {
-            border: 1px solid rgba(127,127,127,.75);
+            border: 1px solid var(--sd-colour-line--medium);
             background: none;
+            &:hover {
+                border: 1px solid var(--sd-colour-line--strong);
+            }
         }
         &--line {
-            background-color: rgba(255, 255, 255, 0.05);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
+            background-color: var(--color-input-bg);
+            border-bottom: 1px solid var(--color-input-border);
             &:hover {
-                border-bottom-color: rgba(255, 255, 255, 0.4);
-                background-color: rgba(255, 255, 255, 0.1);
+                border-color: var(--color-input-border-hover);
+                background-color: var(--color-input-bg--hover);
             }
             &:focus {
-                border-color: $sd-colour-interactive;
-                background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-colour-interactive;
+                box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
+                border-color: var(--sd-colour-interactive);
+                background-color: var(--sd-colour-interactive--alpha-20);
             }
         }
     }
     &.open {
         .dropdown__toggle {
             &--hollow {
-                border: 1px solid rgba(255,255,255,0.6);
-                background-color: rgba(255,255,255,.1);
+                border: 1px solid var(--sd-colour-interactive);
+                background-color: var(--sd-colour-interactive--alpha-20);
             }
             &--line {
-                background-color: rgba(255, 255, 255, 0.1);
-                box-shadow: 0 1px 0 0 $sd-colour-interactive, inset 0 0px 0 1px rgba(89, 169, 201, 0.4);
+                box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
+                border-color: var(--sd-colour-interactive);
+                background-color: var(--sd-colour-interactive--alpha-20);
             }
         }
     }

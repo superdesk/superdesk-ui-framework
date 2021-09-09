@@ -30,19 +30,21 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
 
 .sd-left-nav__btn {
     width: 100%;
-    text-align: left;
+    text-align: start;
     display: block;
     font-size: 1.4rem;
     line-height: 100%;
     text-decoration: none;
     background-color: $sd-leftNavBtn-bgColor;
-    padding: 1.6rem 0 1.6rem 3rem;
-    border-right: $sd-leftNavBtn-border;
+    padding-block-start: 1.6rem;
+    padding-block-end: 1.6rem;
+    padding-inline: 3rem 0;
+    border-inline-end: $sd-leftNavBtn-border;
     transition: $sd-leftNavBtn-transition;
-    color: $sd-text;
+    color: var(--color-text);
     &:hover {
         background-color: $sd-leftNavBtn-bgHoverColor;
-        color: $sd-text;
+        color: var(--color-text);
         text-decoration: none;
     }
     &:active, &--active {
@@ -50,7 +52,7 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
         color: $sd-colour-interactive;
     }
    &--active {
-        border-right: $sd-leftNavBtn-borderActive;
+        border-inline-end: $sd-leftNavBtn-borderActive;
     }
 }
 
@@ -61,8 +63,10 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
     line-height: 100%;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: $grayText;
-    padding: 2.6rem 0 0.9rem 1.6rem;
+    color: var(--color-text-light);
+    padding-block-start: 2.6rem;
+    padding-block-end: 0.9rem;
+    padding-inline: 1.6rem 0;
     border-top: 1px solid $sd-leftNav-borderColor;
     margin-top: 1rem;
     &--first, &:first-child {

@@ -1,18 +1,15 @@
-// Animated loader
-// ---------------------------------------------
-
-.sd-loader {
-    content: '';
-    display: block;
+.sd-loading-overlay {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    z-index: 99999;
+    z-index: 3;
     background-image: url(../img/three-dots.svg);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 60px;
     background-color: var(--sd-colour-overlay-actioning);
+    pointer-events: none;
+    border-radius: var(--b-radius--medium);
 }

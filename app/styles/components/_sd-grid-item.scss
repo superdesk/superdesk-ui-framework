@@ -55,6 +55,10 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
     &--selected, &.selected {
         box-shadow: $sd-grid-item-shadow-selected;
         background-color: var(--sd-colour-bg__grid-item--selected);
+        &:hover {
+            box-shadow: $sd-grid-item-shadow-selected;
+            background-color: var(--sd-colour-bg__grid-item--selected);
+        }
     }
     .sd-grid-item__actions {
         margin:0;
@@ -70,7 +74,7 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-left: auto;
+        margin-inline-start: auto;
         justify-content: flex-end;
         visibility: hidden;
         &--visible {
@@ -81,14 +85,15 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
 
     .sd-grid-item__top-actions {
         position: absolute;
-        top: 0;
-        right: 0;
+        inset-block-start: 0;
+        inset-inline-end: 0;
         z-index: 2;
         display: flex;
         flex-direction: row;
         visibility: hidden;
         color: $white;
-        padding: 4px 4px 0 0;
+        padding-block-start: 4px;
+        padding-inline-end: 4px;
         * {
             opacity: 0.75;
             transition: opacity 0.2s ease-in-out;
@@ -100,8 +105,8 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
     .sd-grid-item__remove  {
         margin:0;
         position: absolute;
-        top: 0.3rem;
-        right: 0.3rem;
+        inset-block-start: 0.3rem;
+        inset-inline-end: 0.3rem;
         z-index: 2;
         opacity: 0;
         height: 2.8rem;
@@ -114,8 +119,8 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
     .sd-grid-item__checkbox {
         visibility: hidden;
         position: absolute;
-        top: 12px;
-        left: 12px;
+        inset-block-start: 12px;
+        inset-inline-start: 12px;
         padding: 0.2rem;
         background: rgba(255,255,255,.15);
         border-radius: $border-radius__base--x-small;
@@ -129,16 +134,16 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             height: 1.6rem;
             width: 1.6rem;
             margin: 0;
-            top:-4px;
-            left:-2px;
+            inset-block-start:-4px;
+            inset-inline-start:-2px;
         }
         > .sd-checkbox {
             position: absolute;
             height: 1.6rem;
             width: 1.6rem;
             margin: 0;
-            top: -2px;
-            left: -2px;
+            inset-block-start: -2px;
+            inset-inline-start: -2px;
         }
         .sd-check-new__wrapper {
             visibility: hidden;
@@ -147,8 +152,8 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             height: 1.6rem;
             width: 1.6rem;
             margin: 0;
-            top:-2px;
-            left:-2px;
+            inset-block-start:-2px;
+            inset-inline-start:-2px;
             .sd-check-new {
                 position: absolute;
                 height: 1.6rem;
@@ -174,16 +179,16 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             height: 1.6rem;
             width: 1.6rem;
             margin: 0;
-            top:-4px;
-            left:-2px;
+            inset-block-start:-4px;
+            inset-inline-start:-2px;
         }
         > .sd-checkbox {
             position: absolute;
             height: 1.6rem;
             width: 1.6rem;
             margin: 0;
-            top: -2px;
-            left: -2px;
+            inset-block-start: -2px;
+            inset-inline-start: -2px;
         }
         .sd-check-new__wrapper {
             padding: 0;
@@ -191,8 +196,8 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             height: 1.6rem;
             width: 1.6rem;
             margin: 0;
-            top:-2px;
-            left:-2px;
+            inset-block-start:-2px;
+            inset-inline-start:-2px;
             .sd-check-new {
                 position: absolute;
                 height: 1.6rem;
@@ -402,7 +407,7 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
                 display: flex;
                 flex-direction: row;
                 align-items: center;
-                padding-left: 0.4rem;
+                padding-inline-start: 0.4rem;
             }
             &--multi-r {
                 flex-grow: 1;
@@ -410,13 +415,13 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
                 flex-direction: row;
                 align-items: center;
                 justify-content: flex-end;
-                padding-right: 0.4rem;
+                padding-inline-end: 0.4rem;
             }
             &--single-r {
                 flex-grow: 0;
             }
             &--left {
-                margin-right: auto;
+                margin-inline-end: auto;
                 justify-content: flex-start;
                 @include sd-padding('0-5');
                 > * {
@@ -424,7 +429,7 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
                 }
             }
             &--right {
-                margin-left: auto;
+                margin-inline-start: auto;
                 justify-content: flex-end;
                 > * {
                     margin: 0 0.4rem;
@@ -454,7 +459,7 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
         font-size: 5.2rem;
         height: 5.2rem;
         width: 5.2rem;
-        padding-top: 8.5rem;
+        padding-block-start: 8.5rem;
         opacity: 0.5;
     }
 
@@ -469,13 +474,13 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
         font-size: 1.1rem;
         letter-spacing: 0.04em;
         text-transform: uppercase;
-        margin-right: 1rem;
+        margin-inline-end: 1em;
     }
     .sd-grid-item__title {
         font-weight: 600;
         letter-spacing: 0.02em;
         font-size: 1.4rem;
-        margin-bottom: 1rem;
+        margin-block-end: 1rem;
         word-break: break-word;
     }
 
@@ -488,13 +493,13 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
 
     time {
         display: block;
-        color: #747474;
+        color: var(--color-text-light);
         font-size: 1.2rem;
         letter-spacing: 0.025em;
         flex-shrink: 0;  
     }
     p {
-        margin-bottom: 1rem;
+        margin-block-end: 1rem;
         &.error {
             margin: auto;
             padding: 1.2rem;
@@ -524,14 +529,15 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             //position: relative;
             &:after {
                 content: "";
-                width: 9.2rem;
+                width: 8.2rem;
                 height: 9.2rem;
                 position: absolute;
+                overflow: hidden;
                 background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTYiIGhlaWdodD0iMTE2IiB2aWV3Qm94PSIwIDAgMTE2IDExNiI+PHBhdGggZmlsbD0iIzdCN0I3QiIgZD0iTTU4IDBDMjYgMCAwIDI2IDAgNThzMjYgNTggNTggNTggNTgtMjYgNTgtNThTOTAgMCA1OCAwem0zNy4xIDM4LjhMNDYuMyA4Ny42Yy0uNS41LTEuMi41LTEuNyAwTDE4LjkgNjEuOGMtLjUtLjUtLjUtMS4yIDAtMS43bDguMi04LjJjLjUtLjUgMS4yLS41IDEuNyAwTDQ1IDY4LjFjLjMuMy44LjMgMS4xIDBsMzkuMi0zOS4yYy41LS41IDEuMi0uNSAxLjcgMGw4LjIgOC4yYy40LjUuNCAxLjItLjEgMS43eiIvPjwvc3ZnPg==) no-repeat;
-                background-size: 11.6rem;
+                background-size: 9.6rem;
                 background-position: 0 0;
                 bottom: 0;
-                right: 0rem;
+                inset-inline-end: 0rem;
                 opacity: 0.14;
             }
         }
@@ -544,7 +550,7 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             position: absolute;
             top: 50%;
             margin: auto;
-            margin-top: -2.4rem;
+            margin-block-start: -2.4rem;
             font-size: 4.8rem;
             line-height: 4.8rem;
             color: currentColor;
@@ -618,7 +624,7 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
 .sd-grid-item__text-label {
     font-weight: 300;
     font-style: italic;
-    margin-right: 0.3rem;
+    margin-inline-end: 0.3rem;
     opacity: 0.7;
 }
 .sd-grid-item__text-strong {
@@ -680,13 +686,13 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
     display: flex;
 
     &__heading {
-        color: $grayDarker;
+        color: var(--color-text);
         font-size: 15px;
         font-weight: 500;
         flex-grow: 1;
 
         & + div {
-            margin-left: 8px;
+            margin-inline-start: 8px;
         }
 
         a {
@@ -700,7 +706,7 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             [class^="icon-"],
             [class*=" icon-"] {
                 color: $sd-blueMedium;
-                margin-left: 8px;
+                margin-inline-start: 8px;
             }
 
             &:hover {

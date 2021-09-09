@@ -60,7 +60,7 @@ export default class TooltipDoc extends React.Component {
                        
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
                             
-                            <div className="docs-page__content-row docs-page__content-row--no-margin" style={{background: "#ebebeb", width: "100%", padding: "5px", overflow: "hidden"}}>
+                            <div className="docs-page__content-row docs-page__content-row--no-margin">
                                 <Tooltip text="I'm appended to body" flow='top' appendToBody={true}>
                                     <Button text='top' onClick={() => false} />
                                 </Tooltip>

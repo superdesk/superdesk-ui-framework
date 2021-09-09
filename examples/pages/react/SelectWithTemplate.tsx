@@ -73,7 +73,7 @@ export class SelectWithTemplateDocs extends React.Component<{}, IState> {
                                         } else {
                                             return (
                                                 <div style={{display: 'flex', alignItems: 'center'}}>
-                                                    <div style={{width: 10, height: 10, marginRight: 10, backgroundColor: option.colorCode}} />
+                                                    <div style={{width: 10, height: 10, marginInlineEnd: 10, backgroundColor: option.colorCode}} />
                                                     <div>{option.name}</div>
                                                 </div>
                                             );
