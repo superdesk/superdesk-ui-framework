@@ -64,6 +64,9 @@ export { toasted } from './components/Toast';
 export { Menu } from './components/Menu';
 export { ToggleBox } from './components/Togglebox';
 
+export { Skeleton } from './components/Skeleton';
+export { ListItemLoader } from './components/ListItemLoader';
+
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
 export declare const reactToAngular1: any;
