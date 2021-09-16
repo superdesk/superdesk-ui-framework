@@ -41,6 +41,7 @@ import GridItemDoc from './GridItem';
 import ModalDoc from './Modal';
 import CarouselDoc from './Carousel';
 import ToggleboxDocs from './Togglebox';
+import ListItemsDoc from './ListItems';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
@@ -137,7 +138,10 @@ const pages = {
             },
             "togglebox": {
                 name: "Togglebox"
-            }
+            },
+            'list-items': {
+                name: 'List items'
+            },
         }
     },
     formComponents: {
@@ -231,6 +235,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/carousel" component={CarouselDoc} />
                         <Route path="/react/menu" component={MenuDocs} />
                         <Route path="/react/togglebox" component={ToggleboxDocs} />
+                        <Route path="/react/list-items" component={ListItemsDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
