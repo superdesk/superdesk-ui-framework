@@ -4,12 +4,12 @@ sdModal.$inject = ['$document', '$rootScope'];
 function sdModal($document, $rootScope) {
     return {
         template:
-`<div class="modal" data-theme="{{theme}}" data-backdrop="static" data-test-id="{{testId}}">
-    <div class="modal__dialog" ng-if="model">
-        <div class="modal__content" ng-transclude></div>
-    </div>
-</div>
-<div class="modal__backdrop fade in" ng-if="model"></div>`,
+            `<div class="modal" data-theme="{{theme}}" data-backdrop="static" data-test-id="{{testId}}">
+                <div class="modal__dialog" ng-if="model">
+                    <div class="modal__content" ng-transclude></div>
+                </div>
+            </div>
+            <div class="modal__backdrop fade in" ng-if="model"></div>`,
         transclude: true,
         scope: {
             model: '=',
@@ -31,25 +31,38 @@ function sdModal($document, $rootScope) {
                         content[0].style = 'z-index: ' + (1050 + $rootScope.modals);
                         content[1].style = 'z-index: ' + (1049 + $rootScope.modals);
                         _initialized = true;
+                        console.log(content);
                     }
                     content.show().addClass('in');
                     $document.find('body').addClass('modal-open');
                     $rootScope.modals++;
                 } else if (initialized()) {
                     content.hide().removeClass('in');
-                    $document.find('body').removeClass('modal-open');
+                    
+                    // If multiple modals are opened,
+                    // remove modal class only when last one is closed
+                    if ($rootScope.modals === 1) {
+                        $document.find('body').removeClass('modal-open');
+                    }
+
                     closeModal();
                 }
             });
 
             var closeModal = function () {
                 scope.model = false;
-                $rootScope.modals--;
+
+                if ($rootScope.modals > 0) {
+                    $rootScope.modals--;
+                }
+                
                 scope.$evalAsync();
             };
 
             $document.bind('keydown', (evt) => {
-                if (evt.which === 27) {
+                evt.preventDefault();
+
+                if (evt.which === 27 && $rootScope.modals > 0) {
                     closeModal();
                 }
             });
