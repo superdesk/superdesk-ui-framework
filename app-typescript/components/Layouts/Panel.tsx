@@ -3,8 +3,6 @@ import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import classNames from 'classnames';
 
-
-
 // ============= Panel ============ //
 
 interface IPropsPanel {
@@ -21,7 +19,8 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
     render() {
         let classes = classNames('side-panel', {
             [`side-panel--${this.props.side}`] : this.props.side,
-            [`side-panel--${this.props.background}`]: this.props.background !== 'light' && this.props.background !== undefined,
+            [`side-panel--${this.props.background}`]:
+                this.props.background !== 'light' && this.props.background !== undefined,
         }, this.props.className);
         let classes2 = classNames('side-panel__container', {
             [`side-panel__container--${this.props.side}`] : this.props.side,
@@ -86,8 +85,6 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
 
 // ============= Panel Content ============ //
 
-
-
 class PanelContent extends React.PureComponent {
     render() {
         return (
@@ -103,7 +100,7 @@ class PanelContent extends React.PureComponent {
 interface IPropsContentBlock {
     children?: React.ReactNode;
     flex?: boolean;
-    padding?: '0' | '1-5' | '3'; // Padding overrides based on the $sd-base-increment of 8 pixels (e.g. 1-5 equals 12 pixels etc.). Defaults to 2 (16 pixels) without specifiying a value.
+    padding?: '0' | '1-5' | '3'; // Defaults to 2 (16 pixels) without specifiying a value.
     className?: string;
 }
 
@@ -156,7 +153,7 @@ class PanelHeaderSlidingToolbar extends React.PureComponent<IPropsSlidingToolbar
     }
 }
 
-
+// ============= Panel Tools ============ //
 
 export interface IPanelTools {
     icon: string;
@@ -189,5 +186,6 @@ class PanelTools extends React.PureComponent<IPropsPanelTools> {
 }
 
 export {
-    Panel, PanelHeader, PanelContent, PanelContentBlock, PanelFooter, PanelHeaderSlidingToolbar, PanelTools
+    Panel, PanelHeader, PanelContent, PanelContentBlock, PanelFooter, PanelHeaderSlidingToolbar,
+    PanelTools
 };
