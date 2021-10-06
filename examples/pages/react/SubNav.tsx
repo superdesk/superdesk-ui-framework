@@ -60,7 +60,7 @@ export default class SubNavDoc extends React.Component {
                             </ButtonGroup>
                         </SubNav>
                         <br />
-                        <SubNav color='darker' zIndex={1}>
+                        <SubNav color='blueGreyDarker' zIndex={1}>
                             <ButtonGroup align='center'>
                             <Button text='One' onClick={()=> false} />
                                 <Button text='Two' onClick={()=> false} />

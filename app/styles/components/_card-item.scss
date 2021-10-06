@@ -2,16 +2,15 @@
 // ---------------------------------------------
 
 //color variables
-$card-item-header-bg-normal: #607d8b;
-$card-item-header-bg-inactive: #b1b1b1;
+$card-item-header-bg-normal: hsl(200, 18%, 46%);
+$card-item-header-bg-inactive: hsl(0, 0%, 69%);
 $card-item-header-bg-active: $sd-blueMedium;
-$card-item-header-bg-light: #bfbfbf;
+$card-item-header-bg-light: var(--sd-colour-panel-bg--300);
 $card-item-header-bg-gradient-1: linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
 $card-item-header-bg-secondary: $subnav-background-blue-grey-darker;
 $card-item-top-border-height: 0.4rem;
 $card-item-rounded-radius: $border-radius__base--large;
 $card-item-default-radius: $border-radius__base--medium;
-
 
 //shadows
 $card-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
@@ -105,20 +104,34 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         &--empty {
             height:8px;
         }
+        &--light,
+        &--white  {
+            
+            background-color: var(--sd-item__main-Bg);
+            color: $sd-text;
+            box-shadow: 0 1px 0 var(--sd-colour-line--light);
+            &::before {
+                background-color: hsla(214, 13%, 50%, 0.5);
+            }
+        }
         &--light {
             background-color: $card-item-header-bg-light;
-        }
-        &--white {
-            background-color: $white;
-            color: $sd-text;
-            box-shadow: 0 1px 0 rgba(136, 136, 136, 0.25);
+            .sd-card__thumbnail {
+                background-color: var(--sd-item__thumb-Bg--light);
+            }
         }
         &--gradient-1 {
             background: $card-item-header-bg-gradient-1;
+            .sd-card__thumbnail {
+                background-color: transparent;
+            }
         }
         &--blank {
             background-color: transparent;
             &::before {
+                background-color: transparent;
+            }
+            .sd-card__thumbnail {
                 background-color: transparent;
             }
         }
@@ -210,16 +223,17 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         }
     }
     .sd-card__thumbnail {
-        padding-top: 0.4rem;
+        margin-top: 0.4rem;
         line-height: 0;
+        background-color: var(--sd-item__thumb-Bg);
         & + .sd-card__heading {
-            background-color: $white;
+            background-color: var(--sd-item__main-Bg);
             font-weight: 500;
             text-align: center;
             color: $sd-text;
             padding: 1rem 1.6rem;
             width: 100%;
-            box-shadow: 0 1px 0 rgba(136, 136, 136, 0.25);
+            box-shadow: 0 1px 0 var(--sd-colour-line--light);
         }
     }
     .sd-card__content {
@@ -250,7 +264,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             .value-label {
                 float: right;
                 font-size: 13px;
-                color: #333;
+                color: var(--color-text);
                 font-weight: 400;
                 text-transform: none;
                 letter-spacing: 0em;
@@ -299,7 +313,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
         li, .sd-card__content-list-item {
             padding: 16px;
-            border-bottom: 1px solid #ebebeb;
+            border-bottom: 1px solid var(--sd-colour-line--light);
             &--inline {
                 display: flex;
                 h4 { flex: 1 1; }
@@ -316,7 +330,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             }
             &--border-bottom {
                 &:last-child {
-                    border-bottom: 1px solid #ebebeb;
+                    border-bottom: 1px solid var(--sd-colour-line--light);
                 }
             }
             &--small {
@@ -332,7 +346,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         .creation-time {
             display: block;
             font-size: 12px;
-            color: #999;
+            color: var(--color-text-light);
             i {
                 display: inline-block;
                 opacity: 0.5;
@@ -391,12 +405,10 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         align-items: center;
         @include sd-padding('1-5', 'x');
         min-height: $sd-base-increment * 6;
-        background-color: $sd-background;
+        background-color: var(--sd-item__main-Bg);
         border-radius: 0 0 $card-item-default-radius $card-item-default-radius;
-        box-shadow: 0 -1px 0 0 rgba(0,0,0,.1);
-        &--light {
-            background-color: $white;
-        }
+        box-shadow: 0 -1px 0 0 var(--sd-colour-line--light);
+        gap: $sd-base-increment;
         &--right-align {
             justify-content: flex-end;
         }

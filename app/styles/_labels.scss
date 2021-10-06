@@ -151,3 +151,11 @@ a.label {
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     }
 }
+
+.label.label--hollow.label--darkBlue2 {
+    border: 1px solid var(--sd-navy-color);
+    color: var(--sd-navy-color);
+}
+.label.label--darkBlue2 {
+    background: var(--sd-navy-color);
+}

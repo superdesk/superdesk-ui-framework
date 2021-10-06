@@ -11,20 +11,20 @@
     grid-gap: 0;
     height: 100vh;
     position: relative;
-    background-color: aquamarine;
+    background-color: var(--sd-colour-panel-bg--100);
 
     .sd-main-menu {
         grid-column: 1/2;
         grid-row: 1/5;
-        background-color: #272727;
+        background-color: var(--sd-colour-bg--02);
         width: 30rem;
-        box-shadow: inset -4px 0 12px rgba(0,0,0,0.9);
+        box-shadow: inset -4px 0 12px hsla(0, 0%, 0%, 0.9);
         display: none;
         .sd-left-nav__btn {
-            color: rgba(255, 255, 255, 0.75);
+            color: hsla(0, 0%, 100%, 0.75);
         }
         .sd-left-nav__group-header {
-            border-top: 1px solid rgba(255, 255, 255, 0.14);
+            border-top: 1px solid hsla(0, 0%, 100%, 0.14);
         }
     }
     .sd-top-menu {
@@ -37,7 +37,7 @@
         grid-column: 2/3;
         grid-row: 2/3;
         z-index: 1;
-        background-color: var(--color-bg-50);
+        background-color: var(--sd-colour-panel-bg--100);
         overflow: auto;
     }    
     .bottom-bar {
@@ -85,6 +85,9 @@
     flex-direction: row;
     overflow-x: hidden;
     overflow-y: auto;
+}
+.sd-column-box--3 {  
+    z-index: 1;
 }
 .sd-column-box__main-column {
     flex-grow: 1;
@@ -298,7 +301,7 @@
 }
 
 .sd-page-content__content-block--right::before {
-    border-left: 3px solid #6C6C6C;
+    border-left: 3px solid var(--sd-colour__splitter);
     background-image: linear-gradient(to right,rgba(0,0,0,.2) 0,transparent 100%);
     display: block;
     bottom: 0;
@@ -451,25 +454,21 @@ $planningEditor-width: 53rem;
     }
 }
 .sd-filters-panel {
-    background-color: $sd-filters-bg;
-    border-right: 0px solid rgba(0, 0, 0, 0); 
+    background-color: var(--sd-colour-panel-bg--100);
+    border-inline-end: 0px solid hsla(0, 0%, 0%, 0);
 }
 .sd-preview-panel {
     background-color: var(--sd-colour-panel-bg--100);
-    border-left: 0px solid rgba(0, 0, 0, 0);
-    &--dark-ui {
-        background-color: var(--sd-colour-panel-bg--100);
-    }
-
+    border-inline-start: 0px solid hsla(0, 0%, 0%, 0);
 }
 .open-filters {
     .sd-filters-panel {
         width: 36rem;
-        border-right: 2px solid rgba(0, 0, 0, 0.25);
+        border-inline-end: 2px solid var(--sd-colour__side-panel-border);
 
         &--border-left {
-            border-right: none;
-            border-left: 2px solid rgba(0, 0, 0, 0.25);
+            border-inline-end: none;
+            border-inline-start: 2px solid var(--sd-colour__side-panel-border);
         }
         .side-panel {
             opacity: 1;
@@ -770,7 +769,7 @@ $planningEditor-width: 53rem;
         grid-row: contentContainer;
         z-index: 1;
         overflow: auto;
-        background-color: var(--color-bg-50);
+        background-color: var(--sd-colour-panel-bg--100);
 
     }    
     .bottom-bar {

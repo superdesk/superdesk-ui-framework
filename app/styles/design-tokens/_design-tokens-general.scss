@@ -1,0 +1,57 @@
+// DESIGN TOKENS
+// ====================================================
+:root {
+    // GENERAL
+
+    // BORDER RADIUS
+    --b-radius--x-small: 2px;
+    --b-radius--small: 3px;
+    --b-radius--medium: 4px;
+    --b-radius--large: 6px;
+    --b-radius--x-large: 8px;
+    --b-radius--full: 9999px;
+
+    // WIDTHS
+    --width__container--xx-small:  24rem;
+    --width__container--x-small:   32rem;
+    --width__container--small:     40rem;
+    --width__container--medium:    48rem;
+    --width__container--large:     56rem;
+    --width__container--x-large:   72rem;
+    --width__container--xx-large:  80rem;
+    --width__container--xxx-large: 120rem;
+    --width__container--full:      100%;
+
+    // modal sizes
+    --width__modal--small:         40rem;
+    --width__modal--medium:        64rem;
+    --width__modal--large:         80rem;
+    --width__modal--x-large:       80vw;
+}
+
+:root, [data-theme="light-ui"] {
+    --sd-shadow-outline: hsla(0, 0%, 0%, 0);
+    --sd-shadow-outline--2: hsl(214, 13%, 0%, 0.06);
+    --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.4), 0 3px 1px -2px hsla(0, 0%, 0%, 0.1);
+    --sd-shadow__modal: 0 0 0 1px var(--sd-shadow-outline), 0 0 8px 2px hsla(0, 0%, 0%, 0.3);
+    --sd-shadow__toast: 0 0 0 1px var(--sd-shadow-outline--2), 0 2px 4px hsla(0, 0%, 0%, 0.12), 0 8px 12px hsla(0, 0%, 0%, 0.16);
+    --sd-shadow__sliding-toolbar: 0 2px 4px -1px hsla(0, 0%, 0%, 0.2), 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
+}
+
+[data-theme="dark-ui"], .dark-ui {
+    --sd-shadow-outline: hsl(214, 13%, 60%, 0.1);
+    --sd-shadow-outline--2: hsl(214, 13%, 60%, 0.1);
+    --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.6), 0 3px 1px -2px hsla(0, 0%, 0%, 0.2);
+    --sd-shadow__modal: 0 0 0 1px var(--sd-shadow-outline), 0 0 8px 2px hsla(0, 0%, 0%, 0.4);
+    --sd-shadow__toast: 0 0 0 1px var(--sd-shadow-outline--2), 0 2px 4px hsla(0, 0%, 0%, 0.24), 0 8px 12px hsla(0, 0%, 0%, 0.26);
+}
+
+
+
+
+.sd-top-menu, #top-menu {
+    .navbtn, .sd-navbtn {
+      --color-navbutton-border: hsla(214, 13%, 70%, 0.1) !important;
+      --sd-colour-line--x-light: hsla(214, 13%, 70%, 0.1) !important;
+    }
+  }

@@ -6,9 +6,9 @@
 
 $checkBoxBorderColor: var(--color-checkbox-border);
 $checkBoxBorderColorHover: var(--color-checkbox-border-hover);
-$checkButtonTextColor-darkUI: rgba(255,255,255,0.65);
-$checkButtonTextColor: #5a5a5a;
-$checkButtonBorderColor: rgba(140,140,140,0.5);
+$checkButtonTextColor: var(--color-text-light);
+$checkButtonBorderColor: var(--sd-colour-line--light);
+$checkButtonBorderColorHover: var(--sd-colour-line--strong);
 $checkButtonBorderRadius: $border-radius__base--small;
 
 
@@ -129,9 +129,9 @@ $checkButtonBorderRadius: $border-radius__base--small;
             display: none;
         }
         &:hover {
-            color: darken($checkButtonTextColor, 30%);
-            border-color: scale-color($checkButtonBorderColor, $alpha: 90%);
-            @include box-shadow(0, 1px, 4px, 0, rgba(0,0,0,0.20));
+            color: var(--color-text);
+            border-color: $checkButtonBorderColorHover;
+            box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
         }
         &.checked, &[checked="checked"] {
             background-color: var(--sd-colour-interactive--active);
@@ -319,7 +319,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     align-items: center;
     justify-content: center;
     height: $sd-base-increment * 4;
-    color: inherit;
+    color: var(--color-text);
     @include text-overflow;
     cursor: pointer;
     .sd-check-button__text-label {
@@ -340,10 +340,11 @@ $checkButtonBorderRadius: $border-radius__base--small;
         margin-inline-start: $sd-base-increment;
     }
     &:hover {
-        border-color: scale-color($checkButtonBorderColor, $alpha: 90%);
-        box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
         .sd-check-button__text-label {
             opacity: 1;
+            border-color: $checkButtonBorderColorHover;
+            box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
+            color: var(--color-text);
         }
     }
     &.checked, &[checked="checked"] {
@@ -608,36 +609,53 @@ $checkButtonBorderRadius: $border-radius__base--small;
 // END NEW CHECKBOX & RADIO
 // ============================================================================
 
-// [class^="--dark-ui"],
-// [class*="--dark-ui"],
-// [data-theme="dark-ui"],
-// .dark-ui {
-//     .sd-checkbox {
-//         border-color: rgba(255, 255, 255, 0.4);
-//         &:hover {
-//             border-color: rgba(255, 255, 255, 0.6);
-//         }
-//         &.checked, &[checked="checked"] {
-//             border-color: $sd-colour-interactive;
-//             &:hover {
-//                 border-color: var(--sd-colour-interactive--hover);
-//                 background-color: var(--sd-colour-interactive--hover);
-//             }
-//         }
-//     }
-//     .sd-checkbox--button-style {
-//         color: $checkButtonTextColor-darkUI;
-//         border-color: rgba(255, 255, 255, 0.18);
-//         &:hover {
-//             color: scale-color($checkButtonTextColor-darkUI, $alpha: 100%);
-//         }
-//         &.checked, &[checked="checked"] {
-//             border-color: var(--sd-colour-interactive--active);
-//             border-top-color: var(--sd-colour-interactive--darken-20);
-//             @include box-shadow(0, 2px, 0, 0, rgba(0,0,0,0.20), true);
-//             &:hover {
-//                 border-color: var(--sd-colour-interactive--darken-30);
-//             }
-//         }
-//     }
-// }
+
+
+// TOGGLE BUTTON
+// use of this will be discontinued. It is here just to support older components in
+// Superdeks untill they are refactored
+
+
+.toggle-button {
+    @include sd-padding('1-5', 'x');
+    line-height: 1;
+    border: 1px solid $checkButtonBorderColor;
+    border-radius: $checkButtonBorderRadius;
+    transition: all 0.2s ease-in-out;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: $sd-base-increment * 4;
+    color: var(--color-text);
+    @include text-overflow;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.2rem;
+    background: transparent;
+    transition: all 0.2s ease-out;
+    [class^="icon-"],
+    [class*=" icon-"],
+    .toggle-button__icon {
+        color: currentColor;
+    }
+    &:hover {
+        border-color: $checkButtonBorderColorHover;
+        box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
+        color: var(--color-text);
+    }
+    &.toggle-button--active {
+        background-color: var(--sd-colour-interactive--active);
+        border-color: var(--sd-colour-interactive--active);
+        border-top-color: var(--sd-colour-interactive--darken-20);
+        box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
+        color: $white;
+        &:hover {
+            color: $white;
+            border-color: var(--sd-colour-interactive--active);
+            background-color: var(--sd-colour-interactive--hover);
+            box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
+        }
+    }
+}
+

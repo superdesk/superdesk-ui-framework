@@ -7,3 +7,304 @@
     height: 1px;
     overflow: hidden;
 }
+
+[data-theme="accessible-light-ui"] {
+
+    --font-size-large: 1.5rem;
+  
+    --color-accessible-text:              hsla(0, 0%, 7%, 1);
+    --sd-slugline-color:                  hsla(241, 100%, 50%, 1);
+  
+    --color-input-bg:                     hsla(0, 0%, 0%, 0.05);
+    --color-input-bg--hover:              hsla(0, 0%, 0%, 0.08);
+    --color-input-bg--focus:              hsla(198, 49%, 58%, 0.14);
+    --color-label-text:                   hsla(0, 0%, 25%, 1);
+  
+    --color-input-border:                 hsla(0, 0%, 0%, 0.35);
+    --color-input-border-hover:           hsla(0, 0%, 0%, 0.8);
+  
+    --color-form-bg:                      hsla(0, 0%, 100%, 0);
+    --color-text:                         hsla(0, 0%, 0%, 1);
+  
+    --color-selected-bg:                  hsla(196, 35%, 94%, 1);
+    --color-selected-bg--hover:           hsl(198, 36%, 91%, 1);
+  
+    --color-bg-00:                        hsla(0, 0%, 100%, 1);
+    --color-bg-50:                        hsla(0, 0%, 97%, 1);
+    --color-bg-100:                       hsla(0, 0%, 93%, 1);
+    --color-bg-150:                       hsla(0, 0%, 87%, 1);
+    --color-bg-200:                       hsla(0, 0%, 63%, 1);
+  
+    --color-bg-800:                       hsla(0, 0%, 17%, 1);
+  
+  
+    --color-accessible-primary:           hsla(241, 100%, 50%, 1);
+  
+    [class^="icon-"],
+    [class*=" icon-"],
+    [class^="big-icon--"],
+    [class*=" big-icon--"] {
+      color:                              hsla(0, 0%, 0%, 1);
+    }
+  
+    .sd-checkbox--button-style {
+      color:                              hsla(0, 0%, 7%, 1);
+    }
+    .sd-checkbox--button-style.checked,
+    .sd-checkbox--button-style[checked="checked"] {
+      background-color:                   var(--color-accessible-primary);
+      border-color:                       var(--color-accessible-primary);
+      border-top-color:                   hsla(241, 98%, 17%, 1);
+      color:                              hsla(0, 0%, 100%, 1);
+      &:hover {
+        background-color:                 hsla(241, 98%, 20%, 1);
+        border-color:                     hsla(241, 98%, 20%, 1);
+        border-top-color:                 hsla(241, 100%, 11%, 1);
+      }
+    }
+    .sd-create-btn .circle {
+      background-color:                   var(--color-accessible-primary);
+    }
+  
+    .navbtn.navbtn--active {
+      background-color:                   hsla(0, 0%, 27%, 1);
+      color:                              $white;
+    }
+    .btn {
+      color: var(--color-accessible-text);
+      font-weight: 600;
+      font-size: 1.4rem;
+      &.btn--primary {
+        background-color:                 var(--color-accessible-primary);
+        color:                            $white;
+      }
+      &.btn--hollow {
+        background-color:                 $white;
+      }
+    }
+  
+    .sd-list-item {
+      font-size: 1.5rem;
+      .sd-list-item__slugline {
+        font-size: 1.3rem;
+      }
+      time {
+        color:                            hsla(0, 0%, 28%, 1);
+        font-weight: 400;
+      }
+    }
+    .badge {
+      font-size: 1.2rem;
+      line-height: 1.1em;
+      font-weight: 600;
+    }
+    .side-panel {
+      background-color: $white;
+      color: var(--color-accessible-text);
+      .side-panel__header {
+        background-color:               $white;
+      }
+      .side-panel__heading {
+        font-weight: 500;
+        color:                          var(--color-accessible-text);
+      }
+      p {
+        font-size: 1.6rem;
+        line-height: 1.5;
+        color:                          var(--color-accessible-text);
+      }
+      .sd-text__date-and-author {
+        font-size: 1.4rem;
+        time {
+          font-weight: 400;
+          color:                        hsla(0, 0%, 35%, 1);
+        }
+      }
+      &.side-panel--dark-ui {
+        background-color: var(--color-bg-800);
+        color: $white;
+       i[class^="icon-"] {
+          color:                        $white;
+        }
+        .side-panel__header {
+          background-color:             var(--color-bg-800);
+          color:                        $white !important;
+          i[class^="icon-"] {
+            color:                      $white !important;
+          }
+          
+        }
+      }
+    }
+  
+    .sd-input {
+      .sd-input__label {
+        font-weight: 600;
+        font-size: 1.2rem;
+      }
+      .sd-input__input,
+      .sd-input__select {
+        font-size: 1.5rem;
+      }
+      .sd-input__hint,
+      .sd-input__message {
+        font-size: 1.4rem;
+        margin: 0.8rem 0;
+      }
+      .sd-input__hint {
+        color:                          hsla(0, 0%, 27%, 1);
+      }
+    }
+  
+    .form-label {
+      font-size: 1.2rem;
+      font-weight: 500;
+      &.form-label--light {
+        color:                          hsla(0, 0%, 32%, 1);
+      }
+    }
+  
+    .navbtn {
+      color: #111;
+      [class^="icon-"], [class*=" icon-"] {
+        color: currentColor;
+      }
+    }
+  
+    .dropdown__menu-label {
+      font-size: 1.2rem;
+      color:                            hsla(0, 0%, 35%, 1);
+    }
+    .dropdown__toggle:active,
+    .dropdown.open .dropdown__toggle {
+      color: var(--color-accessible-primary);
+    }
+    .dropdown__menu li a:not(.btn),
+    .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button),
+    .dropdown__menu .dropdown__menu-item a:not(.btn), 
+    .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color:                            currentColor;
+    }
+    .dropdown__menu li a:not(.btn):hover,
+    .dropdown__menu li a:not(.btn):focus,
+    .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):hover,
+    .dropdown__menu li button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):focus,
+    .dropdown__menu .dropdown__menu-item a:not(.btn):hover,
+    .dropdown__menu .dropdown__menu-item a:not(.btn):focus,
+    .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):hover,
+    .dropdown__menu .dropdown__menu-item button:not(.btn):not(.dropdown__menu-close):not(.toggle-button):focus {
+      background:                       var(--color-accessible-primary);
+      color:                            $white;
+       > i[class^="icon-"] {
+        color:                          $white;
+      }
+    }
+    .dropdown.open .navbtn > i {
+      color:                            var(--color-accessible-primary);
+    }
+  
+    .sd-text__slugline,
+    p.sd-text__slugline {
+      color:                            var(--color-accessible-primary) !important;
+    }
+  
+    .toggle-box--circle .toggle-box__chevron {
+      background-color:                 hsla(0, 0%, 48%, 0.5);
+      height: 2rem;
+      width: 2rem;
+    }
+    .toggle-box__label {
+      font-size: 1.4rem;
+      color:                            var(--color-label-text);
+      font-weight: 500;
+    }
+  
+    .sd-grid-item {
+      time {
+        color:                          hsla(0, 0%, 28%, 1);
+        font-size: 1.3rem;
+        font-weight: 400;
+      }
+      .sd-grid-item__slugline {
+        font-size: 1.2rem;
+      }
+    }
+    .nav-tabs {
+      .nav-tabs__link {
+        font-size: 1.6rem;
+        font-weight: 500;
+      }
+      &--big {
+        .nav-tabs__link {
+          font-size: 2rem;
+        }
+      }
+    }
+  
+    .nav-tabs__tab--active, 
+    .nav-tabs__tab--active:hover {
+      .nav-tabs__link {
+        border-bottom-color:          var(--color-accessible-primary);
+        color:                        var(--color-accessible-text);
+      }
+    }
+  
+    .side-panel.side-panel--dark-ui {
+      .nav-tabs__tab {
+          .nav-tabs__link {
+            border-bottom-color: transparent;
+            color:                    $white;
+            opacity: 0.6;
+        }
+        &:hover {
+          .nav-tabs__link {
+            border-bottom-color:      hsla(0, 0%, 100%, 0.25);
+            opacity: 1;
+          }
+        }
+        &.nav-tabs__tab--active,
+        &.nav-tabs__tab--active:hover {
+          .nav-tabs__link {
+            border-bottom-color:      hsla(240, 100%, 65%, 1);
+            color:                    $white;
+            opacity: 1;
+          }
+        }
+      }
+  
+      .toggle-box__label {
+        color:                        $white;
+      }
+  
+      .sd-line-input .sd-line-input__label {
+        color:                        $white;
+        opacity: 0.7;
+      }
+  
+      a.text-link.text-link--white {
+        color:                        $white;
+        opacity: 0.75;
+        &:hover {
+          opacity: 1;
+        }
+      }
+    }
+    .badge {
+      &.badge--primary {
+        background-color: var(--color-accessible-primary);
+      }
+      &.badge--success {
+        background-color:             hsla(133, 100%, 19%, 1);
+      }
+      &.badge--warning {
+        background-color:             hsla(33, 100%, 26%, 1);
+      }
+    }
+    .sd-sidebar-menu__btn--active,
+    .sd-sidebar-menu__btn--active:hover {
+      background-color:               var(--color-accessible-primary);
+  
+    }
+}

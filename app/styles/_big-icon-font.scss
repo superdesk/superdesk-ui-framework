@@ -6,7 +6,7 @@
 // of .i and are then given a unique class to add width, height,
 // and font specification. Your resulting HTML will look like
 // <i class="icon-ok"></i>.
-@import 'variables/new-colors';
+
 @import 'variables/colors';
 
 $icon-color: $grayDark !default;

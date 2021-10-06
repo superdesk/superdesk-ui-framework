@@ -26,7 +26,7 @@ $layout-grid-media: (
     @for $i from 1 through $layout-grid-columns {
         &--col-#{$i} {
             $col-width: ($i / $layout-grid-columns) * 100%;
-            @include flex(0, 0, $col-width);
+            flex: 0 0 $col-width;
             max-width: $col-width;
         }
     }
@@ -35,7 +35,7 @@ $layout-grid-media: (
     @for $i from 1 through $layout-grid-columns {
         &-#{$i} {
             $col-width: ($i / $layout-grid-columns) * 100%;
-            @include flex(0, 0, $col-width);
+            flex: 0 0 $col-width;
             min-width: $col-width;
         }
     }
@@ -44,7 +44,7 @@ $layout-grid-media: (
     @for $i from 1 through $layout-grid-columns {
         &-#{$i} {
             $box-col-width: calc(#{($i / $layout-grid-columns) * 100%} - #{$layout-grid-gap * 2});
-            @include flex(0, 0, $box-col-width);
+            flex: 0 0 $box-col-width;
             min-width: $box-col-width;
         }
     }
@@ -53,7 +53,7 @@ $layout-grid-media: (
     @for $i from 1 through $layout-grid-columns {
         &-#{$i} {
             $box-col-width: calc(#{($i / $layout-grid-columns) * 100%} - #{$layout-grid-gap-small * 2});
-            @include flex(0, 0, $box-col-width);
+            flex: 0 0 $box-col-width;
             min-width: $box-col-width;
         }
     }

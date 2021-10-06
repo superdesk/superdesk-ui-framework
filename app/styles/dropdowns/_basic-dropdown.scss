@@ -70,13 +70,13 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     height: 0;
     vertical-align: middle;
     margin-block-start: -2px;
-    margin-inline-start: 4px;
+    margin-inline-start: 6px;
     border-left:  4px solid transparent;
     border-right: 4px solid transparent;
     border-top:   4px solid $sd-text;
     opacity: .3;
     content: "";
-    @include transition(all, 0.1s, ease-in);
+    transition: all 0.1s ease-in;
     &.dropdown__caret--white, 
     &.white {
         border-top-color: $white;
@@ -203,6 +203,27 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         }
         &.open {
             display: flex;
+        }
+    }
+    .dropdown-filter, .dropdown__filter {
+        height: $sd-base-increment * 4;
+        border: 1px solid var(--sd-colour-line--light);
+        border-radius: var(--b-radius--small);
+        padding-right: 5px;
+        padding-left: 5px;
+        transition: all 0.2s ease;
+        color: var(--color-text);
+        background-color: var(--sd-colour-bg__searchbar);
+        &:hover {
+            border: 1px solid var(--sd-colour-line--strong);
+        }
+        &:focus {
+            border: 1px solid var(--sd-colour-interactive--alpha-70);
+            box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-20);
+        }
+        &[disabled] {
+            border-color: var(--sd-colour-line--x-light);
+            background-color: var(--sd-colour-bg__searchbar);
         }
     }
 

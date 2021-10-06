@@ -1,4 +1,3 @@
-
 :root {
 
     // INTERACTIVE PRIMARY
@@ -289,6 +288,7 @@
     --sd-colour-background__tooltip:        var(--sd-colour-bg--02);
 
     --sd-item__thumb-Bg:                    var(--sd-colour-bg--03);
+    --sd-item__thumb-Bg--light:             var(--sd-colour-bg--07);
     --sd-item__main-Bg:                     var(--sd-colour-bg--99);
     --sd-item__main-Bg--hover:              var(--sd-colour-bg--95);
     --sd-item__main-Bg--selected:           var(--sd-colour-interactive--lighten-40);
@@ -548,14 +548,16 @@
     --color-text--inverse:                hsla(0, 0%, 98%, 1); // equals #333;
     --color-text-light:                   hsla(214, 13%, 20%, 0.75);
     --color-text-lighter:                 hsla(214, 13%, 20%, 0.55);
-    --color-icon-default:                 hsla(0, 0%, 20%, 1);
-    --sd-slugline-color:                  hsla(197, 100%, 25%, 1);
+    --color-icon-default:                 hsla(214, 13%, 30%, 1);
+    --sd-slugline-color:                  hsla(197, 100%, 5%, 1) !important;
+    --sd-time-schedule-color:             hsla(268, 100%, 25%, 1);
+    --sd-navy-color:                      hsla(240, 100%, 25%, 1);
     
     // Inputs & Form elements
     --color-input-bg:                     hsla(214, 13%, 50%, 0.1);
     --color-input-bg--hover:              hsla(214, 13%, 50%, 0.16);
     --color-input-bg--focus:              var(--sd-colour-interactive--alpha-20);
-    --color-label-text:                   hsla(214, 13%, 45%, 1);
+    --color-label-text:                   hsla(214, 13%, 45%, 1) !important;
     --color-input-border:                 hsla(214, 13%, 10%, 0.2);
     --color-input-border-hover:           hsla(214, 13%, 10%, 0.35);
     --color-form-bg:                      hsla(0, 0%, 100%, 0);
@@ -596,8 +598,8 @@
     // SubNav & Nav Buttons
     --color-subnav-bg--00:                hsla(0, 0%, 96%, 1);
     --color-subnav-bg--10:                hsla(0, 0%, 87%, 1);
-    --color-subnav-bg--blueGrey-00:       hsla(200, 18%, 46%, 1);
-    --color-subnav-bg--blueGrey-10:       hsla(200, 18%, 37%, 1);
+    --color-subnav-bg--blueGrey-00:       hsla(200, 34%, 30%, 1);
+    --color-subnav-bg--blueGrey-10:       hsla(200, 34%, 24%, 1);
     --color-navbutton-bg-hover:           hsla(0, 0%, 0%, 0.05);
     --color-navbutton-bg-active:          hsla(0, 0%, 100%);
     --color-navbutton-bg-100:             hsla(0, 0%, 0%, 0.06);
@@ -623,11 +625,13 @@
     --color-text:                         hsla(0, 0%, 96%, 1);
     --color-text-light:                   hsla(214, 13%, 96%, 0.75);
     --color-text-lighter:                 hsla(214, 13%, 96%, 0.55);
-    --color-icon-default:                 hsla(214, 13%, 96%, 0.45);
-    --sd-slugline-color:                  hsla(197, 60%, 75%, 1);
+    --color-icon-default:                 hsla(214, 13%, 96%, 0.65);
+    --sd-slugline-color:                  hsla(197, 60%, 75%, 1) !important;
+    --sd-time-schedule-color:             hsla(268, 60%, 65%, 1);
+    --sd-navy-color:                      hsla(240, 90%, 75%, 1);
   
     // Inputs & Form elements
-    --color-label-text:                   hsla(214, 13%, 80%, 1);
+    --color-label-text:                   hsla(214, 13%, 80%, 1) !important;
     --color-input-bg:                     hsla(214, 13%, 80%, 0.08);
     --color-input-bg--hover:              hsla(214, 13%, 70%, 0.12);
     --color-input-bg--focus:              var(--sd-colour-interactive--alpha-20);
@@ -667,8 +671,8 @@
     //SubNav & Nav Buttons
     --color-subnav-bg--00:                hsla(0, 0%, 16%, 1);
     --color-subnav-bg--10:                hsla(0, 0%, 32%, 1);
-    --color-subnav-bg--blueGrey-00:       hsla(200, 18%, 46%, 1);
-    --color-subnav-bg--blueGrey-10:       hsla(200, 18%, 37%, 1);
+    --color-subnav-bg--blueGrey-00:       hsla(200, 34%, 30%, 1);
+    --color-subnav-bg--blueGrey-10:       hsla(200, 34%, 24%, 1);
   
     --color-navbutton-bg-hover:           hsla(0, 0%, 0%, 0.1);
     --color-navbutton-bg-active:          hsla(0, 0%, 100%, 0.08);

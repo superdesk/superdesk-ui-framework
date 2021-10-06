@@ -322,7 +322,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 // Text specific styles
 .sd-list-item {
     time {
-        color: $grayText;
+        color: var(--color-text-lighter);
         font-size: 1.2rem;
         letter-spacing: 0.025em;
         flex-shrink: 0;
@@ -513,6 +513,11 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
             border-top: 1px solid var(--sd-colour-line--x-light);
         }
     }
+    .sd-list-item-nested {
+        + .sd-list-item {
+            border-top: 1px solid var(--sd-colour-line--x-light);
+        }
+    }
     &--space-between-items {
         .sd-list-item {
             + .sd-list-item {
@@ -548,7 +553,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         letter-spacing: .08em;
         font-weight: 500;
         text-transform: uppercase;
-        color: $gray;
+        color: var(--color-text-light);
         a {
             color: $sd-colour-interactive;
             text-decoration: none;

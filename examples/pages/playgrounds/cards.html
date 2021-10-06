@@ -2,10 +2,15 @@
     <a class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
     <p class="sd-top-menu__header">Cards</p>
 </header>
-<main class="sd-page">
+<main class="sd-page" ng-init="darkUI = false" data-theme="{{darkUI ? 'dark-ui' : 'light-ui'}}">
     <section class="sd-page__main-content">
-        <div class="sd-page__header sd-page__header--white">
-            <h2 class="sd-page__page-heading">Card options</h2>
+        <div class="subnav">
+            <h2 class="subnav__page-title">Card options</h2>
+            <div class="button-group button-group--right">
+                <button class="sd-navbtn" ng-click="darkUI = !darkUI">
+                    <i class="icon-adjust"></i>
+                </button>
+            </div>
         </div>
         <div class="sd-page__content">
 
@@ -35,7 +40,7 @@
                 </div>
 
                 <div class="sd-card flex-grid__item">
-                    <div class="sd-card__header sd-card__header--white">
+                    <div class="sd-card__header sd-card__header--light">
                         <div class="sd-card__heading">Features Desk</div>
                         <a class="icn-btn sd-card__actions"><i class="icon-pencil"></i></a>
                     </div>

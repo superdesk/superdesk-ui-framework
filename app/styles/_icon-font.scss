@@ -322,7 +322,7 @@ $sd-icon-font: (
     bottom:  -0.7rem;
     height: 1em;
     width: 1em;
-    background-color: $white;
+    background-color: var(--sd-item__main-Bg);
     border-radius: $border-radius__base--full;
     padding: 1px;
     z-index: 1;

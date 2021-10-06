@@ -44,7 +44,7 @@ import CarouselDoc from './Carousel';
 import ContentDividerDoc from './ContentDivider';
 import ToggleboxDocs from './Togglebox';
 import ListItemsDoc from './ListItems';
-
+import PanelDoc from './Panel';
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { PopoverDoc } from './Popover';
@@ -129,6 +129,9 @@ const pages = {
             },
             'grid-item': {
                 name: 'Grid Item'
+            },
+            'panel': {
+                name: 'Panel'
             },
         }
     },
@@ -277,6 +280,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/menu" component={MenuDocs} />
                         <Route path="/react/togglebox" component={ToggleboxDocs} />
                         <Route path="/react/list-items" component={ListItemsDoc} />
+                        <Route path="/react/panel" component={PanelDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
@@ -301,7 +305,6 @@ class ReactPlayground extends React.Component<IProps> {
 
 const parsePlayground = ({ match }, playgrounds) => {
     const Component = Playgrounds[playgrounds[match.params.id].component];
-
     return (
         <Component />
     );

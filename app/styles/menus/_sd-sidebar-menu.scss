@@ -50,7 +50,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
     background-color: var(--sd-colour-sidebar-menu--10);
   }
   &:active {
-    background-color: $sd-colour-interactive;
+    background-color: var(--sd-colour-interactive--active);
     opacity: 1;
   }
   &--active, &--active:hover {

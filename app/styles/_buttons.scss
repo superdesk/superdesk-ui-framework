@@ -410,11 +410,12 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 .btn-icon-group {
     display: flex;
     align-items: center;
+    gap: 6px;
 
-    .btn + .btn {
-        gap: 6px;
-        //margin-left: 6px;
-    }
+    // .btn + .btn {
+        
+    //     //margin-left: 6px;
+    // }
 
     [class^="icon-"], [class*=" icon-"] {
         opacity: 0.6;
@@ -429,6 +430,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     display: flex;
     flex-direction: row;
     align-items: center;
+    gap: $sd-base-increment;
     
     .btn {
         margin: 0;
@@ -480,6 +482,10 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
     &--no-space {
         gap: unset;
+    }
+    &--padded {
+        padding-inline-start: $sd-base-increment * 2;
+        padding-inline-end: $sd-base-increment * 2;
     }
 }
 

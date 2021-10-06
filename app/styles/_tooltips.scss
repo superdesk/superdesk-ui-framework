@@ -32,7 +32,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     padding: 0.8rem 1.2rem 0.9rem;
-    border-radius: $border-radius__base--small;
+    border-radius: var(--b-radius--small);
     box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.45);
     background: var(--sd-colour-background__tooltip);
     color: hsl(0, 0%, 100%);
@@ -281,7 +281,7 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding: 0.8rem 1.2rem 0.9rem;
-  border-radius: $border-radius__base--small;
+  border-radius: var(--b-radius--small);
   background: var(--sd-colour-background__tooltip);
   box-shadow: 0 8px 18px -5px rgba(0, 0, 0, 0.45);
   color: hsl(0, 0%, 100%);

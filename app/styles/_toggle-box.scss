@@ -72,6 +72,27 @@
         margin: auto 0.4rem auto 0;
         background: var(--sd-colour-line--light);
     }
+    &:hover {
+        text-decoration: none;
+        // .toggle-box__chevron {
+        //     box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
+        // }
+        .toggle-box__label {
+            color: var(--sd-colour-interactive);
+            text-decoration: none;
+        }
+    }
+    &:focus {
+        background: none !important;
+    }
+    &:focus-visible {
+        .toggle-box__chevron {
+            box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
+        }
+        .toggle-box__label {
+            color: var(--sd-colour-interactive);
+        }
+    }
 }
 
 .toggle-box__content-wraper {
