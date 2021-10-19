@@ -577,7 +577,7 @@
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
-            padding-left: 0.3rem;
+            padding-inline-start: 0.3rem;
         }
     }
     &--inline-label {
@@ -586,7 +586,24 @@
         .sd-input__label {
             grid-row: 2/3;
             grid-column: 1/2;
-            padding: 1rem 1rem 0 0;
+            padding-inline-end: 1rem;
+            padding-inline-start: 0;
+            padding-block-start: 0.4rem;
+            padding-block-end: 0;
+            position: relative;
+
+            max-width: 260px;
+            min-width: 100px;
+            text-align: end;
+            position: relative;
+            align-self: center;
+            line-height: 1.2;
+            &::after {
+                position: absolute;
+                z-index: 2;
+                inset-block-start: -2px;
+                inset-inline-end: 4px;
+            }
         }
     }
     &--invalid {

@@ -1,0 +1,309 @@
+// ========== Outer Editor Layout (Frame) ========== //
+.sd-editor-grid {
+    display: grid;
+    grid-template-columns: [sideBarLeft] auto [editorContent] 1fr [sideTabPinned] auto [sideTabOverlay] auto [sideTabsBar] auto [editorOverlay] 0 [editorOverlay-end];
+    grid-template-rows: [editorSubnav] auto [editorContent] 1fr [editorContent-end];
+}
+.sd-editor-grid__editor-subnav {
+    grid-column: 1 / 6;
+    grid-row: editorSubnav;
+    height: $nav-height;
+}
+.sd-editor-grid__sidebar-left {
+    grid-column: sideBarLeft;
+    grid-row: editorContent;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    width: $sd-sidebarMenu-width;
+    overflow-y: auto;
+}
+.sd-editor-grid__editor-content {
+    grid-column: editorContent;
+    grid-row: editorContent;
+    background-color: #D4CED0;
+    position: relative;
+    overflow-y: auto;
+}
+.sd-editor-grid__sidetabs-content-pinned {
+    grid-column: sideTabPinned;
+    grid-row: editorContent;
+    position: relative;
+    overflow-x: visible;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 0;
+    z-index: 1;
+    transition: all 0.2s ease;
+    &.sidetab-content-pinned--pinned {
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 320px;
+        max-height: 100%;
+    }
+    &.sidetab-content-pinned--open {
+        overflow-y: auto;
+        overflow-x: hidden;
+        width: 320px;
+        max-height: 100%;
+    }
+}
+.sd-editor-grid__sidetabs-content-overlay {
+    grid-column: sideTabOverlay;
+    grid-row: editorContent;
+    position: relative;
+    overflow-x: visible;
+    overflow-y: hidden;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    width: 0;
+    background-color: var(--sd-colour-panel-bg--000);
+    z-index: 10;
+    .sidetabs-content-overlay__inner {
+        opacity: 0;
+        position: absolute;
+        overflow: hidden;
+        top: 0;
+        width: 0;
+        bottom: 0;
+        inset-inline-end: -320px;
+        transition: all 0.4s ease;
+        box-shadow: -2px 0 12px hsla(0, 0%, 0%, 0), -3px 0 0 0px hsla(214, 13%, 60%, 0);
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        z-index: 10;
+    }
+    &.sidetab-content-overlay--open {
+        overflow: visible;
+        .sidetabs-content-overlay__inner {
+            opacity: 1;
+            width: 320px;
+            position: absolute;
+            overflow: hidden;
+            inset-inline-end: 0;
+            box-shadow: -2px 0 12px hsla(0, 0%, 0%, 0.4), -3px 0 0 0px hsla(214, 13%, 60%, 1);
+        }
+    }
+}
+.sd-editor-grid__sidetabs-bar {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-column: sideTabsBar;
+    grid-row: editorContent;
+    width: $sd-sidebarMenu-width;
+    overflow-y: auto;
+    z-index: 11;
+
+}
+.sd-editor-grid__editor-overlay {
+    grid-column: editorOverlay;
+    grid-row-start: editorSubnav;
+    grid-row-end: editorContent-end;
+    position: relative;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    z-index: 100;
+}
+
+// ========== Main Editor Layout ========== //
+
+.sd-editor-content {
+    display: grid;
+    grid-template-columns: [editorMain] 1fr;
+    grid-template-rows: [editorToolbar] auto [editorMainContainer] 1fr;
+    position: relative;
+    height: 100%;
+}
+.sd-editor-content__toolbar {
+    grid-column: editorMain;
+    grid-row: editorToolbar;
+    height: $nav-height;
+    position: relative;
+    padding: 4px 20px;
+    background-color: var(--sd-colour-panel-bg--000);
+    z-index: 3;
+    transition: all 0.5s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.2);
+}
+// .sd-editor-content__main-container {
+//     grid-column: editorMain;
+//     grid-row: editorMainContainer;
+//     display: flex;
+//     flex-direction: column;
+//     overflow-y: auto;
+//     p {
+//         font-size: 16px;
+//         line-height: 1.5;
+//         margin-bottom: 24px;
+//     }
+// }
+.sd-editor-content__main-container {
+    grid-column: editorMain;
+    grid-row: editorMainContainer;
+    display: grid;
+    display: grid;
+    grid-template-rows: [authoringHeader] auto [authoringBody] 1fr;
+    grid-template-columns: [bookmarkBar] auto [mainContent] 1fr;
+    flex-direction: column;
+    overflow-y: auto;
+    p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+}
+.sd-editor-content__authoring-header {
+
+    grid-column: 1 / 3;
+    grid-row: authoringHeader;
+
+
+
+    display: flex;
+    flex-direction: column;
+    background-color: var(--sd-colour-panel-bg--100);
+    position: relative;
+    margin: 0;
+    padding: $sd-base-increment * 3 $sd-base-increment * 1.5;
+    z-index: 2;
+    box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.25);
+    max-height: 800px;
+    transition: max-height 0.12s ease-in;
+    & > .authoring-header__holder {
+        height: auto;
+        opacity: 1;
+        overflow: visible;
+        transition: opacity 0.4s 0.1s;
+        margin: 0 auto;
+        width: 100%;
+        max-width: var(--width__container--xxx-large);
+    }
+    &.authoring-header--collapsed {
+        max-height: 0;
+        padding: 0 $sd-base-increment * 1.5;
+        .authoring-header__toggle {
+            i {
+                transform: rotate(180deg);
+            }
+        }
+        & > .authoring-header__holder {
+            height: 0px;
+            opacity: 0;
+            overflow: hidden;
+            transition: opacity 0.4s 0.1s;
+        }
+    }
+}
+.authoring-header__toggle {
+    position: absolute;
+    width: 37px;
+    height: 25px;
+    border: 0;
+    padding: 0 0 4px;
+    inset-inline-start: 50%;
+    margin-left: -18.5px;
+    margin-block-start: -18.5px;
+    bottom: -25px;
+    background-color: var(--sd-colour-panel-bg--100);
+    z-index: 3;
+    line-height: 0;
+    border-radius: 0 0 22px 22px;
+    box-shadow: 0 -2px 0 0 var(--sd-colour-panel-bg--100), 0 1px 3px 0 rgba(0, 0, 0, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all ease-in 0.12s;
+    &:hover {
+        height: 32px;
+        bottom: -32px;
+        padding-top: 2px;
+        i {
+            opacity: 1;
+        }
+    }
+    i {
+        height: 15px;
+        transition: all 0.5s;
+        opacity: 0.75;
+    }
+}
+
+.sd-editor-content__authoring-body {
+
+    grid-column: mainContent;
+    grid-row: authoringBody;
+
+    background-color: var(--sd-colour-panel-bg--000);
+    padding: 3.2rem 4rem 5.2rem 4rem;
+}
+
+.sd-editor-content__authoring-bookmark-bar {
+    grid-column: bookmarkBar;
+    grid-row: authoringBody;
+    width: $sd-sidebarMenu-width;
+    background-color: var(--sd-colour-panel-bg--000);
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+}
+
+.sd-editor-toolbar__content {
+    display: inline-flex;
+    gap: 8px;
+    dl {
+        display: flex;
+        gap: 4px;
+        font-size: 1.2rem;
+        &:not(:first-child) {
+            border-inline-start: 1px solid var(--sd-colour-line--light);
+            padding-inline-start: 8px;
+        }
+    }
+    dt {
+        font-weight: 500;
+    }
+    dd,
+    dd time {
+        font-weight: 400;
+        color: var(--color-text-light);
+    }
+}
+
+.sd-editor-grid__sidetabs-bar,
+.sd-editor-grid__sidebar-left {
+    position: relative;
+    ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+        margin: -1px 0;
+        position: absolute;
+        inset-block-end: 0;
+    }
+    ::-webkit-scrollbar:hover {
+        background-color: var(--sd-colour__webkit-scrollbar--hover);
+        background-color: transparent;
+        cursor: pointer;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: var(--sd-colour__webkit-scrollbar-thumb);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: var(--sd-colour__webkit-scrollbar-thumb--hover);
+        cursor: pointer;
+    }
+
+}
+
+.sd-input--inline-label .sd-input__label {
+
+}

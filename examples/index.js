@@ -336,6 +336,10 @@ export default angular.module('ui-docs', [
                 name: 'Master Desk',
                 page: 'master-desk.html'
             },
+            'editor-3-test': {
+                name: 'Editor grid',
+                page: 'editor-3-test.html'
+            },
         },
         // Publisher playgrounds
         publisher: {
@@ -390,6 +394,14 @@ export default angular.module('ui-docs', [
             'ui-playground': {
                 name: 'UI',
                 component: 'UiPlayground'
+            },
+            'pagelayout-test': {
+                name: 'PageLayout Test',
+                component: 'PageLayoutTest'
+            },
+            'editor-test': {
+                name: 'Editor Layout Test',
+                component: 'EditorTest'
             }
         }
     }))

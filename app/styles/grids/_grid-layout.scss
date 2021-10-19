@@ -595,6 +595,7 @@ $planningEditor-width: 53rem;
     display: grid;
     grid-template-columns: [slideInLeft] auto [mainContent] 1fr [slideInRight] auto [overlayContainer] 0;
     grid-template-rows: [headerToolbar] auto [contentBlock] 1fr;
+    overflow: auto;
 }
 .sd-main-content-grid__header {
     grid-column: 1/4;
@@ -696,6 +697,9 @@ $planningEditor-width: 53rem;
     display: grid;
     grid-template-columns: [sideTabsLeft] auto [contentArea] 1fr [contentSplitter] auto [authoringArea] auto;
     grid-template-rows: 1fr;
+    .sd-main-content-grid {
+        grid-column: contentArea;
+    }
 }
 .sd-content-wrapper__left-tabs { 
     grid-column: sideTabsLeft;
@@ -705,10 +709,12 @@ $planningEditor-width: 53rem;
         //z-index: 10;
     }
 }
+
+
 .sd-content-wrapper__main-content-area { 
-    grid-column: contentArea;
     overflow: auto;
 }
+
 .sd-content-wrapper__content-splitter { 
     grid-column: contentSplitter;
 
@@ -723,7 +729,7 @@ $planningEditor-width: 53rem;
 }
 
 // main page structure - top bar, slide-in main navigation, content area and footer (open items bar).
-.sd-page-grid--test {
+.sd-page-grid, .sd-page-grid--test {
     margin: 0;
     display: grid;
     grid-template-columns: [slideInNavigation] auto [contentContainer] 1fr;

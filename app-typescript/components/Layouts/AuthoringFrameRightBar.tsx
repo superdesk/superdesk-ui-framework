@@ -4,13 +4,10 @@ interface IProps {
     children?: React.ReactNode;
 }
 
-export class LayoutContainer extends React.PureComponent<IProps> {
+export class AuthoringFrameRightBar extends React.PureComponent<IProps> {
     render() {
         return (
-            <div
-                style={{height: '100%'}}
-                className="sd-main-content-grid"
-            >
+            <div className="sd-editor-grid__sidetabs-bar">
                 {this.props.children}
             </div>
         );

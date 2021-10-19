@@ -916,6 +916,10 @@ doc-gif-img:hover img {
 .docs-page__container table td {
     border-color: var(--docs-page-border__table) !important;
 }
+
+
+
+
 /* -------------- END COLOR SWATCHES -------------- */
 
 /* -------------- PrismJS overrides -------------- */
@@ -932,3 +936,28 @@ pre[class*="language-"] {
         max-width: 80%;
     } 
 }
+
+
+/* -------------- DOC PAGE SPECIFIC OVERRIDES -------------- */
+
+doc-react-playground {
+    display: contents;
+}
+
+.docs-page doc-react-playground .sd-main-content-grid {
+    grid-column: 2 / 3;
+    overflow: auto;
+}
+
+.docs-page .sd-editor-grid {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    overflow-y: auto;
+}
+.docs-page doc-react-playground .sd-editor-grid {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    overflow-y: auto;
+}
+
+/* ------------ END DOC PAGE SPECIFIC OVERRIDES ------------ */
