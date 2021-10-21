@@ -14,7 +14,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
                 {text: 'This is a tag'},
                 {text: 'This is another tag', shade:'darker'},
                 {text: 'Lorem ipsum', shade:'highlight1'},
-                {text: 'Dolor amet', shade:'highlight2', shape:'square'}
+                {text: 'Dolor amet', shade:'highlight2', shape:'square'},
                 {text: 'Read only tag', readOnly: true}
             ],
         }
