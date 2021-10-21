@@ -1,6 +1,6 @@
 
 $button-margin: 0 !default;
-$button-opacity-disabled: 0.25 !default;
+$button-opacity-disabled: 0.60 !default;
 
 // /// transitions for buttons.
 $button-transition: all 0.2s ease-out, color 0.1s ease-out !default;
@@ -42,7 +42,9 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  position: relative;
   background-color: var(--sd-btn-bg);
+  gap: 0.6rem;
   &:hover {
     background-color: var(--sd-btn-bg--hover);
     box-shadow: var(--new-button-hover-shadow);
@@ -130,13 +132,15 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
   }
   [class^="icon-"], [class*=" icon-"] {
     margin-inline-start: -0.3rem;
-    margin-inline-end: 0.6rem ;
   }
   // Colours
   &--primary, &--success, &--warning, &--alert, &--highlight, &--sd-green, &--secondary {
     color: $white;
     [class^="icon-"], [class*=" icon-"] {
       color: $white;
+    }
+    .sd-spinner__path {
+      stroke: $white;
     }
   }
   
@@ -191,43 +195,48 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     &.btn--primary {
       --sd-btn-border: var(--sd-colour-interactive-btn-border);
       --sd-btn-color: var(--sd-colour-interactive);
-      color: var(--sd-btn-color);
     }
   
     &.btn--success {
       --sd-btn-border: var(--sd-colour-success-btn-border);
       --sd-btn-color: var(--sd-colour-success);
-      color: var(--sd-btn-color);
     }
   
     &.btn--warning {
       --sd-btn-border: var(--sd-colour-warning-btn-border);
       --sd-btn-color: var(--sd-colour-warning);
-      color: var(--sd-btn-color);
     }
   
     &.btn--alert {
       --sd-btn-border: var(--sd-colour-alert-btn-border);
       --sd-btn-color: var(--sd-colour-alert);
-      color: var(--sd-btn-color);
     }
   
     &.btn--highlight {
       --sd-btn-border: var(--sd-colour-highlight-btn-border);
       --sd-btn-color: var(--sd-colour-highlight);
-      color: var(--sd-btn-color);
     }
   
     &.btn--sd-green {
       --sd-btn-border: var(--sd-colour-superdesk-btn-border);
       --sd-btn-color: var(--sd-colour-superdesk);
-      color: var(--sd-btn-color);
     }
   
     &.btn--secondary {
       --sd-btn-border: var(--sd-colour-secondary-btn-border);
       --sd-btn-color: var(--sd-colour-secondary);
+    }
+    &.btn--primary,
+    &.btn--success,
+    &.btn--warning,
+    &.btn--alert,
+    &.btn--highlight,
+    &.btn--sd-green,
+    &.btn--secondary {
       color: var(--sd-btn-color);
+      .sd-spinner__path {
+        stroke: var(--sd-btn-color);
+      }
     }
   }
   // Text only
@@ -239,37 +248,42 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     
     &.btn--primary {
       --sd-btn-hs: var(--sd-colour-primary-hs);
-      color: var(--sd-btn-txt);
     }
   
     &.btn--success {
       --sd-btn-hs: var(--sd-colour-success-hs);
-      color: var(--sd-btn-txt);
     }
   
     &.btn--warning {
       --sd-btn-hs: var(--sd-colour-warning-hs);
-      color: var(--sd-btn-txt);
     }
   
     &.btn--alert {
       --sd-btn-hs: var(--sd-colour-alert-hs);
-      color: var(--sd-btn-txt);
     }
   
     &.btn--highlight {
       --sd-btn-hs: var(--sd-colour-highlight-hs);
-      color: var(--sd-btn-txt);
     }
   
     &.btn--sd-green {
       --sd-btn-hs: var(--sd-colour-superdesk-hs);
-      color: var(--sd-btn-txt);
     }
   
     &.btn--secondary {
       --sd-btn-hs: var(--sd-colour-secondary-hs);
-      color: var(--color-text);
+    }
+    &.btn--primary,
+    &.btn--success,
+    &.btn--warning,
+    &.btn--alert,
+    &.btn--highlight,
+    &.btn--sd-green,
+    &.btn--secondary {
+      color: var(--sd-btn-txt);
+      .sd-spinner__path {
+        stroke: var(--sd-btn-txt);
+      }
     }
   }
   &.btn--icon-only {
@@ -289,7 +303,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
   }
   &.btn--disabled, &[disabled] {
-    opacity: 0.3;
+    opacity: $button-opacity-disabled;
     cursor: not-allowed;
     pointer-events: none;
     box-shadow: none !important;
@@ -411,12 +425,6 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     display: flex;
     align-items: center;
     gap: 6px;
-
-    // .btn + .btn {
-        
-    //     //margin-left: 6px;
-    // }
-
     [class^="icon-"], [class*=" icon-"] {
         opacity: 0.6;
     }
@@ -598,4 +606,33 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.btn__state--loading {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.btn--loading {
+  color: transparent;
+  pointer-events: none;
+}
+.btn {
+  &[data-loading="true"] {
+    .sd-spinner {
+      margin-inline-start: -0.3rem;
+    }
+    pointer-events: none;
+    &.btn--icon-only {
+      .sd-spinner {
+        margin-inline-start: 0;
+      }
+    }
+  }
 }

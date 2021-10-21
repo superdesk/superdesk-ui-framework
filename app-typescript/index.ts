@@ -70,6 +70,7 @@ export * from './components/Navigation';
 
 export { Skeleton } from './components/Skeleton';
 export { ListItemLoader } from './components/ListItemLoader';
+export { Spinner } from './components/Spinner';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

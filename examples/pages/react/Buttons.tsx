@@ -18,7 +18,7 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
                         <Button text="default" onClick={()=> false} />
-                        <Button text="primary" type="primary" onClick={()=> false} />
+                        <Button text="primary"isLoading={true} type="primary" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Other colour options</p>
                     <div className="docs-page__content-row docs-page__content-row--no-margin">
@@ -331,6 +331,7 @@ export default class ButtonsDoc extends React.Component {
                     <Prop name='size' isRequired={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
                     <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Disables the Button, preventing mouse events.'/>
+                    <Prop name='isLoading' isRequired={false} type='boolean' default='false' description='Adds a loading indicator and disables the button if set to true.'/>
                     <Prop name='onClick' isRequired={true} type='function' default='false' description='Callback fired when a button is pressed.'/>
                 </PropsList>
             </section>

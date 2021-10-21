@@ -1,17 +1,12 @@
 /// @group sd-alert
 
 /// Default padding inside sd-alerts.
-$sd-alert-padding: 1.8rem 3rem 1.8rem 2rem !default;
-$sd-alert-padding-small: 0.8rem 2.4rem 0.8rem 1.2rem;
 $sd-alert-lineheight-large: 1;
-
-$sd-alert-padding: 1.8rem 3rem 1.8rem 2rem !default;
-$sd-alert-padding-small: 0.8rem 2.4rem 0.8rem 1.2rem;
 
 $sd-alert-padding-x: 2rem 3rem !default;
 $sd-alert-padding-y: 1.8rem !default;
 $sd-alert-padding-x-small: 1.2rem 2.4rem;
-$sd-alert-padding-y-small: 0.8rem;
+$sd-alert-padding-y-small: 0.7rem;
 
 
 /// Default radius of sd-alerts.
@@ -43,7 +38,8 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     position: relative;
     box-shadow: $sd-alert-shadow;
     background-color: var(--sd-alert-bg);
-    margin-bottom: 2rem;
+    display: flex;
+    gap: $sd-base-increment * 2;
     & strong {
         font-weight: 500;
     }
@@ -69,6 +65,23 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     }
     &--no-margin {
         margin-bottom: 0;
+    }
+    &--margin-none {
+        margin-block-end: 0;
+    }
+    &--margin-small {
+        margin-block-end: 1.6rem;
+    }
+    &--margin-normal {
+        margin-block-end: 2.4rem;
+    }
+    &--margin-large {
+        margin-block-end: 3.2rem;
+    }
+    &--banner-style {
+        margin: 0;
+        box-shadow: none !important;
+        border-radius: 0 !important;
     }
 }
 @mixin sd-alert-hollow {
@@ -170,7 +183,37 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         }
 
     }
- 
+    .sd-alert__icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 3.2rem;
+        height: 3.2rem;
+        [class^="icon-"], [class*=" icon-"] {
+            width: 3.2rem;
+            height: 3.2rem;
+            font-size: 3.2rem;
+            line-height: 1;
+            color: currentColor;
+        }
+    }
+    &.sd-alert--small {
+        .sd-alert__icon {
+            margin-block-start: 0px;
+            [class^="icon-"], [class*=" icon-"] {
+                width: 3.2rem;
+                height: 3.2rem;
+                font-size: 3.2rem;
+                line-height: 1;
+                color: currentColor;
+            }
+        }
+    }
+}
+
+.sd-alert__content {
+    display: flex;
+    align-items: center;
 }
 
 .sd-alert__close {
@@ -226,15 +269,15 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     justify-content: flex-end;
 }
 
-.sd-alert__icon {
-    margin: 0.1rem 1.2rem 0 -0.5rem;
-    flex-shrink: 0;
-}
-.sd-alert--small {
-    .sd-alert__icon {
-        margin-left: 0;
-    }
-}
+// .sd-alert__icon {
+//     margin: 0.1rem 1.2rem 0 -0.5rem;
+//     flex-shrink: 0;
+// }
+// .sd-alert--small {
+//     .sd-alert__icon {
+//         margin-left: 0;
+//     }
+// }
 .sd-alert__info-btn {
     cursor: pointer;
     height: 2.2rem; 
