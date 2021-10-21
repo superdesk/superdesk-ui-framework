@@ -6,10 +6,11 @@ interface IProps {
     keyValue?: number;
     shade?: 'light' | 'darker' | 'highlight1' | 'highlight2'; // default light
     shape?: 'round' | 'square'; // default round
+    readOnly?: boolean;
     onClick(): void;
 }
 
-export const Tag = ({ text, keyValue, shade, shape, onClick }: IProps) => {
+export const Tag = ({ text, keyValue, shade, shape, readOnly, onClick }: IProps) => {
     let classes = classNames('tag-label', {
         [`tag-label--${shade}`]: shade && shade !== 'light',
         'tag-label--square': shape === 'square',
@@ -17,9 +18,9 @@ export const Tag = ({ text, keyValue, shade, shape, onClick }: IProps) => {
     return (
         <div className={classes} key={keyValue}>
             {text}
-            <button className='tag-label__remove' onClick={onClick}>
+            {!readOnly ? <button className='tag-label__remove' onClick={onClick}>
                 <i className='icon-close-small'></i>
-            </button>
+            </button> : null}
         </div>
     );
 };
