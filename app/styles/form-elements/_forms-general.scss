@@ -201,14 +201,16 @@
 }
 
 .form__text-block {
-    min-height: 2.8rem;
+    min-height: $form-input-height;
     margin-top: $form-label-height;
-    padding-top: 0.6rem;
     color: inherit;
     font-size: 1.3rem;
+    display: inline-flex;
+    align-items: center;
 }
 .form__item.form__item--auto-width {
-    .btn {
+    .btn,
+    .icn-btn {
         margin-top: $form-label-height;
     }
 }
@@ -220,14 +222,34 @@
         .sd-input__label {
             grid-row: 2/3;
             grid-column: 1/2;
-            padding: 1rem 1rem 0 0;
+            padding-inline-end: 1rem;
+            padding-inline-start: 0;
+            padding-block-start: 0.4rem;
+            padding-block-end: 0;
+            position: relative;
+
+            max-width: 260px;
+            min-width: 100px;
+            text-align: end;
+            position: relative;
+            align-self: center;
+            line-height: 1.2;
+            &.a11y-only {
+                height: 0;
+                width: 0;
+                min-width: 0;
+                overflow: hidden;
+                padding: 0;
+                margin: 0;
+            }
         }
     }
     .form__text-block {
         margin-top: 0;
     }
     .form__item.form__item--auto-width {
-        .btn {
+        .btn,
+        .icn-btn {
             margin-top: 0;
         }
     }

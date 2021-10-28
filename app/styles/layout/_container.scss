@@ -1,3 +1,31 @@
 .sd-container {
     display: flex;
+    align-items: center;
+    &--inline-flex {
+        display: inline-flex;
+    }
+    &--block {
+        display: block;
+    }
+
+    &--direction-row {
+        flex-direction: row;
+    }
+    &--direction-column {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &--gap-none {
+        gap: 0;
+    }
+    &--gap-small {
+        gap: $sd-base-increment;
+    }
+    &--gap-medium {
+        gap: $sd-base-increment * 1.5;
+    }
+    &--gap-large {
+        gap: $sd-base-increment * 2;
+    }
 }

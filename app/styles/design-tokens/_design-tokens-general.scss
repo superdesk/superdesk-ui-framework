@@ -22,11 +22,14 @@
     --width__container--xxx-large: 120rem;
     --width__container--full:      100%;
 
-    // modal sizes
+    // MODAL SIZES
     --width__modal--small:         40rem;
     --width__modal--medium:        64rem;
     --width__modal--large:         80rem;
     --width__modal--x-large:       80vw;
+
+    // TEXT SIZE
+    --text-size--base: 1rem;
 }
 
 :root, [data-theme="light-ui"] {

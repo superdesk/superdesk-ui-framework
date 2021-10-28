@@ -7,6 +7,7 @@ interface IProps {
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
     spaces?: 'default' | 'condensed' | 'relaxed'; // defaults to 'default'
     marginBottom?: '0' | '1' | '2' | '3' | '4'; // multipliers of 8px (base increment); defaults to '2' (16px)
+    inlineLabel?: boolean; // defaults to 'false'
 }
 
 export class FormGroup extends React.PureComponent<IProps> {
@@ -19,7 +20,7 @@ export class FormGroup extends React.PureComponent<IProps> {
                 [`form__group--default`]: this.props.spaces === undefined,
                 [`form__group--${this.props.spaces}`]: this.props.spaces,
                 [`form__group--mb-${this.props.marginBottom}`]: this.props.marginBottom,
-
+                'form__group--inline-label': this.props.inlineLabel,
             },
         );
 

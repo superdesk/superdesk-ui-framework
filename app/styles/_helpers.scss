@@ -91,16 +91,16 @@
 
 // Flex direction
 .sd-flex--direction-row {
-    flex-direction: row;
+    flex-direction: row !important;
 }
 .sd-flex--direction-col {
-    flex-direction: column;
+    flex-direction: column !important;
 }
 .sd-flex--direction-row-reverse {
-    flex-direction: row-reverse;
+    flex-direction: row-reverse !important;
 }
 .sd-flex--direction-col-reverse {
-    flex-direction: column-reverse;
+    flex-direction: column-reverse !important;
 }
 // Flex wrap
 .sd-flex--wrap {
@@ -564,7 +564,7 @@ time {
 }
 
 .sd-text__date-time {
-    color: #747474;
+    color: var(--color-text-light);
     font-weight: 300;
     letter-spacing: .025em;
     &--small {
@@ -861,3 +861,63 @@ $sd-properties: (padding, margin); // It's generating these properties
     white-space: nowrap;
 }
 // --------------------------------------------
+
+
+// Border Radius
+.sd-radius--x-small {
+    border-radius: var(--b-radius--x-small);
+}
+.sd-radius--small {
+    border-radius: var(--b-radius--small);
+}
+.sd-radius--medium {
+    border-radius: var(--b-radius--medium);
+}
+.sd-radius--large {
+    border-radius: var(--b-radius--large);
+}
+.sd-radius--x-large {
+    border-radius: var(--b-radius--x-large);
+}
+.sd-radius--full {
+    border-radius: var(--b-radius--full);
+}
+
+// Border
+.sd-border--x-light {
+    border: 1px solid var(--sd-colour-line--x-light);
+}
+.sd-border--light {
+    border: 1px solid var(--sd-colour-line--light);
+}
+.sd-border--medium {
+    border: 1px solid var(--sd-colour-line--medium);
+}
+.sd-border--strong {
+    border: 1px solid var(--sd-colour-line--strong);
+}
+
+// Font size
+.sd-font-size--x-small {
+    font-size: calc(var(--text-size--base) * 1.2); // 14px;
+}
+.sd-font-size--small {
+    font-size: calc(var(--text-size--base) * 1.4); // 14px;
+}
+.sd-font-size--medium {
+    font-size: calc(var(--text-size--base) * 1.6); // 14px;
+}
+.sd-font-size--large {
+    font-size: calc(var(--text-size--base) * 2); // 14px;
+}
+
+// Text colour
+.sd-text-color--lighter {
+    color: var(--color-text-lighter);
+}
+.sd-text-color--light {
+    color: var(--color-text-light);
+}
+.sd-text-color--normal {
+    color: var(--color-text);
+}

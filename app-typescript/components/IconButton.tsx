@@ -3,7 +3,7 @@ import {Icon} from './Icon';
 import classNames from 'classnames';
 interface IProps {
     id?: string; // used for tooltip
-    icon?: string;
+    icon: string;
     ariaValue: string;
     size?: 'small';
     onClick(event: React.MouseEvent): void;

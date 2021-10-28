@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -103,7 +103,6 @@ export class EditorTest extends React.Component<IProps, IState> {
                     { icon: 'picture', size: 'big', tooltip: 'Pictures', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
                     { icon: 'annotation', size: 'big', tooltip: 'Annotations', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
                     { icon: 'export', size: 'big', tooltip: 'Export', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) }]} />
-
             )}
             main={(
                 <Layout.AuthoringMain
@@ -130,64 +129,76 @@ export class EditorTest extends React.Component<IProps, IState> {
                 )}
                 authoringHeader={(
                     <React.Fragment>
-                        <Form.FormGroup>
+                        <Form.FormGroup inlineLabel={true}>
                             <Form.FormItem>
-                                <Input label='Slugline'
+                                <Input
+                                    label='Slugline'
                                     value='This is some value'
                                     maxLength={30}
                                     error='This is error message'
                                     info='This is some hint message'
-                                    inlineLabel={true}
                                     required={false}
                                     disabled={false}
                                     invalid={false}
                                     onChange={(value) => {}} /> 
                             </Form.FormItem>
                         </Form.FormGroup>
-                        <Form.FormGroup>
+                        <Form.FormGroup inlineLabel={true}>
                             <Form.FormItem>
-                                <Input label='Genre'
+                                <Input
+                                    label='Genre'
                                     value='This is some value'
                                     maxLength={30}
                                     error='This is error message'
                                     info='This is some hint message'
-                                    inlineLabel={true}
                                     required={false}
                                     disabled={false}
                                     invalid={false}
                                     onChange={(value) => {}} /> 
                             </Form.FormItem>
                         </Form.FormGroup>
-                        <Form.FormGroup marginBottom='0'>
+                        <Form.FormGroup marginBottom='0' inlineLabel={true}>
                             <Form.FormItem>
-                                <Input label='Subject'
+                                <Input 
+                                    label='Subject'
                                     value='This is some value'
                                     maxLength={30}
                                     error='This is error message'
                                     info='This is some hint message'
-                                    inlineLabel={true}
                                     required={true}
                                     disabled={false}
                                     invalid={false}
                                     onChange={(value) => {}} /> 
                             </Form.FormItem>
+                            <Form.FormItem autoWidth={true}>
+                                <Form.FormText>Just testing:</Form.FormText>
+                            </Form.FormItem>
                             <Form.FormItem>
-                                <Input label='Categories'
+                                <Select
+                                    label='Categories'
+                                    labelHidden={true}
                                     value='This is some value'
-                                    maxLength={30}
                                     error='This is error message'
                                     info='This is some hint message'
-                                    inlineLabel={true}
                                     required={true}
                                     disabled={false}
                                     invalid={false}
-                                    onChange={(value) => {}} /> 
+                                    onChange={(value) => {}}>
+                                        <Option>Option 1</Option>
+                                        <Option>Option 2</Option>
+                                </Select>
+                            </Form.FormItem>
+                            <Form.FormItem autoWidth={true}>
+                                <ButtonGroup>
+                                    <IconButton ariaValue="Submit" icon="picture" onClick={()=> false} />
+                                    <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                    <Button text="Submit" onClick={()=> false} type="primary" />
+                                </ButtonGroup>
                             </Form.FormItem>
                         </Form.FormGroup>
                     </React.Fragment>
                 )}
                 authoringBookmarks={(
-                    // <span></span>
                     <Nav.QuickNavBar
                         items={[
                             { icon: 'heading-1', tooltip: 'Headline', onClick: () => false },
@@ -208,8 +219,14 @@ export class EditorTest extends React.Component<IProps, IState> {
                                 augue. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
                                 sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
                                 purus sit amet fermentum.</p>
-                            <Layout.Container className='trtmrt'>
+                            <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
                                 <span>Curabitur blandit tempus porttitor.</span>
+                                <Button text="Test button" type="primary" onClick={()=> false} />
+                                <Button text="Test button" type="highlight" onClick={()=> false} />
+                                <ButtonGroup align="right">
+                                    <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                    <Button text="Submit" onClick={()=> false} type="primary" />
+                                </ButtonGroup>
                             </Layout.Container>
                 </Layout.AuthoringMain>
             )}
