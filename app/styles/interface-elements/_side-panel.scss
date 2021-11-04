@@ -84,6 +84,7 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
         grid-row: 2/3;
         z-index: 1;
         overflow: auto;
+        position: relative;
         &--flex {
             display: flex;
             flex-direction: column;

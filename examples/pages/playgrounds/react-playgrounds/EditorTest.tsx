@@ -1,9 +1,11 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
+import { BoxedList, BoxedListItem, BoxedListContentRow } from '../../../../app-typescript/components/Lists';
+import { SimpleList, SimpleListItem } from '../../../../app-typescript/components/Lists';
 
 interface IProps {
     children?: React.ReactNode;
@@ -17,6 +19,8 @@ interface IState {
     itemSelected2: boolean;
     itemSelected3: boolean;
     value1: boolean;
+    value2: boolean;
+    value3: boolean;
     leftPanelOpen: boolean;
     rightPanelOpen: boolean;
     rightPanelPinned: boolean;
@@ -34,6 +38,8 @@ export class EditorTest extends React.Component<IProps, IState> {
             itemSelected2: false,
             itemSelected3: false,
             value1: false,
+            value2: false,
+            value3: false,
             leftPanelOpen: false,
             rightPanelOpen: false,
             rightPanelPinned: false,
@@ -61,7 +67,7 @@ export class EditorTest extends React.Component<IProps, IState> {
         return (
             <Layout.AuthoringFrame
             header={(
-<SubNav zIndex={2}>
+                <SubNav zIndex={2}>
                     <ButtonGroup align='right'>
                         <Button
                                 text="Open pinned"
@@ -237,18 +243,58 @@ export class EditorTest extends React.Component<IProps, IState> {
                     </Layout.PanelHeader>
                     <Layout.PanelContent>
                         <Layout.PanelContentBlock>
-                            <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                                vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur.</p>
-                            <p className='sd-margin-b--3'>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                                vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac,
-                                vestibulum at eros. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                            <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra
-                                augue. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
-                                sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
-                                purus sit amet fermentum.</p>
-
+                            <BoxedList>
+                                <BoxedListItem 
+                                    type="success"
+                                    clickable={true}
+                                    media={(
+                                        <Icon name='slideshow'  />
+                                    )}
+                                    actions={(
+                                        <IconButton icon="dots-vertical" ariaValue="More actions" onClick={()=> false} />
+                                    )}
+                                >
+                                    <BoxedListContentRow>
+                                        Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.
+                                    </BoxedListContentRow>
+                                    <BoxedListContentRow>
+                                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. 
+                                    </BoxedListContentRow>
+                                </BoxedListItem>
+                                <BoxedListItem 
+                                    type="warning"
+                                    media={(
+                                        <AvatarWrapper
+                                            size="medium"
+                                            >
+                                            <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
+                                        </AvatarWrapper>
+                                    )}
+                                    footer={(
+                                        <ButtonGroup align="right">
+                                            <Button text="cancel" size="small" style="hollow" onClick={()=> false} />
+                                            <Button text="yes" size="small" style="hollow" type="primary" onClick={()=> false} />
+                                        </ButtonGroup>
+                                    )}
+                                    actions={(
+                                        <IconButton icon="dots-vertical" ariaValue="More actions" onClick={()=> false} />
+                                    )}
+                                >
+                                    <BoxedListContentRow>
+                                        Maecenas sed diam eget risus varius blandit sit amet magna.
+                                    </BoxedListContentRow>
+                                </BoxedListItem>
+                                <BoxedListItem 
+                                    selected={true}
+                                    actions={(
+                                        <IconButton icon="dots-vertical" ariaValue="More actions" onClick={()=> false} />
+                                    )}
+                                >
+                                    <BoxedListContentRow>
+                                        Maecenas sed diam eget risus varius blandit sit amet magna. Vestibulum id ligula porta felis euismod semper.
+                                    </BoxedListContentRow>
+                                </BoxedListItem>
+                            </BoxedList>
                         </Layout.PanelContentBlock>
                     </Layout.PanelContent>
                 </Layout.Panel>
@@ -258,15 +304,26 @@ export class EditorTest extends React.Component<IProps, IState> {
                 <Layout.Panel background='light' open={this.state.sideOverlayOpen} size='x-small'>
                     <Layout.PanelHeader title='Overlay Panel content' onClose={() => this.setState({'sideOverlayOpen': false})}>
                     </Layout.PanelHeader>
-                    <Layout.PanelContent>
+                    <Layout.PanelContent
+                        empty={false}
+                        emptyTemplate={(
+                            <EmptyState title="test" />
+                        )} >
                         <Layout.PanelContentBlock>
-                            <p className='sd-margin-b--3'>Cras mattis consectetur purus sit amet fermentum. Curabitur blandit tempus porttitor. Aenean eu leo quam. Pellentesque ornare sem lacinia
-                            quam venenatis vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare.</p>
-                            <p className='sd-margin-b--3'>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,ut
-                            fermentum massa justo sit amet risus. Maecenas faucibus mollis interdum.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                                vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
-                                risus, porta ac consectetur ac, vestibulum at eros.</p>
+                            <SimpleList border={true}>
+                                <SimpleListItem justify="space-between">
+                                    <Form.FormLabel text="My label" />
+                                    <Switch value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                </SimpleListItem>
+                                <SimpleListItem justify="space-between">
+                                    <Form.FormLabel text="Form label" />
+                                    <Switch value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
+                                </SimpleListItem>
+                                <SimpleListItem stacked={true}>
+                                    <Form.FormLabel text="Label two" />
+                                    <Text size="small" weight="light">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Nullam quis risus eget urna mollis ornare vel eu leo.</Text>
+                                </SimpleListItem>
+                            </SimpleList>
                         </Layout.PanelContentBlock>
                     </Layout.PanelContent>
                 </Layout.Panel>

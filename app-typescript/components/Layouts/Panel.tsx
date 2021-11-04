@@ -1,6 +1,8 @@
 import * as React from 'react';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
+import { Spinner, LoadingOverlay } from '../Spinner';
+import { EmptyState } from '../EmptyState';
 import classNames from 'classnames';
 
 // ============= Panel ============ //
@@ -85,10 +87,26 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
 
 // ============= Panel Content ============ //
 
-class PanelContent extends React.PureComponent {
+interface IPropsPanelContent {
+    loading?: boolean;
+    empty?: boolean;
+    emptyTemplate?: React.ReactNode;
+}
+
+class PanelContent extends React.PureComponent<IPropsPanelContent> {
     render() {
         return (
             <div className="side-panel__content">
+                {this.props.loading ?
+                    <LoadingOverlay>
+                        <Spinner size="large" /> 
+                    </LoadingOverlay>  : null
+                }
+                {this.props.empty ?
+                    <LoadingOverlay>
+                        {this.props.emptyTemplate} 
+                    </LoadingOverlay>  : null
+                }
                 {this.props.children}
             </div>
         );

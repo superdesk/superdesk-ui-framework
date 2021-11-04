@@ -1,11 +1,22 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
+
+class LoadingOverlay extends React.PureComponent {
+    render() {
+        return (
+            <div className="sd-loading-overlay--plain">
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
 interface IProps {
     size?: 'mini' |'small' | 'medium' | 'large'; // defaults to 'small'
 }
 
-export class Spinner extends React.PureComponent<IProps> {
+class Spinner extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-spinner', {
             'sd-spinner--small': this.props.size === undefined,
@@ -18,3 +29,5 @@ export class Spinner extends React.PureComponent<IProps> {
         );
     }
 }
+
+export { Spinner, LoadingOverlay };

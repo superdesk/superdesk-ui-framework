@@ -5,23 +5,18 @@
 $simple-list-border-color: $neutral-border-color;
 
 .simple-list {
-    padding: 2rem 0;
+    padding: 0 0 $sd-base-increment * 3;
     .simple-list__item {
         padding: 0.5rem 0;
-        &--with-icon {
-            display: flex;
-            flex-direction: row;
-            [class^="icon-"], [class*=" icon-"] {
-                flex-grow: 0;
-                flex-shrink: 0;
-                margin-right: 1rem;
-                opacity: .75;
-            }
-        }
-        &--flex {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 0.8rem;
+        [class^="icon-"], [class*=" icon-"] {
+            flex-grow: 0;
+            flex-shrink: 0;
+            //margin-inline-end: 1rem;
+            opacity: .75;
         }
         &--stacked {
             display: flex;
@@ -34,8 +29,17 @@ $simple-list-border-color: $neutral-border-color;
                 padding: 0 0 0.6rem 0;
             }
         }
-        .label-icon {
-            margin-right: 4px;
+        &--justify-flex-start {
+            justify-content: flex-start;
+        }
+        &--justify-flex-end {
+            justify-content: flex-end;
+        }
+        &--justify-center {
+            justify-content: center;
+        }
+        &--justify-space-between {
+            justify-content: space-between;
         }
     }
     .simple-list__item-label {

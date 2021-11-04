@@ -67,10 +67,12 @@ export { ToggleBox } from './components/Togglebox';
 export * from './components/Layouts';
 export * from './components/Form';
 export * from './components/Navigation';
+export * from './components/Lists';
 
 export { Skeleton } from './components/Skeleton';
 export { ListItemLoader } from './components/ListItemLoader';
-export { Spinner } from './components/Spinner';
+export { Spinner, LoadingOverlay } from './components/Spinner';
+export { Text } from './components/Text';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

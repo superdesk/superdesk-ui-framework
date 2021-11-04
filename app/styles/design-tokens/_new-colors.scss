@@ -567,7 +567,7 @@
     --color-checkbox-border-hover:        hsla(0, 0%, 0%, 0.4);
   
     --color-selected-bg:                  hsla(196, 35%, 94%, 1);
-    --color-selected-bg--hover:           hsla(198, 36%, 91%, 1);
+    --color-selected-bg--hover:           var(--sd-colour-interactive--alpha-10);
   
     --color-bg-00:                        hsla(0, 0%, 100%, 1);
     --color-bg-50:                        hsla(0, 0%, 97%, 1);
