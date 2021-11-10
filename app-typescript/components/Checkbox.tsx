@@ -3,7 +3,7 @@ import nextId from "react-id-generator";
 interface IProps {
     label: {
         text: string,
-        side?: 'left' | 'right', // defaults to 'right'
+        side?: 'start' | 'end', // defaults to 'right'
         hidden?: boolean,
     };
     checked?: boolean;

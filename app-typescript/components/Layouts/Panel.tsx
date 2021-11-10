@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Icon } from '../Icon';
 import { IconButton } from '../IconButton';
 import { Spinner, LoadingOverlay } from '../Spinner';
-import { EmptyState } from '../EmptyState';
 import classNames from 'classnames';
 
 // ============= Panel ============ //

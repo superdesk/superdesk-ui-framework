@@ -376,10 +376,10 @@ $checkButtonBorderRadius: $border-radius__base--small;
     align-items: center;
     gap: $sd-base-increment * 1;
     flex: 0;
-    &--left {
+    &--left, &--start {
         margin-inline-end: auto;
     }
-    &--right {
+    &--right, &--end {
         margin-inline-start: auto;
     }
     &--center {
@@ -429,7 +429,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     .sd-label--disabled { 
         opacity: 0.40;
     }
-    &[label-position="left"] {
+    &[label-position="left"], &[label-position="start"] {
         label {
             margin-inline-end: $sd-base-increment;
             margin-inline-start: 0;

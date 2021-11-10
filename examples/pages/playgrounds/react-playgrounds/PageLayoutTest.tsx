@@ -57,14 +57,14 @@ export class PageLayoutTest extends React.Component<IProps, IState> {
             <Layout.PageLayout
             header={(
 <SubNav zIndex={2}>
-                <ButtonGroup align="left" padded={true}>
+                <ButtonGroup align="start" padded={true}>
                     <Button
                         text="Open left panel"
                         style="hollow"
                         onClick={() => this.setState({'leftPanelOpen': !this.state.leftPanelOpen})}
                     />
                 </ButtonGroup>
-                <ButtonGroup align='right'>
+                <ButtonGroup align='end'>
                     <Button
                             text="Open right panel"
                             style="hollow"

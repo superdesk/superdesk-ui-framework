@@ -69,7 +69,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
 
                 <div className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                     <Components.HeaderPanel >
-                        <SubNav theme={this.state.theme}>
+                        <SubNav>
                             <ButtonGroup align='inline'>
                                 <Dropdown
                                     items={[
@@ -85,11 +85,11 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                     <NavButton onClick={() => false} />
                                 </Dropdown>
                             </ButtonGroup>
-                            <ButtonGroup align='right'>
+                            <ButtonGroup align='end'>
                                 <NavButton icon='dots-vertical' onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
-                        <SubNav theme={this.state.theme}>
+                        <SubNav>
                             <ButtonGroup >
                                 <NavButton icon='filter-large' onClick={this.handleFilter} />
                             </ButtonGroup>
@@ -100,7 +100,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                     { value: 'itemtype03', label: 'Videos only' },
                                     { value: 'itemtype04', label: 'Documents only' }]} />
                             </CheckButtonGroup>
-                            <ButtonGroup align='right'>
+                            <ButtonGroup align='end'>
                                 <NavButton icon='adjust' onClick={this.handleTheme} />
                                 <NavButton icon='th-list' onClick={() => false} />
                             </ButtonGroup>

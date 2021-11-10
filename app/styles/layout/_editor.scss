@@ -3,6 +3,7 @@
     display: grid;
     grid-template-columns: [sideBarLeft] auto [editorContent] 1fr [sideTabPinned] auto [sideTabOverlay] auto [sideTabsBar] auto [editorOverlay] 0 [editorOverlay-end];
     grid-template-rows: [editorSubnav] auto [editorContent] 1fr [editorContent-end];
+    height: 100%;
 }
 .sd-editor-grid__editor-subnav {
     grid-column: 1 / 6;
@@ -70,7 +71,7 @@
         width: 0;
         bottom: 0;
         inset-inline-end: -320px;
-        transition: all 0.4s ease;
+        transition: width 0.2s ease-in-out, opacity 0.2s ease;
         box-shadow: -2px 0 12px hsla(0, 0%, 0%, 0), -3px 0 0 0px hsla(214, 13%, 60%, 0);
         display: grid;
         grid-template-columns: 1fr;

@@ -54,13 +54,13 @@ export class TestGround extends React.Component<IProps, IState> {
                         <hr />
                         <div className="sd-check__group-new sd-check__group-new--vertical">
                             <Checkbox label={{text: 'Label side not defined'}} onChange={(value) => console.log('value changed', value)} />
-                            <Checkbox label={{text: 'Defined label side - right', side: 'right'}} onChange={(value) => console.log('value changed', value)} />
+                            <Checkbox label={{text: 'Defined label side - right', side: 'end'}} onChange={(value) => console.log('value changed', value)} />
                             <Checkbox label={{text: 'This checkbox is disabled'}} onChange={(value) => console.log('value changed', value)} disabled={true}/>
                         </div>
 
                         <hr />
 
-                        <Checkbox label={{text: 'Defined label side - left', side: 'left'}} onChange={(value) => console.log('value changed', value)} />
+                        <Checkbox label={{text: 'Defined label side - left', side: 'start'}} onChange={(value) => console.log('value changed', value)} />
 
                         <hr />
 
@@ -99,7 +99,7 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <hr />
                         
-                        <Carousel></Carousel>
+                        {/* <Carousel></Carousel> */}
 
                         <hr />
                         <div className="sd-thumb-carousel" data-theme="dark-ui">

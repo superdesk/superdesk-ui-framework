@@ -43,10 +43,10 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Basic Radio button</h3>
-                <p className="docs-page__paragraph">The label of the Radio button is by default always on the right. Although it's not in line with Superdesk design standards the label can also be placed to the left, by addind the prop <code>labelSide='left'</code>.</p>
+                <p className="docs-page__paragraph">The label of the Radio button is by default always on the right. Although it's not in line with Superdesk design standards the label can also be placed to the left, by addind the prop <code>labelSide='start'</code>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// Label on the right (default)</p>
+                        <p className="docs-page__paragraph">// Label on the end/right (default)</p>
                         <div className='form__group'>
                             <CheckGroup>
                                 <Radio options={[
@@ -57,7 +57,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                                 ]} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                             </CheckGroup>
                         </div>
-                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Labels on the left</p>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Labels on the start/left</p>
                         <p className="docs-page__paragraph--small">This option should be avoided in general use.</p>
                         <div className='form__group'>
                             <CheckGroup>
@@ -65,7 +65,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                                     {value:'test5', label:'Label on the left'},
                                     {value:'test6', label:'Label on the left'},
                                     {value:'test7', label:'Label on the left'},
-                                ]} value={this.state.value2} labelSide='left' onChange={(value) => this.setState(() => ({ value2: value }))} />
+                                ]} value={this.state.value2} labelSide='start' onChange={(value) => this.setState(() => ({ value2: value }))} />
                             </CheckGroup>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -86,7 +86,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                                 {value:'test5', label:'Label on the left'},
                                 {value:'test6', label:'Label on the left'},
                                 {value:'test7', label:'Label on the left'},
-                            ]} value={this.state.value2} labelSide='left' onChange={(value) => this.setState(() => ({ value2: value }))} />
+                            ]} value={this.state.value2} labelSide='start' onChange={(value) => this.setState(() => ({ value2: value }))} />
                         </CheckGroup>
                     `}
                     </Markup.ReactMarkupCode>
@@ -225,7 +225,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Button style radio Groups</h3>          
-                <p className="docs-page__paragraph"><code>CheckButtonGroup</code> is a helpful wrapper component used to group <code>RadioButton</code> components. By default the RadioButton components are grouped horizontaly. A few more options are available compared to the <code>CheckGroup</code> component – alignment (left, right and center) and grid layout. </p>
+                <p className="docs-page__paragraph"><code>CheckButtonGroup</code> is a helpful wrapper component used to group <code>RadioButton</code> components. By default the RadioButton components are grouped horizontaly. A few more options are available compared to the <code>CheckGroup</code> component – alignment (start, end and center) and grid layout. </p>
                 <Alert style='hollow' size='small' type='primary'>
                     NOTE: Alignment will work only in parent elements with display: flex;
                 </Alert>
@@ -243,7 +243,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Right</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <CheckButtonGroup align='right'>
+                            <CheckButtonGroup align='end'>
                                 <RadioButton value={this.state.value4} options={[
                                     {value:'test304', label:'Option one'},
                                     {value:'test305', label:'Option two'},
@@ -277,7 +277,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                                 ]} onChange={(value) => this.setState(() => ({ value6: value }))} />
                             </CheckButtonGroup>
 
-                            <CheckButtonGroup align='right'>
+                            <CheckButtonGroup align='end'>
                                 <RadioButton value={this.state.value6} options={[
                                     {value:'test314', label:'Five'},
                                     {value:'test315', label:'Six'},
@@ -309,7 +309,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                         </CheckButtonGroup>
 
                         // Right
-                        <CheckButtonGroup align='right'>
+                        <CheckButtonGroup align='end'>
                             <RadioButton value={value4} options={[
                                 {value:'test304', label:'Option one'},
                                 {value:'test305', label:'Option two'},
@@ -342,7 +342,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                                 ]} />
                             </CheckButtonGroup>
 
-                            <CheckButtonGroup align='right'>
+                            <CheckButtonGroup align='end'>
                                 <RadioButton value={value6} options={[
                                     {value:'test314', label:'Five'},
                                     {value:'test315', label:'Six'},
@@ -373,7 +373,7 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                     <Prop name='options label' isRequired={true} type='string' default='/' description='Label text value for Radio.'/>
                     <Prop name='options value' isRequired={true} type='T' default='/' description='Value of the Radio.'/>
                     <Prop name='options disabled' isRequired={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
-                    <Prop name='labelSide' isRequired={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                    <Prop name='labelSide' isRequired={false} type='start | end' default='end' description='Position of label relative to the button.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">Radio Button</p>
                 <PropsList>

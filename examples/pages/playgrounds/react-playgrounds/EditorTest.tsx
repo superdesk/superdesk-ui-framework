@@ -68,7 +68,7 @@ export class EditorTest extends React.Component<IProps, IState> {
             <Layout.AuthoringFrame
             header={(
                 <SubNav zIndex={2}>
-                    <ButtonGroup align='right'>
+                    <ButtonGroup align='end'>
                         <Button
                                 text="Open pinned"
                                 style="hollow"
@@ -126,8 +126,8 @@ export class EditorTest extends React.Component<IProps, IState> {
                                 <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
                             </dl>
                         </div>
-                        <ButtonGroup  align='right'>
-                            <IconButton icon="preview-mode" ariaValue="Print preview" onClick={()=> false} />
+                        <ButtonGroup  align='end'>
+                            <IconButton icon="preview-mode" toolTipAppend={true} ariaValue="Print preview" onClick={()=> false} />
                             <IconButton icon="adjust" ariaValue="Toogle theme" onClick={()=> false} />
                             <IconButton icon="switches" ariaValue="Theme settings" onClick={()=> false} />
                         </ButtonGroup>
@@ -136,6 +136,18 @@ export class EditorTest extends React.Component<IProps, IState> {
                 authoringHeader={(
                     <React.Fragment>
                         <Form.FormGroup inlineLabel={true}>
+                            <Form.FormItem>
+                                <Input
+                                    label='Slugline'
+                                    value='This is some value'
+                                    maxLength={30}
+                                    error='This is error message'
+                                    info='This is some hint message'
+                                    required={false}
+                                    disabled={false}
+                                    invalid={false}
+                                    onChange={(value) => {}} /> 
+                            </Form.FormItem>
                             <Form.FormItem>
                                 <Input
                                     label='Slugline'
@@ -229,7 +241,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                 <span>Curabitur blandit tempus porttitor.</span>
                                 <Button text="Test button" type="primary" onClick={()=> false} />
                                 <Button text="Test button" type="highlight" onClick={()=> false} />
-                                <ButtonGroup align="right">
+                                <ButtonGroup align="end">
                                     <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
                                     <Button text="Submit" onClick={()=> false} type="primary" />
                                 </ButtonGroup>
@@ -271,7 +283,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         </AvatarWrapper>
                                     )}
                                     footer={(
-                                        <ButtonGroup align="right">
+                                        <ButtonGroup align="end">
                                             <Button text="cancel" size="small" style="hollow" onClick={()=> false} />
                                             <Button text="yes" size="small" style="hollow" type="primary" onClick={()=> false} />
                                         </ButtonGroup>
@@ -301,10 +313,11 @@ export class EditorTest extends React.Component<IProps, IState> {
             )}
             sideOverlayOpen={this.state.sideOverlayOpen}
             sideOverlay={(
-                <Layout.Panel background='light' open={this.state.sideOverlayOpen} size='x-small'>
+                <Layout.Panel background='light' open={this.state.sideOverlayOpen} size='x-small' theme="dark-ui">
                     <Layout.PanelHeader title='Overlay Panel content' onClose={() => this.setState({'sideOverlayOpen': false})}>
                     </Layout.PanelHeader>
                     <Layout.PanelContent
+                        loading={false}
                         empty={false}
                         emptyTemplate={(
                             <EmptyState title="test" />

@@ -101,12 +101,12 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                                     </PanelElements.PanelContentBlock>
                                 </PanelElements.PanelContent>
                                 <PanelElements.PanelFooter>
-                                    <ButtonGroup align='left'>
+                                    <ButtonGroup align='start'>
                                         <Button text='one' style='hollow' onClick={()=> false} />
                                         <Button text='two' style='hollow' onClick={()=> false} />
                                         <Label text='Published' type='primary' style='translucent'/>
                                     </ButtonGroup>
-                                    <ButtonGroup align='right'>
+                                    <ButtonGroup align='end'>
                                         <IconButton icon='pencil' ariaValue={'Edit'} onClick={() => false}  />
                                         <IconButton icon='dots-vertical' ariaValue={'More options'} onClick={() => false}  />
                                     </ButtonGroup>

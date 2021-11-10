@@ -87,7 +87,8 @@
 @import 'menus/sd-content-navigation';
 
 // Editor
-@import 'editor-themes';
+@import 'editor/editor-themes';
+@import 'editor/editor-buttons';
 
 // Publisher specific
 @import 'publisher-styles';

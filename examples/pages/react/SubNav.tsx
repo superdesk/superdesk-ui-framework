@@ -12,10 +12,10 @@ export default class SubNavDoc extends React.Component {
                 <p></p>
                 <Markup.ReactMarkupCodePreview>{`
                     <SubNav zIndex={2}>
-                        <ButtonGroup align='left'>
+                        <ButtonGroup align='start'>
                             <NavButton icon='search' onClick={()=> false} />
                         </ButtonGroup>
-                        <ButtonGroup align='right'>
+                        <ButtonGroup align='end'>
                             <NavButton icon='dots-vertical' onClick={()=> false} />
                         </ButtonGroup>
                     </SubNav>
@@ -25,18 +25,18 @@ export default class SubNavDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <SubNav zIndex={4}>
-                            <ButtonGroup align='left'>
+                            <ButtonGroup align='start'>
                                 <NavButton icon='search' onClick={()=> false} />
                             </ButtonGroup>
-                            <ButtonGroup align='right'>
+                            <ButtonGroup align='end'>
                                 <NavButton icon='expand-thin' type='highlight' onClick={()=> false} />
                             </ButtonGroup>
                         </SubNav>
                         <SubNav color='darker' zIndex={3}>
-                            <ButtonGroup align='left'>
+                            <ButtonGroup align='start'>
                                 <NavButton icon='filter-large' type='darker' onClick={()=> false} />
                             </ButtonGroup>
-                            <ButtonGroup align='right'>
+                            <ButtonGroup align='end'>
                                 <Button text='Something' onClick={()=> false} />
                                 <Button text='Else' onClick={()=> false} />
                                 <Divider border={true} />
@@ -51,7 +51,7 @@ export default class SubNavDoc extends React.Component {
                         </SubNav>
                         <br />
                         <SubNav color='darker' zIndex={2}>
-                            <ButtonGroup align='left' padded={true}>
+                            <ButtonGroup align='start' padded={true}>
                             <Button text='Something' onClick={()=> false} />
                                 <Button text='Else' onClick={()=> false} />
                                 <Divider border={true} />
@@ -75,11 +75,11 @@ export default class SubNavDoc extends React.Component {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <SubNav zIndex={2}>
-                            <ButtonGroup align='left'>
+                            <ButtonGroup align='start'>
                                 <NavButton icon='filter-large' type='darker' onClick={()=> false} />
                                 <NavButton icon='search' onClick={()=> false} />
                             </ButtonGroup>
-                            <ButtonGroup align='right'>
+                            <ButtonGroup align='end'>
                                 <NavButton icon='list-plus' onClick={()=> false} />
                                 <NavButton icon='dots-vertical' onClick={()=> false} />
                                 <NavButton icon='expand-thin' type='highlight' onClick={()=> false} />

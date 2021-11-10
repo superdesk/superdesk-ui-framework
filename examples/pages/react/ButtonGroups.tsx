@@ -24,33 +24,33 @@ export default class ButtonGroupsDoc extends React.Component {
                 </Alert>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                    <p className="docs-page__paragraph">// Left</p>
+                    <p className="docs-page__paragraph">// Start (left)</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
-                        <ButtonGroup align='left'>
+                        <ButtonGroup align='start'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
-                        <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                        <ButtonGroup align='start'>
+                            <IconButton icon='home' ariaValue='Home' onClick={()=> false} />
+                            <IconButton icon='bell' ariaValue='Notifications' onClick={()=> false} />
+                            <IconButton icon='heart' ariaValue='Favorites' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     
-                    <p className="docs-page__paragraph">// Right</p>
+                    <p className="docs-page__paragraph">// End (right)</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
-                        <ButtonGroup align='right'>
+                        <ButtonGroup align='end'>
                             <Button text='Cancel' style='hollow' onClick={()=> false} />
                             <Button text='Save' type='primary' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
-                        <ButtonGroup align='right'>
-                            <IconButton icon='trash' tooltip={{text:'Delete'}} onClick={()=> false} />
-                            <IconButton icon='pencil' tooltip={{text:'Edit'}} onClick={()=> false} />
-                            <IconButton icon='close-small' tooltip={{text:'Close'}} onClick={()=> false} />
+                        <ButtonGroup align='end'>
+                            <IconButton icon='trash' ariaValue='Delete' onClick={()=> false} />
+                            <IconButton icon='pencil' ariaValue='Edit' onClick={()=> false} />
+                            <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     <p className="docs-page__paragraph">// Center</p>
@@ -60,9 +60,9 @@ export default class ButtonGroupsDoc extends React.Component {
                             <Button text='two' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
-                    <p className="docs-page__paragraph">// Left + Center + Right</p>
+                    <p className="docs-page__paragraph">// Start + Center + End</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
-                        <ButtonGroup align='left'>
+                        <ButtonGroup align='start'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
@@ -70,38 +70,38 @@ export default class ButtonGroupsDoc extends React.Component {
                             <Button text='three' style='hollow' onClick={()=> false} />
                             <Button text='four' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
-                        <ButtonGroup align='right'>
+                        <ButtonGroup align='end'>
                             <Button text='Cancel' style='hollow' onClick={()=> false} />
                             <Button text='Save' type='primary' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        // Left
-                        <ButtonGroup align='left'>
+                        // Start (left)
+                        <ButtonGroup align='start'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
-                        <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                        <ButtonGroup align='start'>
+                            <IconButton icon='trash' ariaValue='Delete' onClick={()=> false} />
+                            <IconButton icon='pencil' ariaValue='Edit' onClick={()=> false} />
+                            <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
                         </ButtonGroup>
 
-                        // Right
-                        <ButtonGroup align='right'>
+                        // End (right)
+                        <ButtonGroup align='end'>
                             <Button text='Cancel' style='hollow' onClick={()=> false} />
                             <Button text='Save' type='primary' onClick={()=> false} />
                         </ButtonGroup>
 
-                        <ButtonGroup align='right'>
-                            <IconButton icon='trash' tooltip={{text:'Delete'}} onClick={()=> false} />
-                            <IconButton icon='pencil' tooltip={{text:'Edit'}} onClick={()=> false} />
-                            <IconButton icon='close-small' tooltip={{text:'Close'}} onClick={()=> false} />
+                        <ButtonGroup align='end'>
+                            <IconButton icon='trash' ariaValue='Delete' onClick={()=> false} />
+                            <IconButton icon='pencil' ariaValue='Edit' onClick={()=> false} />
+                            <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
                         </ButtonGroup>
 
-                        // Left + Center + Right
-                        <ButtonGroup align='left'>
+                        // Start + Center + End
+                        <ButtonGroup align='start'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
@@ -109,7 +109,7 @@ export default class ButtonGroupsDoc extends React.Component {
                             <Button text='three' style='hollow' onClick={()=> false} />
                             <Button text='four' style='hollow' onClick={()=> false} />
                         </ButtonGroup>
-                        <ButtonGroup align='right'>
+                        <ButtonGroup align='end'>
                             <Button text='Cancel' style='hollow' onClick={()=> false} />
                             <Button text='Save' type='primary' onClick={()=> false} />
                         </ButtonGroup>
@@ -144,7 +144,7 @@ export default class ButtonGroupsDoc extends React.Component {
                 <PropsList>
                     <Prop name='orientation' isRequired={false} type='horizontal | vertical' default='horizontal' description='Specifies orientation for child components of ButtonGroup'/>
                     <Prop name='spaces' isRequired={false} type='comfort | compact' default='comfort' description='Space between buttons: comfort (default) or compact.'/>
-                    <Prop name='align' isRequired={false} type='left | right | center | inline' default='left' description='Alignment in relation to the parent element. Inline value renders the ButtonGroup without pushing surrounding elements.'/>
+                    <Prop name='align' isRequired={false} type='start | end | center | inline' default='start' description='Alignment in relation to the parent element. Inline value renders the ButtonGroup without pushing surrounding elements.'/>
                     <Prop name='padded' isRequired={false} type='boolean' default='false' description='Adds predefined space to the side based on alignment and orientation.'/>
                 </PropsList>
 
@@ -161,7 +161,7 @@ export default class ButtonGroupsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Default (small)</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
-                        <ButtonGroup align='left'>
+                        <ButtonGroup align='start'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                             <Divider />
@@ -172,7 +172,7 @@ export default class ButtonGroupsDoc extends React.Component {
 
                     <p className="docs-page__paragraph">// Small with border</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2">
-                        <ButtonGroup align='right'>
+                        <ButtonGroup align='end'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                             <Divider border={true} />
@@ -183,35 +183,35 @@ export default class ButtonGroupsDoc extends React.Component {
 
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
                         <ButtonGroup align='center'>
-                            <IconButton icon='undo' tooltip={{text:'Undo'}} onClick={()=> false} />
-                            <IconButton icon='redo' tooltip={{text:'Redo'}} onClick={()=> false} />
-                            <IconButton icon='print' tooltip={{text:'Print'}} onClick={()=> false} />
+                            <IconButton icon='undo' ariaValue='Undo' onClick={()=> false} />
+                            <IconButton icon='redo' ariaValue='Redo' onClick={()=> false} />
+                            <IconButton icon='print' ariaValue='Print' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='bold' tooltip={{text:'Bold'}} onClick={()=> false} />
-                            <IconButton icon='italic' tooltip={{text:'Italic'}} onClick={()=> false} />
-                            <IconButton icon='underline' tooltip={{text:'Underline'}} onClick={()=> false} />
-                            <IconButton icon='strikethrough' tooltip={{text:'Strikethrough'}} onClick={()=> false} />
+                            <IconButton icon='bold' ariaValue='Bold' onClick={()=> false} />
+                            <IconButton icon='italic' ariaValue='Italic' onClick={()=> false} />
+                            <IconButton icon='underline' ariaValue='Underline' onClick={()=> false} />
+                            <IconButton icon='strikethrough' ariaValue='Strikethrough' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='align-left' tooltip={{text:'Align left'}} onClick={()=> false} />
-                            <IconButton icon='align-center' tooltip={{text:'Align center'}} onClick={()=> false} />
-                            <IconButton icon='align-right' tooltip={{text:'Align right'}} onClick={()=> false} />
+                            <IconButton icon='align-left' ariaValue='Align left' onClick={()=> false} />
+                            <IconButton icon='align-center' ariaValue='Align center' onClick={()=> false} />
+                            <IconButton icon='align-right' ariaValue='Align right' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
 
                     <p className="docs-page__paragraph">// Medium</p>
                     <div className="form__row form__row--flex docs-page__test-helper-2 sd-margin-t--2">
-                        <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='slideshow' tooltip={{text:'Gallery'}} onClick={()=> false} />
+                        <ButtonGroup align='start'>
+                            <IconButton icon='home' ariaValue='Home' onClick={()=> false} />
+                            <IconButton icon='slideshow' ariaValue='Gallery' onClick={()=> false} />
                             <Divider size='medium' />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                            <IconButton icon='bell' ariaValue='Notifications' onClick={()=> false} />
+                            <IconButton icon='heart' ariaValue='Favorites' onClick={()=> false} />
                         </ButtonGroup>
                     </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // // Default (small)
-                        <ButtonGroup align='left'>
+                        <ButtonGroup align='start'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                             <Divider />
@@ -220,7 +220,7 @@ export default class ButtonGroupsDoc extends React.Component {
                         </ButtonGroup>
 
                         // Small with border
-                        <ButtonGroup align='right'>
+                        <ButtonGroup align='end'>
                             <Button text='one' style='hollow' onClick={()=> false} />
                             <Button text='two' style='hollow' onClick={()=> false} />
                             <Divider border={true} />
@@ -229,27 +229,27 @@ export default class ButtonGroupsDoc extends React.Component {
                         </ButtonGroup>
 
                         <ButtonGroup align='center'>
-                            <IconButton icon='undo' tooltip={{text:'Undo'}} onClick={()=> false} />
-                            <IconButton icon='redo' tooltip={{text:'Redo'}} onClick={()=> false} />
-                            <IconButton icon='print' tooltip={{text:'Print'}} onClick={()=> false} />
+                            <IconButton icon='undo' ariaValue='Undo' onClick={()=> false} />
+                            <IconButton icon='redo' ariaValue='Redo' onClick={()=> false} />
+                            <IconButton icon='print' ariaValue='Print' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='bold' tooltip={{text:'Bold'}} onClick={()=> false} />
-                            <IconButton icon='italic' tooltip={{text:'Italic'}} onClick={()=> false} />
-                            <IconButton icon='underline' tooltip={{text:'Underline'}} onClick={()=> false} />
-                            <IconButton icon='strikethrough' tooltip={{text:'Strikethrough'}} onClick={()=> false} />
+                            <IconButton icon='bold' ariaValue='Bold' onClick={()=> false} />
+                            <IconButton icon='italic' ariaValue='Italic' onClick={()=> false} />
+                            <IconButton icon='underline' ariaValue='Underline' onClick={()=> false} />
+                            <IconButton icon='strikethrough' ariaValue='Strikethrough' onClick={()=> false} />
                             <Divider border={true} />
-                            <IconButton icon='align-left' tooltip={{text:'Align left'}} onClick={()=> false} />
-                            <IconButton icon='align-center' tooltip={{text:'Align center'}} onClick={()=> false} />
-                            <IconButton icon='align-right' tooltip={{text:'Align right'}} onClick={()=> false} />
+                            <IconButton icon='align-left' ariaValue='Align left' onClick={()=> false} />
+                            <IconButton icon='align-center' ariaValue='Align center' onClick={()=> false} />
+                            <IconButton icon='align-right' ariaValue='Align right' onClick={()=> false} />
                         </ButtonGroup>
 
                         // Medium
                         <ButtonGroup align='left'>
-                            <IconButton icon='home' tooltip={{text:'Home'}} onClick={()=> false} />
-                            <IconButton icon='slideshow' tooltip={{text:'Gallery'}} onClick={()=> false} />
+                            <IconButton icon='home' ariaValue='Home' onClick={()=> false} />
+                            <IconButton icon='slideshow' ariaValue='Gallery' onClick={()=> false} />
                             <Divider size='medium' />
-                            <IconButton icon='bell' tooltip={{text:'Notifications'}} onClick={()=> false} />
-                            <IconButton icon='heart' tooltip={{text:'Favorites'}} onClick={()=> false} />
+                            <IconButton icon='bell' ariaValue='Notifications' onClick={()=> false} />
+                            <IconButton icon='heart' ariaValue='Favorites' onClick={()=> false} />
                         </ButtonGroup>
                     `}
                     </Markup.ReactMarkupCode>

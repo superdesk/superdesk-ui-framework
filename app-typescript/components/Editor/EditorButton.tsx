@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Icon } from './Icon';
-import { Tooltip } from './Tooltip';
+import { Icon } from '../Icon';
+import { Tooltip } from '../Tooltip';
 import classNames from 'classnames';
 
 interface IProps {
@@ -13,10 +13,7 @@ interface IProps {
     onClick(event: React.MouseEvent): void;
 }
 
-export class IconButton extends React.PureComponent<IProps> {
-    static defaultProps = {
-        toolTipAppend: true,
-    };
+export class EditorButton extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('icn-btn', {
             'icn-btn--small': this.props.size === 'small',

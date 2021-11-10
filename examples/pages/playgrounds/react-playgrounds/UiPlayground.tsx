@@ -99,7 +99,7 @@ export class UiPlayground extends React.Component<IProps, IState> {
                             </ButtonGroup>
                             <Components.SearchBar placeholder='Search media'></Components.SearchBar>
 
-                            <ButtonGroup align='right'>
+                            <ButtonGroup align='end'>
                                 <NavButton icon='dots-vertical' onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
@@ -114,7 +114,7 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                     { value: 'itemtype03', label: 'Videos only' },
                                     { value: 'itemtype04', label: 'Documents only' }]} />
                             </CheckButtonGroup>
-                            <ButtonGroup align='right' spaces='no-space'>
+                            <ButtonGroup align='end' spaces='no-space'>
                                 <Dropdown
                                     items={[
                                         {

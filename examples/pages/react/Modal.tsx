@@ -27,19 +27,19 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
     render() {
         const modalFullFooter=(
-            <ButtonGroup align="right">
+            <ButtonGroup align="end">
                 <Button text='Cancel' onClick={() => {this.setState({modalFull:false})}}/>
                 <Button type='primary' text='Save' onClick={() => {}}/>
             </ButtonGroup>
         );
         const modalLargeFooter=(
-            <ButtonGroup align="right">
+            <ButtonGroup align="end">
                 <Button text='Cancel' onClick={() => {this.setState({modalLarge:false})}}/>
                 <Button type='primary' text='Save' onClick={() => {}}/>
             </ButtonGroup>
         );
         const modalXLargeFooter=(
-            <ButtonGroup align="right">
+            <ButtonGroup align="end">
                 <Button text='Cancel' onClick={() => {this.setState({modalXLarge:false})}}/>
                 <Button type='primary' text='Save' onClick={() => {}}/>
             </ButtonGroup>
@@ -60,7 +60,7 @@ export default class ModalDoc extends React.Component<{}, IState> {
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <ButtonGroup align="right">
+                        <ButtonGroup align="end">
                             <Button text="Basic (no size)" onClick={() => this.setState({modalBasic: true})} />
                             <Button text="Small" onClick={() => this.setState({modalSmall: true})} />
                             <Button text="Medium" onClick={() => this.setState({modalMedium: true})} />
@@ -144,7 +144,7 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         // Large
                         <Button text="Large with footer" onClick={() => this.setState({modalLarge: true})} />
                         const modalLargeFooter=(
-                            <ButtonGroup align="right">
+                            <ButtonGroup align="end">
                                 <Button text='Cancel' onClick={() => {this.setState({modalLarge:false})}}/>
                                 <Button type='primary' text='Save' onClick={() => {}}/>
                             </ButtonGroup>
@@ -159,7 +159,7 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         // Extra large
                         <Button text="Extra Large with footer" onClick={() => this.setState({modalXLarge: true})} />
                         const modalXLargeFooter=(
-                            <ButtonGroup align="right">
+                            <ButtonGroup align="end">
                                 <Button text='Cancel' onClick={() => {this.setState({modalXLarge:false})}}/>
                                 <Button type='primary' text='Save' onClick={() => {}}/>
                             </ButtonGroup>
@@ -203,7 +203,7 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         <Button text="Open Modal" onClick={() => this.setState({modalFull: true})} />
                         const modalFullFooter=(
-                            <ButtonGroup align="right">
+                            <ButtonGroup align="end">
                                 <Button text='Cancel' onClick={() => {this.setState({modalFull:false})}}/>
                                 <Button type='primary' text='Save' onClick={() => {}}/>
                             </ButtonGroup>

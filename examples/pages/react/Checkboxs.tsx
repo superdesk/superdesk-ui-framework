@@ -102,29 +102,29 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                 <h2 className="docs-page__h2">Checkbox</h2>
                 <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Checkbox checked={value1} label={{text:'Checkbox label right'}} 
+                    <Checkbox checked={value1} label={{text:'Checkbox label end'}} 
                               onChange={(value) => this.setState(() => ({ value1: value }))} />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3">Basic Checkbox</h3>
-                <p className="docs-page__paragraph">The label of the checkbox is by default always on the right. Although it's not in line with Superdesk design standards the label can also be placed to the left, by addind the prop <code>labelSide='left'</code>.</p>
+                <p className="docs-page__paragraph">The label of the checkbox is by default always on the end (right). Although it's not in line with Superdesk design standards the label can also be placed to the start (left), by addind the prop <code>labelSide='start'</code>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// Label on the right (default)</p>
+                        <p className="docs-page__paragraph">// Label on the end/right (default)</p>
                         <div className='form__row'>
                             <CheckGroup>
-                                <Checkbox checked={this.state.value1} label={{text:'Checkbox label right'}} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                <Checkbox checked={this.state.value1} label={{text:'Checkbox label end'}} onChange={(value) => this.setState(() => ({ value1: value }))} />
                                 <Checkbox checked={this.state.value2} label={{text:'Check me!'}} onChange={(value) => this.setState(() => ({ value2: value }))} />
                                 <Checkbox checked={this.state.value3} label={{text:'Check me too!'}} onChange={(value) => this.setState(() => ({ value3: value }))} />
                                 <Checkbox checked={this.state.value4} label={{text:'I"m disabled:('}} disabled= {true} onChange={(value) => this.setState(() => ({ value4: value }))} />
                                 <Checkbox checked={this.state.value5} label={{text:"I'm disabled and checked :("}} disabled= {true} onChange={(value) => this.setState(() => ({ value5: value }))} />
                             </CheckGroup>
                         </div>
-                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Label on the left</p>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Label on the start</p>
                         <p className="docs-page__paragraph--small">This option should be avoided in Superdesk.</p>
                         <div className='form__row'>
                             <CheckGroup>
-                                <Checkbox checked={this.state.value6} label={{text:'Checkbox label left', side:'left'}} onChange={(value) => this.setState(() => ({ value6: value }))} />
+                                <Checkbox checked={this.state.value6} label={{text:'Checkbox label start', side:'start'}} onChange={(value) => this.setState(() => ({ value6: value }))} />
                             </CheckGroup>
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Checkbox with custom values</p>
@@ -135,9 +135,9 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        // Label on the right (default)
+                        // Label on the end (default)
                         <CheckGroup>
-                            <Checkbox checked={value1} label={{text:'Checkbox label right'}}
+                            <Checkbox checked={value1} label={{text:'Checkbox label end'}}
                                       onChange={(value) => this.setState(() => ({ value1: value }))} />
                             <Checkbox checked={value2} label={{text:'Check me!'}}
                                       onChange={(value) => this.setState(() => ({ value2: value }))} />
@@ -149,9 +149,9 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                       onChange={(value) => this.setState(() => ({ value5: value }))} />
                         </CheckGroup>
 
-                        // Label on the left
+                        // Label on the start (left)
                         <CheckGroup>
-                            <Checkbox checked={value6} label={{text:'Checkbox label left', side:'left'}}
+                            <Checkbox checked={value6} label={{text:'Checkbox label start', side:'start'}}
                                       onChange={(value) => this.setState(() => ({ value6: value }))} />
                         </CheckGroup>
 
@@ -294,22 +294,22 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Button style checkbox Groups</h3>          
-                <p className="docs-page__paragraph"><code>CheckButtonGroup</code> is a helpful wrapper component used to group <code>CheckboxButton</code> components. By default the CheckboxButton components are grouped horizontaly. A few more options are available compared to the <code>CheckGroup</code> component – alignment (left, right and center) and grid layout. </p>
+                <p className="docs-page__paragraph"><code>CheckButtonGroup</code> is a helpful wrapper component used to group <code>CheckboxButton</code> components. By default the CheckboxButton components are grouped horizontaly. A few more options are available compared to the <code>CheckGroup</code> component – alignment (start, end and center) and grid layout. </p>
                 <Alert style='hollow' size='small' type='primary'>
                     NOTE: Alignment will work only in parent elements with display: flex;
                 </Alert>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Left (default)</p>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Start (default)</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
                             <CheckButtonGroup>
                                 <CheckboxButton checked={this.state.value22} label={{text: 'Option one'}} onChange={(value) => this.setState(() => ({ value22: value }))} />
                                 <CheckboxButton checked={this.state.value23} label={{text: 'Option two'}} onChange={(value) => this.setState(() => ({ value23: value }))} />
                             </CheckButtonGroup>
                         </div>
-                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Right</p>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// End</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <CheckButtonGroup align='right'>
+                            <CheckButtonGroup align='end'>
                                 <CheckboxButton checked={this.state.value24} label={{text: 'Option one'}} onChange={(value) => this.setState(() => ({ value24: value }))} />
                                 <CheckboxButton checked={this.state.value25} label={{text: 'Option two'}} onChange={(value) => this.setState(() => ({ value25: value }))} />
                             </CheckButtonGroup>
@@ -321,7 +321,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                 <CheckboxButton checked={this.state.value27} label={{text: 'Option two'}} onChange={(value) => this.setState(() => ({ value27: value }))} />
                             </CheckButtonGroup>
                         </div>
-                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Left + Center + Right</p>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Start + Center + End</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
                             <CheckButtonGroup>
                                 <CheckboxButton checked={this.state.value28} label={{text: 'One'}} onChange={(value) => this.setState(() => ({ value28: value }))} />
@@ -333,7 +333,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                 <CheckboxButton checked={this.state.value31} label={{text: 'Four'}} onChange={(value) => this.setState(() => ({ value31: value }))} />
                             </CheckButtonGroup>
 
-                            <CheckButtonGroup align='right'>
+                            <CheckButtonGroup align='end'>
                                 <CheckboxButton checked={this.state.value32} label={{text: 'Five'}} onChange={(value) => this.setState(() => ({ value32: value }))} />
                                 <CheckboxButton checked={this.state.value33} label={{text: 'Six'}} onChange={(value) => this.setState(() => ({ value33: value }))} />
                             </CheckButtonGroup>
@@ -349,7 +349,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        // Left (default)
+                        // Start (default)
                         <CheckButtonGroup>
                             <CheckboxButton checked={value22} label={{text: 'Option one'}}
                                             onChange={(value) => this.setState(() => ({ value22: value }))} />
@@ -357,8 +357,8 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                             onChange={(value) => this.setState(() => ({ value23: value }))} />
                         </CheckButtonGroup>
 
-                        // Right
-                        <CheckButtonGroup align='right'>
+                        // End
+                        <CheckButtonGroup align='end'>
                             <CheckboxButton checked={value24} label={{text: 'Option one'}}
                                             onChange={(value) => this.setState(() => ({ value24: value }))} />
                             <CheckboxButton checked={value25} label={{text: 'Option two'}}
@@ -373,7 +373,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                             onChange={(value) => this.setState(() => ({ value27: value }))} />
                         </CheckButtonGroup>
 
-                        // Left + Center + Right
+                        // Start + Center + End
                         <div className='form__row form__row--flex'>
                             <CheckButtonGroup>
                                 <CheckboxButton checked={value28} label={{text: 'One'}}
@@ -389,7 +389,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                                 onChange={(value) => this.setState(() => ({ value31: value }))} />
                             </CheckButtonGroup>
 
-                            <CheckButtonGroup align='right'>
+                            <CheckButtonGroup align='end'>
                                 <CheckboxButton checked={value32} label={{text: 'Five'}}
                                                 onChange={(value) => this.setState(() => ({ value32: value }))} />
                                 <CheckboxButton checked={value33} label={{text: 'Six'}}
@@ -417,7 +417,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                 <PropsList>
                     <Prop name='checked' isRequired={true} type='boolean' default='false' description='The checked state of the input.'/>
                     <Prop name='label text' isRequired={true} type='string' default='/' description='Label text value.'/>
-                    <Prop name='label side' isRequired={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                    <Prop name='label side' isRequired={false} type='start | end' default='end' description='Position of label relative to the button.'/>
                     <Prop name='label hidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of Checkbox.'/>
                 </PropsList>
