@@ -2,11 +2,11 @@ import * as React from 'react';
 import { Icon } from '../Icon';
 
 interface IProps {
-    items: Array<IItem | 'divider'>;
+    items: Array<ISideBarTab | 'divider'>;
     side?: 'none' | 'left' | 'right';
 }
 
-interface IItem {
+export interface ISideBarTab {
     icon: string,
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
@@ -29,7 +29,7 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(item: IItem, indexNumber: number, event: any) {
+    handleClick(item: ISideBarTab, indexNumber: number, event: any) {
         this.setState({
             index: indexNumber,
         });
