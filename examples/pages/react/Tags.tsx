@@ -10,7 +10,13 @@ export default class TagDoc extends React.Component<{}, ITag> {
     constructor(props){
         super(props);
         this.state = {
-            tags: [{text: 'This is a tag'},{text: 'This is another tag', shade:'darker'},{text: 'Lorem ipsum', shade:'highlight1'}, {text: 'Dolor amet', shade:'highlight2', shape:'square'}],
+            tags: [
+                {text: 'This is a tag'},
+                {text: 'This is another tag', shade:'darker'},
+                {text: 'Lorem ipsum', shade:'highlight1'},
+                {text: 'Dolor amet', shade:'highlight2', shape:'square'},
+                {text: 'Read only tag', readOnly: true}
+            ],
         }
         this.handleClick=this.handleClick.bind(this);
     }
@@ -37,7 +43,12 @@ export default class TagDoc extends React.Component<{}, ITag> {
                     {this.state.tags.map((tag,index)=>{
                             return (
                                 <React.Fragment key={index}>
-                                    <Tag keyValue={index} text={tag.text} shade={tag.shade} shape={tag.shape} onClick={()=>this.handleClick(index)}/>
+                                    <Tag keyValue={index}
+                                        text={tag.text}
+                                        shade={tag.shade}
+                                        shape={tag.shape}
+                                        readOnly={tag.readOnly}
+                                        onClick={()=>this.handleClick(index)}/>
                                 </React.Fragment>
                         )
                         })}

@@ -41,6 +41,7 @@ import GridItemDoc from './GridItem';
 import ModalDoc from './Modal';
 import CarouselDoc from './Carousel';
 import ToggleboxDocs from './Togglebox';
+import ListItemsDoc from './ListItems';
 import SelectGridDocs from './SelectGrid';
 import IconPickerDocs from "./IconPicker";
 
@@ -139,7 +140,10 @@ const pages = {
             },
             "togglebox": {
                 name: "Togglebox"
-            }
+            },
+            'list-items': {
+                name: 'List items'
+            },
         }
     },
     formComponents: {
@@ -239,6 +243,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/carousel" component={CarouselDoc} />
                         <Route path="/react/menu" component={MenuDocs} />
                         <Route path="/react/togglebox" component={ToggleboxDocs} />
+                        <Route path="/react/list-items" component={ListItemsDoc} />
                         <Route path="/react/select-grid" component={SelectGridDocs} />
                         <Route path="/react/icon-picker" component={IconPickerDocs} />
                         <Route path="/" component={ReactDefault} />
