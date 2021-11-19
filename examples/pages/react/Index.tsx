@@ -6,7 +6,6 @@ import { ButtonGroup, Button, NavButton, Dropdown } from '../../../app-typescrip
 import {
     Switch,
     Route,
-
 } from "react-router-dom";
 
 import InputsDoc from './Inputs';
@@ -45,6 +44,9 @@ import ContentDividerDoc from './ContentDivider';
 import ToggleboxDocs from './Togglebox';
 import ListItemsDoc from './ListItems';
 import PanelDoc from './Panel';
+import SelectGridDocs from './SelectGrid';
+import IconPickerDocs from "./IconPicker";
+
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { PopoverDoc } from './Popover';
@@ -167,6 +169,9 @@ const pages = {
             'select': {
                 name: 'Select',
             },
+            'select-grid': {
+                name: 'Select Grid',
+            },
             'select-with-template': {
                 name: 'Select with template',
             },
@@ -175,6 +180,9 @@ const pages = {
             },
             'time-picker': {
                 name: 'Time Picker',
+            },
+            'icon-picker': {
+                name: 'Icon Picker',
             },
             'switch': {
                 name: 'Switch'
@@ -281,6 +289,8 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/togglebox" component={ToggleboxDocs} />
                         <Route path="/react/list-items" component={ListItemsDoc} />
                         <Route path="/react/panel" component={PanelDoc} />
+                        <Route path="/react/select-grid" component={SelectGridDocs} />
+                        <Route path="/react/icon-picker" component={IconPickerDocs} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
