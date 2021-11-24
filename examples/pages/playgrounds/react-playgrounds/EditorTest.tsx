@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState, Alert, SlidingToolbar, TabLabel, Tabs } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -313,8 +313,21 @@ export class EditorTest extends React.Component<IProps, IState> {
             )}
             sideOverlayOpen={this.state.sideOverlayOpen}
             sideOverlay={(
-                <Layout.Panel background='light' open={this.state.sideOverlayOpen} size='x-small' theme="dark-ui">
-                    <Layout.PanelHeader title='Overlay Panel content' onClose={() => this.setState({'sideOverlayOpen': false})}>
+                <Layout.Panel background='light' open={this.state.sideOverlayOpen} size='x-small'>
+                    <Layout.PanelHeader title="Metadata (overlay pannel)" onClose={() => this.setState({'sideOverlayOpen': false})}>
+                        {/* <Tabs onClick={()=> false}>
+                            <TabLabel label='Content' indexValue={0}/>
+                            <TabLabel label='Metadata' indexValue={1}/>
+                            <TabLabel label='Duplicates' indexValue={2}/>
+                        </Tabs> */}
+
+                        {/* <SlidingToolbar>
+                            <Button text="Cancel" onClick={()=> false} />
+                            <Button text="Save" type="primary" onClick={()=> false} />
+                        </SlidingToolbar> */}
+                        {/* <Alert icon="warning-sign" size='small' type='warning'>
+                            Sed tincidunt ipsum metus, consectetur vestibulum turpis luctus in.
+                        </Alert> */}
                     </Layout.PanelHeader>
                     <Layout.PanelContent
                         loading={false}

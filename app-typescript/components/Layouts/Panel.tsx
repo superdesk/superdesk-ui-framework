@@ -64,6 +64,7 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
 
         let classes = classNames('side-panel__header side-panel__header--border-b', {
             [`side-panel__header--${this.props.color}`]: this.props.color || this.props.color !== undefined,
+            'side-panel__header--has-close': this.props.onClose,
         }, this.props.className);
         let style = {
             zIndex: 10 + (this.props.zIndex ? this.props.zIndex : 0),
@@ -76,8 +77,10 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
                     <a className="icn-btn side-panel__close" onClick={this.onClose}>
                         <Icon name='close-small' />
                     </a> : null}
-                    {this.props.title ?
-                      <h3 className="side-panel__heading">{this.props.title}</h3> : null}
+                {this.props.title &&
+                <div className="side-panel__header-inner">
+                    <h3 className="side-panel__heading">{this.props.title}</h3>
+                </div> }
                 {this.props.children}
             </div>
         );

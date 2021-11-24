@@ -84,15 +84,17 @@
     align-items: center;
     top: 0;
     bottom: 0;
-    left: 1px;
+    left: 0;
     right: 0;
     z-index: 3;
-    padding: 0 16px;
+    padding: 0 $sd-base-increment * 2;
     color: $sd-colour-text__base;
     animation: dropOut2 .3s cubic-bezier(.695,.105,.285,1.275) 1;
     background-color: var(--sd-colour-bg__sliding-toolbar);
     box-shadow: var(--sd-shadow__sliding-toolbar);
     gap: $sd-base-increment;
+    //min-height: 48px;
+    height: $nav-height;
     &--right {
         text-align: end;
         justify-content: flex-end;
@@ -109,6 +111,9 @@
         font-weight: 300;
         opacity: 0.75;
     }
+}
+.sliding-toolbar {
+    @include sliding-toolbar();
 }
 
 

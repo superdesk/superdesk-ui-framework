@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { PropsList, Prop, Button, ButtonGroup, IconButton, Label } from '../../../app-typescript';
+import { PropsList, Prop, Button, ButtonGroup, IconButton, Label, SlidingToolbar } from '../../../app-typescript';
 import * as PanelElements from '../../../app-typescript/components/Layouts/Panel';
 
 interface IProps {

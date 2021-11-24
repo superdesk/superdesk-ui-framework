@@ -192,7 +192,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                     className="select-grid__overlay-panel"
                     appendTo={document.body} // making it work inside `overflow:hidden`
                 >
-                    <div className="sd-shadow--z3 select-grid__panel">
+                    <div className="select-grid__panel">
                         <div className="select-grid__header">
                             <div className="sd-searchbar sd-searchbar--boxed">
                                 <label className="sd-searchbar__icon" />
@@ -206,7 +206,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                             </div>
                         </div>
                         <div
-                            className="select-grid__body flex-grid flex-grid--wrap-items flex-grid--small-4 flex-grid--boxed"
+                            className="select-grid__body"
                             ref={this.gridContainer}
 
                         >
@@ -215,7 +215,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                                 <div
                                     key={this.htmlId + item.label}
                                     data-item-index={index}
-                                    className="flex-grid__item select-grid__item sd-padding-y--2"
+                                    className="flex-grid__item select-grid__item sd-padding-y--3"
                                     tabIndex={0}
                                     role="button"
                                     aria-label={item.name}

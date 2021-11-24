@@ -126,8 +126,8 @@ $tag-label-lineheight: 100% !default;
     display: flex;
     align-items: center;
     @include sd-padding('1', 'x');
-    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 1px 1px 0 hsla(0, 0%, 0%, 0.12);
+    background-color: var(--sd-colour-bg-translucent--10);
 }
 .sd-search-tags__tag-list {
     margin: 0.6rem 0;

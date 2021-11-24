@@ -3,7 +3,6 @@
 
 // Variables
 $nav-tabs-padding: 0.8rem;
-$nav-tabs-margin: 1rem;
 $nav-tabs-font-size: 1.4rem !default;
 $nav-tabs-font-size-small: 1.2rem;
 $nav-tabs-font-size-big: 1.6rem;
@@ -21,13 +20,13 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     flex-shrink: 0;
     padding-inline: 1rem 0;
     box-shadow: 0 1px 0 0 var(--color-border-line--light);
+    gap: $sd-base-increment;
 }
 @mixin nav-tab-link(
      $link-color: $nav-tab-link-color,
      $border-bottom-hover-color: $nav-tab-link-border-color
 ) {
     margin: 0;
-    margin: $nav-tabs-margin;
     padding: 0;
     padding-inline: $nav-tabs-padding;
     height: $nav-height;
@@ -61,8 +60,6 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
      $border-bottom-hover-color: $nav-tab-link-border-color
 ) {
     margin: 0;
-    margin-inline-start: $nav-tabs-margin;
-    margin-inline-end: $nav-tabs-margin;
     padding: 0;
     padding-inline: $nav-tabs-padding;
     height: $nav-height;
@@ -77,7 +74,6 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     transition: all 0.2s ease-in-out;
     @include text-overflow();
     span {
-        opacity: 0.7;
         line-height: 1;
         display: inline-block;
         margin-top: 3px;
@@ -94,6 +90,7 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     background: none;
     cursor: default;
     border-bottom-color: $border-bottom-color;
+    color: $sd-text;
     span {
         opacity: 1;
     }
@@ -191,17 +188,18 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     // Smaller nav tabs
     &.sd-nav-tabs--small {
         padding: 0 .4rem;
+        gap: $sd-base-increment / 2;
         .sd-nav-tabs__tab {
             font-size: $nav-tabs-font-size-small;
             letter-spacing: 0.025em;
             margin: 0;
-            margin-inline-start: .8rem;
-            margin-inline-end: .8rem;
         }
     }
     
     // Bigger nav tabs
-    &.sd-nav-tabs--big, &.sd-nav-tabs--large {
+    &.sd-nav-tabs--big,
+    &.sd-nav-tabs--large {
+        gap: $sd-base-increment * 1.5;
         .sd-nav-tabs__tab {
             font-size: $nav-tabs-font-size-big;
         }

@@ -19,8 +19,8 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
         position: relative;
         min-height: 4.8rem;
         display: flex;
-        flex-direction: row;
-        align-items: center;
+        flex-direction: column;
+        justify-content: center;
         background-color: inherit;
         &--border-b, &--border-bottom {
             box-shadow: 0 1px 0 var(--sd-colour-line--x-light);
@@ -36,6 +36,13 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
             background-color: var(--sd-colour-panel-bg--100);
         }
     }
+    .side-panel__header-inner {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: relative;
+        min-height: 4.8rem;
+    }
     .side-panel__sliding-toolbar {
         @include sliding-toolbar; // See mixins.scss for details
         &.side-panel__sliding-toolbar {
@@ -48,7 +55,8 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
     
     .side-panel__heading {
-        @include sd-padding('2', 'x');
+        padding-inline-start: $sd-base-increment * 2;
+        padding-inline-end: $sd-base-increment * 2;
         margin: 0;
         font-size: 1.5rem;
         color: inherit;
@@ -440,6 +448,15 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
     &--bg-200, &--grey {
         background-color: $side-panel-Bg-200;
+    }
+}
+
+.side-panel__header--has-close {
+    .sd-nav-tabs {
+        margin-inline-end: 4rem;
+    }
+    .side-panel__heading {
+        padding-inline-end: $sd-base-increment * 5;
     }
 }
 

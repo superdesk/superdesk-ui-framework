@@ -283,6 +283,7 @@
     --sd-colour-line--medium:               hsla(var(--sd-colour-cool-grey-l--20), 0.2);
     --sd-colour-line--strong:               hsla(var(--sd-colour-cool-grey-l--20), 0.48);
 
+    --sd-colour-bg-translucent--10:         hsla(var(--sd-colour-cool-grey-l--50), 0.1);
     --sd-colour-bg-translucent--08:         hsla(var(--sd-colour-cool-grey-l--50), 0.3);
     --sd-colour-overlay-actioning:          hsla(var(--sd-colour-cool-grey-l--99), 0.85);
 
@@ -535,6 +536,9 @@
 :root, [data-theme="light-ui"] {
 
     //--color-background-topmenu:           hsla(0, 0%, 17%, 1);
+
+    --sd-colour-test-1:                   hsl(308 71% 40% / 50%);   
+    --sd-colour-test-2:                   hsl(9 59% 49% / 0.5);
   
     --sd-colour-background__main-list:    hsla(0, 0%, 97%, 1);
   
@@ -612,9 +616,6 @@
   
   [data-theme="dark-ui"], .dark-ui {
   
-    --sd-colour-test-1:                   hsl(308, 71%, 40%);
-    --sd-colour-test-2:                   hsl(9, 59%, 49%);
-  
     //--color-background-topmenu:           hsla(0, 0%, 10%, 1);
     --sd-colour-background__main-list:    hsla(0, 0%, 12%, 1);
   
@@ -690,3 +691,9 @@
 
 /// ======= END from _colors.scss ======== ///////////
 /// ====================================== ///////////
+.colour-test--1 {
+    background-color: var(--sd-colour-test-1);
+}
+.colour-test--2 {
+    background-color: var(--sd-colour-test-2);
+}

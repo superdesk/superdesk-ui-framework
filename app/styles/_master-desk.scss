@@ -145,16 +145,16 @@ $board-header-border-color: var(--color-kanban-border);
     border-radius: 3px;
     transition: all 0.2s ease-out;
     height: 4rem;
-    border: 1px solid var(--color-inset-search-border);
+    border: 1px solid var(--sd-colour-line--medium);
     color: inherit;
     box-shadow: inset 0 1px 2px 0 rgba(0,0,0,0.12);
     &:hover {
-        border-color: var(--color-inset-search-border-hover);
-        box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.18);
+        border-color: var(--sd-colour-line--strong);
+        box-shadow: inset 0 1px 3px 0 hsla(0, 0%, 0%, 0.18);
     }
     &:focus-within {
-        border-color: $sd-colour-interactive;
-        box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.18), 0 0 0 3px rgba(94,169,200,0.3);
+        border-color: var(--sd-colour-interactive);
+        box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-30);
     }
     &::before {
         content: "\e618";

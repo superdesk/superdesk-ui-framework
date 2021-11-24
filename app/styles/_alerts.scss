@@ -201,11 +201,9 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         .sd-alert__icon {
             margin-block-start: 0px;
             [class^="icon-"], [class*=" icon-"] {
-                width: 3.2rem;
-                height: 3.2rem;
-                font-size: 3.2rem;
-                line-height: 1;
-                color: currentColor;
+                width: 2.4rem;
+                height: 2.4rem;
+                font-size: 2.4rem;
             }
         }
     }
@@ -360,4 +358,10 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     }
 }
 
-
+.side-panel__header {
+    .sd-alert {
+        box-shadow: none !important;
+        border-radius: unset !important;
+        margin-bottom: 0;
+    }
+}

@@ -156,6 +156,12 @@ export class TestGround extends React.Component<IProps, IState> {
                                 parturient montes, nascetur ridiculus mus.
                             </div>
                         </div>
+                        <hr />
+                        <div className="button-group button-group--comfort">
+                            <div className="color-swatch colour-test--1"></div>
+                            <div className="color-swatch colour-test--2"></div>
+                        </div>
+                        <hr />
                     </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
                 </Components.LayoutContainer>

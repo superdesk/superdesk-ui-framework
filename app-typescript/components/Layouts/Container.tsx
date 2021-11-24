@@ -17,7 +17,6 @@ export class Container extends React.PureComponent<IProps> {
             'sd-container--gap-none': this.props.gap === undefined,
             [`sd-container--gap-${this.props.gap}`]: this.props.gap && this.props.display !== 'block',
             [`sd-container--direction-${this.props.direction}`]: this.props.direction && this.props.display !== 'block',
-
         }, this.props.className);
         return (
             <div className={classes}>
