@@ -23,7 +23,7 @@ import TooltipDoc from './Tooltips';
 import DatePickerDoc from './DatePicker';
 import TimePickerDoc from './TimePicker';
 import SwitchDoc from './Switch';
-import RadiosDoc from './Radios';
+import RadioGroupDoc from './RadioGroup';
 import CheckboxsDoc from './Checkboxs';
 import TabsDoc from './Tabs';
 import LeftNavigationsDoc from './LeftNavigations';
@@ -187,8 +187,8 @@ const pages = {
             'switch': {
                 name: 'Switch'
             },
-            'radio': {
-                name: 'Radio'
+            'radiogroup': {
+                name: 'RadioGroup'
             },
             'checkbox': {
                 name: 'Checkbox'
@@ -268,7 +268,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
                         <Route path="/react/switch" component={SwitchDoc} />
-                        <Route path="/react/radio" component={RadiosDoc} />
+                        <Route path="/react/radiogroup" component={RadioGroupDoc} />
                         <Route path="/react/checkbox" component={CheckboxsDoc} />
                         <Route path="/react/tab" component={TabsDoc} />
                         <Route path="/react/left-navigation" component={LeftNavigationsDoc} />

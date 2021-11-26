@@ -1,7 +1,14 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import nextId from "react-id-generator";
 interface IProps {
     value?: string;
+    group?: {
+        orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
+        grid?: boolean;
+        align?: 'start' | 'end' | 'center' | 'inline'; // defaults to 'left'
+        padded?: boolean; // adds predefined space to the side based on the alignment and orientation.
+    };
     options: Array<{
         label: string,
         value: string,
@@ -11,8 +18,10 @@ interface IProps {
     }>;
     required?: boolean;
     onChange(nextValue: string): void;
+
+
 }
-export class RadioButton extends React.Component<IProps> {
+export class RadioButtonGroup extends React.Component<IProps> {
     htmlId = nextId();
 
     constructor(props: IProps) {
@@ -27,8 +36,15 @@ export class RadioButton extends React.Component<IProps> {
     }
 
     render() {
+        let classes = classNames('sd-check-button__group', {
+            [`sd-check-button__group--${this.props.group?.align}`]: this.props.group?.align,
+            [`sd-check-button__group--start`]: !this.props.group?.grid && this.props.group?.align === undefined,
+            [`button-group--vertical`]: this.props.group?.orientation === 'vertical',
+            [`sd-check-button__group--grid`]: this.props.group?.grid,
+            [`sd-check-button__group--padded`]: this.props.group?.padded === true,
+        });
         return (
-            <React.Fragment>{
+            <div className={classes}>{
                 this.props.options.map((item: any, index: number) => (
                     <span className="sd-check-button sd-check-button--native"
                         key={index}
@@ -51,7 +67,7 @@ export class RadioButton extends React.Component<IProps> {
                         </label>
                     </span>
                 ))
-            }</React.Fragment>
+            }</div>
         );
     }
 }

@@ -209,6 +209,17 @@ $checkButtonBorderRadius: $border-radius__base--small;
                 justify-content: center;
             }
         }
+        .sd-check-button__text-label-inner {
+            white-space: normal;
+        }
+    }
+}
+.sd-check-button__group--grid {
+    .sd-check-button--native {
+        .sd-check-button__text-label-inner {
+            white-space: normal;
+            text-align: center;
+        }
     }
 }
 
@@ -315,21 +326,20 @@ $checkButtonBorderRadius: $border-radius__base--small;
     border: 1px solid $checkButtonBorderColor;
     border-radius: $checkButtonBorderRadius;
     transition: all 0.2s ease-in-out;
-    display: inline-flex;
+    display: flex;
     align-items: center;
     justify-content: center;
     height: $sd-base-increment * 4;
     color: var(--color-text);
-    @include text-overflow;
     cursor: pointer;
     .sd-check-button__text-label {
+        display: flex;
         margin:0;
         text-align: center;
         cursor: pointer;
         padding: 0;
         padding-block-start: 2px;
         padding-block-end: 2px;
-        @include text-overflow;
         opacity: 0.8;
         transition: opacity 0.2s ease-in-out;
     }
@@ -540,18 +550,17 @@ $checkButtonBorderRadius: $border-radius__base--small;
             border: 1px solid rgba(140, 140, 140, 0.5);
             border-radius: $checkButtonBorderRadius;
             transition: all 0.2s ease-in-out;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             height: 3.2rem;
             color: inherit;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
             cursor: pointer;
             width: 100%;
+            white-space: nowrap;
             .sd-check-button__text-label-inner {
                 user-select: none;
+                display: inline-block;
             }
             i + .sd-check-button__text-label-inner {
                 margin-inline-start: $sd-base-increment;

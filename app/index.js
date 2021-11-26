@@ -27,7 +27,7 @@ export {
     Switch,
     SwitchGroup,
     Loader,
-    Radio,
+    RadioGroup,
     CheckBox,
     RadioButton,
     CheckboxButton,
