@@ -402,6 +402,10 @@ export default angular.module('ui-docs', [
             'editor-test': {
                 name: 'Editor Layout Test',
                 component: 'EditorTest'
+            },
+            'personal-profile': {
+                name: 'Personal Profile',
+                component: 'PersonalProfile'
             }
         }
     }))

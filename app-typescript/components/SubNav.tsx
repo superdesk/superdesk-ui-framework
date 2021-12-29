@@ -7,6 +7,22 @@ interface IProps {
     theme?: 'light-ui' | 'dark-ui'; // defaults to 'light
     className?: string;
 }
+interface IPropsDivider {
+    width?: 'small' | 'medium' | 'large' | 'x-large'; // defaults to 'medium'
+}
+
+export class SubNavDivider extends React.PureComponent<IPropsDivider> {
+    render() {
+        let classes = classNames('subnav__divider', {
+            'subnav__divider--medium': this.props.width === undefined,
+            [`subnav__divider--${this.props.width}`]: this.props.width || this.props.width !== undefined,
+        });
+
+        return (
+            <div className={classes}></div>
+        );
+    }
+}
 
 export class SubNav extends React.PureComponent<IProps> {
     render() {

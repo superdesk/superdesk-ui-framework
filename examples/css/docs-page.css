@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css?family=Source+Code+Pro:200,300,400&subset=latin-ext');
 
 :root {
-    color: hsla(214, 13%, 12%, 1);
+    color: hsla(214, 13%, 20%, 1);
     --docs-page-color-bg-default: hsl(0, 0%, 97%);
     --docs-page-color-bg-00: hsla(214, 13%, 96%, 1);
     --docs-page-color-bg-10: hsla(0, 0%, 100%, 1);

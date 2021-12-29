@@ -406,6 +406,39 @@ time {
 //     }
 // }
 
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+.sd-heading {
+    margin: 0;
+    &--h1 {
+        font-size: calc(var(--text-size--base) * 2.4);
+        font-weight: 400;
+    }
+    &--h2 {
+        font-size: calc(var(--text-size--base) * 2);
+        font-weight: 500;
+    }
+    &--h3 {
+        font-size: calc(var(--text-size--base) * 1.6);
+        font-weight: 400;
+    }
+    &--h4 {
+        font-size: calc(var(--text-size--base) * 1.5);
+        font-weight: 500;
+    }
+    &--h5 {
+        font-size: calc(var(--text-size--base) * 1.4);
+        font-weight: 500;
+    }
+    &--h6 {
+        font-size: calc(var(--text-size--base) * 1.2);
+        font-weight: 500;
+        text-transform: uppercase;
+        color: $sd-text-light;
+    }
+}
+
 
 .sd-text {
     font-size: 1.4rem;
@@ -427,7 +460,7 @@ time {
 }
 .sd-text__strong,
 .sd-text--strong  {
-    font-weight: 500;
+    font-weight: 700;
 }
 .sd-text--bold  {
     font-weight: 700;
@@ -634,12 +667,14 @@ time {
 // -------------------------------------------------
 
 .ml-auto,
-.sd-margin-l--auto {
-    margin-left: auto !important;
+.sd-margin-l--auto,
+.sd-margin-s--auto {
+    margin-inline-start: auto !important;
 }
 .mr-auto,
-.sd-margin-r--auto {
-    margin-right: auto !important;
+.sd-margin-r--auto,
+.sd-margin-e--auto {
+    margin-inline-end: auto !important;
 }
 .mt-auto,
 .sd-margin-t--auto {
@@ -651,8 +686,8 @@ time {
 }
 .mlr-auto,
 .sd-margin-x--auto {
-    margin-left: auto !important;
-    margin-right: auto !important;
+    margin-inline-start: auto !important;
+    margin-inline-end: auto !important;
 }
 .sd-margin-y--auto {
     margin-top: auto !important;
@@ -821,22 +856,7 @@ $sd-properties: (padding, margin); // It's generating these properties
     display: inline-flex !important;
 }
 
-.ml-auto {
-    margin-left: auto !important;
-}
-.mr-auto {
-    margin-right: auto !important;
-}
-.mt-auto {
-    margin-top: auto !important;
-}
-.mb-auto {
-    margin-bottom: auto !important;
-}
-.mlr-auto {
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
+
 .sd-display-flex-column {
     display: flex;
     flex-direction: column;
@@ -854,6 +874,12 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-flex-justify-end {
     justify-content: flex-end !important;
 }
+.sd-flex-justify-center {
+    justify-content: center  !important;
+}
+.sd-flex-justify-space-between {
+    justify-content: space-between  !important;
+}
 .sd-flex-align-items-center {
     align-items: center !important;
 }
@@ -863,7 +889,6 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-flex-no-grow {
     flex-grow: 0 !important;
 }
-
 .sd-no-wrap {
     white-space: nowrap;
 }
@@ -903,6 +928,22 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-border--strong {
     border: 1px solid var(--sd-colour-line--strong);
 }
+.sd-border--x-light {
+    border: 1px solid var(--sd-colour-line--x-light);
+}
+.sd-border-style--dotted {
+    border-style: dotted !important;
+}
+.sd-border-style--dashed{
+    border-style: dashed !important;
+}
+
+.sd-border-width--2 {
+    border-width: 2px;
+}
+.sd-border-width--3 {
+    border-width: 3px;
+}
 
 // Font size
 .sd-font-size--x-small {
@@ -920,11 +961,29 @@ $sd-properties: (padding, margin); // It's generating these properties
 
 // Text colour
 .sd-text-color--lighter {
-    color: var(--color-text-lighter);
+    color: var(--color-text-lighter) !important;
 }
 .sd-text-color--light {
-    color: var(--color-text-light);
+    color: var(--color-text-light) !important;
 }
 .sd-text-color--normal {
-    color: var(--color-text);
+    color: var(--color-text) !important;
+}
+
+// Background colours
+.sd-panel-bg--100 {
+    background-color: var(--sd-colour-panel-bg--100);
+}
+.sd-panel-bg--000 {
+    background-color: var(--sd-item__main-Bg);
+}
+.sd-panel-bg--gradient-1 {
+    background-color: var(--sd-item__main-Bg);
+    background: linear-gradient(180deg, var(--sd-colour-interactive--alpha-20) 0%, var(--sd-item__main-Bg) 40%);
+}
+
+.sd-state--focus:focus-within,
+.sd-state--active {
+    box-shadow: var(--sd-shadow__item--selected) !important;
+    transition: box-shadow 0.3s ease, filter 0.3s ease ;
 }

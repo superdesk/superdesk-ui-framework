@@ -3,8 +3,10 @@ import classNames from 'classnames';
 
 interface IProps {
     children?: React.ReactNode;
-    density?: 'compact' | 'comfortable'; // defaults to 'compact'
+    density?: 'compact' | 'comfortable' | 'loose'; // defaults to 'compact'
     border?: boolean;
+    className?: string;
+    width?: 'none' | 'x-small' | 'small' | 'medium' | 'large';
 }
 
 interface IPropsItem {
@@ -33,7 +35,9 @@ class SimpleList extends React.PureComponent<IProps> {
             'simple-list--compact': this.props.density === undefined,
             'simple-list--dotted': this.props.border === true,
             [`simple-list--${this.props.density}`]: this.props.density || this.props.density !== undefined,
-        });
+            '': this.props.width === undefined,
+            [`simple-list--fixedW-${this.props.width}`]: this.props.width || this.props.width !== undefined,
+        }, this.props.className);
         return (
             <ul className={classes}>
                 {this.props.children}

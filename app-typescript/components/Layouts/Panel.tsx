@@ -11,7 +11,7 @@ interface IPropsPanel {
     side?: 'left' | 'right';
     theme?: 'light-ui' | 'dark-ui';
     className?: string;
-    size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large'  | 'xxx-large'  | 'full';
+    size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large'  | 'xxx-large'  | 'full'   | 'auto';
     background?: 'transparent' | 'light' | 'grey'; // defaults to light (white)
     open?: boolean;
 }

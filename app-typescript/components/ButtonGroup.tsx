@@ -8,6 +8,7 @@ interface IProps {
     padded?: boolean; // adds predefined space to the side based on the alignment and orientation.
     subgroup?: boolean; // for nested button groups§.
     children: React.ReactNode;
+    className?: string;
 }
 export class ButtonGroup extends React.PureComponent<IProps> {
     render() {
@@ -19,7 +20,7 @@ export class ButtonGroup extends React.PureComponent<IProps> {
             [`button-group--${this.props.spaces}`]: this.props.spaces,
             [`button-group--padded`]: this.props.padded === true,
             [`button-group--sub-group`]: this.props.subgroup === true,
-        });
+        }, this.props.className);
         return (
             <div className={classes} role='group'>
                 {this.props.children}

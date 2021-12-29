@@ -174,7 +174,6 @@ $checkButtonBorderRadius: $border-radius__base--small;
 
 
 .sd-check__wrapper {
-    margin-inline-start: 0.8rem;
     display: inline-block;
     .sd-checkbox + label {
         display: inline-block;
@@ -193,14 +192,13 @@ $checkButtonBorderRadius: $border-radius__base--small;
 }
 
 .sd-check__group {
-    padding-block-start: 0.6rem;
-    padding-block-end: 1.2rem;
-    padding-inline-end: 0;
-    padding-inline-start: 0;
+    padding: 0;
+    display: flex;
+    gap: $sd-base-increment;
     &--grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-        grid-gap: 0.6rem;
+        grid-gap: $sd-base-increment;
         .sd-check__wrapper {
             display: block;
             .sd-checkbox.sd-checkbox--button-style {
@@ -405,6 +403,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
         grid-gap: $sd-base-increment;
+        align-self: stretch;
         &.sd-check-button__group--compact {
             grid-gap: $sd-base-increment / 2;
         }

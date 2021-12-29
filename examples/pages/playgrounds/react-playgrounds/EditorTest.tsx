@@ -255,7 +255,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                     </Layout.PanelHeader>
                     <Layout.PanelContent>
                         <Layout.PanelContentBlock>
-                            <BoxedList>
+                            <BoxedList density='comfortable'>
                                 <BoxedListItem 
                                     type="success"
                                     clickable={true}
@@ -339,11 +339,11 @@ export class EditorTest extends React.Component<IProps, IState> {
                             <SimpleList border={true}>
                                 <SimpleListItem justify="space-between">
                                     <Form.FormLabel text="My label" />
-                                    <Switch value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                    <Switch toolTipFlow='left' label={{text:'My label', hidden: true}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                                 </SimpleListItem>
                                 <SimpleListItem justify="space-between">
                                     <Form.FormLabel text="Form label" />
-                                    <Switch value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
+                                    <Switch toolTipFlow='left' label={{text:'Form label', hidden: true}} value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
                                 </SimpleListItem>
                                 <SimpleListItem stacked={true}>
                                     <Form.FormLabel text="Label two" />

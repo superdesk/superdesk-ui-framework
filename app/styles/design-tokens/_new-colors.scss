@@ -486,7 +486,8 @@
 }
 
 
-[data-theme="accessible-light-ui"] {
+[data-theme="accessible-light-ui"],
+[data-theme="contrast-light-ui"] {
     // INTERACTIVE PRIMARY
     --sd-colour-interactive-hs:             241, 100%;
     --sd-colour-interactive-l--05:          var(--sd-colour-interactive-hs), 6%;
@@ -550,10 +551,10 @@
     --sd-colour-background__base--30:     hsla(0, 0%, 70%, 1);
   
   
-    --color-text:                         hsla(0, 0%, 20%, 1);
+    --color-text:                         hsla(214, 13%, 20%, 1);
     --color-text--inverse:                hsla(0, 0%, 98%, 1); // equals #333;
-    --color-text-light:                   hsla(214, 13%, 20%, 0.75);
-    --color-text-lighter:                 hsla(214, 13%, 20%, 0.55);
+    --color-text-light:                   hsla(214, 13%, 30%, 0.75);
+    --color-text-lighter:                 hsla(214, 13%, 30%, 0.55);
     --color-icon-default:                 hsla(214, 13%, 30%, 1);
     --sd-slugline-color:                  hsla(197, 100%, 5%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 100%, 25%, 1);
@@ -617,7 +618,7 @@
   [data-theme="dark-ui"], .dark-ui {
   
     //--color-background-topmenu:           hsla(0, 0%, 10%, 1);
-    --sd-colour-background__main-list:    hsla(0, 0%, 12%, 1);
+    --sd-colour-background__main-list:    hsla(214, 13%, 14%, 1);
   
     --sd-colour-background__base--00:     hsla(0, 0%, 0%, 1);
     --sd-colour-background__base--10:     hsla(0, 0%, 10%, 1);

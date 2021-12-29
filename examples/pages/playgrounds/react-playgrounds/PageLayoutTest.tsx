@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioButton, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge, Divider } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge, Divider } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import dummy_items from '../dummy-data/items';
@@ -90,7 +90,7 @@ export class PageLayoutTest extends React.Component<IProps, IState> {
             )}
             leftPanelOpen={this.state.leftPanelOpen}
             leftPanel={(
-                <Layout.Panel side='left' background='light' open={this.state.leftPanelOpen} size='x-small'>
+                <Layout.Panel side='left' background='light' open={this.state.leftPanelOpen} size='x-large'>
                     <Layout.PanelHeader  title='This is the title for the Panel' onClose={() => this.setState({'leftPanelOpen': false})}>
                     </Layout.PanelHeader>
                     <Layout.PanelContent>

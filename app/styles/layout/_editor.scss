@@ -41,13 +41,13 @@
     &.sidetab-content-pinned--pinned {
         overflow-y: auto;
         overflow-x: hidden;
-        width: 320px;
+        width: auto;
         max-height: 100%;
     }
     &.sidetab-content-pinned--open {
         overflow-y: auto;
         overflow-x: hidden;
-        width: 320px;
+        width: auto;
         max-height: 100%;
     }
 }

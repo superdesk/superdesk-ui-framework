@@ -4,3 +4,4 @@ export { TestGround } from './TestGround';
 export { UiPlayground } from './UiPlayground';
 export { PageLayoutTest } from './PageLayoutTest';
 export { EditorTest } from './EditorTest';
+export { PersonalProfile } from './PersonalProfile';

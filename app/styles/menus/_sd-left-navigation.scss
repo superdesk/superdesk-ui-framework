@@ -3,7 +3,7 @@
 
 $sd-leftNav-bgColor: var(--sd-colour-background__left-nav);
 $sd-leftNav-borderColor: var(--sd-colour-line--light);
-$sd-leftNav-width: 20rem;
+$sd-leftNav-width: 24rem;
 
 $sd-leftNavBtn-bgColor: transparent;
 $sd-leftNavBtn-bgHoverColor: $sd-colour-background__menu-item--hover;
@@ -25,7 +25,18 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
         top: 0;
         bottom: 0;
         left: 0;
-    }  
+    }
+    &--default {
+        background: $sd-leftNav-bgColor;
+        border-right: 1px solid $sd-leftNav-borderColor;
+    }
+    &--blanc {
+        border-color: transparent;
+        background: transparent;
+        .sd-left-nav__group-header {
+            border-top-color: transparent;
+        }
+    }   
 }
 
 .sd-left-nav__btn {

@@ -1,6 +1,16 @@
 // Boxed lists
 // Simpler version of the list item.
 // ---------------------------------------------
+.boxed-list {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: $sd-base-increment * 1.5;
+    margin-bottom: $sd-base-increment * 2;
+    &--comfortable {
+        gap: $sd-base-increment * 2;
+    }
+}
 
 $boxed-list-palette: $sd-basic-palette;
 
@@ -11,8 +21,7 @@ $boxed-list-palette: $sd-basic-palette;
     position: relative;
     flex-direction: row;
     min-height: 3.2rem;
-    border-radius: 3px;
-    margin-bottom: 1.2rem;
+    border-radius: var(--b-radius--small);
     @include sd-padding('1-5');
     background-color: var(--sd-item__main-Bg);
     box-shadow: $shadow__base--z1;
@@ -111,7 +120,7 @@ $boxed-list-palette: $sd-basic-palette;
 .boxed-list__item-content-row {
     display: flex;
     flex-direction: row;
-    align-items: flex-start;
+    align-items: baseline;
     justify-content: flex-start;
     &--fixed {
         align-items: baseline;

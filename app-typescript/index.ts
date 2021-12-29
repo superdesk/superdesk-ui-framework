@@ -34,7 +34,7 @@ export { CheckButtonGroup } from './components/CheckButtonGroup';
 export { NavButton } from './components/NavButton';
 export { Tab, TabList } from './components/TabList';
 export { LeftMenu } from './components/LeftMenu';
-export { SubNav } from './components/SubNav';
+export { SubNav, SubNavDivider } from './components/SubNav';
 export { SlidingToolbar } from './components/SlidingToolbar';
 export { StrechBar } from './components/StrechBar';
 export { PropsList, Prop } from './components/PropsList';
@@ -66,6 +66,7 @@ export { Menu } from './components/Menu';
 export { ToggleBox } from './components/Togglebox';
 export { SelectGrid } from './components/SelectGrid';
 export { IconPicker } from './components/IconPicker';
+export { ThemeSelector } from './components/ThemeSelector';
 
 export * from './components/Layouts';
 export * from './components/Form';
@@ -75,7 +76,8 @@ export * from './components/Lists';
 export { Skeleton } from './components/Skeleton';
 export { ListItemLoader } from './components/ListItemLoader';
 export { Spinner, LoadingOverlay } from './components/Spinner';
-export { Text } from './components/Text';
+export { Text } from './components/Text/Text';
+export { Heading } from './components/Text/Heading'
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

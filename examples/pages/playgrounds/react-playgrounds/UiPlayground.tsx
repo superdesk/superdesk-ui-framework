@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioButton, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, RadioButtonGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
 import dummy_items from '../dummy-data/items';
@@ -107,13 +107,11 @@ export class UiPlayground extends React.Component<IProps, IState> {
                             <ButtonGroup align='inline'>
                                 <NavButton icon='filter-large' onClick={this.handleFilter} />
                             </ButtonGroup>
-                            <CheckButtonGroup padded>
-                                <RadioButton value={this.state.itemType} onChange={(value) => this.setState({ itemType: value })} options={[
-                                    { value: 'itemtype01', label: 'All item types' },
-                                    { value: 'itemtype02', label: 'Images only' },
-                                    { value: 'itemtype03', label: 'Videos only' },
-                                    { value: 'itemtype04', label: 'Documents only' }]} />
-                            </CheckButtonGroup>
+                            <RadioButtonGroup options={[
+                                {value:'test10', label:'Radio button with icon'},
+                                {value:'test11', label:'I have an icon!'},
+                                {value:'test12', label:'Yeah, me too!'},
+                            ]} group={{padded:true}} value={this.state.itemType} onChange={(value) => this.setState({ itemType: value })} />
                             <ButtonGroup align='end' spaces='no-space'>
                                 <Dropdown
                                     items={[

@@ -6,6 +6,7 @@ $simple-list-border-color: $neutral-border-color;
 
 .simple-list {
     padding: 0 0 $sd-base-increment * 3;
+    align-self: stretch;
     .simple-list__item {
         padding: 0.5rem 0;
         display: flex;
@@ -85,6 +86,11 @@ $simple-list-border-color: $neutral-border-color;
             padding: 1.2rem 0;
         }
     }
+    &--loose {
+        .simple-list__item {
+            padding: 2.4rem 0;
+        }
+    }
     [class^="icon-"], [class*=" icon-"] {
         vertical-align: middle;
     }
@@ -93,5 +99,17 @@ $simple-list-border-color: $neutral-border-color;
     }
     &--no-padding-b {
         padding-bottom: 0;
+    }
+    &--fixedW-x-small {
+        width: var(--width__container--x-small);
+    }
+    &--fixedW-small {
+        width: var(--width__container--small);
+    }
+    &--fixedW-medium {
+        width: var(--width__container--medium);
+    }
+    &--fixedW-large {
+        width: var(--width__container--large);
     }
 }

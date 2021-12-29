@@ -93,7 +93,6 @@
     background-color: var(--sd-colour-bg__sliding-toolbar);
     box-shadow: var(--sd-shadow__sliding-toolbar);
     gap: $sd-base-increment;
-    //min-height: 48px;
     height: $nav-height;
     &--right {
         text-align: end;
@@ -103,17 +102,23 @@
         flex-grow: 1;
         display: flex;
         align-items: center;
+        gap: $sd-base-increment;
         &--right {
             text-align: end;
         }
     }
     .sliding-toolbar__info-text {
-        font-weight: 300;
+        font-weight: 400;
         opacity: 0.75;
+        font-size: 1.4rem;
     }
 }
 .sliding-toolbar {
     @include sliding-toolbar();
+    &--static {
+        position: static;
+        animation: none;
+    }
 }
 
 

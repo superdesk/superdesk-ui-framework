@@ -7,6 +7,7 @@ interface IProps {
     display?: 'flex' | 'inline-flex' | 'block';
     direction?: 'row' | 'column';
     gap?: 'none' | 'small' |  'medium' | 'large';
+    theme?: 'light-ui' | 'dark-ui';
 }
 
 export class Container extends React.PureComponent<IProps> {
@@ -19,7 +20,7 @@ export class Container extends React.PureComponent<IProps> {
             [`sd-container--direction-${this.props.direction}`]: this.props.direction && this.props.display !== 'block',
         }, this.props.className);
         return (
-            <div className={classes}>
+            <div className={classes} data-theme={this.props.theme || ''}>
                 {this.props.children}
             </div>
         );

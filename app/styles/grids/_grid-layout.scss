@@ -676,7 +676,7 @@ $planningEditor-width: 53rem;
         }
     } 
 }
-.sd-main-content-grid__filter.open-filters {
+.open-filters {
     .side-panel__container {
         width: var(--width__container--x-small);
         overflow-y: auto;
@@ -884,5 +884,14 @@ $planningEditor-width: 53rem;
         top:0;
         bottom:0;
         z-index: 100;
+    }
+}
+
+.sd-main-content-grid {
+    & > .sd-nav-tabs__content {
+        display: contents;
+        .sd-nav-tabs__pane {
+            display: contents;
+        }
     }
 }

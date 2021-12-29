@@ -461,7 +461,10 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
 }
 
 
-.side-panel__container.panel-open {
+.side-panel__container.panel-open,
+.side-panel__container.panel-open, 
+.panel-open .side-panel__container,
+.open-filters .side-panel__container {
     width: var(--width__container--small);
     overflow-y: auto;
     .side-panel {
@@ -493,6 +496,9 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
     }
     &.side-panel__container--full {
         width: var(--width__container--full);
+    }
+    &.side-panel__container--auto {
+        width: auto;
     }
 
     &.side-panel__container--left {

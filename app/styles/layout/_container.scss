@@ -1,6 +1,7 @@
 .sd-container {
     display: flex;
     align-items: center;
+    align-self: stretch;
     &--inline-flex {
         display: inline-flex;
     }

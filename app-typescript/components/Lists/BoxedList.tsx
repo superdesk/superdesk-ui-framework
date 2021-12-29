@@ -65,7 +65,7 @@ interface IPropsItem {
     footer?: React.ReactNode;
     actions?: React.ReactNode;
     children?: React.ReactNode;
-    type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight'; // defaults to 'compact'
+    type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight'; // defaults to 'default'
     clickable?: boolean;
     slideInActions?: boolean;
     selected?: boolean;
@@ -129,5 +129,5 @@ class BoxedList extends React.PureComponent<IProps> {
 }
 
 export {
-    BoxedList, BoxedListItem, BoxedListContentRow
+    BoxedList, BoxedListItem, BoxedListContentRow, BoxedListActions, BoxedListFooter
 };

@@ -46,6 +46,11 @@ import ListItemsDoc from './ListItems';
 import PanelDoc from './Panel';
 import SelectGridDocs from './SelectGrid';
 import IconPickerDocs from "./IconPicker";
+import SimpleListDoc from "./SimpleList";
+import BoxedListDoc from "./BoxedList";
+import HeadingDoc from "./Heading";
+import TextDoc from "./Text";
+import ContainerDoc from './Container';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
@@ -126,6 +131,9 @@ const pages = {
     containerComponents: {
         name: "Containers",
         items: {
+            'container': {
+                name: 'Container component'
+            },
             'empty-states': {
                 name: 'Empty states'
             },
@@ -140,17 +148,39 @@ const pages = {
     layoutComponents: {
         name: "Layout",
         items: {
-            'grid-list': {
-                name: 'Grid List'
-            },
             'content-divider': {
                 name: 'Content Divider'
             },
             "togglebox": {
                 name: "Togglebox"
             },
+        }
+    },
+    textComponents: {
+        name: "Text",
+        items: {
+            'heading': {
+                name: 'Heading component'
+            },
+            'text': {
+                name: 'Text component'
+            },
+        }
+    },
+    listComponents: {
+        name: "Lists",
+        items: {
+            'grid-list': {
+                name: 'Grid List'
+            },
             'list-items': {
                 name: 'List items'
+            },
+            'simple-list': {
+                name: 'Simple list'
+            },
+            'boxed-list': {
+                name: 'Boxed list'
             },
         }
     },
@@ -291,6 +321,11 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/panel" component={PanelDoc} />
                         <Route path="/react/select-grid" component={SelectGridDocs} />
                         <Route path="/react/icon-picker" component={IconPickerDocs} />
+                        <Route path="/react/simple-list" component={SimpleListDoc} />
+                        <Route path="/react/boxed-list" component={BoxedListDoc} />
+                        <Route path="/react/heading" component={HeadingDoc} />
+                        <Route path="/react/text" component={TextDoc} />
+                        <Route path="/react/container" component={ContainerDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

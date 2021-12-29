@@ -13,10 +13,11 @@ interface IMenuGroup {
 }
 
 interface IMenu {
-    navClass?: string;
+    className?: string;
     groups: Array<IMenuGroup>;
     activeItemId: string;
     ariaLabel?: string;
+    style?: 'default' | 'inverse' | 'blanc';
     onSelect(id: string, route: string): void;
 }
 
@@ -41,8 +42,9 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
 
     render() {
         let classes = classNames('sd-left-nav', {
-            [`${this.props.navClass}`]: this.props.navClass,
-        });
+            'sd-left-nav--default': this.props.style === undefined,
+            [`sd-left-nav--${this.props.style}`]: this.props.style || this.props.style !== undefined,
+        }, this.props.className);
 
         return (
             <nav className={classes} aria-label={this.props.ariaLabel}>
@@ -60,7 +62,6 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
                                         className={item.id === this.state.active ? 'sd-left-nav__btn sd-left-nav__btn--active' : 'sd-left-nav__btn'}>
                                         {item.label}
                                     </button>
-
                                 );
                             })}
                         </React.Fragment>

@@ -52,7 +52,7 @@
   flex-grow: 1;
 }
 .subnav__page-title {
-  padding: 1rem 2rem;
+  padding: 0 1.6rem;
   color: inherit;
   font-size: 1.8rem;
   line-height: 2.8rem;
@@ -67,6 +67,23 @@
     flex-grow: 1;
 }
 
+.subnav__divider {
+  display: inline-flex;
+  height: 100%;
+  &--small {
+    width: $sd-base-increment * 1.5;
+  }
+  &--medium {
+    width: $sd-base-increment * 2;
+  }
+  &--large {
+    width: $sd-base-increment * 3;
+  }
+  &--x-large {
+    width: $sd-base-increment * 4;
+  }
+}
+
 
 .subnav {
   &.subnav--level2 {
@@ -75,6 +92,9 @@
       left: 0;
       z-index: 2;
       box-shadow: none;
+  }
+  .sd-nav-tabs {
+    box-shadow: none;
   }
 }
 
