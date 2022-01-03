@@ -36,6 +36,7 @@ export {
     NavButton,
     Tab,
     TabList,
+    toasted,
     Menu,
     SubNav,
     SlidingToolbar,

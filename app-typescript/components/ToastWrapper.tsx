@@ -29,7 +29,7 @@ export default class ToastWrapper extends React.PureComponent<{}, State> {
     this.notify = this.notify.bind(this);
   }
 
-  notify = (message: MessageProp, options: IMessageOptions) => {
+  notify = (message: MessageProp, options: Partial<IMessageOptions>) => {
     const toast = this.createToastState(message, options);
     const { position } = toast;
 
@@ -47,9 +47,9 @@ export default class ToastWrapper extends React.PureComponent<{}, State> {
 
   createToastState = (
     message: MessageProp,
-    options: IMessageOptions,
+    options: Partial<IMessageOptions>,
   ) => {
-    const id = ++ToastWrapper.idCounter;
+    const id = '' + ++ToastWrapper.idCounter;
     const position = options.position ?? 'top';
     return {
       id,
@@ -62,7 +62,7 @@ export default class ToastWrapper extends React.PureComponent<{}, State> {
     };
   }
 
-  requestClose = (id: string, position: string) => {
+  requestClose = (id: string, position: keyof State) => {
     this.setState((prev) => {
       return {
         ...prev,

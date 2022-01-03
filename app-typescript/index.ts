@@ -60,6 +60,14 @@ export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemConte
     GridItemTime, GridItemTitle, GridItemText, GridItemSlug, GridItemFooterBlock,
     GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper
 } from './components/GridItem';
+export { toasted } from './components/Toast';
+export { Menu } from './components/Menu';
+export { ToggleBox } from './components/Togglebox';
+export { SelectGrid } from './components/SelectGrid';
+export { IconPicker } from './components/IconPicker';
+
+export { Skeleton } from './components/Skeleton';
+export { ListItemLoader } from './components/ListItemLoader';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

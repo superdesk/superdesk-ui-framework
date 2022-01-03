@@ -148,10 +148,10 @@ export default class BadgeDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='text' isRequered={false} type='string' default='/' description='Badge text value.' />
-                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.)' />
-                    <Prop name='color' isRequered={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The badge can have either a Type or Color defined, not both at the same time.' />
-                    <Prop name='shape' isRequered={false} type='round | square' default='round' description='Make shape of badge square or default round.' />
+                    <Prop name='text' isRequired={false} type='string' default='/' description='Badge text value.' />
+                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.)' />
+                    <Prop name='color' isRequired={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The badge can have either a Type or Color defined, not both at the same time.' />
+                    <Prop name='shape' isRequired={false} type='round | square' default='round' description='Make shape of badge square or default round.' />
                 </PropsList>
             </section>
         )

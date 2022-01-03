@@ -40,10 +40,15 @@ import GridListDoc from './GridList';
 import GridItemDoc from './GridItem';
 import ModalDoc from './Modal';
 import CarouselDoc from './Carousel';
+import ToggleboxDocs from './Togglebox';
+import ListItemsDoc from './ListItems';
+import SelectGridDocs from './SelectGrid';
+import IconPickerDocs from "./IconPicker";
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
-import {SelectWithTemplateDocs} from './SelectWithTemplate';
-import {PopoverDoc} from './Popover';
+import { SelectWithTemplateDocs } from './SelectWithTemplate';
+import { PopoverDoc } from './Popover';
+import { MenuDocs } from './Menu';
 
 const pages = {
     basicComponents: {
@@ -96,6 +101,9 @@ const pages = {
             },
             'carousel': {
                 name: 'Carousel'
+            },
+            'menu': {
+                name: 'Menu',
             }
         }
     },
@@ -130,6 +138,12 @@ const pages = {
             'grid-list': {
                 name: 'Grid List'
             },
+            "togglebox": {
+                name: "Togglebox"
+            },
+            'list-items': {
+                name: 'List items'
+            },
         }
     },
     formComponents: {
@@ -147,6 +161,9 @@ const pages = {
             'select': {
                 name: 'Select',
             },
+            'select-grid': {
+                name: 'Select Grid',
+            },
             'select-with-template': {
                 name: 'Select with template',
             },
@@ -155,6 +172,9 @@ const pages = {
             },
             'time-picker': {
                 name: 'Time Picker',
+            },
+            'icon-picker': {
+                name: 'Icon Picker',
             },
             'switch': {
                 name: 'Switch'
@@ -221,6 +241,11 @@ class ReactDoc extends React.Component {
                         <Route path="/react/grid-item" component={GridItemDoc} />
                         <Route path="/react/modal" component={ModalDoc} />
                         <Route path="/react/carousel" component={CarouselDoc} />
+                        <Route path="/react/menu" component={MenuDocs} />
+                        <Route path="/react/togglebox" component={ToggleboxDocs} />
+                        <Route path="/react/list-items" component={ListItemsDoc} />
+                        <Route path="/react/select-grid" component={SelectGridDocs} />
+                        <Route path="/react/icon-picker" component={IconPickerDocs} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

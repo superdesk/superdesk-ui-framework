@@ -5,14 +5,14 @@ import * as Components from '../playgrounds/react-playgrounds/components/Index';
 import { Radio, RadioButton, CheckGroup, CheckButtonGroup, Alert, Prop, PropsList } from '../../../app-typescript';
 
 interface IState {
-    value1: any;
-    value2: any;
-    value3: any;
-    value4: any;
-    value5: any;
-    value6: any;
-    value7: any;
-    value8: any;
+    value1?: string;
+    value2?: string;
+    value3?: string;
+    value4?: string;
+    value5?: string;
+    value6?: string;
+    value7?: string;
+    value8?: string;
 }
 
 export default class RadiosDoc extends React.Component<{}, IState> {
@@ -20,14 +20,14 @@ export default class RadiosDoc extends React.Component<{}, IState> {
         super(props);
 
         this.state = {
-            value1: true,
-            value2: true,
-            value3: true,
-            value4: true,
-            value5: true,
-            value6: true,
-            value7: true,
-            value8: true,
+            value1: undefined,
+            value2: undefined,
+            value3: undefined,
+            value4: undefined,
+            value5: undefined,
+            value6: undefined,
+            value7: undefined,
+            value8: undefined,
         };
     }
     render() {
@@ -368,22 +368,22 @@ export default class RadiosDoc extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <p className="docs-page__paragraph">Radio</p>
                 <PropsList>
-                    <Prop name='value' isRequered={true} type='T' default='/' description='The value of the checked button.'/>
-                    <Prop name='options' isRequered={true} type='Array' default='/' description='Array of Radio options.'/>
-                    <Prop name='options label' isRequered={true} type='string' default='/' description='Label text value for Radio.'/>
-                    <Prop name='options value' isRequered={true} type='T' default='/' description='Value of the Radio.'/>
-                    <Prop name='options disabled' isRequered={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
-                    <Prop name='labelSide' isRequered={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                    <Prop name='value' isRequired={true} type='T' default='/' description='The value of the checked button.'/>
+                    <Prop name='options' isRequired={true} type='Array' default='/' description='Array of Radio options.'/>
+                    <Prop name='options label' isRequired={true} type='string' default='/' description='Label text value for Radio.'/>
+                    <Prop name='options value' isRequired={true} type='T' default='/' description='Value of the Radio.'/>
+                    <Prop name='options disabled' isRequired={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
+                    <Prop name='labelSide' isRequired={false} type='left | right' default='right' description='Position of label relative to the button.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">Radio Button</p>
                 <PropsList>
-                    <Prop name='value' isRequered={true} type='any' default='/' description='The value of the checked button.'/>
-                    <Prop name='options' isRequered={true} type='Array<option>' default='/' description='Array of RadioButton options.'/>
-                    <Prop name='option label' isRequered={true} type='string' default='/' description='Label text value for RadioButton.'/>
-                    <Prop name='option value' isRequered={true} type='any' default='/' description='Value of the Radio.'/>
-                    <Prop name='option disabled' isRequered={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
-                    <Prop name='option labelHidden' isRequered={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
-                    <Prop name='option icon' isRequered={false} type='string' default='/' description='Icon class name without the icon- part.'/>
+                    <Prop name='value' isRequired={true} type='any' default='/' description='The value of the checked button.'/>
+                    <Prop name='options' isRequired={true} type='Array<option>' default='/' description='Array of RadioButton options.'/>
+                    <Prop name='option label' isRequired={true} type='string' default='/' description='Label text value for RadioButton.'/>
+                    <Prop name='option value' isRequired={true} type='any' default='/' description='Value of the Radio.'/>
+                    <Prop name='option disabled' isRequired={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
+                    <Prop name='option labelHidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
+                    <Prop name='option icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
                 </PropsList>
             </section>
         )

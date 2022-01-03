@@ -95,9 +95,9 @@ export default class GridListDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='size' isRequered={false} type='x-small | small | medium | large' default='small' description='Specifies the size of the items in the grid. '/>
-                    <Prop name='gap' isRequered={false} type='small | medium | large | x-large' default='small' description='Defines the gap between the items inside the Grid list. '/>
-                    <Prop name='margin' isRequered={false} type='0 | 1 | 2 | 3' default='3' description='Defines the margin around the Grid list. The values are based on multipliers of the the $sd-base-increment (equal to 8px). Setting the value to 3 results in a margin of 24px.'/>
+                    <Prop name='size' isRequired={false} type='x-small | small | medium | large' default='small' description='Specifies the size of the items in the grid. '/>
+                    <Prop name='gap' isRequired={false} type='small | medium | large | x-large' default='small' description='Defines the gap between the items inside the Grid list. '/>
+                    <Prop name='margin' isRequired={false} type='0 | 1 | 2 | 3' default='3' description='Defines the margin around the Grid list. The values are based on multipliers of the the $sd-base-increment (equal to 8px). Setting the value to 3 results in a margin of 24px.'/>
                 </PropsList>
 
             </section>

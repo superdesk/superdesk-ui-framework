@@ -27,9 +27,9 @@ export default class BigIconFontDoc extends React.PureComponent{
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='name' isRequered={false} type='string' default='/' description='Icon name value.' />
-                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.)' />
-                    <Prop name='size' isRequered={false} type='small | big' default='small' description='Specifies a small or big size of Icon.' />
+                    <Prop name='name' isRequired={false} type='string' default='/' description='Icon name value.' />
+                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.)' />
+                    <Prop name='size' isRequired={false} type='small | big' default='small' description='Specifies a small or big size of Icon.' />
                 </PropsList>
             </section>);
     }

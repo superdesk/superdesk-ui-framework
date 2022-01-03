@@ -217,12 +217,12 @@ export default class LabelsDoc extends React.Component {
                 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='text' isRequered={true} type='string' default='/' description='Label text value'/>
-                    <Prop name='type' isRequered={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
-                    <Prop name='color' isRequered={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The label can have either a Type or Color defined, not both at the same time.'/>
-                    <Prop name='size' isRequered={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large label.'/>
-                    <Prop name='noTransform' isRequered={false} type='boolean' default='false' description='Transforms text to uppercase.'/>
-                    <Prop name='style' isRequered={false} type='filled | hollow | translucent' default='filled' description='Label may have one of these styles - filled (default), hollow or translucent.'/>
+                    <Prop name='text' isRequired={true} type='string' default='/' description='Label text value'/>
+                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).'/>
+                    <Prop name='color' isRequired={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The label can have either a Type or Color defined, not both at the same time.'/>
+                    <Prop name='size' isRequired={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large label.'/>
+                    <Prop name='noTransform' isRequired={false} type='boolean' default='false' description='Transforms text to uppercase.'/>
+                    <Prop name='style' isRequired={false} type='filled | hollow | translucent' default='filled' description='Label may have one of these styles - filled (default), hollow or translucent.'/>
                 </PropsList>
             </section>
         )

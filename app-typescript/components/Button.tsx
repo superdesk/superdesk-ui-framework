@@ -11,7 +11,7 @@ interface IButtonBase {
     icon?: string;
     disabled?: boolean;
     iconOnly?: boolean;
-    onClick(): void;
+    onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
     'data-test-id'?: string;
 }
 
@@ -40,7 +40,7 @@ export class Button extends React.PureComponent<IPropsButton> {
                 id={this.props.id}
                 className={classes}
                 tabIndex={0}
-                onClick={this.props.disabled ? () => false : this.props.onClick}
+                onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
                 aria-label={this.props.iconOnly ? this.props.text : ''}
                 data-test-id={this.props['data-test-id']}>
                 {this.props.icon ? <Icon name={this.props.icon} /> : null}

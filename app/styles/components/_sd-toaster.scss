@@ -4,6 +4,8 @@ $sd-toast-max-width: 56rem !default;
 $sd-toast-margin: 2rem !default;
 
 $toast-palette: $sd-basic-palette;
+$sd-toast-position-top: 5.6rem;
+$sd-toast-z-index: 9999;
 
 $toast-sizes: (
     fixed-s: 32rem,
@@ -12,7 +14,6 @@ $toast-sizes: (
     fixed-xl: 56rem,
 );
 
-
 .sd-toast__container {
     display: flex!important;
     flex-direction: column;
@@ -20,21 +21,21 @@ $toast-sizes: (
     position: fixed;
     right: 0;
     left: 0;
-    z-index: 40;
+    z-index: $sd-toast-z-index;
     overflow: hidden;
     padding: 0 20px 20px;
     pointer-events: none;
     &.sd-toast__container--top {
-        top: 0;
+        top: $sd-toast-position-top;
         bottom: auto;
     }
     &.sd-toast__container--top-left {
-        top: 0;
+        top: $sd-toast-position-top;
         bottom: auto;
         align-items: flex-start;
     }
     &.sd-toast__container--top-right {
-        top: 0;
+        top: $sd-toast-position-top;
         bottom: auto;
         align-items: flex-end;
     }
