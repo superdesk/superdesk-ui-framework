@@ -241,40 +241,48 @@ interface IProps {
     theme?: string;
 }
 interface IState {
-    theme: 'dark' | 'light' | string;
+    theme: 'dark-ui' | 'light-ui' | string;
 }
 
 class ReactDoc extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            theme: 'light',
+            theme: 'light-ui',
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
+
     handleTheme(newTheme: string) {
+        document.body.setAttribute('data-theme', newTheme);
+
         this.setState({
             theme: newTheme
         })
     }
+
+    checkTheme(theme: string) {
+        return this.state.theme === theme;
+    }
+
     render() {
         return (
             <React.Fragment>
                 <ReactNav pages={pages} />
-                <main className="docs-page__content docs-page__container-fluid" data-theme={this.state.theme}>
+                <main className="docs-page__content docs-page__container-fluid">
                     <div className="docs-page__fla-button-container">
                         <Dropdown
                             items={[
                                 {
                                     type: 'group', label: 'Chose a theme', items: [
                                         'divider',
-                                        { label: 'Light', icon: 'adjust', onSelect: () => this.handleTheme('light-ui')},
-                                        { label: 'Dark', icon: 'adjust', onSelect: () => this.handleTheme('dark-ui')},
-                                        { label: 'Accessible Light', icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui')},
+                                        { label: 'Light', icon: 'adjust', active: this.checkTheme('light-ui'), onSelect: () => this.handleTheme('light-ui') },
+                                        { label: 'Dark', icon: 'adjust', active: this.checkTheme('dark-ui'), onSelect: () => this.handleTheme('dark-ui') },
+                                        { label: 'Accessible Light', active: this.checkTheme('accessible-light-ui'), icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui') },
                                     ]
                                 },
                             ]}>
-                            <button className="docs-page__fla-button" aria-label="Change theme" onClick={()=> false}>
+                            <button className="docs-page__fla-button" aria-label="Change theme" onClick={() => false}>
                                 <i className="icon-adjust"></i>
                             </button>
                         </Dropdown>

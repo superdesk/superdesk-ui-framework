@@ -6,6 +6,7 @@ import { useId } from "react-id-generator";
 export interface IMenuItem {
     label: string;
     icon?: string;
+    active?: boolean;
     onSelect(): void;
 }
 
@@ -260,6 +261,7 @@ export const Dropdown = ({
                     key={index}
                     label={item['label']}
                     icon={item['icon']}
+                    active={item['active']}
                     onSelect={item['onSelect']} />);
         }
     }
@@ -341,10 +343,11 @@ export const Dropdown = ({
 const DropdownItem = ({
     label,
     icon,
+    active,
     onSelect,
 }: IMenuItem) => {
     return (
-        <li role='none'><button tabIndex={0} role='menuitem' onClick={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
+        <li role='none' className={active ? 'dropdown__menu-item--active' : ''}><button tabIndex={0} role='menuitem' onClick={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
     );
 
 };
