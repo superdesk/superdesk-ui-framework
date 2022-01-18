@@ -13,6 +13,7 @@ export { Alert } from './components/Alert';
 export { AvatarWrapper } from './components/Avatar';
 export { AvatarContentText } from './components/Avatar';
 export { AvatarContentImage } from './components/Avatar';
+export { AvatarGroup } from './components/Avatar';
 export { IconButton } from './components/IconButton';
 export { IconLabel } from './components/IconLabel';
 export { Tooltip } from './components/Tooltip';

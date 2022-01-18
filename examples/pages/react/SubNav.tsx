@@ -1,8 +1,6 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
-
-import { SubNav, NavButton, Button, ButtonGroup, Divider} from '../../../app-typescript';
+import { SubNav, NavButton, Button, ButtonGroup, Divider, PropsList, Prop} from '../../../app-typescript';
 
 export default class SubNavDoc extends React.Component {
     render() {
@@ -74,20 +72,69 @@ export default class SubNavDoc extends React.Component {
                         </SubNav>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <SubNav zIndex={2}>
+                        <SubNav zIndex={4}>
                             <ButtonGroup align='start'>
-                                <NavButton icon='filter-large' type='darker' onClick={()=> false} />
                                 <NavButton icon='search' onClick={()=> false} />
                             </ButtonGroup>
                             <ButtonGroup align='end'>
-                                <NavButton icon='list-plus' onClick={()=> false} />
-                                <NavButton icon='dots-vertical' onClick={()=> false} />
                                 <NavButton icon='expand-thin' type='highlight' onClick={()=> false} />
                             </ButtonGroup>
-                        </SubNav>        
+                        </SubNav>
+                        <SubNav color='darker' zIndex={3}>
+                            <ButtonGroup align='start'>
+                                <NavButton icon='filter-large' type='darker' onClick={()=> false} />
+                            </ButtonGroup>
+                            <ButtonGroup align='end'>
+                                <Button text='Something' onClick={()=> false} />
+                                <Button text='Else' onClick={()=> false} />
+                                <Divider border={true} />
+                                <Button text='Cancel' onClick={()=> false} />
+                                <Button text='Save' type='primary' onClick={()=> false} />
+                                <Divider size="mini" />
+                                <ButtonGroup subgroup={true} spaces='no-space'>
+                                    <NavButton icon='list-plus' onClick={()=> false} />
+                                    <NavButton icon='dots-vertical' onClick={()=> false} />
+                                </ButtonGroup>
+                            </ButtonGroup>
+                        </SubNav>
+
+                        <br />
+
+                        <SubNav color='darker' zIndex={2}>
+                            <ButtonGroup align='start' padded={true}>
+                            <Button text='Something' onClick={()=> false} />
+                                <Button text='Else' onClick={()=> false} />
+                                <Divider border={true} />
+                                <Button text='Cancel' onClick={()=> false} />
+                                <Button text='Save' type='primary' onClick={()=> false} />
+                            </ButtonGroup>
+                        </SubNav>
+                        
+                        <br />
+
+                        <SubNav color='blueGreyDarker' zIndex={1}>
+                            <ButtonGroup align='center'>
+                            <Button text='One' onClick={()=> false} />
+                                <Button text='Two' onClick={()=> false} />
+                                <Divider border={true} />
+                                <Button text='Three' onClick={()=> false} />
+                                <Button text='Four' onClick={()=> false} />
+                                <Divider border={true} />
+                                <Button text='Five' onClick={()=> false} />
+                                <Button text='Six' onClick={()=> false} />
+                            </ButtonGroup>
+                        </SubNav>   
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList>
+                    <Prop name='color' isRequired={false} type='light | darker | blueGrey | blueGreyDarker' default='light' description='Background colour of the SubNav component.'/>
+                    <Prop name='theme' isRequired={false} type='light-ui | dark-ui' default='/' description='Choose the UI theme. It will inherit the default theme if not set. All child elements will inherit the theme of the SubNav if it is set.'/>
+                    <Prop name='zIndex' isRequired={true} type='number' default='1000' description='Increase the default z-index value (1000) by the specified amount.'/>
+                    <Prop name='className' isRequired={false} type='string' default='/' description='Add helper classes or custom CSS styles.'/>
+                </PropsList>
             </section>
         );
     }

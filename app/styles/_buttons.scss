@@ -336,19 +336,20 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     &:hover {
         opacity: 1;
         text-decoration: none;
-        background-color: rgba(155,155,155,0.20);
+        background-color: hsla(214, 13%, 55%, 0.2);
     }
     &:focus-visible {
         opacity: 1;
-        background-color: rgba(155,155,155,0.20);
+        background-color: hsla(214, 13%, 55%, 0.2);
         box-shadow: $icn-button-focus-box-shadow;
+        outline: none;
         [class^="icon-"], [class*=" icon-"] {
             opacity: 1;
         }
     }
     &:active {
         opacity: 1;
-        background-color: rgba(155,155,155,0.30);
+        background-color: hsla(214, 13%, 55%, 0.3);
         [class^="icon-"], [class*=" icon-"] {
             color: $sd-colour-interactive;
             opacity: 1;

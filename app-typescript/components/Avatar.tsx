@@ -39,6 +39,29 @@ export class AvatarContentImage extends React.PureComponent<IImageAvatar> {
         }
     }
 }
+interface IPropsAvatarGroup {
+    appearance?: 'stacked' | 'grid';
+    borderColor?: '000' | '050' | '100' | '150'  | '200';
+    className?: string;
+    children: React.ReactNode;
+    
+
+}
+export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
+    render() {
+        let classes = classNames('sd-avatar-group', {
+            [`sd-avatar-group--stacked`]: this.props.appearance === undefined,
+            [`sd-avatar-group--${this.props.appearance}`]: this.props.appearance,
+            [`sd-avatar-group__border--000`]: this.props.borderColor === undefined,
+            [`sd-avatar-group__border--${this.props.borderColor}`]: this.props.borderColor,
+        }, this.props.className);
+        return (
+            <div className={classes} role='group'>
+                {this.props.children}
+            </div>
+        );
+    }
+}
 
 interface IPropsAvatarWrapper {
     size?: 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';  // defaults to medium

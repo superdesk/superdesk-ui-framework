@@ -35,7 +35,7 @@ $font-size__label--large: 1.2rem;
     vertical-align: middle;
     border-radius: $border-radius__base--full;
     text-transform: uppercase;
-    line-height: 1;
+    line-height: $height__label--default;
     height: $height__label--default;
     letter-spacing: 0.125em;
     font-size: $font-size__label--default;
@@ -45,10 +45,11 @@ $font-size__label--large: 1.2rem;
     font-weight: 500;
     &--large {
         padding-block-start: $padding-y__label--large;
-        padding-block-end: $padding-y__label--large;;
+        padding-block-end: $padding-y__label--large;
         padding-inline: $padding-x__label--large;
         font-size: $font-size__label--large;
         height: $height__label--large;
+        line-height: $height__label--large;
     }
 }
 
@@ -66,20 +67,17 @@ $font-size__label--large: 1.2rem;
     border: none;
     border-radius: $border-radius__base--full;
     text-transform: uppercase;
-    line-height: 1;
+    line-height: $height__label--default;
     font-weight: 500;
     letter-spacing: 0.125em;
     text-align: center;
     white-space: nowrap;
     color: var(--color-text--inverse);
-
     background-color: var(--sd-lbl-bg);
-
     [class^="icon-"], [class*=" icon-"] {
       color: currentColor;
     }
   }
-
 
 .label {
     @include label;

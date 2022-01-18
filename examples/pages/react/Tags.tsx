@@ -13,6 +13,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
             tags: [
                 {text: 'This is a tag'},
                 {text: 'This is another tag', shade:'darker'},
+                {text: 'Inverse tag', shade:'inverse'},
                 {text: 'Lorem ipsum', shade:'highlight1'},
                 {text: 'Dolor amet', shade:'highlight2', shape:'square'},
                 {text: 'Read only tag', readOnly: true}
@@ -57,8 +58,10 @@ export default class TagDoc extends React.Component<{}, ITag> {
                 <Markup.ReactMarkupCode>{`
                     <Tag text='This is a tag' onClick={()=>false}/>
                     <Tag text='This is a another tag' shade='darker' onClick={()=>false}/>
+                    <Tag text='Inverse tag' shade='inverse' onClick={()=>false}/>
                     <Tag text='Lorem ipsum' shade='highlight1' onClick={()=>false}/>
                     <Tag text='Dolor amet' shade='highlight2' shape='square' onClick={()=>false}/>
+                    <Tag text='Read only tag' readOnly={trye} onClick={()=>false}/>
                     
                 `}          
                 </Markup.ReactMarkupCode>
@@ -67,9 +70,10 @@ export default class TagDoc extends React.Component<{}, ITag> {
             <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='text' isRequired={true} type='string' default='/' description='Tag text value.'/>
-                    <Prop name='shade' isRequired={false} type='light | darker | highlight1 | highlight2 | inverse' default='light' description='Shade colour of tag'/>
-                    <Prop name='shape' isRequired={false} type='round | square' default='round' description='Make shape of tag square or default round.'/>
-                    <Prop name='keyValue' isRequired={false} type='number' default='/' description='Value of tag key'/>
+                    <Prop name='shade' isRequired={false} type='light | darker | highlight1 | highlight2 | inverse' default='light' description='Shade colour of the tag.'/>
+                    <Prop name='shape' isRequired={false} type='round | square' default='round' description='Shape of tag. Round (default) or square.'/>
+                    <Prop name='readOnly' isRequired={false} type='boolean' default='false' description='Removes the option to delete the tag if set to true.'/>
+                    <Prop name='keyValue' isRequired={false} type='number' default='/' description='Value of the tag key.'/>
                 </PropsList>
         </section>
         )

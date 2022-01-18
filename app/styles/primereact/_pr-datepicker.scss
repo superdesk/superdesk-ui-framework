@@ -6,14 +6,45 @@
         text-transform: uppercase;
         font-weight: bold;
         line-height: 1;
-        margin: 0 2.3em;
+        margin: 0 auto;
         text-align: center;
     }
 
     .p-datepicker-header {
         position: relative;
+        display: flex;
         flex-wrap: wrap;
-        padding: .5em 0;
+        padding: .8em 4px;
+        min-height: 32px;
+        margin-bottom: 8px;
+        .p-datepicker-prev,
+        .p-datepicker-next {
+            display: flex;
+            flex: 0 0 auto;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--b-radius--full);
+            height: $sd-base-increment * 4;
+            width: $sd-base-increment * 4;
+            transition: all 0.2s ease-out, color 0.1s ease-out;
+            &:hover {
+                background-color: hsla(214, 13%, 55%, 0.2);
+                
+            }
+            &:active {
+                background-color: hsla(214, 13%, 55%, 0.3);
+                color: var(--sd-colour-interactive);
+            }
+            &:focus-visible {
+                background-color: hsla(214, 13%, 55%, 0.2);
+                box-shadow: $icn-button-focus-box-shadow;
+                outline: none;
+                [class^="icon-"], [class*=" icon-"] {
+                    opacity: 1;
+                }
+            }
+
+        }
     }
 
     table {
@@ -23,8 +54,14 @@
 
 // display month and year on separate lines
 .p-datepicker-month,
-p-datepicker-year {
+.p-datepicker-year {
     display: block;
+    text-align: center;
+}
+.p-datepicker-year {
+    font-weight: 400;
+    margin-top: 4px;
+    color: var(--color-text-light);
 }
 
 .p-datepicker {
@@ -56,15 +93,26 @@ p-datepicker-year {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     border-radius: $border-radius__base--x-small;
     font-weight: normal;
-    margin-left: 3px;
-    margin-right: 3px;
+    margin-left: 4px;
+    margin-right: 4px;
     transition: $sd-transition__menu-item;
 }
 
+.p-datepicker table thead th > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 24px;
+    text-align: center;
+    font-weight: normal;
+    margin-left: 4px;
+    margin-right: 4px;
+}
 
 // selected date style
 .p-datepicker .p-highlight {
@@ -128,4 +176,7 @@ p-datepicker-year {
         }
 
     }
+}
+.p-datepicker-calendar {
+    margin-bottom: 8px;
 }

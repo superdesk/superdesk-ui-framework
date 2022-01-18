@@ -18,13 +18,13 @@ export default class NavButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <SubNav zIndex={2}>
-                            <ButtonGroup align='start'>
+                            <ButtonGroup align='start' spaces='no-space'>
                                 <Tooltip text='Filters' flow='right'>
                                     <NavButton icon='filter-large' type='darker' state="active" text="Filter" onClick={() => false} />
                                 </Tooltip>
                                 <NavButton icon='search' text="Search" onClick={() => false} />
                             </ButtonGroup>
-                            <ButtonGroup align='end'>
+                            <ButtonGroup align='end' spaces='no-space'>
                                 <NavButton icon='list-plus' text="Add to list" onClick={() => false} />
                                 <Tooltip text='More actions' flow='down'>
                                     <NavButton icon='dots-vertical' text="More actions" onClick={() => false} />
@@ -37,13 +37,13 @@ export default class NavButtonsDoc extends React.Component {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <SubNav zIndex={2}>
-                            <ButtonGroup align='start'>
+                            <ButtonGroup align='start' spaces='no-space'>
                                 <Tooltip text='Filters' flow='right'>
                                     <NavButton icon='filter-large' type='darker' state="active" text="Filter" onClick={() => false} />
                                 </Tooltip>
                                 <NavButton icon='search' text="Search" onClick={() => false} />
                             </ButtonGroup>
-                            <ButtonGroup align='end'>
+                            <ButtonGroup align='end' spaces='no-space'>
                                 <NavButton icon='list-plus' text="Add to list" onClick={() => false} />
                                 <Tooltip text='More actions' flow='down'>
                                     <NavButton icon='dots-vertical' text="More actions" onClick={() => false} />

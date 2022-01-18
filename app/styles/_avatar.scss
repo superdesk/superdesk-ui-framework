@@ -1,5 +1,5 @@
 .sd-avatar {
-    display: block;
+    display: inline-block;
     position: relative; // required for absolutely positioned indicators
 
     &--indicator-status--offline {
@@ -163,5 +163,29 @@
             background-size: cover;
             box-shadow: inset 0 0 0 1px #005b7f;
         }
+    }
+}
+
+.sd-avatar-group {
+    display: flex;
+    &.sd-avatar-group--stacked {
+        flex-wrap: nowrap;
+        gap: 0;
+        > .sd-avatar {
+            margin: 0 -0.8rem 0 0;
+            .sd-avatar-content {
+                --avatar-shadow: var(--sd-item__main-Bg);
+                box-shadow: 0 0 0 2px var(--avatar-shadow);
+            }
+            &--large {
+                margin: 0 -1.2rem 0 0;
+            }
+        }
+        margin-inline-end: 8px;
+    }
+    &.sd-avatar-group--grid {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: $sd-base-increment * 1.5;
     }
 }

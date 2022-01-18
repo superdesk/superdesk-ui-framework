@@ -987,3 +987,31 @@ $sd-properties: (padding, margin); // It's generating these properties
     box-shadow: var(--sd-shadow__item--selected) !important;
     transition: box-shadow 0.3s ease, filter 0.3s ease ;
 }
+
+.sd-width--xx-small {
+    width: var(--width__container--xx-small);
+}
+.sd-width--x-small {
+    width: var(--width__container--x-small);
+}
+.sd-width--small {
+    width: var(--width__container--small);
+}
+.sd-width--medium {
+    width: var(--width__container--medium);
+}
+.sd-width--large { 
+    width: var(--width__container--large);
+}
+.sd-width--x-large {
+    width: var(--width__container--x-large);
+}
+.sd-width--xx-large {
+    width: var(--width__container--xx-large);
+}
+.sd-width--xxx-large {
+    width: var(--width__container--xxx-large);
+}
+.sd-width--full {
+    width: var(--width__container--full);
+}

@@ -59,6 +59,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         padding-inline: $sd-alert-padding-x-small;
         box-shadow: $sd-alert-shadow-small;
         transition: $sd-alert-transition-small;
+        gap: $sd-base-increment * 1;
     }
     &--marg-b12 {
         margin-bottom: 1.2rem;

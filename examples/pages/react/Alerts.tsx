@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import { Alert, Prop, PropsList } from '../../../app-typescript';
+import * as PanelElements from '../../../app-typescript/components/Layouts/Panel';
 
 export default class AlertDoc extends React.Component {
     render() {
@@ -132,6 +133,51 @@ export default class AlertDoc extends React.Component {
                         <Alert style='filled' size='small' type='highlight' restoreIcon='info'>
                             Maecenas sed diam eget risus varius blandit sit amet non magna. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
                         </Alert>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3 docs-page__h3--small-top-m">Banner style</h3>
+                <p className="docs-page__paragraph">The Alert component can be placed inside other elements, in this example inside the <code>PanelHeader</code>, to alert the user about important information relevant to this specific area of the application. In areas that are limited in space set the <code>banner</code> prop to true.
+                This will strip all margins and the border-radius from the component. Hollow style is not recommended in this case, and small size is advised.</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='sd-display--flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '360px'}}>
+                            <PanelElements.Panel open={true} side='left' size='small'>
+                                <PanelElements.PanelHeader title='Panel example' onClose={()=> false}>
+                                    <Alert type='warning' icon='exclamation-sign' banner={true} size='small'>
+                                        Banner style alert dolor rhoncus iaculis maximus sit...
+                                    </Alert>
+                                </PanelElements.PanelHeader>
+                                <PanelElements.PanelContent>
+                                    <PanelElements.PanelContentBlock>
+                                        <p className='sd-margin-b--2'>Curabitur blandit tempus porttitor. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Aenean eu leo quam. Pellentesque ornare sem 
+                                            lacinia quam venenatis vestibulum.</p>
+                                        <p className='sd-margin-b--2'>Donec ullamcorper nulla non metus auctor fringilla. Cras mattis consectetur purus sit amet fermentum. Donec id elit non mi porta gravida at eget metus.
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Duis mollis, est non commodo luctus,
+                                            nisi erat porttitor ligula.</p>
+                                        <p>Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Etiam porta sem malesuada
+                                            magna mollis euismod. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+                                    </PanelElements.PanelContentBlock>
+                                </PanelElements.PanelContent>
+                            </PanelElements.Panel>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Panel open={true} side='left' size='small'>
+                            <PanelHeader title='Panel example' onClose={()=> false}>
+                                <Alert type='warning' icon='exclamation-sign' banner={true} size='small'>
+                                    Banner style alert dolor rhoncus iaculis maximus sit...
+                                </Alert>
+                            </PanelHeader>
+                            <PanelContent>
+                                <PanelContentBlock>
+                                    <p className='sd-margin-b--2'>Curabitur blandit tempus porttitor...</p>
+                                    <p className='sd-margin-b--2'>Donec ullamcorper nulla non metus auctor fringilla...</p>
+                                    <p>Aenean lacinia bibendum nulla sed consectetur. Cum sociis natoque penatibus...</p>
+                                </PanelContentBlock>
+                            </PanelContent>
+                        </Panel>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
