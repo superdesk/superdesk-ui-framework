@@ -57,7 +57,9 @@ export class Input extends React.Component<IProps, IState> {
 
         return (
             <div className={classes}>
-                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}>{this.props.label}</label>
+                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}>
+                    {this.props.label}
+                </label>
 
                 <input className='sd-input__input'
                     type='text'

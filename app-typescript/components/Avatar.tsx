@@ -41,11 +41,9 @@ export class AvatarContentImage extends React.PureComponent<IImageAvatar> {
 }
 interface IPropsAvatarGroup {
     appearance?: 'stacked' | 'grid';
-    borderColor?: '000' | '050' | '100' | '150'  | '200';
+    borderColor?: '000' | '050' | '100' | '150' | '200';
     className?: string;
     children: React.ReactNode;
-    
-
 }
 export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
     render() {

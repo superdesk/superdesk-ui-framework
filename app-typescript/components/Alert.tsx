@@ -52,14 +52,14 @@ export class Alert extends React.PureComponent<IProps, IState> {
                 <div className={classesAlert}>
                     {this.props.icon ?
                         <span className="sd-alert__icon">
-                            <Icon name={this.props.icon} /> 
-                        </span>  : null
+                            <Icon name={this.props.icon} />
+                        </span> : null
                     }
                     {this.props.restoreIcon ?
                         <button className='sd-alert__close' onClick={this.onToggle} aria-label="Close"></button> : null}
-                        <span className="sd-alert__content">
-                            {this.props.children}
-                        </span>
+                    <span className="sd-alert__content">
+                        {this.props.children}
+                    </span>
                 </div>
                 {this.props.restoreIcon ?
                     <span className={classesInfoBtn} onClick={this.onToggle}>

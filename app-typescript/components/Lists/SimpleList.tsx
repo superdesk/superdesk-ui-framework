@@ -19,7 +19,8 @@ class SimpleListItem extends React.PureComponent<IPropsItem> {
         let classes = classNames('simple-list__item', {
             'simple-list__item--stacked': this.props.stacked,
             'simple-list__item--justify-flex-start': this.props.justify === undefined,
-            [`simple-list__item--justify-${this.props.justify}`]: this.props.justify || this.props.justify !== undefined,
+            [`simple-list__item--justify-${this.props.justify}`]:
+                this.props.justify || this.props.justify !== undefined,
         });
         return (
             <li className={classes}>

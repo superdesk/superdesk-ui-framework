@@ -35,7 +35,7 @@ export class AuthoringMain extends React.PureComponent<IProps> {
                             {this.props.authoringBookmarks}
                         </AuthorinInnerSideBar>
                     )}
-                    
+
                     <AuthoringInnerBody>
                         {this.props.children}
                     </AuthoringInnerBody>

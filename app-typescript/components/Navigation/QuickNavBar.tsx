@@ -7,7 +7,7 @@ interface IProps {
 }
 
 interface IItem {
-    icon: string,
+    icon: string;
     tooltip?: string;
     active?: boolean;
     onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
@@ -24,7 +24,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
-        }
+        };
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -35,7 +35,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         if (this.state.index === indexNumber) {
             this.setState({
                 closeIndex: indexNumber,
-                index: -1
+                index: -1,
             });
         }
 
@@ -51,7 +51,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
                         if (item === 'divider') {
                             return (
                                 <li key={index} className='sd-quickbar__spacer'></li>
-                            )
+                            );
                         } else {
                             return (
                                 <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
@@ -59,7 +59,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
                                         onClick={() => this.handleClick(item, index, event)}>
                                         <Icon size={'small'} name={item['icon']} />
                                     </a>
-                                </li>)
+                                </li>);
                         }
                     })}
                 </ul>

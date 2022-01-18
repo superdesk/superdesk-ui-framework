@@ -82,7 +82,7 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
         });
         return (
             <li className={classes}>
-                
+
                 {this.props.media && (
                     <BoxedListMedia>
                         {this.props.media}
@@ -90,7 +90,7 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
                 )}
 
                 <BoxedListContent>
-                    {this.props.children}           
+                    {this.props.children}
                 </BoxedListContent>
 
                 {this.props.footer && (

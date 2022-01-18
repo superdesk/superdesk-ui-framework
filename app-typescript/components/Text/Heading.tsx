@@ -9,7 +9,7 @@ interface IProps {
     align?: 'start' | 'end' | 'center' | 'justify';
     fontStyle?: 'sans' | 'serif';
     color?: 'normal' | 'light' | 'lighter';
-    type: 'h1' | 'h2' | 'h3' | 'h4'| 'h5' | 'h6';
+    type: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 }
 
 export class Heading extends React.PureComponent<IProps> {
@@ -25,7 +25,7 @@ export class Heading extends React.PureComponent<IProps> {
             '': this.props.color === undefined,
             [`sd-text-color--${this.props.color}`]: this.props.color && this.props.color !== 'normal',
         }, this.props.className);
-        switch(this.props.type) {
+        switch (this.props.type) {
             case 'h1':
                 return (
                     <h1 className={classes}>

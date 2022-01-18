@@ -7,7 +7,7 @@ interface IProps {
     label: {
         text: string,
         side?: 'left' | 'right', // defaults to 'right'
-        hidden?: boolean, 
+        hidden?: boolean,
     };
     value: boolean;
     disabled?: boolean;
@@ -40,10 +40,12 @@ export class Switch extends React.PureComponent<IProps> {
 
         if (this.props.label.hidden) {
             return (
-                <Tooltip text={this.props.label.text} flow={this.props.toolTipFlow} appendToBody={this.props.toolTipAppend}>
+                <Tooltip text={this.props.label.text}
+                    flow={this.props.toolTipFlow}
+                    appendToBody={this.props.toolTipAppend}>
                     <span className="sd-switch__wrapper" tabIndex={-1}>
-                        { this.props.label && this.props.label.side === 'left' ?
-                            <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null }
+                        {this.props.label && this.props.label.side === 'left' ?
+                            <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null}
                         <span id={this.htmlId} role="checkbox" className={classes} aria-checked={this.props.value}
                             aria-disabled={this.props.disabled} onClick={this.onClick} tabIndex={0}>
                             <span className="inner" />
@@ -55,14 +57,14 @@ export class Switch extends React.PureComponent<IProps> {
         } else {
             return (
                 <span className="sd-switch__wrapper" tabIndex={-1}>
-                    { this.props.label && this.props.label.side === 'left' ?
-                        <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null }
+                    {this.props.label && this.props.label.side === 'left' ?
+                        <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null}
                     <span id={this.htmlId} role="checkbox" className={classes} aria-checked={this.props.value}
                         aria-disabled={this.props.disabled} onClick={this.onClick} tabIndex={0}>
                         <span className="inner" />
                     </span>
-                    { this.props.label && this.props.label.side !== 'left' ?
-                        <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null }
+                    {this.props.label && this.props.label.side !== 'left' ?
+                        <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null}
                 </span>
             );
         }

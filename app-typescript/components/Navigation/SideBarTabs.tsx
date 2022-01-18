@@ -7,7 +7,7 @@ interface IProps {
 }
 
 export interface ISideBarTab {
-    icon: string,
+    icon: string;
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
     active?: boolean;
@@ -25,7 +25,7 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
-        }
+        };
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -36,7 +36,7 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
         if (this.state.index === indexNumber) {
             this.setState({
                 closeIndex: indexNumber,
-                index: -1
+                index: -1,
             });
         }
 
@@ -52,11 +52,14 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
                         if (item === 'divider') {
                             return (
                                 <li key={index} className='sd-sidetab-menu__spacer'></li>
-                            )
+                            );
                         } else {
                             return (
                                 <li key={index} data-sd-tooltip={item['tooltip']} data-flow='left'>
-                                    <a role='button' aria-label={item['tooltip']} className={'sd-sidetab-menu__btn' + (item['active'] ? ' sd-sidetab-menu__btn--active' : (index === this.state.index ? ' sd-sidetab-menu__btn--active' : ''))}
+                                    <a role='button' aria-label={item['tooltip']}
+                                        className={'sd-sidetab-menu__btn' + (item['active'] ?
+                                            ' sd-sidetab-menu__btn--active' :
+                                            (index === this.state.index ? ' sd-sidetab-menu__btn--active' : ''))}
                                         onClick={() => this.handleClick(item, index, event)}>
                                         <span className='sd-sidetab-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />
@@ -64,7 +67,7 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
                                         <i className='sd-sidetab-menu__helper-icon icon-close-small'></i>
                                     </a>
                                 </li>
-                            )
+                            );
                         }
                     })}
                 </ul>

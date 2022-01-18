@@ -26,7 +26,7 @@ export class EditorButton extends React.PureComponent<IProps> {
                     onClick={this.props.onClick}
                     className={classes}
                     aria-label={this.props.ariaValue}>
-                    <Icon name={this.props.icon} ariaHidden={true}/>
+                    <Icon name={this.props.icon} ariaHidden={true} />
                 </button>
             </Tooltip>
         );

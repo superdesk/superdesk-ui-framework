@@ -78,7 +78,7 @@ export { Skeleton } from './components/Skeleton';
 export { ListItemLoader } from './components/ListItemLoader';
 export { Spinner, LoadingOverlay } from './components/Spinner';
 export { Text } from './components/Text/Text';
-export { Heading } from './components/Text/Heading'
+export { Heading } from './components/Text/Heading';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

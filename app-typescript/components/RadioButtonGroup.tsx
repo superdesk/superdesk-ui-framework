@@ -19,7 +19,6 @@ interface IProps {
     required?: boolean;
     onChange(nextValue: string): void;
 
-
 }
 export class RadioButtonGroup extends React.Component<IProps> {
     htmlId = nextId();

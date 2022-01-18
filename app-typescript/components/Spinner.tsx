@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-
 class LoadingOverlay extends React.PureComponent {
     render() {
         return (
@@ -13,7 +12,7 @@ class LoadingOverlay extends React.PureComponent {
 }
 
 interface IProps {
-    size?: 'mini' |'small' | 'medium' | 'large'; // defaults to 'small'
+    size?: 'mini' | 'small' | 'medium' | 'large'; // defaults to 'small'
 }
 
 class Spinner extends React.PureComponent<IProps> {

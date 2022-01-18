@@ -7,7 +7,7 @@ interface IProps {
 }
 
 interface IItem {
-    icon: string,
+    icon: string;
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
     active?: boolean;
@@ -24,7 +24,7 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
-        }
+        };
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -47,7 +47,7 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
                         if (item === 'divider') {
                             return (
                                 <li key={index} className='sd-sidebar-menu__spacer'></li>
-                            )
+                            );
                         } else {
                             return (
                                 <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
@@ -58,7 +58,7 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
                                         </span>
                                         <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
                                     </a>
-                                </li>)
+                                </li>);
                         }
                     })}
                 </ul>

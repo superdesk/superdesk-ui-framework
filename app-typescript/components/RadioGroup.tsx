@@ -17,6 +17,7 @@ interface IProps {
     orientation?: 'horizontal' | 'vertical';
     onChange(nextValue: IOption['value']): void;
 }
+
 export class RadioGroup extends React.Component<IProps> {
     htmlId = nextId();
 
@@ -35,7 +36,6 @@ export class RadioGroup extends React.Component<IProps> {
         let classes = classNames('sd-check__group-new', {
             'sd-check__group-new--vertical': this.props.orientation === 'vertical',
         });
-
 
         return (
             <div className={classes}>{

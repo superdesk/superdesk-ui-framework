@@ -347,7 +347,12 @@ const DropdownItem = ({
     onSelect,
 }: IMenuItem) => {
     return (
-        <li role='none' className={active ? 'dropdown__menu-item--active' : ''}><button tabIndex={0} role='menuitem' onClick={onSelect}><i className={icon ? ('icon-' + icon) : ''}></i>{label}</button></li>
+        <li role='none' className={active ? 'dropdown__menu-item--active' : ''}>
+            <button tabIndex={0} role='menuitem' onClick={onSelect}>
+                <i className={icon ? ('icon-' + icon) : ''}></i>
+                {label}
+            </button>
+        </li>
     );
 
 };

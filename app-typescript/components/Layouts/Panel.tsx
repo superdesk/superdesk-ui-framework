@@ -11,7 +11,7 @@ interface IPropsPanel {
     side?: 'left' | 'right';
     theme?: 'light-ui' | 'dark-ui';
     className?: string;
-    size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large'  | 'xxx-large'  | 'full'   | 'auto';
+    size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large' | 'xxx-large' | 'full' | 'auto';
     background?: 'transparent' | 'light' | 'grey'; // defaults to light (white)
     open?: boolean;
 }
@@ -19,13 +19,13 @@ interface IPropsPanel {
 export default class Panel extends React.PureComponent<IPropsPanel> {
     render() {
         let classes = classNames('side-panel', {
-            [`side-panel--${this.props.side}`] : this.props.side,
+            [`side-panel--${this.props.side}`]: this.props.side,
             [`side-panel--${this.props.background}`]:
                 this.props.background !== 'light' && this.props.background !== undefined,
         }, this.props.className);
         let classes2 = classNames('side-panel__container', {
-            [`side-panel__container--${this.props.side}`] : this.props.side,
-            [`side-panel__container--${this.props.size}`] : this.props.size,
+            [`side-panel__container--${this.props.side}`]: this.props.side,
+            [`side-panel__container--${this.props.size}`]: this.props.size,
             [`panel-open`]: this.props.open,
         });
         return (
@@ -52,15 +52,10 @@ interface IPropsPanelHeader {
 class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
     constructor(props: IPropsPanelHeader) {
         super(props);
+    }
 
-        this.onClose = this.onClose.bind(this);
-    }
-    onClose() {
-        this.props.onClose ?
-            this.props.onClose() : null;
-    }
     render() {
-        const  darkColors = ['blueGrey', 'blueGreyDarker'];
+        const darkColors = ['blueGrey', 'blueGreyDarker'];
 
         let classes = classNames('side-panel__header side-panel__header--border-b', {
             [`side-panel__header--${this.props.color}`]: this.props.color || this.props.color !== undefined,
@@ -74,13 +69,14 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
         return (
             <div data-theme={this.props.theme || defaultTheme} className={classes} style={style}>
                 {this.props.onClose ?
-                    <a className="icn-btn side-panel__close" onClick={this.onClose}>
+                    <a className="icn-btn side-panel__close"
+                        onClick={() => this.props.onClose ? this.props.onClose() : false}>
                         <Icon name='close-small' />
                     </a> : null}
                 {this.props.title &&
-                <div className="side-panel__header-inner">
-                    <h3 className="side-panel__heading">{this.props.title}</h3>
-                </div> }
+                    <div className="side-panel__header-inner">
+                        <h3 className="side-panel__heading">{this.props.title}</h3>
+                    </div>}
                 {this.props.children}
             </div>
         );
@@ -101,13 +97,13 @@ class PanelContent extends React.PureComponent<IPropsPanelContent> {
             <div className="side-panel__content">
                 {this.props.loading ?
                     <LoadingOverlay>
-                        <Spinner size="large" /> 
-                    </LoadingOverlay>  : null
+                        <Spinner size="large" />
+                    </LoadingOverlay> : null
                 }
                 {this.props.empty ?
                     <LoadingOverlay>
-                        {this.props.emptyTemplate} 
-                    </LoadingOverlay>  : null
+                        {this.props.emptyTemplate}
+                    </LoadingOverlay> : null
                 }
                 {this.props.children}
             </div>
