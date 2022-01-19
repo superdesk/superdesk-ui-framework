@@ -4,8 +4,8 @@
 //border-radius
 $sd-grid-item-border-radius:            $border-radius__base--medium;
 //shadows
-$sd-grid-item-shadow:                   0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
-$sd-grid-item-shadow-hover:             0 1px 6px rgba(0,0,0,.16), 0 2px 8px rgba(0,0,0,.26);
+$sd-grid-item-shadow:                   0 0 0 1px var(--sd-shadow-outline), 0 1px 4px hsla(0, 0%, 0%, 0.1), 0 1px 5px hsla(0, 0%, 0%, 0.16);
+$sd-grid-item-shadow-hover:             0 0 0 1px var(--sd-shadow-outline), 0 1px 6px hsla(0, 0%, 0%, 0.16), 0 2px 8px hsla(0, 0%, 0%, 0.26);
 $sd-grid-item-shadow-selected:          var(--sd-shadow__item--selected);
 $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--alpha-50);
 

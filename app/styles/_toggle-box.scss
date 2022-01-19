@@ -10,12 +10,7 @@
                 transform: rotate(0);
             }
             &--circle {
-                padding: 2px;
                 background-color: var(--sd-colour-btn-bg-neutral);
-                height: 20px;
-                width: 20px;
-                text-align: center;
-                border-radius: $border-radius__base--full;
                 i {
                     color: var(--color-text-light);
                 }
@@ -33,10 +28,6 @@
     &.toggle-box--circle {
         .toggle-box__chevron {
             background-color: var(--sd-colour-btn-bg-neutral);
-            height: 2rem;
-            width: 2rem;
-            text-align: center;
-            border-radius: $border-radius__base--full;
             i {
                 color: var(--sd-colour-btn-txt-neutral);
             }
@@ -47,6 +38,16 @@
     }
 }
 
+.toggle-box__chevron {
+    height: 2.4rem;
+    width: 2.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: $border-radius__base--full;
+}
+
 .toggle-box__header {
     display: flex;
     cursor: pointer;
@@ -54,7 +55,6 @@
     align-items: center;
 
     .toggle-box__chevron {
-        padding: 2px;
         i {
             transition: all .3s;
             transform: rotate(90deg);
@@ -73,10 +73,6 @@
         background: var(--sd-colour-line--light);
     }
     &:hover {
-        text-decoration: none;
-        // .toggle-box__chevron {
-        //     box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
-        // }
         .toggle-box__label {
             color: var(--sd-colour-interactive);
             text-decoration: none;

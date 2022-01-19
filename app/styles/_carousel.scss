@@ -27,10 +27,10 @@
 }
 
 .sd-carousel__content {
-    background: #fff;
+    background: var(--color-modal-Bg);
     background-clip: padding-box;
     outline: 0;
-    box-shadow: 0 4px 24px rgba(0,0,0,.20), 0 10px 28px rgba(0,0,0,.35);
+    box-shadow: 0 4px 24px hsla(0, 0%, 0%, 0.2), 0 10px 28px hsla(0, 0%, 0%, 0.35);
     border-radius: 1rem 1rem 0.8rem 0.8rem;
     min-height: 40rem;
     display: flex;
@@ -52,15 +52,15 @@
     width: 100%;
     height: 200px;
     border-radius: 0.8rem 0.8rem 0 0;
-    background-color: #303E55;
+    background-color: hsl(217, 28%, 26%);
     flex-grow: 0;
     position: relative;
     overflow: hidden;
     &--color-2 {
-        background-color: #856CA1;
+        background-color: hsl(268, 22%, 53%);
     }
     &--color-3 {
-        background-color: #6DBEC4;
+        background-color: hsl(184, 42%, 60%);
     }
 }
 
@@ -79,7 +79,7 @@
     width: 100%;
     text-align: center;
     z-index: 2;
-    color: #fff;
+    color: $white;
     font-size: 3.2rem;
     line-height: 1;
     top: calc(50% - 1.6rem);
@@ -112,9 +112,9 @@
 
 
 @mixin modalNavButton-style(
-  $background: #fff,
-  $background-hover: scale-color($background, $lightness: -10%),
-  $background-active: scale-color($background, $lightness: -20%)) 
+  $background: var(--sd-item__main-Bg),
+  $background-hover: var(--sd-item__main-Bg--hover),
+  $background-active: var(--sd-item__main-Bg--alternate)) 
   {
     border-radius: $border-radius__base--full;
     cursor: pointer;
@@ -166,10 +166,16 @@
     }
     &--end {
         right: -88px;
-        @include modalNavButton-style ($sd-green);
+        background-color: var(--sd-colour-success);
         &::after {
             content: "\e61d";
-            color: #fff;
+            color: $white;
+        }
+        &:hover {
+            background-color: var(--sd-colour-success--hover);
+        }
+        &:active {
+            background-color: var(--sd-colour-success--active);
         }
     }
 

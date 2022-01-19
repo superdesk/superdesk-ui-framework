@@ -46,11 +46,10 @@ export default class CarouselDoc extends React.Component {
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <Carousel images={images} theme="dark"></Carousel>
+                        <Carousel images={images}></Carousel>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-const images = ${JSON.stringify(images, null, 2)};
-
+                        const images = ${JSON.stringify(images, null, 2)};
 <Carousel images={images}></Carousel>
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

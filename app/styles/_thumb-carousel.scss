@@ -1,5 +1,5 @@
 :root {
-    --sd-thumb-carousel__shadow-line: hsla(214, 13%, 80%, 1);
+    --sd-thumb-carousel__shadow-line: hsla(214, 13%, 80%, 0.2);
     --sd-thumb-carousel__shadow: 0 0 0 1px var(--sd-thumb-carousel__shadow-line), 0 0 1px hsla(0, 0%, 0%, 0.1), 0 1px 4px hsla(0, 0%, 0%, 0.2);
     --sd-thumb-carousel__colour-bg: hsla(214, 13%, 100%, 1);
     --sd-thumb-carousel__colour-img-bg: hsla(214, 13%, 12%, 1);
@@ -7,12 +7,13 @@
     --sd-thumb-carousel__border-radius: 4px;
     --sd-thumb-carousel__colour-btn: hsla(214, 13%, 100%, 1);
     --sd-thumb-carousel__colour-indicator: hsla(214, 13%, 80%, 1);
-    --sd-thumb-carousel__colour-indicator--highlight: hsla(198, 49%, 58%, 1);
 }
 [data-theme="dark-ui"] {
-    --sd-thumb-carousel__shadow-line: hsla(214, 13%, 20%, 1);
+    --sd-thumb-carousel__shadow-line: hsla(214, 13%, 60%, 0.5);
+    --sd-thumb-carousel__shadow: 0 0 0 1px var(--sd-thumb-carousel__shadow-line), 0 0 1px hsla(0, 0%, 0%, 0.2), 0 1px 4px hsla(0, 0%, 0%, 0.4);
     --sd-thumb-carousel__colour-bg: hsla(214, 13%, 25%, 1);
     --sd-thumb-carousel__colour-txt: hsla(214, 13%, 96%, 1);
+    --sd-thumb-carousel__colour-btn: hsla(214, 13%, 60%, 1);
     --sd-thumb-carousel__colour-indicator: hsla(214, 13%, 80%, 0.5);
 
     .badge--light {
@@ -151,7 +152,7 @@
     &--highlight, &.p-highlight {
         > button {
             width: 16px;
-            background-color: var(--sd-thumb-carousel__colour-indicator--highlight);
+            background-color: var(--sd-colour-interactive);
             &:hover {
                 opacity: 1;
             }
@@ -163,7 +164,6 @@
 .sd-thumb-carousel__btn--prev, .sd-thumb-carousel__btn--next,
 .p-carousel-prev, .p-carousel-next {
     @extend .icn-btn;
-
     display: flex;
     align-self: center;
     flex-grow: 0;
@@ -175,19 +175,20 @@
     z-index: 2;
     background-color: var(--sd-thumb-carousel__colour-btn);
     box-shadow: 0 0 1px hsla(0, 0%, 0%, 0.12), 0 2px 6px hsla(0, 0%, 0%, 0.20);
-    opacity: 1;
+    opacity: 0.8;
     transition: all 0.2 ease !important;
-    color: hsla(0, 0%, 20%, 0.6);
+    color: hsla(214, 13%, 20%, 0.6);
     &:hover {
         opacity: 1;
+        background-color: var(--sd-thumb-carousel__colour-btn);
         box-shadow: 0 0 2px hsla(0, 0%, 0%, 0.16), 0 4px 12px hsla(0, 0%, 0%, 0.24);
-        color: hsla(0, 0%, 20%, 1);
+        color: hsla(214, 13%, 10%, 1);
     }
     &:active {
         opacity: 1;
-        background-color: var(--sd-thumb-carousel__colour-btn);
+        background-color: var(--sd-colour-interactive) !important;
         box-shadow: 0 0 1px hsla(0, 0%, 0%, 0.1), 0 1px 2px hsla(0, 0%, 0%, 0.12);
-        color: $sd-blue;
+        color: $white;
     }
     &:focus {
         opacity: 1;
