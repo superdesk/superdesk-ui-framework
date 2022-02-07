@@ -228,7 +228,20 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                             <Badge text={item.priority} shape='square' color={item.priorityColor} />
                                         </GridElements.GridItemFooterBlock>
                                         <GridElements.GridItemFooterActions>
-                                            <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> this.changeStatus(item, 'archived')} />
+                                            <Dropdown
+                                                align = 'right'
+                                                append = {true}
+                                                items={[
+                                                    {
+                                                        type: 'group', label: 'Actions', items: [
+                                                            'divider',
+                                                            { label: 'Edit', icon: 'pencil', onSelect: () => this.setState({ dropDownState: 'Edit ' }) },
+                                                            { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
+                                                            { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
+                                                        ]
+                                                    }]}>
+                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
+                                            </Dropdown>
                                         </GridElements.GridItemFooterActions>
                                     </GridElements.GridItemFooter>
                                 </GridElements.GridItem>

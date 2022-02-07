@@ -158,7 +158,6 @@ export const Dropdown = ({
                     if (toggleRef && menuRef) {
                         createPopper(toggleRef, menuRef, {
                             placement: checkAlign() ? 'bottom-end' : 'bottom-start',
-                            strategy: 'fixed',
                         });
                         menuRef.style.display = 'block';
                     }
