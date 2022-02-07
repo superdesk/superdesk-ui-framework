@@ -156,7 +156,7 @@ export const Dropdown = ({
                     let menuRef: any = ref.current;
                     let toggleRef = buttonRef.current;
                     if (toggleRef && menuRef) {
-                        const instance = createPopper(toggleRef, menuRef, {
+                        createPopper(toggleRef, menuRef, {
                             placement: checkAlign() ? 'bottom-end' : 'bottom-start',
                         });
                         menuRef.style.display = 'block';
