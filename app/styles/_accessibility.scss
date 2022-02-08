@@ -1,9 +1,10 @@
 .a11y-only {
-    position: absolute;
+    position: absolute !important;
     top: 0;
     z-index: -1;
     pointer-events: none;
     opacity: 0;
-    height: 1px;
+    height: 1px !important;
+    width: 1px !important;
     overflow: hidden;
 }

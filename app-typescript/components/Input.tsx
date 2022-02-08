@@ -4,7 +4,7 @@ import nextId from "react-id-generator";
 
 interface IProps {
     value?: string;
-    label?: string;
+    label: string;
     maxLength?: number;
     info?: string;
     error?: string;
@@ -12,6 +12,7 @@ interface IProps {
     disabled?: boolean;
     invalid?: boolean;
     inlineLabel?: boolean;
+    labelHidden?: boolean;
     onChange(newValue: string): void;
 }
 
@@ -50,11 +51,15 @@ export class Input extends React.Component<IProps, IState> {
             'sd-input--disabled': this.props.disabled,
             'sd-input--invalid': this.props.invalid || this.state.invalid,
         });
+        const labelClasses = classNames('sd-input__label', {
+            'a11y-only': this.props.labelHidden,
+        });
 
         return (
             <div className={classes}>
-                {this.props.label ? <label className='sd-input__label'
-                    htmlFor={this.htmlId} id={this.htmlId + 'label'}>{this.props.label}</label> : null}
+                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}>
+                    {this.props.label}
+                </label>
 
                 <input className='sd-input__input'
                     type='text'

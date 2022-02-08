@@ -4,13 +4,14 @@ import nextId from "react-id-generator";
 
 interface ISelect {
     value?: string;
-    label?: string;
+    label: string;
     info?: string;
     error?: string;
     required?: boolean;
     disabled?: boolean;
     invalid?: boolean;
     inlineLabel?: boolean;
+    labelHidden?: boolean;
     onChange(newValue: string): void;
 }
 
@@ -45,11 +46,13 @@ class Select extends React.Component<ISelect, IState> {
             'sd-input--disabled': this.props.disabled,
             'sd-input--invalid': this.props.invalid || this.state.invalid,
         });
+        const labelClasses = classNames('sd-input__label', {
+            'a11y-only': this.props.labelHidden,
+        });
 
         return (
             <div className={classes}>
-                {this.props.label ?
-                    <label className='sd-input__label' htmlFor={this.htmlId}>{this.props.label}</label> : null}
+                <label className={labelClasses} htmlFor={this.htmlId}>{this.props.label}</label>
 
                 <select className='sd-input__select'
                     id={this.htmlId}
