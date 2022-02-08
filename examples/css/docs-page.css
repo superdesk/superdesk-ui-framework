@@ -33,8 +33,8 @@
     --docs-page-color-bg__content-row--white: hsla(0, 0%, 8%, 1);
     --docs-page-color-bg__content-row--grey: hsla(0, 0%, 12%, 1);
     --docs-page-color-bg__example-box: hsla(214, 13%, 18%, 1);
-    --docs-page-color-bg__graphic-btn: hsla(0, 0%, 19%, 1);
-    --docs-page-color-bg__graphic-btn-graphic: linear-gradient(180deg, hsla(165, 57%, 95%, 0.1) 4%, hsla(191, 53%, 86%, 0.1) 96%);
+    --docs-page-color-bg__graphic-btn: hsla(214, 13%, 8%, 1);
+    --docs-page-color-bg__graphic-btn-graphic: hsla(214, 13%, 14%, 1);
 
     --docs-page-border__window-bar--top: hsla(0, 0%, 91%, 0.02);
     --docs-page-border__window-bar--bottom: hsla(0, 0%, 88%, 0.12);

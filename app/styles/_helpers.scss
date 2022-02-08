@@ -529,7 +529,7 @@ h1, h2, h3, h4, h5, h6 {
     white-space: pre-wrap;
 }
 // Text Transform
-.sd-txt-transform--upercase {
+.sd-txt-transform--uppercase {
     text-transform: uppercase;
 }
 .sd-txt-transform--lowercase {
@@ -987,7 +987,9 @@ $sd-properties: (padding, margin); // It's generating these properties
     box-shadow: var(--sd-shadow__item--selected) !important;
     transition: box-shadow 0.3s ease, filter 0.3s ease ;
 }
-
+.sd-width--xxx-small {
+    width: var(--width__container--xxx-small) !important;
+}
 .sd-width--xx-small {
     width: var(--width__container--xx-small);
 }

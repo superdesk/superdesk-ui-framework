@@ -146,10 +146,16 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
             }
         }
         a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
-            &:hover, &:focus {
+            &:hover {
                 background-color: $sd-colour-background__menu-item--hover;
                 text-decoration: none;
                 cursor: pointer;
+            }
+            &:focus {
+                background-color: $sd-colour-background__menu-item;
+                box-shadow: var(--sd-shadow__menu-item--focus-inner);
+                text-decoration: none;
+                outline: none;
             }
             &:active {
                 background-color: $sd-colour-background__menu-item--active;

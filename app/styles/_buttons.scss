@@ -49,6 +49,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     &:hover {
         background-color: var(--sd-btn-bg--hover);
         box-shadow: var(--new-button-hover-shadow);
+        text-decoration: none !important;
     }
     &:active {
         background-color: var(--sd-btn-bg--active);

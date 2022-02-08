@@ -16,11 +16,11 @@ export const Tag = ({ text, keyValue, shade, shape, readOnly, onClick }: IProps)
         'tag-label--square': shape === 'square',
     });
     return (
-        <div className={classes} key={keyValue}>
+        <span className={classes} key={keyValue}>
             {text}
             {!readOnly ? <button className='tag-label__remove' onClick={onClick}>
                 <i className='icon-close-small'></i>
             </button> : null}
-        </div>
+        </span>
     );
 };
