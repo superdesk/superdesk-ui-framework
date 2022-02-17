@@ -7,13 +7,13 @@ interface IProps {
     border?: boolean;
     className?: string;
     width?: 'none' | 'x-small' | 'small' | 'medium' | 'large';
-    id?: string
+    id?: string;
 }
 
 interface IPropsItem {
     stacked?: boolean;
     justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
-    id?: string
+    id?: string;
 }
 
 class SimpleListItem extends React.PureComponent<IPropsItem> {

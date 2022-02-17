@@ -51,7 +51,7 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                                         className={'docs-page__grid-page-example__side'}     
                                         scrollSpy='#scrollContainer'
                                         offset={-300}
-                                        activeItemId='1' 
+                                        activeItemId='1'
                                         groups={[
                                             { label: 'MAIN SECTIONS', items: [
                                                 { id: '1', label: 'Section 1', ref:'section1'},

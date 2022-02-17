@@ -21,13 +21,13 @@ interface IMenu {
   activeItemId: string;
   ariaLabel?: string;
   scrollSpy?: string;
-  offset?: number; 
+  offset?: number;
   style?: "default" | "inverse" | "blanc";
   onSelect(id: string, route: string): void;
 }
 
 interface IState {
-  active: string;   
+  active: string;
 }
 
 export class LeftMenu extends React.PureComponent<IMenu, IState> {
@@ -67,18 +67,18 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
         [`sd-left-nav--${this.props.style}`]:
           this.props.style || this.props.style !== undefined,
       },
-      this.props.className
+      this.props.className,
     );
 
     const scrollspyList = () => {
-      let scrollSpyList: string[] = [];
-      let scrollSpyItems: JSX.Element[] = [];
+      let scrollSpyList: Array<string> = [];
+      let scrollSpyItems: Array<JSX.Element> = [];
       this.props.groups.map((element, index) => {
         scrollSpyList = [...scrollSpyList, element.label];
         scrollSpyItems.push(
           <span className="sd-left-nav__group-header" key={"group-" + index}>
             {element.label}
-          </span>
+          </span>,
         );
 
         element.items.map((elementOfItem, indexOfItem) => {
@@ -93,14 +93,14 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
               className="sd-left-nav__btn"
             >
               {elementOfItem.label}
-            </a>
+            </a>,
           );
         });
       });
 
       return (
         <Scrollspy
-          offset={this.props.offset ? this.props.offset : -300} 
+          offset={this.props.offset ? this.props.offset : -300}
           items={scrollSpyList}
           rootEl={this.props.scrollSpy}
           currentClassName="sd-left-nav__btn--active"

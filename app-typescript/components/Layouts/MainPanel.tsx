@@ -4,7 +4,7 @@ export interface IMainPanelProps {
     children?: React.ReactNode;
     className?: string;
     onScroll?(event: React.UIEvent<HTMLDivElement>): void;
-    id?: string
+    id?: string;
 }
 
 export class MainPanel extends React.PureComponent<IMainPanelProps> {
