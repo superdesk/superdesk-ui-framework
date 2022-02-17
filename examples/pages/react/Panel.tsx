@@ -118,7 +118,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                                     <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel2': true})} />
                                 </div>
                             }
-                            <PanelElements.Panel side='right' background='light' open={this.state.openPanel2} size='small' theme="dark-ui">
+                            <PanelElements.Panel side='right' background='light' open={this.state.openPanel2} size='small' theme="dark">
                                 <PanelElements.PanelHeader title='Right panel title' onClose={()=> this.setState({openPanel2: false})} color='blueGreyDarker'>
                                 </PanelElements.PanelHeader>
                                 <PanelElements.PanelContent>
@@ -272,7 +272,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                                     <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel4': true})} />
                                 </div>
                             }
-                            <PanelElements.Panel side='left' background='light' open={this.state.openPanel4} size='x-small' theme='dark-ui'>
+                            <PanelElements.Panel side='left' background='light' open={this.state.openPanel4} size='x-small' theme='dark'>
                                 <PanelElements.PanelHeader title='Donec sed odio dui'>
                                     <PanelElements.PanelTools tools={[
                                         {title: 'Delete', icon: 'trash', onClick: () => false, ariaValue: 'Delete' },
@@ -332,7 +332,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                 <PropsList>
                     <Prop name='size' isRequired={false} type='xx-small | x-small | small | medium | large | x-large | xx-large  | xxx-large  | full | auto' default='small' description='Specifies the width of the panel.'/>
                     <Prop name='side' isRequired={false} type='left | right' default='left' description='Defines the side of the panel. It will also add the appropriate shadow on the opsite side.'/>
-                    <Prop name='theme' isRequired={false} type='light-ui | dark-ui' default='/' description='Explicitly define the theme of the panel. All child elements and the content will inherit the selected theme.'/>
+                    <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Explicitly define the theme of the panel. All child elements and the content will inherit the selected theme.'/>
                     <Prop name='background' isRequired={false} type='transparent | light | grey' default='light' description='Background colour of the panel.'/>
                     <Prop name='open' isRequired={false} type='boolean' default='false' description='Toggles the open/closed state of the panel.'/>
                     <Prop name='ClassName' isRequired={false} type='string' default='false' description='Add custom classes to modify the default behaviour or specify the placement in complex layouts.'/>
@@ -342,7 +342,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                 <PropsList>
                     <Prop name='title' isRequired={false} type='string' default='/' description='Specifies the title of the panel.'/>
                     <Prop name='zIndex' isRequired={false} type='number' default='1' description='Increase the z-index of the header if needed.'/>
-                    <Prop name='theme' isRequired={false} type='light-ui | dark-ui' default='/' description='Explicitly define the theme just for the of Panel Header. All child elements and the content inside the Header will inherit the selected theme.'/>
+                    <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Explicitly define the theme just for the of Panel Header. All child elements and the content inside the Header will inherit the selected theme.'/>
                     <Prop name='color' isRequired={false} type='light | darker | blueGrey | blueGreyDarker' default='light' description='Background colour of the Panel Header. blueGrey and blueGreyDarker will also change the text colour to white.'/>
                     <Prop name='ClassName' isRequired={false} type='string' default='false' description='Add custom or helper classes to modify the default behaviour if needed. Use only if necessary.'/>
                 </PropsList>

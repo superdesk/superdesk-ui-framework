@@ -68,7 +68,7 @@ export default class ContainerDoc extends React.Component<IProps> {
                         </div>
 
                         <div className='docs-page__content-row'>
-                            <Container gap="large" theme='dark-ui' direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
+                            <Container gap="large" theme='dark' direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                 <Heading type='h3'>Curabitur blandit tempus porttitor.</Heading>
                                 <Text color='light'>
                                     Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
@@ -134,7 +134,7 @@ export default class ContainerDoc extends React.Component<IProps> {
                     <Prop name='display' isRequired={false} type='flex | inline-flex | block' default='flex' description='Change the default display mode (flex).'/>
                     <Prop name='direction' isRequired={false} type='row | column' default='row' description='Change the flex-direction property.'/>
                     <Prop name='gap' isRequired={false} type='none | small |  medium | large' default='none' description='Set the gap between elements inside the Container.'/>
-                    <Prop name='theme' isRequired={false} type='light-ui | dark-ui' default='/' description='Choose the UI theme. It will inherit the default theme if not set. All items inside will inherit the theme of the Container if it is set.'/>
+                    <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Choose the UI theme. It will inherit the default theme if not set. All items inside will inherit the theme of the Container if it is set.'/>
                     <Prop name='className' isRequired={false} type='string' default='/' description='Add helper classes or custom CSS styles'/>
                 </PropsList>
             </section>

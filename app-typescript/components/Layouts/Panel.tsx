@@ -9,7 +9,7 @@ import classNames from 'classnames';
 interface IPropsPanel {
     children?: React.ReactNode;
     side?: 'left' | 'right';
-    theme?: 'light-ui' | 'dark-ui';
+    theme?: 'light' | 'dark';
     className?: string;
     size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large' | 'xxx-large' | 'full' | 'auto';
     background?: 'transparent' | 'light' | 'grey'; // defaults to light (white)
@@ -29,7 +29,7 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
             [`panel-open`]: this.props.open,
         });
         return (
-            <div className={classes2} data-theme={this.props.theme || ''}>
+            <div className={classes2} data-theme={`${this.props.theme}-ui` || ''}>
                 <div className={classes}>
                     {this.props.children}
                 </div>

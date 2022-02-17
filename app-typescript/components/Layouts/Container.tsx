@@ -2,12 +2,13 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IProps {
+    id?: string;
     children?: React.ReactNode;
     className?: string;
     display?: 'flex' | 'inline-flex' | 'block';
     direction?: 'row' | 'column';
     gap?: 'none' | 'small' |  'medium' | 'large';
-    theme?: 'light-ui' | 'dark-ui';
+    theme?: 'light' | 'dark';
 }
 
 export class Container extends React.PureComponent<IProps> {
@@ -19,8 +20,9 @@ export class Container extends React.PureComponent<IProps> {
             [`sd-container--gap-${this.props.gap}`]: this.props.gap && this.props.display !== 'block',
             [`sd-container--direction-${this.props.direction}`]: this.props.direction && this.props.display !== 'block',
         }, this.props.className);
+
         return (
-            <div className={classes} data-theme={this.props.theme || ''}>
+            <div className={classes} data-theme={`${this.props.theme}-ui` || ''} id={this.props.id || undefined}>
                 {this.props.children}
             </div>
         );

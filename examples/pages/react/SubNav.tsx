@@ -131,7 +131,7 @@ export default class SubNavDoc extends React.Component {
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='color' isRequired={false} type='light | darker | blueGrey | blueGreyDarker' default='light' description='Background colour of the SubNav component.'/>
-                    <Prop name='theme' isRequired={false} type='light-ui | dark-ui' default='/' description='Choose the UI theme. It will inherit the default theme if not set. All child elements will inherit the theme of the SubNav if it is set.'/>
+                    <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Choose the UI theme. It will inherit the default theme if not set. All child elements will inherit the theme of the SubNav if it is set.'/>
                     <Prop name='zIndex' isRequired={true} type='number' default='1000' description='Increase the default z-index value (1000) by the specified amount.'/>
                     <Prop name='className' isRequired={false} type='string' default='/' description='Add helper classes or custom CSS styles.'/>
                 </PropsList>
