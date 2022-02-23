@@ -38,6 +38,13 @@ class Select extends React.Component<ISelect, IState> {
         this.props.onChange(event.target.value);
     }
 
+    componentDidUpdate(prevProps: any) {
+        if (this.props.value !== prevProps.value) {
+            this.setState({ value: this.props.value ?? '' });
+            this.props.onChange(this.props.value ?? '');
+          }
+    }
+
     render() {
         const classes = classNames('sd-input sd-input--is-select', {
             'sd-input--inline-label': this.props.inlineLabel,
