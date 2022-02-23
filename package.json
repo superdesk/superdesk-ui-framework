@@ -33,6 +33,7 @@
     "@types/react": "16.8.23",
     "@types/react-dom": "16.8.0",
     "@types/react-router-dom": "^5.1.2",
+    "@types/react-scrollspy": "^3.3.5",
     "angular": "^1.7.9",
     "angular-animate": "^1.7.9",
     "angular-route": "^1.7.9",
@@ -91,6 +92,7 @@
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",
     "react-id-generator": "^3.0.0",
-    "react-popper": "^2.2.3"
+    "react-popper": "^2.2.3",
+    "react-scrollspy": "^3.4.3"
   }
 }

@@ -159,25 +159,25 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                 <Layout.Panel background='transparent' size='xx-small'>
                                     <Layout.PanelContent>
                                         <LeftMenu ariaLabel={'Left navigation'} 
+                                            scrollSpy='#scrollContainer'
                                             activeItemId='1'
                                             style='blanc' 
                                             groups={[{ label: '', items: [
-                                                { id: '1', label: 'General info' },
-                                                { id: '2', label: 'Password' },
-                                                { id: '3', label: 'Default desk' },
-                                                { id: '4', label: 'Language' },
-                                                { id: '5', label: 'Author info' }
-
+                                                { id: '1', label: 'General info', ref:'profile'},
+                                                { id: '2', label: 'Password', ref: 'password' },
+                                                { id: '3', label: 'Default desk', ref: 'defaultDesk' },
+                                                { id: '4', label: 'Language', ref: 'language' },
+                                                { id: '5', label: 'Author info', ref: 'autorInfo' }
                                             ]}]}
-                                            onSelect={() => false} />
+                                            onSelect={() => {console.log('onSelect triggered')}} />
                                     </Layout.PanelContent>
                                 </Layout.Panel>
                             </Layout.LeftPanel>
                             {/* FILTER PANEL*/}
-                            <Layout.MainPanel className='sd-padding--3'>
+                            <Layout.MainPanel className='sd-padding--3' id='scrollContainer'>
                                 <SimpleList density='comfortable' width='large'>
-                                    <SimpleListItem stacked={true}>
-                                        <Container  direction='column' className='sd-radius--medium sd-panel-bg--gradient-1 sd-shadow--z2 sd-padding--3 sd-state--focus'>
+                                    <SimpleListItem stacked={true} id='profile'>
+                                        <Container id="profile" direction='column' className='sd-radius--medium sd-panel-bg--gradient-1 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <Container className='sd-flex-justify-space-between sd-margin-b--2'>
                                                 <Label text='Active' type='success' style='translucent' />
                                                 <Switch toolTipFlow='left' label={{text:'Toggle active', hidden: true}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
@@ -284,7 +284,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                             </Container>
                                         </Container>
                                     </SimpleListItem>
-                                    <SimpleListItem stacked={true}>
+                                    <SimpleListItem stacked={true} id='password'>
                                         <Heading type='h3'>Password</Heading>
                                         <Container className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <ButtonGroup align='center'>
@@ -292,7 +292,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                             </ButtonGroup>
                                         </Container>
                                     </SimpleListItem>
-                                    <SimpleListItem stacked={true}>
+                                    <SimpleListItem stacked={true} id='defaultDesk' >
                                         <Heading type='h3'>Default desk</Heading>
                                         <Container className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <Form.FormGroup inlineLabel={true} marginBottom='0'>
@@ -316,7 +316,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 </Form.FormGroup>
                                         </Container>
                                     </SimpleListItem>
-                                    <SimpleListItem stacked={true}>
+                                    <SimpleListItem stacked={true} id='language'>
                                         <Heading type='h3'>Language</Heading>
                                         <Container className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <Form.FormGroup inlineLabel={true} marginBottom='0'>
@@ -338,7 +338,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 </Form.FormGroup>
                                         </Container>
                                     </SimpleListItem>
-                                    <SimpleListItem stacked={true}>
+                                    <SimpleListItem stacked={true} id='autorInfo'>
                                         <h3 className='sd-font-size--medium'>Author info</h3>
                                         <Container direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <Form.FormGroup marginBottom='3'>
@@ -432,11 +432,9 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                 </SimpleList>
                             </Layout.MainPanel>
                             {/* MAIN CONTENT (Monitoring) */}
-
                             <Components.RightPanel open={this.state.openPreview}>
                             </Components.RightPanel>
                             {/* PREVIEW PANEL*/}
-
                             <Components.OverlayPanel />
                             {/* OVERLAY PANEL (Send To) */}
                         </TabPanel>

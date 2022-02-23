@@ -57,6 +57,7 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
         background-color: $sd-leftNavBtn-bgHoverColor;
         color: var(--color-text);
         text-decoration: none;
+        cursor: pointer;
     }
     &:active, &--active {
         background-color: $sd-leftNavBtn-bgActiveColor;

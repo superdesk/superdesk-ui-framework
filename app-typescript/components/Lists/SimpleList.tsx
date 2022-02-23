@@ -7,11 +7,13 @@ interface IProps {
     border?: boolean;
     className?: string;
     width?: 'none' | 'x-small' | 'small' | 'medium' | 'large';
+    id?: string;
 }
 
 interface IPropsItem {
     stacked?: boolean;
     justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
+    id?: string;
 }
 
 class SimpleListItem extends React.PureComponent<IPropsItem> {
@@ -23,7 +25,7 @@ class SimpleListItem extends React.PureComponent<IPropsItem> {
                 this.props.justify || this.props.justify !== undefined,
         });
         return (
-            <li className={classes}>
+            <li className={classes} id={this.props.id || undefined}>
                 {this.props.children}
             </li>
         );
@@ -40,7 +42,7 @@ class SimpleList extends React.PureComponent<IProps> {
             [`simple-list--fixedW-${this.props.width}`]: this.props.width || this.props.width !== undefined,
         }, this.props.className);
         return (
-            <ul className={classes}>
+            <ul className={classes} id={this.props.id || undefined}>
                 {this.props.children}
             </ul>
         );
