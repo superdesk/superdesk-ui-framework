@@ -9,6 +9,7 @@ interface IState {
     required: boolean;
     disabled: boolean;
     invalid: boolean;
+    val: string
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -18,7 +19,8 @@ export default class InputsDoc extends React.Component<{}, IState> {
             inlineLabel: false,
             required: true,
             disabled: false,
-            invalid: false
+            invalid: false,
+            val: 'This is some text'
         }
     }
     
@@ -45,7 +47,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
 
                             <div className='form__row'>
                                 <Input label='Input label'
-                                    value='This is the value'
+                                    value={this.state.val}
                                     maxLength={30}
                                     error='This is error message'
                                     info='This is some hint message'
@@ -53,8 +55,9 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
-                                    onChange={(value) => {}} />
+                                    onChange={(value) => {this.setState({val: value})}} />
                             </div>
+
                         </div>
 
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>

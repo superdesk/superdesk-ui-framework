@@ -35,13 +35,23 @@ export class Input extends React.Component<IProps, IState> {
 
     htmlId = nextId();
 
-    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.setState({ value: event.target.value });
-        this.props.onChange(event.target.value);
+    handleData(value: string) {
+        this.setState({ value: value ?? '' });
+        this.props.onChange(value ?? '');
 
         if (this.props.maxLength && !this.props.invalid) {
-            this.setState({ invalid: event.target.value.length > this.props.maxLength });
+            this.setState({ invalid: value.length > this.props.maxLength });
         }
+    }
+
+    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+        this.handleData(event.target.value);
+    }
+
+    componentDidUpdate(prevProps: IProps) {
+        if (this.props.value !== prevProps.value) {
+            this.handleData(this.props.value ?? '');
+          }
     }
 
     render() {
