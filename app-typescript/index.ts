@@ -47,7 +47,7 @@ export { DropdownLabel } from './components/DropdownFirst';
 export { DropdownDivider } from './components/DropdownFirst';
 export { Dropdown } from './components/Dropdown';
 export { Tag } from './components/Tag';
-export { TabLabel, TabPanel, TabContent, Tabs } from './components/TabCustom';
+export { TabItem, TabPanel, TabContent, TabNav } from './components/TabCustom';
 export { EmptyState } from './components/EmptyState';
 export { Autocomplete } from './components/Autocomplete';
 export { DonutChart } from './components/DonutChart';

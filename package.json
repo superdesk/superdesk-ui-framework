@@ -88,7 +88,7 @@
     "date-fns": "2.7.0",
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",
-    "react-id-generator": "^3.0.0",
+    "react-id-generator": "^3.0.2",
     "react-popper": "^2.2.3"
   }
 }
