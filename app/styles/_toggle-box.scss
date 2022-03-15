@@ -3,7 +3,7 @@
 
 .toggle-box {
     position: relative;
-    margin-bottom: 30px;
+    align-self: stretch;
     &.hidden {
         .toggle-box__chevron {
             i {
@@ -36,6 +36,18 @@
     &.toggle-box--marg-b10 {
         margin-bottom: 1rem;
     }
+    &.toggle-box--margin-none {
+        margin-bottom: 0;
+    }
+    &.toggle-box--margin-small {
+        margin-bottom: $sd-base-increment * 2;
+    }
+    &.toggle-box--margin-normal {
+        margin-bottom: $sd-base-increment * 3;
+    }
+    &.toggle-box--margin-large {
+        margin-bottom: $sd-base-increment * 4;
+    }
 }
 
 .toggle-box__chevron {
@@ -48,11 +60,13 @@
     border-radius: $border-radius__base--full;
 }
 
-.toggle-box__header {
+.toggle-box__header,
+a.toggle-box__header {
     display: flex;
     cursor: pointer;
     margin-bottom: 1.8rem;
     align-items: center;
+    text-decoration: none !important;
 
     .toggle-box__chevron {
         i {
@@ -75,7 +89,7 @@
     &:hover {
         .toggle-box__label {
             color: var(--sd-colour-interactive);
-            text-decoration: none;
+            text-decoration: none !important;
         }
     }
     &:focus {
@@ -88,6 +102,9 @@
         .toggle-box__label {
             color: var(--sd-colour-interactive);
         }
+    }
+     * {
+        text-decoration: none !important;
     }
 }
 

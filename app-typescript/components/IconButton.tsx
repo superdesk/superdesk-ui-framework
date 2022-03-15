@@ -10,6 +10,7 @@ interface IProps {
     toolTipFlow?: 'top' | 'left' | 'right' | 'down';
     toolTipAppend?: boolean;
     size?: 'small';
+    disabled?: boolean;
     onClick(event: React.MouseEvent): void;
 }
 
@@ -20,6 +21,7 @@ export class IconButton extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('icn-btn', {
             'icn-btn--small': this.props.size === 'small',
+            'icn-btn--disabled': this.props.disabled,
         });
         return (
             <Tooltip text={this.props.ariaValue} flow={this.props.toolTipFlow} appendToBody={this.props.toolTipAppend}>
@@ -28,6 +30,7 @@ export class IconButton extends React.PureComponent<IProps> {
                     tabIndex={0}
                     onClick={this.props.onClick}
                     className={classes}
+                    disabled={this.props.disabled}
                     aria-label={this.props.ariaValue}>
                     <Icon name={this.props.icon} ariaHidden={true}/>
                 </button>

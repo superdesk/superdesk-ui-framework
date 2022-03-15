@@ -72,7 +72,7 @@
 .form__row-item {
     label {
         vertical-align: middle;
-        line-height: 100%;
+        line-height: 1;
         margin-right: 0.6rem;
          @include transition(color, 0.15s, ease-in);
          &.form__row-label.form-label {
@@ -227,7 +227,6 @@
             padding-block-start: 0.4rem;
             padding-block-end: 0;
             position: relative;
-
             max-width: 260px;
             min-width: 100px;
             text-align: end;
@@ -235,12 +234,14 @@
             align-self: center;
             line-height: 1.2;
             &.a11y-only {
+                font-size: 0.01px !important;
                 height: 0;
                 width: 0;
                 min-width: 0;
                 overflow: hidden;
                 padding: 0;
                 margin: 0;
+                opacity: 0 !important;
             }
         }
     }

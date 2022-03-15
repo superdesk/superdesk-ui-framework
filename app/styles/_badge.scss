@@ -77,8 +77,8 @@ $badge-lineheight: 1.1em !default;
     position: relative;
     .badge {
       position: absolute;
-      top: -.9rem;
-      right: -.9rem;
+      top: -.5rem;
+      right: -.8rem;
     }
     + .element-with-badge, + .btn {
       margin-left: 1.2rem;

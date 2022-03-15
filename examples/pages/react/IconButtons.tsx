@@ -20,8 +20,8 @@ export default class IconButtonDoc extends React.Component {
                         <p className="docs-page__paragraph">// Default</p>
                         <p className="docs-page__paragraph--small">Hover buttons to see tooltips.</p>
                         <div className="docs-page__content-row docs-page__content-row--white">
-                            <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
-                            <IconButton icon='plus-large' ariaValue='Add' onClick={()=> false} />
+                            <IconButton icon='close-small' disabled ariaValue='Close' onClick={()=> false} />
+                            <IconButton icon='plus-large'  ariaValue='Add' onClick={()=> false} />
                             <IconButton icon='dots-vertical' ariaValue='More options' onClick={()=> false} />
                             <IconButton icon='trash' ariaValue='Move to trash' onClick={()=> false} />
                             <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
@@ -34,7 +34,7 @@ export default class IconButtonDoc extends React.Component {
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <IconButton icon='close-small' ariaValue='Close' onClick={()=> false} />
+                        <IconButton icon='close-small' disabled ariaValue='Close' onClick={()=> false} />
                         <IconButton icon='plus-large' ariaValue='Add' onClick={()=> false} />
                         <IconButton icon='dots-vertical' ariaValue='More options' onClick={()=> false} />
                         <IconButton icon='trash' ariaValue='Move to trash' onClick={()=> false} />
@@ -53,6 +53,7 @@ export default class IconButtonDoc extends React.Component {
                     <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
                     <Prop name='ariaValue' isRequired={true} type='string' default='/' description='Description for screen readers, also used as the ToolTip value.'/>
                     <Prop name='size' isRequired={false} type='small' default='normal' description='Creates an IconButton with a smaller footprint.'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Disables the Button, preventing mouse events.'/>
                     <Prop name='toolTipFlow' isRequired={false} type='top | left | right | down' default='top' description='Defines the possition of the ToolTip.'/>
                     <Prop name='toolTipAppend' isRequired={false} type='boolean' default='false' description='Uses the append to body version of the ToolTips if set to true.'/>
                 </PropsList>

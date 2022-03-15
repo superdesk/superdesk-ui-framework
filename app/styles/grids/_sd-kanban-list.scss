@@ -44,11 +44,11 @@ $background-main: $sd-background;
     grid-row: 1/2;
     z-index: 1;
     position: relative;
-    min-height: 2rem;
+    min-height: 2.4rem;
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 4px solid #4d4d4d;
+    border-bottom: 4px solid var(--sd-colour-bg--09);
     padding: 0 0 0.4rem 0;
     margin: 0 0.1rem;
     .sd-list-header {

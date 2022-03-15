@@ -651,6 +651,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         border-color: $checkButtonBorderColorHover;
         box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
         color: var(--color-text);
+        text-decoration: none !important;
     }
     &.toggle-button--active {
         background-color: var(--sd-colour-interactive--active);

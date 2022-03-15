@@ -545,8 +545,8 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 
 .sd-list-header {
     display: flex;
-    height: 2rem;
-    margin-bottom: 0.8rem;
+    height: 2.4rem;
+    margin-bottom: $sd-base-increment;
     align-items: center;
     .sd-list-header__name {
         font-size: 1.1rem;

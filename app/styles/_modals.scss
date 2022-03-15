@@ -78,7 +78,8 @@ $modal-sizes: (
     padding: $modal-padding - $sd-base-increment $modal-padding;
     border-bottom: 1px solid $modal-line-color;
     min-height: $modal-header-height;
-    background-color: $modal-bg-color
+    background-color: $modal-bg-color;
+    border-radius: $border-radius__base--large $border-radius__base--large 0 0;
 }
 @mixin modal-body() {
     background: $modal-bg-color;
@@ -218,31 +219,6 @@ $modal-sizes: (
     p {
         margin: 0 0 1em 0;
     }
-    // &.modal--dark-ui {
-    //     .modal__content {
-    //         background-color: #333;
-    //         color: $white;
-    //         .modal__body-header {
-    //             background-color: #333;
-    //             color: $white;
-    //         }
-    //         .modal__body-content, .modal__body {
-    //             background-color: #444;
-    //             color: $white;  
-    //         }
-    //         .modal__header {
-    //             border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-    //         }
-    //         .modal__footer {
-    //             border-top: 1px solid rgba(0, 0, 0, 0.12);
-    //         }
-    //         .subnav {
-    //             background-color: #292929;
-    //             color: $white;
-    //             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35), 0 1px 0 0 rgba(0, 0, 0, 0.3);
-    //         }  
-    //     }
-    // }
 }
 .modal__content {
     @include modal-content();
@@ -263,8 +239,8 @@ $modal-sizes: (
             padding: 10px 20px;
         }
         &--flex {
-            display: flex;
-            flex-direction: row;
+            display: flex !important;
+            flex-direction: row !important;
             align-items: center;
             .modal__heading {
                 flex-grow: 1;

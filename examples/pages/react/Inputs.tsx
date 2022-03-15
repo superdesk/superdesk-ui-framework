@@ -47,6 +47,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                 <Input label='Input label'
                                     value='This is some value'
                                     maxLength={30}
+                                    type='number'
                                     error='This is error message'
                                     info='This is some hint message'
                                     inlineLabel={this.state.inlineLabel}
@@ -75,6 +76,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
                     <Prop name='value' isRequired={false} type='string' default='/' description='Item value'/>
+                    <Prop name='type' isRequired={false} type='text | number | password' default='text' description='Input type. Defaults to type text.'/>
                     <Prop name='label' isRequired={false} type='string' default='/' description='Input label'/>
                     <Prop name='maxLength' isRequired={false} type='number' default='/' description='Sets max length for input text'/>
                     <Prop name='info' isRequired={false} type='string' default='/' description='Hint text'/>

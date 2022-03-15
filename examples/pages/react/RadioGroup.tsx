@@ -201,7 +201,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Right</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <RadioButtonGroup group={{align:'end'}} value={this.state.value4} options={[
+                            <RadioButtonGroup group={{align:'end', groupLabel:'My group label'}} value={this.state.value4} options={[
                                 {value:'test304', label:'Option one'},
                                 {value:'test305', label:'Option two'},
                                 {value:'test306', label:'Option three'},
@@ -209,7 +209,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Center</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <RadioButtonGroup group={{align:'center'}} value={this.state.value5} options={[
+                            <RadioButtonGroup group={{align:'center', groupLabelledBy:'someID'}} value={this.state.value5} options={[
                                 {value:'test307', label:'Option one'},
                                 {value:'test308', label:'Option two'},
                                 {value:'test309', label:'Option three'},

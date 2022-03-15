@@ -9,6 +9,7 @@ interface IProps {
     hideUsingCSS?: boolean;
     initiallyOpen?: boolean; // defaults to false
     className?: string;
+    margin?: 'none' | 'small' | 'normal' | 'large';
     onOpen?(): void;
     onClose?(): void;
 }
@@ -53,16 +54,17 @@ export class ToggleBox extends React.PureComponent<IProps, IState> {
     }
 
     render() {
-        const { title, hideUsingCSS, className, children, badge } = this.props;
+        let classes = classNames('toggle-box', {
+            'toggle-box--margin-normal': this.props.margin === undefined,
+            [`toggle-box--margin-${this.props.margin}`]: this.props.margin,
+            'hidden': !this.state.isOpen,
+        }, this.props.className);
+        const { title, hideUsingCSS, children, badge } = this.props;
         const { isOpen } = this.state;
 
         return (
             <div
-                className={classNames(
-                    'toggle-box',
-                    className,
-                    { hidden: !isOpen },
-                )}
+                className={classes}
             >
                 <a
                     className="toggle-box__header"

@@ -1,6 +1,7 @@
 
 $button-margin: 0 !default;
 $button-opacity-disabled: 0.60 !default;
+$icn-button-opacity-disabled: 0.40 !default;
 
 // /// transitions for buttons.
 $button-transition: all 0.2s ease-out, color 0.1s ease-out !default;
@@ -330,6 +331,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     color: inherit;
     text-decoration: none;
     cursor: pointer;
+    flex-shrink: 0;
     [class^="icon-"], [class*=" icon-"] {
         color: inherit;
         vertical-align: baseline !important;
@@ -357,7 +359,16 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         }
     }
     &--disabled {
-        opacity: $button-opacity-disabled;
+        opacity: $icn-button-opacity-disabled;
+        &:hover, &:active, &:focus-visible {
+            background-color: transparent !important;
+            cursor: not-allowed;
+            opacity: $icn-button-opacity-disabled;
+            [class^="icon-"], [class*=" icon-"] {
+                opacity: 1;
+                color: inherit !important;
+            }
+        }
     }
 }
 
