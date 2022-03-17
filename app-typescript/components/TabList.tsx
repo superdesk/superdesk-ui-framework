@@ -6,7 +6,7 @@ interface ITabList {
     theme?: 'light' | 'dark'; // defaults to 'light'
     children: Array<any>;
     selected?: string;
-    tabs?: Array<{label: string, content: any, id?: string}>;
+    tabs?: Array<{label: string, content: React.ReactNode | string, id?: string}>;
 }
 
 interface IState {

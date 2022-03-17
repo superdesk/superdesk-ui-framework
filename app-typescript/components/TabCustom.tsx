@@ -7,26 +7,26 @@ interface ITabs {
     ariaLabel?: string;
     children: Array<any>;
     onClick(id: string): void;
-    tabs?: Array<{label: any, id: string}>;
+    tabs?: Array<{label: string, id: string}>;
     activePanel: string;
 }
 
 interface ITabLabel {
     label?: string;
     id: string;
-    children: any;
+    children: Array<any>;
 }
 
 interface ITabContent {
     theme?: 'light' | 'dark'; // defaults to 'light'
-    children: any;
+    children: Array<any>;
     activePanel: string;
-    tabs?: Array<{content: any, id: string}>;
+    tabs?: Array<{content: React.ReactNode | string, id: string}>;
 }
 
 interface ITabPanel {
     id: string;
-    children: any;
+    children: Array<any>;
 }
 
 export const TabNav = ({ size, theme, ariaLabel, children, onClick, tabs, activePanel }: ITabs) => {
