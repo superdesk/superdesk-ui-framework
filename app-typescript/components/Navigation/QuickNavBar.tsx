@@ -65,7 +65,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         return (
             <div className='sd-quickbar-menu'>
                 <ul>
-                    <Scrollspy items={ itemsArr } currentClassName="sd-quickbar__btn--active" rootEl={this.props.scrollCont}  offset={-100}>
+                    <Scrollspy items={ itemsArr } currentClassName="sd-quickbar__btn--active" rootEl={this.props.scrollCont}  offset={-300}>
                         {this.props.items.map((item, index) => {
                             if (item === 'divider') {
                                 return (
@@ -73,8 +73,8 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
                                     );
                             } else {
                                 return (
-                                    <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
-                                    <a role='button' aria-label={item['tooltip']} className={'sd-quickbar__btn' + (item['active'] ? ' sd-quickbar__btn--active' : (index === this.state.index ? ' sd-quickbar__btn--active' : ''))}
+                                    <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right' className={'sd-quickbar__btn'}>
+                                    <a role='button' aria-label={item['tooltip']} className={'sd-quickbar__btn'}
                                         onClick={() => this.handleClick(item, index, event)}
                                         >
                                         <Icon size={'small'} name={item['icon']} />
@@ -89,3 +89,4 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         );
     }
 }
+// + (item['active'] ? ' sd-quickbar__btn--active' : (index === this.state.index ? ' sd-quickbar__btn--active' : ''))
