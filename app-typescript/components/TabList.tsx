@@ -24,7 +24,7 @@ class Tab extends React.PureComponent<ITab> {
             <div className='sd-nav-tabs__pane' role='tabpanel'>
                 {this.props.children}
             </div>
-        );  
+        );
     }
 }
 
@@ -34,15 +34,14 @@ class TabList extends React.PureComponent<ITabList, IState> {
         this.state = {
             index: 0,
         };
-        
         this.handleChange = this.handleChange.bind(this);
         this.goTo = this.goTo.bind(this);
     }
 
     componentDidMount() {
-        if(this.props.selected) {
-            this.goTo(this.props.selected ?? '')
-        }      
+        if (this.props.selected) {
+            this.goTo(this.props.selected ?? '');
+        }
     }
 
     private handleChange(index: number) {
@@ -54,23 +53,20 @@ class TabList extends React.PureComponent<ITabList, IState> {
     public goTo(index: string) {
         if (this.props.tabs) {
             const refLabel = this.props.tabs?.find((item) => item.id === index);
-             
             this.setState({
-                index: refLabel ? this.props.tabs?.indexOf(refLabel) : 0
+                index: refLabel ? this.props.tabs?.indexOf(refLabel) : 0,
             });
         } else {
             const refLabel = this.props.children.find((item) => item.props.id === index);
-        
             this.setState({
-                index: this.props.children.indexOf(refLabel)
+                index: this.props.children.indexOf(refLabel),
             });
         }
     }
 
-    private navBar(arr: any) { 
+    private navBar(arr: any) {
         return arr.map((item: any, index: any) => {
-            let label = this.props.tabs ? item.label : item.props.label
-
+            let label = this.props.tabs ? item.label : item.props.label;
             return    <button
                 id={`TabList-${index}`}
                 key={index}
@@ -79,8 +75,8 @@ class TabList extends React.PureComponent<ITabList, IState> {
                 aria-selected={this.state.index === index ? 'true' : 'false'}
                 className={'sd-nav-tabs__tab' + (this.state.index === index ? ' sd-nav-tabs__tab--active' : '')}>
                 <span>{label}</span>
-                </button>
-            })
+                </button>;
+            });
     }
 
     render() {
@@ -88,15 +84,17 @@ class TabList extends React.PureComponent<ITabList, IState> {
             [`sd-nav-tabs--${this.props.size}`]: this.props.size && this.props.size !== undefined,
             'sd-nav-tabs--ui-dark': this.props.theme === 'dark',
         });
-    
         return (
             <React.Fragment>
                 <div className={classes} role='tablist'>
                     {this.props.tabs ? this.navBar(this.props.tabs) : this.navBar(this.props.children)}
                 </div>
-                <div aria-labelledby={`TabList-${this.state.index}`} role='tabpanel'  className={'sd-nav-tabs__content' +
+                <div aria-labelledby={`TabList-${this.state.index}`}
+                    role='tabpanel' className={'sd-nav-tabs__content' +
                     (this.props.theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '')}>
-                    {this.props.tabs ? <Tab id={this.props.tabs[this.state.index].id}>{this.props.tabs[this.state.index].content}</Tab> : this.props.children[this.state.index]}
+                    {this.props.tabs
+                    ? <Tab id={this.props.tabs[this.state.index].id}>{this.props.tabs[this.state.index].content}</Tab>
+                    : this.props.children[this.state.index]}
                 </div>
             </React.Fragment>
         );

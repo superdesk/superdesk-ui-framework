@@ -31,22 +31,23 @@ interface ITabPanel {
 
 export const TabNav = ({ size, theme, ariaLabel, children, onClick, tabs, activePanel }: ITabs) => {
     const [index, setIndex] = React.useState(0);
-    
+
     function goTo(id: string) {
         if (tabs) {
             const refLabel = tabs?.find((item) => item.id === id);
 
-            refLabel ? setIndex(tabs.indexOf(refLabel)) : false;
+            if (refLabel) {
+                setIndex(tabs.indexOf(refLabel));
+            }
         } else {
-            const refLabel = children.find((item) => item.props.id === id)
-            
+            const refLabel = children.find((item) => item.props.id === id);
             setIndex(children.indexOf(refLabel));
         }
     }
 
     React.useEffect(() => {
-        goTo(activePanel ? activePanel : (tabs ? tabs[0].id : children[0].props.id))
-    }, [])
+        goTo(activePanel ? activePanel : (tabs ? tabs[0].id : children[0].props.id));
+    }, []);
 
     function handleSelected(id: string) {
         goTo(id);
@@ -57,8 +58,7 @@ export const TabNav = ({ size, theme, ariaLabel, children, onClick, tabs, active
         [`sd-nav-tabs--${size}`]: size && size !== undefined,
         'sd-nav-tabs--ui-dark': theme === 'dark',
     });
-    
-    return (
+        return (
         <div className={classes} role='tablist' aria-label={ariaLabel ? ariaLabel : 'tabs'}>
         {tabs ?
         tabs.map((item, i) =>
@@ -99,7 +99,7 @@ export const TabContent = ({ theme, children, activePanel, tabs }: ITabContent) 
     return (
         <div className={'sd-nav-tabs__content' +
             (theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '')}>
-                {tabs ? 
+                {tabs ?
                 tabs.map((panel: any, i: number) =>
                     panel.id === activePanel ?
                         <div className='sd-nav-tabs__pane' role='tabpanel' aria-labelledby={`tab-${panel.id}`} key={i}>
@@ -108,7 +108,10 @@ export const TabContent = ({ theme, children, activePanel, tabs }: ITabContent) 
                 :
                 children.map((panel: any, i: number) =>
                     panel.props.id === activePanel ?
-                        <div className='sd-nav-tabs__pane' role='tabpanel' aria-labelledby={`tab-${panel.props.id}`} key={i}>
+                        <div className='sd-nav-tabs__pane'
+                            role='tabpanel'
+                            aria-labelledby={`tab-${panel.props.id}`}
+                            key={i}>
                             {panel}
                         </div> : null)
                 }
