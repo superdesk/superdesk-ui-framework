@@ -1,0 +1,46 @@
+.sd-spinner {
+    animation: rotate 2s linear infinite;
+    z-index: 1;
+    &--mini {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+    &--small {
+        width: 2.4rem;
+        height: 2.4rem;
+    }
+    &--medium {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+    &--large {
+        width: 4.8rem;
+        height: 4.8rem;
+    }
+}
+.sd-spinner__path {
+    stroke: var(--color-text-light);
+    stroke-linecap: round;
+    animation: dash 1.5s ease-in-out infinite;
+}
+
+@keyframes rotate {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+  
+@keyframes dash {
+    0% {
+        stroke-dasharray: 1, 150;
+        stroke-dashoffset: 0;
+    }
+    50% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -32;
+    }
+    100% {
+        stroke-dasharray: 90, 150;
+        stroke-dashoffset: -124;
+    }
+}
