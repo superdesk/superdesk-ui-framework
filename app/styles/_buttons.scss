@@ -53,7 +53,7 @@ $button-sizes: (
 
 /// opacity for a disabled button.
 /// @type List
-$button-opacity-disabled: 0.25 !default;
+$button-opacity-disabled: 0.6 !default;
 
 /// Background color lightness on hover for buttons.
 /// @type Number
@@ -99,6 +99,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  gap: 0.6rem;
 }
 
 /// Expands a button to make it full-width.
@@ -477,6 +478,19 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
             }
           }
         }
+
+        &.btn--primary,
+        &.btn--success,
+        &.btn--warning,
+        &.btn--alert,
+        &.btn--highlight,
+        &.btn--sd-green,
+        &.btn--secondary {
+            color: var(--sd-btn-txt);
+            .sd-spinner__path {
+                stroke: var(--sd-btn-txt);
+            }
+        }
       }
 
       // Hollow UI dark
@@ -488,6 +502,19 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
           &.btn--#{$name} {
             @include button-hollow-style($color);
           }
+        }
+
+        &.btn--primary,
+        &.btn--success,
+        &.btn--warning,
+        &.btn--alert,
+        &.btn--highlight,
+        &.btn--sd-green,
+        &.btn--secondary {
+            color: var(--sd-btn-color);
+            .sd-spinner__path {
+                stroke: var(--sd-btn-color);
+            }
         }
         
         // Hollow disabled UI dark
@@ -581,6 +608,16 @@ $icn-button-focus-box-shadow: 0 0 0 2px rgba(94, 169, 200, 0.30);
           }
         }
       }
+    }
+
+    &--primary, &--success, &--warning, &--alert, &--highlight, &--sd-green, &--secondary {
+        color: $white;
+        [class^="icon-"], [class*=" icon-"] {
+        color: $white;
+        }
+        .sd-spinner__path {
+        stroke: $white;
+        }
     }
 }
 
@@ -1122,4 +1159,18 @@ $button-nav-color: currentColor;
   padding: 0;
   position: absolute;
   width: 1px;
+}
+
+.btn {
+    &[data-loading="true"] {
+        pointer-events: none;
+        .sd-spinner {
+            margin-inline-start: -0.3rem;
+        }
+        &.btn--icon-only {
+            .sd-spinner {
+                margin-inline-start: 0;
+            }
+        }
+    }
 }

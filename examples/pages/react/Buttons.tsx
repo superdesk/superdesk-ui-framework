@@ -187,6 +187,30 @@ export default class ButtonsDoc extends React.Component {
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+
+                <h3 className="docs-page__h3">Loading</h3>
+                <p className="docs-page__paragraph"><code>isLoading={'{true}'}</code></p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                    <div className="docs-page__content-row">
+                        <Button text="default" isLoading={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" isLoading={true} onClick={()=> false} />
+                        <Button text="success" type="success" isLoading={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" isLoading={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" isLoading={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" isLoading={true} onClick={()=> false} />
+                    </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Button text="default" isLoading={true} onClick={()=> false} />
+                        <Button text="primary" type="primary" isLoading={true} onClick={()=> false} />
+                        <Button text="success" type="success" isLoading={true} onClick={()=> false} />
+                        <Button text="warning" type="warning" isLoading={true} onClick={()=> false} />
+                        <Button text="alert" type="alert" isLoading={true} onClick={()=> false} />
+                        <Button text="highlight" type="highlight" isLoading={true} onClick={()=> false} />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
                 <h3 className="docs-page__h3">Buttons with icon and text</h3>
                 <p className="docs-page__paragraph">Buttons can be combined with icons from the icon font. Just add any of the available classes from the Icon font as a value of the <code>icon</code> prop.</p>
                 <Markup.ReactMarkup>
@@ -443,6 +467,7 @@ export default class ButtonsDoc extends React.Component {
                     <Prop name='size' isRequired={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large button.'/>
                     <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Disables the Button, preventing mouse events.'/>
+                    <Prop name='isLoading' isRequired={false} type='boolean' default='false' description='Adds a loading indicator and disables the button if set to true.'/>
                     <Prop name='onClick' isRequired={true} type='function' default='false' description='Callback fired when a button is pressed.'/>
                 </PropsList>
             </section>
