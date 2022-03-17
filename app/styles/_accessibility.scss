@@ -3,8 +3,12 @@
     top: 0;
     z-index: -1;
     pointer-events: none;
-    opacity: 0;
-    height: 1px !important;
-    width: 1px !important;
+    opacity: 0 !important;
+    height: 0;
+    width: 0;
+    min-width: 0;
     overflow: hidden;
+    font-size: 0.01px !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
