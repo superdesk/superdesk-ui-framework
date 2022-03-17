@@ -302,14 +302,14 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Start (default)</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <CheckButtonGroup>
+                            <CheckButtonGroup groupLabel='aaa'>
                                 <CheckboxButton checked={this.state.value22} label={{text: 'Option one'}} onChange={(value) => this.setState(() => ({ value22: value }))} />
                                 <CheckboxButton checked={this.state.value23} label={{text: 'Option two'}} onChange={(value) => this.setState(() => ({ value23: value }))} />
                             </CheckButtonGroup>
-                        </div>
+                        </div>  
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// End</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <CheckButtonGroup align='end'>
+                            <CheckButtonGroup align='end' >
                                 <CheckboxButton checked={this.state.value24} label={{text: 'Option one'}} onChange={(value) => this.setState(() => ({ value24: value }))} />
                                 <CheckboxButton checked={this.state.value25} label={{text: 'Option two'}} onChange={(value) => this.setState(() => ({ value25: value }))} />
                             </CheckButtonGroup>

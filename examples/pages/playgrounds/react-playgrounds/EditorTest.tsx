@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState, Alert, SlidingToolbar, TabLabel, Tabs } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState, Alert, SlidingToolbar, TabLabel, Tabs, Heading } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -218,34 +218,113 @@ export class EditorTest extends React.Component<IProps, IState> {
                 )}
                 authoringBookmarks={(
                     <Nav.QuickNavBar
+                        scrollCont='#scroll'
                         items={[
-                            { icon: 'heading-1', tooltip: 'Headline', onClick: () => false },
-                            { icon: 'align-left', tooltip: 'Body', onClick: () => false },
-                            { icon: 'picture', tooltip: 'Media', onClick: () => false },
-                            { icon: 'attachment-large', tooltip: 'Attachments', onClick: () => false }]} />
+                            { icon: 'heading-1', tooltip: 'Headline', onClick:()=> false, id: 'section1' },
+                            { icon: 'align-left', tooltip: 'Body', onClick:()=> false, id: 'section2' },
+                            { icon: 'picture', tooltip: 'Media', onClick:()=> false, id: 'section3' },
+                            { icon: 'attachment-large', tooltip: 'Attachments', onClick:()=> false, id: 'section4' }]} />
                         )}>
-
-                            <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                                vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
-                                risus, porta ac consectetur ac, vestibulum at eros.</p>
-                            <p className='sd-margin-b--3'>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                                vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac,
-                                vestibulum at eros. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-                            <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra
-                                augue. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
-                                sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
-                                purus sit amet fermentum.</p>
-                            <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
-                                <span>Curabitur blandit tempus porttitor.</span>
-                                <Button text="Test button" type="primary" onClick={()=> false} />
-                                <Button text="Test button" type="highlight" onClick={()=> false} />
-                                <ButtonGroup align="end">
-                                    <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
-                                    <Button text="Submit" onClick={()=> false} type="primary" />
-                                </ButtonGroup>
-                            </Layout.Container>
+                            <div id='scroll' style={{overflow: 'scroll', height: 600}}>
+                                <div id='section1'>
+                                    <Heading type='h1'>Section 1</Heading>
+                                <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
+                                    risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                <p className='sd-margin-b--3'>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac,
+                                    vestibulum at eros. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                                <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra
+                                    augue. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
+                                    sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
+                                    purus sit amet fermentum.</p>
+                                    <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
+                                            <span>Curabitur blandit tempus porttitor.</span>
+                                            <Button text="Test button" type="primary" onClick={()=> false} />
+                                            <Button text="Test button" type="highlight" onClick={()=> false} />
+                                            <ButtonGroup align="end">
+                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                                <Button text="Submit" onClick={()=> false} type="primary" />
+                                            </ButtonGroup>
+                                        </Layout.Container>
+                                </div>
+                                <div id='section2'>
+                                <Heading type='h1'>Section 2</Heading>
+                                <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
+                                    risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                <p className='sd-margin-b--3'>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac,
+                                    vestibulum at eros. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                                <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra
+                                    augue. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
+                                    sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
+                                    purus sit amet fermentum.</p>
+                                    <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
+                                            <span>Curabitur blandit tempus porttitor.</span>
+                                            <Button text="Test button" type="primary" onClick={()=> false} />
+                                            <Button text="Test button" type="highlight" onClick={()=> false} />
+                                            <ButtonGroup align="end">
+                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                                <Button text="Submit" onClick={()=> false} type="primary" />
+                                            </ButtonGroup>
+                                        </Layout.Container>
+                                </div>
+                                <div id='section3'>
+                                <Heading type='h1'>Section 3</Heading>
+                                <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+                                    Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
+                                    risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                <p className='sd-margin-b--3'>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac,
+                                    vestibulum at eros. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                                <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra
+                                    augue. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
+                                    sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
+                                    purus sit amet fermentum.</p>
+                                    <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
+                                            <span>Curabitur blandit tempus porttitor.</span>
+                                            <Button text="Test button" type="primary" onClick={()=> false} />
+                                            <Button text="Test button" type="highlight" onClick={()=> false} />
+                                            <ButtonGroup align="end">
+                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                                <Button text="Submit" onClick={()=> false} type="primary" />
+                                            </ButtonGroup>
+                                        </Layout.Container>
+                                </div>
+                                
+                                <div id='section4'>
+                                <Heading type='h1'>Section 4</Heading>
+                                    <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                        vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
+                                        risus, porta ac consectetur ac, vestibulum at eros.</p>
+                                    <p className='sd-margin-b--3'>Nullam quis risus eget urna mollis ornare vel eu leo. Maecenas sed diam eget risus varius blandit sit amet non magna. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                        vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus. Morbi leo risus, porta ac consectetur ac,
+                                        vestibulum at eros. Curabitur blandit tempus porttitor. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                                    <p>Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla vitae elit libero, a pharetra
+                                        augue. Cras mattis consectetur purus sit amet fermentum. Maecenas faucibus mollis interdum. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus
+                                        sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
+                                        purus sit amet fermentum.</p>
+                                        <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
+                                            <span>Curabitur blandit tempus porttitor.</span>
+                                            <Button text="Test button" type="primary" onClick={()=> false} />
+                                            <Button text="Test button" type="highlight" onClick={()=> false} />
+                                            <ButtonGroup align="end">
+                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                                <Button text="Submit" onClick={()=> false} type="primary" />
+                                            </ButtonGroup>
+                                        </Layout.Container>
+                                </div>  
+                            </div>
+                            
                 </Layout.AuthoringMain>
             )}
             sidePanelPinned={this.state.rightPanelOpen}

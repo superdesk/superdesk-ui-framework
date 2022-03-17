@@ -29,7 +29,7 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
             [`panel-open`]: this.props.open,
         });
         return (
-            <div className={classes2} data-theme={`${this.props.theme}-ui` || ''}>
+            <div className={classes2} data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
                 <div className={classes}>
                     {this.props.children}
                 </div>
