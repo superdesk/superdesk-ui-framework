@@ -1,12 +1,13 @@
 import * as React from 'react';
 import { Icon } from '../Icon';
-import Scrollspy from 'react-scrollspy'
+import Scrollspy from 'react-scrollspy';
 
 interface IProps {
     items: Array<IItem | 'divider'>;
     side?: 'none' | 'left' | 'right';
-    scrollSpyItems?: Array<any>
-    scrollCont?: string
+    scrollSpyItems?: Array<any>;
+    scrollCont?: string;
+    offset?: number;
 }
 
 interface IItem {
@@ -14,13 +15,13 @@ interface IItem {
     tooltip?: string;
     active?: boolean;
     onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
-    id: string
+    id?: string;
 }
 
 interface IState {
     index: number;
     closeIndex: number;
-    arr: Array<string>
+    arr: Array<string>;
 }
 
 export class QuickNavBar extends React.PureComponent<IProps, IState> {
@@ -29,7 +30,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
-            arr: []
+            arr: [],
         };
         this.handleClick = this.handleClick.bind(this);
     }
@@ -52,20 +53,24 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
           }
 
         item.active = !item.active;
-        item.onClick(event);
+        if (item.onClick) {
+            item.onClick(event);
+        }
     }
-    
     render() {
 
         let itemsArr: Array<string> = [];
-        
-        this.props.items.map(item => {
-            itemsArr = [...itemsArr, `${item.id}`]
-        })
+            this.props.items.map((item) => {
+                if (item !== 'divider') {
+                    itemsArr = [...itemsArr, `${item.id}`];
+                }
+        });
         return (
             <div className='sd-quickbar-menu'>
                 <ul>
-                    <Scrollspy items={ itemsArr } currentClassName="sd-quickbar__btn--active" rootEl={this.props.scrollCont}  offset={-300}>
+                    <Scrollspy items={ itemsArr }
+                    currentClassName="sd-quickbar-menu__list-item--active"
+                    rootEl={this.props.scrollCont}  offset={this.props.offset || 0}>
                         {this.props.items.map((item, index) => {
                             if (item === 'divider') {
                                 return (
@@ -73,7 +78,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
                                     );
                             } else {
                                 return (
-                                    <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right' className={'sd-quickbar__btn'}>
+                                    <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right' className="sd-quickbar-menu__list-item">
                                     <a role='button' aria-label={item['tooltip']} className={'sd-quickbar__btn'}
                                         onClick={() => this.handleClick(item, index, event)}
                                         >
@@ -89,4 +94,3 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         );
     }
 }
-// + (item['active'] ? ' sd-quickbar__btn--active' : (index === this.state.index ? ' sd-quickbar__btn--active' : ''))

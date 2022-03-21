@@ -219,6 +219,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                 authoringBookmarks={(
                     <Nav.QuickNavBar
                         scrollCont='#scroll'
+                        offset={-300}
                         items={[
                             { icon: 'heading-1', tooltip: 'Headline', onClick:()=> false, id: 'section1' },
                             { icon: 'align-left', tooltip: 'Body', onClick:()=> false, id: 'section2' },
@@ -227,7 +228,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                         )}>
                             <div id='scroll' style={{overflow: 'scroll', height: 600}}>
                                 <div id='section1'>
-                                    <Heading type='h1'>Section 1</Heading>
+                                    <Heading type='h1' className='sd-padding--5'>Section 1</Heading>
                                 <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
                                     Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
@@ -251,7 +252,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         </Layout.Container>
                                 </div>
                                 <div id='section2'>
-                                <Heading type='h1'>Section 2</Heading>
+                                <Heading type='h1' className='sd-padding--5'>Section 2</Heading>
                                 <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
                                     Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
@@ -275,7 +276,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         </Layout.Container>
                                 </div>
                                 <div id='section3'>
-                                <Heading type='h1'>Section 3</Heading>
+                                <Heading type='h1' className='sd-padding--5'>Section 3</Heading>
                                 <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
                                     Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                 <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
@@ -300,7 +301,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                 </div>
                                 
                                 <div id='section4'>
-                                <Heading type='h1'>Section 4</Heading>
+                                <Heading type='h1' className='sd-padding--5'>Section 4</Heading>
                                     <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
                                         Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                                     <p className='sd-margin-b--3'>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis

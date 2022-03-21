@@ -96,7 +96,9 @@ export class RadioButtonGroup extends React.Component<IProps> {
 
                                         { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }
                                         { !item.labelHidden || !item.icon ?
-                                            <span className="sd-check-button__text-label-inner">{item.label}</span> : null }
+                                            <span className="sd-check-button__text-label-inner">
+                                                {item.label}
+                                            </span> : null }
                                     </label>
                                 </span>
                             ))
