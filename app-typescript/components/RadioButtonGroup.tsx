@@ -61,8 +61,8 @@ export class RadioButtonGroup extends React.Component<IProps> {
                                     name={this.htmlId}
                                     onChange={() => this.handleChange(item)}
                                     disabled={item.disabled}
-                                    required={this.props.required} />
-
+                                    required={this.props.required}
+                                    checked={item.value === this.props.value} />
                                 <label className="sd-check-button__text-label" htmlFor={this.htmlId + index}
                                     aria-label={item.labelHidden ? item.label : undefined}>
 
@@ -90,8 +90,8 @@ export class RadioButtonGroup extends React.Component<IProps> {
                                         name={this.htmlId}
                                         onChange={() => this.handleChange(item)}
                                         disabled={item.disabled}
-                                        required={this.props.required} />
-
+                                        required={this.props.required}
+                                        checked={item.value === this.props.value} />
                                     <label className="sd-check-button__text-label" htmlFor={this.htmlId + index}
                                         aria-label={item.labelHidden ? item.label : undefined}>
 
