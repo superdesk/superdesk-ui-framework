@@ -15,8 +15,8 @@ interface IProps {
     required?: boolean;
     buttonStyle?: boolean;
     orientation?: 'horizontal' | 'vertical';
-    groupLabelledBy?: string;
     onChange(nextValue: IOption['value']): void;
+    groupLabelledBy?: string;
 }
 
 export class RadioGroup extends React.Component<IProps> {
