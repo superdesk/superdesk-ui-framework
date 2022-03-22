@@ -1,5 +1,6 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
+
 interface IProps {
     label: {
         text: string,
@@ -11,6 +12,7 @@ interface IProps {
     required?: boolean;
     onChange(nextValue: boolean): void;
 }
+
 export class CheckboxButton extends React.Component<IProps> {
     htmlId = nextId();
 

@@ -67,7 +67,7 @@ export class Carousel extends React.PureComponent<IProps, {}> {
         );
 
         return <div style={{display: 'content'}}
-            data-theme={this.props.theme !== 'dark' ? '' : 'dark-ui' }
+            data-theme={this.props.theme !== 'dark' ? null : 'dark-ui' }
             className={this.props.className}>
             <PrimeCarousel
                 id={this.props.id}

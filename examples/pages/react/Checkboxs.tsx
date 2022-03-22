@@ -46,6 +46,10 @@ interface IState {
     value39: boolean;
     value40: boolean;
     value41: boolean;
+    value42: boolean;
+    value43: boolean;
+    value44: boolean;
+    value45: boolean;
 }
 
 export default class CheckboxsDoc extends React.Component<{}, IState> {
@@ -93,6 +97,10 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
             value39: false,
             value40: false,
             value41: false,
+            value42: false,
+            value43: false,
+            value44: false,
+            value45: false,
         };
     }
 
@@ -116,7 +124,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                 <Checkbox checked={this.state.value1} label={{text:'Checkbox label end'}} onChange={(value) => this.setState(() => ({ value1: value }))} />
                                 <Checkbox checked={this.state.value2} label={{text:'Check me!'}} onChange={(value) => this.setState(() => ({ value2: value }))} />
                                 <Checkbox checked={this.state.value3} label={{text:'Check me too!'}} onChange={(value) => this.setState(() => ({ value3: value }))} />
-                                <Checkbox checked={this.state.value4} label={{text:'I"m disabled:('}} disabled= {true} onChange={(value) => this.setState(() => ({ value4: value }))} />
+                                <Checkbox checked={this.state.value4} label={{text:'I"m disabled :('}} disabled= {true} onChange={(value) => this.setState(() => ({ value4: value }))} />
                                 <Checkbox checked={this.state.value5} label={{text:"I'm disabled and checked :("}} disabled= {true} onChange={(value) => this.setState(() => ({ value5: value }))} />
                             </CheckGroup>
                         </div>
@@ -234,6 +242,15 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                 <CheckboxButton checked={this.state.value11} label={{text: "U can't touch this"}} disabled={true} onChange={(value) => this.setState(() => ({ value11: value }))} />
                             </CheckButtonGroup>
                         </div>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// With label</p>
+                        <div className='form__group'>
+                            <CheckButtonGroup groupLabel='My group label'>
+                                <CheckboxButton checked={this.state.value42} label={{text: 'Button style checkbox'}} onChange={(value) => this.setState(() => ({ value42: value }))} />
+                                <CheckboxButton checked={this.state.value43} label={{text: 'Check this out'}} onChange={(value) => this.setState(() => ({ value43: value }))} />
+                                <CheckboxButton checked={this.state.value44} label={{text: 'Check this too!'}} onChange={(value) => this.setState(() => ({ value44: value }))} />
+                                <CheckboxButton checked={this.state.value45} label={{text: "U can't touch this"}} disabled={true} onChange={(value) => this.setState(() => ({ value45: value }))} />
+                            </CheckButtonGroup>
+                        </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style with icon</p>
                         <div className='form__group'>
                             <CheckButtonGroup>
@@ -256,6 +273,18 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         // Button style checkbox
                         <CheckButtonGroup>
+                            <CheckboxButton checked={value8} label={{text: 'Button style checkbox'}}
+                                            onChange={(value) => this.setState(() => ({ value8: value }))} />
+                            <CheckboxButton checked={value9} label={{text: 'Check this out'}}
+                                            onChange={(value) => this.setState(() => ({ value9: value }))} />
+                            <CheckboxButton checked={value10} label={{text: 'Check this too!'}}
+                                            onChange={(value) => this.setState(() => ({ value10: value }))} />
+                            <CheckboxButton checked={value11} label={{text: "U can't touch this"}}
+                                            onChange={(value) => this.setState(() => ({ value11: value }))} />
+                        </CheckButtonGroup>
+
+                        // With label
+                        <CheckButtonGroup groupLabel='My group label'>
                             <CheckboxButton checked={value8} label={{text: 'Button style checkbox'}}
                                             onChange={(value) => this.setState(() => ({ value8: value }))} />
                             <CheckboxButton checked={value9} label={{text: 'Check this out'}}
@@ -306,10 +335,10 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                 <CheckboxButton checked={this.state.value22} label={{text: 'Option one'}} onChange={(value) => this.setState(() => ({ value22: value }))} />
                                 <CheckboxButton checked={this.state.value23} label={{text: 'Option two'}} onChange={(value) => this.setState(() => ({ value23: value }))} />
                             </CheckButtonGroup>
-                        </div>
+                        </div>  
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// End</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <CheckButtonGroup align='end'>
+                            <CheckButtonGroup align='end' >
                                 <CheckboxButton checked={this.state.value24} label={{text: 'Option one'}} onChange={(value) => this.setState(() => ({ value24: value }))} />
                                 <CheckboxButton checked={this.state.value25} label={{text: 'Option two'}} onChange={(value) => this.setState(() => ({ value25: value }))} />
                             </CheckButtonGroup>
@@ -420,6 +449,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Prop name='label side' isRequired={false} type='start | end' default='end' description='Position of label relative to the button.'/>
                     <Prop name='label hidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of Checkbox.'/>
+                    <Prop name='groupLabelledBy' isRequired={false} type='string' default='/' description='Aria-labelledby for screen-reader support.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">Checkbox Button</p>
                 <PropsList>
@@ -428,6 +458,15 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Prop name='label icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
                     <Prop name='label hidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of CheckboxButton'/>
+                </PropsList>
+                <p className="docs-page__paragraph">CheckButtonGroup</p>
+                <PropsList>
+                    <Prop name='orientation' isRequired={false} type='horizontal | vertical' default='horizontal' description='The checked state of the input'/>
+                    <Prop name='grid' isRequired={false} type='boolean' default='/' description='Lays out child elements in an uniform grid list.'/>
+                    <Prop name='align' isRequired={false} type='start | end | center | inline' default='start' description='Alignemnt of the whole group relative to the parent container. Container must be flex for this to work.'/>
+                    <Prop name='padded' isRequired={false} type='boolean' default='/' description='Adds padding on the start and end (left and right) of the group.'/>
+                    <Prop name='groupLabel' isRequired={false} type='string' default='/' description='Label text value.'/>
+                    <Prop name='groupLabelledBy' isRequired={false} type='string' default='/' description='Aria-labelledby for screen-reader support.'/>
                 </PropsList>
             </section>
         )

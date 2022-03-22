@@ -364,6 +364,12 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
   ul {
     margin-top: 24px;
   }
+  &__list-item--active {
+    .sd-quickbar__btn, .sd-quickbar__btn:hover  {
+          background-color: var(--sd-colour-interactive--alpha-10);
+          border-inline-end-color: var(--sd-colour-interactive);
+    }
+}
 }
 .sd-quickbar__btn {
   display: flex;
@@ -407,3 +413,5 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
   }
 }
+
+

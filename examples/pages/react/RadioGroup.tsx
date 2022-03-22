@@ -140,6 +140,16 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                 {value:'test9', label:'Button style disabled', disabled:true},
                             ]} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
                         </div>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// With label</p>
+                        <div className='form__group'>
+                            <RadioButtonGroup group={{groupLabel: 'My group label'}}
+                                options={[
+                                {value:'test6', label:'Button style radio'},
+                                {value:'test7', label:'Button style'},
+                                {value:'test8', label:'Button style'},
+                                {value:'test9', label:'Button style disabled', disabled:true},
+                            ]} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
+                        </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// With icon</p>
                         <div className='form__group'>
                             <RadioButtonGroup options={[
@@ -160,6 +170,15 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         // Button styled radio buttons
                         <RadioButtonGroup options={[
+                            {value:'test6', label:'Button style radio'},
+                            {value:'test7', label:'Button style'},
+                            {value:'test8', label:'Button style'},
+                            {value:'test9', label:'Button style disabled', disabled:true},
+                        ]} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
+
+                        // With label
+                        <RadioButtonGroup group={{groupLabel: 'My group label'}}  
+                            options={[
                             {value:'test6', label:'Button style radio'},
                             {value:'test7', label:'Button style'},
                             {value:'test8', label:'Button style'},
@@ -306,6 +325,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                     <Prop name='options value' isRequired={true} type='T' default='/' description='Value of the Radio.'/>
                     <Prop name='options disabled' isRequired={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
                     <Prop name='labelSide' isRequired={false} type='start | end' default='end' description='Position of label relative to the button.'/>
+                    <Prop name='groupLabelledBy' isRequired={false} type='string' default='/' description='Aria-labelledby for screen-reader support.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">RadioButtonGroup</p>
                 <PropsList>
@@ -320,7 +340,8 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                     <Prop name='group align' isRequired={false} type='start | end | center | inline' default='start' description='Alignemnt of the whole group relative to the parent container. Container must be flex for this to work.'/>
                     <Prop name='group grid' isRequired={false} type='bolean' default='false' description='Lays out child elements in an uniform grid list.'/>
                     <Prop name='group padded' isRequired={false} type='bolean' default='false' description='Adds padding on the start and end (left and right) of the group.'/>
-
+                    <Prop name='group groupLabel' isRequired={false} type='string' default='/' description='Label text value.'/>
+                    <Prop name='group groupLabelledBy' isRequired={false} type='string' default='/' description='Aria-labelledby for screen-reader support.'/>
                 </PropsList>
             </section>
         )

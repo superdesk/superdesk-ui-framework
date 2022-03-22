@@ -1,11 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import {FormLabel} from './Form/FormLabel';
 
 interface IProps {
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
     grid?: boolean;
     align?: 'start' | 'end' | 'center' | 'inline'; // defaults to 'left'
     padded?: boolean; // adds predefined space to the side based on the alignment and orientation.
+    groupLabel?: string;
+    groupLabelledBy?: string;
 }
 
 export class CheckButtonGroup extends React.PureComponent<IProps> {
@@ -19,9 +22,20 @@ export class CheckButtonGroup extends React.PureComponent<IProps> {
         });
 
         return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
+            <>
+                {this.props.groupLabel ?
+                    <div className='sd-check-button__group-wrapper' aria-labelledby={this.props.groupLabelledBy}>
+                        <FormLabel forId={'group'} text={this.props.groupLabel} />
+                        <div className={classes}>
+                            {this.props.children}
+                        </div>
+                    </div>
+                    :
+                    <div className={classes}>
+                        {this.props.children}
+                    </div>
+                }
+            </>
         );
     }
 }

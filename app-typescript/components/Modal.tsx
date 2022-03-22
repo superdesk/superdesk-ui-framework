@@ -18,7 +18,7 @@ interface IProps {
 export class Modal extends React.Component<IProps, {}> {
     render() {
         return <div style={{display: 'content'}}
-            data-theme={this.props.theme !== 'dark' ? '' : 'dark-ui' }
+            data-theme={this.props.theme !== 'dark' ? null : 'dark-ui' }
             className={this.props.className}>
             <PrimeDialog
                 id={this.props.id}
