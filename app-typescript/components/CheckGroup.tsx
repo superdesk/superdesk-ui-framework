@@ -4,6 +4,7 @@ import classNames from 'classnames';
 interface IProps {
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
     children: React.ReactNode;
+    groupLabelledBy?: string;
 }
 
 export class CheckGroup extends React.PureComponent<IProps> {
@@ -13,7 +14,7 @@ export class CheckGroup extends React.PureComponent<IProps> {
         });
 
         return (
-            <div className={classes}>
+            <div className={classes} aria-labelledby={this.props.groupLabelledBy}>
                 {this.props.children}
             </div>
         );

@@ -16,6 +16,7 @@ interface IProps {
     buttonStyle?: boolean;
     orientation?: 'horizontal' | 'vertical';
     onChange(nextValue: IOption['value']): void;
+    groupLabelledBy?: string;
 }
 
 export class RadioGroup extends React.Component<IProps> {
@@ -38,7 +39,7 @@ export class RadioGroup extends React.Component<IProps> {
         });
 
         return (
-            <div className={classes}>{
+            <div className={classes} aria-labelledby={this.props.groupLabelledBy}>{
                 this.props.options.map((item: any, index: number) => (
                     <span className="sd-check-new__wrapper"
                         key={index}

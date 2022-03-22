@@ -5,7 +5,6 @@ import Scrollspy from 'react-scrollspy';
 interface IProps {
     items: Array<IItem | 'divider'>;
     side?: 'none' | 'left' | 'right';
-    scrollSpyItems?: Array<any>;
     scrollCont?: string;
     offset?: number;
 }
@@ -15,7 +14,7 @@ interface IItem {
     tooltip?: string;
     active?: boolean;
     onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
-    id?: string;
+    id?: string; // scrollspy items for itemsArr
 }
 
 interface IState {
@@ -28,7 +27,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            index: -1,
+            index: 0,
             closeIndex: -1,
             arr: [],
         };
@@ -46,7 +45,7 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
             });
         }
 
-        if (item.id) {
+        if (item.id && this.props.scrollCont) {
             return document
               .getElementById(item.id)
               ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
@@ -67,29 +66,50 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         });
         return (
             <div className='sd-quickbar-menu'>
-                <ul>
-                    <Scrollspy items={ itemsArr }
-                    currentClassName="sd-quickbar-menu__list-item--active"
-                    rootEl={this.props.scrollCont}  offset={this.props.offset || 0}>
+                {this.props.scrollCont
+                    ? <ul>
+                        <Scrollspy items={ itemsArr }
+                        currentClassName="sd-quickbar-menu__list-item--active"
+                        rootEl={this.props.scrollCont}  offset={this.props.offset || 0}>
+                            {this.props.items.map((item, index) => {
+                                if (item === 'divider') {
+                                    return (
+                                        <li key={index} className='sd-quickbar__spacer'></li>
+                                        );
+                                } else {
+                                    return (
+                                        <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right' className="sd-quickbar-menu__list-item">
+                                            <a role='button' aria-label={item['tooltip']} className={'sd-quickbar__btn'}
+                                                onClick={() => this.handleClick(item, index, event)}>
+                                                <Icon size={'small'} name={item['icon']} />
+                                            </a>
+                                        </li>
+                                    );
+                                }
+                            })}
+                        </Scrollspy>
+                    </ul>
+                    : <ul>
                         {this.props.items.map((item, index) => {
                             if (item === 'divider') {
                                 return (
                                     <li key={index} className='sd-quickbar__spacer'></li>
-                                    );
+                                );
                             } else {
                                 return (
-                                    <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right' className="sd-quickbar-menu__list-item">
-                                    <a role='button' aria-label={item['tooltip']} className={'sd-quickbar__btn'}
-                                        onClick={() => this.handleClick(item, index, event)}
-                                        >
-                                        <Icon size={'small'} name={item['icon']} />
-                                    </a>
-                                    </li>
-                                );
-                            }
-                        })}
-                    </Scrollspy>
-                </ul>
+                                    <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
+                                        <a role='button'
+                                            aria-label={item['tooltip']}
+                                            className={'sd-quickbar__btn' +  (index === this.state.index ? ' sd-quickbar__btn--active' : '')}
+                                            onClick={() => this.handleClick(item, index, event)}>
+                                                <Icon size={'small'} name={item['icon']} />
+                                        </a>
+                                    </li>);
+                                }
+                            },
+                        )}
+                    </ul>
+                }
             </div>
         );
     }
