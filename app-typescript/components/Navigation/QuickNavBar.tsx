@@ -13,8 +13,8 @@ interface IItem {
     icon: string;
     tooltip?: string;
     active?: boolean;
-    onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
     id?: string; // scrollspy items for itemsArr
+    onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
 }
 
 interface IState {

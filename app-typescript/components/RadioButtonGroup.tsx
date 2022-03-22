@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import nextId from "react-id-generator";
 import {FormLabel} from './Form/FormLabel';
+
 interface IProps {
     value?: string;
     group?: {
@@ -21,8 +22,8 @@ interface IProps {
     }>;
     required?: boolean;
     onChange(nextValue: string): void;
-
 }
+
 export class RadioButtonGroup extends React.Component<IProps> {
     htmlId = nextId();
 

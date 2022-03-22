@@ -1,16 +1,16 @@
 .a11y-only {
-  position: absolute;
-  top: 0;
-  z-index: -1;
-  pointer-events: none;
-  opacity: 0 !important;
-  height: 0;
-  width: 0;
-  min-width: 0;
-  overflow: hidden !important;
-  font-size: 0.01px !important;
-  padding: 0 !important;
-  margin: 0 !important;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0 !important;
+    height: 0;
+    width: 0;
+    min-width: 0;
+    overflow: hidden !important;
+    font-size: 0.01px !important;
+    padding: 0 !important;
+    margin: 0 !important;
 }
 
 [data-theme="accessible-light-ui"],
