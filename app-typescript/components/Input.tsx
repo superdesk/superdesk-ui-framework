@@ -4,6 +4,7 @@ import nextId from "react-id-generator";
 
 interface IProps {
     value?: string;
+    type?: 'text' | 'number' | 'password';
     label: string;
     maxLength?: number;
     info?: string;
@@ -72,7 +73,7 @@ export class Input extends React.Component<IProps, IState> {
                 </label>
 
                 <input className='sd-input__input'
-                    type='text'
+                    type={this.props.type ?? 'text'}
                     id={this.htmlId}
                     value={this.state.value}
                     aria-label={this.props.label}
