@@ -10,6 +10,7 @@ interface IProps {
     checked?: boolean;
     disabled?: boolean;
     required?: boolean;
+    tabindex?: number;
     onChange(nextValue: boolean): void;
 }
 
@@ -29,8 +30,12 @@ export class CheckboxButton extends React.Component<IProps> {
 
     render() {
         return (
-            <span className="sd-check-button sd-check-button--native" tabIndex={-1}>
-                <input type="checkbox" className="sd-check-button__input" id={this.htmlId} tabIndex={0}
+            <span className="sd-check-button sd-check-button--native"
+                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
+                <input type="checkbox"
+                    className="sd-check-button__input"
+                    id={this.htmlId}
+                    tabIndex={this.props.tabindex}
                     checked={this.props.checked}
                     onChange={this.handleChange}
                     disabled={this.props.disabled}

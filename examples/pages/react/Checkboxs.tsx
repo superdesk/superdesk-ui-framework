@@ -449,6 +449,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Prop name='label side' isRequired={false} type='start | end' default='end' description='Position of label relative to the button.'/>
                     <Prop name='label hidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of Checkbox.'/>
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.' />
                     <Prop name='groupLabelledBy' isRequired={false} type='string' default='/' description='Aria-labelledby for screen-reader support.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">Checkbox Button</p>
@@ -458,6 +459,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                     <Prop name='label icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
                     <Prop name='label hidden' isRequired={false} type='boolean' default='false' description='Hides visually the label and adds an aria-label for screen-reader support.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of CheckboxButton'/>
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.' />
                 </PropsList>
                 <p className="docs-page__paragraph">CheckButtonGroup</p>
                 <PropsList>
