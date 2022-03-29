@@ -56,6 +56,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
+                                    tabindex={0}
                                     onChange={(value) => { console.log(value) }}>
                                     <Option>Option 1</Option>
                                     <Option>Option 2</Option>
@@ -90,6 +91,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                     <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required' />
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />
                     <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid' />
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.' />
                 </PropsList>
             </section>
         )

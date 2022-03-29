@@ -16,6 +16,7 @@ interface IProps {
     buttonStyle?: boolean;
     orientation?: 'horizontal' | 'vertical';
     groupLabelledBy?: string;
+    tabindex?: number;
     onChange(nextValue: IOption['value']): void;
 }
 
@@ -44,13 +45,13 @@ export class RadioGroup extends React.Component<IProps> {
                     <span className="sd-check-new__wrapper"
                         key={index}
                         label-position={this.props.labelSide || null}
-                        tabIndex={-1}>
+                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
 
                         <input
                             type="radio"
                             className="sd-check-new__input"
                             id={this.htmlId + index}
-                            tabIndex={0}
+                            tabIndex={this.props.tabindex}
                             name={this.htmlId}
                             onChange={() => this.handleChange(item)}
                             disabled={item.disabled}

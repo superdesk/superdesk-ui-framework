@@ -325,12 +325,14 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                     <Prop name='options value' isRequired={true} type='T' default='/' description='Value of the Radio.'/>
                     <Prop name='options disabled' isRequired={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>
                     <Prop name='labelSide' isRequired={false} type='start | end' default='end' description='Position of label relative to the button.'/>
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.' />
                     <Prop name='groupLabelledBy' isRequired={false} type='string' default='/' description='Aria-labelledby for screen-reader support.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">RadioButtonGroup</p>
                 <PropsList>
                     <Prop name='value' isRequired={true} type='any' default='/' description='The value of the checked button.'/>
                     <Prop name='options' isRequired={true} type='Array<option>' default='/' description='Array of RadioButton options.'/>
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.' />
                     <Prop name='option label' isRequired={true} type='string' default='/' description='Label text value for RadioButton.'/>
                     <Prop name='option value' isRequired={true} type='any' default='/' description='Value of the Radio.'/>
                     <Prop name='option disabled' isRequired={false} type='boolean' default='false' description='Disables the Radio, preventing mouse events.'/>

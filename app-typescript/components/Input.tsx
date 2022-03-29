@@ -3,8 +3,9 @@ import classNames from 'classnames';
 import nextId from "react-id-generator";
 
 interface IProps {
-    value?: string;
-    label: string;
+    value?: string | any;
+    type?: 'text' | 'number' |'password';
+    label?: string;
     maxLength?: number;
     info?: string;
     error?: string;
@@ -13,7 +14,7 @@ interface IProps {
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
-    type?: 'text' | 'number' |'password';
+    tabindex?: number;
     onChange(newValue: string): void;
 }
 
@@ -45,6 +46,12 @@ export class Input extends React.Component<IProps, IState> {
         }
     }
 
+    componentDidUpdate(prevProps: any) {
+        if (prevProps.value !== this.props.value) {
+            this.setState({value: this.props.value});
+        }
+    }
+
     render() {
         const classes = classNames('sd-input', {
             'sd-input--inline-label': this.props.inlineLabel,
@@ -58,7 +65,8 @@ export class Input extends React.Component<IProps, IState> {
 
         return (
             <div className={classes}>
-                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}>
+                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}
+                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
                     {this.props.label}
                 </label>
 
@@ -67,6 +75,7 @@ export class Input extends React.Component<IProps, IState> {
                     id={this.htmlId}
                     value={this.state.value}
                     aria-describedby={this.htmlId + 'label'}
+                    tabIndex={this.props.tabindex}
                     onChange={this.handleChange}
                     disabled={this.props.disabled} />
 

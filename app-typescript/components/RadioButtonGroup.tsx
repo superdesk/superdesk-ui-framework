@@ -21,6 +21,7 @@ interface IProps {
         disabled?: boolean
     }>;
     required?: boolean;
+    tabindex?: number;
     onChange(nextValue: string): void;
 }
 
@@ -53,11 +54,11 @@ export class RadioButtonGroup extends React.Component<IProps> {
                         this.props.options.map((item: any, index: number) => (
                             <span className="sd-check-button sd-check-button--native"
                                 key={index}
-                                tabIndex={-1}>
+                                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
 
                                 <input type="radio" className="sd-check-button__input"
                                     id={this.htmlId + index}
-                                    tabIndex={0}
+                                    tabIndex={this.props.tabindex}
                                     name={this.htmlId}
                                     onChange={() => this.handleChange(item)}
                                     disabled={item.disabled}

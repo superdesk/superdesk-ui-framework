@@ -9,6 +9,7 @@ interface IState {
     required: boolean;
     disabled: boolean;
     invalid: boolean;
+    value: string;
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -18,7 +19,8 @@ export default class InputsDoc extends React.Component<{}, IState> {
             inlineLabel: false,
             required: true,
             disabled: false,
-            invalid: false
+            invalid: false,
+            value: ''
         }
     }
     
@@ -45,7 +47,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
 
                             <div className='form__row'>
                                 <Input label='Input label'
-                                    value='This is some value'
+                                    value={this.state.value}
                                     maxLength={30}
                                     type='number'
                                     error='This is error message'
@@ -54,7 +56,8 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
-                                    onChange={(value) => {}} />
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value: value})} />
                             </div>
                         </div>
 
@@ -85,6 +88,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                     <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled'/>
                     <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid'/>
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.'/>
                 </PropsList>
             </section>
         )

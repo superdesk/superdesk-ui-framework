@@ -12,6 +12,7 @@ interface ISelect {
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
+    tabindex?: number;
     onChange(newValue: string): void;
 }
 
@@ -52,12 +53,17 @@ class Select extends React.Component<ISelect, IState> {
 
         return (
             <div className={classes}>
-                <label className={labelClasses} htmlFor={this.htmlId}>{this.props.label}</label>
+                <label className={labelClasses}
+                htmlFor={this.htmlId}
+                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
+                    {this.props.label}
+                </label>
 
                 <select className='sd-input__select'
                     id={this.htmlId}
                     value={this.state.value}
                     aria-describedby={this.htmlId}
+                    tabIndex={this.props.tabindex}
                     onChange={this.handleChange}
                     disabled={this.props.disabled}>
                     {this.props.children}
