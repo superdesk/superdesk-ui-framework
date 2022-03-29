@@ -64,6 +64,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             <p className="docs-page__paragraph">// Hidden label</p>
                             <div className='form__row'>
                                 <Input label='Hidden input label'
+                                    type='number'
                                     value='Lorem ipsum input'
                                     maxLength={30}
                                     error='This is an error message'
