@@ -7,10 +7,10 @@ interface IProps {
     shade?: 'light' | 'darker' | 'highlight1' | 'highlight2' | 'inverse'; // default light
     shape?: 'round' | 'square'; // default round
     readOnly?: boolean;
-    onClick(): void;
+    onRemove?(): void;
 }
 
-export const Tag = ({ text, keyValue, shade, shape, readOnly, onClick }: IProps) => {
+export const Tag = ({ text, keyValue, shade, shape, readOnly, onRemove }: IProps) => {
     let classes = classNames('tag-label', {
         [`tag-label--${shade}`]: shade && shade !== 'light',
         'tag-label--square': shape === 'square',
@@ -18,7 +18,7 @@ export const Tag = ({ text, keyValue, shade, shape, readOnly, onClick }: IProps)
     return (
         <span className={classes} key={keyValue}>
             {text}
-            {!readOnly ? <button className='tag-label__remove' onClick={onClick}>
+            {!readOnly ? <button className='tag-label__remove' onClick={onRemove}>
                 <i className='icon-close-small'></i>
             </button> : null}
         </span>

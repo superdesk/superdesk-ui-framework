@@ -34,7 +34,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
             <section className="docs-page__container"> 
             <h2 className="docs-page__h2">Tag</h2>
             <Markup.ReactMarkupCodePreview>{`
-               <Tag text='This is a tag' onClick={()=>false}/>
+               <Tag text='This is a tag' onRemove={()=>false}/>
             `}
             </Markup.ReactMarkupCodePreview>
             
@@ -49,20 +49,19 @@ export default class TagDoc extends React.Component<{}, ITag> {
                                         shade={tag.shade}
                                         shape={tag.shape}
                                         readOnly={tag.readOnly}
-                                        onClick={()=>this.handleClick(index)}/>
+                                        onRemove={()=>this.handleClick(index)}/>
                                 </React.Fragment>
                         )
                         })}
                 </div>
                 </Markup.ReactMarkupPreview>
                 <Markup.ReactMarkupCode>{`
-                    <Tag text='This is a tag' onClick={()=>false}/>
-                    <Tag text='This is a another tag' shade='darker' onClick={()=>false}/>
-                    <Tag text='Inverse tag' shade='inverse' onClick={()=>false}/>
-                    <Tag text='Lorem ipsum' shade='highlight1' onClick={()=>false}/>
-                    <Tag text='Dolor amet' shade='highlight2' shape='square' onClick={()=>false}/>
-                    <Tag text='Read only tag' readOnly={trye} onClick={()=>false}/>
-                    
+                    <Tag text='This is a tag' onRemove={()=>false}/>
+                    <Tag text='This is a another tag' shade='darker' onRemove={()=>false}/>
+                    <Tag text='Inverse tag' shade='inverse' onRemove={()=>false}/>
+                    <Tag text='Lorem ipsum' shade='highlight1' onRemove={()=>false}/>
+                    <Tag text='Dolor amet' shade='highlight2' shape='square' onRemove={()=>false}/>
+                    <Tag text='Read only tag' readOnly={trye} onRemove={()=>false}/> 
                 `}          
                 </Markup.ReactMarkupCode>
             </Markup.ReactMarkup>
@@ -74,6 +73,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
                     <Prop name='shape' isRequired={false} type='round | square' default='round' description='Shape of tag. Round (default) or square.'/>
                     <Prop name='readOnly' isRequired={false} type='boolean' default='false' description='Removes the option to delete the tag if set to true.'/>
                     <Prop name='keyValue' isRequired={false} type='number' default='/' description='Value of the tag key.'/>
+                    <Prop name='onRemove' isRequired={false} type='function' default='/' description='Callback function'/>
                 </PropsList>
         </section>
         )
