@@ -8,8 +8,20 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Left navigation</h2>
-                <p className="docs-page__paragraph">...</p>
 
+                <Markup.ReactMarkupCodePreview>{`
+                    <LeftMenu 
+                        activeItemId='1' 
+                        groups={[
+                                { label: 'SYSTEM SETTINGS', items: [{id: '1', label: 'General'}, {id: '2', label: 'Email settings'}, {id: '3', label: 'Spell checking'}]},
+                                { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges'}]},
+                                { label: 'CONTENT CONFIG', items: [{id: '6', label: 'Image renditions'}, {id: '7', label: 'Controlled Vocabularies'}]}
+                            ]}
+                        onSelect={() => false} />
+                `}
+                </Markup.ReactMarkupCodePreview>
+
+                <h3 className="docs-page__h3">Default</h3>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -21,22 +33,29 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                                     </div>
                                 </div>
                                     <LeftMenu ariaLabel={'Left navigation'} className={'docs-page__grid-page-example__side'} activeItemId='1' 
-                                        groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
-                                                 { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
-                                                 { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
+                                        groups={[
+                                                {label: 'SYSTEM SETTINGS', items: [{id: '1', label: 'General'}, {id: '2', label: 'Email settings'}, {id: '3', label: 'Spell checking'}]},
+                                                {label: 'WORKFLOW', items: [{id: '4', label: 'Desk'}, {id: '5', label: 'User Roles & Privileges'}]},
+                                                {label: 'CONTENT CONFIG', items: [{id: '6', label: 'Image renditions'}, {id: '7', label: 'Controlled Vocabularies'}]}
+                                            ]}
                                         onSelect={() => false} />
                                 <div className='docs-page__grid-page-example__main'></div>
                             </div>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <LeftMenu ariaLabel={'Left navigation'} navClass={'some-optional-class'} activeItemId='1' groups={[{ label: 'SYSTEM SETTINGS', items: [{ id: '1', label: 'General' }, { id: '2', label: 'Email settings' }, { id: '3', label: 'Spell checking' }] },
-                            { label: 'WORKFLOW', items: [{ id: '4', label: 'Desk' }, { id: '5', label: 'User Roles & Privileges' }] },
-                            { label: 'CONTENT CONFIG', items: [{ id: '6', label: 'Image renditions' }, { id: '7', label: 'Controlled Vocabularies' }] }]}
+                        <LeftMenu ariaLabel={'Left navigation'} className={'docs-page__grid-page-example__side'} activeItemId='1' 
+                            groups={[
+                                    {label: 'SYSTEM SETTINGS', items: [{id: '1', label: 'General'}, {id: '2', label: 'Email settings'}, {id: '3', label: 'Spell checking'}]},
+                                    {label: 'WORKFLOW', items: [{id: '4', label: 'Desk'}, {id: '5', label: 'User Roles & Privileges'}]},
+                                    {label: 'CONTENT CONFIG', items: [{id: '6', label: 'Image renditions'}, {id: '7', label: 'Controlled Vocabularies'}]}
+                                ]}
                             onSelect={() => false} />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                <h3 className="docs-page__h3">With scrollspy</h3>
+                <p className="docs-page__paragraph">The component also supports the scrollspy variant. It is necessary to add ID value to items and add the ID value of scrollable container in the <code>scrollSpy</code> attribute.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
@@ -161,7 +180,8 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                                         { id: '5', label: 'Section 7', ref: 'section7' }
                                     ]}
                                 ]}
-                            onSelect={() => false} />
+                                onSelect={() => false} />
+                                
                             <div id='#scrollContainer'>...</div>
                         `}  
                     </Markup.ReactMarkupCode>

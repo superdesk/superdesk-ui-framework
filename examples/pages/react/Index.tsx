@@ -27,6 +27,7 @@ import RadioGroupDoc from './RadioGroup';
 import CheckboxsDoc from './Checkboxs';
 import TabsDoc from './Tabs';
 import LeftNavigationsDoc from './LeftNavigations';
+import QuickNavBarDoc from './QuickNavigationBar';
 import NavButtonsDoc from './NavButtons';
 import IconFontDoc from './IconFont';
 import BigIconFontDoc from './BigIconFont';
@@ -122,6 +123,9 @@ const pages = {
             },
             'left-navigation': {
                 name: 'Left navigation'
+            },
+            'Quick-navigation-bar': {
+                name: 'Quick navigation bar'
             },
             'sub-navigation': {
                 name: 'Sub navigation bar'
@@ -310,6 +314,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/checkbox" component={CheckboxsDoc} />
                         <Route path="/react/tab" component={TabsDoc} />
                         <Route path="/react/left-navigation" component={LeftNavigationsDoc} />
+                        <Route path="/react/Quick-navigation-bar" component={QuickNavBarDoc} />
                         <Route path="/react/nav-buttons" component={NavButtonsDoc} />
                         <Route path="/react/icon-font" component={IconFontDoc} />
                         <Route path="/react/big-icon-font" component={BigIconFontDoc} />

@@ -5,14 +5,13 @@ import Scrollspy from 'react-scrollspy';
 interface IProps {
     items: Array<IItem | 'divider'>;
     side?: 'none' | 'left' | 'right';
-    scrollCont?: string;
+    scrollSpy?: string;
     offset?: number;
 }
 
 interface IItem {
     icon: string;
     tooltip?: string;
-    active?: boolean;
     id?: string; // scrollspy items for itemsArr
     onClick?(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
 }
@@ -45,13 +44,12 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
             });
         }
 
-        if (item.id && this.props.scrollCont) {
+        if (item.id && this.props.scrollSpy) {
             return document
               .getElementById(item.id)
               ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
           }
 
-        item.active = !item.active;
         if (item.onClick) {
             item.onClick(event);
         }
@@ -66,11 +64,11 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
         });
         return (
             <div className='sd-quickbar-menu'>
-                {this.props.scrollCont
+                {this.props.scrollSpy
                     ? <ul>
                         <Scrollspy items={ itemsArr }
                         currentClassName="sd-quickbar-menu__list-item--active"
-                        rootEl={this.props.scrollCont}  offset={this.props.offset || 0}>
+                        rootEl={this.props.scrollSpy}  offset={this.props.offset || 0}>
                             {this.props.items.map((item, index) => {
                                 if (item === 'divider') {
                                     return (
