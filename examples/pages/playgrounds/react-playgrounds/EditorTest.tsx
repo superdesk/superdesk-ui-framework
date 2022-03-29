@@ -218,7 +218,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                 )}
                 authoringBookmarks={(
                     <Nav.QuickNavBar
-                        scrollCont='#scroll'
+                    scrollSpy='#scroll'
                         offset={-300}
                         items={[
                             { icon: 'heading-1', tooltip: 'Headline', onClick:()=> false, id: 'section1' },
@@ -242,14 +242,14 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
                                     purus sit amet fermentum.</p>
                                     <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
-                                            <span>Curabitur blandit tempus porttitor.</span>
-                                            <Button text="Test button" type="primary" onClick={()=> false} />
-                                            <Button text="Test button" type="highlight" onClick={()=> false} />
-                                            <ButtonGroup align="end">
-                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
-                                                <Button text="Submit" onClick={()=> false} type="primary" />
-                                            </ButtonGroup>
-                                        </Layout.Container>
+                                        <span>Curabitur blandit tempus porttitor.</span>
+                                        <Button text="Test button" type="primary" onClick={()=> false} />
+                                        <Button text="Test button" type="highlight" onClick={()=> false} />
+                                        <ButtonGroup align="end">
+                                            <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                            <Button text="Submit" onClick={()=> false} type="primary" />
+                                        </ButtonGroup>
+                                    </Layout.Container>
                                 </div>
                                 <div id='section2'>
                                 <Heading type='h1' className='sd-padding--5'>Section 2</Heading>
@@ -266,14 +266,14 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
                                     purus sit amet fermentum.</p>
                                     <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
-                                            <span>Curabitur blandit tempus porttitor.</span>
-                                            <Button text="Test button" type="primary" onClick={()=> false} />
-                                            <Button text="Test button" type="highlight" onClick={()=> false} />
-                                            <ButtonGroup align="end">
-                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
-                                                <Button text="Submit" onClick={()=> false} type="primary" />
-                                            </ButtonGroup>
-                                        </Layout.Container>
+                                        <span>Curabitur blandit tempus porttitor.</span>
+                                        <Button text="Test button" type="primary" onClick={()=> false} />
+                                        <Button text="Test button" type="highlight" onClick={()=> false} />
+                                        <ButtonGroup align="end">
+                                            <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                            <Button text="Submit" onClick={()=> false} type="primary" />
+                                        </ButtonGroup>
+                                    </Layout.Container>
                                 </div>
                                 <div id='section3'>
                                 <Heading type='h1' className='sd-padding--5'>Section 3</Heading>
@@ -290,14 +290,14 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
                                     purus sit amet fermentum.</p>
                                     <Layout.Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
-                                            <span>Curabitur blandit tempus porttitor.</span>
-                                            <Button text="Test button" type="primary" onClick={()=> false} />
-                                            <Button text="Test button" type="highlight" onClick={()=> false} />
-                                            <ButtonGroup align="end">
-                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
-                                                <Button text="Submit" onClick={()=> false} type="primary" />
-                                            </ButtonGroup>
-                                        </Layout.Container>
+                                        <span>Curabitur blandit tempus porttitor.</span>
+                                        <Button text="Test button" type="primary" onClick={()=> false} />
+                                        <Button text="Test button" type="highlight" onClick={()=> false} />
+                                        <ButtonGroup align="end">
+                                            <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                            <Button text="Submit" onClick={()=> false} type="primary" />
+                                        </ButtonGroup>
+                                    </Layout.Container>
                                 </div>
                                 
                                 <div id='section4'>
