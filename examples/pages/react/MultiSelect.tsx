@@ -1,12 +1,7 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
-
-import {SelectWithTemplate, PropsList, Prop} from '../../../app-typescript';
+import { PropsList, Prop } from '../../../app-typescript';
 import { MultiSelect } from '../../../app-typescript/components/MultiSelect';
-
-
-
 
 interface IColor {
     name: string;
