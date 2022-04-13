@@ -5,6 +5,7 @@ import { Tag, Prop, PropsList } from '../../../app-typescript';
 
 interface ITag{
     tags: Array<any>;
+    tags2: Array<any>;
 }
 export default class TagDoc extends React.Component<{}, ITag> {
     constructor(props){
@@ -18,8 +19,12 @@ export default class TagDoc extends React.Component<{}, ITag> {
                 {text: 'Dolor amet', shade:'highlight2', shape:'square'},
                 {text: 'Read only tag', readOnly: true}
             ],
+            tags2: [
+                {text: 'Tag with label', label: 'Label'},
+            ],
         }
         this.handleClick=this.handleClick.bind(this);
+        this.handleClick2=this.handleClick2.bind(this);
     }
 
     handleClick(i:number){
@@ -27,6 +32,14 @@ export default class TagDoc extends React.Component<{}, ITag> {
         newTags.splice(i, 1);
         this.setState({
             tags: newTags
+        });
+    }
+
+    handleClick2(i:number){
+        let newTags2 = clone(this.state.tags2);
+        newTags2.splice(i, 1);
+        this.setState({
+            tags2: newTags2
         });
     }
     render() {
@@ -67,6 +80,29 @@ export default class TagDoc extends React.Component<{}, ITag> {
                 </Markup.ReactMarkupCode>
             </Markup.ReactMarkup>
 
+            <Markup.ReactMarkup>
+                <Markup.ReactMarkupPreview>
+                <div className='docs-page__content-row'>
+                    {this.state.tags2.map((tag,index)=>{
+                            return (
+                                <React.Fragment key={index}>
+                                    <Tag keyValue={index}
+                                        text={tag.text}
+                                        label={tag.label}
+                                        onClick={() => this.handleClick2(index)}/>
+                                </React.Fragment>
+                        )
+                        })}
+                </div>
+                </Markup.ReactMarkupPreview>
+                <Markup.ReactMarkupCode>{`
+                    <Tag text='Tag with label'
+                        label='Label'
+                        onClick={() => false} />
+                `}          
+                </Markup.ReactMarkupCode>
+            </Markup.ReactMarkup>
+
             <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='text' isRequired={true} type='string' default='/' description='Tag text value.'/>
@@ -74,6 +110,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
                     <Prop name='shape' isRequired={false} type='round | square' default='round' description='Shape of tag. Round (default) or square.'/>
                     <Prop name='readOnly' isRequired={false} type='boolean' default='false' description='Removes the option to delete the tag if set to true.'/>
                     <Prop name='keyValue' isRequired={false} type='number' default='/' description='Value of the tag key.'/>
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Text of label.'/>
                 </PropsList>
         </section>
         )
