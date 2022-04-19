@@ -33,7 +33,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
             <section className="docs-page__container"> 
             <h2 className="docs-page__h2">Tag</h2>
             <Markup.ReactMarkupCodePreview>{`
-               <Tag text='This is a tag' onClick={()=>false}/>
+               <Tag text='This is a tag' onRemove={()=>false}/>
             `}
             </Markup.ReactMarkupCodePreview>
             
@@ -48,18 +48,18 @@ export default class TagDoc extends React.Component<{}, ITag> {
                                         shade={tag.shade}
                                         shape={tag.shape}
                                         readOnly={tag.readOnly}
-                                        onClick={()=>this.handleClick(index)}/>
+                                        onRemove={()=>this.handleClick(index)} />
                                 </React.Fragment>
                         )
                         })}
                 </div>
                 </Markup.ReactMarkupPreview>
                 <Markup.ReactMarkupCode>{`
-                    <Tag text='This is a tag' onClick={()=>false}/>
-                    <Tag text='This is a another tag' shade='darker' onClick={()=>false}/>
-                    <Tag text='Lorem ipsum' shade='highlight1' onClick={()=>false}/>
-                    <Tag text='Dolor amet' shade='highlight2' shape='square' onClick={()=>false}/>
-                    
+                    <Tag text='This is a tag' onRemove={()=>false}/>
+                    <Tag text='This is a another tag' shade='darker' onRemove={()=>false}/>
+                    <Tag text='Lorem ipsum' shade='highlight1' onRemove={()=>false}/>
+                    <Tag text='Dolor amet' shade='highlight2' shape='square' onRemove={()=>false}/>
+                    <Tag text='Read only tag' readOnly={true} onRemove={()=>false}/>
                 `}          
                 </Markup.ReactMarkupCode>
             </Markup.ReactMarkup>
@@ -70,6 +70,8 @@ export default class TagDoc extends React.Component<{}, ITag> {
                     <Prop name='shade' isRequired={false} type='light | darker | highlight1 | highlight2' default='light' description='Shade colour of tag'/>
                     <Prop name='shape' isRequired={false} type='round | square' default='round' description='Make shape of tag square or default round.'/>
                     <Prop name='keyValue' isRequired={false} type='number' default='/' description='Value of tag key'/>
+                    <Prop name='readOnly' isRequired={false} type='boolean' default='/' description='Read only tag. Dont have option to close/remove tag.'/>
+                    <Prop name='onRemove' isRequired={false} type='function' default='/' description='Callback function'/>
                 </PropsList>
         </section>
         )
