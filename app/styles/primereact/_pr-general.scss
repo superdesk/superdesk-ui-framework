@@ -1,5 +1,7 @@
 // GENERAL STYLES & MIXINS
 
+@import './../icon-font';
+
 @mixin pr-menu-item-base {
     display: block;
     font-weight: normal;
@@ -61,3 +63,5 @@ border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
 .p-disabled {
     opacity: 0.5;
 }
+
+
