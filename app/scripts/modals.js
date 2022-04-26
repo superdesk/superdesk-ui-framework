@@ -60,9 +60,9 @@ function sdModal($document, $rootScope) {
             };
 
             $document.bind('keydown', (evt) => {
-                evt.preventDefault();
-
                 if (evt.which === 27 && $rootScope.modals > 0) {
+                    evt.preventDefault();
+
                     closeModal();
                 }
             });
