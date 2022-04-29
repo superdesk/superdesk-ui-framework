@@ -52,6 +52,7 @@ import BoxedListDoc from "./BoxedList";
 import HeadingDoc from "./Heading";
 import TextDoc from "./Text";
 import ContainerDoc from './Container';
+import DropZoneDoc from './DropZone';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
@@ -230,7 +231,10 @@ const pages = {
             },
             'checkbox': {
                 name: 'Checkbox'
-            }
+            },
+            'dropzone': {
+                name: 'DropZone'
+            },
         }
     },
     generalComponents: {
@@ -344,6 +348,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/heading" component={HeadingDoc} />
                         <Route path="/react/text" component={TextDoc} />
                         <Route path="/react/container" component={ContainerDoc} />
+                        <Route path="/react/dropzone" component={DropZoneDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
