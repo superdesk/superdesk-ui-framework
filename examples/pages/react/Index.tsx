@@ -56,6 +56,7 @@ import ContainerDoc from './Container';
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { MultiselectDocs } from './MultiSelect';
+import { TreeSelectDocs } from './TreeSelect';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 
@@ -213,6 +214,9 @@ const pages = {
             'multiselect': {
                 name: 'MultiSelect',
             },
+            'treeselect': {
+                name: 'TreeSelect',
+            },
             'date-picker': {
                 name: 'Date Picker',
             },
@@ -311,6 +315,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/select-with-template" component={SelectWithTemplateDocs} />
                         <Route path="/react/multiselect" component={MultiselectDocs} />
+                        <Route path="/react/treeselect" component={TreeSelectDocs} />
                         <Route path="/react/popover" component={PopoverDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
