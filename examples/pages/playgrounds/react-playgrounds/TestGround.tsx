@@ -352,6 +352,19 @@ export class TestGround extends React.Component<IProps, IState> {
                             ]} onChange={($event)=>{this.setState({selctedTheme: $event})}} value={this.state.selctedTheme} />
                         </Container>
                         <hr />
+                        <Container className='sd-padding--4 sd-panel-bg--100 sd-radius--large'>
+                            <div className='sd-dropzone__drop-target'>
+                                <div className='sd-dropzone__target-border'></div>
+                                <figure className='sd-dropzone__icon'>
+                                    <Icon name='upload-alt' size='big' />
+                                </figure>
+                                <h4 className='sd-dropzone__heading'>
+                                    Upload files
+                                </h4>
+                                <p className='sd-dropzone__description'>Drag one or more files here to upload them, or just click the button below.</p>
+                                <button className='btn btn--hollow sd-dropzone__action'>Attach files</button>
+                            </div>
+                        </Container>
                     </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
                 </Components.LayoutContainer>

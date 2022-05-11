@@ -114,6 +114,15 @@ $tag-label-lineheight: 100% !default;
         color: $tag-label-Txt-inverse;
         background-color: $tag-label-BG-inverse;
     }
+    .tag-label--text-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+    }
+    .tag-label--text-label {
+        opacity: 0.7;
+    }
 }
 
 // ----------------- SEARCH TAGS -----------------

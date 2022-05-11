@@ -68,6 +68,7 @@ export { ToggleBox } from './components/Togglebox';
 export { SelectGrid } from './components/SelectGrid';
 export { IconPicker } from './components/IconPicker';
 export { ThemeSelector } from './components/ThemeSelector';
+export { DropZone } from './components/DropZone';
 
 export * from './components/Layouts';
 export * from './components/Form';
