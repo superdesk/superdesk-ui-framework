@@ -175,8 +175,12 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 )}
                 appendTo={document.body} // making it work inside `overflow:hidden`
                 disabled={this.props.disabled}
-                onBlur={() => {
-                    if (this.state.valid === false) {
+                onBlur={(event) => {
+                    // @ts-ignore: Object is possibly 'null'.
+                    if (!event?.target.value) {
+                        // @ts-ignore: Object is possibly 'null'.
+                        this.setState({valid: true, value: null});
+                    } else {
                         // restoring internal state to current props value
                         this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
                     }
