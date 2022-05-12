@@ -36,16 +36,16 @@ interface IPropsNumber extends IPropsBase {
 type IProps = IPropsText | IPropsNumber | IPropsPassword;
 
 interface IState {
-    value: string;
+    value: string | number;
     invalid: boolean;
 }
 
-export class Input extends React.Component<IPropsBase & IProps, IState> {
-    constructor(props: IPropsBase & IProps) {
+export class Input extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
         super(props);
 
         this.state = {
-            value: this.props.value ?  this.props.value : '',
+            value: this.props.value ?? '',
             invalid: this.props.invalid ?? false,
         };
 
@@ -97,7 +97,9 @@ export class Input extends React.Component<IPropsBase & IProps, IState> {
                     disabled={this.props.disabled} />
 
                 {this.props.maxLength ?
-                    <div className='sd-input__char-count'>{this.state.value.length} / {this.props.maxLength}</div>
+                    <div className='sd-input__char-count'>
+                        {this.state.value.toString().length} / {this.props.maxLength}
+                    </div>
                     : null}
 
                 <div className='sd-input__message-box'>
