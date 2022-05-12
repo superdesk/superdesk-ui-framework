@@ -2,9 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import nextId from "react-id-generator";
 
-interface IProps {
-    value?: string | any;
-    type?: 'text' | 'number' |'password';
+interface IPropsBase {
     label?: string;
     maxLength?: number;
     info?: string;
@@ -15,20 +13,39 @@ interface IProps {
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
+}
+
+interface IPropsText extends IPropsBase {
+    type: 'text';
+    value: string;
     onChange(newValue: string): void;
 }
+
+interface IPropsPassword extends IPropsBase {
+    type: 'password';
+    value: string;
+    onChange(newValue: string): void;
+}
+
+interface IPropsNumber extends IPropsBase {
+    type: 'number';
+    value: number | any;
+    onChange(newValue: number | any): void;
+}
+
+type IProps = IPropsText | IPropsNumber | IPropsPassword;
 
 interface IState {
     value: string;
     invalid: boolean;
 }
 
-export class Input extends React.Component<IProps, IState> {
-    constructor(props: IProps) {
+export class Input extends React.Component<IPropsBase & IProps, IState> {
+    constructor(props: IPropsBase & IProps) {
         super(props);
 
         this.state = {
-            value: this.props.value ?? '',
+            value: this.props.value ?  this.props.value : '',
             invalid: this.props.invalid ?? false,
         };
 

@@ -6,7 +6,7 @@ interface IProps {
     icon?: boolean;
     text: string;
     actionText: string;
-    heading?: string; 
+    heading?: string;
     className?: string;
     width?: 'auto' | 'full';
     type?: 'default' | 'primary' | 'highlight' | 'darker';
@@ -32,7 +32,7 @@ export class DropZone extends React.PureComponent<IProps> {
                     <h4 className='sd-dropzone__heading'>{this.props.heading}</h4> : null
                 }
                 <p className='sd-dropzone__description'>{this.props.text}</p>
-                <Button text={this.props.actionText} style='hollow' onClick={()=> false} />
+                <Button text={this.props.actionText} style='hollow' onClick={() => false} />
             </div>
         );
     }
