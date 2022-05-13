@@ -114,7 +114,7 @@ export default class ContainerDoc extends React.Component<IProps> {
                             </ButtonGroup>
                         </Container>
 
-                        <Container gap="large" theme='dark-ui' direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
+                        <Container gap="large" theme='dark' direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                         <Heading type='h3'>Curabitur blandit tempus porttitor.</Heading>
                         <Text color='light'>
                             Praesent commodo cursus magna, vel scelerisque nisl consectetur et...

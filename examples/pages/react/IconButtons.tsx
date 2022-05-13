@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { IconButton, Prop, PropsList, Tooltip } from '../../../app-typescript';
+import { IconButton, Prop, PropsList, Tooltip, Container, ButtonGroup } from '../../../app-typescript';
 
 export default class IconButtonDoc extends React.Component {
     render() {
@@ -32,6 +32,26 @@ export default class IconButtonDoc extends React.Component {
                             <span className="sd-margin-x--auto"></span>
                             <IconButton size='small' icon='close-small' ariaValue='Close' onClick={()=> false} />
                         </div>
+
+                        <p className="docs-page__paragraph">// Xtra large, 'outline' style</p>
+                        <Container gap="large" className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-margin-b--3'>
+                            <ButtonGroup align='center' spaces='loose'>
+                                <IconButton style='outline' size='x-large' icon='pencil' ariaValue='Add' onClick={()=> false} />
+                                <IconButton style='outline' disabled={true} size='x-large' icon='switches' ariaValue='Add' onClick={()=> false} />
+                                <IconButton style='outline' size='x-large' icon='crop' ariaValue='Close' onClick={()=> false} />
+                            </ButtonGroup>
+                        </Container>
+
+                        <p className="docs-page__paragraph">// Xtra large, outlineWhite style</p>
+                        <p className="docs-page__paragraph--small">The 'outlineWhite' syle forces a white icon and outline. It can be used on dark overlays for example.</p>
+                        <div style={{background: 'hsla(214, 13%, 12%, 1)'}} className="sd-container sd-container--flex sd-container--gap-large sd-radius--medium sd-shadow--z2 sd-padding--3">
+                            <ButtonGroup align='center' spaces='loose'>
+                                <IconButton style='outlineWhite' size='x-large' icon='pencil' ariaValue='Add' onClick={()=> false} />
+                                <IconButton style='outlineWhite' disabled={true} size='x-large' icon='switches' ariaValue='Add' onClick={()=> false} />
+                                <IconButton style='outlineWhite' size='x-large' icon='crop' ariaValue='Close' onClick={()=> false} />
+                            </ButtonGroup>
+                        </div>
+
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <IconButton icon='close-small' disabled ariaValue='Close' onClick={()=> false} />
@@ -44,6 +64,20 @@ export default class IconButtonDoc extends React.Component {
                         <IconButton size='small' icon='plus-large' ariaValue='Add' onClick={()=> false} />
                         ...
                         <IconButton size='small' icon='close-small' ariaValue='Close' onClick={()=> false} />
+
+                        // Xtra large, 'outline' style
+                        <ButtonGroup align='center' spaces='loose'>
+                            <IconButton style='outline' size='x-large' icon='pencil' ariaValue='Add' onClick={()=> false} />
+                            <IconButton style='outline' disabled={true} size='x-large' icon='switches' ariaValue='Add' onClick={()=> false} />
+                            <IconButton style='outline' size='x-large' icon='crop' ariaValue='Close' onClick={()=> false} />
+                        </ButtonGroup>
+
+                        // Xtra large, outlineWhite style
+                        <ButtonGroup align='center' spaces='loose'>
+                            <IconButton style='outlineWhite' size='x-large' icon='pencil' ariaValue='Add' onClick={()=> false} />
+                            <IconButton style='outlineWhite' disabled={true} size='x-large' icon='switches' ariaValue='Add' onClick={()=> false} />
+                            <IconButton style='outlineWhite' size='x-large' icon='crop' ariaValue='Close' onClick={()=> false} />
+                        </ButtonGroup>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -52,7 +86,8 @@ export default class IconButtonDoc extends React.Component {
                 <PropsList>
                     <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.'/>
                     <Prop name='ariaValue' isRequired={true} type='string' default='/' description='Description for screen readers, also used as the ToolTip value.'/>
-                    <Prop name='size' isRequired={false} type='small' default='normal' description='Creates an IconButton with a smaller footprint.'/>
+                    <Prop name='size' isRequired={false} type='default | small | x-large' default='default' description='Creates an IconButton with a smaller or larger footprint.'/>
+                    <Prop name='style' isRequired={false} type='default | outline | outlineWhite' default='default' description='Different styling options.'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Disables the Button, preventing mouse events.'/>
                     <Prop name='toolTipFlow' isRequired={false} type='top | left | right | down' default='top' description='Defines the possition of the ToolTip.'/>
                     <Prop name='toolTipAppend' isRequired={false} type='boolean' default='false' description='Uses the append to body version of the ToolTips if set to true.'/>

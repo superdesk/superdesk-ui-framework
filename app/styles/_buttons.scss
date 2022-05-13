@@ -378,6 +378,42 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         height: $height__button--small;
         width: $height__button--small;
     }
+    &--x-large {
+        height: $height__button--x-large;
+        width: $height__button--x-large;
+        [class^="icon-"], [class*=" icon-"] {
+            color: inherit;
+            vertical-align: baseline !important;
+            font-size: 2.4rem;
+            height: 2.4rem;
+            width: 2.4rem;
+            line-height: 2.4rem;
+        }
+        
+    }
+    &--outline {
+        border: 1px solid currentColor;
+        &:active:not(.icn-btn--disabled) {
+            border-color: var(--sd-colour-interactive);
+        }
+    }
+    &--outlineWhite {
+        color: hsla(214, 13%, 95%, 0.8);
+        border: 1px solid currentColor;
+        &:hover:not(.icn-btn--disabled) {
+            color: hsla(214, 13%, 95%, 1);
+            border-color: hsla(214, 13%, 95%, 1);
+            background-color: hsla(0, 0%, 0%, 0.4);
+        }
+        &:active:not(.icn-btn--disabled) {
+            border-color: var(--sd-colour-interactive);
+            background-color: hsla(0, 0%, 0%, 0.6);
+        }
+    }
+    &.icn-btn--x-large.icn-btn--outline,
+    &.icn-btn--x-large.icn-btn--outlineWhite {
+        border-width: 2px;
+    }
 }
 .p-dialog-header-close {
     @include icn-btn-style;
@@ -386,11 +422,11 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     &:hover {
         opacity: 1;
         text-decoration: none;
-        background-color: rgba(155,155,155,0.20) !important;
+        background-color: hsla(0, 0%, 61%, 0.2) !important;
     }
     &:active {
         opacity: 1;
-        background-color: rgba(155,155,155,0.30);
+        background-color: hsla(0, 0%, 61%, 0.3);
     }
 }
 
@@ -495,6 +531,9 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
     &--comfort {
         gap: $sd-base-increment;
+    }
+    &--loose {
+        gap: $sd-base-increment * 2;
     }
     &--compact {
         gap: $sd-base-increment * 0.5;
