@@ -9,7 +9,8 @@ interface IProps {
     ariaValue: string;
     toolTipFlow?: 'top' | 'left' | 'right' | 'down';
     toolTipAppend?: boolean;
-    size?: 'small';
+    size?: 'default' | 'small' | 'x-large';
+    style?: 'default' | 'outline' | 'outlineWhite';
     disabled?: boolean;
     onClick(event: React.MouseEvent): void;
 }
@@ -20,7 +21,8 @@ export class IconButton extends React.PureComponent<IProps> {
     };
     render() {
         let classes = classNames('icn-btn', {
-            'icn-btn--small': this.props.size === 'small',
+            [`icn-btn--${this.props.size}`]: this.props.size || this.props.size !== undefined,
+            [`icn-btn--${this.props.style}`]: this.props.style || this.props.style !== undefined,
             'icn-btn--disabled': this.props.disabled,
         });
         return (

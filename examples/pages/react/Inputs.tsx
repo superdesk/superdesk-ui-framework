@@ -9,7 +9,7 @@ interface IState {
     required: boolean;
     disabled: boolean;
     invalid: boolean;
-    value: string;
+    value: number;
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -20,7 +20,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
             required: true,
             disabled: false,
             invalid: false,
-            value: ''
+            value: null
         }
     }
     

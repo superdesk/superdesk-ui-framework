@@ -2,9 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import nextId from "react-id-generator";
 
-interface IProps {
-    value?: string | any;
-    type?: 'text' | 'number' |'password';
+interface IPropsBase {
     label?: string;
     maxLength?: number;
     info?: string;
@@ -15,11 +13,30 @@ interface IProps {
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
+}
+
+interface IPropsText extends IPropsBase {
+    type: 'text';
+    value: string;
     onChange(newValue: string): void;
 }
 
-interface IState {
+interface IPropsPassword extends IPropsBase {
+    type: 'password';
     value: string;
+    onChange(newValue: string): void;
+}
+
+interface IPropsNumber extends IPropsBase {
+    type: 'number';
+    value: number | any;
+    onChange(newValue: number | any): void;
+}
+
+type IProps = IPropsText | IPropsNumber | IPropsPassword;
+
+interface IState {
+    value: string | number;
     invalid: boolean;
 }
 
@@ -80,7 +97,9 @@ export class Input extends React.Component<IProps, IState> {
                     disabled={this.props.disabled} />
 
                 {this.props.maxLength ?
-                    <div className='sd-input__char-count'>{this.state.value.length} / {this.props.maxLength}</div>
+                    <div className='sd-input__char-count'>
+                        {this.state.value.toString().length} / {this.props.maxLength}
+                    </div>
                     : null}
 
                 <div className='sd-input__message-box'>

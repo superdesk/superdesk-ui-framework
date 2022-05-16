@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 interface IProps {
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
-    spaces?: 'comfort' | 'compact' | 'no-space'; // defaults to 'comfort'
+    spaces?: 'comfort' | 'compact' | 'loose' | 'no-space'; // defaults to 'comfort'
     align?: 'start' | 'end' | 'center' | 'inline' | 'sub'; // defaults to 'left'
     padded?: boolean; // adds predefined space to the side based on the alignment and orientation.
     subgroup?: boolean; // for nested button groups§.
