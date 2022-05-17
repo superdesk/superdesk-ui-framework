@@ -33,7 +33,7 @@ export default class AlertDoc extends React.Component {
                     <Alert style='hollow' size='normal' type='alert' restoreIcon='info'>
                         Sed tincidunt ipsum metus, consectetur vestibulum turpis luctus in. Vestibulum ut ex vulputate, lacinia mauris vel, accumsan libero. Morbi dapibus non felis et convallis. Sed at dolor vel nisl aliquam vehicula.
                     </Alert>
-                    <Alert style='hollow' size='normal' type='success' restoreIcon='info'>
+                    <Alert style='hollow' size='normal' type='success' restoreIcon='info' margin='none'>
                         Sed tincidunt ipsum metus, consectetur vestibulum turpis luctus in. Vestibulum ut ex vulputate, lacinia mauris vel, accumsan libero. Morbi dapibus non felis et convallis. Sed at dolor vel nisl aliquam vehicula.
                     </Alert>
                     <Alert style='hollow' size='normal' type='highlight' restoreIcon='info'>

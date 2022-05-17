@@ -8,7 +8,6 @@ $sd-alert-padding-y: 1.8rem !default;
 $sd-alert-padding-x-small: 1.2rem 2.4rem;
 $sd-alert-padding-y-small: 0.7rem;
 
-
 /// Default radius of sd-alerts.
 $sd-alert-radius: var(--b-radius--medium) !default;
 
@@ -268,15 +267,6 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     justify-content: flex-end;
 }
 
-// .sd-alert__icon {
-//     margin: 0.1rem 1.2rem 0 -0.5rem;
-//     flex-shrink: 0;
-// }
-// .sd-alert--small {
-//     .sd-alert__icon {
-//         margin-left: 0;
-//     }
-// }
 .sd-alert__info-btn {
     cursor: pointer;
     height: 2.2rem; 

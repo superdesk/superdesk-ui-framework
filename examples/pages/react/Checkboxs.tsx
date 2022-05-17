@@ -266,7 +266,7 @@ export default class CheckboxsDoc extends React.Component<{}, IState> {
                                 <CheckboxButton checked={this.state.value38} label={{text: 'Button style with hidden text', icon: 'th-list', hidden: true}} onChange={(value) => this.setState(() => ({ value38: value }))} />
                                 <CheckboxButton checked={this.state.value39} label={{text: 'The text is hidden but still accessible', icon: 'th', hidden: true}} onChange={(value) => this.setState(() => ({ value39: value }))} />
                                 <CheckboxButton checked={this.state.value40} label={{text: 'The text is still here', icon: 'th-large', hidden: true}} onChange={(value) => this.setState(() => ({ value40: value }))} />
-                                <CheckboxButton checked={this.state.value41} label={{text: 'Icon, no text ;)', icon: 'star', hidden: true}} onChange={(value) => this.setState(() => ({ value41: value }))} />
+                                <CheckboxButton checked={this.state.value41} label={{text: 'Icon, no text ;)', icon: 'star', hidden: true}} disabled={true} onChange={(value) => this.setState(() => ({ value41: value }))} />
                             </CheckButtonGroup>
                         </div>
                     </Markup.ReactMarkupPreview>
