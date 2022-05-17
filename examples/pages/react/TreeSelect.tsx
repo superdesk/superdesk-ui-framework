@@ -111,7 +111,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
-                            options={this.state.options2}
+                            options={this.state.options}
                             getLabel={'label'}
                             getMultilevelArray={'items'}
                             selectBranchWithChildren={true}
@@ -126,34 +126,16 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                    optionTemplate = {() => {
-                                        return (
-                                            <div className='suggestion-list suggestion-list--multi-select'>
-                                                {this.state.options2.map((item, i) => {
-                                                    return <span
-                                                            className='suggestion-item suggestion-item--multi-select' 
-                                                            key={i}
-                                                            onClick={() => {
-                                                                this.setState({value2: [...this.state.value2, item]})
-                                                            }}>
-                                                                {item.label}
-                                                            </span>
-                                                })}
-                                            </div>
-                                        )
+                                    options={this.state.options2}
+                                    getMultilevelArray={'items'}
+                                    getLabel={'label'}
+                                    onChange={() => false}
+                                    optionTemplate={(item: any) => {
+                                        return <div>Label: {item.label}</div>
                                     }}
-                                    valueTemplate = {() => {
-                                        return (
-                                            <div style={{display: 'flex', gap: 3}}>
-                                                {this.state.value2.map((item, i) => {
-                                                    return <span 
-                                                    className='tags-input__tag-item tags-input__tag-item-multiselect'
-                                                    style={{margin: 5}}
-                                                    key={i}>{item.label}</span>
-                                                })}
-                                            </div>
-                                        )  
-                                    }}   
+                                    valueTemplate={(item: any) => {
+                                        return <span>Label: {item.label}</span>
+                                    }}
                                 />
                             </div>
                         </div>
@@ -161,33 +143,15 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
-                            optionTemplate = {() => {
-                                return (
-                                    <div className='suggestion-list suggestion-list--multi-select'>
-                                        {this.state.options2.map((item, i) => {
-                                            return <span
-                                                    className='suggestion-item suggestion-item--multi-select' 
-                                                    key={i}
-                                                    onClick={() => {
-                                                        this.setState({value2: [...this.state.value2, item]})
-                                                    }}>
-                                                        {item.label}
-                                                    </span>
-                                        })}
-                                    </div>
-                                )
+                            options={this.state.options2}
+                            getMultilevelArray={'items'}
+                            getLabel={'label'}
+                            onChange={() => false}
+                            optionTemplate={(item: any) => {
+                                return <div>Label: {item.label}</div>
                             }}
-                            valueTemplate = {() => {
-                                return (
-                                    <div style={{display: 'flex', gap: 3}}>
-                                        {this.state.value2.map((item, i) => {
-                                            return <span 
-                                            className='tags-input__tag-item tags-input__tag-item-multiselect'
-                                            style={{margin: 5}}
-                                            key={i}>{item.label}</span>
-                                        })}
-                                    </div>
-                                )  
+                            valueTemplate={(item: any) => {
+                                return <span>Label: {item.label}</span>
                             }}   
                         />
                     `}</Markup.ReactMarkupCode>
@@ -197,15 +161,15 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='value' isRequired={false} type='Array<T>' default='/' description='Value of the component.'/>
-                    <Prop name='options' isRequired={false} type='Array<T>' default='/' description='An array of selectitems to display as the available options.'/>
-                    <Prop name='getLabel' isRequired={false} type='string' default='/' description='Name of the label field of an option and decides which field or fields to search against.'/>
-                    <Prop name='getMultilevelArray' isRequired={false} type='string' default='/' description='Name of the children array of an option.'/>
+                    <Prop name='options' isRequired={true} type='Array<T>' default='/' description='An array of selectitems to display as the available options.'/>
+                    <Prop name='getLabel' isRequired={true} type='string' default='/' description='Name of the label field of an option and decides which field or fields to search against.'/>
+                    <Prop name='getMultilevelArray' isRequired={true} type='string' default='/' description='Name of the children array of an option.'/>
                     <Prop name='width' isRequired={false} type='medium | full-width (100%)' default='100%' description='Dropdown width.'/>
                     <Prop name='selectBranchWithChildren' isRequired={false} type='boolean' default='false' description='When specified, select branch with children is enabled.'/>
                     <Prop name='readonly' isRequired={false} type='boolean' default='false' description='When specified, component changes are not enabled.'/>
                     <Prop name='valueTemplate' isRequired={false} type='function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
                     <Prop name='optionTemplate' isRequired={false} type='function' default='/' description='Function that gets the option and returns the content for it.'/>
-                    <Prop name='onChange' isRequired={false} type='function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Callback to invoke when value changes.'/>
                 </PropsList>
   
             </section>

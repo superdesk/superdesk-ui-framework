@@ -29,7 +29,7 @@ export default class DropZoneDoc extends React.Component<IProps> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic</p>
                         <div className='docs-page__content-row'>
-                            <DropZone actionText='Attach file' text="Drag one or more files here to upload them, or just click the button below.">
+                            <DropZone actionText='Attach file' text="Drag one or more files here to upload them, or just click on the field.">
                                  
                             </DropZone>
                         </div>

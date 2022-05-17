@@ -20,22 +20,22 @@ interface IState<T> {
 
 interface IProps<T> {
     value?: Array<T>;
-    options?: Array<T>;
-    getLabel?: string;
-    getMultilevelArray?: string;
+    options: Array<T>;
+    getLabel: string;
+    getMultilevelArray: string;
     selectBranchWithChildren?: boolean;
     readonly?: boolean;
     width?: string;
-    optionTemplate?(): React.ComponentType<T> | JSX.Element;
-    valueTemplate?(): React.ComponentType<T> | JSX.Element;
-    onChange?(): void;
+    optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
+    valueTemplate?(item: T): React.ComponentType<T> | JSX.Element;
+    onChange(): void;
 }
 
 export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private dropdownRef: any;
     private openDropdownRef: any;
 
-    constructor(props: {}) {
+    constructor(props: IProps<T>) {
         super(props);
         this.state = {
             value: this.props.value ? this.props.value : [],
@@ -182,9 +182,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
                         <i className="icon-plus-large"></i>
                     </button>}
-                    {this.props.valueTemplate
-                        ? <div>{this.props.valueTemplate()}</div>
-                        : <ul className="tags-input__tag-list">
+                        <ul className="tags-input__tag-list">
                             {this.state.value.map((item, i) => {
                                 return <React.Fragment key={i}>
                                     <li
@@ -192,7 +190,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     + (this.props.readonly ? ' tags-input__tag-item-readonly' : '')}
                                     onClick={(event) => this.props.readonly || this.removeClick(i)}>
                                         <span className="tags-input__helper-box">
-                                            <span>{item[this.props.getLabel]}</span>
+                                            {this.props.valueTemplate
+                                            ? this.props.valueTemplate(item)
+                                            : <span>{item[this.props.getLabel]}</span>}
                                             {this.props.readonly
                                             || <span className="tags-input__remove-button">
                                                 <i className="icon-close-small"></i>
@@ -202,131 +202,127 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </React.Fragment>;
                             })}
                         </ul>
-                    }
                 </div>
 
                 {this.state.openDropdown &&
                 <div className={"autocomplete autocomplete-multiselect" + (this.props.width === 'medium' ? ' autocomplete-multiselect-width' : '')} ref={this.dropdownRef}>
-                    {this.props.optionTemplate
-                    ? <>{this.props.optionTemplate()}</>
-                    : <>
-                        <div className='autocomplete__header'>
-                            <div className="autocomplete__icon" onClick={() => {
-                            this.backButtonValue();
-                            this.backButton();
-                            }}>
-                                {this.state.activeTree.length > 0
-                                ? <Icon name="arrow-left" className="arrow-left"></Icon>
-                                : <Icon name="search" className="search"></Icon>}
-                            </div>
-                            <div className='autocomplete__filter'>
-                                {this.state.activeTree.length > 0
-                                    ? <button
-                                    className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multiselect' : '')}
-                                    onMouseOver={() => this.setState({buttonMouseEvent: true})}
-                                    onMouseOut={() => this.setState({buttonMouseEvent: false})}
-                                    value={this.state.buttonValue}
-                                    onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
-                                        {this.state.buttonMouseEvent && this.props.selectBranchWithChildren ? 'Choose entire category' : this.state.buttonValue[this.props.getLabel]}
-                                    </button>
-                                    : <input
-                                    type="text"
-                                    className="autocomplete__input"
-                                    ref={(input: any) => input && input.focus()}
-                                    value={this.state.searchFieldValue}
-                                    onChange={(event) => {
-                                        this.setState({searchFieldValue: event.target.value});
-                                    }}
-                                    />
-                                }
-                            </div>
+                    <div className='autocomplete__header'>
+                        <div className="autocomplete__icon" onClick={() => {
+                        this.backButtonValue();
+                        this.backButton();
+                        }}>
+                            {this.state.activeTree.length > 0
+                            ? <Icon name="arrow-left" className="arrow-left"></Icon>
+                            : <Icon name="search" className="search"></Icon>}
                         </div>
-                        <ul className="suggestion-list suggestion-list--multi-select">
-                            {this.state.searchFieldValue === ''
-                                ? this.state.options.map((option, i) => {
-                                    return (
-                                        <li key={i}
-                                        className={`suggestion-item suggestion-item--multi-select`}
-                                        onClick={(event) => {
-                                            event.preventDefault();
-                                            event.stopPropagation();
-                                            if (option[this.props.getMultilevelArray]) {
-                                                this.handleButton(event, option);
-                                                this.handleMultiLevel(event, option);
-                                                if (event.altKey) {
-                                                    if (this.props.selectBranchWithChildren) {
-                                                        let filteredItems = option[this.props.getMultilevelArray]
-                                                        .filter((item) => {
-                                                            if (!this.state.value.includes(item)) {
-                                                                return item;
-                                                            }
-                                                        });
+                        <div className='autocomplete__filter'>
+                            {this.state.activeTree.length > 0
+                                ? <button
+                                className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multiselect' : '')}
+                                onMouseOver={() => this.setState({buttonMouseEvent: true})}
+                                onMouseOut={() => this.setState({buttonMouseEvent: false})}
+                                value={this.state.buttonValue}
+                                onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
+                                    {this.state.buttonMouseEvent && this.props.selectBranchWithChildren ? 'Choose entire category' : this.state.buttonValue[this.props.getLabel]}
+                                </button>
+                                : <input
+                                type="text"
+                                className="autocomplete__input"
+                                ref={(input: any) => input && input.focus()}
+                                value={this.state.searchFieldValue}
+                                onChange={(event) => {
+                                    this.setState({searchFieldValue: event.target.value});
+                                }}
+                                />
+                            }
+                        </div>
+                    </div>
+                    <ul className="suggestion-list suggestion-list--multi-select">
+                        {this.state.searchFieldValue === ''
+                            ? this.state.options.map((option, i) => {
+                                return (
+                                    <li key={i}
+                                    className={`suggestion-item suggestion-item--multi-select`}
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        if (option[this.props.getMultilevelArray]) {
+                                            this.handleButton(event, option);
+                                            this.handleMultiLevel(event, option);
+                                            if (event.altKey) {
+                                                if (this.props.selectBranchWithChildren) {
+                                                    let filteredItems = option[this.props.getMultilevelArray]
+                                                    .filter((item) => {
+                                                        if (!this.state.value.includes(item)) {
+                                                            return item;
+                                                        }
+                                                    });
+                                                    this.setState({
+                                                        value: [...this.state.value, ...filteredItems],
+                                                        options: this.state.firstBranchOptions,
+                                                        openDropdown: false,
+                                                        activeTree: [],
+                                                    });
+                                                } else {
+                                                    let filteredItems = option[this.props.getMultilevelArray]
+                                                    .filter((item) => {
+                                                        if (!this.state.value.includes(item)
+                                                        && !item[this.props.getMultilevelArray]) {
+                                                            return item;
+                                                        }
+                                                    });
+                                                    if (filteredItems.length > 0) {
                                                         this.setState({
                                                             value: [...this.state.value, ...filteredItems],
                                                             options: this.state.firstBranchOptions,
                                                             openDropdown: false,
                                                             activeTree: [],
                                                         });
-                                                    } else {
-                                                        let filteredItems = option[this.props.getMultilevelArray]
-                                                        .filter((item) => {
-                                                            if (!this.state.value.includes(item)
-                                                            && !item[this.props.getMultilevelArray]) {
-                                                                return item;
-                                                            }
-                                                        });
-                                                        if (filteredItems.length > 0) {
-                                                            this.setState({
-                                                                value: [...this.state.value, ...filteredItems],
-                                                                options: this.state.firstBranchOptions,
-                                                                openDropdown: false,
-                                                                activeTree: [],
-                                                            });
-                                                        }
                                                     }
                                                 }
-                                            } else {
-                                                this.handleValue(event, option);
-                                                if (!event.ctrlKey) {
-                                                    this.setState({openDropdown: false});
-                                                }
                                             }
-                                        }}>
-                                            <span className={this.state.value.includes(option) ? 'suggestion-item--disabled' : null}>
-                                                {option[this.props.getLabel]}
-                                            </span>
-                                            {option[this.props.getMultilevelArray] && <span className="suggestion-item__icon">
-                                                    <Icon name="chevron-right-thin"></Icon>
-                                            </span>}
-                                        </li>
-                                    );
-                                })
-                                : this.state.filterArr.filter((item: any) => {
-                                    if (this.state.searchFieldValue) {
-                                        if (item[this.props.getLabel]
-                                        .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
-                                            return item;
+                                        } else {
+                                            this.handleValue(event, option);
+                                            if (!event.ctrlKey) {
+                                                this.setState({openDropdown: false});
+                                            }
                                         }
-                                    } else {
+                                    }}>
+                                        {this.props.optionTemplate
+                                        ? this.props.optionTemplate(option)
+                                        : <span className={this.state.value.includes(option) ? 'suggestion-item--disabled' : null}>
+                                            {option[this.props.getLabel]}
+                                        </span>}
+                                        {option[this.props.getMultilevelArray] && <span className="suggestion-item__icon">
+                                            <Icon name="chevron-right-thin"></Icon>
+                                        </span>}
+                                    </li>
+                                );
+                            })
+                            : this.state.filterArr.filter((item: any) => {
+                                if (this.state.searchFieldValue) {
+                                    if (item[this.props.getLabel]
+                                    .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
                                         return item;
                                     }
-                                }).map((item, i) => {
-                                    return <li key={i}
-                                    className={`suggestion-item suggestion-item--multi-select`}
-                                    onClick={(event) => {
-                                        this.handleValue(event, item);
-                                    }}>
-                                        <span
-                                        className={this.state.value.includes(item)
-                                        ? 'suggestion-item--disabled' : null}>
-                                            {item[this.props.getLabel]}
-                                        </span>
-                                    </li>;
-                                })
-                            }
-                        </ul>
-                    </>
-                    }
+                                } else {
+                                    return item;
+                                }
+                            }).map((item, i) => {
+                                return <li key={i}
+                                className={`suggestion-item suggestion-item--multi-select`}
+                                onClick={(event) => {
+                                    this.handleValue(event, item);
+                                }}>
+                                    <span
+                                    className={this.state.value.includes(item)
+                                    ? 'suggestion-item--disabled' : null}>
+                                        {item[this.props.getLabel]}
+                                    </span>
+                                </li>;
+                            })
+                        }
+                    </ul>
                 </div>}
             </div>
         );
