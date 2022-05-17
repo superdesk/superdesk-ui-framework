@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Icon } from './Icon';
-import { Button } from './Button';
+
 interface IProps {
     icon?: boolean;
     text: string;
@@ -42,11 +42,11 @@ export class DropZone extends React.PureComponent<IProps, IState> {
 
     dragOver(event: any) {
         event.preventDefault();
+        this.setState({dragClass: true});
     }
 
     dragEnter(event: any) {
         event.preventDefault();
-        this.setState({dragClass: true});
     }
 
     dragLeave(event: any) {
@@ -65,8 +65,10 @@ export class DropZone extends React.PureComponent<IProps, IState> {
             <div className={classes}
             onDragLeave={(event) => this.dragLeave(event)}
             onDragEnter={(event) => this.dragEnter(event)}
-            onDrop={(event) => this.drop(event)}
             onDragOver={(event) => this.dragOver(event)}
+            onDrop={(event) => this.drop(event)}
+            onDragStart={() => false}
+            onDragEnd={() => false}
             >
                 <div className='sd-dropzone__target-border'></div>
                 {this.props.icon ?
@@ -78,7 +80,7 @@ export class DropZone extends React.PureComponent<IProps, IState> {
                     <h4 className='sd-dropzone__heading'>{this.props.heading}</h4> : null
                 }
                 <p className='sd-dropzone__description'>{this.props.text}</p>
-                <Button text={this.props.actionText} style='hollow' onClick={() => false} />
+                {/* <Button text={this.props.actionText} style='hollow' onClick={() => false} /> */}
             </div>
         );
     }
