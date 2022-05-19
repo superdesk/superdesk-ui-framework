@@ -13,41 +13,41 @@ interface IState {
 
 let itemArr = [
     {
-        label: 'Item1',
-        items: [
+        value: 'Item1',
+        children: [
             {
-                label: 'Item4',
-                items: [
-                    {label: 'Item10'}
+                value: 'Item4',
+                children: [
+                    {value: 'Item10'}
                 ]
             },
             {
-                label: 'Item5',
-                items: [
-                    {label: 'Item11'}
+                value: 'Item5',
+                children: [
+                    {value: 'Item11'}
                 ]
             }
         ]
     },
     {
-        label: 'Item2',
-        items: [
+        value: 'Item2',
+        children: [
             {
-                label: 'Item6'
+                value: 'Item6'
             },
             {
-                label: 'Item7'
+                value: 'Item7'
             }
         ]
     },
     {
-        label: 'Item3',
-        items: [
+        value: 'Item3',
+        children: [
             {
-                label: 'Item8'
+                value: 'Item8'
             },
             {
-                label: 'Item9'
+                value: 'Item9'
             }
         ]
     },
@@ -99,11 +99,12 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                    options={this.state.options}
-                                    getLabel={'label'}
-                                    getMultilevelArray={'items'}
+                                    getOptions={() => {
+                                        return itemArr
+                                    }}
                                     selectBranchWithChildren={true}
                                     onChange={() => false}
+                                    //allowMultiple={true}
                                 />
                             </div>
                         </div>
@@ -126,15 +127,15 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                    options={this.state.options2}
-                                    getMultilevelArray={'items'}
-                                    getLabel={'label'}
+                                    getOptions={() => this.state.options}
+                                    
+                                    
                                     onChange={() => false}
                                     optionTemplate={(item: any) => {
-                                        return <div>Label: {item.label}</div>
+                                        return <div>Label: {item.value}</div>
                                     }}
                                     valueTemplate={(item: any) => {
-                                        return <span>Label: {item.label}</span>
+                                        return <span>Label: {item.value}</span>
                                     }}
                                 />
                             </div>
