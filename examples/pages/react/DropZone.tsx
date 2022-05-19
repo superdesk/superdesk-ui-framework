@@ -1,11 +1,9 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { DropZone, Button, Icon, Prop, PropsList  } from '../../../app-typescript';
-
+import { DropZone, Button, Icon, Prop, PropsList, SimpleListItem, ButtonGroup, Container, Heading, SimpleList  } from '../../../app-typescript';
 interface IProps {
     children?: React.ReactNode;
 }
-
 export default class DropZoneDoc extends React.Component<IProps> {
     render() {
         return (
@@ -14,45 +12,68 @@ export default class DropZoneDoc extends React.Component<IProps> {
                 
                 <Markup.ReactMarkupCodePreview>{`
                     <DropZone>
-
                     </DropZone>
                 `}
                 </Markup.ReactMarkupCodePreview>
-
                 <p className="docs-page__paragraph">
                     The Container is a convenient layout component with different layout options and support for external CSS classes.
                     The display model is <code>flex</code> by default, but can be changed with the <code>display</code> prop. It is 
                     intended to be used with helper CSS classes to achieve desired styling options
                 </p>
-
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic</p>
                         <div className='docs-page__content-row'>
-                            <DropZone actionText='Attach file' text="Drag one or more files here to upload them, or just click on the field.">
-                                 
+                            <DropZone text="Drag one or more files here to upload them, or just click on the field.">               
+                            </DropZone>
+                        </div>
+                        <p className="docs-page__paragraph">// With heading</p>
+                        <div className='docs-page__content-row'>
+                            <DropZone heading="Nothing here yet" text="Drag one or more files here to upload them, or just click on the field.">               
+                            </DropZone>
+                        </div>
+                        <p className="docs-page__paragraph">// With icon</p>
+                        <div className='docs-page__content-row'>
+                            <DropZone icon={true} text="Drag one or more files here to upload them, or just click on the field.">               
+                            </DropZone>
+                        </div>
+                        <p className="docs-page__paragraph">// With heading & icon</p>
+                        <div className='docs-page__content-row'>
+                            <DropZone icon={true} heading="Nothing here yet" text="Drag one or more files here to upload them, or just click on the field.">               
                             </DropZone>
                         </div>
 
-                        <p className="docs-page__paragraph">// Usage examples</p>
-
-
-
-                        <div className='docs-page__content-row'>
-
+                        <p className="docs-page__paragraph">// Full Screen Mode</p>
+                        <div className='docs-page__content-row' style={{position: 'relative'}}>
+                            <DropZone fullScreenMode icon={true} heading="Nothing here yet" text="Drag one or more files here to upload them, or just click on the field.">               
+                            </DropZone>
+                            <SimpleList>
+                                <SimpleListItem stacked={true} id='section1' >
+                                    <Heading type='h2' className='sd-padding--2'>Section 1</Heading>
+                                    <Container direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--2 sd-margin-b--3'>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab porro nihil facilis beatae amet labore laudantium repellat enim non sunt aspernatur magni consequuntur tempore, aperiam qui doloremque perspiciatis tenetur.</p>
+                                    </Container>
+                                    <Container direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--2 sd-margin-b--3'>
+                                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellendus ab porro nihil facilis beatae amet labore laudantium repellat enim non sunt aspernatur magni consequuntur tempore, aperiam qui doloremque perspiciatis tenetur.</p>
+                                    </Container>
+                                    <Container gap="large" display='flex'>
+                                        <ButtonGroup align='end'>
+                                            <Button text="button" type="primary" onClick={()=> console.log('hvatam ga')
+                                            } />
+                                            <Button text="button" type="highlight" onClick={()=> false} />
+                                        </ButtonGroup>
+                                    </Container>
+                                </SimpleListItem >
+                            </SimpleList>
                         </div>
-
                         
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Basic
-
                         <Container>
                             Large size, justified. Praesent commodo cursus magna, vel scelerisque nisl consectetur et... 
                         </Container>
-
                         // Usage examples
-
                         <Container gap="large" className='sd-border--medium sd-font-size--medium sd-padding--2 sd-radius--large'>
                             <span>Curabitur blandit tempus porttitor.</span>
                             <Button text="Test button" type="primary" onClick={()=> false} />
@@ -62,7 +83,6 @@ export default class DropZoneDoc extends React.Component<IProps> {
                                 <Button text="Submit" onClick={()=> false} type="primary" />
                             </ButtonGroup>
                         </Container>
-
                         <Container gap="large" direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                             <Heading type='h3'>Curabitur blandit tempus porttitor.</Heading>
                             <Text color='light'>
@@ -73,7 +93,6 @@ export default class DropZoneDoc extends React.Component<IProps> {
                                 <Button text="Submit" onClick={()=> false} type="primary" />
                             </ButtonGroup>
                         </Container>
-
                         <Container gap="large" theme='dark-ui' direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                         <Heading type='h3'>Curabitur blandit tempus porttitor.</Heading>
                         <Text color='light'>
@@ -88,7 +107,6 @@ export default class DropZoneDoc extends React.Component<IProps> {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='display' isRequired={false} type='flex | inline-flex | block' default='flex' description='Change the default display mode (flex).'/>
