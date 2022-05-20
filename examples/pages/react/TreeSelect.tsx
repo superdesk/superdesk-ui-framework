@@ -105,6 +105,9 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     selectBranchWithChildren={true}
                                     onChange={() => false}
                                     //allowMultiple={true}
+                                    valueTemplate={(item) => {
+                                        return <span>{item}</span>
+                                    }}
                                 />
                             </div>
                         </div>

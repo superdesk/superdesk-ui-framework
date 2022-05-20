@@ -3,8 +3,8 @@ import * as React from "react";
 import { Icon } from "./Icon";
 
 interface IState<T> {
-    value?: Array<any>;
-    options?: Array<any>;
+    value?: any;
+    options?: Array<ITreeNode<T>>;
     firstBranchOptions?: Array<any>;                // to return on first branch in dropdown
     openDropdown?: boolean;                         // open/close dropdown
     activeTree?: Array<any>;                        // for filtered array
@@ -17,20 +17,19 @@ interface IState<T> {
 }
 
 interface IProps<T> {
-    value?: Array<T>;
+    value?: any;
     getOptions(): Array<ITreeNode<T>>;
     selectBranchWithChildren?: boolean;
     readonly?: boolean;
     width?: string;
     allowMultiple?: boolean;
-    optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
-    valueTemplate?(item: T): React.ComponentType<T> | JSX.Element;
+    optionTemplate?(item: ITreeNode<T> | T): React.ComponentType<T> | JSX.Element;
+    valueTemplate?(item: ITreeNode<T> | T): React.ComponentType<T> | JSX.Element;
     onChange(): void;
 }
 
 interface ITreeNode<T> {
-    value: any;
-    parent?: ITreeNode<T>;
+    value: T;
     children?: Array<ITreeNode<T>>;
 }
 
@@ -228,7 +227,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         <span className="tags-input__helper-box">
                                             {this.props.valueTemplate
                                             ? this.props.valueTemplate(item)
-                                            : <span>{item.value}</span>}
+                                            : <span>{item}</span>}
                                             {this.props.readonly
                                             || <span className="tags-input__remove-button">
                                                 <i className="icon-close-small"></i>
@@ -289,7 +288,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 if (this.props.selectBranchWithChildren) {
                                                     let filteredItems = option.children
                                                     .filter((item) => {
-                                                        if (!this.state.value.includes(item)) {
+                                                        if (!this.state.value.includes(item.value)) {
                                                             return item;
                                                         }
                                                     });
@@ -302,7 +301,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 } else {
                                                     let filteredItems = option.children
                                                     .filter((item) => {
-                                                        if (!this.state.value.includes(item)
+                                                        if (!this.state.value.includes(item.value)
                                                         && !item.children) {
                                                             return item;
                                                         }
