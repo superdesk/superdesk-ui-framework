@@ -64,7 +64,7 @@ function sdCheck($parse) {
                     value = ngModel.$viewValue === attrs.ngTrueValue;
                 }
 
-                if (attrs.disabled) {
+                if (attrs.disabled || attrs.disabled === '') {
                     checkbox.addClass('sd-checkbox sd-checkbox--disabled');
                     label.addClass('sd-label--disabled');
                 }
