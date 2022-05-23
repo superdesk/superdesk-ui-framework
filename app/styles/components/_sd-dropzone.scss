@@ -51,9 +51,11 @@ $iconSize-small: 2.4rem;
         border: none;
         border: 2px dashed transparent;
         cursor: default;
+        z-index: 0;
         &.sd-dropzone__drop-target--ondragover {
             background-color: var(--sd-colour-interactive--alpha-10);
             border-color: var(--sd-colour-interactive);
+            z-index: 999;
         }
     }
 }
