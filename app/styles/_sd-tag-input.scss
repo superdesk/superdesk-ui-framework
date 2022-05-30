@@ -327,6 +327,11 @@ tags-input, .tags-input {
         .suggestion-list--multi-select {
             padding: 4px 0 !important;
         }
+        .suggestion-list--loader {
+            padding: 4px 0 !important;
+            position: relative;
+            min-height: 56px;
+        }
         .suggestion-item {
             padding: 0.5rem 1rem;
             cursor: pointer;
