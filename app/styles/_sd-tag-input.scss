@@ -300,6 +300,8 @@ tags-input, .tags-input {
             width: 100%;
             padding: 4px;
             border: none;
+            background-color: transparent;
+            color: var(--color-text);
         }
         &__button--multiselect {
             background-color: var(--sd-colour-interactive--alpha-10);
@@ -323,6 +325,7 @@ tags-input, .tags-input {
             max-height: 28rem;
             overflow-y: auto;
             position: relative;
+            
         }
         .suggestion-list--multi-select {
             padding: 4px 0 !important;
@@ -339,7 +342,6 @@ tags-input, .tags-input {
             overflow: hidden;
             text-overflow: ellipsis;
             color: $sd-text;
-            background-color: $white;
             transition: all ease-in-out 0.1s;
             &.selected {
                 background-color: var(--sd-colour-interactive--alpha-30);

@@ -229,7 +229,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     filteredItem() {
-        if (this.props.kind == 'synchronous') {
+        if (this.props.kind === 'synchronous') {
             return this.state.filterArr.filter((item: any) => {
                 if (this.state.searchFieldValue) {
                     if (item.value
@@ -251,8 +251,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         {item.value}
                     </span>
                 </li>;
-            })
-        } else if (this.props.kind == 'asynchronous') {
+            });
+        } else if (this.props.kind === 'asynchronous') {
             return this.state.options.map((item, i) => {
                 return (
                     <li key={i}
@@ -266,8 +266,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             {item.value}
                         </span>
                     </li>
-                )
-            })
+                );
+            });
         }
     }
 
@@ -331,12 +331,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 ref={(input: any) => input && input.focus()}
                                 value={this.state.searchFieldValue}
                                 onChange={(event) => {
-                                    if (this.props.kind == 'asynchronous') {
-                                        this.props.searchOptions(event.target.value,(items) => {
+                                    if (this.props.kind === 'asynchronous') {
+                                        this.props.searchOptions(event.target.value, (items) => {
                                             this.setState({options: items, searchFieldValue: event.target.value});
-                                        })    
-                                    } else if (this.props.kind == 'synchronous') {
-                                        this.setState({searchFieldValue: event.target.value});   
+                                        });
+                                    } else if (this.props.kind === 'synchronous') {
+                                        this.setState({searchFieldValue: event.target.value});
                                     }
                                 }}
                                 />
@@ -345,8 +345,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     </div>
                     {this.state.loading
                     ? <ul className="suggestion-list--loader"><Loader overlay={true}></Loader></ul>
-                
-                    : 
+                    :
                     this.state.searchFieldValue === ''
                         ? this.props.getOptions ?
                         <ul className="suggestion-list suggestion-list--multi-select">
@@ -401,7 +400,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 }}>
                                     {this.props.optionTemplate
                                     ? this.props.optionTemplate(option.value)
-                                    : <span className={this.state.value.includes(option) ? 'suggestion-item--disabled' : null}>
+                                    : <span
+                                    className={this.state.value.includes(option) ? 'suggestion-item--disabled' : null}>
                                         {option.value}
                                     </span>}
                                     {option.children && <span className="suggestion-item__icon">
@@ -410,12 +410,11 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </li>
                             );
                         })}</ul> : null
-                        : 
+                        :
                         <ul className="suggestion-list suggestion-list--multi-select">
                         {this.filteredItem()}
                         </ul>
-                    
-                }               
+                }
                 </div>}
             </div>
         );
