@@ -81,7 +81,7 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
             [`boxed-list__item--${this.props.type}`]: this.props.type || this.props.type !== undefined,
         });
         return (
-            <li className={classes}>
+            <li className={classes} onClick={this.props.onClick}>
 
                 {this.props.media && (
                     <BoxedListMedia>
