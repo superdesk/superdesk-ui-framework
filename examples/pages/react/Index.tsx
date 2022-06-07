@@ -53,6 +53,7 @@ import HeadingDoc from "./Heading";
 import TextDoc from "./Text";
 import ContainerDoc from './Container';
 import DropZoneDoc from './DropZone';
+import CreateButtonDoc from './CreateButton';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
@@ -239,6 +240,9 @@ const pages = {
             'dropzone': {
                 name: 'DropZone'
             },
+            'create-button': {
+                name: 'CreateButton'
+            },
         }
     },
     generalComponents: {
@@ -354,6 +358,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/text" component={TextDoc} />
                         <Route path="/react/container" component={ContainerDoc} />
                         <Route path="/react/dropzone" component={DropZoneDoc} />
+                        <Route path="/react/create-button" component={CreateButtonDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

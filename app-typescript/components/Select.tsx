@@ -13,6 +13,7 @@ interface ISelect {
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
+    fullWidth?: boolean;
     onChange(newValue: string): void;
 }
 
@@ -45,6 +46,7 @@ class Select extends React.Component<ISelect, IState> {
             'sd-input--inline-label': this.props.inlineLabel,
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
+            'sd-input--full-width': this.props.fullWidth,
             'sd-input--invalid': this.props.invalid || this.state.invalid,
         });
         const labelClasses = classNames('sd-input__label', {

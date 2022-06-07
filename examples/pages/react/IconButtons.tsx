@@ -46,9 +46,9 @@ export default class IconButtonDoc extends React.Component {
                         <p className="docs-page__paragraph--small">The 'outlineWhite' syle forces a white icon and outline. It can be used on dark overlays for example.</p>
                         <div style={{background: 'hsla(214, 13%, 12%, 1)'}} className="sd-container sd-container--flex sd-container--gap-large sd-radius--medium sd-shadow--z2 sd-padding--3">
                             <ButtonGroup align='center' spaces='loose'>
-                                <IconButton style='outlineWhite' size='x-large' icon='pencil' ariaValue='Add' onClick={()=> false} />
-                                <IconButton style='outlineWhite' disabled={true} size='x-large' icon='switches' ariaValue='Add' onClick={()=> false} />
-                                <IconButton style='outlineWhite' size='x-large' icon='crop' ariaValue='Close' onClick={()=> false} />
+                                <IconButton style='outlineWhite' size='x-large' icon='pencil' ariaValue='Edit metadata' onClick={()=> false} />
+                                <IconButton style='outlineWhite' disabled={true} size='x-large' icon='switches' ariaValue='Edit image' onClick={()=> false} />
+                                <IconButton style='outlineWhite' size='x-large' icon='crop' ariaValue='Edit crops' onClick={()=> false} />
                             </ButtonGroup>
                         </div>
 
@@ -74,9 +74,9 @@ export default class IconButtonDoc extends React.Component {
 
                         // Xtra large, outlineWhite style
                         <ButtonGroup align='center' spaces='loose'>
-                            <IconButton style='outlineWhite' size='x-large' icon='pencil' ariaValue='Add' onClick={()=> false} />
-                            <IconButton style='outlineWhite' disabled={true} size='x-large' icon='switches' ariaValue='Add' onClick={()=> false} />
-                            <IconButton style='outlineWhite' size='x-large' icon='crop' ariaValue='Close' onClick={()=> false} />
+                            <IconButton style='outlineWhite' size='x-large' icon='pencil' ariaValue='Edit metadata' onClick={()=> false} />
+                            <IconButton style='outlineWhite' disabled={true} size='x-large' icon='switches' ariaValue='Edit image' onClick={()=> false} />
+                            <IconButton style='outlineWhite' size='x-large' icon='crop' ariaValue='Edit crops' onClick={()=> false} />
                         </ButtonGroup>
                     `}
                     </Markup.ReactMarkupCode>

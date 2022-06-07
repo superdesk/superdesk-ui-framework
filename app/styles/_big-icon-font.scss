@@ -23,37 +23,38 @@ $icon-color: $grayDark !default;
 }
 
 @mixin big-icon-base {
-  display: inline-block;
-  width: 26px;
-  height: 26px;
-  line-height: 26px;
-  font-family: 'sd_big-icons';
-  font-size: 26px;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
+    --big-icon-size: 26px;
+    font-family: 'sd_big-icons';
+    display: inline-block;
+    width: var(--big-icon-size);
+    height: var(--big-icon-size);
+    line-height: var(--big-icon-size);
+    font-size: var(--big-icon-size);
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
 }
 
 [class^="big-icon--"],
 [class*=" big-icon--"] {
-  @include big-icon-base;
-  color: $icon-color;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    @include big-icon-base;
+    color: $icon-color;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .big-icon--blue {
-  color: $sd-colour-interactive;
+    color: $sd-colour-interactive;
 }
 .big-icon--white {
-  color: $white !important;
+    color: $white !important;
 }
 [class*=big-icon--].red,
 .big-icon--red {
-  color: $fireBrick;
+    color: $fireBrick;
 }
 
 // Icons definition
@@ -111,14 +112,50 @@ $sd-big-icon-font: (
     suggestion: "\e632",
     publisher: "\e633",
     tag: "\e634",
+    rundown: "\e635",
+    checkmark-circle: "\e636",
 );
 
 @each $name, $value in $sd-big-icon-font {
-  &.big-icon--#{$name}:before {
-    content: $value;
-  }
+    &.big-icon--#{$name} {
+        content: $value;
+        &.color--default {
+            color: $icon-color;
+        }
+        &.color--primary {
+            color: var(--sd-colour-primary) !important;
+        }
+        &.color--success {
+            color: var(--sd-colour-success) !important;
+        }
+        &.color--warning {
+            color: var(--sd-colour-warning) !important;
+        }
+        &.color--alert {
+            color: var(--sd-colour-alert) !important;
+        }
+        &.color--highlight {
+            color: var(--sd-colour-highlight) !important;
+        }
+        &.color--light {
+            color: var(--color-text-lighter) !important;
+        }
+
+        &.scale--2x {
+            --big-icon-size: 52px
+        }
+        &.scale--3x {
+            --big-icon-size: 78px
+        }
+        &.scale--4x {
+            --big-icon-size: 104px
+        }
+    }
+    &.big-icon--#{$name}:before {
+        content: $value;
+    }
 }
 
 :export {
-  icon: map-keys($sd-big-icon-font);
+    icon: map-keys($sd-big-icon-font);
 }

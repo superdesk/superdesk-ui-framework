@@ -9,7 +9,7 @@ interface IState {
     required: boolean;
     disabled: boolean;
     invalid: boolean;
-    value: number;
+    value: any;
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -47,12 +47,41 @@ export default class InputsDoc extends React.Component<{}, IState> {
 
                             <div className='form__row'>
                                 <Input label='Input label'
-                                    value={this.state.value}
+                                    value={null}
                                     maxLength={30}
-                                    type='number'
+                                    type='text'
                                     error='This is error message'
                                     info='This is some hint message'
                                     inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value: value})} />
+                            </div>
+                            <div className='form__row'>
+                                <Input label='Number Input'
+                                    value={this.state.value}
+                                    type='number'
+                                    error='This is error message'
+                                    info='Morbi leo risus porta ac consectetur ac.'
+                                    inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value: value})} />
+                            </div>
+                            <p className="docs-page__paragraph">// Hidden label</p>
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value={null}
+                                    maxLength={25}
+                                    type='text'
+                                    error='This is error message'
+                                    info='Donec id elit non mi porta gravida at eget metus.'
+                                    inlineLabel={true}
+                                    labelHidden={true}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}

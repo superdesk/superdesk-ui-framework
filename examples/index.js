@@ -410,6 +410,10 @@ export default angular.module('ui-docs', [
             'rundown-editor': {
                 name: 'Rundown Editor',
                 component: 'RundownEditor'
+            },
+            'rundowns': {
+                name: 'Rundowns',
+                component: 'Rundowns'
             }
         }
     }))

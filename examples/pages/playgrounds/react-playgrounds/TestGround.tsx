@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel } from '../../../../app-typescript/index';
 import { Carousel } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
@@ -56,6 +56,104 @@ export class TestGround extends React.Component<IProps, IState> {
             <Components.Layout header='Testing Ground'>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
+                    <h3 className="docs-page__h3 sd-margin-y--0">Table list</h3>
+                        <hr />
+                        <div className="sd-check__group-new sd-check__group-new--vertical">
+                            
+                            <ul className='table-list'>
+                                <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                    <div className='table-list__item-content'>
+                                        <div className='table-list__item-content-block'>
+                                            <Label style='translucent' text='aacc' />
+                                            <Label style='translucent' type='primary' text='prlg' />
+                                        </div>
+                                        <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                            <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                        </div>
+                                        <div className='table-list__item-content-block'>
+                                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                        </div>
+                                    </div>
+                                    <div className='table-list__slide-in-actions'>
+                                        <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                    </div>
+                                </li>
+                                <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                    <div className='table-list__item-content'>
+                                        <div className='table-list__item-content-block'>
+                                            <Label style='translucent' type='warning' text='pokr' />
+                                            <Label style='translucent' text='slika' />
+                                        </div>
+                                        <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                            <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                        </div>
+                                        <div className='table-list__item-content-block'>
+                                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                        </div>
+                                    </div>
+                                    <div className='table-list__slide-in-actions'>
+                                        <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                    </div>
+                                </li>
+                                <li className='table-list__item table-list__item--clickable'>
+                                    <div className='table-list__item-content'>
+                                        <div className='table-list__item-content-block'>
+                                            <Label style='translucent' type='warning' text='pokr' />
+                                            <Label style='translucent' text='slika' />
+                                        </div>
+                                        <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                            <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                        </div>
+                                        <div className='table-list__item-content-block'>
+                                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                        </div>
+                                    </div>
+                                    <div className='table-list__slide-in-actions'>
+                                        <IconButton icon='pencil' size='small' ariaValue='More actions' onClick={()=> false} />
+                                        <IconButton icon='trash' size='small' ariaValue='More actions' onClick={()=> false} />
+                                    </div>
+                                </li>
+                                <li className='table-list__item table-list__item--clickable table-list__item--selected'>
+                                    <div className='table-list__item-content'>
+                                        <div className='table-list__item-content-block'>
+                                            <Label style='translucent' type='warning' text='pokr' />
+                                            <Label style='translucent' text='slika' />
+                                        </div>
+                                        <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                            <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                        </div>
+                                        <div className='table-list__item-content-block'>
+                                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                        </div>
+                                    </div>
+                                    <div className='table-list__slide-in-actions'>
+                                        <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                    </div>
+                                </li>
+                                <li className='table-list__item table-list__item--clickable'>
+                                    <div className='table-list__item-content'>
+                                        <div className='table-list__item-content-block'>
+                                            <Label style='translucent' type='warning' text='pokr' />
+                                            <Label style='translucent' text='slika' />
+                                        </div>
+                                        <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                            <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                        </div>
+                                        <div className='table-list__item-content-block'>
+                                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                        </div>
+                                    </div>
+                                    <div className='table-list__slide-in-actions'>
+                                        <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <hr /><hr />
+
+
+
                         <h3 className="docs-page__h3 sd-margin-y--0">Checkbox</h3>
                         <hr />
                         <div className="sd-check__group-new sd-check__group-new--vertical">
@@ -167,182 +265,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             <div className="color-swatch colour-test--1"></div>
                             <div className="color-swatch colour-test--2"></div>
                         </div>
-                        {/* <hr />
-                        <div className="sd-theme-selector__list">
-                            <div className="sd-theme-selector__item">
-                                <figure className="sd-theme-selector__item-thumb" data-theme="light-ui">
-                                    <svg viewBox="0 0 156 94" xmlns="http://www.w3.org/2000/svg">
-                                        <g fill="none" fillRule="evenodd">
-                                            <path d="m0 0h156v94h-156z" fill="var(--sd-colour-panel-bg--100)"/>
-                                            <circle cx="144" cy="33" fill="var(--color-text-lighter)" r="4"/>
-                                            <rect fill="var(--sd-colour-interactive)" height="15" rx="2" width="58" x="91" y="71"/>
-                                            <g fill="var(--sd-colour-btn-bg-neutral)">
-                                                <rect height="15" rx="2" width="58" x="29" y="52"/>
-                                                <rect height="15" rx="2" width="58" x="29" y="71"/>
-                                                <rect height="15" rx="2" width="58" x="91" y="52"/>
-                                            </g>
-                                            <g fill="#fff">
-                                                <rect height="3" rx="1.5" width="9" x="99" y="77"/>
-                                                <rect height="3" rx="1.5" width="11" x="130" y="77"/>
-                                                <rect height="3" rx="1.5" width="18" x="110" y="77"/>
-                                            </g>
-                                            <g fill="var(--color-text-light)">
-                                                <rect height="3" rx="1.5" width="9" x="37" y="58"/>
-                                                <rect height="3" rx="1.5" width="11" x="68" y="58"/>
-                                                <rect height="3" rx="1.5" width="18" x="48" y="58"/>
-                                                <rect height="3" rx="1.5" width="9" x="37" y="77"/>
-                                                <rect height="3" rx="1.5" width="11" x="68" y="77"/>
-                                                <rect height="3" rx="1.5" width="18" x="48" y="77"/>
-                                                <rect height="3" rx="1.5" width="9" x="99" y="58"/>
-                                                <rect height="3" rx="1.5" width="11" x="130" y="58"/>
-                                                <rect height="3" rx="1.5" width="18" x="110" y="58"/>
-                                            </g>
-                                            <g fill="var(--color-text)">
-                                                <rect height="4" rx="2" width="11" x="29" y="31"/>
-                                                <rect height="4" rx="2" width="14" x="70" y="31"/>
-                                                <rect height="4" rx="2" width="23" x="43" y="31"/>
-                                            </g>
-                                            <path d="m0 22h22v72h-22z" fill="var(--sd-colour-sidebar-menu--00)"/>
-                                            <circle cx="11" cy="52" fill="var(--sd-colour-interactive)" r="6"/>
-                                            <g fill="var(--color-icon-default)" opacity=".75">
-                                                <circle cx="11" cy="34" r="6"/>
-                                                <circle cx="11" cy="70" r="6"/>
-                                            </g>
-                                            <path d="m0 0h156v22h-156z" fill="var(--sd-colour-top-menu)"/>
-                                            <path d="m0 22h156v1h-156z" fill="var(--sd-colour--shadow-line)"/>
-                                            <g fill="hsla(214, 13%, 65%, 1)" opacity="1">
-                                                <rect height="4" rx="2" width="11" x="31" y="9"/>
-                                                <rect height="4" rx="2" width="23" x="45" y="9"/>
-                                            </g>
-                                            <path d="m22 44h134v1h-134z" fill="var(--sd-colour-line--medium)"/>
-                                            <path d="m0 0h22v22h-22z" fill="var(--sd-colour-top-menu__btn)"/>
-                                            <path d="m15 13v1h-8v-1zm0-3v1h-8v-1zm0-3v1h-8v-1z" fill="#fff"/>
-                                        </g>
-                                    </svg>
-                                </figure>
-                                <div className="sd-theme-selector__item-action">
-                                    <input type="radio" className="sd-theme-selector__input" id="id50" name="id5" />
-                                    <span className="sd-radio-new"></span>
-                                    <label className="sd-theme-selector__label" htmlFor="id50">Light</label>
-                                </div>
-                            </div>
 
-                            <div className="sd-theme-selector__item">
-                                <figure className="sd-theme-selector__item-thumb" data-theme="dark-ui">
-                                    <svg viewBox="0 0 156 94" xmlns="http://www.w3.org/2000/svg">
-                                        <g fill="none" fillRule="evenodd">
-                                            <path d="m0 0h156v94h-156z" fill="var(--sd-colour-panel-bg--100)"/>
-                                            <circle cx="144" cy="33" fill="var(--color-text-lighter)" r="4"/>
-                                            <rect fill="var(--sd-colour-interactive)" height="15" rx="2" width="58" x="91" y="71"/>
-                                            <g fill="var(--sd-colour-btn-bg-neutral)">
-                                                <rect height="15" rx="2" width="58" x="29" y="52"/>
-                                                <rect height="15" rx="2" width="58" x="29" y="71"/>
-                                                <rect height="15" rx="2" width="58" x="91" y="52"/>
-                                            </g>
-                                            <g fill="#fff">
-                                                <rect height="3" rx="1.5" width="9" x="99" y="77"/>
-                                                <rect height="3" rx="1.5" width="11" x="130" y="77"/>
-                                                <rect height="3" rx="1.5" width="18" x="110" y="77"/>
-                                            </g>
-                                            <g fill="var(--color-text-light)">
-                                                <rect height="3" rx="1.5" width="9" x="37" y="58"/>
-                                                <rect height="3" rx="1.5" width="11" x="68" y="58"/>
-                                                <rect height="3" rx="1.5" width="18" x="48" y="58"/>
-                                                <rect height="3" rx="1.5" width="9" x="37" y="77"/>
-                                                <rect height="3" rx="1.5" width="11" x="68" y="77"/>
-                                                <rect height="3" rx="1.5" width="18" x="48" y="77"/>
-                                                <rect height="3" rx="1.5" width="9" x="99" y="58"/>
-                                                <rect height="3" rx="1.5" width="11" x="130" y="58"/>
-                                                <rect height="3" rx="1.5" width="18" x="110" y="58"/>
-                                            </g>
-                                            <g fill="var(--color-text)">
-                                                <rect height="4" rx="2" width="11" x="29" y="31"/>
-                                                <rect height="4" rx="2" width="14" x="70" y="31"/>
-                                                <rect height="4" rx="2" width="23" x="43" y="31"/>
-                                            </g>
-                                            <path d="m0 22h22v72h-22z" fill="var(--sd-colour-sidebar-menu--00)"/>
-                                            <circle cx="11" cy="52" fill="var(--sd-colour-interactive)" r="6"/>
-                                            <g fill="var(--color-icon-default)" opacity=".75">
-                                                <circle cx="11" cy="34" r="6"/>
-                                                <circle cx="11" cy="70" r="6"/>
-                                            </g>
-                                            <path d="m0 0h156v22h-156z" fill="var(--sd-colour-top-menu)"/>
-                                            <path d="m0 22h156v1h-156z" fill="var(--sd-colour--shadow-line)"/>
-                                            <g fill="hsla(214, 13%, 65%, 1)" opacity="1">
-                                                <rect height="4" rx="2" width="11" x="31" y="9"/>
-                                                <rect height="4" rx="2" width="23" x="45" y="9"/>
-                                            </g>
-                                            <path d="m22 44h134v1h-134z" fill="var(--sd-colour-line--medium)"/>
-                                            <path d="m0 0h22v22h-22z" fill="var(--sd-colour-top-menu__btn)"/>
-                                            <path d="m15 13v1h-8v-1zm0-3v1h-8v-1zm0-3v1h-8v-1z" fill="#fff"/>
-                                        </g>
-                                    </svg>
-                                </figure>
-                                <div className="sd-theme-selector__item-action">
-                                    <input type="radio" className="sd-theme-selector__input" id="id50" name="id5" />
-                                    <span className="sd-radio-new"></span>
-                                    <label className="sd-theme-selector__label" htmlFor="id50">Dark</label>
-                                </div>
-                            </div>
-
-                            <div className="sd-theme-selector__item">
-                                <figure className="sd-theme-selector__item-thumb" data-theme="accessible-light-ui">
-                                    <svg viewBox="0 0 156 94" xmlns="http://www.w3.org/2000/svg">
-                                        <g fill="none" fillRule="evenodd">
-                                            <path d="m0 0h156v94h-156z" fill="var(--sd-colour-panel-bg--100)"/>
-                                            <circle cx="144" cy="33" fill="var(--color-text-lighter)" r="4"/>
-                                            <rect fill="var(--sd-colour-interactive)" height="15" rx="2" width="58" x="91" y="71"/>
-                                            <g fill="var(--sd-colour-btn-bg-neutral)">
-                                                <rect height="15" rx="2" width="58" x="29" y="52"/>
-                                                <rect height="15" rx="2" width="58" x="29" y="71"/>
-                                                <rect height="15" rx="2" width="58" x="91" y="52"/>
-                                            </g>
-                                            <g fill="#fff">
-                                                <rect height="3" rx="1.5" width="9" x="99" y="77"/>
-                                                <rect height="3" rx="1.5" width="11" x="130" y="77"/>
-                                                <rect height="3" rx="1.5" width="18" x="110" y="77"/>
-                                            </g>
-                                            <g fill="var(--color-text-light)">
-                                                <rect height="3" rx="1.5" width="9" x="37" y="58"/>
-                                                <rect height="3" rx="1.5" width="11" x="68" y="58"/>
-                                                <rect height="3" rx="1.5" width="18" x="48" y="58"/>
-                                                <rect height="3" rx="1.5" width="9" x="37" y="77"/>
-                                                <rect height="3" rx="1.5" width="11" x="68" y="77"/>
-                                                <rect height="3" rx="1.5" width="18" x="48" y="77"/>
-                                                <rect height="3" rx="1.5" width="9" x="99" y="58"/>
-                                                <rect height="3" rx="1.5" width="11" x="130" y="58"/>
-                                                <rect height="3" rx="1.5" width="18" x="110" y="58"/>
-                                            </g>
-                                            <g fill="var(--color-text)">
-                                                <rect height="4" rx="2" width="11" x="29" y="31"/>
-                                                <rect height="4" rx="2" width="14" x="70" y="31"/>
-                                                <rect height="4" rx="2" width="23" x="43" y="31"/>
-                                            </g>
-                                            <path d="m0 22h22v72h-22z" fill="var(--sd-colour-sidebar-menu--00)"/>
-                                            <circle cx="11" cy="52" fill="var(--sd-colour-interactive)" r="6"/>
-                                            <g fill="var(--color-icon-default)" opacity=".75">
-                                                <circle cx="11" cy="34" r="6"/>
-                                                <circle cx="11" cy="70" r="6"/>
-                                            </g>
-                                            <path d="m0 0h156v22h-156z" fill="var(--sd-colour-top-menu)"/>
-                                            <path d="m0 22h156v1h-156z" fill="var(--sd-colour--shadow-line)"/>
-                                            <g fill="hsla(214, 13%, 65%, 1)" opacity="1">
-                                                <rect height="4" rx="2" width="11" x="31" y="9"/>
-                                                <rect height="4" rx="2" width="23" x="45" y="9"/>
-                                            </g>
-                                            <path d="m22 44h134v1h-134z" fill="var(--sd-colour-line--medium)"/>
-                                            <path d="m0 0h22v22h-22z" fill="var(--sd-colour-top-menu__btn)"/>
-                                            <path d="m15 13v1h-8v-1zm0-3v1h-8v-1zm0-3v1h-8v-1z" fill="#fff"/>
-                                        </g>
-                                    </svg>
-                                </figure>
-                                <div className="sd-theme-selector__item-action">
-                                    <input type="radio" className="sd-theme-selector__input" id="id50" name="id5" />
-                                    <span className="sd-radio-new"></span>
-                                    <label className="sd-theme-selector__label" htmlFor="id50">High Contrast</label>
-                                </div>
-                            </div>
-                        </div> */}
                         <hr />
                         <Container className='sd-padding--4 sd-panel-bg--100 sd-radius--large'>
                             <ThemeSelector size='small' options={[

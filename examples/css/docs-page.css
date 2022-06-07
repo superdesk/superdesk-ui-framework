@@ -6,7 +6,7 @@
     --docs-page-color-bg-default: hsl(0, 0%, 97%);
     --docs-page-color-bg-00: hsla(214, 13%, 96%, 1);
     --docs-page-color-bg-10: hsla(0, 0%, 100%, 1);
-    --docs-page-color-bg__window-bar: hsl(0, 0%, 92%);
+    --docs-page-color-bg__window-bar: hsl(214, 13%, 90%);
     --docs-page-color-bg__aside: hsla(214, 13%, 92%, 1);
     --docs-page-color-bg__header: hsl(216, 45%, 24%);
 
@@ -26,7 +26,7 @@
     --docs-page-color-bg-default: hsla(214, 13%, 96%, 1);
     --docs-page-color-bg-00: hsla(214, 13%, 12%, 1);
     --docs-page-color-bg-10: hsla(214, 13%, 12%, 1);
-    --docs-page-color-bg__window-bar: hsl(0, 0%, 8%);
+    --docs-page-color-bg__window-bar: hsl(214, 13%, 8%);
     --docs-page-color-bg__aside: hsla(214, 13%, 16%, 1);
     --docs-page-color-bg__header: hsl(216, 40%, 18%);
 
@@ -858,7 +858,6 @@ pre.prettyprint {
     scroll-behavior: smooth;
 }
 
-.
 /* ---------------- COLOR SWATCHES ---------------- */
 
 .doc-swatches__grid {

@@ -126,7 +126,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                 <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
                             </dl>
                         </div>
-                        <ButtonGroup  align='end'>
+                        <ButtonGroup align='end'>
                             <IconButton icon="preview-mode" toolTipAppend={true} ariaValue="Print preview" onClick={()=> false} />
                             <IconButton icon="adjust" ariaValue="Toogle theme" onClick={()=> false} />
                             <IconButton icon="switches" ariaValue="Theme settings" onClick={()=> false} />

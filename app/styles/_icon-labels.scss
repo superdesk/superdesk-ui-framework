@@ -2,7 +2,7 @@
 
 /// Default background color for icon labels.
 $label-icon-background: transparent !default;
-$label-icon-background-translucent: rgba(123,123,123,0.16);
+$label-icon-background-translucent: hsla(0, 0%, 48%, 0.16);
 
 /// Default text color for icon labels.
 $label-icon-color: var(--color-label-text);
@@ -16,6 +16,12 @@ $label-icon-palette: $sd-basic-palette;
 /// Default padding inside labels.
 $label-icon-padding: 0.6rem !default;
 
+$label-height--default: 2.4rem;
+$label-height--large: 3.2rem;
+$label-height--small: 1.6rem;
+$icon-size--large: 2rem;
+$icon-size--small: 1.2rem;
+
 /// Generates base styles for a icon label.
 @mixin label-icon {
     display: inline-flex;
@@ -23,17 +29,31 @@ $label-icon-padding: 0.6rem !default;
     padding-inline-end: $label-icon-padding;
     vertical-align: middle;
     align-items: center;
+    justify-content: center;
     line-height: 1;
     font-size: 13px;
     white-space: nowrap;
     cursor: default;
+    line-height: 1;
+    [class^="icon-"], & [class*=" icon-"] {
+        color: $label-icon-color;
+        margin-inline-end: .4rem;
+        opacity: 1 !important;
+    }
+    
 }
 
 @mixin label-icon-translucent {
     font-size: 12px;
-    height: 24px;
+    height: $label-height--default;
     border-radius: $border-radius__base--full;
-    padding-inline: 0.8rem 1.2rem;
+    padding-inline: 1.2rem;
+    gap: 4px;
+    [class^="icon-"], & [class*=" icon-"] {
+        margin-inline-end: .2rem;
+        margin-inline-start: -4px;
+        line-height: 1;
+    }
 }
 
 
@@ -42,12 +62,6 @@ $label-icon-padding: 0.6rem !default;
 
     background: $label-icon-background;
     color: $label-icon-color;
-    
-    [class^="icon-"], & [class*=" icon-"] {
-        color: $label-icon-color;
-        margin-inline-end: .4rem;
-        opacity: 1 !important;
-    }
 
     @each $name, $color in $label-icon-palette {
         &.label-icon--#{$name} {
@@ -65,6 +79,48 @@ $label-icon-padding: 0.6rem !default;
                 background-color: scale-color($color, $alpha: -88%);
             }
         }
+        &.label-icon--large {
+            [class^="icon-"], & [class*=" icon-"] {
+                margin-inline-start: -4px;
+                height: $icon-size--large;
+                width: $icon-size--large;
+                font-size: $icon-size--large;
+                line-height: 1;
+            }
+        }
+        &.label-icon--small {
+            [class^="icon-"], & [class*=" icon-"] {
+                margin-inline-start: -3px;
+                height: $icon-size--small;
+                width: $icon-size--small;
+                font-size: $icon-size--small;
+                line-height: 1;
+            }
+        }
     }
-
+    &.label-icon--large {
+        height: $sd-base-increment * 4;
+        padding: 0 $sd-base-increment * 2;
+        font-size: 1.4rem;
+        font-weight: 500;
+        line-height: inherit;
+    }
+    &.label-icon--small{
+        height: $sd-base-increment * 2;
+        padding: 0 $sd-base-increment * 1;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: inherit;
+        letter-spacing: 0.06em;
+        gap: 2px;
+        .label-icon--inner-label {
+            font-weight: 400;
+            letter-spacing: 0.06em;
+        }
+    }
+    .label-icon--inner-label {
+        font-weight: 300;
+        text-transform: uppercase;
+        line-height: inherit;
+    }
 }

@@ -144,7 +144,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     flex-direction: column;
     justify-content: center;
     border-right: 1px solid $sd-ListItem-column-border;
-    padding: 0 0.8rem;
+    padding: 0 $sd-base-increment * 1.5;
     overflow: hidden;
     flex-shrink: 0;
     &:last-child, &:last-of-type, &:only-child {
@@ -219,6 +219,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     justify-content: flex-start;
     align-items: center;
     overflow: hidden;
+    gap: var(--gap--small);
     &:first-child {
         margin: 0.8rem 0 0.2rem;
     }
@@ -292,11 +293,11 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 }
 
 //  Overrides for inner elements
-.sd-list-item {
-    .label {
-        margin-right: 0.6rem;
-    }
-}
+// .sd-list-item {
+//     .label {
+//         margin-right: 0.6rem;
+//     }
+// }
 
 .sd-list-item {
     .badge {
@@ -322,44 +323,43 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 // Text specific styles
 .sd-list-item {
     time {
-        color: var(--color-text-lighter);
+        color: var(--color-text-light);
         font-size: 1.2rem;
         letter-spacing: 0.025em;
         flex-shrink: 0;
-        padding-left: 1em;
     }
     .sd-list-item__slugline {
         color: $sd-slugline;
         font-weight: 500;
         font-size: 1.2rem;
         text-transform: uppercase;
-        margin-right: 1rem;
+        flex-shrink: 0;
     }
     .sd-list-item__headline {
         color: $sd-text;
         font-weight: 500;
         font-size: 1.3rem;
-        margin-right: 1rem;
     }
     .sd-list-item__normal {
         color: $sd-text;
         font-weight: 300;
-        margin-right: 1rem;
     }
     .sd-list-item__strong {
         color: $sd-text;
         font-weight: 500;
-        margin-right: 1rem;
     }
     .sd-list-item__text-label {
-        color: $sd-text;
-        opacity: 0.7;
-        font-weight: 300;
+        color: var(--color-text-light);
+        font-weight: 400;
         font-style: italic;
-        margin-right: 0.3rem;
         &--normal {
             font-style: normal;
         }
+    }
+    .sd-list-item__compound-text {
+        display: flex;
+        flex-direction: row;
+        gap: var(--gap--x-small);
     }
     .sd-list-item__inline-icon,
     .sd-list-item__inline-text {
@@ -470,7 +470,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 .sd-list-item-nested {
     display: flex;
     flex-direction: column;
-    margin-top: .8rem;
+    //margin-top: .8rem;
 }
 .sd-list-item-nested__childs {
     position: relative;
@@ -478,7 +478,6 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     display: flex;
     flex-direction: column;
     margin-left: 1rem;
-    margin-bottom: 0.8rem;
     .sd-list-item {
         margin-top: 0;
         border-top: 1px solid var(--sd-colour-line--x-light);
@@ -508,6 +507,8 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 
 // sd list item GROUP
 .sd-list-item-group {
+    display: flex;
+    flex-direction: column;
     .sd-list-item {
         + .sd-list-item {
             border-top: 1px solid var(--sd-colour-line--x-light);
@@ -519,15 +520,18 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         }
     }
     &--space-between-items {
+        gap: var(--gap--small);
         .sd-list-item {
+            border-radius: var(--b-radius--small);
             + .sd-list-item {
-                margin-top: .8rem;
                 border-top: none;
+            }
+            .sd-list-item__border {
+                border-radius: var(--b-radius--small) 0 0 var(--b-radius--small);
             }
         }
         .sd-list-item-nested {
             + .sd-list-item {
-                margin-top: .8rem;
                 border-top: none;
             }
         }

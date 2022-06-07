@@ -29,19 +29,27 @@ export default class DropZoneDoc extends React.Component<IProps> {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Basic</p>
                         <div className='docs-page__content-row'>
-                            <DropZone actionText='Attach file' text="Drag one or more files here to upload them, or just click on the field.">
-                                 
+                            <DropZone text="Drag one or more files here to upload them, or just click on the field.">               
                             </DropZone>
                         </div>
 
-                        <p className="docs-page__paragraph">// Usage examples</p>
-
-
-
+                        <p className="docs-page__paragraph">// With heading</p>
                         <div className='docs-page__content-row'>
-
+                            <DropZone heading="Nothing here yet" text="Drag one or more files here to upload them, or just click on the field.">               
+                            </DropZone>
                         </div>
 
+                        <p className="docs-page__paragraph">// With icon</p>
+                        <div className='docs-page__content-row'>
+                            <DropZone icon={true} text="Drag one or more files here to upload them, or just click on the field.">               
+                            </DropZone>
+                        </div>
+
+                        <p className="docs-page__paragraph">// With heading & icon</p>
+                        <div className='docs-page__content-row'>
+                            <DropZone icon={true} heading="Nothing here yet" text="Drag one or more files here to upload them, or just click on the field.">               
+                            </DropZone>
+                        </div>
                         
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`

@@ -5,6 +5,7 @@ interface IProps {
     size?: 'small' | 'big'; // defaults to 'small'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light';
     className?: string;
+    scale?: '2x' | '3x' | '4x';
     ariaHidden?: boolean;
 }
 
@@ -14,7 +15,8 @@ export class Icon extends React.PureComponent<IProps> {
             [`icon-${this.props.name}`]:
                 (this.props.name && !this.props.size) || (this.props.name && this.props.size === 'small'),
             [`big-icon--${this.props.name}`]: this.props.name && this.props.size === 'big',
-            [`${this.props.type}`]: this.props.type,
+            [`color--${this.props.type}`]: this.props.type,
+            [`scale--${this.props.scale}`]: this.props.scale,
         });
         return (
             <i className={classes} aria-label={this.props.name} aria-hidden={this.props.ariaHidden}></i>

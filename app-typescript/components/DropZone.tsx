@@ -1,11 +1,12 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Icon } from './Icon';
+import * as PanelElements from '../../app-typescript/components/Layouts/Panel';
 
 interface IProps {
     icon?: boolean;
-    text: string;
-    actionText: string;
+    iconSmall?: boolean;
+    text?: string;
     heading?: string;
     className?: string;
     width?: 'auto' | 'full';
@@ -71,8 +72,9 @@ export class DropZone extends React.PureComponent<IProps, IState> {
             onDragEnd={() => false}
             >
                 <div className='sd-dropzone__target-border'>
-                    <input type="file" className='sd-dropzone__input'/>
+                    
                 </div>
+                <input type="file" className='sd-dropzone__input'/>
                 {this.props.icon ?
                     <figure className='sd-dropzone__icon' aria-hidden='true'>
                         <Icon name='upload-alt' size='big' />
@@ -82,7 +84,6 @@ export class DropZone extends React.PureComponent<IProps, IState> {
                     <h4 className='sd-dropzone__heading'>{this.props.heading}</h4> : null
                 }
                 <p className='sd-dropzone__description'>{this.props.text}</p>
-                {/* <Button text={this.props.actionText} style='hollow' onClick={() => false} /> */}
             </div>
         );
     }

@@ -603,6 +603,10 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     background: transparent;
     vertical-align: top;
     display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0px solid var(--sd-colour-line--x-light);
+    border-inline-width: 1px 0;
     .circle {
         display: inline-block;
         text-align: center;

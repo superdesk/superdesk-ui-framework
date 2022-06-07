@@ -69,6 +69,7 @@ export { SelectGrid } from './components/SelectGrid';
 export { IconPicker } from './components/IconPicker';
 export { ThemeSelector } from './components/ThemeSelector';
 export { DropZone } from './components/DropZone';
+export { CreateButton } from './components/CreateButton';
 
 export * from './components/Layouts';
 export * from './components/Form';
