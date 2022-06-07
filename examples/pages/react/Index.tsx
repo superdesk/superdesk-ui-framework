@@ -60,6 +60,7 @@ import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
+import { ListItemDocs } from './ListItem';
 
 const pages = {
     basicComponents: {
@@ -188,6 +189,9 @@ const pages = {
             },
             'boxed-list': {
                 name: 'Boxed list'
+            },
+            'list-item': {
+                name: 'List Item'
             },
         }
     },
@@ -350,6 +354,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/icon-picker" component={IconPickerDocs} />
                         <Route path="/react/simple-list" component={SimpleListDoc} />
                         <Route path="/react/boxed-list" component={BoxedListDoc} />
+                        <Route path="/react/list-item" component={ListItemDocs} />
                         <Route path="/react/heading" component={HeadingDoc} />
                         <Route path="/react/text" component={TextDoc} />
                         <Route path="/react/container" component={ContainerDoc} />
