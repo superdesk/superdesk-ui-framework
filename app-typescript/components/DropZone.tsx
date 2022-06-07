@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Icon } from './Icon';
-import * as PanelElements from '../../app-typescript/components/Layouts/Panel';
+// import * as PanelElements from '../../app-typescript/components/Layouts/Panel';
 
 interface IProps {
     icon?: boolean;
