@@ -671,6 +671,9 @@ $planningEditor-width: 53rem;
     .side-panel__container {
         width: var(--width__container--medium);
         overflow-y: auto;
+        &.side-panel__container--xx-large{
+            width: var(--width__container--xx-large);
+        }
         .side-panel {
             opacity: 1;
         }
