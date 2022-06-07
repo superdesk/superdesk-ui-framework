@@ -72,7 +72,6 @@ export class DropZone extends React.PureComponent<IProps, IState> {
             onDragEnd={() => false}
             >
                 <div className='sd-dropzone__target-border'>
-                    
                 </div>
                 <input type="file" className='sd-dropzone__input'/>
                 {this.props.icon ?

@@ -6,7 +6,7 @@ interface IProps {
     id?: string;
     className?: string;
     theme?: string;
-    visible?: boolean;  
+    visible?: boolean;
     contentBg?: 'default' | 'medium' | 'dark';
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
     size?: 'small' | 'medium' | 'large' | 'x-large';
@@ -43,6 +43,6 @@ export class Modal extends React.Component<IProps, {}> {
                     {this.props.children}
                 </PrimeDialog>
             </div>
-        )
+        );
     }
 }
