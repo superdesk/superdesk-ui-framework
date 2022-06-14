@@ -200,6 +200,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                     <Form.FormItem>
                                                         <Input
                                                             label='First Name'
+                                                            type='text'
                                                             value='Jeffrey'
                                                             error='Error message'
                                                             required={false}
@@ -212,6 +213,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                     <Form.FormItem>
                                                         <Input
                                                             label='Last Name'
+                                                            type='text'
                                                             value='Lebowski'
                                                             error='Error message'
                                                             required={false}
@@ -224,6 +226,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                     <Form.FormItem>
                                                         <Input
                                                             label='Username'
+                                                            type='text'
                                                             value='the_dude'
                                                             error='Error message'
                                                             required={false}
@@ -238,6 +241,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                     <Form.FormItem>
                                                         <Input
                                                             label='Email'
+                                                            type='text'
                                                             value='jeffrey.lebowski@bloodsimple.org'
                                                             error='Error message'
                                                             required={false}
@@ -250,6 +254,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                     <Form.FormItem>
                                                         <Input
                                                             label='Phone number'
+                                                            type='text'
                                                             value='+381 64 155 22 55'
                                                             error='Error message'
                                                             required={false}
@@ -345,6 +350,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Sign-Off'
+                                                        type='text'
                                                         value='the_dude'
                                                         error='Error message'
                                                         required={false}
@@ -357,6 +363,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Byline'
+                                                        type='text'
                                                         value='Jeffrey Lebowski'
                                                         error='Error message'
                                                         required={false}
@@ -369,6 +376,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Job Title'
+                                                        type='text'
                                                         value='the_dude'
                                                         error='Error message'
                                                         required={false}
@@ -381,6 +389,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Biography'
+                                                        type='text'
                                                         value='the_dude'
                                                         error='Error message'
                                                         required={false}
@@ -394,6 +403,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Facebook'
+                                                        type='text'
                                                         value='the_dude'
                                                         error='Error message'
                                                         required={false}
@@ -406,6 +416,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Instagram'
+                                                        type='text'
                                                         value='the_dude'
                                                         error='Error message'
                                                         required={false}
@@ -418,6 +429,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Twitter'
+                                                        type='text'
                                                         value='the_dude'
                                                         error='Error message'
                                                         required={false}
@@ -518,6 +530,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 <Form.FormItem>
                                                     <Input
                                                         label='Dateline / Located'
+                                                        type='text'
                                                         value=''
                                                         error='This is error message'
                                                         required={false}

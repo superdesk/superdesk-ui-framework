@@ -7,7 +7,7 @@ interface IProps {
     className?: string;
     display?: 'flex' | 'inline-flex' | 'block';
     direction?: 'row' | 'column';
-    gap?: 'none' | 'small' |  'medium' | 'large';
+    gap?: 'none' | 'x-small' | 'small' |  'medium' | 'large';
     theme?: 'light' | 'dark';
 }
 

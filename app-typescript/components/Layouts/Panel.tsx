@@ -150,6 +150,7 @@ class PanelFooter extends React.PureComponent {
 
 interface IPropsSlidingToolbar {
     right?: boolean;
+    open?: boolean;
 }
 
 class PanelHeaderSlidingToolbar extends React.PureComponent<IPropsSlidingToolbar> {

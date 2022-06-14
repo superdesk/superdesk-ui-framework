@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState, Alert, SlidingToolbar, TabLabel, Tabs, Heading, RadioButtonGroup } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState, Alert, SlidingToolbar, TabLabel, Tabs, Heading, RadioButtonGroup, Container, Label, IconLabel } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -65,13 +65,11 @@ export class RundownEditor extends React.Component<IProps, IState> {
 
     render() {
         return (
-                <Components.LayoutContainer>
-
-                    <Components.HeaderPanel>       
+                <Layout.LayoutContainer>
+                    <Layout.HeaderPanel>       
                         <SubNav>
                             <ButtonGroup align='end'>
-                                <Button text="Cancel" onClick={()=> this.setState({ rightPanelOpen: true,
-                                })} type="default" />
+                                <Button text="Cancel"  onClick={()=> false} type="default" />
                                 <Button text="Save Rundown" onClick={()=> false} type="primary" />
                                 <Divider size="mini" />
                                 <ButtonGroup subgroup={true} spaces="no-space">
@@ -88,10 +86,11 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                 </ButtonGroup>
                             </ButtonGroup>
                         </SubNav>
-                    </Components.HeaderPanel>
+                    </Layout.HeaderPanel>
                     
-                    <Components.MainPanel padding='none'>
+                    <Layout.MainPanel padding='none'>
                         <Layout.AuthoringMain
+                            headerPadding='medium'
                             toolBar={(
                                 <React.Fragment>
                                     <div className="sd-editor-toolbar__content">
@@ -110,139 +109,268 @@ export class RundownEditor extends React.Component<IProps, IState> {
                             )}
                             authoringHeader={(
                                 <React.Fragment>
-                                    <Form.FormGroup inlineLabel={true}>
-                                        <Form.FormItem>
-                                            <Input
-                                                type='text'
-                                                label='Slugline'
-                                                value='This is some value'
-                                                maxLength={30}
-                                                error='This is error message'
-                                                info='This is some hint message'
-                                                required={false}
-                                                disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => {}} /> 
-                                        </Form.FormItem>
-                                        <Form.FormItem>
-                                            <Input
-                                                type='text'
-                                                label='Slugline'
-                                                value='This is some value'
-                                                maxLength={30}
-                                                error='This is error message'
-                                                info='This is some hint message'
-                                                required={false}
-                                                disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => {}} /> 
-                                        </Form.FormItem>
-                                    </Form.FormGroup>
-                                    <Form.FormGroup inlineLabel={true}>
-                                        <Form.FormItem>
-                                            <Input
-                                                type='text'
-                                                label='Genre'
-                                                value='This is some value'
-                                                maxLength={30}
-                                                error='This is error message'
-                                                info='This is some hint message'
-                                                required={false}
-                                                disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => {}} /> 
-                                        </Form.FormItem>
-                                    </Form.FormGroup>
-                                    <Form.FormGroup marginBottom='0' inlineLabel={true}>
-                                        <Form.FormItem>
-                                            <Input
-                                                type='text'
-                                                label='Subject'
-                                                value='This is some value'
-                                                maxLength={30}
-                                                error='This is error message'
-                                                info='This is some hint message'
-                                                required={true}
-                                                disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => {}} /> 
-                                        </Form.FormItem>
-                                        <Form.FormItem autoWidth={true}>
-                                            <Form.FormText>Just testing:</Form.FormText>
-                                        </Form.FormItem>
+                                    <Form.FormGroup>
                                         <Form.FormItem>
                                             <Select
-                                                label='Categories'
-                                                labelHidden={true}
-                                                value='This is some value'
+                                                label='Type'
+                                                value='Type value'
                                                 error='This is error message'
-                                                info='This is some hint message'
+                                                info=''
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
                                                 onChange={(value) => {}}>
-                                                    <Option>Option 1</Option>
-                                                    <Option>Option 2</Option>
+                                                    <Option>Type 1</Option>
+                                                    <Option>Type 2</Option>
                                             </Select>
                                         </Form.FormItem>
-                                        <Form.FormItem autoWidth={true}>
-                                            <ButtonGroup>
-                                                <IconButton ariaValue="Submit" icon="picture" onClick={()=> false} />
-                                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
-                                                <Button text="Submit" onClick={()=> false} type="primary" />
-                                            </ButtonGroup>
+                                        <Form.FormItem>
+                                            <Select
+                                                label='Show'
+                                                value='show value'
+                                                error='This is error message'
+                                                info=''
+                                                required={true}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}}>
+                                                    <Option>Marker</Option>
+                                                    <Option>Tabu</Option>
+                                            </Select>
+                                        </Form.FormItem>
+                                        <Form.FormItem>
+                                            <Select
+                                                label='Show section'
+                                                value='Some value'
+                                                error='This is error message'
+                                                info=''
+                                                required={true}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}}>
+                                                    <Option>Section 1</Option>
+                                                    <Option>Section 2</Option>
+                                            </Select>
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Input
+                                                type='text'
+                                                label='Slugline'
+                                                value=''
+                                                error='This is error message'
+                                                info=''
+                                                required={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}} /> 
+                                        </Form.FormItem>
+                                        <Form.FormItem>
+                                            <Input
+                                                type='text'
+                                                label='Category'
+                                                value=''
+                                                error='This is error message'
+                                                info=''
+                                                required={false}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}} /> 
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Input
+                                                type='text'
+                                                label='Author'
+                                                value='This is some value'
+                                                error='This is error message'
+                                                required={true}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}} /> 
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup marginBottom='2'>
+                                        <Form.FormItem>
+                                            <Input
+                                                type='text'
+                                                label='Start Time'
+                                                value=''
+                                                error='This is error message'
+                                                required={true}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}} /> 
+                                        </Form.FormItem>
+                                        <Form.FormItem>
+                                            <Input
+                                                type='text'
+                                                label='End Time'
+                                                value=''
+                                                error='This is error message'
+                                                required={true}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}} /> 
+                                        </Form.FormItem>
+                                        <Form.FormItem>
+                                            <Input
+                                                type='text'
+                                                label='Duration'
+                                                value=''
+                                                error='This is error message'
+                                                required={true}
+                                                disabled={false}
+                                                invalid={false}
+                                                onChange={(value) => {}} /> 
                                         </Form.FormItem>
                                     </Form.FormGroup>
                                 </React.Fragment>
                             )}
                             >
-                                <BoxedList>
-                                    <BoxedListItem onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} >List Item</BoxedListItem>
-                                    <BoxedListItem onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} type='default'>List Item</BoxedListItem>
-                                    <BoxedListItem onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} type='success'>List Item</BoxedListItem>
-                                    <BoxedListItem onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} type='warning'>List Item</BoxedListItem>
-                                    <BoxedListItem onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} type='alert'>List Item</BoxedListItem>
-                                    <BoxedListItem onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} type='highlight'>List Item</BoxedListItem>
-                                </BoxedList>
-                        </Layout.AuthoringMain>
-                    </Components.MainPanel>
+                                <Container direction='column' className='sd-margin-y--2'>
+                                    <input
+                                        type='text'
+                                        value='Marker // 01.06.2022'
+                                        className='sd-editor__input--title' />
+                                </Container>
+                                <ButtonGroup>
+                                    <IconLabel style='translucent' innerLabel='Airtime:' text='19:00 - 19:45' size='large' type='primary' icon='time' />
+                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='large' type='warning' />
+                                    <Text color='light' size='medium' className='sd-margin--0'>OF</Text>
+                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='large' />
+                                </ButtonGroup>
+                                <Container direction='column' className='sd-margin-y--4'>
+                                    <ul className='table-list table-list--contained'>
+                                        <li className='table-list__item-container' onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})}>
+                                            <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                                <div className='table-list__item-content'>
+                                                    <div className='table-list__item-content-block'>
+                                                        <Label style='translucent' text='aacc' />
+                                                        <Label style='translucent' type='primary' text='prlg' />
+                                                    </div>
+                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                                        <span>Duis mollis est non commodo</span>
+                                                    </div>
+                                                    <div className='table-list__item-content-block'>
+                                                    <IconLabel style='translucent' innerLabel='Planned:' text='00:20' />
+                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
+                                                    </div>
+                                                </div>
+                                                <div className='table-list__slide-in-actions'>
+                                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                                </div>
+                                            </div>
 
-                    <Components.RightPanel open={this.state.rightPanelOpen}>
-                        <Layout.Panel size='xx-large' side='right'>
+                                            <div className='table-list__add-bar-container'>
+                                                <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                                    <div className='table-list__add-bar'>
+                                                        <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                                                    </div>
+                                                </Tooltip>
+                                            </div>
+                                        </li>
+
+                                        <li className='table-list__item-container' onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})}>
+                                            <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                                <div className='table-list__item-content'>
+                                                    <div className='table-list__item-content-block'>
+                                                        <Label style='translucent' type='warning' text='pokr' />
+                                                        <Label style='translucent' text='slika' />
+                                                    </div>
+                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                                        <span>Nullam id dolor id nibh ultricies</span>
+                                                    </div>
+                                                    <div className='table-list__item-content-block'>
+                                                        <IconLabel style='translucent' innerLabel='Planned:' text='00:12' />
+                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:11' type='warning' />
+                                                    </div>
+                                                </div>
+                                                <div className='table-list__slide-in-actions'>
+                                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                                </div>
+                                            </div>
+
+                                            <div className='table-list__add-bar-container'>
+                                                <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                                    <div className='table-list__add-bar'>
+                                                        <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                                                    </div>
+                                                </Tooltip>
+                                            </div>
+                                        </li>
+
+                                        <li className='table-list__item-container'>
+                                            <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                                <div className='table-list__item-content'>
+                                                    <div className='table-list__item-content-block'>
+                                                        <Label style='translucent' type='warning' text='pokr' />
+                                                        <Label style='translucent' text='slika' />
+                                                    </div>
+                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                                        <span>Cras mattis consectetur purus</span>
+                                                    </div>
+                                                    <div className='table-list__item-content-block'>
+                                                        <IconLabel style='translucent' innerLabel='Planned:' text='00:14' />
+                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:15' type='alert' />
+                                                    </div>
+                                                </div>
+                                                <div className='table-list__slide-in-actions'>
+                                                    <IconButton icon='pencil' size='small' ariaValue='More actions' onClick={()=> false} />
+                                                    <IconButton icon='trash' size='small' ariaValue='More actions' onClick={()=> false} />
+                                                </div>
+                                            </div>
+
+                                            <div className='table-list__add-bar-container'>
+                                                <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                                    <div className='table-list__add-bar'>
+                                                        <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                                                    </div>
+                                                </Tooltip>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </Container>
+
+                        </Layout.AuthoringMain>
+                    </Layout.MainPanel>
+
+                    <Layout.RightPanel open={this.state.rightPanelOpen}>
+                        <Layout.Panel size='x-large' side='right'>
                             <Layout.PanelContent>
                                 <Layout.AuthoringFrame 
                                     main={
                                     <Layout.AuthoringMain
+                                        headerPadding='medium'
+                                        toolbarCustom={true}
                                         toolBar={(
                                             <React.Fragment>
-                                                <SubNav zIndex={999}>
-                                                    <ButtonGroup align='end'>
-                                                        
-                                                        <ButtonGroup subgroup={true} spaces="no-space">
-                                                            
-                                                            <Tooltip text='Minimize' flow='left'>
-                                                                <NavButton type='default' icon='minimize' iconSize='big' text='Minimize' onClick={()=> false} />
-                                                            </Tooltip>
-                                                            <Tooltip text='More actions' flow='left'>
-                                                                <NavButton type='default' icon='dots-vertical' text='More actions' onClick={()=> false} />
-                                                            </Tooltip>
-                                                            <Tooltip text='Send to / Publish' flow='left'>
-                                                                <NavButton type='highlight' icon='send-to' iconSize='big' text='Send to / Publish' onClick={()=> false} />
-                                                            </Tooltip>
+                                                <SubNav className='sd-shadow--z0'>
+                                                    <SlidingToolbar>
+                                                        <ButtonGroup align='start'>
+                                                            <IconButton ariaValue="Close" icon="close-small" onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} />
                                                         </ButtonGroup>
-                                                    </ButtonGroup>
+                                                        <ButtonGroup align='end'>
+                                                            <Button text="Save Changes" style='hollow' onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} type="primary" />
+                                                        </ButtonGroup>
+                                                    </SlidingToolbar>
                                                 </SubNav>
-                                                <div className="sd-editor-toolbar__content">
-                                                    <dl>
-                                                        <dt>Created</dt>
-                                                        <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
-                                                        <dt>by</dt>
-                                                        <dt>Nareg Asmarian</dt>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Modified</dt>
-                                                        <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
-                                                    </dl>
+
+                                                <div className='sd-editor-content__toolbar-inner'>
+                                                    <div className="sd-editor-toolbar__content">
+                                                        <dl>
+                                                            <dt>Created</dt>
+                                                            <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
+                                                            <dt>by</dt>
+                                                            <dt>Nareg Asmarian</dt>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt>Modified</dt>
+                                                            <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
+                                                        </dl>
+                                                    </div>
                                                 </div>
                                             </React.Fragment>
                                         )}
@@ -250,71 +378,41 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             <React.Fragment>
                                                 <Form.FormGroup inlineLabel={false}>
                                                     <Form.FormItem>
-                                                        <Input
-                                                            type='text'
-                                                            label='Slugline'
-                                                            value='This is some value'
-                                                            maxLength={30}
+                                                        <Select
+                                                            label='Type'
+                                                            value='Type value'
                                                             error='This is error message'
-                                                            info='This is some hint message'
-                                                            required={false}
+                                                            info=' '
+                                                            required={true}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}} /> 
+                                                            onChange={(value) => {}}>
+                                                                <Option>Type 1</Option>
+                                                                <Option>Type 2</Option>
+                                                        </Select>
                                                     </Form.FormItem>
                                                     <Form.FormItem>
-                                                        <Input
-                                                            type='text'
-                                                            label='Slugline'
-                                                            value='This is some value'
-                                                            maxLength={30}
+                                                        <Select
+                                                            label='Show section'
+                                                            value='Some value'
                                                             error='This is error message'
-                                                            info='This is some hint message'
-                                                            required={false}
+                                                            info=' '
+                                                            required={true}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}} /> 
+                                                            onChange={(value) => {}}>
+                                                                <Option>Section 1</Option>
+                                                                <Option>Section 2</Option>
+                                                        </Select>
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup inlineLabel={false}>
                                                     <Form.FormItem>
-                                                        <Input
-                                                            type='text'
-                                                            label='Genre'
-                                                            value='This is some value'
-                                                            maxLength={30}
-                                                            error='This is error message'
-                                                            info='This is some hint message'
-                                                            required={false}
-                                                            disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} /> 
-                                                    </Form.FormItem>
-                                                </Form.FormGroup>
-                                                <Form.FormGroup marginBottom='0' inlineLabel={true}>
-                                                    <Form.FormItem>
-                                                        <Input
-                                                            type='text'
-                                                            label='Subject'
-                                                            value='This is some value'
-                                                            maxLength={30}
-                                                            error='This is error message'
-                                                            info='This is some hint message'
-                                                            required={true}
-                                                            disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} /> 
-                                                    </Form.FormItem>
-                                                    <Form.FormItem autoWidth={false}>
-                                                        <Form.FormText>Just testing:</Form.FormText>
-                                                    </Form.FormItem>
-                                                    <Form.FormItem>
                                                         <Select
-                                                            label='Categories'
-                                                            labelHidden={true}
-                                                            value='This is some value'
+                                                            label='Duration'
+                                                            value='Some value'
                                                             error='This is error message'
-                                                            info='This is some hint message'
+                                                            info=' '
                                                             required={true}
                                                             disabled={false}
                                                             invalid={false}
@@ -323,18 +421,37 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                                 <Option>Option 2</Option>
                                                         </Select>
                                                     </Form.FormItem>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            type='text'
+                                                            label='Category'
+                                                            value=' '
+                                                            error='This is error message'
+                                                            info=' '
+                                                            required={false}
+                                                            disabled={false}
+                                                            invalid={false}
+                                                            onChange={(value) => {}} /> 
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup inlineLabel={false}>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            type='text'
+                                                            label='Author'
+                                                            value='This is some value'
+                                                            error='This is error message'
+                                                            info=' '
+                                                            required={false}
+                                                            disabled={false}
+                                                            invalid={false}
+                                                            onChange={(value) => {}} /> 
+                                                    </Form.FormItem>
                                                 </Form.FormGroup>
                                             </React.Fragment>
                                         )}
                                     >
-                                        <BoxedList>
-                                            <BoxedListItem >List Item</BoxedListItem>
-                                            <BoxedListItem type='default'>List Item</BoxedListItem>
-                                            <BoxedListItem type='success'>List Item</BoxedListItem>
-                                            <BoxedListItem type='warning'>List Item</BoxedListItem>
-                                            <BoxedListItem type='alert'>List Item</BoxedListItem>
-                                            <BoxedListItem type='highlight'>List Item</BoxedListItem>
-                                        </BoxedList>
+
                                     </Layout.AuthoringMain>
                                     }
                                     sideBar={(
@@ -351,9 +468,9 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                 />
                             </Layout.PanelContent>
                         </Layout.Panel>         
-                    </Components.RightPanel>
+                    </Layout.RightPanel>
                     
-                </Components.LayoutContainer>
+                </Layout.LayoutContainer>
         );
     }
 }

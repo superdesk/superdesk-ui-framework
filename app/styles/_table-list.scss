@@ -121,7 +121,7 @@ $table-list-palette: $sd-basic-palette;
     grid-column: contentCol;
     grid-row: mainRow;
     display: grid;
-    grid-template-columns: [columnLeft] 240px [columncenter] 1fr [columnRight] auto;
+    grid-template-columns: [columnLeft] 180px [columncenter] 1fr [columnRight] auto;
     padding: 0 0.2rem 0 0.8rem;
     overflow: hidden;
     position: relative;
@@ -234,6 +234,11 @@ $table-list-palette: $sd-basic-palette;
     z-index: 2;
     padding: 2px;
     border-radius: var(--b-radius--full);
-    background-color: var(--sd-colour-panel-bg--100);
+    background-color: var(--sd-colour-panel-bg--000);
     transform: scale(0.5);
+}
+.side-panel__content-block {
+    .table-list__item-content {
+        grid-template-columns: [columnLeft] 140px [columncenter] 1fr [columnRight] auto;
+    }
 }
