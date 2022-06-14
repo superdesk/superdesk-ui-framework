@@ -2,17 +2,18 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import { BoxedList, BoxedListItem, BoxedListContentRow, Prop, PropsList, Icon, IconButton, AvatarWrapper, AvatarContentText, ButtonGroup, Button, Heading, Text, Label, Container, IconLabel } from '../../../app-typescript';
 import { TableList, TableListItem } from '../../../app-typescript/components/Lists/TableList';
+import { ContentList, ContentListItem } from '../../../app-typescript/components/Lists/ContentList';
 
 export default class ContentListDoc extends React.Component {
     render() {
         return (
             <section className='docs-page__container'>
-                <h2 className='docs-page__h2'>BoxedList</h2>
+                <h2 className='docs-page__h2'>ContentList</h2>
                 
                 <Markup.ReactMarkupCodePreview>{`
-                    <BoxedList>
-                        <BoxedListItem>...</BoxedListItem> 
-                    </BoxedList>
+                    <ContentList 
+                    items: [...]
+                    />
                 `}
                 </Markup.ReactMarkupCodePreview>
 
@@ -22,61 +23,240 @@ export default class ContentListDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// basic</p>
 
-                        <TableList>
-
-                            <TableListItem
-                            start={() => {
-                                return  <>
-                                            <Label style='translucent' text='aacc' />
-                                            <Label style='translucent' type='primary' text='prlg' />
-                                        </>
-                            }}
-                            center={() => {
-                                return <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
-                            }}
-                            end={() => {
-                                return <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                            }}
-                            action={() => {
-                                return <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
-                            }}
-                            />
-
-                            <TableListItem
-                            start={() => {
-                                return  <>
-                                            <Label style='hollow' text='aacc' />
-                                            <Label style='filled' type='primary' text='prlg' />
-                                        </>
-                            }}
-                            center={() => {
-                                return <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                            }}
-                            end={() => {
-                                return <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                            }}
-                            />
-
-                            <TableListItem
-                            start={() => {
-                                return  <>
-                                            <Label style='translucent' text='aacc' />
-                                            <Label style='translucent' type='primary' text='prlg' />
-                                        </>
-                            }}
-                            center={() => {
-                                return <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
-                            }}
-                            end={() => {
-                                return <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                            }}
-                            />
-
-                        </TableList>
+                        <ContentList
+                        items={[
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}],
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content:
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content:
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                                loading: true,
+                            },
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}], 
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content: 
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content: 
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                locked: true,
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                            },
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}],
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content:
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content:
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                            },
+                        ]} />
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        
+                        <ContentList
+                        items={[
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                            <i className="icon-rundown"></i>
+                                                        </>}],   
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content: 
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content: 
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                            },
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                            <i className="icon-rundown"></i>
+                                                        </>}], 
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content: 
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content: 
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                locked: true,
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                            },
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                            <i className="icon-rundown"></i>
+                                                        </>}], 
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content:
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content:
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                            },
+                        ]} />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

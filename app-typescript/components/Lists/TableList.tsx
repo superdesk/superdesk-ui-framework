@@ -6,22 +6,23 @@ import { Button } from '../Button';
 import { Dropdown } from '../Dropdown';
 
 interface IPropsItem {
-    start?: any;
-    center?: any;
-    end?: any;
-    action?: any;
-    onClick?(): any;
+    start?: React.ReactNode;
+    center?: React.ReactNode;
+    end?: React.ReactNode;
+    action?: React.ReactNode;
     addItem?: boolean;
-    selectComponent?: any;
     itemsDropdown?: any;
+    dragAndDrop?: boolean;
+    onClick?(): void;
 }
 
 class TableListItem extends React.PureComponent<IPropsItem> {
     render() {
         return (
             this.props.addItem ?
-            <li className='table-list__item-container'>
-                <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
+            <li className='table-list__item-container' onClick={this.props.onClick}>
+                <div
+                className={`table-list__item ${this.props.onClick && 'table-list__item--clickable'} ${this.props.dragAndDrop && 'table-list__item--draggable'}`}>
                     <div className='table-list__item-content'>
                         <div className='table-list__item-content-block'>
                             {this.props.start && this.props.start}
@@ -37,7 +38,6 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                         {this.props.action}
                     </div>}
                 </div>
-
                 <div className='table-list__add-bar-container'>
                     <Tooltip text='Add item' flow='top' appendToBody={true}>
                         <div className='table-list__add-bar'>
@@ -53,12 +53,13 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                                     onClick={() => false}
                                     />
                             </Dropdown>
-                            <div>{this.props.selectComponent}</div>
                         </div>
                     </Tooltip>
                 </div>
             </li>
-            : <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--margin'>
+            : <li
+            className={`table-list__item ${this.props.onClick && 'table-list__item--clickable'} ${this.props.dragAndDrop && 'table-list__item--draggable'} table-list__item--margin`}
+            onClick={this.props.onClick}>
                 <div className='table-list__item-content'>
                     <div className='table-list__item-content-block'>
                         {this.props.start && this.props.start}
@@ -80,18 +81,18 @@ class TableListItem extends React.PureComponent<IPropsItem> {
 
 interface IProps {
     children?: React.ReactNode;
-    array?: any;
+    array?: Array<IPropsArray>;
     addItem?: boolean;
     dragAndDrop?: boolean;
     itemsDropdown?: any;
-    onClick?: any;
+    onClick?(): void;
 }
 
 interface IPropsArray {
-    start?: any;
-    center?: any;
-    end?: any;
-    action?: any;
+    start?: React.ReactNode;
+    center?: React.ReactNode;
+    end?: React.ReactNode;
+    action?: React.ReactNode;
 }
 
 const reorder = (list, startIndex, endIndex) => {
@@ -161,6 +162,7 @@ class TableList extends React.PureComponent<IProps, {items: any}> {
                                         {...provided2.draggableProps}
                                         {...provided2.dragHandleProps} >
                                             <TableListItem
+                                            dragAndDrop={this.props.dragAndDrop}
                                             start={item.start}
                                             center={item.center}
                                             end={item.end}

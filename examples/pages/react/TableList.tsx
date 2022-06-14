@@ -24,8 +24,20 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     center: <span>Item 1</span>,
                     end: <IconLabel style='translucent' text='Label success' type='success' icon='time' />,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick:() => {
-                        return false
+                    onClick: () => {
+                        return false;
+                    }
+                },
+                {
+                    start: <>
+                                <Label style='translucent' text='aacc' />
+                                <Label style='translucent' type='primary' text='prlg' />
+                            </>,
+                    center: <span>Item 2</span>,
+                    end: <IconLabel style='translucent' text='Label success' type='success' icon='time' />,
+                    action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
+                    onClick: () => {
+                        return false;
                     }
                 },
                 {
@@ -36,20 +48,8 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     center: <span>Item 3</span>,
                     end: <IconLabel style='translucent' text='Label success' type='success' icon='time' />,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick:() => {
-                        return false
-                    }
-                },
-                {
-                    start: <>
-                                <Label style='translucent' text='aacc' />
-                                <Label style='translucent' type='primary' text='prlg' />
-                            </>,
-                    center: <span>Item 4</span>,
-                    end: <IconLabel style='translucent' text='Label success' type='success' icon='time' />,
-                    action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick:() => {
-                        return false
+                    onClick: () => {
+                        return false;
                     }
                 },
             ]
@@ -60,7 +60,7 @@ export default class TableListDoc extends React.Component<IProps, IState> {
     render() {
         return (
             <section className='docs-page__container'>
-                <h2 className='docs-page__h2'>BoxedList</h2>
+                <h2 className='docs-page__h2'>TableList</h2>
                 
                 <Markup.ReactMarkupCodePreview>{`
                     <TableList
@@ -75,19 +75,18 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                 `}
                 </Markup.ReactMarkupCodePreview>
 
-                <p className="docs-page__paragraph">...</p>
+                <p className="docs-page__paragraph">Basic:</p>
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// basic</p>
 
                         <TableList>
-
-                            <TableListItem addItem
+                            <TableListItem
+                            addItem
                             itemsDropdown={[
-                                { label: 'Action 1', onSelect: () => 1 },
-                                { label: 'Action 2', onSelect: () => 1 },
-                                { label: 'Action 3', onSelect: () => 1 },
+                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
                             ]}
                             start={
                                 <>
@@ -103,16 +102,14 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                             }
                             action={
                                 <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
-                            }
-                            />
-
+                            } />
                             <TableListItem
-                            itemsDropdown={[
-                                { label: 'Action 1', onSelect: () => 1 },
-                                { label: 'Action 2', onSelect: () => 1 },
-                                { label: 'Action 3', onSelect: () => 1 },
-                            ]}
                             addItem
+                            itemsDropdown={[
+                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                            ]}
                             start={
                                 <>
                                     <Label style='hollow' text='aacc' />
@@ -124,16 +121,14 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                             }
                             end={
                                 <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                            }
-                            />
-
+                            } />
                             <TableListItem
-                            itemsDropdown={[
-                                { label: 'Action 1', onSelect: () => 1 },
-                                { label: 'Action 2', onSelect: () => 1 },
-                                { label: 'Action 3', onSelect: () => 1 },
-                            ]}
                             addItem
+                            itemsDropdown={[
+                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                            ]}
                             start={
                                 <>
                                     <Label style='translucent' text='aacc' />
@@ -148,98 +143,93 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                             }
                             action={
                                 <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
-                            }
-                            />
-
+                            } />
                         </TableList>
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <TableListItem addItem
-                        itemsDropdown={[
-                            { label: 'Action 1', onSelect: () => 1 },
-                            { label: 'Action 2', onSelect: () => 1 },
-                            { label: 'Action 3', onSelect: () => 1 },
-                        ]}
-                        start={
-                            <>
-                                <Label style='translucent' text='aacc' />
-                                <Label style='translucent' type='primary' text='prlg' />
-                            </>
-                        }
-                        center={
-                            <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
-                        }
-                        end={
-                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                        }
-                        action={
-                            <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
-                        }
-                        />
-
-                        <TableListItem
-                        itemsDropdown={[
-                            { label: 'Action 1', onSelect: () => 1 },
-                            { label: 'Action 2', onSelect: () => 1 },
-                            { label: 'Action 3', onSelect: () => 1 },
-                        ]}
-                        addItem
-                        start={
-                            <>
-                                <Label style='hollow' text='aacc' />
-                                <Label style='filled' type='primary' text='prlg' />
-                            </>
-                        }
-                        center={
-                            <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                        }
-                        end={
-                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                        }
-                        />
-
-                        <TableListItem
-                        itemsDropdown={[
-                            { label: 'Action 1', onSelect: () => 1 },
-                            { label: 'Action 2', onSelect: () => 1 },
-                            { label: 'Action 3', onSelect: () => 1 },
-                        ]}
-                        addItem
-                        start={
-                            <>
-                                <Label style='translucent' text='aacc' />
-                                <Label style='translucent' type='primary' text='prlg' />
-                            </>
-                        }
-                        center={
-                            <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
-                        }
-                        end={
-                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                        }
-                        action={
-                            <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
-                        }
-                        />
+                        <TableList>
+                            <TableListItem 
+                            addItem
+                            itemsDropdown={[
+                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                            ]}
+                            start={
+                                <>
+                                    <Label style='translucent' text='aacc' />
+                                    <Label style='translucent' type='primary' text='prlg' />
+                                </>
+                            }
+                            center={
+                                <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                            }
+                            end={
+                                <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                            }
+                            action={
+                                <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                            } />
+                            <TableListItem
+                            addItem
+                            itemsDropdown={[
+                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                            ]}
+                            start={
+                                <>
+                                    <Label style='hollow' text='aacc' />
+                                    <Label style='filled' type='primary' text='prlg' />
+                                </>
+                            }
+                            center={
+                                <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                            }
+                            end={
+                                <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                            } />
+                            <TableListItem
+                            addItem
+                            itemsDropdown={[
+                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                            ]}
+                            start={
+                                <>
+                                    <Label style='translucent' text='aacc' />
+                                    <Label style='translucent' type='primary' text='prlg' />
+                                </>
+                            }
+                            center={
+                                <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                            }
+                            end={
+                                <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                            }
+                            action={
+                                <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                            } />
+                        </TableList>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-
+                <p className="docs-page__paragraph">With drag and drop functionality:</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// basic</p>
-
+                        
                         <TableList
                         dragAndDrop
                         addItem
                         array={this.state.array}
                         itemsDropdown={[
-                            { label: 'Action 1', onSelect: () => 1 },
-                            { label: 'Action 2', onSelect: () => 1 },
-                            { label: 'Action 3', onSelect: () => 1 },
+                            { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
+                            { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
+                            { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
                         ]}
-                        onClick={() => console.log('aaa')}
+                        onClick={() => false}
                         />
 
                     </Markup.ReactMarkupPreview>
@@ -249,10 +239,12 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                         addItem
                         array={this.state.array}
                         itemsDropdown={[
-                            { label: 'Action 1', onSelect: () => 1 },
-                            { label: 'Action 2', onSelect: () => 1 },
-                            { label: 'Action 3', onSelect: () => 1 },
-                        ]} />
+                            { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
+                            { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
+                            { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                        ]}
+                        onClick={() => false}
+                        />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
