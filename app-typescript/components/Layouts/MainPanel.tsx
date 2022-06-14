@@ -10,8 +10,8 @@ export interface IMainPanelProps {
 }
 
 export class MainPanel extends React.PureComponent<IMainPanelProps> {
-    
-    render() { 
+
+    render() {
         let classes = classNames('sd-main-content-grid__content', {
             'sd-padding--2': !this.props.padding || this.props.padding === 'small',
             'sd-padding--3': this.props.padding === 'medium',

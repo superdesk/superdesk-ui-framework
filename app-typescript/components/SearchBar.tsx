@@ -1,11 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {Icon}  from '../../app-typescript/index';
+import {Icon} from '../../app-typescript/index';
 
 interface IProps {
     type?: 'expanded' | 'collapsed' | 'boxed';
     placeholder: string;
-    focused? : boolean;
+    focused?: boolean;
 }
 
 export class SearchBar extends React.PureComponent<IProps> {
