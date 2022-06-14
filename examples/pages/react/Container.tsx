@@ -133,7 +133,7 @@ export default class ContainerDoc extends React.Component<IProps> {
                 <PropsList>
                     <Prop name='display' isRequired={false} type='flex | inline-flex | block' default='flex' description='Change the default display mode (flex).'/>
                     <Prop name='direction' isRequired={false} type='row | column' default='row' description='Change the flex-direction property.'/>
-                    <Prop name='gap' isRequired={false} type='none | small |  medium | large' default='none' description='Set the gap between elements inside the Container.'/>
+                    <Prop name='gap' isRequired={false} type='none | x-small | small |  medium | large' default='none' description='Set the gap between elements inside the Container.'/>
                     <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Choose the UI theme. It will inherit the default theme if not set. All items inside will inherit the theme of the Container if it is set.'/>
                     <Prop name='className' isRequired={false} type='string' default='/' description='Add helper classes or custom CSS styles'/>
                 </PropsList>

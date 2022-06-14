@@ -16,17 +16,19 @@ interface IProps {
     authoringHeader?: React.ReactNode;
     authoringBookmarks?: React.ReactNode;
     headerCollapsed?: boolean;
+    headerPadding?: 'small' | 'medium' | 'large';
+    toolbarCustom?: boolean;
 }
 
 export class AuthoringMain extends React.PureComponent<IProps> {
     render() {
         return (
             <AuthoringMainContainer>
-                <AuthoringMainToolBar>
+                <AuthoringMainToolBar toolbarCustom={this.props.toolbarCustom}>
                     {this.props.toolBar}
                 </AuthoringMainToolBar>
                 <AuthoringMainContent>
-                    <AuthoringInnerHeader>
+                    <AuthoringInnerHeader headerPadding={this.props.headerPadding}>
                         {this.props.authoringHeader}
                     </AuthoringInnerHeader>
 

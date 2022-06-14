@@ -20,6 +20,9 @@
     &--gap-none {
         gap: 0;
     }
+    &--gap-x-small {
+        gap: $sd-base-increment / 2;
+    }
     &--gap-small {
         gap: $sd-base-increment;
     }

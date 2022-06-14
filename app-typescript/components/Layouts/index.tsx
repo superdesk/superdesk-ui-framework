@@ -1,9 +1,15 @@
 export { Panel, PanelHeader, PanelContent, PanelContentBlock, PanelFooter, PanelHeaderSlidingToolbar } from './Panel';
+
+export { Layout } from './Layout';
+export { LayoutContainer } from './LayoutContainer';
 export { HeaderPanel } from './HeaderPanel';
+export { MainPanel, IMainPanelProps } from './MainPanel';
 export { LeftPanel } from './LeftPanel';
 export { RightPanel } from './RightPanel';
-export { LayoutContainer } from './LayoutContainer';
-export { MainPanel, IMainPanelProps } from './MainPanel';
+export { OverlayPanel } from './OverlayPanel';
+export { AuthoringContainer } from './AuthoringContainer';
+export { ContentSplitter } from './ContentSplitter';
+
 export { PageLayout } from './PageLayout';
 export { Container } from './Container';
 

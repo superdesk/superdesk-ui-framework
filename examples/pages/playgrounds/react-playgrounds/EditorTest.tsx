@@ -112,6 +112,7 @@ export class EditorTest extends React.Component<IProps, IState> {
             )}
             main={(
                 <Layout.AuthoringMain
+                headerPadding='medium'
                 toolBar={(
                     <React.Fragment>
                         <div className="sd-editor-toolbar__content">
@@ -133,7 +134,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                         </ButtonGroup>
                     </React.Fragment>
                 )}
-                authoringHeader={(
+                authoringHeader ={(
                     <React.Fragment>
                         <Form.FormGroup inlineLabel={true}>
                             <Form.FormItem>

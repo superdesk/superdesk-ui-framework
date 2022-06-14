@@ -5,6 +5,7 @@ interface IProps {
     orientation?: 'vertical' | 'horizontal'; // defaults to 'vertical'
     align?: 'left' | 'right'; // defaults to 'left'
     children: React.ReactNode;
+    className?: string;
 }
 
 export class SwitchGroup extends React.PureComponent<IProps> {
@@ -13,7 +14,7 @@ export class SwitchGroup extends React.PureComponent<IProps> {
             [`sd-switch__group--vertical`]: this.props.orientation !== 'horizontal',
             [`sd-switch__group--horizontal`]: this.props.orientation === 'horizontal',
             [`sd-switch__group--right`]: this.props.align === 'right',
-        });
+        }, this.props.className);
 
         return (
             <div className={classes}>

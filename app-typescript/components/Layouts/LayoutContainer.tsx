@@ -7,10 +7,7 @@ interface IProps {
 export class LayoutContainer extends React.PureComponent<IProps> {
     render() {
         return (
-            <div
-                style={{height: '100%'}}
-                className="sd-main-content-grid"
-            >
+            <div className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                 {this.props.children}
             </div>
         );
