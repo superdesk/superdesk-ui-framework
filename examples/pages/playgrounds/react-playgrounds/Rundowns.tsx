@@ -1,14 +1,13 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, RadioButtonGroup, Input, Select, Option, Label, IconLabel, Icon, IconButton, Checkbox, GridList, Badge, Tooltip, CreateButton, Modal, EmptyState, Container, BoxedList, BoxedListItem, BoxedListContentRow, Text, Heading, FormLabel, SlidingToolbar, Switch, SwitchGroup, SearchBar } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, RadioButtonGroup, Input, Select, Option, Label, IconLabel, Icon, IconButton, Checkbox, GridList, Badge, Tooltip, CreateButton, Modal, EmptyState, Container, BoxedList, BoxedListItem, BoxedListContentRow, Text, Heading } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
-import {RundownEditor} from './RundownEditor';
-import * as Nav from '../../../../app-typescript/components/Navigation';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
 
 import dummy_items from '../dummy-data/items';
+import { ContentList } from '../../../../app-typescript/components/Lists/ContentList';
 
 interface IProps {
     children?: React.ReactNode;
@@ -33,8 +32,6 @@ interface IState {
     modalNewShowSuccess: boolean;
     modalManageTemplate: boolean;
     modalManageShow: boolean;
-    openEditor: boolean;
-    openShowEditor: boolean;
 }
 
 export class Rundowns extends React.Component<IProps, IState> {
@@ -49,7 +46,7 @@ export class Rundowns extends React.Component<IProps, IState> {
             itemSelected1: false,
             itemSelected2: false,
             itemSelected3: false,
-            value1: true,
+            value1: false,
             modalBasic: false,
             modalSmall: false,
             modalMedium: false,
@@ -58,14 +55,10 @@ export class Rundowns extends React.Component<IProps, IState> {
             modalNewShowSuccess: false,
             modalManageTemplate: false,
             modalManageShow: false,
-            openEditor: false,
-            openShowEditor: false,
-
         }
         this.handleFilter = this.handleFilter.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
         this.handleTheme = this.handleTheme.bind(this);
-        this.handleShow = this.handleShow.bind(this);
     }
 
     handleFilter() {
@@ -77,12 +70,6 @@ export class Rundowns extends React.Component<IProps, IState> {
     handlePreview() {
         this.setState((state) => ({
             openPreview: !state.openPreview,
-        }));
-    }
-
-    handleShow() {
-        this.setState((state) => ({
-            openShowEditor: !state.openShowEditor,
         }));
     }
 
@@ -115,8 +102,8 @@ export class Rundowns extends React.Component<IProps, IState> {
         );
         return (
             <>
-            <Layout.Layout header='Rundowns' theme={this.state.theme}>
-                <Nav.SideBarMenu
+            <Components.Layout header='Rundowns' theme={this.state.theme}>
+                <Components.SidebarMenu
                     items={[
                         { icon: 'dashboard', size: 'big' },
                         { icon: 'view', size: 'big' },
@@ -127,18 +114,19 @@ export class Rundowns extends React.Component<IProps, IState> {
                         { icon: 'picture', size: 'big' },
                         { icon: 'rundown', size: 'big', active: true }]} />
 
-                <Layout.LayoutContainer>
-                    <Layout.HeaderPanel>
+                <Components.LayoutContainer>
+                    <Components.HeaderPanel>
                         <SubNav zIndex={2}>
-                            <SearchBar placeholder='Search media'></SearchBar>
+                            <Components.SearchBar placeholder='Search media'></Components.SearchBar>
                             <ButtonGroup align='end' spaces='no-space'>
+                                <Layout.Panel side='left'></Layout.Panel>
                                 <Dropdown
                                     items={[
                                         {
                                             type: 'group', label: 'Settings', items: [
                                                 'divider',
-                                                { icon: 'switches', label: 'Manage Shows', onSelect: () => this.setState({modalManageShow: true}) },
-                                                { icon: 'switches', label: 'Manage Templates', onSelect: () => this.setState({modalManageTemplate: true}) },
+                                                { icon: 'switches', label: 'Manage Shows', onSelect: () => this.setState({modalNewTemplate: true}) },
+                                                { icon: 'switches', label: 'Manage Templates', onSelect: () => this.setState({modalNewTemplate: true}) },
                                             ]
                                         }]}>
                                     <NavButton icon='settings' onClick={() => false} />
@@ -219,15 +207,17 @@ export class Rundowns extends React.Component<IProps, IState> {
                                     </Dropdown>
                                 </ButtonGroup>
                             </ButtonGroup>
+
+
                         </SubNav>
-                    </Layout.HeaderPanel>
+                    </Components.HeaderPanel>
                     {/* TOOLBAR HEADER */}
 
-                    <Layout.LeftPanel open={this.state.openFilter}>
-                        <Layout.Panel side='left' background='grey'>
-                            <Layout.PanelHeader title='Advanced filters' onClose={() => this.setState({'openFilter': false})} />
-                            <Layout.PanelContent>
-                                <Layout.PanelContentBlock>
+                    <Components.LeftPanel open={this.state.openFilter}>
+                        <Components.Panel side='left' background='grey'>
+                            <Components.PanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
+                            <Components.PanelContent>
+                                <Components.PanelContentBlock>
                                     <Form.FormGroup>
                                         <Form.FormItem>
                                             <Select
@@ -304,16 +294,16 @@ export class Rundowns extends React.Component<IProps, IState> {
                                             </Select>
                                         </div>
                                     </div>
-                                </Layout.PanelContentBlock>
-                            </Layout.PanelContent>
-                            <Layout.PanelFooter>
+                                </Components.PanelContentBlock>
+                            </Components.PanelContent>
+                            <Components.PanelFooter>
                                 <Button text='Clear' style='hollow' onClick={() => false} />
                                 <Button text='Submit' type='primary' onClick={() => false} />
-                            </Layout.PanelFooter>
-                        </Layout.Panel>
-                    </Layout.LeftPanel>
+                            </Components.PanelFooter>
+                        </Components.Panel>
+                    </Components.LeftPanel>
                     {/* FILTER PANEL*/}
-                    <Layout.MainPanel>
+                    <Components.MainPanel >
 
                         {/* <GridList size="small" gap="medium" margin="3">
                             {dummy_items.map((item, index) =>
@@ -348,69 +338,134 @@ export class Rundowns extends React.Component<IProps, IState> {
                                 </GridElements.GridItem>
                             )}
                         </GridList> */}
-                        <div className="sd-list-item-group sd-list-item-group--space-between-items">
-                            <div className="sd-list-item sd-shadow--z1" onClick={() => this.setState({openEditor: !this.state.openEditor})}>
-                                <div className="sd-list-item__border sd-list-item__border--locked"></div>
-                                <div className="sd-list-item__column"><i className="icon-rundown"></i></div>
-                                <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                    <div className="sd-list-item__row">
-                                        <span className="sd-list-item__slugline">19:00 – 19:45</span>
-                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
-                                        <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
-                                        <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
-                                    </div>
-                                    <div className="sd-list-item__row">
-                                        <Label text='Marker' color='blue--800'/>
-                                        <span className='sd-list-item__compound-text'>
-                                            <span className='sd-list-item__text-label'>Template:</span>
-                                            <span>Marker Daily</span>
-                                        </span>
-                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>
-                                        <Label style='translucent' text='In Progress' type='warning' />
-                                    </div>
-                                </div>
-                                <div className="sd-list-item__action-menu">
-                                    <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />
-                                </div>
-                            </div>
-                            <div className="sd-list-item sd-shadow--z1" onClick={() => this.setState({openPreview: !this.state.openPreview})}>
-                                <div className="sd-list-item__border"></div>
-                                <div className="sd-list-item__column"><i className="icon-rundown"></i></div>
-                                <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                    <div className="sd-list-item__row">
-                                        <span className="sd-list-item__slugline">19:45 – 20:45</span>
-                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:56' size='small' type='warning' />
-                                        <IconLabel style='translucent' innerLabel='Planned Duration:'text='01:00' size='small' />
-                                        <time className='sd-margin-s--auto' title="June 01, 2022 09:23 AM">09:23, 01.06.2022</time>
-                                    </div>
-                                    <div className="sd-list-item__row">
-                                        <Label text='Tabu' color='blue--800'/>
-                                        <span className='sd-list-item__compound-text'>
-                                            <span className='sd-list-item__text-label'>Template:</span>
-                                            <span>Tabu Daily</span>
-                                        </span>
-                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Tabu // 01.06.2022</span>
-                                        <Label style='translucent' text='Draft' />
-                                    </div>
-                                </div>
-                                <div className="sd-list-item__action-menu">
-                                    <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />
-                                </div>
-                            </div>
-                        </div>
+                        <ContentList
+                        items={[
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}],
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content:
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content:
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='Draft' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                                locked: true,
+                            },
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}], 
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content: 
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content: 
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                            },
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}],
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content:
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content:
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                            },
+                        ]} />
 
-                    </Layout.MainPanel>
+                    </Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
-                    <Layout.RightPanel open={this.state.openPreview}>
-                        <Layout.Panel side='right'>
-                            <Layout.PanelHeader title='Item preview' onClose={() => this.setState({'openPreview': false})}  />
-                            <Layout.PanelContent>
-                                <Layout.PanelContentBlock flex={true}>
-                                    <Container direction='column' gap='x-small'>
-                                        <Container direction='row' gap='small'><Text color='light'>Created 09.06.2022 by </Text><Text weight='medium'>Mika Karapet</Text></Container>
-                                        <Container direction='row' gap='small'><Text color='light'>Updated 3 hours ago by </Text><Text weight='medium'>John Doe</Text></Container>
-                                    </Container>
-                                    <Container className='sd-margin-s--auto sd-flex--items-center'>
+                    <Components.RightPanel open={this.state.openPreview}>
+                        <Components.Panel side='right'>
+                            <Components.PanelHeader title='Item details' handleFilterParent={this.handlePreview} />
+                            <Components.PanelContent>
+                                <Components.PanelContentBlock flex={true}>
+                                    <div className="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                                        <p className="sd-text__date-and-author"><time>Created 19.06.2020 by </time> <span className="sd-text__author">Mika Karapet</span></p> 
+                                        <p className="sd-text__date-and-author"><time>Updated 3 hours ago by</time> <span className="sd-text__author">John Doe</span></p>
+                                    </div>
+                                    <div className="side-panel__content-block-inner side-panel__content-block-inner--right">
                                         <Dropdown
                                             align = 'right'
                                             append = {true}
@@ -425,131 +480,51 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 }]}>
                                             <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
                                         </Dropdown>
-                                    </Container>
-                                </Layout.PanelContentBlock>
+                                    </div>
+                                </Components.PanelContentBlock>
+                                <Components.PanelContentBlock padding='0' className='side-panel__content-block--image'>
+                                    <span className="side-panel__image-actions">
+                                        <IconButton ariaValue='button-fullscreen' icon='fullscreen' onClick={() => false} />
+                                    </span>
+                                    <img src="/d_trump.jpg" alt="test" />
+                                </Components.PanelContentBlock>
 
-                                <Layout.PanelContentBlock>
-                                    <Container direction='row'  gap='large' className='sd-margin-b--3'>
-                                        <Label size='large' text='Tabu' color='blue--800'/>
-                                        <Container direction='row' gap='small'>
-                                            <Text color='light' size='small' style='italic' >Template:</Text>
-                                            <Text size='small' style='italic' weight='medium'>Tabu daily</Text>
-                                        </Container>
-                                    </Container>
-                                
-                                    <Container direction='column' className='sd-margin-y--2'>
-                                        {/* <FormLabel text='Title' /> */}
-                                        <Heading type='h2'>Tabu // 01.06.2022</Heading>
-                                    </Container>
-                                    <ButtonGroup>
-                                        <IconLabel style='translucent' innerLabel='Airtime:' text='19:45 - 20:45' type='primary' />
-                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:56' type='warning' />
-                                        <Text color='light' size='small' className='sd-margin--0'>OF</Text>
-                                        <IconLabel style='translucent' innerLabel='Planned:'text='01:00' />
-                                    </ButtonGroup>
-                                    <Container direction='column' className='sd-margin-y--2'>
-                                        <ul className='table-list'>
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' text='aacc' />
-                                                        <Label style='translucent' type='primary' text='prlg' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:14' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:12' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='primary' text='spro' />
-                                                        <Label style='translucent' type='primary' text='prlg' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:05' type='warning' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:05' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </Container> 
-                                </Layout.PanelContentBlock>
-                            </Layout.PanelContent>
-                        </Layout.Panel>
-                    </Layout.RightPanel>
+                                <Components.PanelContentBlock>
+                                    <div className="form__row">
+                                        <label className="form-label form-label--light">Title</label>
+                                        <p className="sd-text__title">Cursus Aenean</p>
+                                    </div>
+                                    <div className="form__row">
+                                        <label className="form-label form-label--light">Description</label>
+                                        <p className="sd-text sd-text--medium">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi leo risus, porta ac consectetur, vestibulum eros.</p>
+                                    </div>
+                                    <div className="form__row">
+                                        <Label text='Public' type='success' style='hollow' size='large' />
+                                    </div> 
+                                </Components.PanelContentBlock>
+                            </Components.PanelContent>
+                        </Components.Panel>
+                    </Components.RightPanel>
                     {/* PREVIEW PANEL*/}
 
-                    <Layout.OverlayPanel />
+                    <Components.OverlayPanel />
                     {/* OVERLAY PANEL (Send To) */}
-                </Layout.LayoutContainer>
-                <Layout.ContentSplitter visible={this.state.openEditor} />
+                </Components.LayoutContainer>
                 {/* RUNDOWN EDITOR */}
-                <Layout.AuthoringContainer open={this.state.openEditor}>
-                    <RundownEditor />
-                </Layout.AuthoringContainer>
+                <div className="testingCSS">
+                    Rundown Editor Goes Here
+                </div>
                 {/* END RUNDOWN EDITOR */}
-            </Layout.Layout >
+            </Components.Layout >
 
-            {/* Manage Templates Modal */}
-            <Modal headerTemplate="Manage Templates"
-                visible={this.state.modalManageTemplate}
+            {/* Create New Template Modal */}
+            <Modal headerTemplate="Create new Template"
+                visible={this.state.modalNewTemplate}
                 contentBg='medium'
                 contentPadding='none'
-                size='x-large' onHide={() => {this.setState({modalManageTemplate: false})}}>
-                <Layout.LayoutContainer>
-                    <Layout.LeftPanel open={true}>
+                size='x-large' onHide={() => {this.setState({modalNewTemplate: false})}}>
+                <Components.LayoutContainer>
+                    <Components.LeftPanel open={true}>
                         <Layout.Panel side='left' background='grey'>
                             <Layout.PanelHeader>
                                 <Container className='sd-padding-x--2'>
@@ -563,26 +538,21 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         disabled={false}
                                         invalid={false}
                                         onChange={(value) => {}}>
-                                            <Option>Select show</Option>
                                             <Option>Marker</Option>
                                             <Option>Tabu</Option>
                                     </Select>
                                 </Container>
                             </Layout.PanelHeader>
                             <Layout.PanelContent>
-                                <EmptyState
-                                    title={'No show is selected'} 
-                                    description={'Please select a Show from the dropdown at the top.'} 
-                                    size="small" 
-                                    illustration="1" />
-                                    {/* <Container className='sd-margin-b--1'>
+                                <Layout.PanelContentBlock>
+                                    <Container className='sd-margin-b--1'>
                                         <ButtonGroup align='end'>
-                                            <Tooltip text='Manage templates'>
+                                            <Tooltip text='Create new template'>
                                                 <Button type="primary" size='small' icon="plus-large" text="Cretae new Template" shape="round" iconOnly={true} onClick={()=> false} />
                                             </Tooltip>
                                         </ButtonGroup>
-                                    </Container> */}
-                                    {/* <BoxedList>
+                                    </Container>
+                                    <BoxedList>
                                         <BoxedListItem
                                             alignVertical='center'
                                             clickable={true}
@@ -623,22 +593,22 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 <span>Marker Special</span>
                                             </Container>
                                         </BoxedListItem>
-                                    </BoxedList> */}
+                                    </BoxedList>
 
-
+                                </Layout.PanelContentBlock>
                             </Layout.PanelContent>
                         </Layout.Panel>
-                    </Layout.LeftPanel>
+                    </Components.LeftPanel>
                     {/* FILTER PANEL*/}
-                    <Layout.MainPanel >
+                    <Components.MainPanel >
                         <EmptyState
-                            title={'No Template selected'} 
-                            description={'Please select a Show and Template frome the side panel.'} 
+                            title={'Empty state title'} 
+                            description={'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.'} 
                             size="large" 
                             illustration="1" />
-                    </Layout.MainPanel>
+                    </Components.MainPanel>
                     {/* MAIN CONTENT */}
-                </Layout.LayoutContainer>
+                </Components.LayoutContainer>
             </Modal>
 
             {/* New Show Modal */}
@@ -695,8 +665,8 @@ export class Rundowns extends React.Component<IProps, IState> {
                 contentBg='medium'
                 contentPadding='none'
                 size='x-large' onHide={() => {this.setState({modalNewTemplate: false})}}>
-                <Layout.LayoutContainer>
-                    <Layout.LeftPanel open={true}>
+                <Components.LayoutContainer>
+                    <Components.LeftPanel open={true}>
                         <Layout.Panel side='left' background='grey'>
                             <Layout.PanelHeader>
                                 <Container className='sd-padding-x--2'>
@@ -783,211 +753,19 @@ export class Rundowns extends React.Component<IProps, IState> {
                                 </Layout.PanelContentBlock>
                             </Layout.PanelContent>
                         </Layout.Panel>
-                    </Layout.LeftPanel>
+                    </Components.LeftPanel>
                     {/* FILTER PANEL*/}
-                    <Layout.MainPanel padding='none'>
-                        
-                            <RundownEditor />
-                        
-                    </Layout.MainPanel>
+                    <Components.MainPanel >
+                        <EmptyState
+                            title={'Empty state title'} 
+                            description={'Integer posuere erat a ante venenatis dapibus posuere velit aliquet.'} 
+                            size="large" 
+                            illustration="1" />
+                    </Components.MainPanel>
                     {/* MAIN CONTENT */}
-                </Layout.LayoutContainer>
+                </Components.LayoutContainer>
             </Modal>
-
-            {/* Manage Shows Modal */}
-            <Modal headerTemplate="Manage Shows"
-                visible={this.state.modalManageShow}
-                contentBg='medium'
-                contentPadding='none'
-                size='x-large' onHide={() => {this.setState({modalManageShow: false})}}>
-                <Layout.LayoutContainer>
-                <Layout.HeaderPanel>
-                        <SubNav zIndex={2}>
-                            <SearchBar placeholder='Search shows'></SearchBar>
-                            <ButtonGroup align='end' spaces='no-space'>
-                                <CreateButton ariaValue='New show' onClick={() => false} />
-                            </ButtonGroup>
-                        </SubNav>
-                    </Layout.HeaderPanel>
-                    {/* MAIN CONTENT */}
-                    <Layout.MainPanel>
-                        <BoxedList>
-                            <BoxedListItem
-                                alignVertical='center'
-                                clickable={true}
-                                density='compact'
-                                selected={this.state.openShowEditor}
-                                onClick={() => this.setState({openShowEditor: !this.state.openShowEditor})}
-                                actions={(
-                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                )}
-                                >
-                                <Container className='sd-flex-justify-space-between'>
-                                    <Heading type='h4'>Marker</Heading>
-                                    <Text color='lighter'>3 template</Text>
-                                </Container>
-                            </BoxedListItem>
-                            <BoxedListItem
-                                alignVertical='center'
-                                clickable={true}
-                                density='compact'
-                                actions={(
-                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                )}
-                                >
-                                <Container className='sd-flex-justify-space-between'>
-                                    <Heading type='h4'>Tabu</Heading>
-                                    <Text color='lighter'>3 template</Text>
-                                </Container>
-                            </BoxedListItem>
-                            <BoxedListItem
-                                alignVertical='center'
-                                clickable={true}
-                                density='compact'
-                                actions={(
-                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                )}
-                                >
-                                <Container className='sd-flex-justify-space-between'>
-                                    <Heading type='h4'>Život u ringu</Heading>
-                                    <Text color='lighter'>1 template</Text>
-                                </Container>
-                            </BoxedListItem>
-                            <BoxedListItem
-                                alignVertical='center'
-                                density='compact'
-                                clickable={true}
-                                actions={(
-                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                )}
-                                >
-                                <Container className='sd-flex-justify-space-between'>
-                                    <Heading type='h4'>Intervju</Heading>
-                                    <Text color='lighter'>3 templates</Text>
-                                </Container>
-                            </BoxedListItem>
-                        </BoxedList>
-                        
-                    </Layout.MainPanel>
-                    <Layout.RightPanel open={this.state.openShowEditor}>
-                        <Layout.Panel side='right' background='grey'>
-                            <Layout.PanelHeader title='Show details' onClose={() => this.setState({'openShowEditor': false})} >
-                                
-                            {this.state.value1 ||
-                                <Layout.PanelHeaderSlidingToolbar>
-                                    <ButtonGroup align='start'>
-                                        <IconButton ariaValue="Close" icon="close-small" onClick={() => this.setState({openShowEditor: !this.state.openShowEditor})} />
-                                    </ButtonGroup>
-                                    <ButtonGroup align='end'>
-                                        <Button text="Save Changes" style='hollow' onClick={() => this.setState({openShowEditor: !this.state.openShowEditor})} type="primary" />
-                                    </ButtonGroup>
-                                </Layout.PanelHeaderSlidingToolbar>}
-                            </Layout.PanelHeader>
-                            <Layout.PanelContent>
-                                <Layout.PanelContentBlock flex={true}>
-                                    <Container direction='column' gap='x-small'>
-                                        <Container direction='row' gap='small'><Text color='light'>Created 09.06.2022 by </Text><Text weight='medium'>Mika Karapet</Text></Container>
-                                        <Container direction='row' gap='small'><Text color='light'>Updated 3 hours ago by </Text><Text weight='medium'>John Doe</Text></Container>
-                                    </Container>
-                                    <Container className='sd-margin-s--auto sd-flex--items-center'>
-                                        <Dropdown
-                                            align = 'right'
-                                            append = {true}
-                                            items={[
-                                                {
-                                                    type: 'group', label: 'Actions', items: [
-                                                        'divider',
-                                                        { label: 'Edit', icon: 'pencil', onSelect: () => this.setState({ dropDownState: 'Edit ' }) },
-                                                        { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
-                                                        { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
-                                                    ]
-                                                }]}>
-                                            <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
-                                        </Dropdown>
-                                    </Container>
-                                </Layout.PanelContentBlock>
-                                <Layout.PanelContentBlock>
-                                    <SwitchGroup className='sd-margin-b--3'>
-                                        <Switch label={{text:'Active'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
-                                    </SwitchGroup>
-                                    <Form.FormGroup>
-                                        <Form.FormItem>
-                                            <Input
-                                                type='text'
-                                                label='Show name'
-                                                value='Marker'
-                                                error='This is error message'
-                                                info=' '
-                                                required={true}
-                                                disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => {}} /> 
-                                        </Form.FormItem>
-                                    </Form.FormGroup>
-                                    <Form.FormGroup>
-                                        <Form.FormItem>
-                                            <Input
-                                                type='text'
-                                                label='Description'
-                                                value=''
-                                                error='This is error message'
-                                                info=''
-                                                required={false}
-                                                disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => {}} /> 
-                                        </Form.FormItem>
-                                    </Form.FormGroup>
-                                </Layout.PanelContentBlock>
-
-                                <Layout.PanelContentBlock>
-                                    <Heading type='h3' className='sd-margin-b--2'>Show templates</Heading>
-                                    <BoxedList>
-                                        <BoxedListItem
-                                            alignVertical='center'
-                                            density='compact'
-                                            actions={(
-                                                <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                            )}
-                                            >
-                                            <Container gap='small' >
-                                                <Label text='Marker' color='blue--800'/>
-                                                <span>Marker Daily</span>
-                                            </Container>
-                                        </BoxedListItem>
-                                        <BoxedListItem
-                                            alignVertical='center'
-                                            density='compact'
-                                            actions={(
-                                                <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                            )}
-                                            >
-                                            <Container gap='small' >
-                                                <Label text='Marker' color='blue--800'/>
-                                                <span>Marker Weekend</span>
-                                            </Container>
-                                        </BoxedListItem>
-                                        <BoxedListItem
-                                            alignVertical='center'
-                                            density='compact'
-                                            actions={(
-                                                <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                            )}
-                                            >
-                                            <Container gap='small' >
-                                                <Label text='Marker' color='blue--800'/>
-                                                <span>Marker Special</span>
-                                            </Container>
-                                        </BoxedListItem>
-                                    </BoxedList>
-
-                                </Layout.PanelContentBlock>
-                            </Layout.PanelContent>
-                        </Layout.Panel>
-                    </Layout.RightPanel>
-                </Layout.LayoutContainer>
-            </Modal>
-            {/* End All Modals */}
+            {/* End Modals */}
             </>
         );
     }

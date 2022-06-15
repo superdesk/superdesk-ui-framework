@@ -20,8 +20,9 @@ class TableListItem extends React.PureComponent<IPropsItem> {
     render() {
         return (
             this.props.addItem ?
-            <li className='table-list__item-container' onClick={this.props.onClick}>
+            <li className='table-list__item-container'>
                 <div
+                onClick={this.props.onClick}
                 className={`table-list__item ${this.props.onClick && 'table-list__item--clickable'} ${this.props.dragAndDrop && 'table-list__item--draggable'}`}>
                     <div className='table-list__item-content'>
                         <div className='table-list__item-content-block'>
@@ -85,6 +86,7 @@ interface IProps {
     addItem?: boolean;
     dragAndDrop?: boolean;
     itemsDropdown?: any;
+    className?: string;
     onClick?(): void;
 }
 
@@ -142,6 +144,7 @@ class TableList extends React.PureComponent<IProps, {items: any}> {
     render() {
         let classes = classNames({
             'table-list' : !this.props.addItem,
+            [`${this.props.className}`]: this.props.className,
         });
 
         return (

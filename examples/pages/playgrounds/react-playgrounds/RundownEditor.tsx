@@ -6,6 +6,7 @@ import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
 import { BoxedList, BoxedListItem, BoxedListContentRow } from '../../../../app-typescript/components/Lists';
 import { SimpleList, SimpleListItem } from '../../../../app-typescript/components/Lists';
+import { TableList } from '../../../../app-typescript/components/Lists/TableList';
 
 interface IProps {
     children?: React.ReactNode;
@@ -25,6 +26,7 @@ interface IState {
     rightPanelOpen: boolean;
     rightPanelPinned: boolean;
     sideOverlayOpen: boolean;
+    array: any;
 }
 
 export class RundownEditor extends React.Component<IProps, IState> {
@@ -44,6 +46,73 @@ export class RundownEditor extends React.Component<IProps, IState> {
             rightPanelOpen: false,
             rightPanelPinned: false,
             sideOverlayOpen: false,
+            array: [
+                {
+                    start: <>
+                                <Label style='translucent' text='aacc' />
+                                <Label style='translucent' type='primary' text='prlg' />
+                            </>,
+                    center: <span>Duis mollis est non commodo</span>,
+                    end: <>
+                            <IconLabel style='translucent' innerLabel='Planned:' text='00:20' />
+                            <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
+                        </>,
+                    action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
+                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                },
+                {
+                    start: <>
+                                <Label style='translucent' type='warning' text='pokr' />
+                                <Label style='translucent' text='slika' />
+                            </>,
+                    center: <span>Nullam id dolor id nibh ultricies</span>,
+                    end: <>
+                        <IconLabel style='translucent' innerLabel='Planned:' text='00:12' />
+                        <IconLabel style='translucent' innerLabel='Duration:' text='00:11' type='warning' />
+                        </>,
+                    action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
+                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                },
+                {
+                    start: <>
+                                <Label style='translucent' text='aacc' />
+                                <Label style='translucent' type='primary' text='prlg' />
+                            </>,
+                    center: <span>Duis mollis est non commodo</span>,
+                    end: <>
+                            <IconLabel style='translucent' innerLabel='Planned:' text='00:20' />
+                            <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
+                        </>,
+                    action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
+                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                },
+                {
+                    start: <>
+                                <Label style='translucent' type='warning' text='pokr' />
+                                <Label style='translucent' text='slika' />
+                            </>,
+                    center: <span>Cras mattis consectetur purus</span>,
+                    end: <>
+                            <IconLabel style='translucent' innerLabel='Planned:' text='00:14' />
+                            <IconLabel style='translucent' innerLabel='Duration:' text='00:15' type='alert' />
+                        </>,
+                    action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
+                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                },
+                {
+                    start: <>
+                                <Label style='translucent' text='aacc' />
+                                <Label style='translucent' type='primary' text='prlg' />
+                            </>,
+                    center: <span>Duis mollis est non commodo</span>,
+                    end: <>
+                            <IconLabel style='translucent' innerLabel='Planned:' text='00:20' />
+                            <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
+                        </>,
+                    action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
+                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                },
+            ]
             
         }
         this.handleTheme = this.handleTheme.bind(this);
@@ -242,97 +311,19 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                     <Text color='light' size='medium' className='sd-margin--0'>OF</Text>
                                     <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='large' />
                                 </ButtonGroup>
-                                <Container direction='column' className='sd-margin-y--4'>
-                                    <ul className='table-list table-list--contained'>
-                                        <li className='table-list__item-container' onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})}>
-                                            <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' text='aacc' />
-                                                        <Label style='translucent' type='primary' text='prlg' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Duis mollis est non commodo</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                    <IconLabel style='translucent' innerLabel='Planned:' text='00:20' />
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
-                                                    </div>
-                                                </div>
-                                                <div className='table-list__slide-in-actions'>
-                                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
-                                                </div>
-                                            </div>
 
-                                            <div className='table-list__add-bar-container'>
-                                                <Tooltip text='Add item' flow='top' appendToBody={true}>
-                                                    <div className='table-list__add-bar'>
-                                                        <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
-                                                    </div>
-                                                </Tooltip>
-                                            </div>
-                                        </li>
-
-                                        <li className='table-list__item-container' onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})}>
-                                            <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Planned:' text='00:12' />
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:11' type='warning' />
-                                                    </div>
-                                                </div>
-                                                <div className='table-list__slide-in-actions'>
-                                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
-                                                </div>
-                                            </div>
-
-                                            <div className='table-list__add-bar-container'>
-                                                <Tooltip text='Add item' flow='top' appendToBody={true}>
-                                                    <div className='table-list__add-bar'>
-                                                        <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
-                                                    </div>
-                                                </Tooltip>
-                                            </div>
-                                        </li>
-
-                                        <li className='table-list__item-container'>
-                                            <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Cras mattis consectetur purus</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Planned:' text='00:14' />
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:15' type='alert' />
-                                                    </div>
-                                                </div>
-                                                <div className='table-list__slide-in-actions'>
-                                                    <IconButton icon='pencil' size='small' ariaValue='More actions' onClick={()=> false} />
-                                                    <IconButton icon='trash' size='small' ariaValue='More actions' onClick={()=> false} />
-                                                </div>
-                                            </div>
-
-                                            <div className='table-list__add-bar-container'>
-                                                <Tooltip text='Add item' flow='top' appendToBody={true}>
-                                                    <div className='table-list__add-bar'>
-                                                        <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
-                                                    </div>
-                                                </Tooltip>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </Container>
+                                <TableList
+                                className='sd-margin-y--4'
+                                dragAndDrop
+                                addItem
+                                array={this.state.array}
+                                itemsDropdown={[
+                                    { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
+                                    { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
+                                    { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                ]}
+                                onClick={() => false}
+                                />   
 
                         </Layout.AuthoringMain>
                     </Layout.MainPanel>
@@ -340,7 +331,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                     <Layout.RightPanel open={this.state.rightPanelOpen}>
                         <Layout.Panel size='x-large' side='right'>
                             <Layout.PanelContent>
-                                <Layout.AuthoringFrame 
+                                <Layout.AuthoringFrame
                                     main={
                                     <Layout.AuthoringMain
                                         headerPadding='medium'
