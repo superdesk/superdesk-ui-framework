@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner } from '../../../../app-typescript/index';
 import { Carousel } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
@@ -16,12 +16,12 @@ interface IState {
     itemSelected1: boolean;
     itemSelected2: boolean;
     itemSelected3: boolean;
-    value1: string;
-    value2: string;
-    value3: string;
-    value4: string;
-    value5: string;
-    value6: string;
+    value1?: string;
+    value2?: string;
+    value3?: string;
+    value4?: string;
+    value5?: string;
+    value6?: string;
     selctedTheme: string;
 }
 
@@ -348,6 +348,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <div className="button-group button-group--comfort">
                             <div className="color-swatch colour-test--1"></div>
                             <div className="color-swatch colour-test--2"></div>
+                            <Spinner />
                         </div>
 
                         <hr />

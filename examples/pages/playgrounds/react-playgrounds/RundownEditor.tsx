@@ -453,7 +453,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             { icon: 'history', size: 'big', tooltip: 'History', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
                                             { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
                                             { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                            { icon: 'comments', size: 'big', tooltip: 'Inline Comments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
+                                            { icon: 'comments', size: 'big', tooltip: 'Inline Comments', badgeValue: '5', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
                                             { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) }]} />
                                     )}
                                 />
