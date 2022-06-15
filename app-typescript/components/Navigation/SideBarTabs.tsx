@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Icon } from '../Icon';
+import { Badge } from '../Badge';
 
 interface IProps {
     items: Array<ISideBarTab | 'divider'>;
@@ -11,6 +12,7 @@ export interface ISideBarTab {
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
     active?: boolean;
+    badgeValue?: string;
     onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
 }
 
@@ -61,6 +63,14 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
                                             ' sd-sidetab-menu__btn--active' :
                                             (index === this.state.index ? ' sd-sidetab-menu__btn--active' : ''))}
                                         onClick={() => this.handleClick(item, index, event)}>
+                                        {
+                                        item['badgeValue'] != null
+                                        ? (
+                                        <Badge text={item['badgeValue']} type='primary' />
+                                        )
+                                        : null
+                                        }
+
                                         <span className='sd-sidetab-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>

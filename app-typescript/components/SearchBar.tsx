@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {Icon} from '../../app-typescript/index';
+import {Icon} from './Icon';
 
 interface IProps {
     type?: 'expanded' | 'collapsed' | 'boxed';
