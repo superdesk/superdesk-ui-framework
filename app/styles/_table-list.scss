@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-self: stretch;
-    gap: $sd-base-increment * 1.5;
+    //gap: $sd-base-increment * 1.5;
     &--comfortable {
         gap: $sd-base-increment * 2;
     }
@@ -39,6 +39,10 @@ $table-list-palette: $sd-basic-palette;
         background-color: var(--sd-colour-panel-bg--100);
         z-index: 1;
         border-radius: 2px;
+    }
+
+    &--margin {
+        margin-bottom: $sd-base-increment;
     }
 
     &--selected {
