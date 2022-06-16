@@ -10,6 +10,7 @@ interface IPropsItem {
     fetched?: boolean;
     loading?: boolean;
     onClick?(): void;
+    onDoubleClick?(): void;
 }
 
 class ContentListItem extends React.PureComponent<IPropsItem> {
@@ -22,7 +23,7 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
     });
 
         return (
-            <div className={classes} onClick={this.props.onClick}>
+            <div className={classes} onClick={this.props.onClick} onDoubleClick={this.props.onDoubleClick}>
                 <div className="sd-list-item sd-shadow--z1">
                     {this.props.locked
                     ? <div className="sd-list-item__border sd-list-item__border--locked"></div>
@@ -61,6 +62,7 @@ interface IProps {
         selected?: boolean,
         fetched?: boolean,
         onClick?(): void,
+        onDoubleClick?(): void;
     }>;
 }
 
@@ -85,7 +87,8 @@ class ContentList extends React.PureComponent<IProps> {
                     activated={item.activated}
                     selected={item.selected}
                     fetched={item.fetched}
-                    onClick={item.onClick} />;
+                    onClick={item.onClick}
+                    onDoubleClick={item.onDoubleClick} />;
                 })}
             </ul>
         );
