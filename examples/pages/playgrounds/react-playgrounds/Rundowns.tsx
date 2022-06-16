@@ -9,6 +9,8 @@ import * as GridElements from '../../../../app-typescript/components/GridItem';
 
 
 import dummy_items from '../dummy-data/items';
+import { ContentList } from '../../../../app-typescript/components/Lists/ContentList';
+import { TableList } from '../../../../app-typescript/components/Lists/TableList';
 
 interface IProps {
     children?: React.ReactNode;
@@ -35,6 +37,7 @@ interface IState {
     modalManageShow: boolean;
     openEditor: boolean;
     openShowEditor: boolean;
+    array: any;
 }
 
 export class Rundowns extends React.Component<IProps, IState> {
@@ -60,6 +63,48 @@ export class Rundowns extends React.Component<IProps, IState> {
             modalManageShow: false,
             openEditor: false,
             openShowEditor: false,
+            array: [
+                {
+                    start: <>
+                                <Label style='translucent' text='aacc' />
+                                <Label style='translucent' type='primary' text='prlg' />
+                            </>,
+                    center: <span>Duis mollis est non commodo</span>,
+                    onClick: () => false,
+                },
+                {
+                    start: <>
+                                <Label style='translucent' type='warning' text='pokr' />
+                                <Label style='translucent' text='slika' />
+                            </>,
+                    center: <span>Nullam id dolor id nibh ultricies</span>,
+                    onClick: () => false,
+                },
+                {
+                    start: <>
+                                <Label style='translucent' text='aacc' />
+                                <Label style='translucent' type='primary' text='prlg' />
+                            </>,
+                    center: <span>Duis mollis est non commodo</span>,
+                    onClick: () => false,
+                },
+                {
+                    start: <>
+                                <Label style='translucent' type='warning' text='pokr' />
+                                <Label style='translucent' text='slika' />
+                            </>,
+                    center: <span>Cras mattis consectetur purus</span>,
+                    onClick: () => false,
+                },
+                {
+                    start: <>
+                                <Label style='translucent' text='aacc' />
+                                <Label style='translucent' type='primary' text='prlg' />
+                            </>,
+                    center: <span>Duis mollis est non commodo</span>,
+                    onClick: () => false,
+                },
+            ]
 
         }
         this.handleFilter = this.handleFilter.bind(this);
@@ -348,56 +393,87 @@ export class Rundowns extends React.Component<IProps, IState> {
                                 </GridElements.GridItem>
                             )}
                         </GridList> */}
-                        <div className="sd-list-item-group sd-list-item-group--space-between-items">
-                            <div className="sd-list-item sd-shadow--z1" onClick={() => this.setState({openEditor: !this.state.openEditor})}>
-                                <div className="sd-list-item__border sd-list-item__border--locked"></div>
-                                <div className="sd-list-item__column"><i className="icon-rundown"></i></div>
-                                <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                    <div className="sd-list-item__row">
-                                        <span className="sd-list-item__slugline">19:00 – 19:45</span>
-                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
-                                        <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
-                                        <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
-                                    </div>
-                                    <div className="sd-list-item__row">
-                                        <Label text='Marker' color='blue--800'/>
-                                        <span className='sd-list-item__compound-text'>
-                                            <span className='sd-list-item__text-label'>Template:</span>
-                                            <span>Marker Daily</span>
-                                        </span>
-                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>
-                                        <Label style='translucent' text='In Progress' type='warning' />
-                                    </div>
-                                </div>
-                                <div className="sd-list-item__action-menu">
-                                    <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />
-                                </div>
-                            </div>
-                            <div className="sd-list-item sd-shadow--z1" onClick={() => this.setState({openPreview: !this.state.openPreview})}>
-                                <div className="sd-list-item__border"></div>
-                                <div className="sd-list-item__column"><i className="icon-rundown"></i></div>
-                                <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                    <div className="sd-list-item__row">
-                                        <span className="sd-list-item__slugline">19:45 – 20:45</span>
-                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:56' size='small' type='warning' />
-                                        <IconLabel style='translucent' innerLabel='Planned Duration:'text='01:00' size='small' />
-                                        <time className='sd-margin-s--auto' title="June 01, 2022 09:23 AM">09:23, 01.06.2022</time>
-                                    </div>
-                                    <div className="sd-list-item__row">
-                                        <Label text='Tabu' color='blue--800'/>
-                                        <span className='sd-list-item__compound-text'>
-                                            <span className='sd-list-item__text-label'>Template:</span>
-                                            <span>Tabu Daily</span>
-                                        </span>
-                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Tabu // 01.06.2022</span>
-                                        <Label style='translucent' text='Draft' />
-                                    </div>
-                                </div>
-                                <div className="sd-list-item__action-menu">
-                                    <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />
-                                </div>
-                            </div>
-                        </div>
+
+                        <ContentList
+                        items={[
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}],
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content:
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content:
+                                                <>
+                                                    <Label text='Marker' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Marker Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='In Progress' type='warning' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                                locked: true,
+                                onClick: () => this.setState({openEditor: !this.state.openEditor}),
+                            },
+                            {
+                                itemColum: [
+                                    {
+                                        itemRow: [{content:<>
+                                                    <i className="icon-rundown"></i>
+                                                </>}], 
+                                        border: true
+                                    },
+                                    {
+                                        itemRow: [
+                                            {
+                                                content: 
+                                                <>
+                                                    <span className="sd-list-item__slugline">19:00 – 19:45</span>
+                                                    <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
+                                                    <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
+                                                    <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                </>
+                                            },
+                                            {
+                                                content: 
+                                                <>
+                                                    <Label text='Tabu' color='blue--800'/>
+                                                        <span className='sd-list-item__compound-text'>
+                                                            <span className='sd-list-item__text-label'>Template:</span>
+                                                            <span>Tabu Daily</span>
+                                                        </span>
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                    <Label style='translucent' text='Draft' />
+                                                </>
+                                            },
+                                        ],
+                                        fullwidth: true,
+                                    }
+                                ],
+                                action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                                onClick: () => this.setState({openPreview: !this.state.openPreview}),
+                            },
+                        ]} />
 
                     </Layout.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
@@ -447,84 +523,16 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         <Text color='light' size='small' className='sd-margin--0'>OF</Text>
                                         <IconLabel style='translucent' innerLabel='Planned:'text='01:00' />
                                     </ButtonGroup>
-                                    <Container direction='column' className='sd-margin-y--2'>
-                                        <ul className='table-list'>
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' text='aacc' />
-                                                        <Label style='translucent' type='primary' text='prlg' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:14' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:12' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='primary' text='spro' />
-                                                        <Label style='translucent' type='primary' text='prlg' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:05' type='warning' />
-                                                    </div>
-                                                </div>
-                                            </li>
-
-                                            <li className='table-list__item'>
-                                                <div className='table-list__item-content'>
-                                                    <div className='table-list__item-content-block'>
-                                                        <Label style='translucent' type='warning' text='pokr' />
-                                                        <Label style='translucent' text='slika' />
-                                                    </div>
-                                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                                    </div>
-                                                    <div className='table-list__item-content-block'>
-                                                        <IconLabel style='translucent' innerLabel='Duration:' text='00:05' type='success' />
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    </Container> 
+                                    <TableList
+                                className='sd-margin-y--4'
+                                array={this.state.array}
+                                itemsDropdown={[
+                                    { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
+                                    { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
+                                    { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                ]}
+                                onClick={() => false}
+                                />   
                                 </Layout.PanelContentBlock>
                             </Layout.PanelContent>
                         </Layout.Panel>

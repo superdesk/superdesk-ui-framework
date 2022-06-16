@@ -258,7 +258,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}} /> 
+                                                onChange={(value) => {}} />
                                         </Form.FormItem>
                                     </Form.FormGroup>
                                     <Form.FormGroup marginBottom='2'>
@@ -271,7 +271,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}} /> 
+                                                onChange={(value) => {}} />
                                         </Form.FormItem>
                                         <Form.FormItem>
                                             <Input
@@ -282,7 +282,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}} /> 
+                                                onChange={(value) => {}} />
                                         </Form.FormItem>
                                         <Form.FormItem>
                                             <Input
@@ -293,7 +293,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}} /> 
+                                                onChange={(value) => {}} />
                                         </Form.FormItem>
                                     </Form.FormGroup>
                                 </React.Fragment>
@@ -301,6 +301,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                             >
                                 <Container direction='column' className='sd-margin-y--2'>
                                     <input
+                                        onChange={() => false}
                                         type='text'
                                         value='Marker // 01.06.2022'
                                         className='sd-editor__input--title' />
