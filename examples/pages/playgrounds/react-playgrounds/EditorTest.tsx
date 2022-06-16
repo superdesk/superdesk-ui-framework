@@ -148,7 +148,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     required={false}
                                     disabled={false}
                                     invalid={false}
-                                    onChange={(value) => {}} /> 
+                                    onChange={(value) => {}} />
                             </Form.FormItem>
                             <Form.FormItem>
                                 <Input
