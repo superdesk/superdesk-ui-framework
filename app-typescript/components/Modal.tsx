@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Dialog as PrimeDialog } from '@superdesk/primereact/dialog';
 import classNames from 'classnames';
 
