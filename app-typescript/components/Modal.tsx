@@ -14,6 +14,7 @@ interface IProps {
     headerTemplate?: JSX.Element | string;
     footerTemplate?: JSX.Element | string;
     closeOnEscape?: boolean;
+    zIndex?: number;
     onShow?(): void;
     onHide(): void;
 }
@@ -39,7 +40,9 @@ export class Modal extends React.Component<IProps, {}> {
                     maximized={this.props.maximized}
                     contentClassName={classes}
                     onShow={this.props.onShow}
-                    onHide={this.props.onHide}>
+                    onHide={this.props.onHide}
+                    baseZIndex={this.props.zIndex}
+                >
                     {this.props.children}
                 </PrimeDialog>
             </div>
