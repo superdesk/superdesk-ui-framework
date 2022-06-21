@@ -16,388 +16,422 @@
 $icon-color: var(--color-icon-default) !default;
 
 @font-face {
-  font-family: 'sd_icons';
-  src:url('../fonts/sd_icons.eot?-r9v51w');
-  src:url('../fonts/sd_icons.eot?#iefix-r9v51w') format('embedded-opentype'),
-    url('../fonts/sd_icons.woff?-r9v51w') format('woff'),
-    url('../fonts/sd_icons.ttf?-r9v51w') format('truetype'),
-    url('../fonts/sd_icons.svg?-r9v51w#sd_icons') format('svg');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'sd_icons';
+    src:url('../fonts/sd_icons.eot?-r9v51w');
+    src:url('../fonts/sd_icons.eot?#iefix-r9v51w') format('embedded-opentype'),
+        url('../fonts/sd_icons.woff?-r9v51w') format('woff'),
+        url('../fonts/sd_icons.ttf?-r9v51w') format('truetype'),
+        url('../fonts/sd_icons.svg?-r9v51w#sd_icons') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 $icon-base-size: 16px;
 
 @mixin icon-base {
-  display: inline-block;
-  width: $icon-base-size;
-  height: $icon-base-size;
-  line-height: $icon-base-size;
-  font-size: $icon-base-size;
-  font-family: 'sd_icons';
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
+    --icon-base-size: 16px;
+    display: inline-block;
+    width: var(--icon-base-size);
+    height: var(--icon-base-size);
+    line-height: var(--icon-base-size);
+    font-size: var(--icon-base-size);
+    font-family: 'sd_icons';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
 }
 
 [class^="icon-"],
 [class*=" icon-"] {
-  @include icon-base;
-  color: $icon-color;
-  /* Better Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+    @include icon-base;
+    color: $icon-color;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon--2x {
-  width: $icon-base-size *2;
-  height: $icon-base-size *2;
-  line-height: $icon-base-size *2;
-  font-size: $icon-base-size *2;
+    width: $icon-base-size *2;
+    height: $icon-base-size *2;
+    line-height: $icon-base-size *2;
+    font-size: $icon-base-size *2;
 }
 
 .icon--light {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 .icon--blue {
-  color: $sd-colour-interactive !important;
+    color: $sd-colour-interactive !important;
 }
 .icon--white {
-  color: $white !important;
+    color: $white !important;
 }
 .icon--light-blue {
-  color: #68abc8 !important;
-  opacity: 1 !important;
+    color: #68abc8 !important;
+    opacity: 1 !important;
 }
 .icon--dark-blue-grey {
-  color: #31728e !important;
-  opacity: 1 !important;
+    color: #31728e !important;
+    opacity: 1 !important;
 }
 [class*=icon-].red,
 .icon--red {
-  color: $fireBrick !important;
+    color: $fireBrick !important;
 }
 .icon--orange {
-  color: $orange !important;
+    color: $orange !important;
 }
 .icon--green {
-  color: $green !important;
+    color: $green !important;
 }
 .icon--rotate-180 {
-  transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 .icon--rotate-90 {
-  transform: rotate(90deg);
+    transform: rotate(90deg);
 }
 .icon--full-opacity {
-  opacity: 1 !important;
+    opacity: 1 !important;
 }
 .icon--disabled {
-  opacity: 0.2 !important;
+    opacity: 0.2 !important;
 }
 
 // Icons definition
 $sd-icon-font: (
-  photo: "\e600",
-  video: "\e601",
-  map-marker: "\e602",
-  slideshow: "\e603",
-  text: "\e604",
-  file: "\e605",
-  calendar: "\e606",
-  composite: "\e607",
-  audio: "\e608",
-  stream: "\e609",
-  ingest: "\e60a",
-  archive: "\e60b",
-  time: "\e60c",
-  pin: "\e60d",
-  expand: "\e60e",
-  ascending: "\e60f",
-  descending: "\e60f",
-  th: "\e610",
-  grid-view: "\e610",
-  th-list: "\e611",
-  list-view: "\e611",
-  pencil: "\e612",
-  lock: "\e613",
-  retweet: "\e614",
-  unspike: "\e615",
-  fullscreen: "\e616",
-  fetch-as: "\e617",
-  search: "\e618",
-  star: "\e619",
-  star-empty: "\e61a",
-  multi-star: "\e61b",
-  th-large: "\e61c",
-  grid-view-large: "\e61c",
-  ok: "\e61d",
-  zoom-in: "\e61e",
-  zoom-out: "\e61f",
-  signal: "\e620",
-  filter-large: "\e621",
-  trash: "\e622",
-  user: "\e623",
-  download: "\e624",
-  upload: "\e625",
-  repeat: "\e626",
-  refresh: "\e627",
-  list-alt: "\e628",
-  plus-large: "\e629",
-  picture: "\e62a",
-  question-sign: "\e62b",
-  info-sign: "\e62c",
-  plus-sign: "\e62d",
-  minus-sign: "\e62e",
-  remove-sign: "\e62f",
-  share-alt: "\e630",
-  exclamation-sign: "\e631",
-  eye-open: "\e632",
-  copy: "\e633",
-  comment: "\e634",
-  warning-sign: "\e635",
-  adjust: "\e636",
-  folder-close: "\e637",
-  folder-open: "\e638",
-  download-alt: "\e639",
-  tasks: "\e63a",
-  globe: "\e63b",
-  link: "\e63c",
-  expand-thin: "\e63d",
-  assign: "\e63e",
-  dots: "\e63f",
-  dots-vertical: "\e63f",
-  backward-thin: "\e640",
-  forward-thin: "\e641",
-  chevron-left-thin:"\e642",
-  chevron-right-thin: "\e643",
-  switches: "\e644",
-  plus-small: "\e645",
-  minus-small: "\e646",
-  close-small: "\e647",
-  post: "\e648",
-  external: "\e649",
-  chevron-up-thin: "\e64a",
-  chevron-down-thin: "\e64b",
-  pick: "\e64c",
-  revert: "\e64d",
-  package-plus: "\e64e",
-  list-plus: "\e64f",
-  envelope: "\e650",
-  heart: "\e651",
-  home: "\e652",
-  print: "\e653",
-  font: "\e654",
-  bold: "\e655",
-  italic: "\e656",
-  underline: "\e657",
-  strikethrough: "\e658",
-  align-left: "\e659",
-  align-center: "\e65a",
-  align-right: "\e65b",
-  align-justify: "\e65c",
-  unordered-list: "\e65d",
-  indent-left: "\e65e",
-  indent-right: "\e65f",
-  ban-circle: "\e660",
-  bell: "\e661",
-  random: "\e662",
-  settings: "\e663",
-  package-create: "\e664",
-  list-menu: "\e665",
-  new-doc: "\e666",
-  edit-line: "\e667",
-  calendar-list: "\e668",
-  collapse: "\e669",
-  broadcast: "\e66a",
-  broadcast-create: "\e66b",
-  kill: "\e66c",
-  graphic: "\e66d",
-  close-thick: "\e66e",
-  move: "\e66f",
-  takes-package: "\e670",
-  highlight-package: "\e671",
-  preview-mode: "\e672",
-  unlocked: "\e673",
-  code: "\e674",
-  cut: "\e675",
-  paste: "\e676",
-  arrow-left:"\e677",
-  arrow-right: "\e678",
-  info-large: "\e679",
-  help-large: "\e67a",
-  attachment: "\e67b",
-  attachment-large: "\e67c",
-  table: "\e67d",
-  ordered-list: "\e67e",
-  heading-1: "\e67f",
-  heading-2: "\e680",
-  heading-3: "\e681",
-  heading-4: "\e682",
-  heading-5: "\e683",
-  heading-6: "\e684",
-  quote: "\e685",
-  multiedit: "\e686",
-  phone: "\e687",
-  mobile: "\e688",
-  twitter: "\e689",
-  facebook: "\e68a",
-  linked-in: "\e68b",
-  twitter-circle: "\e68c",
-  facebook-circle: "\e68d",
-  linked-in-circle: "\e68e",
-  recurring: "\e68f",
-  paragraph: "\e690",
-  suggestion: "\e691",
-  event: "\e692",
-  kanban-view: "\e693",
-  subscript: "\e694",
-  superscript: "\e695",
-  clear-format: "\e696",
-  preformatted: "\e697",
-  crop: "\e698",
-  flip-horizontal: "\e699",
-  flip-vertical: "\e69a",
-  rotate-right: "\e69b",
-  rotate-left: "\e69c",
-  business: "\e69d",
-  paywall: "\e69e",
-  analytics: "\e69f",
-  amp: "\e6a0",
-  undo: "\e6a1",
-  redo: "\e6a2",
-  instagram: "\e6a3",
-  play: "\e6a4",
-  stop: "\e6a5",
-  pause: "\e6a6",
-  fast_rewind: "\e6a7",
-  fast_forward: "\e6a8",
-  skip_previous: "\e6a9",
-  skip_next: "\e6aa",
-  add-image: "\e6ab",
-  add-gallery: "\e6ac",
-  text-format: "\e6ad",
-  to-uppercase: "\e6ae",
-  to-lowercase: "\e6af",
-  arrow-small: "\e6b0",
-  clear-all: "\e6b1"
+    photo: "\e600",
+    video: "\e601",
+    map-marker: "\e602",
+    slideshow: "\e603",
+    text: "\e604",
+    file: "\e605",
+    calendar: "\e606",
+    composite: "\e607",
+    audio: "\e608",
+    stream: "\e609",
+    ingest: "\e60a",
+    archive: "\e60b",
+    time: "\e60c",
+    pin: "\e60d",
+    expand: "\e60e",
+    ascending: "\e60f",
+    descending: "\e60f",
+    th: "\e610",
+    grid-view: "\e610",
+    th-list: "\e611",
+    list-view: "\e611",
+    pencil: "\e612",
+    lock: "\e613",
+    retweet: "\e614",
+    unspike: "\e615",
+    fullscreen: "\e616",
+    fetch-as: "\e617",
+    search: "\e618",
+    star: "\e619",
+    star-empty: "\e61a",
+    multi-star: "\e61b",
+    th-large: "\e61c",
+    grid-view-large: "\e61c",
+    ok: "\e61d",
+    zoom-in: "\e61e",
+    zoom-out: "\e61f",
+    signal: "\e620",
+    filter-large: "\e621",
+    trash: "\e622",
+    user: "\e623",
+    download: "\e624",
+    upload: "\e625",
+    repeat: "\e626",
+    refresh: "\e627",
+    list-alt: "\e628",
+    plus-large: "\e629",
+    picture: "\e62a",
+    question-sign: "\e62b",
+    info-sign: "\e62c",
+    plus-sign: "\e62d",
+    minus-sign: "\e62e",
+    remove-sign: "\e62f",
+    share-alt: "\e630",
+    exclamation-sign: "\e631",
+    eye-open: "\e632",
+    copy: "\e633",
+    comment: "\e634",
+    warning-sign: "\e635",
+    adjust: "\e636",
+    folder-close: "\e637",
+    folder-open: "\e638",
+    download-alt: "\e639",
+    tasks: "\e63a",
+    globe: "\e63b",
+    link: "\e63c",
+    expand-thin: "\e63d",
+    assign: "\e63e",
+    dots: "\e63f",
+    dots-vertical: "\e63f",
+    backward-thin: "\e640",
+    forward-thin: "\e641",
+    chevron-left-thin:"\e642",
+    chevron-right-thin: "\e643",
+    switches: "\e644",
+    plus-small: "\e645",
+    minus-small: "\e646",
+    close-small: "\e647",
+    post: "\e648",
+    external: "\e649",
+    chevron-up-thin: "\e64a",
+    chevron-down-thin: "\e64b",
+    pick: "\e64c",
+    revert: "\e64d",
+    package-plus: "\e64e",
+    list-plus: "\e64f",
+    envelope: "\e650",
+    heart: "\e651",
+    home: "\e652",
+    print: "\e653",
+    font: "\e654",
+    bold: "\e655",
+    italic: "\e656",
+    underline: "\e657",
+    strikethrough: "\e658",
+    align-left: "\e659",
+    align-center: "\e65a",
+    align-right: "\e65b",
+    align-justify: "\e65c",
+    unordered-list: "\e65d",
+    indent-left: "\e65e",
+    indent-right: "\e65f",
+    ban-circle: "\e660",
+    bell: "\e661",
+    random: "\e662",
+    settings: "\e663",
+    package-create: "\e664",
+    list-menu: "\e665",
+    new-doc: "\e666",
+    edit-line: "\e667",
+    calendar-list: "\e668",
+    collapse: "\e669",
+    broadcast: "\e66a",
+    broadcast-create: "\e66b",
+    kill: "\e66c",
+    graphic: "\e66d",
+    close-thick: "\e66e",
+    move: "\e66f",
+    takes-package: "\e670",
+    highlight-package: "\e671",
+    preview-mode: "\e672",
+    unlocked: "\e673",
+    code: "\e674",
+    cut: "\e675",
+    paste: "\e676",
+    arrow-left:"\e677",
+    arrow-right: "\e678",
+    info-large: "\e679",
+    help-large: "\e67a",
+    attachment: "\e67b",
+    attachment-large: "\e67c",
+    table: "\e67d",
+    ordered-list: "\e67e",
+    heading-1: "\e67f",
+    heading-2: "\e680",
+    heading-3: "\e681",
+    heading-4: "\e682",
+    heading-5: "\e683",
+    heading-6: "\e684",
+    quote: "\e685",
+    multiedit: "\e686",
+    phone: "\e687",
+    mobile: "\e688",
+    twitter: "\e689",
+    facebook: "\e68a",
+    linked-in: "\e68b",
+    twitter-circle: "\e68c",
+    facebook-circle: "\e68d",
+    linked-in-circle: "\e68e",
+    recurring: "\e68f",
+    paragraph: "\e690",
+    suggestion: "\e691",
+    event: "\e692",
+    kanban-view: "\e693",
+    subscript: "\e694",
+    superscript: "\e695",
+    clear-format: "\e696",
+    preformatted: "\e697",
+    crop: "\e698",
+    flip-horizontal: "\e699",
+    flip-vertical: "\e69a",
+    rotate-right: "\e69b",
+    rotate-left: "\e69c",
+    business: "\e69d",
+    paywall: "\e69e",
+    analytics: "\e69f",
+    amp: "\e6a0",
+    undo: "\e6a1",
+    redo: "\e6a2",
+    instagram: "\e6a3",
+    play: "\e6a4",
+    stop: "\e6a5",
+    pause: "\e6a6",
+    fast_rewind: "\e6a7",
+    fast_forward: "\e6a8",
+    skip_previous: "\e6a9",
+    skip_next: "\e6aa",
+    add-image: "\e6ab",
+    add-gallery: "\e6ac",
+    text-format: "\e6ad",
+    to-uppercase: "\e6ae",
+    to-lowercase: "\e6af",
+    arrow-small: "\e6b0",
+    clear-all: "\e6b1",
+    rundown: "\e6b2",
 );
 
 @each $name, $value in $sd-icon-font {
-  &.icon-#{$name}:before {
-    content: $value;
-  }
-  .icon-#{$name} {
-    @if $name == descending {
-      transform: rotate(180deg);
+    &.icon-#{$name}:before {
+        content: $value;
     }
-    @if $name == dots-vertical {
-      transform: rotate(90deg);
+    .icon-#{$name} {
+        @if $name == descending {
+            transform: rotate(180deg);
+        }
+        @if $name == dots-vertical {
+            transform: rotate(90deg);
+        }
+        &.color--default {
+            color: $icon-color;
+        }
+        &.color--primary {
+            color: var(--sd-colour-primary) !important;
+        }
+        &.color--success {
+            color: var(--sd-colour-success) !important;
+        }
+        &.color--warning {
+            color: var(--sd-colour-warning) !important;
+        }
+        &.color--alert {
+            color: var(--sd-colour-alert) !important;
+        }
+        &.color--highlight {
+            color: var(--sd-colour-highlight) !important;
+        }
+        &.color--light {
+            color: var(--color-text-lighter) !important;
+        }
+
+        &.scale--2x {
+            --icon-base-size: 32px
+        }
+        &.scale--3x {
+            --icon-base-size: 48px
+        }
+        &.scale--4x {
+            --icon-base-size: 64px
+        }
+
     }
-  }
 }
 
 :export {
-  icon: map-keys($sd-icon-font);
+    icon: map-keys($sd-icon-font);
 }
 
 // Combining 2 icons
 .icn-mix {
-  position: relative;
-  display: inline-block;
-  font-size: $icon-base-size;
-  height: $icon-base-size;
-  .icn-mix__icn {
-    opacity: 0.6;
-  }
-  .icn-mix__sub-icn {
-    position:absolute;
-    font-size: 1.1rem;
-    box-sizing: content-box;
-    line-height: 100%;
-    color: $purple;
-    right: -0.5rem;
-    bottom:  -0.7rem;
-    height: 1em;
-    width: 1em;
-    background-color: var(--sd-item__main-Bg);
-    border-radius: $border-radius__base--full;
-    padding: 1px;
-    z-index: 1;
-    opacity: 1 !important;
-  }
-  &--2x {
-    font-size: $icon-base-size *2;
-    height: $icon-base-size *2;
+    position: relative;
+    display: inline-block;
+    font-size: $icon-base-size;
+    height: $icon-base-size;
     .icn-mix__icn {
-      opacity: 0.6;
-      width: $icon-base-size *2;
-      height: $icon-base-size *2;
-      line-height: $icon-base-size *2;
-      font-size: $icon-base-size *2;
+        opacity: 0.6;
     }
     .icn-mix__sub-icn {
-      font-size: 1.6rem;
-      right: -0.6rem;
-      bottom: -0.3rem;
+        position:absolute;
+        font-size: 1.1rem;
+        box-sizing: content-box;
+        line-height: 100%;
+        color: $purple;
+        right: -0.5rem;
+        bottom:  -0.7rem;
+        height: 1em;
+        width: 1em;
+        background-color: var(--sd-item__main-Bg);
+        border-radius: $border-radius__base--full;
+        padding: 1px;
+        z-index: 1;
+        opacity: 1 !important;
     }
-  }
+    &--2x {
+        font-size: $icon-base-size *2;
+        height: $icon-base-size *2;
+        .icn-mix__icn {
+            opacity: 0.6;
+            width: $icon-base-size *2;
+            height: $icon-base-size *2;
+            line-height: $icon-base-size *2;
+            font-size: $icon-base-size *2;
+        }
+        .icn-mix__sub-icn {
+            font-size: 1.6rem;
+            right: -0.6rem;
+            bottom: -0.3rem;
+        }
+    }
 }
 
 .double-size-icn {
-  display: inline-block;
-  height: 3.2rem;
-  width: 3.2rem;
-  [class^="icon-"],
-  [class*=" icon-"] {
-    width: 32px;
-    height: 32px;
-    line-height: 32px;
-    font-size: 32px;
-  }
-  &--light {
+    display: inline-block;
+    height: 3.2rem;
+    width: 3.2rem;
     [class^="icon-"],
     [class*=" icon-"] {
-      opacity: 0.5;
+        width: 32px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 32px;
     }
-  }
+    &--light {
+        [class^="icon-"],
+        [class*=" icon-"] {
+            opacity: 0.5;
+        }
+    }
 }
 
 .subnav {
-  .icn-mix__sub-icn {
-    background-color: $subnav-background;
-  }
-  &--darker {
     .icn-mix__sub-icn {
-      background-color: $subnav-background-darker;
+        background-color: $subnav-background;
     }
-  }
-  &--dark-blue-grey {
-    .icn-mix__sub-icn {
-      background-color: $subnav-background-dark-blue-grey;
-      color: scale-color($purple, $lightness: 50%);
+    &--darker {
+        .icn-mix__sub-icn {
+            background-color: $subnav-background-darker;
+        }
     }
-    .icn-mix__icn {
-      color: inherit;
-      opacity: 1;
+    &--dark-blue-grey {
+        .icn-mix__sub-icn {
+            background-color: $subnav-background-dark-blue-grey;
+            color: scale-color($purple, $lightness: 50%);
+        }
+        .icn-mix__icn {
+            color: inherit;
+            opacity: 1;
+        }
     }
-  }
 }
 
 .side-panel__top-tools {
-  .icn-mix__sub-icn {
-    background-color: #f0f0f0;  
-  }
-  &--dark-blue-grey {
     .icn-mix__sub-icn {
-      background-color: $subnav-background-dark-blue-grey;
-      color: scale-color($purple, $lightness: 50%);
+        background-color: #f0f0f0;  
     }
-    .icn-mix__icn {
-      color: inherit;
-      opacity: 1;
+    &--dark-blue-grey {
+        .icn-mix__sub-icn {
+            background-color: $subnav-background-dark-blue-grey;
+            color: scale-color($purple, $lightness: 50%);
+        }
+        .icn-mix__icn {
+            color: inherit;
+            opacity: 1;
+        }
     }
-  }
 }

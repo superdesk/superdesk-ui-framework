@@ -141,6 +141,8 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                         <div className="form__item">
                                             <Input label='Title'
                                                 error='This is error message'
+                                                type='text'
+                                                value='Title'
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
@@ -167,6 +169,8 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                         <div className="form__item">
                                             <Input label='Keyword'
                                                 error='This is error message'
+                                                type='text'
+                                                value='Keyword'
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}

@@ -34,6 +34,8 @@
     pointer-events: auto;
     max-height: 90%;
     transform: scale(1);
+    
+    overflow: hidden;
 }
 
 .p-dialog-content {
@@ -211,6 +213,8 @@
 .p-dialog .p-dialog-header {
     border-bottom: 0 none;
     background: transparent;
+    position: relative;
+    z-index: 1012;
     padding: 0.8rem 0.8rem 0.8rem 1.6rem;
     border-top-right-radius: $border-radius__base--large;
     border-top-left-radius: $border-radius__base--large;
@@ -251,7 +255,6 @@
 }
 
 .p-dialog .p-dialog-content {
-    padding: 1.6rem;
     background-color: transparent;
     font-size: 1.4rem;
     p {
@@ -267,6 +270,8 @@
     border-bottom-right-radius: $border-radius__base--full;
     border-bottom-left-radius: $border-radius__base--full;
     box-shadow: 0 -1px 0 var(--sd-colour-line--x-light);
+    position: relative;
+    z-index: 2;
 }
 
 .p-dialog .p-dialog-footer button {
@@ -298,20 +303,18 @@
     &:hover {
         .p-dialog-header-close-icon {
             opacity: 1;
-          }
+        }
     }
     &:active {
         .p-dialog-header-close-icon {
             color: $sd-colour-interactive !important;
             opacity: 1;
-          }
+        }
     }
-
-    
 }
 
 .p-dialog-content {
-    //p {}
+    // size
     &--small {
         width: var(--width__modal--small);
     }
@@ -324,7 +327,36 @@
     }
     &--x-large {
         width: var(--width__modal--x-large);
-        min-height: 30rem;
+        //min-height: 30rem;
+        height: calc(100vh - 200px);
+    }
+    // padding
+    &--0-padding {
+        padding: 0 !important;
+    }
+    &--s-padding {
+        padding: $sd-base-increment * 2;
+    }
+    &--m-padding {
+        padding: $sd-base-increment * 3
+    }
+    &--l-padding {
+        padding: $sd-base-increment * 4;
+    }
+    &--default {
+        background-color: transparent !important;
+    }
+    &--dark {
+        background-color: var(--sd-colour-panel-bg--200) !important;
+    }
+    &--medium {
+        background-color: var(--sd-colour-panel-bg--100) !important;
     }
 }
 
+.p-dialog-content {
+    //max-height: 100%;
+    .sd-main-content-grid {
+        height: 100% !important;
+    }
+}

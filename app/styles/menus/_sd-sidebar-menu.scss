@@ -132,6 +132,12 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
   &--static {
     position: static;
   }
+  .badge {
+    position: absolute;
+    inset-block-start: 3px;
+    inset-inline-end: 3px;
+    z-index: 1;
+  }
 }
 
 .sd-sidetab-menu__btn {

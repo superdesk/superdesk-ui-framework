@@ -27,12 +27,34 @@ export default class IconLabelDoc extends React.Component {
                             <IconLabel text='Label sd-green' icon='video' type='sd-green' />
 
                             <p className="docs-page__paragraph">// Translucent</p>
-                            <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                            <IconLabel style='translucent' text='Label warning' type='warning' icon='time' />
+                            <IconLabel innerLabel='Start:' style='translucent' text='00:45' type='success' icon='time' />
+                            <IconLabel innerLabel='end:' style='translucent' text='00:30' type='warning' icon='time' />
                             <IconLabel style='translucent' text='Label alert' type='alert' icon='time' />
                             <IconLabel style='translucent' text='Label highlight' type='highlight' icon='calendar' />
                             <IconLabel style='translucent' text='Label sd-green' type='sd-green' icon='calendar' />
                             <IconLabel style='translucent' text='Default label' icon='bell' />
+                            <br />
+                            <IconLabel innerLabel='Start:' style='translucent' text='00:45' type='success'/>
+                            <IconLabel innerLabel='end:' style='translucent' text='00:30' type='warning'/>
+                            <IconLabel style='translucent' text='Label alert' type='alert' />
+
+                            <p className="docs-page__paragraph">// Translucent & Large</p>
+                            <IconLabel innerLabel='Start:' size='large' style='translucent' text='00:45' type='success' icon='time' />
+                            <IconLabel innerLabel='Start:' size='large' style='translucent' text='00:55' type='warning' icon='time' />
+                            <IconLabel innerLabel='Start:' size='large' style='translucent' text='00:15' type='alert' icon='time' />
+                            <br />
+                            <IconLabel innerLabel='Start:' size='large' style='translucent' text='18:30' type='success' />
+                            <IconLabel innerLabel='End:' size='large' style='translucent' text='20:30' type='highlight' />
+                            <IconLabel innerLabel='Duration:' size='large' style='translucent' text='00:30' type='primary' />
+
+                            <p className="docs-page__paragraph">// Translucent & Small</p>
+                            <IconLabel innerLabel='Start:' size='small' style='translucent' text='00:45' type='success' icon='time' />
+                            <IconLabel innerLabel='Start:' size='small' style='translucent' text='00:55' type='warning' icon='time' />
+                            <IconLabel innerLabel='Start:' size='small' style='translucent' text='00:15' type='alert' icon='time' />
+                            <br />
+                            <IconLabel innerLabel='Start:' size='small' style='translucent' text='18:30' type='success' />
+                            <IconLabel innerLabel='End:' size='small' style='translucent' text='20:30' type='highlight' />
+                            <IconLabel innerLabel='Duration:' size='small' style='translucent' text='00:30' type='primary' />
                         </div>
 
                     </Markup.ReactMarkupPreview>

@@ -20,9 +20,7 @@ $boxed-list-palette: $sd-basic-palette;
     grid-template-columns: [mediaCol] auto [contentCol] 1fr [actionsVisible] auto [actionsHidden] auto;
     position: relative;
     flex-direction: row;
-    min-height: 3.2rem;
     border-radius: var(--b-radius--small);
-    @include sd-padding('1-5');
     background-color: var(--sd-item__main-Bg);
     box-shadow: $shadow__base--z1;
     transition: all 0.2s ease-in-out;
@@ -76,6 +74,22 @@ $boxed-list-palette: $sd-basic-palette;
                 }
             }
         }
+    }
+    &--disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+    &--comfortable {
+        min-height: 3.2rem;
+        @include sd-padding('1-5');
+    }
+    &--compact {
+        min-height: none;
+        padding: $sd-base-increment $sd-base-increment $sd-base-increment $sd-base-increment * 0.5;
+    }
+    &--loose {
+        min-height: 4.8rem;
+        @include sd-padding('2');
     }
 }
 
@@ -153,8 +167,9 @@ $boxed-list-palette: $sd-basic-palette;
     justify-content: flex-start;
     align-items: center;
     flex-grow: 0;
+    gap: 2px;
     .icn-btn {
-        margin: -0.6rem -0.6rem 0.4rem 0;
+        margin: 0 -0.6rem 0 0;
     }
 }
 
@@ -183,5 +198,13 @@ $boxed-list-palette: $sd-basic-palette;
         &:hover {
             opacity: 1;
         }
+    }
+}
+.boxed-list__item {
+    &.boxed-list__item--align-center {
+        .boxed-list__item-content {
+            justify-content: center;
+        }
+        
     }
 }

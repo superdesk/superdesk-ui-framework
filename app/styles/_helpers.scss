@@ -302,6 +302,7 @@
 // --------------------------------------------------
 
 $sd-shadowProperties: (
+    'z0': (none),
     'z1': (0 1px 3px rgba(0,0,0,.16), 0 0 1px rgba(0,0,0,.1)),
     'z2': (0 1px 4px rgba(0,0,0,.16), 0 2px 6px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.1)),
     'z3': (0 1px 6px rgba(0,0,0,.16), 0 3px 8px rgba(0,0,0,.24), 0 0 1px rgba(0,0,0,.1)),
@@ -384,7 +385,7 @@ p strong {
 }
 time {
     color: $sd-text-lighter;
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: .025em;
     &.small {
         font-size: calc(100% - 0.1rem);
@@ -605,14 +606,14 @@ h1, h2, h3, h4, h5, h6 {
 
 .sd-text__date-time {
     color: var(--color-text-light);
-    font-weight: 300;
+    font-weight: 400;
     letter-spacing: .025em;
     &--small {
         font-size: 1.2rem;
     }
 }
 .sd-text__date-and-author {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
 }
 .sd-text__author {
     font-weight: 500;

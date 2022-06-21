@@ -112,6 +112,7 @@ export class EditorTest extends React.Component<IProps, IState> {
             )}
             main={(
                 <Layout.AuthoringMain
+                headerPadding='medium'
                 toolBar={(
                     <React.Fragment>
                         <div className="sd-editor-toolbar__content">
@@ -126,18 +127,19 @@ export class EditorTest extends React.Component<IProps, IState> {
                                 <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
                             </dl>
                         </div>
-                        <ButtonGroup  align='end'>
+                        <ButtonGroup align='end'>
                             <IconButton icon="preview-mode" toolTipAppend={true} ariaValue="Print preview" onClick={()=> false} />
                             <IconButton icon="adjust" ariaValue="Toogle theme" onClick={()=> false} />
                             <IconButton icon="switches" ariaValue="Theme settings" onClick={()=> false} />
                         </ButtonGroup>
                     </React.Fragment>
                 )}
-                authoringHeader={(
+                authoringHeader ={(
                     <React.Fragment>
                         <Form.FormGroup inlineLabel={true}>
                             <Form.FormItem>
                                 <Input
+                                    type='text'
                                     label='Slugline'
                                     value='This is some value'
                                     maxLength={30}
@@ -146,10 +148,11 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     required={false}
                                     disabled={false}
                                     invalid={false}
-                                    onChange={(value) => {}} /> 
+                                    onChange={(value) => {}} />
                             </Form.FormItem>
                             <Form.FormItem>
                                 <Input
+                                    type='text'
                                     label='Slugline'
                                     value='This is some value'
                                     maxLength={30}
@@ -164,6 +167,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                         <Form.FormGroup inlineLabel={true}>
                             <Form.FormItem>
                                 <Input
+                                    type='text'
                                     label='Genre'
                                     value='This is some value'
                                     maxLength={30}
@@ -177,7 +181,8 @@ export class EditorTest extends React.Component<IProps, IState> {
                         </Form.FormGroup>
                         <Form.FormGroup marginBottom='0' inlineLabel={true}>
                             <Form.FormItem>
-                                <Input 
+                                <Input
+                                    type='text'
                                     label='Subject'
                                     value='This is some value'
                                     maxLength={30}

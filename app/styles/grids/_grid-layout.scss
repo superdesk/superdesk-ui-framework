@@ -671,6 +671,9 @@ $planningEditor-width: 53rem;
     .side-panel__container {
         width: var(--width__container--medium);
         overflow-y: auto;
+        &.side-panel__container--xx-large{
+            width: var(--width__container--xx-large);
+        }
         .side-panel {
             opacity: 1;
         }
@@ -715,17 +718,28 @@ $planningEditor-width: 53rem;
     overflow: auto;
 }
 
-.sd-content-wrapper__content-splitter { 
-    grid-column: contentSplitter;
+.content-splitter--visible {
+    &.sd-content-wrapper__content-splitter {
+        display: block;
+        grid-column: contentSplitter;
+        // this styling might be moved to an inner element
+        width: 3px;
+        background-color: hsl(214, 13%, 40%);
+        cursor: col-resize;
+    }
 
-    // this styling might be moved to an inner element
-    width: 3px;
-    background-color: #666;
-    cursor: col-resize;
+}
+.sd-content-wrapper__content-splitter { 
+    display: none;
 }
 .sd-content-wrapper__authoring-content-area { 
     grid-column: authoringArea;
     display: grid;
+    display: grid;
+    //border-inline-start: 2px solid hsla(214, 13%, 45%, 1);
+    grid-template-rows: 1fr;
+    grid-auto-columns: auto;
+    overflow-y: auto;
 }
 
 // main page structure - top bar, slide-in main navigation, content area and footer (open items bar).
@@ -737,7 +751,7 @@ $planningEditor-width: 53rem;
     grid-gap: 0;
     height: 100vh;
     position: relative;
-    background-color: aquamarine;
+    //background-color: aquamarine;
 
     .sd-main-menu {
         grid-column: slideInNavigation;

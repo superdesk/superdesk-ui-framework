@@ -187,6 +187,7 @@ export default class ModalDoc extends React.Component<{}, IState> {
                                visible={this.state.modalFull} 
                                theme='dark'
                                maximized={true}
+                               className='testClass'
                                onHide={() => {this.setState({modalFull: false})}}>
                             <p className="sd-margin-b--3">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes,
                             nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.

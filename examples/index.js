@@ -406,6 +406,14 @@ export default angular.module('ui-docs', [
             'personal-profile': {
                 name: 'Personal Profile',
                 component: 'PersonalProfile'
+            },
+            'rundown-editor': {
+                name: 'Rundown Editor',
+                component: 'RundownEditor'
+            },
+            'rundowns': {
+                name: 'Rundowns',
+                component: 'Rundowns'
             }
         }
     }))

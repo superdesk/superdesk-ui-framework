@@ -688,4 +688,8 @@
     &--no-label {
         grid-template-rows: auto auto auto;
     }
+    &--full-width {
+        flex-grow: 1;
+        width: 100%;
+    }
 }

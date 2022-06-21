@@ -65,8 +65,10 @@ interface IPropsItem {
     footer?: React.ReactNode;
     actions?: React.ReactNode;
     children?: React.ReactNode;
+    density?: 'compact' | 'comfortable' | 'loose';
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight'; // defaults to 'default'
     clickable?: boolean;
+    alignVertical?: 'start' | 'center';
     slideInActions?: boolean;
     selected?: boolean;
     onClick?(): void;
@@ -75,13 +77,15 @@ interface IPropsItem {
 class BoxedListItem extends React.PureComponent<IPropsItem> {
     render() {
         let classes = classNames('boxed-list__item', {
-            'simple-list--compact': this.props.type === undefined,
+            'boxed-list__item--comfortable': this.props.density === undefined,
+            [`boxed-list__item--${this.props.density}`]: this.props.density || this.props.density !== undefined,
             'boxed-list__item--clickable': this.props.clickable === true,
             'boxed-list__item--selected': this.props.selected,
             [`boxed-list__item--${this.props.type}`]: this.props.type || this.props.type !== undefined,
+            [`boxed-list__item--align-${this.props.alignVertical}`]: this.props.alignVertical,
         });
         return (
-            <li className={classes}>
+            <li className={classes} onClick={this.props.onClick}>
 
                 {this.props.media && (
                     <BoxedListMedia>

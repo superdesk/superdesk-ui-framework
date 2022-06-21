@@ -13,6 +13,7 @@ interface IPropsBase {
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
+    fullWidth?: boolean;
 }
 
 interface IPropsText extends IPropsBase {
@@ -74,6 +75,7 @@ export class Input extends React.Component<IProps, IState> {
             'sd-input--inline-label': this.props.inlineLabel,
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
+            'sd-input--full-width': this.props.fullWidth,
             'sd-input--invalid': this.props.invalid || this.state.invalid,
         });
         const labelClasses = classNames('sd-input__label', {

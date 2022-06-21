@@ -49,10 +49,13 @@ import SelectGridDocs from './SelectGrid';
 import IconPickerDocs from "./IconPicker";
 import SimpleListDoc from "./SimpleList";
 import BoxedListDoc from "./BoxedList";
+import TableListDoc from "./TableList";
+import ContentListDoc from "./ContentList";
 import HeadingDoc from "./Heading";
 import TextDoc from "./Text";
 import ContainerDoc from './Container';
 import DropZoneDoc from './DropZone';
+import CreateButtonDoc from './CreateButton';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
@@ -189,6 +192,12 @@ const pages = {
             'boxed-list': {
                 name: 'Boxed list'
             },
+            'table-list': {
+                name: 'Table list'
+            },
+            'content-list': {
+                name: 'Content list'
+            },
         }
     },
     formComponents: {
@@ -238,6 +247,9 @@ const pages = {
             },
             'dropzone': {
                 name: 'DropZone'
+            },
+            'create-button': {
+                name: 'CreateButton'
             },
         }
     },
@@ -350,10 +362,13 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/icon-picker" component={IconPickerDocs} />
                         <Route path="/react/simple-list" component={SimpleListDoc} />
                         <Route path="/react/boxed-list" component={BoxedListDoc} />
+                        <Route path="/react/table-list" component={TableListDoc} />
+                        <Route path="/react/content-list" component={ContentListDoc} />
                         <Route path="/react/heading" component={HeadingDoc} />
                         <Route path="/react/text" component={TextDoc} />
                         <Route path="/react/container" component={ContainerDoc} />
                         <Route path="/react/dropzone" component={DropZoneDoc} />
+                        <Route path="/react/create-button" component={CreateButtonDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

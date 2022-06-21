@@ -11,31 +11,35 @@ import {
 } from './';
 
 interface IProps {
-    toolBar: React.ReactNode;
+    toolBar?: React.ReactNode;
     authoringMain?: React.ReactNode;
     authoringHeader?: React.ReactNode;
     authoringBookmarks?: React.ReactNode;
     headerCollapsed?: boolean;
+    headerPadding?: 'small' | 'medium' | 'large';
+    toolbarCustom?: boolean;
 }
 
 export class AuthoringMain extends React.PureComponent<IProps> {
     render() {
         return (
             <AuthoringMainContainer>
-                <AuthoringMainToolBar>
-                    {this.props.toolBar}
-                </AuthoringMainToolBar>
+                {this.props.toolBar && (
+                    <AuthoringMainToolBar toolbarCustom={this.props.toolbarCustom}>
+                        {this.props.toolBar}
+                    </AuthoringMainToolBar>
+                )}
                 <AuthoringMainContent>
-                    <AuthoringInnerHeader>
+                    {this.props.authoringHeader && (
+                        <AuthoringInnerHeader headerPadding={this.props.headerPadding}>
                         {this.props.authoringHeader}
                     </AuthoringInnerHeader>
-
+                    )}
                     {this.props.authoringBookmarks && (
                         <AuthorinInnerSideBar>
                             {this.props.authoringBookmarks}
                         </AuthorinInnerSideBar>
                     )}
-
                     <AuthoringInnerBody>
                         {this.props.children}
                     </AuthoringInnerBody>
