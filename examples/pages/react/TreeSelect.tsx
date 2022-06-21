@@ -131,6 +131,11 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     onChange={() => false}
                                     allowMultiple
                                     kind={'synchronous'}
+                                    fullWidth
+                                    info={'Info Message'}
+                                    error={'Error Message'}
+                                    required
+                                    label={'TreeSelect Label'}
                                 />
                             </div>
                         </div>

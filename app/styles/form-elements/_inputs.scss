@@ -691,6 +691,9 @@
                     }
                 }
             }
+            .tags-input__add-button {
+                pointer-events: none;
+            }
             .sd-input__label,
             .sd-input__message-box,
             .sd-input__char-count {

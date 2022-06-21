@@ -3,20 +3,23 @@ import { any } from "prop-types";
 import * as React from "react";
 import { Icon } from "./Icon";
 import { Loader } from "./Loader";
+import classNames from 'classnames';
+import nextId from "react-id-generator";
 
 interface IState<T> {
     value?: any;
-    options?: Array<ITreeNode<T>>;
+    options?: Array<ITreeNode<T>> | any;
     firstBranchOptions?: Array<any>;                // to return on first branch in dropdown
     openDropdown?: boolean;                         // open/close dropdown
-    activeTree?: Array<any>;                        // for filtered array
-    filterArr?: Array<any>;                         // for filtered array
+    activeTree?: Array<any> | any;                  // for filtered array
+    filterArr?: Array<any> | any;                   // for filtered array
     searchFieldValue?: string;                      // filter value of input
-    buttonTree?: Array<any>;                        // array of button (for backButton)
+    buttonTree?: Array<any> | any;                  // array of button (for backButton)
     buttonValue?: any;                              // button for name of category
     buttonMouseEvent?: boolean;                     // valueButton hover
     selectBranchWithChildren?: boolean;
     loading: boolean;
+    invalid: boolean;
 }
 
 interface IPropsBase<T> {
@@ -29,6 +32,17 @@ interface IPropsBase<T> {
     optionTemplate?(item: ITreeNode<T> | T): React.ComponentType<T> | JSX.Element;
     valueTemplate?(item: ITreeNode<T> | T): React.ComponentType<T> | JSX.Element;
     onChange(): void;
+
+    invalid?: boolean;
+    inlineLabel?: boolean;
+    labelHidden?: boolean;
+    tabindex?: number;
+    fullWidth?: boolean;
+    info?: string;
+    error?: string;
+    required?: boolean;
+    label?: string;
+    disabled?: boolean;
 }
 
 interface IPropsSync<T> extends IPropsBase<T> {
@@ -66,7 +80,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             buttonValue: [],
             buttonMouseEvent: false,
             openDropdown: false,
-            loading: this.props.loading,
+            loading: this.props.loading ? this.props.loading : false,
+            invalid: this.props.invalid ? this.props.invalid : false,
         };
 
         this.removeClick = this.removeClick.bind(this);
@@ -247,7 +262,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 }}>
                     <span
                     className={this.state.value.includes(item)
-                    ? 'suggestion-item--disabled' : null}>
+                    && 'suggestion-item--disabled'}>
                         {item.value}
                     </span>
                 </li>;
@@ -262,7 +277,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     }}>
                         <span
                         className={this.state.value.includes(item)
-                        ? 'suggestion-item--disabled' : null}>
+                        && 'suggestion-item--disabled'}>
                             {item.value}
                         </span>
                     </li>
@@ -273,149 +288,178 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     render() {
 
-        return (
-            <div className="tags-input tags-input--multiselect">
-                <div className="tags-input__tags">
-                    {this.props.readonly
-                    || <button ref={this.openDropdownRef}
-                    className="tags-input__add-button"
-                    onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
-                        <i className="icon-plus-large"></i>
-                    </button>}
-                        <ul className="tags-input__tag-list">
-                            {this.state.value.map((item, i) => {
-                                return <React.Fragment key={i}>
-                                    <li
-                                    className={"tags-input__tag-item tags-input__tag-item-multiselect"
-                                    + (this.props.readonly ? ' tags-input__tag-item-readonly' : '')}
-                                    onClick={(event) => this.props.readonly || this.removeClick(i)}>
-                                        <span className="tags-input__helper-box">
-                                            {this.props.valueTemplate
-                                            ? this.props.valueTemplate(item.value)
-                                            : <span>{item.value}</span>}
-                                            {this.props.readonly
-                                            || <span className="tags-input__remove-button">
-                                                <i className="icon-close-small"></i>
-                                            </span>}
-                                        </span>
-                                    </li>
-                                </React.Fragment>;
-                            })}
-                        </ul>
-                </div>
+        const labelClasses = classNames('sd-input__label', {
+            'a11y-only': this.props.labelHidden,
+        });
 
-                {this.state.openDropdown &&
-                <div className={"autocomplete autocomplete-multiselect" + (this.props.width === 'medium' ? ' autocomplete-multiselect-width' : '')} ref={this.dropdownRef}>
-                    <div className='autocomplete__header'>
-                        <div className="autocomplete__icon" onClick={() => {
-                        this.backButtonValue();
-                        this.backButton();
-                        }}>
-                            {this.state.activeTree.length > 0
-                            ? <Icon name="arrow-left" className="arrow-left"></Icon>
-                            : <Icon name="search" className="search"></Icon>}
-                        </div>
-                        <div className='autocomplete__filter'>
-                            {this.state.activeTree.length > 0
-                                ? <button
-                                className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multiselect' : '')}
-                                onMouseOver={() => this.setState({buttonMouseEvent: true})}
-                                onMouseOut={() => this.setState({buttonMouseEvent: false})}
-                                value={this.state.buttonValue}
-                                onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
-                                    {this.state.buttonMouseEvent && this.props.selectBranchWithChildren ? 'Choose entire category' : (this.props.optionTemplate ? this.props.optionTemplate(this.state.buttonValue.value) : this.state.buttonValue.value)}
-                                </button>
-                                : <input
-                                type="text"
-                                className="autocomplete__input"
-                                ref={(input: any) => input && input.focus()}
-                                value={this.state.searchFieldValue}
-                                onChange={(event) => {
-                                    if (this.props.kind === 'asynchronous') {
-                                        this.props.searchOptions(event.target.value, (items) => {
-                                            this.setState({options: items, searchFieldValue: event.target.value});
-                                        });
-                                    } else if (this.props.kind === 'synchronous') {
-                                        this.setState({searchFieldValue: event.target.value});
-                                    }
-                                }}
-                                />
-                            }
-                        </div>
+        const classesLabel = classNames('sd-input', {
+            'sd-input--inline-label': this.props.inlineLabel,
+            'sd-input--required': this.props.required,
+            'sd-input--disabled': this.props.disabled,
+            'sd-input--full-width': this.props.fullWidth,
+            'sd-input--invalid': this.props.invalid || this.state.invalid,
+        });
+
+        const htmlId = nextId();
+
+        return (
+            <div className={classesLabel}>
+                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
+                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
+                    {this.props.label}
+                </label>
+
+                <div className="tags-input tags-input--multiselect sd-input__input">
+                    <div className="tags-input__tags">
+                        {this.props.readonly
+                        || <button ref={this.openDropdownRef}
+                        className="tags-input__add-button"
+                        onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
+                            <i className="icon-plus-large"></i>
+                        </button>}
+                            <ul className="tags-input__tag-list">
+                                {this.state.value.map((item, i) => {
+                                    return <React.Fragment key={i}>
+                                        <li
+                                        className={"tags-input__tag-item tags-input__tag-item-multiselect"
+                                        + (this.props.readonly ? ' tags-input__tag-item-readonly' : '')}
+                                        onClick={(event) => this.props.readonly || this.removeClick(i)}>
+                                            <span className="tags-input__helper-box">
+                                                {this.props.valueTemplate
+                                                ? this.props.valueTemplate(item.value)
+                                                : <span>{item.value}</span>}
+                                                {this.props.readonly
+                                                || <span className="tags-input__remove-button">
+                                                    <i className="icon-close-small"></i>
+                                                </span>}
+                                            </span>
+                                        </li>
+                                    </React.Fragment>;
+                                })}
+                            </ul>
                     </div>
-                    {this.state.loading
-                    ? <ul className="suggestion-list--loader"><Loader overlay={true}></Loader></ul>
-                    :
-                    this.state.searchFieldValue === ''
-                        ? this.props.getOptions ?
-                        <ul className="suggestion-list suggestion-list--multi-select">
-                        {this.state.options.map((option, i) => {
-                            return (
-                                <li key={i}
-                                className={`suggestion-item suggestion-item--multi-select`}
-                                onClick={(event) => {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-                                    if (option.children) {
-                                        this.handleButton(event, option);
-                                        this.handleMultiLevel(event, option);
-                                        if (event.altKey && this.props.allowMultiple) {
-                                            if (this.props.selectBranchWithChildren) {
-                                                let filteredItems = option.children
-                                                .filter((item) => {
-                                                    if (!this.state.value.includes(item.value)) {
-                                                        return item;
-                                                    }
-                                                });
-                                                this.setState({
-                                                    value: [...this.state.value, ...filteredItems],
-                                                    options: this.state.firstBranchOptions,
-                                                    openDropdown: false,
-                                                    activeTree: [],
-                                                });
-                                            } else {
-                                                let filteredItems = option.children
-                                                .filter((item) => {
-                                                    if (!this.state.value.includes(item.value)
-                                                    && !item.children) {
-                                                        return item;
-                                                    }
-                                                });
-                                                if (filteredItems.length > 0) {
+
+                    {this.state.openDropdown &&
+                    <div className={"autocomplete autocomplete-multiselect" + (this.props.width === 'medium' ? ' autocomplete-multiselect-width' : '')} ref={this.dropdownRef}>
+                        <div className='autocomplete__header'>
+                            <div className="autocomplete__icon" onClick={() => {
+                            this.backButtonValue();
+                            this.backButton();
+                            }}>
+                                {this.state.activeTree.length > 0
+                                ? <Icon name="arrow-left" className="arrow-left"></Icon>
+                                : <Icon name="search" className="search"></Icon>}
+                            </div>
+                            <div className='autocomplete__filter'>
+                                {this.state.activeTree.length > 0
+                                    ? <button
+                                    className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multiselect' : '')}
+                                    onMouseOver={() => this.setState({buttonMouseEvent: true})}
+                                    onMouseOut={() => this.setState({buttonMouseEvent: false})}
+                                    value={this.state.buttonValue}
+                                    onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
+                                        {this.state.buttonMouseEvent && this.props.selectBranchWithChildren ? 'Choose entire category' : (this.props.optionTemplate ? this.props.optionTemplate(this.state.buttonValue.value) : this.state.buttonValue.value)}
+                                    </button>
+                                    : <input
+                                    type="text"
+                                    className="autocomplete__input"
+                                    ref={(input: any) => input && input.focus()}
+                                    value={this.state.searchFieldValue}
+                                    onChange={(event) => {
+                                        if (this.props.kind === 'asynchronous') {
+                                            this.props.searchOptions(event.target.value, (items) => {
+                                                this.setState({options: items, searchFieldValue: event.target.value});
+                                            });
+                                        } else if (this.props.kind === 'synchronous') {
+                                            this.setState({searchFieldValue: event.target.value});
+                                        }
+                                    }}
+                                    />
+                                }
+                            </div>
+                        </div>
+                        {this.state.loading
+                        ? <ul className="suggestion-list--loader"><Loader overlay={true}></Loader></ul>
+                        :
+                        this.state.searchFieldValue === ''
+                            ? this.props.getOptions ?
+                            <ul className="suggestion-list suggestion-list--multi-select">
+                            {this.state.options.map((option, i) => {
+                                return (
+                                    <li key={i}
+                                    className={`suggestion-item suggestion-item--multi-select`}
+                                    onClick={(event) => {
+                                        event.preventDefault();
+                                        event.stopPropagation();
+                                        if (option.children) {
+                                            this.handleButton(event, option);
+                                            this.handleMultiLevel(event, option);
+                                            if (event.altKey && this.props.allowMultiple) {
+                                                if (this.props.selectBranchWithChildren) {
+                                                    let filteredItems = option.children
+                                                    .filter((item) => {
+                                                        if (!this.state.value.includes(item.value)) {
+                                                            return item;
+                                                        }
+                                                    });
                                                     this.setState({
                                                         value: [...this.state.value, ...filteredItems],
                                                         options: this.state.firstBranchOptions,
                                                         openDropdown: false,
                                                         activeTree: [],
                                                     });
+                                                } else {
+                                                    let filteredItems = option.children
+                                                    .filter((item) => {
+                                                        if (!this.state.value.includes(item.value)
+                                                        && !item.children) {
+                                                            return item;
+                                                        }
+                                                    });
+                                                    if (filteredItems.length > 0) {
+                                                        this.setState({
+                                                            value: [...this.state.value, ...filteredItems],
+                                                            options: this.state.firstBranchOptions,
+                                                            openDropdown: false,
+                                                            activeTree: [],
+                                                        });
+                                                    }
                                                 }
                                             }
+                                        } else {
+                                            this.handleValue(event, option);
+                                            if (!event.ctrlKey) {
+                                                this.setState({openDropdown: false});
+                                            }
                                         }
-                                    } else {
-                                        this.handleValue(event, option);
-                                        if (!event.ctrlKey) {
-                                            this.setState({openDropdown: false});
-                                        }
-                                    }
-                                }}>
-                                    {this.props.optionTemplate
-                                    ? this.props.optionTemplate(option.value)
-                                    : <span
-                                    className={this.state.value.includes(option) ? 'suggestion-item--disabled' : null}>
-                                        {option.value}
-                                    </span>}
-                                    {option.children && <span className="suggestion-item__icon">
-                                        <Icon name="chevron-right-thin"></Icon>
-                                    </span>}
-                                </li>
-                            );
-                        })}</ul> : null
-                        :
-                        <ul className="suggestion-list suggestion-list--multi-select">
-                        {this.filteredItem()}
-                        </ul>
-                }
-                </div>}
+                                    }}>
+                                        {this.props.optionTemplate
+                                        ? this.props.optionTemplate(option.value)
+                                        : <span
+                                        className={this.state.value.includes(option) && 'suggestion-item--disabled'}>
+                                            {option.value}
+                                        </span>}
+                                        {option.children && <span className="suggestion-item__icon">
+                                            <Icon name="chevron-right-thin"></Icon>
+                                        </span>}
+                                    </li>
+                                );
+                            })}</ul> : null
+                            :
+                            <ul className="suggestion-list suggestion-list--multi-select">
+                            {this.filteredItem()}
+                            </ul>
+                    }
+                    </div>}
+                </div>
+
+                <div className='sd-input__message-box'>
+                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                        <div className='sd-input__hint'>{this.props.info}</div> : null}
+                    {this.props.invalid || this.state.invalid ?
+                        <div className='sd-input__message'>{this.props.error}</div>
+                        : null}
+                </div>
             </div>
         );
     }
