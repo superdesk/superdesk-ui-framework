@@ -10,6 +10,7 @@ interface IState {
     disabled: boolean;
     invalid: boolean;
     value: any;
+    value2: any;
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -18,9 +19,10 @@ export default class InputsDoc extends React.Component<{}, IState> {
         this.state = {
             inlineLabel: false,
             required: true,
-            disabled: false,
+            disabled: true,
             invalid: false,
-            value: null
+            value: null,
+            value2: '',
         }
     }
     
@@ -47,7 +49,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
 
                             <div className='form__row'>
                                 <Input label='Input label'
-                                    value={null}
+                                    value={''}
                                     maxLength={30}
                                     type='text'
                                     error='This is error message'
@@ -57,7 +59,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => this.setState({value: value})} />
+                                    onChange={(value) => this.setState({value2: value})} />
                             </div>
                             <div className='form__row'>
                                 <Input label='Number Input'
@@ -75,7 +77,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             <p className="docs-page__paragraph">// Hidden label</p>
                             <div className='form__row'>
                                 <Input label='Input label'
-                                    value={null}
+                                    value={''}
                                     maxLength={25}
                                     type='text'
                                     error='This is error message'
@@ -86,7 +88,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => this.setState({value: value})} />
+                                    onChange={(value) => this.setState({value2: value})} />
                             </div>
                         </div>
 

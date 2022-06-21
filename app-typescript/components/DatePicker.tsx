@@ -3,6 +3,8 @@ import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import {Calendar, LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
 import {throttle} from 'lodash';
+import classNames from 'classnames';
+import nextId from "react-id-generator";
 
 export type DatePickerLocaleSettings = Omit<LocaleSettings, 'today' | 'clear'>;
 
@@ -29,6 +31,17 @@ interface IDatePickerBase {
         }}
      */
     locale?: DatePickerLocaleSettings;
+
+    // label props
+    inlineLabel?: boolean;
+    required?: boolean;
+    fullWidth?: boolean;
+    invalid?: boolean;
+    labelHidden?: boolean;
+    tabindex?: number;
+    label?: string;
+    info?: string;
+    error?: string;
 }
 
 interface IDatePicker extends IDatePickerBase {
@@ -53,6 +66,7 @@ interface IState {
     // valid means it can be parsed
     // if a value is invalid on blur, it will be set to an empty string and `props.onChange` called with `null`
     valid: boolean;
+    invalid: boolean;
 }
 
 // tries to parse primereact/calendar value format to IDatePicker['value']
@@ -84,6 +98,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
         this.state = {
             value: parseToPrimeReactCalendarFormat(this.props.value),
             valid: true,
+            invalid: this.props.invalid ?? false,
         };
 
         this.hidePopupOnScroll = throttle(() => {
@@ -130,32 +145,51 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 clear: 'clear',
             };
         }
+        const classes = classNames('sd-input', {
+            'sd-input--inline-label': this.props.inlineLabel,
+            'sd-input--required': this.props.required,
+            'sd-input--disabled': this.props.disabled,
+            'sd-input--full-width': this.props.fullWidth,
+            'sd-input--invalid': this.props.invalid || this.state.invalid,
+        });
+        const labelClasses = classNames('sd-input__label', {
+            'a11y-only': this.props.labelHidden,
+        });
+
+        let htmlId = nextId();
 
         return (
-            <Calendar
-                ref={(ref) => {
-                    this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;
-                }}
-                value={this.state.value === null ? undefined : this.state.value}
-                onChange={(event) => {
-                    const result = parseFromPrimeReactCalendarFormat(event.value);
+            <div className={classes}>
+                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
+                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
+                    {this.props.label}
+                </label>
 
-                    if (result !== 'failed-to-parse') {
-                        this.setState({value: event.value, valid: true});
-                        this.props.onChange(result);
-                    } else {
-                        // updating internal state so a user can continue typing and enter a valid value
-                        this.setState({value: event.value, valid: false});
-                    }
-                }}
-                locale={locale}
-                dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
-                showIcon={true}
-                icon="icon-calendar"
-                headerTemplate={() => this.props.shortcuts == null ? null : (
-                    <div style={{width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
-                        {
-                            this.props.shortcuts.map(({label, days}, i) => (
+                <div className='sd-input__input'>
+                    <Calendar
+                    ref={(ref) => {
+                        this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;
+                    }}
+                    value={this.state.value === null ? undefined : this.state.value}
+                    onChange={(event) => {
+                        const result = parseFromPrimeReactCalendarFormat(event.value);
+
+                        if (result !== 'failed-to-parse') {
+                            this.setState({value: event.value, valid: true});
+                            this.props.onChange(result);
+                        } else {
+                            // updating internal state so a user can continue typing and enter a valid value
+                            this.setState({value: event.value, valid: false});
+                        }
+                    }}
+                    locale={locale}
+                    dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
+                    showIcon={true}
+                    icon="icon-calendar"
+                    headerTemplate={() => this.props.shortcuts == null ? null : (
+                        <div
+                        style={{width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
+                            {this.props.shortcuts.map(({label, days}, i) => (
                                 <button
                                     key={i}
                                     className="btn btn--hollow btn--small"
@@ -165,27 +199,35 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                                         if (this.instance != null && typeof this.instance.hideOverlay === 'function') {
                                             this.instance.hideOverlay();
                                         }
-                                    }}
-                                >
+                                    }}>
                                     {label}
                                 </button>
-                            ))
-                        }
-                    </div>
-                )}
-                appendTo={document.body} // making it work inside `overflow:hidden`
-                disabled={this.props.disabled}
-                onBlur={(event) => {
-                    // @ts-ignore: Object is possibly 'null'.
-                    if (!event?.target.value) {
+                                ))}
+                        </div>
+                    )}
+                    appendTo={document.body} // making it work inside `overflow:hidden`
+                    disabled={this.props.disabled}
+                    onBlur={(event) => {
                         // @ts-ignore: Object is possibly 'null'.
-                        this.setState({valid: true, value: null});
-                    } else {
-                        // restoring internal state to current props value
-                        this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
-                    }
-                }}
-            />
+                        if (!event?.target.value) {
+                            // @ts-ignore: Object is possibly 'null'.
+                            this.setState({valid: true, value: null});
+                        } else {
+                            // restoring internal state to current props value
+                            this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
+                        }
+                    }}
+                    />
+                </div>
+
+                <div className='sd-input__message-box'>
+                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                        <div className='sd-input__hint'>{this.props.info}</div> : null}
+                    {this.props.invalid || this.state.invalid ?
+                        <div className='sd-input__message'>{this.props.error}</div>
+                        : null}
+                </div>
+            </div>
         );
     }
 }
@@ -211,6 +253,15 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 shortcuts={this.props.shortcuts}
                 dateFormat={this.props.dateFormat}
                 locale={this.props.locale}
+                inlineLabel
+                required={this.props.required}
+                fullWidth={this.props.fullWidth}
+                invalid={this.props.invalid}
+                labelHidden={this.props.labelHidden}
+                tabindex={this.props.tabindex}
+                label={this.props.label}
+                info={this.props.info}
+                error={this.props.error}
             />
         );
     }
