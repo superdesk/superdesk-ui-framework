@@ -63,6 +63,7 @@ import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
+import {WithSizeObserverDocs} from './WithSizeObserver';
 
 const pages = {
     basicComponents: {
@@ -221,6 +222,9 @@ const pages = {
             'select-with-template': {
                 name: 'Select with template',
             },
+            'with-size-observer': {
+                name: 'With size observer',
+            },
             'multiselect': {
                 name: 'MultiSelect',
             },
@@ -330,6 +334,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/autocomplete" component={AutocompleteDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/select-with-template" component={SelectWithTemplateDocs} />
+                        <Route path="/react/with-size-observer" component={WithSizeObserverDocs} />
                         <Route path="/react/multiselect" component={MultiselectDocs} />
                         <Route path="/react/treeselect" component={TreeSelectDocs} />
                         <Route path="/react/popover" component={PopoverDoc} />
