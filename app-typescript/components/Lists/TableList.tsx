@@ -185,7 +185,6 @@ class TableList extends React.PureComponent<IProps, {items: any}> {
                 : <ul className={classes}>
                     {this.state.items.map((item, index) => (
                         <TableListItem
-                        key={index}
                         start={item.start}
                         center={item.center}
                         end={item.end}
