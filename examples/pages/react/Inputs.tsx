@@ -19,7 +19,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
         this.state = {
             inlineLabel: false,
             required: true,
-            disabled: true,
+            disabled: false,
             invalid: false,
             value: null,
             value2: '',
