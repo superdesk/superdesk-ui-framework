@@ -9,7 +9,6 @@ interface IPropsBase {
     error?: string;
     required?: boolean;
     disabled?: boolean;
-    invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
@@ -47,7 +46,7 @@ export class Input extends React.Component<IProps, IState> {
 
         this.state = {
             value: this.props.value ?? '',
-            invalid: this.props.invalid ?? false,
+            invalid: this.props.error ? true : false,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -59,7 +58,7 @@ export class Input extends React.Component<IProps, IState> {
         this.setState({ value: event.target.value });
         this.props.onChange(event.target.value);
 
-        if (this.props.maxLength && !this.props.invalid) {
+        if (this.props.maxLength && !this.state.invalid) {
             this.setState({ invalid: event.target.value.length > this.props.maxLength });
         }
     }
@@ -76,7 +75,7 @@ export class Input extends React.Component<IProps, IState> {
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
             'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
+            'sd-input--invalid': this.state.invalid || this.state.invalid,
         });
         const labelClasses = classNames('sd-input__label', {
             'a11y-only': this.props.labelHidden,
@@ -105,9 +104,9 @@ export class Input extends React.Component<IProps, IState> {
                     : null}
 
                 <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                    {this.props.info && !this.state.invalid && !this.state.invalid ?
                         <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
+                    {this.state.invalid || this.state.invalid ?
                         <div className='sd-input__message'>{this.props.error}</div>
                         : null}
                 </div>

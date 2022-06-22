@@ -20,7 +20,6 @@ interface IProps<T> {
     itemTemplate?(item: any): JSX.Element | undefined;
     selectedItemTemplate?(value: any): JSX.Element | undefined;
     onChange(newValue: string): void;
-    invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
@@ -44,7 +43,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.state = {
             value: [],
             options: [],
-            invalid: this.props.invalid ? this.props.invalid : false,
+            invalid: this.props.error ? true : false,
         };
     }
 
@@ -64,7 +63,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
             'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
+            'sd-input--invalid': this.state.invalid,
         });
 
         const htmlId = nextId();
@@ -100,9 +99,9 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 />
                 </div>
                 <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                    {this.props.info && !this.state.invalid && !this.state.invalid ?
                         <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
+                    {this.state.invalid || this.state.invalid ?
                         <div className='sd-input__message'>{this.props.error}</div>
                         : null}
                 </div>

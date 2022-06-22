@@ -36,7 +36,6 @@ interface IDatePickerBase {
     inlineLabel?: boolean;
     required?: boolean;
     fullWidth?: boolean;
-    invalid?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
     label?: string;
@@ -98,7 +97,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
         this.state = {
             value: parseToPrimeReactCalendarFormat(this.props.value),
             valid: true,
-            invalid: this.props.invalid ?? false,
+            invalid: this.props.error ? true : false,
         };
 
         this.hidePopupOnScroll = throttle(() => {
@@ -150,7 +149,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
             'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
+            'sd-input--invalid': this.state.invalid,
         });
         const labelClasses = classNames('sd-input__label', {
             'a11y-only': this.props.labelHidden,
@@ -221,9 +220,9 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 </div>
 
                 <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                    {this.props.info && !this.state.invalid && !this.state.invalid ?
                         <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
+                    {this.state.invalid || this.state.invalid ?
                         <div className='sd-input__message'>{this.props.error}</div>
                         : null}
                 </div>
@@ -256,7 +255,6 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 inlineLabel
                 required={this.props.required}
                 fullWidth={this.props.fullWidth}
-                invalid={this.props.invalid}
                 labelHidden={this.props.labelHidden}
                 tabindex={this.props.tabindex}
                 label={this.props.label}

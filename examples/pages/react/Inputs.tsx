@@ -19,7 +19,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
         this.state = {
             inlineLabel: false,
             required: true,
-            disabled: true,
+            disabled: false,
             invalid: false,
             value: null,
             value2: '',
@@ -52,12 +52,11 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     value={''}
                                     maxLength={30}
                                     type='text'
-                                    error='This is error message'
+                                    //error='This is error message'
                                     info='This is some hint message'
                                     inlineLabel={this.state.inlineLabel}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
                                     tabindex={0}
                                     onChange={(value) => this.setState({value2: value})} />
                             </div>
@@ -65,12 +64,11 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                 <Input label='Number Input'
                                     value={this.state.value}
                                     type='number'
-                                    error='This is error message'
+                                    //error='This is error message'
                                     info='Morbi leo risus porta ac consectetur ac.'
                                     inlineLabel={this.state.inlineLabel}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
                                     tabindex={0}
                                     onChange={(value) => this.setState({value: value})} />
                             </div>
@@ -86,7 +84,6 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     labelHidden={true}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
                                     tabindex={0}
                                     onChange={(value) => this.setState({value2: value})} />
                             </div>

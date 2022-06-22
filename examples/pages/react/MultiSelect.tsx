@@ -73,7 +73,6 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                     tabindex={1}
                                     label={'This is Label'}
                                     info={'This is info'}
-                                    error={'This is error'}
                                 />
                             </div>
                         </div>
