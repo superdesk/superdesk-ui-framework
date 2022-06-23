@@ -253,7 +253,7 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 shortcuts={this.props.shortcuts}
                 dateFormat={this.props.dateFormat}
                 locale={this.props.locale}
-                inlineLabel
+                inlineLabel={this.props.inlineLabel}
                 required={this.props.required}
                 fullWidth={this.props.fullWidth}
                 invalid={this.props.invalid}
