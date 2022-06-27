@@ -8,7 +8,10 @@ interface IPropsContainer {
 class MainMenuContainer extends React.PureComponent<IPropsContainer> {
     render() {
         return (
-            <div id={this.props.id} aria-labelledby='main-menu_title' className='sd-main-menu__navigation' data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
+            <div id={this.props.id}
+                aria-labelledby='main-menu_title'
+                className='sd-main-menu__navigation'
+                data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
                 {this.props.children}
             </div>
         );

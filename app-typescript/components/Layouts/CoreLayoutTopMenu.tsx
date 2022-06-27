@@ -17,7 +17,12 @@ export class CoreLayoutTopMenu extends React.PureComponent<IProps> {
     render() {
         return (
             <header className='sd-top-menu'>
-                <HamburgerButton buttonAnimation={this.props.buttonAnimation} arialabel='Toggle main menu' ariaControls={this.props.ariaControls} onClick={this.props.onClick} active={this.props.active} />
+                <HamburgerButton
+                    buttonAnimation={this.props.buttonAnimation}
+                    arialabel='Toggle main menu'
+                    ariaControls={this.props.ariaControls}
+                    onClick={this.props.onClick}
+                    active={this.props.active} />
                 <Container className='sd-margin-e--auto'>
                     {this.props.heading && (
                         <p className='sd-top-menu__header'>{this.props.heading}</p>

@@ -17,7 +17,7 @@ export class BottomBarAction extends React.PureComponent<IProps> {
             {
                 'sd-bottom-bar__action--active': this.props.active,
                 'sd-bottom-bar__action--disabled': this.props.disabled,
-            }
+            },
         );
         return (
             <button type='button'

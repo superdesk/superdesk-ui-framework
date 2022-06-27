@@ -12,7 +12,7 @@ interface IItem {
     icon?: string;
     active?: boolean;
     title: string;
-    onClick(event:any): void;
+    onClick(event: any): void;
 }
 
 interface IState {
@@ -48,8 +48,8 @@ export class BottomNav extends React.PureComponent<IProps, IState> {
         newItems.splice(indexNumber, 1);
 
         this.setState({
-            items: newItems
-        })
+            items: newItems,
+        });
     }
 
     render() {
@@ -57,7 +57,8 @@ export class BottomNav extends React.PureComponent<IProps, IState> {
             <ul className='sd-bottom-nav-list'>
                 {this.state.items.map((item, index) => {
                     return (
-                        <li key={index} className={'sd-bottom-nav-list__item' + (item['active'] ? ' sd-bottom-nav-list__item--active' : (index === this.state.index ? ' sd-bottom-nav-list__item--active' : ''))}>
+                        <li key={index}
+                            className={'sd-bottom-nav-list__item' + (item['active'] ? ' sd-bottom-nav-list__item--active' : (index === this.state.index ? ' sd-bottom-nav-list__item--active' : ''))}>
                             <a className='sd-bottom-nav-list__item-title' onClick={(event) => {
                                 this.handleClick(index);
                                 item.onClick(event);
@@ -67,7 +68,11 @@ export class BottomNav extends React.PureComponent<IProps, IState> {
                                 }
                                 <span>{item.title}</span>
                             </a>
-                            <IconButton size='small' icon="close-small" ariaValue='Delete' onClick={() => this.handleDelete(index)} />
+                            <IconButton
+                                size='small'
+                                icon="close-small"
+                                ariaValue='Delete'
+                                onClick={() => this.handleDelete(index)} />
                         </li>
                     );
                 })}

@@ -8,7 +8,6 @@ import {
     CoreLayoutFooter,
 } from '.';
 
-
 interface IProps {
     topMenu?: React.ReactNode;
     main?: React.ReactNode;
@@ -33,7 +32,12 @@ export class CoreLayout extends React.PureComponent<IProps> {
                     </CoreLayoutSlideInMenu>
                 )}
                 {this.props.topMenu && (
-                    <CoreLayoutTopMenu buttonAnimation={this.props.buttonAnimation} heading={this.props.heading} onClick={this.props.onClick} active={this.props.active} ariaControls={this.props.ariaControls}>
+                    <CoreLayoutTopMenu
+                        buttonAnimation={this.props.buttonAnimation}
+                        heading={this.props.heading}
+                        onClick={this.props.onClick}
+                        active={this.props.active}
+                        ariaControls={this.props.ariaControls}>
                         {this.props.topMenu}
                     </CoreLayoutTopMenu>
                 )}

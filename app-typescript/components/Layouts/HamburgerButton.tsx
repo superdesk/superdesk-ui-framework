@@ -21,7 +21,7 @@ export class HamburgerButton extends React.PureComponent<IProps> {
                 [`hamburger--${this.props.buttonAnimation}`]:
                 this.props.buttonAnimation || this.props.buttonAnimation !== undefined,
                 'sd-top-menu__collapse-nav--disabled': this.props.disabled,
-            }
+            },
         );
         return (
             <button type='button'
