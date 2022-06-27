@@ -1,5 +1,4 @@
 // FORM ELEMENTS : Input and slect : form-elements/inputs.scss
-//
 
 // input, textarea, select {
 
@@ -447,19 +446,8 @@
     input, textarea, select {
         &.sd-input__input {
             @include Line-input-base;
-            //background-color: var(--color-input-bg);
-            //transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-            //padding: 0 0.8rem;
-            //height: $form-input-height;
-            //border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
             grid-row: 2/3;
             grid-column: 2/4;
-            // &:hover {
-            //     background-color: var(--color-input-bg--hover);
-            // }
-            // &:focus {
-            //     background-color: var(--sd-colour-interactive--alpha-20);
-            // }
         }
 
     }
@@ -485,20 +473,9 @@
             position: relative;
             @include Line-input-base;
             padding-inline-end: 2rem;
-            // background-color: var(--color-input-bg);
-            // transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-            // padding: 0 0.8rem;
-            // height: $form-input-height;
-            // border-radius: $border-radius__base--x-small $border-radius__base--x-small$border-radius__base--x-small 0 0;
             grid-row: 2/3;
             grid-column: 2/4;
             min-width: 5rem;
-            // &:hover {
-            //     background-color: var(--color-input-bg--hover);
-            // }
-            // &:focus {
-            //     background-color: var(--sd-colour-interactive--alpha-20);
-            // }
             option {
                 color:inherit;
                 font-size: 1.4rem;
@@ -695,8 +672,9 @@
     }
 }
 
-/////////////////  -------------------- Duration input ---------------------  /////////////////
-.sd-input__duration-input {
+/////////////////  -------------------- Duration & Time-Date input ---------------------  /////////////////
+.sd-input__duration-input,
+.sd-input__time-date-input {
     @include Line-input-base;
     display: flex;
     gap: 2px;
@@ -707,7 +685,8 @@
         border-color: var(--sd-colour-interactive);
         background-color: var(--sd-colour-interactive--alpha-20);
     }
-
+}
+.sd-input__duration-input {
     input {
         -webkit-appearance: none;
         -moz-appearance: none;

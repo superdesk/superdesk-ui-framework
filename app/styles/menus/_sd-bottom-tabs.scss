@@ -29,6 +29,8 @@
             white-space: nowrap;
             display: flex;
             flex: 1 1;
+            align-self: stretch;
+            align-items: center;
             gap: 8px;
             &:hover {
                 color: var(--sd-colour-interactive);
