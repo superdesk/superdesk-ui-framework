@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { Chart } from '@superdesk/primereact/chart';
 import { ChartData, ChartOptions } from 'chart.js';
 

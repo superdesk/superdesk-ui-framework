@@ -1,4 +1,4 @@
-import React from 'react';
+import * as  React from 'react';
 import nextId from "react-id-generator";
 import { OverlayPanel } from '@superdesk/primereact/overlaypanel';
 import { Loader } from "./Loader";

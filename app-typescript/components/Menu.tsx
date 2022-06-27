@@ -1,4 +1,6 @@
-import React, {SyntheticEvent} from 'react';
+import * as React from 'react';
+import {SyntheticEvent} from 'react';
+
 import {TieredMenu} from '@superdesk/primereact/tieredmenu';
 
 /**

@@ -72,6 +72,7 @@ export { DropZone } from './components/DropZone';
 export { CreateButton } from './components/CreateButton';
 // export { TreeSelect } from './components/TreeSelect';
 export { SearchBar } from './components/SearchBar';
+export { WithSizeObserver } from './components/WithSizeObserver';
 
 export * from './components/Layouts';
 export * from './components/Form';

@@ -143,8 +143,8 @@
         cursor: pointer;
     }
     textarea.sd-line-input__input {
-      padding-top: 0.6rem;
-      display: block;
+        padding-top: 0.6rem;
+        display: block;
     }
     .sd-line-input__info-left, .sd-line-input__info-right { // use for 1-2 letter info that appear inside inputs ("W" - for width; "H" - for height; px, mm - for units, etc.)
         position: absolute;
@@ -697,7 +697,6 @@
 
 /////////////////  -------------------- Duration input ---------------------  /////////////////
 .sd-input__duration-input {
-
     @include Line-input-base;
     display: flex;
     gap: 2px;

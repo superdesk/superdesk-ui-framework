@@ -14,11 +14,16 @@ class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
     render() {
         return (
             <DatePicker
-                value={this.state.date}
-                dateFormat="YYYY-MM-DD"
-                onChange={(date) => {
-                    this.setState({date});
-                }}
+            value={this.state.date}
+            dateFormat="YYYY-MM-DD"
+            onChange={(date) => {
+                this.setState({date});
+            }}
+            required
+            tabindex={1}
+            label={'This is Label'}
+            info={'This is info'}
+            error={'This is error'}
             />
         );
     }
