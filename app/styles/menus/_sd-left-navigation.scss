@@ -4,6 +4,7 @@
 $sd-leftNav-bgColor: var(--sd-colour-background__left-nav);
 $sd-leftNav-borderColor: var(--sd-colour-line--light);
 $sd-leftNav-width: 24rem;
+$sd-leftNav-width-large: 32rem;
 
 $sd-leftNavBtn-bgColor: transparent;
 $sd-leftNavBtn-bgHoverColor: $sd-colour-background__menu-item--hover;
@@ -33,8 +34,30 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
     &--blanc {
         border-color: transparent;
         background: transparent;
+        border-right-width: 0;
         .sd-left-nav__group-header {
             border-top-color: transparent;
+        }
+    }
+    &--large {
+        width: $sd-leftNav-width-large;
+        max-width: 100%;
+        .sd-left-nav__group-header {
+            padding-inline: 2.4rem 0;
+        }
+        .sd-left-nav__btn {
+            padding-inline: 4rem 0;
+        }
+    }
+    &--reverse-border {
+        .sd-left-nav__btn {
+            border-inline-end: none;
+            border-inline-start: $sd-leftNavBtn-border;
+
+           &--active {
+                border-inline-end: none;
+                border-inline-start: $sd-leftNavBtn-borderActive;
+            }
         }
     }   
 }
@@ -75,7 +98,7 @@ $sd-leftNavBtn-borderActive: 4px solid var(--sd-colour-interactive--active);
     line-height: 100%;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--color-text-light);
+    color: var(--color-text-lighter);
     padding-block-start: 2.6rem;
     padding-block-end: 0.9rem;
     padding-inline: 1.6rem 0;

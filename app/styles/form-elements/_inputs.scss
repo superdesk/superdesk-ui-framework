@@ -447,19 +447,19 @@
     input, textarea, select {
         &.sd-input__input {
             @include Line-input-base;
-            background-color: var(--color-input-bg);
-            transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-            padding: 0 0.8rem;
-            height: $form-input-height;
-            border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
+            //background-color: var(--color-input-bg);
+            //transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+            //padding: 0 0.8rem;
+            //height: $form-input-height;
+            //border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
             grid-row: 2/3;
             grid-column: 2/4;
-            &:hover {
-                background-color: var(--color-input-bg--hover);
-            }
-            &:focus {
-                background-color: var(--sd-colour-interactive--alpha-20);
-            }
+            // &:hover {
+            //     background-color: var(--color-input-bg--hover);
+            // }
+            // &:focus {
+            //     background-color: var(--sd-colour-interactive--alpha-20);
+            // }
         }
 
     }
@@ -484,20 +484,21 @@
             display: block;
             position: relative;
             @include Line-input-base;
-            background-color: var(--color-input-bg);
-            transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-            padding: 0 0.8rem;
-            height: $form-input-height;
-            border-radius: $border-radius__base--x-small $border-radius__base--x-small$border-radius__base--x-small 0 0;
+            padding-inline-end: 2rem;
+            // background-color: var(--color-input-bg);
+            // transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+            // padding: 0 0.8rem;
+            // height: $form-input-height;
+            // border-radius: $border-radius__base--x-small $border-radius__base--x-small$border-radius__base--x-small 0 0;
             grid-row: 2/3;
             grid-column: 2/4;
             min-width: 5rem;
-            &:hover {
-                background-color: var(--color-input-bg--hover);
-            }
-            &:focus {
-                background-color: var(--sd-colour-interactive--alpha-20);
-            }
+            // &:hover {
+            //     background-color: var(--color-input-bg--hover);
+            // }
+            // &:focus {
+            //     background-color: var(--sd-colour-interactive--alpha-20);
+            // }
             option {
                 color:inherit;
                 font-size: 1.4rem;
@@ -691,5 +692,51 @@
     &--full-width {
         flex-grow: 1;
         width: 100%;
+    }
+}
+
+/////////////////  -------------------- Duration input ---------------------  /////////////////
+.sd-input__duration-input {
+
+    @include Line-input-base;
+    display: flex;
+    gap: 2px;
+    grid-row: 2/3;
+    grid-column: 2/4;
+    &:focus-within {
+        box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
+        border-color: var(--sd-colour-interactive);
+        background-color: var(--sd-colour-interactive--alpha-20);
+    }
+
+    input {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        border: 0;
+        background-color: transparent;
+        height: 3.2rem;
+        display: inline-block;
+        color: var(--color-text);
+        text-align: end;
+        width: 2.5ch;
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        &[type=number] {
+            -moz-appearance: textfield;
+        }
+    }
+    .sd-input__suffix {
+        height: 3.2rem;
+        line-height: 3.2rem;
+        font-size: 1.4rem;
+        color: var(--color-text-light);
+        display: inline-block;
+        pointer-events: none;
+        margin-inline-end: 2px;
+        text-align: center;
     }
 }

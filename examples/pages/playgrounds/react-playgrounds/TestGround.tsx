@@ -263,6 +263,26 @@ export class TestGround extends React.Component<IProps, IState> {
                         </div>
 
                         <hr /><hr />
+                        <h3 className="docs-page__h3 sd-margin-y--0 sd-margin-b--3">Duration input</h3>
+
+                        
+                        <div className="sd-input">
+                            <label className="sd-input__label" id="duration01">Input label</label>
+                            <div className="sd-input__duration-input" id="id06" aria-describedby="duration01">
+                                <input type="number" className="" placeholder='00'/>
+                                <span className="sd-input__suffix">h</span>
+                                <input type="number" className="" placeholder='00'/>
+                                <span className="sd-input__suffix">m</span>
+                                <input type="number" className="" placeholder='00'/>
+                                <span className="sd-input__suffix">s</span>
+                            </div>
+                            <div className="sd-input__char-count">0 / 30</div>
+                            <div className="sd-input__message-box">
+                                <div className="sd-input__hint">This is some hint message</div>
+                            </div>
+                        </div>
+
+                        <hr />
 
                         <h3 className="docs-page__h3 sd-margin-t--2 sd-margin-b--0">Radio</h3>
                         <hr />

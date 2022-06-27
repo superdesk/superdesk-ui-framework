@@ -40,17 +40,45 @@
         background-color: var(--sd-colour-panel-bg--100);
         overflow: auto;
     }    
-    .bottom-bar {
-        height:3rem;
-        background-color: var(--sd-colour-bottom-bar);
+    .bottom-bar,
+    .sd-bottom-bar {
         grid-column: 2/3;
         grid-row: 4/5;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        color: rgba(255, 255, 255, 0.75);
-        padding: 0 10px; 
+    }
+}
+
+.bottom-bar,
+.sd-bottom-bar {
+    min-height:3.2rem;
+    background-color: var(--sd-colour-bottom-bar);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    display: grid;
+    grid-template-rows: auto;
+    grid-template-columns: $sd-sidebarMenu-width 1fr auto auto;
+    color: hsla(0, 0%, 100%, 0.75);
+}
+.sd-bottom-bar__action {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: $sd-sidebarMenu-width;
+    text-align: center;
+    padding: 0;
+    background-color: var(--sd-colour-top-menu__btn);
+    transition: all 0.2s ease;
+    &:hover {
+        background-color: hsl(0, 0%, 0%);
+        cursor: pointer;
+    }
+    &:active {
+        background-color: var(--sd-colour-interactive);
+    }
+    &--disabled {
+        pointer-events: none !important;
+        opacity: 0.3;
     }
 }
 
@@ -571,20 +599,6 @@ $planningEditor-width: 53rem;
     }
 }
 
-// DARK UI ---------------------------------------------
-//------------------------------------------------------
-
-// .dark-ui,
-// [class^="--dark-ui"],
-// [class*="--dark-ui"] {
-//     .sd-filters-panel {
-//         background-color: $sd-filters-darkUI-bg;
-//     }
-// }
-
-
-
-
 // GRID LAYOUT TEST ------------------------------------------------------------------------------------------------------------------------
 //------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -756,7 +770,7 @@ $planningEditor-width: 53rem;
     .sd-main-menu {
         grid-column: slideInNavigation;
         grid-row: 1/-1;
-        background-color: #272727;
+        background-color: hsla(214, 13%, 16%, 1);
         display: grid;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
@@ -769,13 +783,80 @@ $planningEditor-width: 53rem;
             overflow: hidden;
             transition: opacity ease-in-out 0.2s, width ease-in-out 0.1s;
             opacity: 0;
-            box-shadow: inset -8px 0px 12px -4px rgba(0, 0, 0, 0.6);
         }
+        .sd-main-menu__navigation {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: [mainMenuHeader] $nav-height [mainMenuContent] 1fr [mainMenuFooter] auto;
+            width: 0;
+            overflow: hidden;
+            transition: opacity ease-in-out 0.2s, width ease-in-out 0.1s;
+            opacity: 0;
+            box-shadow: inset -8px 0px 12px -4px rgba(0, 0, 0, 0.4), inset -1px 0px 0 0 hsla(214, 13%, 90%, 0.24);
+        }
+        .sd-main-menu__header {
+            display: flex;
+            align-items: center;
+            box-shadow: 0 2px 3px hsla(0, 0%, 0%, 0.4);
+            border-bottom: 1px solid hsla(214, 13%, 60%, 0.08);
+        }
+        .sd-main-menu__title {
+            font-size: 1.6rem;
+            font-weight: 300;
+            opacity: 0.65;
+            padding-left: 2.4rem;
+        }
+        .sd-main-menu__content {
+            overflow-y: auto;
+        }
+        .sd-main-menu__footer {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            justify-content: center;
+            box-shadow: 0 -2px 3px hsla(0, 0%, 0%, 0.24);
+            border-top: 1px solid hsla(214, 13%, 60%, 0.08);
+            .sd-main-menu__footer-logo {
+                display: flex;
+                align-items: center;
+                border-top: 1px solid hsla(214, 13%, 60%, 0.08);
+                background: url(../img/SD-logo.svg) no-repeat center;
+                height: 7.6rem;
+            }
+            .sd-main-menu__footer-info {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 10px;
+                font-weight: 300;
+                letter-spacing: 0.05em;
+                padding: 6px 0 6px;
+                opacity: 0.5;
+            }
+            .sd-main-menu__footer-content {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                font-size: 12px;
+                padding: 8px 0 8px;
+                opacity: 0.85;
+                height: 3.2rem;
+                border-top: 1px solid hsla(214, 13%, 60%, 0.08);
+                background-color: hsla(214, 13%, 6%, 0.24);
+            }
+        }
+
         &.sd-main-menu--open {
-            .sd-main-menu__inner {
+            .sd-main-menu__inner,
+            .sd-main-menu__navigation {
                 width: 30rem;
                 opacity: 1;
             }
+        }
+        .sd-left-nav {
+            width: 100%;
         }
     }
     .sd-top-menu {
@@ -792,19 +873,13 @@ $planningEditor-width: 53rem;
         background-color: var(--sd-colour-panel-bg--100);
 
     }    
-    .bottom-bar {
+    .bottom-bar,
+    .sd-bottom-bar {
         grid-column: contentContainer;
         grid-row: footerBar;
-        height:3rem;
-        background-color: var(--sd-colour-bottom-bar);
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        flex-direction: row;
-        color: rgba(255, 255, 255, 0.75);
-        padding: 0 10px; 
     }
 }
+
 
 // EDITOR 3 Layout ======================================= //
 .sd-authoring-page {

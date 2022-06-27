@@ -277,6 +277,9 @@
     --sd-colour-top-menu:                   var(--sd-colour-bg--02);
     --sd-colour-top-menu__btn:              var(--sd-colour-bg--03);
     --sd-colour-bottom-bar:                 var(--sd-colour-bg--01);
+    --sd-colour-bottom-bar__item:           var(--sd-colour-bg--01);
+    --sd-colour-bottom-bar__item--hover:    var(--sd-colour-bg--02);
+    --sd-colour-bottom-bar__item--active:   var(--sd-colour-interactive--active);
 
     --sd-colour-line--x-light:              hsla(var(--sd-colour-cool-grey-l--20), 0.1);
     --sd-colour-line--light:                hsla(var(--sd-colour-cool-grey-l--20), 0.16);
