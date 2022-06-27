@@ -22,7 +22,9 @@ interface IMenu {
   ariaLabel?: string;
   scrollSpy?: string;
   offset?: number;
+  reverseItemBorder?: boolean;
   style?: "default" | "inverse" | "blanc";
+  size?: "medium" | "large";
   onSelect(id: string, route: string): void;
 }
 
@@ -66,6 +68,10 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
         "sd-left-nav--default": this.props.style === undefined,
         [`sd-left-nav--${this.props.style}`]:
           this.props.style || this.props.style !== undefined,
+        "sd-left-nav--medium": this.props.size === undefined,
+        [`sd-left-nav--${this.props.size}`]:
+          this.props.size || this.props.size !== undefined,
+          "sd-left-nav--reverse-border": this.props.reverseItemBorder,
       },
       this.props.className,
     );

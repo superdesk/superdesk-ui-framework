@@ -84,6 +84,7 @@ export { ListItemLoader } from './components/ListItemLoader';
 export { Spinner, LoadingOverlay } from './components/Spinner';
 export { Text } from './components/Text/Text';
 export { Heading } from './components/Text/Heading';
+export { BottomNav } from './components/Navigation/BottomNav';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
