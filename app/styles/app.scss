@@ -34,6 +34,7 @@
 @import 'loaders';
 @import 'spinner';
 @import 'table-list';
+@import 'hamburger';
 
 // Interface elements
 @import 'interface-elements/side-panel';
@@ -89,6 +90,7 @@
 @import 'menus/sd-top-menu';
 @import 'menus/sd-left-navigation';
 @import 'menus/sd-content-navigation';
+@import 'menus/sd-bottom-tabs';
 
 // Editor
 @import 'editor/editor-themes';

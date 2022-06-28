@@ -140,6 +140,9 @@ $sd-big-icon-font: (
         &.color--light {
             color: var(--color-text-lighter) !important;
         }
+        &.color--white {
+            color: hsla(214, 13%, 90, 1) !important;
+        }
 
         &.scale--2x {
             --big-icon-size: 52px

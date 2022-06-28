@@ -27,7 +27,7 @@ export const Layout = ({
             <section id='1' className='sd-content sd-content-wrapper'>
                 {children}
             </section>
-            <footer className='bottom-bar'>
+            <footer className='sd-bottom-bar'>
                 This is the footer.
             </footer>
         </div>
