@@ -60,6 +60,11 @@ interface IProps {
 
 const superdeskTopBarZIndex = 1030;
 
+interface ITieredMenuEvent {
+    item: any;
+    originalEvent: SyntheticEvent;
+}
+
 export class Menu extends React.Component<IProps, {}> {
     private menu: TieredMenu | null;
     private focusedBefore: Element | null;
@@ -89,8 +94,14 @@ export class Menu extends React.Component<IProps, {}> {
                 return {
                     label: item.label,
                     icon: item.icon,
-                    command: (event: SyntheticEvent) => {
-                        this.close(event);
+                    command: (event: ITieredMenuEvent) => {
+                        /**
+                         * a click on menu item should not trigger other click handlers
+                         * above in the DOM tree. e.g. if menu is inside a clickable list item
+                         */
+                        event.originalEvent.stopPropagation();
+
+                        this.close(event.originalEvent);
                         item.onClick();
                     },
                     disabled: item.disabled,
