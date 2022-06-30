@@ -1,3 +1,47 @@
+diff --git a/node_modules/@superdesk/primereact/components/dialog/Dialog.d.ts b/node_modules/@superdesk/primereact/components/dialog/Dialog.d.ts
+index 80b0f8e..5343abf 100644
+--- a/node_modules/@superdesk/primereact/components/dialog/Dialog.d.ts
++++ b/node_modules/@superdesk/primereact/components/dialog/Dialog.d.ts
+@@ -18,7 +18,7 @@ interface DialogProps {
+     maskClassName?: string;
+     showHeader?: boolean;
+     appendTo?: HTMLElement;
+-    baseZIndex?: number;
++    zIndex?: number;
+     maximizable?: boolean;
+     blockScroll?: boolean;
+     ariaCloseIconLabel?: string;
+diff --git a/node_modules/@superdesk/primereact/components/dialog/Dialog.js b/node_modules/@superdesk/primereact/components/dialog/Dialog.js
+index 2e243f2..c40162e 100644
+--- a/node_modules/@superdesk/primereact/components/dialog/Dialog.js
++++ b/node_modules/@superdesk/primereact/components/dialog/Dialog.js
+@@ -148,7 +148,7 @@ var Dialog = /*#__PURE__*/function (_Component) {
+   }, {
+     key: "zIndex",
+     get: function get() {
+-      return this.props.baseZIndex + _DomHandler.default.generateZIndex();
++      return this.props.zIndex;
+     }
+   }, {
+     key: "maximized",
+@@ -501,7 +501,7 @@ _defineProperty(Dialog, "defaultProps", {
+   maskClassName: null,
+   showHeader: true,
+   appendTo: null,
+-  baseZIndex: 0,
++  zIndex: 0,
+   maximizable: false,
+   blockScroll: false,
+   icons: null,
+@@ -531,7 +531,7 @@ _defineProperty(Dialog, "propTypes", {
+   maskClassName: _propTypes.default.string,
+   showHeader: _propTypes.default.bool,
+   appendTo: _propTypes.default.object,
+-  baseZIndex: _propTypes.default.number,
++  zIndex: _propTypes.default.number,
+   maximizable: _propTypes.default.bool,
+   blockScroll: _propTypes.default.bool,
+   icons: _propTypes.default.any,
 diff --git a/node_modules/@superdesk/primereact/components/tieredmenu/TieredMenu.d.ts b/node_modules/@superdesk/primereact/components/tieredmenu/TieredMenu.d.ts
 index a91da27..3dd7822 100644
 --- a/node_modules/@superdesk/primereact/components/tieredmenu/TieredMenu.d.ts
