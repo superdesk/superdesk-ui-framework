@@ -15,6 +15,10 @@ interface ISelect {
     tabindex?: number;
     fullWidth?: boolean;
     onChange(newValue: string): void;
+    boxedStyle?: boolean;
+    boxedLable?: boolean;
+    placeholder?: string;
+    size?: 'medium' | 'large' | 'x-large';
 }
 
 interface IState {
@@ -48,6 +52,10 @@ class Select extends React.Component<ISelect, IState> {
             'sd-input--disabled': this.props.disabled,
             'sd-input--full-width': this.props.fullWidth,
             'sd-input--invalid': this.props.invalid || this.state.invalid,
+            'sd-input--medium': this.props.size === undefined,
+            [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
+            'sd-input--boxed-style': this.props.boxedStyle,
+            'sd-input--boxed-label': this.props.boxedLable,
         });
         const labelClasses = classNames('sd-input__label', {
             'a11y-only': this.props.labelHidden,

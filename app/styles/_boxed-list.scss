@@ -42,6 +42,9 @@ $boxed-list-palette: $sd-basic-palette;
     &--selected {
         box-shadow: var(--sd-shadow__item--selected);
     }
+    &--unread {
+        box-shadow: var(--sd-shadow__item--unread);
+    }
     &--clickable {
         &:hover {
             cursor: pointer;
