@@ -75,7 +75,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         tabIndex={this.props.tabindex === undefined ? undefined : -1}>
                     {this.props.label}
                 </label>
-                
+
                 <PrimeMultiSelect
                     panelClassName={classes}
                     value={this.props.value}

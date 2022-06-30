@@ -33,7 +33,11 @@ class NotificationPanelHeader extends React.PureComponent<IPropsHeader> {
         return (
             <div className='sd-notification-panel__header'>
                 <h3 id='notifications_title' className='sd-notification-panel__title'>{this.props.headerTitle}</h3>
-                <IconButton toolTipFlow='left' ariaValue='Close' icon='close-small' onClick={() => this.props.onClick()} />
+                <IconButton
+                    toolTipFlow='left'
+                    ariaValue='Close'
+                    icon='close-small'
+                    onClick={() => this.props.onClick()} />
             </div>
         );
     }
@@ -97,5 +101,9 @@ export default class NotificationPanel extends React.PureComponent<IProps> {
 }
 
 export {
-    NotificationPanel, NotificationPanelContainer, NotificationPanelHeader, NotificationPanelContent, NotificationPanelFooter
+    NotificationPanel,
+    NotificationPanelContainer,
+    NotificationPanelHeader,
+    NotificationPanelContent,
+    NotificationPanelFooter
 };

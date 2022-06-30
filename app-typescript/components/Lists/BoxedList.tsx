@@ -48,7 +48,7 @@ interface IPropsActions {
 
 class BoxedListActions extends React.PureComponent<IPropsActions> {
     public rootElement?: HTMLDivElement | null;
-    
+
     render() {
         let classes = classNames({
             'boxed-list__actions--static': this.props.slideIn === undefined,
@@ -99,7 +99,7 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
             this.props.onClick?.();
         }
     }
-    
+
     render() {
         let classes = classNames('boxed-list__item', {
             'boxed-list__item--comfortable': this.props.density === undefined,
