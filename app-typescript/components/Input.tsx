@@ -30,8 +30,8 @@ interface IPropsPassword extends IPropsBase {
 
 interface IPropsNumber extends IPropsBase {
     type: 'number';
-    value: number | any;
-    onChange(newValue: number | any): void;
+    value: number;
+    onChange(newValue: number): void;
 }
 
 type IProps = IPropsText | IPropsNumber | IPropsPassword;
@@ -57,7 +57,11 @@ export class Input extends React.Component<IProps, IState> {
 
     handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         this.setState({ value: event.target.value });
-        this.props.onChange(event.target.value);
+        if (this.props.type === 'number') {
+            this.props.onChange(Number(event.target.value));
+        } else {
+            this.props.onChange(event.target.value);
+        }
 
         if (this.props.maxLength && !this.props.invalid) {
             this.setState({ invalid: event.target.value.length > this.props.maxLength });
