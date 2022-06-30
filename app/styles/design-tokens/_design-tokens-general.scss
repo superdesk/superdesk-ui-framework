@@ -73,12 +73,9 @@
     --sd-shadow__menu-item--focus-inner: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20), inset 0 0 0 1px var(--sd-colour-interactive--alpha-50);
 }
 
-
-
-
 .sd-top-menu, #top-menu {
     .navbtn, .sd-navbtn {
-      --color-navbutton-border: hsla(214, 13%, 70%, 0.1) !important;
-      --sd-colour-line--x-light: hsla(214, 13%, 70%, 0.1) !important;
+      --color-navbutton-border: hsla(214, 13%, 70%, 0.2) !important;
+      --sd-colour-line--x-light: hsla(214, 13%, 70%, 0.2) !important;
     }
   }

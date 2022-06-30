@@ -75,6 +75,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         tabIndex={this.props.tabindex === undefined ? undefined : -1}>
                     {this.props.label}
                 </label>
+                
                 <PrimeMultiSelect
                     panelClassName={classes}
                     value={this.props.value}
@@ -97,6 +98,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     showClear={this.props.showClear}
                     disabled={this.props.disabled}
                 />
+
                 <div className='sd-input__message-box'>
                     {this.props.info && !this.props.invalid && !this.state.invalid ?
                         <div className='sd-input__hint'>{this.props.info}</div> : null}

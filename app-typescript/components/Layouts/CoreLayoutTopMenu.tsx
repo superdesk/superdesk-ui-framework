@@ -16,7 +16,7 @@ interface IProps {
 export class CoreLayoutTopMenu extends React.PureComponent<IProps> {
     render() {
         return (
-            <header className='sd-top-menu'>
+            <header className='sd-top-menu' data-theme='dark-ui'>
                 <HamburgerButton
                     buttonAnimation={this.props.buttonAnimation}
                     arialabel='Toggle main menu'

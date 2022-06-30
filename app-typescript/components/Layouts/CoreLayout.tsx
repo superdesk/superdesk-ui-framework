@@ -6,6 +6,7 @@ import {
     CoreLayoutTopMenu,
     CoreLayoutSlideInMenu,
     CoreLayoutFooter,
+    CoreLayoutOverlay,
 } from '.';
 
 interface IProps {
@@ -13,6 +14,7 @@ interface IProps {
     main?: React.ReactNode;
     slideInMenu?: React.ReactNode;
     footer?: React.ReactNode;
+    overlay?: React.ReactNode;
     heading?: string;
     menuOpen?: boolean;
     onClick(): void;
@@ -48,6 +50,11 @@ export class CoreLayout extends React.PureComponent<IProps> {
                     <CoreLayoutFooter>
                         {this.props.footer}
                     </CoreLayoutFooter>
+                )}
+                {this.props.overlay && (
+                    <CoreLayoutOverlay>
+                        {this.props.overlay}
+                    </CoreLayoutOverlay>
                 )}
             </CoreLayoutContainer>
         );

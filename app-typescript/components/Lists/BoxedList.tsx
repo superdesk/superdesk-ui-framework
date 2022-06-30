@@ -48,7 +48,7 @@ interface IPropsActions {
 
 class BoxedListActions extends React.PureComponent<IPropsActions> {
     public rootElement?: HTMLDivElement | null;
-
+    
     render() {
         let classes = classNames({
             'boxed-list__actions--static': this.props.slideIn === undefined,
@@ -78,6 +78,7 @@ interface IPropsItem {
     alignVertical?: 'start' | 'center';
     slideInActions?: boolean;
     selected?: boolean;
+    unread?: boolean;
     onClick?(): void;
 }
 
@@ -98,13 +99,14 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
             this.props.onClick?.();
         }
     }
-
+    
     render() {
         let classes = classNames('boxed-list__item', {
             'boxed-list__item--comfortable': this.props.density === undefined,
             [`boxed-list__item--${this.props.density}`]: this.props.density || this.props.density !== undefined,
             'boxed-list__item--clickable': this.props.clickable === true,
             'boxed-list__item--selected': this.props.selected,
+            'boxed-list__item--unread': this.props.unread,
             [`boxed-list__item--${this.props.type}`]: this.props.type || this.props.type !== undefined,
             [`boxed-list__item--align-${this.props.alignVertical}`]: this.props.alignVertical,
         });
@@ -145,6 +147,7 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
 interface IProps {
     children?: React.ReactNode;
     density?: 'compact' | 'comfortable'; // defaults to 'compact'
+    className?: string;
 }
 
 class BoxedList extends React.PureComponent<IProps> {
@@ -152,7 +155,7 @@ class BoxedList extends React.PureComponent<IProps> {
         let classes = classNames('boxed-list', {
             'boxed-list--compact': this.props.density === undefined,
             [`boxed-list--${this.props.density}`]: this.props.density || this.props.density !== undefined,
-        });
+        }, this.props.className);
         return (
             <ul className={classes}>
                 {this.props.children}

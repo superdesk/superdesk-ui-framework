@@ -313,6 +313,7 @@
     --sd-shadow__subnav:                    0 1px 0px var(--sd-colour--shadow-line), 0 1px 3px hsla(0, 0%, 0%, 0.07), 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
     
     --sd-shadow__item--selected:            0 0 0 2px var(--sd-colour-interactive), 0 0 0 5px var(--sd-colour-interactive--alpha-30);
+    --sd-shadow__item--unread:              0 0 0 1px var(--sd-colour-interactive--alpha-30), inset 0 0 0 3px var(--sd-colour-interactive--alpha-30);
     --sd-shadow__item--selected-thin:       0 0 0 1px var(--sd-colour-interactive), inset 0 0 0 2px var(--sd-colour-interactive--alpha-30);
 
     // Webkit scrollbar colors
@@ -458,6 +459,7 @@
     --sd-shadow__subnav:                    0 1px 0px var(--sd-colour--shadow-line), 0 1px 3px hsla(0, 0%, 0%, 0.14), 0 2px 0 0 hsla(0, 0%, 0%, 0.12);
 
     --sd-shadow__item--selected:            0 0 0 2px var(--sd-colour-interactive), 0 0 0 5px var(--sd-colour-interactive--alpha-30);
+    --sd-shadow__item--unread:              0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 3px var(--sd-colour-interactive--alpha-20);
     --sd-shadow__item--selected-thin:       0 0 0 1px var(--sd-colour-interactive), inset 0 0 0 2px var(--sd-colour-interactive--alpha-30);
 
     // Webkit scrollbar colors
