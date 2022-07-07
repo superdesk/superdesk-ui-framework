@@ -760,12 +760,11 @@ $planningEditor-width: 53rem;
 .sd-page-grid, .sd-page-grid--test {
     margin: 0;
     display: grid;
-    grid-template-columns: [slideInNavigation] auto [contentContainer] 1fr;
+    grid-template-columns: [slideInNavigation] auto [contentContainer] 1fr [notificationPanel] 0;
     grid-template-rows: [mainToolbar] 4.8rem [contentContainer] 1fr [footerBar] auto;
     grid-gap: 0;
     height: 100vh;
     position: relative;
-    //background-color: aquamarine;
 
     .sd-main-menu {
         grid-column: slideInNavigation;
@@ -871,8 +870,14 @@ $planningEditor-width: 53rem;
         z-index: 1;
         overflow: auto;
         background-color: var(--sd-colour-panel-bg--100);
-
-    }    
+    }   
+    .sd-notifications-slot {
+        grid-column: notificationPanel;
+        grid-row: contentContainer;
+        z-index: 2;
+        position: relative;
+        width: 0;
+    } 
     .bottom-bar,
     .sd-bottom-bar {
         grid-column: contentContainer;

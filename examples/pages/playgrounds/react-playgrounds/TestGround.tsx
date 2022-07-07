@@ -282,6 +282,22 @@ export class TestGround extends React.Component<IProps, IState> {
                             </div>
                         </div>
 
+                        <h3 className="docs-page__h3 sd-margin-y--0 sd-margin-b--3">testiramt</h3>
+
+                        
+                        <div className="sd-input">
+                            <label className="sd-input__label" id="duration01">Input label</label>
+                            {/* temp */}
+                            <div id="pr_id_1" className="p-dropdown p-component p-inputwrapper p-dropdown-clearable"><div className="p-hidden-accessible"><input type="text" aria-haspopup="listbox" /></div><div className="p-hidden-accessible p-dropdown-hidden-select"><select aria-hidden="true"><option value=""> </option></select></div><span className="p-dropdown-label p-inputtext p-placeholder"><div>Select a color</div></span><div className="p-dropdown-trigger" role="button" aria-haspopup="listbox" aria-expanded="false"><span className="p-dropdown-trigger-icon pi pi-chevron-down p-clickable"></span></div></div>
+                            {/* temp */}
+                            
+                            
+                            <div className="sd-input__char-count">0 / 30</div>
+                            <div className="sd-input__message-box">
+                                <div className="sd-input__hint">This is some hint message</div>
+                            </div>
+                        </div>
+
                         <hr />
 
                         <h3 className="docs-page__h3 sd-margin-t--2 sd-margin-b--0">Radio</h3>

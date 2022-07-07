@@ -5,13 +5,15 @@ interface IProps {
     text: string;
     flow?: 'top' | 'left' | 'right' | 'down'; // defaults to 'top'
     appendToBody?: boolean;
+    disabled?: boolean;
 }
 
-export const Tooltip: React.FC<IProps>  = ({appendToBody, children, ...otherProps}) =>
-    appendToBody ?
-    <TooltipAppended {...otherProps}>{children}</TooltipAppended>
-    :
-    <TooltipBasic {...otherProps}>{children}</TooltipBasic>;
+export const Tooltip: React.FC<IProps>  = ({appendToBody, children, disabled, ...otherProps}) =>
+    disabled
+    ? <React.Fragment>{children}</React.Fragment>
+    : appendToBody
+        ? <TooltipAppended {...otherProps}>{children}</TooltipAppended>
+        : <TooltipBasic {...otherProps}>{children}</TooltipBasic>;
 
 class TooltipBasic extends React.PureComponent<IProps> {
     htmlId = nextId();

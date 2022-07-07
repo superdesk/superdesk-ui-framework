@@ -14,6 +14,10 @@ interface IPropsBase {
     labelHidden?: boolean;
     tabindex?: number;
     fullWidth?: boolean;
+    boxedStyle?: boolean;
+    boxedLable?: boolean;
+    placeholder?: string;
+    size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
 }
 
 interface IPropsText extends IPropsBase {
@@ -30,8 +34,8 @@ interface IPropsPassword extends IPropsBase {
 
 interface IPropsNumber extends IPropsBase {
     type: 'number';
-    value: number | any;
-    onChange(newValue: number | any): void;
+    value: number;
+    onChange(newValue: number): void;
 }
 
 type IProps = IPropsText | IPropsNumber | IPropsPassword;
@@ -57,7 +61,11 @@ export class Input extends React.Component<IProps, IState> {
 
     handleChange(event: React.ChangeEvent<HTMLInputElement>) {
         this.setState({ value: event.target.value });
-        this.props.onChange(event.target.value);
+        if (this.props.type === 'number') {
+            this.props.onChange(Number(event.target.value));
+        } else {
+            this.props.onChange(event.target.value);
+        }
 
         if (this.props.maxLength && !this.props.invalid) {
             this.setState({ invalid: event.target.value.length > this.props.maxLength });
@@ -77,9 +85,14 @@ export class Input extends React.Component<IProps, IState> {
             'sd-input--disabled': this.props.disabled,
             'sd-input--full-width': this.props.fullWidth,
             'sd-input--invalid': this.props.invalid || this.state.invalid,
+            'sd-input--medium': this.props.size === undefined,
+            [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
+            'sd-input--boxed-style': this.props.boxedStyle,
+            'sd-input--boxed-label': this.props.boxedLable,
         });
         const labelClasses = classNames('sd-input__label', {
             'a11y-only': this.props.labelHidden,
+            'sd-input__label--boxed': this.props.boxedLable,
         });
 
         return (
@@ -96,6 +109,7 @@ export class Input extends React.Component<IProps, IState> {
                     aria-describedby={this.htmlId + 'label'}
                     tabIndex={this.props.tabindex}
                     onChange={this.handleChange}
+                    placeholder={this.props.placeholder}
                     disabled={this.props.disabled} />
 
                 {this.props.maxLength ?

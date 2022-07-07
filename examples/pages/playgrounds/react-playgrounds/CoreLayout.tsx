@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, LeftMenu } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, LeftMenu, BoxedList, BoxedListItem, BoxedListContentRow, Heading, Text, Time } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -18,6 +18,7 @@ interface IProps {
 interface IState {
     theme: 'dark' | 'light' | string;
     mainMenuOpen: boolean;
+    notificationsOpen: boolean;
 }
 
 export class CoreLayout extends React.Component<IProps, IState> {
@@ -26,13 +27,20 @@ export class CoreLayout extends React.Component<IProps, IState> {
         this.state = {
             theme: 'light',
             mainMenuOpen: false,
+            notificationsOpen: false,
         }
         this.handleMainMenu = this.handleMainMenu.bind(this);
+        this.handleNotifications = this.handleNotifications.bind(this);
     }
 
     handleMainMenu() {
         this.setState((state) => ({
             mainMenuOpen: !state.mainMenuOpen,
+        }));
+    }
+    handleNotifications() {
+        this.setState((state) => ({
+            notificationsOpen: !state.notificationsOpen,
         }));
     }
 
@@ -82,7 +90,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                     </Layout.MainMenu>
                 )}
                 topMenu={(
-                    <p></p>
+                    <NavButton badgeValue='6' icon='bell' text='Show notifications' onClick={this.handleNotifications} />
                 )}
                 footer={(
                     <>
@@ -95,6 +103,40 @@ export class CoreLayout extends React.Component<IProps, IState> {
                             { title: 'Donec sed odio dui.', onClick: () => false},
                     ]} />
                     </>
+                )}
+                overlay={(
+                    <Layout.NotificationPanel
+                        header={(null)}
+                        headerTitle='Notifications'
+                        open={this.state.notificationsOpen}
+                        onClick={this.handleNotifications}
+                        theme='dark'
+                    >
+                        <BoxedList>
+                            <BoxedListItem unread={true}>
+                                <Time datetime='29.06.2022'>29.06.2022</Time>
+                                <BoxedListContentRow>
+                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et
+                                    magnis dis parturient montes, nascetur ridiculus mus.
+                                </BoxedListContentRow>
+                            </BoxedListItem>
+                            <BoxedListItem>
+                                <Time datetime='29.06.2022'>29.06.2022</Time>
+                                <BoxedListContentRow>
+                                    Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Vestibulum id ligula
+                                    porta felis euismod semper.
+                                </BoxedListContentRow>
+                            </BoxedListItem>
+                            <BoxedListItem>
+                                <Time datetime='29.06.2022'>29.06.2022</Time>
+                                <BoxedListContentRow>
+                                    Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Integer
+                                    posuere erat a ante venenatis dapibus posuere velit aliquet.
+                                </BoxedListContentRow>
+                            </BoxedListItem>
+                        </BoxedList>
+
+                    </Layout.NotificationPanel>
                 )}
             >
             </Layout.CoreLayout>

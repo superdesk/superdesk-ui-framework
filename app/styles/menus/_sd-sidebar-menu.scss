@@ -141,7 +141,9 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 }
 
 .sd-sidetab-menu__btn {
-  display:block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
   height: $sd-sidebarMenu-width;
@@ -161,8 +163,8 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 .sd-sidetab-menu__main-icon {
   color: $sd-text-light;
   position: absolute;
-  top: 10px;
-  left: 10px;
+  inset-block-start: 1rem;
+  inset-inline-start: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -170,25 +172,19 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
     color: $sd-text-light;
   }
 }
-.sd-sidetab-menu__helper-icon {
+
+.sd-sidetab-menu__helper-icon,
+i.sd-sidetab-menu__helper-icon {
   opacity: 0;
   margin: 0;
-  left: 1.2rem;
+  inset-block-start: 1.2rem;
+  inset-inline-start: 1.2rem;
   width: 2.4rem;
   height: 2.4rem;
   font-size: 2.4rem;
   line-height: 2.4rem;
   z-index: 2;
   transition: all 0.4s 0s, transform 0.3s 0s;
-  i {
-    opacity: 0;
-    margin: 0;
-    width: 2.4rem;
-    height: 2.4rem;
-    font-size: 2.4rem;
-    line-height: 2.4rem;
-    transition: all 0.4s 0s, transform 0.3s 0s;
-  }
 }
 .sd-sidetab-menu__main-icon,
 .sd-sidetab-menu__main-icon i {
