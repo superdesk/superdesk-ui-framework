@@ -20,7 +20,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
         this.state = {
             inlineLabel: false,
             required: true,
-            disabled: true,
+            disabled: false,
             invalid: false,
             value: null,
             value2: '',
@@ -92,7 +92,11 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     onChange={(value) => this.setState({value2: value})} />
                             </div>
                             <div className='form__row'>
-                                <DurationInput />
+                                <DurationInput
+                                onChange={(e) => {
+                                    console.log(e)
+                                }}
+                                />
                             </div>
                         </div>
 

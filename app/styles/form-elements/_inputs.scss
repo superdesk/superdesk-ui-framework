@@ -698,6 +698,7 @@
         color: var(--color-text);
         text-align: end;
         width: 2.5ch;
+        font-size: 1.4rem;
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
             -webkit-appearance: none;
@@ -706,6 +707,10 @@
         &[type=number] {
             -moz-appearance: textfield;
         }
+    }
+    span {
+        display: flex;
+        align-items: center;
     }
     .sd-input__suffix {
         height: 3.2rem;
