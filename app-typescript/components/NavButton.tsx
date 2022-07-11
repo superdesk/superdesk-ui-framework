@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { Icon } from './Icon';
+import { Badge } from './Badge';
 interface IProps {
     id?: string;
     icon?: string;
@@ -11,6 +12,7 @@ interface IProps {
     state?: 'normal' | 'active'; // defaults to 'normal'
     value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
     onClick(): void;
+    badgeValue?: string;
 }
 export class NavButton extends React.PureComponent<IProps> {
     render() {
@@ -28,6 +30,8 @@ export class NavButton extends React.PureComponent<IProps> {
                 onClick={this.props.onClick}
                 aria-label={this.props.text}
                 id={this.props.id}>
+                {this.props.badgeValue &&
+                    <Badge text={this.props.badgeValue} type='primary' />}
                 {this.props.icon ? <Icon name={this.props.icon} size={this.props.iconSize} /> : null}
                 {!this.props.icon && this.props.text ?
                     <span className="sd-navbtn__text">{this.props.text}</span> : null}

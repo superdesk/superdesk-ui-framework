@@ -19,7 +19,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
         this.state = {
             inlineLabel: false,
             required: true,
-            disabled: true,
+            disabled: false,
             invalid: false,
             value: null,
             value2: '',
@@ -80,10 +80,111 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     value={''}
                                     maxLength={25}
                                     type='text'
+                                    placeholder='Placeholder'
                                     error='This is error message'
                                     info='Donec id elit non mi porta gravida at eget metus.'
                                     inlineLabel={true}
                                     labelHidden={true}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value2: value})} />
+                            </div>
+                            <p className="docs-page__paragraph">// Boxed with hidden label</p>
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value={''}
+                                    boxedStyle={true}
+                                    maxLength={25}
+                                    type='text'
+                                    placeholder='Default boxed input'
+                                    error='This is error message'
+                                    inlineLabel={true}
+                                    labelHidden={true}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value2: value})} />
+                            </div>
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value={''}
+                                    boxedStyle={true}
+                                    size='large'
+                                    maxLength={25}
+                                    type='text'
+                                    placeholder='Large boxed input'
+                                    error='This is error message'
+                                    inlineLabel={true}
+                                    labelHidden={true}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value2: value})} />
+                            </div>
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value={''}
+                                    boxedStyle={true}
+                                    size='x-large'
+                                    maxLength={25}
+                                    type='text'
+                                    placeholder='Extra large boxed input'
+                                    error='This is error message'
+                                    inlineLabel={true}
+                                    labelHidden={true}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value2: value})} />
+                            </div>
+                            <p className="docs-page__paragraph">// Boxed with default label</p>
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value={''}
+                                    boxedStyle={true}
+                                    size='large'
+                                    maxLength={25}
+                                    placeholder='Placeholder'
+                                    type='text'
+                                    error='This is error message'
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value2: value})} />
+                            </div>
+                            <p className="docs-page__paragraph">// Boxed with boxed label</p>
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value={''}
+                                    boxedStyle={true}
+                                    boxedLable={true}
+                                    size='large'
+                                    maxLength={25}
+                                    placeholder='Placeholder'
+                                    type='text'
+                                    error='This is error message'
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({value2: value})} />
+                            </div>
+                            <div className='form__row'>
+                                <Input label='Input label'
+                                    value={''}
+                                    boxedStyle={true}
+                                    boxedLable={true}
+                                    size='large'
+                                    placeholder='Hide my label'
+                                    labelHidden={true}
+                                    type='text'
+                                    error='This is error message'
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}

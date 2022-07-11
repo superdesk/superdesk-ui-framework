@@ -384,7 +384,7 @@ p strong {
     font-weight: 500;
 }
 time {
-    color: $sd-text-lighter;
+    color: $sd-text-light;
     font-weight: 400;
     letter-spacing: .025em;
     &.small {
@@ -444,6 +444,13 @@ h1, h2, h3, h4, h5, h6 {
 .sd-text {
     font-size: 1.4rem;
     line-height: 1.4;
+}
+
+.sd-time {
+    font-size: 1.2rem;
+    display: inline-block;
+    color: var(--color-text-light);
+    letter-spacing: 0.025em;
 }
 
 // Font weights 
@@ -948,16 +955,16 @@ $sd-properties: (padding, margin); // It's generating these properties
 
 // Font size
 .sd-font-size--x-small {
-    font-size: calc(var(--text-size--base) * 1.2); // 14px;
+    font-size: calc(var(--text-size--base) * 1.2); // 12px;
 }
 .sd-font-size--small {
     font-size: calc(var(--text-size--base) * 1.4); // 14px;
 }
 .sd-font-size--medium {
-    font-size: calc(var(--text-size--base) * 1.6); // 14px;
+    font-size: calc(var(--text-size--base) * 1.6); // 16px;
 }
 .sd-font-size--large {
-    font-size: calc(var(--text-size--base) * 2); // 14px;
+    font-size: calc(var(--text-size--base) * 2); // 20px;
 }
 
 // Text colour

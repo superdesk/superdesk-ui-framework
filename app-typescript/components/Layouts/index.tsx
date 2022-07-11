@@ -29,3 +29,15 @@ export { AuthoringMainContent } from './AuthoringMainContent';
 export { AuthoringInnerHeader } from './AuthoringInnerHeader';
 export { AuthoringInnerBody } from './AuthoringInnerBody';
 export { AuthorinInnerSideBar } from './AuthorinInnerSideBar';
+
+export { CoreLayout } from './CoreLayout';
+export { CoreLayoutContainer } from './CoreLayoutContainer';
+export { CoreLayoutTopMenu } from './CoreLayoutTopMenu';
+export { CoreLayoutMain } from './CoreLayoutMain';
+export { CoreLayoutSlideInMenu } from './CoreLayoutSlideInMenu';
+export { CoreLayoutFooter } from './CoreLayoutFooter';
+export { CoreLayoutOverlay } from './CoreLayoutOverlay';
+export { HamburgerButton } from './HamburgerButton';
+export { BottomBarAction } from './BottomBarAction';
+export { MainMenu } from './MainMenu';
+export { NotificationPanel } from './NotificationPanel';

@@ -62,6 +62,61 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     <Option>Option 2</Option>
                                 </Select>
                             </div>
+
+                            <p className="docs-page__paragraph">// Boxed with hidden label</p>
+                            <div className='form__row'>
+                                <Select label='Select label'
+                                    value='Option 2'
+                                    boxedStyle
+                                    labelHidden
+                                    error='This is error message'
+                                    info='This is some hint message'
+                                    inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => { console.log(value) }}>
+                                    <Option>Option 1</Option>
+                                    <Option>Option 2</Option>
+                                </Select>
+                            </div>
+                            <div className='form__row'>
+                                <Select label='Select label'
+                                    value='Option 2'
+                                    boxedStyle
+                                    labelHidden
+                                    size='large'
+                                    error='This is error message'
+                                    info='This is some hint message'
+                                    inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => { console.log(value) }}>
+                                    <Option>Option 1</Option>
+                                    <Option>Option 2</Option>
+                                </Select>
+                            </div>
+                            <div className='form__row'>
+                                <Select label='Select label'
+                                    value='Option 2'
+                                    boxedStyle
+                                    labelHidden
+                                    size='x-large'
+                                    error='This is error message'
+                                    info='This is some hint message'
+                                    inlineLabel={this.state.inlineLabel}
+                                    required={this.state.required}
+                                    disabled={this.state.disabled}
+                                    invalid={this.state.invalid}
+                                    tabindex={0}
+                                    onChange={(value) => { console.log(value) }}>
+                                    <Option>Option 1</Option>
+                                    <Option>Option 2</Option>
+                                </Select>
+                            </div>
                         </div>
 
                     </Markup.ReactMarkupPreview>

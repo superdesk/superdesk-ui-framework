@@ -2,6 +2,8 @@ import * as React from 'react';
 import {SyntheticEvent} from 'react';
 
 import {TieredMenu} from '@superdesk/primereact/tieredmenu';
+import {MenuItem as IPrimeMenuItem} from '@superdesk/primereact/components/menuitem/MenuItem';
+import {assertNever} from '../helpers';
 
 /**
  * Known issues:
@@ -60,6 +62,18 @@ interface IProps {
 
 const superdeskTopBarZIndex = 1030;
 
+function isSeparator(item: IMenuItem): item is ISeparator {
+    return (item as any)['separator'] === true;
+}
+
+function isMenuLeaf(item: IMenuItem): item is IMenuLeaf {
+    return (item as any)['onClick'] != null;
+}
+
+function isMenuBranch(item: IMenuItem): item is IMenuBranch {
+    return isSeparator(item) !== true && isMenuLeaf(item) !== true;
+}
+
 export class Menu extends React.Component<IProps, {}> {
     private menu: TieredMenu | null;
     private focusedBefore: Element | null;
@@ -75,26 +89,34 @@ export class Menu extends React.Component<IProps, {}> {
         this.toPrimeReactInterface = this.toPrimeReactInterface.bind(this);
     }
 
-    private toPrimeReactInterface(items: Array<any>): any {
+    private toPrimeReactInterface(items: Array<IMenuItem>): Array<IPrimeMenuItem> {
         return items.map((item) => {
-            if (item.separator != null) {
+            if (isSeparator(item)) {
                 return {separator: true};
-            } else if (item.children != null) {
+            } else if (isMenuBranch(item)) {
                 return {
                     label: item.label,
                     icon: item.icon,
                     items: this.toPrimeReactInterface(item.children),
                 };
-            } else {
+            } else if (isMenuLeaf(item)) {
                 return {
                     label: item.label,
                     icon: item.icon,
-                    command: (event: SyntheticEvent) => {
-                        this.close(event);
+                    command: (event) => {
+                        /**
+                         * a click on menu item should not trigger other click handlers
+                         * above in the DOM tree. e.g. if menu is inside a clickable list item
+                         */
+                        event.originalEvent.stopPropagation();
+
+                        this.close(event.originalEvent as unknown as SyntheticEvent);
                         item.onClick();
                     },
                     disabled: item.disabled,
                 };
+            } else {
+                return assertNever(item);
             }
         });
     }

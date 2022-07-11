@@ -414,6 +414,10 @@ export default angular.module('ui-docs', [
             'rundowns': {
                 name: 'Rundowns',
                 component: 'Rundowns'
+            },
+            'core-layout': {
+                name: 'Core Layout',
+                component: 'CoreLayout'
             }
         }
     }))

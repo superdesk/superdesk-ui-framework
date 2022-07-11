@@ -17,18 +17,32 @@ $sd-topMenu-background: var(--sd-colour-top-menu);
 }
 
 .sd-top-menu__collapse-nav {
-    display: inline-block;
     height: $nav-height;
-    line-height: $nav-height + 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: $sd-sidebarMenu-width;
     text-align: center;
     padding: 0;
     background-color: var(--sd-colour-top-menu__btn);
-    box-shadow: 2px 0 5px 0 rgba(0,0,0,.35);
+    box-shadow: 2px 0 5px 0 hsla(0, 0%, 0%, 0.35);
     position: relative;
+    transition: all 0.3s ease;
     &:hover {
-        background: #000;
+        background-color: hsl(0, 0%, 0%);
         cursor: pointer;
+    }
+    &.is-active {
+        margin-inline-start: -$sd-sidebarMenu-width;
+        background-color: hsla(0, 0%, 0%, 0.02);
+        box-shadow: none;
+        &:hover {
+            background-color: hsla(0, 0%, 0%, 0.24);
+        }
+    }
+    &--disabled {
+        pointer-events: none !important;
+        opacity: 0.5;
     }
 }
 .sd-top-menu__header {
@@ -38,7 +52,7 @@ $sd-topMenu-background: var(--sd-colour-top-menu);
     font-size: 1.5rem;
     text-align: center;
     padding: 0 2rem;
-    color: #aaa;
+    color: hsl(214, 13%, 75%);
     margin: 0;
 }
 
