@@ -53,6 +53,7 @@ tags-input, .tags-input {
         transition: border linear 0.2s, box-shadow linear 0.2s;
         border-bottom: 1px solid $sd-inputBorderColor;
         height: 100%;
+        gap: 0.4rem;
         &:hover {
             border-color: rgba(0,0,0,0.3);
         }
@@ -230,7 +231,6 @@ tags-input, .tags-input {
         display: flex;
         align-items: center;
         text-align: center;
-        margin: 0.2rem 0.4rem 0.2rem 0;
         transition: all 0.3s;
         border-radius: $border-radius__base--x-small;
         opacity: 0.5;
@@ -570,10 +570,6 @@ tags-input, .tags-input {
         display: flex;
         align-items: center;
         text-align: center;
-        margin-block-start: 0.2rem;
-        margin-block-end: 0.2rem;
-        margin-inline-start: 0.2rem;
-        margin-inline-end: 0.4rem;
         transition: all 0.3s;
         border-radius: $border-radius__base--x-small;
         opacity: 0.5;
