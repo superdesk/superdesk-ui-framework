@@ -25,14 +25,13 @@ interface IState<T> {
 interface IPropsBase<T> {
     value?: Array<T>;
     selectBranchWithChildren?: boolean;
-    readonly?: boolean;
+    readOnly?: boolean;
     width?: string;
     allowMultiple?: boolean;
     loading?: boolean;
     optionTemplate?(item: ITreeNode<T> | T): React.ComponentType<T> | JSX.Element;
     valueTemplate?(item: ITreeNode<T> | T): React.ComponentType<T> | JSX.Element;
-    onChange(): void;
-
+    onChange(e): void;
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
@@ -101,7 +100,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.setState({
             value: newTags,
         });
-        this.props.onChange();
+        this.props.onChange(this.state.value);
     }
 
     handleMultiLevel(event, item) {
@@ -237,9 +236,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
         if (prevState.value !== this.state.value) {
-            this.props.onChange();
+            this.props.onChange(this.state.value);
         } else if (prevProps.value !== this.props.value) {
-            this.props.onChange();
+            this.props.onChange(this.state.value);
         }
     }
 
@@ -262,7 +261,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 }}>
                     <span
                     className={this.state.value.includes(item)
-                    && 'suggestion-item--disabled'}>
+                    ? 'suggestion-item--disabled' : undefined}>
                         {item.value}
                     </span>
                 </li>;
@@ -277,7 +276,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     }}>
                         <span
                         className={this.state.value.includes(item)
-                        && 'suggestion-item--disabled'}>
+                        ? 'suggestion-item--disabled' : undefined}
+                        >
                             {item.value}
                         </span>
                     </li>
@@ -311,7 +311,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                 <div className="tags-input tags-input--multiselect sd-input__input">
                     <div className="tags-input__tags">
-                        {this.props.readonly
+                        {this.props.readOnly
                         || <button ref={this.openDropdownRef}
                         className="tags-input__add-button"
                         onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
@@ -322,13 +322,13 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     return <React.Fragment key={i}>
                                         <li
                                         className={"tags-input__tag-item tags-input__tag-item-multiselect"
-                                        + (this.props.readonly ? ' tags-input__tag-item-readonly' : '')}
-                                        onClick={(event) => this.props.readonly || this.removeClick(i)}>
+                                        + (this.props.readOnly ? ' tags-input__tag-item-readonly' : '')}
+                                        onClick={(event) => this.props.readOnly || this.removeClick(i)}>
                                             <span className="tags-input__helper-box">
                                                 {this.props.valueTemplate
                                                 ? this.props.valueTemplate(item.value)
                                                 : <span>{item.value}</span>}
-                                                {this.props.readonly
+                                                {this.props.readOnly
                                                 || <span className="tags-input__remove-button">
                                                     <i className="icon-close-small"></i>
                                                 </span>}
@@ -436,7 +436,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         {this.props.optionTemplate
                                         ? this.props.optionTemplate(option.value)
                                         : <span
-                                        className={this.state.value.includes(option) && 'suggestion-item--disabled'}>
+                                        className={this.state.value.includes(option)
+                                        ? 'suggestion-item--disabled' : undefined}
+                                        >
                                             {option.value}
                                         </span>}
                                         {option.children && <span className="suggestion-item__icon">

@@ -128,7 +128,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                         return itemArr
                                     }}
                                     selectBranchWithChildren={true}
-                                    onChange={() => false}
+                                    onChange={(e) => console.log(e)}
                                     allowMultiple
                                     kind={'synchronous'}
                                     fullWidth
