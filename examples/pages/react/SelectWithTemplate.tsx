@@ -80,9 +80,14 @@ export class SelectWithTemplateDocs extends React.Component<{}, IState> {
                                         }
                                     }}
                                     getLabel={(option) => option.name}
-                                    areEqual={(a, b) => a.colorCode === b.colorCode}
+                                    areEqual={(a, b) => a?.colorCode === b?.colorCode}
                                     filterPlaceholder="Search..."
                                     noResultsFoundMessage="No results found."
+                                    required
+                                    tabindex={1}
+                                    label={'This is Label'}
+                                    info={'This is info'}
+                                    error={'This is error'}
                                 />
                             </div>
                         </div>

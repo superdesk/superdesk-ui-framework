@@ -48,6 +48,11 @@ export default class DatePickerDoc extends React.Component {
                                     onChange={(date) => {
                                         this.setState({date});
                                     }}
+                                    required
+                                    tabindex={1}
+                                    label={'This is Label'}
+                                    info={'This is info'}
+                                    error={'This is error'}
                                 />
                             );
                         }

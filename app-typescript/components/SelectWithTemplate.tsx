@@ -1,5 +1,7 @@
 import * as React from 'react';
 import {Dropdown} from '@superdesk/primereact/dropdown';
+import classNames from 'classnames';
+import nextId from "react-id-generator";
 
 interface IProps<T> {
     // Don't forget to cancel unfinished requests every the prop is called.
@@ -11,19 +13,27 @@ interface IProps<T> {
     itemTemplate: React.ComponentType<{option: T | null}>;
     noResultsFoundMessage: string;
     filterPlaceholder?: string;
-
     disabled?: boolean;
-    required?: boolean;
     autoFocus?: boolean;
     autoOpen?: boolean; // Avoid using this - the dropdown may cover important elements.
     width?: 'min' | '100%'; // defaults to min
     zIndex?: number;
     'data-test-id'?: string;
+    inlineLabel?: boolean;
+    required?: boolean;
+    fullWidth?: boolean;
+    invalid?: boolean;
+    labelHidden?: boolean;
+    tabindex?: number;
+    label?: string;
+    info?: string;
+    error?: string;
 }
 
 interface IState<T> {
     options: Array<T>;
     loading: boolean;
+    invalid: boolean;
 }
 
 const labelKey = 'label';
@@ -37,6 +47,7 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
         this.state = {
             options: [],
             loading: false,
+            invalid: this.props.invalid ? this.props.invalid : false,
         };
 
         this.componentRef = null;
@@ -86,8 +97,26 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
         // or it will not be displayed at all, even if returned by itemTemplate
         const fakePlaceholderWithNonBreakingSpace = ' ';
 
+        const classes = classNames('sd-input', {
+            'sd-input--inline-label': this.props.inlineLabel,
+            'sd-input--required': this.props.required,
+            'sd-input--disabled': this.props.disabled,
+            'sd-input--full-width': this.props.fullWidth,
+            'sd-input--invalid': this.props.invalid || this.state.invalid,
+        });
+
+        const labelClasses = classNames('sd-input__label', {
+            'a11y-only': this.props.labelHidden,
+        });
+
+        let htmlId = nextId();
         return (
-            <Dropdown
+            <div className={classes}>
+                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
+                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
+                    {this.props.label}
+                </label>
+                <Dropdown
                 value={valueInternal}
                 options={optionsInternal}
                 onChange={(e) => {
@@ -108,7 +137,6 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
                 loading={loading}
                 onFilterInputChange={(searchString) => {
                     this.setState({loading: true});
-
                     getItems(searchString).then((_options) => {
                         this.setState({options: _options, loading: false});
                     });
@@ -117,8 +145,15 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
                 style={width === '100%' ? {display: 'flex', width: '100%'} : {}}
                 ref={(componentRef) => {
                     this.componentRef = componentRef;
-                }}
-            />
+                }}/>
+                <div className='sd-input__message-box'>
+                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                        <div className='sd-input__hint'>{this.props.info}</div> : null}
+                    {this.props.invalid || this.state.invalid ?
+                        <div className='sd-input__message'>{this.props.error}</div>
+                        : null}
+                </div>
+            </div>
         );
     }
 }
