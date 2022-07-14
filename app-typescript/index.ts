@@ -86,6 +86,7 @@ export { Text } from './components/Text/Text';
 export { Time } from './components/Text/Time';
 export { Heading } from './components/Text/Heading';
 export { BottomNav } from './components/Navigation/BottomNav';
+export { TreeSelect } from './components/TreeSelect';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
