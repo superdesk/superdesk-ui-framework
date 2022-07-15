@@ -1,8 +1,10 @@
 import * as React from 'react';
-import * as Markup from '../../js/react';
-import { PropsList, Prop } from '../../../app-typescript';
-import { MultiSelect } from '../../../app-typescript/components/MultiSelect';
-import { TreeSelect } from '../../../app-typescript/components/TreeSelect';
+import * as Markup from '../../../js/react';
+import { PropsList, Prop } from '../../../../app-typescript';
+import { MultiSelect } from '../../../../app-typescript/components/MultiSelect';
+import { TreeSelect } from '../../../../app-typescript/components/TreeSelect';
+import {Example1} from './example-1';
+import {Example2} from './example-2';
 
 interface IState {
     value: any;
@@ -96,16 +98,24 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         if(option.item) {
             e.stopPropagation();
             e.preventDefault();
-            
+
             this.setState({
                 options: option.item
             })
-        }  
+        }
     }
 
     render() {
         return (
             <section className='docs-page__container'>
+                {/* <h2 className='docs-page__h2'>Example 1</h2>
+
+                <Example1 />
+
+                <h2 className='docs-page__h2'>Example 2</h2>
+
+                <Example2 /> */}
+
                 <h2 className='docs-page__h2'>TreeSelect</h2>
 
                 <Markup.ReactMarkupCodePreview>{`
@@ -118,7 +128,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     />
                 `}
                 </Markup.ReactMarkupCodePreview>
-                
+
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
@@ -152,7 +162,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             kind={'synchronous'}
                         />
                     `}</Markup.ReactMarkupCode>
-                    
+
                 </Markup.ReactMarkup>
 
                 <p className='docs-page__paragraph'>Asynchronous mode in TreeSelect component.</p>
@@ -203,7 +213,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             }}
                         />
                     `}</Markup.ReactMarkupCode>
-                    
+
                 </Markup.ReactMarkup>
 
                 <p className='docs-page__paragraph'>TreeSelect with custom template.</p>
@@ -256,7 +266,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Prop name='searchOptions' isRequired={false} type='function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
                     <Prop name='onChange' isRequired={true} type='function' default='/' description='Callback to invoke when value changes.'/>
                 </PropsList>
-  
+
             </section>
         )
     }
