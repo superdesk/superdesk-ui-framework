@@ -60,7 +60,7 @@ import CreateButtonDoc from './CreateButton';
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { MultiselectDocs } from './MultiSelect';
-import { TreeSelectDocs } from './tree-select/TreeSelect';
+import { TreeSelectDocs } from './TreeSelect';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
