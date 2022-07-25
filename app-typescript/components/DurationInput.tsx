@@ -227,14 +227,16 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                 tabIndex={this.props.tabindex === undefined ? undefined : -1}>
                     {this.props.label}
                 </label>
-                <div className={InputClasses + ' tags-input tags-input--multiselect sd-input__input'}>
+                <div className={InputClasses}>
                     <input
+                    className='duration-input'
                     type='text'
                     id='hours'
                     max={99}
                     min={0}
                     ref={this.hourRef}
                     value={this.state.hours}
+                    disabled={this.props.disabled}
                     onKeyDown={(event) => this.handleKeyDown(event)}
                     onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.minuteRef.current)}
                     onChange={(event) => { this.handleChange(event, 'hours'); }}
@@ -247,10 +249,12 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     <span className='sd-input__suffix'>h</span>
 
                     <input
+                    className='duration-input'
                     type='text'
                     id='minutes'
                     ref={this.minuteRef}
                     value={this.state.minutes}
+                    disabled={this.props.disabled}
                     onKeyDown={(event) => this.handleKeyDown(event)}
                     onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.secondRef.current)}
                     onChange={(event) => { this.handleChange(event, 'minutes'); }}
@@ -263,10 +267,12 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     <span className='sd-input__suffix'>m</span>
 
                     <input
+                    className='duration-input'
                     type='text'
                     id='seconds'
                     ref={this.secondRef}
                     value={this.state.seconds}
+                    disabled={this.props.disabled}
                     onKeyDown={(event) => this.handleKeyDown(event)}
                     onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.hourRef.current)}
                     onChange={(event) => { this.handleChange(event, 'seconds'); }}

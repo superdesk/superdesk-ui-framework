@@ -17,7 +17,6 @@ export { AvatarGroup } from './components/Avatar';
 export { IconButton } from './components/IconButton';
 export { IconLabel } from './components/IconLabel';
 export { Tooltip } from './components/Tooltip';
-//export { DurationInput } from './components/DurationInput';
 export { DatePicker } from './components/DatePicker';
 export { DatePickerISO } from './components/DatePicker';
 export { DatePickerLocaleSettings } from './components/DatePicker';

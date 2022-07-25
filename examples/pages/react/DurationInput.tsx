@@ -26,9 +26,19 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
     render() {
         return (
             <section className='docs-page__container'>
-                <h2 className='docs-page__h2'>Input</h2>
+                <h2 className='docs-page__h2'>Duration Input</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Input value={value} maxLength={30} required={true} />
+                    <DurationInput
+                    label='Label'
+                    info='info message'
+                    disabled={this.state.disabled}
+                    required={this.state.required}
+                    invalid={this.state.invalid}
+                    inlineLabel={this.state.inlineLabel}
+                    onChange={(e) => {
+                        console.log(e)
+                    }}
+                    />
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className='docs-page__paragraph'></p>
@@ -46,8 +56,8 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
 
                             <div className='form__row'>
                                 <DurationInput
-                                fullWidth
                                 label='Label'
+                                info='info message'
                                 disabled={this.state.disabled}
                                 required={this.state.required}
                                 invalid={this.state.invalid}
@@ -61,32 +71,32 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Input label='Input label'
-                            value='This is some value'
-                            maxLength={30}
-                            error='This is error message'
-                            info='This is some hint message'
-                            inlineLabel={false}
-                            required={true}
-                            disabled={false}
-                            invalid={false}
-                            onChange={(value) => {}} />
+                        <DurationInput
+                        label='Label'
+                        info='info message'
+                        disabled={this.state.disabled}
+                        required={this.state.required}
+                        invalid={this.state.invalid}
+                        inlineLabel={this.state.inlineLabel}
+                        onChange={(e) => {
+                            console.log(e)
+                        }}
+                        />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequired={false} type='string' default='/' description='Item value'/>
-                    <Prop name='type' isRequired={false} type='text | number | password' default='text' description='Input type. Defaults to type text.'/>
+                    <Prop name='hours' isRequired={false} type='number' default='00' description='Hours value'/>
+                    <Prop name='minutes' isRequired={false} type='number' default='00' description='Minutes value'/>
+                    <Prop name='seconds' isRequired={false} type='number' default='00' description='Seconds value'/>
                     <Prop name='label' isRequired={false} type='string' default='/' description='Input label'/>
-                    <Prop name='maxLength' isRequired={false} type='number' default='/' description='Sets max length for input text'/>
                     <Prop name='info' isRequired={false} type='string' default='/' description='Hint text'/>
                     <Prop name='error' isRequired={false} type='string' default='/' description='Error text'/>
                     <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline'/>
                     <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required'/>
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled'/>
                     <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid'/>
-                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.'/>
                 </PropsList>
             </section>
         )
