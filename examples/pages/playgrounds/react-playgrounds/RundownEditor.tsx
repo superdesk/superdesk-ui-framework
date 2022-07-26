@@ -27,6 +27,7 @@ interface IState {
     rightPanelPinned: boolean;
     sideOverlayOpen: boolean;
     array: any;
+    inputValue: string;
 }
 
 export class RundownEditor extends React.Component<IProps, IState> {
@@ -46,6 +47,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
             rightPanelOpen: false,
             rightPanelPinned: false,
             sideOverlayOpen: false,
+            inputValue: 'string',
             array: [
                 {
                     start: <>
@@ -299,30 +301,36 @@ export class RundownEditor extends React.Component<IProps, IState> {
                         )}
                         >
                             <Container direction='column' className='sd-margin-y--2'>
-                                <input
-                                    onChange={()=> false}
+                                <Input 
+                                    label='Rundown title'
+                                    value={'Marker // 01.06.2022'}
+                                    boxedStyle={true}
+                                    boxedLable={true}
+                                    size='x-large'
+                                    placeholder='Rundown title'
+                                    labelHidden={true}
                                     type='text'
-                                    value='Marker // 01.06.2022'
-                                    className='sd-editor__input--title' />
+                                    tabindex={0}
+                                    onChange={(value) => this.setState({inputValue: value})} />
                             </Container>
                             <ButtonGroup>
                                 <IconLabel style='translucent' innerLabel='Airtime:' text='19:00 - 19:45' size='large' type='primary' icon='time' />
                                 <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='large' type='warning' />
                                 <Text color='light' size='medium' className='sd-margin--0'>OF</Text>
-                                <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='large' />
+                                <IconLabel style='translucent' innerLabel='Planned:'text='00:45' size='large' />
                             </ButtonGroup>
 
                             <TableList
-                            className='sd-margin-y--4'
-                            dragAndDrop
-                            addItem
-                            array={this.state.array}
-                            itemsDropdown={[
-                                { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                            ]}
-                            onClick={() => false}
+                                className='sd-margin-y--4'
+                                dragAndDrop
+                                addItem
+                                array={this.state.array}
+                                itemsDropdown={[
+                                    { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
+                                    { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
+                                    { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                ]}
+                                onClick={() => false}
                             />   
 
                     </Layout.AuthoringMain>
