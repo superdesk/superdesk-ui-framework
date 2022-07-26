@@ -24,19 +24,27 @@ export class Label extends React.PureComponent<IProps> {
         if (this.props.link || this.props.onClick) {
             if (this.props.style === 'hollow') {
                 return (
-                    <a className={classes} href={this.props.link} onClick={this.props.onClick} style={{color: this.props.hexColor, borderColor: this.props.hexColor}}>
+                    <a className={classes} 
+                        href={this.props.link}
+                        onClick={this.props.onClick}
+                        style={{color: this.props.hexColor, borderColor: this.props.hexColor}}>
                         {this.props.text}
                     </a>
                 );
             } else if (this.props.style === 'translucent') {
                 return (
-                    <a className={classes} href={this.props.link} onClick={this.props.onClick} style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}>
+                    <a className={classes}
+                        href={this.props.link}
+                        onClick={this.props.onClick}
+                        style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}>
                         {this.props.text}
                     </a>
                 );
             } else  {
                 return (
-                    <a className={classes} href={this.props.link} onClick={this.props.onClick} style={{backgroundColor: this.props.hexColor}}>
+                    <a className={classes}
+                        href={this.props.link}
+                        onClick={this.props.onClick} style={{backgroundColor: this.props.hexColor}}>
                         {this.props.text}
                     </a>
                 );
@@ -45,13 +53,15 @@ export class Label extends React.PureComponent<IProps> {
         } else {
              if (this.props.style === 'hollow') {
                 return (
-                    <span className={classes} style={{color: this.props.hexColor, borderColor: this.props.hexColor}}>
+                    <span className={classes}
+                        style={{color: this.props.hexColor, borderColor: this.props.hexColor}}>
                         {this.props.text}
                     </span>
                 );
             } else if (this.props.style === 'translucent') {
                 return (
-                    <span className={classes} style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}>
+                    <span className={classes}
+                        style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}>
                         {this.props.text}
                     </span>
                 );
