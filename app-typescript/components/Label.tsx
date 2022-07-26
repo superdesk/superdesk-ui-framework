@@ -24,7 +24,7 @@ export class Label extends React.PureComponent<IProps> {
         if (this.props.link || this.props.onClick) {
             if (this.props.style === 'hollow') {
                 return (
-                    <a className={classes} 
+                    <a className={classes}
                         href={this.props.link}
                         onClick={this.props.onClick}
                         style={{color: this.props.hexColor, borderColor: this.props.hexColor}}>
@@ -49,7 +49,6 @@ export class Label extends React.PureComponent<IProps> {
                     </a>
                 );
             }
-            
         } else {
              if (this.props.style === 'hollow') {
                 return (
