@@ -21,22 +21,22 @@ interface IProps {
 }
 
 interface IState {
-    hours: any;
-    minutes: any;
-    seconds: any;
-    invalid: any;
+    hours?: any;
+    minutes?: any;
+    seconds?: any;
+    invalid?: any;
 }
 
 export class DurationInput extends React.PureComponent<IProps, IState> {
-    hourRef;
-    minuteRef;
-    secondRef;
+    hourRef: React.RefObject<HTMLInputElement>;
+    minuteRef: React.RefObject<HTMLInputElement>;
+    secondRef: React.RefObject<HTMLInputElement>;
     constructor(props: IProps) {
         super(props);
         this.state = {
             hours: this.props.hours ? this.zerPad(this.props.hours) : this.zerPad(0),
-            minutes: this.props.minutes ? this.zerPad(this.props.hours) : this.zerPad(0),
-            seconds: this.props.seconds ? this.zerPad(this.props.hours) : this.zerPad(0),
+            minutes: this.props.minutes ? this.zerPad(this.props.minutes) : this.zerPad(0),
+            seconds: this.props.seconds ? this.zerPad(this.props.seconds) : this.zerPad(0),
             invalid: this.props.invalid ?? false,
         };
 
@@ -51,27 +51,29 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
 
     }
 
-    componentDidUpdate(prevProps, prevState) {
+    componentDidUpdate(_: any, prevState: IState) {
         if (this.props.onChange) {
             this.props.onChange(moment.duration(`${this.state.hours}:${this.state.minutes}:${this.state.seconds}`)
             .asSeconds());
         }
-
+        if (!this.hourRef.current || !this.minuteRef.current || !this.secondRef.current ) {
+            return;
+        }
         if (this.state.hours !== prevState.hours) {
-            if (this.hourRef.current.value > 99) {
+            if (Number(this.hourRef.current.value) > 99) {
                 this.setState({
                     hours: this.zerPad(99),
                 });
             }
         }
         if (this.state.minutes !== prevState.minutes) {
-            if (this.minuteRef.current.value > 59) {
+            if (Number(this.minuteRef.current.value) > 59) {
                 this.setState({
                     hours: this.zerPad(Number(this.state.hours) + 1),
                     minutes: this.zerPad(0),
                 });
             }
-            if (this.minuteRef.current.value < 0) {
+            if (Number(this.minuteRef.current.value) < 0) {
                 this.setState({
                     hours: this.zerPad(Number(this.state.hours)) > 0
                     ? this.zerPad(Number(this.state.hours) - 1)
@@ -81,13 +83,13 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             }
         }
         if (this.state.seconds !== prevState.seconds) {
-            if (this.secondRef.current.value > 59) {
+            if (Number(this.secondRef.current.value) > 59) {
                 this.setState({
                     minutes: this.zerPad(Number(this.state.minutes) + 1),
                     seconds: this.zerPad(0),
                 });
             }
-            if (this.secondRef.current.value < 0) {
+            if (Number(this.secondRef.current.value) < 0) {
                 this.setState({
                     minutes: this.zerPad(Number(this.state.minutes) - 1),
                     seconds: 59,
@@ -96,7 +98,10 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         }
     }
 
-    handleKeyDown(event) {
+    handleKeyDown(event: React.KeyboardEvent<HTMLInputElement>) {
+        if (!(event.target instanceof HTMLInputElement)) {
+            return;
+        }
         if (event.target.id === 'hours') {
             if (event.key === 'ArrowRight') {
                 if (event.target.selectionEnd === event.target.value.length) {
@@ -109,7 +114,6 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                 }
             }
         }
-
         if (event.target.id === 'minutes') {
             if (event.key === 'ArrowRight') {
                 if (event.target.selectionEnd === event.target.value.length) {
@@ -122,7 +126,6 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                 }
             }
         }
-
         if (event.target.id === 'seconds') {
             if (event.key === 'ArrowRight') {
                 if (event.target.selectionEnd === event.target.value.length) {
@@ -135,17 +138,22 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                 }
             }
         }
-
         if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
-            this.handleKeyValue(event, event.target.id);
+            this.handleKeyValue(event, event.target.id as 'hours' | 'minutes' | 'seconds');
         }
     }
 
-    handleKeyValue(event, state) {
+    handleKeyValue(event: React.KeyboardEvent<HTMLInputElement>, state: 'hours' | 'minutes' | 'seconds') {
+        if (!(event.target instanceof HTMLInputElement)) {
+            return;
+        }
+        if (!this.state[state]) {
+            return;
+        }
         event.preventDefault();
         event.stopPropagation();
 
-        let stateClone = {};
+        let stateClone: IState = {};
         if (event.key === 'ArrowUp') {
             if (event.target.id === 'hours') {
                 stateClone[state] = this.state[state] < 99
@@ -164,7 +172,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         this.setState(stateClone);
     }
 
-    zerPad(value) {
+    zerPad(value: number | string) {
         if (value.toString().length === 1 || value === 0) {
             return `0${value}`;
         } else if (!value) {
@@ -174,8 +182,8 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         }
     }
 
-    handleChange(event, state) {
-        let stateClone = {};
+    handleChange(event: React.ChangeEvent<HTMLInputElement>, state: 'hours' | 'minutes' | 'seconds') {
+        let stateClone: IState = {};
         if (event.target.value.length >= 2) {
             stateClone[state] = event.target.value.slice(0, 2);
         } else {
@@ -184,22 +192,23 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         this.setState(stateClone);
     }
 
-    handleFocus(ref, state) {
-        ref.focus();
+    handleFocus(ref: HTMLInputElement | null, state: 'hours' | 'minutes' | 'seconds') {
+        ref?.focus();
         setTimeout(() => {
-            ref.setSelectionRange(0, 2);
+            ref?.setSelectionRange(0, 2);
         });
-        let stateClone = {};
+        let stateClone: IState = {};
         stateClone[state] = this.zerPad(this.state[state]);
         this.setState(stateClone);
     }
 
-    handleFocusOnKeyUp(event, ref) {
+    handleFocusOnKeyUp(event: React.KeyboardEvent<HTMLInputElement>, ref: HTMLInputElement | null) {
         if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft' && event.key !== 'ArrowUp' && event.key !== 'ArrowDown' && event.key !== 'Backspace') {
-            if (event.target.value.length >= 2) {
-                ref.focus();
+            const target = event.target as HTMLInputElement;
+            if (target.value.length >= 2) {
+                ref?.focus();
                 setTimeout(() => {
-                    ref.setSelectionRange(0, 2);
+                    ref?.setSelectionRange(0, 2);
                 });
             }
         }
