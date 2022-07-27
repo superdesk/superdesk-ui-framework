@@ -3,7 +3,6 @@ import { Icon } from "./Icon";
 import { Loader } from "./Loader";
 import classNames from 'classnames';
 import nextId from "react-id-generator";
-import { isEqual } from "lodash";
 
 interface IState<T> {
     value?: any;
@@ -22,8 +21,7 @@ interface IState<T> {
 }
 
 interface IPropsBase<T> {
-    value?: Array<ITreeNode<T>>;
-    getLabel?: string;
+    value?: Array<T>;
     selectBranchWithChildren?: boolean;
     readOnly?: boolean;
     width?: string;
@@ -39,6 +37,8 @@ interface IPropsBase<T> {
     required?: boolean;
     label?: string;
     disabled?: boolean;
+    getLabel(item: T): string;
+    getId(item: T): string;
     optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
     valueTemplate?(item: T): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
@@ -63,8 +63,8 @@ export interface ITreeNode<T> {
 }
 
 export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
-    private dropdownRef: any;
-    private openDropdownRef: any;
+    private dropdownRef: React.RefObject<HTMLInputElement>;
+    private openDropdownRef: React.RefObject<HTMLInputElement>;
 
     constructor(props: IProps<T>) {
         super(props);
@@ -103,7 +103,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.props.onChange(this.state.value);
     }
 
-    handleMultiLevel(item: { children?: any; }) {
+    handleMultiLevel(item: { children?: Array<T>; }) {
         if (item.children) {
             this.setState({
                 activeTree: [...this.state.activeTree, this.state.options],
@@ -112,51 +112,52 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
-    handleButton(item: { children?: any; }) {
+    handleButton(item: { children?: Array<T>; }) {
         this.setState({
             buttonTree: [...this.state.buttonTree, this.state.buttonValue],
             buttonValue: item,
         });
     }
 
-    handleValue(event: React.MouseEvent<HTMLLIElement, MouseEvent>, item: { children?: any; }) {
-            if (this.props.allowMultiple) {
-                let checkItem = this.state.value.find((valueItem: any) => {
-                    return isEqual(valueItem, item);
-                });
-                if (!checkItem) {
-                    this.setState({value: [...this.state.value, item]});
-                }
-                if (!event.ctrlKey) {
-                    if (this.props.getOptions) {
-                        this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
-                    } else {
-                        this.setState({activeTree: [], openDropdown: false});
-                    }
-                }
-                this.setState({buttonMouseEvent: false});
-            } else {
-                let checkItem = this.state.value.find((valueItem: any) => {
-                    return isEqual(valueItem, item);
-                });
-                if (!checkItem) {
-                    this.setState({value: [item]});
-                }
-                if (!event.ctrlKey) {
-                    this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
-                }
-                this.setState({buttonMouseEvent: false});
+    handleValue(event: React.MouseEvent<HTMLLIElement, MouseEvent>, item: { value: T; }) {
+        if (this.props.allowMultiple) {
+            let checkItem = this.state.value.find((valueItem: T) => {
+
+                return this.props.getId(valueItem) === this.props.getId(item.value);
+            });
+            if (!checkItem) {
+                this.setState({value: [...this.state.value, item.value]});
             }
+            if (!event.ctrlKey) {
+                if (this.props.getOptions) {
+                    this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
+                } else {
+                    this.setState({activeTree: [], openDropdown: false});
+                }
+            }
+            this.setState({buttonMouseEvent: false});
+        } else {
+            let checkItem = this.state.value.find((valueItem: T) => {
+                return this.props.getId(valueItem) === this.props.getId(item.value);
+            });
+            if (!checkItem) {
+                this.setState({value: [item.value]});
+            }
+            if (!event.ctrlKey) {
+                this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
+            }
+            this.setState({buttonMouseEvent: false});
+        }
     }
 
-    handleBranchValue(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, item: { children: any; }) {
+    handleBranchValue(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, item: { value: T; }) {
         if (this.props.allowMultiple) {
             if (this.props.selectBranchWithChildren) {
-                let checkItem = this.state.value.find((valueItem: {value: string}) => {
-                    return isEqual(valueItem, item);
+                let checkItem = this.state.value.find((valueItem: T) => {
+                    return this.props.getId(valueItem) === this.props.getId(item.value);
                 });
                 if (!checkItem) {
-                    this.setState({value: [...this.state.value, item]});
+                    this.setState({value: [...this.state.value, item.value]});
                 }
                 if (!event.ctrlKey) {
                     this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
@@ -165,11 +166,11 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             }
         } else {
             if (this.props.selectBranchWithChildren) {
-                let checkItem = this.state.value.find((valueItem: {}) => {
-                    return isEqual(valueItem, item);
+                let checkItem = this.state.value.find((valueItem: T) => {
+                    return this.props.getId(valueItem) === this.props.getId(item.value);
                 });
                 if (!checkItem) {
-                    this.setState({value: [item]});
+                    this.setState({value: [item.value]});
                 }
                 if (!event.ctrlKey) {
                     this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
@@ -196,16 +197,16 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         });
     }
 
-    recursion(arr: Array<{}>) {
+    recursion(arr: Array<ITreeNode<T>>) {
         if (this.props.selectBranchWithChildren) {
-            arr.map((item: any) => {
+            arr.map((item) => {
                 this.state.filterArr.push(item);
                 if (item.children) {
                     this.recursion(item.children);
                 }
             });
         } else {
-            arr.map((item: any) => {
+            arr.map((item) => {
                 if (!item.children) {
                     this.state.filterArr.push(item);
                 } else {
@@ -237,16 +238,16 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         if (this.props.kind === 'synchronous') {
             return this.state.filterArr.filter((item: any) => {
                 if (this.state.searchFieldValue) {
-                    if (item.value
+                    if (this.props.getLabel(item.value)
                     .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
                         return item;
                     }
                 } else {
                     return item;
                 }
-            }).map((item: { value?: any; children?: any; }, i: React.Key | undefined) => {
+            }).map((item: T, i: React.Key | undefined) => {
                 let test = this.state.value.some((obj: any) =>
-                    isEqual(obj, item),
+                    this.props.getId(obj) === this.props.getId(item),
                 );
                 return <li key={i}
                 className={`suggestion-item suggestion-item--multi-select`}
@@ -256,14 +257,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     <span
                     className={ test
                     ? 'suggestion-item--disabled' : undefined}>
-                        {item.value}
+                        {this.props.getLabel(item.value)}
                     </span>
                 </li>;
             });
         } else if (this.props.kind === 'asynchronous') {
-            return this.state.options.map((item: { value?: any; children?: any; }, i: React.Key | undefined) => {
+            return this.state.options.map((item: T, i: React.Key | undefined) => {
                 let test = this.state.value.some((obj: any) =>
-                    isEqual(obj, item),
+                    this.props.getId(obj) === this.props.getId(item),
                 );
                 return (
                     <li key={i}
@@ -275,7 +276,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         className={ test
                         ? 'suggestion-item--disabled' : undefined}
                         >
-                            {item.value}
+                            {this.props.getLabel(item.value)}
                         </span>
                     </li>
                 );
@@ -323,9 +324,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         onClick={() => this.props.readOnly || this.removeClick(i)}>
                                             <span className="tags-input__helper-box">
                                                 {this.props.valueTemplate
-                                                ? this.props.valueTemplate(this.props.getLabel
-                                                    ? item[this.props.getLabel] : item)
-                                                : <span>{this.props.getLabel ? item[this.props.getLabel] : item}</span>}
+                                                ? this.props.valueTemplate(item)
+                                                : <span>{this.props.getLabel(item)}</span>}
                                                 {this.props.readOnly
                                                 || <span className="tags-input__remove-button">
                                                     <i className="icon-close-small"></i>
@@ -356,7 +356,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     onMouseOut={() => this.setState({buttonMouseEvent: false})}
                                     value={this.state.buttonValue}
                                     onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
-                                        {this.state.buttonMouseEvent && this.props.selectBranchWithChildren ? 'Choose entire category' : (this.props.optionTemplate ? this.props.optionTemplate(this.state.buttonValue.value) : this.state.buttonValue.value)}
+                                        {this.state.buttonMouseEvent && this.props.selectBranchWithChildren ? 'Choose entire category' : (this.props.optionTemplate ? this.props.optionTemplate(this.state.buttonValue.value) : this.props.getLabel(this.state.buttonValue.value))}
                                     </button>
                                     : <input
                                     type="text"
@@ -383,9 +383,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             ? this.props.getOptions ?
                             <ul className="suggestion-list suggestion-list--multi-select">
                             {this.state.options
-                            .map((option: { children: any; value?: any; }, i: React.Key | undefined) => {
+                            .map((option: any, i: React.Key | undefined) => {
                                 let test = this.state.value.some((obj: any) =>
-                                    isEqual(obj, option),
+                                    this.props.getId(obj) === this.props.getLabel(option.value),
                                 );
                                 return (
                                     <li key={i}
@@ -443,7 +443,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         className={ test
                                         ? 'suggestion-item--disabled' : undefined}
                                         >
-                                            {option.value}
+                                            {this.props.getLabel(option.value)}
                                         </span>}
                                         {option.children && <span className="suggestion-item__icon">
                                             <Icon name="chevron-right-thin"></Icon>

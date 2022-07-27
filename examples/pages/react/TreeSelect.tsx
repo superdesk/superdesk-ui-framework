@@ -56,46 +56,45 @@ let itemArr = [
 
 let itemArr2 = [
     {
-        value: 'Item1',
+        value: {name: 'Item1'},
         children: [
             {
-                value: 'Item4',
+                value: {name: 'Item4'},
                 children: [
-                    {value: 'Item10'}
+                    {value: {name: 'Item5'}}
                 ]
             },
             {
-                value: 'Item5',
+                value: {name: 'Item6'},
                 children: [
-                    {value: 'Item11'}
+                    {value: {name: 'Item7'}}
                 ]
             }
         ]
     },
     {
-        value: 'Item2',
+        value: {name: 'Item2'},
         children: [
             {
-                value: 'Item6'
+                value: {name: 'Item8'}
             },
             {
-                value: 'Item7'
+                value: {name: 'Item9'}
             }
         ]
     },
     {
-        value: 'Item3',
+        value: {name: 'Item3'},
         children: [
             {
-                value: 'Item8'
+                value: {name: 'Item10'}
             },
             {
-                value: 'Item9'
+                value: {name: 'Item11'}
             }
         ]
     },
 ]
-
 
 export class TreeSelectDocs extends React.Component<{}, IState> {
     constructor(props) {
@@ -103,8 +102,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         this.state = {
             value: [],
             value2: [],
-            options: itemArr,
-            options2: itemArr,
+            options: itemArr2,
+            options2: itemArr2,
             inputValue: ''
         }
 
@@ -144,11 +143,12 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                getLabel='value'
+                                    getId={(item) => item.name}
+                                    getLabel={(item) => item.name}
                                     getOptions={() => {
                                         return itemArr2
                                     }}
-                                    value={[{value: 'Item4'}, {value: 'Item10'}]}
+                                    value={[{name: 'Item1'}, {name: 'Item2'}]}
                                     selectBranchWithChildren={true}
                                     onChange={(e) => false
                                     }
@@ -184,10 +184,11 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                getLabel='name'
-                                    value={[{name: 'Item4'}, {name: 'Item10'}]}
+                                getId={(item) => item.name}
+                                getLabel={(item) => item.name}
+                                value={[{name: 'Item1'}, {name: 'Item2'}]}
                                     getOptions={() => {
-                                        return itemArr
+                                        return itemArr2
                                     }}
                                     selectBranchWithChildren={true}
                                     onChange={() => false}
@@ -195,12 +196,12 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     kind={'asynchronous'}
                                     searchOptions={(term, callback) => {
                                         let newArr = itemArr.filter((item) => {
-                                            if (item.value
-                                                .toLowerCase().includes(term.toLowerCase())) {
-                                                    return item;
-                                                }
+                                            // if (item.value
+                                            //     .toLowerCase().includes(term.toLowerCase())) {
+                                            //         return item;
+                                            //     }
                                         })
-                                        return callback(newArr)
+                                       // return callback(newArr)
                                     }}
 
                                 />
@@ -237,16 +238,17 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                    getLabel='name'
+                                    getId={(item) => item.name}
+                                    getLabel={(item) => item.name}
                                     value={[{name: 'Item4'}, {name: 'Item10'}]}
                                     getOptions={() => this.state.options}
                                     kind={'synchronous'}
                                     onChange={() => false}
                                     optionTemplate={(item: any) => {
-                                        return <div>Label: {item}</div>
+                                        return <div>Label: {item.name}</div>
                                     }}
                                     valueTemplate={(item: any) => {
-                                        return <span>Label: {item}</span>
+                                        return <span>Label: {item.name}</span>
                                     }}
                                 />
                             </div>

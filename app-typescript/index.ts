@@ -70,7 +70,6 @@ export { IconPicker } from './components/IconPicker';
 export { ThemeSelector } from './components/ThemeSelector';
 export { DropZone } from './components/DropZone';
 export { CreateButton } from './components/CreateButton';
-// export { TreeSelect } from './components/TreeSelect';
 export { SearchBar } from './components/SearchBar';
 export { WithSizeObserver } from './components/WithSizeObserver';
 
