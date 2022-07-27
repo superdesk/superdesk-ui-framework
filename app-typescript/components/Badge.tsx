@@ -6,6 +6,7 @@ interface IProps {
     color?: string; // https://ui-framework.superdesk.org/#/components/colors
     shape?: 'round' | 'square'; // defaults to 'round'
     children?: React.ReactNode;
+    hexColor?: string;
     'data-test-id'?: string;
 }
 
@@ -21,11 +22,11 @@ export class Badge extends React.PureComponent<IProps> {
             return (
                 <div className='element-with-badge' data-test-id={this.props['data-test-id']}>
                     {this.props.children}
-                    <span className={classes} data-test-id="badge-content">{this.props.text}</span>
+                    <span className={classes} style={{backgroundColor: this.props.hexColor}} data-test-id="badge-content">{this.props.text}</span>
                 </div>
             );
         } else {
-            return <span className={classes} data-test-id={this.props['data-test-id']}>{this.props.text}</span>;
+            return <span className={classes} style={{backgroundColor: this.props.hexColor}} data-test-id={this.props['data-test-id']}>{this.props.text}</span>;
         }
     }
 }

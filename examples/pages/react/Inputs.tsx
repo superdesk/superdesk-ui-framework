@@ -213,6 +213,128 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             disabled={false}
                             invalid={false}
                             onChange={(value) => {}} />
+
+                        <Input label='Number Input'
+                            value={this.state.value}
+                            type='number'
+                            error='This is error message'
+                            info='Morbi leo risus porta ac consectetur ac.'
+                            inlineLabel={this.state.inlineLabel}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
+                        
+                        // Hidden label
+                        <Input label='Input label'
+                            value={''}
+                            maxLength={25}
+                            type='text'
+                            placeholder='Placeholder'
+                            error='This is error message'
+                            info='Donec id elit non mi porta gravida at eget metus.'
+                            inlineLabel={true}
+                            labelHidden={true}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
+
+                        // Boxed with hidden label
+                        <Input label='Input label'
+                            value={''}
+                            boxedStyle={true}
+                            maxLength={25}
+                            type='text'
+                            placeholder='Default boxed input'
+                            error='This is error message'
+                            inlineLabel={true}
+                            labelHidden={true}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
+
+                        <Input label='Input label'
+                            value={''}
+                            boxedStyle={true}
+                            size='large'
+                            maxLength={25}
+                            type='text'
+                            placeholder='Large boxed input'
+                            error='This is error message'
+                            inlineLabel={true}
+                            labelHidden={true}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
+
+                        <Input label='Input label'
+                            value={''}
+                            boxedStyle={true}
+                            size='x-large'
+                            maxLength={25}
+                            type='text'
+                            placeholder='Extra large boxed input'
+                            error='This is error message'
+                            inlineLabel={true}
+                            labelHidden={true}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
+
+                        // Boxed with default label
+                        <Input label='Input label'
+                            value={''}
+                            boxedStyle={true}
+                            size='large'
+                            maxLength={25}
+                            placeholder='Placeholder'
+                            type='text'
+                            error='This is error message'
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
+                        
+                        // Boxed with boxed label
+                        <Input label='Input label'
+                            value={''}
+                            boxedStyle={true}
+                            boxedLable={true}
+                            size='large'
+                            maxLength={25}
+                            placeholder='Placeholder'
+                            type='text'
+                            error='This is error message'
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
+                        
+                        <Input label='Input label'
+                            value={''}
+                            boxedStyle={true}
+                            boxedLable={true}
+                            size='large'
+                            placeholder='Hide my label'
+                            labelHidden={true}
+                            type='text'
+                            error='This is error message'
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {}} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -229,6 +351,11 @@ export default class InputsDoc extends React.Component<{}, IState> {
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled'/>
                     <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid'/>
                     <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.'/>
+                    <Prop name='placeholder' isRequired={false} type='string' default='/' description='Defines the text for the placeholder pseudo-element.'/>
+                    <Prop name='fullWidth' isRequired={false} type='boolean' default='false' description='Forces the input to take 100% of the container width.'/>
+                    <Prop name='boxedStyle' isRequired={false} type='boolean' default='false' description='Applies a boxed style to the input. This style should be used only in the authoring enviroment and similar.'/>
+                    <Prop name='boxedLable' isRequired={false} type='boolean' default='false' description='Applies a boxed style to the input label. This label style should be used only in combination with the boxedStyle input inside the authoring enviroment.'/>
+                    <Prop name='size' isRequired={false} type='medium | large | x-large' default='medium' description='Specifies the size of the input. Defaults to medium and should be changed only in special cases (e.g. titles, headlines etc.).'/>
                 </PropsList>
             </section>
         )

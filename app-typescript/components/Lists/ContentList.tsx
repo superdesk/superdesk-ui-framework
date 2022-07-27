@@ -7,7 +7,7 @@ interface IPropsItem {
     itemColum: Array<{itemRow: Array<{content: any}>, border?: boolean, fullwidth?: boolean}>;
     activated?: boolean;
     selected?: boolean;
-    fetched?: boolean;
+    archived?: boolean;
     loading?: boolean;
     onClick?(): void;
     onDoubleClick?(): void;
@@ -18,7 +18,7 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
         let classes = classNames('sd-list-item sd-list-item-group sd-list-item-group--space-between-items', {
             'sd-list-item--activated': this.props.activated,
             'sd-list-item--selected': this.props.selected,
-            'fetched': this.props.fetched,
+            'fetched': this.props.archived,
             'actioning': this.props.loading,
     });
 
@@ -60,7 +60,7 @@ interface IProps {
         loading?: boolean,
         activated?: boolean,
         selected?: boolean,
-        fetched?: boolean,
+        archived?: boolean,
         onClick?(): void,
         onDoubleClick?(): void;
     }>;
@@ -86,7 +86,7 @@ class ContentList extends React.PureComponent<IProps> {
                     loading={item.loading}
                     activated={item.activated}
                     selected={item.selected}
-                    fetched={item.fetched}
+                    archived={item.archived}
                     onClick={item.onClick}
                     onDoubleClick={item.onDoubleClick} />;
                 })}
