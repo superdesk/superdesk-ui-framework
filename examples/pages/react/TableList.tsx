@@ -82,12 +82,6 @@ export default class TableListDoc extends React.Component<IProps, IState> {
 
                         <TableList>
                             <TableListItem
-                            addItem
-                            itemsDropdown={[
-                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                            ]}
                             start={
                                 <>
                                     <Label style='translucent' text='aacc' />
@@ -104,12 +98,6 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                                 <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
                             } />
                             <TableListItem
-                            addItem
-                            itemsDropdown={[
-                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                            ]}
                             start={
                                 <>
                                     <Label style='hollow' text='aacc' />
@@ -123,12 +111,6 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                                 <IconLabel style='translucent' text='Label success' type='success' icon='time' />
                             } />
                             <TableListItem
-                            addItem
-                            itemsDropdown={[
-                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                            ]}
                             start={
                                 <>
                                     <Label style='translucent' text='aacc' />
@@ -149,13 +131,7 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <TableList>
-                            <TableListItem 
-                            addItem
-                            itemsDropdown={[
-                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                            ]}
+                            <TableListItem
                             start={
                                 <>
                                     <Label style='translucent' text='aacc' />
@@ -172,12 +148,6 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                                 <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
                             } />
                             <TableListItem
-                            addItem
-                            itemsDropdown={[
-                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                            ]}
                             start={
                                 <>
                                     <Label style='hollow' text='aacc' />
@@ -191,12 +161,6 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                                 <IconLabel style='translucent' text='Label success' type='success' icon='time' />
                             } />
                             <TableListItem
-                            addItem
-                            itemsDropdown={[
-                                { label: <Label style='translucent' text='aacc' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                            ]}
                             start={
                                 <>
                                     <Label style='translucent' text='aacc' />
@@ -250,16 +214,30 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Props</h3>
-                <p className="docs-page__paragraph">BoxedList</p>
+                <p className="docs-page__paragraph">TableList</p>
                 <PropsList>
-                    <Prop name='density' isRequired={false} type='compact | comfortable' default='compact' description='Increase the gap beetween list items.'/>
+                    <Prop name='array' isRequired={false} type='Array' default='false' description='Array of object.'/>
+                    <Prop name='children' isRequired={false} type='React.ReactNode' default='false' description='Children of component.'/>
+                    <Prop name='addItem' isRequired={false} type='boolean' default='false' description='Functionality to add items to the list.'/>
+                    <Prop name='dragAndDrop' isRequired={false} type='boolean' default='false' description='Drag&Drop functionality.'/>
+                    <Prop name='itemsDropdown' isRequired={false} type='React.ReactNode | any' default='false' description='Dropdown for functionality to add items to the list.'/>
+                    <Prop name='className' isRequired={false} type='string' default='false' description='Add class on TableList container.'/>
+                    <Prop name='onClick' isRequired={false} type='function' default='false' description='onClick functionality.'/>
                 </PropsList>
-                <p className="docs-page__paragraph">BoxedListItem</p>
+                <p className="docs-page__paragraph">array:</p>
                 <PropsList>
-                    <Prop name='clickable' isRequired={false} type='boolean' default='false' description='Adds hover effect and changes the cursor to poiter.'/>
-                    <Prop name='selected' isRequired={false} type='boolean' default='false' description='Changes the state to selected and adds apropriate styling for it.'/>
-                    <Prop name='slideInActions' isRequired={false} type='boolean' default='false' description='If set to true, the action buttons will be hidden and slide in from the right on hover.'/>
-                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight' default='/' description='Adds a clour coded border on the right, based on the selected type.'/>
+                    <Prop name='start' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.'/>
+                    <Prop name='center' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.'/>
+                    <Prop name='end' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.'/>
+                    <Prop name='action' isRequired={false} type='React.ReactNode' default='false' description='Column of individual list items that is displayed on hover.'/>
+                </PropsList>
+                <p className="docs-page__paragraph">TableListItem</p>
+                <PropsList>
+                    <Prop name='start' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.'/>
+                    <Prop name='center' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.'/>
+                    <Prop name='end' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.'/>
+                    <Prop name='action' isRequired={false} type='React.ReactNode' default='false' description='Column of individual list items that is displayed on hover.'/>
+                    <Prop name='onClick' isRequired={false} type='function' default='false' description='onClick functionality.'/>
                 </PropsList>
 
             </section>

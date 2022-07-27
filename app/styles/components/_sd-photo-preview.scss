@@ -60,7 +60,7 @@ $photo-nav-transition: all 0.2s ease-out;
             background-repeat: no-repeat;
             background-position: center center;
             background-size: 60px;
-            background-color: rgba(0, 0, 0, 0.85);
+            background-color: var(--sd-colour-overlay-actioning);
         }
     }
 }

@@ -67,6 +67,12 @@ export default class LabelsDoc extends React.Component {
                             <Label text='deep-orange--700' color='deep-orange--700'/>
                             <Label text='lime--700' color='lime--700'/>  
                         </div>
+                        <p className="docs-page__paragraph">// Custom Hex colors</p>
+                        <div className='docs-page__content-row'>
+                            <Label text='Hex: #008773' hexColor='#008773'/>
+                            <Label text='Hex: #000FB5' hexColor='#000FB5'/>
+                            <Label text='Hex: #696B00' hexColor='#696B00'/>
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Label text='default label'/>
@@ -82,7 +88,11 @@ export default class LabelsDoc extends React.Component {
                         <Label text='cyan--600' color='cyan--600'/>
                         <Label text='light-green--700' color='light-green--700'/>
                         <Label text='deep-orange--700' color='deep-orange--700'/>
-                        <Label text='lime--700' color='lime--700'/>  
+                        <Label text='lime--700' color='lime--700'/> 
+                        // Custom Hex colors
+                        <Label text='Hex: #008773' hexColor='#008773'/>
+                        <Label text='Hex: #000FB5' hexColor='#000FB5'/>
+                        <Label text='Hex: #696B00' hexColor='#696B00'/>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -113,6 +123,12 @@ export default class LabelsDoc extends React.Component {
                             <Label text='light-green--700 label' style='hollow' color='light-green--700'/>
                             <Label text='deep-purple--600 label' style='hollow' color='deep-purple--600'/>
                         </div>
+                        <p className="docs-page__paragraph">// Custom Hex colours</p>
+                        <div className='docs-page__content-row'>
+                            <Label text='Hex: #008773' style='hollow' hexColor='#008773'/>
+                            <Label text='Hex: #000FB5' style='hollow' hexColor='#000FB5'/>
+                            <Label text='Hex: #696B00' style='hollow' hexColor='#696B00'/>
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Label text='default label' style='hollow'/>
@@ -133,6 +149,11 @@ export default class LabelsDoc extends React.Component {
                         <Label text='blue-grey--600 label' style='hollow' color='blue-grey--600'/>
                         <Label text='light-green--700 label' style='hollow' color='light-green--700'/>
                         <Label text='deep-purple--600 label' style='hollow' color='deep-purple--600'/>
+
+                        // Custom Hex colours
+                        <Label text='Hex: #008773' style='hollow' hexColor='#008773'/>
+                        <Label text='Hex: #000FB5' style='hollow' hexColor='#000FB5'/>
+                        <Label text='Hex: #696B00' style='hollow' hexColor='#696B00'/>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -156,6 +177,12 @@ export default class LabelsDoc extends React.Component {
                             <Label text='Translucent large' size='large' type='primary' style='translucent'/>
                             <Label text='Translucent, large & no text transformation' type='highlight' size='large' style='translucent' noTransform={true}/>
                         </div>
+                        <p className="docs-page__paragraph">// Custom Hex colours</p>
+                        <div className='docs-page__content-row'>
+                            <Label text='Hex: #008773' style='translucent' hexColor='#008773'/>
+                            <Label text='Hex: #000FB5' style='translucent' hexColor='#000FB5'/>
+                            <Label text='Hex: #696B00' style='translucent' hexColor='#696B00'/>
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Label text='default label' style='hollow'/>
@@ -169,6 +196,11 @@ export default class LabelsDoc extends React.Component {
                         <Label text='Translucent large' size='large' style='translucent'/>
                         <Label text='Translucent large' size='large' type='primary' style='translucent'/>
                         <Label text='Translucent, large & no text transformation' type='highlight' size='large' style='translucent' noTransform={true}/>
+
+                        // Custom Hex colours
+                        <Label text='Hex: #008773' style='translucent' hexColor='#008773'/>
+                        <Label text='Hex: #000FB5' style='translucent' hexColor='#000FB5'/>
+                        <Label text='Hex: #696B00' style='translucent' hexColor='#696B00'/>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -195,6 +227,15 @@ export default class LabelsDoc extends React.Component {
                             <Label text='success label' type='success' style='translucent' onClick={()=> false}/>
                             <Label text='alert label' type='alert' style='translucent' onClick={()=> false}/>
                         </div>
+                        <p className="docs-page__paragraph">// Custom Hex colours</p>
+                        <div className='docs-page__content-row'>
+                            <Label text='Hex: #008773' hexColor='#008773' onClick={()=> false}/>
+                            <Label text='Hex: #000FB5' hexColor='#000FB5' onClick={()=> false}/>
+                            <Label style='hollow' text='Hex: #008773' hexColor='#008773' onClick={()=> false}/>
+                            <Label style='hollow' text='Hex: #000FB5' hexColor='#000FB5' onClick={()=> false}/>
+                            <Label style='translucent' text='Hex: #008773' hexColor='#008773' onClick={()=> false}/>
+                            <Label style='translucent' text='Hex: #000FB5' hexColor='#000FB5' onClick={()=> false}/>
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Label text='default label' onClick={()=> false}/>
@@ -211,6 +252,14 @@ export default class LabelsDoc extends React.Component {
                         <Label text='primary label' type='primary' style='translucent' onClick={()=> false}/>
                         <Label text='success label' type='success' style='translucent' onClick={()=> false}/>
                         <Label text='alert label' type='alert' style='translucent' onClick={()=> false}/>
+
+                        // Custom Hex colours
+                        <Label text='Hex: #008773' hexColor='#008773' onClick={()=> false}/>
+                        <Label text='Hex: #000FB5' hexColor='#000FB5' onClick={()=> false}/>
+                        <Label style='hollow' text='Hex: #008773' hexColor='#008773' onClick={()=> false}/>
+                        <Label style='hollow' text='Hex: #000FB5' hexColor='#000FB5' onClick={()=> false}/>
+                        <Label style='translucent' text='Hex: #008773' hexColor='#008773' onClick={()=> false}/>
+                        <Label style='translucent' text='Hex: #000FB5' hexColor='#000FB5' onClick={()=> false}/>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -223,6 +272,7 @@ export default class LabelsDoc extends React.Component {
                     <Prop name='size' isRequired={false} type='small | normal | large' default='normal' description='Specifies a small, normal or large label.'/>
                     <Prop name='noTransform' isRequired={false} type='boolean' default='false' description='Transforms text to uppercase.'/>
                     <Prop name='style' isRequired={false} type='filled | hollow | translucent' default='filled' description='Label may have one of these styles - filled (default), hollow or translucent.'/>
+                    <Prop name='hexColor' isRequired={false} type='string' default='/' description='Define a custom Hex colour for the label.'/>
                 </PropsList>
             </section>
         )

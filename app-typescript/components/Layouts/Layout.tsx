@@ -26,7 +26,7 @@ export const Layout = ({
                 {children}
             </section>
             <footer className='sd-bottom-bar'>
-                This is the footer.
+                Footer
             </footer>
         </div>
     );

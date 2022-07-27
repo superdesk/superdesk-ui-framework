@@ -98,7 +98,8 @@ export default class ContentListDoc extends React.Component {
                                         fullwidth: true,
                                     }
                                 ],
-                                locked: true,
+                                //locked: true,
+                                selected: true,
                                 action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
                             },
                             {
@@ -262,18 +263,23 @@ export default class ContentListDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Props</h3>
-                <p className="docs-page__paragraph">BoxedList</p>
+                <p className="docs-page__paragraph">ContentList</p>
                 <PropsList>
-                    <Prop name='density' isRequired={false} type='compact | comfortable' default='compact' description='Increase the gap beetween list items.'/>
+                    <Prop name='items' isRequired={true} type='Array' default='compact' description='An array of object.'/>
                 </PropsList>
-                <p className="docs-page__paragraph">BoxedListItem</p>
+                <p className="docs-page__paragraph">Items:</p>
                 <PropsList>
-                    <Prop name='clickable' isRequired={false} type='boolean' default='false' description='Adds hover effect and changes the cursor to poiter.'/>
-                    <Prop name='selected' isRequired={false} type='boolean' default='false' description='Changes the state to selected and adds apropriate styling for it.'/>
-                    <Prop name='slideInActions' isRequired={false} type='boolean' default='false' description='If set to true, the action buttons will be hidden and slide in from the right on hover.'/>
-                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight' default='/' description='Adds a clour coded border on the right, based on the selected type.'/>
+                    <Prop name='itemColum' isRequired={true} type='Array<{itemRow: Array<{content: any}>, border?: boolean, fullwidth?: boolean}>' default='false' description='An array of objects for defining column of individual items.'/>
+                    <Prop name='action' isRequired={false} type='React.ReactNode' default='false' description='On hover displays an additional menu.'/>
+                    <Prop name='locked' isRequired={false} type='boolean' default='false' description='If is true, the individual item of list change state and change style.'/>
+                    <Prop name='activated' isRequired={false} type='boolean' default='false' description='If is true, the individual item of list change state and change style.'/>
+                    <Prop name='selected' isRequired={false} type='boolean' default='false' description='If is true, the individual item of list change state and change style.'/>
+                    <Prop name='archived' isRequired={false} type='boolean' default='false' description='If is true, the individual item of list change state and change style.'/>
+                    <Prop name='loading' isRequired={false} type='boolean' default='false' description='If is true, the individual item of list change state and change style.'/>
+                    <Prop name='onClick' isRequired={false} type='function' default='/' description='onClick functionality.'/>
+                    <Prop name='onDoubleClick' isRequired={false} type='function' default='/' description='onDoubleClick functionality.'/>
                 </PropsList>
-
+    
             </section>
         )
     }

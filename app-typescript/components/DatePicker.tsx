@@ -94,7 +94,6 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 
     constructor(props: IDatePicker) {
         super(props);
-
         this.state = {
             value: parseToPrimeReactCalendarFormat(this.props.value),
             valid: true,
@@ -137,7 +136,6 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 
     render() {
         let locale: LocaleSettings | undefined;
-
         if (this.props.locale != null) {
             locale = {
                 ...this.props.locale,
@@ -155,7 +153,6 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
         const labelClasses = classNames('sd-input__label', {
             'a11y-only': this.props.labelHidden,
         });
-
         let htmlId = nextId();
 
         return (
@@ -214,8 +211,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                         // restoring internal state to current props value
                         this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
                     }
-                }}
-                />
+                }} />
                 <div className='sd-input__message-box'>
                     {this.props.info && !this.props.invalid && !this.state.invalid ?
                         <div className='sd-input__hint'>{this.props.info}</div> : null}

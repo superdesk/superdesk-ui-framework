@@ -15,10 +15,15 @@ class TimePickerExample extends React.PureComponent<{}, {time: string}> {
     render() {
         return (
             <TimePicker
-                value={this.state.time}
-                onChange={(time) => {
-                    this.setState({time});
-                }}
+            value={this.state.time}
+            onChange={(time) => {
+                this.setState({time});
+            }}
+            required
+            tabindex={1}
+            label={'This is Label'}
+            info={'This is info'}
+            error={'This is error'}
             />
         );
     }
@@ -38,10 +43,13 @@ export default class TimePickerDoc extends React.Component {
                         render() {
                             return (
                                 <TimePicker
-                                    value={this.state.time}
-                                    onChange={(time) => {
-                                        this.setState({time});
-                                    }}
+                                value={this.state.time}
+                                onChange={(time) => {
+                                    this.setState({time});
+                                }}
+                                label={'This is Label'}
+                                info={'This is info'}
+                                error={'This is error'}
                                 />
                             );
                         }

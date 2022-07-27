@@ -89,6 +89,16 @@ export default class BadgeDoc extends React.Component {
                             <Badge text='E' color='purple--400' shape='square' />
                             <Badge text='F' color='purple--500' shape='square' />
                         </div>
+
+                        <p className="docs-page__paragraph">// Custom hex colours</p>
+                        <div className='docs-page__content-row'>
+                            <Badge text='1' hexColor='#008773' />
+                            <Badge text='2' hexColor='#0000FF' />
+                            <Badge text='3' hexColor='#00D100' />
+                            <Badge text='4' hexColor='#5531D9' shape='square' />
+                            <Badge text='5' hexColor='#960E0F' shape='square' />
+                            <Badge text='6' hexColor='#DB60FF' shape='square' />
+                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Basic colour palette
@@ -112,6 +122,13 @@ export default class BadgeDoc extends React.Component {
                         <Badge text='D' color='purple--300' shape='square'/>
                         <Badge text='E' color='purple--400' shape='square'/>
                         <Badge text='F' color='purple--500' shape='square'/>
+                        // Custom hex colours
+                        <Badge text='1' hexColor='#008773' />
+                        <Badge text='2' hexColor='#0000FF' />
+                        <Badge text='3' hexColor='#00D100' />
+                        <Badge text='4' hexColor='#5531D9' shape='square' />
+                        <Badge text='5' hexColor='#960E0F' shape='square' />
+                        <Badge text='6' hexColor='#DB60FF' shape='square' />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -152,6 +169,7 @@ export default class BadgeDoc extends React.Component {
                     <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.)' />
                     <Prop name='color' isRequired={false} type='string' default='/' description='Extended color palette from the framework (e.g. red--500);  NOTE: The badge can have either a Type or Color defined, not both at the same time.' />
                     <Prop name='shape' isRequired={false} type='round | square' default='round' description='Make shape of badge square or default round.' />
+                    <Prop name='hexColor' isRequired={false} type='string' default='/' description='Define a custom Hex colour for the Badge.'/>
                 </PropsList>
             </section>
         )

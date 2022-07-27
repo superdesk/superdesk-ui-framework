@@ -471,6 +471,8 @@
     grid-template-rows: $form-label-height auto auto;
     grid-gap: 0;
     position: relative;
+    align-self: stretch;
+
 
     .sd-input__input {
         @include Line-input-base;
