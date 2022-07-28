@@ -150,7 +150,9 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     }}
                                     value={[{name: 'Item1'}, {name: 'Item2'}]}
                                     selectBranchWithChildren={true}
-                                    onChange={(e) => false
+                                    onChange={(e) => {
+                                        console.log(e)
+                                    }
                                     }
                                     allowMultiple
                                     kind={'synchronous'}
@@ -184,9 +186,9 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                getId={(item) => item.name}
-                                getLabel={(item) => item.name}
-                                value={[{name: 'Item1'}, {name: 'Item2'}]}
+                                    getId={(item) => item.name}
+                                    getLabel={(item) => item.name}
+                                    value={[{name: 'Item1'}, {name: 'Item2'}]}
                                     getOptions={() => {
                                         return itemArr2
                                     }}
@@ -195,13 +197,13 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     allowMultiple
                                     kind={'asynchronous'}
                                     searchOptions={(term, callback) => {
-                                        let newArr = itemArr.filter((item) => {
-                                            // if (item.value
-                                            //     .toLowerCase().includes(term.toLowerCase())) {
-                                            //         return item;
-                                            //     }
+                                        let newArr = itemArr2.filter((item) => {
+                                            if (item.value.name
+                                                .toLowerCase().includes(term.toLowerCase())) {
+                                                    return item;
+                                                }
                                         })
-                                       // return callback(newArr)
+                                        return callback(newArr);
                                     }}
 
                                 />
@@ -243,7 +245,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     value={[{name: 'Item4'}, {name: 'Item10'}]}
                                     getOptions={() => this.state.options}
                                     kind={'synchronous'}
-                                    onChange={() => false}
+                                    onChange={(e) => console.log(e)}
                                     optionTemplate={(item: any) => {
                                         return <div>Label: {item.name}</div>
                                     }}
@@ -274,16 +276,29 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='value' isRequired={false} type='Array<T>' default='/' description='Value of the component.'/>
-                    <Prop name='getOptions' isRequired={false} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
+                    <Prop name='getOptions' isRequired={true} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
                     <Prop name='kind' isRequired={true} type='synchronous | asynchronous' default='/' description='Type of TreeSelect component.'/>
                     <Prop name='width' isRequired={false} type='medium | full-width (100%)' default='100%' description='Dropdown width.'/>
                     <Prop name='selectBranchWithChildren' isRequired={false} type='boolean' default='false' description='When specified, select branch with children is enabled.'/>
                     <Prop name='readonly' isRequired={false} type='boolean' default='false' description='When specified, component changes are not enabled.'/>
                     <Prop name='loading' isRequired={false} type='boolean' default='false' description='Adds a loading indicator in dropdown.'/>
-                    <Prop name='valueTemplate' isRequired={false} type='function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
-                    <Prop name='optionTemplate' isRequired={false} type='function' default='/' description='Function that gets the option and returns the content for it.'/>
-                    <Prop name='searchOptions' isRequired={false} type='function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
-                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='getLabel' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='getId' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='valueTemplate' isRequired={false} type='Function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
+                    <Prop name='optionTemplate' isRequired={false} type='Function' default='/' description='Function that gets the option and returns the content for it.'/>
+                    <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
+                    <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                </PropsList>
+
+                <p className='docs-page__paragraph'>synchronous:</p>
+                <PropsList>
+                    <Prop name='getOptions' isRequired={false} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
+                </PropsList>
+
+                <p className='docs-page__paragraph'>asynchronous:</p>
+                <PropsList>
+                    <Prop name='getOptions' isRequired={false} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
+                    <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='function will be called when a search is initiated from UI.'/>
                 </PropsList>
   
             </section>

@@ -5,17 +5,16 @@ import classNames from 'classnames';
 import nextId from "react-id-generator";
 
 interface IState<T> {
-    value?: any;
-    options?: Array<ITreeNode<T>> | any;
-    firstBranchOptions?: Array<any>;                // to return on first branch in dropdown
-    openDropdown?: boolean;                         // open/close dropdown
-    activeTree?: Array<any> | any;                  // for filtered array
-    filterArr?: Array<any> | any;                   // for filtered array
-    searchFieldValue?: string;                      // filter value of input
-    buttonTree?: Array<any> | any;                  // array of button (for backButton)
-    buttonValue?: any;                              // button for name of category
-    buttonMouseEvent?: boolean;                     // valueButton hover
-    selectBranchWithChildren?: boolean;
+    value: Array<T>;
+    options: Array<ITreeNode<T>>;
+    firstBranchOptions: Array<any>;                // to return on first branch in dropdown
+    openDropdown: boolean;                         // open/close dropdown
+    activeTree: Array<any>;                  // for filtered array
+    filterArr: Array<any>;                   // for filtered array
+    searchFieldValue: string;                      // filter value of input
+    buttonTree: Array<any>;                  // array of button (for backButton)
+    buttonValue: any;                              // button for name of category
+    buttonMouseEvent: boolean;                     // valueButton hover
     loading: boolean;
     invalid: boolean;
 }
@@ -64,7 +63,7 @@ export interface ITreeNode<T> {
 
 export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private dropdownRef: React.RefObject<HTMLInputElement>;
-    private openDropdownRef: React.RefObject<HTMLInputElement>;
+    private openDropdownRef: React.RefObject<HTMLButtonElement>;
 
     constructor(props: IProps<T>) {
         super(props);
@@ -95,7 +94,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     removeClick(i: number) {
         let newTags = this.state.value;
-        newTags.splice(i, 1);
+        newTags?.splice(i, 1);
 
         this.setState({
             value: newTags,
@@ -103,7 +102,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.props.onChange(this.state.value);
     }
 
-    handleMultiLevel(item: { children?: Array<T>; }) {
+    handleMultiLevel(item: ITreeNode<T>) {
         if (item.children) {
             this.setState({
                 activeTree: [...this.state.activeTree, this.state.options],
@@ -112,14 +111,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
-    handleButton(item: { children?: Array<T>; }) {
+    handleButton(item: ITreeNode<T>) {
         this.setState({
             buttonTree: [...this.state.buttonTree, this.state.buttonValue],
             buttonValue: item,
         });
     }
 
-    handleValue(event: React.MouseEvent<HTMLLIElement, MouseEvent>, item: { value: T; }) {
+    handleValue(event: React.MouseEvent<HTMLLIElement, MouseEvent>, item: ITreeNode<T>) {
         if (this.props.allowMultiple) {
             let checkItem = this.state.value.find((valueItem: T) => {
 
@@ -150,7 +149,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
-    handleBranchValue(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, item: { value: T; }) {
+    handleBranchValue(event: React.MouseEvent<HTMLButtonElement, MouseEvent>, item: ITreeNode<T>) {
         if (this.props.allowMultiple) {
             if (this.props.selectBranchWithChildren) {
                 let checkItem = this.state.value.find((valueItem: T) => {
@@ -218,7 +217,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     componentDidMount = () => {
         this.recursion(this.state.options);
-        document.addEventListener("mousedown", (event) => {
+        document.addEventListener("mousedown", (event: any) => {
             if ((this.dropdownRef.current && !this.dropdownRef.current.contains(event.target))
             && (this.openDropdownRef.current && !this.openDropdownRef.current.contains(event.target))) {
                 this.setState({openDropdown: false});
@@ -236,18 +235,18 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     filteredItem() {
         if (this.props.kind === 'synchronous') {
-            return this.state.filterArr.filter((item: any) => {
+            return this.state.filterArr.filter((item) => {
                 if (this.state.searchFieldValue) {
                     if (this.props.getLabel(item.value)
                     .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
-                        return item;
+                        return item.value;
                     }
                 } else {
-                    return item;
+                    return item.value;
                 }
-            }).map((item: T, i: React.Key | undefined) => {
-                let test = this.state.value.some((obj: any) =>
-                    this.props.getId(obj) === this.props.getId(item),
+            }).map((item, i) => {
+                let selectedItem = this.state.value.some((obj) =>
+                    this.props.getId(obj) === this.props.getId(item.value),
                 );
                 return <li key={i}
                 className={`suggestion-item suggestion-item--multi-select`}
@@ -255,16 +254,16 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     this.handleValue(event, item);
                 }}>
                     <span
-                    className={ test
+                    className={selectedItem
                     ? 'suggestion-item--disabled' : undefined}>
                         {this.props.getLabel(item.value)}
                     </span>
                 </li>;
             });
         } else if (this.props.kind === 'asynchronous') {
-            return this.state.options.map((item: T, i: React.Key | undefined) => {
-                let test = this.state.value.some((obj: any) =>
-                    this.props.getId(obj) === this.props.getId(item),
+            return this.state.options.map((item, i) => {
+                let selectedItem = this.state.value.some((obj) =>
+                    this.props.getId(obj) === this.props.getId(item.value),
                 );
                 return (
                     <li key={i}
@@ -273,7 +272,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     this.handleValue(event, item);
                     }}>
                         <span
-                        className={ test
+                        className={selectedItem
                         ? 'suggestion-item--disabled' : undefined}
                         >
                             {this.props.getLabel(item.value)}
@@ -281,6 +280,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     </li>
                 );
             });
+        } else {
+            return;
         }
     }
 
@@ -316,7 +317,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             <i className="icon-plus-large"></i>
                         </button>}
                             <ul className="tags-input__tag-list">
-                                {this.state.value.map((item: any, i: number) => {
+                                {this.state.value.map((item, i: number) => {
                                     return <React.Fragment key={i}>
                                         <li
                                         className={"tags-input__tag-item tags-input__tag-item-multiselect"
@@ -361,7 +362,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     : <input
                                     type="text"
                                     className="autocomplete__input"
-                                    ref={(input: any) => input && input.focus()}
+                                    ref={(input) => input && input.focus()}
                                     value={this.state.searchFieldValue}
                                     onChange={(event) => {
                                         if (this.props.kind === 'asynchronous') {
@@ -383,8 +384,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             ? this.props.getOptions ?
                             <ul className="suggestion-list suggestion-list--multi-select">
                             {this.state.options
-                            .map((option: any, i: React.Key | undefined) => {
-                                let test = this.state.value.some((obj: any) =>
+                            .map((option, i: React.Key | undefined) => {
+                                let selectedItem = this.state.value.some((obj) =>
                                     this.props.getId(obj) === this.props.getLabel(option.value),
                                 );
                                 return (
@@ -398,12 +399,11 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             this.handleMultiLevel(option);
                                             if (event.altKey && this.props.allowMultiple) {
                                                 if (this.props.selectBranchWithChildren) {
-                                                    let filteredItems = option.children
-                                                    .filter((item: { value: any; }) => {
+                                                    let filteredItems: Array<T> = [];
+                                                    option.children.forEach((item) => {
                                                         if (!this.state.value.includes(item.value)) {
-                                                            return item;
+                                                            filteredItems.push(item.value);
                                                         }
-                                                        return;
                                                     });
                                                     this.setState({
                                                         value: [...this.state.value, ...filteredItems],
@@ -412,13 +412,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                         activeTree: [],
                                                     });
                                                 } else {
-                                                    let filteredItems = option.children
-                                                    .filter((item: { value: any; children: any; }) => {
+                                                    let filteredItems: Array<T> = [];
+                                                    option.children.forEach((item: ITreeNode<T>) => {
                                                         if (!this.state.value.includes(item.value)
                                                         && !item.children) {
-                                                            return item;
+                                                            filteredItems.push(item.value);
                                                         }
-                                                        return;
                                                     });
                                                     if (filteredItems.length > 0) {
                                                         this.setState({
@@ -440,7 +439,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         {this.props.optionTemplate
                                         ? this.props.optionTemplate(option.value)
                                         : <span
-                                        className={ test
+                                        className={selectedItem
                                         ? 'suggestion-item--disabled' : undefined}
                                         >
                                             {this.props.getLabel(option.value)}
