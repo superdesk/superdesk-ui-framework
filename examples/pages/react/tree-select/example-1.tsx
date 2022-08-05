@@ -1,67 +1,71 @@
-import * as React from 'react';
-import {TreeSelect} from '../../../../app-typescript/components/TreeSelect';
-
-interface IVocabularyItem {
-    name: string;
-    qcode: string;
-}
-
-const authorRoles: Array<IVocabularyItem> = [
-    {qcode: 'writer', name: 'Writer'},
-    {qcode: 'photographer', name: 'Photographer'},
-    {qcode: 'editor', name: 'Editor'},
-];
+import React from 'react';
+import {TreeSelect} from 'superdesk-ui-framework/react';
+import {ITreeNode} from 'superdesk-ui-framework/react/components/TreeSelect';
 
 type IProps = {};
 
-interface IState {
-    selectedRoles: Array<IVocabularyItem>;
+interface IVocabularyItem {
+    qcode: string;
+    name: string;
 }
 
-/**
- * Does not compile and crashes on runtime.
- */
-export class Example1 extends React.PureComponent<IProps, IState> {
+interface IState {
+    value: Array<IVocabularyItem>;
+}
+
+const source = [
+    {
+        'name': 'Article (news)',
+        'qcode': 'Article',
+    },
+    {
+        'name': 'Sidebar',
+        'qcode': 'Sidebar',
+    },
+    {
+        'name': 'Factbox',
+        'qcode': 'Factbox',
+    },
+];
+
+function searchOptions(
+    term: string,
+    callback: (res: Array<ITreeNode<{name: string; qcode: string;}>>) => void,
+): void {
+    setTimeout(() => {
+        callback(
+            source
+                .filter((item) => item.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
+                .map((item) => ({value: item})),
+        );
+    }, 1000);
+}
+
+
+export class MultiSelectDemo extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
 
         this.state = {
-            selectedRoles: [
-                {qcode: 'writer', name: 'Writer'},
-            ],
+            value: [],
         };
     }
 
     render() {
-        const {selectedRoles} = this.state;
-
         return (
-            <div>
-                <TreeSelect
-                    kind="synchronous"
-                    getOptions={() => authorRoles.map((value) => ({value}))}
-                    value={selectedRoles}
-                    onChange={(val) => {
-                        this.setState({selectedRoles: val.map((node) => node.value)});
-
-                        // accessing qcodes should not cause TypeScript errors
-                        val.forEach((node) => {
-                            console.log(node.qcode);
-                        })
-                    }}
-                    optionTemplate={(role) => {
-                        return (
-                            <span>{role.name}</span>
-                        );
-                    }}
-                    valueTemplate={(role) => {
-                        return (
-                            <span>{role.name}</span>
-                        );
-                    }}
-                    allowMultiple={true}
-                />
-            </div>
+            <TreeSelect
+                kind="asynchronous"
+                searchOptions={searchOptions}
+                value={this.state.value}
+                onChange={(val) => {
+                    this.setState({value: val});
+                }}
+                getLabel={({name}) => name}
+                getId={({qcode}) => qcode}
+                selectBranchWithChildren={false}
+                optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
+                allowMultiple={true}
+            />
         );
     }
 }
