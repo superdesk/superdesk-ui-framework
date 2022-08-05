@@ -70,7 +70,6 @@ export { IconPicker } from './components/IconPicker';
 export { ThemeSelector } from './components/ThemeSelector';
 export { DropZone } from './components/DropZone';
 export { CreateButton } from './components/CreateButton';
-// export { TreeSelect } from './components/TreeSelect';
 export { SearchBar } from './components/SearchBar';
 export { WithSizeObserver } from './components/WithSizeObserver';
 
@@ -86,6 +85,7 @@ export { Text } from './components/Text/Text';
 export { Time } from './components/Text/Time';
 export { Heading } from './components/Text/Heading';
 export { BottomNav } from './components/Navigation/BottomNav';
+export { TreeSelect } from './components/TreeSelect';
 export { ContentListItem } from './components/Lists/ContentList';
 
 // declare non-typescript exports to prevent errors

@@ -745,6 +745,12 @@
                     box-shadow: none;
                 }
             }
+            .tags-input__add-button {
+                pointer-events: none;
+            }
+            .sd-input__label,
+            .sd-input__message-box,
+            .sd-input__char-count {
             .sd-input__label, .sd-input__message-box, .sd-input__char-count {
                 opacity: 0.5;
             }
@@ -911,4 +917,5 @@
         grid-row: 2/3;
         grid-column: 2/4;
     }
+}
 }

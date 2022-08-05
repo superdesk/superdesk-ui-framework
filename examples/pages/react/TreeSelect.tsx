@@ -2,56 +2,127 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import { PropsList, Prop } from '../../../app-typescript';
 import { MultiSelect } from '../../../app-typescript/components/MultiSelect';
-import { TreeSelect } from '../../../app-typescript/components/TreeSelect';
+import { ITreeNode, TreeSelect } from '../../../app-typescript/components/TreeSelect';
 
 interface IState {
     value: any;
     value2: any;
     options: any;
     options2: any;
+    inputValue: string;
 }
 
 let itemArr = [
     {
-        label: 'Item1',
-        items: [
+        value: 'Category1',
+        children: [
             {
-                label: 'Item4',
-                items: [
-                    {label: 'Item10'}
+                value: 'Sub-Category1',
+                children: [
+                    {value: 'Item10'}
                 ]
             },
             {
-                label: 'Item5',
-                items: [
-                    {label: 'Item11'}
+                value: 'Sub-Category2',
+                children: [
+                    {value: 'Item11'}
                 ]
             }
         ]
     },
     {
-        label: 'Item2',
-        items: [
+        value: 'Category2',
+        children: [
             {
-                label: 'Item6'
+                value: 'Sub-Category3'
             },
             {
-                label: 'Item7'
+                value: 'Sub-Category4'
             }
         ]
     },
     {
-        label: 'Item3',
-        items: [
+        value: 'Category3',
+        children: [
             {
-                label: 'Item8'
+                value: 'Sub-Category5'
             },
             {
-                label: 'Item9'
+                value: 'Sub-Category6'
             }
         ]
     },
 ]
+
+let itemArr2 = [
+    {
+        value: {name: 'Category1'},
+        children: [
+            {
+                value: {name: 'Sub-category1'},
+                children: [
+                    {value: {name: 'Item5'}}
+                ]
+            },
+            {
+                value: {name: 'Sub-category2'},
+                children: [
+                    {value: {name: 'Item7'}}
+                ]
+            }
+        ]
+    },
+    {
+        value: {name: 'Category2'},
+        children: [
+            {
+                value: {name: 'Item8'}
+            },
+            {
+                value: {name: 'Item9'}
+            }
+        ]
+    },
+    {
+        value: {name: 'Category3'},
+        children: [
+            {
+                value: {name: 'Item10'}
+            },
+            {
+                value: {name: 'Item11'}
+            }
+        ]
+    },
+]
+
+const source = [
+    {
+        'name': 'Article (news)',
+        'qcode': 'Article',
+    },
+    {
+        'name': 'Sidebar',
+        'qcode': 'Sidebar',
+    },
+    {
+        'name': 'Factbox',
+        'qcode': 'Factbox',
+    },
+];
+
+function searchOptions(
+    term: string,
+    callback: (res: Array<ITreeNode<{name: string; qcode: string;}>>) => void,
+): void {
+    setTimeout(() => {
+        callback(
+            source
+                .filter((item) => item.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
+                .map((item) => ({value: item})),
+        ); 
+    }, 1000);
+}
 
 export class TreeSelectDocs extends React.Component<{}, IState> {
     constructor(props) {
@@ -59,15 +130,15 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         this.state = {
             value: [],
             value2: [],
-            options: itemArr,
-            options2: itemArr
+            options: itemArr2,
+            options2: itemArr2,
+            inputValue: ''
         }
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e, option) {
-
         if(option.item) {
             e.stopPropagation();
             e.preventDefault();
@@ -81,7 +152,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
     render() {
         return (
             <section className='docs-page__container'>
-                <h2 className='docs-page__h2'>TreeSelect</h2>
+                <h2 className='docs-page__h2'>TreeSelect (in progress)</h2>
 
                 <Markup.ReactMarkupCodePreview>{`
                     <TreeSelect
@@ -99,11 +170,20 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                    options={this.state.options}
-                                    getLabel={'label'}
-                                    getMultilevelArray={'items'}
+                                    getId={(item) => item.name}
+                                    getLabel={(item) => item.name}
+                                    getOptions={() => itemArr2}
+                                    value={[{name: 'Item1'}, {name: 'Item2'}]}
                                     selectBranchWithChildren={true}
-                                    onChange={() => false}
+                                    onChange={(e) => console.log(e)}
+                                    allowMultiple
+                                    kind={'synchronous'}
+                                    fullWidth
+                                    info={'Info Message'}
+                                    error={'Error Message'}
+                                    required
+                                    label={'TreeSelect Label'}
+                                    singleLevelSearch
                                 />
                             </div>
                         </div>
@@ -111,30 +191,83 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
-                            options={this.state.options}
-                            getLabel={'label'}
-                            getMultilevelArray={'items'}
+                            getId={(item) => item.name}
+                            getLabel={(item) => item.name}
+                            getOptions={() => {
+                                return itemArr2
+                            }}
+                            value={[{name: 'Item1'}, {name: 'Item2'}]}
                             selectBranchWithChildren={true}
-                            onChange={() => false}
+                            onChange={(e) => console.log(e)}
+                            allowMultiple
+                            kind={'synchronous'}
+                            fullWidth
+                            info={'Info Message'}
+                            error={'Error Message'}
+                            required
+                            label={'TreeSelect Label'}
                         />
                     `}</Markup.ReactMarkupCode>
                     
                 </Markup.ReactMarkup>
+
+                <p className='docs-page__paragraph'>Asynchronous mode in TreeSelect component.</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
+                            <div className='form__row'>
+                            <TreeSelect
+                                kind="asynchronous"
+                                searchOptions={searchOptions}
+                                value={this.state.value}
+                                onChange={(val) => {
+                                    this.setState({value: val});
+                                }}
+                                getLabel={({name}) => name}
+                                getId={({qcode}) => qcode}
+                                selectBranchWithChildren={false}
+                                optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
+                                allowMultiple={true}
+                            />
+                            </div>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+
+                    <Markup.ReactMarkupCode>{`
+                        <TreeSelect
+                            kind="asynchronous"
+                            searchOptions={searchOptions}
+                            value={this.state.value}
+                            onChange={(val) => {
+                                this.setState({value: val});
+                            }}
+                            getLabel={({name}) => name}
+                            getId={({qcode}) => qcode}
+                            selectBranchWithChildren={false}
+                            optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
+                            allowMultiple={true}
+                        />
+                    `}</Markup.ReactMarkupCode>
+                    
+                </Markup.ReactMarkup>
+
                 <p className='docs-page__paragraph'>TreeSelect with custom template.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
-                                    options={this.state.options2}
-                                    getMultilevelArray={'items'}
-                                    getLabel={'label'}
-                                    onChange={() => false}
+                                    getId={(item) => item.name}
+                                    getLabel={(item) => item.name}
+                                    placeholder='Select one'
+                                    getOptions={() => this.state.options}
+                                    kind={'synchronous'}
+                                    onChange={(e) => console.log(e)}
                                     optionTemplate={(item: any) => {
-                                        return <div>Label: {item.label}</div>
+                                        return <div>Label: {item.name}</div>
                                     }}
                                     valueTemplate={(item: any) => {
-                                        return <span>Label: {item.label}</span>
+                                        return <span>Label: {item.name}</span>
                                     }}
                                 />
                             </div>
@@ -143,16 +276,18 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
-                            options={this.state.options2}
-                            getMultilevelArray={'items'}
-                            getLabel={'label'}
-                            onChange={() => false}
+                            getId={(item) => item.name}
+                            getLabel={(item) => item.name}
+                            value={[{name: 'Item4'}, {name: 'Item10'}]}
+                            getOptions={() => this.state.options}
+                            kind={'synchronous'}
+                            onChange={(e) => console.log(e)}
                             optionTemplate={(item: any) => {
-                                return <div>Label: {item.label}</div>
+                                return <div>Label: {item.name}</div>
                             }}
                             valueTemplate={(item: any) => {
-                                return <span>Label: {item.label}</span>
-                            }}   
+                                return <span>Label: {item.name}</span>
+                            }}
                         />
                     `}</Markup.ReactMarkupCode>
 
@@ -161,18 +296,136 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='value' isRequired={false} type='Array<T>' default='/' description='Value of the component.'/>
-                    <Prop name='options' isRequired={true} type='Array<T>' default='/' description='An array of selectitems to display as the available options.'/>
-                    <Prop name='getLabel' isRequired={true} type='string' default='/' description='Name of the label field of an option and decides which field or fields to search against.'/>
-                    <Prop name='getMultilevelArray' isRequired={true} type='string' default='/' description='Name of the children array of an option.'/>
+                    <Prop name='getOptions' isRequired={true} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
+                    <Prop name='kind' isRequired={true} type='synchronous | asynchronous' default='/' description='Type of TreeSelect component.'/>
                     <Prop name='width' isRequired={false} type='medium | full-width (100%)' default='100%' description='Dropdown width.'/>
                     <Prop name='selectBranchWithChildren' isRequired={false} type='boolean' default='false' description='When specified, select branch with children is enabled.'/>
                     <Prop name='readonly' isRequired={false} type='boolean' default='false' description='When specified, component changes are not enabled.'/>
-                    <Prop name='valueTemplate' isRequired={false} type='function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
-                    <Prop name='optionTemplate' isRequired={false} type='function' default='/' description='Function that gets the option and returns the content for it.'/>
-                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='loading' isRequired={false} type='boolean' default='false' description='Adds a loading indicator in dropdown.'/>
+                    <Prop name='getLabel' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='getId' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='valueTemplate' isRequired={false} type='Function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
+                    <Prop name='optionTemplate' isRequired={false} type='Function' default='/' description='Function that gets the option and returns the content for it.'/>
+                    <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
+                    <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                </PropsList>
+
+                <p className='docs-page__paragraph'>synchronous:</p>
+                <PropsList>
+                    <Prop name='getOptions' isRequired={false} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
+                </PropsList>
+
+                <p className='docs-page__paragraph'>asynchronous:</p>
+                <PropsList>
+                    <Prop name='getOptions' isRequired={false} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
+                    <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='function will be called when a search is initiated from UI.'/>
                 </PropsList>
   
             </section>
         )
     }
 }
+
+// import React from 'react';
+// import {ITreeNode, TreeSelect} from './TreeSelect';
+
+// type IProps = {};
+
+// interface IVocabularyItem {
+//     qcode: string;
+//     name: string;
+// }
+
+// interface IState {
+//     value: Array<IVocabularyItem>;
+// }
+
+// const source: Array<ITreeNode<IVocabularyItem>> = [
+//     {
+//         value: {
+//             'name': 'Article (news)',
+//             'qcode': 'Article',
+//         },
+//         children: [
+//             {
+//                 value: {
+//                     'name': 'Test 1',
+//                     'qcode': 'test-1',
+//                 },
+//             }
+//         ],
+//     },
+//     {
+//         value: {
+//             'name': 'Sidebar',
+//             'qcode': 'Sidebar',
+//         },
+//         children: [
+//             {
+//                 value: {
+//                     'name': 'Test 2',
+//                     'qcode': 'test-2',
+//                 },
+//             }
+//         ],
+//     },
+//     {
+//         value: {
+//             'name': 'Factbox',
+//             'qcode': 'Factbox',
+//         },
+//         children: [
+//             {
+//                 value: {
+//                     'name': 'Test 3',
+//                     'qcode': 'test-3',
+//                 },
+//             }
+//         ],
+//     }
+// ];
+
+// export class TreeSelectDocs extends React.PureComponent<IProps, IState> {
+//     constructor(props: IProps) {
+//         super(props);
+//         this.state = {
+//             value: [],
+//         };
+//     }
+//     render() {
+//         return (
+//             // <TreeSelect
+//             //     kind="synchronous"
+//             //     getOptions={() => source}
+//             //     value={this.state.value}
+//             //     onChange={(val) => {
+//             //         this.setState({value: val});
+//             //     }}
+//             //     getId={(item) => item.name}
+//             //                         getLabel={(item) => item.name}
+//             //     selectBranchWithChildren={false}
+//             //     optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
+//             //     allowMultiple={true}
+                
+//             // />
+
+//             <TreeSelect
+//                                     getId={(item) => item.name}
+//                                     getLabel={(item) => item.name}
+//                                     getOptions={() => {
+//                                         return source
+//                                     }}
+//                                     //value={[{name: 'Item1'}, {name: 'Item2'}]}
+//                                     //selectBranchWithChildren={true}
+//                                     onChange={(e) => console.log(e)}
+//                                     allowMultiple
+//                                     kind={'synchronous'}
+//                                     fullWidth
+//                                     info={'Info Message'}
+//                                     error={'Error Message'}
+//                                     required
+//                                     label={'TreeSelect Label'}
+//                                 />
+//         );
+//     }
+// }
