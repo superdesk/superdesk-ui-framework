@@ -289,7 +289,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 onClick={(event) => {
                     this.setState({
                         searchFieldValue: '',
-                    })
+                    }),
                     event.preventDefault();
                     event.stopPropagation();
                     this.handleTree(event, option);
@@ -304,7 +304,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         </span>}
                         {option.children && <span className="suggestion-item__icon">
                             <Icon name="chevron-right-thin"></Icon>
-                        </span>}              
+                        </span>}
                 </li>;
             });
         } else if (this.props.kind === 'asynchronous') {
@@ -417,7 +417,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         </span>
                                     </React.Fragment>;
                                 })}
-                       </div>     
+                       </div>
                     }
 
                     {this.state.openDropdown &&
@@ -426,7 +426,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             <div className="autocomplete__icon" onClick={() => {
                             this.backButtonValue();
                             this.backButton();
-                            }}>   
+                            }}>
                                  <Icon name="search" className="search"></Icon>
                             </div>
                             <div className='autocomplete__filter'>
@@ -442,7 +442,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             this.setState({
                                                 searchFieldValue: value,
                                                 loading: true,
-                                            })
+                                            }),
                                             this.props.searchOptions(value, (items) => {
                                                 this.setState({options: items, loading: false});
                                             });
@@ -450,7 +450,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             this.setState({searchFieldValue: value});
                                         }
                                     }}
-                                    />       
+                                    />
                             </div>
                         </div>
                         {this.state.activeTree.length > 0 &&
@@ -465,7 +465,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 <button
                                 className={'autocomplete__category-title'}
                                 value={this.state.buttonValue}>
-                                    {this.props.optionTemplate ? this.props.optionTemplate(this.state.buttonValue.value) : this.props.getLabel(this.state.buttonValue.value)}
+                                    {this.props.optionTemplate
+                                    ? this.props.optionTemplate(this.state.buttonValue.value)
+                                    : this.props.getLabel(this.state.buttonValue.value)}
                                 </button>
                                 {this.props.selectBranchWithChildren &&
                                     <button
@@ -476,7 +478,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
                                         Choose entire category
                                     </button>
-                                }  
+                                }
                             </div>
                         </div>}
                         {this.state.loading
@@ -514,7 +516,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             })}</ul> : null
                             :
                             <ul className="suggestion-list suggestion-list--multi-select">
-                            {this.filteredItem(this.props.singleLevelSearch ? this.state.options : this.state.filterArr)}
+                                {this.filteredItem(this.props.singleLevelSearch
+                                ? this.state.options : this.state.filterArr)}
                             </ul>
                     }
                     </div>}
