@@ -276,6 +276,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     if (this.props.getLabel(item.value)
                     .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
                         return item.value;
+                    } else {
+                        return;
                     }
                 } else {
                     return item.value;
