@@ -42,28 +42,26 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
 
         let htmlId = nextId();
         return (
-            <div style={{display: 'inline-flex'}}>
-                <div className={`${classes} sd-input--no-label sd-input--no-margin`}>
-                    <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
-                    tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                        {this.props.label}
-                    </label>
-                    <input
-                    type="time"
-                    className="sd-input__input"
-                    value={this.props.value}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    onChange={(event) => {
-                        this.props.onChange(event.target.value);
-                    }}/>
-                    <div className='sd-input__message-box'>
-                        {this.props.info && !this.props.invalid && !this.state.invalid ?
-                            <div className='sd-input__hint'>{this.props.info}</div> : null}
-                        {this.props.invalid || this.state.invalid ?
-                            <div className='sd-input__message'>{this.props.error}</div>
-                            : null}
-                    </div>
+            <div className={classes}>
+                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
+                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
+                    {this.props.label}
+                </label>
+                <input
+                type="time"
+                className="sd-input__input"
+                value={this.props.value}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                onChange={(event) => {
+                    this.props.onChange(event.target.value);
+                }}/>
+                <div className='sd-input__message-box'>
+                    {this.props.info && !this.props.invalid && !this.state.invalid ?
+                        <div className='sd-input__hint'>{this.props.info}</div> : null}
+                    {this.props.invalid || this.state.invalid ?
+                        <div className='sd-input__message'>{this.props.error}</div>
+                        : null}
                 </div>
             </div>
         );

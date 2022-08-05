@@ -260,3 +260,25 @@
     background-color: var(--color-form-bg);
     color: var(--color-text);
 }
+
+
+/// ---------------------------- NEW FORM LAYOUT TEST---------------------------- ///
+
+
+
+.form__group-new {
+    display: flex;
+    flex-direction: row;
+    width:100%;
+    align-items: flex-start;
+    gap: $sd-base-increment * 2;
+    .sd-input {
+        flex: 1 1 0;
+        min-width: 12rem;
+        margin: 0;
+    }
+    .btn {
+        flex: 0 0 auto;
+        margin-top: $form-label-height;
+    }
+}

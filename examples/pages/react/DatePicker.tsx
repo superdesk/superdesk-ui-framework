@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import * as Markup from '../../js/react';
-import {DatePicker, PropsList, Prop} from '../../../app-typescript';
+import {DatePicker, PropsList, Prop, DatePickerISO} from '../../../app-typescript';
 
 class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
     constructor(props) {
@@ -62,6 +62,19 @@ export default class DatePickerDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
                             <DatePickerExample />
+                        </div>
+
+                        <p className="docs-page__paragraph">// DatePickerISO</p>
+                        <div className='docs-page__content-row'>
+                            <DatePickerISO
+                                value={'2019-01-01'}
+                                dateFormat="YYYY-MM-DD"
+                                onChange={(date) => {
+                                    this.setState({date});
+                                }}
+                                inlineLabel
+                                labelHidden
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`

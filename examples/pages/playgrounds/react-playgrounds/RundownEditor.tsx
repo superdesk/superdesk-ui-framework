@@ -139,7 +139,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                 <Layout.HeaderPanel>       
                     <SubNav>
                         <ButtonGroup align='end'>
-                            <Button text="Cancel"  onClick={()=> false} type="default" />
+                            <Button text="Cancel" onClick={()=> false} type="default" />
                             <Button text="Save Rundown" onClick={()=> false} type="primary" />
                             <Divider size="mini" />
                             <ButtonGroup subgroup={true} spaces="no-space">
