@@ -710,82 +710,7 @@
         flex-grow: 1;
         width: 100%;
     }
-    &--boxed-style {
-        .sd-input__input,
-        .sd-input__select {
-            border: 0;
-            border: 2px solid var(--color-input-border);
-            background-color: transparent;
-            transition: all ease 0.3s;
-            border-radius: var(--b-radius--large);
-            display: block;
-            &:hover {
-                border-color: var(--color-input-border-hover);
-                background-color: transparent;
-            }
-            &:focus {
-                outline: none;
-                border-color: var(--sd-colour-interactive--alpha-50);
-                box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
-                background-color: transparent;
-            }
-        }
-        &.sd-input--disabled {
-            input, textarea {
-                &.sd-input__input, &.sd-input__input:hover, &.sd-input__input:focus {
-                    opacity: 0.5;
-                    background-color: transparent;
-                    border: 2px solid var(--color-input-border) !important;
-                    //cursor: not-allowed !important;
-                    box-shadow: none;
-                }
-            }
-            select {
-                &.sd-input__select, &.sd-input__select:hover, &.sd-input__select:focus {
-                    opacity: 0.5;
-                    background-color: transparent;
-                    border: 2px solid var(--color-input-border) !important;
-                    //ursor: not-allowed !important;
-                    box-shadow: none;
-                }
-            }
-            .tags-input__add-button {
-                pointer-events: none;
-            }
-            .sd-input__label,
-            .sd-input__message-box,
-            .sd-input__char-count {
-            .sd-input__label, .sd-input__message-box, .sd-input__char-count {
-                opacity: 0.5;
-            }
-            .sd-input__hint,
-            .sd-input__message,
-            .sd-input__char-count {
-                pointer-events: none;
-            }
-        }
-        &.sd-input--invalid {
-            input, textarea {
-                &.sd-input__input {
-                    &:focus {
-                        background-color: hsla(357, 79%, 50%, 0.1);
-                        box-shadow: none;
-                    }
-                }
-            }
-            select {
-                &.sd-input__select {
-                    &:focus {
-                        background-color: hsla(357, 79%, 50%, 0.1);
-                        box-shadow: none;
-                    }
-                }
-            }
-            .sd-input__label, .sd-input__message {
-                color: $red;
-            }
-        }
-    }
+
     &--medium {
         &.sd-input--boxed-style {
             .sd-input__input,
@@ -833,6 +758,91 @@
             }
         }
     }
+    &--boxed-style {
+        .sd-input__input,
+        .sd-input__select {
+            border: 0;
+            border: 2px solid var(--color-input-border);
+            background-color: transparent;
+            transition: all ease 0.3s;
+            border-radius: var(--b-radius--large);
+            display: block;
+            &:hover {
+                border-color: var(--color-input-border-hover);
+                background-color: transparent;
+            }
+            &:focus {
+                outline: none;
+                border-color: var(--sd-colour-interactive--alpha-50);
+                box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
+                background-color: transparent;
+            }
+        }
+    
+        &.sd-input--disabled {
+            input,
+            textarea {
+                &.sd-input__input, 
+                &.sd-input__input:hover, 
+                &.sd-input__input:focus {
+                    opacity: 0.5;
+                    background-color: transparent;
+                    border: 2px solid var(--color-input-border) !important;
+                    box-shadow: none;
+                }
+            }
+            select {
+                &.sd-input__select,
+                &.sd-input__select:hover,
+                &.sd-input__select:focus {
+                    opacity: 0.5;
+                    background-color: transparent;
+                    border: 2px solid var(--color-input-border) !important;
+                    //ursor: not-allowed !important;
+                    box-shadow: none;
+                }
+            }
+            .tags-input__add-button {
+                pointer-events: none;
+            }
+            .sd-input__label,
+            .sd-input__message-box,
+            .sd-input__char-count {
+                .sd-input__label,
+                .sd-input__message-box,
+                .sd-input__char-count {
+                    opacity: 0.5;
+                }
+            }
+            .sd-input__hint,
+            .sd-input__message,
+            .sd-input__char-count {
+                pointer-events: none;
+            }
+        }
+    
+        &.sd-input--invalid {
+            input, textarea {
+                &.sd-input__input {
+                    &:focus {
+                        background-color: hsla(357, 79%, 50%, 0.1);
+                        box-shadow: none;
+                    }
+                }
+            }
+            select {
+                &.sd-input__select {
+                    &:focus {
+                        background-color: hsla(357, 79%, 50%, 0.1);
+                        box-shadow: none;
+                    }
+                }
+            }
+            .sd-input__label, .sd-input__message {
+                color: $red;
+            }
+        }
+    }
     &--boxed-label {
         grid-template-columns: auto 1fr auto;
         grid-template-rows: auto auto auto;
@@ -862,9 +872,16 @@
             }
         }
     }
+    
 }
 
 /////////////////  -------------------- Duration & Time-Date input ---------------------  /////////////////
+
+
+
+
+
+
 
 .sd-input__duration-input,
 .sd-input__time-date-input {
@@ -879,6 +896,7 @@
         background-color: var(--sd-colour-interactive--alpha-20);
     }
 }
+
 .sd-input__duration-input {
     input {
         -webkit-appearance: none;
@@ -941,4 +959,8 @@
         }
     }
 }
-}
+
+//&--boxed-style
+
+
+

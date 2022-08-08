@@ -359,7 +359,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     {this.props.label}
                 </label>
 
-                <div className={`tags-input tags-input--${this.props.allowMultiple ? 'multiselect' : 'singleselect'} sd-input__input`}>
+                <div className={`tags-input tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'} sd-input__input`}>
                     {this.props.allowMultiple
                         ? <div className="tags-input__tags">
                         {this.props.readOnly
@@ -372,8 +372,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 {this.state.value.map((item, i: number) => {
                                     return <React.Fragment key={i}>
                                         <li
-                                        className={"tags-input__tag-item tags-input__tag-item-multiselect"
-                                        + (this.props.readOnly ? ' tags-input__tag-item-readonly' : '')}
+                                        className={"tags-input__tag-item tags-input__tag-item--multi-select"
+                                        + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
                                         onClick={() => this.props.readOnly || this.removeClick(i)}>
                                             <span className="tags-input__helper-box">
                                                 {this.props.valueTemplate
@@ -396,8 +396,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
                             </button>
                             {this.state.value.length < 1 && <span className={ 'tags-input__single-item'
-                            + (this.props.readOnly ? ' tags-input__tag-item-readonly' : '')}>
-                                <span>
+                            + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}>
+                                <span className="tags-input__placeholder">
                                     {this.props.placeholder}
                                 </span>
                             </span>}
@@ -405,7 +405,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     return <React.Fragment key={i}>
                                         <span
                                         className={ 'tags-input__single-item'
-                                        + (this.props.readOnly ? ' tags-input__tag-item-readonly' : '')}
+                                        + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
                                         onClick={() => this.props.readOnly || this.removeClick(i)}>
                                             <span className="tags-input__helper-box">
                                                 {this.props.valueTemplate
@@ -423,7 +423,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     }
 
                     {this.state.openDropdown &&
-                    <div className={"autocomplete autocomplete-multiselect" + (this.props.width === 'medium' ? ' autocomplete-multiselect-width' : '')} ref={this.dropdownRef}>
+                    <div className={"autocomplete autocomplete--multi-select" + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')} ref={this.dropdownRef}>
                         <div className='autocomplete__header'>
                             <div className="autocomplete__icon" onClick={() => {
                             this.backButtonValue();
@@ -473,7 +473,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </button>
                                 {this.props.selectBranchWithChildren &&
                                     <button
-                                    className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multiselect' : '')}
+                                    className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '')}
                                     onMouseOver={() => this.setState({buttonMouseEvent: true})}
                                     onMouseOut={() => this.setState({buttonMouseEvent: false})}
                                     value={this.state.buttonValue}

@@ -31,7 +31,8 @@ sd-tag-input {
     letter-spacing: 0.08em;
 }
 
-tags-input, .tags-input {
+tags-input,
+.tags-input {
     display: block;
     background-color: var(--color-input-bg);
     .tags-input__host {
@@ -44,35 +45,24 @@ tags-input, .tags-input {
         }
     }
     .tags-input__tags {
-        padding: 0.1rem 0 0 0.1rem;
+        display: flex;
+        align-items: flex-start;
+        padding: 0.4rem 0.4rem 0.3rem 0.4rem;
         overflow: hidden;
         word-wrap: break-word;
-        cursor: text;
         background-color: transparent;
         border:none;
-        //transition: border linear 0.2s, box-shadow linear 0.2s;
-        //border-bottom: 1px solid $sd-inputBorderColor;
         height: 100%;
-        gap: 0.4rem;
-        &:hover {
-            border-color: rgba(0,0,0,0.3);
-        }
-        &.focused {
-            outline: none;
-            border-bottom: 1px solid $sd-colour-interactive;
-            box-shadow: 0 1px 0  $sd-colour-interactive;
-            .tags-input__input {
-                width: auto;
-            }
-        }
         .tags-input__tag-list {
             margin: 0;
             padding: 0;
             list-style-type: none;
             display: flex;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
-            gap: $sd-base-increment;
+            flex-wrap: wrap;
+            padding-inline-start: $sd-base-increment / 2;
+            gap: $sd-base-increment / 2;
         }
         .tags-input__tag-item {
             @include tag-label;
@@ -84,13 +74,6 @@ tags-input, .tags-input {
             }
             &:hover {
                 cursor: pointer;
-            }
-            &:hover .tags-input__remove-button {
-                text-decoration: none;
-                    background-color: var(--sd-colour__tag-label-remove-Bg--hover);
-                    [class^="icon-"], [class*=" icon-"] {
-                        opacity: 0.85;
-                    }
             }
             .tags-input__remove-button {
                 height: 1.8rem;
@@ -151,10 +134,10 @@ tags-input, .tags-input {
                 }
             }
         }
-        .tags-input__tag-item-multiselect {
+        .tags-input__tag-item--multi-select {
             margin: 0 !important;
         }
-        .tags-input__tag-item-readonly {
+        .tags-input__tag-item--readonly {
             cursor: default !important;
         }
         .tags-input__input {
@@ -223,7 +206,6 @@ tags-input, .tags-input {
         }
     }
     .tags-input__add-button {
-        float: left;
         height: $sd-base-increment * 3;
         width: $sd-base-increment * 3;
         background-color: $sd-colour-interactive;
@@ -236,6 +218,7 @@ tags-input, .tags-input {
         opacity: 0.5;
         padding: 0;
         justify-content: center;
+        flex-shrink: 0;
         i {
             color: inherit;
         }
@@ -251,89 +234,12 @@ tags-input, .tags-input {
         }
     }
     .autocomplete {
-        margin-top: 0.5rem;
         position: absolute;
         padding: 0.5rem 0;
         z-index: 999;
         width: 100%;
         background-color: var(--color-dropdown-menu-Bg);
         box-shadow: $shadow__dropdown--default;
-        &__header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-            padding: 4px;
-        }
-        &__category-header {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 4px;
-            //border-bottom: 1px solid rgba(0, 0, 0, 0.15);
-            padding: 4px;
-        }
-        &__icon {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 35px;
-            width: 35px;
-            &:hover .arrow-left {
-                color: var(--sd-colour-interactive--alpha-70);
-                transition: 0.2s;
-                transform: translate(-3px);
-            }
-            .arrow-left {
-                cursor: pointer; 
-            }
-            .search {
-                cursor: not-allowed;
-            }
-        }
-        &__filter {
-            height: 32px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-        &__button {
-            height: 32px;
-            padding: 0 15px;
-            font-weight: 600;
-            width: auto;
-            cursor: default;
-            margin-inline-start: auto;
-        }
-        &__category-title {
-            font-weight: 600;
-            padding: 0;
-        }
-        &__input {
-            height: 32px;
-            width: 100%;
-            padding: 4px;
-            border: none;
-            background-color: transparent;
-            color: var(--color-text);
-        }
-        &__button--multiselect {
-            background-color: var(--sd-colour-interactive--alpha-10);
-            border-radius: var(--b-radius--small);
-            cursor: pointer;
-            &:hover {
-                background-color: var(--sd-colour-interactive--alpha-20);
-            }
-        }
-        &-multiselect {
-            padding: 0 !important;
-        }
-        &-multiselect-width {
-            width: 275px !important;
-        }
-        
         .suggestion-list {
             margin: 0;
             padding: 0;
@@ -341,7 +247,6 @@ tags-input, .tags-input {
             max-height: 28rem;
             overflow-y: auto;
             position: relative;
-            
         }
         .suggestion-list--multi-select {
             padding: 4px 0 !important;
@@ -358,7 +263,8 @@ tags-input, .tags-input {
             overflow: hidden;
             text-overflow: ellipsis;
             color: $sd-text;
-            transition: all ease-in-out 0.1s;
+            transition: all ease 0.2s;
+            min-height: $sd-base-increment * 4;
             &.selected {
                 background-color: var(--sd-colour-interactive--alpha-30);
                 &:active {
@@ -375,10 +281,11 @@ tags-input, .tags-input {
             &:hover {
                 background-color: var(--sd-colour-interactive--alpha-10) !important;
             }
-            &__icon {
+            .suggestion-item__icon {
                 display: flex;
                 align-items: center;
-                justify-content: center;  
+                justify-content: center;
+                opacity: 0.5;
             }
         }
         .suggestion-item--multi-select {
@@ -392,179 +299,13 @@ tags-input, .tags-input {
     }
 }
 
-.tags-input--multiselect, .tags-input--singleselect {
-    position: relative;
-}
-
-.tags-input--singleselect {
-    &::after {
-        position: absolute;
-        z-index: 1;
-        display: inline-block;
-        margin-inline-end: 1rem;
-        vertical-align: middle;
-        border-left: 0.4rem solid transparent;
-        border-right: 0.4rem solid transparent;
-        border-top: 0.4rem solid var(--color-text);
-        pointer-events: none;
-        opacity: 0.4;
-        content: "";
-        z-index: 0;
-        inset-inline-end: 0;
-        inset-block-start: 1.5rem;
-    }
-    &:hover {
-        &::after {
-            opacity: 0.6;
-        }
-    }
-}
-
-.tags-input__overlay-button {
-    position: absolute;
-    inset: 0;
-}
-
-.tags-input__single-item {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: stretch;
-    padding-inline-end: 20px;
-    .tags-input__helper-box {
-        display: flex;
-        width: 100%;
-        align-items: center;
-    }
-    .tags-input__remove-button {
-        display: flex;
-        align-items: center;
-        align-self: flex-end;
-        margin-inline-start: auto;
-        z-index: 2;
-        cursor: pointer;
-        opacity: 0.7;
-        transition: opacity 0.2s ease;
-        &:hover {
-            opacity: 1;
-        }
-    }
-}
-
-
 //TESTING TAG INPUT REACT NEW CSS
 
 .tags-input {
-    display: block;
-    .tags-input__host {
-        position: relative;
-        margin-top: 0.5rem;
-        margin-bottom: 0;
-        height: 100%;
-        &:active {
-            outline: none;
-        }
-    }
+    padding-inline: 0 !important;
+    height: auto !important;
+    min-height: $form-input-height;
     .tags-input__tags {
-        padding: 0.1rem 0 0 0.1rem;
-        overflow: hidden;
-        word-wrap: break-word;
-        cursor: text;
-        background-color: transparent;
-        border:none;
-        //transition: border linear 0.2s, box-shadow linear 0.2s;
-        //border-bottom: 1px solid $sd-inputBorderColor;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        min-height: $form-input-height;
-        &:hover {
-            border-color: rgba(0,0,0,0.3);
-        }
-        &.focused {
-            outline: none;
-            border-bottom: 1px solid $sd-colour-interactive;
-            box-shadow: 0 1px 0  $sd-colour-interactive;
-            .tags-input__input {
-                width: auto;
-            }
-        }
-        .tags-input__tag-list {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-            display: flex;
-            flex-wrap: wrap;
-            gap: $sd-base-increment / 2; 
-        }
-        .tags-input__tag-item {
-            @include tag-label;
-            //margin: 2px 4px 2px 0;
-            float: left;
-            transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-            background: $tag-label-BG-default;
-            color: currentColor;
-            &.selected {
-                background-color: var(--sd-colour-interactive--alpha-70);
-
-            }
-            .tags-input__remove-button {
-                height: 1.8rem;
-                width: 1.8rem;
-                padding: 0;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-size: inherit;
-                line-height: 1;
-                text-decoration: none;
-                text-align: center;
-                vertical-align: middle;
-                border-radius: $border-radius__base--full;
-                background-color: var(--sd-colour__tag-label-remove-Bg);
-                color: var(--color-text);
-                cursor: pointer;
-                transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-                margin-inline-end: -1rem;
-                margin-inline-start:  0.8rem;
-                [class^="icon-"], [class*=" icon-"] {
-                    color: var(--color-text-light);
-                    font-size: 1.6rem;
-                    flex-grow: 0;
-                    flex-shrink: 0;
-                    margin-inline-start: 1px;
-                    opacity: 0.4;
-                    transition: color .1s ease-out, opacity .1s ease-out;
-                }
-                &:hover {
-                    text-decoration: none;
-                    background-color: var(--sd-colour__tag-label-remove-Bg--hover);
-                    [class^="icon-"], [class*=" icon-"] {
-                        opacity: 0.85;
-                    }
-                }
-                &:active {
-                    background-color: var(--sd-colour__tag-label-remove-Bg--hover);
-                    [class^="icon-"], [class*=" icon-"] {
-                      color: $sd-colour-interactive;
-                      opacity: 1;
-                    }
-                }
-            }
-            ti-tag-item {
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                .tags-input__helper-box {
-                    display: flex;
-                    flex-direction: row;
-                    align-items: center;
-                    span {
-                        flex-grow: 1;
-                    }
-                }
-            }
-        }
         .tags-input__input {
             border: 0;
             outline: none;
@@ -600,69 +341,11 @@ tags-input, .tags-input {
             }
         }
     }
-    &.ng-invalid {
-        .tags-input__tags {
-            border-bottom: 1px solid $red !important;
-            box-shadow: 0 1px 0 $red !important;
-        }
-    }
-
-    &[disabled] {
-        .tags-input__host:focus {
-            outline: none;
-        }
-        .tags-input__tags {
-            background-color: #eee;
-            cursor: default;
-            .tags-input__tag-item {
-                opacity: 0.65;
-                .tags-input__remove-button {
-                    cursor: default;
-                    &:active {
-                        color: #585858;
-                    }
-                }
-            }
-            .tags-input__input {
-                background-color: #eee;
-                cursor: default;
-            }
-        }
-    }
-    .tag-input__invalid-tag{
-        border-bottom: 1px solid #E51C23 !important;
-        box-shadow: 0 1px 0 #E51C23 !important;
-    }
-    .tags-input__add-button {
-        height: $sd-base-increment * 3;
-        width: $sd-base-increment * 3;
-        background-color: $sd-colour-interactive;
-        color: $white;
+    .tags-input__helper-box {
         display: flex;
         align-items: center;
-        text-align: center;
-        transition: all 0.3s;
-        border-radius: $border-radius__base--x-small;
-        opacity: 0.5;
-        padding: 0;
-        justify-content: center;
-        flex-shrink: 0;
-        i {
-            color: inherit;
-        }
-        &:hover {
-            opacity: 1;
-        }
-        &[disabled], [disabled]:hover, [disabled]:active {
-            opacity: 0.5;
-            background-color: rgba(123, 123, 123, 0.4);
-            cursor: default;
-            cursor: not-allowed;
-            color: scale-color($white, $alpha: -20%);
-        }
     }
     .autocomplete {
-        margin-block-start: 0.5rem;
         position: absolute;
         padding: 0;
         padding-block-start: 0.5rem;
@@ -672,41 +355,168 @@ tags-input, .tags-input {
         border-radius: $border-radius__base--small;
         background-color: var(--color-dropdown-menu-Bg);
         box-shadow: $shadow__dropdown--default;
-        .suggestion-list {
-            margin: 0;
-            padding: 0;
-            list-style-type: none;
-            max-height: 28rem;
-            overflow-y: auto;
-            position: relative;
+        .autocomplete__header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            border-bottom: 1px solid var(--sd-colour-line--light);
+            padding: 4px;
         }
-        .suggestion-item {
-            padding: 0.5rem 1rem;
-            cursor: pointer;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            color: $sd-text;
-            transition: all ease-in-out 0.1s;
-            &:hover {
-                background-color: $sd-colour-background__menu-item--hover;
+        .autocomplete__category-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            border-bottom: 1px solid var(--sd-colour-line--x-light);
+            padding: 4px;
+        }
+        .autocomplete__icon {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 35px;
+            width: 35px;
+            &:hover .arrow-left {
+                color: var(--sd-colour-interactive--alpha-70);
+                transition: 0.2s;
+                transform: translate(-3px);
             }
-            &.selected {
-                background-color: $sd-colour-background__menu-item--hover;
-                &:active {
-                    background-color: var(--sd-colour-interactive--alpha-70);
-                    color: $white;
-                }
+            .arrow-left {
+                cursor: pointer; 
             }
-            &[disabled], &[disabled]:hover, &[disabled]:active {
-                background-color: transparent;
-                opacity: 0.45;
+            .search {
                 cursor: default;
-                pointer-events: none;
+                opacity: 0.65;
             }
+        }
+        .autocomplete__filter {
+            height: 32px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .autocomplete__button {
+            height: 32px;
+            padding: 0 15px;
+            font-weight: 600;
+            width: auto;
+            cursor: default;
+            margin-inline-start: auto;
+        }
+        .autocomplete__category-title {
+            font-weight: 600;
+            padding: 0;
+            cursor: default;
+        }
+        .autocomplete__input {
+            height: 32px;
+            width: 100%;
+            padding: 4px;
+            border: none;
+            background-color: transparent;
+            color: var(--color-text);
+            &::placeholder {
+                color: var(--color-text-lighter);
+                font-weight: 300;
+                //font-style: italic;
+            }
+        }
+        .autocomplete__button--multi-select {
+            background-color: transparent;
+            border: 1px solid var(--sd-colour-interactive--alpha-50);
+            border-radius: var(--b-radius--small);
+            color: var(--sd-colour-interactive);
+            cursor: pointer;
+            transition: all ease 0.2s;
+            font-size: 1.3rem;
+            font-weight: 400;
+            margin-inline-end: $sd-base-increment;
+            height: 2.8rem;
+            &:hover {
+                border: 1px solid var(--sd-colour-interactive);
+                box-shadow: inset 0 0 0 2px var(--sd-colour-interactive--alpha-20);
+            }
+            &:active {
+                border: 1px solid var(--sd-colour-interactive);
+                box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-30);
+            }
+        }
+        &--multi-select {
+            padding: 0 !important;
+            margin-block-start: 0;
+        }
+        &--fixed-width {
+            width: 275px !important;
         }
     }
 }
 
+.tags-input--multi-select,
+.tags-input--single-select {
+    position: relative;
+}
 
+.tags-input--single-select {
+    .tags-input__tags {
+        align-items: center;
+    }
+    &::after {
+        position: absolute;
+        z-index: 1;
+        display: inline-block;
+        margin-inline-end: 1rem;
+        vertical-align: middle;
+        border-left: 0.4rem solid transparent;
+        border-right: 0.4rem solid transparent;
+        border-top: 0.4rem solid var(--color-text);
+        pointer-events: none;
+        opacity: 0.4;
+        content: "";
+        z-index: 0;
+        inset-inline-end: 0;
+        inset-block-start: 1.5rem;
+    }
+    &:hover {
+        &::after {
+            opacity: 0.6;
+        }
+    }
+}
 
+.tags-input__overlay-button {
+    position: absolute;
+    inset: 0;
+}
+
+.tags-input__single-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: stretch;
+    padding-inline-start: $sd-base-increment;
+    padding-inline-end: $sd-base-increment * 3;
+    .tags-input__helper-box {
+        display: flex;
+        width: 100%;
+        align-items: center;
+    }
+    .tags-input__remove-button {
+        display: flex;
+        align-items: center;
+        align-self: flex-end;
+        margin-inline-start: auto;
+        z-index: 2;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        &:hover {
+            opacity: 1;
+        }
+    }
+    .tags-input__placeholder {
+        color: var(--color-text-lighter);
+        font-weight: 300;
+    }
+}
