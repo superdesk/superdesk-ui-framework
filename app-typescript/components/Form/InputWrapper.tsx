@@ -22,8 +22,6 @@ interface IPropsBase {
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
 }
 
-
-
 interface IState {
     value: string | number;
     invalid: boolean;
@@ -38,25 +36,6 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
             invalid: this.props.invalid ?? false,
         };
     }
-
-    // handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-    //     this.setState({ value: event.target.value });
-    //     if (this.props.type === 'number') {
-    //         this.props.onChange(Number(event.target.value));
-    //     } else {
-    //         this.props.onChange(event.target.value);
-    //     }
-
-    //     if (this.props.maxLength && !this.props.invalid) {
-    //         this.setState({ invalid: event.target.value.length > this.props.maxLength });
-    //     }
-    // }
-
-    // componentDidUpdate(prevProps: any) {
-    //     if (prevProps.value !== this.props.value) {
-    //         this.setState({value: this.props.value});
-    //     }
-    // }
 
     render() {
         const classes = classNames('sd-input', {

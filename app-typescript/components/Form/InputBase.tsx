@@ -1,5 +1,4 @@
 import * as React from 'react';
-//import nextId from "react-id-generator";
 
 interface IPropsBase {
     error?: string;

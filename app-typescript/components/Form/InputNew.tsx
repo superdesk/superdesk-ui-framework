@@ -8,20 +8,12 @@ import {
 
 interface IPropsBase {
     label?: string;
-    //children: React.ReactNode;
     maxLength?: number;
     info?: string;
-
     inlineLabel?: boolean;
     labelHidden?: boolean;
-
     value?: string | number;
-
-
-
     error?: string;
-    // id?: string;
-    // htmId?: string;
     required?: boolean;
     disabled?: boolean;
     invalid?: boolean;
@@ -32,7 +24,6 @@ interface IPropsBase {
     placeholder?: string;
     type: 'text' | 'number' | 'password';
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
-    
 }
 
 interface IPropsText extends IPropsBase {
