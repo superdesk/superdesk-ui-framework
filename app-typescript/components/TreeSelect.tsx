@@ -338,12 +338,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
-    banchButton() { 
+    banchButton() {
         let selectedButton = this.state.value.some((obj) =>
             this.props.getId(obj) === this.props.getId(this.state.buttonValue.value),
         );
 
-        if(!selectedButton) {
+        if (!selectedButton) {
             return <button
                 className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '')}
                 onMouseOver={() => this.setState({buttonMouseEvent: true})}
@@ -351,14 +351,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 value={this.state.buttonValue}
                 onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
                     Choose entire category
-                </button>
+                </button>;
         } else {
             return <button
                 className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '') + ' autocomplete__button--disabled'}
                 value={this.state.buttonValue}>
                     Category selected
-                </button>
-        }  
+                </button>;
+        }
     }
 
     render() {
@@ -484,7 +484,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 />
                             </div>
                         </div>
-                        {this.state.activeTree.length > 0 && 
+                        {this.state.activeTree.length > 0 &&
                         <div className='autocomplete__category-header'>
                             <div className="autocomplete__icon" onClick={() => {
                             this.backButtonValue();
