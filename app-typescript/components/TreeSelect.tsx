@@ -66,6 +66,7 @@ export interface ITreeNode<T> {
 export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private dropdownRef: React.RefObject<HTMLInputElement>;
     private openDropdownRef: React.RefObject<HTMLButtonElement>;
+    private htmlId: string = nextId();
 
     constructor(props: IProps<T>) {
         super(props);
@@ -91,6 +92,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.backButtonValue = this.backButtonValue.bind(this);
         this.handleTree = this.handleTree.bind(this);
         this.filteredItem = this.filteredItem.bind(this);
+        this.banchButton = this.banchButton.bind(this);
         this.dropdownRef = React.createRef();
         this.openDropdownRef = React.createRef();
     }
@@ -336,6 +338,29 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
+    banchButton() {
+        let selectedButton = this.state.value.some((obj) =>
+            this.props.getId(obj) === this.props.getId(this.state.buttonValue.value),
+        );
+
+        if (!selectedButton) {
+            return <button
+                className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '')}
+                onMouseOver={() => this.setState({buttonMouseEvent: true})}
+                onMouseOut={() => this.setState({buttonMouseEvent: false})}
+                value={this.state.buttonValue}
+                onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
+                    Choose entire category
+                </button>;
+        } else {
+            return <button
+                className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '') + ' autocomplete__button--disabled'}
+                value={this.state.buttonValue}>
+                    Category selected
+                </button>;
+        }
+    }
+
     render() {
 
         const labelClasses = classNames('sd-input__label', {
@@ -350,11 +375,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             'sd-input--invalid': this.props.invalid || this.state.invalid,
         });
 
-        const htmlId = nextId();
-
         return (
             <div className={classesLabel}>
-                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
+                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}
                         tabIndex={this.props.tabindex === undefined ? undefined : -1}>
                     {this.props.label}
                 </label>
@@ -388,6 +411,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     </React.Fragment>;
                                 })}
                             </ul>
+                            {this.state.value.length > 0  ?
+                            this.props.readOnly
+                                || <button className="tags-input__remove-value"
+                                onClick={() => this.setState({value: []})}>
+                                    <Icon name='remove-sign'></Icon>
+                                </button> : null}
                         </div>
                         : <div className="tags-input__tags">
                             <button
@@ -432,27 +461,27 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                  <Icon name="search" className="search"></Icon>
                             </div>
                             <div className='autocomplete__filter'>
-                                     <input
-                                    placeholder={this.props.singleLevelSearch ? 'Search this category...' : 'Search...'}
-                                    type="text"
-                                    className="autocomplete__input"
-                                    ref={(input) => input && input.focus()}
-                                    value={this.state.searchFieldValue}
-                                    onChange={(event) => {
-                                        const value = event.target.value;
-                                        if (this.props.kind === 'asynchronous') {
-                                            this.setState({
-                                                searchFieldValue: value,
-                                                loading: true,
-                                            }),
-                                            this.props.searchOptions(value, (items) => {
-                                                this.setState({options: items, loading: false});
-                                            });
-                                        } else if (this.props.kind === 'synchronous') {
-                                            this.setState({searchFieldValue: value});
-                                        }
-                                    }}
-                                    />
+                                <input
+                                placeholder={this.props.singleLevelSearch ? 'Search this category...' : 'Search...'}
+                                type="text"
+                                className="autocomplete__input"
+                                ref={(input) => input && input.focus()}
+                                value={this.state.searchFieldValue}
+                                onChange={(event) => {
+                                    const value = event.target.value;
+                                    if (this.props.kind === 'asynchronous') {
+                                        this.setState({
+                                            searchFieldValue: value,
+                                            loading: true,
+                                        }),
+                                        this.props.searchOptions(value, (items) => {
+                                            this.setState({options: items, loading: false});
+                                        });
+                                    } else if (this.props.kind === 'synchronous') {
+                                        this.setState({searchFieldValue: value});
+                                    }
+                                }}
+                                />
                             </div>
                         </div>
                         {this.state.activeTree.length > 0 &&
@@ -471,16 +500,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     ? this.props.optionTemplate(this.state.buttonValue.value)
                                     : this.props.getLabel(this.state.buttonValue.value)}
                                 </button>
-                                {this.props.selectBranchWithChildren &&
-                                    <button
-                                    className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '')}
-                                    onMouseOver={() => this.setState({buttonMouseEvent: true})}
-                                    onMouseOut={() => this.setState({buttonMouseEvent: false})}
-                                    value={this.state.buttonValue}
-                                    onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
-                                        Choose entire category
-                                    </button>
-                                }
+                                {this.props.selectBranchWithChildren && this.banchButton()}
                             </div>
                         </div>}
                         {this.state.loading

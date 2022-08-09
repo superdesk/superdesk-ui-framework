@@ -1,10 +1,10 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
 
-import {
-    InputBase,
-    InputWrapper
-} from '.';
+// import {
+//     InputBase,
+//     InputWrapper
+// } from '.';
 
 interface IPropsBase {
     label?: string;
@@ -82,7 +82,7 @@ export class InputNew extends React.PureComponent<IProps, IState> {
     render() {
         return (
             <React.Fragment>
-                <InputWrapper
+                {/* <InputWrapper
                     label={this.props.label}
                     placeholder={this.props.placeholder}
                     error={this.props.error}
@@ -113,7 +113,7 @@ export class InputNew extends React.PureComponent<IProps, IState> {
                         tabIndex={this.props.tabindex}
                         placeholder={this.props.placeholder}
                     />
-                </InputWrapper>
+                </InputWrapper> */}
             </React.Fragment>
         );
     }
