@@ -233,6 +233,19 @@ tags-input,
             color: scale-color($white, $alpha: -20%);
         }
     }
+    .tags-input__remove-value {
+        display: flex;
+        align-items: center;
+        align-self: flex-end;
+        margin-inline-start: auto;
+        z-index: 2;
+        cursor: pointer;
+        opacity: 0.5;
+        transition: opacity 0.3s ease;
+        &:hover {
+            opacity: 1;
+        }
+    }
     .autocomplete {
         position: absolute;
         padding: 0.5rem 0;
@@ -441,6 +454,14 @@ tags-input,
             &:active {
                 border: 1px solid var(--sd-colour-interactive);
                 box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-30);
+            }
+            &.autocomplete__button--disabled,
+            &.autocomplete__button--disabled:hover {
+                opacity: 0.75;
+                border: 1px solid var(--sd-colour-line--light);
+                color: var(--color-text-light);
+                cursor: not-allowed;
+                box-shadow: none;
             }
         }
         &--multi-select {
