@@ -61,6 +61,7 @@ import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
+import DurationInputDoc from './DurationInput';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
@@ -240,6 +241,9 @@ const pages = {
             'icon-picker': {
                 name: 'Icon Picker',
             },
+            'duration-input': {
+                name: 'Duration Input',
+            },
             'switch': {
                 name: 'Switch'
             },
@@ -337,6 +341,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/with-size-observer" component={WithSizeObserverDocs} />
                         <Route path="/react/multiselect" component={MultiselectDocs} />
                         <Route path="/react/treeselect" component={TreeSelectDocs} />
+                        <Route path="/react/duration-input" component={DurationInputDoc} />
                         <Route path="/react/popover" component={PopoverDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
