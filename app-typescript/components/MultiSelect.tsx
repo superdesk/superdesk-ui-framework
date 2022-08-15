@@ -2,6 +2,7 @@ import * as React from "react";
 import { MultiSelect as PrimeMultiSelect } from "@superdesk/primereact/multiselect";
 import classNames from 'classnames';
 import nextId from "react-id-generator";
+import { InputWrapper } from "./Form";
 
 interface IProps<T> {
     value: Array<T>;
@@ -39,6 +40,8 @@ interface IState<T> {
 }
 
 export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
+    private htmlId = nextId();
+
     constructor(props: IProps<T>) {
         super(props);
         this.state = {
@@ -55,58 +58,42 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
             'showFilter': this.props.filter,
         });
 
-        const labelClasses = classNames('sd-input__label', {
-            'a11y-only': this.props.labelHidden,
-        });
-
-        const classesLabel = classNames('sd-input', {
-            'sd-input--inline-label': this.props.inlineLabel,
-            'sd-input--required': this.props.required,
-            'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
-        });
-
-        const htmlId = nextId();
-
         return (
-            <div className={classesLabel}>
-                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
-                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                    {this.props.label}
-                </label>
-
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            invalid={this.state.invalid}
+            info={this.props.info}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            tabindex={this.props.tabindex}>
                 <PrimeMultiSelect
-                    panelClassName={classes}
-                    value={this.props.value}
-                    options={this.props.options}
-                    onChange={(e: any) => this.props.onChange(e)}
-                    display="chip"
-                    filter={this.props.filter}
-                    filterBy={this.props.optionLabel}
-                    appendTo={document.body}
-                    placeholder={this.props.placeholder}
-                    optionLabel={this.props.optionLabel}
-                    emptyFilterMessage={this.props.emptyFilterMessage}
-                    filterPlaceholder={this.props.filterPlaceholder}
-                    itemTemplate={this.props.itemTemplate}
-                    selectedItemTemplate={this.props.selectedItemTemplate}
-                    maxSelectedLabels={this.props.maxSelectedLabels ?? 4}
-                    selectedItemsLabel={this.props.selectedItemsLabel}
-                    ariaLabelledBy={this.props.ariaLabelledBy}
-                    tabIndex={this.props.tabIndex ? this.props.tabIndex : '0'}
-                    showClear={this.props.showClear}
-                    disabled={this.props.disabled}
-                />
-
-                <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
-                </div>
-            </div>
+                panelClassName={classes}
+                value={this.props.value}
+                options={this.props.options}
+                onChange={(e: any) => this.props.onChange(e)}
+                display="chip"
+                filter={this.props.filter}
+                filterBy={this.props.optionLabel}
+                appendTo={document.body}
+                placeholder={this.props.placeholder}
+                optionLabel={this.props.optionLabel}
+                emptyFilterMessage={this.props.emptyFilterMessage}
+                filterPlaceholder={this.props.filterPlaceholder}
+                itemTemplate={this.props.itemTemplate}
+                selectedItemTemplate={this.props.selectedItemTemplate}
+                maxSelectedLabels={this.props.maxSelectedLabels ?? 4}
+                selectedItemsLabel={this.props.selectedItemsLabel}
+                ariaLabelledBy={this.htmlId + 'label'}
+                tabIndex={this.props.tabIndex ? this.props.tabIndex : '0'}
+                showClear={this.props.showClear}
+                disabled={this.props.disabled}
+                inputId={this.htmlId} />
+            </InputWrapper>
         );
     }
 }

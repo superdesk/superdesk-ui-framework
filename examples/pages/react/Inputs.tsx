@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { Input, Select, CheckGroup, Checkbox, PropsList, Prop } from '../../../app-typescript';
+import { Input, Select, CheckGroup, Checkbox, PropsList, Prop, InputNew } from '../../../app-typescript';
 
 interface IState {
     inlineLabel: boolean;
@@ -45,6 +45,23 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     <Checkbox checked={this.state.invalid} label={{text:'Invalid input'}} onChange={(value) => {this.setState({invalid: value})}} />
                                     <Checkbox checked={this.state.inlineLabel} label={{text:'Label positioned inline'}} onChange={(value) => {this.setState({inlineLabel: value})}} />
                                 </CheckGroup>
+                            </div>
+                            <div className='form__row'>
+                                <InputNew
+                                label='Label'
+                                value=''
+                                onChange={(value) => false
+                                }
+                            
+                                required={true}
+                                info='Nullam Sollicitudin'
+                                maxLength={20}
+                                //invalid={true}
+                                //disabled={true}
+                                error='Error message'
+                                //inlineLabel={true}
+                                //labelHidden={true}
+                                type='text' />
                             </div>
 
                             <div className='form__row'>

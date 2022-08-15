@@ -3,8 +3,9 @@ import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import {Calendar, LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
 import {throttle} from 'lodash';
-import classNames from 'classnames';
+//import classNames from 'classnames';
 import nextId from "react-id-generator";
+import { InputWrapper } from './Form';
 
 export type DatePickerLocaleSettings = Omit<LocaleSettings, 'today' | 'clear'>;
 
@@ -79,7 +80,6 @@ function parseFromPrimeReactCalendarFormat(value: CalendarProps['value']): IDate
         return null;
     } else {
         // at this point value is a free input string that can't be parsed to a Date inside primereact/calendar
-
         return 'failed-to-parse';
     }
 }
@@ -91,6 +91,7 @@ function parseToPrimeReactCalendarFormat(value: IDatePicker['value']): CalendarP
 export class DatePicker extends React.PureComponent<IDatePicker, IState> {
     private instance: IPrivatePrimeReactCalendarApi | undefined;
     hidePopupOnScroll: () => void;
+    private htmlId = nextId();
 
     constructor(props: IDatePicker) {
         super(props);
@@ -143,25 +144,23 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 clear: 'clear',
             };
         }
-        const classes = classNames('sd-input', {
-            'sd-input--inline-label': this.props.inlineLabel,
-            'sd-input--required': this.props.required,
-            'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
-        });
-        const labelClasses = classNames('sd-input__label', {
-            'a11y-only': this.props.labelHidden,
-        });
-        let htmlId = nextId();
 
         return (
-            <div className={classes}>
-                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
-                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                    {this.props.label}
-                </label>
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            invalid={this.state.invalid}
+            info={this.props.info}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            tabindex={this.props.tabindex}>
                 <Calendar
+                inputId={this.htmlId}
+                ariaLabelledBy={this.htmlId + 'label'}
                 ref={(ref) => {
                     this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;
                 }}
@@ -212,14 +211,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                         this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
                     }
                 }} />
-                <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
-                </div>
-            </div>
+            </InputWrapper>
         );
     }
 }
@@ -233,27 +225,27 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
     render() {
         return (
             <DatePicker
-                value={new Date(this.props.value)}
-                onChange={(value) => {
-                    if (value === null) {
-                        this.props.onChange('');
-                    } else {
-                        this.props.onChange(format(value, 'yyyy-MM-dd'));
-                    }
-                }}
-                disabled={this.props.disabled}
-                shortcuts={this.props.shortcuts}
-                dateFormat={this.props.dateFormat}
-                locale={this.props.locale}
-                inlineLabel={this.props.inlineLabel}
-                required={this.props.required}
-                fullWidth={this.props.fullWidth}
-                invalid={this.props.invalid}
-                labelHidden={this.props.labelHidden}
-                tabindex={this.props.tabindex}
-                label={this.props.label}
-                info={this.props.info}
-                error={this.props.error}
+            value={new Date(this.props.value)}
+            onChange={(value) => {
+                if (value === null) {
+                    this.props.onChange('');
+                } else {
+                    this.props.onChange(format(value, 'yyyy-MM-dd'));
+                }
+            }}
+            disabled={this.props.disabled}
+            shortcuts={this.props.shortcuts}
+            dateFormat={this.props.dateFormat}
+            locale={this.props.locale}
+            inlineLabel={this.props.inlineLabel}
+            required={this.props.required}
+            fullWidth={this.props.fullWidth}
+            invalid={this.props.invalid}
+            labelHidden={this.props.labelHidden}
+            tabindex={this.props.tabindex}
+            label={this.props.label}
+            info={this.props.info}
+            error={this.props.error}
             />
         );
     }

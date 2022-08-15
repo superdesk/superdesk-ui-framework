@@ -1,6 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
+//import classNames from 'classnames';
 import nextId from "react-id-generator";
+import { InputWrapper } from './Form';
 
 interface IPropsBase {
     label?: string;
@@ -79,53 +80,35 @@ export class Input extends React.Component<IProps, IState> {
     }
 
     render() {
-        const classes = classNames('sd-input', {
-            'sd-input--inline-label': this.props.inlineLabel,
-            'sd-input--required': this.props.required,
-            'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
-            'sd-input--medium': this.props.size === undefined,
-            [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
-            'sd-input--boxed-style': this.props.boxedStyle,
-            'sd-input--boxed-label': this.props.boxedLable,
-        });
-        const labelClasses = classNames('sd-input__label', {
-            'a11y-only': this.props.labelHidden,
-            'sd-input__label--boxed': this.props.boxedLable,
-        });
 
         return (
-            <div className={classes}>
-                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}
-                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                    {this.props.label}
-                </label>
-
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            value={this.state.value}
+            invalid={this.state.invalid}
+            info={this.props.info}
+            maxLength={this.props.maxLength}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            size={this.props.size ?? 'medium'}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            boxedStyle={this.props.boxedStyle}
+            boxedLable={this.props.boxedLable}
+            tabindex={this.props.tabindex}>
                 <input className='sd-input__input'
-                    type={this.props.type ?? 'text'}
-                    id={this.htmlId}
-                    value={this.state.value}
-                    aria-describedby={this.htmlId + 'label'}
-                    tabIndex={this.props.tabindex}
-                    onChange={this.handleChange}
-                    placeholder={this.props.placeholder}
-                    disabled={this.props.disabled} />
-
-                {this.props.maxLength ?
-                    <div className='sd-input__char-count'>
-                        {this.state.value.toString().length} / {this.props.maxLength}
-                    </div>
-                    : null}
-
-                <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
-                </div>
-            </div>
+                type={this.props.type ?? 'text'}
+                id={this.htmlId}
+                value={this.state.value}
+                aria-describedby={this.htmlId + 'label'}
+                tabIndex={this.props.tabindex}
+                onChange={this.handleChange}
+                placeholder={this.props.placeholder}
+                disabled={this.props.disabled} />
+            </InputWrapper>
         );
     }
 }
