@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IProps {
-    size?: 'mini' |'small' | 'medium' | 'large'; // defaults to 'small'
+    size?: 'mini' |'small' | 'medium' | 'large' | 'x-large'; // defaults to 'small'
     border?: boolean;
 }
 

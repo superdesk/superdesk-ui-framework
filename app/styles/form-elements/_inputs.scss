@@ -878,11 +878,6 @@
 /////////////////  -------------------- Duration & Time-Date input ---------------------  /////////////////
 
 
-
-
-
-
-
 .sd-input__duration-input,
 .sd-input__time-date-input {
     @include Line-input-base;
@@ -963,4 +958,9 @@
 //&--boxed-style
 
 
+/////////////////  -------------------- Frequency input ---------------------  /////////////////
 
+.frequenci-input {
+    display: flex;
+    align-items: center;
+}

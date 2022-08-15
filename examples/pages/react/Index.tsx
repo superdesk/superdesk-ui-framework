@@ -64,6 +64,7 @@ import { TreeSelectDocs } from './TreeSelect';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
+import FrequencyInputDoc from './FrequencyInput';
 
 const pages = {
     basicComponents: {
@@ -240,6 +241,9 @@ const pages = {
             'icon-picker': {
                 name: 'Icon Picker',
             },
+            'frequency-input': {
+                name: 'Frequency Input',
+            },
             'switch': {
                 name: 'Switch'
             },
@@ -331,6 +335,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/tooltips" component={TooltipDoc} />
                         <Route path="/react/tags" component={TagDoc} />
                         <Route path="/react/inputs" component={InputsDoc} />
+                        <Route path="/react/frequency-input" component={FrequencyInputDoc} />
                         <Route path="/react/autocomplete" component={AutocompleteDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/select-with-template" component={SelectWithTemplateDocs} />

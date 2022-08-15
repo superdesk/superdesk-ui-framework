@@ -564,6 +564,9 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     &--large {
         @include sd-margin('1-5', 'x');
     }
+    &--x-large {
+        @include sd-margin('2', 'x');
+    }
     &--border {
         border-left: 1px dotted var(--sd-colour-line--strong);
     }
@@ -589,6 +592,9 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         }
         &.button-group__divider--large {
             @include sd-margin('1-5', 'y');
+        }
+        &.button-group__divider--x-large {
+            @include sd-margin('2', 'y');
         }
     }
 }
