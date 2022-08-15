@@ -57,7 +57,6 @@ export class InputNew extends React.PureComponent<IProps, IState> {
             value: this.props.value ?? '',
             invalid: this.props.invalid ?? false,
         };
-        
     }
 
     componentDidUpdate(prevProps: any) {
@@ -89,9 +88,9 @@ export class InputNew extends React.PureComponent<IProps, IState> {
             tabindex={this.props.tabindex}>
                 <InputBase
                 type="text"
-                onChange={(value: string | number)=> {
-                    this.setState({ value: value });
-                    this.setState({ invalid: value.length > this.props.maxLength });
+                onChange={(value: string | number) => {
+                    this.setState({value: value});
+                    this.setState({invalid: value.length > this.props.maxLength});
                     this.props.onChange(value);
                 }}
                 disabled={this.props.disabled}

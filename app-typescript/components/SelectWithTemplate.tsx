@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Dropdown} from '@superdesk/primereact/dropdown';
-//import classNames from 'classnames';
+// import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 

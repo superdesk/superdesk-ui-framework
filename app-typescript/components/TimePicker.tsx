@@ -1,5 +1,5 @@
 import * as React from 'react';
-//import classNames from 'classnames';
+// import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 
@@ -30,7 +30,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
             invalid: this.props.invalid ? this.props.invalid : false,
         };
     }
-    
+
     render() {
         return (
             <InputWrapper

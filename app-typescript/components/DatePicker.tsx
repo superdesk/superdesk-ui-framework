@@ -3,7 +3,7 @@ import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import {Calendar, LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
 import {throttle} from 'lodash';
-//import classNames from 'classnames';
+// import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 
