@@ -3,6 +3,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 
 import { Input, Select, CheckGroup, Checkbox, PropsList, Prop } from '../../../app-typescript';
+import { DurationInput } from '../../../app-typescript/components/DurationInput';
 
 interface IState {
     inlineLabel: boolean;
@@ -91,6 +92,12 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     tabindex={0}
                                     onChange={(value) => this.setState({value2: value})} />
                             </div>
+                            <div className='form__row'>
+                                <DurationInput
+                                onChange={(e) => {
+                                    console.log(e)
+                                }}
+                                />
                             <p className="docs-page__paragraph">// Boxed with hidden label</p>
                             <div className='form__row'>
                                 <Input label='Input label'
@@ -190,6 +197,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     invalid={this.state.invalid}
                                     tabindex={0}
                                     onChange={(value) => this.setState({value2: value})} />
+                            </div>
                             </div>
                         </div>
 
