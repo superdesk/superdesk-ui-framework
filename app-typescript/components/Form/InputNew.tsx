@@ -88,7 +88,7 @@ export class InputNew extends React.PureComponent<IProps, IState> {
             boxedLable={this.props.boxedLable}
             tabindex={this.props.tabindex}>
                 <InputBase
-                type={this.props.type ?? 'text'}
+                type="text"
                 onChange={(value: string | number)=> {
                     this.setState({ value: value });
                     this.setState({ invalid: value.length > this.props.maxLength });
