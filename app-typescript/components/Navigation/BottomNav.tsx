@@ -13,6 +13,7 @@ interface IItem {
     active?: boolean;
     title: string;
     onClick(event: any): void;
+    onRemove(event: any): void;
 }
 
 interface IState {
@@ -55,7 +56,7 @@ export class BottomNav extends React.PureComponent<IProps, IState> {
     render() {
         return (
             <ul className='sd-bottom-nav-list'>
-                {this.state.items.map((item, index) => {
+                {this.props.items.map((item, index) => {
                     return (
                         <li key={index}
                             className={'sd-bottom-nav-list__item' + (item['active'] ? ' sd-bottom-nav-list__item--active' : (index === this.state.index ? ' sd-bottom-nav-list__item--active' : ''))}>
@@ -72,7 +73,7 @@ export class BottomNav extends React.PureComponent<IProps, IState> {
                                 size='small'
                                 icon="close-small"
                                 ariaValue='Delete'
-                                onClick={() => this.handleDelete(index)} />
+                                onClick={() => item.onRemove(index)} />
                         </li>
                     );
                 })}
