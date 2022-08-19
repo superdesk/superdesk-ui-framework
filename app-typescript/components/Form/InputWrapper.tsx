@@ -16,7 +16,6 @@ interface IPropsBase {
     fullWidth?: boolean;
     boxedStyle?: boolean;
     boxedLable?: boolean;
-    placeholder?: string;
     value?: string | number;
     htmlId?: string;
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
@@ -24,7 +23,6 @@ interface IPropsBase {
 
 interface IState {
     value: string | number;
-    invalid: boolean;
 }
 
 export class InputWrapper extends React.Component<IPropsBase, IState> {
@@ -33,7 +31,6 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
 
         this.state = {
             value: this.props.value ?? '',
-            invalid: this.props.invalid ?? false,
         };
     }
 
@@ -43,7 +40,7 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
             'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
+            'sd-input--invalid': this.props.invalid,
             'sd-input--medium': this.props.size === undefined,
             [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
             'sd-input--boxed-style': this.props.boxedStyle,
@@ -63,16 +60,17 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
                 <div className="sd-input__input-container">
                     {this.props.children}
                 </div>
-                {this.props.maxLength ?
-                    <div className='sd-input__char-count'>
-                        {this.state.value.toString().length} / {this.props.maxLength}
+                {this.props.maxLength
+                    ? <div className='sd-input__char-count'>
+                        {this.props.value?.toString().length} / {this.props.maxLength}
                     </div>
                     : null}
                 <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
+                    {this.props.info && !this.props.invalid && !this.props.invalid
+                        ? <div className='sd-input__hint'>{this.props.info}</div>
+                        : null}
+                    {this.props.invalid || this.props.invalid
+                        ? <div className='sd-input__message'>{this.props.error}</div>
                         : null}
                 </div>
             </div>

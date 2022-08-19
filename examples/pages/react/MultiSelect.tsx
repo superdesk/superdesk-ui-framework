@@ -73,7 +73,6 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                     tabindex={1}
                                     label={'This is Label'}
                                     info={'This is info'}
-                                    error={'This is error'}
                                 />
                             </div>
                         </div>
@@ -88,6 +87,10 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                             showSelectAll
                             placeholder='Select a color'
                             optionLabel='name'
+                            required
+                            tabindex={1}
+                            label={'This is Label'}
+                            info={'This is info'}
                         />
                     `}</Markup.ReactMarkupCode>
 

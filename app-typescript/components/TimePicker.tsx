@@ -1,6 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import nextId from "react-id-generator";
+import { InputWrapper } from './Form';
 
 interface IProps {
     value: string; // will output time as ISO8601 time string(e.g. 16:55) or an empty string if there's no value
@@ -22,32 +23,31 @@ interface IState {
 }
 
 export class TimePicker extends React.PureComponent<IProps, IState> {
+    private htmlId = nextId();
     constructor(props: IProps) {
         super(props);
         this.state = {
             invalid: this.props.invalid ? this.props.invalid : false,
         };
     }
-    render() {
-        const classes = classNames('sd-input', {
-            'sd-input--inline-label': this.props.inlineLabel,
-            'sd-input--required': this.props.required,
-            'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
-        });
-        const labelClasses = classNames('sd-input__label', {
-            'a11y-only': this.props.labelHidden,
-        });
 
-        let htmlId = nextId();
+    render() {
         return (
-            <div className={classes}>
-                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
-                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                    {this.props.label}
-                </label>
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            invalid={this.state.invalid}
+            info={this.props.info}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            tabindex={this.props.tabindex}>
                 <input
+                id={this.htmlId}
+                aria-labelledby={this.htmlId + 'label'}
                 type="time"
                 className="sd-input__input"
                 value={this.props.value}
@@ -56,14 +56,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                 onChange={(event) => {
                     this.props.onChange(event.target.value);
                 }}/>
-                <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
-                </div>
-            </div>
+            </InputWrapper>
         );
     }
 }

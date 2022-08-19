@@ -63,19 +63,20 @@ export class TestGround extends React.Component<IProps, IState> {
                 <Components.LayoutContainer>
                     <Components.MainPanel>
                         <InputNew
-                            label='test'
-                            value='11'
-                            onChange={(value) => {}}
-                            placeholder='test'
+                            label='testt'
+                            value=''
+                            onChange={(value) => false}
+                            //placeholder='test'
                             required={true}
                             info='Nullam Sollicitudin'
                             maxLength={20}
                             //invalid={true}
                             //disabled={true}
                             error='Error message'
-                            inlineLabel={true}
-                            labelHidden={true}
+                            //inlineLabel={true}
+                            //labelHidden={true}
                             type='text' />
+                        
                         <hr />
                         <div className='form__group-new'>
                             <Input value='' onChange={(value) => {}} type='text' label='Text input' placeholder='Enter text' disabled={true} />

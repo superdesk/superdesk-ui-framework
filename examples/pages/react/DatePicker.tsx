@@ -67,13 +67,15 @@ export default class DatePickerDoc extends React.Component {
                         <p className="docs-page__paragraph">// DatePickerISO</p>
                         <div className='docs-page__content-row'>
                             <DatePickerISO
-                                value={'2019-01-01'}
-                                dateFormat="YYYY-MM-DD"
-                                onChange={(date) => {
-                                    this.setState({date});
-                                }}
-                                inlineLabel
-                                labelHidden
+                            value={'2019-01-01'}
+                            dateFormat="YYYY-MM-DD"
+                            onChange={(date) => {
+                                this.setState({date});
+                            }}   
+                            tabindex={1}
+                            label={'This is Label'}
+                            info={'This is info'}
+                            error={'This is error'}
                             />
                         </div>
                     </Markup.ReactMarkupPreview>

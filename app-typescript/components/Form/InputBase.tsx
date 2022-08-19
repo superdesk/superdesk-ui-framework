@@ -5,7 +5,7 @@ interface IPropsBase {
     required?: boolean;
     disabled?: boolean;
     invalid?: boolean;
-    tabindex?: number;
+    tabIndex?: number;
     fullWidth?: boolean;
     boxedStyle?: boolean;
     boxedLable?: boolean;
@@ -70,26 +70,16 @@ export class InputBase extends React.Component<IProps, IState> {
     }
 
     render() {
-        // const classes = classNames('sd-input', {
-        //     'sd-input--required': this.props.required,
-        //     'sd-input--disabled': this.props.disabled,
-        //     'sd-input--full-width': this.props.fullWidth,
-        //     'sd-input--invalid': this.props.invalid || this.state.invalid,
-        //     'sd-input--medium': this.props.size === undefined,
-        //     [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
-        //     'sd-input--boxed-style': this.props.boxedStyle,
-        // });
-
         return (
             <input className='sd-input__input'
-                type={this.props.type ?? 'text'}
-                id={this.props.htmlId}
-                value={this.state.value}
-                aria-describedby={this.props.htmlId + 'label'}
-                tabIndex={this.props.tabindex}
-                onChange={this.handleChange}
-                placeholder={this.props.placeholder}
-                disabled={this.props.disabled} />
+            type={this.props.type ?? 'text'}
+            id={this.props.htmlId}
+            value={this.state.value}
+            aria-describedby={this.props.htmlId + 'label'}
+            tabIndex={this.props.tabIndex}
+            onChange={this.handleChange}
+            placeholder={this.props.placeholder}
+            disabled={this.props.disabled} />
         );
     }
 }

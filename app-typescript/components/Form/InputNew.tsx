@@ -1,10 +1,10 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
 
-// import {
-//     InputBase,
-//     InputWrapper
-// } from '.';
+import {
+    InputBase,
+    InputWrapper
+} from '.';
 
 interface IPropsBase {
     label?: string;
@@ -12,7 +12,6 @@ interface IPropsBase {
     info?: string;
     inlineLabel?: boolean;
     labelHidden?: boolean;
-    value?: string | number;
     error?: string;
     required?: boolean;
     disabled?: boolean;
@@ -22,7 +21,6 @@ interface IPropsBase {
     boxedStyle?: boolean;
     boxedLable?: boolean;
     placeholder?: string;
-    type: 'text' | 'number' | 'password';
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
 }
 
@@ -59,19 +57,6 @@ export class InputNew extends React.PureComponent<IProps, IState> {
             value: this.props.value ?? '',
             invalid: this.props.invalid ?? false,
         };
-
-        this.handleChange = this.handleChange.bind(this);
-    }
-
-    htmlId = nextId();
-
-    handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.setState({ value: event.target.value });
-        if (this.props.type === 'number') {
-            this.props.onChange(Number(event.target.value));
-        } else {
-            this.props.onChange(event.target.value);
-        }
     }
 
     componentDidUpdate(prevProps: any) {
@@ -79,42 +64,42 @@ export class InputNew extends React.PureComponent<IProps, IState> {
             this.setState({value: this.props.value});
         }
     }
+
+    htmlId = nextId();
+
     render() {
         return (
-            <React.Fragment>
-                {/* <InputWrapper
-                    label={this.props.label}
-                    placeholder={this.props.placeholder}
-                    error={this.props.error}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    onChange={this.handleChange}
-                    value={this.state.value}
-                    invalid={this.state.invalid}
-                    info={this.props.info}
-                    maxLength={this.props.maxLength}
-                    inlineLabel={this.props.inlineLabel}
-                    labelHidden={this.props.labelHidden}
-                    type={this.props.type ?? 'text'}
-                    size={this.props.size ?? 'medium'}
-                    fullWidth={this.props.fullWidth}
-                    htmlId={this.htmlId}
-                    boxedStyle={this.props.boxedStyle}
-                    boxedLable={this.props.boxedLable}
-                    tabindex={this.props.tabindex}
-                    >
-                    <InputBase
-                        type={this.props.type ?? 'text'}
-                        onChange={this.handleChange}
-                        disabled={this.props.disabled}
-                        id={this.htmlId}
-                        value={this.state.value}
-                        aria-describedby={this.htmlId + 'label'}
-                        tabIndex={this.props.tabindex}
-                        placeholder={this.props.placeholder}
-                    />
-                </InputWrapper> */}
-            </React.Fragment>
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            value={this.state.value}
+            invalid={this.state.invalid}
+            info={this.props.info}
+            maxLength={this.props.maxLength}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            size={this.props.size ?? 'medium'}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            boxedStyle={this.props.boxedStyle}
+            boxedLable={this.props.boxedLable}
+            tabindex={this.props.tabindex}>
+                <InputBase
+                type="text"
+                onChange={(value: string | number) => {
+                    this.setState({value: value});
+                    this.setState({invalid: value.length > this.props.maxLength});
+                    this.props.onChange(value);
+                }}
+                disabled={this.props.disabled}
+                htmlId={this.htmlId}
+                value={this.state.value}
+                aria-describedby={this.htmlId + 'label'}
+                tabIndex={this.props.tabindex}
+                placeholder={this.props.placeholder} />
+            </InputWrapper>
         );
     }
 }
