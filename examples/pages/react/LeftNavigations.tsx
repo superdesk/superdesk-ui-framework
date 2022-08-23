@@ -32,7 +32,7 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                                         <p className="sd-top-menu__header">Top menu</p>
                                     </div>
                                 </div>
-                                    <LeftMenu ariaLabel={'Left navigation'} className={'docs-page__grid-page-example__side'} activeItemId='1' 
+                                    <LeftMenu ariaLabel={'Left navigation'} className={'docs-page__grid-page-example__side'} activeItemId='3' 
                                         groups={[
                                                 {label: 'SYSTEM SETTINGS', items: [{id: '1', label: 'General'}, {id: '2', label: 'Email settings'}, {id: '3', label: 'Spell checking'}]},
                                                 {label: 'WORKFLOW', items: [{id: '4', label: 'Desk'}, {id: '5', label: 'User Roles & Privileges'}]},
@@ -70,7 +70,7 @@ export default class LeftNavigationsDoc extends React.Component<{}> {
                                         className={'docs-page__grid-page-example__side'}     
                                         scrollSpy='#scrollContainer'
                                         offset={-300}
-                                        activeItemId='1'
+                                        //scrollTo={'section4'}
                                         groups={[
                                             { label: 'MAIN SECTIONS', items: [
                                                 { id: '1', label: 'Section 1', ref:'section1'},
