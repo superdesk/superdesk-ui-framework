@@ -472,11 +472,15 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     if (this.props.kind === 'asynchronous') {
                                         this.setState({
                                             searchFieldValue: value,
-                                            loading: true,
-                                        }),
-                                        this.props.searchOptions(value, (items) => {
-                                            this.setState({options: items, loading: false});
-                                        });
+                                        })
+                                        if (value) {
+                                            this.setState({    
+                                                loading: true,
+                                            })
+                                            this.props.searchOptions(value, (items) => {
+                                                this.setState({options: items, loading: false});
+                                            });
+                                        }
                                     } else if (this.props.kind === 'synchronous') {
                                         this.setState({searchFieldValue: value});
                                     }
