@@ -34,10 +34,10 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            hours: this.props.hours ? this.props.hours + Math.floor((this.props.minutes || 0) / 60) + Math.floor((this.props.seconds || 0) / 3600) : Math.floor((this.props.minutes || 0) / 60) + Math.floor((this.props.seconds || 0) / 3600) ,
-            minutes: this.props.minutes ? (this.props.minutes % 60) + Math.floor((this.props.seconds || 0) / 60) : Math.floor((this.props.seconds || 0) % 3600 / 60),
-            seconds: this.props.seconds ? this.props.seconds % 60 : this.zerPad(0),
-            // hours: this.props.hours ? this.zerPad(this.props.hours) : this.zerPad(0), 
+            hours: this.stateUpdate('hours', this.props.hours, this.props.minutes, this.props.seconds),
+            minutes: this.stateUpdate('minutes', this.props.minutes, this.props.seconds),
+            seconds: this.stateUpdate('seconds', this.props.seconds),
+            // hours: this.props.hours ? this.zerPad(this.props.hours) : this.zerPad(0),
             // minutes: this.props.minutes ? this.zerPad(this.props.minutes) : this.zerPad(0),
             // seconds: this.props.seconds ? this.zerPad(this.props.seconds) : this.zerPad(0),
             invalid: this.props.invalid ?? false,
@@ -51,53 +51,113 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         this.handleChange = this.handleChange.bind(this);
         this.handleFocusOnKeyUp = this.handleFocusOnKeyUp.bind(this);
         this.handleKeyValue = this.handleKeyValue.bind(this);
+        this.valueUpdate = this.valueUpdate.bind(this);
+        this.stateUpdate = this.stateUpdate.bind(this);
 
     }
 
-    componentDidUpdate(_: any, prevState: IState) {
+    stateUpdate(state: string, parametar1?: number, parametar2?: number, parametar3?: number) {
+        let value;
+        if(state === 'hours') {
+            value =  parametar1 ? parametar1 + Math.floor((parametar2 || 0) / 60) + Math.floor((parametar3 || 0) / 3600) : Math.floor((parametar2 || 0) / 60) + Math.floor((parametar3 || 0) / 3600)
+        }
+        else if (state === 'minutes') {
+            value =  parametar1 ? (parametar1 % 60) + Math.floor((parametar2 || 0) % 3600 / 60) : Math.floor((parametar2 || 0) % 3600 / 60)
+        }
+        else {
+            value =  parametar1 ? parametar1 % 60 : 0
+        }
+        return this.zerPad(value)
+    }
+    
+    // componentDidUpdate(_: any, prevState: IState) {
+    //     if (this.props.onChange) {
+    //         this.props.onChange(moment.duration(`${this.state.hours}:${this.state.minutes}:${this.state.seconds}`)
+    //         .asSeconds());
+    //     }
+    //     if (!this.hourRef.current || !this.minuteRef.current || !this.secondRef.current ) {
+    //         return;
+    //     }
+    //     if (this.state.hours !== prevState.hours) {
+    //         if (Number(this.hourRef.current.value) > 99) {
+    //             this.setState({
+    //                 hours: this.zerPad(99),
+    //             });
+    //         }
+    //     }
+    //     if (this.state.minutes !== prevState.minutes) {
+    //         if (Number(this.minuteRef.current.value) > 59) {
+    //             this.setState({
+    //                 hours: this.zerPad(Number(this.state.hours) + 1),
+    //                 minutes: this.zerPad(0),
+    //             });
+    //         }
+    //         if (Number(this.minuteRef.current.value) < 0) {
+    //             this.setState({
+    //                 hours: this.zerPad(Number(this.state.hours)) > 0
+    //                 ? this.zerPad(Number(this.state.hours) - 1)
+    //                 : this.zerPad(Number(this.state.hours)),
+    //                 minutes: 59,
+    //             });
+    //         }
+    //     }
+    //     if (this.state.seconds !== prevState.seconds) {
+    //         if (Number(this.secondRef.current.value) > 59) {
+    //             this.setState({
+    //                 minutes: this.zerPad(Number(this.state.minutes) + 1),
+    //                 seconds: this.zerPad(0),
+    //             });
+    //         }
+    //         if (Number(this.secondRef.current.value) < 0) {
+    //             this.setState({
+    //                 minutes: this.zerPad(Number(this.state.minutes) - 1),
+    //                 seconds: 59,
+    //             });
+    //         }
+    //     }
+    // }
+    
+    valueUpdate() {
         if (this.props.onChange) {
             this.props.onChange(moment.duration(`${this.state.hours}:${this.state.minutes}:${this.state.seconds}`)
             .asSeconds());
         }
-        if (!this.hourRef.current || !this.minuteRef.current || !this.secondRef.current ) {
-            return;
+        // if (!this.hourRef.current || !this.minuteRef.current || !this.secondRef.current ) {
+        //     return;
+        // }
+        
+        if (Number(this.state.hours) > 99) {
+            this.setState({
+                hours: this.zerPad(99),
+            });
         }
-        if (this.state.hours !== prevState.hours) {
-            if (Number(this.hourRef.current.value) > 99) {
-                this.setState({
-                    hours: this.zerPad(99),
-                });
-            }
+    
+        if (Number(this.state.minutes) > 59) {
+            this.setState({
+                hours: this.zerPad(Number(this.state.hours) + 1),
+                minutes: this.zerPad(0),
+            });
         }
-        if (this.state.minutes !== prevState.minutes) {
-            if (Number(this.minuteRef.current.value) > 59) {
-                this.setState({
-                    hours: this.zerPad(Number(this.state.hours) + 1),
-                    minutes: this.zerPad(0),
-                });
-            }
-            if (Number(this.minuteRef.current.value) < 0) {
-                this.setState({
-                    hours: this.zerPad(Number(this.state.hours)) > 0
-                    ? this.zerPad(Number(this.state.hours) - 1)
-                    : this.zerPad(Number(this.state.hours)),
-                    minutes: 59,
-                });
-            }
+        if (Number(this.state.minutes) < 0) {
+            this.setState({
+                hours: this.zerPad(Number(this.state.hours)) > 0
+                ? this.zerPad(Number(this.state.hours) - 1)
+                : this.zerPad(Number(this.state.hours)),
+                minutes: 59,
+            });
         }
-        if (this.state.seconds !== prevState.seconds) {
-            if (Number(this.secondRef.current.value) > 59) {
-                this.setState({
-                    minutes: this.zerPad(Number(this.state.minutes) + 1),
-                    seconds: this.zerPad(0),
-                });
-            }
-            if (Number(this.secondRef.current.value) < 0) {
-                this.setState({
-                    minutes: this.zerPad(Number(this.state.minutes) - 1),
-                    seconds: 59,
-                });
-            }
+    
+        if (Number(this.state.seconds) > 59) {
+            this.setState({
+                minutes: this.zerPad(Number(this.state.minutes) + 1),
+                seconds: this.zerPad(0),
+            });
+        }
+        if (Number(this.state.seconds) < 0) {
+            this.setState({
+                minutes: this.zerPad(Number(this.state.minutes) - 1),
+                seconds: 59,
+            });
         }
     }
 
@@ -144,6 +204,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         if (event.key === 'ArrowUp' || event.key === 'ArrowDown') {
             this.handleKeyValue(event, event.target.id as 'hours' | 'minutes' | 'seconds');
         }
+        this.valueUpdate();
     }
 
     handleKeyValue(event: React.KeyboardEvent<HTMLInputElement>, state: 'hours' | 'minutes' | 'seconds') {
@@ -173,6 +234,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             }
         }
         this.setState(stateClone);
+        //this.valueUpdate();
     }
 
     zerPad(value: number | string) {
@@ -193,6 +255,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             stateClone[state] = event.target.value;
         }
         this.setState(stateClone);
+        this.valueUpdate();
     }
 
     handleFocus(ref: HTMLInputElement | null, state: 'hours' | 'minutes' | 'seconds') {
@@ -218,41 +281,6 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             }
         }
     }
-
-    //componentDidMount() {
-
-        // if (this.props.minutes) {
-        //     if (this.props.minutes > 59) {
-        //         //const hours = Number(this.props.hours) + Number((this.props.minutes / 60));
-        //         this.setState({
-        //             hours: this.zerPad(Number(this.props.hours) + Number((this.props.minutes / 60))),
-        //             minutes: this.zerPad(Number(this.props.minutes % 60)),
-        //         })
-        //     }
-        // }
-
-        // if (this.props.seconds) {
-        //     if (this.props.seconds > 59) {
-        //         this.setState({
-        //             hours: this.zerPad(Math.floor(Number(this.props.hours) + Number((this.props.seconds / 3600)))),
-        //             minutes: this.zerPad(Math.floor(Number(this.props.minutes) + Number((this.props.seconds % 3600 / 60)))),
-        //             seconds: this.zerPad(this.props.seconds % 3600 % 60),
-        //         })
-        //     }
-        // }
-        // if (this.props.seconds && this.props.minutes) {
-        //     if (this.props.seconds > 59 && this.props.minutes > 59) {
-        //         let number = (this.props.minutes * 60) + this.props.seconds
-                
-        //         this.setState({
-        //             hours: this.zerPad(parseInt(Number(this.props.hours) + Number((number / 3600)))),
-        //             minutes: this.zerPad(parseInt(Number(number % 3600 / 60))),
-        //             seconds: this.zerPad(number % 3600 % 60),
-        //         })
-        //     }
-        // }   
-        
-    //}
 
     render() {
         let InputClasses = classNames('sd-input__duration-input');

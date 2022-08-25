@@ -63,11 +63,11 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
                                 invalid={this.state.invalid}
                                 inlineLabel={this.state.inlineLabel}
                                 onChange={(e) => {
-                                    console.log(e)
+                                    console.log()
                                 }}
-                                seconds={3600}
-                                minutes={450}
-                                hours={3}
+                                seconds={7262}
+                                minutes={61}
+                                //hours={60}
                                 />
                             </div>
                         </div>
