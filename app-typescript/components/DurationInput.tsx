@@ -34,9 +34,12 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            hours: this.props.hours ? this.zerPad(this.props.hours) : this.zerPad(0),
-            minutes: this.props.minutes ? this.zerPad(this.props.minutes) : this.zerPad(0),
-            seconds: this.props.seconds ? this.zerPad(this.props.seconds) : this.zerPad(0),
+            hours: this.props.hours ? this.props.hours + Math.floor((this.props.minutes || 0) / 60) + Math.floor((this.props.seconds || 0) / 3600) : Math.floor((this.props.minutes || 0) / 60) + Math.floor((this.props.seconds || 0) / 3600) ,
+            minutes: this.props.minutes ? (this.props.minutes % 60) + Math.floor((this.props.seconds || 0) / 60) : Math.floor((this.props.seconds || 0) % 3600 / 60),
+            seconds: this.props.seconds ? this.props.seconds % 60 : this.zerPad(0),
+            // hours: this.props.hours ? this.zerPad(this.props.hours) : this.zerPad(0), 
+            // minutes: this.props.minutes ? this.zerPad(this.props.minutes) : this.zerPad(0),
+            // seconds: this.props.seconds ? this.zerPad(this.props.seconds) : this.zerPad(0),
             invalid: this.props.invalid ?? false,
         };
 
@@ -204,15 +207,52 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
 
     handleFocusOnKeyUp(event: React.KeyboardEvent<HTMLInputElement>, ref: HTMLInputElement | null) {
         if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft' && event.key !== 'ArrowUp' && event.key !== 'ArrowDown' && event.key !== 'Backspace') {
-            const target = event.target as HTMLInputElement;
-            if (target.value.length >= 2) {
-                ref?.focus();
-                setTimeout(() => {
-                    ref?.setSelectionRange(0, 2);
-                });
+            if ((event.keyCode > 46 && event.keyCode < 58) || (event.keyCode > 95 && event.keyCode < 106)) {
+                const target = event.target as HTMLInputElement;
+                if (target.value.length >= 2) {
+                    ref?.focus();
+                    setTimeout(() => {
+                        ref?.setSelectionRange(0, 2);
+                    });
+                }
             }
         }
     }
+
+    //componentDidMount() {
+
+        // if (this.props.minutes) {
+        //     if (this.props.minutes > 59) {
+        //         //const hours = Number(this.props.hours) + Number((this.props.minutes / 60));
+        //         this.setState({
+        //             hours: this.zerPad(Number(this.props.hours) + Number((this.props.minutes / 60))),
+        //             minutes: this.zerPad(Number(this.props.minutes % 60)),
+        //         })
+        //     }
+        // }
+
+        // if (this.props.seconds) {
+        //     if (this.props.seconds > 59) {
+        //         this.setState({
+        //             hours: this.zerPad(Math.floor(Number(this.props.hours) + Number((this.props.seconds / 3600)))),
+        //             minutes: this.zerPad(Math.floor(Number(this.props.minutes) + Number((this.props.seconds % 3600 / 60)))),
+        //             seconds: this.zerPad(this.props.seconds % 3600 % 60),
+        //         })
+        //     }
+        // }
+        // if (this.props.seconds && this.props.minutes) {
+        //     if (this.props.seconds > 59 && this.props.minutes > 59) {
+        //         let number = (this.props.minutes * 60) + this.props.seconds
+                
+        //         this.setState({
+        //             hours: this.zerPad(parseInt(Number(this.props.hours) + Number((number / 3600)))),
+        //             minutes: this.zerPad(parseInt(Number(number % 3600 / 60))),
+        //             seconds: this.zerPad(number % 3600 % 60),
+        //         })
+        //     }
+        // }   
+        
+    //}
 
     render() {
         let InputClasses = classNames('sd-input__duration-input');

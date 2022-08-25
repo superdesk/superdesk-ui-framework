@@ -65,6 +65,9 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
                                 onChange={(e) => {
                                     console.log(e)
                                 }}
+                                seconds={3600}
+                                minutes={450}
+                                hours={3}
                                 />
                             </div>
                         </div>
