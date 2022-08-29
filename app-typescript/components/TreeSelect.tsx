@@ -3,7 +3,7 @@ import { Icon } from "./Icon";
 import { Loader } from "./Loader";
 import classNames from 'classnames';
 import nextId from "react-id-generator";
-
+import _debounce from 'lodash/debounce';
 
 interface IState<T> {
     value: Array<T>;
@@ -94,6 +94,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.handleTree = this.handleTree.bind(this);
         this.filteredItem = this.filteredItem.bind(this);
         this.banchButton = this.banchButton.bind(this);
+        this.handleDebounce = this.handleDebounce.bind(this);
         this.dropdownRef = React.createRef();
         this.openDropdownRef = React.createRef();
     }
@@ -362,7 +363,29 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
+    
+
+    handleDebounce() {
+
+        
+        if (this.props.kind === 'asynchronous') {
+           
+            if (this.state.searchFieldValue) {
+                this.setState({    
+                    loading: true,
+                })
+                this.props.searchOptions(this.state.searchFieldValue, (items) => {
+                    this.setState({options: items, loading: false});
+                });
+            }
+        }
+        console.log('debounce');
+        
+    }
+
     render() {
+
+        const debounceFn = _debounce(this.handleDebounce, 500)
 
         const labelClasses = classNames('sd-input__label', {
             'a11y-only': this.props.labelHidden,
@@ -469,22 +492,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 ref={(input) => input && input.focus()}
                                 value={this.state.searchFieldValue}
                                 onChange={(event) => {
-                                    const value = event.target.value;
-                                    if (this.props.kind === 'asynchronous') {
-                                        this.setState({
-                                            searchFieldValue: value,
-                                        })
-                                        if (value) {
-                                            this.setState({    
-                                                loading: true,
-                                            })
-                                            this.props.searchOptions(value, (items) => {
-                                                this.setState({options: items, loading: false});
-                                            });
-                                        }
-                                    } else if (this.props.kind === 'synchronous') {
-                                        this.setState({searchFieldValue: value});
-                                    }
+                                    this.setState({searchFieldValue: event.target.value});
+                                    debounceFn();
                                 }}
                                 />
                             </div>
