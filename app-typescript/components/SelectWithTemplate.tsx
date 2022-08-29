@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {Dropdown} from '@superdesk/primereact/dropdown';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import nextId from "react-id-generator";
+import { InputWrapper } from './Form';
 
 interface IProps<T> {
     // Don't forget to cancel unfinished requests every the prop is called.
@@ -40,7 +41,7 @@ const labelKey = 'label';
 
 export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>> {
     componentRef: Dropdown | null;
-
+    private htmlId = nextId();
     constructor(props: IProps<T>) {
         super(props);
 
@@ -97,26 +98,22 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
         // or it will not be displayed at all, even if returned by itemTemplate
         const fakePlaceholderWithNonBreakingSpace = ' ';
 
-        const classes = classNames('sd-input', {
-            'sd-input--inline-label': this.props.inlineLabel,
-            'sd-input--required': this.props.required,
-            'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
-        });
-
-        const labelClasses = classNames('sd-input__label', {
-            'a11y-only': this.props.labelHidden,
-        });
-
-        let htmlId = nextId();
         return (
-            <div className={classes}>
-                <label className={labelClasses} htmlFor={htmlId} id={htmlId + 'label'}
-                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                    {this.props.label}
-                </label>
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            invalid={this.state.invalid}
+            info={this.props.info}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            tabindex={this.props.tabindex}>
                 <Dropdown
+                inputId={this.htmlId}
+                ariaLabelledBy={this.htmlId + 'label'}
                 value={valueInternal}
                 options={optionsInternal}
                 onChange={(e) => {
@@ -146,14 +143,7 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
                 ref={(componentRef) => {
                     this.componentRef = componentRef;
                 }}/>
-                <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
-                </div>
-            </div>
+            </InputWrapper>
         );
     }
 }

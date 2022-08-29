@@ -1,6 +1,7 @@
 import * as React from 'react';
-import classNames from 'classnames';
+// import classNames from 'classnames';
 import nextId from "react-id-generator";
+import { InputWrapper } from './Form';
 
 interface ISelect {
     value?: string;
@@ -27,6 +28,7 @@ interface IState {
 }
 
 class Select extends React.Component<ISelect, IState> {
+    private htmlId = nextId();
     constructor(props: ISelect) {
         super(props);
 
@@ -38,55 +40,35 @@ class Select extends React.Component<ISelect, IState> {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    htmlId = nextId();
-
     handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
         this.setState({ value: event.target.value });
         this.props.onChange(event.target.value);
     }
 
     render() {
-        const classes = classNames('sd-input sd-input--is-select', {
-            'sd-input--inline-label': this.props.inlineLabel,
-            'sd-input--required': this.props.required,
-            'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
-            'sd-input--medium': this.props.size === undefined,
-            [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
-            'sd-input--boxed-style': this.props.boxedStyle,
-            'sd-input--boxed-label': this.props.boxedLable,
-        });
-        const labelClasses = classNames('sd-input__label', {
-            'a11y-only': this.props.labelHidden,
-        });
-
         return (
-            <div className={classes}>
-                <label className={labelClasses}
-                htmlFor={this.htmlId}
-                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                    {this.props.label}
-                </label>
-
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            invalid={this.state.invalid}
+            info={this.props.info}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            tabindex={this.props.tabindex}>
                 <select className='sd-input__select'
-                    id={this.htmlId}
-                    value={this.state.value}
-                    aria-describedby={this.htmlId}
-                    tabIndex={this.props.tabindex}
-                    onChange={this.handleChange}
-                    disabled={this.props.disabled}>
-                    {this.props.children}
+                id={this.htmlId}
+                value={this.state.value}
+                aria-describedby={this.htmlId}
+                tabIndex={this.props.tabindex}
+                onChange={this.handleChange}
+                disabled={this.props.disabled}>
+                {this.props.children}
                 </select>
-
-                <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
-                </div>
-            </div>
+            </InputWrapper>
         );
     }
 }
