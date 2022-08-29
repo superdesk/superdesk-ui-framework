@@ -6,6 +6,10 @@ import { CheckboxButton } from './CheckboxButton';
 import { RadioButtonGroup } from './RadioButtonGroup';
 import { Divider } from './Divider';
 import { DatePicker } from './DatePicker';
+import { Select } from './Select';
+import { InputWrapper } from './Form';
+import { RadioGroup } from './RadioGroup';
+import { Input } from './Input';
 
 interface IProps {
     value?: IRRule | null;
@@ -70,7 +74,8 @@ export class FrequencyInput extends React.PureComponent<IProps, IState> {
         // let htmlId = nextId();
 
         return (
-            <div className='frequenci-input frequenci-input__wraper'>
+            <>
+            {/* <div className='frequenci-input frequenci-input__wraper'>
                 <div className='frequenci-input__radiobutton'>
                     <RadioButtonGroup options={[
                         {value: 'Daily', label: 'Daily'},
@@ -124,6 +129,122 @@ export class FrequencyInput extends React.PureComponent<IProps, IState> {
                     labelHidden
                     inlineLabel />
                     }
+                </div>
+            </div> */}
+
+
+            <div className='frequency-input'>
+                <div className='start  sd-margin-y--2'>
+                    <DatePicker
+                    value={this.state.date}
+                    dateFormat="YYYY-MM-DD"
+                    onChange={(date) => {
+                        this.setState({date});
+                    }}
+                    tabindex={1}
+                    label='START'
+                    inlineLabel />
+                </div>
+
+                <div className='main'>
+                    <InputWrapper label='REPEAT' inlineLabel>
+                    <RadioButtonGroup options={[
+                        {value: 'Yearly', label: 'Yearly'},
+                        {value: 'Monthly', label: 'Monthly'},
+                        {value: 'Weekly', label: 'Weekly'},
+                        {value: 'Daily', label: 'Daily'},
+                        {value: 'Hourly', label: 'Hourly'},
+                    ]}
+                    value={this.state.value}
+                    onChange={(value) => this.setState(() => ({ value: value }))} />
+
+                    <div className='frequenci-input__checkbox'>
+                        {this.state.value === 'Yearly'
+                        && <div>
+                            <div>
+                                <input type='radio'></input>
+                            </div>
+                            <div>
+                                <input type='radio'></input>
+                            </div>
+                        </div>
+                        }
+
+                        {this.state.value === 'Monthly'
+                            && <DatePicker
+                            value={this.state.date}
+                            dateFormat="YYYY-MM-DD"
+                            onChange={(date) => {
+                                this.setState({date});
+                            }}
+                            tabindex={1}
+                            labelHidden
+                            inlineLabel />
+                        }
+
+                        {this.state.value === 'Weekly' && <RadioButtonGroup options={[
+                            {value: 'Mon', label: 'Mon'},
+                            {value: 'Tue', label: 'Tue'},
+                            {value: 'Wed', label: 'Wed'},
+                            {value: 'Thu', label: 'Thu'},
+                            {value: 'Fri', label: 'Fri'},
+                            {value: 'Sat', label: 'Sat'},
+                            {value: 'Sun', label: 'Sun'},
+                        ]}
+                        value={this.state.weeklyValue}
+                        onChange={(value) => this.setState(() => ({ weeklyValue: value }))} />}
+
+                        {this.state.value === 'Daily' && <CheckButtonGroup>
+                            <CheckboxButton checked={this.state.mon} label={{text: 'Mon'}}
+                            onChange={(value) => this.setState(() => ({ mon: value }))} />
+                            <CheckboxButton checked={this.state.tue} label={{text: 'Tue'}}
+                            onChange={(value) => this.setState(() => ({ tue: value }))} />
+                            <CheckboxButton checked={this.state.wed} label={{text: 'Wed'}}
+                            onChange={(value) => this.setState(() => ({ wed: value }))} />
+                            <CheckboxButton checked={this.state.thu} label={{text: 'Thu'}}
+                            onChange={(value) => this.setState(() => ({ thu: value }))} />
+                            <CheckboxButton checked={this.state.fri} label={{text: 'Fri'}}
+                            onChange={(value) => this.setState(() => ({ fri: value }))} />
+                            <CheckboxButton checked={this.state.sat} label={{text: 'Sat'}}
+                            onChange={(value) => this.setState(() => ({ sat: value }))} />
+                            <CheckboxButton checked={this.state.sun} label={{text: 'Sun'}}
+                            onChange={(value) => this.setState(() => ({ sun: value }))} />
+                        </CheckButtonGroup>}
+                    </div>
+                    </InputWrapper>
+                </div>
+
+                <div className='end  sd-margin-y--2'>
+                    <Select label='END'
+                    value='Option 2'
+                    inlineLabel={true}  
+                    onChange={(value) => false}> 
+                    </Select>
+                </div>
+            </div>
+
+
+
+
+
+
+            </>
+        );
+    }
+}
+
+class Radio extends React.PureComponent {
+    render() {
+        return (
+            <div>
+                <div>
+                    <input type="radio" name='radio'/>
+                </div>
+                on
+                <div>
+                    <Select label={''} onChange={() => false}>
+                        
+                    </Select>
                 </div>
             </div>
         );
