@@ -323,6 +323,6 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 }
 
-export function getTime(seconds: number) {
+export function getDurationString(seconds: number) {
     return moment.utc(seconds * 1000).format("HH:mm:ss");
 }
