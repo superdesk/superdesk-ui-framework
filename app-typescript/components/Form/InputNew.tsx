@@ -90,7 +90,9 @@ export class InputNew extends React.PureComponent<IProps, IState> {
                     type="text"
                     onChange={(value: string) => {
                         this.setState({ value: value });
-                        this.setState({ invalid: this.props.maxLength ? (value as string).length > this.props.maxLength : false });
+                        this.setState({ invalid: this.props.maxLength
+                            ? (value as string).length > this.props.maxLength
+                            : false });
                         this.props.onChange(value as string);
                     }}
                     disabled={this.props.disabled}
