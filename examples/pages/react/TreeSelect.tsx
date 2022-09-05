@@ -109,6 +109,18 @@ const source = [
         'name': 'Factbox',
         'qcode': 'Factbox',
     },
+    {
+        'name': 'item',
+        'qcode': 'item',
+    },
+    {
+        'name': 'array',
+        'qcode': 'array',
+    },
+    {
+        'name': 'object',
+        'qcode': 'object',
+    },
 ];
 
 function searchOptions(
@@ -227,7 +239,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 getLabel={({name}) => name}
                                 getId={({qcode}) => qcode}
                                 selectBranchWithChildren={false}
-                                optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
+                                //optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
                                 allowMultiple={true}
                             />
                             </div>
@@ -271,6 +283,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                         return <span>Label: {item.name}</span>
                                     }}
                                     //allowMultiple
+                                    //readOnly
                                 />
                             </div>
                         </div>

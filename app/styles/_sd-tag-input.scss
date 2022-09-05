@@ -263,11 +263,17 @@ tags-input,
         }
         .suggestion-list--multi-select {
             padding: 4px 0 !important;
+            min-height: 40px;
         }
         .suggestion-list--loader {
             padding: 4px 0 !important;
             position: relative;
-            min-height: 56px;
+            min-height: 3.2rem;
+            >div {
+                padding: 0.5rem 1rem;
+                min-height: $sd-base-increment * 4;
+                position: relative;
+            }
         }
         .suggestion-item {
             padding: 0.5rem 1rem;
@@ -308,6 +314,19 @@ tags-input,
         }
         .suggestion-item--disabled {
             opacity: 0.5;
+        }
+        .suggestion-item--nothing-found {
+            padding: 0.5rem 1rem;
+            cursor: not-allowed;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            color: $sd-text-light;
+            transition: all ease 0.2s;
+            min-height: $sd-base-increment * 4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }

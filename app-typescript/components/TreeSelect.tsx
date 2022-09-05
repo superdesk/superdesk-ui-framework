@@ -9,15 +9,16 @@ import { createPopper } from '@popperjs/core';
 interface IState<T> {
     value: Array<T>;
     options: Array<ITreeNode<T>>;
-    firstBranchOptions: Array<any>;                // to return on first branch in dropdown
-    openDropdown: boolean;                         // open/close dropdown
-    activeTree: Array<any>;                         // for filtered array
-    filterArr: Array<any>;                          // for filtered array
-    searchFieldValue: string;                      // filter value of input
-    buttonTree: Array<any>;                         // array of button (for backButton)
-    buttonValue: any;                              // button for name of category
-    buttonMouseEvent: boolean;                     // valueButton hover
+    firstBranchOptions: Array<any>;
+    openDropdown: boolean;
+    activeTree: Array<any>;
+    filterArr: Array<any>;
+    searchFieldValue: string;
+    buttonTree: Array<any>;
+    buttonValue: any;
+    buttonMouseEvent: boolean;
     loading: boolean;
+    //provera: boolean;
 }
 
 interface IPropsBase<T> {
@@ -83,7 +84,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             buttonValue: [],
             buttonMouseEvent: false,
             openDropdown: false,
-            loading: this.props.loading ? this.props.loading : false,
+            loading: false,
+            //provera: false
         };
 
         this.removeClick = this.removeClick.bind(this);
@@ -117,18 +119,30 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             this.props.onChange(this.state.value);
         }
         if (this.state.openDropdown) {
-            if (this.openDropdownRef.current && this.dropdownRef.current) {
-                createPopper(this.openDropdownRef.current, this.dropdownRef.current, {
-                    placement: 'bottom-end',
-                    modifiers: [
-                        {
-                          name: 'offset',
-                          options: {
-                            offset: [-4, 4],
-                          },
-                        },
-                      ],
-                });
+            if (!this.state.loading) {
+                if (this.openDropdownRef.current && this.dropdownRef.current) {
+                    createPopper(this.openDropdownRef.current, this.dropdownRef.current, {
+                        placement: 'bottom-end',
+                        modifiers: [
+                            {
+                                name: 'offset',
+                                options: {
+                                offset: [-4, 4],
+                                },
+                            },
+                            {
+                                name: 'eventListeners',
+                                options: {resize: false}
+                            },
+                            {
+                                name: 'computeStyles',
+                                options: {
+                                  adaptive: false, // true by default
+                                }
+                            }
+                        ],
+                    });
+                }
             }
         }
     }
@@ -290,8 +304,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     filteredItem(arr: Array<ITreeNode<T>>) {
-        if (this.props.kind === 'synchronous') {
-            return arr.filter((item) => {
+        if (this.props.kind === 'synchronous') {    
+            let filteredArr = arr.filter((item) => {
                 if (this.state.searchFieldValue) {
                     if (this.props.getLabel(item.value)
                     .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
@@ -302,7 +316,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 } else {
                     return item.value;
                 }
-            }).map((option, i) => {
+            });
+
+            if (filteredArr.length === 0) {
+                return <li className="suggestion-item--nothing-found">Nothing fonud</li>
+            } else {
+            return filteredArr.map((option, i) => {
                 let selectedItem = this.state.value.some((obj) =>
                     this.props.getId(obj) === this.props.getId(option.value),
                 );
@@ -328,7 +347,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             <Icon name="chevron-right-thin"></Icon>
                         </span>}
                 </li>;
-            });
+            })
+        };
         } else if (this.props.kind === 'asynchronous') {
             return this.state.options.map((item, i) => {
                 let selectedItem = this.state.value.some((obj) =>
@@ -386,9 +406,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             if (this.state.searchFieldValue) {
                 this.setState({
                     loading: true,
+                    //provera: false
                 });
                 this.props.searchOptions(this.state.searchFieldValue, (items) => {
-                    this.setState({options: items, loading: false});
+                    // if (items.length === 0) {
+                    //     this.setState({provera: true, loading: false})
+                    // } else {
+                        this.setState({options: items, loading: false});
+                    //}
                 });
             }
         }
@@ -445,11 +470,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </button> : null}
                         </div>
                         : <div className="tags-input__tags">
-                            <button
+                            {this.props.readOnly
+                            || <button
                             className="tags-input__overlay-button"
                             ref={this.openDropdownRef}
                             onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
-                            </button>
+                            </button>}
                             {this.state.value.length < 1 && <span className={ 'tags-input__single-item'
                             + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}>
                                 <span className="tags-input__placeholder">
@@ -484,7 +510,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             this.backButtonValue();
                             this.backButton();
                             }}>
-                                 <Icon name="search" className="search"></Icon>
+                                <Icon name="search" className="search"></Icon>
                             </div>
                             <div className='autocomplete__filter'>
                                 <input
@@ -502,6 +528,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     } else {
                                         return;
                                     }
+                                    // if(!this.state.searchFieldValue) {
+                                    //     this.setState({provera: false});
+                                    // }
                                 }} />
                             </div>
                         </div>
@@ -559,6 +588,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             : <ul className="suggestion-list suggestion-list--multi-select">
                                 {this.filteredItem(this.props.singleLevelSearch
                                 ? this.state.options : this.state.filterArr)}
+                                {/* {this.state.provera && <li className="suggestion-item--nothing-found">Nothing fonud</li>} */}
                             </ul>
                         }
                     </div>}
