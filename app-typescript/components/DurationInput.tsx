@@ -323,6 +323,20 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 }
 
-export function getTime(seconds: number) {
-    return moment.utc(seconds * 1000).format("HH:mm:ss");
+export function getDurationString(seconds: number) {
+    function zeroPad(value: number | string) {
+        if (value.toString().length === 1 || value === 0) {
+            return `0${value}`;
+        } else if (!value) {
+            return '00';
+        } else {
+            return value;
+        }
+    }
+
+    let hour = zeroPad(Math.floor(seconds / 3600));
+    let minute = zeroPad(Math.floor((seconds % 3600) / 60));
+    let second = zeroPad(Math.floor(seconds % 60));
+
+    return `${hour}h ${minute}m ${second}s`;
 }
