@@ -18,7 +18,7 @@ interface IState<T> {
     buttonValue: any;
     buttonMouseEvent: boolean;
     loading: boolean;
-    //provera: boolean;
+    // provera: boolean;
 }
 
 interface IPropsBase<T> {
@@ -70,6 +70,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private dropdownRef: React.RefObject<HTMLInputElement>;
     private openDropdownRef: React.RefObject<HTMLButtonElement>;
     private htmlId: string = nextId();
+    private popperInstance: any;
 
     constructor(props: IProps<T>) {
         super(props);
@@ -85,7 +86,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             buttonMouseEvent: false,
             openDropdown: false,
             loading: false,
-            //provera: false
+            // provera: false
         };
 
         this.removeClick = this.removeClick.bind(this);
@@ -97,6 +98,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.filteredItem = this.filteredItem.bind(this);
         this.banchButton = this.banchButton.bind(this);
         this.handleDebounce = this.handleDebounce.bind(this);
+        this.toggleMenu = this.toggleMenu.bind(this);
         this.dropdownRef = React.createRef();
         this.openDropdownRef = React.createRef();
 
@@ -118,31 +120,32 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         } else if (prevProps.value !== this.props.value) {
             this.props.onChange(this.state.value);
         }
+        if (prevState.openDropdown !== this.state.openDropdown) {
+            this.toggleMenu();
+        }
+        if (this.props.kind === 'synchronous') {
+            if ((prevState.activeTree !== this.state.activeTree)
+            || (prevState.filterArr !== this.state.filterArr)
+            || (prevState.options !== this.state.options)) {
+                this.popperInstance.update();
+            }
+        }
+    }
+
+    toggleMenu() {
         if (this.state.openDropdown) {
-            if (!this.state.loading) {
-                if (this.openDropdownRef.current && this.dropdownRef.current) {
-                    createPopper(this.openDropdownRef.current, this.dropdownRef.current, {
-                        placement: 'bottom-end',
-                        modifiers: [
-                            {
-                                name: 'offset',
-                                options: {
+            if (this.openDropdownRef.current && this.dropdownRef.current) {
+                this.popperInstance = createPopper(this.openDropdownRef.current, this.dropdownRef.current, {
+                    placement: 'bottom-start',
+                    modifiers: [
+                        {
+                            name: 'offset',
+                            options: {
                                 offset: [-4, 4],
-                                },
                             },
-                            {
-                                name: 'eventListeners',
-                                options: {resize: false}
-                            },
-                            {
-                                name: 'computeStyles',
-                                options: {
-                                  adaptive: false, // true by default
-                                }
-                            }
-                        ],
-                    });
-                }
+                        },
+                    ],
+                });
             }
         }
     }
@@ -304,7 +307,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     filteredItem(arr: Array<ITreeNode<T>>) {
-        if (this.props.kind === 'synchronous') {    
+        if (this.props.kind === 'synchronous') {
             let filteredArr = arr.filter((item) => {
                 if (this.state.searchFieldValue) {
                     if (this.props.getLabel(item.value)
@@ -319,36 +322,36 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             });
 
             if (filteredArr.length === 0) {
-                return <li className="suggestion-item--nothing-found">Nothing fonud</li>
+                return <li className="suggestion-item--nothing-found">Nothing fonud</li>;
             } else {
-            return filteredArr.map((option, i) => {
-                let selectedItem = this.state.value.some((obj) =>
-                    this.props.getId(obj) === this.props.getId(option.value),
-                );
-                return <li key={i}
-                className={`suggestion-item suggestion-item--multi-select`}
-                onClick={(event) => {
-                    this.setState({
-                        searchFieldValue: '',
-                    }),
-                    event.preventDefault();
-                    event.stopPropagation();
-                    this.handleTree(event, option);
-                }}>
-                    {this.props.optionTemplate
-                        ? this.props.optionTemplate(option.value)
-                        : <span
-                        className={selectedItem
-                        ? 'suggestion-item--disabled' : undefined}
-                        >
-                            {this.props.getLabel(option.value)}
-                        </span>}
-                        {option.children && <span className="suggestion-item__icon">
-                            <Icon name="chevron-right-thin"></Icon>
-                        </span>}
-                </li>;
-            })
-        };
+                return filteredArr.map((option, i) => {
+                    let selectedItem = this.state.value.some((obj) =>
+                        this.props.getId(obj) === this.props.getId(option.value),
+                    );
+                    return <li key={i}
+                    className={`suggestion-item suggestion-item--multi-select`}
+                    onClick={(event) => {
+                        this.setState({
+                            searchFieldValue: '',
+                        }),
+                        event.preventDefault();
+                        event.stopPropagation();
+                        this.handleTree(event, option);
+                    }}>
+                        {this.props.optionTemplate
+                            ? this.props.optionTemplate(option.value)
+                            : <span
+                            className={selectedItem
+                            ? 'suggestion-item--disabled' : undefined}
+                            >
+                                {this.props.getLabel(option.value)}
+                            </span>}
+                            {option.children && <span className="suggestion-item__icon">
+                                <Icon name="chevron-right-thin"></Icon>
+                            </span>}
+                    </li>;
+                });
+            }
         } else if (this.props.kind === 'asynchronous') {
             return this.state.options.map((item, i) => {
                 let selectedItem = this.state.value.some((obj) =>
@@ -400,20 +403,23 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     private debounceFn = _debounce(this.handleDebounce, 500);
+    private ICancelFn: any;
 
     handleDebounce() {
+        this.setState({options: []});
         if (this.props.kind === 'asynchronous') {
             if (this.state.searchFieldValue) {
                 this.setState({
                     loading: true,
-                    //provera: false
+                    // provera: false
                 });
-                this.props.searchOptions(this.state.searchFieldValue, (items) => {
+                this.ICancelFn = this.props.searchOptions(this.state.searchFieldValue, (items) => {
                     // if (items.length === 0) {
                     //     this.setState({provera: true, loading: false})
                     // } else {
                         this.setState({options: items, loading: false});
-                    //}
+                        this.popperInstance.update();
+                    // }
                 });
             }
         }
@@ -522,8 +528,13 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 onChange={(event) => {
                                     if (this.props.kind === 'synchronous') {
                                         this.setState({searchFieldValue: event.target.value});
+                                        this.popperInstance.update();
                                     } else if (this.props.kind === 'asynchronous') {
+                                        if (this.ICancelFn) {
+                                            this.ICancelFn();
+                                        }
                                         this.setState({searchFieldValue: event.target.value, options: []});
+                                        this.popperInstance.update();
                                         this.debounceFn();
                                     } else {
                                         return;
@@ -588,7 +599,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             : <ul className="suggestion-list suggestion-list--multi-select">
                                 {this.filteredItem(this.props.singleLevelSearch
                                 ? this.state.options : this.state.filterArr)}
-                                {/* {this.state.provera && <li className="suggestion-item--nothing-found">Nothing fonud</li>} */}
+                                {/* {this.state.provera
+                                    && <li className="suggestion-item--nothing-found">Nothing fonud</li>} */}
                             </ul>
                         }
                     </div>}

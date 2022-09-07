@@ -10,6 +10,7 @@ interface IState {
     options: any;
     options2: any;
     inputValue: string;
+    arr: any;
 }
 
 let itemArr = [
@@ -61,13 +62,41 @@ let itemArr2 = [
             {
                 value: {name: 'Sub-category1'},
                 children: [
-                    {value: {name: 'Item5'}}
+                    {value: {name: 'Item20'}}
                 ]
             },
             {
                 value: {name: 'Sub-category2'},
                 children: [
-                    {value: {name: 'Item7'}}
+                    {value: {name: 'Item21'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category3'},
+                children: [
+                    {value: {name: 'Item22'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category4'},
+                children: [
+                    {value: {name: 'Item23'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category5'},
+                children: [
+                    {value: {name: 'Item24'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category6'},
+                children: [
+                    {value: {name: 'Item25'}}
                 ]
             }
         ]
@@ -99,6 +128,10 @@ let itemArr2 = [
 const source = [
     {
         'name': 'Article (news)',
+        'qcode': 'Article (news)',
+    },
+    {
+        'name': 'Article',
         'qcode': 'Article',
     },
     {
@@ -110,30 +143,41 @@ const source = [
         'qcode': 'Factbox',
     },
     {
-        'name': 'item',
-        'qcode': 'item',
+        'name': 'Item',
+        'qcode': 'Item',
     },
     {
-        'name': 'array',
-        'qcode': 'array',
+        'name': 'Array',
+        'qcode': 'Array',
     },
     {
-        'name': 'object',
-        'qcode': 'object',
+        'name': 'Object',
+        'qcode': 'Object',
     },
 ];
 
+let fetchedArr = [];
+fetch('https://nominatim.openstreetmap.org/search/berlin?format=json&addressdetails=1&limit=20').then(response => response.json()).then(data => fetchedArr = data
+);
+
+type ICancelFn = () => void;
+
 function searchOptions(
     term: string,
-    callback: (res: Array<ITreeNode<{name: string; qcode: string;}>>) => void,
-): void {
-    setTimeout(() => {
+    callback: (res: any) => void,
+): ICancelFn {
+    let timeout = setTimeout(() => {
+        
         callback(
-            source
-                .filter((item) => item.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
+            fetchedArr
+                .filter((item: any) => item.display_name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
                 .map((item) => ({value: item})),
-        ); 
+        );
     }, 1000);
+
+    return () => {
+        clearTimeout(timeout);
+    }
 }
 
 export class TreeSelectDocs extends React.Component<{}, IState> {
@@ -144,8 +188,10 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             value2: [],
             options: itemArr2,
             options2: itemArr2,
-            inputValue: ''
+            inputValue: '',
+            arr: []
         }
+        
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -158,13 +204,13 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             this.setState({
                 options: option.item
             })
-        }  
+        }
     }
 
     render() {
         return (
             <section className='docs-page__container'>
-                <h2 className='docs-page__h2'>TreeSelect (in progress)</h2>
+                <h2 className='docs-page__h2'>TreeSelect</h2>
 
                 <Markup.ReactMarkupCodePreview>{`
                     <TreeSelect
@@ -195,7 +241,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     error={'Error Message'}
                                     required
                                     label={'TreeSelect Label'}
-                                    //singleLevelSearch
+                                    singleLevelSearch
                                     searchPlaceholder='Search...'
                                 />
                             </div>
@@ -236,10 +282,11 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 onChange={(val) => {
                                     this.setState({value: val});
                                 }}
-                                getLabel={({name}) => name}
-                                getId={({qcode}) => qcode}
+                                getLabel={({display_name}) => display_name
+                                }
+                                getId={({qcode}) => qcode.display_name}
                                 selectBranchWithChildren={false}
-                                //optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
+                                //optionTemplate={(item) => <span style={{color: 'blue'}}>{item.display_name}</span>}
                                 allowMultiple={true}
                             />
                             </div>
