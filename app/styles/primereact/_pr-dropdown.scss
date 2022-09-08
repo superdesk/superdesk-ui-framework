@@ -1,13 +1,21 @@
 @import './../tag-labels';
 @import './../form-elements/checkbox';
 
-.p-dropdown, .p-multiselect {
+.p-dropdown {
     @include pr-input-item-base;
     padding-block-start: 6px;
     padding-block-end: 6px;
     padding-inline-start: 8px;
     padding-inline-end: 8px;
     color: $sd-text;
+}
+
+.p-multiselect {
+    @include pr-input-item-base;
+    height: auto !important;
+    min-height: 3.2rem !important;
+    color: $sd-text;
+    padding: 0.4rem;
 }
 
 .p-dropdown-clear-icon,
@@ -69,13 +77,21 @@
 }
 
 .p-multiselect-label {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
     display: flex;
+    justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
+    padding-inline-start: 0.4rem;
+    gap: 0.4rem;
 }
 
 .p-multiselect-token {
     @extend .tag-label;
     cursor: default;
+    margin: 0 !important;
  
     .pi-times-circle {
         overflow: inherit;
