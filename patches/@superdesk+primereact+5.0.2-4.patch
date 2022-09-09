@@ -12,7 +12,7 @@ index 80b0f8e..5343abf 100644
      blockScroll?: boolean;
      ariaCloseIconLabel?: string;
 diff --git a/node_modules/@superdesk/primereact/components/dialog/Dialog.js b/node_modules/@superdesk/primereact/components/dialog/Dialog.js
-index 2e243f2..c40162e 100644
+index 2e243f2..e7ce643 100644
 --- a/node_modules/@superdesk/primereact/components/dialog/Dialog.js
 +++ b/node_modules/@superdesk/primereact/components/dialog/Dialog.js
 @@ -148,7 +148,7 @@ var Dialog = /*#__PURE__*/function (_Component) {
@@ -24,6 +24,15 @@ index 2e243f2..c40162e 100644
      }
    }, {
      key: "maximized",
+@@ -301,7 +301,7 @@ var Dialog = /*#__PURE__*/function (_Component) {
+         this.setState({
+           maskVisible: true
+         }, function () {
+-          _this5.mask.style.zIndex = String(_this5.zIndex);
++          _this5.mask.style.zIndex = String(this.zIndex);
+         });
+       }
+ 
 @@ -501,7 +501,7 @@ _defineProperty(Dialog, "defaultProps", {
    maskClassName: null,
    showHeader: true,
