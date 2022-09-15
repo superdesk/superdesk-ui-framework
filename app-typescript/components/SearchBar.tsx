@@ -63,7 +63,7 @@ export class SearchBar extends React.PureComponent<IProps, IState> {
                 type="text"
                 placeholder={this.props.placeholder}
                 value={this.state.inputValue}
-                onKeyDown={(event) => {
+                onKeyPress={(event) => {
                     if (event.key === 'Enter') {
                         if (this.props.onSubmit) {
                             this.props.onSubmit(this.state.inputValue);
