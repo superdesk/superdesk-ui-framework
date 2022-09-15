@@ -3,34 +3,34 @@ import classNames from "classnames";
 import Scrollspy from "react-scrollspy";
 
 interface IMenuItem {
-	id: string;
-	label: string;
-	route?: string;
-	ref?: string;
-	onClick?(): void;
+    id: string;
+    label: string;
+    route?: string;
+    ref?: string;
+    onClick?(): void;
 }
 
 interface IMenuGroup {
-	label: string;
-	items: Array<IMenuItem>;
+    label: string;
+    items: Array<IMenuItem>;
 }
 
 interface IMenu {
-	className?: string;
-	groups: Array<IMenuGroup>;
-	activeItemId?: string;
+    className?: string;
+    groups: Array<IMenuGroup>;
+    activeItemId?: string;
     scrollTo?: string;
-	ariaLabel?: string;
-	scrollSpy?: string;
-	offset?: number;
-	reverseItemBorder?: boolean;
-	style?: "default" | "inverse" | "blanc";
-	size?: "medium" | "large";
-	onSelect(id: string, route: string): void;
+    ariaLabel?: string;
+    scrollSpy?: string;
+    offset?: number;
+    reverseItemBorder?: boolean;
+    style?: "default" | "inverse" | "blanc";
+    size?: "medium" | "large";
+    onSelect(id: string, route: string): void;
 }
 
 interface IState {
-	active: string;
+    active: string;
 }
 
 export class LeftMenu extends React.PureComponent<IMenu, IState> {
