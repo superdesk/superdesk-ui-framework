@@ -224,6 +224,7 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     <Prop name='itemsDropdown' isRequired={false} type='React.ReactNode | any' default='false' description='Dropdown for functionality to add items to the list.' />
                     <Prop name='className' isRequired={false} type='string' default='false' description='Add class on TableList container.' />
                     <Prop name='onClick' isRequired={false} type='function' default='false' description='onClick functionality.' />
+                    <Prop name='onDrag' isRequired={false} type='function' default='false' description='Returns start and end position of draggable item' />
                 </PropsList>
                 <p className="docs-page__paragraph">array:</p>
                 <PropsList>
