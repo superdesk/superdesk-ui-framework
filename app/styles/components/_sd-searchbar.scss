@@ -154,6 +154,13 @@
         }
     }
 }
+.sd-searchbar__search-btn--active {
+    background-color: $sd-colour-interactive;
+        opacity: 1;
+        i {
+            color: $white;
+        }
+}
 [dir="rtl"] {
     .sd-searchbar__search-btn {
         i.icon-chevron-right-thin {
