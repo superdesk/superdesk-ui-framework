@@ -5,7 +5,7 @@ import { Tooltip } from '../Tooltip';
 import { Button } from '../Button';
 import { Dropdown, IMenuItem, ISubmenu, IMenuGroup } from '../Dropdown';
 
-interface IProps {
+export interface IProps {
     children?: React.ReactNode;
     array: Array<IPropsArrayItem>;
     addItem?: boolean;
@@ -15,7 +15,7 @@ interface IProps {
     onDrag?(start: number, end: number): void;
 }
 
-interface IPropsArrayItem {
+export interface IPropsArrayItem {
     start?: React.ReactNode;
     center?: React.ReactNode;
     end?: React.ReactNode;
@@ -132,7 +132,7 @@ class TableList extends React.PureComponent<IProps, { items: Array<IPropsArrayIt
     }
 }
 
-interface IPropsItem {
+export interface IPropsItem {
     start?: React.ReactNode;
     center?: React.ReactNode;
     end?: React.ReactNode;
