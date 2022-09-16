@@ -19,12 +19,6 @@ export class FormRowNew extends React.PureComponent<IProps> {
             },
         );
 
-        // return (
-        //     <div className={classes}>
-        //         {this.props.children}
-        //     </div>
-        // );
-
         if (this.props.rowLabel) {
             return (
                 <div className='form__group-new__wrapper'>
