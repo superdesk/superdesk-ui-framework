@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "3.0.1-beta.3",
+  "version": "3.0.1-beta.7",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
     "@types/classnames": "^2.2.9",
     "@types/lodash": "^4.14.161",
     "@types/react": "16.8.23",
+    "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-dom": "16.8.0",
     "@types/react-router-dom": "^5.1.2",
     "@types/react-scrollspy": "^3.3.5",

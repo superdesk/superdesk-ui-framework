@@ -18,6 +18,7 @@ export { IconButton } from './components/IconButton';
 export { IconLabel } from './components/IconLabel';
 export { Tooltip } from './components/Tooltip';
 export { DurationInput } from './components/DurationInput';
+export { getDurationString } from './components/DurationInput';
 export { DatePicker } from './components/DatePicker';
 export { DatePickerISO } from './components/DatePicker';
 export { DatePickerLocaleSettings } from './components/DatePicker';
@@ -87,6 +88,7 @@ export { Time } from './components/Text/Time';
 export { Heading } from './components/Text/Heading';
 export { BottomNav } from './components/Navigation/BottomNav';
 export { TreeSelect } from './components/TreeSelect';
+export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 
 // declare non-typescript exports to prevent errors
