@@ -6,6 +6,7 @@ import { InputWrapper } from './Form';
 interface IProps {
     value: string; // will output time as ISO8601 time string(e.g. 16:55) or an empty string if there's no value
     onChange(valueNext: string): void;
+    allowSeconds?: boolean;
     disabled?: boolean;
     inlineLabel?: boolean;
     required?: boolean;
@@ -49,6 +50,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                 id={this.htmlId}
                 aria-labelledby={this.htmlId + 'label'}
                 type="time"
+                step={this.props.allowSeconds ? 1 : undefined}
                 className="sd-input__input"
                 value={this.props.value}
                 required={this.props.required}
