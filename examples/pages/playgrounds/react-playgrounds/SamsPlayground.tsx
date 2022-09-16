@@ -141,7 +141,10 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                 <Components.PanelContentBlock>
                                     <div className="form__group">
                                         <div className="form__item">
-                                            <Input label='Title'
+                                            <Input
+                                                label='Title'
+                                                type='text'
+                                                value=''
                                                 error='This is error message'
                                                 inlineLabel={false}
                                                 disabled={false}
@@ -167,7 +170,10 @@ export class SamsPlayground extends React.Component<IProps, IState> {
 
                                     <div className="form__group">
                                         <div className="form__item">
-                                            <Input label='Keyword'
+                                            <Input 
+                                                label='Keyword'
+                                                type='text'
+                                                value=''
                                                 error='This is error message'
                                                 inlineLabel={false}
                                                 disabled={false}
@@ -232,8 +238,11 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                             <Badge text={item.urgency} color={item.urgencyColor} />
                                             <Badge text={item.priority} shape='square' color={item.priorityColor} />
                                         </GridElements.GridItemFooterBlock>
+                                        <GridElements.GridItemFooterBlock align='right'>
+                                            <Label type='success' style='translucent' text='In progress' />
+                                        </GridElements.GridItemFooterBlock>
                                         <GridElements.GridItemFooterActions>
-                                            <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> this.changeStatus(item, 'archived')} />
+                                            <IconButton size='small' icon='dots-vertical' ariaValue='More actions' onClick={()=> this.changeStatus(item, 'archived')} />
                                         </GridElements.GridItemFooterActions>
                                     </GridElements.GridItemFooter>
                                 </GridElements.GridItem>

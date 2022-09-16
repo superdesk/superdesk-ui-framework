@@ -285,6 +285,13 @@ $sd-icon-font: (
     arrow-small: "\e6b0",
     clear-all: "\e6b1",
     rundown: "\e6b2",
+    photo-cancel: "\e6b3",
+    video-cancel: "\e6b4",
+    text-cancel: "\e6b5",
+    file-cancel: "\e6b6",
+    audio-cancel: "\e6b7",
+    list-alt-cancel: "\e6b8",
+    post-cancel: "\e6b9",
 );
 
 @each $name, $value in $sd-icon-font {

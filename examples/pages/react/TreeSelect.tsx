@@ -183,7 +183,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     error={'Error Message'}
                                     required
                                     label={'TreeSelect Label'}
-                                    singleLevelSearch
+
                                 />
                             </div>
                         </div>

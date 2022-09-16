@@ -74,9 +74,13 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-inline-start: auto;
+        margin-inline-start: $sd-base-increment;
         justify-content: flex-end;
         visibility: hidden;
+        max-width: 0;
+        opacity: 0;
+        padding-inline-end: 0;
+        transition: all 0.2s ease;
         &--visible {
             visibility: visible;
             opacity: 0.5;
@@ -226,6 +230,10 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
         }
         .sd-grid-item__footer-actions {
             visibility: visible;
+            padding-inline-end: 0.4rem;
+            max-width: 32px;
+            margin-inline-start: auto;
+            opacity: 1;
             &--visible {
                 opacity: 1;
             }
@@ -244,6 +252,16 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
         &:hover {
             .sd-grid-item__checkbox {
                 visibility: visible;
+            }
+        }
+        .sd-grid-item__footer-actions {
+            visibility: visible;
+            padding-inline-end: 0.4rem;
+            max-width: 32px;
+            margin-inline-start: auto;
+            opacity: 1;
+            &--visible {
+                opacity: 1;
             }
         }
     }
@@ -402,42 +420,38 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             display: flex;
             flex-direction: row;
             align-items: center;
-            &--multi-l {
-                flex-grow: 1;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                padding-inline-start: 0.4rem;
-            }
+            &--multi-l,
             &--multi-r {
                 flex-grow: 1;
                 display: flex;
                 flex-direction: row;
                 align-items: center;
+                gap: $sd-base-increment;
+            }
+            &--multi-l {
+                justify-content: flex-start;
+            }
+            &--multi-r {
                 justify-content: flex-end;
-                padding-inline-end: 0.4rem;
             }
             &--single-r {
                 flex-grow: 0;
             }
+            &--left,
+            &--right {
+                gap: $sd-base-increment;
+            }
             &--left {
                 margin-inline-end: auto;
                 justify-content: flex-start;
-                @include sd-padding('0-5');
-                > * {
-                    margin: 0 0.4rem;
-                }
+                padding-inline-start: $sd-base-increment;
             }
             &--right {
                 margin-inline-start: auto;
                 justify-content: flex-end;
-                > * {
-                    margin: 0 0.4rem;
-                }
             }
         }
         .sd-grid-item__footer-block-item {
-            margin: 0 0.4rem;
             flex-shrink: 0;
         }
         time {

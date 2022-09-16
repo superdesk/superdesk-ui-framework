@@ -6,6 +6,7 @@ interface IProps {
     side?: 'left' | 'right';
     background?: 'transparent' | 'light' | 'grey' | 'dark';
     open?: boolean;
+    large?: boolean;
 }
 
 export class AuthoringContainer extends React.PureComponent<IProps> {
@@ -18,7 +19,7 @@ export class AuthoringContainer extends React.PureComponent<IProps> {
         });
         return (
             <div className={classes}>
-                <div className='sd-editor__container'>
+                <div className={`sd-editor__container ${this.props.large ? 'sd-editor__container--large' : ''}`}>
                     {this.props.children}
                 </div>
             </div>

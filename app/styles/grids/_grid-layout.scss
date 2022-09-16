@@ -685,8 +685,32 @@ $planningEditor-width: 53rem;
     .side-panel__container {
         width: var(--width__container--medium);
         overflow-y: auto;
-        &.side-panel__container--xx-large{
+        &.side-panel__container--xxx-small {
+            width: var(--width__container--xxx-small);
+        }
+        &.side-panel__container--xx-small {
+            width: var(--width__container--xx-small);
+        }
+        &.side-panel__container--x-small {
+            width: var(--width__container--x-small);
+        }
+        &.side-panel__container--small {
+            width: var(--width__container--small);
+        }
+        &.side-panel__container--large {
+            width: var(--width__container--large);
+        }
+        &.side-panel__container--x-large {
+            width: var(--width__container--x-large);
+        }
+        &.side-panel__container--xx-large {
             width: var(--width__container--xx-large);
+        }
+        &.side-panel__container--xxx-large {
+            width: var(--width__container--xxx-large);
+        }
+        &.side-panel__container--full {
+            width: var(--width__container--full);
         }
         .side-panel {
             opacity: 1;

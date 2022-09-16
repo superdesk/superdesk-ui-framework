@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew } from '../../../../app-typescript/index';
 import { Carousel } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
@@ -63,24 +63,33 @@ export class TestGround extends React.Component<IProps, IState> {
                 <Components.LayoutContainer>
                     <Components.MainPanel>
                         <InputNew
-                            label='testt'
+                            label='test'
                             value=''
                             onChange={(value) => false}
-                            //placeholder='test'
+                            placeholder='test'
                             required={true}
                             info='Nullam Sollicitudin'
                             maxLength={20}
-                            //invalid={true}
-                            //disabled={true}
                             error='Error message'
-                            //inlineLabel={true}
-                            //labelHidden={true}
+                            inlineLabel={true}
+                            labelHidden={true}
                             type='text' />
                         
                         <hr />
                         <div className='form__group-new'>
-                            <Input value='' onChange={(value) => {}} type='text' label='Text input' placeholder='Enter text' disabled={true} />
-                            <Input value='' onChange={(value) => {}} type='text' label='Text input' placeholder='Enter text' disabled={true} />
+                            <Input
+                                value=''
+                                onChange={(value) => {}}
+                                type='text'
+                                label='Text input'
+                                placeholder='Enter text'
+                                disabled={true} />
+                            <Input value=''
+                                onChange={(value) => {}}
+                                type='text'
+                                label='Text input'
+                                placeholder='Enter text'
+                                disabled={true} />
                             <DatePicker
                                 value={this.state.date}
                                 onChange={(date) => {
@@ -91,8 +100,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 label='Date'
                                 info='Nullam Sollicitudin'
                                 error='Error message'
-                                inlineLabel={true}
-
+                                inlineLabel={false}
                                 shortcuts={[
                                     {label: 'tomorrow', days: 1},
                                     {label: 'yesterday', days: -1},
@@ -107,12 +115,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     this.setState({time});
                                 }}
                             />
-                            <Button text="Exit" type='primary' onClick={()=> false} />
-
+                            <Button text="Clear" onClick={()=> false} />
                             <Button text="Cancel" onClick={()=> false} />
-
                             <Button text="Save" type='primary' onClick={()=> false} />
                         </div>
+                        <hr />
+
+                        <FormRowNew rowLabel='My group label' inlineLabels={true}>
+                            <Input
+                                value=''
+                                onChange={(value) => {}}
+                                type='text'
+                                label='Text input'
+                                placeholder='Enter text'
+                                inlineLabel={true}
+                                labelHidden={true}
+                                disabled={false} />
+                            <Text size='small' align='center'>To:</Text>
+                            <Input
+                                value=''
+                                onChange={(value) => {}}
+                                type='text'
+                                label='Text input'
+                                placeholder='Enter text'
+                                inlineLabel={true}
+                                labelHidden={true}
+                                disabled={false} />
+                            <DatePicker
+                                value={this.state.date}
+                                onChange={(date) => {
+                                    this.setState({date});
+                                }}
+                                // disabled={true}
+                                dateFormat="DD-MM-YYYY"
+                                label='Date'
+                                info='Nullam Sollicitudin'
+                                error='Error message'
+                                inlineLabel={true}
+                                labelHidden={true}
+                                shortcuts={[
+                                    {label: 'tomorrow', days: 1},
+                                    {label: 'yesterday', days: -1},
+                                ]}
+                            />
+                            <TimePicker
+                                value={this.state.time}
+                                // disabled={true}
+                                required={true}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                label='Time'
+                                onChange={(time) => {
+                                    this.setState({time});
+                                }}
+                            />
+                            <Button text="Save" type='primary' onClick={()=> false} />
+                        </FormRowNew>
+
+                        <hr />
+
+                        <FormRowNew>
+                            <Input
+                                value=''
+                                onChange={(value) => {}}
+                                type='text'
+                                label='Text input'
+                                placeholder='Enter text'
+                                disabled={false} />
+                            <Text size='small' align='center'>To:</Text>
+                            <Input
+                                value=''
+                                onChange={(value) => {}}
+                                type='text'
+                                label='Text input'
+                                placeholder='Enter text'
+                                labelHidden={true}
+                                disabled={false} />
+                            <DatePicker
+                                value={this.state.date}
+                                onChange={(date) => {
+                                    this.setState({date});
+                                }}
+                                // disabled={true}
+                                dateFormat="DD-MM-YYYY"
+                                label='Date'
+                                info='Nullam Sollicitudin'
+                                error='Error message'
+                                inlineLabel={false}
+                                shortcuts={[
+                                    {label: 'tomorrow', days: 1},
+                                    {label: 'yesterday', days: -1},
+                                ]}
+                            />
+                            <TimePicker
+                                value={this.state.time}
+                                // disabled={true}
+                                required={true}
+                                label='Time'
+                                onChange={(time) => {
+                                    this.setState({time});
+                                }}
+                            />
+                            <Button text="Save" type='primary' onClick={()=> false} />
+                        </FormRowNew>
+
                         <hr />
                         <h3 className="docs-page__h3 sd-margin-y--0">Table list</h3>
                         <hr />

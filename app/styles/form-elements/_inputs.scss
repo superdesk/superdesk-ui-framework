@@ -928,6 +928,8 @@
         text-align: end;
         width: 2.5ch;
         font-size: 1.4rem;
+        padding: 0 !important;
+        line-height: 3.2rem;
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
             -webkit-appearance: none;
