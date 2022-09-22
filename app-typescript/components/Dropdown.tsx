@@ -31,6 +31,7 @@ interface IMenu {
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     append?: boolean;
     children: React.ReactNode;
+    onChange?(): void;
 }
 
 export const Dropdown = ({
