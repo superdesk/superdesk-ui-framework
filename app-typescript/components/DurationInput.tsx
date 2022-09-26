@@ -371,5 +371,11 @@ export function getDurationString(seconds: number) {
     let minute = zeroPad(Math.floor((seconds % 3600) / 60));
     let second = zeroPad(Math.floor(seconds % 60));
 
-    return `${hour}h ${minute}m ${second}s`;
+    if (Number(hour) === 0 && Number(minute) > 0) {
+        return `${minute}m ${second}s`;
+    } else if (Number(hour) === 0 && Number(minute) === 0) {
+        return `${second}s`;
+    } else {
+        return `${hour}h ${minute}m ${second}s`;
+    }
 }
