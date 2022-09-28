@@ -5,6 +5,7 @@ import nextId from "react-id-generator";
 import _debounce from 'lodash/debounce';
 import { InputWrapper } from "./Form";
 import { createPopper } from '@popperjs/core';
+import {isEqual} from 'lodash';
 
 interface IState<T> {
     value: Array<T>;
@@ -115,9 +116,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
-        if (prevState.value !== this.state.value) {
+        if (!isEqual(prevState.value, this.state.value)) {
             this.props.onChange(this.state.value);
-        } else if (prevProps.value !== this.props.value) {
+        } else if (!isEqual(prevProps.value, this.props.value)) {
             this.props.onChange(this.state.value);
         }
         if (prevState.openDropdown !== this.state.openDropdown) {
