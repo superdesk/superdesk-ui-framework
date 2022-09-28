@@ -6,6 +6,7 @@ interface IProps {
     size?: 'small' | 'large';
     title: string;
     description?: string;
+    absolutePositioned?: boolean;
 }
 
 export class EmptyState extends React.PureComponent<IProps> {
@@ -18,7 +19,7 @@ export class EmptyState extends React.PureComponent<IProps> {
         let image = require(`../../app/img/empty_states/empty-state--${this.props.size ? this.props.size : 'small'}-${this.props.illustration ? this.props.illustration : '1'}.svg`);
 
         return (
-            <div className='content-state--empty-container'>
+            <div className={'content-state--empty-container' + (this.props.absolutePositioned ? ' content-state__empty-container--absolute' : '')}>
                 <div className='content-state__empty-info'>
                     <figure className={classes}>
                         <img src={image} alt={this.props.illustration} />

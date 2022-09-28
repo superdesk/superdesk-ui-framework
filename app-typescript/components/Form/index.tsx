@@ -6,3 +6,4 @@ export { FormLabel } from './FormLabel';
 export { InputWrapper } from './InputWrapper';
 export { InputBase } from './InputBase';
 export { InputNew } from './InputNew';
+export { FormRowNew } from './FormRowNew';

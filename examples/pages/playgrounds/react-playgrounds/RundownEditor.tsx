@@ -337,7 +337,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                 </Layout.MainPanel>
 
                 <Layout.RightPanel open={this.state.rightPanelOpen}>
-                    <Layout.Panel size='x-large' side='right'>
+                    <Layout.Panel size='full' side='right'>
                         <Layout.PanelContent>
                             <Layout.AuthoringFrame
                                 main={

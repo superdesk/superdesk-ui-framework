@@ -25,6 +25,7 @@ interface IState {
     hours?: any;
     minutes?: any;
     seconds?: any;
+    blink?: string;
 }
 
 export class DurationInput extends React.PureComponent<IProps, IState> {
@@ -38,6 +39,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             hours: this.stateUpdate('hours', this.props.hours, this.props.minutes, this.props.seconds),
             minutes: this.stateUpdate('minutes', this.props.minutes, this.props.seconds),
             seconds: this.stateUpdate('seconds', this.props.seconds),
+            blink: '',
         };
 
         this.hourRef = React.createRef();
@@ -68,10 +70,11 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         return this.zeroPad(value);
     }
 
-    componentDidUpdate(_: any, prevState: IState) {
+    componentDidUpdate(prevProps: any, prevState: IState) {
         if (!this.hourRef.current || !this.minuteRef.current || !this.secondRef.current ) {
             return;
         }
+
         if (this.state.hours !== prevState.hours) {
             if (Number(this.hourRef.current.value) > 99) {
                 this.setState({
@@ -85,6 +88,10 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     hours: this.zeroPad(Number(this.state.hours) + 1),
                     minutes: this.zeroPad(this.state.minutes % 60),
                 });
+                this.setState({blink: 'hour'});
+                setTimeout(() => {
+                    this.setState({blink: ''});
+                }, 500);
             }
             if (Number(this.minuteRef.current.value) < 0) {
                 this.setState({
@@ -93,6 +100,10 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     : this.zeroPad(Number(this.state.hours)),
                     minutes: 59,
                 });
+                this.setState({blink: 'hour'});
+                setTimeout(() => {
+                    this.setState({blink: ''});
+                }, 500);
             }
         }
         if (this.state.seconds !== prevState.seconds) {
@@ -101,13 +112,31 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     minutes: this.zeroPad(Number(this.state.minutes) + 1),
                     seconds: this.zeroPad(this.state.seconds % 60),
                 });
+                this.setState({blink: 'minute'});
+                setTimeout(() => {
+                    this.setState({blink: ''});
+                }, 500);
             }
             if (Number(this.secondRef.current.value) < 0) {
                 this.setState({
                     minutes: this.zeroPad(Number(this.state.minutes) - 1),
                     seconds: 59,
                 });
+                this.setState({blink: 'minute'});
+                setTimeout(() => {
+                    this.setState({blink: ''});
+                }, 500);
             }
+        }
+
+        if ((this.props.hours !== prevProps.hours)
+        || (this.props.minutes !== prevProps.minutes)
+        || (this.props.seconds !== prevProps.seconds)) {
+            this.setState({
+                hours: this.stateUpdate('hours', this.props.hours, this.props.minutes, this.props.seconds),
+                minutes: this.stateUpdate('minutes', this.props.minutes, this.props.seconds),
+                seconds: this.stateUpdate('seconds', this.props.seconds),
+            });
         }
     }
 
@@ -213,7 +242,11 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     handleChange(event: React.ChangeEvent<HTMLInputElement>, state: 'hours' | 'minutes' | 'seconds') {
         let stateClone: IState = {};
         if (event.target.value.length >= 2) {
-            stateClone[state] = event.target.value.slice(0, 2);
+            if (event.target.selectionStart === 1 && event.target.selectionEnd === 1) {
+                stateClone[state] = event.target.value.slice(0, 1) + event.target.value.slice(2, 3);
+            } else {
+                stateClone[state] = event.target.value.slice(0, 2);
+            }
         } else {
             stateClone[state] = event.target.value;
         }
@@ -263,7 +296,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             tabindex={this.props.tabindex}>
                 <div className={InputClasses}>
                     <input
-                    className='duration-input'
+                    className={`duration-input ${this.state.blink === 'hour' ? 'blink_me' : ''}`}
                     type='text'
                     id='hours'
                     max={99}
@@ -283,7 +316,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     <span className='sd-input__suffix'>h</span>
 
                     <input
-                    className='duration-input'
+                    className={`duration-input ${this.state.blink === 'minute' ? 'blink_me' : ''}`}
                     type='text'
                     id='minutes'
                     ref={this.minuteRef}

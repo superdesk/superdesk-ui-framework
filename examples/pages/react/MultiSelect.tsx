@@ -184,7 +184,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                     <Prop name='filter' isRequired={false} type='boolean' default='false' description='When specified, displays an input field to filter the items on keyup.'/>
                     <Prop name='filterPlaceholder' isRequired={false} type='string' default='/' description='Placeholder text to show when filter input is empty.'/>
                     <Prop name='emptyFilterMessage' isRequired={false} type='string' default='No results found' description='Template to display when filtering does not return any results.'/>
-                    <Prop name='maxSelectedLabels' isRequired={false} type='number' default='/' description='Decides how many selected item labels to show at most.'/>
+                    <Prop name='maxSelectedLabels' isRequired={false} type='number' default='/' description='Decides how many selected item labels to show at most. Its necessary to use selectedItemTemplate.'/>
                     <Prop name='selectedItemsLabel' isRequired={false} type='string' default='{0} items selected' description='Label to display after exceeding max selected labels.'/>
                     <Prop name='ariaLabelledBy' isRequired={false} type='string' default='/' description='Establishes relationships between the component and label(s) where its value should be one or more element IDs.'/>
                     <Prop name='tabIndex' isRequired={false} type='string' default="'0'" description='Index of the element in tabbing order.'/>

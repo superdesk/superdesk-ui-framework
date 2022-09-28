@@ -24,6 +24,7 @@ class TimePickerExample extends React.PureComponent<{}, {time: string}> {
             label={'This is Label'}
             info={'This is info'}
             error={'This is error'}
+            allowSeconds
             />
         );
     }
@@ -75,14 +76,15 @@ export default class TimePickerDoc extends React.Component {
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequired={true} type='string' default='/' description='Item value' />
-                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required' />
-                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />
+                    <Prop name='value' isRequired={true} type='string' default='/' description='Item value.' />
+                    <Prop name='allowSeconds' isRequired={true} type='string' default='/' description='Allow seconds.' />
+                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required.' />
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled.' />
                 </PropsList>
 
                 <h3 className='docs-page__h3'>Events</h3>
                 <PropsList>
-                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Returns value of time input' />
+                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Returns value of time input.' />
                 </PropsList>
             </section>
         );

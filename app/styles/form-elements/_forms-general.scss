@@ -254,10 +254,7 @@
     color: var(--color-text);
 }
 
-
 /// ---------------------------- NEW FORM LAYOUT TEST---------------------------- ///
-
-
 
 .form__group-new {
     display: flex;
@@ -269,9 +266,71 @@
         flex: 1 1 0;
         min-width: 12rem;
         margin: 0;
+        align-self: flex-start;
     }
-    .btn {
+    .btn,
+    .icn-btn {
         flex: 0 0 auto;
         margin-top: $form-label-height;
+    }
+    .sd-text {
+        min-height: $form-input-height;
+        margin-block-start: $form-label-height;
+        line-height: $form-input-height;
+    }
+    &--condensed {
+        gap: $sd-base-increment;
+    }
+    &--relaxed {
+        gap: $sd-base-increment * 3;
+    }
+    &--mb-0 {
+        margin-bottom: 0;
+    }
+    &--mb-1 {
+        margin-bottom: $sd-base-increment;
+    }
+    &--mb-2 {
+        margin-bottom: $sd-base-increment * 2;
+    }
+    &--mb-3 {
+        margin-bottom: $sd-base-increment * 3;
+    }
+    &--mb-4 {
+        margin-bottom: $sd-base-increment * 4;
+    }
+    &--inline-labels {
+        .btn,
+        .icn-btn,
+        .sd-text {
+            margin-top: 0;
+        }
+    }
+    &--inline-labels {
+        .btn,
+        .icn-btn,
+        .sd-text {
+            margin-top: 0;
+        }
+    }
+
+}
+
+.form__group-new__wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    .form__group-new__label {
+        flex: 0 0 auto;
+        min-height: $form-label-height + 0.4rem;
+        display: inline-block;
+        font-size: 1.6rem;
+        margin: 0;
+        margin-bottom: $sd-base-increment * 1.5;
+        line-height: 1;
+        color: var(--color-label-text);
+        //text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 0.02em;
     }
 }
