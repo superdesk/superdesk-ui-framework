@@ -89,6 +89,7 @@ export class SearchBar extends React.PureComponent<IProps, IState> {
                 }}>
                     <Icon name='remove-sign' />
                 </button>}
+                {this.state.inputValue &&
                 <button
                 id="sd-searchbar__search-btn"
                 className={`sd-searchbar__search-btn ${this.state.keyDown ? 'sd-searchbar__search-btn--active' : ''}`}
@@ -98,7 +99,7 @@ export class SearchBar extends React.PureComponent<IProps, IState> {
                     }
                 }}>
                     <Icon name='chevron-right-thin' />
-                </button>
+                </button>}
             </div>
         );
     }
