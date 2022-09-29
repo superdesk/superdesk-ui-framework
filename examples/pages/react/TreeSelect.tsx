@@ -10,6 +10,7 @@ interface IState {
     options: any;
     options2: any;
     inputValue: string;
+    arr: any;
 }
 
 let itemArr = [
@@ -61,13 +62,41 @@ let itemArr2 = [
             {
                 value: {name: 'Sub-category1'},
                 children: [
-                    {value: {name: 'Item5'}}
+                    {value: {name: 'Item20'}}
                 ]
             },
             {
                 value: {name: 'Sub-category2'},
                 children: [
-                    {value: {name: 'Item7'}}
+                    {value: {name: 'Item21'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category3'},
+                children: [
+                    {value: {name: 'Item22'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category4'},
+                children: [
+                    {value: {name: 'Item23'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category5'},
+                children: [
+                    {value: {name: 'Item24'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category6'},
+                children: [
+                    {value: {name: 'Item25'}}
                 ]
             }
         ]
@@ -99,6 +128,10 @@ let itemArr2 = [
 const source = [
     {
         'name': 'Article (news)',
+        'qcode': 'Article (news)',
+    },
+    {
+        'name': 'Article',
         'qcode': 'Article',
     },
     {
@@ -109,19 +142,42 @@ const source = [
         'name': 'Factbox',
         'qcode': 'Factbox',
     },
+    {
+        'name': 'Item',
+        'qcode': 'Item',
+    },
+    {
+        'name': 'Array',
+        'qcode': 'Array',
+    },
+    {
+        'name': 'Object',
+        'qcode': 'Object',
+    },
 ];
+
+let fetchedArr = [];
+fetch('https://nominatim.openstreetmap.org/search/berlin?format=json&addressdetails=1&limit=20').then(response => response.json()).then(data => fetchedArr = data
+);
+
+type ICancelFn = () => void;
 
 function searchOptions(
     term: string,
-    callback: (res: Array<ITreeNode<{name: string; qcode: string;}>>) => void,
-): void {
-    setTimeout(() => {
+    callback: (res: any) => void,
+): ICancelFn {
+    let timeout = setTimeout(() => {
+        
         callback(
-            source
-                .filter((item) => item.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
+            fetchedArr
+                .filter((item: any) => item.display_name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
                 .map((item) => ({value: item})),
-        ); 
+        );
     }, 1000);
+
+    return () => {
+        clearTimeout(timeout);
+    }
 }
 
 export class TreeSelectDocs extends React.Component<{}, IState> {
@@ -132,8 +188,10 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             value2: [],
             options: itemArr2,
             options2: itemArr2,
-            inputValue: ''
+            inputValue: '',
+            arr: []
         }
+        
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -146,13 +204,13 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             this.setState({
                 options: option.item
             })
-        }  
+        }
     }
 
     render() {
         return (
             <section className='docs-page__container'>
-                <h2 className='docs-page__h2'>TreeSelect (in progress)</h2>
+                <h2 className='docs-page__h2'>TreeSelect</h2>
 
                 <Markup.ReactMarkupCodePreview>{`
                     <TreeSelect
@@ -183,7 +241,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     error={'Error Message'}
                                     required
                                     label={'TreeSelect Label'}
-
+                                    singleLevelSearch
+                                    searchPlaceholder='Search...'
                                 />
                             </div>
                         </div>
@@ -223,10 +282,11 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 onChange={(val) => {
                                     this.setState({value: val});
                                 }}
-                                getLabel={({name}) => name}
-                                getId={({qcode}) => qcode}
+                                getLabel={({display_name}) => display_name
+                                }
+                                getId={({qcode}) => qcode.display_name}
                                 selectBranchWithChildren={false}
-                                optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
+                                //optionTemplate={(item) => <span style={{color: 'blue'}}>{item.display_name}</span>}
                                 allowMultiple={true}
                             />
                             </div>
@@ -269,6 +329,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     valueTemplate={(item: any) => {
                                         return <span>Label: {item.name}</span>
                                     }}
+                                    //allowMultiple
+                                    //readOnly
                                 />
                             </div>
                         </div>
@@ -302,12 +364,23 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Prop name='selectBranchWithChildren' isRequired={false} type='boolean' default='false' description='When specified, select branch with children is enabled.'/>
                     <Prop name='readonly' isRequired={false} type='boolean' default='false' description='When specified, component changes are not enabled.'/>
                     <Prop name='loading' isRequired={false} type='boolean' default='false' description='Adds a loading indicator in dropdown.'/>
+                    <Prop name='allowMultiple' isRequired={false} type='boolean' default='/' description='Enable multi-select mode.'/>
+                    <Prop name='singleLevelSearch' isRequired={false} type='boolean' default='/' description='Limit search to only the level that is displayed.'/>
+                    <Prop name='placeholder' isRequired={false} type='string' default='/' description='Placeholder of component in single select mode.'/>
+                    <Prop name='searchPlaceholder' isRequired={false} type='string' default='/' description='Filter input placeholder.'/>
                     <Prop name='getLabel' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                     <Prop name='getId' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                     <Prop name='valueTemplate' isRequired={false} type='Function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
                     <Prop name='optionTemplate' isRequired={false} type='Function' default='/' description='Function that gets the option and returns the content for it.'/>
                     <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
                     <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Input label'/>
+                    <Prop name='info' isRequired={false} type='string' default='/' description='Hint text'/>
+                    <Prop name='error' isRequired={false} type='string' default='/' description='Error text'/>
+                    <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline'/>
+                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled'/>
+                    <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid'/>
                 </PropsList>
 
                 <p className='docs-page__paragraph'>synchronous:</p>
@@ -325,107 +398,3 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         )
     }
 }
-
-// import React from 'react';
-// import {ITreeNode, TreeSelect} from './TreeSelect';
-
-// type IProps = {};
-
-// interface IVocabularyItem {
-//     qcode: string;
-//     name: string;
-// }
-
-// interface IState {
-//     value: Array<IVocabularyItem>;
-// }
-
-// const source: Array<ITreeNode<IVocabularyItem>> = [
-//     {
-//         value: {
-//             'name': 'Article (news)',
-//             'qcode': 'Article',
-//         },
-//         children: [
-//             {
-//                 value: {
-//                     'name': 'Test 1',
-//                     'qcode': 'test-1',
-//                 },
-//             }
-//         ],
-//     },
-//     {
-//         value: {
-//             'name': 'Sidebar',
-//             'qcode': 'Sidebar',
-//         },
-//         children: [
-//             {
-//                 value: {
-//                     'name': 'Test 2',
-//                     'qcode': 'test-2',
-//                 },
-//             }
-//         ],
-//     },
-//     {
-//         value: {
-//             'name': 'Factbox',
-//             'qcode': 'Factbox',
-//         },
-//         children: [
-//             {
-//                 value: {
-//                     'name': 'Test 3',
-//                     'qcode': 'test-3',
-//                 },
-//             }
-//         ],
-//     }
-// ];
-
-// export class TreeSelectDocs extends React.PureComponent<IProps, IState> {
-//     constructor(props: IProps) {
-//         super(props);
-//         this.state = {
-//             value: [],
-//         };
-//     }
-//     render() {
-//         return (
-//             // <TreeSelect
-//             //     kind="synchronous"
-//             //     getOptions={() => source}
-//             //     value={this.state.value}
-//             //     onChange={(val) => {
-//             //         this.setState({value: val});
-//             //     }}
-//             //     getId={(item) => item.name}
-//             //                         getLabel={(item) => item.name}
-//             //     selectBranchWithChildren={false}
-//             //     optionTemplate={(item) => <span style={{color: 'blue'}}>{item.name}</span>}
-//             //     allowMultiple={true}
-                
-//             // />
-
-//             <TreeSelect
-//                                     getId={(item) => item.name}
-//                                     getLabel={(item) => item.name}
-//                                     getOptions={() => {
-//                                         return source
-//                                     }}
-//                                     //value={[{name: 'Item1'}, {name: 'Item2'}]}
-//                                     //selectBranchWithChildren={true}
-//                                     onChange={(e) => console.log(e)}
-//                                     allowMultiple
-//                                     kind={'synchronous'}
-//                                     fullWidth
-//                                     info={'Info Message'}
-//                                     error={'Error Message'}
-//                                     required
-//                                     label={'TreeSelect Label'}
-//                                 />
-//         );
-//     }
-// }

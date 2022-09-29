@@ -1,22 +1,25 @@
 import * as React from "react";
 import { Icon } from "./Icon";
 import { Loader } from "./Loader";
-import classNames from 'classnames';
 import nextId from "react-id-generator";
+import _debounce from 'lodash/debounce';
+import { InputWrapper } from "./Form";
+import { createPopper } from '@popperjs/core';
+import {isEqual} from 'lodash';
 
 interface IState<T> {
     value: Array<T>;
     options: Array<ITreeNode<T>>;
-    firstBranchOptions: Array<any>;                // to return on first branch in dropdown
-    openDropdown: boolean;                         // open/close dropdown
-    activeTree: Array<any>;                         // for filtered array
-    filterArr: Array<any>;                          // for filtered array
-    searchFieldValue: string;                      // filter value of input
-    buttonTree: Array<any>;                         // array of button (for backButton)
-    buttonValue: any;                              // button for name of category
-    buttonMouseEvent: boolean;                     // valueButton hover
+    firstBranchOptions: Array<any>;
+    openDropdown: boolean;
+    activeTree: Array<any>;
+    filterArr: Array<any>;
+    searchFieldValue: string;
+    buttonTree: Array<any>;
+    buttonValue: any;
+    buttonMouseEvent: boolean;
     loading: boolean;
-    invalid: boolean;
+    // provera: boolean;
 }
 
 interface IPropsBase<T> {
@@ -28,6 +31,7 @@ interface IPropsBase<T> {
     loading?: boolean;
     singleLevelSearch?: boolean;
     placeholder?: string;
+    searchPlaceholder?: string;
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
@@ -67,6 +71,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private dropdownRef: React.RefObject<HTMLInputElement>;
     private openDropdownRef: React.RefObject<HTMLButtonElement>;
     private htmlId: string = nextId();
+    private popperInstance: any;
 
     constructor(props: IProps<T>) {
         super(props);
@@ -81,8 +86,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             buttonValue: [],
             buttonMouseEvent: false,
             openDropdown: false,
-            loading: this.props.loading ? this.props.loading : false,
-            invalid: this.props.invalid ? this.props.invalid : false,
+            loading: false,
+            // provera: false
         };
 
         this.removeClick = this.removeClick.bind(this);
@@ -93,8 +98,57 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.handleTree = this.handleTree.bind(this);
         this.filteredItem = this.filteredItem.bind(this);
         this.banchButton = this.banchButton.bind(this);
+        this.handleDebounce = this.handleDebounce.bind(this);
+        this.toggleMenu = this.toggleMenu.bind(this);
         this.dropdownRef = React.createRef();
         this.openDropdownRef = React.createRef();
+
+    }
+
+    componentDidMount = () => {
+        this.recursion(this.state.options);
+        document.addEventListener("mousedown", (event: any) => {
+            if ((this.dropdownRef.current && !this.dropdownRef.current.contains(event.target))
+            && (this.openDropdownRef.current && !this.openDropdownRef.current.contains(event.target))) {
+                this.setState({openDropdown: false});
+            }
+        });
+    }
+
+    componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
+        if (!isEqual(prevState.value, this.state.value)) {
+            this.props.onChange(this.state.value);
+        } else if (!isEqual(prevProps.value, this.props.value)) {
+            this.props.onChange(this.state.value);
+        }
+        if (prevState.openDropdown !== this.state.openDropdown) {
+            this.toggleMenu();
+        }
+        if (this.props.kind === 'synchronous') {
+            if ((prevState.activeTree !== this.state.activeTree)
+            || (prevState.filterArr !== this.state.filterArr)
+            || (prevState.options !== this.state.options)) {
+                this.popperInstance.update();
+            }
+        }
+    }
+
+    toggleMenu() {
+        if (this.state.openDropdown) {
+            if (this.openDropdownRef.current && this.dropdownRef.current) {
+                this.popperInstance = createPopper(this.openDropdownRef.current, this.dropdownRef.current, {
+                    placement: 'bottom-start',
+                    modifiers: [
+                        {
+                            name: 'offset',
+                            options: {
+                                offset: [-4, 4],
+                            },
+                        },
+                    ],
+                });
+            }
+        }
     }
 
     removeClick(i: number) {
@@ -253,27 +307,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         });
     }
 
-    componentDidMount = () => {
-        this.recursion(this.state.options);
-        document.addEventListener("mousedown", (event: any) => {
-            if ((this.dropdownRef.current && !this.dropdownRef.current.contains(event.target))
-            && (this.openDropdownRef.current && !this.openDropdownRef.current.contains(event.target))) {
-                this.setState({openDropdown: false});
-            }
-        });
-    }
-
-    componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
-        if (prevState.value !== this.state.value) {
-            this.props.onChange(this.state.value);
-        } else if (prevProps.value !== this.props.value) {
-            this.props.onChange(this.state.value);
-        }
-    }
-
     filteredItem(arr: Array<ITreeNode<T>>) {
         if (this.props.kind === 'synchronous') {
-            return arr.filter((item) => {
+            let filteredArr = arr.filter((item) => {
                 if (this.state.searchFieldValue) {
                     if (this.props.getLabel(item.value)
                     .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
@@ -284,33 +320,39 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 } else {
                     return item.value;
                 }
-            }).map((option, i) => {
-                let selectedItem = this.state.value.some((obj) =>
-                    this.props.getId(obj) === this.props.getId(option.value),
-                );
-                return <li key={i}
-                className={`suggestion-item suggestion-item--multi-select`}
-                onClick={(event) => {
-                    this.setState({
-                        searchFieldValue: '',
-                    }),
-                    event.preventDefault();
-                    event.stopPropagation();
-                    this.handleTree(event, option);
-                }}>
-                    {this.props.optionTemplate
-                        ? this.props.optionTemplate(option.value)
-                        : <span
-                        className={selectedItem
-                        ? 'suggestion-item--disabled' : undefined}
-                        >
-                            {this.props.getLabel(option.value)}
-                        </span>}
-                        {option.children && <span className="suggestion-item__icon">
-                            <Icon name="chevron-right-thin"></Icon>
-                        </span>}
-                </li>;
             });
+
+            if (filteredArr.length === 0) {
+                return <li className="suggestion-item--nothing-found">Nothing fonud</li>;
+            } else {
+                return filteredArr.map((option, i) => {
+                    let selectedItem = this.state.value.some((obj) =>
+                        this.props.getId(obj) === this.props.getId(option.value),
+                    );
+                    return <li key={i}
+                    className={`suggestion-item suggestion-item--multi-select`}
+                    onClick={(event) => {
+                        this.setState({
+                            searchFieldValue: '',
+                        }),
+                        event.preventDefault();
+                        event.stopPropagation();
+                        this.handleTree(event, option);
+                    }}>
+                        {this.props.optionTemplate
+                            ? this.props.optionTemplate(option.value)
+                            : <span
+                            className={selectedItem
+                            ? 'suggestion-item--disabled' : undefined}
+                            >
+                                {this.props.getLabel(option.value)}
+                            </span>}
+                            {option.children && <span className="suggestion-item__icon">
+                                <Icon name="chevron-right-thin"></Icon>
+                            </span>}
+                    </li>;
+                });
+            }
         } else if (this.props.kind === 'asynchronous') {
             return this.state.options.map((item, i) => {
                 let selectedItem = this.state.value.some((obj) =>
@@ -345,52 +387,68 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
         if (!selectedButton) {
             return <button
-                className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '')}
-                onMouseOver={() => this.setState({buttonMouseEvent: true})}
-                onMouseOut={() => this.setState({buttonMouseEvent: false})}
-                value={this.state.buttonValue}
-                onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
-                    Choose entire category
-                </button>;
+            className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '')}
+            onMouseOver={() => this.setState({buttonMouseEvent: true})}
+            onMouseOut={() => this.setState({buttonMouseEvent: false})}
+            value={this.state.buttonValue}
+            onClick={(event) => this.handleBranchValue(event, this.state.buttonValue)}>
+                Choose entire category
+            </button>;
         } else {
             return <button
-                className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '') + ' autocomplete__button--disabled'}
-                value={this.state.buttonValue}>
-                    Category selected
-                </button>;
+            className={'autocomplete__button' + (this.props.selectBranchWithChildren ? ' autocomplete__button--multi-select' : '') + ' autocomplete__button--disabled'}
+            value={this.state.buttonValue}>
+                Category selected
+            </button>;
+        }
+    }
+
+    private debounceFn = _debounce(this.handleDebounce, 500);
+    private ICancelFn: any;
+
+    handleDebounce() {
+        this.setState({options: []});
+        if (this.props.kind === 'asynchronous') {
+            if (this.state.searchFieldValue) {
+                this.setState({
+                    loading: true,
+                    // provera: false
+                });
+                this.ICancelFn = this.props.searchOptions(this.state.searchFieldValue, (items) => {
+                    // if (items.length === 0) {
+                    //     this.setState({provera: true, loading: false})
+                    // } else {
+                        this.setState({options: items, loading: false});
+                        this.popperInstance.update();
+                    // }
+                });
+            }
         }
     }
 
     render() {
-
-        const labelClasses = classNames('sd-input__label', {
-            'a11y-only': this.props.labelHidden,
-        });
-
-        const classesLabel = classNames('sd-input', {
-            'sd-input--inline-label': this.props.inlineLabel,
-            'sd-input--required': this.props.required,
-            'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
-            'sd-input--invalid': this.props.invalid || this.state.invalid,
-        });
-
         return (
-            <div className={classesLabel}>
-                <label className={labelClasses} htmlFor={this.htmlId} id={this.htmlId + 'label'}
-                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                    {this.props.label}
-                </label>
-
+            <InputWrapper
+            label={this.props.label}
+            error={this.props.error}
+            required={this.props.required}
+            disabled={this.props.disabled}
+            invalid={this.props.invalid}
+            info={this.props.info}
+            inlineLabel={this.props.inlineLabel}
+            labelHidden={this.props.labelHidden}
+            fullWidth={this.props.fullWidth}
+            htmlId={this.htmlId}
+            tabindex={this.props.tabindex}>
                 <div className={`tags-input tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'} sd-input__input`}>
                     {this.props.allowMultiple
                         ? <div className="tags-input__tags">
-                        {this.props.readOnly
-                        || <button ref={this.openDropdownRef}
-                        className="tags-input__add-button"
-                        onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
-                            <i className="icon-plus-large"></i>
-                        </button>}
+                            {this.props.readOnly
+                            || <button ref={this.openDropdownRef}
+                            className="tags-input__add-button"
+                            onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
+                                <i className="icon-plus-large"></i>
+                            </button>}
                             <ul className="tags-input__tag-list">
                                 {this.state.value.map((item, i: number) => {
                                     return <React.Fragment key={i}>
@@ -411,81 +469,85 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     </React.Fragment>;
                                 })}
                             </ul>
-                            {this.state.value.length > 0  ?
-                            this.props.readOnly
+                            {this.state.value.length > 0
+                                ? this.props.readOnly
                                 || <button className="tags-input__remove-value"
                                 onClick={() => this.setState({value: []})}>
                                     <Icon name='remove-sign'></Icon>
                                 </button> : null}
                         </div>
                         : <div className="tags-input__tags">
-                            <button
+                            {this.props.readOnly
+                            || <button
                             className="tags-input__overlay-button"
                             ref={this.openDropdownRef}
                             onClick={() => this.setState({openDropdown: !this.state.openDropdown})}>
-                            </button>
+                            </button>}
                             {this.state.value.length < 1 && <span className={ 'tags-input__single-item'
                             + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}>
                                 <span className="tags-input__placeholder">
                                     {this.props.placeholder}
                                 </span>
                             </span>}
-                                {this.state.value.map((item, i: number) => {
-                                    return <React.Fragment key={i}>
-                                        <span
-                                        className={ 'tags-input__single-item'
-                                        + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
-                                        onClick={() => this.props.readOnly || this.removeClick(i)}>
-                                            <span className="tags-input__helper-box">
-                                                {this.props.valueTemplate
-                                                ? this.props.valueTemplate(item)
-                                                : <span>{this.props.getLabel(item)}</span>}
-                                                {this.props.readOnly
-                                                || <span className="tags-input__remove-button">
-                                                    <Icon name='remove-sign'></Icon>
-                                                </span>}
-                                            </span>
+                            {this.state.value.map((item, i: number) => {
+                                return <React.Fragment key={i}>
+                                    <span
+                                    className={ 'tags-input__single-item'
+                                    + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
+                                    onClick={() => this.props.readOnly || this.removeClick(i)}>
+                                        <span className="tags-input__helper-box">
+                                            {this.props.valueTemplate
+                                            ? this.props.valueTemplate(item)
+                                            : <span>{this.props.getLabel(item)}</span>}
+                                            {this.props.readOnly
+                                            || <span className="tags-input__remove-button">
+                                                <Icon name='remove-sign'></Icon>
+                                            </span>}
                                         </span>
-                                    </React.Fragment>;
-                                })}
+                                    </span>
+                                </React.Fragment>;
+                            })}
                        </div>
                     }
 
-                    {this.state.openDropdown &&
-                    <div className={"autocomplete autocomplete--multi-select" + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')} ref={this.dropdownRef}>
+                    {this.state.openDropdown
+                    && <div className={"autocomplete autocomplete--multi-select" + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')} ref={this.dropdownRef}>
                         <div className='autocomplete__header'>
                             <div className="autocomplete__icon" onClick={() => {
                             this.backButtonValue();
                             this.backButton();
                             }}>
-                                 <Icon name="search" className="search"></Icon>
+                                <Icon name="search" className="search"></Icon>
                             </div>
                             <div className='autocomplete__filter'>
                                 <input
-                                placeholder={this.props.singleLevelSearch ? 'Search this category...' : 'Search...'}
+                                placeholder={this.props.searchPlaceholder}
                                 type="text"
                                 className="autocomplete__input"
                                 ref={(input) => input && input.focus()}
                                 value={this.state.searchFieldValue}
                                 onChange={(event) => {
-                                    const value = event.target.value;
-                                    if (this.props.kind === 'asynchronous') {
-                                        this.setState({
-                                            searchFieldValue: value,
-                                            loading: true,
-                                        }),
-                                        this.props.searchOptions(value, (items) => {
-                                            this.setState({options: items, loading: false});
-                                        });
-                                    } else if (this.props.kind === 'synchronous') {
-                                        this.setState({searchFieldValue: value});
+                                    if (this.props.kind === 'synchronous') {
+                                        this.setState({searchFieldValue: event.target.value});
+                                        this.popperInstance.update();
+                                    } else if (this.props.kind === 'asynchronous') {
+                                        if (this.ICancelFn) {
+                                            this.ICancelFn();
+                                        }
+                                        this.setState({searchFieldValue: event.target.value, options: []});
+                                        this.popperInstance.update();
+                                        this.debounceFn();
+                                    } else {
+                                        return;
                                     }
-                                }}
-                                />
+                                    // if(!this.state.searchFieldValue) {
+                                    //     this.setState({provera: false});
+                                    // }
+                                }} />
                             </div>
                         </div>
-                        {this.state.activeTree.length > 0 &&
-                        <div className='autocomplete__category-header'>
+                        {this.state.activeTree.length > 0
+                        && <div className='autocomplete__category-header'>
                             <div className="autocomplete__icon" onClick={() => {
                             this.backButtonValue();
                             this.backButton();
@@ -505,54 +567,46 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         </div>}
                         {this.state.loading
                         ? <ul className="suggestion-list--loader"><Loader overlay={true}></Loader></ul>
-                        :
-                        this.state.searchFieldValue === ''
-                            ? this.props.getOptions ?
-                            <ul className="suggestion-list suggestion-list--multi-select">
-                            {this.state.options
-                            .map((option, i: React.Key | undefined) => {
-                                let selectedItem = this.state.value.some((obj) =>
-                                    this.props.getId(obj) === this.props.getLabel(option.value),
-                                );
-                                return (
-                                    <li key={i}
-                                    className={`suggestion-item suggestion-item--multi-select`}
-                                    onClick={(event) => {
-                                        event.preventDefault();
-                                        event.stopPropagation();
-                                        this.handleTree(event, option);
-                                    }}>
-                                        {this.props.optionTemplate
-                                        ? this.props.optionTemplate(option.value)
-                                        : <span
-                                        className={selectedItem
-                                        ? 'suggestion-item--disabled' : undefined}
-                                        >
-                                            {this.props.getLabel(option.value)}
-                                        </span>}
-                                        {option.children && <span className="suggestion-item__icon">
-                                            <Icon name="chevron-right-thin"></Icon>
-                                        </span>}
-                                    </li>
-                                );
-                            })}</ul> : null
-                            :
-                            <ul className="suggestion-list suggestion-list--multi-select">
+                        : this.state.searchFieldValue === ''
+                            ? this.props.getOptions
+                                ? <ul className="suggestion-list suggestion-list--multi-select">
+                                {this.state.options
+                                .map((option, i: React.Key | undefined) => {
+                                    let selectedItem = this.state.value.some((obj) =>
+                                        this.props.getId(obj) === this.props.getLabel(option.value),
+                                    );
+                                    return (
+                                        <li key={i}
+                                        className={`suggestion-item suggestion-item--multi-select`}
+                                        onClick={(event) => {
+                                            event.preventDefault();
+                                            event.stopPropagation();
+                                            this.handleTree(event, option);
+                                        }}>
+                                            {this.props.optionTemplate
+                                            ? this.props.optionTemplate(option.value)
+                                            : <span
+                                            className={selectedItem
+                                            ? 'suggestion-item--disabled' : undefined}
+                                            >
+                                                {this.props.getLabel(option.value)}
+                                            </span>}
+                                            {option.children && <span className="suggestion-item__icon">
+                                                <Icon name="chevron-right-thin"></Icon>
+                                            </span>}
+                                        </li>
+                                    );
+                                })}</ul> : null
+                            : <ul className="suggestion-list suggestion-list--multi-select">
                                 {this.filteredItem(this.props.singleLevelSearch
                                 ? this.state.options : this.state.filterArr)}
+                                {/* {this.state.provera
+                                    && <li className="suggestion-item--nothing-found">Nothing fonud</li>} */}
                             </ul>
-                    }
+                        }
                     </div>}
                 </div>
-
-                <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.state.invalid ?
-                        <div className='sd-input__hint'>{this.props.info}</div> : null}
-                    {this.props.invalid || this.state.invalid ?
-                        <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
-                </div>
-            </div>
+            </InputWrapper>
         );
     }
 }
