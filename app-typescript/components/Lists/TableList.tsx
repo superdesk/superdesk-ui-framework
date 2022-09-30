@@ -21,12 +21,12 @@ export interface IPropsArrayItem {
     end?: React.ReactNode;
     action?: React.ReactNode;
     onClick?(): void;
+    onDoubleClick?(): void;
     hexColor?: string;
 }
 
 interface IState {
-    items: Array<IPropsArrayItem>,
-    draggableArray: Array<IPropsArrayItem>,
+    items: Array<IPropsArrayItem>;
 }
 
 const reorder = (list: Array<IPropsArrayItem>, startIndex: number, endIndex: number) => {
@@ -42,7 +42,6 @@ class TableList extends React.PureComponent<IProps, IState> {
         super(props);
         this.state = {
             items: [],
-            draggableArray: [],
         };
 
         this.onDragEnd = this.onDragEnd.bind(this);
@@ -52,7 +51,6 @@ class TableList extends React.PureComponent<IProps, IState> {
     componentDidMount(): void {
         if (this.props.array) {
             this.setState({ items: this.props.array });
-            this.setState({ draggableArray: this.props.array });
         }
     }
 
@@ -71,12 +69,12 @@ class TableList extends React.PureComponent<IProps, IState> {
             return;
         }
         const items = reorder(
-            this.state.draggableArray,
+            this.state.items,
             result.source.index,
             result.destination.index,
         );
         this.setState({
-            draggableArray: items,
+            items: items,
         });
 
         return this.props.onDrag ?
@@ -97,18 +95,18 @@ class TableList extends React.PureComponent<IProps, IState> {
                     onClick={() => false}
                 />
             </Dropdown>
-        )
+        );
     }
 
     render() {
-        let classes = classNames('',{
+        let classes = classNames('', {
             'table-list': !this.props.addItem,
             'table-list--read-only': this.props.readOnly,
             [`${this.props.className}`]: this.props.className,
         });
 
         return (
-            this.state.draggableArray.length > 0
+            this.state.items.length > 0
                 ? this.props.dragAndDrop
                     ? <DragDropContext onDragEnd={this.onDragEnd}>
                         <Droppable droppableId="droppable">
@@ -117,7 +115,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                                     className={classes}
                                     ref={provided.innerRef}
                                     {...provided.droppableProps} >
-                                    {this.state.draggableArray.map((item: IPropsArrayItem, index: number) => (
+                                    {this.state.items.map((item: IPropsArrayItem, index: number) => (
                                         <Draggable key={index} draggableId={`${index}`} index={index}>
                                             {(provided2, _snapshot2) => (
                                                 <div
@@ -131,6 +129,9 @@ class TableList extends React.PureComponent<IProps, IState> {
                                                         end={item.end}
                                                         action={item.action}
                                                         onClick={item.onClick ? item.onClick : undefined}
+                                                        onDoubleClick={item.onDoubleClick
+                                                            ? item.onDoubleClick
+                                                            : undefined}
                                                         addItem={this.props.addItem}
                                                         itemsDropdown={this.props.itemsDropdown}
                                                         hexColor={item.hexColor} />
@@ -197,24 +198,34 @@ export interface IPropsItem {
     itemsDropdown?: any;
     dragAndDrop?: boolean;
     onClick?(): void;
+    onDoubleClick?(): void;
     hexColor?: string;
 }
 
 class TableListItem extends React.PureComponent<IPropsItem> {
-    constructor(props: IPropsItem) {
-        super(props);
+    private timer: any;
+    private delay = 200;
+    private prevent = false;
 
-        this.click = this.click.bind(this);        
+    onSingleClick = () => {
+        this.timer = setTimeout(() => {
+            if (!this.prevent) {
+                if (this.props.onClick) {
+                    this.props.onClick();
+                }
+            }
+        }, this.delay);
     }
 
-    click(e: any) {
-        if(e.detail === 1) {
-            return console.log('1');    
-            
-        } else if(e.detail === 2) {
-            return console.log('2');
-            
+    onDoubleClick = () => {
+        clearTimeout(this.timer);
+        this.prevent = true;
+        if (this.props.onDoubleClick) {
+            this.props.onDoubleClick();
         }
+        setTimeout(() => {
+            this.prevent = false;
+        }, this.delay);
     }
 
     render() {
@@ -222,11 +233,10 @@ class TableListItem extends React.PureComponent<IPropsItem> {
             this.props.addItem ?
                 <li className='table-list__item-container'>
                     <div
-                        //ref={this.itemRef}
-                        //onDoubleClick={() => console.log('aaaaaaaa')}
-                        onClick={(e) => this.click(e)}
+                        onClick={() => this.onSingleClick()}
+                        onDoubleClick={() => this.onDoubleClick()}
                         className={`table-list__item ${this.props.onClick && 'table-list__item--clickable'} ${this.props.dragAndDrop && 'table-list__item--draggable'}`}>
-                            <div className='table-list__item-border' style={{backgroundColor: this.props.hexColor}}></div>
+                        <div className='table-list__item-border' style={{backgroundColor: this.props.hexColor}}></div>
                         <div className='table-list__item-content'>
                             <div className='table-list__item-content-block'>
                                 {this.props.start && this.props.start}
@@ -263,7 +273,9 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                 </li>
                 : <li
                     className={`table-list__item ${this.props.onClick && 'table-list__item--clickable'} ${this.props.dragAndDrop && 'table-list__item--draggable'} table-list__item--margin`}
-                    onClick={this.props.onClick}>
+                    onClick={() => this.onSingleClick()}
+                    onDoubleClick={() => this.onDoubleClick()}>
+                    <div className='table-list__item-border' style={{backgroundColor: this.props.hexColor}}></div>
                     <div className='table-list__item-content'>
                         <div className='table-list__item-content-block'>
                             {this.props.start && this.props.start}

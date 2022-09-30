@@ -29,9 +29,9 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                         { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => this.setState({provera: true}) },
                         { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
                         { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                    ]}></Dropdown>,
-                    onClick: () => console.log('aaa')
-                    ,
+                    ]}><IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={(e) => e.stopPropagation()} /></Dropdown>,
+                    onClick: () => console.log('single'),
+                    onDoubleClick: () => console.log('double'),
                     hexColor: '#ccff00'
                 },
                 {
