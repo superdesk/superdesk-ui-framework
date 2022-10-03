@@ -11,8 +11,10 @@ export interface IProps {
     dragAndDrop?: boolean;
     itemsDropdown?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     className?: string;
-    readOnly: boolean;
+    readOnly?: boolean;
+    showDragHandle?: 'always' | 'onHover' | 'none'; // always default
     onDrag?(start: number, end: number): void;
+    onAddItem?(index: number, item?: IPropsArrayItem ): void;
 }
 
 export interface IPropsArrayItem {
@@ -134,7 +136,11 @@ class TableList extends React.PureComponent<IProps, IState> {
                                                             : undefined}
                                                         addItem={this.props.addItem}
                                                         itemsDropdown={this.props.itemsDropdown}
-                                                        hexColor={item.hexColor} />
+                                                        hexColor={item.hexColor}
+                                                        onAddItem={() => this.props.onAddItem
+                                                            && this.props.onAddItem(index, item)}
+                                                        showDragHandle={this.props.showDragHandle}
+                                                    />
                                                 </div>
                                             )}
                                         </Draggable>
@@ -162,8 +168,15 @@ class TableList extends React.PureComponent<IProps, IState> {
                                 end={item.end}
                                 action={item.action}
                                 onClick={item.onClick ? item.onClick : undefined}
+                                onDoubleClick={item.onDoubleClick
+                                    ? item.onDoubleClick
+                                    : undefined}
                                 addItem={this.props.addItem}
-                                itemsDropdown={this.props.itemsDropdown} />
+                                itemsDropdown={this.props.itemsDropdown}
+                                hexColor={item.hexColor}
+                                onAddItem={() => this.props.onAddItem
+                                    && this.props.onAddItem(index, item)}
+                            />
                         ))}
                         {(this.props.addItem && !this.props.readOnly) &&
                             <li className={`table-list__add-item table-list__item--margin`}>
@@ -199,7 +212,10 @@ export interface IPropsItem {
     dragAndDrop?: boolean;
     onClick?(): void;
     onDoubleClick?(): void;
+    onSelect?(): void;
+    onAddItem?(e: number): void;
     hexColor?: string;
+    showDragHandle?: 'always' | 'onHover' | 'none';
 }
 
 class TableListItem extends React.PureComponent<IPropsItem> {
@@ -229,13 +245,21 @@ class TableListItem extends React.PureComponent<IPropsItem> {
     }
 
     render() {
+
+        let classes = classNames('table-list__item', {
+            'table-list__item--clickable': this.props.onClick,
+            'table-list__item--draggable': this.props.dragAndDrop,
+            'table-list__item--drag-handles-always': !this.props.showDragHandle,
+            'table-list__item--drag-handles-none': this.props.showDragHandle === 'none',
+        });
+
         return (
             this.props.addItem ?
                 <li className='table-list__item-container'>
                     <div
                         onClick={() => this.onSingleClick()}
                         onDoubleClick={() => this.onDoubleClick()}
-                        className={`table-list__item ${this.props.onClick && 'table-list__item--clickable'} ${this.props.dragAndDrop && 'table-list__item--draggable'}`}>
+                        className={classes}>
                         <div className='table-list__item-border' style={{backgroundColor: this.props.hexColor}}></div>
                         <div className='table-list__item-content'>
                             <div className='table-list__item-content-block'>
@@ -256,6 +280,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                         <Tooltip text='Add item' flow='top' appendToBody={true}>
                             <div className='table-list__add-bar'>
                                 <Dropdown
+                                    onChange={this.props.onAddItem}
                                     items={this.props.itemsDropdown ? this.props.itemsDropdown : []}>
                                     <Button
                                         type="primary"
@@ -272,7 +297,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                     </div>
                 </li>
                 : <li
-                    className={`table-list__item ${this.props.onClick && 'table-list__item--clickable'} ${this.props.dragAndDrop && 'table-list__item--draggable'} table-list__item--margin`}
+                    className={`${classes} table-list__item--margin`}
                     onClick={() => this.onSingleClick()}
                     onDoubleClick={() => this.onDoubleClick()}>
                     <div className='table-list__item-border' style={{backgroundColor: this.props.hexColor}}></div>

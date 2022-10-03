@@ -5,7 +5,6 @@ import { TableList, TableListItem } from '../../../app-typescript/components/Lis
 
 interface IState {
     array: any;
-    provera: boolean;
 }
 
 interface IProps {
@@ -16,7 +15,6 @@ export default class TableListDoc extends React.Component<IProps, IState> {
     constructor(props: IState) {
         super(props);
         this.state = {
-            provera: true,
             array: [
                 {
                     start: <>
@@ -26,7 +24,7 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     center: <span>Item 1</span>,
                     end: <IconLabel style='translucent' text='Label success' type='success' icon='time' />,
                     action: <Dropdown append={true} items={[
-                        { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => this.setState({provera: true}) },
+                        { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
                         { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
                         { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
                     ]}><IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={(e) => e.stopPropagation()} /></Dropdown>,
@@ -88,15 +86,13 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                         <TableList
                             dragAndDrop
                             addItem
-                            //readOnly
-                            //array={[]}
-                            array={ this.state.provera ? this.state.array : []}
+                            onAddItem={(index, item) => console.log(index, item)}
+                            array={this.state.array}
                             itemsDropdown={[
-                                { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => this.setState({provera: true}) },
+                                { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1},
                                 { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
                                 { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
                             ]}
-                            //onClick={() => false}
                             onDrag={(start, end) => console.log(start, end)}
                         />
 
@@ -126,8 +122,10 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     <Prop name='dragAndDrop' isRequired={false} type='boolean' default='false' description='Drag&Drop functionality.' />
                     <Prop name='itemsDropdown' isRequired={false} type='React.ReactNode | any' default='false' description='Dropdown for functionality to add items to the list.' />
                     <Prop name='className' isRequired={false} type='string' default='false' description='Add class on TableList container.' />
+                    <Prop name='showDragHandle' isRequired={false} type='string' default='always' description='' />
                     <Prop name='onClick' isRequired={false} type='function' default='false' description='onClick functionality.' />
                     <Prop name='onDrag' isRequired={false} type='function' default='false' description='Returns start and end position of draggable item' />
+                    <Prop name='onAddItem' isRequired={false} type='function' default='false' description='Returns index of draggable item.' />
                 </PropsList>
                 <p className="docs-page__paragraph">array:</p>
                 <PropsList>
@@ -135,15 +133,10 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     <Prop name='center' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.' />
                     <Prop name='end' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.' />
                     <Prop name='action' isRequired={false} type='React.ReactNode' default='false' description='Column of individual list items that is displayed on hover.' />
-                </PropsList>
-                <p className="docs-page__paragraph">TableListItem</p>
-                <PropsList>
-                    <Prop name='start' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.' />
-                    <Prop name='center' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.' />
-                    <Prop name='end' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.' />
-                    <Prop name='action' isRequired={false} type='React.ReactNode' default='false' description='Column of individual list items that is displayed on hover.' />
                     <Prop name='onClick' isRequired={false} type='function' default='false' description='onClick functionality.' />
+                    <Prop name='onDoubleClick' isRequired={false} type='function' default='false' description='onDoubleClick functionality.' />
                 </PropsList>
+                
 
             </section>
         )
