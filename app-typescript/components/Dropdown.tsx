@@ -11,7 +11,7 @@ export interface IMenuItem {
 }
 
 interface IMenuItemRes extends IMenuItem {
-    onChange?(e?: any): void;
+    onChange?(event?: any): void;
 }
 
 export interface ISubmenu {
@@ -35,7 +35,7 @@ interface IMenu {
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     append?: boolean;
     children: React.ReactNode;
-    onChange?(e?: any): void;
+    onChange?(event?: any): void;
 }
 
 export const Dropdown = ({
