@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 
@@ -19,18 +18,8 @@ interface IProps {
     error?: string;
 }
 
-interface IState {
-    invalid: boolean;
-}
-
-export class TimePicker extends React.PureComponent<IProps, IState> {
+export class TimePicker extends React.PureComponent<IProps> {
     private htmlId = nextId();
-    constructor(props: IProps) {
-        super(props);
-        this.state = {
-            invalid: this.props.invalid ? this.props.invalid : false,
-        };
-    }
 
     render() {
         return (
@@ -39,7 +28,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
             error={this.props.error}
             required={this.props.required}
             disabled={this.props.disabled}
-            invalid={this.state.invalid}
+            invalid={this.props.invalid}
             info={this.props.info}
             inlineLabel={this.props.inlineLabel}
             labelHidden={this.props.labelHidden}
