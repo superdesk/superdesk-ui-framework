@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import {Icon} from './Icon';
 
 interface IProps {
-    value?: string | number;
+    value?: string;
     type?: 'expanded' | 'collapsed' | 'boxed';
     placeholder: string;
     focused?: boolean;
@@ -79,9 +79,17 @@ export class SearchBar extends React.PureComponent<IProps, IState> {
                 onChange={(event) => this.setState({inputValue: event.target.value})}
                 onFocus={() => this.setState({focused: true})} />
                 {this.state.inputValue &&
-                <button className="sd-searchbar__cancel" onClick={() => this.setState({inputValue: ''})}>
+                <button className="sd-searchbar__cancel" onClick={() => {
+                    this.setState({inputValue: ''});
+                    setTimeout(() => {
+                        if (this.props.onSubmit) {
+                            this.props.onSubmit(this.state.inputValue);
+                        }
+                    });
+                }}>
                     <Icon name='remove-sign' />
                 </button>}
+                {this.state.inputValue &&
                 <button
                 id="sd-searchbar__search-btn"
                 className={`sd-searchbar__search-btn ${this.state.keyDown ? 'sd-searchbar__search-btn--active' : ''}`}
@@ -91,7 +99,7 @@ export class SearchBar extends React.PureComponent<IProps, IState> {
                     }
                 }}>
                     <Icon name='chevron-right-thin' />
-                </button>
+                </button>}
             </div>
         );
     }
