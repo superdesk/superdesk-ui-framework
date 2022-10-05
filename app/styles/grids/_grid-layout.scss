@@ -741,6 +741,9 @@ $planningEditor-width: 53rem;
     .sd-main-content-grid {
         grid-column: contentArea;
     }
+    &--editor-full {
+        grid-template-columns: [sideTabsLeft] auto [contentArea] auto [contentSplitter] auto [authoringArea] 1fr;
+    }
 }
 .sd-content-wrapper__left-tabs { 
     grid-column: sideTabsLeft;

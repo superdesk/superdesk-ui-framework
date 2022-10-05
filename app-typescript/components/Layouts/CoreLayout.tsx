@@ -22,6 +22,7 @@ interface IProps {
     menuId?: string;
     ariaControls?: string;
     buttonAnimation?: 'spin' | 'squeeze' | 'none';
+    editorFullWidth?: boolean;
 }
 
 export class CoreLayout extends React.PureComponent<IProps> {
@@ -43,7 +44,7 @@ export class CoreLayout extends React.PureComponent<IProps> {
                         {this.props.topMenu}
                     </CoreLayoutTopMenu>
                 )}
-                <CoreLayoutMain>
+                <CoreLayoutMain editorFullWidth={this.props.editorFullWidth}>
                         {this.props.children}
                 </CoreLayoutMain>
                 {this.props.footer && (
