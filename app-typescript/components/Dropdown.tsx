@@ -10,6 +10,10 @@ export interface IMenuItem {
     onSelect(): void;
 }
 
+interface IMenuItemRes extends IMenuItem {
+    onChange?(event?: any): void;
+}
+
 export interface ISubmenu {
     type: 'submenu';
     label: string;
@@ -31,6 +35,7 @@ interface IMenu {
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     append?: boolean;
     children: React.ReactNode;
+    onChange?(event?: any): void;
 }
 
 export const Dropdown = ({
@@ -40,6 +45,7 @@ export const Dropdown = ({
     children,
     append,
     align,
+    onChange,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
@@ -262,7 +268,8 @@ export const Dropdown = ({
                     label={item['label']}
                     icon={item['icon']}
                     active={item['active']}
-                    onSelect={item['onSelect']} />);
+                    onSelect={item['onSelect']}
+                    onChange={onChange} />);
         }
     }
 
@@ -341,14 +348,20 @@ export const Dropdown = ({
 };
 
 const DropdownItem = ({
-    label,
-    icon,
-    active,
-    onSelect,
-}: IMenuItem) => {
+label,
+icon,
+active,
+onSelect,
+onChange,
+}: IMenuItemRes) => {
     return (
         <li role='none' className={active ? 'dropdown__menu-item--active' : ''}>
-            <button tabIndex={0} role='menuitem' onClick={onSelect}>
+            <button tabIndex={0} role='menuitem' onClick={() => {
+                onSelect();
+                if (onChange) {
+                    onChange();
+                }
+            }}>
                 <i className={icon ? ('icon-' + icon) : ''}></i>
                 {label}
             </button>
