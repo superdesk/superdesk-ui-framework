@@ -210,7 +210,7 @@ export const Dropdown = ({
                 submenuItems.push(each(el, key));
             });
             return (
-                <DropdownItemWithSubmenu 
+                <DropdownItemWithSubmenu
                     key={index}
                     item={item}
                     subMenuItems={submenuItems}
@@ -330,13 +330,12 @@ const DropdownItem = ({
             </button>
         </li>
     );
-
 };
 
 const DropdownItemWithSubmenu = ({
     index,
     item,
-    subMenuItems
+    subMenuItems,
 }: IMenuItem | any) => {
     const [open, setOpen] = React.useState<undefined | boolean>(undefined);
 
@@ -361,7 +360,7 @@ const DropdownItemWithSubmenu = ({
                 placement: 'right-start',
             });
         }
-    }, [open])
+    }, [open]);
 
     return (
         <li key={index} ref={refButtonSubMenu}>
