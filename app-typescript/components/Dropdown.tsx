@@ -52,9 +52,7 @@ export const Dropdown = ({
     const [menuID] = useId();
     const DROPDOWN_ID = "react-placeholder";
     const ref = React.useRef(null);
-    const refSubMenu = React.useRef(null);
     const buttonRef = React.useRef(null);
-    const refButtonSubMenu = React.useRef(null);
     const headerElements = header?.map((el, index) => {
         return each(el, index);
     });
@@ -66,6 +64,7 @@ export const Dropdown = ({
     const footerElements = footer?.map((el, index) => {
         return each(el, index);
     });
+
     React.useEffect(() => {
         const existingElement = document.getElementById(DROPDOWN_ID);
         if (!existingElement) {
@@ -88,7 +87,6 @@ export const Dropdown = ({
             addInPlaceholder();
         }
         setChange(true);
-
     }, [open]);
 
     // structure for append menu
@@ -218,33 +216,11 @@ export const Dropdown = ({
                 submenuItems.push(each(el, key));
             });
             return (
-                <li key={index}>
-                    <div className='dropdown' >
-                        <button
-                            ref={refButtonSubMenu}
-                            className='dropdown__toggle dropdown-toggle'
-                            aria-haspopup="menu"
-                            tabIndex={0}
-                            onMouseOver={() => {
-                                let subMenuRef = refSubMenu.current;
-                                let subToggleRef = refButtonSubMenu.current;
-                                if (subMenuRef && subToggleRef) {
-                                    createPopper(subToggleRef, subMenuRef, {
-                                        placement: 'right-start',
-                                    });
-                                }
-                            }}
-                            onClick={item['onSelect']}>
-                            {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
-                            {item['label']}
-                        </button>
-                        <ul ref={refSubMenu}
-                            role='menu'
-                            className='dropdown__menu'>
-                            {submenuItems}
-                        </ul>
-                    </div>
-                </li>
+                <DropdownItemWithSubmenu
+                    key={index}
+                    item={item}
+                    subMenuItems={submenuItems}
+                />
             );
         } else if (item['type'] === 'group') {
             let groupItems: any = [];
@@ -367,5 +343,57 @@ onChange,
             </button>
         </li>
     );
+};
 
+const DropdownItemWithSubmenu = ({
+    index,
+    item,
+    subMenuItems,
+}: IMenuItem | any) => {
+    const [open, setOpen] = React.useState<undefined | boolean>(undefined);
+
+    const refButtonSubMenu = React.useRef(null);
+    const refSubMenu = React.useRef(null);
+
+    React.useEffect(() => {
+        let subMenuRef: any = refSubMenu.current;
+        let subToggleRef = refButtonSubMenu.current;
+
+        if (open === true) {
+            document.body.appendChild(subMenuRef);
+            subMenuRef.style.display = 'block';
+
+        } else if (open === false) {
+            document.body.removeChild(subMenuRef);
+            subMenuRef.style.display = 'none';
+        }
+
+        if (subMenuRef && subToggleRef) {
+            createPopper(subToggleRef, subMenuRef, {
+                placement: 'right-start',
+            });
+        }
+    }, [open]);
+
+    return (
+        <li key={index} ref={refButtonSubMenu}>
+            <div className='dropdown' onMouseLeave={() => setOpen(false) }>
+                <button
+                    className='dropdown__toggle dropdown-toggle'
+                    aria-haspopup="menu"
+                    tabIndex={0}
+                    onMouseOver={() => setOpen(true) }
+                    onClick={item['onSelect']}>
+                    {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
+                    {item['label']}
+                </button>
+                <ul role='menu'
+                    ref={refSubMenu}
+                    style={{display: 'none'}}
+                    className='dropdown__menu'>
+                    {subMenuItems}
+                </ul>
+            </div>
+        </li>
+    );
 };
