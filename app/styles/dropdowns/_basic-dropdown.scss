@@ -195,6 +195,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
             overflow-y: auto;
             flex: 0 1;
             padding: 0.6rem 0;
+            max-height: 320px;
         }
         .dropdown__menu-body:first-child {
             .dropdown__menu-label {

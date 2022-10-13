@@ -68,6 +68,8 @@ export default class DropdownDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <Dropdown
+                            
+                        append={true}
                         header={[
                             {
                                 type: 'group',
@@ -83,13 +85,19 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+                                                    {
+                                                        type: 'submenu',
+                                                        label: 'Show 1',
+                                                        icon: 'plus-sign',
+                                                        items: []
+                                                    }
                                                 ],
                                             },
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
+                                                
                                                 items: [
                                                     
                                                 ],
@@ -108,6 +116,7 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
+                                        
                                         items: [
                                             {
                                                 type: 'submenu',
@@ -127,6 +136,345 @@ export default class DropdownDoc extends React.Component {
                                             },
                                         ],
                                     },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+                                    {
+                                        type: 'submenu',
+                                        label: 'Rundown',
+                                        icon: 'plus-sign',
+                                        
+                                        items: [
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 1',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                            {
+                                                type: 'submenu',
+                                                label: 'Show 2',
+                                                icon: 'plus-sign',
+                                                items: [
+                                                    
+                                                ],
+                                            },
+                                        ],
+                                    },
+
+                                    
+                                    
                                 ],
                             },
                         ]}
@@ -137,7 +485,8 @@ export default class DropdownDoc extends React.Component {
                                     {
                                         icon: 'rundown',
                                         label: 'Create new Show',
-                                        onSelect: () => false,
+                                        onSelect: () => console.log('aaa')
+                                        ,
                                     },
                                 ],
                             },
@@ -195,7 +544,7 @@ export default class DropdownDoc extends React.Component {
                 The submenu opens by default on the right side of the parent menu.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <Dropdown
+                        <Dropdown   
                             items={[
                                 {
                                     type: 'group', label: 'actions', items: [
@@ -403,7 +752,11 @@ export default class DropdownDoc extends React.Component {
                                                         label: 'Show 1',
                                                         icon: 'plus-sign',
                                                         items: [
-                                                            
+                                                            {
+                                                                type: 'submenu',
+                                                                label: 'Show 1', 
+                                                                items:[]
+                                                            }
                                                         ],
                                                     },
                                                     {

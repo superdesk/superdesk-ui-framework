@@ -38,6 +38,8 @@ interface IMenu {
     onChange?(event?: any): void;
 }
 
+const DROPDOWN_ID_CONTAINER = "sd-dropdown-constainer";
+
 export const Dropdown = ({
     items,
     header,
@@ -50,7 +52,6 @@ export const Dropdown = ({
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
     const [menuID] = useId();
-    const DROPDOWN_ID = "react-placeholder";
     const ref = React.useRef(null);
     const buttonRef = React.useRef(null);
     const headerElements = header?.map((el, index) => {
@@ -66,11 +67,10 @@ export const Dropdown = ({
     });
 
     React.useEffect(() => {
-        const existingElement = document.getElementById(DROPDOWN_ID);
+        const existingElement = document.getElementById(DROPDOWN_ID_CONTAINER);
         if (!existingElement) {
             const el = document.createElement("div");
-            el.id = DROPDOWN_ID;
-            // style placeholder
+            el.id = DROPDOWN_ID_CONTAINER;
             el.style.position = 'absolute';
             el.style.top = '0';
             el.style.left = '0';
@@ -79,7 +79,6 @@ export const Dropdown = ({
 
             document.body.appendChild(el);
         }
-
     }, [change]);
 
     React.useLayoutEffect(() => {
@@ -89,14 +88,10 @@ export const Dropdown = ({
         setChange(true);
     }, [open]);
 
-    // structure for append menu
     function createAppendMenu() {
         if (header && footer) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    id={menuID}
-                    role='menu'
-                    ref={ref}>
+                <div className='dropdown__menu dropdown__menu--has-head-foot' id={menuID} role='menu' ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
                     </ul>
@@ -110,10 +105,7 @@ export const Dropdown = ({
             );
         } else if (header) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    id={menuID}
-                    role='menu'
-                    ref={ref}>
+                <div className='dropdown__menu dropdown__menu--has-head-foot' id={menuID} role='menu' ref={ref}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
                     </ul>
@@ -124,10 +116,7 @@ export const Dropdown = ({
             );
         } else if (footer) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot'
-                    id={menuID}
-                    role='menu'
-                    ref={ref}>
+                <div className='dropdown__menu dropdown__menu--has-head-foot' id={menuID} role='menu' ref={ref}>
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
                     </ul>
@@ -138,17 +127,13 @@ export const Dropdown = ({
             );
         } else {
             return (
-                <ul className='dropdown__menu '
-                    id={menuID}
-                    role='menu'
-                    ref={ref}>
+                <ul className='dropdown__menu ' id={menuID} role='menu' ref={ref}>
                     {dropdownElements}
                 </ul>
             );
         }
     }
 
-    // toggle menu
     function toggleDisplay() {
         if (!open) {
             let menuRef: any;
@@ -197,14 +182,13 @@ export const Dropdown = ({
     }
 
     function addInPlaceholder() {
-        const placeholder = document.getElementById(DROPDOWN_ID);
+        const placeholder = document.getElementById(DROPDOWN_ID_CONTAINER);
         let menu = createAppendMenu();
         if (open) {
             return ReactDOM.render(menu, placeholder);
         } else {
-            const menuDOM = document.getElementById(menuID);
-            if (menuDOM) {
-                menuDOM.style.display = 'none';
+            if (placeholder) {
+                ReactDOM.unmountComponentAtNode(placeholder);
             }
         }
     }
@@ -217,10 +201,12 @@ export const Dropdown = ({
             });
             return (
                 <DropdownItemWithSubmenu
-                    key={index}
-                    item={item}
-                    subMenuItems={submenuItems}
-                />
+                key={index}
+                index={index}
+                item={item}
+                menuID={menuID}
+                subMenuItems={submenuItems}
+                onChange={onChange} />
             );
         } else if (item['type'] === 'group') {
             let groupItems: any = [];
@@ -240,17 +226,18 @@ export const Dropdown = ({
         } else {
             return (
                 <DropdownItem
-                    key={index}
-                    label={item['label']}
-                    icon={item['icon']}
-                    active={item['active']}
-                    onSelect={item['onSelect']}
-                    onChange={onChange} />);
+                key={index}
+                label={item['label']}
+                icon={item['icon']}
+                active={item['active']}
+                onSelect={item['onSelect']}
+                onChange={onChange} />
+            );
         }
     }
 
     return (
-        <div className={'dropdown ' + (open ? 'open' : '')} >
+        <div className={'dropdown ' + (open ? 'open' : '')}>
             {typeof children === 'object' ?
                 (React.isValidElement(children) ?
                     <div ref={buttonRef} style={{ display: 'content' }}>
@@ -264,11 +251,11 @@ export const Dropdown = ({
                     </div> : null)
                 :
                 <button ref={buttonRef}
-                    className=' dropdown__toggle dropdown-toggle'
-                    aria-haspopup="menu"
-                    tabIndex={0}
-                    aria-expanded={open}
-                    onClick={toggleDisplay}>
+                className=' dropdown__toggle dropdown-toggle'
+                aria-haspopup="menu"
+                tabIndex={0}
+                aria-expanded={open}
+                onClick={toggleDisplay}>
                     {children}
                     <span className="dropdown__caret"></span>
                 </button>}
@@ -277,7 +264,7 @@ export const Dropdown = ({
                 null : (function() {
                     if (header && footer) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref} >
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref}>
                                 <ul className='dropdown__menu-header'>
                                     {headerElements}
                                 </ul>
@@ -291,7 +278,7 @@ export const Dropdown = ({
                         );
                     } else if (header) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref} >
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref}>
                                 <ul className='dropdown__menu-header'>
                                     {headerElements}
                                 </ul>
@@ -302,7 +289,7 @@ export const Dropdown = ({
                         );
                     } else if (footer) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref} >
+                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref}>
                                 <ul className='dropdown__menu-body'>
                                     {dropdownElements}
                                 </ul>
@@ -313,7 +300,7 @@ export const Dropdown = ({
                         );
                     } else {
                         return (
-                            <ul className='dropdown__menu' role='menu' ref={ref} >
+                            <ul className='dropdown__menu' role='menu' ref={ref}>
                                 {dropdownElements}
                             </ul>
                         );
@@ -332,7 +319,9 @@ onChange,
 }: IMenuItemRes) => {
     return (
         <li role='none' className={active ? 'dropdown__menu-item--active' : ''}>
-            <button tabIndex={0} role='menuitem' onClick={() => {
+            <button tabIndex={0}
+            role='menuitem'
+            onClick={() => {
                 onSelect();
                 if (onChange) {
                     onChange();
@@ -348,23 +337,25 @@ onChange,
 const DropdownItemWithSubmenu = ({
     index,
     item,
+    menuID,
     subMenuItems,
+    onChange,
 }: IMenuItem | any) => {
     const [open, setOpen] = React.useState<undefined | boolean>(undefined);
 
     const refButtonSubMenu = React.useRef(null);
     const refSubMenu = React.useRef(null);
+    const placeholder = document.getElementById(menuID);
 
     React.useEffect(() => {
         let subMenuRef: any = refSubMenu.current;
         let subToggleRef = refButtonSubMenu.current;
 
         if (open === true) {
-            document.body.appendChild(subMenuRef);
+            placeholder?.appendChild(subMenuRef);
             subMenuRef.style.display = 'block';
-
         } else if (open === false) {
-            document.body.removeChild(subMenuRef);
+            placeholder?.removeChild(subMenuRef);
             subMenuRef.style.display = 'none';
         }
 
@@ -377,20 +368,27 @@ const DropdownItemWithSubmenu = ({
 
     return (
         <li key={index} ref={refButtonSubMenu}>
-            <div className='dropdown' onMouseLeave={() => setOpen(false) }>
+            <div className='dropdown'
+            onMouseLeave={() => setOpen(false)}>
                 <button
-                    className='dropdown__toggle dropdown-toggle'
-                    aria-haspopup="menu"
-                    tabIndex={0}
-                    onMouseOver={() => setOpen(true) }
-                    onClick={item['onSelect']}>
+                className='dropdown__toggle dropdown-toggle'
+                aria-haspopup="menu"
+                tabIndex={0}
+                onClick={() => {
+                    item['onSelect'];
+                    if (onChange) {
+                        onChange();
+                    }
+                }}
+                onMouseOver={() => setOpen(true) }>
                     {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                     {item['label']}
                 </button>
-                <ul role='menu'
-                    ref={refSubMenu}
-                    style={{display: 'none'}}
-                    className='dropdown__menu'>
+                <ul
+                role='menu'
+                ref={refSubMenu}
+                style={{display: 'none'}}
+                className='dropdown__menu'>
                     {subMenuItems}
                 </ul>
             </div>
