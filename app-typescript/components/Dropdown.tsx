@@ -375,7 +375,9 @@ const DropdownItemWithSubmenu = ({
                 aria-haspopup="menu"
                 tabIndex={0}
                 onClick={() => {
-                    item['onSelect'];
+                    if (item.onSelect) {
+                        item.onSelect();
+                    }
                     if (onChange) {
                         onChange();
                     }

@@ -67,8 +67,7 @@ export default class DropdownDoc extends React.Component {
                 <p className='docs-page__paragraph'>Add prop value <code>append = true</code> to the dropdown element to append to the inner dropdown menu to the body. This is useful when the dropdown button is inside a div with overflow: hidden, and the menu would otherwise be hidden.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                    <Dropdown
-                            
+                    <Dropdown         
                         append={true}
                         header={[
                             {
@@ -434,6 +433,7 @@ export default class DropdownDoc extends React.Component {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
+                                                
                                                 items: [
                                                     
                                                 ],
@@ -485,8 +485,7 @@ export default class DropdownDoc extends React.Component {
                                     {
                                         icon: 'rundown',
                                         label: 'Create new Show',
-                                        onSelect: () => console.log('aaa')
-                                        ,
+                                        onSelect: () => console.log('aaa'),
                                     },
                                 ],
                             },
