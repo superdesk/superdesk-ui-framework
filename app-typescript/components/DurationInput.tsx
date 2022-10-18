@@ -356,7 +356,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 }
 
-export function getDurationString(seconds: number) {
+export function getDurationString(seconds: number, zero?: boolean) {
     function zeroPad(value: number | string) {
         if (value.toString().length === 1 || value === 0) {
             return `0${value}`;
@@ -367,9 +367,19 @@ export function getDurationString(seconds: number) {
         }
     }
 
-    let hour = zeroPad(Math.floor(seconds / 3600));
-    let minute = zeroPad(Math.floor((seconds % 3600) / 60));
-    let second = zeroPad(Math.floor(seconds % 60));
+    let hour;
+    let minute;
+    let second;
+
+    if (zero) {
+        hour = zeroPad(Math.floor(seconds / 3600));
+        minute = zeroPad(Math.floor((seconds % 3600) / 60));
+        second = zeroPad(Math.floor(seconds % 60));
+    } else {
+        hour = Math.floor(seconds / 3600);
+        minute = Math.floor((seconds % 3600) / 60);
+        second = Math.floor(seconds % 60);
+    }
 
     if (Number(hour) === 0 && Number(minute) > 0) {
         return `${minute}m ${second}s`;
