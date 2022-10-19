@@ -210,7 +210,7 @@ export interface IPropsItem {
     end?: React.ReactNode;
     action?: React.ReactNode;
     addItem?: boolean;
-    itemsDropdown?(index?: any): any;
+    itemsDropdown?(index?: number): any;
     dragAndDrop?: boolean;
     onClick?(): void;
     onDoubleClick?(): void;

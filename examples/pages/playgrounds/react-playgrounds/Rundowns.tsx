@@ -1,14 +1,9 @@
 import * as React from 'react';
-import * as Components from './components/Index';
 import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, RadioButtonGroup, Input, Select, Option, Label, IconLabel, Icon, IconButton, Checkbox, GridList, Badge, Tooltip, CreateButton, Modal, EmptyState, Container, BoxedList, BoxedListItem, BoxedListContentRow, Text, Heading, FormLabel, SlidingToolbar, Switch, SwitchGroup, SearchBar } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import {RundownEditor} from './RundownEditor';
 import * as Nav from '../../../../app-typescript/components/Navigation';
-import * as GridElements from '../../../../app-typescript/components/GridItem';
-
-
-import dummy_items from '../dummy-data/items';
 import { ContentList } from '../../../../app-typescript/components/Lists/ContentList';
 import { TableList } from '../../../../app-typescript/components/Lists/TableList';
 
@@ -524,15 +519,14 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         <IconLabel style='translucent' innerLabel='Planned:'text='01:00' />
                                     </ButtonGroup>
                                     <TableList
-                                className='sd-margin-y--4'
-                                array={this.state.array}
-                                itemsDropdown={[
-                                    { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
-                                    { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
-                                    { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                ]}
-                                onClick={() => false}
-                                />   
+                                        className='sd-margin-y--4'
+                                        array={this.state.array}
+                                        itemsDropdown={() => [
+                                            { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
+                                            { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
+                                            { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                        ]}
+                                    />   
                                 </Layout.PanelContentBlock>
                             </Layout.PanelContent>
                         </Layout.Panel>
@@ -632,8 +626,6 @@ export class Rundowns extends React.Component<IProps, IState> {
                                             </Container>
                                         </BoxedListItem>
                                     </BoxedList> */}
-
-
                             </Layout.PanelContent>
                         </Layout.Panel>
                     </Layout.LeftPanel>
@@ -692,8 +684,6 @@ export class Rundowns extends React.Component<IProps, IState> {
                         The show <strong>Marker</strong> has been successfully created.<br />
                         Do you want to cretate a template for this show right away?
                     </Text>
-
-
                 </Container>
             </Modal>
 
@@ -733,7 +723,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         </ButtonGroup>
                                     </Container>
                                     <BoxedList>
-                                    <BoxedListItem
+                                        <BoxedListItem
                                             alignVertical='center'
                                             clickable={true}
                                             density='compact'

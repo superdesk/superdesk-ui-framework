@@ -5,7 +5,6 @@ import { TableList, TableListItem } from '../../../app-typescript/components/Lis
 
 interface IState {
     array: any;
-    itemsDropdown: any;
 }
 
 interface IProps {
@@ -16,12 +15,6 @@ export default class TableListDoc extends React.Component<IProps, IState> {
     constructor(props: IState) {
         super(props);
         this.state = {                             
-            itemsDropdown: [
-                { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => console.log('a')
-                },
-                { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
-                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-            ],
             array: [
                 {
                     start: <>
@@ -47,9 +40,8 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     center: <span>Item 2</span>,
                     end: <IconLabel style='translucent' text='Label success' type='success' icon='time' />,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={() => false} />,
-                    onClick: () => {
-                        return false;
-                    }
+                    onClick: () => console.log('single'),
+                    onDoubleClick: () => console.log('double'),
                 },
                 {
                     start: <>
@@ -59,9 +51,9 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     center: <span>Item 3</span>,
                     end: <IconLabel style='translucent' text='Label success' type='success' icon='time' />,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={() => false} />,
-                    onClick: () => {
-                        return false;
-                    }
+                    onClick: () => console.log('single'),
+                    onDoubleClick: () => console.log('double'),
+                    hexColor: '#ff9808'
                 },
             ]
         }

@@ -1,28 +1,23 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { BoxedList, BoxedListItem, BoxedListContentRow, Prop, PropsList, Icon, IconButton, AvatarWrapper, AvatarContentText, ButtonGroup, Button, Heading, Text, Label, Container, IconLabel } from '../../../app-typescript';
-import { TableList, TableListItem } from '../../../app-typescript/components/Lists/TableList';
-import { ContentList, ContentListItem } from '../../../app-typescript/components/Lists/ContentList';
+import { Prop, PropsList, Icon, IconButton, Label, Container, IconLabel } from '../../../app-typescript';
+import { ContentList } from '../../../app-typescript/components/Lists/ContentList';
 
 export default class ContentListDoc extends React.Component {
     render() {
         return (
             <section className='docs-page__container'>
                 <h2 className='docs-page__h2'>ContentList</h2>
-                
                 <Markup.ReactMarkupCodePreview>{`
                     <ContentList 
                     items: [...]
                     />
                 `}
                 </Markup.ReactMarkupCodePreview>
-
                 <p className="docs-page__paragraph">...</p>
-
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// basic</p>
-
                         <ContentList
                         items={[
                             {
@@ -140,7 +135,6 @@ export default class ContentListDoc extends React.Component {
                                 action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
                             },
                         ]} />
-
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <ContentList
@@ -261,7 +255,6 @@ export default class ContentListDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-
                 <h3 className="docs-page__h3">Props</h3>
                 <p className="docs-page__paragraph">ContentList</p>
                 <PropsList>
@@ -279,7 +272,6 @@ export default class ContentListDoc extends React.Component {
                     <Prop name='onClick' isRequired={false} type='function' default='/' description='onClick functionality.'/>
                     <Prop name='onDoubleClick' isRequired={false} type='function' default='/' description='onDoubleClick functionality.'/>
                 </PropsList>
-    
             </section>
         )
     }
