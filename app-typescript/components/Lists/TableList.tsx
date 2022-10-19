@@ -210,14 +210,14 @@ export interface IPropsItem {
     end?: React.ReactNode;
     action?: React.ReactNode;
     addItem?: boolean;
-    itemsDropdown?(index?: number): any;
     dragAndDrop?: boolean;
+    hexColor?: string;
+    showDragHandle?: 'always' | 'onHover' | 'none';
     onClick?(): void;
     onDoubleClick?(): void;
     onSelect?(): void;
     onAddItem?(e: number): void;
-    hexColor?: string;
-    showDragHandle?: 'always' | 'onHover' | 'none';
+    itemsDropdown?(index?: number): Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
 }
 
 class TableListItem extends React.PureComponent<IPropsItem> {
