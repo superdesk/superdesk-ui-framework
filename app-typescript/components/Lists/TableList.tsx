@@ -9,12 +9,12 @@ export interface IProps {
     array: Array<IPropsArrayItem>;
     addItem?: boolean;
     dragAndDrop?: boolean;
-    itemsDropdown?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     className?: string;
     readOnly?: boolean;
     showDragHandle?: 'always' | 'onHover' | 'none'; // always default
     onDrag?(start: number, end: number): void;
     onAddItem?(index: number, item?: IPropsArrayItem ): void;
+    itemsDropdown?(index?: number): Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
 }
 
 export interface IPropsArrayItem {
@@ -22,9 +22,9 @@ export interface IPropsArrayItem {
     center?: React.ReactNode;
     end?: React.ReactNode;
     action?: React.ReactNode;
+    hexColor?: string;
     onClick?(): void;
     onDoubleClick?(): void;
-    hexColor?: string;
 }
 
 interface IState {
@@ -86,7 +86,7 @@ class TableList extends React.PureComponent<IProps, IState> {
     dropDown() {
         return (
             <Dropdown
-                items={this.props.itemsDropdown ? this.props.itemsDropdown : []}>
+                items={this.props.itemsDropdown ? this.props.itemsDropdown() : []}>
                 <Button
                     type="primary"
                     icon="plus-large"
@@ -135,7 +135,9 @@ class TableList extends React.PureComponent<IProps, IState> {
                                                             ? item.onDoubleClick
                                                             : undefined}
                                                         addItem={this.props.addItem}
-                                                        itemsDropdown={this.props.itemsDropdown}
+                                                        itemsDropdown={() => this.props.itemsDropdown
+                                                            ? this.props.itemsDropdown(index)
+                                                            : []}
                                                         hexColor={item.hexColor}
                                                         onAddItem={() => this.props.onAddItem
                                                             && this.props.onAddItem(index, item)}
@@ -172,7 +174,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                                     ? item.onDoubleClick
                                     : undefined}
                                 addItem={this.props.addItem}
-                                itemsDropdown={this.props.itemsDropdown}
+                                itemsDropdown={() => this.props.itemsDropdown ? this.props.itemsDropdown(index) : []}
                                 hexColor={item.hexColor}
                                 onAddItem={() => this.props.onAddItem
                                     && this.props.onAddItem(index, item)}
@@ -208,14 +210,14 @@ export interface IPropsItem {
     end?: React.ReactNode;
     action?: React.ReactNode;
     addItem?: boolean;
-    itemsDropdown?: any;
     dragAndDrop?: boolean;
+    hexColor?: string;
+    showDragHandle?: 'always' | 'onHover' | 'none';
     onClick?(): void;
     onDoubleClick?(): void;
     onSelect?(): void;
     onAddItem?(e: number): void;
-    hexColor?: string;
-    showDragHandle?: 'always' | 'onHover' | 'none';
+    itemsDropdown?(index?: number): Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
 }
 
 class TableListItem extends React.PureComponent<IPropsItem> {
@@ -281,7 +283,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                             <div className='table-list__add-bar'>
                                 <Dropdown
                                     onChange={this.props.onAddItem}
-                                    items={this.props.itemsDropdown ? this.props.itemsDropdown : []}>
+                                    items={this.props.itemsDropdown ? this.props.itemsDropdown() : []}>
                                     <Button
                                         type="primary"
                                         icon="plus-large"

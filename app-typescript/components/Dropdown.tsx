@@ -4,7 +4,7 @@ import { createPopper } from '@popperjs/core';
 import { useId } from "react-id-generator";
 
 export interface IMenuItem {
-    label: string;
+    label: string | React.ReactNode;
     icon?: string;
     active?: boolean;
     onSelect(): void;
@@ -16,19 +16,19 @@ interface IMenuItemRes extends IMenuItem {
 
 export interface ISubmenu {
     type: 'submenu';
-    label: string;
+    label: string | React.ReactNode;
     icon?: string;
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
 }
 
 export interface IMenuGroup {
     type: 'group';
-    label?: string;
+    label?: string | React.ReactNode;
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
 }
 
 interface IMenu {
-    label?: string;
+    label?: string | React.ReactNode;
     align?: 'left' | 'right';
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;

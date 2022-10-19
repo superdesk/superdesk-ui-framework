@@ -1,11 +1,8 @@
 import * as React from 'react';
-import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState, Alert, SlidingToolbar, TabLabel, Tabs, Heading, RadioButtonGroup, Container, Label, IconLabel } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Text, SlidingToolbar, Container, Label, IconLabel } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
-import { BoxedList, BoxedListItem, BoxedListContentRow } from '../../../../app-typescript/components/Lists';
-import { SimpleList, SimpleListItem } from '../../../../app-typescript/components/Lists';
 import { TableList } from '../../../../app-typescript/components/Lists/TableList';
 
 interface IProps {
@@ -115,7 +112,6 @@ export class RundownEditor extends React.Component<IProps, IState> {
                     onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
                 },
             ]
-            
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
@@ -319,19 +315,17 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                 <Text color='light' size='medium' className='sd-margin--0'>OF</Text>
                                 <IconLabel style='translucent' innerLabel='Planned:'text='00:45' size='large' />
                             </ButtonGroup>
-
                             <TableList
                                 className='sd-margin-y--4'
                                 dragAndDrop
                                 addItem
                                 array={this.state.array}
-                                itemsDropdown={[
+                                itemsDropdown={() => [
                                     { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
                                     { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
                                     { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
                                 ]}
-                                onClick={() => false}
-                            />   
+                            />
 
                     </Layout.AuthoringMain>
                 </Layout.MainPanel>

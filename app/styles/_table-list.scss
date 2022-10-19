@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     align-self: stretch;
+    overflow: hidden !important;
     //gap: $sd-base-increment * 1.5;
     &--comfortable {
         gap: $sd-base-increment * 2;
