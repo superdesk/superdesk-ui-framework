@@ -109,6 +109,10 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     border-radius: $dropdownMenuBorderRadius;
     text-align: start;
 
+    .dropdown {
+        width: 100%;
+    }
+
     // Links within the dropdown menu
     li, .dropdown__menu-item {
         a:not(.btn), button:not(.btn):not(.dropdown__menu-close):not(.toggle-button) {
@@ -193,8 +197,10 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         }
         .dropdown__menu-body {
             overflow-y: auto;
+            overflow-x: hidden;
             flex: 0 1;
             padding: 0.6rem 0;
+            max-height: 320px;
         }
         .dropdown__menu-body:first-child {
             .dropdown__menu-label {
