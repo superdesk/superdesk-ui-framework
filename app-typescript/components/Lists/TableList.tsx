@@ -25,6 +25,8 @@ export interface IPropsArrayItem {
     hexColor?: string;
     onClick?(): void;
     onDoubleClick?(): void;
+    locked?: boolean;
+    positionLocked?: boolean;
 }
 
 interface IState {
@@ -113,7 +115,8 @@ class TableList extends React.PureComponent<IProps, IState> {
                     ? <DragDropContext onDragEnd={this.onDragEnd}>
                         <Droppable droppableId="droppable">
                             {(provided, _snapshot) => (
-                                <ul
+                                <div
+                                    role='list'
                                     className={classes}
                                     ref={provided.innerRef}
                                     {...provided.droppableProps} >
@@ -149,19 +152,19 @@ class TableList extends React.PureComponent<IProps, IState> {
                                     ))}
                                     {provided.placeholder}
                                     {(this.props.addItem && !this.props.readOnly) &&
-                                        <li className={`table-list__add-item table-list__item--margin`}>
+                                        <div className={`table-list__add-item table-list__item--margin`}>
                                             <Tooltip text='Add item' flow='top' appendToBody={true}>
                                                 <div className='table-list__add-item--container sd-margin-x--auto'>
                                                     {this.dropDown()}
                                                 </div>
                                             </Tooltip>
-                                        </li>
+                                        </div>
                                     }
-                                </ul>
+                                </div>
                             )}
                         </Droppable>
                     </DragDropContext>
-                    : <ul className={classes}>
+                    : <div role='list' className={classes}>
                         {this.state.items.map((item: IPropsArrayItem, index: number) => (
                             <TableListItem
                                 key={index}
@@ -181,24 +184,24 @@ class TableList extends React.PureComponent<IProps, IState> {
                             />
                         ))}
                         {(this.props.addItem && !this.props.readOnly) &&
-                            <li className={`table-list__add-item table-list__item--margin`}>
+                            <div className={`table-list__add-item table-list__item--margin`}>
                                 <Tooltip text='Add item' flow='top' appendToBody={true}>
                                     <div className='table-list__add-item--container sd-margin-x--auto'>
                                         {this.dropDown()}
                                     </div>
                                 </Tooltip>
-                            </li>
+                            </div>
                         }
-                    </ul>
-                : (this.props.addItem && !this.props.readOnly) ? <ul className={classes}>
-                    <li className={`table-list__add-item table-list__item--margin`}>
+                    </div>
+                : (this.props.addItem && !this.props.readOnly) ? <div role='list' className={classes}>
+                    <div className={`table-list__add-item table-list__item--margin`}>
                         <Tooltip text='Add item' flow='top' appendToBody={true}>
                             <div className='table-list__add-item--container sd-margin-x--auto'>
                                 {this.dropDown()}
                             </div>
                         </Tooltip>
-                    </li>
-                </ul>
+                    </div>
+                </div>
                 : null
         );
     }
@@ -213,6 +216,8 @@ export interface IPropsItem {
     dragAndDrop?: boolean;
     hexColor?: string;
     showDragHandle?: 'always' | 'onHover' | 'none';
+    locked?: boolean;
+    positionLocked?: boolean;
     onClick?(): void;
     onDoubleClick?(): void;
     onSelect?(): void;
@@ -251,14 +256,17 @@ class TableListItem extends React.PureComponent<IPropsItem> {
         let classes = classNames('table-list__item', {
             'table-list__item--clickable': this.props.onClick,
             'table-list__item--draggable': this.props.dragAndDrop,
+            'table-list__item--locked': this.props.locked,
+            'table-list__item--position-locked': this.props.positionLocked,
             'table-list__item--drag-handles-always': !this.props.showDragHandle,
             'table-list__item--drag-handles-none': this.props.showDragHandle === 'none',
         });
 
         return (
             this.props.addItem ?
-                <li className='table-list__item-container'>
+                <div className='table-list__item-container'>
                     <div
+                        role='listitem'
                         onClick={() => this.onSingleClick()}
                         onDoubleClick={() => this.onDoubleClick()}
                         className={classes}>
@@ -297,8 +305,9 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                             </div>
                         </Tooltip>
                     </div>
-                </li>
-                : <li
+                </div>
+                : <div
+                    role='listitem'
                     className={`${classes} table-list__item--margin`}
                     onClick={() => this.onSingleClick()}
                     onDoubleClick={() => this.onDoubleClick()}>
@@ -317,7 +326,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                     {this.props.action && <div className='table-list__slide-in-actions'>
                         {this.props.action}
                     </div>}
-                </li>
+                </div>
         );
     }
 }
