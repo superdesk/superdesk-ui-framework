@@ -356,7 +356,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 }
 
-export function getDurationString(seconds: number, zero?: boolean) {
+export function getDurationString(seconds: number,  minSections: 1 | 2 | 3) {
     function zeroPad(value: number | string) {
         if (value.toString().length === 1 || value === 0) {
             return `0${value}`;
@@ -371,13 +371,19 @@ export function getDurationString(seconds: number, zero?: boolean) {
     let minute = zeroPad(Math.floor((seconds % 3600) / 60));
     let second = zeroPad(Math.floor(seconds % 60));
 
-    if (zero) {
+    if (minSections === 3) {
         return `${hour}h ${minute}m ${second}s`;
-    } else {
-        if (Number(hour) === 0 && Number(minute) > 0) {
+    } else if (minSections === 2) {
+        if (Number(hour) > 0) {
+            return `${hour}h ${minute}m ${second}s`;
+        } else {
             return `${minute}m ${second}s`;
-        } else if (Number(hour) === 0 && Number(minute) === 0) {
+        }
+    } else {
+        if (Number(hour) === 0 && Number(minute) === 0) {
             return `${second}s`;
+        } else if (Number(hour) === 0 && Number(minute) > 0) {
+            return `${minute}m ${second}s`;
         } else {
             return `${hour}h ${minute}m ${second}s`;
         }
