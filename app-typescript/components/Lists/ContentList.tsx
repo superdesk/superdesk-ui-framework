@@ -49,7 +49,11 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
     });
 
         return (
-                <div className={classes} onClick={this.onSingleClick} onDoubleClick={this.onDoubleClick}>
+                <div
+                role='listitem'
+                className={classes}
+                onClick={this.onSingleClick}
+                onDoubleClick={this.onDoubleClick}>
                     {this.props.locked
                     ? <div className="sd-list-item__border sd-list-item__border--locked"></div>
                     : <div className="sd-list-item__border"></div>}
@@ -100,7 +104,7 @@ class ContentList extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-list-item-group sd-list-item-group--space-between-items');
         return (
-            <ul className={classes}>
+            <div role='list' className={classes}>
                 {this.props.items.map((item, index) => {
                     return <ContentListItem
                     key={index}
@@ -114,7 +118,7 @@ class ContentList extends React.PureComponent<IProps> {
                     onClick={item.onClick}
                     onDoubleClick={item.onDoubleClick} />;
                 })}
-            </ul>
+            </div>
         );
     }
 }
