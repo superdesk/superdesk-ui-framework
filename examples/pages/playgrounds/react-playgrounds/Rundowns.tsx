@@ -132,6 +132,10 @@ export class Rundowns extends React.Component<IProps, IState> {
         })
     }
 
+    componentDidUpdate() {
+        console.log(this.state);
+    }
+
     changeStatus(item: any, status: string) {
         if (item.status.includes(status)) {
             item.status.splice(item.status.indexOf(status), 1);
@@ -482,7 +486,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         <Container direction='row' gap='small'><Text color='light'>Updated 3 hours ago by </Text><Text weight='medium'>John Doe</Text></Container>
                                     </Container>
                                     <Container className='sd-margin-s--auto sd-flex--items-center'>
-                                        <Dropdown
+                                        {/* <Dropdown
                                             align = 'right'
                                             append = {true}
                                             items={[
@@ -495,7 +499,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                     ]
                                                 }]}>
                                             <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
-                                        </Dropdown>
+                                        </Dropdown> */}
                                     </Container>
                                 </Layout.PanelContentBlock>
 
@@ -547,6 +551,7 @@ export class Rundowns extends React.Component<IProps, IState> {
             {/* Manage Templates Modal */}
             <Modal headerTemplate="Manage Templates"
                 visible={this.state.modalManageTemplate}
+                zIndex={1000}
                 contentBg='medium'
                 contentPadding='none'
                 size='x-large' onHide={() => {this.setState({modalManageTemplate: false})}}>
@@ -644,6 +649,7 @@ export class Rundowns extends React.Component<IProps, IState> {
             {/* New Show Modal */}
             <Modal headerTemplate="Create new Show"
                 visible={this.state.modalNewShow}
+                zIndex={1000}
                 footerTemplate={newShowFooter}
                 contentBg='medium'
                 size='medium' onHide={() => {this.setState({modalNewShow: false})}}>
@@ -675,6 +681,7 @@ export class Rundowns extends React.Component<IProps, IState> {
             {/* New Show Modal Success */}
             <Modal headerTemplate="Create new Show"
                 visible={this.state.modalNewShowSuccess}
+                zIndex={1000}
                 footerTemplate={newShowFooter2}
                 contentBg='medium'
                 size='medium' onHide={() => {this.setState({modalNewShowSuccess: false})}}>
@@ -690,6 +697,7 @@ export class Rundowns extends React.Component<IProps, IState> {
             {/* New Template Modal */}
             <Modal headerTemplate="Create new Template"
                 visible={this.state.modalNewTemplate}
+                zIndex={1000}
                 contentBg='medium'
                 contentPadding='none'
                 size='x-large' onHide={() => {this.setState({modalNewTemplate: false})}}>
@@ -795,6 +803,7 @@ export class Rundowns extends React.Component<IProps, IState> {
             {/* Manage Shows Modal */}
             <Modal headerTemplate="Manage Shows"
                 visible={this.state.modalManageShow}
+                zIndex={1000}
                 contentBg='medium'
                 contentPadding='none'
                 size='x-large' onHide={() => {this.setState({modalManageShow: false})}}>

@@ -72,7 +72,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
             active={this.state.mainMenuOpen}
             ariaControls='main-menu'
             menuId='main-menu'
-            editorFullWidth={true}
+            editorFullWidth={false}
             slideInMenu={(
                 <Layout.MainMenu
                 headerTitle='Main Menu'

@@ -16,6 +16,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     flex-direction: row;
     background-color: $sd-ListItem-background;
     transition: background-color 0.2s linear;
+    flex-shrink: 0;
     &:hover {
         background-color: $sd-ListItem-background-hover;
         cursor: pointer;
@@ -304,12 +305,6 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     flex-grow: 1;
 }
 
-//  Overrides for inner elements
-// .sd-list-item {
-//     .label {
-//         margin-right: 0.6rem;
-//     }
-// }
 
 .sd-list-item {
     .badge {
@@ -320,14 +315,15 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 .sd-list-item {
     [class^="icon-"],
     [class*=" icon-"] {
-        opacity: 0.6;
+        opacity: 0.75;
         vertical-align: middle;
+        color: var(--color-icon-default);
     }
     time {
         [class^="icon-"],
         [class*=" icon-"] {
             vertical-align: top;
-            margin-right: 0.2rem;
+            margin-inline-end: 0.2rem;
         }  
     }
 }
@@ -375,17 +371,28 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     }
     .sd-list-item__inline-icon,
     .sd-list-item__inline-text {
-        margin-right: 0.6rem;
+        margin-inline-end: 0.6rem;
+    }
+
+    .sd-list-item__icon-group {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--gap--small);
+        min-height: 2rem;
+        margin-inline-end: 4px;
+        .sd-list-item__inline-icon {
+            margin: 0;
+        }
     }
     .sd-list-item__text-strong {
         font-weight: 500;
         color: $sd-text;
     }
     .sd-list-item__element-rm-10 {
-        margin-right: 1rem;
+        margin-inline-end: 1rem;
     }
     .sd-list-item__element-lm-10 {
-        margin-left: 1rem;
+        margin-inline-start: 1rem;
     }
     .sd-list-item__location {
         padding-left: 1.6rem;
@@ -417,7 +424,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     width: 3rem;
     background-color: $avatarBG;
     border-radius: $border-radius__base--full;
-    margin-right: 0.6rem;
+    margin-inline-end: 0.6rem;
     color: $white;
     text-align: center;
     text-transform: uppercase;
@@ -446,8 +453,8 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         border: 1px dashed rgba(123, 123, 123, 0.6);
     }
     &--on-right {
-        margin-right: 0;
-        margin-left: 0.6rem;
+        margin-inline-end: 0;
+        margin-inline-start: 0.6rem;
     }
 }
 
@@ -489,7 +496,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     z-index: 0;
     display: flex;
     flex-direction: column;
-    margin-left: 1rem;
+    margin-inline-start: 1rem;
     .sd-list-item {
         margin-top: 0;
         border-top: 1px solid var(--sd-colour-line--x-light);
@@ -582,7 +589,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         }  
     }
     .sd-list-header__number {
-        margin-left: 1rem;
+        margin-inline-start: 1rem;
     }
     .sd-list-header__stretch-bar {
         flex-grow: 1;

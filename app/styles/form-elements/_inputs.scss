@@ -14,6 +14,7 @@
     height: $form-input-height;
     border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
     display: block;
+    position: relative;
     &::placeholder {
         color: var(--color-text-lighter);
         font-weight: 400;
@@ -34,7 +35,9 @@
 }
 
 @mixin Form-label-base {
-    display: inline-block;
+    display: inline-flex;
+    align-items: flex-start;
+    justify-content: flex-start;
     font-size: 1.1rem;
     margin: 0 0.5rem 0 0;
     line-height: 1;
@@ -50,15 +53,15 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 2px 8px 1px;
+    padding: 2px 8px;
     font-size: 1.1rem;
     font-family: $baseFontFamily;
     font-weight: 400;
-    line-height: 1.8rem;
+    line-height: 2rem;
     text-transform: uppercase;
     font-style: normal;
     letter-spacing: 0.08em;
-    height: 1.8rem;
+    height: 2rem;
     transition: opacity ease 0.2s;
     justify-self: start;
     position: relative;
@@ -87,7 +90,50 @@
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
-            padding-left: 0.3rem;
+            padding-inline-start: 0.3rem;
+            margin-top: -2px
+        }
+    }
+    &--invalid {
+        color: $red;
+    }
+    &--focused {
+        color: var(--sd-colour-interactive);
+        &.form-label--invalid {
+            color: $red;
+        }
+    }
+    &--boxed {
+        @include Boxed-label-base;
+        &--light {
+            background-color: hsla(214, 13%, 30%, 0.4);
+            color: hsl(214, 13%, 96%);
+        }
+        &--dark {
+            background-color: hsla(214, 13%, 30%, 0.4);
+            color: hsl(214, 13%, 96%);
+        }
+        &.form-label--required {
+            &::after {
+                margin-inline-start: 0.2rem;
+                color: #e41b21;
+                content: "*";
+                vertical-align: top;
+                font-size: 1.2rem;
+                padding-inline-start: 0.3rem;
+                position: absolute;
+                inset-block-start: -4px;
+                inset-inline-end: -10px;
+            }
+        }
+        &.form-label--invalid,
+        &.form-label--invalid.form-label--focused {
+            background-color: $red;
+            color: hsl(214, 13%, 96%);
+        }
+        &.form-label--focused {
+            background-color: var(--sd-colour-interactive);
+            color: hsl(214, 13%, 96%);
         }
     }
 }
@@ -118,7 +164,7 @@
         width: 100%;
     }
     &__value {
-        margin-right: 6px;
+        margin-inline-end: 6px;
         text-transform: uppercase;
     }
     input, textarea {
@@ -175,25 +221,30 @@
     }
     .sd-line-input__info-left, .sd-line-input__info-right { // use for 1-2 letter info that appear inside inputs ("W" - for width; "H" - for height; px, mm - for units, etc.)
         position: absolute;
-        top: 2.5rem;
+        inset-block-start: 2.5rem;
         opacity: 0.3;
         font-size: 1.5rem;
         font-weight: 300;
     }
     .sd-line-input__info-right {
-        right: 0.8rem;
+        inset-inline-end: 0.8rem;
     }
     .sd-line-input__info-left {
-        left: 0.8rem;
+        inset-inline-start: 0.8rem;
     }
 
     .sd-line-input__icon-left, .sd-line-input__icon-right {
         position: absolute;
-        top: 1.6rem;
+        inset-block-start: 1.6rem;
         cursor: pointer;
     }
     .sd-line-input__icon-right {
-        right: 0.2rem;
+        inset-inline-end: 0.2rem;
+    }
+    .sd-line-input__icon-right.icn-btn {
+        inset-inline-end: 0.2rem;
+        inset-block-start: 1.8rem;
+        z-index: 1;
     }
     .sd-line-input__icon-left {
         left: 0.2rem;
@@ -202,14 +253,14 @@
     &.sd-line-input--indent-l30 {
         input, textarea {
             &.sd-line-input__input {
-                padding-left: 3rem;
+                padding-inline-start: 3rem;
             }
         }
     }
     &.sd-line-input--indent-r30 {
         input, textarea {
             &.sd-line-input__input {
-                padding-right: 3rem;
+                padding-inline-end: 3rem;
             }
         }
     }
@@ -219,13 +270,13 @@
         position: absolute;
         line-height: 100%;
         margin: 0;
-        top:0;
+        inset-block-start:0;
         &--required::after {
             color:$red;
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
-            padding-left: 0.3rem;
+            padding-inline-start: 0.3rem;
         }
 
     }
@@ -241,15 +292,15 @@
     }
     .sd-line-input__hint {
         position: absolute;
-        left: 1px;
-        right: auto;
-        padding-right: 5.5rem;
+        inset-inline-start: 1px;
+        inset-inline-end: auto;
+        padding-inline-end: 5.5rem;
         margin-top: 0.4rem;
     }
     .sd-line-input__char-count {
         position: absolute;
-        right: 1px;
-        left: auto;
+        inset-inline-end: 1px;
+        inset-inline-start: auto;
         margin-top: 0.5rem;
         font-size: 1.1rem;
         font-weight: 400;
@@ -347,12 +398,12 @@
         }
         &.sd-line-input--no-label {
             &::after {
-                top: 1.4rem;
+                inset-block-start: 1.4rem;
             }
         }
         &.sd-line-input--label-left {
             &::after {
-                top: 1.2rem;
+                inset-block-start: 1.2rem;
             }
         }
     }
@@ -368,7 +419,7 @@
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
-            padding-left: 0.3rem;
+            padding-inline-start: 0.3rem;
         }
     }
     &.sd-line-input--no-label {
@@ -403,14 +454,14 @@
             position: static;
             grid-row: 2/3;
             grid-column: 3/4;
-            padding-right: 0;
+            padding-inline-end: 0;
         }
         .sd-line-input__char-count {
             position: static;
             grid-row: 2/3;
             grid-column: 5/4;
             text-align: end;
-            padding-left: 1.6rem;
+            padding-inline-start: 1.6rem;
         }
     }
     &--label-left-auto {
@@ -430,14 +481,14 @@
     &--with-icon-l {
         input, textarea {
             &.sd-line-input__input {
-                padding-right: 3rem;
+                padding-inline-end: 3rem;
             }
         }
     }
     .sd-line-input__plus-btn {
         position: absolute;
-        top: 1.8rem;
-        left: 0;
+        inset-block-start: 1.8rem;
+        inset-inline-start: 0;
         height: 2.2rem;
         width: 2.2rem;
         background-color: var(--sd-colour-interactive--alpha-70);
@@ -463,6 +514,129 @@
 
 /////////////////  -------------------- NEW INPUTS ---------------------  /////////////////
 
+.sd-input__input {
+    @include Line-input-base;
+    &--invalid {
+        border-bottom: 1px solid $red;
+        background-color: hsla(357, 79%, 50%, 0.075);
+        &:hover {
+            background-color: hsla(357, 79%, 50%, 0.12);
+            border-bottom-color: $red;
+        }
+        &:focus {
+            background-color: hsla(357, 79%, 50%, 0.16);
+            border-bottom-color: $red;
+            box-shadow: 0 1px 0 0 $red;
+        }
+    }
+    &--disabled {
+        opacity: 0.5;
+        background-color: var(--color-input-bg);
+        border-bottom: 1px dotted var(--color-input-border);
+        cursor: not-allowed !important;
+        box-shadow: none;
+        &:hover {
+            background-color: var(--color-input-bg);
+            border-bottom-color: var(--color-input-border);
+        }
+    }
+    &--boxed-style {
+        border: 0;
+        border: 2px solid var(--color-input-border);
+        background-color: transparent;
+        transition: all ease 0.3s;
+        border-radius: var(--b-radius--large);
+        display: block;
+        &:hover {
+            border-color: var(--color-input-border-hover);
+            background-color: transparent;
+        }
+        &:focus {
+            outline: none;
+            border-color: var(--sd-colour-interactive--alpha-50);
+            box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
+            background-color: transparent;
+        }
+
+        &.sd-input__input--disabled {
+            border: 2px solid var(--color-input-border);
+           // cursor: not-allowed !important;
+            box-shadow: none;
+            &:hover {
+                //background-color: var(--color-input-bg);
+                border-color: var(--color-input-border);
+            }
+        }
+
+        &.sd-input__input--invalid {
+            background-color: hsla(357, 79%, 50%, 0.075);
+            border-color: $red;
+            &:hover,
+            &:focus {
+                background-color: hsla(357, 79%, 50%, 0.12);
+                box-shadow: none !important;
+            }
+        }
+    }
+    &--medium {
+        border-radius: var(--b-radius--medium);
+        &:focus {
+            box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-20);
+        }
+    }
+    &--large {
+        padding: 0 1.6rem;
+        min-height: 4.8rem;
+        font-size: 2.4rem;
+        font-weight: 500;
+    }
+    &--x-large {
+        padding: 0 1.6rem;
+        min-height: 5.6rem;
+        font-size: 3.2rem;
+        font-weight: 500;
+    }
+}
+
+.sd-input__select {
+    display: block;
+    position: relative;
+    @include Line-input-base;
+    padding-inline-end: 2rem;
+    min-width: 5rem;
+    cursor: pointer;
+    option {
+        color:inherit;
+        font-size: 1.4rem;
+        line-height: 2rem;
+        background-color: var(--color-dropdown-menu-Bg);
+        color: var(--color-dropdown-menu-text);
+    }
+}
+
+.sd-input__hint,
+.sd-input__message,
+.sd-input__char-count {
+    font-size: 1.2rem;
+    line-height: 1.4rem;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    color: var(--color-text-light);
+    font-weight: 300;
+    letter-spacing: 0.03em;
+    display: block;
+}
+.sd-input__char-count {
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-style: italic;
+    &--error {
+        color: $red;
+    }
+}
+
+
+//----
+
 .sd-input {
     padding-top: 0;
     margin: 0;
@@ -475,7 +649,7 @@
 
 
     .sd-input__input {
-        @include Line-input-base;
+        //@include Line-input-base;
         grid-row: 2/3;
         grid-column: 2/4;
     }
@@ -501,21 +675,21 @@
         }
     }
     .sd-input__select {
-        display: block;
-        position: relative;
-        @include Line-input-base;
-        padding-inline-end: 2rem;
+        // display: block;
+        // position: relative;
+        // @include Line-input-base;
+        // padding-inline-end: 2rem;
         grid-row: 2/3;
         grid-column: 2/4;
-        min-width: 5rem;
-        cursor: pointer;
-        option {
-            color:inherit;
-            font-size: 1.4rem;
-            line-height: 2rem;
-            background-color: var(--color-dropdown-menu-Bg);
-            color: var(--color-dropdown-menu-text);
-        }
+        // min-width: 5rem;
+        // cursor: pointer;
+        // option {
+        //     color:inherit;
+        //     font-size: 1.4rem;
+        //     line-height: 2rem;
+        //     background-color: var(--color-dropdown-menu-Bg);
+        //     color: var(--color-dropdown-menu-text);
+        // }
     }
     &.sd-input--is-select {
         &::after {
@@ -556,24 +730,24 @@
     .sd-input__hint,
     .sd-input__message,
     .sd-input__char-count {
-        font-size: 1.2rem;
-        line-height: 1.4rem;
-        transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-        color: var(--color-text-light);
-        font-weight: 300;
+        // font-size: 1.2rem;
+        // line-height: 1.4rem;
+        // transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+        // color: var(--color-text-light);
+        // font-weight: 300;
         margin: 0.5rem 0;
-        letter-spacing: 0.03em;
-        display: block;
+        // letter-spacing: 0.03em;
+        // display: block;
     }
     .sd-input__char-count {
-        font-size: 1.1rem;
-        font-weight: 400;
-        font-style: italic;
+        // font-size: 1.1rem;
+        // font-weight: 400;
+        // font-style: italic;
         grid-row: 3/4;
         grid-column: 3/4;
-        &--error {
-            color: $red;
-        }
+        // &--error {
+        //     color: $red;
+        // }
     }
     .sd-input__label {
         @include Form-label-base;
@@ -661,7 +835,7 @@
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
-            padding-left: 0.3rem;
+            padding-inline-start: 0.3rem;
         }
         .sd-input__label.sd-input__label--boxed::after {
             position: absolute;
@@ -994,8 +1168,3 @@
     opacity: 0;
 }
 }
-
-//&--boxed-style
-
-
-

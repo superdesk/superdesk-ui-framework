@@ -16,7 +16,7 @@
         text-align: center;
         border-top: 0;
         border-top-color: var(--sd-colour-line--medium);
-        border-top-style: solid;
+        border-style: solid;
     }
 
     &.sd-content-divider--horizontal {
@@ -38,7 +38,7 @@
             border-top-color: inherit;
             border-bottom: 0;
             transform: translateY(50%);
-            border-top-style: inherit;
+            border-style: inherit;
         }
         &.sd-content-divider--text-left {
             &::before {
@@ -66,7 +66,7 @@
         vertical-align: middle;
         border-top: 0;
         border-left: 1px var(--sd-colour-line--medium);
-        border-left-style: solid;
+        border-style: solid;
         flex-grow: 0;
         align-self: stretch;
         min-height: $sd-base-increment * 2;
@@ -88,7 +88,7 @@
                 border-left: 1px var(--sd-colour-line--medium);
                 border-bottom: 0;
                 width: 1px;
-                border-left-style: solid;
+                border-style: solid;
             }
             &.sd-content-divider--dashed {
                 &::before, &::after {
@@ -98,7 +98,7 @@
             }
             &.sd-content-divider--dotted {
                 &::before, &::after {
-                    border-left-style: dotted;
+                    border-style: dotted;
                     border-color: var(--sd-colour-line--strong);
                 }
             }

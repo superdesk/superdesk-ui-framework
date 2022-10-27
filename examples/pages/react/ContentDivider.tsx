@@ -167,10 +167,10 @@ export default class ContentDividerDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='type' isRequered={false} type='dashed | dotted | solid' default='solid' description='Border style of the divider.'/>
-                    <Prop name='orientation' isRequered={false} type='horizontal | vertical' default='horizontal' description='Defines if the divider is horizontal or vertical. Default is horizontal.'/>
-                    <Prop name='align' isRequered={false} type='center | left | right' default='right' description='Text alignment inside the divider. Should not be used without any text inside the divider. The vertical divider has no alignment options.'/>
-                    <Prop name='border' isRequered={false} type='boolean' default='true' description='Removes the border if set to true. Should be generally avoided especially if there is textual content. It can be used to add space between elements if there is no other option.'/>
+                    <Prop name='type' isRequired={false} type='dashed | dotted | solid' default='solid' description='Border style of the divider.'/>
+                    <Prop name='orientation' isRequired={false} type='horizontal | vertical' default='horizontal' description='Defines if the divider is horizontal or vertical. Default is horizontal.'/>
+                    <Prop name='align' isRequired={false} type='center | left | right' default='right' description='Text alignment inside the divider. Should not be used without any text inside the divider. The vertical divider has no alignment options.'/>
+                    <Prop name='border' isRequired={false} type='boolean' default='true' description='Removes the border if set to true. Should be generally avoided especially if there is textual content. It can be used to add space between elements if there is no other option.'/>
                 </PropsList>
             </section>
         )

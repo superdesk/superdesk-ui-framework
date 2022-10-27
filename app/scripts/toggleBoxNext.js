@@ -23,7 +23,7 @@ export class ToggleBoxNext extends React.Component {
         const {isOpen} = this.state;
 
         const classNames = [
-            `toggle-box toggle-box--${style}`,
+            `toggle-box toggle-box--margin-normal toggle-box--${style}`,
             mode,
         ];
 
