@@ -84,6 +84,10 @@ $table-list-palette: $sd-basic-palette;
             }
         }
     }
+    &--locked {
+        border-color: hsla(350, 70%, 60%, 0.75);
+        border-left-color: hsla(350, 70%, 60%, 0.75) !important;
+    }
     &.table-list__item--selected.table-list__item--clickable {
         &:hover {
             box-shadow: var(--sd-shadow__item--selected-thin);

@@ -142,6 +142,8 @@ class TableList extends React.PureComponent<IProps, IState> {
                                                             ? this.props.itemsDropdown(index)
                                                             : []}
                                                         hexColor={item.hexColor}
+                                                        locked={item.locked}
+                                                        positionLocked={item.positionLocked}
                                                         onAddItem={() => this.props.onAddItem
                                                             && this.props.onAddItem(index, item)}
                                                         showDragHandle={this.props.showDragHandle}
@@ -179,6 +181,8 @@ class TableList extends React.PureComponent<IProps, IState> {
                                 addItem={this.props.addItem}
                                 itemsDropdown={() => this.props.itemsDropdown ? this.props.itemsDropdown(index) : []}
                                 hexColor={item.hexColor}
+                                locked={item.locked}
+                                positionLocked={item.positionLocked}
                                 onAddItem={() => this.props.onAddItem
                                     && this.props.onAddItem(index, item)}
                             />
