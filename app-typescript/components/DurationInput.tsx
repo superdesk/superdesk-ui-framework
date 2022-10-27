@@ -367,25 +367,19 @@ export function getDurationString(seconds: number, zero?: boolean) {
         }
     }
 
-    let hour;
-    let minute;
-    let second;
+    let hour = zeroPad(Math.floor(seconds / 3600));
+    let minute = zeroPad(Math.floor((seconds % 3600) / 60));
+    let second = zeroPad(Math.floor(seconds % 60));
 
     if (zero) {
-        hour = zeroPad(Math.floor(seconds / 3600));
-        minute = zeroPad(Math.floor((seconds % 3600) / 60));
-        second = zeroPad(Math.floor(seconds % 60));
-    } else {
-        hour = Math.floor(seconds / 3600);
-        minute = Math.floor((seconds % 3600) / 60);
-        second = Math.floor(seconds % 60);
-    }
-
-    if (Number(hour) === 0 && Number(minute) > 0) {
-        return `${minute}m ${second}s`;
-    } else if (Number(hour) === 0 && Number(minute) === 0) {
-        return `${second}s`;
-    } else {
         return `${hour}h ${minute}m ${second}s`;
+    } else {
+        if (Number(hour) === 0 && Number(minute) > 0) {
+            return `${minute}m ${second}s`;
+        } else if (Number(hour) === 0 && Number(minute) === 0) {
+            return `${second}s`;
+        } else {
+            return `${hour}h ${minute}m ${second}s`;
+        }
     }
 }
