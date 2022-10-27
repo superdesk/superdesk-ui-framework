@@ -9,7 +9,7 @@ interface IPropsBase {
     tabIndex?: number;
     fullWidth?: boolean;
     boxedStyle?: boolean;
-    //boxedLable?: boolean;
+    // boxedLable?: boolean;
     placeholder?: string;
     htmlId?: string;
     id?: string;
