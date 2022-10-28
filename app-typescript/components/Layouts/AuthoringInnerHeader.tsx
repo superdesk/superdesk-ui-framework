@@ -16,7 +16,7 @@ export class AuthoringInnerHeader extends React.PureComponent<IProps, IState> {
         super(props);
 
         this.state = {
-            collapsed: false,
+            collapsed: this.props.collapsed ? this.props.collapsed : false,
         };
     }
 
