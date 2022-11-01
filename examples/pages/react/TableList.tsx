@@ -71,12 +71,27 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     addItem
                     array={this.state.array}
                     itemsDropdown={(index) => [
-                        { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => console.log(index) },
-                        { label: <Label style='translucent' text='prlg' />, onSelect: () => console.log(index) },
-                        { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => console.log(index) },
+                        { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => false },
+                        { label: <Label style='translucent' text='prlg' />, onSelect: () => false },
+                        { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => false },
                     ]} />
                 `}
                 </Markup.ReactMarkupCodePreview>
+
+                <p className="docs-page__paragraph">Simple list without drag and drop functionality and without functionality for adding item in list:</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <TableList
+                            array={this.state.array}
+                        />
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <TableList
+                        array={this.state.array}
+                        />
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
 
                 <p className="docs-page__paragraph">With drag and drop functionality:</p>
                 <Markup.ReactMarkup>
@@ -130,7 +145,9 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     <Prop name='center' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.' />
                     <Prop name='end' isRequired={false} type='React.ReactNode' default='false' description='Column of individual items of list.' />
                     <Prop name='action' isRequired={false} type='React.ReactNode' default='false' description='Column of individual list items that is displayed on hover.' />
-                    <Prop name='hexColor' isRequired={false} type='string' default='false' description='' />
+                    <Prop name='hexColor' isRequired={false} type='string' default='false' description='Color of left border for item status.' />
+                    <Prop name='locked' isRequired={false} type='function' default='false' description='If is true, the individual item of list change state and change style (border).' />
+                    <Prop name='positionLocked' isRequired={false} type='function' default='false' description='Work in progress...' />
                     <Prop name='onClick' isRequired={false} type='function' default='false' description='onClick functionality.' />
                     <Prop name='onDoubleClick' isRequired={false} type='function' default='false' description='onDoubleClick functionality.' />
                 </PropsList>
