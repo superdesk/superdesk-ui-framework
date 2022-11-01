@@ -372,6 +372,11 @@
     }
 }
 
+.sd-content-wrapper--editor-full .open-editor .sd-editor__container {
+    min-width: auto;
+    max-width: none;
+}
+
 .sd-editor__input--title {
     -webkit-appearance: none;
     -moz-appearance: none;
