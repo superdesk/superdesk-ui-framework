@@ -322,7 +322,9 @@ onChange,
             <button tabIndex={0}
             role='menuitem'
             onClick={() => {
-                onSelect();
+                setTimeout(() => {
+                    onSelect();
+                });
                 if (onChange) {
                     onChange();
                 }
@@ -376,7 +378,9 @@ const DropdownItemWithSubmenu = ({
                 tabIndex={0}
                 onClick={() => {
                     if (item.onSelect) {
-                        item.onSelect();
+                        setTimeout(() => {
+                            item.onSelect();
+                        });
                     }
                     if (onChange) {
                         onChange();
