@@ -6,6 +6,7 @@ interface IProps {
     orientation?: 'horizontal' |'vertical'; // defaults to 'horizontal'
     align?: 'center' | 'left' | 'right'; // defaults to 'center'
     border?: boolean;
+    margin?: 'x-small' | 'small' |'medium' | 'large' | 'none';
     children?: React.ReactNode;
 }
 
@@ -19,6 +20,8 @@ export class ContentDivider extends React.PureComponent<IProps> {
             [`sd-content-divider--text-${this.props.align}`]: this.props.align || this.props.align !== undefined,
             [`sd-content-divider--${this.props.orientation}`]:
             this.props.orientation || this.props.orientation !== undefined,
+            'sd-content-divider--margin-medium': this.props.margin === undefined,
+            [`sd-content-divider--margin-${this.props.margin}`]: this.props.margin || this.props.margin !== undefined,
         });
 
         if (this.props.children) {
