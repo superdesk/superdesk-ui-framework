@@ -1,8 +1,9 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew} from '../../../../app-typescript/index';
 import { Carousel } from '../../../../app-typescript/index';
-import * as GridElements from '../../../../app-typescript/components/GridItem';
+import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
+
 
 import dummy_items from '../dummy-data/items';
 
@@ -62,6 +63,35 @@ export class TestGround extends React.Component<IProps, IState> {
             <Components.Layout header='Testing Ground'>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
+
+                        
+                        <h3 className="docs-page__h3 sd-margin-y--0">Form test</h3>
+                        <hr />
+                        <div className="input-wrap">
+                            <FormLabel invalid required={true} state='focused' text="Form Label" forId="input1" />
+                            <IconButton size='small' icon="settings" ariaValue="Screen-reader text" onClick={()=> false} />
+                            <InputBase placeholder='Test placeholder' boxedStyle invalid type='text' id="input1" value='' onChange={(value) => {}} />
+                            <div className="input-wrap__message-box">
+                                <div className="sd-input__hint">Error message</div>
+                            </div>
+                            <span className="sd-input__char-count">0 / 40</span>
+                        </div>
+
+                        <hr />
+
+                        <div className="input-wrap input-wrap--boxed">
+                            <FormLabel style='boxed' text="Form Label" required={true} forId="input2" />
+                            <IconButton size='small' icon="settings" ariaValue="Screen-reader text" onClick={()=> false} />
+                            <InputBase disabled size='medium' placeholder='Test placeholder' boxedStyle type='text' id="input2" value='' onChange={(value) => {}} />
+                            <div className="input-wrap__message-box">
+                                <div className="sd-input__hint">Error message</div>
+                            </div>
+                            <span className="sd-input__char-count">0 / 40</span>
+                        </div>
+
+                        <hr />
+                        <hr />
+
                         <InputNew
                             label='test'
                             value=''
@@ -220,17 +250,19 @@ export class TestGround extends React.Component<IProps, IState> {
                         </FormRowNew>
 
                         <hr />
-                        <h3 className="docs-page__h3 sd-margin-y--0">Table list</h3>
+                        <h3 className="docs-page__h3 sd-margin-y--0">Table list (draggable)</h3>
                         <hr />
-                        <ul className='table-list'>
-                            <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                        <h4 className="docs-page__h4 sd-margin-y--1">Handles visible</h4>
+                        <ul className='table-list table-list--gap-s'>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-always'>
+                                <div className='table-list__item-border'></div>
                                 <div className='table-list__item-content'>
                                     <div className='table-list__item-content-block'>
-                                        <Label style='translucent' text='aacc' />
-                                        <Label style='translucent' type='primary' text='prlg' />
+                                        <Label text='Uvod' />
+                                        <Label type='primary' text='prlg' />
                                     </div>
                                     <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                        <span>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                        <span>Handle visible. Nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
                                     </div>
                                     <div className='table-list__item-content-block'>
                                         <IconLabel style='translucent' text='Label success' type='success' icon='time' />
@@ -240,14 +272,15 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
                                 </div>
                             </li>
-                            <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-always'>
+                                <div className='table-list__item-border'></div>
                                 <div className='table-list__item-content'>
                                     <div className='table-list__item-content-block'>
-                                        <Label style='translucent' type='warning' text='pokr' />
-                                        <Label style='translucent' text='slika' />
+                                        <Label text='Gost' />
+                                        <Label type='primary' text='prlg' />
                                     </div>
                                     <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                        <span>Handle visible. Duis mollis, est non commodo luctus, nisi erat porttitor ligula..</span>
                                     </div>
                                     <div className='table-list__item-content-block'>
                                         <IconLabel style='translucent' text='Label success' type='success' icon='time' />
@@ -257,32 +290,15 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
                                 </div>
                             </li>
-                            <li className='table-list__item table-list__item--clickable'>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-always'>
+                                <div style={{background:'#83cf7e',}} className='table-list__item-border'></div>
                                 <div className='table-list__item-content'>
                                     <div className='table-list__item-content-block'>
-                                        <Label style='translucent' type='warning' text='pokr' />
-                                        <Label style='translucent' text='slika' />
+                                        <Label text='Podatak' />
+                                        <Label type='primary' text='Gost' />
                                     </div>
                                     <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
-                                    </div>
-                                    <div className='table-list__item-content-block'>
-                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
-                                    </div>
-                                </div>
-                                <div className='table-list__slide-in-actions'>
-                                    <IconButton icon='pencil' size='small' ariaValue='More actions' onClick={()=> false} />
-                                    <IconButton icon='trash' size='small' ariaValue='More actions' onClick={()=> false} />
-                                </div>
-                            </li>
-                            <li className='table-list__item table-list__item--clickable table-list__item--selected'>
-                                <div className='table-list__item-content'>
-                                    <div className='table-list__item-content-block'>
-                                        <Label style='translucent' type='warning' text='pokr' />
-                                        <Label style='translucent' text='slika' />
-                                    </div>
-                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                        <span>Handle visible. Mollis est non commodo luctus, nisi erat porttitor ligula.</span>
                                     </div>
                                     <div className='table-list__item-content-block'>
                                         <IconLabel style='translucent' text='Label success' type='success' icon='time' />
@@ -292,14 +308,15 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
                                 </div>
                             </li>
-                            <li className='table-list__item table-list__item--clickable'>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-always table-list__item--selected'>
+                                <div className='table-list__item-border'></div>
                                 <div className='table-list__item-content'>
                                     <div className='table-list__item-content-block'>
-                                        <Label style='translucent' type='warning' text='pokr' />
-                                        <Label style='translucent' text='slika' />
+                                        <Label text='Odjava' />
+                                        <Label type='warning' text='Slika' />
                                     </div>
                                     <div className='table-list__item-content-block table-list__item-content-block--center'>
-                                        <span>Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                        <span>Handle visible. Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
                                     </div>
                                     <div className='table-list__item-content-block'>
                                         <IconLabel style='translucent' text='Label success' type='success' icon='time' />
@@ -310,6 +327,162 @@ export class TestGround extends React.Component<IProps, IState> {
                                 </div>
                             </li>
                         </ul>
+
+                        <hr />
+                        <h4 className="docs-page__h4 sd-margin-y--1">Handles hidden</h4>
+                        <ul className='table-list table-list--gap-s'>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-none'>
+                                <div className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Uvod' />
+                                        <Label type='primary' text='prlg' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle hidden. Nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-none'>
+                                <div className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Gost' />
+                                        <Label type='primary' text='prlg' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle hidden. Duis mollis, est non commodo luctus, nisi erat porttitor ligula..</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-none'>
+                                <div style={{background:'#83cf7e',}} className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Podatak' />
+                                        <Label type='primary' text='Gost' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle hidden. Mollis est non commodo luctus, nisi erat porttitor ligula.</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-none table-list__item--selected'>
+                                <div className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Odjava' />
+                                        <Label type='warning' text='Slika' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle hidden. Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                        </ul>
+
+                        <hr />
+                        <h4 className="docs-page__h4 sd-margin-y--1">Handles on hover</h4>
+                        <ul className='table-list table-list--gap-s'>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                <div className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Uvod' />
+                                        <Label type='primary' text='prlg' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle on hover. Nisi erat porttitor ligula, eget lacinia odio sem nec elit.</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                <div className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Gost' />
+                                        <Label type='primary' text='prlg' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle on hover. Duis mollis, est non commodo luctus, nisi erat porttitor ligula..</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
+                                <div style={{background:'#83cf7e',}} className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Podatak' />
+                                        <Label type='primary' text='Gost' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle on hover. Mollis est non commodo luctus, nisi erat porttitor ligula.</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                            <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--selected'>
+                                <div className='table-list__item-border'></div>
+                                <div className='table-list__item-content'>
+                                    <div className='table-list__item-content-block'>
+                                        <Label text='Odjava' />
+                                        <Label type='warning' text='Slika' />
+                                    </div>
+                                    <div className='table-list__item-content-block table-list__item-content-block--center'>
+                                        <span>Handle on hover. Nullam id dolor id nibh ultricies vehicula ut id elit.</span>
+                                    </div>
+                                    <div className='table-list__item-content-block'>
+                                        <IconLabel style='translucent' text='Label success' type='success' icon='time' />
+                                    </div>
+                                </div>
+                                <div className='table-list__slide-in-actions'>
+                                    <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />
+                                </div>
+                            </li>
+                        </ul>
+                        <hr />
+                        <hr />
 
                         <h3 className="docs-page__h3 sd-margin-y--0 sd-margin-t--3">Table list with items between</h3>
                         <hr />

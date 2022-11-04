@@ -171,14 +171,15 @@ $board-header-border-color: var(--color-kanban-border);
         opacity: 0.4;
     }
 }
-.sd-inset-search__input {
+.sd-inset-search__input,
+input.sd-inset-search__input {
     flex-grow: 1;
     flex-shrink: 1;
     font-size: 1.4rem;
     padding: 0;
     color: inherit;
     align-self: auto;
-    background-color: transparent;
+    background-color: transparent !important;
     border: 0;
     box-shadow: none !important;
     padding: 0 1rem 0 3rem;

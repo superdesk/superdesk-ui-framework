@@ -31,8 +31,10 @@ export class AuthoringMain extends React.PureComponent<IProps> {
                 )}
                 <AuthoringMainContent>
                     {this.props.authoringHeader && (
-                        <AuthoringInnerHeader headerPadding={this.props.headerPadding}>
-                        {this.props.authoringHeader}
+                        <AuthoringInnerHeader
+                        headerPadding={this.props.headerPadding}
+                        collapsed={this.props.headerCollapsed}>
+                            {this.props.authoringHeader}
                     </AuthoringInnerHeader>
                     )}
                     {this.props.authoringBookmarks && (

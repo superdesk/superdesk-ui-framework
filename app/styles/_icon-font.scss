@@ -46,7 +46,7 @@ $icon-base-size: 16px;
 [class^="icon-"],
 [class*=" icon-"] {
     @include icon-base;
-    color: $icon-color;
+    color: var(--color-icon-default);
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -362,11 +362,11 @@ $sd-icon-font: (
         box-sizing: content-box;
         line-height: 100%;
         color: $purple;
-        right: -0.5rem;
-        bottom:  -0.7rem;
+        inset-inline-end: -0.4rem;
+        inset-block-end: -0.6rem;
         height: 1em;
         width: 1em;
-        background-color: var(--sd-item__main-Bg);
+        background-color: var(--sd-item__main-Bg) !important;
         border-radius: $border-radius__base--full;
         padding: 1px;
         z-index: 1;
@@ -384,8 +384,8 @@ $sd-icon-font: (
         }
         .icn-mix__sub-icn {
             font-size: 1.6rem;
-            right: -0.6rem;
-            bottom: -0.3rem;
+            inset-inline-end: -0.6rem;
+            inset-block-end: -0.3rem;
         }
     }
 }
@@ -411,16 +411,16 @@ $sd-icon-font: (
 
 .subnav {
     .icn-mix__sub-icn {
-        background-color: $subnav-background;
+        background-color: $subnav-background !important;
     }
     &--darker {
         .icn-mix__sub-icn {
-            background-color: $subnav-background-darker;
+            background-color: $subnav-background-darker !important;
         }
     }
     &--dark-blue-grey {
         .icn-mix__sub-icn {
-            background-color: $subnav-background-dark-blue-grey;
+            background-color: $subnav-background-dark-blue-grey !important;
             color: scale-color($purple, $lightness: 50%);
         }
         .icn-mix__icn {

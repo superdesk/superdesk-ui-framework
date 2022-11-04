@@ -92,6 +92,9 @@ $modal-sizes: (
     text-align: end; // right align buttons
     border-top: 1px solid $modal-line-color;
     min-height: $modal-footer-height;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 }
 

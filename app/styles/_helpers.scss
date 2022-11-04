@@ -1025,3 +1025,26 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-width--full {
     width: var(--width__container--full);
 }
+
+
+.sd-gap--x-small {
+    gap: var(--gap--x-small);
+}
+.sd-gap--small {
+    gap: var(--gap--small);
+}
+.sd-gap--medium {
+    gap: var(--gap--medium);
+}
+.sd-gap--large {
+    gap: var(--gap--large);
+}
+.sd-gap--x-large {
+    gap: var(--gap--x-large);
+}
+.sd-gap--xx-large {
+    gap: var(--gap--xx-large);
+}
+.sd-gap--auto {
+    gap: var(--gap--auto);
+}

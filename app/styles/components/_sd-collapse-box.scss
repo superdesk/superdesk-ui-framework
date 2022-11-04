@@ -3,9 +3,10 @@
 .sd-collapse-box {
     display: flex;
     flex-direction: column;
-    border-radius: $border-radius__base--x-small;
+    border-radius: $border-radius__base--small;
     position: relative;
     margin-bottom: 1rem;
+    border: 1px solid var(--sd-colour--shadow-line--m);
     .sd-collapse-box__header {
         display: block;
         flex-grow: 0;
@@ -18,7 +19,7 @@
         right: 1rem;
         top: 0.8rem;
         z-index: 2;
-        color: $gray;
+        color: var(--color-icon-default);
         &--flex {
             position: relative;
             right: 0;
@@ -29,17 +30,17 @@
         }
         .sd-collapse-box__collapse-btn {
             flex-grow: 1;
-            color: $gray;
+            color: var(--color-icon-default);
             &:hover {
                 .icn-btn {
-                    background-color: rgba(155, 155, 155, 0.25);
+                    background-color: hsla(214, 13%, 60%, 0.25);
                     color: $white;
                     opacity: 1;
                 }
             }
             &:active {
                 .icn-btn {
-                    background-color: rgba(155, 155, 155, 0.35);
+                    background-color: hsla(214, 13%, 70%, 0.25);
                     color: $sd-colour-interactive;
                     opacity: 1;
                 }
@@ -70,7 +71,6 @@
         margin: 0 -2rem 3rem -2rem;
         &--top {
             margin-top: 2.2rem;
-            background-color: rgba(0,0,0,0.04);
         }
     }
 

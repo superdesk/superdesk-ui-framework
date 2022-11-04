@@ -4,6 +4,9 @@
     padding: 0;
     color: $sd-text;
     list-style: none;
+    border-bottom: 0;
+    border-left: 0;
+    border-right: 0;
     border-top: 1px var(--sd-colour-line--medium);
     border-style: solid;
 
@@ -15,8 +18,11 @@
         white-space: nowrap;
         text-align: center;
         border-top: 0;
+        border-bottom: 0;
+        border-left: 0;
+        border-right: 0;
         border-top-color: var(--sd-colour-line--medium);
-        border-top-style: solid;
+        border-style: solid;
     }
 
     &.sd-content-divider--horizontal {
@@ -24,7 +30,23 @@
         clear: both;
         width: 100%;
         min-width: 100%;
-        margin: $sd-base-increment * 3 0;
+        &.sd-content-divider--margin-x-small {
+            margin: $sd-base-increment * 1 0;
+        }
+        &.sd-content-divider--margin-small {
+            margin: $sd-base-increment * 2 0;
+        }
+        &.sd-content-divider--margin-medium {
+            margin: $sd-base-increment * 3 0;
+        }
+        &.sd-content-divider--margin-large {
+            margin: $sd-base-increment * 4 0;
+        }
+        &.sd-content-divider--margin-none {
+            margin: 0 0;
+        }
+
+        
     }
     &.sd-content-divider--horizontal.sd-content-divider--with-text {
         margin: 1.6rem 0;
@@ -37,8 +59,10 @@
             border-top-color: transparent;
             border-top-color: inherit;
             border-bottom: 0;
+            border-left: 0;
+            border-right: 0;
             transform: translateY(50%);
-            border-top-style: inherit;
+            border-style: inherit;
         }
         &.sd-content-divider--text-left {
             &::before {
@@ -56,17 +80,31 @@
                 width: 5%;
             }
         }
+        &.sd-content-divider--margin-x-small {
+            margin: $sd-base-increment * 1 0;
+        }
+        &.sd-content-divider--margin-small {
+            margin: $sd-base-increment * 2 0;
+        }
+        &.sd-content-divider--margin-medium {
+            margin: $sd-base-increment * 3 0;
+        }
+        &.sd-content-divider--margin-large {
+            margin: $sd-base-increment * 4 0;
+        }
+        &.sd-content-divider--margin-none {
+            margin: $sd-base-increment / 2 0;
+        }
     }
-
 
     &.sd-content-divider--vertical {
         position: relative;
         display: inline-block;
-        margin: $sd-base-increment * 0.5 $sd-base-increment * 1.5;
+        //margin: $sd-base-increment * 0.5 $sd-base-increment * 1.5;
         vertical-align: middle;
         border-top: 0;
         border-left: 1px var(--sd-colour-line--medium);
-        border-left-style: solid;
+        border-style: solid;
         flex-grow: 0;
         align-self: stretch;
         min-height: $sd-base-increment * 2;
@@ -86,9 +124,11 @@
                 position: relative;
                 height: 50%;
                 border-left: 1px var(--sd-colour-line--medium);
+                border-right: 0;
                 border-bottom: 0;
+                border-top: 0;
                 width: 1px;
-                border-left-style: solid;
+                border-style: solid;
             }
             &.sd-content-divider--dashed {
                 &::before, &::after {
@@ -98,10 +138,25 @@
             }
             &.sd-content-divider--dotted {
                 &::before, &::after {
-                    border-left-style: dotted;
+                    border-style: dotted;
                     border-color: var(--sd-colour-line--strong);
                 }
             }
+        }
+        &.sd-content-divider--margin-x-small {
+            margin: 0 $sd-base-increment * 1;
+        }
+        &.sd-content-divider--margin-small {
+            margin: 0 $sd-base-increment * 2;
+        }
+        &.sd-content-divider--margin-medium {
+            margin: 0 $sd-base-increment * 3;
+        }
+        &.sd-content-divider--margin-large {
+            margin: 0 $sd-base-increment * 4;
+        }
+        &.sd-content-divider--margin-none {
+            margin: 0 0;
         }
     }
     &.sd-content-divider--dashed {

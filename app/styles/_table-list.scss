@@ -28,7 +28,7 @@ $table-list-palette: $sd-basic-palette;
     grid-template-columns: [contentCol] 1fr [actionsVisible] auto [actionsHidden] auto;
     position: relative;
     flex-direction: row;
-    padding: 8px;
+    padding: $sd-base-increment;
     min-height: 4.2rem;
     border-radius: var(--b-radius--medium);
     background-color: var(--sd-item__main-Bg);
@@ -83,6 +83,10 @@ $table-list-palette: $sd-basic-palette;
                 cursor: grabbing;
             }
         }
+    }
+    &--locked {
+        border-color: hsla(350, 70%, 60%, 0.75);
+        border-left-color: hsla(350, 70%, 60%, 0.75) !important;
     }
     &.table-list__item--selected.table-list__item--clickable {
         &:hover {
@@ -155,6 +159,15 @@ $table-list-palette: $sd-basic-palette;
     position: relative;
     align-items: center;
     gap:8px;
+}
+.table-list__item-border {
+    width: 6px;
+    background-color: var(--sd-colour-panel-bg--100);
+    z-index: 2;
+    position: absolute;
+    inset-block: 3px;
+    inset-inline-start: 3px;
+    border-radius: 2px;
 }
 .table-list__item-content-block {
     display: flex;

@@ -23,13 +23,14 @@
     padding: .8rem 1.6rem;
     min-width: 100px;
     font-size: 14px;
-    color: $sd-text;
+    color: var(--color-text);
+    width: 100%;
 
     &:hover, &:focus-visible {
         background: $sd-colour-background__menu-item--hover;
     }
-}
-
-.p-menuitem-icon {
-    margin-right: 0.8rem;
+    .p-menuitem-icon {
+        margin-right: 0.8rem;
+        color: var(--color-icon-default);
+    }
 }

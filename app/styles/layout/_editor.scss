@@ -365,10 +365,16 @@
         overflow-y: auto;
         width: auto;
         min-width: 45vw;
+        max-width: 45vw;
         &.sd-editor__container--large {
             min-width: 52vw;
         }
     }
+}
+
+.sd-content-wrapper--editor-full .open-editor .sd-editor__container {
+    min-width: auto;
+    max-width: none;
 }
 
 .sd-editor__input--title {

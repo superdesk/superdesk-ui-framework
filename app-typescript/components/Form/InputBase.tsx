@@ -1,4 +1,5 @@
 import * as React from 'react';
+import classNames from 'classnames';
 
 interface IPropsBase {
     error?: string;
@@ -8,7 +9,7 @@ interface IPropsBase {
     tabIndex?: number;
     fullWidth?: boolean;
     boxedStyle?: boolean;
-    boxedLable?: boolean;
+    // boxedLable?: boolean;
     placeholder?: string;
     htmlId?: string;
     id?: string;
@@ -70,8 +71,17 @@ export class InputBase extends React.Component<IProps, IState> {
     }
 
     render() {
+        let classes = classNames('sd-input__input', {
+            'sd-input__input--boxed-style': this.props.boxedStyle,
+            'sd-input__input--required': this.props.required,
+            'sd-input__input--invalid': this.props.invalid,
+            'sd-input__input--disabled': this.props.disabled,
+            'sd-input__input--medium': this.props.size === undefined,
+            [`sd-input__input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
+
+        });
         return (
-            <input className='sd-input__input'
+            <input className={classes}
             type={this.props.type ?? 'text'}
             id={this.props.htmlId}
             value={this.state.value}

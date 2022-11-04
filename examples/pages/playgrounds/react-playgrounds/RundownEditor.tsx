@@ -331,13 +331,14 @@ export class RundownEditor extends React.Component<IProps, IState> {
                 </Layout.MainPanel>
 
                 <Layout.RightPanel open={this.state.rightPanelOpen}>
-                    <Layout.Panel size='full' side='right'>
+                    <Layout.Panel size='x-large' side='right'>
                         <Layout.PanelContent>
                             <Layout.AuthoringFrame
                                 main={
                                 <Layout.AuthoringMain
                                     headerPadding='medium'
                                     toolbarCustom={true}
+                                    headerCollapsed={true}
                                     toolBar={(
                                         <React.Fragment>
                                             <SubNav className='sd-shadow--z0'>

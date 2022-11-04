@@ -17,6 +17,7 @@ $simple-list-border-color: $neutral-border-color;
             flex-grow: 0;
             flex-shrink: 0;
             //margin-inline-end: 1rem;
+            color: var(--color-icon-default) !important;
             opacity: .75;
         }
         &--stacked {

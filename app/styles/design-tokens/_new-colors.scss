@@ -271,6 +271,7 @@
     --sd-colour-sidebar-menu--00:           hsla(var(--sd-colour-cool-grey-l--85), 1);
     --sd-colour-sidebar-menu--10:           hsla(var(--sd-colour-cool-grey-l--80), 1);
     --sd-colour-sidebar-menu--20:           hsla(var(--sd-colour-cool-grey-l--75), 1);
+    --sd-colour-quickbar-menu:              hsla(var(--sd-colour-cool-grey-l--98), 1);
 
     --sd-colour-background__left-nav:       var(--sd-colour-bg--99);
 
@@ -310,6 +311,8 @@
     --color-modal-Bg:                       var(--sd-colour-bg--99);
     
     --sd-colour--shadow-line:               hsla(var(--sd-colour-cool-grey-l--70), 0);
+    --sd-colour--shadow-line--m:            hsla(var(--sd-colour-cool-grey-l--80), 0);
+
     --sd-shadow__subnav:                    0 1px 0px var(--sd-colour--shadow-line), 0 1px 3px hsla(0, 0%, 0%, 0.07), 0 1px 0 0 hsla(0, 0%, 0%, 0.1);
     
     --sd-shadow__item--selected:            0 0 0 2px var(--sd-colour-interactive), 0 0 0 5px var(--sd-colour-interactive--alpha-30);
@@ -413,6 +416,7 @@
     --sd-colour-btn-txt-neutral:            hsla(var(--sd-colour-neutral-l--80), 1);
 
     --sd-colour--shadow-line:               hsla(var(--sd-colour-cool-grey-l--75), 0.2);
+    --sd-colour--shadow-line--m:            hsla(var(--sd-colour-cool-grey-l--80), 0.2);
 
     --sd-colour-panel-bg--000:              hsla(var(--sd-colour-cool-grey-l--10), 1);
     --sd-colour-panel-bg--050:              hsla(var(--sd-colour-cool-grey-l--05), 1);
@@ -423,6 +427,7 @@
     --sd-colour-sidebar-menu--00:           hsla(var(--sd-colour-cool-grey-l--25), 1);
     --sd-colour-sidebar-menu--10:           hsla(var(--sd-colour-cool-grey-l--30), 1);
     --sd-colour-sidebar-menu--20:           hsla(var(--sd-colour-cool-grey-l--35), 1);
+    --sd-colour-quickbar-menu:              hsla(var(--sd-colour-cool-grey-l--20), 1);
 
     --sd-colour-background__left-nav:       var(--sd-colour-bg--04);
 
@@ -560,8 +565,8 @@
   
     --color-text:                         hsla(214, 13%, 20%, 1);
     --color-text--inverse:                hsla(0, 0%, 98%, 1); // equals #333;
-    --color-text-light:                   hsla(214, 13%, 30%, 0.75);
-    --color-text-lighter:                 hsla(214, 13%, 30%, 0.55);
+    --color-text-light:                   hsla(214, 13%, 40%, 1);
+    --color-text-lighter:                 hsla(214, 13%, 60%, 1);
     --color-icon-default:                 hsla(214, 13%, 30%, 1);
     --sd-slugline-color:                  hsla(197, 100%, 15%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 100%, 25%, 1);
@@ -634,9 +639,9 @@
     
     //color:                                hsla(0, 0%, 100%, 1);
     --color-text:                         hsla(0, 0%, 96%, 1);
-    --color-text-light:                   hsla(214, 13%, 96%, 0.75);
-    --color-text-lighter:                 hsla(214, 13%, 96%, 0.55);
-    --color-icon-default:                 hsla(214, 13%, 96%, 0.65);
+    --color-text-light:                   hsla(214, 13%, 76%, 1);
+    --color-text-lighter:                 hsla(214, 13%, 56%, 1);
+    --color-icon-default:                 hsla(214, 13%, 64%, 1);
     --sd-slugline-color:                  hsla(197, 60%, 75%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 60%, 65%, 1);
     --sd-navy-color:                      hsla(240, 90%, 75%, 1);
