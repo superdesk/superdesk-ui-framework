@@ -129,14 +129,18 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             }
         }
 
-        if ((this.props.hours !== prevProps.hours)
-        || (this.props.minutes !== prevProps.minutes)
-        || (this.props.seconds !== prevProps.seconds)) {
-            this.setState({
-                hours: this.stateUpdate('hours', this.props.hours, this.props.minutes, this.props.seconds),
-                minutes: this.stateUpdate('minutes', this.props.minutes, this.props.seconds),
-                seconds: this.stateUpdate('seconds', this.props.seconds),
-            });
+        if (this.hourRef.current.value.length === 2
+            && this.minuteRef.current.value.length === 2
+            && this.secondRef.current.value.length === 2) {
+                if ((this.props.hours !== prevProps.hours)
+                || (this.props.minutes !== prevProps.minutes)
+                || (this.props.seconds !== prevProps.seconds)) {
+                    this.setState({
+                        hours: this.stateUpdate('hours', this.props.hours, this.props.minutes, this.props.seconds),
+                        minutes: this.stateUpdate('minutes', this.props.minutes, this.props.seconds),
+                        seconds: this.stateUpdate('seconds', this.props.seconds),
+                    });
+                }
         }
     }
 
@@ -241,11 +245,13 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
 
     handleChange(event: React.ChangeEvent<HTMLInputElement>, state: 'hours' | 'minutes' | 'seconds') {
         let stateClone: IState = {};
-        if (event.target.value.length >= 2) {
-            if (event.target.selectionStart === 1 && event.target.selectionEnd === 1) {
-                stateClone[state] = event.target.value.slice(0, 1) + event.target.value.slice(2, 3);
+        if (event.target.value.length > 2) {
+            if (event.target.selectionStart === 1) {
+                stateClone[state] = event.target.value.slice(0, 1);
+            } else if (event.target.selectionStart === 2) {
+                stateClone[state] = event.target.value.slice(1, 2);
             } else {
-                stateClone[state] = event.target.value.slice(0, 2);
+                stateClone[state] = event.target.value.slice(2, 3);
             }
         } else {
             stateClone[state] = event.target.value;
@@ -299,6 +305,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     className={`duration-input ${this.state.blink === 'hour' ? 'blink_me' : ''}`}
                     type='text'
                     id='hours'
+                    autoComplete="off"
                     max={99}
                     min={0}
                     ref={this.hourRef}
@@ -319,6 +326,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     className={`duration-input ${this.state.blink === 'minute' ? 'blink_me' : ''}`}
                     type='text'
                     id='minutes'
+                    autoComplete="off"
                     ref={this.minuteRef}
                     value={this.state.minutes}
                     disabled={this.props.disabled}
@@ -337,6 +345,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                     className='duration-input'
                     type='text'
                     id='seconds'
+                    autoComplete="off"
                     ref={this.secondRef}
                     value={this.state.seconds}
                     disabled={this.props.disabled}
@@ -356,7 +365,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 }
 
-export function getDurationString(seconds: number, zero?: boolean) {
+export function getDurationString(seconds: number,  minSections: 1 | 2 | 3 = 1) {
     function zeroPad(value: number | string) {
         if (value.toString().length === 1 || value === 0) {
             return `0${value}`;
@@ -371,13 +380,19 @@ export function getDurationString(seconds: number, zero?: boolean) {
     let minute = zeroPad(Math.floor((seconds % 3600) / 60));
     let second = zeroPad(Math.floor(seconds % 60));
 
-    if (zero) {
+    if (minSections === 3) {
         return `${hour}h ${minute}m ${second}s`;
-    } else {
-        if (Number(hour) === 0 && Number(minute) > 0) {
+    } else if (minSections === 2) {
+        if (Number(hour) > 0) {
+            return `${hour}h ${minute}m ${second}s`;
+        } else {
             return `${minute}m ${second}s`;
-        } else if (Number(hour) === 0 && Number(minute) === 0) {
+        }
+    } else {
+        if (Number(hour) === 0 && Number(minute) === 0) {
             return `${second}s`;
+        } else if (Number(hour) === 0 && Number(minute) > 0) {
+            return `${minute}m ${second}s`;
         } else {
             return `${hour}h ${minute}m ${second}s`;
         }

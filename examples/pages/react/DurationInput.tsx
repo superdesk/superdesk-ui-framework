@@ -1,15 +1,15 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
-
 import { Input, Select, CheckGroup, Checkbox, PropsList, Prop } from '../../../app-typescript';
 import { DurationInput } from '../../../app-typescript/components/DurationInput';
+import { getDurationString } from '../../../app-typescript/components/DurationInput';
 
 interface IState {
     inlineLabel: boolean;
     required: boolean;
     disabled: boolean;
     invalid: boolean;
+    value: any
 }
 
 export default class DurationInputDoc extends React.Component<{}, IState> {
@@ -20,10 +20,12 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
             required: true,
             disabled: false,
             invalid: false,
+            value: 3661,
         }
     }
     
     render() {
+        
         return (
             <section className='docs-page__container'>
                 <h2 className='docs-page__h2'>Duration Input</h2>
@@ -62,8 +64,10 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
                                 required={this.state.required}
                                 invalid={this.state.invalid}
                                 inlineLabel={this.state.inlineLabel}
+                                seconds={this.state.value}
                                 onChange={(e) => {
-                                    console.log(e)
+                                    this.setState({value: e})
+                                    console.log(e);
                                 }}
                                 />
                             </div>
