@@ -365,7 +365,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 }
 
-export function getDurationString(seconds: number,  minSections: 1 | 2 | 3) {
+export function getDurationString(seconds: number,  minSections: 1 | 2 | 3 = 1) {
     function zeroPad(value: number | string) {
         if (value.toString().length === 1 || value === 0) {
             return `0${value}`;
