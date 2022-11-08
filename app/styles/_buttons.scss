@@ -333,7 +333,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     cursor: pointer;
     flex-shrink: 0;
     [class^="icon-"], [class*=" icon-"] {
-        color: var(--color-icon-default);
+        color: var(--color-icon-default) !important;
         vertical-align: baseline !important;
     }
     &:hover {
@@ -397,12 +397,18 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         }
     }
     &--outlineWhite {
-        color: hsla(214, 13%, 95%, 0.8);
+        color: hsla(214, 13%, 95%, 0.8) !important;
         border: 1px solid currentColor;
+        [class^="icon-"], [class*=" icon-"] {
+            color: hsla(214, 13%, 95%, 0.8) !important;
+        }
         &:hover:not(.icn-btn--disabled) {
-            color: hsla(214, 13%, 95%, 1);
+            color: hsla(214, 13%, 95%, 1) !important;
             border-color: hsla(214, 13%, 95%, 1);
             background-color: hsla(0, 0%, 0%, 0.4);
+            [class^="icon-"], [class*=" icon-"] {
+                color: hsla(214, 13%, 95%, 1) !important;
+            }
         }
         &:active:not(.icn-btn--disabled) {
             border-color: var(--sd-colour-interactive);
