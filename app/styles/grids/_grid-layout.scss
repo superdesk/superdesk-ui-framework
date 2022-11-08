@@ -216,6 +216,12 @@
             transition-delay: 0;
         }
     }
+    &.sd-column-box__slide-in-column--light {
+        background-color: var(--sd-colour-panel-bg--000);
+        .sd-column-box__slide-in-column-inner {
+            background-color: var(--sd-colour-panel-bg--000);
+        }
+    }
 }
 .sd-slide-in-panel {
     display: flex;

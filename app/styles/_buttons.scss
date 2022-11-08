@@ -328,12 +328,12 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     background-color: transparent;
     opacity: 0.75;
     background-color: hsla(214, 13%, 55%, 0);
-    color: inherit;
+    color: var(--color-icon-default);
     text-decoration: none;
     cursor: pointer;
     flex-shrink: 0;
     [class^="icon-"], [class*=" icon-"] {
-        color: inherit;
+        color: var(--color-icon-default);
         vertical-align: baseline !important;
     }
     &:hover {
@@ -382,7 +382,6 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         height: $height__button--x-large;
         width: $height__button--x-large;
         [class^="icon-"], [class*=" icon-"] {
-            color: inherit;
             vertical-align: baseline !important;
             font-size: 2.4rem;
             height: 2.4rem;

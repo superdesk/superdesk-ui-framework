@@ -350,7 +350,7 @@ $sd-icon-font: (
 // Combining 2 icons
 .icn-mix {
     position: relative;
-    display: inline-block;
+    display: inline-flex !important;
     font-size: $icon-base-size;
     height: $icon-base-size;
     .icn-mix__icn {
