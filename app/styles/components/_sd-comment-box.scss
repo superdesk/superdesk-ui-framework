@@ -1,11 +1,11 @@
 .comment-box__reply-item {
-    border-bottom: 1px solid rgba(123,123,123,0.2);
+    border-bottom: 1px solid var(--sd-colour-line--light);
 }
 
 .comment-box__input {
     padding: 0.4rem;
-    border-radius: $border-radius__base--x-small;
-    border: 1px solid rgba(123,123,123,0.4);
+    border-radius: $border-radius__base--small;
+    border: 1px solid var(--sd-colour-line--light);
     height: 2.8rem;
     resize: none;
 }
@@ -13,7 +13,10 @@
     display: none;
     padding-top: 1rem;
     &--active {
-        display: block;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: var(--gap--small);
     }
 }
 .comment-box__button-toolbar {
@@ -22,6 +25,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
+    gap: var(--gap--small);
     &--right {
         justify-content: flex-end;
     }
