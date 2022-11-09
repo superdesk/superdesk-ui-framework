@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import { PropsList, Prop } from '../../../app-typescript';
-import { MultiSelect } from '../../../app-typescript/components/MultiSelect';
+import { MultiSelect } from '../../../app-typescript';
 
 interface IColor {
     name: string;
@@ -56,7 +56,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                     />
                 `}
                 </Markup.ReactMarkupCodePreview>
-                
+
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
@@ -110,7 +110,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                     showSelectAll
                                     optionLabel='name'
                                     itemTemplate={(option) => {
-                                        if (option) {  
+                                        if (option) {
                                             return (
                                                 <div style={{display: 'flex', alignItems: 'center'}}>
                                                     <div style={{width: 10, height: 10, marginInlineEnd: 10, backgroundColor: option.colorCode}} />
@@ -147,7 +147,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                             showSelectAll
                             optionLabel='name'
                             itemTemplate={(option) => {
-                                if (option) {  
+                                if (option) {
                                     return (
                                         <div style={{display: 'flex', alignItems: 'center'}}>
                                             <div style={{width: 10, height: 10, marginInlineEnd: 10, backgroundColor: option.colorCode}} />
@@ -194,7 +194,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                     <Prop name='selectedItemTemplate' isRequired={false} type='function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
                     <Prop name='onChange' isRequired={true} type='function' default='/' description='Callback to invoke when value changes.'/>
                 </PropsList>
-  
+
             </section>
         )
     }
