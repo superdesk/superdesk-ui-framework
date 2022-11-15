@@ -13,49 +13,7 @@ interface IState {
     arr: any;
 }
 
-let itemArr = [
-    {
-        value: 'Category1',
-        children: [
-            {
-                value: 'Sub-Category1',
-                children: [
-                    {value: 'Item10'}
-                ]
-            },
-            {
-                value: 'Sub-Category2',
-                children: [
-                    {value: 'Item11'}
-                ]
-            }
-        ]
-    },
-    {
-        value: 'Category2',
-        children: [
-            {
-                value: 'Sub-Category3'
-            },
-            {
-                value: 'Sub-Category4'
-            }
-        ]
-    },
-    {
-        value: 'Category3',
-        children: [
-            {
-                value: 'Sub-Category5'
-            },
-            {
-                value: 'Sub-Category6'
-            }
-        ]
-    },
-]
-
-let itemArr2 = [
+let options = [
     {
         value: {name: 'Category1'},
         children: [
@@ -113,7 +71,7 @@ let itemArr2 = [
         ]
     },
     {
-        value: {name: 'Category3'},
+        value: {name: 'Category3' , bgColor: 'red'},
         children: [
             {
                 value: {name: 'Item10'}
@@ -124,37 +82,6 @@ let itemArr2 = [
         ]
     },
 ]
-
-const source = [
-    {
-        'name': 'Article (news)',
-        'qcode': 'Article (news)',
-    },
-    {
-        'name': 'Article',
-        'qcode': 'Article',
-    },
-    {
-        'name': 'Sidebar',
-        'qcode': 'Sidebar',
-    },
-    {
-        'name': 'Factbox',
-        'qcode': 'Factbox',
-    },
-    {
-        'name': 'Item',
-        'qcode': 'Item',
-    },
-    {
-        'name': 'Array',
-        'qcode': 'Array',
-    },
-    {
-        'name': 'Object',
-        'qcode': 'Object',
-    },
-];
 
 let fetchedArr = [];
 fetch('https://nominatim.openstreetmap.org/search/berlin?format=json&addressdetails=1&limit=20').then(response => response.json()).then(data => fetchedArr = data
@@ -186,8 +113,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         this.state = {
             value: [],
             value2: [],
-            options: itemArr2,
-            options2: itemArr2,
+            options: options,
+            options2: options,
             inputValue: '',
             arr: []
         }
@@ -230,7 +157,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 <TreeSelect
                                     getId={(item) => item.name}
                                     getLabel={(item) => item.name}
-                                    getOptions={() => itemArr2}
+                                    getBackgroundColor={(item: any) => item.bgColor}
+                                    getOptions={() => options}
                                     value={[{name: 'Item1'}, {name: 'Item2'}]}
                                     selectBranchWithChildren={true}
                                     onChange={(e) => console.log(e)}
@@ -243,6 +171,15 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     label={'TreeSelect Label'}
                                     singleLevelSearch
                                     searchPlaceholder='Search...'
+                                    valueTemplate={(item, Wrapper) => {
+                                        return (
+                                            <Wrapper backgroundColor={item.bgColor}>
+                                                <span>{item.name}</span>
+                                            </Wrapper>
+                                        );
+                                    }}
+                                    
+                                    
                                 />
                             </div>
                         </div>
@@ -253,7 +190,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             getId={(item) => item.name}
                             getLabel={(item) => item.name}
                             getOptions={() => {
-                                return itemArr2
+                                return options
                             }}
                             value={[{name: 'Item1'}, {name: 'Item2'}]}
                             selectBranchWithChildren={true}
@@ -286,7 +223,6 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 }
                                 getId={({qcode}) => qcode.display_name}
                                 selectBranchWithChildren={false}
-                                //optionTemplate={(item) => <span style={{color: 'blue'}}>{item.display_name}</span>}
                                 allowMultiple={true}
                             />
                             </div>
@@ -319,18 +255,20 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 <TreeSelect
                                     getId={(item) => item.name}
                                     getLabel={(item) => item.name}
+                                    getBackgroundColor={(item) => item.bgColor}
                                     placeholder='Select one'
-                                    getOptions={() => this.state.options}
+                                    getOptions={() => options}
                                     kind={'synchronous'}
                                     onChange={(e) => console.log(e)}
+                                    selectBranchWithChildren={true}
                                     optionTemplate={(item: any) => {
                                         return <div>Label: {item.name}</div>
                                     }}
-                                    valueTemplate={(item: any) => {
-                                        return <span>Label: {item.name}</span>
+                                    valueTemplate={(item: any, Wrapper) => {
+                                        return <Wrapper backgroundColor={item.bgColor}>
+                                              <span>{item.name}</span>
+                                            </Wrapper>
                                     }}
-                                    //allowMultiple
-                                    //readOnly
                                 />
                             </div>
                         </div>
@@ -370,8 +308,9 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Prop name='searchPlaceholder' isRequired={false} type='string' default='/' description='Filter input placeholder.'/>
                     <Prop name='getLabel' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                     <Prop name='getId' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
-                    <Prop name='valueTemplate' isRequired={false} type='Function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
-                    <Prop name='optionTemplate' isRequired={false} type='Function' default='/' description='Function that gets the option and returns the content for it.'/>
+                    <Prop name='getBackgroundColor' isRequired={true} type='Function' default='/' description='Function to return background color of individual item in options.'/>
+                    <Prop name='valueTemplate' isRequired={false} type='Function(item, Wrapper)' default='/' description='Function that gets an item in the value and returns the content for it.'/>
+                    <Prop name='optionTemplate' isRequired={false} type='Function(item)' default='/' description='Function that gets the option and returns the content for it.'/>
                     <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
                     <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                     <Prop name='label' isRequired={false} type='string' default='/' description='Input label'/>

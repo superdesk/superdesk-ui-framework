@@ -312,6 +312,20 @@ tags-input,
             justify-content: space-between;
             align-items: center;
         }
+        .suggestion-item--bgcolor {
+            min-height: 1.5em;
+            min-width: 1.5em;
+            padding: 4px 0;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 99px;
+            white-space: nowrap;
+
+            &[style] {
+                padding-inline: 8px;
+            }
+        }
         .suggestion-item--disabled {
             opacity: 0.5;
         }
@@ -493,6 +507,11 @@ tags-input,
     }
 }
 
+.tags-input--single-select {
+    display: grid !important;
+    align-items: center !important;
+}
+
 .tags-input--multi-select,
 .tags-input--single-select {
     position: relative;
@@ -546,7 +565,7 @@ tags-input,
     .tags-input__remove-button {
         display: flex;
         align-items: center;
-        align-self: flex-end;
+        align-self: center;
         margin-inline-start: auto;
         z-index: 2;
         cursor: pointer;

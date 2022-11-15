@@ -6,6 +6,7 @@ import _debounce from 'lodash/debounce';
 import { InputWrapper } from "./Form";
 import { createPopper } from '@popperjs/core';
 import {isEqual} from 'lodash';
+import {getTextColor} from './Label';
 
 interface IState<T> {
     value: Array<T>;
@@ -44,8 +45,9 @@ interface IPropsBase<T> {
     disabled?: boolean;
     getLabel(item: T): string;
     getId(item: T): string;
+    getBackgroundColor?(item: T): string;
     optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
-    valueTemplate?(item: T): React.ComponentType<T> | JSX.Element;
+    valueTemplate?(item: T, Wrapper: any): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
 }
 
@@ -102,7 +104,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.toggleMenu = this.toggleMenu.bind(this);
         this.dropdownRef = React.createRef();
         this.openDropdownRef = React.createRef();
-
     }
 
     componentDidMount = () => {
@@ -339,17 +340,21 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         event.stopPropagation();
                         this.handleTree(event, option);
                     }}>
-                        {this.props.optionTemplate
+                        <span
+                        style={this.props.getBackgroundColor
+                            ? {backgroundColor: this.props.getBackgroundColor(option.value),
+                            color: getTextColor(this.props.getBackgroundColor(option.value))}
+                            : undefined}
+                        className={'suggestion-item--bgcolor'
+                        + (selectedItem ? ' suggestion-item--disabled' : '')}
+                        >
+                            {this.props.optionTemplate
                             ? this.props.optionTemplate(option.value)
-                            : <span
-                            className={selectedItem
-                            ? 'suggestion-item--disabled' : undefined}
-                            >
-                                {this.props.getLabel(option.value)}
-                            </span>}
-                            {option.children && <span className="suggestion-item__icon">
-                                <Icon name="chevron-right-thin"></Icon>
-                            </span>}
+                            : this.props.getLabel(option.value)}
+                        </span>
+                        {option.children && <span className="suggestion-item__icon">
+                            <Icon name="chevron-right-thin"></Icon>
+                        </span>}
                     </li>;
                 });
             }
@@ -451,27 +456,46 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             </button>}
                             <ul className="tags-input__tag-list">
                                 {this.state.value.map((item, i: number) => {
-                                    return <React.Fragment key={i}>
+                                    const Wrapper: React.ComponentType<{backgroundColor?: string}>
+                                    = ({backgroundColor, children}) => (
                                         <li
                                         className={"tags-input__tag-item tags-input__tag-item--multi-select"
                                         + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
-                                        onClick={() => this.props.readOnly || this.removeClick(i)}>
-                                            <span className="tags-input__helper-box">
-                                                {this.props.valueTemplate
-                                                ? this.props.valueTemplate(item)
-                                                : <span>{this.props.getLabel(item)}</span>}
-                                                {this.props.readOnly
-                                                || <span className="tags-input__remove-button">
+                                        onClick={() => !this.props.readOnly && this.removeClick(i)}
+                                        style={this.props.valueTemplate
+                                        ? {backgroundColor}
+                                        : this.props.getBackgroundColor
+                                        && {backgroundColor: this.props.getBackgroundColor(item)}}>
+                                            <span
+                                            style={{color: backgroundColor
+                                            ? getTextColor(backgroundColor)
+                                            : this.props.getBackgroundColor
+                                            &&  getTextColor(this.props.getBackgroundColor(item))}}
+                                            className="tags-input__helper-box">
+                                                {children}
+                                                {!this.props.readOnly && <span className="tags-input__remove-button">
                                                     <Icon name="close-small"></Icon>
                                                 </span>}
                                             </span>
                                         </li>
-                                    </React.Fragment>;
+                                    );
+
+                                    return (
+                                        <React.Fragment key={i}>
+                                            {this.props.valueTemplate
+                                            ? this.props.valueTemplate(item, Wrapper)
+                                            : <Wrapper>
+                                                <span>{this.props.getLabel(item)}</span>
+                                            </Wrapper>
+                                            }
+                                        </React.Fragment>
+                                    );
                                 })}
                             </ul>
                             {this.state.value.length > 0
                                 ? this.props.readOnly
                                 || <button className="tags-input__remove-value"
+                                style={{position: 'relative', bottom: '2px'}}
                                 onClick={() => this.setState({value: []})}>
                                     <Icon name='remove-sign'></Icon>
                                 </button> : null}
@@ -490,21 +514,35 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </span>
                             </span>}
                             {this.state.value.map((item, i: number) => {
-                                return <React.Fragment key={i}>
+                                const Wrapper: React.ComponentType<{backgroundColor?: string}>
+                                = ({backgroundColor, children}) => (
                                     <span
                                     className={ 'tags-input__single-item'
                                     + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
                                     onClick={() => this.props.readOnly || this.removeClick(i)}>
-                                        <span className="tags-input__helper-box">
-                                            {this.props.valueTemplate
-                                            ? this.props.valueTemplate(item)
-                                            : <span>{this.props.getLabel(item)}</span>}
+                                        <span
+                                        style={{color: backgroundColor && getTextColor(backgroundColor)}}
+                                        className="tags-input__helper-box">
+                                            <span
+                                            className={backgroundColor && `tags-input__tag-item`}
+                                            style={{backgroundColor, margin: 0}}>
+                                                {children}
+                                            </span>
                                             {this.props.readOnly
                                             || <span className="tags-input__remove-button">
                                                 <Icon name='remove-sign'></Icon>
                                             </span>}
                                         </span>
                                     </span>
+                                );
+
+                                return <React.Fragment key={i}>
+                                    {this.props.valueTemplate
+                                    ? this.props.valueTemplate(item, Wrapper)
+                                    : <Wrapper>
+                                        <span>{this.props.getLabel(item)}</span>
+                                    </Wrapper>
+                                    }
                                 </React.Fragment>;
                             })}
                        </div>
@@ -583,14 +621,18 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             event.stopPropagation();
                                             this.handleTree(event, option);
                                         }}>
-                                            {this.props.optionTemplate
-                                            ? this.props.optionTemplate(option.value)
-                                            : <span
-                                            className={selectedItem
-                                            ? 'suggestion-item--disabled' : undefined}
+                                            <span
+                                            style={(this.props.getBackgroundColor && option.value)
+                                                ? {backgroundColor: this.props.getBackgroundColor(option.value),
+                                                color: getTextColor(this.props.getBackgroundColor(option.value))}
+                                                : undefined}
+                                            className={'suggestion-item--bgcolor'
+                                            + (selectedItem ? ' suggestion-item--disabled' : '')}
                                             >
-                                                {this.props.getLabel(option.value)}
-                                            </span>}
+                                                {this.props.optionTemplate
+                                                ? this.props.optionTemplate(option.value)
+                                                : this.props.getLabel(option.value)}
+                                            </span>
                                             {option.children && <span className="suggestion-item__icon">
                                                 <Icon name="chevron-right-thin"></Icon>
                                             </span>}
