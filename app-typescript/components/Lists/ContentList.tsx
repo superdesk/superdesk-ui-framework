@@ -4,7 +4,7 @@ import classNames from 'classnames';
 interface IPropsItem {
     action?: React.ReactNode;
     locked?: boolean;
-    itemColum: Array<{itemRow: Array<{content: any}>, border?: boolean, fullwidth?: boolean}>;
+    itemColum: Array<{ itemRow: Array<{ content: any }>, border?: boolean, fullwidth?: boolean }>;
     activated?: boolean;
     selected?: boolean;
     archived?: boolean;
@@ -40,42 +40,47 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
         }, this.delay);
     }
 
+    onActionMenuClick = (event: React.MouseEvent<HTMLElement>) => {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
     render() {
         let classes = classNames('sd-list-item sd-shadow--z1', {
             'sd-list-item--activated': this.props.activated,
             'sd-list-item--selected': this.props.selected,
             'fetched': this.props.archived,
             'actioning': this.props.loading,
-    });
+        });
 
         return (
-                <div
+            <div
                 role='listitem'
                 className={classes}
                 onClick={this.onSingleClick}
                 onDoubleClick={this.onDoubleClick}>
-                    {this.props.locked
+                {this.props.locked
                     ? <div className="sd-list-item__border sd-list-item__border--locked"></div>
                     : <div className="sd-list-item__border"></div>}
-                    {this.props.itemColum.map((item, index) => {
-                        return <div
+                {this.props.itemColum.map((item, index) => {
+                    return <div
                         className={`sd-list-item__column ${item.fullwidth && 'sd-list-item__column--grow'} ${!item.border && 'sd-list-item__column--no-border'}`}
                         key={index}>
                         {item.itemRow.map((e, i) => {
                             return (
                                 item.itemRow.length <= 1
-                                ? <React.Fragment key={i}>{e.content}</React.Fragment>
-                                : <div className="sd-list-item__row" key={i}>
-                                    {e.content}
-                                </div>
+                                    ? <React.Fragment key={i}>{e.content}</React.Fragment>
+                                    : <div className="sd-list-item__row" key={i}>
+                                        {e.content}
+                                    </div>
                             );
                         })}
-                        </div>;
-                    })}
-                    <div className="sd-list-item__action-menu">
-                        {this.props.action}
-                    </div>
+                    </div>;
+                })}
+                <div className="sd-list-item__action-menu" onClick={this.onActionMenuClick}>
+                    {this.props.action}
                 </div>
+            </div>
         );
     }
 }
@@ -95,7 +100,7 @@ interface IProps {
 }
 
 interface IItemArray {
-    itemRow: Array<{content: React.ReactNode}>;
+    itemRow: Array<{ content: React.ReactNode }>;
     border?: boolean;
     fullwidth?: boolean;
 }
@@ -107,16 +112,16 @@ class ContentList extends React.PureComponent<IProps> {
             <div role='list' className={classes}>
                 {this.props.items.map((item, index) => {
                     return <ContentListItem
-                    key={index}
-                    itemColum={item.itemColum}
-                    locked={item.locked}
-                    action={item.action}
-                    loading={item.loading}
-                    activated={item.activated}
-                    selected={item.selected}
-                    archived={item.archived}
-                    onClick={item.onClick}
-                    onDoubleClick={item.onDoubleClick} />;
+                        key={index}
+                        itemColum={item.itemColum}
+                        locked={item.locked}
+                        action={item.action}
+                        loading={item.loading}
+                        activated={item.activated}
+                        selected={item.selected}
+                        archived={item.archived}
+                        onClick={item.onClick}
+                        onDoubleClick={item.onDoubleClick} />;
                 })}
             </div>
         );
