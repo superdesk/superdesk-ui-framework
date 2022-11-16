@@ -71,7 +71,77 @@ let options = [
         ]
     },
     {
-        value: {name: 'Category3' , bgColor: 'red'},
+        value: {name: 'Category3', bgColor: 'red'},
+        children: [
+            {
+                value: {name: 'Item10'}
+            },
+            {
+                value: {name: 'Item11'}
+            }
+        ]
+    },
+]
+
+let options2 = [
+    {
+        value: {name: 'Category1', border: 'red'},
+        children: [
+            {
+                value: {name: 'Sub-category1'},
+                children: [
+                    {value: {name: 'Item20'}}
+                ]
+            },
+            {
+                value: {name: 'Sub-category2'},
+                children: [
+                    {value: {name: 'Item21'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category3'},
+                children: [
+                    {value: {name: 'Item22'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category4'},
+                children: [
+                    {value: {name: 'Item23'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category5'},
+                children: [
+                    {value: {name: 'Item24'}}
+                ]
+            }
+            ,
+            {
+                value: {name: 'Sub-category6'},
+                children: [
+                    {value: {name: 'Item25'}}
+                ]
+            }
+        ]
+    },
+    {
+        value: {name: 'Category2', border: 'green'},
+        children: [
+            {
+                value: {name: 'Item8'}
+            },
+            {
+                value: {name: 'Item9'}
+            }
+        ]
+    },
+    {
+        value: {name: 'Category3', border: 'yellow'},
         children: [
             {
                 value: {name: 'Item10'}
@@ -155,31 +225,29 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
+                                    value={[{name: 'Item1'}, {name: 'Item2'}]}
+                                    getOptions={() => options}
+                                    kind={'synchronous'}
                                     getId={(item) => item.name}
                                     getLabel={(item) => item.name}
                                     getBackgroundColor={(item: any) => item.bgColor}
-                                    getOptions={() => options}
-                                    value={[{name: 'Item1'}, {name: 'Item2'}]}
                                     selectBranchWithChildren={true}
-                                    onChange={(e) => console.log(e)}
                                     allowMultiple
-                                    kind={'synchronous'}
                                     fullWidth
+                                    singleLevelSearch
+                                    required
                                     info={'Info Message'}
                                     error={'Error Message'}
-                                    required
                                     label={'TreeSelect Label'}
-                                    singleLevelSearch
                                     searchPlaceholder='Search...'
+                                    onChange={(e) => false}
                                     valueTemplate={(item, Wrapper) => {
                                         return (
                                             <Wrapper backgroundColor={item.bgColor}>
                                                 <span>{item.name}</span>
                                             </Wrapper>
                                         );
-                                    }}
-                                    
-                                    
+                                    }}    
                                 />
                             </div>
                         </div>
@@ -187,21 +255,29 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
+                            value={[{name: 'Item1'}, {name: 'Item2'}]}
+                            getOptions={() => options}
+                            kind={'synchronous'}
                             getId={(item) => item.name}
                             getLabel={(item) => item.name}
-                            getOptions={() => {
-                                return options
-                            }}
-                            value={[{name: 'Item1'}, {name: 'Item2'}]}
+                            getBackgroundColor={(item: any) => item.bgColor}
                             selectBranchWithChildren={true}
-                            onChange={(e) => console.log(e)}
                             allowMultiple
-                            kind={'synchronous'}
                             fullWidth
+                            singleLevelSearch
+                            required
                             info={'Info Message'}
                             error={'Error Message'}
-                            required
                             label={'TreeSelect Label'}
+                            searchPlaceholder='Search...'
+                            onChange={(e) => false}
+                            valueTemplate={(item, Wrapper) => {
+                                return (
+                                    <Wrapper backgroundColor={item.bgColor}>
+                                        <span>{item.name}</span>
+                                    </Wrapper>
+                                );
+                            }}    
                         />
                     `}</Markup.ReactMarkupCode>
                     
@@ -253,21 +329,22 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <TreeSelect
+                                    getOptions={() => options2}
+                                    kind={'synchronous'}
                                     getId={(item) => item.name}
                                     getLabel={(item) => item.name}
                                     getBackgroundColor={(item) => item.bgColor}
+                                    getBorderColor={(item) => item.border}
                                     placeholder='Select one'
-                                    getOptions={() => options}
-                                    kind={'synchronous'}
-                                    onChange={(e) => console.log(e)}
                                     selectBranchWithChildren={true}
+                                    onChange={(e) => false}
                                     optionTemplate={(item: any) => {
                                         return <div>Label: {item.name}</div>
                                     }}
                                     valueTemplate={(item: any, Wrapper) => {
-                                        return <Wrapper backgroundColor={item.bgColor}>
-                                              <span>{item.name}</span>
-                                            </Wrapper>
+                                        return <Wrapper borderColor={item.border}>
+                                            <span>{item.name}</span>
+                                        </Wrapper>
                                     }}
                                 />
                             </div>
@@ -276,17 +353,22 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
+                            getOptions={() => options2}
+                            kind={'synchronous'}
                             getId={(item) => item.name}
                             getLabel={(item) => item.name}
-                            value={[{name: 'Item4'}, {name: 'Item10'}]}
-                            getOptions={() => this.state.options}
-                            kind={'synchronous'}
-                            onChange={(e) => console.log(e)}
+                            getBackgroundColor={(item) => item.bgColor}
+                            getBorderColor={(item) => item.border}
+                            placeholder='Select one'
+                            selectBranchWithChildren={true}
+                            onChange={(e) => false}
                             optionTemplate={(item: any) => {
                                 return <div>Label: {item.name}</div>
                             }}
-                            valueTemplate={(item: any) => {
-                                return <span>Label: {item.name}</span>
+                            valueTemplate={(item: any, Wrapper) => {
+                                return <Wrapper borderColor={item.border}>
+                                    <span>{item.name}</span>
+                                </Wrapper>
                             }}
                         />
                     `}</Markup.ReactMarkupCode>
@@ -309,6 +391,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Prop name='getLabel' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                     <Prop name='getId' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                     <Prop name='getBackgroundColor' isRequired={true} type='Function' default='/' description='Function to return background color of individual item in options.'/>
+                    <Prop name='getBorderColor' isRequired={true} type='Function' default='/' description='Function to return border color of individual item in options in single-select mode.'/>
                     <Prop name='valueTemplate' isRequired={false} type='Function(item, Wrapper)' default='/' description='Function that gets an item in the value and returns the content for it.'/>
                     <Prop name='optionTemplate' isRequired={false} type='Function(item)' default='/' description='Function that gets the option and returns the content for it.'/>
                     <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>

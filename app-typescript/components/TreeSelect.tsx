@@ -46,6 +46,7 @@ interface IPropsBase<T> {
     getLabel(item: T): string;
     getId(item: T): string;
     getBackgroundColor?(item: T): string;
+    getBorderColor?(item: T): string;
     optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
     valueTemplate?(item: T, Wrapper: any): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
@@ -340,6 +341,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         event.stopPropagation();
                         this.handleTree(event, option);
                     }}>
+                        {this.props.getBorderColor
+                        && <div className="item-border"
+                        style={{backgroundColor: this.props.getBorderColor(option.value)}}></div>}
                         <span
                         style={this.props.getBackgroundColor
                             ? {backgroundColor: this.props.getBackgroundColor(option.value),
@@ -514,12 +518,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </span>
                             </span>}
                             {this.state.value.map((item, i: number) => {
-                                const Wrapper: React.ComponentType<{backgroundColor?: string}>
-                                = ({backgroundColor, children}) => (
+                                const Wrapper: React.ComponentType<{backgroundColor?: string, borderColor?: string}>
+                                = ({backgroundColor, borderColor, children}) => (
                                     <span
                                     className={ 'tags-input__single-item'
                                     + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
                                     onClick={() => this.props.readOnly || this.removeClick(i)}>
+                                        {this.props.getBorderColor
+                                        && <div className="item-border item-border-selected"
+                                        style={borderColor
+                                        ? {backgroundColor: borderColor}
+                                        : {backgroundColor: this.props.getBorderColor(item)}}></div>}
                                         <span
                                         style={{color: backgroundColor && getTextColor(backgroundColor)}}
                                         className="tags-input__helper-box">
@@ -621,6 +630,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             event.stopPropagation();
                                             this.handleTree(event, option);
                                         }}>
+                                            {(this.props.getBorderColor && !this.props.allowMultiple) && <div className="item-border" style={{backgroundColor: this.props.getBorderColor(option.value)}}></div>}
                                             <span
                                             style={(this.props.getBackgroundColor && option.value)
                                                 ? {backgroundColor: this.props.getBackgroundColor(option.value),

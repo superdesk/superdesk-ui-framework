@@ -276,6 +276,7 @@ tags-input,
             }
         }
         .suggestion-item {
+            position: relative;
             padding: 0.5rem 1rem;
             cursor: pointer;
             white-space: nowrap;
@@ -580,3 +581,18 @@ tags-input,
         font-weight: 300;
     }
 }
+
+.item-border {
+    width: 5px;
+    z-index: 2;
+    position: absolute;
+    inset-block: 7px;
+    inset-inline-start: 3px;
+    border-radius: 2px;
+
+    &-selected {
+        inset-block: 5px;   
+    }
+}
+
+
