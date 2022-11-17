@@ -418,6 +418,10 @@ export default angular.module('ui-docs', [
             'core-layout': {
                 name: 'Core Layout',
                 component: 'CoreLayout'
+            },
+            'multiedit': {
+                name: 'Multiedit',
+                component: 'Multiedit'
             }
         }
     }))

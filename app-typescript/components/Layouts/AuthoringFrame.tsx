@@ -16,6 +16,7 @@ interface IProps {
     header?: React.ReactNode;
     main?: React.ReactNode;
     sideBar?: React.ReactNode;
+    sideBarClosed?: boolean;
     sidePanel?: React.ReactNode;
     sideOverlay?: React.ReactNode;
     sideOverlayOpen?: boolean;
@@ -56,7 +57,7 @@ export class AuthoringFrame extends React.PureComponent<IProps> {
                     </AuthoringFrameSidePanelOverlay>
                 )}
                 {this.props.sideBar && (
-                    <AuthoringFrameRightBar>
+                    <AuthoringFrameRightBar closed={this.props.sideBarClosed}>
                         {this.props.sideBar}
                     </AuthoringFrameRightBar>
                 )}
