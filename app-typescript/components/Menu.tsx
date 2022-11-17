@@ -131,7 +131,7 @@ export class Menu extends React.Component<IProps, {}> {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 {
                     this.props.children(this.toggle)
                 }
@@ -167,7 +167,7 @@ export class Menu extends React.Component<IProps, {}> {
                         baseZIndex={this.props.zIndex ?? superdeskTopBarZIndex}
                     />
                 </div>
-            </div>
+            </React.Fragment>
         );
     }
 }
