@@ -4,6 +4,7 @@ import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautif
 import { Tooltip } from '../Tooltip';
 import { Button } from '../Button';
 import { Dropdown, IMenuItem, ISubmenu, IMenuGroup } from '../Dropdown';
+import ReactDOM from 'react-dom';
 
 export interface IProps {
     array: Array<IPropsArrayItem>;
@@ -12,6 +13,7 @@ export interface IProps {
     className?: string;
     readOnly?: boolean;
     showDragHandle?: 'always' | 'onHover' | 'none'; // always default
+    append?: boolean;
     onDrag?(start: number, end: number): void;
     onAddItem?(index: number, item?: IPropsArrayItem ): void;
     itemsDropdown?(index?: number): Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
@@ -122,8 +124,23 @@ class TableList extends React.PureComponent<IProps, IState> {
                                     {...provided.droppableProps} >
                                     {this.state.items.map((item: IPropsArrayItem, index: number) => (
                                         <Draggable key={index} draggableId={`${index}`} index={index}>
-                                            {(provided2, _snapshot2) => (
-                                                <div
+                                            {(provided2, snapshot) => (
+                                                this.props.append
+                                                ? <PortalItem
+                                                    provided={provided2}
+                                                    snapshot={snapshot}
+                                                    item={item}
+                                                    index={index}
+                                                    dragAndDrop={this.props.dragAndDrop}
+                                                    showDragHandle={this.props.showDragHandle}
+                                                    addItem={this.props.addItem}
+                                                    onAddItem={() => this.props.onAddItem
+                                                        && this.props.onAddItem(index, item)}
+                                                    itemsDropdown={() => this.props.itemsDropdown
+                                                        ? this.props.itemsDropdown(index)
+                                                        : []}
+                                                />
+                                                : <div
                                                     ref={provided2.innerRef}
                                                     {...provided2.draggableProps}
                                                     {...provided2.dragHandleProps} >
@@ -332,6 +349,49 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                     </div>}
                 </div>
         );
+    }
+}
+
+class PortalItem extends React.PureComponent {
+    props: any;
+    render() {
+        const provided = this.props.provided;
+        const snapshot = this.props.snapshot;
+
+        const usePortal: boolean = snapshot.isDragging;
+
+        const child = (
+            <div
+                ref={provided.innerRef}
+                {...provided.draggableProps}
+                {...provided.dragHandleProps}>
+                <TableListItem
+                    dragAndDrop={this.props.dragAndDrop}
+                    start={this.props.item.start}
+                    center={this.props.item.center}
+                    end={this.props.item.end}
+                    action={this.props.item.action}
+                    onClick={this.props.item.onClick ? this.props.item.onClick : undefined}
+                    onDoubleClick={this.props.item.onDoubleClick
+                        ? this.props.item.onDoubleClick
+                        : undefined}
+                    addItem={this.props.addItem}
+                    itemsDropdown={this.props.itemsDropdown}
+                    hexColor={this.props.item.hexColor}
+                    locked={this.props.item.locked}
+                    positionLocked={this.props.item.positionLocked}
+                    onAddItem={() => this.props.onAddItem}
+                    showDragHandle={this.props.showDragHandle}
+                />
+            </div>
+        );
+
+        if (!usePortal) {
+            return child;
+        }
+
+        // if dragging - put the item in a portal
+        return ReactDOM.createPortal(child, document.body);
     }
 }
 
