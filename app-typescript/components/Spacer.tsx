@@ -4,7 +4,7 @@ import classNames from 'classnames';
 export interface IPropsSpacer {
     h?: boolean; // horizontal
     v?: boolean; // vertical
-    gap: '4' | '8' | '16' | '32' | '64';
+    gap: '0' | '4' | '8' | '16' | '32' | '64';
     justifyContent?: 'start' | 'end' | 'center' | 'space-around' | 'space-between' | 'space-evenly' | 'stretch';
     alignItems?: 'start' | 'end' | 'center' | 'stretch';
     noGrow?: boolean;
