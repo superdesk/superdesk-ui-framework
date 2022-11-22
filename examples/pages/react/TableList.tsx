@@ -98,6 +98,7 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupPreview>
                         <TableList
                             dragAndDrop
+                            append
                             addItem
                             array={this.state.array}
                             itemsDropdown={(index) => [
@@ -135,6 +136,7 @@ export default class TableListDoc extends React.Component<IProps, IState> {
                     <Prop name='className' isRequired={false} type='string' default='false' description='Add class on TableList container.' />
                     <Prop name='showDragHandle' isRequired={false} type='string' default='always' description='"always" | "onHover" | "none".' />
                     <Prop name='readOnly' isRequired={false} type='boolean' default='false' description='When specified, component changes are not enabled.' />
+                    <Prop name='append' isRequired={false} type='boolean' default='false' description='Set append to body on individual item while draging.' />
                     <Prop name='onDrag' isRequired={false} type='function' default='false' description='Returns start and end position of draggable item' />
                     <Prop name='onAddItem' isRequired={false} type='function' default='false' description='Returns index of draggable item.' />
                     <Prop name='itemsDropdown' isRequired={false} type='function' default='false' description='Dropdown for adding items in the list. Returns index of draggable item.' />
