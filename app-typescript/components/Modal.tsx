@@ -11,6 +11,7 @@ interface IProps {
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
     size?: 'small' | 'medium' | 'large' | 'x-large';
     maximized?: boolean;
+    maximizable?: boolean;
     headerTemplate?: JSX.Element | string;
     footerTemplate?: JSX.Element | string;
     closeOnEscape?: boolean;
@@ -38,6 +39,7 @@ export class Modal extends React.Component<IProps, {}> {
                     footer={this.props.footerTemplate}
                     closeOnEscape={this.props.closeOnEscape}
                     maximized={this.props.maximized}
+                    maximizable={this.props.maximizable}
                     contentClassName={classes}
                     onShow={this.props.onShow}
                     onHide={this.props.onHide}

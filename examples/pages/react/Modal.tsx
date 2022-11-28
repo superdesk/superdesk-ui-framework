@@ -69,21 +69,23 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         </ButtonGroup>
 
                         <Modal headerTemplate="Basic modal"
-                               visible={this.state.modalBasic}
-                               onHide={() => {this.setState({modalBasic: false})}}>
+                            zIndex={10000}
+                            maximizable
+                            visible={this.state.modalBasic}
+                            onHide={() => {this.setState({modalBasic: false})}}>
                             <p>This modal has no fixed size. It will adapt its size based on the content inside.</p>
                         </Modal>
 
                         <Modal headerTemplate="Small modal header"
-                               visible={this.state.modalSmall}
-                               size='small' onHide={() => {this.setState({modalSmall: false})}}>
+                            visible={this.state.modalSmall}
+                            size='small' onHide={() => {this.setState({modalSmall: false})}}>
                             <p>Small modal content. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
                             ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper.</p>
                         </Modal>
                         
                         <Modal headerTemplate="Medium modal header"
-                               visible={this.state.modalMedium}
-                               size='medium' onHide={() => {this.setState({modalMedium: false})}}>
+                            visible={this.state.modalMedium}
+                            size='medium' onHide={() => {this.setState({modalMedium: false})}}>
                             <p>Medium modal content. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum.
                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non
                             commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis
@@ -91,9 +93,9 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         </Modal>
                         
                         <Modal headerTemplate="Large modal header"
-                               visible={this.state.modalLarge}
-                               footerTemplate={modalLargeFooter}
-                               size='large' onHide={() => {this.setState({modalLarge: false})}}>
+                            visible={this.state.modalLarge}
+                            footerTemplate={modalLargeFooter}
+                            size='large' onHide={() => {this.setState({modalLarge: false})}}>
                             <p>Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                             Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
                             purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit
@@ -104,9 +106,9 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         </Modal>
 
                         <Modal headerTemplate="Extra large modal"
-                               visible={this.state.modalXLarge}
-                               footerTemplate={modalXLargeFooter}
-                               size='x-large' onHide={() => {this.setState({modalXLarge: false})}}>
+                            visible={this.state.modalXLarge}
+                            footerTemplate={modalXLargeFooter}
+                            size='x-large' onHide={() => {this.setState({modalXLarge: false})}}>
                             <p className="sd-margin-b--3">Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh
                             ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
                             Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis.</p>
@@ -183,12 +185,12 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupPreview>
                         <Button text="Open Modal" onClick={() => this.setState({modalFull: true})} />
                         <Modal headerTemplate="Another modal header"
-                               footerTemplate={modalFullFooter}
-                               visible={this.state.modalFull} 
-                               theme='dark'
-                               maximized={true}
-                               className='testClass'
-                               onHide={() => {this.setState({modalFull: false})}}>
+                            footerTemplate={modalFullFooter}
+                            visible={this.state.modalFull} 
+                            theme='dark'
+                            maximized={true}
+                            className='testClass'
+                            onHide={() => {this.setState({modalFull: false})}}>
                             <p className="sd-margin-b--3">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes,
                             nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
                             Vestibulum id ligula porta felis euismod semper.</p>
