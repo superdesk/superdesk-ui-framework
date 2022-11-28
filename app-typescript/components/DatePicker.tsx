@@ -10,12 +10,11 @@ import { InputWrapper } from './Form';
 export type DatePickerLocaleSettings = Omit<LocaleSettings, 'today' | 'clear'>;
 
 interface IDatePickerBase {
-    disabled?: boolean;
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
 
     // shortcuts can be used to jump to a date relative to today
     // for example [{label: 'tomorrow', days: 1}, {label: 'yesterday', days: -1}]
-    shortcuts?: Array<{days: number, label: string}>;
+    headerButtonBar?: Array<{days: number, label: string}>;
 
     // ability to provide localisation. for example (see https://primefaces.org/primereact/showcase/#/calendar):
     /*
@@ -34,6 +33,7 @@ interface IDatePickerBase {
     locale?: DatePickerLocaleSettings;
 
     // label props
+    disabled?: boolean;
     inlineLabel?: boolean;
     required?: boolean;
     fullWidth?: boolean;
@@ -180,23 +180,22 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
                 showIcon={true}
                 icon="icon-calendar"
-                headerTemplate={() => this.props.shortcuts == null ? null : (
+                headerTemplate={() => this.props.headerButtonBar == null ? null : (
                     <div
-                    style={{width: '100%', display: 'flex', justifyContent: 'space-between', marginBottom: 10}}>
-                        {this.props.shortcuts.map(({label, days}, i) => (
+                    className='datepicker-header-toolbar'>
+                        {this.props.headerButtonBar.map(({label, days}, i) => (
                             <button
                                 key={i}
-                                className="btn btn--hollow btn--small"
+                                className="btn btn--small"
                                 onClick={() => {
                                     this.props.onChange(addDays(new Date(), days));
-
                                     if (this.instance != null && typeof this.instance.hideOverlay === 'function') {
                                         this.instance.hideOverlay();
                                     }
                                 }}>
                                 {label}
                             </button>
-                            ))}
+                        ))}
                     </div>
                 )}
                 appendTo={document.body} // making it work inside `overflow:hidden`
@@ -234,7 +233,7 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 }
             }}
             disabled={this.props.disabled}
-            shortcuts={this.props.shortcuts}
+            headerButtonBar={this.props.headerButtonBar}
             dateFormat={this.props.dateFormat}
             locale={this.props.locale}
             inlineLabel={this.props.inlineLabel}

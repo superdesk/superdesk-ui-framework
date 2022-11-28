@@ -45,6 +45,18 @@
             }
 
         }
+        .datepicker-header-toolbar {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 16px;
+            gap: $sd-base-increment;
+
+            button {
+                flex: 1 1;
+            }
+        }
     }
 
     table {
