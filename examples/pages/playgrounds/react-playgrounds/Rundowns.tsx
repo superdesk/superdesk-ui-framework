@@ -802,6 +802,7 @@ export class Rundowns extends React.Component<IProps, IState> {
 
             {/* Manage Shows Modal */}
             <Modal headerTemplate="Manage Shows"
+            maximizable
                 visible={this.state.modalManageShow}
                 zIndex={1000}
                 contentBg='medium'

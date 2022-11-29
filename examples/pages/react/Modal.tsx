@@ -9,6 +9,7 @@ interface IState {
     modalLarge: boolean;
     modalXLarge: boolean;
     modalFull: boolean;
+    maximizableModal: boolean;
 }
 
 export default class ModalDoc extends React.Component<{}, IState> {
@@ -21,7 +22,8 @@ export default class ModalDoc extends React.Component<{}, IState> {
             modalMedium: false,
             modalLarge: false,
             modalXLarge: false,
-            modalFull: false
+            modalFull: false,
+            maximizableModal: false
         }
     }
 
@@ -224,6 +226,43 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                
+                <h3 className="docs-page__h3">Maximizable modal</h3>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                    <Button text="Maximizable modal" onClick={() => this.setState({maximizableModal: true})} />
+                        <Modal headerTemplate="Maximizable modal"
+                            zIndex={1000}
+                            maximizable
+                            visible={this.state.maximizableModal}
+                            size="small"
+                            onHide={() => {this.setState({maximizableModal: false})}}>
+                            <p className="sd-margin-b--3">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
+                            Vestibulum id ligula porta felis euismod semper.</p>
+
+                            <p className="sd-margin-b--3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+                            eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus.</p>
+
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
+                            Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis.</p>
+                        </Modal>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Button text="Maximizable modal" onClick={() => this.setState({maximizableModal: true})} />
+                        <Modal
+                            headerTemplate="Maximizable modal"
+                            zIndex={1000}
+                            maximizable
+                            visible={this.state.maximizableModal}
+                            size="small"
+                            onHide={() => {this.setState({maximizableModal: false})}}>
+                            {children}
+                        </Modal>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
@@ -235,7 +274,8 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Prop name='headerTemplate' isRequired={false} type='element' default='null' description='Label of header' />
                     <Prop name='footerTemplate' isRequired={false} type='element' default='null' description='Name of the footer template constant, created separately.' />
                     <Prop name='closeOnEscape' isRequired={false} type='boolean' default='null' description='An array of objects to display' />
-                    <Prop name='maximized' isRequired={false} type='boolean' default='null' description='Creates a full-screen mofal id set to true.' />
+                    <Prop name='maximized' isRequired={false} type='boolean' default='null' description='Creates a full-screen modal id set to true.' />
+                    <Prop name='maximizable' isRequired={false} type='boolean' default='null' description='By clicking on button set full-screen modal and return on defoult size.' />
                     <Prop name='onShow' isRequired={false} type='function' default='null' description='Callback to invoke after modal is opened' />
                     <Prop name='onHide' isRequired={true} type='function' default='null' description='Callback to invoke after modal is closed' />
                 </PropsList>
