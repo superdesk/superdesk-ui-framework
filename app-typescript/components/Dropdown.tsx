@@ -159,10 +159,14 @@ export const Dropdown = ({
                     }
                 }, 0);
             }
+
             document.addEventListener('click', closeMenu);
+            
             setTimeout(() => {
                 menuRef.getElementsByTagName('button')[0].focus();
+                menuRef.addEventListener('keydown', (e: any) => keyboardNavigation(e, menuRef));
             });
+
         } else {
             setOpen(false);
         }
@@ -170,6 +174,7 @@ export const Dropdown = ({
 
     function closeMenu() {
         document.removeEventListener('click', closeMenu);
+        document.removeEventListener('keydown', keyboardNavigation);
         setOpen(false);
     }
 
@@ -366,6 +371,11 @@ const DropdownItemWithSubmenu = ({
                 placement: 'right-start',
             });
         }
+
+        if (refButtonSubMenu.current) {
+           
+            refButtonSubMenu.current.addEventListener('keydown', (e: any) => keyboardNavigation(e, subMenuRef, subToggleRef, placeholder));
+        }
     }, [open]);
 
     return (
@@ -401,3 +411,71 @@ const DropdownItemWithSubmenu = ({
         </li>
     );
 };
+
+const getButtonList = (menuRef: any) => {
+    let list = menuRef.tagName === 'DIV' ? menuRef.querySelectorAll(':scope > ul > li') : menuRef.querySelectorAll(':scope > li');
+    let buttons: any = [];
+
+    [...list].filter((item:any) => {
+    
+        if (item.getElementsByTagName('button').length > 0) {
+            buttons.push(item.getElementsByTagName('button')[0])
+        }
+    })
+    
+    
+    return buttons;
+}
+
+const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder?: any) => {
+    let buttons = getButtonList(menuRef);
+    const currentElement = document.activeElement;
+    const currentIndex = Array.prototype.indexOf.call(buttons, currentElement);
+
+    if (buttons.includes(document.activeElement)) {
+        if (e.keyCode === 40) {
+            nextElement(buttons, currentIndex);
+        } else if (e.keyCode === 38) {
+            prevElement(buttons, currentIndex);
+        }
+    }
+
+    if (toggleRef) {
+
+        if (e.keyCode === 39) {
+            placeholder?.appendChild(menuRef);
+            menuRef.style.display = 'block';
+            menuRef.getElementsByTagName('button')[0].focus();
+            }
+        if (e.keyCode === 37) {
+            placeholder?.removeChild(menuRef);
+            menuRef.style.display = 'none';
+            
+            
+        }
+        if (menuRef && toggleRef) {
+            createPopper(toggleRef, menuRef, {
+                placement: 'right-start',
+            });
+        } 
+    }   
+
+    console.log(menuRef);
+    
+}
+
+const nextElement = (buttons: any, currentIndex: number) => {
+    if (buttons[currentIndex + 1]) {
+        buttons[currentIndex + 1].focus();
+    } else {
+        buttons[0].focus();
+    }
+}
+
+const prevElement = (buttons: any, currentIndex: number) => {
+    if (buttons[currentIndex - 1]) {
+        buttons[currentIndex - 1].focus();
+    } else {
+        buttons[buttons.length - 1].focus();
+    }
+}

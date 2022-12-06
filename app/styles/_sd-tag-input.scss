@@ -313,6 +313,20 @@ tags-input,
             justify-content: space-between;
             align-items: center;
         }
+        .suggestion-item--btn {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0;
+
+            &:focus {
+                background-color: $sd-colour-background__menu-item;
+                box-shadow: var(--sd-shadow__menu-item--focus-inner);
+                text-decoration: none;
+                outline: none;
+            }
+        }
         .suggestion-item--bgcolor {
             min-height: 1.5em;
             min-width: 1.5em;

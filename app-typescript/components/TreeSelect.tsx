@@ -71,7 +71,8 @@ export interface ITreeNode<T> {
 }
 
 export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
-    private dropdownRef: React.RefObject<HTMLInputElement>;
+    private dropdownRef: any;
+    private ref: any;
     private openDropdownRef: React.RefObject<HTMLButtonElement>;
     private htmlId: string = nextId();
     private popperInstance: any;
@@ -104,6 +105,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.handleDebounce = this.handleDebounce.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
         this.dropdownRef = React.createRef();
+        this.ref = React.createRef();
         this.openDropdownRef = React.createRef();
     }
 
@@ -133,6 +135,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 this.popperInstance.update();
             }
         }
+        console.log(document.activeElement);
+        
     }
 
     toggleMenu() {
@@ -150,6 +154,15 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     ],
                 });
             }
+            this.ref.current.getElementsByTagName('button')[0].focus();
+            
+            
+            this.ref.current.addEventListener('keydown', (e: any) => keyboardNavigation(e, this.ref.current));
+            this.ref.current.addEventListener('keydown', (e: any) => {
+                if (e.keyCode === 37) {
+                    this.backButton();
+                }
+            });
         }
     }
 
@@ -571,7 +584,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 placeholder={this.props.searchPlaceholder}
                                 type="text"
                                 className="autocomplete__input"
-                                ref={(input) => input && input.focus()}
+                                //ref={(input) => input && input.focus()}
                                 value={this.state.searchFieldValue}
                                 onChange={(event) => {
                                     if (this.props.kind === 'synchronous') {
@@ -616,7 +629,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         ? <ul className="suggestion-list--loader"><Loader overlay={true}></Loader></ul>
                         : this.state.searchFieldValue === ''
                             ? this.props.getOptions
-                                ? <ul className="suggestion-list suggestion-list--multi-select">
+                                ? <ul className="suggestion-list suggestion-list--multi-select" ref={this.ref}>
                                 {this.state.options
                                 .map((option, i: React.Key | undefined) => {
                                     let selectedItem = this.state.value.some((obj) =>
@@ -630,22 +643,24 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             event.stopPropagation();
                                             this.handleTree(event, option);
                                         }}>
-                                            {(this.props.getBorderColor && !this.props.allowMultiple) && <div className="item-border" style={{backgroundColor: this.props.getBorderColor(option.value)}}></div>}
-                                            <span
-                                            style={(this.props.getBackgroundColor && option.value)
-                                                ? {backgroundColor: this.props.getBackgroundColor(option.value),
-                                                color: getTextColor(this.props.getBackgroundColor(option.value))}
-                                                : undefined}
-                                            className={'suggestion-item--bgcolor'
-                                            + (selectedItem ? ' suggestion-item--disabled' : '')}
-                                            >
-                                                {this.props.optionTemplate
-                                                ? this.props.optionTemplate(option.value)
-                                                : this.props.getLabel(option.value)}
-                                            </span>
-                                            {option.children && <span className="suggestion-item__icon">
-                                                <Icon name="chevron-right-thin"></Icon>
-                                            </span>}
+                                            <button className="suggestion-item--btn">
+                                                {(this.props.getBorderColor && !this.props.allowMultiple) && <div className="item-border" style={{backgroundColor: this.props.getBorderColor(option.value)}}></div>}
+                                                <span
+                                                style={(this.props.getBackgroundColor && option.value)
+                                                    && {backgroundColor: this.props.getBackgroundColor(option.value),
+                                                    color: getTextColor(this.props.getBackgroundColor(option.value))}
+                                                    }
+                                                className={'suggestion-item--bgcolor'
+                                                + (selectedItem ? ' suggestion-item--disabled' : '')}
+                                                >
+                                                    {this.props.optionTemplate
+                                                    ? this.props.optionTemplate(option.value)
+                                                    : this.props.getLabel(option.value)}
+                                                </span>
+                                                {option.children && <span className="suggestion-item__icon">
+                                                    <Icon name="chevron-right-thin"></Icon>
+                                                </span>}
+                                            </button>
                                         </li>
                                     );
                                 })}</ul> : null
@@ -660,5 +675,51 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 </div>
             </InputWrapper>
         );
+    }
+}
+
+const getButtonList = (menuRef: any) => {
+    let list = menuRef.querySelectorAll(':scope > li');
+    // let list = menuRef.tagName === 'DIV' ? menuRef.querySelectorAll(':scope > ul > li') : menuRef.querySelectorAll(':scope > li');
+    let buttons: any = [];
+
+    [...list].filter((item:any) => {
+    
+        if (item.getElementsByTagName('button').length > 0) {
+            buttons.push(item.getElementsByTagName('button')[0])
+        }
+    })
+
+    return buttons;
+}
+
+const keyboardNavigation = (e?: any, menuRef?: any) => {
+    let buttons = getButtonList(menuRef);
+    const currentElement = document.activeElement;
+    const currentIndex = Array.prototype.indexOf.call(buttons, currentElement);
+    console.log(buttons);
+
+    if (buttons.includes(document.activeElement)) {
+        if (e.keyCode === 40) {
+            nextElement(buttons, currentIndex);
+        } else if (e.keyCode === 38) {
+            prevElement(buttons, currentIndex);
+        }
+    }
+}
+
+const nextElement = (buttons: any, currentIndex: number) => {
+    if (buttons[currentIndex + 1]) {
+        buttons[currentIndex + 1].focus();
+    } else {
+        buttons[0].focus();
+    }
+}
+
+const prevElement = (buttons: any, currentIndex: number) => {
+    if (buttons[currentIndex - 1]) {
+        buttons[currentIndex - 1].focus();
+    } else {
+        buttons[buttons.length - 1].focus();
     }
 }

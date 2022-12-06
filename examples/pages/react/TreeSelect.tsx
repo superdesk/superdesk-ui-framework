@@ -20,20 +20,28 @@ let options = [
             {
                 value: {name: 'Sub-category1'},
                 children: [
-                    {value: {name: 'Item20'}}
+                    {value: {name: 'Item31'}},
+                    {value: {name: 'Item32'}},
+                    {value: {name: 'Item33'}},
+                    {value: {name: 'Item34'}},
+                    
                 ]
             },
             {
                 value: {name: 'Sub-category2'},
                 children: [
-                    {value: {name: 'Item21'}}
+                    {value: {name: 'Item41'}},
+                    {value: {name: 'Item42'}},
+                    {value: {name: 'Item43'}}
                 ]
             }
             ,
             {
                 value: {name: 'Sub-category3'},
                 children: [
-                    {value: {name: 'Item22'}}
+                    {value: {name: 'Item50'}},
+                    {value: {name: 'Item51'}},
+                    {value: {name: 'Item53'}}
                 ]
             }
             ,
@@ -54,7 +62,9 @@ let options = [
             {
                 value: {name: 'Sub-category6'},
                 children: [
-                    {value: {name: 'Item25'}}
+                    {value: {name: 'Item50'}},
+                    {value: {name: 'Item51'}},
+                    {value: {name: 'Item52'}}
                 ]
             }
         ]
@@ -65,9 +75,9 @@ let options = [
             {
                 value: {name: 'Item8'}
             },
-            {
-                value: {name: 'Item9'}
-            }
+            // {
+            //     value: {name: 'Item9'}
+            // }
         ]
     },
     {

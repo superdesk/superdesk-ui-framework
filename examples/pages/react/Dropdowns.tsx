@@ -23,6 +23,7 @@ export default class DropdownDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown
+                        append
                             items={[
                                 { label: 'Action 1', onSelect: () => 1 },
                                 { label: 'Action 2', onSelect: () => 1 },
@@ -81,12 +82,12 @@ export default class DropdownDoc extends React.Component {
                                         items: [
                                             {
                                                 type: 'submenu',
-                                                label: 'Show 1',
+                                                label: 'Show 5',
                                                 icon: 'plus-sign',
                                                 items: [
                                                     {
                                                         type: 'submenu',
-                                                        label: 'Show 1',
+                                                        label: 'Show 8',
                                                         icon: 'plus-sign',
                                                         items: []
                                                     }
@@ -94,7 +95,7 @@ export default class DropdownDoc extends React.Component {
                                             },
                                             {
                                                 type: 'submenu',
-                                                label: 'Show 2',
+                                                label: 'Show 9',
                                                 icon: 'plus-sign',
                                                 
                                                 items: [
@@ -641,6 +642,7 @@ export default class DropdownDoc extends React.Component {
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
                                 //align='right'
+                                append
                                 header={[
                                     {
                                         type: 'group', label: 'actions', items: [
