@@ -267,12 +267,15 @@ export default class ModalDoc extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='id' isRequired={false} type='string' default='null' description='Unique identifier of the element' />
-                    <Prop name='className' isRequired={false} type='string' default='null' description='Style class of the component' />
+                    <Prop name='className' isRequired={false} type='string' default='null' description='To add class to the content of component' />
                     <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Item style' />
                     <Prop name='size' isRequired={false} type='small | medium | large | x-large' default='/' description='Size of the modal. If not defined it will adapt to the width of the content.' />
                     <Prop name='visible' isRequired={true} type='boolean' default='false' description='Specifies the visibility of the dialog' />
+                    <Prop name='zIndex' isRequired={true} type='number' default='false' description='zIndex of modal' />
+                    <Prop name='contentPadding' isRequired={true} type="'none' | 'small' | 'medium' | 'large'" default='false' description='Padding of content' />
+                    <Prop name='contentBg' isRequired={true} type="'default' | 'medium' | 'dark'" default='false' description='Background of content' />
                     <Prop name='headerTemplate' isRequired={false} type='element' default='null' description='Label of header' />
-                    <Prop name='footerTemplate' isRequired={false} type='element' default='null' description='Name of the footer template constant, created separately.' />
+                    <Prop name='footerTemplate' isRequired={false} type='element' default='null' description='Name of the footer template constant, created separately' />
                     <Prop name='closeOnEscape' isRequired={false} type='boolean' default='null' description='An array of objects to display' />
                     <Prop name='maximized' isRequired={false} type='boolean' default='null' description='Creates a full-screen modal id set to true.' />
                     <Prop name='maximizable' isRequired={false} type='boolean' default='null' description='By clicking on button set full-screen modal and return on defoult size.' />
