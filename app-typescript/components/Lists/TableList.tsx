@@ -308,9 +308,11 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                                 {this.props.end && this.props.end}
                             </div>
                         </div>
-                        {this.props.action && <div className='table-list__slide-in-actions' onClick={this.onActionMenuClick}>
-                            {this.props.action}
-                        </div>}
+                        {this.props.action &&
+                            <div className='table-list__slide-in-actions'
+                                onClick={this.onActionMenuClick}>
+                                {this.props.action}
+                            </div>}
                     </div>
                     <div className='table-list__add-bar-container'>
                         <Tooltip text='Add item' flow='top' appendToBody={true}>
@@ -349,9 +351,11 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                             {this.props.end && this.props.end}
                         </div>
                     </div>
-                    {this.props.action && <div className='table-list__slide-in-actions' onClick={this.onActionMenuClick}>
-                        {this.props.action}
-                    </div>}
+                    {this.props.action &&
+                        <div className='table-list__slide-in-actions'
+                            onClick={this.onActionMenuClick}>
+                            {this.props.action}
+                        </div>}
                 </div>
         );
     }
