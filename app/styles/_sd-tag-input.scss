@@ -277,8 +277,6 @@ tags-input,
         }
         .suggestion-item {
             position: relative;
-            padding: 0.5rem 1rem;
-            cursor: pointer;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
@@ -298,9 +296,6 @@ tags-input,
                 cursor: default;
                 pointer-events: none;
             }
-            &:hover {
-                background-color: var(--sd-colour-interactive--alpha-10) !important;
-            }
             .suggestion-item__icon {
                 display: flex;
                 align-items: center;
@@ -310,21 +305,24 @@ tags-input,
         }
         .suggestion-item--multi-select {
             display: flex;
-            justify-content: space-between;
             align-items: center;
         }
         .suggestion-item--btn {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
             width: 100%;
-            padding: 0;
+            padding: 0.5rem 1rem;
 
             &:focus {
                 background-color: $sd-colour-background__menu-item;
                 box-shadow: var(--sd-shadow__menu-item--focus-inner);
                 text-decoration: none;
                 outline: none;
+            }
+            &:hover {
+                background-color: var(--sd-colour-interactive--alpha-10) !important;
             }
         }
         .suggestion-item--bgcolor {
@@ -496,6 +494,10 @@ tags-input,
             margin-inline-end: $sd-base-increment;
             height: 2.8rem;
             &:hover {
+                border: 1px solid var(--sd-colour-interactive);
+                box-shadow: inset 0 0 0 2px var(--sd-colour-interactive--alpha-20);
+            }
+            &:focus {
                 border: 1px solid var(--sd-colour-interactive);
                 box-shadow: inset 0 0 0 2px var(--sd-colour-interactive--alpha-20);
             }

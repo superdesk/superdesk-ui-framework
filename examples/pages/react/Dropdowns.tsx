@@ -547,6 +547,53 @@ export default class DropdownDoc extends React.Component {
                         <Dropdown   
                             items={[
                                 {
+                                    type: 'group',
+                                    label: 'Create new',
+                                    items: [
+                                        {
+                                            type: 'submenu',
+                                            label: 'Rundown',
+                                            icon: 'plus-sign',
+                                            items: [
+                                                {
+                                                    type: 'submenu',
+                                                    label: 'Show 5',
+                                                    icon: 'plus-sign',
+                                                    items: [
+                                                        {
+                                                            type: 'submenu',
+                                                            label: 'Show 8',
+                                                            icon: 'plus-sign',
+                                                            items: []
+                                                        }
+                                                    ],
+                                                },
+                                                {
+                                                    type: 'submenu',
+                                                    label: 'Show 9',
+                                                    icon: 'plus-sign',
+                                                    
+                                                    items: [
+                                                        {
+                                                            type: 'submenu',
+                                                            label: 'Show 5',
+                                                            icon: 'plus-sign',
+                                                            items: [
+                                                                {
+                                                                    type: 'submenu',
+                                                                    label: 'Show 8',
+                                                                    icon: 'plus-sign',
+                                                                    items: []
+                                                                }
+                                                            ],
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
                                     type: 'group', label: 'actions', items: [
                                         'divider',
                                         { label: 'Edit', icon: 'pencil', onSelect: () => 1 },

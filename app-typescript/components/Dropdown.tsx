@@ -372,11 +372,33 @@ const DropdownItemWithSubmenu = ({
             });
         }
 
+        if (subMenuRef.current) {
+
+
+            subMenuRef.getElementsByTagName('button')[0].focus();
+        }
         if (refButtonSubMenu.current) {
-           
             refButtonSubMenu.current.addEventListener('keydown', (e: any) => keyboardNavigation(e, subMenuRef, subToggleRef, placeholder));
         }
+
+        
     }, [open]);
+
+    // React.useEffect(() => {
+    //     let subMenuRef: any = refSubMenu.current;
+    //     let subToggleRef = refButtonSubMenu.current;
+    //     if (subMenuRef.current) {
+
+
+    //         subMenuRef.getElementsByTagName('button')[0].focus();
+    //     }
+    //     if (refButtonSubMenu.current) {
+    //         refButtonSubMenu.current.addEventListener('keydown', (e: any) => keyboardNavigation(e, subMenuRef, subToggleRef, placeholder));
+    //     }
+
+    //     return () => refButtonSubMenu.current && refButtonSubMenu.current.removeEventListener('keydown', (e: any) => keyboardNavigation(e, subMenuRef, subToggleRef, placeholder));
+
+    // }, [])
 
     return (
         <li key={index} ref={refButtonSubMenu}>
@@ -417,12 +439,10 @@ const getButtonList = (menuRef: any) => {
     let buttons: any = [];
 
     [...list].filter((item:any) => {
-    
         if (item.getElementsByTagName('button').length > 0) {
             buttons.push(item.getElementsByTagName('button')[0])
         }
     })
-    
     
     return buttons;
 }
@@ -441,27 +461,31 @@ const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder
     }
 
     if (toggleRef) {
-
         if (e.keyCode === 39) {
-            placeholder?.appendChild(menuRef);
-            menuRef.style.display = 'block';
-            menuRef.getElementsByTagName('button')[0].focus();
-            }
-        if (e.keyCode === 37) {
-            placeholder?.removeChild(menuRef);
-            menuRef.style.display = 'none';
             
+
+                
+                placeholder?.appendChild(menuRef);
+                menuRef.style.display = 'block';
+                menuRef.getElementsByTagName('button')[0].focus();
+                console.log(menuRef);
+                //console.log(buttons);
+                
+            
+        }
+        if (e.keyCode === 37) {
+            if (buttons.includes(document.activeElement)) {
+                placeholder?.removeChild(menuRef);
+                menuRef.style.display = 'none';
+            }
             
         }
         if (menuRef && toggleRef) {
             createPopper(toggleRef, menuRef, {
                 placement: 'right-start',
             });
-        } 
-    }   
-
-    console.log(menuRef);
-    
+        }
+    }
 }
 
 const nextElement = (buttons: any, currentIndex: number) => {
