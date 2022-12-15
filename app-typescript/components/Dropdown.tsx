@@ -161,7 +161,6 @@ export const Dropdown = ({
             }
 
             document.addEventListener('click', closeMenu);
-            
             setTimeout(() => {
                 menuRef.getElementsByTagName('button')[0].focus();
                 menuRef.addEventListener('keydown', (e: any) => keyboardNavigation(e, menuRef));
@@ -374,31 +373,14 @@ const DropdownItemWithSubmenu = ({
 
         if (subMenuRef.current) {
 
-
             subMenuRef.getElementsByTagName('button')[0].focus();
         }
         if (refButtonSubMenu.current) {
-            refButtonSubMenu.current.addEventListener('keydown', (e: any) => keyboardNavigation(e, subMenuRef, subToggleRef, placeholder));
+            refButtonSubMenu.current.addEventListener('keydown', (e: any) => {
+                keyboardNavigation(e, subMenuRef, subToggleRef, placeholder, open, setOpen);
+            });
         }
-
-        
     }, [open]);
-
-    // React.useEffect(() => {
-    //     let subMenuRef: any = refSubMenu.current;
-    //     let subToggleRef = refButtonSubMenu.current;
-    //     if (subMenuRef.current) {
-
-
-    //         subMenuRef.getElementsByTagName('button')[0].focus();
-    //     }
-    //     if (refButtonSubMenu.current) {
-    //         refButtonSubMenu.current.addEventListener('keydown', (e: any) => keyboardNavigation(e, subMenuRef, subToggleRef, placeholder));
-    //     }
-
-    //     return () => refButtonSubMenu.current && refButtonSubMenu.current.removeEventListener('keydown', (e: any) => keyboardNavigation(e, subMenuRef, subToggleRef, placeholder));
-
-    // }, [])
 
     return (
         <li key={index} ref={refButtonSubMenu}>
@@ -438,16 +420,17 @@ const getButtonList = (menuRef: any) => {
     let list = menuRef.tagName === 'DIV' ? menuRef.querySelectorAll(':scope > ul > li') : menuRef.querySelectorAll(':scope > li');
     let buttons: any = [];
 
-    [...list].filter((item:any) => {
+    [...list].filter((item: any) => {
         if (item.getElementsByTagName('button').length > 0) {
-            buttons.push(item.getElementsByTagName('button')[0])
+            buttons.push(item.getElementsByTagName('button')[0]);
         }
-    })
-    
+    });
     return buttons;
-}
+};
 
-const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder?: any) => {
+const menuRefs: any = [];
+
+const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder?: any, open?: any, setOpen?: any) => {
     let buttons = getButtonList(menuRef);
     const currentElement = document.activeElement;
     const currentIndex = Array.prototype.indexOf.call(buttons, currentElement);
@@ -462,23 +445,21 @@ const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder
 
     if (toggleRef) {
         if (e.keyCode === 39) {
-            
-
-                
-                placeholder?.appendChild(menuRef);
-                menuRef.style.display = 'block';
-                menuRef.getElementsByTagName('button')[0].focus();
-                console.log(menuRef);
-                //console.log(buttons);
-                
-            
+            buttons = [];
+                setOpen(true);
+                menuRefs.push(menuRef);
+                console.log(menuRefs[menuRefs.length - 1], 'menuRefs');
+                setTimeout(() => {
+                    buttons = getButtonList(menuRefs[menuRefs.length - 1]);
+                    menuRefs[menuRefs.length - 1].getElementsByTagName('button')[0].focus();
+                }, 90);
         }
         if (e.keyCode === 37) {
             if (buttons.includes(document.activeElement)) {
-                placeholder?.removeChild(menuRef);
-                menuRef.style.display = 'none';
+                console.log(currentElement);
+                currentElement?.dispatchEvent(new Event('mouseleave'));
+                // menuRefs.pop().focus();
             }
-            
         }
         if (menuRef && toggleRef) {
             createPopper(toggleRef, menuRef, {
@@ -486,7 +467,7 @@ const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder
             });
         }
     }
-}
+};
 
 const nextElement = (buttons: any, currentIndex: number) => {
     if (buttons[currentIndex + 1]) {
@@ -494,7 +475,7 @@ const nextElement = (buttons: any, currentIndex: number) => {
     } else {
         buttons[0].focus();
     }
-}
+};
 
 const prevElement = (buttons: any, currentIndex: number) => {
     if (buttons[currentIndex - 1]) {
@@ -502,4 +483,4 @@ const prevElement = (buttons: any, currentIndex: number) => {
     } else {
         buttons[buttons.length - 1].focus();
     }
-}
+};

@@ -157,17 +157,16 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 });
             }
             setTimeout(() => {
-
                 if (this.props.kind === 'synchronous') {
                     this.ref.current.addEventListener('keydown', (e: any) => {
-                        keyboardNavigation(e, this.ref.current, this.categoryButtonRef.current ? buttonFocus : inputFocus);
+                        keyboardNavigation(e, this.ref.current, this.categoryButtonRef.current
+                            ? buttonFocus : inputFocus);
                         if (e.keyCode === 8) {
                             this.backButton();
                         }
-                    })
+                    });
                 }
-                
-                this.inputRef.current.addEventListener('keydown',(e: any) => {
+                this.inputRef.current.addEventListener('keydown', (e: any) => {
                     if (e.keyCode === 40) {
                         if (this.categoryButtonRef.current) {
                             buttonFocus();
@@ -175,23 +174,18 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             listNavigation();
                         }
                     }
-                })
-                
+                });
                 const inputFocus = () => {
                     this.inputRef.current.focus();
-                }
-                
+                };
                 const listNavigation = () => {
                     this.ref.current.getElementsByTagName('button')[0].focus();
-                }
-
+                };
                 const buttonFocus = () => {
                     this.categoryButtonRef.current.focus();
 
                     if (this.categoryButtonRef.current) {
                         this.categoryButtonRef.current.addEventListener('keydown', (e: any) => {
-                            console.log('create eventListener');
-                            
                             if (e.keyCode === 40) {
                                 listNavigation();
                             }
@@ -200,9 +194,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             }
                         });
                     }
-                }
+                };
                 inputFocus();
-            })  
+            });
         }
     }
 
@@ -690,7 +684,11 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             this.handleTree(event, option);
                                         }}>
                                             <button className="suggestion-item--btn">
-                                                {(this.props.getBorderColor && !this.props.allowMultiple) && <div className="item-border" style={{backgroundColor: this.props.getBorderColor(option.value)}}></div>}
+                                                {(this.props.getBorderColor && !this.props.allowMultiple)
+                                                && <div
+                                                    className="item-border"
+                                                    style={{backgroundColor: this.props.getBorderColor(option.value)}}>
+                                                </div>}
                                                 <span
                                                 style={(this.props.getBackgroundColor && option.value)
                                                     && {backgroundColor: this.props.getBackgroundColor(option.value),
@@ -728,14 +726,14 @@ const getButtonList = (menuRef: any) => {
     let list = menuRef.querySelectorAll(':scope > li');
     let buttons: any = [];
 
-    [...list].filter((item:any) => {
+    [...list].filter((item: any) => {
         if (item.getElementsByTagName('button').length > 0) {
-            buttons.push(item.getElementsByTagName('button')[0])
+            buttons.push(item.getElementsByTagName('button')[0]);
         }
-    })
+    });
 
     return buttons;
-}
+};
 
 const keyboardNavigation = (e?: any, menuRef?: any, ref?: any) => {
     let buttons = getButtonList(menuRef);
@@ -749,7 +747,7 @@ const keyboardNavigation = (e?: any, menuRef?: any, ref?: any) => {
             prevElement(buttons, currentIndex, ref);
         }
     }
-}
+};
 
 const nextElement = (buttons: any, currentIndex: number) => {
     if (buttons[currentIndex + 1]) {
@@ -757,16 +755,14 @@ const nextElement = (buttons: any, currentIndex: number) => {
     } else {
         buttons[0].focus();
     }
-}
+};
 
 const prevElement = (buttons: any, currentIndex: number, ref: any) => {
     if (buttons[currentIndex - 1]) {
         buttons[currentIndex - 1].focus();
-    } 
-    else if (currentIndex === 0) {
+    } else if (currentIndex === 0) {
         ref();
-    } 
-    else {
+    } else {
         buttons[buttons.length - 1].focus();
     }
-}
+};
