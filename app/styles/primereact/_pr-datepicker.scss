@@ -90,11 +90,13 @@
 // add background when hovering a selectable date
 .p-datepicker table td > span {
     &:not(.p-highlight):not(.p-disabled) {
+        transition: all ease 0.2s;
         &:hover {
-            background-color: $sd-colour-background__menu-item--hover;
+            background-color: var(--sd-colour-interactive--alpha-10);
+            box-shadow: inset 0 0 0 1px var(--sd-colour-interactive);
         }
         &:active {
-            background-color: $sd-colour-background__menu-item--active;
+            background-color: var(--sd-colour-interactive--alpha-20);
         }
     }
 }

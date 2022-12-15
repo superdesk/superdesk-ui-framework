@@ -15,7 +15,7 @@ export interface IProps {
     showDragHandle?: 'always' | 'onHover' | 'none'; // always default
     append?: boolean;
     onDrag?(start: number, end: number): void;
-    onAddItem?(index: number, item?: IPropsArrayItem ): void;
+    onAddItem?(index: number, item?: IPropsArrayItem): void;
     itemsDropdown?(index?: number): Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
 }
 
@@ -126,46 +126,46 @@ class TableList extends React.PureComponent<IProps, IState> {
                                         <Draggable key={index} draggableId={`${index}`} index={index}>
                                             {(provided2, snapshot) => (
                                                 this.props.append
-                                                ? <PortalItem
-                                                    provided={provided2}
-                                                    snapshot={snapshot}
-                                                    item={item}
-                                                    index={index}
-                                                    dragAndDrop={this.props.dragAndDrop}
-                                                    showDragHandle={this.props.showDragHandle}
-                                                    addItem={this.props.addItem}
-                                                    onAddItem={() => this.props.onAddItem
-                                                        && this.props.onAddItem(index, item)}
-                                                    itemsDropdown={() => this.props.itemsDropdown
-                                                        ? this.props.itemsDropdown(index)
-                                                        : []}
-                                                />
-                                                : <div
-                                                    ref={provided2.innerRef}
-                                                    {...provided2.draggableProps}
-                                                    {...provided2.dragHandleProps} >
-                                                    <TableListItem
+                                                    ? <PortalItem
+                                                        provided={provided2}
+                                                        snapshot={snapshot}
+                                                        item={item}
+                                                        index={index}
                                                         dragAndDrop={this.props.dragAndDrop}
-                                                        start={item.start}
-                                                        center={item.center}
-                                                        end={item.end}
-                                                        action={item.action}
-                                                        onClick={item.onClick ? item.onClick : undefined}
-                                                        onDoubleClick={item.onDoubleClick
-                                                            ? item.onDoubleClick
-                                                            : undefined}
+                                                        showDragHandle={this.props.showDragHandle}
                                                         addItem={this.props.addItem}
+                                                        onAddItem={() => this.props.onAddItem
+                                                            && this.props.onAddItem(index, item)}
                                                         itemsDropdown={() => this.props.itemsDropdown
                                                             ? this.props.itemsDropdown(index)
                                                             : []}
-                                                        hexColor={item.hexColor}
-                                                        locked={item.locked}
-                                                        positionLocked={item.positionLocked}
-                                                        onAddItem={() => this.props.onAddItem
-                                                            && this.props.onAddItem(index, item)}
-                                                        showDragHandle={this.props.showDragHandle}
                                                     />
-                                                </div>
+                                                    : <div
+                                                        ref={provided2.innerRef}
+                                                        {...provided2.draggableProps}
+                                                        {...provided2.dragHandleProps} >
+                                                        <TableListItem
+                                                            dragAndDrop={this.props.dragAndDrop}
+                                                            start={item.start}
+                                                            center={item.center}
+                                                            end={item.end}
+                                                            action={item.action}
+                                                            onClick={item.onClick ? item.onClick : undefined}
+                                                            onDoubleClick={item.onDoubleClick
+                                                                ? item.onDoubleClick
+                                                                : undefined}
+                                                            addItem={this.props.addItem}
+                                                            itemsDropdown={() => this.props.itemsDropdown
+                                                                ? this.props.itemsDropdown(index)
+                                                                : []}
+                                                            hexColor={item.hexColor}
+                                                            locked={item.locked}
+                                                            positionLocked={item.positionLocked}
+                                                            onAddItem={() => this.props.onAddItem
+                                                                && this.props.onAddItem(index, item)}
+                                                            showDragHandle={this.props.showDragHandle}
+                                                        />
+                                                    </div>
                                             )}
                                         </Draggable>
                                     ))}
@@ -223,7 +223,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                         </Tooltip>
                     </div>
                 </div>
-                : null
+                    : null
         );
     }
 }
@@ -272,6 +272,11 @@ class TableListItem extends React.PureComponent<IPropsItem> {
         }, this.delay);
     }
 
+    onActionMenuClick = (event: React.MouseEvent<HTMLElement>) => {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
     render() {
 
         let classes = classNames('table-list__item', {
@@ -291,7 +296,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                         onClick={() => this.onSingleClick()}
                         onDoubleClick={() => this.onDoubleClick()}
                         className={classes}>
-                        <div className='table-list__item-border' style={{backgroundColor: this.props.hexColor}}></div>
+                        <div className='table-list__item-border' style={{ backgroundColor: this.props.hexColor }}></div>
                         <div className='table-list__item-content'>
                             <div className='table-list__item-content-block'>
                                 {this.props.start && this.props.start}
@@ -303,9 +308,11 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                                 {this.props.end && this.props.end}
                             </div>
                         </div>
-                        {this.props.action && <div className='table-list__slide-in-actions'>
-                            {this.props.action}
-                        </div>}
+                        {this.props.action &&
+                            <div className='table-list__slide-in-actions'
+                                onClick={this.onActionMenuClick}>
+                                {this.props.action}
+                            </div>}
                     </div>
                     <div className='table-list__add-bar-container'>
                         <Tooltip text='Add item' flow='top' appendToBody={true}>
@@ -320,7 +327,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                                         size="small"
                                         shape="round"
                                         iconOnly={true}
-                                        onClick={() => false }
+                                        onClick={() => false}
                                     />
                                 </Dropdown>
                             </div>
@@ -332,7 +339,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                     className={`${classes} table-list__item--margin`}
                     onClick={() => this.onSingleClick()}
                     onDoubleClick={() => this.onDoubleClick()}>
-                    <div className='table-list__item-border' style={{backgroundColor: this.props.hexColor}}></div>
+                    <div className='table-list__item-border' style={{ backgroundColor: this.props.hexColor }}></div>
                     <div className='table-list__item-content'>
                         <div className='table-list__item-content-block'>
                             {this.props.start && this.props.start}
@@ -344,9 +351,11 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                             {this.props.end && this.props.end}
                         </div>
                     </div>
-                    {this.props.action && <div className='table-list__slide-in-actions'>
-                        {this.props.action}
-                    </div>}
+                    {this.props.action &&
+                        <div className='table-list__slide-in-actions'
+                            onClick={this.onActionMenuClick}>
+                            {this.props.action}
+                        </div>}
                 </div>
         );
     }
