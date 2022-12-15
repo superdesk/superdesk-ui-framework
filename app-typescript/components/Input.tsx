@@ -23,19 +23,19 @@ interface IPropsBase {
 
 interface IPropsText extends IPropsBase {
     type: 'text';
-    value: string;
+    value?: string;
     onChange(newValue: string): void;
 }
 
 interface IPropsPassword extends IPropsBase {
     type: 'password';
-    value: string;
+    value?: string;
     onChange(newValue: string): void;
 }
 
 interface IPropsNumber extends IPropsBase {
     type: 'number';
-    value: number;
+    value?: number;
     onChange(newValue: number): void;
 }
 
@@ -75,7 +75,7 @@ export class Input extends React.Component<IProps, IState> {
 
     componentDidUpdate(prevProps: any) {
         if (prevProps.value !== this.props.value) {
-            this.setState({value: this.props.value});
+            this.setState({value: this.props.value ?? ''});
         }
     }
 

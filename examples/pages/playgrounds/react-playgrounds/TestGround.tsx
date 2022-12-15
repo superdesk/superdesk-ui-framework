@@ -64,7 +64,35 @@ export class TestGround extends React.Component<IProps, IState> {
                 <Components.LayoutContainer>
                     <Components.MainPanel>
 
-                        
+                        <h3 className="docs-page__h3 sd-margin-y--0">Pagination</h3>
+                        <hr />
+                        <div className='sd-pagination'>
+                            <button className='sd-pagination__item sd-pagination__item--start' disabled>
+                                <Icon name='backward-thin' />
+                            </button>
+                            <button className='sd-pagination__item sd-pagination__item--back' disabled>
+                                <Icon name='chevron-left-thin' />
+                            </button>
+
+                            <button className='sd-pagination__item'>1</button>
+                            <button className='sd-pagination__item sd-pagination__item--active'>2</button>
+                            <button className='sd-pagination__item'>3</button>
+                            <button className='sd-pagination__item'>4</button>
+
+                            <span className='sd-pagination__item sd-pagination__item--more'>...</span>
+
+                            <button className='sd-pagination__item'>12</button>
+
+                            <button className='sd-pagination__item sd-pagination__item--forward'>
+                                <Icon name='chevron-right-thin' />
+                            </button>
+                            <button className='sd-pagination__item sd-pagination__item--end'>
+                                <Icon name='forward-thin' />
+                            </button>
+
+                        </div>
+                        <hr />
+
                         <h3 className="docs-page__h3 sd-margin-y--0">Form test</h3>
                         <hr />
                         <div className="input-wrap">

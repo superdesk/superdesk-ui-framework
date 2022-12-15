@@ -564,7 +564,7 @@
   
   
     --color-text:                         hsla(214, 13%, 20%, 1);
-    --color-text--inverse:                hsla(0, 0%, 98%, 1); // equals #333;
+    --color-text--inverse:                hsla(214, 13%, 98%, 1);
     --color-text-light:                   hsla(214, 13%, 40%, 1);
     --color-text-lighter:                 hsla(214, 13%, 60%, 1);
     --color-icon-default:                 hsla(214, 13%, 30%, 1);
@@ -615,14 +615,20 @@
     --color-border-line--medium:          hsla(0, 0%, 80%, 1);
   
     // SubNav & Nav Buttons
-    --color-subnav-bg--00:                hsla(0, 0%, 96%, 1);
-    --color-subnav-bg--10:                hsla(0, 0%, 87%, 1);
+    --color-subnav-bg--00:                hsla(214, 13%, 96%, 1);
+    --color-subnav-bg--10:                hsla(214, 13%, 87%, 1);
     --color-subnav-bg--blueGrey-00:       hsla(200, 34%, 30%, 1);
     --color-subnav-bg--blueGrey-10:       hsla(200, 34%, 24%, 1);
-    --color-navbutton-bg-hover:           hsla(0, 0%, 0%, 0.05);
-    --color-navbutton-bg-active:          hsla(0, 0%, 100%);
-    --color-navbutton-bg-100:             hsla(0, 0%, 0%, 0.06);
-    --color-navbutton-bg-100-hover:       hsla(0, 0%, 0%, 0.12);
+    --color-navbutton-bg-hover:           hsla(214, 13%, 10%, 0.05);
+    --color-navbutton-bg-active:          hsla(214, 13%, 100%, 1);
+    
+    --color-navbutton-bg-100:             hsla(214, 13%, 10%, 0.06);
+    --color-navbutton-bg-100-hover:       hsla(214, 13%, 10%, 0.12);
+
+    --color-navbutton-bg-dark:            hsla(214, 13%, 55%, 1);
+    --color-navbutton-bg-dark-hover:      hsla(214, 13%, 60%, 1);
+
+    --color-navbutton-shadow-active:      hsla(214, 13%, 5%, 0.12);
   }
   
   // CSS variables for dark theme
@@ -692,8 +698,14 @@
   
     --color-navbutton-bg-hover:           hsla(0, 0%, 0%, 0.1);
     --color-navbutton-bg-active:          hsla(0, 0%, 100%, 0.08);
+
     --color-navbutton-bg-100:             hsla(0, 0%, 0%, 0.1);
     --color-navbutton-bg-100-hover:       hsla(0, 0%, 0%, 0.2);
+
+    --color-navbutton-bg-dark:            hsla(214, 13%, 30%, 1);
+    --color-navbutton-bg-dark-hover:      hsla(214, 13%, 35%, 1);
+
+    --color-navbutton-shadow-active:      hsla(214, 13%, 96%, 0.12);
   
     [class^="big-icon--"],
     [class*=" big-icon--"] {

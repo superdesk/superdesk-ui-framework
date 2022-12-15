@@ -56,13 +56,43 @@ export default class NavButtonsDoc extends React.Component {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                <h3 className="docs-page__h3">Styles / Types</h3>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <SubNav zIndex={2}>
+                            <ButtonGroup align='start' spaces='no-space'>
+                                <NavButton icon='adjust' type='default' text="Adjust" onClick={() => false} />
+                                <NavButton icon='eye-open' type='darker' text="View" onClick={() => false} />
+                                <NavButton icon='refresh' type='dark' text="Refresh" onClick={() => false} />
+                            </ButtonGroup>
+                            <ButtonGroup align='end' spaces='no-space'>
+                                <NavButton icon='edit-line' type='primary' text="Edit" onClick={() => false} />
+                                <NavButton icon='expand-thin' type='highlight' text="Expand" onClick={() => false} />
+                            </ButtonGroup>
+                        </SubNav>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <SubNav zIndex={2}>
+                            <ButtonGroup align='start' spaces='no-space'>
+                                <NavButton icon='adjust' type='default' text="Adjust" onClick={() => false} />
+                                <NavButton icon='eye-open' type='darker' text="View" onClick={() => false} />
+                                <NavButton icon='refresh' type='dark' text="Refresh" onClick={() => false} />
+                            </ButtonGroup>
+                            <ButtonGroup align='end' spaces='no-space'>
+                                <NavButton icon='edit-line' type='primary' text="Edit" onClick={() => false} />
+                                <NavButton icon='expand-thin' type='highlight' text="Expand" onClick={() => false} />
+                            </ButtonGroup>
+                        </SubNav>       
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='icon' isRequired={false} type='string' default='/' description='Icon class name without the icon- part.' />
                     <Prop name='text' isRequired={false} type='string' default='/' description='Defines the value for aria-label, for screen-readers accessibility.' />
                     <Prop name='iconSize' isRequired={false} type='small | big' default='small' description='Specifies a small or big button' />
-                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight | sd-green' default='default' description='Default + semantic colour variations (e.g. primary, success etc.).' />
+                    <Prop name='type' isRequired={false} type='default | primary | highlight | darker | dark' default='default' description='Default + colour variations.' />
                     <Prop name='state' isRequired={false} type='normal | active' default='normal' description='Defines the optional state of the button (e.g. active)' />
                     <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Styles nav button for diffrent background.' />
                     <Prop name='value' isRequired={false} type='button | submit | reset' default='button' description='Specifies a value of nav button' />

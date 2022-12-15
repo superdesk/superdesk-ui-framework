@@ -290,8 +290,10 @@ $background-active: scale-color($background, $alpha: 100%))
     font-weight: 300;
     line-height: 140%;
     border: 1px solid transparent;
-    transition: all ease-in-out 0.2s; 
-    &[contenteditable="true"] {
+    transition: all ease-in-out 0.2s;
+    background-color: transparent; 
+    &[contenteditable="true"],
+    &textarea:not(disabled) {
         &:hover {
             border-color: var(--sd-colour-interactive--alpha-60);
         }
@@ -311,6 +313,39 @@ $background-active: scale-color($background, $alpha: 100%))
         }  
     }
     
+}
+textarea.sd-media-carousel__media-caption, 
+textarea.sd-media-carousel__media-title {
+    color: inherit;
+    position: relative;
+    padding: 1.2rem;
+    width: 100%;
+    font-size: 1.4rem;
+    text-align: start;
+    font-weight: 300;
+    line-height: 140%;
+    border: 1px solid transparent;
+    transition: all ease-in-out 0.2s;
+    background-color: transparent; 
+    &:not(disabled) {
+        &:hover {
+            border-color: var(--sd-colour-interactive--alpha-60);
+        }
+        &:focus {
+            border-color: $sd-colour-interactive;
+            box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-30);
+        }
+        &:empty {
+            &:before {
+                position: absolute;
+                content: attr(sd-placeholder) " ";
+                opacity: 0.55;
+                color: inherit;
+                font-weight: 300;
+                cursor: text;
+            }
+        }  
+    }
 }
 .sd-media-carousel__media-caption {
     min-height: 4rem;

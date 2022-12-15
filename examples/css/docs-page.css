@@ -531,7 +531,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     margin: 0;
     font-size: 13px;
     line-height: 1.42857143;
-    color: #333;
+    color: hsl(214, 13%, 20%);
     word-break: break-all;
     word-wrap: break-word;
     background-color: #eee;
@@ -539,11 +539,11 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     border-radius: 2px;
 }
 .docs-page__code-window {
-    border: 1px solid rgba(123, 123, 123, 0.2);
+    border: 1px solid hsla(0, 0%, 48%, 0.2);
     border-radius: 2px;
     margin: 10px 0 20px;
-    -webkit-box-shadow: 0 2px 8px rgba(0,0,0,.07);
-    box-shadow: 0 2px 8px rgba(0,0,0,.07);
+    -webkit-box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.07);
+    box-shadow: 0 2px 8px hsla(0, 0%, 0%, 0.07);
 }
 .docs-page__window-bar {
     padding: 10px;

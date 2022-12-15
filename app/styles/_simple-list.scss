@@ -16,9 +16,6 @@ $simple-list-border-color: $neutral-border-color;
         [class^="icon-"], [class*=" icon-"] {
             flex-grow: 0;
             flex-shrink: 0;
-            //margin-inline-end: 1rem;
-            color: var(--color-icon-default) !important;
-            opacity: .75;
         }
         &--stacked {
             display: flex;
