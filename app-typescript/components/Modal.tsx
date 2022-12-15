@@ -24,8 +24,8 @@ export class Modal extends React.Component<IProps, {}> {
     render() {
         let classes = classNames({
             [`p-dialog-content--${this.props.size}`]: this.props.size,
-            'p-dialog-content--default': this.props.contentBg === undefined,
-            [`p-dialog-content--${this.props.contentBg}`]: this.props.contentBg,
+            'p-dialog-content-bg--default': this.props.contentBg === undefined,
+            [`p-dialog-content-bg--${this.props.contentBg}`]: this.props.contentBg,
             'p-dialog-content--s-padding': this.props.contentPadding === undefined,
             [`p-dialog-content--${this.props.contentPadding}`]: this.props.contentPadding,
         }, this.props.className);

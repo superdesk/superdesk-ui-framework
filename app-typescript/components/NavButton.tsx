@@ -8,12 +8,13 @@ interface IProps {
     text?: string;
     iconSize?: 'small' | 'big'; // defaults to 'small'
     theme?: 'light' | 'dark'; // defaults to 'light'
-    type?: 'default' | 'primary' | 'highlight' | 'darker';
+    type?: 'default' | 'primary' | 'highlight' | 'darker' | 'dark';
     state?: 'normal' | 'active'; // defaults to 'normal'
     value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
     onClick(): void;
     badgeValue?: string;
 }
+
 export class NavButton extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-navbtn', {

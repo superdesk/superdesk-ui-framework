@@ -349,6 +349,9 @@
     &--l-padding {
         padding: $sd-base-increment * 4;
     }
+}
+
+.p-dialog-content-bg {
     &--default {
         background-color: transparent !important;
     }
