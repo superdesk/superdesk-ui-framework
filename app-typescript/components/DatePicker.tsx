@@ -182,7 +182,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 icon="icon-calendar"
                 headerTemplate={() => this.props.headerButtonBar == null ? null : (
                     <div
-                    className='datepicker-header-toolbar'>
+                    className="datepicker-header-toolbar">
                         {this.props.headerButtonBar.map(({label, days}, i) => (
                             <button
                                 key={i}
