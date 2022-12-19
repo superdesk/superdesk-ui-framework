@@ -370,17 +370,35 @@ const DropdownItemWithSubmenu = ({
                 placement: 'right-start',
             });
         }
-
-        if (subMenuRef.current) {
-
-            subMenuRef.getElementsByTagName('button')[0].focus();
-        }
+        
         if (refButtonSubMenu.current) {
             refButtonSubMenu.current.addEventListener('keydown', (e: any) => {
                 keyboardNavigation(e, subMenuRef, subToggleRef, placeholder, open, setOpen);
             });
+            
         }
+        if (open) {
+            if ( subMenuRef.getElementsByTagName('button')[0]) {
+                subMenuRef.getElementsByTagName('button')[0].focus();
+            }
+        }
+
+        
     }, [open]);
+
+    // React.useEffect(() => {
+    //     let subMenuRef: any = refSubMenu.current;
+    //     let subToggleRef = refButtonSubMenu.current;
+        
+    //     if (refButtonSubMenu.current) {
+    //         refButtonSubMenu.current.addEventListener('keydown', (e: any) => {
+    //             keyboardNavigation(e, subMenuRef, subToggleRef, placeholder, open, setOpen);
+    //         });
+            
+    //     }
+        
+    // }, []);
+
 
     return (
         <li key={index} ref={refButtonSubMenu}>
@@ -416,22 +434,41 @@ const DropdownItemWithSubmenu = ({
     );
 };
 
-const getButtonList = (menuRef: any) => {
-    let list = menuRef.tagName === 'DIV' ? menuRef.querySelectorAll(':scope > ul > li') : menuRef.querySelectorAll(':scope > li');
+const getButtonList = (menuRef: any, open: any) => {
+
+    //let list = menuRef.tagName === 'DIV' ? menuRef.querySelectorAll(':scope > ul > li') : menuRef.querySelectorAll(':scope > li');
+    let list = [];
+    if (open) {
+        list = [];
+    } else {
+        list = menuRef.tagName === 'DIV' ? menuRef.querySelectorAll(':scope > ul > li') : menuRef.querySelectorAll(':scope > li');
+    }
+
     let buttons: any = [];
 
-    [...list].filter((item: any) => {
+    Array.from(list).filter((item: any) => {
         if (item.getElementsByTagName('button').length > 0) {
             buttons.push(item.getElementsByTagName('button')[0]);
         }
     });
+    //console.log('getButtonList', list);
+
+    console.log('getButtonLIst',Array.from(list));
+    
+    
     return buttons;
 };
 
 const menuRefs: any = [];
+const backButton: any = [];
 
 const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder?: any, open?: any, setOpen?: any) => {
-    let buttons = getButtonList(menuRef);
+    console.log('pokrece se');
+    
+    let buttons = getButtonList(menuRef, open);
+    
+    
+
     const currentElement = document.activeElement;
     const currentIndex = Array.prototype.indexOf.call(buttons, currentElement);
 
@@ -443,23 +480,37 @@ const keyboardNavigation = (e?: any, menuRef?: any, toggleRef?: any, placeholder
         }
     }
 
+    //console.log(buttons);
+    
     if (toggleRef) {
         if (e.keyCode === 39) {
-            buttons = [];
-                setOpen(true);
-                menuRefs.push(menuRef);
-                console.log(menuRefs[menuRefs.length - 1], 'menuRefs');
-                setTimeout(() => {
-                    buttons = getButtonList(menuRefs[menuRefs.length - 1]);
-                    menuRefs[menuRefs.length - 1].getElementsByTagName('button')[0].focus();
-                }, 90);
+
+            // buttons = getButtonList(menuRef, open);
+            
+            // backButton.push(document.activeElement);
+
+            
+                
+            setOpen(true);
+            //currentElement?.dispatchEvent(new Event('mouseover'));
+            menuRef.style.display = 'block';
+            menuRef.getElementsByTagName('button')[0].focus();
+
+            
+
         }
         if (e.keyCode === 37) {
-            if (buttons.includes(document.activeElement)) {
-                console.log(currentElement);
-                currentElement?.dispatchEvent(new Event('mouseleave'));
-                // menuRefs.pop().focus();
-            }
+            //if (buttons.includes(document.activeElement)) {
+
+                backButton.pop().focus();
+                setOpen(false)
+                
+                //currentElement?.dispatchEvent(new Event('mouseleave'));
+                //menuRef.style.display = 'none';
+                //setOpen(false);
+                
+            //}
+            
         }
         if (menuRef && toggleRef) {
             createPopper(toggleRef, menuRef, {
@@ -483,4 +534,36 @@ const prevElement = (buttons: any, currentIndex: number) => {
     } else {
         buttons[buttons.length - 1].focus();
     }
+};
+
+
+
+
+const LeftAndRight = (e?: any, menuRef?: any, toggleRef?: any, placeholder?: any, open?: any, setOpen?: any) => {
+    let buttons = getButtonList(menuRef);
+    const currentElement = document.activeElement;
+    //const currentIndex = Array.prototype.indexOf.call(buttons, currentElement);
+
+        if (e.keyCode === 39) {
+            buttons = [];
+                setOpen(true);
+                menuRefs.push(menuRef);
+                console.log(menuRefs[menuRefs.length - 1], 'menuRefs');
+                setTimeout(() => {
+                    buttons = getButtonList(menuRefs[menuRefs.length - 1]);
+                    menuRefs[menuRefs.length - 1].getElementsByTagName('button')[0].focus();
+                }, 90);
+        }
+        if (e.keyCode === 37) {
+            if (buttons.includes(document.activeElement)) {
+                console.log(currentElement);
+                currentElement?.dispatchEvent(new Event('mouseleave'));
+                // menuRefs.pop().focus();
+            }
+        }
+        if (menuRef && toggleRef) {
+            createPopper(toggleRef, menuRef, {
+                placement: 'right-start',
+            });
+        }
 };
