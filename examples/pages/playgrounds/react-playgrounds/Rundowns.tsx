@@ -132,10 +132,6 @@ export class Rundowns extends React.Component<IProps, IState> {
         })
     }
 
-    componentDidUpdate() {
-        console.log(this.state);
-    }
-
     changeStatus(item: any, status: string) {
         if (item.status.includes(status)) {
             item.status.splice(item.status.indexOf(status), 1);
@@ -163,7 +159,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                 <Nav.SideBarMenu
                     items={[
                         { icon: 'dashboard', size: 'big' },
-                        { icon: 'view', size: 'big',  open: this.state.openEditor },
+                        { icon: 'view', size: 'big', editor: this.state.openEditor },
                         { icon: 'marked-star', size: 'big' },
                         { icon: 'spike', size: 'big' },
                         { icon: 'personal', size: 'big' },
