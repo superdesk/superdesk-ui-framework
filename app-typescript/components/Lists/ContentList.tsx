@@ -20,10 +20,15 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
     private prevent = false;
 
     onSingleClick = () => {
+        let selection = window.getSelection();
         this.timer = setTimeout(() => {
             if (!this.prevent) {
                 if (this.props.onClick) {
-                    this.props.onClick();
+                    if (selection) {
+                        if (selection.toString().length < 1) {
+                            this.props.onClick();
+                        }
+                    }
                 }
             }
         }, this.delay);
