@@ -9,6 +9,7 @@ interface IState {
     modalLarge: boolean;
     modalXLarge: boolean;
     modalFull: boolean;
+    maximizableModal: boolean;
 }
 
 export default class ModalDoc extends React.Component<{}, IState> {
@@ -21,7 +22,8 @@ export default class ModalDoc extends React.Component<{}, IState> {
             modalMedium: false,
             modalLarge: false,
             modalXLarge: false,
-            modalFull: false
+            modalFull: false,
+            maximizableModal: false
         }
     }
 
@@ -69,21 +71,23 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         </ButtonGroup>
 
                         <Modal headerTemplate="Basic modal"
-                               visible={this.state.modalBasic}
-                               onHide={() => {this.setState({modalBasic: false})}}>
+                            zIndex={10000}
+                            maximizable
+                            visible={this.state.modalBasic}
+                            onHide={() => {this.setState({modalBasic: false})}}>
                             <p>This modal has no fixed size. It will adapt its size based on the content inside.</p>
                         </Modal>
 
                         <Modal headerTemplate="Small modal header"
-                               visible={this.state.modalSmall}
-                               size='small' onHide={() => {this.setState({modalSmall: false})}}>
+                            visible={this.state.modalSmall}
+                            size='small' onHide={() => {this.setState({modalSmall: false})}}>
                             <p>Small modal content. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, 
                             ut fermentum massa justo sit amet risus. Vestibulum id ligula porta felis euismod semper.</p>
                         </Modal>
                         
                         <Modal headerTemplate="Medium modal header"
-                               visible={this.state.modalMedium}
-                               size='medium' onHide={() => {this.setState({modalMedium: false})}}>
+                            visible={this.state.modalMedium}
+                            size='medium' onHide={() => {this.setState({modalMedium: false})}}>
                             <p>Medium modal content. Etiam porta sem malesuada magna mollis euismod. Maecenas faucibus mollis interdum.
                             Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis mollis, est non
                             commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis
@@ -91,9 +95,9 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         </Modal>
                         
                         <Modal headerTemplate="Large modal header"
-                               visible={this.state.modalLarge}
-                               footerTemplate={modalLargeFooter}
-                               size='large' onHide={() => {this.setState({modalLarge: false})}}>
+                            visible={this.state.modalLarge}
+                            footerTemplate={modalLargeFooter}
+                            size='large' onHide={() => {this.setState({modalLarge: false})}}>
                             <p>Donec id elit non mi porta gravida at eget metus. Cras justo odio, dapibus ac facilisis in, egestas eget quam.
                             Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Cras mattis consectetur
                             purus sit amet fermentum. Vestibulum id ligula porta felis euismod semper. Maecenas sed diam eget risus varius blandit
@@ -104,9 +108,9 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         </Modal>
 
                         <Modal headerTemplate="Extra large modal"
-                               visible={this.state.modalXLarge}
-                               footerTemplate={modalXLargeFooter}
-                               size='x-large' onHide={() => {this.setState({modalXLarge: false})}}>
+                            visible={this.state.modalXLarge}
+                            footerTemplate={modalXLargeFooter}
+                            size='x-large' onHide={() => {this.setState({modalXLarge: false})}}>
                             <p className="sd-margin-b--3">Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh
                             ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
                             Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis.</p>
@@ -183,12 +187,12 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupPreview>
                         <Button text="Open Modal" onClick={() => this.setState({modalFull: true})} />
                         <Modal headerTemplate="Another modal header"
-                               footerTemplate={modalFullFooter}
-                               visible={this.state.modalFull} 
-                               theme='dark'
-                               maximized={true}
-                               className='testClass'
-                               onHide={() => {this.setState({modalFull: false})}}>
+                            footerTemplate={modalFullFooter}
+                            visible={this.state.modalFull} 
+                            theme='dark'
+                            maximized={true}
+                            className='testClass'
+                            onHide={() => {this.setState({modalFull: false})}}>
                             <p className="sd-margin-b--3">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes,
                             nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
                             Vestibulum id ligula porta felis euismod semper.</p>
@@ -222,18 +226,59 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                
+                <h3 className="docs-page__h3">Maximizable modal</h3>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                    <Button text="Maximizable modal" onClick={() => this.setState({maximizableModal: true})} />
+                        <Modal headerTemplate="Maximizable modal"
+                            zIndex={1000}
+                            maximizable
+                            visible={this.state.maximizableModal}
+                            size="small"
+                            onHide={() => {this.setState({maximizableModal: false})}}>
+                            <p className="sd-margin-b--3">Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Cum sociis natoque penatibus et magnis dis parturient montes,
+                            nascetur ridiculus mus. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
+                            Vestibulum id ligula porta felis euismod semper.</p>
+
+                            <p className="sd-margin-b--3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec sed odio dui. Duis mollis, est non commodo luctus, nisi erat porttitor ligula,
+                            eget lacinia odio sem nec elit. Nullam quis risus eget urna mollis ornare vel eu leo. Donec id elit non mi porta gravida at eget metus.</p>
+
+                            <p>Aenean lacinia bibendum nulla sed consectetur. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh
+                            ultricies vehicula ut id elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Nullam quis risus eget urna mollis ornare vel eu leo.
+                            Etiam porta sem malesuada magna mollis euismod. Sed posuere consectetur est at lobortis.</p>
+                        </Modal>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Button text="Maximizable modal" onClick={() => this.setState({maximizableModal: true})} />
+                        <Modal
+                            headerTemplate="Maximizable modal"
+                            zIndex={1000}
+                            maximizable
+                            visible={this.state.maximizableModal}
+                            size="small"
+                            onHide={() => {this.setState({maximizableModal: false})}}>
+                            {children}
+                        </Modal>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='id' isRequired={false} type='string' default='null' description='Unique identifier of the element' />
-                    <Prop name='className' isRequired={false} type='string' default='null' description='Style class of the component' />
+                    <Prop name='className' isRequired={false} type='string' default='null' description='To add class to the content of component' />
                     <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Item style' />
                     <Prop name='size' isRequired={false} type='small | medium | large | x-large' default='/' description='Size of the modal. If not defined it will adapt to the width of the content.' />
                     <Prop name='visible' isRequired={true} type='boolean' default='false' description='Specifies the visibility of the dialog' />
+                    <Prop name='zIndex' isRequired={true} type='number' default='false' description='zIndex of modal' />
+                    <Prop name='contentPadding' isRequired={true} type="'none' | 'small' | 'medium' | 'large'" default='false' description='Padding of content' />
+                    <Prop name='contentBg' isRequired={true} type="'default' | 'medium' | 'dark'" default='false' description='Background of content' />
                     <Prop name='headerTemplate' isRequired={false} type='element' default='null' description='Label of header' />
-                    <Prop name='footerTemplate' isRequired={false} type='element' default='null' description='Name of the footer template constant, created separately.' />
+                    <Prop name='footerTemplate' isRequired={false} type='element' default='null' description='Name of the footer template constant, created separately' />
                     <Prop name='closeOnEscape' isRequired={false} type='boolean' default='null' description='An array of objects to display' />
-                    <Prop name='maximized' isRequired={false} type='boolean' default='null' description='Creates a full-screen mofal id set to true.' />
+                    <Prop name='maximized' isRequired={false} type='boolean' default='null' description='Creates a full-screen modal id set to true.' />
+                    <Prop name='maximizable' isRequired={false} type='boolean' default='null' description='By clicking on button set full-screen modal and return on defoult size.' />
                     <Prop name='onShow' isRequired={false} type='function' default='null' description='Callback to invoke after modal is opened' />
                     <Prop name='onHide' isRequired={true} type='function' default='null' description='Callback to invoke after modal is closed' />
                 </PropsList>
