@@ -45,6 +45,8 @@ interface IState {
     openShowEditor: boolean;
     array: any;
     fullEditor: boolean;
+    rightPanel: boolean;
+    previousState: boolean;
 }
 
 export class CoreLayout extends React.Component<IProps, IState> {
@@ -79,6 +81,8 @@ export class CoreLayout extends React.Component<IProps, IState> {
             openEditor: false,
             openShowEditor: false,
             fullEditor: false,
+            rightPanel: false,
+            previousState: false,
             array: [
                 {
                     start: <>
@@ -270,12 +274,12 @@ export class CoreLayout extends React.Component<IProps, IState> {
                             </BoxedListItem>
                         </BoxedList>
                     </Layout.NotificationPanel>
-                )}>
+                )}> 
 
                 <Nav.SideBarMenu
                     items={[
                         { icon: 'dashboard', size: 'big' },
-                        { icon: 'view', size: 'big', editor: this.state.openEditor, onCLick: () => this.setState({fullEditor: !this.state.fullEditor})},
+                        { icon: 'view', size: 'big', editor: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor})},
                         { icon: 'marked-star', size: 'big' },
                         { icon: 'spike', size: 'big' },
                         { icon: 'personal', size: 'big' },
@@ -623,7 +627,24 @@ export class CoreLayout extends React.Component<IProps, IState> {
 
                 {/* RUNDOWN EDITOR */}
                 <Layout.AuthoringContainer open={this.state.openEditor}>
-                    <RundownEditor />
+                    <RundownEditor rightPanel={this.state.rightPanel}
+                    openPanel={() => {
+                        if (this.state.fullEditor) {
+                            this.setState({previousState: true})
+                        } else {
+                            this.setState({previousState: false})
+                        }
+                        
+                        this.setState({rightPanel: true, fullEditor: true})
+                    }}
+                    closePanel={() => {
+                        if (!this.state.previousState) {
+                            this.setState({rightPanel: false, fullEditor: false})
+                        } else {
+                            this.setState({rightPanel: false})
+                        }
+                    }}
+                    />
                 </Layout.AuthoringContainer>
                 {/* END RUNDOWN EDITOR */}
      
