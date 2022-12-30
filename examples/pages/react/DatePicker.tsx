@@ -30,6 +30,13 @@ class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
 }
 
 export default class DatePickerDoc extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            today: new Date(),
+        };
+    }
     render() {
         return (
             <section className="docs-page__container">
@@ -120,14 +127,55 @@ export default class DatePickerDoc extends React.Component {
                         />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
+                <p className="docs-page__paragraph">DatePicker with headerButtonBar:</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row'>
+                        <DatePicker
+                            value={this.state.today}
+                            dateFormat="YYYY-MM-DD"
+                            onChange={(today) => {
+                                this.setState({today});
+                            }}
+                            required
+                            tabindex={1}
+                            label={'This is Label'}
+                            info={'This is info'}
+                            error={'This is error'}
+                            headerButtonBar={[{days: 0, label: 'today'}, {days: 1, label: 'tomorow'}, {days: 2, label: 'in 2 days'}]}
+                        />
+                        </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <DatePicker
+                            value={this.state.date}
+                            dateFormat="YYYY-MM-DD"
+                            onChange={(date) => {
+                                this.setState({date});
+                            }}
+                            required
+                            tabindex={1}
+                            label={'This is Label'}
+                            info={'This is info'}
+                            error={'This is error'}
+                            headerButtonBar={[{days: 0, label: 'today'}, {days: 1, label: 'tomorow'}, {days: 2, label: 'in 2 days'}]}
+                        />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
                     <Prop name='value' isRequired={false} type='Date' default='/' description='Item value' />
-                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />
                     <Prop name='dateFormat' isRequired={true} type='string' default='/' description='Date format to use, i.e. "MM/DD/YYYY"' />
-                    <Prop name='shortcuts' isRequired={false} type='string' default='/' description='Shortcuts for calendar popup, i.e. [{label: "tomorrow", days: 1}]' />
                     <Prop name='locale' isRequired={false} type='string' default='/' description='see: https://primefaces.org/primereact/showcase/#/calendar' />
+                    <Prop name='headerButtonBar' isRequired={false} type='Array' default='/' description='Aditional button in header, ex. [{label: "today", days: 0}, {label: "tomorrow", days: 1}]' />
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Input label'/>
+                    <Prop name='info' isRequired={false} type='string' default='/' description='Hint text'/>
+                    <Prop name='error' isRequired={false} type='string' default='/' description='Error text'/>
+                    <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline'/>
+                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled'/>
+                    <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid'/>
                 </PropsList>
 
                 <h3 className='docs-page__h3'>Events</h3>
