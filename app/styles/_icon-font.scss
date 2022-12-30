@@ -292,6 +292,7 @@ $sd-icon-font: (
     audio-cancel: "\e6b7",
     list-alt-cancel: "\e6b8",
     post-cancel: "\e6b9",
+    text-block: "\e6ba",
 );
 
 @each $name, $value in $sd-icon-font {
