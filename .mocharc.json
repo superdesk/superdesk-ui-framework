@@ -1,0 +1,5 @@
+{
+    "extension": ["ts", ".tsx"],
+    "spec": "app-typescript/components/*.spec.*",
+    "require": "ts-node/register"
+}
