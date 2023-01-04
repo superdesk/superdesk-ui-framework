@@ -1,11 +1,6 @@
 import * as React from 'react';
 // import {IRestApiResponse} from 'superdesk-api';
-// import {Icon} from '../components/Icon';
-export interface IRestApiResponse<T> {
-    _items: Array<T>;
-    _meta: any;
-    pageCount: number;
-}
+import {Icon} from '../components/Icon';
 
 interface IProps<T> {
     pageSize?: number;
@@ -157,14 +152,14 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     disabled={this.state.currentPage === 1}
                     onClick={() => this.switchPage(1)}
                 >
-                    {/* <Icon name='backward-thin' /> */}
+                    <Icon name='backward-thin' />
                 </button>
                 <button
                     className='sd-pagination__item sd-pagination__item--start'
                     disabled={this.state.currentPage <= 1}
                     onClick={() => this.switchPage(this.state.currentPage - 1)}
                 >
-                    {/* <Icon name='chevron-left-thin' /> */}
+                    <Icon name='chevron-left-thin' />
                 </button>
             </>,
         );
@@ -176,14 +171,14 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     onClick={() => this.switchPage(this.state.currentPage + 1)}
                     disabled={this.state.currentPage === this.pageCount}
                 >
-                    {/* <Icon name='chevron-right-thin' /> */}
+                    <Icon name='chevron-right-thin' />
                 </button>
                 <button
                     className='sd-pagination__item sd-pagination__item--end'
                     onClick={() => this.switchPage(this.pageCount)}
                     disabled={this.state.currentPage === this.pageCount}
                 >
-                    {/* <Icon name='forward-thin' /> */}
+                    <Icon name='forward-thin' />
                 </button>
             </>,
         );

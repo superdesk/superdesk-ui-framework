@@ -2,7 +2,7 @@ import {describe, it} from 'mocha';
 import * as assert from 'assert';
 import {mount} from 'enzyme';
 import * as React from 'react';
-import {IRestApiResponse, WithPagination} from './WithPagination';
+import {WithPagination} from './WithPagination';
 import {range} from 'lodash';
 
 interface IPost {
@@ -13,10 +13,10 @@ interface IPost {
 const TIMEOUT = 1000;
 
 export class Paginated extends React.PureComponent {
-    getItems(): Promise<IRestApiResponse<IPost>> {
+    getItems(): Promise<{items: Array<IPost>, itemCount: number}> {
         return new Promise((resolve) => {
             setTimeout(() => {
-                return resolve({_items: range(1, 500).map((x) => ({title: `title ${x}`})), _meta: 'asd', pageCount: 25});
+                return resolve({items: range(1, 500).map((x) => ({title: `title ${x}`})), itemCount: 100});
             }, TIMEOUT);
         });
     }
@@ -93,7 +93,7 @@ describe.only('with-pagination', () => {
         }, TIMEOUT + 100);
     });
 
-    it.only('scrolls to the top of the pagination container', (done) => {
+    it('scrolls to the top of the pagination container', (done) => {
         const wrapper = mount(
             <div style={{height: 1200, overflowY: 'auto'}}>
                 <div style={{height: 400}} />
