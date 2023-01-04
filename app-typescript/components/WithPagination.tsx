@@ -86,7 +86,8 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         this.getPageSize = this.getPageSize.bind(this);
 
         this.pageCount = 0;
-        this.abortController = new AbortController();
+                               // window. needed for unit tests
+        this.abortController = new window.AbortController();
         this.ref = null;
         this.inProgress = false;
     }
