@@ -129,14 +129,15 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
             return null;
         }
 
-        const pageElements = getPagination(this.state.currentPage, this.pageCount).map((el) => {
+        const pageElements = getPagination(this.state.currentPage, this.pageCount).map((el, i) => {
             if (el === 'dots') {
                 return (
-                    <span className='sd-pagination__item sd-pagination__item--more'>...</span>
+                    <span data-test-id="span" className='sd-pagination__item sd-pagination__item--more'>...</span>
                 );
             } else {
                 return (
                     <button
+                        data-test-id={`button${i}`}
                         className='sd-pagination__item'
                         onClick={() => this.switchPage(el)}
                     >
@@ -149,6 +150,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         pageElements.unshift(
             <>
                 <button
+                    data-test-id="btn-1"
                     className='sd-pagination__item sd-pagination__item--start'
                     disabled={this.state.currentPage === 1}
                     onClick={() => this.switchPage(1)}
@@ -156,6 +158,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     <Icon name='backward-thin' />
                 </button>
                 <button
+                    data-test-id="btn-2"
                     className='sd-pagination__item sd-pagination__item--start'
                     disabled={this.state.currentPage <= 1}
                     onClick={() => this.switchPage(this.state.currentPage - 1)}
@@ -168,6 +171,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         pageElements.push(
             <>
                 <button
+                    data-test-id="btn-3"
                     className='sd-pagination__item sd-pagination__item--forward'
                     onClick={() => this.switchPage(this.state.currentPage + 1)}
                     disabled={this.state.currentPage === this.pageCount}
@@ -175,6 +179,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     <Icon name='chevron-right-thin' />
                 </button>
                 <button
+                    data-test-id="btn-4"
                     className='sd-pagination__item sd-pagination__item--end'
                     onClick={() => this.switchPage(this.pageCount)}
                     disabled={this.state.currentPage === this.pageCount}
