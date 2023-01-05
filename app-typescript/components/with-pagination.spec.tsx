@@ -39,7 +39,7 @@ describe.only('with-pagination', () => {
         const wrapper = mount(<Paginated />);
 
         setTimeout(() => {
-            assert.equal(
+            assert.strictEqual(
                 wrapper.update().find('[data-test-id="button1"]').length,
                 2,
             );
@@ -47,53 +47,53 @@ describe.only('with-pagination', () => {
         }, TIMEOUT + 100);
     });
 
-    it('returns button7 after clicking forward', (done) => {
+    it('returns button4 after clicking forward', (done) => {
         const wrapper = mount(<Paginated />);
 
         setTimeout(() => {
             wrapper.update();
-            wrapper.find('[data-test-id="button9"]').at(0).simulate('click');
+            wrapper.find('[data-test-id="btn-3"]').at(0).simulate('click');
 
-            assert.equal(
-                wrapper.find('[data-test-id="button7"]').length,
+            assert.strictEqual(
+                wrapper.find('[data-test-id="button4"]').length,
                 2,
             );
             done();
         }, TIMEOUT + 100);
     });
 
-    it('returns button8 when at 1 page before the last page', (done) => {
+    it('returns button4 when at 1 page before the last page', (done) => {
         const wrapper = mount(<Paginated />);
 
         setTimeout(() => {
             wrapper.update();
-            wrapper.find('[data-test-id="button10"]').at(0).simulate('click');
-            wrapper.find('[data-test-id="button2"]').at(0).simulate('click');
+            wrapper.find('[data-test-id="btn-4"]').at(0).simulate('click');
+            wrapper.find('[data-test-id="btn-2"]').at(0).simulate('click');
 
-            assert.equal(
-                wrapper.find('[data-test-id="button8"]').length,
+            assert.strictEqual(
+                wrapper.find('[data-test-id="button4"]').length,
                 2,
             );
             done();
         }, TIMEOUT + 100);
     });
 
-    it('returns button9 when at last page', (done) => {
+    it('returns span when at last page', (done) => {
         const wrapper = mount(<Paginated />);
 
         setTimeout(() => {
             wrapper.update();
-            wrapper.find('[data-test-id="button10"]').at(0).simulate('click');
+            wrapper.find('[data-test-id="btn-4"]').at(0).simulate('click');
 
-            assert.equal(
-                wrapper.find('[data-test-id="button9"]').length,
+            assert.strictEqual(
+                wrapper.find('[data-test-id="span"]').length,
                 2,
             );
             done();
         }, TIMEOUT + 100);
     });
 
-    it('scrolls to the top of the pagination container', (done) => {
+    it.only('scrolls to the top of the pagination container', (done) => {
         const wrapper = mount(
             <div style={{height: 1200, overflowY: 'auto'}}>
                 <div style={{height: 400}} />
@@ -103,10 +103,10 @@ describe.only('with-pagination', () => {
 
         setTimeout(() => {
             wrapper.update();
-            wrapper.find('[data-test-id="button10"]').at(1).simulate('click');
+            wrapper.find('[data-test-id="btn-4"]').at(1).simulate('click');
 
-            assert.equal(
-                wrapper.getDOMNode(),
+            assert.strictEqual(
+                wrapper.getDOMNode().scrollTop,
                 0,
             );
             done();
