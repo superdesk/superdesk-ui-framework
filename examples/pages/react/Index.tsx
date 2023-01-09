@@ -62,6 +62,7 @@ import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
 import DurationInputDoc from './DurationInput';
+import {WithPaginationDocs} from './WithPaginationDocs';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
@@ -200,6 +201,9 @@ const pages = {
             'content-list': {
                 name: 'Content list'
             },
+            'with-pagination': {
+                name: 'With pagination'
+            },
         }
     },
     formComponents: {
@@ -252,7 +256,7 @@ const pages = {
             },
             'checkbox': {
                 name: 'Checkbox'
-            },
+            }
             'dropzone': {
                 name: 'DropZone'
             },
@@ -342,6 +346,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/multiselect" component={MultiselectDocs} />
                         <Route path="/react/treeselect" component={TreeSelectDocs} />
                         <Route path="/react/duration-input" component={DurationInputDoc} />
+                        <Route path="/react/with-pagination" component={WithPaginationDocs} />
                         <Route path="/react/popover" component={PopoverDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
@@ -409,3 +414,4 @@ const parsePlayground = ({ match }, playgrounds) => {
 };
 
 export { ReactDoc, ReactPlayground };
+

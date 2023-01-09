@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import {IRestApiResponse} from 'superdesk-api';
 import {Icon} from '../components/Icon';
 
 interface IProps<T> {
@@ -59,13 +58,17 @@ function getScrollParent(element: HTMLElement | null): HTMLElement | null {
         return null;
     }
 
-    let pEl: HTMLElement | null = element;
+    let parentElement: HTMLElement | null = element;
 
-    while (pEl !== null && window.getComputedStyle(pEl).overflowY !== ('auto' || 'scroll')) {
-        pEl = element.parentElement ?? null;
+    const overflowY = window.getComputedStyle(parentElement).overflowY;
+    const hasScrollbar = overflowY === 'auto' || overflowY === 'scroll';
+
+    debugger;
+    while (parentElement !== null && !hasScrollbar) {
+        parentElement = parentElement.parentElement ?? null;
     }
 
-    return pEl;
+    return parentElement;
 }
 
 export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>> {
@@ -135,10 +138,15 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     <span data-test-id="span" className='sd-pagination__item sd-pagination__item--more'>...</span>
                 );
             } else {
+                console.log(this.state.currentPage == el);
                 return (
                     <button
                         data-test-id={`button${i}`}
-                        className='sd-pagination__item'
+                        className={
+                            this.state.currentPage == el
+                                ? 'sd-pagination__item sd-pagination__item--active'
+                                : 'sd-pagination__item'
+                        }
                         onClick={() => this.switchPage(el)}
                     >
                         {el}
