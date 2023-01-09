@@ -23,7 +23,9 @@
     "build-ui": "webpack && tsc && npm run lint",
     "lint": "eslint --parser=@typescript-eslint/parser app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
     "lint-fix": "tsc -p tsconfig.json --noEmit && tslint --fix -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "unit-test": "mocha",
+    "debug-unit-tests": "mocha --inspect-brk"
   },
   "devDependencies": {
     "@types/assert": "^1.5.6",
