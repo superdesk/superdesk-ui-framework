@@ -256,7 +256,7 @@ const pages = {
             },
             'checkbox': {
                 name: 'Checkbox'
-            }
+            },
             'dropzone': {
                 name: 'DropZone'
             },

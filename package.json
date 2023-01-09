@@ -22,8 +22,8 @@
     "build": "webpack --config tasks/webpack.prod.js && tsc",
     "build-ui": "webpack && tsc && npm run lint",
     "lint": "eslint --parser=@typescript-eslint/parser app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
-    "prepublishOnly": "npm run build",
-    "prepublish": "patch-package"
+    "lint-fix": "tsc -p tsconfig.json --noEmit && tslint --fix -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
+    "prepublishOnly": "npm run build"
   },
   "devDependencies": {
     "@types/assert": "^1.5.6",
