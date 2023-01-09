@@ -47,6 +47,7 @@ import IconPickerDocs from "./IconPicker";
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
+import {WithPaginationDocs} from './WithPaginationDocs';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 
@@ -144,6 +145,9 @@ const pages = {
             'list-items': {
                 name: 'List items'
             },
+            'with-pagination': {
+                name: 'With pagination'
+            },
         }
     },
     formComponents: {
@@ -221,6 +225,7 @@ class ReactDoc extends React.Component {
                         <Route path="/react/autocomplete" component={AutocompleteDoc} />
                         <Route path="/react/select" component={SelectsDoc} />
                         <Route path="/react/select-with-template" component={SelectWithTemplateDocs} />
+                        <Route path="/react/with-pagination" component={WithPaginationDocs} />
                         <Route path="/react/popover" component={PopoverDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
