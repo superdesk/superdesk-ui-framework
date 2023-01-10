@@ -5,7 +5,6 @@ interface IProps {
     items: Array<IItem | 'divider'>;
     side?: 'none' | 'left' | 'right';
     hover?: boolean;
-    editor?: boolean;
     onCLick?(): void;
 }
 
@@ -15,14 +14,13 @@ interface IItem {
     tooltip?: string;
     active?: boolean;
     hover?: boolean;
-    editor?: boolean;
     onCLick?(): void;
 }
 
 interface IState {
     index: number;
     closeIndex: number;
-    editor: boolean;
+    hover: boolean;
 }
 
 export class SideBarMenu extends React.PureComponent<IProps, IState> {
@@ -31,21 +29,27 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
-            editor: this.props.editor ? this.props.editor : false,
+            hover: this.props.hover ? this.props.hover : false,
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleArrows = this.handleArrows.bind(this);
     }
 
     handleClick(indexNumber: number) {
         this.setState({
             index: indexNumber,
-            editor: !this.state.editor,
         });
         if (this.state.index === indexNumber) {
             this.setState({
                 closeIndex: indexNumber,
             });
         }
+    }
+
+    handleArrows() {
+        this.setState({
+            hover: !this.state.hover,
+        });
     }
 
     render() {
@@ -62,13 +66,14 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
                                 <li key={index}
                                 data-sd-tooltip={item['tooltip']}
                                 data-flow='right'
-                                className={item.editor ? 'authoring-active__item' : ''}>
+                                className={item.hover ? 'authoring-active__item' : ''}>
                                     <a className={'sd-sidebar-menu__btn'
-                                    + (this.state.editor ? ' sd-sidebar-menu__btn--closed ' : '')
+                                    + (this.state.hover ? ' sd-sidebar-menu__btn--closed ' : '')
                                     + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
                                         onClick={() => {
                                             this.handleClick(index);
-                                            if (item.editor) {
+                                            if (item.hover) {
+                                                this.handleArrows();
                                                 if (item.onCLick) {
                                                     item.onCLick();
                                                 }
