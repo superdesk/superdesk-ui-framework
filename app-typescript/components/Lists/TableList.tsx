@@ -255,8 +255,12 @@ class TableListItem extends React.PureComponent<IPropsItem> {
         let selection = window.getSelection();
         this.timer = setTimeout(() => {
             if (!this.prevent && this.props.onClick && selection) {
-                if (selection.toString().length < 1) {
+                if (this.props.dragAndDrop) {
                     this.props.onClick();
+                } else {
+                    if (selection.toString().length < 1) {
+                        this.props.onClick();
+                    }
                 }
             }
         }, this.delay);
