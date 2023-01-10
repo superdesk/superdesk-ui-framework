@@ -1,6 +1,6 @@
-<div class="flat-searchbar" ng-class="{extended: extended}">
+<div class="flat-searchbar extended">
     <div class="search-handler" ng-class="{'search-handler--left-border': borderleft}">
-        <label for="search-input" class="trigger-icon" ng-click="extended = !extended"><i class="icon-search"></i></label>
+        <label for="search-input" class="trigger-icon"><i class="icon-search"></i></label>
         <input id="search-input" type="text" placeholder="{{ :: label || 'Search' }}" ng-model="model" ng-model-options="{debounce: debounce}">
         <button class="search-close" ng-if="model.length" ng-click="clearInput()" ng-class="{visible: model.length}"><i class="icon-remove-sign"></i></button>
 
