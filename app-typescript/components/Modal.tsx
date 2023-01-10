@@ -10,6 +10,7 @@ interface IProps {
     contentBg?: 'default' | 'medium' | 'dark';
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
     size?: 'small' | 'medium' | 'large' | 'x-large';
+    position?: "center" | "top" | "bottom" | "left" | "right" | "top-left" | "top-right" | "bottom-left" | "bottom-right";
     maximized?: boolean;
     maximizable?: boolean;
     headerTemplate?: JSX.Element | string;
@@ -44,6 +45,7 @@ export class Modal extends React.Component<IProps, {}> {
                     onShow={this.props.onShow}
                     onHide={this.props.onHide}
                     zIndex={this.props.zIndex}
+                    position={this.props.position && this.props.position}
                 >
                     {this.props.children}
                 </PrimeDialog>
