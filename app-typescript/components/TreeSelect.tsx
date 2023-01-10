@@ -183,17 +183,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 };
                 const buttonFocus = () => {
                     this.categoryButtonRef.current.focus();
-
-                    if (this.categoryButtonRef.current) {
-                        this.categoryButtonRef.current.addEventListener('keydown', (e: any) => {
-                            if (e.keyCode === 40) {
-                                listNavigation();
-                            }
-                            if (e.keyCode === 38) {
-                                this.inputRef.current.focus();
-                            }
-                        });
-                    }
                 };
                 inputFocus();
             });
@@ -442,6 +431,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     banchButton() {
+        setTimeout(() => {
+            this.categoryButtonRef.current.addEventListener('keydown', (e: any) => {
+                if (e.keyCode === 40) {
+                    this.ref.current.getElementsByTagName('button')[0].focus();
+                }
+                if (e.keyCode === 38) {
+                    this.inputRef.current.focus();
+                }
+            });
+        });
+
         let selectedButton = this.state.value.some((obj) =>
             this.props.getId(obj) === this.props.getId(this.state.buttonValue.value),
         );
