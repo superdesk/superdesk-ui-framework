@@ -7,6 +7,9 @@ import { TableList } from '../../../../app-typescript/components/Lists/TableList
 
 interface IProps {
     children?: React.ReactNode;
+    rightPanel?: boolean;
+    openPanel(): any;
+    closePanel(): void;
 }
 
 interface IState {
@@ -41,7 +44,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
             value2: false,
             value3: false,
             leftPanelOpen: false,
-            rightPanelOpen: false,
+            rightPanelOpen: this.props.rightPanel ? this.props.rightPanel : false,
             rightPanelPinned: false,
             sideOverlayOpen: false,
             inputValue: 'string',
@@ -57,7 +60,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                             <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
                         </>,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                    onClick: () => { this.props.openPanel() }
                 },
                 {
                     start: <>
@@ -70,7 +73,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                         <IconLabel style='translucent' innerLabel='Duration:' text='00:11' type='warning' />
                         </>,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                    onClick: () => { this.props.openPanel() }
                 },
                 {
                     start: <>
@@ -83,7 +86,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                             <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
                         </>,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                    onClick: () => { this.props.openPanel() }
                 },
                 {
                     start: <>
@@ -96,7 +99,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                             <IconLabel style='translucent' innerLabel='Duration:' text='00:15' type='alert' />
                         </>,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                    onClick: () => { this.props.openPanel() }
                 },
                 {
                     start: <>
@@ -109,7 +112,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                             <IconLabel style='translucent' innerLabel='Duration:' text='00:20' type='success' />
                         </>,
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
-                    onClick: () => { this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                    onClick: () => { this.props.openPanel() }
                 },
             ]
         }
@@ -330,7 +333,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                     </Layout.AuthoringMain>
                 </Layout.MainPanel>
 
-                <Layout.RightPanel open={this.state.rightPanelOpen}>
+                <Layout.RightPanel open={this.props.rightPanel}>
                     <Layout.Panel size='x-large' side='right'>
                         <Layout.PanelContent>
                             <Layout.AuthoringFrame
@@ -344,10 +347,10 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             <SubNav className='sd-shadow--z0'>
                                                 <SlidingToolbar>
                                                     <ButtonGroup align='start'>
-                                                        <IconButton ariaValue="Close" icon="close-small" onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} />
+                                                        <IconButton ariaValue="Close" icon="close-small" onClick={() => this.props.closePanel()} />
                                                     </ButtonGroup>
                                                     <ButtonGroup align='end'>
-                                                        <Button text="Save Changes" style='hollow' onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})} type="primary" />
+                                                        <Button text="Save Changes" style='hollow' onClick={() => this.props.closePanel()} type="primary" />
                                                     </ButtonGroup>
                                                 </SlidingToolbar>
                                             </SubNav>
