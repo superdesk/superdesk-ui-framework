@@ -63,7 +63,6 @@ function getScrollParent(element: HTMLElement | null): HTMLElement | null {
     const overflowY = window.getComputedStyle(parentElement).overflowY;
     const hasScrollbar = overflowY === 'auto' || overflowY === 'scroll';
 
-    debugger;
     while (parentElement !== null && !hasScrollbar) {
         parentElement = parentElement.parentElement ?? null;
     }
@@ -89,8 +88,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         this.getPageSize = this.getPageSize.bind(this);
 
         this.pageCount = 0;
-                               // window. needed for unit tests
-        this.abortController = new window.AbortController();
+        this.abortController = new window.AbortController(); // window. needed for unit tests
         this.ref = null;
         this.inProgress = false;
     }
@@ -138,12 +136,11 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     <span data-test-id="span" className='sd-pagination__item sd-pagination__item--more'>...</span>
                 );
             } else {
-                console.log(this.state.currentPage == el);
                 return (
                     <button
                         data-test-id={`button${i}`}
                         className={
-                            this.state.currentPage == el
+                            this.state.currentPage === el
                                 ? 'sd-pagination__item sd-pagination__item--active'
                                 : 'sd-pagination__item'
                         }
@@ -197,16 +194,33 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
             </>,
         );
 
+        const StyledPagination: React.ComponentType = () => (
+            <div
+                style={{
+                    display: 'flex',
+                    flexDirection: 'row',
+                    justifyContent: 'center',
+                }}
+            >
+                {pageElements}
+            </div>
+        );
+
         return (
             <div
-                style={{height: '100%', width: '100%'}}
+                style={{
+                    height: '100%',
+                    width: '100%',
+                    display: 'flex',
+                    flexDirection: 'column',
+                }}
                 ref={(element) => {
                     this.ref = element;
                 }}
             >
-                {pageElements}
-                {this.props.children(this.state.items)}
-                {pageElements}
+                <StyledPagination />
+                    {this.props.children(this.state.items)}
+                <StyledPagination />
             </div>
         );
     }
