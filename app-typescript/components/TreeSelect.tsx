@@ -121,6 +121,38 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 this.setState({openDropdown: false});
             }
         });
+
+        document.addEventListener("keydown", (e: any) => { 
+
+            const inputFocus = () => {
+                this.inputRef.current.focus();
+            };
+            const listNavigation = () => {
+                this.ref.current.getElementsByTagName('button')[0].focus();
+            };
+            const buttonFocus = () => {
+                this.categoryButtonRef.current.focus();
+            };
+                
+            keyboardNavigation(e, this.ref.current, this.categoryButtonRef.current
+                ? buttonFocus : inputFocus);
+            if (e.keyCode === 8) {
+                this.backButton();
+            }
+              
+            
+            // this.inputRef.current.addEventListener('keydown', (e: any) => {
+            //     if (e.keyCode === 40) {
+            //         if (this.categoryButtonRef.current) {
+            //             buttonFocus();
+            //         } else {
+            //             listNavigation();
+            //         }
+            //     }
+            // });
+            
+            
+        });
     }
 
     componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
@@ -157,15 +189,15 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 });
             }
             setTimeout(() => {
-                if (this.props.kind === 'synchronous') {
-                    this.ref.current.addEventListener('keydown', (e: any) => {
-                        keyboardNavigation(e, this.ref.current, this.categoryButtonRef.current
-                            ? buttonFocus : inputFocus);
-                        if (e.keyCode === 8) {
-                            this.backButton();
-                        }
-                    });
-                }
+                // if (this.props.kind === 'synchronous') {
+                //     this.ref.current.addEventListener('keydown', (e: any) => {
+                //         keyboardNavigation(e, this.ref.current, this.categoryButtonRef.current
+                //             ? buttonFocus : inputFocus);
+                //         if (e.keyCode === 8) {
+                //             this.backButton();
+                //         }
+                //     });
+                // }
                 this.inputRef.current.addEventListener('keydown', (e: any) => {
                     if (e.keyCode === 40) {
                         if (this.categoryButtonRef.current) {
