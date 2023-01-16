@@ -57,8 +57,6 @@ export { Autocomplete } from './components/Autocomplete';
 export { DonutChart } from './components/DonutChart';
 export { Carousel } from './components/Carousel';
 export { Modal } from './components/Modal';
-export { TagInput } from './components/TagInput';
-export { TagInputTest } from './components/TagInputTest';
 export { GridList } from './components/GridList';
 export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock,
     GridItemTime, GridItemTitle, GridItemText, GridItemSlug, GridItemFooterBlock,
