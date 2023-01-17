@@ -45,6 +45,7 @@ interface IState {
     openShowEditor: boolean;
     array: any;
     fullEditor: boolean;
+    openPanel: boolean;
     rightPanel: boolean;
     previousState: boolean;
 }
@@ -81,6 +82,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
             openEditor: false,
             openShowEditor: false,
             fullEditor: false,
+            openPanel: false,
             rightPanel: false,
             previousState: false,
             array: [
@@ -199,6 +201,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
             ariaControls='main-menu'
             menuId='main-menu'
             editorFullWidth={this.state.fullEditor}
+            openPanel={this.state.rightPanel}
             slideInMenu={(
                 <Layout.MainMenu
                 headerTitle='Main Menu'
@@ -274,20 +277,21 @@ export class CoreLayout extends React.Component<IProps, IState> {
                             </BoxedListItem>
                         </BoxedList>
                     </Layout.NotificationPanel>
-                )}> 
+                )}>
 
                 <Nav.SideBarMenu
                     items={[
-                        { icon: 'dashboard', size: 'big' },
-                        { icon: 'view', size: 'big', editor: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor})},
-                        { icon: 'marked-star', size: 'big' },
-                        { icon: 'spike', size: 'big' },
-                        { icon: 'personal', size: 'big' },
-                        { icon: 'global-search', size: 'big' },
-                        { icon: 'picture', size: 'big' },
-                        { icon: 'rundown', size: 'big', }]} />
+                        { icon: 'dashboard', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, },
+                        { icon: 'view', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor})},
+                        { icon: 'marked-star', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor}) },
+                        { icon: 'spike', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor}) },
+                        { icon: 'personal', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor}) },
+                        { icon: 'global-search', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor}) },
+                        { icon: 'picture', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor}) },
+                        { icon: 'rundown', size: 'big', hover: this.state.openEditor && !this.state.rightPanel, onCLick: () => this.setState({fullEditor: !this.state.fullEditor})
+                    }]} />
 
-                {!this.state.fullEditor
+                {!this.state.fullEditor && !this.state.rightPanel
                 && <Layout.LayoutContainer>
                     <Layout.HeaderPanel>
                         <SubNav zIndex={2}>
@@ -635,7 +639,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                             this.setState({previousState: false})
                         }
                         
-                        this.setState({rightPanel: true, fullEditor: true})
+                        this.setState({rightPanel: true})
                     }}
                     closePanel={() => {
                         if (!this.state.previousState) {

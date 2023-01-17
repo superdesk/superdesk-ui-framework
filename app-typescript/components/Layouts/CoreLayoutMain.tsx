@@ -5,6 +5,7 @@ interface IProps {
     children?: React.ReactNode;
     id?: string;
     editorFullWidth?: boolean;
+    openPanel?: boolean;
 }
 
 export class CoreLayoutMain extends React.PureComponent<IProps> {
@@ -14,7 +15,9 @@ export class CoreLayoutMain extends React.PureComponent<IProps> {
         },
     );
         return (
-            <section id={this.props.id} className={classes}>
+            <section
+            id={this.props.id}
+            className={classes + (this.props.openPanel ? ' sd-content-wrapper--editor-full' : '')}>
                 {this.props.children}
             </section>
         );
