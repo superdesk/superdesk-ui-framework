@@ -1,0 +1,51 @@
+.p-chips-token	{
+    @include tag-label;
+    transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
+    background: $tag-label-BG-default !important;
+    color: currentColor;
+
+    &.selected {
+        background-color: var(--sd-colour-interactive--alpha-70);
+    }
+    &:hover {
+        cursor: pointer;
+        background-color: $tag-label-BG-darker !important;
+        .p-chips-token-icon {
+
+            color: var(--sd-colour__tag-label-remove-Bg) !important;
+        }
+    }
+}
+
+.p-chips-token-icon {
+    color: var(--sd-colour__tag-label-remove-Bg) !important;
+    color: $tag-label-BG-default !important;
+}
+
+.p-chips-token-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.p-chips-multiple-container {
+    margin: 0;
+    padding: 0 !important;
+    height: auto !important;
+    padding: 0 !important;
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    padding-inline-start: $sd-base-increment / 2;
+    gap: $sd-base-increment / 4;
+}
+
+.tags-input__padding-disabled {
+    span {
+
+        padding-left: 0;
+        padding-inline: 4px;
+    }
+}

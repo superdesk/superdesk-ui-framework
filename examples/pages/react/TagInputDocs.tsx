@@ -32,13 +32,17 @@ export default class TagInputDocs extends React.Component<{}, {value: Array<stri
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
                             <TagInput
+                                required
+                                info={'Info Message'}
+                                error={'Error Message'}
+                                label={'TreeSelect Label'}
                                 onChange={(value) => {
                                     this.setState({
                                         value: value,
                                     });
                                 }}
                                 value={this.state.value}
-                                placeholder="Test"
+                                //placeholder="Test"
                             />
                         </div>
                     </Markup.ReactMarkupPreview>
