@@ -1,6 +1,6 @@
 sd-tag-input {
     display: block;
-    padding-bottom: 3rem;   
+    padding-bottom: 3rem;
     &[data-label] {
         position: relative;
         padding-top: 1rem;
@@ -10,7 +10,7 @@ sd-tag-input {
 // Testing
 .sd-tag-input {
     display: block;
-    padding-bottom: 3rem;   
+    padding-bottom: 3rem;
     &[data-label] {
         position: relative;
         padding-top: 1rem;
@@ -225,6 +225,9 @@ tags-input,
         &:hover {
             opacity: 1;
         }
+        &:focus {
+            opacity: 1;
+        }
         &[disabled], [disabled]:hover, [disabled]:active {
             opacity: 0.5;
             background-color: rgba(123, 123, 123, 0.4);
@@ -335,7 +338,7 @@ tags-input,
             border-radius: 99px;
             white-space: nowrap;
 
-            &[style] {
+            &[style*="background-color"] {
                 padding-inline: 8px;
             }
         }
@@ -442,7 +445,7 @@ tags-input,
                 transform: translate(-3px);
             }
             .arrow-left {
-                cursor: pointer; 
+                cursor: pointer;
             }
             .search {
                 cursor: default;
@@ -607,7 +610,7 @@ tags-input,
     border-radius: 2px;
 
     &-selected {
-        inset-block: 5px;   
+        inset-block: 5px;
     }
 }
 

@@ -20,6 +20,7 @@ interface IState<T> {
     buttonValue: any;
     buttonMouseEvent: boolean;
     loading: boolean;
+    buttonTarget: Array<any>;
     // provera: boolean;
 }
 
@@ -93,6 +94,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             buttonMouseEvent: false,
             openDropdown: false,
             loading: false,
+            buttonTarget: [],
             // provera: false
         };
 
@@ -103,7 +105,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.backButtonValue = this.backButtonValue.bind(this);
         this.handleTree = this.handleTree.bind(this);
         this.filteredItem = this.filteredItem.bind(this);
-        this.banchButton = this.banchButton.bind(this);
+        this.branchButton = this.branchButton.bind(this);
         this.handleDebounce = this.handleDebounce.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
         this.dropdownRef = React.createRef();
@@ -111,6 +113,16 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.inputRef = React.createRef();
         this.categoryButtonRef = React.createRef();
         this.openDropdownRef = React.createRef();
+    }
+
+    inputFocus = () => {
+        this.inputRef.current.focus();
+    }
+    listNavigation = () => {
+        this.ref.current.getElementsByTagName('button')[0].focus();
+    }
+    buttonFocus = () => {
+        this.categoryButtonRef.current.focus();
     }
 
     componentDidMount = () => {
@@ -122,36 +134,20 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             }
         });
 
-        document.addEventListener("keydown", (e: any) => { 
-
-            const inputFocus = () => {
-                this.inputRef.current.focus();
-            };
-            const listNavigation = () => {
-                this.ref.current.getElementsByTagName('button')[0].focus();
-            };
-            const buttonFocus = () => {
-                this.categoryButtonRef.current.focus();
-            };
-                
-            keyboardNavigation(e, this.ref.current, this.categoryButtonRef.current
-                ? buttonFocus : inputFocus);
-            if (e.keyCode === 8) {
-                this.backButton();
+        document.addEventListener("keydown", (e: any) => {
+            if (this.state.openDropdown && this.ref.current) {
+                keyboardNavigation(
+                    e,
+                    this.ref.current,
+                    this.categoryButtonRef.current ? this.buttonFocus : this.inputFocus,
+                );
+                if (e.key === 'Backspace') {
+                    this.backButton();
+                    if (this.state.buttonTarget.length > 0) {
+                        document.getElementsByClassName(`${this.state.buttonTarget.pop()}`)[0].focus();
+                    }
+                }
             }
-              
-            
-            // this.inputRef.current.addEventListener('keydown', (e: any) => {
-            //     if (e.keyCode === 40) {
-            //         if (this.categoryButtonRef.current) {
-            //             buttonFocus();
-            //         } else {
-            //             listNavigation();
-            //         }
-            //     }
-            // });
-            
-            
         });
     }
 
@@ -188,36 +184,24 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     ],
                 });
             }
-            setTimeout(() => {
-                // if (this.props.kind === 'synchronous') {
-                //     this.ref.current.addEventListener('keydown', (e: any) => {
-                //         keyboardNavigation(e, this.ref.current, this.categoryButtonRef.current
-                //             ? buttonFocus : inputFocus);
-                //         if (e.keyCode === 8) {
-                //             this.backButton();
-                //         }
-                //     });
-                // }
-                this.inputRef.current.addEventListener('keydown', (e: any) => {
-                    if (e.keyCode === 40) {
-                        if (this.categoryButtonRef.current) {
-                            buttonFocus();
-                        } else {
-                            listNavigation();
-                        }
+            this.inputRef.current.addEventListener('keydown', (e: any) => {
+                if (e.keyCode === 40) {
+                    if (this.categoryButtonRef.current) {
+                        this.buttonFocus();
+                    } else {
+                        setTimeout(() => {
+                            this.listNavigation();
+                        });
                     }
-                });
-                const inputFocus = () => {
-                    this.inputRef.current.focus();
-                };
-                const listNavigation = () => {
-                    this.ref.current.getElementsByTagName('button')[0].focus();
-                };
-                const buttonFocus = () => {
-                    this.categoryButtonRef.current.focus();
-                };
-                inputFocus();
+                }
             });
+            if (this.inputRef.current) {
+                this.inputFocus();
+            } else {
+                this.ref.current.getElementsByTagName('button')[0].focus();
+            }
+        } else {
+            this.openDropdownRef.current?.focus();
         }
     }
 
@@ -257,9 +241,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             }
             if (!event.ctrlKey) {
                 if (this.props.getOptions) {
-                    this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
+                    this.setState({
+                        options: this.state.firstBranchOptions,
+                        activeTree: [],
+                        buttonTarget: [],
+                        openDropdown: false,
+                    });
                 } else {
-                    this.setState({activeTree: [], openDropdown: false});
+                    this.setState({activeTree: [], buttonTarget: [], openDropdown: false});
                 }
             }
             this.setState({buttonMouseEvent: false});
@@ -271,7 +260,13 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 this.setState({value: [item.value]});
             }
             if (!event.ctrlKey) {
-                this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
+                this.setState({
+                    options: this.state.firstBranchOptions,
+                    activeTree: [],
+                    buttonTarget:
+                    [],
+                    openDropdown: false,
+                });
             }
             this.setState({buttonMouseEvent: false});
         }
@@ -287,7 +282,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     this.setState({value: [...this.state.value, item.value]});
                 }
                 if (!event.ctrlKey) {
-                    this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
+                    this.setState({
+                        options: this.state.firstBranchOptions,
+                        activeTree: [],
+                        buttonTarget: [],
+                        openDropdown: false,
+                    });
                 }
                 this.setState({buttonMouseEvent: false});
             }
@@ -300,7 +300,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     this.setState({value: [item.value]});
                 }
                 if (!event.ctrlKey) {
-                    this.setState({options: this.state.firstBranchOptions, activeTree: [], openDropdown: false});
+                    this.setState({
+                        options: this.state.firstBranchOptions,
+                        activeTree: [],
+                        buttonTarget: [],
+                        openDropdown: false,
+                    });
                 }
                 this.setState({buttonMouseEvent: false});
             }
@@ -324,6 +329,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         options: this.state.firstBranchOptions,
                         openDropdown: false,
                         activeTree: [],
+                        buttonTarget: [],
                     });
                 } else {
                     let filteredItems: Array<T> = [];
@@ -339,6 +345,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             options: this.state.firstBranchOptions,
                             openDropdown: false,
                             activeTree: [],
+                            buttonTarget: [],
                         });
                     }
                 }
@@ -349,17 +356,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 this.setState({openDropdown: false});
             }
         }
+
         this.ref.current.getElementsByTagName('button')[0].focus();
     }
 
-    backButton = () => {
+    backButton(): void {
         if (this.state.activeTree.length > 0) {
-            this.setState({
-                options: this.state.activeTree.pop(),
-            });
-            return;
-        } else {
-            return false;
+            this.setState(
+                {
+                    options: this.state.activeTree.pop(),
+                },
+            );
         }
     }
 
@@ -462,11 +469,13 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
-    banchButton() {
+    branchButton() {
         setTimeout(() => {
             this.categoryButtonRef.current.addEventListener('keydown', (e: any) => {
                 if (e.keyCode === 40) {
-                    this.ref.current.getElementsByTagName('button')[0].focus();
+                    setTimeout(() => {
+                        this.ref.current.getElementsByTagName('button')[0].focus();
+                    });
                 }
                 if (e.keyCode === 38) {
                     this.inputRef.current.focus();
@@ -694,7 +703,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     ? this.props.optionTemplate(this.state.buttonValue.value)
                                     : this.props.getLabel(this.state.buttonValue.value)}
                                 </button>
-                                {this.props.selectBranchWithChildren && this.banchButton()}
+                                {this.props.selectBranchWithChildren && this.branchButton()}
                             </div>
                         </div>}
                         {this.state.loading
@@ -715,7 +724,18 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             event.stopPropagation();
                                             this.handleTree(event, option);
                                         }}>
-                                            <button className="suggestion-item--btn">
+                                            <button
+                                            className={`suggestion-item--btn ${this.props.getId(option.value)}`}
+                                            onKeyDown={(event) => {
+                                                if (event.key === 'Enter' && option.children) {
+                                                    this.setState({
+                                                        buttonTarget: [
+                                                            ...this.state.buttonTarget,
+                                                            this.props.getId(option.value),
+                                                        ],
+                                                    });
+                                                }
+                                            }}>
                                                 {(this.props.getBorderColor && !this.props.allowMultiple)
                                                 && <div
                                                     className="item-border"
@@ -723,9 +743,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 </div>}
                                                 <span
                                                 style={(this.props.getBackgroundColor && option.value)
-                                                    && {backgroundColor: this.props.getBackgroundColor(option.value),
+                                                    ? {backgroundColor: this.props.getBackgroundColor(option.value),
                                                     color: getTextColor(this.props.getBackgroundColor(option.value))}
-                                                    }
+                                                    : undefined
+                                                }
                                                 className={'suggestion-item--bgcolor'
                                                 + (selectedItem ? ' suggestion-item--disabled' : '')}
                                                 >
