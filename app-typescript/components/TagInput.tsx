@@ -1,13 +1,12 @@
 import * as React from 'react';
 import { Chips } from '@superdesk/primereact/chips';
-import '../../app/styles/form-elements/_tag-input.scss';
 import {InputWrapper} from './Form';
 import nextId from "react-id-generator";
 
 interface IProps {
     value: Array<string>;
     onChange(value: Array<string>): void;
-    placeholder?: string;
+    placeholder: string;
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
@@ -45,7 +44,7 @@ export class TagInput extends React.Component<IProps> {
                     separator=","
                     onChange={({value}) => onChange(value)}
                     value={value}
-                    placeholder={placeholder ? placeholder : 'Type Here'}
+                    placeholder={placeholder}
                     disabled={this.props.disabled}
                 />
             </InputWrapper>
