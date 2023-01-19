@@ -48,7 +48,7 @@ export class Multiedit extends React.Component<IProps, IState> {
             sideOverlayOpen: false,
             sideBarOpen: false,
             arr: [<Editor />, <Editor />]
-            
+
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
@@ -68,7 +68,7 @@ export class Multiedit extends React.Component<IProps, IState> {
     }
 
     render() {
-        return (    
+        return (
             <Modal
             className='p-dialog-flex'
             onHide={() => false}
@@ -89,7 +89,7 @@ export class Multiedit extends React.Component<IProps, IState> {
                         <Button type="primary" icon="plus-large" text="Add article" style="filled" size="large" shape="round" iconOnly={true} onClick={()=> false} />
                     </Dropdown>
                 </div>
-            </Modal> 
+            </Modal>
         );
     }
 }
@@ -103,7 +103,7 @@ export class Editor extends React.Component<IEditor, IEditor> {
         super(props);
         this.state = {
             sideBarOpen: false,
-            
+
         }
     }
 
@@ -178,7 +178,7 @@ export class Editor extends React.Component<IEditor, IEditor> {
                                 required={false}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}} /> 
+                                onChange={(value) => {}} />
                         </Form.FormItem>
                     </Form.FormGroup>
                     <Form.FormGroup inlineLabel={true}>
@@ -193,7 +193,7 @@ export class Editor extends React.Component<IEditor, IEditor> {
                                 required={false}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}} /> 
+                                onChange={(value) => {}} />
                         </Form.FormItem>
                     </Form.FormGroup>
                     <Form.FormGroup marginBottom='0' inlineLabel={true}>
@@ -208,7 +208,7 @@ export class Editor extends React.Component<IEditor, IEditor> {
                                 required={true}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}} /> 
+                                onChange={(value) => {}} />
                         </Form.FormItem>
                         <Form.FormItem autoWidth={true}>
                             <Form.FormText>Just testing:</Form.FormText>
@@ -247,7 +247,7 @@ export class Editor extends React.Component<IEditor, IEditor> {
                 <Layout.PanelContent>
                     <Layout.PanelContentBlock>
                         <BoxedList density='comfortable'>
-                            <BoxedListItem 
+                            <BoxedListItem
                                 type="success"
                                 clickable={true}
                                 media={(
@@ -261,10 +261,10 @@ export class Editor extends React.Component<IEditor, IEditor> {
                                     Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.
                                 </BoxedListContentRow>
                                 <BoxedListContentRow>
-                                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et. 
+                                    Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
                                 </BoxedListContentRow>
                             </BoxedListItem>
-                            <BoxedListItem 
+                            <BoxedListItem
                                 type="warning"
                                 media={(
                                     <AvatarWrapper
@@ -287,7 +287,7 @@ export class Editor extends React.Component<IEditor, IEditor> {
                                     Maecenas sed diam eget risus varius blandit sit amet magna.
                                 </BoxedListContentRow>
                             </BoxedListItem>
-                            <BoxedListItem 
+                            <BoxedListItem
                                 selected={true}
                                 actions={(
                                     <IconButton icon="dots-vertical" ariaValue="More actions" onClick={()=> false} />
@@ -302,18 +302,21 @@ export class Editor extends React.Component<IEditor, IEditor> {
                 </Layout.PanelContent>
             </Layout.Panel>
         )}
-        
+
         sideBarClosed={this.state.sideBarOpen}
         sideBar={(
             <Nav.SideBarTabs
             items={[
-                { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => false },
+                { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => false, id: '1' },
                 { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => false },
                 { icon: 'history', size: 'big', tooltip: 'History', onClick: () => false },
                 { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => false },
                 { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => false },
                 { icon: 'comments', size: 'big', tooltip: 'Inline Comments', onClick: () => false },
-                { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => false }]} />
+                { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => false }
+            ]}
+            active={'1'}
+            />
         )}
     />
     </div>
