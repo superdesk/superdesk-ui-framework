@@ -20,7 +20,7 @@ interface IProps<T> {
     showSelectAll?: boolean;
     itemTemplate?(item: any): JSX.Element | undefined;
     selectedItemTemplate?(value: any): JSX.Element | undefined;
-    onChange(newValue: string): void;
+    onChange(newValue: onChangeEvent<T>): void;
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
@@ -38,6 +38,8 @@ interface IState<T> {
     value: Array<T>;
     invalid: boolean;
 }
+
+type onChangeEvent<T> = {originalEvent: Event, value: Array<T>, target: {name: string, id: string, value: any}};
 
 export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private htmlId = nextId();
@@ -75,7 +77,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 panelClassName={classes}
                 value={this.props.value}
                 options={this.props.options}
-                onChange={(e: any) => this.props.onChange(e)}
+                onChange={this.props.onChange}
                 display="chip"
                 filter={this.props.filter}
                 filterBy={this.props.optionLabel}
