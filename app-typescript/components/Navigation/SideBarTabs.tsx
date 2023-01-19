@@ -5,6 +5,7 @@ import { Badge } from '../Badge';
 interface IProps {
     items: Array<ISideBarTab | 'divider'>;
     side?: 'none' | 'left' | 'right';
+    active?: string;
 }
 
 export interface ISideBarTab {
@@ -13,12 +14,14 @@ export interface ISideBarTab {
     tooltip?: string;
     active?: boolean;
     badgeValue?: string;
+    id?: string;
     onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
 }
 
 interface IState {
     index: number;
     closeIndex: number;
+    active: string;
 }
 
 export class SideBarTabs extends React.PureComponent<IProps, IState> {
@@ -27,8 +30,19 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
+            active: this.props.active ? this.props.active : '',
         };
         this.handleClick = this.handleClick.bind(this);
+    }
+
+    componentDidMount(): void {
+        this.props.items.map((item: any, indexNumber) => {
+            if (item.id === this.state.active) {
+                this.setState({
+                    index: indexNumber,
+                });
+            }
+        });
     }
 
     handleClick(item: ISideBarTab, indexNumber: number, event: any) {
@@ -42,7 +56,6 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
             });
         }
 
-        item.active = !item.active;
         item.onClick(event);
     }
 
@@ -59,18 +72,14 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
                             return (
                                 <li key={index} data-sd-tooltip={item['tooltip']} data-flow='left'>
                                     <a role='button' aria-label={item['tooltip']}
-                                        className={'sd-sidetab-menu__btn' + (item['active'] ?
-                                            ' sd-sidetab-menu__btn--active' :
-                                            (index === this.state.index ? ' sd-sidetab-menu__btn--active' : ''))}
+                                        className={'sd-sidetab-menu__btn'
+                                        + (index === this.state.index ? ' sd-sidetab-menu__btn--active' : '')}
                                         onClick={() => this.handleClick(item, index, event)}>
                                         {
-                                        item['badgeValue'] != null
-                                        ? (
-                                        <Badge text={item['badgeValue']} type='primary' />
-                                        )
-                                        : null
+                                            item['badgeValue'] != null
+                                            ? <Badge text={item['badgeValue']} type='primary' />
+                                            : null
                                         }
-
                                         <span className='sd-sidetab-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>
