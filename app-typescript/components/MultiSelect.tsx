@@ -20,7 +20,7 @@ interface IProps<T> {
     showSelectAll?: boolean;
     itemTemplate?(item: any): JSX.Element | undefined;
     selectedItemTemplate?(value: any): JSX.Element | undefined;
-    onChange(newValue: string): void;
+    onChange(newValue: T): void;
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
