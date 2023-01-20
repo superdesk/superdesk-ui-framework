@@ -55,7 +55,6 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
                 index: -1,
             });
         }
-
         item.onClick(event);
     }
 
