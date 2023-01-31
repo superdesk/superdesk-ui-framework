@@ -93,6 +93,7 @@
     "primeicons": "2.0.0",
     "react-beautiful-dnd": "^13.0.0",
     "react-id-generator": "^3.0.0",
+    "react-measure": "^2.5.2",
     "react-popper": "^2.2.3",
     "react-scrollspy": "^3.4.3"
   }
