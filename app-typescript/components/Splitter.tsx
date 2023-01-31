@@ -132,15 +132,15 @@ export const Splitter = (props: React.PropsWithChildren<SplitProps>): JSX.Elemen
 
     const onMeasureContent = (contentRect: ContentRect) =>
         contentRect.bounds &&
-            setContentMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
+        setContentMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
 
     const onMeasurePrimary = (contentRect: ContentRect) =>
         contentRect.bounds &&
-            setPrimaryMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
+        setPrimaryMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
 
     const onMeasureSplitter = (contentRect: ContentRect) =>
         contentRect.bounds &&
-            setSplitterMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
+        setSplitterMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
 
     const onSplitPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
         event.currentTarget.setPointerCapture(event.pointerId);
