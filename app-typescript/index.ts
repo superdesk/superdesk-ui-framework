@@ -91,6 +91,7 @@ export { TreeSelect } from './components/TreeSelect';
 export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 export { MultiSelect } from './components/MultiSelect';
+export { Splitter } from './components/Splitter';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
