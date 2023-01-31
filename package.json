@@ -14,7 +14,9 @@
     "Darko Tomic",
     "Aleksandar Jelicic",
     "Tomas Kikutis",
-    "Dragana Zivkovic"
+    "Dragana Zivkovic",
+    "Nikola Stojanovic",
+    "Konstantin Markov"
   ],
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
