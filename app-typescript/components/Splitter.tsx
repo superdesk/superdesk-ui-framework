@@ -97,15 +97,15 @@ export const Splitter = (props: React.PropsWithChildren<SplitProps>): JSX.Elemen
 
     const currentContentSize = React.useMemo(
         () => (horizontal ? contentMeasuredDimensions.height : contentMeasuredDimensions.width),
-        [horizontal, contentMeasuredDimensions]
+        [horizontal, contentMeasuredDimensions],
     );
     const currentPrimarySize = React.useMemo(
         () => (horizontal ? primaryMeasuredDimensions.height : primaryMeasuredDimensions.width),
-        [horizontal, primaryMeasuredDimensions]
+        [horizontal, primaryMeasuredDimensions],
     );
     const currentSplitterSize = React.useMemo(
         () => (horizontal ? splitterMeasuredDimensions.height : splitterMeasuredDimensions.width),
-        [horizontal, splitterMeasuredDimensions]
+        [horizontal, splitterMeasuredDimensions],
     );
 
     const [percent, setPercent] = React.useState<number | undefined>(undefined);
@@ -130,20 +130,17 @@ export const Splitter = (props: React.PropsWithChildren<SplitProps>): JSX.Elemen
         }
     }, [horizontal, currentContentSize, currentPrimarySize, currentSplitterSize]);
 
-    const onMeasureContent = (contentRect: ContentRect) => {
+    const onMeasureContent = (contentRect: ContentRect) =>
         contentRect.bounds &&
             setContentMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
-    };
 
-    const onMeasurePrimary = (contentRect: ContentRect) => {
+    const onMeasurePrimary = (contentRect: ContentRect) =>
         contentRect.bounds &&
             setPrimaryMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
-    };
 
-    const onMeasureSplitter = (contentRect: ContentRect) => {
+    const onMeasureSplitter = (contentRect: ContentRect) =>
         contentRect.bounds &&
             setSplitterMeasuredDimensions({ height: contentRect.bounds.height, width: contentRect.bounds.width });
-    };
 
     const onSplitPointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
         event.currentTarget.setPointerCapture(event.pointerId);
@@ -167,9 +164,8 @@ export const Splitter = (props: React.PropsWithChildren<SplitProps>): JSX.Elemen
         setDragging(false);
     };
 
-    const onSplitDoubleClick = () => {
+    const onSplitDoubleClick = () =>
         resetOnDoubleClick && setPercent(undefined);
-    };
 
     const children = React.Children.toArray(props.children);
     const primaryChild = children.length > 0 ? children[0] : <div />;
