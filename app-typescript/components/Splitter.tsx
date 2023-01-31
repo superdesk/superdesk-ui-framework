@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { default as Measure, ContentRect } from 'react-measure';
-import './split.css';
 
 type MeasuredDimensions = {
     height: number;
