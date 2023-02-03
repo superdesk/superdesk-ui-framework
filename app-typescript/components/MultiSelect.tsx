@@ -78,7 +78,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 options={this.props.options}
                 onChange={({value}) => this.props.onChange(value)}
                 display="chip"
-                zIndex={this.props.zIndex && this.props.zIndex}
+                zIndex={this.props.zIndex}
                 filter={this.props.filter}
                 filterBy={this.props.optionLabel}
                 appendTo={document.body}
