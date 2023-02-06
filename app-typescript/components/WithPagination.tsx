@@ -2,9 +2,9 @@ import * as React from 'react';
 import {Icon} from '../components/Icon';
 
 interface IProps<T> {
-    pageSize?: number;
     getItems(pageNo: number, signal: AbortSignal): Promise<{items: Array<T>, itemCount: number}>;
     children: (items: Array<T>) => JSX.Element;
+    pageSize?: number;
 }
 
 interface IState<T> {
@@ -12,7 +12,11 @@ interface IState<T> {
     items: Array<T> | null;
 }
 
-function getPagination(currentPage: number, totalPages: number): Array<number | 'dots'> {
+export function getPagination(currentPage: number, totalPages: number): Array<number | 'dots'> {
+    if (currentPage <= 0 || totalPages <= 0 || currentPage > totalPages) {
+        return [];
+    }
+
     let basePages: ReturnType<typeof getPagination> = [
         currentPage - 2,
         currentPage - 1,
@@ -108,7 +112,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
             this.setState({items: res.items, currentPage: page}, () => {
                 const scrollableEl = getScrollParent(this.ref);
                 const diff = scrollableEl != null && this.ref?.scrollHeight != null
-                    ? scrollableEl.offsetHeight - this.ref?.scrollHeight
+                    ? scrollableEl.offsetHeight - this.ref.scrollHeight
                     : null;
 
                 if (scrollableEl != null) {
@@ -133,12 +137,12 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         const pageElements = getPagination(this.state.currentPage, this.pageCount).map((el, i) => {
             if (el === 'dots') {
                 return (
-                    <span data-test-id="span" className='sd-pagination__item sd-pagination__item--more'>...</span>
+                    <span data-test-id="more-pages" className='sd-pagination__item sd-pagination__item--more'>...</span>
                 );
             } else {
                 return (
                     <button
-                        data-test-id={`button${i}`}
+                        data-test-id={`page-button-${i}`}
                         className={
                             this.state.currentPage === el
                                 ? 'sd-pagination__item sd-pagination__item--active'

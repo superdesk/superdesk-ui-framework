@@ -15,6 +15,12 @@ function getItems(pageNo: number): Promise<{items: Array<number>, itemCount: num
 
 export class WithPaginationDocs extends React.Component {
     render() {
+        const wrapperStyle: React.CSSProperties = {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+        };
+
         return (
             <section className='docs-page__container'>
                 <h2 className='docs-page__h2'>With pagination</h2>
@@ -26,7 +32,7 @@ export class WithPaginationDocs extends React.Component {
                         >
                             {
                                 (items) =>
-                                    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+                                    <div style={wrapperStyle}>
                                         {items.map((x, i) => <div key={i}>{x}</div>)}
                                     </div>
                             }
@@ -38,13 +44,7 @@ export class WithPaginationDocs extends React.Component {
                         >
                             {
                                 (items) =>
-                                    <div
-                                        style={{
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            alignItems: 'center'
-                                        }}
-                                    >
+                                    <div style={wrapperStyle}>
                                         {items.map((x, i) => <div key={i}>{x}</div>)}
                                     </div>
                             }
