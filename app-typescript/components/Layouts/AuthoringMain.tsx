@@ -18,6 +18,7 @@ interface IProps {
     headerCollapsed?: boolean;
     headerPadding?: 'small' | 'medium' | 'large';
     toolbarCustom?: boolean;
+    withoutPaddingContent?: boolean;
 }
 
 export class AuthoringMain extends React.PureComponent<IProps> {
@@ -42,7 +43,7 @@ export class AuthoringMain extends React.PureComponent<IProps> {
                             {this.props.authoringBookmarks}
                         </AuthorinInnerSideBar>
                     )}
-                    <AuthoringInnerBody>
+                    <AuthoringInnerBody withoutPadding={this.props.withoutPaddingContent}>
                         {this.props.children}
                     </AuthoringInnerBody>
                 </AuthoringMainContent>
