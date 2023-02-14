@@ -282,6 +282,9 @@
     grid-row: authoringBody;
 
     background-color: var(--sd-colour-panel-bg--000);
+}
+
+.sd-editor-content__authoring-body-padding {
     padding: 3.2rem 4rem 5.2rem 4rem;
 }
 
@@ -332,7 +335,7 @@
         background-color: transparent;
         cursor: pointer;
     }
-    
+
     ::-webkit-scrollbar-thumb {
         background: var(--sd-colour__webkit-scrollbar-thumb);
     }
