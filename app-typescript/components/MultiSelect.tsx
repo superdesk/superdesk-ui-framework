@@ -18,9 +18,10 @@ interface IProps<T> {
     filter?: boolean;
     showClear?: boolean;
     showSelectAll?: boolean;
+    zIndex?: number;
     itemTemplate?(item: any): JSX.Element | undefined;
     selectedItemTemplate?(value: any): JSX.Element | undefined;
-    onChange(newValue: string): void;
+    onChange(newValue: Array<T>): void;
     invalid?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
@@ -75,8 +76,9 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 panelClassName={classes}
                 value={this.props.value}
                 options={this.props.options}
-                onChange={(e: any) => this.props.onChange(e)}
+                onChange={({value}) => this.props.onChange(value)}
                 display="chip"
+                zIndex={this.props.zIndex}
                 filter={this.props.filter}
                 filterBy={this.props.optionLabel}
                 appendTo={document.body}
