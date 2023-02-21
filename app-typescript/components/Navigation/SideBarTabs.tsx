@@ -12,7 +12,6 @@ export interface ISideBarTab {
     icon: string;
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
-    active?: boolean;
     badgeValue?: string;
     id?: string;
     onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
