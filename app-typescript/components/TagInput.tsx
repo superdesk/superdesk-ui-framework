@@ -42,7 +42,7 @@ export class TagInput extends React.Component<IProps> {
                     className={`tags-input--multi-select sd-input__input ${this.props.disabled ? ' tags-input__padding-disabled' : ''}`}
                     allowDuplicate={false}
                     separator=","
-                    onChange={({value}) => onChange(value)}
+                    onChange={(event) => onChange(event.value)}
                     value={value}
                     placeholder={placeholder}
                     disabled={this.props.disabled}
