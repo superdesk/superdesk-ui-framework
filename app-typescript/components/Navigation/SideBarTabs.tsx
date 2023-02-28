@@ -29,19 +29,21 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
-            active: this.props.active ? this.props.active : '',
+            active: this.props.active != null ? this.props.active : '',
         };
         this.handleClick = this.handleClick.bind(this);
     }
 
     componentDidMount(): void {
-        this.props.items.map((item: any, indexNumber) => {
-            if (item.id === this.state.active) {
-                this.setState({
-                    index: indexNumber,
-                });
-            }
-        });
+        const activeItem = this.props.items.find((item) => item !== 'divider' && item.id === this.state.active);
+
+        if (activeItem != null) {
+            const index = this.props.items.indexOf(activeItem);
+
+            this.setState({
+                index: index,
+            });
+        }
     }
 
     handleClick(item: ISideBarTab, indexNumber: number, event: any) {
