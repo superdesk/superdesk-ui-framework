@@ -43,7 +43,7 @@ export class AuthoringMain extends React.PureComponent<IProps> {
                             {this.props.authoringBookmarks}
                         </AuthorinInnerSideBar>
                     )}
-                    <AuthoringInnerBody withoutPadding={this.props.noPaddingForContent}>
+                    <AuthoringInnerBody noPadding={this.props.noPaddingForContent}>
                         {this.props.children}
                     </AuthoringInnerBody>
                 </AuthoringMainContent>
