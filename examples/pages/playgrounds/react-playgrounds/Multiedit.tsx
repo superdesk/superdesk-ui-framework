@@ -47,7 +47,7 @@ export class Multiedit extends React.Component<IProps, IState> {
             rightPanelPinned: false,
             sideOverlayOpen: false,
             sideBarOpen: false,
-            arr: [<Editor />, <Editor />]
+            arr: [<Editor />, <Editor />],
 
         }
         this.handleTheme = this.handleTheme.bind(this);
@@ -96,13 +96,15 @@ export class Multiedit extends React.Component<IProps, IState> {
 
 interface IEditor {
     sideBarOpen?: boolean;
+    activeTab: string | null;
 }
 
-export class Editor extends React.Component<IEditor, IEditor> {
+export class Editor extends React.Component<{}, IEditor> {
     constructor(props: IEditor) {
         super(props);
         this.state = {
             sideBarOpen: false,
+            activeTab: '1',
 
         }
     }
@@ -308,14 +310,17 @@ export class Editor extends React.Component<IEditor, IEditor> {
             <Nav.SideBarTabs
             items={[
                 { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => false, id: '1' },
-                { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => false },
-                { icon: 'history', size: 'big', tooltip: 'History', onClick: () => false },
-                { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => false },
-                { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => false },
-                { icon: 'comments', size: 'big', tooltip: 'Inline Comments', onClick: () => false },
-                { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => false }
+                { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => false, id: '2' },
+                { icon: 'history', size: 'big', tooltip: 'History', onClick: () => false, id: '3' },
+                { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => false, id: '4' },
+                { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => false, id: '5'},
+                { icon: 'comments', size: 'big', tooltip: 'Inline Comments', onClick: () => false, id: '6' },
+                { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => false, id: '7' }
             ]}
-            active={'1'}
+            activeTab={this.state.activeTab}
+            onActiveTabChange={(e) => this.setState({
+                activeTab: e,
+            })}
             />
         )}
     />
