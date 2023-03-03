@@ -16,7 +16,6 @@ export interface ISideBarTab {
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
     badgeValue?: string;
-    onClick(event: React.MouseEvent<HTMLAnchorElement, MouseEvent>): void;
 }
 
 export class SideBarTabs extends React.PureComponent<IProps> {
@@ -34,12 +33,11 @@ export class SideBarTabs extends React.PureComponent<IProps> {
         }
     }
 
-    handleClick(item: ISideBarTab, event: React.MouseEvent<HTMLAnchorElement, MouseEvent>) {
+    handleClick(item: ISideBarTab) {
         if (this.props.activeTab === item.id) {
             this.props.onActiveTabChange(null);
         } else {
             this.props.onActiveTabChange(item.id);
-            item.onClick(event);
         }
     }
 
@@ -62,7 +60,7 @@ export class SideBarTabs extends React.PureComponent<IProps> {
                                             'sd-sidetab-menu__btn',
                                             {'sd-sidetab-menu__btn--active': item.id === this.props.activeTab},
                                         )}
-                                        onClick={(event) => this.handleClick(item, event)}
+                                        onClick={() => this.handleClick(item)}
                                     >
                                         {item.badgeValue != null && (
                                             <Badge text={item['badgeValue']} type='primary' />
