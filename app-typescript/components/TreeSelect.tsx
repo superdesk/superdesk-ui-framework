@@ -121,7 +121,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.inputRef.current?.focus();
     }
     listNavigation = () => {
-        const element: HTMLElement = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+        const element: HTMLElement = document.querySelector('.suggestion-item--btn') as HTMLElement;
         element.focus();
     }
     buttonFocus = () => {
@@ -212,7 +212,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             if (this.inputRef.current) {
                 this.inputFocus();
             } else {
-                const element: HTMLElement = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+                const element: HTMLElement = document.querySelector('.suggestion-item--btn') as HTMLElement;
                 element.focus();
             }
         } else {
@@ -378,7 +378,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             }
         }
 
-        const element: HTMLElement = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+        const element: HTMLElement = document.querySelector('.suggestion-item--btn') as HTMLElement;
         element.focus();
     }
 
@@ -512,7 +512,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     e.stopPropagation();
                     setTimeout(() => {
                         const element: HTMLElement
-                        = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+                        = document.querySelector('.suggestion-item--btn') as HTMLElement;
                         element.focus();
                     });
                 }
