@@ -33,7 +33,6 @@ import IconFontDoc from './IconFont';
 import BigIconFontDoc from './BigIconFont';
 import SubNavDoc from './SubNav';
 import DropdownDoc from './Dropdowns';
-import TagInputDoc from './TagInputs';
 import ToastsDoc from './Toasts';
 import TagDoc from './Tags';
 import EmptyStateDoc from './EmptyStates';
@@ -56,6 +55,7 @@ import TextDoc from "./Text";
 import ContainerDoc from './Container';
 import DropZoneDoc from './DropZone';
 import CreateButtonDoc from './CreateButton';
+import TagInputDocs from './TagInputDocs'
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
@@ -212,7 +212,7 @@ const pages = {
                 name: 'Autocomplete',
             },
             'tag-input': {
-                name: 'Tag Inputs',
+                name: 'Tag Input',
             },
             'select': {
                 name: 'Select',
@@ -357,7 +357,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
                         <Route path="/react/dropdowns" component={DropdownDoc} />
                         <Route path="/react/toast" component={ToastsDoc} />
-                        <Route path="/react/tag-input" component={TagInputDoc} />
+                        <Route path="/react/tag-input" component={TagInputDocs} />
                         <Route path="/react/empty-states" component={EmptyStateDoc} />
                         <Route path="/react/grid-list" component={GridListDoc} />
                         <Route path="/react/grid-item" component={GridItemDoc} />

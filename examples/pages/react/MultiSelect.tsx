@@ -64,9 +64,10 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                 <MultiSelect
                                     value={this.state.value}
                                     options={ItemArr}
-                                    onChange={(e: any) => this.setState({value: e.value})}
+                                    onChange={(e: any) => this.setState({value: e})}
                                     filter
                                     showSelectAll
+                                    zIndex={2000}
                                     placeholder='Select a color'
                                     optionLabel='name'
                                     required
@@ -105,7 +106,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                 <MultiSelect
                                     value={this.state.value2}
                                     options={ItemArr}
-                                    onChange={(e: any) => this.setState({value2: e.value})}
+                                    onChange={(e: any) => this.setState({value2: e})}
                                     filter
                                     showSelectAll
                                     optionLabel='name'
