@@ -5,7 +5,7 @@ import nextId from "react-id-generator";
 import _debounce from 'lodash/debounce';
 import { InputWrapper } from "./Form";
 import { createPopper, Instance } from '@popperjs/core';
-import {isEqual} from 'lodash';
+import {isEqual, lowerFirst} from 'lodash';
 import {getTextColor} from './Label';
 
 interface IState<T> {
@@ -121,7 +121,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.inputRef.current?.focus();
     }
     listNavigation = () => {
-        this.ref.current?.getElementsByTagName('button')[0].focus();
+        const element: HTMLElement = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+        element.focus();
     }
     buttonFocus = () => {
         this.categoryButtonRef.current?.focus();
@@ -211,7 +212,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             if (this.inputRef.current) {
                 this.inputFocus();
             } else {
-                this.ref.current?.getElementsByTagName('button')[0].focus();
+                const element: HTMLElement = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+                element.focus();
             }
         } else {
             this.openDropdownRef.current?.focus();
@@ -376,7 +378,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             }
         }
 
-        this.ref.current?.getElementsByTagName('button')[0].focus();
+        const element: HTMLElement = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+        element.focus();
     }
 
     backButton(): void {
@@ -505,11 +508,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         setTimeout(() => {
             this.categoryButtonRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
                 if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    e.stopPropagation();
                     setTimeout(() => {
-                        this.ref.current?.getElementsByTagName('button')[0].focus();
+                        const element: HTMLElement
+                        = document.querySelectorAll('.suggestion-item--btn')[0] as HTMLElement;
+                        element.focus();
                     });
                 }
                 if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    e.stopPropagation();
                     this.inputRef.current?.focus();
                 }
             });
@@ -859,8 +868,8 @@ const getButtonList = (menuRef: HTMLUListElement | undefined): Array<HTMLButtonE
 
     if (list != null) {
         [...list].filter((item) => {
-            if (item.getElementsByTagName('button').length > 0) {
-                buttons.push(item.getElementsByTagName('button')[0]);
+            if (item.querySelectorAll('.suggestion-item--btn').length > 0) {
+                buttons.push(item.querySelectorAll('.suggestion-item--btn')[0] as HTMLButtonElement);
             }
         });
     }
@@ -875,14 +884,21 @@ const keyboardNavigation = (e?: KeyboardEvent, menuRef?: HTMLUListElement, ref?:
 
     if (document.activeElement != null && buttons.includes(document.activeElement as HTMLButtonElement)) {
         if (e?.key === 'ArrowDown') {
-            nextElement(buttons, currentIndex);
+            nextElement(buttons, currentIndex, e);
         } else if (e?.key === 'ArrowUp') {
-            prevElement(buttons, currentIndex, ref);
+            prevElement(buttons, currentIndex, e, ref);
         }
     }
 };
 
-const nextElement = (buttons: Array<HTMLButtonElement>, currentIndex: number) => {
+const nextElement = (
+    buttons: Array<HTMLButtonElement>,
+    currentIndex: number,
+    e: KeyboardEvent,
+) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     if (buttons[currentIndex + 1]) {
         buttons[currentIndex + 1].focus();
     } else {
@@ -890,7 +906,15 @@ const nextElement = (buttons: Array<HTMLButtonElement>, currentIndex: number) =>
     }
 };
 
-const prevElement = (buttons: Array<HTMLButtonElement>, currentIndex: number, ref: (() => void) | undefined) => {
+const prevElement = (
+    buttons: Array<HTMLButtonElement>,
+    currentIndex: number,
+    e: KeyboardEvent,
+    ref: (() => void) | undefined,
+) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     if (buttons[currentIndex - 1]) {
         buttons[currentIndex - 1].focus();
     } else if (currentIndex === 0) {
