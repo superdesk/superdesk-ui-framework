@@ -869,7 +869,7 @@ const getButtonList = (menuRef: HTMLUListElement | undefined): Array<HTMLButtonE
     if (list != null) {
         [...list].filter((item) => {
             if (item.querySelectorAll('.suggestion-item--btn').length > 0) {
-                buttons.push(item.querySelectorAll('.suggestion-item--btn')[0] as HTMLButtonElement);
+                buttons.push(item.querySelector('.suggestion-item--btn') as HTMLButtonElement);
             }
         });
     }
