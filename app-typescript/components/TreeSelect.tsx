@@ -5,7 +5,7 @@ import nextId from "react-id-generator";
 import _debounce from 'lodash/debounce';
 import { InputWrapper } from "./Form";
 import { createPopper, Instance } from '@popperjs/core';
-import {isEqual, lowerFirst} from 'lodash';
+import {isEqual} from 'lodash';
 import {getTextColor} from './Label';
 
 interface IState<T> {
