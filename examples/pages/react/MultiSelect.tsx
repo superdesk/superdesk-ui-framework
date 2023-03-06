@@ -69,7 +69,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                     showSelectAll
                                     zIndex={2000}
                                     placeholder='Select a color'
-                                    optionLabel='name'
+                                    optionLabel={(option) => `${option.name} :: ${option.colorCode}`}
                                     required
                                     tabindex={1}
                                     label={'This is Label'}
@@ -106,10 +106,10 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                 <MultiSelect
                                     value={this.state.value2}
                                     options={ItemArr}
+                                    optionLabel={(option) => `${option.name} :: ${option.colorCode}`}
                                     onChange={(e: any) => this.setState({value2: e})}
                                     filter
                                     showSelectAll
-                                    optionLabel='name'
                                     itemTemplate={(option) => {
                                         if (option) {
                                             return (
