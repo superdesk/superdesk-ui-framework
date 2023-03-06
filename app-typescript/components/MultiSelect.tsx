@@ -8,7 +8,6 @@ interface IProps<T> {
     value: Array<T>;
     options: Array<T>;
     placeholder?: string;
-    optionLabel: string;
     emptyFilterMessage?: string;
     filterPlaceholder?: string;
     maxSelectedLabels?: number;
@@ -19,6 +18,7 @@ interface IProps<T> {
     showClear?: boolean;
     showSelectAll?: boolean;
     zIndex?: number;
+    optionLabel: (option: T) => string;
     itemTemplate?(item: any): JSX.Element | undefined;
     selectedItemTemplate?(value: any): JSX.Element | undefined;
     onChange(newValue: Array<T>): void;
@@ -80,10 +80,9 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 display="chip"
                 zIndex={this.props.zIndex}
                 filter={this.props.filter}
-                filterBy={this.props.optionLabel}
                 appendTo={document.body}
                 placeholder={this.props.placeholder}
-                optionLabel={this.props.optionLabel}
+                optionLabel={(option) => this.props.optionLabel(option)}
                 emptyFilterMessage={this.props.emptyFilterMessage}
                 filterPlaceholder={this.props.filterPlaceholder}
                 itemTemplate={this.props.itemTemplate}
