@@ -453,14 +453,17 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                 }
                                 sideBar={(
                                     <Nav.SideBarTabs
+                                    activeTab={this.state.sideOverlayOpen ? '1' : '2'}
+                                    onActiveTabChange={() => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen})}
                                     items={[
-                                        { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'history', size: 'big', tooltip: 'History', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'comments', size: 'big', tooltip: 'Inline Comments', badgeValue: '5', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) }]} />
+                                        { id: '1', icon: 'info', size: 'big', tooltip: 'Info' },
+                                        { id: '2', icon: 'chat', size: 'big', tooltip: 'Comments' },
+                                        { id: '3', icon: 'history', size: 'big', tooltip: 'History' },
+                                        { id: '4', icon: 'package', size: 'big', tooltip: 'Packages' },
+                                        { id: '5', icon: 'attachment', size: 'big', tooltip: 'Attachments' },
+                                        { id: '6', icon: 'comments', size: 'big', tooltip: 'Inline Comments' },
+                                        { id: '7', icon: 'suggestion', size: 'big', tooltip: 'Suggestions' }
+                                    ]} />
                                 )}
                             />
                         </Layout.PanelContent>
