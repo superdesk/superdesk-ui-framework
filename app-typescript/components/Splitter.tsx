@@ -41,7 +41,8 @@ export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Ele
         height: 0,
         width: 0,
     });
-    const [splitterMeasuredDimensions, setSplitterMeasuredDimensions] = React.useState<MeasuredDimensions>({
+
+    const [splitterMeasuredDimensions] = React.useState<MeasuredDimensions>({
         height: 0,
         width: 0,
     });
