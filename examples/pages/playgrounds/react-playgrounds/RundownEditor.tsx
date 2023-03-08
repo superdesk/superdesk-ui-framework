@@ -28,6 +28,7 @@ interface IState {
     sideOverlayOpen: boolean;
     array: any;
     inputValue: string;
+    activeTab: string | null,
 }
 
 export class RundownEditor extends React.Component<IProps, IState> {
@@ -114,7 +115,8 @@ export class RundownEditor extends React.Component<IProps, IState> {
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
                     onClick: () => { this.props.openPanel() }
                 },
-            ]
+            ],
+            activeTab: null,
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
@@ -135,14 +137,14 @@ export class RundownEditor extends React.Component<IProps, IState> {
     render() {
         return (
             <Layout.LayoutContainer>
-                <Layout.HeaderPanel>       
+                <Layout.HeaderPanel>
                     <SubNav>
                         <ButtonGroup align='end'>
                             <Button text="Cancel" onClick={()=> false} type="default" />
                             <Button text="Save Rundown" onClick={()=> false} type="primary" />
                             <Divider size="mini" />
                             <ButtonGroup subgroup={true} spaces="no-space">
-                                
+
                                 <Tooltip text='Minimize' flow='left'>
                                     <NavButton type='default' icon='minimize' iconSize='big' text='Minimize' onClick={()=> false} />
                                 </Tooltip>
@@ -156,7 +158,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                         </ButtonGroup>
                     </SubNav>
                 </Layout.HeaderPanel>
-                
+
                 <Layout.MainPanel padding='none'>
                     <Layout.AuthoringMain
                         headerPadding='medium'
@@ -233,7 +235,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             required={false}
                                             disabled={false}
                                             invalid={false}
-                                            onChange={(value) => {}} /> 
+                                            onChange={(value) => {}} />
                                     </Form.FormItem>
                                     <Form.FormItem>
                                         <Input
@@ -245,7 +247,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             required={false}
                                             disabled={false}
                                             invalid={false}
-                                            onChange={(value) => {}} /> 
+                                            onChange={(value) => {}} />
                                     </Form.FormItem>
                                 </Form.FormGroup>
                                 <Form.FormGroup>
@@ -300,7 +302,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                         )}
                         >
                             <Container direction='column' className='sd-margin-y--2'>
-                                <Input 
+                                <Input
                                     label='Rundown title'
                                     value={'Marker // 01.06.2022'}
                                     boxedStyle={true}
@@ -428,7 +430,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} /> 
+                                                        onChange={(value) => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup inlineLabel={false}>
@@ -442,7 +444,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} /> 
+                                                        onChange={(value) => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                         </React.Fragment>
@@ -453,18 +455,26 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                 }
                                 sideBar={(
                                     <Nav.SideBarTabs
-                                    items={[
-                                        { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'history', size: 'big', tooltip: 'History', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'comments', size: 'big', tooltip: 'Inline Comments', badgeValue: '5', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                                        { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) }]} />
+                                        items={[
+                                            { icon: 'info', size: 'big', tooltip: 'Info', id: '1' },
+                                            { icon: 'chat', size: 'big', tooltip: 'Comments', id: '2' },
+                                            { icon: 'history', size: 'big', tooltip: 'History', id: '3' },
+                                            { icon: 'package', size: 'big', tooltip: 'Packages', id: '4' },
+                                            { icon: 'attachment', size: 'big', tooltip: 'Attachments', id: '5' },
+                                            { icon: 'comments', size: 'big', tooltip: 'Inline Comments', badgeValue: '5', id: '6' },
+                                            { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', id: '7' }
+                                        ]}
+                                        activeTab={this.state.activeTab}
+                                        onActiveTabChange={(id) => {
+                                            this.setState({
+                                                activeTab: id,
+                                        })
+                                        }}
+                                    />
                                 )}
                             />
                         </Layout.PanelContent>
-                    </Layout.Panel>         
+                    </Layout.Panel>
                 </Layout.RightPanel>
             </Layout.LayoutContainer>
         );

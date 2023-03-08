@@ -308,19 +308,21 @@ export class Editor extends React.Component<{}, IEditor> {
         sideBarClosed={this.state.sideBarOpen}
         sideBar={(
             <Nav.SideBarTabs
-            items={[
-                { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => false, id: '1' },
-                { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => false, id: '2' },
-                { icon: 'history', size: 'big', tooltip: 'History', onClick: () => false, id: '3' },
-                { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => false, id: '4' },
-                { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => false, id: '5'},
-                { icon: 'comments', size: 'big', tooltip: 'Inline Comments', onClick: () => false, id: '6' },
-                { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => false, id: '7' }
-            ]}
-            activeTab={this.state.activeTab}
-            onActiveTabChange={(e) => this.setState({
-                activeTab: e,
-            })}
+                items={[
+                    { icon: 'info', size: 'big', tooltip: 'Info', id: '1' },
+                    { icon: 'chat', size: 'big', tooltip: 'Comments', id: '2' },
+                    { icon: 'history', size: 'big', tooltip: 'History', id: '3' },
+                    { icon: 'package', size: 'big', tooltip: 'Packages', id: '4' },
+                    { icon: 'attachment', size: 'big', tooltip: 'Attachments', id: '5'},
+                    { icon: 'comments', size: 'big', tooltip: 'Inline Comments', id: '6' },
+                    { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', id: '7' }
+                ]}
+                activeTab={this.state.activeTab}
+                onActiveTabChange={(val) => {
+                    this.setState({
+                        activeTab: val,
+                    })
+                }}
             />
         )}
     />
