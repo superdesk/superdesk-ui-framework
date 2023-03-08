@@ -11,7 +11,7 @@ export class ContentSplitter extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-content-wrapper__content-splitter', {
             [`sd-content-wrapper__content-splitter--${this.props.background}`]:
-            this.props.background !== 'light' && this.props.background !== undefined,
+                this.props.background !== 'light' && this.props.background !== undefined,
             'content-splitter--visible': this.props.visible,
         });
         return (

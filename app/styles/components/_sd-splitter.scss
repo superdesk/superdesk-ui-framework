@@ -1,0 +1,84 @@
+.sd-splitter {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    outline: none;
+    overflow: hidden;
+
+    --react-split-min-primary: 20%;
+    --react-split-min-secondary: 20%;
+    --react-split-primary: 50%;
+    --react-split-splitter: 3px;
+
+    &>.sd-splitter__container {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        outline: none;
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: minmax(var(--react-split-min-primary), var(--react-split-primary)) var(--react-split-splitter) minmax(var(--react-split-min-secondary), 1fr);
+        grid-template-rows: 1fr;
+        grid-template-areas: "primary split secondary";
+
+        &>.primary {
+            grid-area: primary;
+            box-sizing: border-box;
+            outline: none;
+            overflow: hidden;
+
+            height: 100%;
+            width: auto;
+        }
+
+        &>.splitter {
+            grid-area: split;
+            background: transparent;
+            user-select: none;
+            box-sizing: border-box;
+            outline: none;
+            overflow: hidden;
+            height: 100%;
+            width: auto;
+            cursor: col-resize;
+
+            .default-splitter {
+                box-sizing: border-box;
+                height: 100%;
+                outline: none;
+                overflow: hidden;
+                user-select: none;
+                width: 100%;
+                --default-splitter-line-color: hsl(214, 13%, 40%);
+                --default-splitter-line-hover-color: hsl(214, 13%, 40%);
+                --default-splitter-line-size: 3px;
+                cursor: col-resize;
+
+                &>.line {
+                    background: var(--default-splitter-line-color);
+                    height: 100%;
+                    width: var(--default-splitter-line-size);
+                    margin-top: 0;
+                    margin-left: var(--default-splitter-line-margin);
+                }
+            }
+        }
+
+        &>.secondary {
+            grid-area: secondary;
+            box-sizing: border-box;
+            outline: none;
+            overflow: hidden;
+            height: 100%;
+            width: auto;
+        }
+    }
+
+    .sd-splitter__container--content {
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        outline: none;
+        overflow: hidden;
+    }
+}

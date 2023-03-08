@@ -8,4 +8,5 @@ export { Multiedit } from './Multiedit';
 export { RundownEditor } from './RundownEditor';
 export { PersonalProfile } from './PersonalProfile';
 export { Rundowns } from './Rundowns';
+export { RundownSplitter } from './RundownSplitter';
 export { CoreLayout } from './CoreLayout';

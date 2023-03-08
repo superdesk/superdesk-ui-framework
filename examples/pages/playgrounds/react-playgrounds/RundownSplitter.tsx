@@ -35,7 +35,7 @@ interface IState {
     array: any;
 }
 
-export class Rundowns extends React.Component<IProps, IState> {
+export class RundownSplitter extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
@@ -56,7 +56,7 @@ export class Rundowns extends React.Component<IProps, IState> {
             modalNewShowSuccess: false,
             modalManageTemplate: false,
             modalManageShow: false,
-            openEditor: false,
+            openEditor: true,
             openShowEditor: false,
             array: [
                 {
@@ -167,6 +167,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                             { icon: 'picture', size: 'big' },
                             { icon: 'rundown', size: 'big', }]} />
 
+                    <Splitter>
                         <Layout.LayoutContainer>
                             <Layout.HeaderPanel>
                                 <SubNav zIndex={2}>
@@ -541,13 +542,14 @@ export class Rundowns extends React.Component<IProps, IState> {
                             {/* OVERLAY PANEL (Send To) */}
                         </Layout.LayoutContainer>
 
-                        <Layout.ContentSplitter visible={this.state.openEditor} />
+                        {/* <Layout.ContentSplitter visible={this.state.openEditor} /> */}
 
                         {/* RUNDOWN EDITOR */}
                         <Layout.AuthoringContainer open={this.state.openEditor}>
                             <RundownEditor openPanel={() => { }} closePanel={() => { }} />
                         </Layout.AuthoringContainer>
                         {/* END RUNDOWN EDITOR */}
+                    </Splitter>
 
                 </Layout.Layout >
 

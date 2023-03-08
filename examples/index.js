@@ -250,7 +250,7 @@ export default angular.module('ui-docs', [
                 },
             },
         }
-        
+
     }))
 
     .factory('playgrounds', () => ({
@@ -414,6 +414,10 @@ export default angular.module('ui-docs', [
             'rundowns': {
                 name: 'Rundowns',
                 component: 'Rundowns'
+            },
+            'rundown-splitter': {
+                name: 'Rundown Spliiter',
+                component: 'RundownSplitter'
             },
             'core-layout': {
                 name: 'Core Layout',
