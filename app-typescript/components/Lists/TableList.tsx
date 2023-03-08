@@ -331,7 +331,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                             <div className='table-list__item-content-block'>
                                 {this.props.start && this.props.start}
                             </div>
-                            <div className='table-list__item-content-block table-list__item-content-block--center table-list__item-content-block--title'>
+                            <div className='table-list__item-content-block table-list__item-content-block--center'>
                                 {this.props.center && this.props.center}
                             </div>
                             <div className='table-list__item-content-block'>
