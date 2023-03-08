@@ -49,7 +49,6 @@ export class RundownEditor extends React.Component<IProps, IState> {
             rightPanelPinned: false,
             sideOverlayOpen: false,
             inputValue: 'string',
-            activeTab: '1',
             array: [
                 {
                     start: <>
@@ -457,22 +456,6 @@ export class RundownEditor extends React.Component<IProps, IState> {
 
                                 sideBar={(
                                     <Nav.SideBarTabs
-                                    items={[
-                                        { icon: 'info', size: 'big', tooltip: 'Info', id: '1' },
-                                        { icon: 'chat', size: 'big', tooltip: 'Comments', id: '2' },
-                                        { icon: 'history', size: 'big', tooltip: 'History', id: '3' },
-                                        { icon: 'package', size: 'big', tooltip: 'Packages', id: '4' },
-                                        { icon: 'attachment', size: 'big', tooltip: 'Attachments', id: '5' },
-                                        { icon: 'comments', size: 'big', tooltip: 'Inline Comments', badgeValue: '5', id: '6' },
-                                        { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', id: '7' }
-                                    ]}
-                                    activeTab={this.state.activeTab}
-                                    onActiveTabChange={(id) => {
-                                        this.setState({
-                                            activeTab: id,
-                                    })
-                                    }}
-                                    />
                                         items={[
                                             { icon: 'info', size: 'big', tooltip: 'Info', id: '1' },
                                             { icon: 'chat', size: 'big', tooltip: 'Comments', id: '2' },
@@ -486,7 +469,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                         onActiveTabChange={(id) => {
                                             this.setState({
                                                 activeTab: id,
-                                        })
+                                            })
                                         }}
                                     />
                                 )}
