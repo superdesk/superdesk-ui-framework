@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {setupSingleAndDoubleClick} from './TableList';
+import {setupSingleAndDoubleClick} from './../SingleAndDoubleClickFunction';
 
 interface IPropsItem {
     action?: React.ReactNode;

@@ -1,10 +1,11 @@
 import * as React from 'react';
+import ReactDOM from 'react-dom';
 import classNames from 'classnames';
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 import { Tooltip } from '../Tooltip';
 import { Button } from '../Button';
 import { Dropdown, IMenuItem, ISubmenu, IMenuGroup } from '../Dropdown';
-import ReactDOM from 'react-dom';
+import {setupSingleAndDoubleClick} from './../SingleAndDoubleClickFunction';
 
 export interface IProps {
     array: Array<IPropsArrayItem>;
@@ -33,7 +34,6 @@ export interface IPropsArrayItem {
 
 interface IState {
     items: Array<IPropsArrayItem>;
-    cursor: string;
 }
 
 const reorder = (list: Array<IPropsArrayItem>, startIndex: number, endIndex: number) => {
@@ -49,7 +49,6 @@ class TableList extends React.PureComponent<IProps, IState> {
         super(props);
         this.state = {
             items: [],
-            cursor: '',
         };
 
         this.onDragEnd = this.onDragEnd.bind(this);
@@ -294,13 +293,19 @@ class TableListItem extends React.PureComponent<IPropsItem> {
             'table-list__item--position-locked': this.props.positionLocked,
             'table-list__item--drag-handles-always': !this.props.showDragHandle,
             'table-list__item--drag-handles-none': this.props.showDragHandle === 'none',
+            'table-list__item--margin': !this.props.addItem,
         });
 
+        const Wrapper: React.ComponentType<{children: JSX.Element}> = this.props.addItem
+            ? ({children}) => (<div className='table-list__item-container'>{children}</div>)
+            : ({children}) => children;
+
         return (
-            this.props.addItem
-                ? <div className='table-list__item-container'>
+            <Wrapper>
+                <>
                     <div
                         role='listitem'
+                        className={classes}
                         onClick={(e) => this.multiClickHandler(e, {
                             onSingleClick: () => {
                                 let selection = window.getSelection();
@@ -320,7 +325,6 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                                 }
                             },
                         })}
-                        className={classes}
                     >
                         <div className='table-list__item-border' style={{ backgroundColor: this.props.hexColor }}></div>
                         <div className='table-list__item-content'>
@@ -333,7 +337,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                             <div className='table-list__item-content-block'>
                                 {this.props.end && this.props.end}
                             </div>
-                        </div>
+                            </div>
                         {
                             this.props.action
                                 && <div className='table-list__slide-in-actions'
@@ -342,69 +346,30 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                                 </div>
                         }
                     </div>
-                    <div className='table-list__add-bar-container'>
-                        <Tooltip text='Add item' flow='top' appendToBody={true}>
-                            <div className='table-list__add-bar'>
-                                <Dropdown
-                                    onChange={this.props.onAddItem}
-                                    items={this.props.itemsDropdown ? this.props.itemsDropdown() : []}>
-                                    <Button
-                                        type="primary"
-                                        icon="plus-large"
-                                        text="Add item"
-                                        size="small"
-                                        shape="round"
-                                        iconOnly={true}
-                                        onClick={() => false}
-                                    />
-                                </Dropdown>
-                            </div>
-                        </Tooltip>
-                    </div>
-                </div>
-                : <div
-                    role='listitem'
-                    className={`${classes} table-list__item--margin`}
-                    onClick={(e) => this.multiClickHandler(e, {
-                        onSingleClick: () => {
-                            let selection = window.getSelection();
-                            if (this.props.onClick && selection) {
-                                if (this.props.dragAndDrop) {
-                                    this.props.onClick();
-                                } else {
-                                    if (selection.toString().length < 1) {
-                                        this.props.onClick();
-                                    }
-                                }
-                            }
-                        },
-                        onDoubleClick: () => {
-                            if (this.props.onDoubleClick) {
-                                this.props.onDoubleClick();
-                            }
-                        },
-                    })}
-                >
-                    <div className='table-list__item-border' style={{ backgroundColor: this.props.hexColor }}></div>
-                    <div className='table-list__item-content'>
-                        <div className='table-list__item-content-block'>
-                            {this.props.start && this.props.start}
-                        </div>
-                        <div className='table-list__item-content-block table-list__item-content-block--center'>
-                            {this.props.center && this.props.center}
-                        </div>
-                        <div className='table-list__item-content-block'>
-                            {this.props.end && this.props.end}
-                        </div>
-                    </div>
                     {
-                        this.props.action
-                            && <div className='table-list__slide-in-actions'
-                                onClick={this.onActionMenuClick}>
-                                {this.props.action}
+                        this.props.addItem
+                            && <div className='table-list__add-bar-container'>
+                                <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                    <div className='table-list__add-bar'>
+                                        <Dropdown
+                                            onChange={this.props.onAddItem}
+                                            items={this.props.itemsDropdown ? this.props.itemsDropdown() : []}>
+                                            <Button
+                                                type="primary"
+                                                icon="plus-large"
+                                                text="Add item"
+                                                size="small"
+                                                shape="round"
+                                                iconOnly={true}
+                                                onClick={() => false}
+                                            />
+                                        </Dropdown>
+                                    </div>
+                                </Tooltip>
                             </div>
                     }
-                </div>
+                </>
+            </Wrapper>
         );
     }
 }
@@ -456,28 +421,6 @@ class PortalItem extends React.PureComponent {
         // if dragging - put the item in a portal
         return ReactDOM.createPortal(child, document.body);
     }
-}
-
-export interface ICallbacks {
-    onSingleClick: (event: React.MouseEvent) => void;
-    onDoubleClick: (event: React.MouseEvent) => void;
-}
-
-export function setupSingleAndDoubleClick(): (event: React.MouseEvent, cb: ICallbacks) => void {
-    let timer: number | undefined;
-    let delay: number;
-
-    return (event, cb: ICallbacks) => {
-        clearTimeout(timer);
-
-        if (event.nativeEvent.detail === 1) {
-            timer = window.setTimeout(() => {
-                cb.onSingleClick(event);
-            }, delay);
-        } else if (event.nativeEvent.detail === 2) {
-            cb.onDoubleClick(event);
-        }
-    };
 }
 
 export {
