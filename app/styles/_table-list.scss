@@ -188,6 +188,11 @@ $table-list-palette: $sd-basic-palette;
         }
     }
 }
+.table-list__item-content-block--title {
+    * {
+        cursor: text;
+    }
+}
 
 
 .table-list__slide-in-actions,
@@ -234,7 +239,7 @@ $table-list-palette: $sd-basic-palette;
         .table-list__item-content {
             justify-content: center;
         }
-        
+
     }
 }
 

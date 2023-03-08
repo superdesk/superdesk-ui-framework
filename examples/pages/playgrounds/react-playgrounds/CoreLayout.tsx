@@ -149,14 +149,14 @@ export class CoreLayout extends React.Component<IProps, IState> {
             notificationsOpen: !state.notificationsOpen,
         }));
     }
-    
+
     handleDelete(indexNumber: number) {
         const newItems = clone(this.state.botNavArray);
         newItems.splice(indexNumber, 1);
 
         this.setState({
             botNavArray: newItems,
-        });  
+        });
     }
 
     handleFilter() {
@@ -211,18 +211,18 @@ export class CoreLayout extends React.Component<IProps, IState> {
                 footer={(
                     <p>Menu footer testing</p>
                 )}>
-                    <LeftMenu 
+                    <LeftMenu
                     style='blanc'
                     reverseItemBorder={true}
                     size='large'
-                    ariaLabel={'Left navigation'}   
+                    ariaLabel={'Left navigation'}
                     activeItemId='1'
                     groups={[
                         { label: 'MAIN SECTIONS', items: [
                             { id: '1', label: 'Section 1', ref:'section1'},
                             { id: '2', label: 'Section 2', ref: 'section2' },
                             { id: '3', label: 'Section 3', ref: 'section3' },
-                        
+
                         ]},
                         { label:'OTHER SECTIONS', items: [
                             { id: '4', label: 'Section 4', ref: 'section4' },
@@ -508,7 +508,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                                             <span className='sd-list-item__text-label'>Template:</span>
                                                             <span>Marker Daily</span>
                                                         </span>
-                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>
                                                     <Label style='translucent' text='In Progress' type='warning' />
                                                 </>
                                             },
@@ -525,13 +525,13 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                     {
                                         itemRow: [{content:<>
                                                     <i className="icon-rundown"></i>
-                                                </>}], 
+                                                </>}],
                                         border: true
                                     },
                                     {
                                         itemRow: [
                                             {
-                                                content: 
+                                                content:
                                                 <>
                                                     <span className="sd-list-item__slugline">19:00 – 19:45</span>
                                                     <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
@@ -540,14 +540,14 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                                 </>
                                             },
                                             {
-                                                content: 
+                                                content:
                                                 <>
                                                     <Label text='Tabu' color='blue--800'/>
                                                         <span className='sd-list-item__compound-text'>
                                                             <span className='sd-list-item__text-label'>Template:</span>
                                                             <span>Tabu Daily</span>
                                                         </span>
-                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
+                                                        <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>
                                                     <Label style='translucent' text='Draft' />
                                                 </>
                                             },
@@ -597,7 +597,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                             <Text size='small' style='italic' weight='medium'>Tabu daily</Text>
                                         </Layout.Container>
                                     </Layout.Container>
-                                
+
                                     <Layout.Container direction='column' className='sd-margin-y--2'>
                                         {/* <FormLabel text='Title' /> */}
                                         <Heading type='h2'>Tabu // 01.06.2022</Heading>
@@ -616,7 +616,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                             { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
                                             { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
                                         ]}
-                                    />   
+                                    />
                                 </Layout.PanelContentBlock>
                             </Layout.PanelContent>
                         </Layout.Panel>
@@ -631,14 +631,15 @@ export class CoreLayout extends React.Component<IProps, IState> {
 
                 {/* RUNDOWN EDITOR */}
                 <Layout.AuthoringContainer open={this.state.openEditor}>
-                    <RundownEditor rightPanel={this.state.rightPanel}
+                    <RundownEditor
+                    rightPanel={this.state.rightPanel}
                     openPanel={() => {
                         if (this.state.fullEditor) {
                             this.setState({previousState: true})
                         } else {
                             this.setState({previousState: false})
                         }
-                        
+
                         this.setState({rightPanel: true})
                     }}
                     closePanel={() => {
@@ -651,7 +652,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                     />
                 </Layout.AuthoringContainer>
                 {/* END RUNDOWN EDITOR */}
-     
+
             </Layout.CoreLayout>
         );
     }

@@ -1,10 +1,15 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import {setupSingleAndDoubleClick} from './TableList';
 
 interface IPropsItem {
     action?: React.ReactNode;
     locked?: boolean;
-    itemColum: Array<{ itemRow: Array<{ content: any }>, border?: boolean, fullwidth?: boolean }>;
+    itemColum: Array<{
+        itemRow: Array<{ content: any }>,
+        border?: boolean,
+        fullwidth?: boolean,
+    }>;
     activated?: boolean;
     selected?: boolean;
     archived?: boolean;
@@ -14,31 +19,12 @@ interface IPropsItem {
 }
 
 class ContentListItem extends React.PureComponent<IPropsItem> {
+    private multiClickHandler;
 
-    private timer: any;
-    private delay = 200;
-    private prevent = false;
+    constructor(props: IPropsItem) {
+        super(props);
 
-    onSingleClick = () => {
-        let selection = window.getSelection();
-        this.timer = setTimeout(() => {
-            if (!this.prevent && this.props.onClick && selection) {
-                if (selection.toString().length < 1) {
-                    this.props.onClick();
-                }
-            }
-        }, this.delay);
-    }
-
-    onDoubleClick = () => {
-        clearTimeout(this.timer);
-        this.prevent = true;
-        if (this.props.onDoubleClick) {
-            this.props.onDoubleClick();
-        }
-        setTimeout(() => {
-            this.prevent = false;
-        }, this.delay);
+        this.multiClickHandler = setupSingleAndDoubleClick();
     }
 
     onActionMenuClick = (event: React.MouseEvent<HTMLElement>) => {
@@ -58,11 +44,26 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
             <div
                 role='listitem'
                 className={classes}
-                onClick={this.onSingleClick}
-                onDoubleClick={this.onDoubleClick}>
+                onClick={(e) => this.multiClickHandler(e, {
+                    onSingleClick: () => {
+                        let selection = window.getSelection();
+                        if (this.props.onClick && selection) {
+                            if (selection.toString().length < 1) {
+                                this.props.onClick();
+                            }
+                        }
+                    },
+                    onDoubleClick: () => {
+                        if (this.props.onDoubleClick) {
+                            this.props.onDoubleClick();
+                        }
+                    },
+                })}
+            >
                 {this.props.locked
                     ? <div className="sd-list-item__border sd-list-item__border--locked"></div>
-                    : <div className="sd-list-item__border"></div>}
+                    : <div className="sd-list-item__border"></div>
+                }
                 {this.props.itemColum.map((item, index) => {
                     return <div
                         className={`sd-list-item__column ${item.fullwidth && 'sd-list-item__column--grow'} ${!item.border && 'sd-list-item__column--no-border'}`}
