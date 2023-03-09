@@ -186,7 +186,7 @@
                 -webkit-appearance: none;
             }
             ::-webkit-color-swatch-wrapper {
-                padding: 0;	
+                padding: 0;
             }
         }
     }
@@ -411,7 +411,7 @@
         .sd-line-input__label {
             line-height: 140%;
         }
-    } 
+    }
 
     &.sd-line-input--required {
         .sd-line-input__label::after {
@@ -876,7 +876,7 @@
                 box-shadow: none;
             }
             input {
-                &.duration-input, &.duration-input:hover, &.duration-input:focus {  
+                &.duration-input, &.duration-input:hover, &.duration-input:focus {
                     opacity: 0.5;
                     //background-color: var(--color-input-bg);
                     //border-bottom: 1px dotted var(--color-input-border);
@@ -970,12 +970,12 @@
                 background-color: transparent;
             }
         }
-    
+
         &.sd-input--disabled {
             input,
             textarea {
-                &.sd-input__input, 
-                &.sd-input__input:hover, 
+                &.sd-input__input,
+                &.sd-input__input:hover,
                 &.sd-input__input:focus {
                     opacity: 0.5;
                     background-color: transparent;
@@ -1012,7 +1012,7 @@
                 pointer-events: none;
             }
         }
-    
+
         &.sd-input--invalid {
             input, textarea {
                 &.sd-input__input {
@@ -1064,7 +1064,7 @@
             }
         }
     }
-    
+
 }
 
 /////////////////  -------------------- Duration & Time-Date input ---------------------  /////////////////

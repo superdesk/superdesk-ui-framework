@@ -10,6 +10,10 @@ interface IState {
     modalXLarge: boolean;
     modalFull: boolean;
     maximizableModal: boolean;
+    top: boolean;
+    bottom: boolean;
+    left: boolean;
+    right: boolean;
 }
 
 export default class ModalDoc extends React.Component<{}, IState> {
@@ -23,7 +27,11 @@ export default class ModalDoc extends React.Component<{}, IState> {
             modalLarge: false,
             modalXLarge: false,
             modalFull: false,
-            maximizableModal: false
+            maximizableModal: false,
+            top: false,
+            bottom: false,
+            left: false,
+            right: false,
         }
     }
 
@@ -264,12 +272,91 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+                <h3 className="docs-page__h3">Optional positioning of modal</h3>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <ButtonGroup align="end">
+                            <Button text="top" onClick={() => this.setState({top: true})} />
+                            <Button text="bottom" onClick={() => this.setState({bottom: true})} />
+                            <Button text="left" onClick={() => this.setState({left: true})} />
+                            <Button text="right" onClick={() => this.setState({right: true})} />
+                        </ButtonGroup>
+
+                        <Modal headerTemplate="Modal with position top"
+                            position="top"
+                            zIndex={10000}
+                            visible={this.state.top}
+                            onHide={() => {this.setState({top: false})}}>
+                            <p>This modal has position top.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Modal with position bottom"
+                            position="bottom"
+                            zIndex={10000}
+                            visible={this.state.bottom}
+                            onHide={() => {this.setState({bottom: false})}}>
+                            <p>This modal has position bottom.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Modal with position left"
+                            position="left"
+                            zIndex={10000}
+                            visible={this.state.left}
+                            onHide={() => {this.setState({left: false})}}>
+                            <p>This modal has position left.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Modal with position right"
+                            position="right"
+                            zIndex={10000}
+                            visible={this.state.right}
+                            onHide={() => {this.setState({right: false})}}>
+                            <p>This modal has position right.</p>
+                        </Modal>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Modal headerTemplate="Modal with position top"
+                            position="top"
+                            zIndex={10000}
+                            visible={this.state.top}
+                            onHide={() => {this.setState({top: false})}}>
+                            <p>This modal has position top.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Modal with position bottom"
+                            position="bottom"
+                            zIndex={10000}
+                            visible={this.state.bottom}
+                            onHide={() => {this.setState({bottom: false})}}>
+                            <p>This modal has position bottom.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Modal with position left"
+                            position="left"
+                            zIndex={10000}
+                            visible={this.state.left}
+                            onHide={() => {this.setState({left: false})}}>
+                            <p>This modal has position left.</p>
+                        </Modal>
+
+                        <Modal headerTemplate="Modal with position right"
+                            position="right"
+                            zIndex={10000}
+                            visible={this.state.right}
+                            onHide={() => {this.setState({right: false})}}>
+                            <p>This modal has position right.</p>
+                        </Modal>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop name='id' isRequired={false} type='string' default='null' description='Unique identifier of the element' />
                     <Prop name='className' isRequired={false} type='string' default='null' description='To add class to the content of component' />
                     <Prop name='theme' isRequired={false} type='light | dark' default='light' description='Item style' />
                     <Prop name='size' isRequired={false} type='small | medium | large | x-large' default='/' description='Size of the modal. If not defined it will adapt to the width of the content.' />
+                    <Prop name='position' isRequired={false} type="center | top | bottom | left | right | top-left | top-right | bottom-left | bottom-right" default='center' description='Position of the dialog.' />
                     <Prop name='visible' isRequired={true} type='boolean' default='false' description='Specifies the visibility of the dialog' />
                     <Prop name='zIndex' isRequired={true} type='number' default='false' description='zIndex of modal' />
                     <Prop name='contentPadding' isRequired={true} type="'none' | 'small' | 'medium' | 'large'" default='false' description='Padding of content' />

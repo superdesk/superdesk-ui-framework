@@ -1,49 +1,44 @@
 import * as React from 'react';
 import { Icon } from '../Icon';
 import { Badge } from '../Badge';
+import classNames from 'classnames';
 
 interface IProps {
+    activeTab: string | null;
+    onActiveTabChange(val: string | null): void;
     items: Array<ISideBarTab | 'divider'>;
     side?: 'none' | 'left' | 'right';
 }
 
 export interface ISideBarTab {
+    id: string;
     icon: string;
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
-    active?: boolean;
     badgeValue?: string;
-    onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
 }
 
-interface IState {
-    index: number;
-    closeIndex: number;
-}
-
-export class SideBarTabs extends React.PureComponent<IProps, IState> {
+export class SideBarTabs extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
-        this.state = {
-            index: -1,
-            closeIndex: -1,
-        };
+
         this.handleClick = this.handleClick.bind(this);
     }
 
-    handleClick(item: ISideBarTab, indexNumber: number, event: any) {
-        this.setState({
-            index: indexNumber,
-        });
-        if (this.state.index === indexNumber) {
-            this.setState({
-                closeIndex: indexNumber,
-                index: -1,
-            });
-        }
+    componentDidMount(): void {
+        const activeItem = this.props.items.find((item) => item !== 'divider' && item.id === this.props.activeTab);
 
-        item.active = !item.active;
-        item.onClick(event);
+        if (activeItem != null && activeItem !== 'divider') {
+            this.props.onActiveTabChange(activeItem.id);
+        }
+    }
+
+    handleClick(item: ISideBarTab) {
+        if (this.props.activeTab === item.id) {
+            this.props.onActiveTabChange(null);
+        } else {
+            this.props.onActiveTabChange(item.id);
+        }
     }
 
     render() {
@@ -57,23 +52,24 @@ export class SideBarTabs extends React.PureComponent<IProps, IState> {
                             );
                         } else {
                             return (
-                                <li key={index} data-sd-tooltip={item['tooltip']} data-flow='left'>
-                                    <a role='button' aria-label={item['tooltip']}
-                                        className={'sd-sidetab-menu__btn' + (item['active'] ?
-                                            ' sd-sidetab-menu__btn--active' :
-                                            (index === this.state.index ? ' sd-sidetab-menu__btn--active' : ''))}
-                                        onClick={() => this.handleClick(item, index, event)}>
-                                        {
-                                        item['badgeValue'] != null
-                                        ? (
-                                        <Badge text={item['badgeValue']} type='primary' />
-                                        )
-                                        : null
-                                        }
+                                <li key={index} data-sd-tooltip={item.tooltip} data-flow='left'>
+                                    <a
+                                        role='button'
+                                        aria-label={item.tooltip}
+                                        className={classNames(
+                                            'sd-sidetab-menu__btn',
+                                            {'sd-sidetab-menu__btn--active': item.id === this.props.activeTab},
+                                        )}
+                                        onClick={() => this.handleClick(item)}
+                                    >
+                                        {item.badgeValue != null && (
+                                            <Badge text={item['badgeValue']} type='primary' />
+                                        )}
 
                                         <span className='sd-sidetab-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>
+
                                         <i className='sd-sidetab-menu__helper-icon icon-close-small'></i>
                                     </a>
                                 </li>
