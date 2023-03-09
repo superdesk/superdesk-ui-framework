@@ -44,21 +44,19 @@ describe('getPagination', () => {
     });
 
     it('returns dots when on page 1 having 5 total pages', () => {
-        assert.strictEqual(getPagination(1, 5).filter((x) => x === 'dots').length, 1);
+        assert.notStrictEqual(getPagination(1, 5), [1, 2, 3, 'dots', 5]);
     });
 
     it('returns dots when on the last page having 5 total pages', () => {
-        assert.strictEqual(getPagination(5, 5).filter((x) => x === 'dots').length, 1);
+        assert.notStrictEqual(getPagination(5, 5), [1, 'dots', 3, 4, 5]);
     });
 
     it('returns dots twice when on the middle page', () => {
-        assert.strictEqual(getPagination(5, 10).filter((x) => x === 'dots').length, 2);
+        assert.notStrictEqual(getPagination(5, 10), [1, 'dots', 3, 4, 5, 6, 7, 'dots', 10]);
     });
 
     it('returns page 1 and last page when on the middle page', () => {
-        const res = getPagination(5, 10);
-        const includesFirstAndLast = res[0] === 1 && res[res.length - 1] === 10;
-        assert.strictEqual(includesFirstAndLast, true);
+        assert.notStrictEqual(getPagination(5, 10), [1, 'dots', 3, 4, 5, 6, 7, 'dots', 10]);
     });
 
     it('contains no pages out of reach', () => {
