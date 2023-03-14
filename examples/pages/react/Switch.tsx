@@ -50,16 +50,16 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Label on the right (default)</p>
                         <div className="form__row">
-                            <Switch label={{text:'Switch label right'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                            <Switch label={{content:'Switch label right'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Labels on the left</p>
                         <p className="docs-page__paragraph--small">This option should be used only in cases when the switch is aligned to the right.</p>
                         <div className="form__row">
-                            <Switch label={{text:'Label on left', side: 'left'}} value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
+                            <Switch label={{content:'Label on left', side: 'left'}} value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Disabled</p>
                         <div className="form__row">
-                            <Switch label={{text:'Label on right with disabled state'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} disabled={true} />
+                            <Switch label={{content:'Label on right with disabled state'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} disabled={true} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -85,9 +85,9 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                         <p className="docs-page__paragraph">// Vertical group (default)</p>
                         <div className='form__row'>
                             <SwitchGroup>
-                                <Switch label={{text:'Vertical Switch 1'}} value={this.state.value6} onChange={(value) => this.setState(() => ({ value6: value }))} />
-                                <Switch label={{text:'Vertical Switch 2'}} value={this.state.value7} onChange={(value) => this.setState(() => ({ value7: value }))} />
-                                <Switch label={{text:'Vertical Switch 3'}} value={this.state.value8} onChange={(value) => this.setState(() => ({ value8: value }))} />
+                                <Switch label={{content:'Vertical Switch 1'}} value={this.state.value6} onChange={(value) => this.setState(() => ({ value6: value }))} />
+                                <Switch label={{content:'Vertical Switch 2'}} value={this.state.value7} onChange={(value) => this.setState(() => ({ value7: value }))} />
+                                <Switch label={{content:'Vertical Switch 3'}} value={this.state.value8} onChange={(value) => this.setState(() => ({ value8: value }))} />
                             </SwitchGroup>
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Vertical group with labels on the left</p>
@@ -95,17 +95,17 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                         (e.g. menus, narrow modals or dialouges etc.). It should be used only in the combination with the labels on th eleft.</p>
                         <div className='form__row docs-page__test-helper-2' style={{width: '320px'}}>
                             <SwitchGroup align='right'>
-                                <Switch label={{text:'Vertical Switch 1', side: 'left'}} value={this.state.value9} onChange={(value) => this.setState(() => ({ value9: value }))} />
-                                <Switch label={{text:'Vertical Switch 2', side: 'left'}} value={this.state.value10} onChange={(value) => this.setState(() => ({ value10: value }))} />
-                                <Switch label={{text:'Vertical Switch 3', side: 'left'}} value={this.state.value11} onChange={(value) => this.setState(() => ({ value11: value }))} />
+                                <Switch label={{content:'Vertical Switch 1', side: 'left'}} value={this.state.value9} onChange={(value) => this.setState(() => ({ value9: value }))} />
+                                <Switch label={{content:'Vertical Switch 2', side: 'left'}} value={this.state.value10} onChange={(value) => this.setState(() => ({ value10: value }))} />
+                                <Switch label={{content:'Vertical Switch 3', side: 'left'}} value={this.state.value11} onChange={(value) => this.setState(() => ({ value11: value }))} />
                             </SwitchGroup>
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Horizontal group</p>
                         <p className="docs-page__paragraph--small">Use this option only if there are no more than two switches.</p>
                         <div className='form__row'>
                             <SwitchGroup orientation='horizontal'>
-                                <Switch label={{text:'Horizontal Switch 1'}} value={this.state.value4} onChange={(value) => this.setState(() => ({ value4: value }))} />
-                                <Switch label={{text:'Horizontal Switch 2'}} value={this.state.value5} onChange={(value) => this.setState(() => ({ value5: value }))} />
+                                <Switch label={{content:'Horizontal Switch 1'}} value={this.state.value4} onChange={(value) => this.setState(() => ({ value4: value }))} />
+                                <Switch label={{content:'Horizontal Switch 2'}} value={this.state.value5} onChange={(value) => this.setState(() => ({ value5: value }))} />
                             </SwitchGroup>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -140,9 +140,17 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                 <h3 className="docs-page__h3">Props</h3>
                 <p className="docs-page__paragraph">Switch</p>
                 <PropsList>
-                    <Prop name='label text' isRequired={true} type='string' default='/' description='Label text value.'/>
-                    <Prop name='label side' isRequired={false} type='left | right' default='right' description='Position of label relative to the button.'/>
-                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='The disabled state of t.'/>
+                    <Prop name='label' isRequired={true} type='object' default='/' description='Label value.'/>
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='If true field is disabled.'/>
+                    <Prop name='toolTipFlow' isRequired={false} type="top | left | right | down" default='false' description='Position of tooltip.'/>
+                    <Prop name='toolTipAppend' isRequired={false} type='boolean' default='false' description='Tooltip append.'/>
+                    <Prop name='onChange' isRequired={false} type='function' default='false' description='Function onChange'/>
+                </PropsList>
+                <p className="docs-page__paragraph">Label props</p>
+                <PropsList>
+                    <Prop name='content' isRequired={true} type='string or function' default='/' description='Label value.'/>
+                    <Prop name='side' isRequired={false} type='left | right' default='right' description='Position of label relative to the button.'/>
+                    <Prop name='hidden' isRequired={false} type='boolean' default='false' description='If true label is not shown on display.'/>
                 </PropsList>
                 <p className="docs-page__paragraph">SwitchGroup</p>
                 <PropsList>

@@ -3,12 +3,14 @@ import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { Tooltip } from './Tooltip';
 
+interface ILabel {
+    content: string | ((id: string) => React.ReactNode);
+    side?: 'left' | 'right'; // defaults to 'right'
+    hidden?: boolean;
+}
+
 interface IProps {
-    label: {
-        text: string,
-        side?: 'left' | 'right', // defaults to 'right'
-        hidden?: boolean,
-    };
+    label: ILabel;
     value: boolean;
     disabled?: boolean;
     toolTipFlow?: 'top' | 'left' | 'right' | 'down';
@@ -19,6 +21,7 @@ interface IProps {
 export class Switch extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
+
         this.onClick = this.onClick.bind(this);
     }
 
@@ -38,33 +41,50 @@ export class Switch extends React.PureComponent<IProps> {
             'disabled': this.props.disabled,
         });
 
-        if (this.props.label.hidden) {
+        // if external label is used it can't be hidden
+        if (this.props.label.hidden && this.props.label.content === 'string') {
             return (
-                <Tooltip text={this.props.label.text}
+                <Tooltip
+                    text={this.props.label.content}
                     flow={this.props.toolTipFlow}
-                    appendToBody={this.props.toolTipAppend}>
+                    appendToBody={this.props.toolTipAppend}
+                >
                     <span className="sd-switch__wrapper" tabIndex={-1}>
-                        {this.props.label && this.props.label.side === 'left' ?
-                            <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null}
-                        <span id={this.htmlId} role="checkbox" className={classes} aria-checked={this.props.value}
-                            aria-disabled={this.props.disabled} onClick={this.onClick} tabIndex={0}>
+                        <span
+                            role="checkbox"
+                            id={this.htmlId}
+                            className={classes}
+                            aria-checked={this.props.value}
+                            aria-disabled={this.props.disabled}
+                            tabIndex={0}
+                            onClick={this.onClick}
+                        >
                             <span className="inner" />
                         </span>
-                        <label className='a11y-only' htmlFor={this.htmlId}>{this.props.label.text}</label>
+                        <label className='a11y-only' htmlFor={this.htmlId}>{this.props.label.content}</label>
                     </span>
                 </Tooltip>
             );
         } else {
+            const labelContent = typeof this.props.label.content === 'string'
+                ? <label htmlFor={this.htmlId}>{this.props.label.content}</label>
+                : this.props.label.content(this.htmlId);
+
             return (
                 <span className="sd-switch__wrapper" tabIndex={-1}>
-                    {this.props.label && this.props.label.side === 'left' ?
-                        <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null}
-                    <span id={this.htmlId} role="checkbox" className={classes} aria-checked={this.props.value}
-                        aria-disabled={this.props.disabled} onClick={this.onClick} tabIndex={0}>
+                    {this.props.label.side === 'left' ? labelContent : null}
+                    <span
+                        role="checkbox"
+                        id={this.htmlId}
+                        className={classes}
+                        aria-checked={this.props.value}
+                        aria-disabled={this.props.disabled}
+                        tabIndex={0}
+                        onClick={this.onClick}
+                    >
                         <span className="inner" />
                     </span>
-                    {this.props.label && this.props.label.side !== 'left' ?
-                        <label htmlFor={this.htmlId}>{this.props.label.text}</label> : null}
+                    {this.props.label.side !== 'left' ? labelContent : null}
                 </span>
             );
         }
