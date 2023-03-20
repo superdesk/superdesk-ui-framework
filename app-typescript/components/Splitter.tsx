@@ -18,9 +18,9 @@ export type SplitterProps = {
 export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Element => {
     const {
         unit = 'percent',
-        initialPrimarySize = '50',
-        minPrimarySize = '10',
-        minSecondarySize = '10',
+        initialPrimarySize = 50,
+        minPrimarySize = 10,
+        minSecondarySize = 10,
         onSizeChange,
     } = props;
 
