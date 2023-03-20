@@ -7,19 +7,20 @@ type MeasuredDimensions = {
 };
 
 export type SplitterProps = {
-    initialPrimarySize?: string;
-    minPrimarySize?: string;
-    minSecondarySize?: string;
+    unit?: 'px' | 'percent';
+    initialPrimarySize?: number;
+    minPrimarySize?: number;
+    minSecondarySize?: number;
     onSizeChange?(primary: number, secondary: number): void;
     children: [React.ReactNode, React.ReactNode];
-    onSplitChanged?: (primarySize: string) => void;
 };
 
 export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Element => {
     const {
-        initialPrimarySize = '50%',
-        minPrimarySize = '10%',
-        minSecondarySize = '10%',
+        unit = 'percent',
+        initialPrimarySize = '50',
+        minPrimarySize = '10',
+        minSecondarySize = '10',
         onSizeChange,
     } = props;
 
@@ -100,15 +101,16 @@ export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Ele
     const secondaryChild = children.length > 1 ? children[1] : <div />;
 
     const renderSizes = {
-        initialPrimarySize: percent !== undefined ? `${percent}%` : initialPrimarySize,
+        unit: unit === 'percent' ? '%' : 'px',
+        initialPrimarySize: percent !== undefined ? `${percent}` : initialPrimarySize,
         minPrimary: minPrimarySize ?? '0px',
         minSecondary: minSecondarySize ?? '0px',
     };
 
     const rootStyle = {
-        '--react-split-min-primary': renderSizes.minPrimary,
-        '--react-split-min-secondary': renderSizes.minSecondary,
-        '--react-split-primary': renderSizes.initialPrimarySize,
+        '--react-split-min-primary': renderSizes.minPrimary + renderSizes.unit,
+        '--react-split-min-secondary': renderSizes.minSecondary + renderSizes.unit,
+        '--react-split-primary': renderSizes.initialPrimarySize + renderSizes.unit,
     } as React.CSSProperties;
 
     return (
