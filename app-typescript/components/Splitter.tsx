@@ -6,21 +6,13 @@ type MeasuredDimensions = {
     width: number;
 };
 
-export type SplitMeasuredSizes = {
-    primary: number;
-    splitter: number;
-    secondary: number;
-};
-
 export type SplitterProps = {
-    horizontal?: boolean;
     initialPrimarySize?: string;
     minPrimarySize?: string;
     minSecondarySize?: string;
-    resetOnDoubleClick?: boolean;
-
+    onSizeChange?(primary: number, secondary: number): void;
+    children: [React.ReactNode, React.ReactNode];
     onSplitChanged?: (primarySize: string) => void;
-    onMeasuredSizesChanged?: (sizes: SplitMeasuredSizes) => void;
 };
 
 export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Element => {
@@ -28,9 +20,7 @@ export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Ele
         initialPrimarySize = '50%',
         minPrimarySize = '10%',
         minSecondarySize = '10%',
-        resetOnDoubleClick = false,
-        onSplitChanged,
-        onMeasuredSizesChanged,
+        onSizeChange,
     } = props;
 
     const [contentMeasuredDimensions, setContentMeasuredDimensions] = React.useState<MeasuredDimensions>({
@@ -66,20 +56,13 @@ export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Ele
     const [primaryStart, setPrimaryStart] = React.useState(0);
 
     React.useEffect(() => {
-        if (onSplitChanged) {
-            onSplitChanged(percent !== undefined ? `${percent}%` : initialPrimarySize);
+        if (onSizeChange) {
+            onSizeChange(
+                currentPrimarySize,
+                currentContentSize - (currentPrimarySize + currentSplitterSize),
+            );
         }
-    }, [percent, initialPrimarySize]);
-
-    React.useEffect(() => {
-        if (onMeasuredSizesChanged) {
-            onMeasuredSizesChanged({
-                primary: currentPrimarySize,
-                splitter: currentSplitterSize,
-                secondary: currentContentSize - (currentPrimarySize + currentSplitterSize),
-            });
-        }
-    }, [currentContentSize, currentPrimarySize, currentSplitterSize]);
+    }, [currentContentSize, currentPrimarySize]);
 
     const onMeasureContent = (contentRect: ContentRect) =>
         contentRect.bounds &&
@@ -110,14 +93,14 @@ export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Ele
     };
 
     const onSplitDoubleClick = () =>
-        resetOnDoubleClick && setPercent(undefined);
+        setPercent(undefined);
 
     const children = React.Children.toArray(props.children);
     const primaryChild = children.length > 0 ? children[0] : <div />;
     const secondaryChild = children.length > 1 ? children[1] : <div />;
 
     const renderSizes = {
-        primary: percent !== undefined ? `${percent}%` : initialPrimarySize,
+        initialPrimarySize: percent !== undefined ? `${percent}%` : initialPrimarySize,
         minPrimary: minPrimarySize ?? '0px',
         minSecondary: minSecondarySize ?? '0px',
     };
@@ -125,7 +108,7 @@ export const Splitter = (props: React.PropsWithChildren<SplitterProps>): JSX.Ele
     const rootStyle = {
         '--react-split-min-primary': renderSizes.minPrimary,
         '--react-split-min-secondary': renderSizes.minSecondary,
-        '--react-split-primary': renderSizes.primary,
+        '--react-split-primary': renderSizes.initialPrimarySize,
     } as React.CSSProperties;
 
     return (
