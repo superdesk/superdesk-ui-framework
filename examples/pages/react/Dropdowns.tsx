@@ -16,13 +16,14 @@ export default class DropdownDoc extends React.Component {
                         ]}>
                        Toogle button
                     </Dropdown>
-                    
+
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className='docs-page__paragraph'>By default dropdown menu is positioned left comparing to dropdown toggle button element. For right positioned menu (second example) add prop value <code>align = 'right'</code></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown
+                            append
                             items={[
                                 { label: 'Action 1', onSelect: () => 1 },
                                 { label: 'Action 2', onSelect: () => 1 },
@@ -67,7 +68,7 @@ export default class DropdownDoc extends React.Component {
                 <p className='docs-page__paragraph'>Add prop value <code>append = true</code> to the dropdown element to append to the inner dropdown menu to the body. This is useful when the dropdown button is inside a div with overflow: hidden, and the menu would otherwise be hidden.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                    <Dropdown         
+                    <Dropdown
                         append={true}
                         header={[
                             {
@@ -86,7 +87,7 @@ export default class DropdownDoc extends React.Component {
                                                 items: [
                                                     {
                                                         type: 'submenu',
-                                                        label: 'Show 1',
+                                                        label: 'Show 2',
                                                         icon: 'plus-sign',
                                                         items: []
                                                     }
@@ -94,11 +95,11 @@ export default class DropdownDoc extends React.Component {
                                             },
                                             {
                                                 type: 'submenu',
-                                                label: 'Show 2',
+                                                label: 'Show 1',
                                                 icon: 'plus-sign',
-                                                
+
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -115,14 +116,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -130,7 +131,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -139,14 +140,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -154,7 +155,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -163,14 +164,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -178,7 +179,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -187,14 +188,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -202,7 +203,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -211,14 +212,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -226,7 +227,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -235,14 +236,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -250,7 +251,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -259,14 +260,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -274,7 +275,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -283,14 +284,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -298,7 +299,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -307,14 +308,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -322,7 +323,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -331,14 +332,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -346,7 +347,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -355,14 +356,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -370,7 +371,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -379,14 +380,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -394,7 +395,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -403,14 +404,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -418,7 +419,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -427,15 +428,15 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
-                                                
+
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -443,7 +444,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -452,14 +453,14 @@ export default class DropdownDoc extends React.Component {
                                         type: 'submenu',
                                         label: 'Rundown',
                                         icon: 'plus-sign',
-                                        
+
                                         items: [
                                             {
                                                 type: 'submenu',
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -467,14 +468,14 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
                                     },
 
-                                    
-                                    
+
+
                                 ],
                             },
                         ]}
@@ -485,7 +486,7 @@ export default class DropdownDoc extends React.Component {
                                     {
                                         icon: 'rundown',
                                         label: 'Create new Show',
-                                        onSelect: () => console.log('aaa'),
+                                        onSelect: () => false,
                                     },
                                 ],
                             },
@@ -503,7 +504,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 1',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                             {
@@ -511,7 +512,7 @@ export default class DropdownDoc extends React.Component {
                                                 label: 'Show 2',
                                                 icon: 'plus-sign',
                                                 items: [
-                                                    
+
                                                 ],
                                             },
                                         ],
@@ -543,8 +544,55 @@ export default class DropdownDoc extends React.Component {
                 The submenu opens by default on the right side of the parent menu.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <Dropdown   
+                        <Dropdown
                             items={[
+                                {
+                                    type: 'group',
+                                    label: 'Create new',
+                                    items: [
+                                        {
+                                            type: 'submenu',
+                                            label: 'Rundown',
+                                            icon: 'plus-sign',
+                                            items: [
+                                                {
+                                                    type: 'submenu',
+                                                    label: 'Show 1',
+                                                    icon: 'plus-sign',
+                                                    items: [
+                                                        {
+                                                            type: 'submenu',
+                                                            label: 'Show 3',
+                                                            icon: 'plus-sign',
+                                                            items: []
+                                                        }
+                                                    ],
+                                                },
+                                                {
+                                                    type: 'submenu',
+                                                    label: 'Show 2',
+                                                    icon: 'plus-sign',
+
+                                                    items: [
+                                                        {
+                                                            type: 'submenu',
+                                                            label: 'Show 4',
+                                                            icon: 'plus-sign',
+                                                            items: [
+                                                                {
+                                                                    type: 'submenu',
+                                                                    label: 'Show 5',
+                                                                    icon: 'plus-sign',
+                                                                    items: []
+                                                                }
+                                                            ],
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
                                 {
                                     type: 'group', label: 'actions', items: [
                                         'divider',
@@ -628,7 +676,7 @@ export default class DropdownDoc extends React.Component {
                                     ]
                                 }]}>
                             Submenu on the left
-                        </Dropdown>    
+                        </Dropdown>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -641,6 +689,7 @@ export default class DropdownDoc extends React.Component {
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
                                 //align='right'
+                                append
                                 header={[
                                     {
                                         type: 'group', label: 'actions', items: [
@@ -658,29 +707,29 @@ export default class DropdownDoc extends React.Component {
                                             { label: 'Action 3', onSelect: () => 1 },
                                             { label: 'Action 4', onSelect: () => 1 },
                                         ]
-                                    } 
+                                    }
                                 ]}
                                 items={[
-                                    // {
-                                    //     type: 'group', label: 'actions', items: [
-                                    //         'divider',
-                                    //         { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
-                                    //         { label: 'Copy', icon: 'copy', onSelect: () => 1 },
-                                    //         { label: 'Delete', icon: 'trash', onSelect: () => 1 },
-                                    //         'divider',
-                                    //     ]
-                                    // },
-                                    // {
-                                    //     type: 'submenu', label: 'Second level actions', icon: 'star', items: [
-                                    //         { label: 'Action 1', onSelect: () => 1 },
-                                    //         { label: 'Action 2', onSelect: () => 1 },
-                                    //         { label: 'Action 3', onSelect: () => 1 },
-                                    //         { label: 'Action 4', onSelect: () => 1 },
-                                    //     ]
-                                    // }
+                                    {
+                                        type: 'group', label: 'actions', items: [
+                                            'divider',
+                                            { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                            { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                            { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                            'divider',
+                                        ]
+                                    },
+                                    {
+                                        type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                            { label: 'Action 1', onSelect: () => 1 },
+                                            { label: 'Action 2', onSelect: () => 1 },
+                                            { label: 'Action 3', onSelect: () => 1 },
+                                            { label: 'Action 4', onSelect: () => 1 },
+                                        ]
+                                    }
                                 ]}
                                     footer={[
-                                        
+
                                         {
                                             type: 'submenu', label: 'Second level actions', icon: 'star', items: [
                                                 { label: 'Action 1', onSelect: () => 1 },
@@ -688,7 +737,7 @@ export default class DropdownDoc extends React.Component {
                                                 { label: 'Action 3', onSelect: () => 1 },
                                                 { label: 'Action 4', onSelect: () => 1 },
                                             ]
-                                        } 
+                                        }
                                     ]}
                                     >
                                 <button className='sd-navbtn'>
@@ -753,7 +802,7 @@ export default class DropdownDoc extends React.Component {
                                                         items: [
                                                             {
                                                                 type: 'submenu',
-                                                                label: 'Show 1', 
+                                                                label: 'Show 3',
                                                                 items:[]
                                                             }
                                                         ],
@@ -763,7 +812,7 @@ export default class DropdownDoc extends React.Component {
                                                         label: 'Show 2',
                                                         icon: 'plus-sign',
                                                         items: [
-                                                            
+
                                                         ],
                                                     },
                                                 ],
@@ -788,7 +837,7 @@ export default class DropdownDoc extends React.Component {
                                                                 label: 'Show 1',
                                                                 icon: 'plus-sign',
                                                                 items: [
-                                                                    
+
                                                                 ],
                                                             },
                                                             {
@@ -796,7 +845,7 @@ export default class DropdownDoc extends React.Component {
                                                                 label: 'Show 2',
                                                                 icon: 'plus-sign',
                                                                 items: [
-                                                                    
+
                                                                 ],
                                                             },
                                                         ],
@@ -821,7 +870,7 @@ export default class DropdownDoc extends React.Component {
                                                         label: 'Show 1',
                                                         icon: 'plus-sign',
                                                         items: [
-                                                            
+
                                                         ],
                                                     },
                                                     {
@@ -829,7 +878,7 @@ export default class DropdownDoc extends React.Component {
                                                         label: 'Show 2',
                                                         icon: 'plus-sign',
                                                         items: [
-                                                            
+
                                                         ],
                                                     },
                                                 ],

@@ -20,41 +20,53 @@ let options = [
             {
                 value: {name: 'Sub-category1'},
                 children: [
-                    {value: {name: 'Item20'}}
+                    {value: {name: 'Item31'}},
+                    // {value: {name: 'Item32'}},
+                    // {value: {name: 'Item33'}},
+                    // {value: {name: 'Item34'}},
+
                 ]
             },
             {
                 value: {name: 'Sub-category2'},
                 children: [
-                    {value: {name: 'Item21'}}
+                    {value: {name: 'Item41'}},
+                    {value: {name: 'Item42'}},
+                    {value: {name: 'Item43'}}
                 ]
-            }
-            ,
+            },
             {
                 value: {name: 'Sub-category3'},
                 children: [
-                    {value: {name: 'Item22'}}
+                    {value: {name: 'Item50'}},
+                    {value: {name: 'Item51'}},
+                    {value: {name: 'Item53'}}
                 ]
-            }
-            ,
+            },
             {
                 value: {name: 'Sub-category4'},
                 children: [
-                    {value: {name: 'Item23'}}
+                    {value: {name: 'Item23'}},
+                    {value: {name: 'Item41'}},
+                    {value: {name: 'Item42'}},
+                    {value: {name: 'Item43'}}
                 ]
-            }
-            ,
+            },
             {
                 value: {name: 'Sub-category5'},
                 children: [
-                    {value: {name: 'Item24'}}
+                    {value: {name: 'Item24'}},
+                    {value: {name: 'Item41'}},
+                    {value: {name: 'Item42'}},
+                    {value: {name: 'Item43'}}
                 ]
-            }
-            ,
+            },
             {
                 value: {name: 'Sub-category6'},
                 children: [
-                    {value: {name: 'Item25'}}
+                    {value: {name: 'Item50'}},
+                    {value: {name: 'Item51'}},
+                    {value: {name: 'Item52'}}
                 ]
             }
         ]
@@ -65,9 +77,9 @@ let options = [
             {
                 value: {name: 'Item8'}
             },
-            {
-                value: {name: 'Item9'}
-            }
+            // {
+            //     value: {name: 'Item9'}
+            // }
         ]
     },
     {
@@ -164,7 +176,7 @@ function searchOptions(
     callback: (res: any) => void,
 ): ICancelFn {
     let timeout = setTimeout(() => {
-        
+
         callback(
             fetchedArr
                 .filter((item: any) => item.display_name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
@@ -188,7 +200,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             inputValue: '',
             arr: []
         }
-        
+
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -197,7 +209,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         if(option.item) {
             e.stopPropagation();
             e.preventDefault();
-            
+
             this.setState({
                 options: option.item
             })
@@ -219,7 +231,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     />
                 `}
                 </Markup.ReactMarkupCodePreview>
-                
+
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
@@ -234,7 +246,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     selectBranchWithChildren={true}
                                     allowMultiple
                                     fullWidth
-                                    singleLevelSearch
+                                    //singleLevelSearch
                                     required
                                     info={'Info Message'}
                                     error={'Error Message'}
@@ -247,7 +259,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                                 <span>{item.name}</span>
                                             </Wrapper>
                                         );
-                                    }}    
+                                    }}
                                 />
                             </div>
                         </div>
@@ -277,10 +289,10 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                         <span>{item.name}</span>
                                     </Wrapper>
                                 );
-                            }}    
+                            }}
                         />
                     `}</Markup.ReactMarkupCode>
-                    
+
                 </Markup.ReactMarkup>
 
                 <p className='docs-page__paragraph'>Asynchronous mode in TreeSelect component.</p>
@@ -320,7 +332,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             allowMultiple={true}
                         />
                     `}</Markup.ReactMarkupCode>
-                    
+
                 </Markup.ReactMarkup>
 
                 <p className='docs-page__paragraph'>TreeSelect with custom template.</p>
@@ -415,7 +427,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Prop name='getOptions' isRequired={false} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
                     <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='function will be called when a search is initiated from UI.'/>
                 </PropsList>
-  
+
             </section>
         )
     }

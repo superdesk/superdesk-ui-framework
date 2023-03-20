@@ -25,6 +25,7 @@ interface IState {
     rightPanelOpen: boolean;
     rightPanelPinned: boolean;
     sideOverlayOpen: boolean;
+    activeTab: string | null;
 }
 
 export class EditorTest extends React.Component<IProps, IState> {
@@ -44,6 +45,7 @@ export class EditorTest extends React.Component<IProps, IState> {
             rightPanelOpen: false,
             rightPanelPinned: false,
             sideOverlayOpen: false,
+            activeTab: null,
 
         }
         this.handleTheme = this.handleTheme.bind(this);
@@ -441,16 +443,22 @@ export class EditorTest extends React.Component<IProps, IState> {
             )}
             sideBar={(
                 <Nav.SideBarTabs
-                items={[
-                    { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}), id: '1' },
-                    { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}), id: '2' },
-                    { icon: 'history', size: 'big', tooltip: 'History', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}), id: '3' },
-                    { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}), id: '4' },
-                    { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}), id: '5' },
-                    { icon: 'comments', size: 'big', tooltip: 'Inline Comments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}), id: '6' },
-                    { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}), id: '7' }
-                ]}
-                active={'3'}
+                    items={[
+                        { icon: 'info', size: 'big', tooltip: 'Info', id: '1' },
+                        { icon: 'chat', size: 'big', tooltip: 'Comments', id: '2' },
+                        { icon: 'history', size: 'big', tooltip: 'History', id: '3' },
+                        { icon: 'package', size: 'big', tooltip: 'Packages', id: '4' },
+                        { icon: 'attachment', size: 'big', tooltip: 'Attachments', id: '5' },
+                        { icon: 'comments', size: 'big', tooltip: 'Inline Comments', id: '6' },
+                        { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', id: '7' }
+                    ]}
+                    activeTab={this.state.activeTab}
+                    onActiveTabChange={(val) => {
+                        this.setState({
+                            activeTab: val,
+                            sideOverlayOpen: !this.state.sideOverlayOpen,
+                        });
+                    }}
                 />
             )}
             overlayPanel={(

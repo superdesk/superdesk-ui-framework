@@ -28,6 +28,7 @@ interface IState {
     sideOverlayOpen: boolean;
     array: any;
     inputValue: string;
+    activeTab: string | null;
 }
 
 export class RundownEditor extends React.Component<IProps, IState> {
@@ -114,7 +115,8 @@ export class RundownEditor extends React.Component<IProps, IState> {
                     action: <IconButton icon='dots-vertical' size='small' ariaValue='More actions' onClick={()=> false} />,
                     onClick: () => { this.props.openPanel() }
                 },
-            ]
+            ],
+            activeTab: null,
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
@@ -135,14 +137,14 @@ export class RundownEditor extends React.Component<IProps, IState> {
     render() {
         return (
             <Layout.LayoutContainer>
-                <Layout.HeaderPanel>       
+                <Layout.HeaderPanel>
                     <SubNav>
                         <ButtonGroup align='end'>
                             <Button text="Cancel" onClick={()=> false} type="default" />
                             <Button text="Save Rundown" onClick={()=> false} type="primary" />
                             <Divider size="mini" />
                             <ButtonGroup subgroup={true} spaces="no-space">
-                                
+
                                 <Tooltip text='Minimize' flow='left'>
                                     <NavButton type='default' icon='minimize' iconSize='big' text='Minimize' onClick={()=> false} />
                                 </Tooltip>
@@ -156,7 +158,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                         </ButtonGroup>
                     </SubNav>
                 </Layout.HeaderPanel>
-                
+
                 <Layout.MainPanel padding='none'>
                     <Layout.AuthoringMain
                         headerPadding='medium'
@@ -233,7 +235,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             required={false}
                                             disabled={false}
                                             invalid={false}
-                                            onChange={(value) => {}} /> 
+                                            onChange={(value) => {}} />
                                     </Form.FormItem>
                                     <Form.FormItem>
                                         <Input
@@ -245,7 +247,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             required={false}
                                             disabled={false}
                                             invalid={false}
-                                            onChange={(value) => {}} /> 
+                                            onChange={(value) => {}} />
                                     </Form.FormItem>
                                 </Form.FormGroup>
                                 <Form.FormGroup>
@@ -300,7 +302,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                         )}
                         >
                             <Container direction='column' className='sd-margin-y--2'>
-                                <Input 
+                                <Input
                                     label='Rundown title'
                                     value={'Marker // 01.06.2022'}
                                     boxedStyle={true}
@@ -338,136 +340,142 @@ export class RundownEditor extends React.Component<IProps, IState> {
                         <Layout.PanelContent>
                             <Layout.AuthoringFrame
                                 main={
-                                <Layout.AuthoringMain
-                                    headerPadding='medium'
-                                    toolbarCustom={true}
-                                    headerCollapsed={true}
-                                    toolBar={(
-                                        <React.Fragment>
-                                            <SubNav className='sd-shadow--z0'>
-                                                <SlidingToolbar>
-                                                    <ButtonGroup align='start'>
-                                                        <IconButton ariaValue="Close" icon="close-small" onClick={() => this.props.closePanel()} />
-                                                    </ButtonGroup>
-                                                    <ButtonGroup align='end'>
-                                                        <Button text="Save Changes" style='hollow' onClick={() => this.props.closePanel()} type="primary" />
-                                                    </ButtonGroup>
-                                                </SlidingToolbar>
-                                            </SubNav>
+                                    <Layout.AuthoringMain
+                                        headerPadding='medium'
+                                        toolbarCustom={true}
+                                        headerCollapsed={true}
+                                        toolBar={(
+                                            <React.Fragment>
+                                                <SubNav className='sd-shadow--z0'>
+                                                    <SlidingToolbar>
+                                                        <ButtonGroup align='start'>
+                                                            <IconButton ariaValue="Close" icon="close-small" onClick={() => this.props.closePanel()} />
+                                                        </ButtonGroup>
+                                                        <ButtonGroup align='end'>
+                                                            <Button text="Save Changes" style='hollow' onClick={() => this.props.closePanel()} type="primary" />
+                                                        </ButtonGroup>
+                                                    </SlidingToolbar>
+                                                </SubNav>
 
-                                            <div className='sd-editor-content__toolbar-inner'>
-                                                <div className="sd-editor-toolbar__content">
-                                                    <dl>
-                                                        <dt>Created</dt>
-                                                        <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
-                                                        <dt>by</dt>
-                                                        <dt>Nareg Asmarian</dt>
-                                                    </dl>
-                                                    <dl>
-                                                        <dt>Modified</dt>
-                                                        <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
-                                                    </dl>
+                                                <div className='sd-editor-content__toolbar-inner'>
+                                                    <div className="sd-editor-toolbar__content">
+                                                        <dl>
+                                                            <dt>Created</dt>
+                                                            <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
+                                                            <dt>by</dt>
+                                                            <dt>Nareg Asmarian</dt>
+                                                        </dl>
+                                                        <dl>
+                                                            <dt>Modified</dt>
+                                                            <dd><time title="July 29, 2021 3:58 PM">07/29</time></dd>
+                                                        </dl>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </React.Fragment>
-                                    )}
-                                    authoringHeader={(
-                                        <React.Fragment>
-                                            <Form.FormGroup inlineLabel={false}>
-                                                <Form.FormItem>
-                                                    <Select
-                                                        label='Type'
-                                                        value='Type value'
-                                                        error='This is error message'
-                                                        info=' '
-                                                        required={true}
-                                                        disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}}>
-                                                            <Option>Type 1</Option>
-                                                            <Option>Type 2</Option>
-                                                    </Select>
-                                                </Form.FormItem>
-                                                <Form.FormItem>
-                                                    <Select
-                                                        label='Show section'
-                                                        value='Some value'
-                                                        error='This is error message'
-                                                        info=' '
-                                                        required={true}
-                                                        disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}}>
-                                                            <Option>Section 1</Option>
-                                                            <Option>Section 2</Option>
-                                                    </Select>
-                                                </Form.FormItem>
-                                            </Form.FormGroup>
-                                            <Form.FormGroup inlineLabel={false}>
-                                                <Form.FormItem>
-                                                    <Select
-                                                        label='Duration'
-                                                        value='Some value'
-                                                        error='This is error message'
-                                                        info=' '
-                                                        required={true}
-                                                        disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}}>
-                                                            <Option>Option 1</Option>
-                                                            <Option>Option 2</Option>
-                                                    </Select>
-                                                </Form.FormItem>
-                                                <Form.FormItem>
-                                                    <Input
-                                                        type='text'
-                                                        label='Category'
-                                                        value=' '
-                                                        error='This is error message'
-                                                        info=' '
-                                                        required={false}
-                                                        disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} /> 
-                                                </Form.FormItem>
-                                            </Form.FormGroup>
-                                            <Form.FormGroup inlineLabel={false}>
-                                                <Form.FormItem>
-                                                    <Input
-                                                        type='text'
-                                                        label='Author'
-                                                        value='This is some value'
-                                                        error='This is error message'
-                                                        info=' '
-                                                        required={false}
-                                                        disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} /> 
-                                                </Form.FormItem>
-                                            </Form.FormGroup>
-                                        </React.Fragment>
-                                    )}
-                                >
+                                            </React.Fragment>
+                                        )}
 
-                                </Layout.AuthoringMain>
+                                        authoringHeader={(
+                                            <React.Fragment>
+                                                <Form.FormGroup inlineLabel={false}>
+                                                    <Form.FormItem>
+                                                        <Select
+                                                            label='Type'
+                                                            value='Type value'
+                                                            error='This is error message'
+                                                            info=' '
+                                                            required={true}
+                                                            disabled={false}
+                                                            invalid={false}
+                                                            onChange={(value) => {}}>
+                                                                <Option>Type 1</Option>
+                                                                <Option>Type 2</Option>
+                                                        </Select>
+                                                    </Form.FormItem>
+                                                    <Form.FormItem>
+                                                        <Select
+                                                            label='Show section'
+                                                            value='Some value'
+                                                            error='This is error message'
+                                                            info=' '
+                                                            required={true}
+                                                            disabled={false}
+                                                            invalid={false}
+                                                            onChange={(value) => {}}>
+                                                                <Option>Section 1</Option>
+                                                                <Option>Section 2</Option>
+                                                        </Select>
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup inlineLabel={false}>
+                                                    <Form.FormItem>
+                                                        <Select
+                                                            label='Duration'
+                                                            value='Some value'
+                                                            error='This is error message'
+                                                            info=' '
+                                                            required={true}
+                                                            disabled={false}
+                                                            invalid={false}
+                                                            onChange={(value) => {}}>
+                                                                <Option>Option 1</Option>
+                                                                <Option>Option 2</Option>
+                                                        </Select>
+                                                    </Form.FormItem>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            type='text'
+                                                            label='Category'
+                                                            value=' '
+                                                            error='This is error message'
+                                                            info=' '
+                                                            required={false}
+                                                            disabled={false}
+                                                            invalid={false}
+                                                            onChange={(value) => {}} />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup inlineLabel={false}>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            type='text'
+                                                            label='Author'
+                                                            value='This is some value'
+                                                            error='This is error message'
+                                                            info=' '
+                                                            required={false}
+                                                            disabled={false}
+                                                            invalid={false}
+                                                            onChange={(value) => {}} />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                            </React.Fragment>
+                                        )}
+                                    >
+                                    </Layout.AuthoringMain>
                                 }
+
                                 sideBar={(
                                     <Nav.SideBarTabs
-                                    activeTab={this.state.sideOverlayOpen ? '1' : '2'}
-                                    onActiveTabChange={() => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen})}
-                                    items={[
-                                        { id: '1', icon: 'info', size: 'big', tooltip: 'Info' },
-                                        { id: '2', icon: 'chat', size: 'big', tooltip: 'Comments' },
-                                        { id: '3', icon: 'history', size: 'big', tooltip: 'History' },
-                                        { id: '4', icon: 'package', size: 'big', tooltip: 'Packages' },
-                                        { id: '5', icon: 'attachment', size: 'big', tooltip: 'Attachments' },
-                                        { id: '6', icon: 'comments', size: 'big', tooltip: 'Inline Comments' },
-                                        { id: '7', icon: 'suggestion', size: 'big', tooltip: 'Suggestions' }
-                                    ]} />
+                                        items={[
+                                            { icon: 'info', size: 'big', tooltip: 'Info', id: '1' },
+                                            { icon: 'chat', size: 'big', tooltip: 'Comments', id: '2' },
+                                            { icon: 'history', size: 'big', tooltip: 'History', id: '3' },
+                                            { icon: 'package', size: 'big', tooltip: 'Packages', id: '4' },
+                                            { icon: 'attachment', size: 'big', tooltip: 'Attachments', id: '5' },
+                                            { icon: 'comments', size: 'big', tooltip: 'Inline Comments', badgeValue: '5', id: '6' },
+                                            { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', id: '7' }
+                                        ]}
+                                        activeTab={this.state.activeTab}
+                                        onActiveTabChange={(id) => {
+                                            this.setState({
+                                                activeTab: id,
+                                            })
+                                        }}
+                                    />
                                 )}
                             />
                         </Layout.PanelContent>
-                    </Layout.Panel>         
+                    </Layout.Panel>
                 </Layout.RightPanel>
             </Layout.LayoutContainer>
         );
