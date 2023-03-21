@@ -70,7 +70,7 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
             letter-spacing: 0.01em;
         }
     }
-    .side-panel__close {
+    .side-panel__btn-group {
         position: absolute;
         inset-inline-end: $sd-base-increment; // equals 0.8rem or 8px
         inset-block-start: $sd-base-increment;

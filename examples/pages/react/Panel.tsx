@@ -67,7 +67,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                                 </div> 
                             }
                             <PanelElements.Panel side='left' background='light' open={this.state.openPanel1} size='x-small'>
-                                <PanelElements.PanelHeader title='This is the title for the Panel' onClose={() => this.setState({'openPanel1': false})}>
+                                <PanelElements.PanelHeader title='This is the title for the Panel' onClose={() => this.setState({'openPanel1': false})} onPin={() => false}>
                                 </PanelElements.PanelHeader>
                                 <PanelElements.PanelContent>
                                     <PanelElements.PanelContentBlock>
