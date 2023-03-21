@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
-import { Switch, SwitchGroup, Prop, PropsList } from '../../../app-typescript';
+import { Switch, SwitchGroup, Prop, PropsList, Label } from '../../../app-typescript';
 
 interface IState {
     value1: boolean;
@@ -16,6 +16,7 @@ interface IState {
     value9: boolean;
     value10: boolean;
     value11: boolean;
+    value12: boolean;
 }
 
 export default class SwitchDoc extends React.Component<{}, IState> {
@@ -34,6 +35,7 @@ export default class SwitchDoc extends React.Component<{}, IState> {
             value9: false,
             value10: true,
             value11: false,
+            value12: false,
         };
     }
 
@@ -59,7 +61,11 @@ export default class SwitchDoc extends React.Component<{}, IState> {
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Disabled</p>
                         <div className="form__row">
-                            <Switch label={{content:'Label on right with disabled state'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} disabled={true} />
+                            <Switch label={{content:'Label on right with disabled state'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} disabled />
+                        </div>
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// External label</p>
+                        <div className="form__row">
+                            <Switch label={{content:() => <label>External label</label>}} value={this.state.value12} onChange={(value) => this.setState(() => ({ value12: value }))} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -71,6 +77,9 @@ export default class SwitchDoc extends React.Component<{}, IState> {
 
                         // Disabled
                             <Switch label={{text:'Label on right with disabled state'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} disabled={true} />
+
+                        // External label
+                            <Switch label={{content:() => <label>External label</label>}} value={this.state.value12} onChange={(value) => this.setState(() => ({ value12: value }))} />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
