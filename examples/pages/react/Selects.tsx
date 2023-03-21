@@ -57,7 +57,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
+                                    onChange={(value) => false}>
                                     <Option>Option 1</Option>
                                     <Option>Option 2</Option>
                                 </Select>
@@ -76,7 +76,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
+                                    onChange={(value) => false}>
                                     <Option>Option 1</Option>
                                     <Option>Option 2</Option>
                                 </Select>
@@ -94,7 +94,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
+                                    onChange={(value) => false}>
                                     <Option>Option 1</Option>
                                     <Option>Option 2</Option>
                                 </Select>
@@ -112,7 +112,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
+                                    onChange={(value) => false}>
                                     <Option>Option 1</Option>
                                     <Option>Option 2</Option>
                                 </Select>

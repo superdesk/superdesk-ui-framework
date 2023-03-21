@@ -1,5 +1,4 @@
 import * as React from 'react';
-// import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 
@@ -20,6 +19,7 @@ interface ISelect {
     boxedLable?: boolean;
     placeholder?: string;
     size?: 'medium' | 'large' | 'x-large';
+    valueAlwaysEmpty?: boolean;
 }
 
 interface IState {
@@ -41,32 +41,41 @@ class Select extends React.Component<ISelect, IState> {
     }
 
     handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
-        this.setState({ value: event.target.value });
-        this.props.onChange(event.target.value);
+        if (this.props.valueAlwaysEmpty) {
+            this.setState({ value: '' });
+            this.props.onChange('');
+        } else {
+            this.setState({ value: event.target.value });
+            this.props.onChange(event.target.value);
+        }
     }
 
     render() {
         return (
             <InputWrapper
-            label={this.props.label}
-            error={this.props.error}
-            required={this.props.required}
-            disabled={this.props.disabled}
-            invalid={this.state.invalid}
-            info={this.props.info}
-            inlineLabel={this.props.inlineLabel}
-            labelHidden={this.props.labelHidden}
-            fullWidth={this.props.fullWidth}
-            htmlId={this.htmlId}
-            tabindex={this.props.tabindex}>
-                <select className='sd-input__select'
-                id={this.htmlId}
-                value={this.state.value}
-                aria-describedby={this.htmlId}
-                tabIndex={this.props.tabindex}
-                onChange={this.handleChange}
-                disabled={this.props.disabled}>
-                {this.props.children}
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                invalid={this.state.invalid}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                fullWidth={this.props.fullWidth}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <select
+                    className='sd-input__select'
+                    id={this.htmlId}
+                    value={this.state.value}
+                    aria-describedby={this.htmlId}
+                    tabIndex={this.props.tabindex}
+                    onChange={this.handleChange}
+                    disabled={this.props.disabled}
+                >
+                    {this.props.valueAlwaysEmpty && <option />}
+                    {this.props.children}
                 </select>
             </InputWrapper>
         );
