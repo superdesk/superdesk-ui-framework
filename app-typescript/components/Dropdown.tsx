@@ -35,6 +35,7 @@ interface IMenu {
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     append?: boolean;
     children: React.ReactNode;
+    zIndex?: number;
     onChange?(event?: any): void;
 }
 
@@ -47,6 +48,7 @@ export const Dropdown = ({
     children,
     append,
     align,
+    zIndex,
     onChange,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
@@ -91,7 +93,11 @@ export const Dropdown = ({
     function createAppendMenu() {
         if (header && footer) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot' id={menuID} role='menu' ref={ref}>
+                <div className='dropdown__menu dropdown__menu--has-head-foot'
+                    id={menuID} role='menu'
+                    ref={ref}
+                    style={{zIndex: zIndex}}
+                >
                     <ul className='dropdown__menu-header'>
                         {headerElements}
                     </ul>
@@ -105,7 +111,10 @@ export const Dropdown = ({
             );
         } else if (header) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot' id={menuID} role='menu' ref={ref}>
+                <div className='dropdown__menu dropdown__menu--has-head-foot'
+                id={menuID} role='menu'
+                ref={ref}
+                style={{zIndex: zIndex}}>
                     <ul className='dropdown__menu-header'>
                         {headerElements}
                     </ul>
@@ -116,7 +125,11 @@ export const Dropdown = ({
             );
         } else if (footer) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot' id={menuID} role='menu' ref={ref}>
+                <div className='dropdown__menu dropdown__menu--has-head-foot'
+                id={menuID}
+                role='menu'
+                ref={ref}
+                style={{zIndex: zIndex}}>
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
                     </ul>
@@ -127,7 +140,10 @@ export const Dropdown = ({
             );
         } else {
             return (
-                <ul className='dropdown__menu ' id={menuID} role='menu' ref={ref}>
+                <ul className='dropdown__menu '
+                id={menuID} role='menu'
+                ref={ref}
+                style={{zIndex: zIndex}}>
                     {dropdownElements}
                 </ul>
             );
@@ -264,7 +280,10 @@ export const Dropdown = ({
                 null : (function() {
                     if (header && footer) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref}>
+                            <div className='dropdown__menu dropdown__menu--has-head-foot'
+                            role='menu'
+                            ref={ref}
+                            style={{zIndex: zIndex}}>
                                 <ul className='dropdown__menu-header'>
                                     {headerElements}
                                 </ul>
@@ -278,7 +297,10 @@ export const Dropdown = ({
                         );
                     } else if (header) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref}>
+                            <div className='dropdown__menu dropdown__menu--has-head-foot'
+                            role='menu'
+                            ref={ref}
+                            style={{zIndex: zIndex}}>
                                 <ul className='dropdown__menu-header'>
                                     {headerElements}
                                 </ul>
@@ -289,7 +311,10 @@ export const Dropdown = ({
                         );
                     } else if (footer) {
                         return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot' role='menu' ref={ref}>
+                            <div className='dropdown__menu dropdown__menu--has-head-foot'
+                            role='menu'
+                            ref={ref}
+                            style={{zIndex: zIndex}}>
                                 <ul className='dropdown__menu-body'>
                                     {dropdownElements}
                                 </ul>
@@ -300,7 +325,10 @@ export const Dropdown = ({
                         );
                     } else {
                         return (
-                            <ul className='dropdown__menu' role='menu' ref={ref}>
+                            <ul className='dropdown__menu'
+                            role='menu'
+                            ref={ref}
+                            style={{zIndex: zIndex}}>
                                 {dropdownElements}
                             </ul>
                         );
