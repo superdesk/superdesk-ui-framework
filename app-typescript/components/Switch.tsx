@@ -41,8 +41,22 @@ export class Switch extends React.PureComponent<IProps> {
             'disabled': this.props.disabled,
         });
 
+        const checkboxInput = (
+            <span
+                role="checkbox"
+                id={this.htmlId}
+                className={classes}
+                aria-checked={this.props.value}
+                aria-disabled={this.props.disabled}
+                tabIndex={0}
+                onClick={this.onClick}
+            >
+                <span className="inner" />
+            </span>
+        );
+
         // if external label is used it can't be hidden
-        if (this.props.label.hidden && this.props.label.content === 'string') {
+        if (this.props.label.hidden && typeof this.props.label.content === 'string') {
             return (
                 <Tooltip
                     text={this.props.label.content}
@@ -50,17 +64,7 @@ export class Switch extends React.PureComponent<IProps> {
                     appendToBody={this.props.toolTipAppend}
                 >
                     <span className="sd-switch__wrapper" tabIndex={-1}>
-                        <span
-                            role="checkbox"
-                            id={this.htmlId}
-                            className={classes}
-                            aria-checked={this.props.value}
-                            aria-disabled={this.props.disabled}
-                            tabIndex={0}
-                            onClick={this.onClick}
-                        >
-                            <span className="inner" />
-                        </span>
+                        {checkboxInput}
                         <label className='a11y-only' htmlFor={this.htmlId}>{this.props.label.content}</label>
                     </span>
                 </Tooltip>
@@ -73,17 +77,7 @@ export class Switch extends React.PureComponent<IProps> {
             return (
                 <span className="sd-switch__wrapper" tabIndex={-1}>
                     {this.props.label.side === 'left' ? labelContent : null}
-                    <span
-                        role="checkbox"
-                        id={this.htmlId}
-                        className={classes}
-                        aria-checked={this.props.value}
-                        aria-disabled={this.props.disabled}
-                        tabIndex={0}
-                        onClick={this.onClick}
-                    >
-                        <span className="inner" />
-                    </span>
+                    {checkboxInput}
                     {this.props.label.side !== 'left' ? labelContent : null}
                 </span>
             );
