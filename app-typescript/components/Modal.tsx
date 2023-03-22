@@ -44,8 +44,8 @@ export class Modal extends React.Component<IProps, {}> {
                     contentClassName={classes}
                     onShow={this.props.onShow}
                     onHide={this.props.onHide}
-                    zIndex={this.props.zIndex}
-                    position={this.props.position && this.props.position}
+                    zIndex={this.props.zIndex ? this.props.zIndex : 1000}
+                    position={this.props.position}
                 >
                     {this.props.children}
                 </PrimeDialog>

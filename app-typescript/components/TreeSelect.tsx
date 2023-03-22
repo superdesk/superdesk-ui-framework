@@ -43,6 +43,7 @@ interface IPropsBase<T> {
     required?: boolean;
     label?: string;
     disabled?: boolean;
+    zIndex?: number;
     getLabel(item: T): string;
     getId(item: T): string;
     getBackgroundColor?(item: T): string;
@@ -705,6 +706,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         && <div
                             className={"autocomplete autocomplete--multi-select" + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')}
                             ref={this.dropdownRef}
+                            style={{zIndex: this.props.zIndex}}
                         >
                             <div className='autocomplete__header'>
                                 <div
