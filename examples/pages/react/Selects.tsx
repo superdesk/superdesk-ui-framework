@@ -9,6 +9,8 @@ interface IState {
     required: boolean;
     disabled: boolean;
     invalid: boolean;
+    value: string;
+    value2: string;
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -18,7 +20,9 @@ export default class InputsDoc extends React.Component<{}, IState> {
             inlineLabel: false,
             required: true,
             disabled: false,
-            invalid: false
+            invalid: false,
+            value: '',
+            value2: '',
         }
     }
 
@@ -28,7 +32,14 @@ export default class InputsDoc extends React.Component<{}, IState> {
 
                 <h2 className='docs-page__h2'>Select</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    <Select value={value} required={true}>
+                    <Select
+                        value={this.state.value}
+                        onChange={(value) => {
+                            this.setState({
+                                value: value,
+                            })
+                        }}
+                    >
                         <Option>Option 1</Option>
                         <Option>Option 2</Option>
                     </Select>
@@ -48,8 +59,9 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             </div>
 
                             <div className='form__row'>
-                                <Select label='Select label'
-                                    value='Option 2'
+                                <Select
+                                    value={this.state.value}
+                                    label='Select label'
                                     error='This is error message'
                                     info='This is some hint message'
                                     inlineLabel={this.state.inlineLabel}
@@ -57,7 +69,12 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
+                                    onChange={(value) => {
+                                        this.setState({
+                                            value: value,
+                                        })
+                                    }}
+                                >
                                     <Option>Option 1</Option>
                                     <Option>Option 2</Option>
                                 </Select>
@@ -65,73 +82,45 @@ export default class InputsDoc extends React.Component<{}, IState> {
 
                             <p className="docs-page__paragraph">// Boxed with hidden label</p>
                             <div className='form__row'>
-                                <Select label='Select label'
-                                    value='Option 2'
-                                    boxedStyle
+                                <Select
+                                    value={this.state.value2}
+                                    label='Select label'
                                     labelHidden
                                     error='This is error message'
                                     info='This is some hint message'
-                                    inlineLabel={this.state.inlineLabel}
-                                    required={this.state.required}
-                                    disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
                                     tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
-                                    <Option>Option 1</Option>
-                                    <Option>Option 2</Option>
+                                    onChange={(value) => {
+                                        this.setState({
+                                            value2: value,
+                                        })
+                                    }}
+                                >
+                                        <Option>Option 1</Option>
+                                        <Option>Option 2</Option>
                                 </Select>
-                            </div>
-                            <div className='form__row'>
-                                <Select label='Select label'
-                                    value='Option 2'
-                                    boxedStyle
-                                    labelHidden
-                                    size='large'
-                                    error='This is error message'
-                                    info='This is some hint message'
-                                    inlineLabel={this.state.inlineLabel}
-                                    required={this.state.required}
-                                    disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
-                                    tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
-                                    <Option>Option 1</Option>
-                                    <Option>Option 2</Option>
-                                </Select>
-                            </div>
-                            <div className='form__row'>
-                                <Select label='Select label'
-                                    value='Option 2'
-                                    boxedStyle
-                                    labelHidden
-                                    size='x-large'
-                                    error='This is error message'
-                                    info='This is some hint message'
-                                    inlineLabel={this.state.inlineLabel}
-                                    required={this.state.required}
-                                    disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
-                                    tabindex={0}
-                                    onChange={(value) => { console.log(value) }}>
-                                    <Option>Option 1</Option>
-                                    <Option>Option 2</Option>
-                                </Select>
-                            </div>
+                            </div>  
                         </div>
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Select label='Select label'
-                            value='Option 2'
+                        <Select
+                            value={this.state.value}
+                            label='Select label'
                             error='This is error message'
                             info='This is some hint message'
-                            inlineLabel={false}
-                            required={true}
-                            disabled={false}
-                            invalid={false}
-                            onChange={(value) => {}}>
-                            <Option value="option-1">Option 1</option>
-                            <Option value="option-2">Option 2</option>
+                            inlineLabel={this.state.inlineLabel}
+                            required={this.state.required}
+                            disabled={this.state.disabled}
+                            invalid={this.state.invalid}
+                            tabindex={0}
+                            onChange={(value) => {
+                                this.setState({
+                                    value: value,
+                                })
+                            }}
+                        >
+                            <Option>Option 1</Option>
+                            <Option>Option 2</Option>
                         </Select>
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -139,14 +128,15 @@ export default class InputsDoc extends React.Component<{}, IState> {
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
                     <Prop name='value' isRequired={false} type='string' default='/' description='Item value' />
-                    <Prop name='label' isRequired={false} type='string' default='/' description='Input label' />
-                    <Prop name='info' isRequired={false} type='string' default='/' description='Hint text' />
-                    <Prop name='error' isRequired={false} type='string' default='/' description='Error text' />
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Label of component' />
+                    <Prop name='info' isRequired={false} type='string' default='/' description='Info message of component' />
+                    <Prop name='error' isRequired={false} type='string' default='/' description='Error message of component' />
                     <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline' />
                     <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required' />
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />
                     <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid' />
                     <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.' />
+                    <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                 </PropsList>
             </section>
         )
