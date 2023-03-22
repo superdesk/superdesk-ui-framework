@@ -25,6 +25,7 @@ interface IState {
     rightPanelOpen: boolean;
     rightPanelPinned: boolean;
     sideOverlayOpen: boolean;
+    activeTab: string | null;
 }
 
 export class EditorTest extends React.Component<IProps, IState> {
@@ -44,7 +45,8 @@ export class EditorTest extends React.Component<IProps, IState> {
             rightPanelOpen: false,
             rightPanelPinned: false,
             sideOverlayOpen: false,
-            
+            activeTab: null,
+
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
@@ -161,7 +163,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     required={false}
                                     disabled={false}
                                     invalid={false}
-                                    onChange={(value) => {}} /> 
+                                    onChange={(value) => {}} />
                             </Form.FormItem>
                         </Form.FormGroup>
                         <Form.FormGroup inlineLabel={true}>
@@ -176,7 +178,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     required={false}
                                     disabled={false}
                                     invalid={false}
-                                    onChange={(value) => {}} /> 
+                                    onChange={(value) => {}} />
                             </Form.FormItem>
                         </Form.FormGroup>
                         <Form.FormGroup marginBottom='0' inlineLabel={true}>
@@ -191,7 +193,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     required={true}
                                     disabled={false}
                                     invalid={false}
-                                    onChange={(value) => {}} /> 
+                                    onChange={(value) => {}} />
                             </Form.FormItem>
                             <Form.FormItem autoWidth={true}>
                                 <Form.FormText>Just testing:</Form.FormText>
@@ -304,7 +306,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         </ButtonGroup>
                                     </Layout.Container>
                                 </div>
-                                
+
                                 <div id='section4'>
                                 <Heading type='h1' className='sd-padding--5'>Section 4</Heading>
                                     <p className='sd-margin-b--3'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
@@ -328,9 +330,9 @@ export class EditorTest extends React.Component<IProps, IState> {
                                                 <Button text="Submit" onClick={()=> false} type="primary" />
                                             </ButtonGroup>
                                         </Layout.Container>
-                                </div>  
+                                </div>
                             </div>
-                            
+
                 </Layout.AuthoringMain>
             )}
             sidePanelPinned={this.state.rightPanelOpen}
@@ -341,7 +343,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                     <Layout.PanelContent>
                         <Layout.PanelContentBlock>
                             <BoxedList density='comfortable'>
-                                <BoxedListItem 
+                                <BoxedListItem
                                     type="success"
                                     clickable={true}
                                     media={(
@@ -355,10 +357,10 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         Maecenas sed diam eget risus varius blandit sit amet non magna. Vestibulum id ligula porta felis euismod semper.
                                     </BoxedListContentRow>
                                     <BoxedListContentRow>
-                                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et. 
+                                        Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
                                     </BoxedListContentRow>
                                 </BoxedListItem>
-                                <BoxedListItem 
+                                <BoxedListItem
                                     type="warning"
                                     media={(
                                         <AvatarWrapper
@@ -381,7 +383,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         Maecenas sed diam eget risus varius blandit sit amet magna.
                                     </BoxedListContentRow>
                                 </BoxedListItem>
-                                <BoxedListItem 
+                                <BoxedListItem
                                     selected={true}
                                     actions={(
                                         <IconButton icon="dots-vertical" ariaValue="More actions" onClick={()=> false} />
@@ -441,14 +443,23 @@ export class EditorTest extends React.Component<IProps, IState> {
             )}
             sideBar={(
                 <Nav.SideBarTabs
-                items={[
-                    { icon: 'info', size: 'big', tooltip: 'Info', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                    { icon: 'chat', size: 'big', tooltip: 'Comments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                    { icon: 'history', size: 'big', tooltip: 'History', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                    { icon: 'package', size: 'big', tooltip: 'Packages', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                    { icon: 'attachment', size: 'big', tooltip: 'Attachments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                    { icon: 'comments', size: 'big', tooltip: 'Inline Comments', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) },
-                    { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', onClick: () => this.setState({'sideOverlayOpen': !this.state.sideOverlayOpen}) }]} />
+                    items={[
+                        { icon: 'info', size: 'big', tooltip: 'Info', id: '1' },
+                        { icon: 'chat', size: 'big', tooltip: 'Comments', id: '2' },
+                        { icon: 'history', size: 'big', tooltip: 'History', id: '3' },
+                        { icon: 'package', size: 'big', tooltip: 'Packages', id: '4' },
+                        { icon: 'attachment', size: 'big', tooltip: 'Attachments', id: '5' },
+                        { icon: 'comments', size: 'big', tooltip: 'Inline Comments', id: '6' },
+                        { icon: 'suggestion', size: 'big', tooltip: 'Suggestions', id: '7' }
+                    ]}
+                    activeTab={this.state.activeTab}
+                    onActiveTabChange={(val) => {
+                        this.setState({
+                            activeTab: val,
+                            sideOverlayOpen: !this.state.sideOverlayOpen,
+                        });
+                    }}
+                />
             )}
             overlayPanel={(
                 <div></div>

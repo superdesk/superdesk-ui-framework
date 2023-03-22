@@ -4,6 +4,8 @@ import { Icon } from '../Icon';
 interface IProps {
     items: Array<IItem | 'divider'>;
     side?: 'none' | 'left' | 'right';
+    hover?: boolean;
+    onCLick?(): void;
 }
 
 interface IItem {
@@ -11,11 +13,14 @@ interface IItem {
     size: 'small' | 'big'; // defaults to 'small'
     tooltip?: string;
     active?: boolean;
+    hover?: boolean;
+    onCLick?(): void;
 }
 
 interface IState {
     index: number;
     closeIndex: number;
+    hover: boolean;
 }
 
 export class SideBarMenu extends React.PureComponent<IProps, IState> {
@@ -24,8 +29,10 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
         this.state = {
             index: -1,
             closeIndex: -1,
+            hover: this.props.hover ? this.props.hover : false,
         };
         this.handleClick = this.handleClick.bind(this);
+        this.handleArrows = this.handleArrows.bind(this);
     }
 
     handleClick(indexNumber: number) {
@@ -39,10 +46,16 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
         }
     }
 
+    handleArrows() {
+        this.setState({
+            hover: !this.state.hover,
+        });
+    }
+
     render() {
         return (
             <div className='sd-sidebar-menu sd-content-wrapper__left-tabs'>
-                <ul className='authoring-active'>
+                <ul className={'authoring-active'}>
                     {this.props.items.map((item, index) => {
                         if (item === 'divider') {
                             return (
@@ -50,9 +63,22 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
                             );
                         } else {
                             return (
-                                <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
-                                    <a className={'sd-sidebar-menu__btn' + (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '') + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
-                                        onClick={() => this.handleClick(index)}>
+                                <li key={index}
+                                data-sd-tooltip={item['tooltip']}
+                                data-flow='right'
+                                className={item.hover ? 'authoring-active__item' : ''}>
+                                    <a className={'sd-sidebar-menu__btn'
+                                    + (this.state.hover ? ' sd-sidebar-menu__btn--closed ' : '')
+                                    + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
+                                        onClick={() => {
+                                            this.handleClick(index);
+                                            if (item.hover) {
+                                                this.handleArrows();
+                                                if (item.onCLick) {
+                                                    item.onCLick();
+                                                }
+                                            }
+                                        }}>
                                         <span className='sd-sidebar-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>

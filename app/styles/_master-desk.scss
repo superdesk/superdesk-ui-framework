@@ -99,14 +99,14 @@ $board-header-border-color: var(--color-kanban-border);
     line-height: 1.4;
     text-transform: uppercase;
     font-weight: 400;
-    color: $gray--400;
+    color: var(--sd-colour-bg--10);
     max-width: 10rem;
     &--l {
         max-width: 14rem;
     }
     strong {
         font-weight: 500;
-        color: $gray--700;
+        color: var(--sd-colour-bg--07);
         font-size: 1.3rem;
     }
 }

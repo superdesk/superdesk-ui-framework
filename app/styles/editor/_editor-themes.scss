@@ -257,6 +257,11 @@ $body-font-size: (
     min-height: 9.2rem;
 }
 
+.theme-editor {
+    background-color: var(--sd-editor-colour__main-bg);
+    color: var(--sd-editor-colour__txt);
+}
+
 .theme-preview {
     margin: 0 -2rem -2rem -2rem;
     padding: 2rem;
@@ -269,7 +274,7 @@ $body-font-size: (
     &:hover {
         .theme-preview__label {
             opacity: 1;
-        }  
+        }
     }
     @each $name, $font in $theme-font-list {
         &.sd-editor--font-#{$name} {

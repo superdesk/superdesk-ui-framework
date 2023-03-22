@@ -217,6 +217,7 @@ $modal-sizes: (
             border-top: 1px solid $modal-line-color;
             text-align: end;
             min-height: $modal-footer-height;
+            display: flex;
         }
     }
     p {

@@ -961,8 +961,8 @@ $planningEditor-width: 53rem;
     top: 0;
     bottom: 0;
     width: 0;
-    background: $panel-bg--03;
-    color: $sd-text;
+    background: var(--sd-colour-panel-bg--100);
+    color: var(--color-text);
     overflow: hidden;
     transition: all 0.1s ease-out;
     .side-panel {
@@ -971,22 +971,12 @@ $planningEditor-width: 53rem;
         transition-delay: 0;
     }
     &--left {
-        box-shadow: 2px 0px 0px 0px rgba(102, 102, 102, 1), 2px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 2px 0px 0px 0px hsl(0, 0%, 40%), 2px 0px 12px 0px hsla(0, 0%, 0%, 0.3);
         left:0;
     }
     &--right {
-        box-shadow: -2px 0px 0px 0px rgba(102, 102, 102, 1), -2px 0px 12px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: -2px 0px 0px 0px hsl(0, 0%, 40%), -2px 0px 12px 0px hsla(0, 0%, 0%, 0.3);
         right:0;
-    }
-    &--dark-ui {
-        background-color: $sd-background-darkUI;
-        color: $white;
-        &.sd-overlay-panel-2--left {
-            box-shadow: 2px 0px 12px 0px rgba(0, 0, 0, 0.3);
-        }
-        &.sd-overlay-panel-2--right {
-            box-shadow: -2px 0px 12px 0px rgba(0, 0, 0, 0.3);
-        }
     }
     &--open {
         width:32.8rem;

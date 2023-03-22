@@ -1,0 +1,61 @@
+.p-chips {
+    font-size: 14px;
+    font-weight: normal;
+    height: 100%;
+}
+
+.p-chips-token	{
+    @include tag-label;
+    transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
+    background: $tag-label-BG-default;
+    color: currentColor;
+    padding: 5px;
+    border-left: 20px;
+    border-radius: 30px;
+
+    &.selected {
+        background-color: var(--sd-colour-interactive--alpha-70);
+    }
+}
+
+.p-chips-token-icon {
+    color: var(--color-text-lighter);
+    font-size: 20px;
+    &:hover {
+        cursor: pointer;
+        color: var(--color-text-light);
+    }
+}
+
+.p-chips-token-label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 2px;
+    padding: 2px 2px 2px 3px;
+}
+
+.p-chips-multiple-container {
+    padding: 2px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: $sd-base-increment / 8;
+    width: 100%;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    border-radius: 2px 2px 0 0;
+    font-size: 13px;
+}
+
+.tags-input__padding-disabled {
+    span {
+        padding-left: 0;
+        padding-inline: 4px;
+    }
+}
+
+.p-chips-input-token {
+    font-size: 14px;
+    margin: 5px;
+}

@@ -132,10 +132,6 @@ export class Rundowns extends React.Component<IProps, IState> {
         })
     }
 
-    componentDidUpdate() {
-        console.log(this.state);
-    }
-
     changeStatus(item: any, status: string) {
         if (item.status.includes(status)) {
             item.status.splice(item.status.indexOf(status), 1);
@@ -163,13 +159,13 @@ export class Rundowns extends React.Component<IProps, IState> {
                 <Nav.SideBarMenu
                     items={[
                         { icon: 'dashboard', size: 'big' },
-                        { icon: 'view', size: 'big' },
+                        { icon: 'view', size: 'big', editor: this.state.openEditor },
                         { icon: 'marked-star', size: 'big' },
                         { icon: 'spike', size: 'big' },
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
                         { icon: 'picture', size: 'big' },
-                        { icon: 'rundown', size: 'big', active: true }]} />
+                        { icon: 'rundown', size: 'big', }]} />
 
                 <Layout.LayoutContainer>
                     <Layout.HeaderPanel>
@@ -540,12 +536,15 @@ export class Rundowns extends React.Component<IProps, IState> {
                     <Layout.OverlayPanel />
                     {/* OVERLAY PANEL (Send To) */}
                 </Layout.LayoutContainer>
+
                 <Layout.ContentSplitter visible={this.state.openEditor} />
+
                 {/* RUNDOWN EDITOR */}
                 <Layout.AuthoringContainer open={this.state.openEditor}>
                     <RundownEditor />
                 </Layout.AuthoringContainer>
                 {/* END RUNDOWN EDITOR */}
+                
             </Layout.Layout >
 
             {/* Manage Templates Modal */}
