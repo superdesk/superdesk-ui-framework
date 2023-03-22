@@ -559,7 +559,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     }
 
                     {this.state.openDropdown
-                    && <div className={"autocomplete autocomplete--multi-select" + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')} ref={this.dropdownRef} style={{zIndex: this.props.zIndex && this.props.zIndex}}>
+                    && <div className={"autocomplete autocomplete--multi-select" + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')} ref={this.dropdownRef} style={{zIndex: this.props.zIndex}}>
                         <div className='autocomplete__header'>
                             <div className="autocomplete__icon" onClick={() => {
                             this.backButtonValue();

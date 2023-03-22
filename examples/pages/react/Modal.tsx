@@ -70,8 +70,8 @@ export default class ModalDoc extends React.Component<{}, IState> {
                             <Button text="Extra Large with footer" onClick={() => this.setState({modalXLarge: true})} />
                         </ButtonGroup>
 
-                        <Modal headerTemplate="Basic modallll"
-                            //zIndex={10000}
+                        <Modal headerTemplate="Basic modal"
+                            zIndex={10000}
                             maximizable
                             visible={this.state.modalBasic}
                             onHide={() => {this.setState({modalBasic: false})}}>
