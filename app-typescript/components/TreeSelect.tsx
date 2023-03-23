@@ -780,7 +780,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         {this.state.options
                                             .map((option, i: React.Key | undefined) => {
                                                 let selectedItem = this.state.value.some((obj) =>
-                                                    this.props.getId(obj) === this.props.getLabel(option.value),
+                                                    this.props.getId(obj) === this.props.getId(option.value),
                                                 );
                                                 return (
                                                     <li
