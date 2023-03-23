@@ -257,13 +257,17 @@ export const Dropdown = ({
             {typeof children === 'object' ?
                 (React.isValidElement(children) ?
                     <div ref={buttonRef} style={{ display: 'content' }}>
-                        {React.cloneElement(children, {
-                            className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
-                            'aria-haspopup': "menu",
-                            'aria-expanded': open,
-                            onClick: toggleDisplay,
-                            ref: buttonRef,
-                        })}
+                        {(() => {
+                            const attrs = {
+                                className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
+                                'aria-haspopup': "menu",
+                                'aria-expanded': open,
+                                onClick: toggleDisplay,
+                                ref: buttonRef,
+                            };
+
+                            return React.cloneElement(children, attrs);
+                        })()}
                     </div> : null)
                 :
                 <button ref={buttonRef}

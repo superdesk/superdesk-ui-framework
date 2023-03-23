@@ -26,8 +26,10 @@ class TooltipBasic extends React.PureComponent<IProps> {
     }
     render() {
         if (React.isValidElement(this.props.children)) {
+            const attrs = {id: 't' + this.htmlId};
+
             return (
-                React.cloneElement(this.props.children, { id: 't' + this.htmlId })
+                React.cloneElement(this.props.children, attrs)
             );
         } else {
             return (
@@ -45,10 +47,14 @@ const TooltipAppended: React.FC<IProps> = ({children, flow, text}) => {
     return (
         <React.Fragment>
             <PRTooltip target={"#" + triggerId} content={text} position={position ?? 'top'}/>
-            {React.isValidElement(children) ?
-                React.cloneElement(children, { id: triggerId})
-                :
-                <React.Fragment />}
+            {   React.isValidElement(children)
+                    ? (() => {
+                        const attrs = {id: triggerId};
+
+                        return React.cloneElement(children, attrs);
+                    })()
+                    : <React.Fragment />
+            }
         </React.Fragment>
     );
 };
