@@ -23,11 +23,13 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
             [`side-panel--${this.props.background}`]:
                 this.props.background !== 'light' && this.props.background !== undefined,
         }, this.props.className);
+
         let classes2 = classNames('side-panel__container', {
             [`side-panel__container--${this.props.side}`]: this.props.side,
             [`side-panel__container--${this.props.size}`]: this.props.size,
             [`panel-open`]: this.props.open,
         });
+
         return (
             <div className={classes2} data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
                 <div className={classes}>
@@ -47,11 +49,15 @@ interface IPropsPanelHeader {
     theme?: 'light-ui' | 'dark-ui'; // defaults to 'light
     className?: string;
     onClose?(): void;
-    onPin?(): void;
+    iconButtons?: Array<React.ReactNode>;
     pinned?: boolean;
 }
 
-class PanelHeader extends React.PureComponent<IPropsPanelHeader, {rotate: boolean}> {
+interface IStatePanelHeader {
+    rotate: boolean;
+}
+
+class PanelHeader extends React.PureComponent<IPropsPanelHeader, IStatePanelHeader> {
     constructor(props: IPropsPanelHeader) {
         super(props);
         this.state = {
@@ -75,41 +81,34 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader, {rotate: boolea
 
         return (
             <div data-theme={this.props.theme || defaultTheme} className={classes} style={style}>
-                {this.props.title
-                    && <div className="side-panel__header-inner">
-                        <h3 className="side-panel__heading">{this.props.title}</h3>
-                    </div>
-                }
-                <ButtonGroup
-                    className='side-panel__btn-group'
-                    align='center'
-                    spaces='no-space'
-                >
-                    {this.props.onPin
-                        ? <IconButton
-                            icon='pin'
-                            ariaValue='Pin'
-                            onClick={() => {
-                                if (this.props.onPin) {
-                                    this.props.onPin();
-                                    this.setState({
-                                        rotate: !this.state.rotate,
-                                    });
+                <div className='side-panel__header-wrapper'>
+                    {this.props.title != null
+                        && <div className="side-panel__header-inner">
+                            <h3 className="side-panel__heading">{this.props.title}</h3>
+                        </div>
+                    }
+
+                    {(this.props.onClose == null && this.props.iconButtons == null)
+                        || (
+                            <ButtonGroup
+                                align='end'
+                                spaces='no-space'
+                                className='side-panel__btn-group'
+                            >
+                                {this.props.iconButtons != null
+                                    && this.props.iconButtons
                                 }
-                            }}
-                            rotate={this.state.rotate ? '90' : undefined}
-                        />
-                        : null
+                                {this.props.onClose != null
+                                    && <IconButton
+                                        icon='close-small'
+                                        ariaValue='Close'
+                                        onClick={this.props.onClose}
+                                    />
+                                }
+                            </ButtonGroup>
+                        )
                     }
-                    {this.props.onClose
-                        ? <IconButton
-                            icon='close-small'
-                            ariaValue='Close'
-                            onClick={this.props.onClose}
-                        />
-                        : null
-                    }
-                </ButtonGroup>
+                </div>
                 {this.props.children}
             </div>
         );
@@ -129,16 +128,14 @@ class PanelContent extends React.PureComponent<IPropsPanelContent> {
         return (
             <div className="side-panel__content">
                 {this.props.loading
-                    ? <LoadingOverlay>
+                    && <LoadingOverlay>
                         <Spinner size="large" />
                     </LoadingOverlay>
-                    : null
                 }
                 {this.props.empty
-                    ? <LoadingOverlay>
+                    && <LoadingOverlay>
                         {this.props.emptyTemplate}
                     </LoadingOverlay>
-                    : null
                 }
                 {this.props.children}
             </div>
