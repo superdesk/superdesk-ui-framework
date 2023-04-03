@@ -514,6 +514,7 @@
 
 /////////////////  -------------------- NEW INPUTS ---------------------  /////////////////
 
+
 .sd-input__input {
     @include Line-input-base;
     &--invalid {
@@ -633,9 +634,6 @@
         color: $red;
     }
 }
-
-
-//----
 
 .sd-input {
     padding-top: 0;
@@ -1064,15 +1062,13 @@
             }
         }
     }
-
+    &--disabled * {
+        cursor: not-allowed !important;
+    }
 }
 
+
 /////////////////  -------------------- Duration & Time-Date input ---------------------  /////////////////
-
-
-
-
-
 
 
 .sd-input__duration-input,
@@ -1096,11 +1092,11 @@
         appearance: none;
         border: 0;
         background-color: transparent;
-        height: 3.2rem;
         display: inline-block;
-        color: var(--color-text);
         text-align: end;
+        color: var(--color-text);
         width: 2.5ch;
+        height: 3.2rem;
         font-size: 1.4rem;
         padding: 0 !important;
         line-height: 3.2rem;
@@ -1164,7 +1160,80 @@
 }
 
 @keyframes blinker {
-50% {
-    opacity: 0;
+    50% {
+        opacity: 0;
+    }
 }
+
+/////////////////  -------------------- Preview Mode ---------------------  /////////////////
+
+.tags-preview {
+    display: flex;
+    align-items: flex-start;
+    word-wrap: break-word;
+    min-height: $form-input-height;
+    padding: 0.4rem 0.4rem 0.3rem 0.4rem;
+    overflow: hidden;
+    background-color: transparent;
+    .tags-preview__tag-list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: $sd-base-increment / 2;
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    .tags-preview__tag-item {
+        @include tag-label;
+        color: currentColor;
+        background: $tag-label-BG-default;
+
+        &--single-select {
+            border-radius: 2px;
+            padding-inline-start: 0.714em;
+            padding-inline-end: 0.857em;
+        }
+
+        &--border {
+            border-left: solid;
+            border-left-width: 5px;
+        }
+    }
+    .tags-input__helper-box {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.sd-input__duration-input-preview {
+    display: flex;
+    gap: 2px;
+    grid-row: 2/3;
+    grid-column: 2/4;
+    &:focus-within {
+        box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
+        border-color: var(--sd-colour-interactive);
+        background-color: var(--sd-colour-interactive--alpha-20);
+    }
+    .duration-input-preview {
+        display: inline-block;
+        text-align: end;
+        color: var(--color-text);
+        width: 2.5ch;
+        height: 3.2rem;
+        font-size: 1.4rem;
+        line-height: 3.2rem;
+    }
+    .sd-input__suffix {
+        height: 3.2rem;
+        line-height: 3.2rem;
+        font-size: 1.4rem;
+        color: var(--color-text-light);
+        display: inline-block;
+        pointer-events: none;
+        margin-inline-end: 2px;
+        text-align: center;
+    }
 }

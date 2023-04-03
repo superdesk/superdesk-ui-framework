@@ -1,21 +1,29 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-interface IPropsBase {
-    label?: string;
-    children: React.ReactNode;
-    maxLength?: number;
+export interface IInputCommon {
+    label: string;
     info?: string;
     error?: string;
     required?: boolean;
     disabled?: boolean;
-    invalid?: boolean;
+    readonly?: boolean;
+    preview?: boolean;
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
     fullWidth?: boolean;
     boxedStyle?: boolean;
     boxedLable?: boolean;
+}
+
+export interface IInputWrapper extends IInputCommon {
+    invalid?: boolean;
+}
+
+interface IPropsBase extends IInputWrapper {
+    children: React.ReactNode;
+    maxLength?: number;
     value?: string | number;
     htmlId?: string;
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
@@ -46,6 +54,7 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
             'sd-input--boxed-style': this.props.boxedStyle,
             'sd-input--boxed-label': this.props.boxedLable,
         });
+
         const labelClasses = classNames('sd-input__label', {
             'a11y-only': this.props.labelHidden,
             'sd-input__label--boxed': this.props.boxedLable,
@@ -53,25 +62,32 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
 
         return (
             <div className={classes}>
-                <label className={labelClasses} htmlFor={this.props.htmlId} id={this.props.htmlId + 'label'}
-                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
+                <label
+                    className={labelClasses}
+                    htmlFor={this.props.htmlId}
+                    id={this.props.htmlId + 'label'}
+                    tabIndex={this.props.tabindex === undefined ? undefined : -1}
+                >
                     {this.props.label}
                 </label>
                 <div className="sd-input__input-container">
                     {this.props.children}
                 </div>
-                {this.props.maxLength
-                    ? <div className='sd-input__char-count'>
-                        {this.props.value?.toString().length} / {this.props.maxLength}
-                    </div>
-                    : null}
+                    {
+                        this.props.maxLength
+                            && <div className='sd-input__char-count'>
+                                {this.props.value?.toString().length} / {this.props.maxLength}
+                            </div>
+                    }
                 <div className='sd-input__message-box'>
-                    {this.props.info && !this.props.invalid && !this.props.invalid
-                        ? <div className='sd-input__hint'>{this.props.info}</div>
-                        : null}
-                    {this.props.invalid || this.props.invalid
-                        ? <div className='sd-input__message'>{this.props.error}</div>
-                        : null}
+                    {
+                        this.props.info && !this.props.invalid
+                            && <div className='sd-input__hint'>{this.props.info}</div>
+                    }
+                    {
+                        this.props.invalid
+                            && <div className='sd-input__message'>{this.props.error}</div>
+                    }
                 </div>
             </div>
         );
