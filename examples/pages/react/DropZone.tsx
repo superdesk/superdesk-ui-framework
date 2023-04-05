@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { DropZone, Button, Icon, Prop, PropsList  } from '../../../app-typescript';
+import { DropZone, Prop, PropsList  } from '../../../app-typescript';
 
 interface IProps {
     children?: React.ReactNode;

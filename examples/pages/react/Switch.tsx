@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
-import { Switch, SwitchGroup, Prop, PropsList, Label } from '../../../app-typescript';
+import { Switch, SwitchGroup, Prop, PropsList } from '../../../app-typescript';
 
 interface IState {
     value1: boolean;
@@ -20,7 +20,7 @@ interface IState {
 }
 
 export default class SwitchDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {

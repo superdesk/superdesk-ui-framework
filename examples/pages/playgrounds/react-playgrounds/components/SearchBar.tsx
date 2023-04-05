@@ -20,7 +20,7 @@ interface IState {
 
 export class SearchBar extends React.PureComponent<IProps, IState> {
     private inputRef: any;
-    constructor(props) {
+    constructor(props: Readonly<IProps>) {
         super(props);
         this.state = {
             inputValue: this.props.value ? this.props.value : '', 

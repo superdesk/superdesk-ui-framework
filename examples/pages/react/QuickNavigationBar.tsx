@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { Button, ButtonGroup, Container, Heading, LeftMenu, Prop, PropsList, QuickNavBar, SimpleList, SimpleListItem } from '../../../app-typescript';
+import { Button, ButtonGroup, Container, Heading, Prop, PropsList, QuickNavBar, SimpleList, SimpleListItem } from '../../../app-typescript';
 
 export default class QuickNavBarDoc extends React.Component<{}> {
     render() {

@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import { PropsList, Prop } from '../../../app-typescript';
-import { MultiSelect } from '../../../app-typescript/components/MultiSelect';
-import { ITreeNode, TreeSelect } from '../../../app-typescript/components/TreeSelect';
+import { TreeSelect } from '../../../app-typescript/components/TreeSelect';
 
 interface IState {
     value: any;
@@ -165,7 +164,7 @@ let options2 = [
     },
 ]
 
-let fetchedArr = [];
+let fetchedArr: any[]: any[] = [];
 fetch('https://nominatim.openstreetmap.org/search/berlin?format=json&addressdetails=1&limit=20').then(response => response.json()).then(data => fetchedArr = data
 );
 
@@ -190,7 +189,7 @@ function searchOptions(
 }
 
 export class TreeSelectDocs extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
             value: [],
@@ -205,7 +204,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         this.handleChange = this.handleChange.bind(this);
     }
 
-    handleChange(e, option) {
+    handleChange(e: { stopPropagation: () => void; preventDefault: () => void; }: { stopPropagation: () => void; preventDefault: () => void; }, option: { item: any; }: { item: any; }) {
         if(option.item) {
             e.stopPropagation();
             e.preventDefault();
@@ -252,7 +251,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     error={'Error Message'}
                                     label={'TreeSelect Label'}
                                     searchPlaceholder='Search...'
-                                    onChange={(e) => false}
+                                    onChange={() => false}
                                     valueTemplate={(item, Wrapper) => {
                                         return (
                                             <Wrapper backgroundColor={item.bgColor}>
@@ -349,7 +348,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     getBorderColor={(item) => item.border}
                                     placeholder='Select one'
                                     selectBranchWithChildren={true}
-                                    onChange={(e) => false}
+                                    onChange={() => false}
                                     optionTemplate={(item: any) => {
                                         return <div>Label: {item.name}</div>
                                     }}

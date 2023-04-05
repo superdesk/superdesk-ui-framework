@@ -1,5 +1,4 @@
 import * as React from 'react';
-import * as Components from './components/Index';
 import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, LeftMenu, BoxedList, BoxedListItem, BoxedListContentRow, Heading, Text, Time, Label, CreateButton, IconLabel, RadioButtonGroup, Select, Option } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
@@ -58,10 +57,10 @@ export class CoreLayout extends React.Component<IProps, IState> {
             mainMenuOpen: false,
             notificationsOpen: false,
             botNavArray: [
-                            { icon:'photo', title: 'Sed posuere consectetur est at lobortis.', onClick: () => false, onRemove: (e) => this.handleDelete(e) },
-                            { title: 'Nullam id dolor id nibh ultricies.', onClick: () => false, onRemove: (e) => this.handleDelete(e)},
-                            { icon:'video', title: 'Nulla vitae elit libero, a pharetra augue.', onClick: () => false, onRemove: (e) => this.handleDelete(e)},
-                            { title: 'Donec sed odio dui.', onClick: () => false, onRemove: (e) => this.handleDelete(e)},
+                            { icon:'photo', title: 'Sed posuere consectetur est at lobortis.', onClick: () => false, onRemove: (e: number) => this.handleDelete(e) },
+                            { title: 'Nullam id dolor id nibh ultricies.', onClick: () => false, onRemove: (e: number) => this.handleDelete(e)},
+                            { icon:'video', title: 'Nulla vitae elit libero, a pharetra augue.', onClick: () => false, onRemove: (e: number) => this.handleDelete(e)},
+                            { title: 'Donec sed odio dui.', onClick: () => false, onRemove: (e: number) => this.handleDelete(e)},
             ],
             itemType: 'itemtype01',
             dropDownState: '',
@@ -404,7 +403,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}}>
+                                                onChange={() => {}}>
                                                     <Option>Marker</Option>
                                                     <Option>Tabu</Option>
                                             </Select>
@@ -419,7 +418,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
                                     <div className="form__group">
@@ -430,7 +429,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="option-1">Select ingest source...</Option>
                                                 <Option value="option-2">Associated Press</Option>
                                                 <Option value="option-3">Reuters</Option>
@@ -447,7 +446,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
 
@@ -460,7 +459,7 @@ export class CoreLayout extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="">--- Not selected ---</Option>
                                                 <Option value="single">Single usage</Option>
                                                 <Option value="time">Time restricted</Option>

@@ -1,16 +1,14 @@
 import * as React from 'react';
 import * as Components from './components/Index';
 import { 
-    Button, ButtonGroup, IconButton, NavButton,
+    Button, ButtonGroup, NavButton,
     SubNav, SubNavDivider,
-    Dropdown,
-    Checkbox, CheckGroup, CheckButtonGroup, CheckboxButton, RadioGroup, RadioButtonGroup, Switch, SwitchGroup,
+    Checkbox, CheckGroup, CheckButtonGroup, CheckboxButton, RadioButtonGroup, Switch, SwitchGroup,
     Input, Select, Option,
-    Label, Badge,
-    Icon,
+    Label, 
     Tooltip,
     Tabs, TabLabel, TabContent, TabPanel,
-    AvatarWrapper, AvatarContentImage, AvatarContentText,
+    AvatarWrapper, AvatarContentImage, 
     LeftMenu,
     SimpleList, SimpleListItem,
     Container,
@@ -19,11 +17,9 @@ import {
     ThemeSelector,
     Tag
 } from '../../../../app-typescript/index';
-import * as GridElements from '../../../../app-typescript/components/GridItem';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 
-import dummy_items from '../dummy-data/items';
 
 interface IProps {
     children?: React.ReactNode;
@@ -206,7 +202,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             required={false}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => {}} />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='3'>
@@ -219,7 +215,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             required={false}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => {}} />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='4'>
@@ -232,7 +228,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             required={false}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => {}} />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
 
@@ -247,7 +243,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             required={false}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => {}} />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='3'>
@@ -260,7 +256,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             required={false}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => {}} />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='4'>
@@ -271,7 +267,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}}>
+                                                        onChange={() => {}}>
                                                             <Option>Editor</Option>
                                                             <Option>Journalist</Option>
                                                             <Option>Photographer</Option>
@@ -309,7 +305,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             required={false}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}}>
+                                                            onChange={() => {}}>
                                                                 <Option>International</Option>
                                                                 <Option>Kulture</Option>
                                                                 <Option>National</Option>
@@ -333,7 +329,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             required={false}
                                                             disabled={false}
                                                             invalid={false}
-                                                            onChange={(value) => {}}>
+                                                            onChange={() => {}}>
                                                                 <Option>English</Option>
                                                                 <Option>German</Option>
                                                                 <Option>French</Option>
@@ -356,7 +352,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='3'>
@@ -369,7 +365,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='3'>
@@ -382,7 +378,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='4'>
@@ -395,7 +391,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Heading className='sd-margin-t--3 sd-margin-b--2' type='h4'>Social media</Heading>
@@ -409,7 +405,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='3'>
@@ -422,7 +418,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='2'>
@@ -435,7 +431,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => {}} />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
 
@@ -536,7 +532,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={false}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}} /> 
+                                                        onChange={() => {}} /> 
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup>
@@ -548,7 +544,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         required={true}
                                                         disabled={false}
                                                         invalid={false}
-                                                        onChange={(value) => {}}>
+                                                        onChange={() => {}}>
                                                             <Option>Select place</Option>
                                                             <Option>Option 1</Option>
                                                             <Option>Option 2</Option>

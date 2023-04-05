@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, RadioButtonGroup, Input, Select, Option, Label, IconLabel, Icon, IconButton, Checkbox, GridList, Badge, Tooltip, CreateButton, Modal, EmptyState, Container, BoxedList, BoxedListItem, BoxedListContentRow, Text, Heading, FormLabel, SlidingToolbar, Switch, SwitchGroup, SearchBar } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, RadioButtonGroup, Input, Select, Option, Label, IconLabel, Icon, IconButton, Tooltip, CreateButton, Modal, EmptyState, Container, BoxedList, BoxedListItem, Text, Heading, Switch, SwitchGroup, SearchBar } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import {RundownEditor} from './RundownEditor';
@@ -279,7 +279,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}}>
+                                                onChange={() => {}}>
                                                     <Option>Marker</Option>
                                                     <Option>Tabu</Option>
                                             </Select>
@@ -294,7 +294,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
                                     <div className="form__group">
@@ -305,7 +305,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="option-1">Select ingest source...</Option>
                                                 <Option value="option-2">Associated Press</Option>
                                                 <Option value="option-3">Reuters</Option>
@@ -322,7 +322,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
 
@@ -335,7 +335,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="">--- Not selected ---</Option>
                                                 <Option value="single">Single usage</Option>
                                                 <Option value="time">Time restricted</Option>
@@ -541,7 +541,11 @@ export class Rundowns extends React.Component<IProps, IState> {
 
                 {/* RUNDOWN EDITOR */}
                 <Layout.AuthoringContainer open={this.state.openEditor}>
-                    <RundownEditor />
+                    <RundownEditor openPanel={function() {
+throw new Error('Function not implemented.');
+} } closePanel={function(): void {
+throw new Error('Function not implemented.');
+} } />
                 </Layout.AuthoringContainer>
                 {/* END RUNDOWN EDITOR */}
                 
@@ -568,7 +572,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         required={true}
                                         disabled={false}
                                         invalid={false}
-                                        onChange={(value) => {}}>
+                                        onChange={() => {}}>
                                             <Option>Select show</Option>
                                             <Option>Marker</Option>
                                             <Option>Tabu</Option>
@@ -714,7 +718,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         required={true}
                                         disabled={false}
                                         invalid={false}
-                                        onChange={(value) => {}}>
+                                        onChange={() => {}}>
                                             <Option>Marker</Option>
                                             <Option>Tabu</Option>
                                     </Select>
@@ -792,7 +796,11 @@ export class Rundowns extends React.Component<IProps, IState> {
                     {/* FILTER PANEL*/}
                     <Layout.MainPanel padding='none'>
                         
-                            <RundownEditor />
+                            <RundownEditor openPanel={function() {
+throw new Error('Function not implemented.');
+} } closePanel={function(): void {
+throw new Error('Function not implemented.');
+} } />
                         
                     </Layout.MainPanel>
                     {/* MAIN CONTENT */}
@@ -928,7 +936,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 required={true}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}} /> 
+                                                onChange={() => {}} /> 
                                         </Form.FormItem>
                                     </Form.FormGroup>
                                     <Form.FormGroup>
@@ -942,7 +950,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                                                 required={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => {}} /> 
+                                                onChange={() => {}} /> 
                                         </Form.FormItem>
                                     </Form.FormGroup>
                                 </Layout.PanelContentBlock>

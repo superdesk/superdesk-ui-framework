@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {Redirect} from 'react-router-dom';
 
 interface IGraphicButton {
     children?: never;
@@ -10,7 +9,7 @@ interface IGraphicButton {
 }
 
 export class GraphicButton extends React.PureComponent<IGraphicButton> {
-    constructor(props){
+    constructor(props: Readonly<IGraphicButton>){
         super(props);
         this.onSubmit=this.onSubmit.bind(this);
     }

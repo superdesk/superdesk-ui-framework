@@ -4,7 +4,7 @@ import {TagInput} from '../../../app-typescript/components/TagInput';
 import * as Markup from '../../js/react';
 
 export default class TagInputDocs extends React.Component<{}, {value: Array<string>}> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {

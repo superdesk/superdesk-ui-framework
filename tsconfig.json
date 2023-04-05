@@ -1,5 +1,5 @@
 {
-    "files": ["./app-typescript/index.ts"],
+    "files": ["./app-typescript/index.ts", "./examples/pages/react/Index.tsx"],
     "compilerOptions": {
         "outDir": "./react",
         "module": "commonjs",

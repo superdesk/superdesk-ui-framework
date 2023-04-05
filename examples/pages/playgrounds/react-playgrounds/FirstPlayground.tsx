@@ -94,7 +94,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                 <NavButton icon='filter-large' onClick={this.handleFilter} />
                             </ButtonGroup>
                             <CheckButtonGroup >
-                                <RadioButton value={this.state.itemType} onChange={(value) => this.setState({ itemType: value })} options={[
+                                <RadioButton value={this.state.itemType} onChange={(value: any) => this.setState({ itemType: value })} options={[
                                     { value: 'itemtype01', label: 'All item types' },
                                     { value: 'itemtype02', label: 'Images only' },
                                     { value: 'itemtype03', label: 'Videos only' },
@@ -120,7 +120,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
                                     <div className="form__group">
@@ -131,7 +131,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="option-1">Select ingest source...</Option>
                                                 <Option value="option-2">Associated Press</Option>
                                                 <Option value="option-3">Reuters</Option>
@@ -145,7 +145,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
                                     <div className="form__group">
@@ -155,7 +155,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
                                     <div className="form__group">
@@ -165,7 +165,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
 
@@ -178,7 +178,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="">--- Not selected ---</Option>
                                                 <Option value="single">Single usage</Option>
                                                 <Option value="time">Time restricted</Option>

@@ -4,7 +4,7 @@ import * as Markup from '../../js/react';
 import {DatePicker, PropsList, Prop, DatePickerISO} from '../../../app-typescript';
 
 class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {
@@ -30,7 +30,7 @@ class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
 }
 
 export default class DatePickerDoc extends React.Component {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {

@@ -13,7 +13,7 @@ interface IState {
 }
 
 export default class AutocompleteDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
             items: [
@@ -29,8 +29,7 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
         }
     }
 
-    searchFunction(searchString, callback) {
-        let cancelled = false;
+    searchFunction(searchString: string: string, callback: (arg0: { name: string; value: string; }[]) => void: (arg0: { name: string; value: string; }[]) => void) {
 
         let items = [
             { name: 'Item Custom Search 1', value: 'item-1' },
@@ -45,7 +44,6 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
 
         return {
             cancel: () => {
-                cancelled = true;
             },
         };
     }
@@ -200,8 +198,8 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
-                                    onChange={(value) => { this.setState({ }) }}
-                                    onSelect={(value) => { this.setState({ }) }} />
+                                    onChange={() => { this.setState({ }) }}
+                                    onSelect={() => { this.setState({ }) }} />
                             </div>
                         </div>
 
@@ -263,8 +261,8 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     required={this.state.required}
                                     disabled={this.state.disabled}
                                     invalid={this.state.invalid}
-                                    onChange={(value) => { this.setState({ }) }}
-                                    onSelect={(value) => { this.setState({ }) }} />
+                                    onChange={() => { this.setState({ }) }}
+                                    onSelect={() => { this.setState({ }) }} />
                             </div>
                         </div>
 

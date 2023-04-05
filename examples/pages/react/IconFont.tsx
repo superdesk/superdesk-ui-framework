@@ -9,7 +9,7 @@ import * as iconFont from '../../../app/styles/_icon-font.scss';
 export default class IconFontDoc extends React.PureComponent {
     render() {
         const array = iconFont.icon.split(', ');
-        const icons = array.map((icon, index) =>
+        const icons = array.map((icon: {}|null|undefined: {}|null|undefined, index: React.Key|undefined: React.Key|undefined) =>
             <li key={index}>
                 <Icon name={icon} />
                 <span>{icon}</span>

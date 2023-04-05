@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioButtonGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, RadioButtonGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
 import dummy_items from '../dummy-data/items';
@@ -149,7 +149,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
                                     <div className="form__group">
@@ -160,7 +160,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="option-1">Select ingest source...</Option>
                                                 <Option value="option-2">Associated Press</Option>
                                                 <Option value="option-3">Reuters</Option>
@@ -178,7 +178,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => { }} />
                                         </div>
                                     </div>
 
@@ -191,7 +191,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => { }}>
                                                 <Option value="">--- Not selected ---</Option>
                                                 <Option value="single">Single usage</Option>
                                                 <Option value="time">Time restricted</Option>
@@ -213,7 +213,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     <Components.MainPanel >
 
                         <GridList size="small" gap="medium" margin="1">
-                            {dummy_items.map((item, index) =>
+                            {dummy_items.map((item: { locked: boolean|undefined; status: string[]|undefined; type: string|undefined; selected: boolean|undefined; image: string|undefined; imageAlt: string|undefined; date: string; title: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; description: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; urgency: string|undefined; urgencyColor: string|undefined; priority: string|undefined; priorityColor: string|undefined; }: { locked: boolean|undefined; status: string[]|undefined; type: string|undefined; selected: boolean|undefined; image: string|undefined; imageAlt: string|undefined; date: string; title: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; description: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; urgency: string|undefined; urgencyColor: string|undefined; priority: string|undefined; priorityColor: string|undefined; }, index: React.Key|undefined: React.Key|undefined) =>
                                 <GridElements.GridItem locked={item.locked} status={item.status} onClick={this.handlePreview} itemtype={item.type} key={index}>
                                     <GridElements.GridItemCheckWrapper>
                                         <Checkbox checked={item.selected} label={{text:''}} onChange={(value) => {

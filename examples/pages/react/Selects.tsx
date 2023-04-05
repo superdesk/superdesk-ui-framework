@@ -14,7 +14,7 @@ interface IState {
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
             inlineLabel: false,

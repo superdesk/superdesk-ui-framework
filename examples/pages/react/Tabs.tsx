@@ -9,14 +9,14 @@ interface IState {
 }
 
 export default class TabsDoc extends React.Component<{}, IState> {
-    constructor(props){
+    constructor(props: Readonly<{}>){
         super(props);
         this.state = {
             indexValue: 0
         }
         this.handleClick=this.handleClick.bind(this);
     }
-    tabs: TabList;
+    tabs: TabList|undefined;
 
     componentDidMount() {
         this.tabs.goTo('Content')

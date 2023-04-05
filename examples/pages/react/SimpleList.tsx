@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { SimpleList, SimpleListItem, Label, Badge, Icon, IconButton, ButtonGroup, Text, Heading, Prop, PropsList } from '../../../app-typescript';
+import { SimpleList, SimpleListItem, Label, Icon, IconButton, ButtonGroup, Text, Prop, PropsList } from '../../../app-typescript';
 
 export default class SimpleListDoc extends React.Component {
     render() {

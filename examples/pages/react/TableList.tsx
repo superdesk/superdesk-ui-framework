@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { BoxedList, BoxedListItem, BoxedListContentRow, Prop, PropsList, Icon, IconButton, AvatarWrapper, AvatarContentText, ButtonGroup, Button, Heading, Text, Label, Container, IconLabel, SelectGrid, Dropdown, Tooltip } from '../../../app-typescript';
-import { TableList, TableListItem } from '../../../app-typescript/components/Lists/TableList';
+import { Prop, PropsList, IconButton, Label, IconLabel, Dropdown } from '../../../app-typescript';
+import { TableList } from '../../../app-typescript/components/Lists/TableList';
 
 interface IState {
     array: any;

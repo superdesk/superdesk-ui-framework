@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { GridList, Icon, IconButton, Badge, Label, Checkbox, Prop, PropsList } from '../../../app-typescript';
+import { GridList, Icon, IconButton, Badge, Checkbox, Prop, PropsList } from '../../../app-typescript';
 import * as GridElements from '../../../app-typescript/components/GridItem';
 
 interface IState {
@@ -10,7 +10,7 @@ interface IState {
 }
 
 export default class GridItemDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
             selected: true,

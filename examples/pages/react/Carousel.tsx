@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Markup from "../../js/react";
-import { Carousel, Icon, Badge, IconButton, PropsList, Prop } from "../../../app-typescript";
+import { Carousel, IconButton, PropsList, Prop } from "../../../app-typescript";
 
 export default class CarouselDoc extends React.Component {
     render() {

@@ -5,7 +5,7 @@ import {PropsList, Prop} from '../../../app-typescript';
 import {TimePicker} from '../../../app-typescript/components/TimePicker';
 
 class TimePickerExample extends React.PureComponent<{}, {time: string}> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {

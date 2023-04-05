@@ -17,7 +17,7 @@ interface IState {
 }
 
 export default class ModalDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {

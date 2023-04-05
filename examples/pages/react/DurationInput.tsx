@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { Input, Select, CheckGroup, Checkbox, PropsList, Prop } from '../../../app-typescript';
+import { CheckGroup, Checkbox, PropsList, Prop } from '../../../app-typescript';
 import { DurationInput } from '../../../app-typescript/components/DurationInput';
-import { getDurationString } from '../../../app-typescript/components/DurationInput';
 
 interface IState {
     inlineLabel: boolean;
@@ -13,7 +12,7 @@ interface IState {
 }
 
 export default class DurationInputDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
             inlineLabel: false,

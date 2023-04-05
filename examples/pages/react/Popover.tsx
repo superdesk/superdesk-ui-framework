@@ -4,7 +4,7 @@ import {Popover, PropsList, Prop } from '../../../app-typescript';
 import * as Markup from '../../js/react';
 
 export class PopoverDoc extends React.Component {
-    buttonRef: HTMLButtonElement | null;
+    buttonRef: HTMLButtonElement|null|undefined;
 
     render() {
         return (

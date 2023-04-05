@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import { ButtonGroup, Button, IconButton, Tooltip, Alert, Divider, Prop, PropsList} from '../../../app-typescript';
+import { ButtonGroup, Button, IconButton, Alert, Divider, Prop, PropsList} from '../../../app-typescript';
 
 export default class ButtonGroupsDoc extends React.Component {
     render() {

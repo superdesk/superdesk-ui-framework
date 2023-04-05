@@ -1,6 +1,5 @@
 import * as React from 'react';
-import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge, Divider } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Icon, IconButton, Checkbox, GridList, Badge, Divider } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import dummy_items from '../dummy-data/items';
@@ -122,7 +121,7 @@ export class PageLayoutTest extends React.Component<IProps, IState> {
             )}
             main={(
                 <GridList size="small" gap="medium" margin="3">
-                    {dummy_items.map((item, index) =>
+                    {dummy_items.map((item: { locked: boolean|undefined; status: string[]|undefined; type: string|undefined; selected: boolean|undefined; image: string|undefined; imageAlt: string|undefined; date: string; title: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; description: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; urgency: string|undefined; urgencyColor: string|undefined; priority: string|undefined; priorityColor: string|undefined; }: { locked: boolean|undefined; status: string[]|undefined; type: string|undefined; selected: boolean|undefined; image: string|undefined; imageAlt: string|undefined; date: string; title: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; description: boolean|React.ReactChild|React.ReactFragment|React.ReactPortal|null|undefined; urgency: string|undefined; urgencyColor: string|undefined; priority: string|undefined; priorityColor: string|undefined; }, index: React.Key|undefined: React.Key|undefined) =>
                         <GridElements.GridItem locked={item.locked} status={item.status} itemtype={item.type} key={index}>
                             <GridElements.GridItemCheckWrapper>
                                 <Checkbox checked={item.selected} label={{text:''}} onChange={(value) => {

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { Prop, PropsList, Icon, IconButton, Label, Container, IconLabel } from '../../../app-typescript';
+import { Prop, PropsList, IconButton, Label, IconLabel } from '../../../app-typescript';
 import { ContentList } from '../../../app-typescript/components/Lists/ContentList';
 
 export default class ContentListDoc extends React.Component {

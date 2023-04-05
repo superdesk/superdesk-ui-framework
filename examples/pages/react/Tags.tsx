@@ -8,7 +8,7 @@ interface ITag{
     tags2: Array<any>;
 }
 export default class TagDoc extends React.Component<{}, ITag> {
-    constructor(props){
+    constructor(props: Readonly<{}>){
         super(props);
         this.state = {
             tags: [

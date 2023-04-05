@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { ContentDivider, Button, Prop, PropsList } from '../../../app-typescript';
+import { ContentDivider, Prop, PropsList } from '../../../app-typescript';
 
 export default class ContentDividerDoc extends React.Component {
 

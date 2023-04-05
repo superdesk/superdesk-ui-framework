@@ -1,11 +1,9 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew} from '../../../../app-typescript/index';
-import { Carousel } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew} from '../../../../app-typescript/index';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
 
-import dummy_items from '../dummy-data/items';
 
 
 interface IProps {
@@ -98,7 +96,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <div className="input-wrap">
                             <FormLabel invalid required={true} state='focused' text="Form Label" forId="input1" />
                             <IconButton size='small' icon="settings" ariaValue="Screen-reader text" onClick={()=> false} />
-                            <InputBase placeholder='Test placeholder' boxedStyle invalid type='text' id="input1" value='' onChange={(value) => {}} />
+                            <InputBase placeholder='Test placeholder' boxedStyle invalid type='text' id="input1" value='' onChange={() => {}} />
                             <div className="input-wrap__message-box">
                                 <div className="sd-input__hint">Error message</div>
                             </div>
@@ -110,7 +108,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <div className="input-wrap input-wrap--boxed">
                             <FormLabel style='boxed' text="Form Label" required={true} forId="input2" />
                             <IconButton size='small' icon="settings" ariaValue="Screen-reader text" onClick={()=> false} />
-                            <InputBase disabled size='medium' placeholder='Test placeholder' boxedStyle type='text' id="input2" value='' onChange={(value) => {}} />
+                            <InputBase disabled size='medium' placeholder='Test placeholder' boxedStyle type='text' id="input2" value='' onChange={() => {}} />
                             <div className="input-wrap__message-box">
                                 <div className="sd-input__hint">Error message</div>
                             </div>
@@ -123,7 +121,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <InputNew
                             label='test'
                             value=''
-                            onChange={(value) => false}
+                            onChange={() => false}
                             placeholder='test'
                             required={true}
                             info='Nullam Sollicitudin'
@@ -137,13 +135,13 @@ export class TestGround extends React.Component<IProps, IState> {
                         <div className='form__group-new'>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => {}}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
                                 disabled={true} />
                             <Input value=''
-                                onChange={(value) => {}}
+                                onChange={() => {}}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
@@ -182,7 +180,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <FormRowNew rowLabel='My group label' inlineLabels={true}>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => {}}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
@@ -192,7 +190,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             <Text size='small' align='center'>To:</Text>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => {}}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
@@ -235,7 +233,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <FormRowNew>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => {}}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
@@ -243,7 +241,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             <Text size='small' align='center'>To:</Text>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => {}}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'

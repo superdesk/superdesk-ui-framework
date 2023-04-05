@@ -1,11 +1,12 @@
 import * as React from 'react';
 
 import { ReactNav, ReactDefault } from '../../js/react';
-import { ButtonGroup, Button, NavButton, Dropdown } from '../../../app-typescript/index';
+import { Dropdown } from '../../../app-typescript/index';
 
 import {
     Switch,
-    Route,
+    Route
+RouteComponentProps,,
 } from "react-router-dom";
 
 import InputsDoc from './Inputs';
@@ -65,6 +66,7 @@ import DurationInputDoc from './DurationInput';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
+import { StaticContext } from 'react-router';
 
 const pages = {
     basicComponents: {
@@ -401,7 +403,7 @@ class ReactPlayground extends React.Component<IProps> {
     }
 }
 
-const parsePlayground = ({ match }, playgrounds) => {
+const parsePlayground = ({ match }: RouteComponentProps<{ id: string; },StaticContext,unknown>, playgrounds: { [x: string]: { component: string|number; }; }) => {
     const Component = Playgrounds[playgrounds[match.params.id].component];
     return (
         <Component />

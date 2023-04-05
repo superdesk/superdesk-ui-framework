@@ -33,7 +33,7 @@ const ItemArr: Array<IColor> = [
 ];
 
 export class MultiselectDocs extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
         this.state = {
             value: null,

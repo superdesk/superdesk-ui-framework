@@ -1,6 +1,5 @@
 import * as React from 'react';
-import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Switch, Icon, AvatarWrapper, AvatarContentImage, AvatarContentText, Text, EmptyState, Alert, SlidingToolbar, TabLabel, Tabs, Heading, Modal } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Tooltip, Select, Option, Icon, AvatarWrapper, AvatarContentText, Modal } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -167,7 +166,7 @@ export class Editor extends React.Component<{}, IEditor> {
                                 required={false}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}} />
+                                onChange={() => {}} />
                         </Form.FormItem>
                         <Form.FormItem>
                             <Input
@@ -180,7 +179,7 @@ export class Editor extends React.Component<{}, IEditor> {
                                 required={false}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}} />
+                                onChange={() => {}} />
                         </Form.FormItem>
                     </Form.FormGroup>
                     <Form.FormGroup inlineLabel={true}>
@@ -195,7 +194,7 @@ export class Editor extends React.Component<{}, IEditor> {
                                 required={false}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}} />
+                                onChange={() => {}} />
                         </Form.FormItem>
                     </Form.FormGroup>
                     <Form.FormGroup marginBottom='0' inlineLabel={true}>
@@ -210,7 +209,7 @@ export class Editor extends React.Component<{}, IEditor> {
                                 required={true}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}} />
+                                onChange={() => {}} />
                         </Form.FormItem>
                         <Form.FormItem autoWidth={true}>
                             <Form.FormText>Just testing:</Form.FormText>
@@ -225,7 +224,7 @@ export class Editor extends React.Component<{}, IEditor> {
                                 required={true}
                                 disabled={false}
                                 invalid={false}
-                                onChange={(value) => {}}>
+                                onChange={() => {}}>
                                     <Option>Option 1</Option>
                                     <Option>Option 2</Option>
                             </Select>

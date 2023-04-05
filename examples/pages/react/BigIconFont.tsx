@@ -8,7 +8,7 @@ import * as bigIconFont from '../../../app/styles/_big-icon-font.scss';
 export default class BigIconFontDoc extends React.PureComponent{
     render(){
         const array = bigIconFont.icon.split(', ');
-        const icons = array.map((icon, index) =>
+        const icons = array.map((icon: {}|null|undefined: {}|null|undefined, index: React.Key|undefined: React.Key|undefined) =>
             <li key={index}>
                 <Icon name={icon} size='big'/>
                 <span>{icon}</span>

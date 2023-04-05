@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import { IconButton, Prop, PropsList, Tooltip, Container, ButtonGroup } from '../../../app-typescript';
+import { IconButton, Prop, PropsList, Container, ButtonGroup } from '../../../app-typescript';
 
 export default class IconButtonDoc extends React.Component {
     render() {

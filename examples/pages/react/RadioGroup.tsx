@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
-import { RadioGroup, RadioButtonGroup, CheckGroup, CheckButtonGroup, Alert, Prop, PropsList } from '../../../app-typescript';
+import { RadioGroup, RadioButtonGroup, Alert, Prop, PropsList } from '../../../app-typescript';
 
 interface IState {
     value1?: string;
@@ -16,7 +16,7 @@ interface IState {
 }
 
 export default class RadioGroupDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: Readonly<{}>) {
         super(props);
 
         this.state = {
