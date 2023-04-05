@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-interface IPropsPillPreview<T> {
+interface IProps<T> {
     array: Array<T>;
     singleSelect?: boolean;
     getLabel(item: T): string;
@@ -10,7 +10,7 @@ interface IPropsPillPreview<T> {
     getTextColor?(item: string): 'black' | 'white' | undefined;
 }
 
-export class PillPreview<T> extends React.Component<IPropsPillPreview<T>> {
+export class PillPreview<T> extends React.Component<IProps<T>> {
 
     render() {
         return (
@@ -35,13 +35,12 @@ export class PillPreview<T> extends React.Component<IPropsPillPreview<T>> {
                             >
                                 <span
                                     className="tags-input__helper-box"
-                                    style={
-                                        {color: backgroundColor
+                                    style={{color:
+                                        backgroundColor
                                             ? this.props.getTextColor?.(backgroundColor)
                                             : this.props.getBackgroundColor
                                                 &&  this.props.getTextColor?.(this.props.getBackgroundColor(item)),
-                                        }
-                                    }
+                                    }}
                                 >
                                     {children}
                                 </span>

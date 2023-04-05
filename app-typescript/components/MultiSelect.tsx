@@ -38,7 +38,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
     constructor(props: IProps<T>) {
         super(props);
         this.state = {
-            value: this.props.value ? this.props.value : [],
+            value: this.props.value != null ? this.props.value : [],
             options: [],
             invalid: this.props.invalid ? this.props.invalid : false,
         };
