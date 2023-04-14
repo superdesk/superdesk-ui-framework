@@ -66,6 +66,7 @@ import {WithPaginationDocs} from './WithPaginationDocs';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
+import {ResizablePanelsDoc} from './ResizablePanels';
 
 const pages = {
     basicComponents: {
@@ -166,6 +167,9 @@ const pages = {
             },
             "togglebox": {
                 name: "Togglebox"
+            },
+            "resizable-panels": {
+                name: "Resizable panels"
             },
         }
     },
@@ -384,6 +388,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/container" component={ContainerDoc} />
                         <Route path="/react/dropzone" component={DropZoneDoc} />
                         <Route path="/react/create-button" component={CreateButtonDoc} />
+                        <Route path="/react/resizable-panels" component={ResizablePanelsDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
