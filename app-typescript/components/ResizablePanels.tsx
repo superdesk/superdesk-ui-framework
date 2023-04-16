@@ -23,7 +23,6 @@ interface IProps {
     children: [React.ReactNode, React.ReactNode];
 }
 
-
 /**
  Features:
  * No absolute positioning is used

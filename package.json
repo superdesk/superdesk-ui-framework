@@ -39,7 +39,7 @@
     "@types/react-dom": "16.8.0",
     "@types/react-router-dom": "^5.1.2",
     "@types/react-scrollspy": "^3.3.5",
-    "@typescript-eslint/parser": "5.14.0",
+    "@typescript-eslint/parser": "^5.58.0",
     "angular": "^1.7.9",
     "angular-animate": "^1.7.9",
     "angular-route": "^1.7.9",
