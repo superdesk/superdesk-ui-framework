@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import {AvatarWrapper, AvatarContentText, AvatarContentImage, AvatarGroup, Container, PropsList, Prop} from '../../../app-typescript';
+import {Container, PropsList, Prop, AvatarContentAdd, AvatarContentImage, AvatarContentNumber, AvatarContentText, AvatarGroup, AvatarWrapper, AvatarV2} from '../../../app-typescript';
 
 export default class AvatarDoc extends React.PureComponent {
     render() {
@@ -22,111 +22,227 @@ export default class AvatarDoc extends React.PureComponent {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
+                        <p className="docs-page__paragraph">// Combo</p>
+                        <Container gap='medium' className='sd-margin-b--3'>
+
+                            <AvatarV2
+                                imageUrl="/avatar.jpg"
+                                initials={null}
+                                tooltip="User 1"
+                                size="large"
+                                icon={{name: 'print', color: 'red'}}
+                                statusIndicator="online"
+                                administratorIndicator
+                            />
+
+                            <AvatarV2
+                                imageUrl={null}
+                                initials="BC"
+                                tooltip="User 2"
+                                size="large"
+                                icon={{name: 'print', color: 'red'}}
+                                statusIndicator="offline"
+                                administratorIndicator
+                            />
+
+                            <AvatarV2
+                                imageUrl={null}
+                                initials={null}
+                                tooltip="User 3"
+                                size="large"
+                                icon={{name: 'print', color: 'red'}}
+                                administratorIndicator
+                            />
+
+                        </Container>
+
                         <p className="docs-page__paragraph">// Basic with size variations</p>
                         <Container gap='medium' className='sd-margin-b--3'>
 
-                            <AvatarWrapper size="small">
-                                <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
-                            </AvatarWrapper>
+                            <AvatarV2
+                                size="x-small"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                            />
 
-                            <AvatarWrapper size="medium">
-                                <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
-                            </AvatarWrapper>
+                            <AvatarV2
+                                size="small"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                            />
 
-                            <AvatarWrapper size="large">
-                                <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="The Dude" />
-                            </AvatarWrapper>
-                            
-                            <AvatarWrapper size="x-large">
-                                <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
-                            </AvatarWrapper>
+                            <AvatarV2
+                                size="medium"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                            />
 
-                            <AvatarWrapper size="xx-large">
-                                <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="The Dude" />
-                            </AvatarWrapper>
+                            <AvatarV2
+                                size="large"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                            />
+
+                            <AvatarV2
+                                size="x-large"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                            />
+
+                            <AvatarV2
+                                size="xx-large"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                            />
 
                         </Container>
 
                         <p className="docs-page__paragraph">// With status indicator</p>
                         <Container gap='medium' className='sd-margin-b--3'>
-                            <AvatarWrapper
-                                size="large"
-                                statusIndicator={{status: 'online', tooltipText: "Online"}}
-                            >
-                                <AvatarContentText text="JJB" tooltipText="Jean Jacques Burnel" />
-                            </AvatarWrapper>
 
-                            <AvatarWrapper
-                                size="large"
-                                statusIndicator={{status: 'offline', tooltipText: "Offline"}}
-                            >
-                                <AvatarContentImage tooltipText="Jean Jacques Burnel" />
-                            </AvatarWrapper>
+                            <AvatarV2
+                                size="x-small"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                statusIndicator="online"
+                            />
 
-                            <AvatarWrapper
+                            <AvatarV2
+                                size="x-small"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                statusIndicator="offline"
+                            />
+
+                            <AvatarV2
                                 size="large"
-                                statusIndicator={{status: 'offline', tooltipText: "Offline"}}
-                            >
-                                <AvatarContentImage imageUrl="/avatar-3.jpg" tooltipText="Jean Jacques Burnel" />
-                            </AvatarWrapper>
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                statusIndicator="online"
+                            />
+
+                            <AvatarV2
+                                size="large"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                statusIndicator="offline"
+                            />
+
                         </Container>
 
                         <p className="docs-page__paragraph">// With administrator indicator</p>
                         <Container gap='medium' className='sd-margin-b--3'>
-                            <AvatarWrapper
+                            <AvatarV2
                                 size="large"
-                                administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
-                            >
-                                <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
-                            </AvatarWrapper>
-
-                            <AvatarWrapper
-                                size="large"
-                                administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
-                            >
-                                <AvatarContentText text="DD" tooltipText="Andre Romelle Young" />
-                            </AvatarWrapper>
-
-                            <AvatarWrapper
-                                size="large"
-                                administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
-                            >
-                                <AvatarContentImage imageUrl="/avatar-5.jpg" tooltipText="Biggie Smalls" />
-                            </AvatarWrapper>
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                administratorIndicator
+                            />
                         </Container>
 
-                        <p className="docs-page__paragraph">// Combo</p>
+
+
+                        <p className="docs-page__paragraph">// With icon</p>
                         <Container gap='medium' className='sd-margin-b--3'>
-                            <AvatarWrapper
-                                size="large"
-                                statusIndicator={{status: 'online', tooltipText: "Online"}}
-                                administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
-                            >
-                                <AvatarContentText text="DH" tooltipText="Debbie Harry" />
-                            </AvatarWrapper>
 
-                            <AvatarWrapper
-                                size="large"
-                                statusIndicator={{status: 'offline', tooltipText: "Offline"}}
-                                administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
-                            >
-                                <AvatarContentImage tooltipText="Debbie Harry" />
-                            </AvatarWrapper>
+                            <AvatarV2
+                                size="x-small"
+                                imageUrl={null}
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                icon={{name: 'text'}}
+                            />
 
-                            <AvatarWrapper
+                            <AvatarV2
+                                size="small"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                icon={{name: 'text'}}
+                            />
+
+                            <AvatarV2
+                                size="medium"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                icon={{name: 'audio', color: 'var(--sd-colour-state--done)'}}
+                            />
+
+                            <AvatarV2
                                 size="large"
-                                statusIndicator={{status: 'offline', tooltipText: "Offline"}}
-                                administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
-                            >
-                                <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
-                            </AvatarWrapper>
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
+                            />
+
+                            <AvatarV2
+                                size="x-large"
+                                imageUrl="/avatar.jpg"
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                icon={{name: 'text'}}
+                            />
+
+                            <AvatarV2
+                                size="xx-large"
+                                imageUrl={null}
+                                initials="JL"
+                                tooltip="Jeffrey Lebowski"
+                                icon={{name: 'video-cancel', color: 'var(--sd-colour-state--in-progress)'}}
+                            />
+
                         </Container>
+
+                        <p className="docs-page__paragraph">// Avatar group (work in progress)</p>
+                        <Container gap='medium' className='sd-margin-b--3'>
+                            <AvatarGroup
+                                size="large"
+                                avatars={[
+                                    {
+                                        initials: 'JL',
+                                        imageUrl: '/avatar-3.jpg',
+                                        tooltip: 'Jeffrey Lebowski',
+                                    },
+                                    {
+                                        initials: 'JL',
+                                        imageUrl: '/avatar.jpg',
+                                        tooltip: 'Jeffrey Lebowski',
+                                        administratorIndicator: true,
+                                    },
+                                    {
+                                        initials: 'JL',
+                                        imageUrl: null,
+                                        tooltip: 'Jeffrey Lebowski',
+                                        statusIndicator: 'online'
+                                    },
+                                ]}
+                            />
+                        </Container>
+
+
                     </Markup.ReactMarkupPreview>
 
                     <Markup.ReactMarkupCode>{`
                         // Basic with size variations
+                        <AvatarWrapper size="x-small">
+                            <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
+                        </AvatarWrapper>
+
                         <AvatarWrapper size="small">
-                            <AvatarContentImage imageUrl="/avatar.jpg" tooltipText="Jeffrey Lebowski" />
+                            <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
                         </AvatarWrapper>
 
                         <AvatarWrapper size="medium">
@@ -134,53 +250,73 @@ export default class AvatarDoc extends React.PureComponent {
                         </AvatarWrapper>
 
                         <AvatarWrapper size="large">
-                            <AvatarContentImage imageUrl="/avatar.jpg" tooltipText="The Dude" />
+                            <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="The Dude" />
                         </AvatarWrapper>
-                        
+
                         <AvatarWrapper size="x-large">
                             <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
                         </AvatarWrapper>
 
                         <AvatarWrapper size="xx-large">
-                            <AvatarContentImage imageUrl="/avatar.jpg" tooltipText="The Dude" />
+                            <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="The Dude" />
                         </AvatarWrapper>
 
 
                         // With status indicator
                         <AvatarWrapper
+                            size="x-small"
+                            statusIndicator={{status: 'online'}}
+                        >
+                            <AvatarContentText text="JJB" tooltipText="Jean Jacques Burnel" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper
                             size="large"
                             statusIndicator={{status: 'online', tooltipText: "Online"}}
                         >
-                            <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
+                            <AvatarContentText text="JJB" tooltipText="Jean Jacques Burnel" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper
+                            size="large"
+                            statusIndicator={{status: 'offline'}}
+                        >
+                            <AvatarContentImage tooltipText="Jean Jacques Burnel" />
                         </AvatarWrapper>
 
                         <AvatarWrapper
                             size="large"
                             statusIndicator={{status: 'offline', tooltipText: "Offline"}}
                         >
-                            <AvatarContentImage imageUrl="/avatar.jpg" tooltipText="Jeffrey Lebowski" />
+                            <AvatarContentImage imageUrl="/avatar-3.jpg" tooltipText="Jean Jacques Burnel" />
                         </AvatarWrapper>
 
                         // With administrator indicator
-                        <Container gap='medium' className='sd-margin-b--3'>
                         <AvatarWrapper
                             size="large"
                             administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
                         >
-                            <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
+                            <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
                         </AvatarWrapper>
 
                         <AvatarWrapper
                             size="large"
                             administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
                         >
-                            <AvatarContentImage tooltipText="Jeffrey Lebowski" />
+                            <AvatarContentText text="DD" tooltipText="Andre Romelle Young" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper
+                            size="large"
+                            administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
+                        >
+                            <AvatarContentImage imageUrl="/avatar-5.jpg" tooltipText="Biggie Smalls" />
                         </AvatarWrapper>
 
                         // Combo
                         <AvatarWrapper
                             size="large"
-                            statusIndicator={{status: 'online', tooltipText: "Online"}}
+                            statusIndicator={{status: 'online'}}
                             administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
                         >
                             <AvatarContentText text="DH" tooltipText="Debbie Harry" />
@@ -188,7 +324,7 @@ export default class AvatarDoc extends React.PureComponent {
 
                         <AvatarWrapper
                             size="large"
-                            statusIndicator={{status: 'offline', tooltipText: "Offline"}}
+                            statusIndicator={{status: 'offline'}}
                             administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
                         >
                             <AvatarContentImage tooltipText="Debbie Harry" />
@@ -196,10 +332,50 @@ export default class AvatarDoc extends React.PureComponent {
 
                         <AvatarWrapper
                             size="large"
-                            statusIndicator={{status: 'offline', tooltipText: "Offline"}}
+                            statusIndicator={{status: 'offline'}}
                             administratorIndicator={{enabled: true, tooltipText: "Administrator"}}
                         >
                             <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper
+                            size="large"
+                            isEmpty={true}
+                        >
+                            <AvatarContentImage tooltipText="Debbie Harry" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper size="large">
+                            <AvatarContentAdd tooltipText="Assign coverage" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper size="large">
+                            <AvatarContentNumber number="3" />
+                        </AvatarWrapper>
+
+                        // With icon
+                        <AvatarWrapper size="x-small" icon={{name: 'text'}}>
+                            <AvatarContentText text="JD" tooltipText="John Doe" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper size="small" icon={{name: 'text'}}>
+                            <AvatarContentImage imageUrl="/avatar-5.jpg" tooltipText="Biggie Smalls" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper size="medium" icon={{name: 'audio', status: 'done'}}>
+                            <AvatarContentText text="DH" tooltipText="Debbie Harry" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper size="large" icon={{name: 'text', status: 'in-progress'}}>
+                            <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper size="x-large" icon={{name: 'text'}}>
+                        <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
+                        </AvatarWrapper>
+
+                        <AvatarWrapper size="xx-large" icon={{name: 'video', cancelled: true, status: 'in-progress'}}>
+                            <AvatarContentText text="DH" tooltipText="Debbie Harry" />
                         </AvatarWrapper>
                     `}
                     </Markup.ReactMarkupCode>
@@ -207,7 +383,7 @@ export default class AvatarDoc extends React.PureComponent {
 
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">AvatarGroup</h3>
                 <p className='docs-page__paragraph'></p>
-                <Markup.ReactMarkup>
+                {/* <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Stacked</p>
                         <AvatarGroup>
@@ -222,7 +398,7 @@ export default class AvatarDoc extends React.PureComponent {
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
                             </AvatarWrapper>
-                            
+
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-5.jpg" tooltipText="Biggie Smalls" />
                             </AvatarWrapper>
@@ -230,9 +406,61 @@ export default class AvatarDoc extends React.PureComponent {
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
                             </AvatarWrapper>
-                            {/* <AvatarWrapper size="large">
-                                <AvatarContentText text="6+" tooltipText="6 more" />
-                            </AvatarWrapper> */}
+                            <AvatarWrapper size="large">
+                                <AvatarContentNumber number="3" />
+                            </AvatarWrapper>
+                        </AvatarGroup>
+
+                        <p className="docs-page__paragraph">// Stacked with large gap</p>
+                        <AvatarGroup gap='large'>
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-3.jpg" tooltipText="Jean Jacques Burnel" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-5.jpg" tooltipText="Biggie Smalls" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
+                            </AvatarWrapper>
+                            <AvatarWrapper size="large">
+                                <AvatarContentNumber number="3" />
+                            </AvatarWrapper>
+                        </AvatarGroup>
+
+                        <p className="docs-page__paragraph">// Stacked with large gap -- small avatars</p>
+                        <AvatarGroup gap='large'>
+                            <AvatarWrapper size="x-small" icon={{name: 'text'}}>
+                                <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'video'}}>
+                                <AvatarContentText text="JD" tooltipText="John Doe" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'audio', color: 'var(--sd-colour-state--in-progress)'}}>
+                                <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'photo', color: 'var(--sd-colour-state--done)'}}>
+                                <AvatarContentText text="WS" tooltipText="Walter Sobchak" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'text', color: 'var(--sd-colour-state--done)'}}>
+                                <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
+                            </AvatarWrapper>
+                            <AvatarWrapper size="x-small">
+                                <AvatarContentNumber number="3" />
+                            </AvatarWrapper>
                         </AvatarGroup>
 
                         <p className="docs-page__paragraph">// Grid</p>
@@ -249,7 +477,7 @@ export default class AvatarDoc extends React.PureComponent {
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
                             </AvatarWrapper>
-                            
+
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar.jpg" tooltipText="Biggie Smalls" />
                             </AvatarWrapper>
@@ -295,7 +523,7 @@ export default class AvatarDoc extends React.PureComponent {
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
                             </AvatarWrapper>
-                            
+
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-5.jpg" tooltipText="Biggie Smalls" />
                             </AvatarWrapper>
@@ -303,9 +531,64 @@ export default class AvatarDoc extends React.PureComponent {
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
                             </AvatarWrapper>
+                            <AvatarWrapper size="large">
+                                <AvatarContentNumber number="3" />
+                            </AvatarWrapper>
                         </AvatarGroup>
 
-                    // Grid
+                        // Stacked with large gap
+                        <AvatarGroup gap='large'>
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-3.jpg" tooltipText="Jean Jacques Burnel" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-5.jpg" tooltipText="Biggie Smalls" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="large">
+                                <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
+                            </AvatarWrapper>
+                            <AvatarWrapper size="large">
+                                <AvatarContentNumber number="3" />
+                            </AvatarWrapper>
+                        </AvatarGroup>
+
+                        // Stacked with large gap -- small avatars
+                            <AvatarGroup gap='large'>
+                                <AvatarWrapper size="x-small" icon={{name: 'text'}}>
+                                <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'video'}}>
+                                <AvatarContentText text="JD" tooltipText="John Doe" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'audio', status: 'in-progress'}}>
+                                <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'photo', status: 'done'}}>
+                                <AvatarContentText text="WS" tooltipText="Walter Sobchak" />
+                            </AvatarWrapper>
+
+                            <AvatarWrapper size="x-small" icon={{name: 'text', status: 'done'}}>
+                                <AvatarContentImage imageUrl="/avatar-6.jpg" tooltipText="Tupac Shakur" />
+                            </AvatarWrapper>
+                            <AvatarWrapper size="x-small">
+                                <AvatarContentNumber number="3" />
+                            </AvatarWrapper>
+                        </AvatarGroup>
+
+                        // Grid
                         <AvatarGroup appearance='grid' className='sd-width--xx-small'>
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-2.jpg" tooltipText="Jeffrey Lebowski" />
@@ -318,7 +601,7 @@ export default class AvatarDoc extends React.PureComponent {
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar-4.jpg" tooltipText="Debbie Harry" />
                             </AvatarWrapper>
-                            
+
                             <AvatarWrapper size="large">
                                 <AvatarContentImage imageUrl="/avatar.jpg" tooltipText="Biggie Smalls" />
                             </AvatarWrapper>
@@ -349,7 +632,7 @@ export default class AvatarDoc extends React.PureComponent {
                         </AvatarGroup>
                     `}
                     </Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
+                </Markup.ReactMarkup> */}
 
                 <h3 className="docs-page__h3">Avatar props</h3>
                 <p className="docs-page__paragraph">AvatarWrapper</p>

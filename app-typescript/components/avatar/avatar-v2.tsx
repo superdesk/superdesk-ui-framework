@@ -1,0 +1,50 @@
+import * as React from 'react';
+import {AvatarContentImage} from './avatar-image';
+import {AvatarWrapper} from './avatar-wrapper';
+import {AvatarContentText} from './avatar-text';
+
+export interface IPropsAvatarV2 {
+    imageUrl: string | null; // nullable, but mandatory to communicate importance
+    tooltip: string | null; // nullable, but mandatory to communicate importance
+
+    /** 3 letters max */
+    initials: string | null; // nullable, but mandatory to communicate importance
+
+    size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+    statusIndicator?: 'online' | 'offline';
+    administratorIndicator?: boolean;
+    icon?: {
+        name: string;
+        color?: string;
+    };
+}
+
+export class AvatarV2 extends React.PureComponent<IPropsAvatarV2> {
+    render() {
+        const {imageUrl, initials, size, statusIndicator, administratorIndicator, icon, tooltip} = this.props;
+
+        const hasImage = imageUrl != null;
+        const hasInitials = initials != null;
+
+        return (
+            <AvatarWrapper
+                size={size}
+                statusIndicator={statusIndicator ? {status: statusIndicator, tooltipText: ''} : undefined}
+                administratorIndicator={administratorIndicator ? {enabled: true, tooltipText: ''} : undefined}
+                icon={icon}
+                isEmpty={false}
+            >
+                {
+                    hasImage === true || hasInitials !== true
+                        ? (
+                            <AvatarContentImage imageUrl={imageUrl} tooltipText={tooltip ?? undefined} />
+                        )
+                        : (
+                            <AvatarContentText text="JL" tooltipText={tooltip ?? undefined} />
+                        )
+                }
+
+            </AvatarWrapper>
+        );
+    }
+}
