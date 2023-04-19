@@ -1,9 +1,11 @@
 import * as React from 'react';
 import {AvatarV2, IPropsAvatarV2} from './avatar-v2';
 
+export type IAvatarGroupItem = Omit<IPropsAvatarV2, 'size'>;
+
 export interface IPropsAvatarGroup {
     size: IPropsAvatarV2['size'];
-    avatars: Array<Omit<IPropsAvatarV2, 'size'>>;
+    avatars: Array<IAvatarGroupItem>;
 }
 
 export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
