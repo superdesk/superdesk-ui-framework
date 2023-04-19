@@ -23,9 +23,6 @@ export class AvatarV2 extends React.PureComponent<IPropsAvatarV2> {
     render() {
         const {imageUrl, initials, size, statusIndicator, administratorIndicator, icon, tooltip} = this.props;
 
-        const hasImage = imageUrl != null;
-        const hasInitials = initials != null;
-
         return (
             <AvatarWrapper
                 size={size}
@@ -35,12 +32,12 @@ export class AvatarV2 extends React.PureComponent<IPropsAvatarV2> {
                 isEmpty={false}
             >
                 {
-                    hasImage === true || hasInitials !== true
+                    imageUrl != null || initials == null
                         ? (
                             <AvatarContentImage imageUrl={imageUrl} tooltipText={tooltip ?? undefined} />
                         )
                         : (
-                            <AvatarContentText text="JL" tooltipText={tooltip ?? undefined} />
+                            <AvatarContentText text={initials} tooltipText={tooltip ?? undefined} />
                         )
                 }
 
