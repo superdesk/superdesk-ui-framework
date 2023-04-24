@@ -226,7 +226,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     this.pageCount > 1 ? (
                         <>
                             <StyledPagination />
-                                {this.props.children(this.state.items)}
+                            {this.props.children(this.state.items)}
                             <StyledPagination />
                         </>
                     ) : (
