@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Icon} from '../components/Icon';
 
 interface IProps<T> {
-    getItems(pageNo: number, signal: AbortSignal): Promise<{items: Array<T>, itemCount: number}>;
+    getItems(pageNo: number, pageSize: number, signal: AbortSignal): Promise<{items: Array<T>, itemCount: number}>;
     children: (items: Array<T>) => JSX.Element;
     pageSize?: number;
 }
@@ -98,7 +98,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
     }
 
     getPageSize() {
-        return this.props.pageSize ?? 20;
+        return this.props.pageSize ?? 100;
     }
 
     switchPage(page: number) {
@@ -107,7 +107,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         }
 
         this.inProgress = true;
-        this.props.getItems(page, this.abortController.signal).then((res) => {
+        this.props.getItems(page, this.getPageSize(), this.abortController.signal).then((res) => {
             this.inProgress = false;
             this.setState({items: res.items, currentPage: page}, () => {
                 const scrollableEl = getScrollParent(this.ref);
@@ -123,7 +123,7 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
     }
 
     componentDidMount(): void {
-        this.props.getItems(1, this.abortController.signal).then((res) => {
+        this.props.getItems(1, this.getPageSize(), this.abortController.signal).then((res) => {
             this.pageCount = Math.ceil(res.itemCount / this.getPageSize());
             this.setState({items: res.items});
         });
