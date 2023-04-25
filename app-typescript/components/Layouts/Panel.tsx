@@ -50,19 +50,11 @@ interface IPropsPanelHeader {
     className?: string;
     onClose?(): void;
     iconButtons?: Array<React.ReactNode>;
-    pinned?: boolean;
 }
 
-interface IStatePanelHeader {
-    rotate: boolean;
-}
-
-class PanelHeader extends React.PureComponent<IPropsPanelHeader, IStatePanelHeader> {
+class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
     constructor(props: IPropsPanelHeader) {
         super(props);
-        this.state = {
-            rotate: this.props.pinned ? this.props.pinned : false,
-        };
     }
 
     render() {
