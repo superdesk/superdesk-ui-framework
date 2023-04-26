@@ -6,6 +6,7 @@ export { Button } from './components/Button';
 export { Input } from './components/Input';
 export { Select, Option } from './components/Select';
 export { SelectWithTemplate } from './components/SelectWithTemplate';
+export { WithPagination } from './components/WithPagination';
 export { Popover } from './components/Popover';
 export { Label } from './components/Label';
 export { Badge } from './components/Badge';
@@ -90,6 +91,7 @@ export { TreeSelect } from './components/TreeSelect';
 export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 export { MultiSelect } from './components/MultiSelect';
+export { ResizablePanels } from './components/ResizablePanels';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

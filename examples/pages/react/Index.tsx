@@ -63,10 +63,12 @@ import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
 import DurationInputDoc from './DurationInput';
+import {WithPaginationDocs} from './WithPaginationDocs';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
 import { StaticContext } from 'react-router';
+import {ResizablePanelsDoc} from './ResizablePanels';
 
 const pages = {
     basicComponents: {
@@ -168,6 +170,9 @@ const pages = {
             "togglebox": {
                 name: "Togglebox"
             },
+            "resizable-panels": {
+                name: "Resizable panels"
+            },
         }
     },
     textComponents: {
@@ -201,6 +206,9 @@ const pages = {
             },
             'content-list': {
                 name: 'Content list'
+            },
+            'with-pagination': {
+                name: 'With pagination'
             },
         }
     },
@@ -344,6 +352,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/multiselect" component={MultiselectDocs} />
                         <Route path="/react/treeselect" component={TreeSelectDocs} />
                         <Route path="/react/duration-input" component={DurationInputDoc} />
+                        <Route path="/react/with-pagination" component={WithPaginationDocs} />
                         <Route path="/react/popover" component={PopoverDoc} />
                         <Route path="/react/date-picker" component={DatePickerDoc} />
                         <Route path="/react/time-picker" component={TimePickerDoc} />
@@ -381,6 +390,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/container" component={ContainerDoc} />
                         <Route path="/react/dropzone" component={DropZoneDoc} />
                         <Route path="/react/create-button" component={CreateButtonDoc} />
+                        <Route path="/react/resizable-panels" component={ResizablePanelsDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
@@ -411,3 +421,4 @@ const parsePlayground = ({ match }: RouteComponentProps<{ id: string; },StaticCo
 };
 
 export { ReactDoc, ReactPlayground };
+
