@@ -3,7 +3,7 @@ import {AvatarContentImage} from './avatar-image';
 import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentText} from './avatar-text';
 
-export interface IPropsAvatarV2 {
+export interface IPropsAvatar {
     imageUrl: string | null; // nullable, but mandatory to communicate importance
     tooltip: string | null; // nullable, but mandatory to communicate importance
 
@@ -11,6 +11,7 @@ export interface IPropsAvatarV2 {
     initials: string | null; // nullable, but mandatory to communicate importance
 
     size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
+
     statusIndicator?: 'online' | 'offline';
     administratorIndicator?: boolean;
     icon?: {
@@ -19,7 +20,7 @@ export interface IPropsAvatarV2 {
     };
 }
 
-export class AvatarV2 extends React.PureComponent<IPropsAvatarV2> {
+export class Avatar extends React.PureComponent<IPropsAvatar> {
     render() {
         const {imageUrl, initials, size, statusIndicator, administratorIndicator, icon, tooltip} = this.props;
 
