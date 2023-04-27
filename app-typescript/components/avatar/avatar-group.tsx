@@ -19,7 +19,7 @@ export interface IPropsAvatarGroup {
     max?: number;
 }
 
-export class AvatarGroupV2 extends React.PureComponent<IPropsAvatarGroup> {
+export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
     render() {
         const {avatars, size} = this.props;
         const someIconsHaveExtraElements = avatars.some(

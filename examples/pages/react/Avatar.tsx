@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import {Container, Avatar, AvatarGroupV2} from '../../../app-typescript';
+import {Container, Avatar, AvatarGroup} from '../../../app-typescript';
 import {IAvatarGroupItem} from '../../../app-typescript/components/avatar/avatar-group';
 
 export default class AvatarDoc extends React.PureComponent {
@@ -425,28 +425,28 @@ export default class AvatarDoc extends React.PureComponent {
 
                             return (
                                 <>
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="x-small"
                                         avatars={avatars}
                                     />
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="small"
                                         avatars={avatars}
                                     />
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="medium"
                                         avatars={avatars}
                                     />
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="large"
                                         avatars={avatars}
                                         max={4}
@@ -454,12 +454,12 @@ export default class AvatarDoc extends React.PureComponent {
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="x-large"
                                         avatars={avatars}
                                     />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="xx-large"
                                         avatars={avatars}
                                     />
@@ -512,40 +512,40 @@ export default class AvatarDoc extends React.PureComponent {
 
                             return (
                                 <>
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="x-small"
                                         avatars={avatars}
                                     />
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="small"
                                         avatars={avatars}
                                     />
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="medium"
                                         avatars={avatars}
                                     />
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="large"
                                         avatars={avatars}
                                     />
 
                                     <br />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="x-large"
                                         avatars={avatars}
                                     />
 
-                                    <AvatarGroupV2
+                                    <AvatarGroup
                                         size="xx-large"
                                         avatars={avatars}
                                     />
@@ -594,40 +594,40 @@ export default class AvatarDoc extends React.PureComponent {
 
                         return (
                             <>
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="x-small"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="small"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="medium"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="large"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="x-large"
                                     avatars={avatars}
                                 />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="xx-large"
                                     avatars={avatars}
                                 />
@@ -679,40 +679,40 @@ export default class AvatarDoc extends React.PureComponent {
 
                         return (
                             <>
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="x-small"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="small"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="medium"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="large"
                                     avatars={avatars}
                                 />
 
                                 <br />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="x-large"
                                     avatars={avatars}
                                 />
 
-                                <AvatarGroupV2
+                                <AvatarGroup
                                     size="xx-large"
                                     avatars={avatars}
                                 />

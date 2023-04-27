@@ -16,7 +16,7 @@ export { AvatarContentText } from './components/avatar/avatar-text';
 export { AvatarContentImage } from './components/avatar/avatar-image';
 export { AvatarContentAdd } from './components/avatar/avatar-action-add';
 export { AvatarContentNumber } from './components/avatar/avatar-number';
-export { AvatarGroupV2 } from './components/avatar/avatar-group';
+export { AvatarGroup } from './components/avatar/avatar-group';
 export { Avatar } from './components/avatar/avatar';
 export { IconButton } from './components/IconButton';
 export { IconLabel } from './components/IconLabel';
