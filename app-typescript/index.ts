@@ -14,7 +14,6 @@ export { Alert } from './components/Alert';
 export { AvatarWrapper } from './components/avatar/avatar-wrapper';
 export { AvatarContentText } from './components/avatar/avatar-text';
 export { AvatarContentImage } from './components/avatar/avatar-image';
-export { AvatarContentNumber } from './components/avatar/avatar-number';
 export { AvatarGroup } from './components/avatar/avatar-group';
 export { Avatar } from './components/avatar/avatar';
 export { AvatarPlaceholder } from './components/avatar/avatar-placeholder';
