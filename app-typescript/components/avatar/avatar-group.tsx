@@ -3,32 +3,48 @@ import classNames from 'classnames';
 import {Avatar, IPropsAvatar} from './avatar';
 import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentNumber} from './avatar-number';
+import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
 
-export type IAvatarGroupItem = Omit<IPropsAvatar, 'size'>;
+export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
+export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
+
+export type IAvatarGroupItem = IAvatarInGroup | IAvatarPlaceholderInGroup;
 
 type IGap = 'none' | 'small'| 'medium'| 'large';
 
 export interface IPropsAvatarGroup {
     size: IPropsAvatar['size'];
-    avatars: Array<IAvatarGroupItem>;
+    items: Array<IAvatarGroupItem>;
 
     /**
-     * maximum number of avatars to shown inline
+     * maximum number of avatars to shown inline; defaults to 4
      * if exceeded, "+1"/"+2"/"+n" button will be shown
      */
-    max?: number;
+    max?: number | 'show-all';
+}
+
+function isAvatar(item: IAvatarInGroup | IAvatarPlaceholderInGroup): item is IAvatarInGroup {
+    return (item as any)['kind'] == null;
 }
 
 export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
     render() {
-        const {avatars, size} = this.props;
-        const someIconsHaveExtraElements = avatars.some(
+        const {size, items} = this.props;
+        const someIconsHaveExtraElements = items.filter(isAvatar).some(
             ({icon, administratorIndicator}) => icon != null || administratorIndicator != null,
         );
         const gap: IGap = someIconsHaveExtraElements ? 'medium' : 'none';
 
-        const max = this.props.max ?? this.props.avatars.length;
-        const itemsOverLimit = avatars.length - max;
+        const max: number = (() => {
+            if (this.props.max === 'show-all') {
+                return this.props.items.length;
+            } else if (this.props.max == null) {
+                return 4;
+            } else {
+                return this.props.max;
+            }
+        })();
+        const itemsOverLimit = items.length - max;
 
         return (
             <div
@@ -40,9 +56,21 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                 role='group'
             >
                 {
-                    avatars.slice(0, max).map((avatar, index) => (
-                        <Avatar {...avatar} size={size} key={index} />
-                    ))
+                    items.slice(0, max).map((item, index) => {
+                        if (isAvatar(item)) {
+                            return (
+                                <Avatar {...item} key={index} size={size} />
+                            )
+                        } else {
+                            return (
+                                <AvatarPlaceholder
+                                    {...item}
+                                    key={index}
+                                    size={this.props.size}
+                                />
+                            );
+                        }
+                    })
                 }
 
                 {

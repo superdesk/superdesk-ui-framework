@@ -190,6 +190,9 @@
             outline: 1px solid transparent;
             outline-offset: 0px;
             transition: all 0.2s ease;
+        }
+
+        &.sd-avatar-content--add-item--clickable {
             &:hover {
                 background-image: linear-gradient(var(--sd-colour-avatar-add--hover) 0 0), linear-gradient(var(--sd-colour-avatar-add--hover) 0 0);
                 cursor: pointer;
@@ -202,6 +205,7 @@
                 outline: 2px solid var(--sd-colour-interactive);
             }
         }
+
         &.sd-avatar-content--number {
             background-color: var(--sd-colour-avatar-bg--light);
             color: var(--color-text-light);

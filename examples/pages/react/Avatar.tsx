@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 
 import {Container, Avatar, AvatarGroup} from '../../../app-typescript';
-import {IAvatarGroupItem} from '../../../app-typescript/components/avatar/avatar-group';
+import {IAvatarInGroup, IAvatarPlaceholderInGroup} from '../../../app-typescript/components/avatar/avatar-group';
 
 export default class AvatarDoc extends React.PureComponent {
     render() {
@@ -150,8 +150,6 @@ export default class AvatarDoc extends React.PureComponent {
                                 administratorIndicator
                             />
                         </Container>
-
-
 
                         <p className="docs-page__paragraph">// With icon</p>
                         <Container gap='medium' className='sd-margin-b--3'>
@@ -390,7 +388,7 @@ export default class AvatarDoc extends React.PureComponent {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Various sizes</p>
                         {(() => {
-                            const avatars: Array<IAvatarGroupItem> = [
+                            const avatars: Array<IAvatarInGroup> = [
                                 {
                                     imageUrl: 'avatar.jpg',
                                     initials: "JL",
@@ -427,28 +425,28 @@ export default class AvatarDoc extends React.PureComponent {
                                 <>
                                     <AvatarGroup
                                         size="x-small"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
 
                                     <AvatarGroup
                                         size="small"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
 
                                     <AvatarGroup
                                         size="medium"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
 
                                     <AvatarGroup
                                         size="large"
-                                        avatars={avatars}
+                                        items={avatars}
                                         max={4}
                                     />
 
@@ -456,22 +454,42 @@ export default class AvatarDoc extends React.PureComponent {
 
                                     <AvatarGroup
                                         size="x-large"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <AvatarGroup
                                         size="xx-large"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
+
+                                    <p className="docs-page__paragraph">// With action</p>
+                                    <Container gap='medium' className='sd-margin-b--3'>
+                                        {(() => {
+                                            const placeholder: IAvatarPlaceholderInGroup = {
+                                                kind: 'plus-button',
+                                                icon:{name: 'print', color: 'red'},
+                                                onClick: () => {
+                                                    console.log('plus button clicked');
+                                                },
+                                            };
+
+                                            return (
+                                                <AvatarGroup
+                                                    size="large"
+                                                    items={[...avatars.slice(0,2), placeholder]}
+                                                />
+                                            );
+                                        })()}
+                                    </Container>
                                 </>
                             );
                         })()}
 
                         <p className="docs-page__paragraph">// With icons</p>
                         {(() => {
-                            const avatars: Array<IAvatarGroupItem> = [
+                            const avatars: Array<IAvatarInGroup> = [
                                 {
                                     imageUrl: 'avatar.jpg',
                                     initials: "JL",
@@ -514,40 +532,42 @@ export default class AvatarDoc extends React.PureComponent {
                                 <>
                                     <AvatarGroup
                                         size="x-small"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
 
                                     <AvatarGroup
                                         size="small"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
 
                                     <AvatarGroup
                                         size="medium"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
 
                                     <AvatarGroup
                                         size="large"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
 
                                     <AvatarGroup
                                         size="x-large"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
+
+                                    <br />
 
                                     <AvatarGroup
                                         size="xx-large"
-                                        avatars={avatars}
+                                        items={avatars}
                                     />
 
                                     <br />
@@ -626,6 +646,8 @@ export default class AvatarDoc extends React.PureComponent {
                                     size="x-large"
                                     avatars={avatars}
                                 />
+
+                                <br />
 
                                 <AvatarGroup
                                     size="xx-large"
@@ -711,6 +733,8 @@ export default class AvatarDoc extends React.PureComponent {
                                     size="x-large"
                                     avatars={avatars}
                                 />
+
+                                <br />
 
                                 <AvatarGroup
                                     size="xx-large"
