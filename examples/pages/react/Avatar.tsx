@@ -4,6 +4,39 @@ import * as Markup from '../../js/react';
 import {Container, Avatar, AvatarGroup} from '../../../app-typescript';
 import {IAvatarInGroup, IAvatarPlaceholderInGroup} from '../../../app-typescript/components/avatar/avatar-group';
 
+const avatars: Array<IAvatarInGroup> = [
+    {
+        imageUrl: 'avatar.jpg',
+        initials: "JL",
+        tooltip: null,
+    },
+    {
+        imageUrl: null,
+        initials: "AB",
+        tooltip: null,
+    },
+    {
+        imageUrl: null,
+        initials: "FG",
+        tooltip: null,
+    },
+    {
+        imageUrl: 'avatar-3.jpg',
+        initials: "JL",
+        tooltip: null,
+    },
+    {
+        imageUrl: 'avatar-4.jpg',
+        initials: "JL",
+        tooltip: null,
+    },
+    {
+        imageUrl: null,
+        initials: "KU",
+        tooltip: null,
+    },
+];
+
 export default class AvatarDoc extends React.PureComponent {
     render() {
         return (
@@ -387,105 +420,64 @@ export default class AvatarDoc extends React.PureComponent {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Various sizes</p>
-                        {(() => {
-                            const avatars: Array<IAvatarInGroup> = [
-                                {
-                                    imageUrl: 'avatar.jpg',
-                                    initials: "JL",
-                                    tooltip: null,
-                                },
-                                {
-                                    imageUrl: null,
-                                    initials: "AB",
-                                    tooltip: null,
-                                },
-                                {
-                                    imageUrl: null,
-                                    initials: "FG",
-                                    tooltip: null,
-                                },
-                                {
-                                    imageUrl: 'avatar-3.jpg',
-                                    initials: "JL",
-                                    tooltip: null,
-                                },
-                                {
-                                    imageUrl: 'avatar-4.jpg',
-                                    initials: "JL",
-                                    tooltip: null,
-                                },
-                                {
-                                    imageUrl: null,
-                                    initials: "KU",
-                                    tooltip: null,
-                                },
-                            ];
+                        <AvatarGroup
+                            size="x-small"
+                            items={avatars}
+                        />
 
-                            return (
-                                <>
-                                    <AvatarGroup
-                                        size="x-small"
-                                        items={avatars}
-                                    />
+                        <br />
 
-                                    <br />
+                        <AvatarGroup
+                            size="small"
+                            items={avatars}
+                        />
 
-                                    <AvatarGroup
-                                        size="small"
-                                        items={avatars}
-                                    />
+                        <br />
 
-                                    <br />
+                        <AvatarGroup
+                            size="medium"
+                            items={avatars}
+                        />
 
-                                    <AvatarGroup
-                                        size="medium"
-                                        items={avatars}
-                                    />
+                        <br />
 
-                                    <br />
+                        <AvatarGroup
+                            size="large"
+                            items={avatars}
+                            max={4}
+                        />
 
+                        <br />
+
+                        <AvatarGroup
+                            size="x-large"
+                            items={avatars}
+                        />
+
+                        <AvatarGroup
+                            size="xx-large"
+                            items={avatars}
+                        />
+
+                        <p className="docs-page__paragraph">// With action</p>
+                        <Container gap='medium' className='sd-margin-b--3'>
+                            {(() => {
+                                const placeholder: IAvatarPlaceholderInGroup = {
+                                    kind: 'plus-button',
+                                    icon:{name: 'print', color: 'red'},
+                                    onClick: () => {
+                                        console.log('plus button clicked');
+                                    },
+                                };
+
+                                return (
                                     <AvatarGroup
                                         size="large"
-                                        items={avatars}
-                                        max={4}
+                                        items={[...avatars.slice(0,2), placeholder]}
                                     />
-
-                                    <br />
-
-                                    <AvatarGroup
-                                        size="x-large"
-                                        items={avatars}
-                                    />
-
-                                    <AvatarGroup
-                                        size="xx-large"
-                                        items={avatars}
-                                    />
-
-                                    <br />
-
-                                    <p className="docs-page__paragraph">// With action</p>
-                                    <Container gap='medium' className='sd-margin-b--3'>
-                                        {(() => {
-                                            const placeholder: IAvatarPlaceholderInGroup = {
-                                                kind: 'plus-button',
-                                                icon:{name: 'print', color: 'red'},
-                                                onClick: () => {
-                                                    console.log('plus button clicked');
-                                                },
-                                            };
-
-                                            return (
-                                                <AvatarGroup
-                                                    size="large"
-                                                    items={[...avatars.slice(0,2), placeholder]}
-                                                />
-                                            );
-                                        })()}
-                                    </Container>
-                                </>
-                            );
-                        })()}
+                                );
+                            })()}
+                        </Container>
 
                         <p className="docs-page__paragraph">// With icons</p>
                         {(() => {
@@ -579,173 +571,133 @@ export default class AvatarDoc extends React.PureComponent {
                     <Markup.ReactMarkupCode>{`
                         // Various sizes
 
-                        const avatars: Array<IAvatarGroupItem> = [
-                            {
-                                imageUrl: 'avatar.jpg',
-                                initials: "JL",
-                                tooltip: null,
-                            },
-                            {
-                                imageUrl: null,
-                                initials: "AB",
-                                tooltip: null,
-                            },
-                            {
-                                imageUrl: null,
-                                initials: "FG",
-                                tooltip: null,
-                            },
-                            {
-                                imageUrl: 'avatar-3.jpg',
-                                initials: "JL",
-                                tooltip: null,
-                            },
-                            {
-                                imageUrl: 'avatar-4.jpg',
-                                initials: "JL",
-                                tooltip: null,
-                            },
-                            {
-                                imageUrl: null,
-                                initials: "KU",
-                                tooltip: null,
-                            },
-                        ];
+                        <AvatarGroup
+                            size="x-small"
+                            items={avatars}
+                        />
 
-                        return (
-                            <>
-                                <AvatarGroup
-                                    size="x-small"
-                                    avatars={avatars}
-                                />
+                        <br />
 
-                                <br />
+                        <AvatarGroup
+                            size="small"
+                            items={avatars}
+                        />
 
-                                <AvatarGroup
-                                    size="small"
-                                    avatars={avatars}
-                                />
+                        <br />
 
-                                <br />
+                        <AvatarGroup
+                            size="medium"
+                            items={avatars}
+                        />
 
-                                <AvatarGroup
-                                    size="medium"
-                                    avatars={avatars}
-                                />
+                        <br />
 
-                                <br />
+                        <AvatarGroup
+                            size="large"
+                            items={avatars}
+                            max={4}
+                        />
 
-                                <AvatarGroup
-                                    size="large"
-                                    avatars={avatars}
-                                />
+                        <br />
 
-                                <br />
+                        <AvatarGroup
+                            size="x-large"
+                            items={avatars}
+                        />
 
-                                <AvatarGroup
-                                    size="x-large"
-                                    avatars={avatars}
-                                />
-
-                                <br />
-
-                                <AvatarGroup
-                                    size="xx-large"
-                                    avatars={avatars}
-                                />
-
-                                <br />
-                            </>
-                        );
+                        <AvatarGroup
+                            size="xx-large"
+                            items={avatars}
+                        />
 
                         // With icons
 
-                        const avatars: Array<IAvatarGroupItem> = [
-                            {
-                                imageUrl: 'avatar.jpg',
-                                initials: "JL",
-                                tooltip: null,
-                                icon:{name: 'print', color: 'red'},
-                            },
-                            {
-                                imageUrl: null,
-                                initials: "AB",
-                                tooltip: null,
-                                icon:{name: 'print', color: 'green'},
-                            },
-                            {
-                                imageUrl: null,
-                                initials: "FG",
-                                tooltip: null,
-                                icon:{name: 'print', color: 'blue'},
-                            },
-                            {
-                                imageUrl: 'avatar-3.jpg',
-                                initials: "JL",
-                                tooltip: null,
-                                icon:{name: 'print', color: 'yellow'},
-                            },
-                            {
-                                imageUrl: 'avatar-4.jpg',
-                                initials: "JL",
-                                tooltip: null,
-                                icon:{name: 'print', color: 'orange'},
-                            },
-                            {
-                                imageUrl: null,
-                                initials: "KU",
-                                tooltip: null,
-                                icon:{name: 'print', color: 'lime'},
-                            },
-                        ];
+                        {(() => {
+                            const avatars: Array<IAvatarInGroup> = [
+                                {
+                                    imageUrl: 'avatar.jpg',
+                                    initials: "JL",
+                                    tooltip: null,
+                                    icon:{name: 'print', color: 'red'},
+                                },
+                                {
+                                    imageUrl: null,
+                                    initials: "AB",
+                                    tooltip: null,
+                                    icon:{name: 'print', color: 'green'},
+                                },
+                                {
+                                    imageUrl: null,
+                                    initials: "FG",
+                                    tooltip: null,
+                                    icon:{name: 'print', color: 'blue'},
+                                },
+                                {
+                                    imageUrl: 'avatar-3.jpg',
+                                    initials: "JL",
+                                    tooltip: null,
+                                    icon:{name: 'print', color: 'yellow'},
+                                },
+                                {
+                                    imageUrl: 'avatar-4.jpg',
+                                    initials: "JL",
+                                    tooltip: null,
+                                    icon:{name: 'print', color: 'orange'},
+                                },
+                                {
+                                    imageUrl: null,
+                                    initials: "KU",
+                                    tooltip: null,
+                                    icon:{name: 'print', color: 'lime'},
+                                },
+                            ];
 
-                        return (
-                            <>
-                                <AvatarGroup
-                                    size="x-small"
-                                    avatars={avatars}
-                                />
+                            return (
+                                <>
+                                    <AvatarGroup
+                                        size="x-small"
+                                        items={avatars}
+                                    />
 
-                                <br />
+                                    <br />
 
-                                <AvatarGroup
-                                    size="small"
-                                    avatars={avatars}
-                                />
+                                    <AvatarGroup
+                                        size="small"
+                                        items={avatars}
+                                    />
 
-                                <br />
+                                    <br />
 
-                                <AvatarGroup
-                                    size="medium"
-                                    avatars={avatars}
-                                />
+                                    <AvatarGroup
+                                        size="medium"
+                                        items={avatars}
+                                    />
 
-                                <br />
+                                    <br />
 
-                                <AvatarGroup
-                                    size="large"
-                                    avatars={avatars}
-                                />
+                                    <AvatarGroup
+                                        size="large"
+                                        items={avatars}
+                                    />
 
-                                <br />
+                                    <br />
 
-                                <AvatarGroup
-                                    size="x-large"
-                                    avatars={avatars}
-                                />
+                                    <AvatarGroup
+                                        size="x-large"
+                                        items={avatars}
+                                    />
 
-                                <br />
+                                    <br />
 
-                                <AvatarGroup
-                                    size="xx-large"
-                                    avatars={avatars}
-                                />
+                                    <AvatarGroup
+                                        size="xx-large"
+                                        items={avatars}
+                                    />
 
-                                <br />
-                            </>
-                        );
-
-
+                                    <br />
+                                </>
+                            );
+                        })()}
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
