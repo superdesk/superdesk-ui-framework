@@ -3,7 +3,9 @@ import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentAdd} from './avatar-action-add';
 
 export interface IPropsAvatarPlaceholder {
-    kind: 'plus-button'; // kind is used to it's easy to add other types of placeholders without breaking existing usages
+    // kind is used to it's easy to add
+    // other types of placeholders without breaking existing usages
+    kind: 'plus-button';
     tooltip?: string | null; // nullable, but mandatory to communicate importance
 
     size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';

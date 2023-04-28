@@ -60,7 +60,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                         if (isAvatar(item)) {
                             return (
                                 <Avatar {...item} key={index} size={size} />
-                            )
+                            );
                         } else {
                             return (
                                 <AvatarPlaceholder
