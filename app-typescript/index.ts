@@ -93,6 +93,7 @@ export { TreeSelect } from './components/TreeSelect';
 export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 export { MultiSelect } from './components/MultiSelect';
+export { WithPopover } from './components/Popover';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
