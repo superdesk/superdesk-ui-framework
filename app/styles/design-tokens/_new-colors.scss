@@ -350,6 +350,25 @@
 
     --sd-colour__tag-label-Bg--inverse: var(--sd-colour-bg--08);
     --sd-colour__tag-label-Txt--inverse: hsla(214, 13%, 98%, 1);
+
+    --sd-colour-avatar-bg: hsl(197, 100%, 25%);
+    --sd-colour-avatar-border: var(--sd-colour-avatar-bg);
+
+    --sd-colour-avatar-bg--light: hsla(214, 13%, 90%, 1);
+    --sd-colour-avatar-border--light: hsla(214, 13%, 65%, 1);
+    --sd-colour-avatar-border--light-hover: hsla(214, 13%, 45%, 1);
+    --sd-colour-avatar-dummy: hsla(214, 13%, 75%, 0.60);
+    --sd-colour-avatar-add: hsla(214, 13%, 55%, 1);
+    --sd-colour-avatar-add--hover: hsla(214, 13%, 45%, 1);
+
+    --sd-colour-avatar-outline--offline: hsla(214, 13%, 85%, 1);
+    --sd-colour-avatar-outline--online: var(--sd-colour-success);
+
+    --sd-colour-state--default: var(--color-text-lighter);
+    --sd-colour-state--in-progress: var(--sd-colour-highlight);
+    --sd-colour-state--done: var(--sd-colour-success);
+
+
 }
 
 
@@ -495,6 +514,20 @@
 
     --sd-colour__tag-label-Bg--inverse: hsla(214, 13%, 55%, 0.95);
     --sd-colour__tag-label-Txt--inverse: hsla(214, 13%, 10%, 1);
+
+    --sd-colour-avatar-bg: hsl(197, 100%, 25%);
+    --sd-colour-avatar-border: hsl(197, 100%, 25%);
+
+    --sd-colour-avatar-bg--light: hsla(214, 13%, 20%, 1);
+    --sd-colour-avatar-border--light: hsla(214, 13%, 45%, 1);
+    --sd-colour-avatar-border--light-hover: hsla(214, 13%, 65%, 1);
+    --sd-colour-avatar-dummy: hsla(214, 13%, 98%, 0.25);
+    --sd-colour-avatar-add: hsla(214, 13%, 65%, 1);
+    --sd-colour-avatar-add--hover: hsla(214, 13%, 90%, 1);
+
+    --sd-colour-state--default: var(--color-text-lighter);
+    --sd-colour-state--in-progress: var(--sd-colour-highlight);
+    --sd-colour-state--done: var(--sd-colour-success);
 }
 
 
@@ -629,6 +662,7 @@
     --color-navbutton-bg-dark-hover:      hsla(214, 13%, 60%, 1);
 
     --color-navbutton-shadow-active:      hsla(214, 13%, 5%, 0.12);
+
   }
   
   // CSS variables for dark theme
@@ -711,8 +745,7 @@
     [class*=" big-icon--"] {
       color:                              var(--color-text);
     }
-  
-  }
+}
 
 /// ======= END from _colors.scss ======== ///////////
 /// ====================================== ///////////
