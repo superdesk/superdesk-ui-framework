@@ -102,6 +102,7 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.7",
     "moment": "^2.29.3",
+    "popper-max-size-modifier": "^0.2.0",
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",
     "react-beautiful-dnd": "^13.0.0",
