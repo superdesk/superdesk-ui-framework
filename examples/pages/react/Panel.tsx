@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import { PropsList, Prop, Button, ButtonGroup, IconButton, Label, SlidingToolbar } from '../../../app-typescript';
 import * as PanelElements from '../../../app-typescript/components/Layouts/Panel';
+import {Rotate} from '../../../app-typescript/components/Rotate';
 
 interface IProps {
     children?: React.ReactNode;
@@ -13,25 +14,21 @@ interface IState {
     openPanel3: boolean;
     openPanel4: boolean;
     openToolbar1: boolean;
+    rotate: boolean;
 }
 
 export default class PanelDoc extends React.Component<IProps, IState> {
      constructor(props: IProps) {
          super(props);
          this.state = {
-             openPanel1: true,
-             openPanel2: true,
-             openPanel3: true,
-             openPanel4: true,
-             openToolbar1: true
+            openPanel1: true,
+            openPanel2: true,
+            openPanel3: true,
+            openPanel4: true,
+            openToolbar1: true,
+            rotate: false,
          }
     }
-
-    // handlePanel() {
-    //     this.setState((state) => ({
-    //         openPanel: !state.openPanel,
-    //     }));
-    // }
 
     render() {
         return (
@@ -67,10 +64,14 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                                 </div> 
                             }
                             <PanelElements.Panel side='left' background='light' open={this.state.openPanel1} size='x-small'>
-                                <PanelElements.PanelHeader title='This is the title for the Panel' onClose={() => this.setState({'openPanel1': false})}
-                                iconButtons={[
-                                    <IconButton ariaValue='Pin' icon='pin' onClick={() => false} />,
-                                ]}
+                                <PanelElements.PanelHeader
+                                    title='This is the title for the Panel'
+                                    onClose={() => this.setState({'openPanel1': false})}
+                                    iconButtons={[
+                                        <Rotate degrees={this.state.rotate ? 90 : 0}>
+                                            <IconButton ariaValue='Pin' icon='pin' onClick={() => this.setState({rotate: !this.state.rotate})} />
+                                        </Rotate>,
+                                    ]}
                                 >
                                 </PanelElements.PanelHeader>
                                 <PanelElements.PanelContent>
@@ -95,15 +96,28 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                                 <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel1': true})} />
                             </div> 
                         }
+
                         <PanelElements.Panel side='left' background='light' open={this.state.openPanel1} size='x-small'>
-                            <PanelElements.PanelHeader title='This is the title for the Panel' onClose={() => this.setState({'openPanel1': false})}>
+                            <PanelElements.PanelHeader
+                                title='This is the title for the Panel'
+                                onClose={() => this.setState({'openPanel1': false})}
+                                iconButtons={[
+                                    <Rotate degrees={this.state.rotate ? 90 : 0}>
+                                        <IconButton ariaValue='Pin' icon='pin' onClick={() => this.setState({rotate: !this.state.rotate})} />
+                                    </Rotate>,
+                                ]}
+                            >
                             </PanelElements.PanelHeader>
+
                             <PanelElements.PanelContent>
                                 <PanelElements.PanelContentBlock>
-                                    <p className='sd-margin-b--2'>Maecenas sed diam eget risus varius blandit sit amet non magna...</p>
-                                    <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada...</p>
+                                    <p className='sd-margin-b--2'>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
+                                        Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                                    <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                        vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur.</p>
                                 </PanelElements.PanelContentBlock>
                             </PanelElements.PanelContent>
+
                             <PanelElements.PanelFooter>
                                 <Button text='Clear' style='hollow' onClick={() => false} />
                                 <Button text='Submit' type='primary' onClick={() => false} />
@@ -349,6 +363,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                     <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Explicitly define the theme just for the of Panel Header. All child elements and the content inside the Header will inherit the selected theme.'/>
                     <Prop name='color' isRequired={false} type='light | darker | blueGrey | blueGreyDarker' default='light' description='Background colour of the Panel Header. blueGrey and blueGreyDarker will also change the text colour to white.'/>
                     <Prop name='ClassName' isRequired={false} type='string' default='false' description='Add custom or helper classes to modify the default behaviour if needed. Use only if necessary.'/>
+                    <Prop name='iconButtons' isRequired={false} type='Aarray' default='false' description='Array of JSX Elements.'/>
                 </PropsList>
 
                 <p className="docs-page__paragraph">PanelContent</p>

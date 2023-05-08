@@ -15,6 +15,7 @@ export { AvatarWrapper } from './components/Avatar';
 export { AvatarContentText } from './components/Avatar';
 export { AvatarContentImage } from './components/Avatar';
 export { AvatarGroup } from './components/Avatar';
+export { Rotate } from './components/Rotate';
 export { IconButton } from './components/IconButton';
 export { IconLabel } from './components/IconLabel';
 export { Tooltip } from './components/Tooltip';
