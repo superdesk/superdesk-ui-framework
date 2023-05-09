@@ -32,7 +32,10 @@ export class WithPopover extends React.PureComponent<IPropsWithPopover> {
                 this.props.component,
                 this.props.zIndex,
                 this.props.closeOnHoverEnd,
-                this.props.onClose,
+                () => {
+                    this.closePopup = undefined;
+                    this.props.onClose?.();
+                },
             ).close;
         }
     }
