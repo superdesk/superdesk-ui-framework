@@ -11,10 +11,12 @@ export { Popover } from './components/Popover';
 export { Label } from './components/Label';
 export { Badge } from './components/Badge';
 export { Alert } from './components/Alert';
-export { AvatarWrapper } from './components/Avatar';
-export { AvatarContentText } from './components/Avatar';
-export { AvatarContentImage } from './components/Avatar';
-export { AvatarGroup } from './components/Avatar';
+export { AvatarWrapper } from './components/avatar/avatar-wrapper';
+export { AvatarContentText } from './components/avatar/avatar-text';
+export { AvatarContentImage } from './components/avatar/avatar-image';
+export { AvatarGroup } from './components/avatar/avatar-group';
+export { Avatar } from './components/avatar/avatar';
+export { AvatarPlaceholder } from './components/avatar/avatar-placeholder';
 export { Rotate } from './components/Rotate';
 export { IconButton } from './components/IconButton';
 export { IconLabel } from './components/IconLabel';
@@ -93,6 +95,8 @@ export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 export { MultiSelect } from './components/MultiSelect';
 export { ResizablePanels } from './components/ResizablePanels';
+export { WithPopover } from './components/WithPopover';
+export { Spacer, SpacerBlock } from './components/Spacer';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
