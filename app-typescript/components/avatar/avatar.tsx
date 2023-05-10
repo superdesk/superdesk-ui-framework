@@ -5,7 +5,7 @@ import {AvatarContentText} from './avatar-text';
 
 export interface IPropsAvatar {
     imageUrl: string | null; // nullable, but mandatory to communicate importance
-    tooltip: string | null; // nullable, but mandatory to communicate importance
+    displayName: string;
 
     /** 3 letters max */
     initials: string | null; // nullable, but mandatory to communicate importance
@@ -22,7 +22,7 @@ export interface IPropsAvatar {
 
 export class Avatar extends React.PureComponent<IPropsAvatar> {
     render() {
-        const {imageUrl, initials, size, statusIndicator, administratorIndicator, icon, tooltip} = this.props;
+        const {imageUrl, initials, size, statusIndicator, administratorIndicator, icon, displayName} = this.props;
 
         return (
             <AvatarWrapper
@@ -35,10 +35,10 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
                 {
                     imageUrl != null || initials == null
                         ? (
-                            <AvatarContentImage imageUrl={imageUrl} tooltipText={tooltip ?? undefined} />
+                            <AvatarContentImage imageUrl={imageUrl} tooltipText={displayName ?? undefined} />
                         )
                         : (
-                            <AvatarContentText text={initials ?? ''} tooltipText={tooltip ?? undefined} />
+                            <AvatarContentText text={initials ?? ''} tooltipText={displayName ?? undefined} />
                         )
                 }
 

@@ -270,4 +270,3 @@ export const applyMaxSize: Modifier<any, any> = {
         state.styles.popper.maxHeight = `${height - 10}px`;
     },
 };
-
