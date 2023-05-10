@@ -324,7 +324,10 @@ $sd-icon-font: (
         &.color--white {
             color: hsla(214, 13%, 90, 1) !important;
         }
-
+        
+        &.scale--1\.5x {
+            --icon-base-size: 24px
+        }
         &.scale--2x {
             --icon-base-size: 32px
         }

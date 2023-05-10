@@ -5,7 +5,7 @@ interface IProps {
     size?: 'small' | 'big'; // defaults to 'small'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'light' | 'white';
     className?: string;
-    scale?: '2x' | '3x' | '4x';
+    scale?: '1.5x' | '2x' | '3x' | '4x';
     ariaHidden?: boolean;
     color?: string;
 }
