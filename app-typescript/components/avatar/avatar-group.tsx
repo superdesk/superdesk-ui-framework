@@ -6,7 +6,6 @@ import {AvatarContentNumber} from './avatar-number';
 import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
 import {WithPopover} from '../Popover';
 import { Spacer } from '../Spacer';
-import {userInfo} from 'os';
 
 export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
 export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
