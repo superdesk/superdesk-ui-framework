@@ -38,7 +38,7 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
                             <AvatarContentImage imageUrl={imageUrl} tooltipText={displayName ?? undefined} />
                         )
                         : (
-                            <AvatarContentText text={initials ?? ''} tooltipText={displayName ?? undefined} />
+                            <AvatarContentText text={initials} tooltipText={displayName ?? undefined} />
                         )
                 }
 
