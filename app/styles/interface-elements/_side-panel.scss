@@ -43,6 +43,9 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
         position: relative;
         min-height: 4.8rem;
     }
+    .side-panel__header-wrapper {
+        display: flex;
+    }
     .side-panel__sliding-toolbar {
         @include sliding-toolbar; // See mixins.scss for details
         &.side-panel__sliding-toolbar {
@@ -53,7 +56,6 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
             }
         }
     }
-    
     .side-panel__heading {
         padding-inline-start: $sd-base-increment * 2;
         padding-inline-end: $sd-base-increment * 2;
@@ -70,10 +72,9 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
             letter-spacing: 0.01em;
         }
     }
-    .side-panel__close {
-        position: absolute;
-        inset-inline-end: $sd-base-increment; // equals 0.8rem or 8px
-        inset-block-start: $sd-base-increment;
+    .side-panel__btn-group {
+        padding-inline: 0.8rem;
+        padding-block: 0.8rem;
         z-index: 2;
         color: var(--color-text-light);
     }
