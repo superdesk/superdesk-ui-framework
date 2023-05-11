@@ -4,8 +4,8 @@ import {Avatar, IPropsAvatar} from './avatar';
 import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentNumber} from './avatar-number';
 import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
-import {WithPopover} from '../Popover';
 import { Spacer } from '../Spacer';
+import {WithPopover} from '../WithPopover';
 
 export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
 export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
@@ -23,7 +23,16 @@ export interface IPropsAvatarGroup {
      * if exceeded, "+1"/"+2"/"+n" button will be shown
      */
     max?: number | 'show-all';
+
+    // unless a custom onClick handler is passed
+    // a popover would get shown when maximum number
+    // of avatars is exceeded.
     onClick?(): void;
+}
+
+interface IPlusButton {
+    children: React.ReactNode;
+    onToggle(event: HTMLElement): void;
 }
 
 function isAvatar(item: IAvatarInGroup | IAvatarPlaceholderInGroup): item is IAvatarInGroup {
@@ -49,32 +58,56 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
         })();
         const itemsOverLimit = items.length - max;
 
+        const PlusButtonWrapper = ({children, onToggle}: IPlusButton) => {
+            if (this.props.onClick == null) {
+                return (
+                    <button
+                        style={{padding: 0}}
+                        onClick={(event) => {
+                            if (this.props.onClick == null) {
+                                onToggle(event.target as HTMLElement);
+                            }
+                        }}
+                    >
+                       {children}
+                    </button>
+                );
+            } else {
+                return <>{children}</>;
+            }
+        };
+
         return (
             <WithPopover
                 placement='bottom-end'
                 component={() => (
                     <div className="avatar-popup">
-                        {this.props.items.map((item) => {
+                        {this.props.items.map((item, index) => {
                             return (
-                                <Spacer h alignItems='center' noGrow gap='16'>
-                                    <span>{isAvatar(item) ? item.displayName : null}</span>
+                                <Spacer h alignItems='center' noGrow gap='16' key={index}>
+                                    {
+                                        isAvatar(item)
+                                            && item.displayName
+                                    }
 
                                     {
                                         isAvatar(item)
                                             ? (
                                                 <Avatar
+                                                size='small'
+                                                imageUrl={item.imageUrl}
+                                                initials={item.initials}
+                                                displayName={item.displayName}
+                                                icon={item.icon}
+                                                />
+                                            )
+                                            : (
+                                                <AvatarPlaceholder
+                                                    kind='plus-button'
                                                     size='small'
-                                                    imageUrl={item.imageUrl}
-                                                    initials={item.initials}
-                                                    displayName={item.displayName}
                                                     icon={item.icon}
                                                 />
                                             )
-                                            : <AvatarPlaceholder
-                                                kind='plus-button'
-                                                size='small'
-                                                icon={item.icon}
-                                            />
                                     }
                                 </Spacer>
                             );
@@ -90,13 +123,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                             `sd-avatar-group--stacked--gap-${gap}`,
                         )}
                         role='group'
-                        onClick={(event) => {
-                            if (this.props.onClick != null) {
-                                this.props.onClick();
-                            } else {
-                                onToggle(event.target as HTMLElement);
-                            }
-                        }}
+                        onClick={this.props.onClick}
                     >
                         {
                             items.slice(0, max).map((item, index) => {
@@ -118,9 +145,11 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
 
                         {
                             itemsOverLimit > 0 && (
-                                <AvatarWrapper size={size} isEmpty={false}>
-                                    <AvatarContentNumber number={`${itemsOverLimit}`} />
-                                </AvatarWrapper>
+                                <PlusButtonWrapper onToggle={onToggle}>
+                                    <AvatarWrapper size={size} isEmpty={false}>
+                                        <AvatarContentNumber number={`${itemsOverLimit}`} />
+                                    </AvatarWrapper>
+                                </PlusButtonWrapper>
                             )
                         }
                     </div>
