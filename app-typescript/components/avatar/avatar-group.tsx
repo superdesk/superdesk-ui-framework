@@ -24,6 +24,8 @@ export interface IPropsAvatarGroup {
      */
     max?: number | 'show-all';
 
+    zIndex?: number;
+
     // unless a custom onClick handler is passed
     // a popover would get shown when maximum number
     // of avatars is exceeded.
@@ -76,7 +78,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
 
         return (
             <WithPopover
-                zIndex={1050}
+                zIndex={this.props.zIndex ?? 101}
                 placement='bottom-end'
                 component={() => (
                     <div className="avatar-popup">
