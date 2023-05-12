@@ -1,5 +1,5 @@
 .sd-avatar {
-    display: inline-block;
+    display: block;
     position: relative; // required for absolutely positioned indicators
 
     &.sd-avatar--indicator-status--offline {
@@ -338,4 +338,15 @@
         justify-content: flex-start;
         gap: $sd-base-increment * 1.5;
     }
+}
+
+.avatar-popup {
+    background-color: var(--color-dropdown-menu-Bg);
+    border-radius: 5px;
+    padding: 1.5rem;
+    box-shadow: var(--sd-shadow__dropdown);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    overflow: auto;
 }

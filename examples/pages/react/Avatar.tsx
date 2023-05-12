@@ -7,33 +7,33 @@ import {IAvatarInGroup, IAvatarPlaceholderInGroup} from '../../../app-typescript
 const avatars: Array<IAvatarInGroup> = [
     {
         imageUrl: 'avatar.jpg',
-        initials: "JL",
-        tooltip: null,
+        initials: "U1",
+        displayName: 'User1',
     },
     {
         imageUrl: null,
-        initials: "AB",
-        tooltip: null,
+        initials: "U2",
+        displayName: 'User2',
     },
     {
         imageUrl: null,
-        initials: "FG",
-        tooltip: null,
+        initials: "U3",
+        displayName: 'User3',
     },
     {
         imageUrl: 'avatar-3.jpg',
-        initials: "JL",
-        tooltip: null,
+        initials: "U4",
+        displayName: 'User4',
     },
     {
         imageUrl: 'avatar-4.jpg',
-        initials: "JL",
-        tooltip: null,
+        initials: "U5",
+        displayName: 'User5',
     },
     {
         imageUrl: null,
-        initials: "KU",
-        tooltip: null,
+        initials: "A6",
+        displayName: 'User6',
     },
 ];
 
@@ -48,7 +48,7 @@ export default class AvatarDoc extends React.PureComponent {
                         size="large"
                         imageUrl="/avatar.jpg"
                         initials="JL"
-                        tooltip="Jeffrey Lebowski"
+                        displayName="Jeffrey Lebowski"
                     />
                 `}
                 </Markup.ReactMarkupCodePreview>
@@ -59,9 +59,9 @@ export default class AvatarDoc extends React.PureComponent {
                         <Container gap='medium' className='sd-margin-b--3'>
 
                             <Avatar
+                                displayName="Jeffrey Lebowski"
                                 imageUrl="/avatar.jpg"
-                                initials={null}
-                                tooltip="User 1"
+                                initials='Jeffrey Lebowski'
                                 size="large"
                                 icon={{name: 'print', color: 'red'}}
                                 statusIndicator="online"
@@ -69,9 +69,9 @@ export default class AvatarDoc extends React.PureComponent {
                             />
 
                             <Avatar
+                                displayName="Jeffrey Lebowski"
                                 imageUrl={null}
-                                initials="BC"
-                                tooltip="User 2"
+                                initials="Jeffrey Lebowski"
                                 size="large"
                                 icon={{name: 'print', color: 'red'}}
                                 statusIndicator="offline"
@@ -79,9 +79,9 @@ export default class AvatarDoc extends React.PureComponent {
                             />
 
                             <Avatar
+                                displayName="Jeffrey Lebowski"
                                 imageUrl={null}
-                                initials={null}
-                                tooltip="User 3"
+                                initials='Jeffrey Lebowski'
                                 size="large"
                                 icon={{name: 'print', color: 'red'}}
                                 administratorIndicator
@@ -96,42 +96,42 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="x-small"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                             />
 
                             <Avatar
                                 size="small"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                             />
 
                             <Avatar
                                 size="medium"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                             />
 
                             <Avatar
                                 size="large"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                             />
 
                             <Avatar
                                 size="x-large"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                             />
 
                             <Avatar
                                 size="xx-large"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                             />
 
                         </Container>
@@ -140,35 +140,11 @@ export default class AvatarDoc extends React.PureComponent {
                         <Container gap='medium' className='sd-margin-b--3'>
 
                             <Avatar
-                                size="x-small"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                tooltip="Jeffrey Lebowski"
-                                statusIndicator="online"
-                            />
-
-                            <Avatar
-                                size="x-small"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                tooltip="Jeffrey Lebowski"
-                                statusIndicator="offline"
-                            />
-
-                            <Avatar
                                 size="large"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 statusIndicator="online"
-                            />
-
-                            <Avatar
-                                size="large"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                tooltip="Jeffrey Lebowski"
-                                statusIndicator="offline"
                             />
 
                         </Container>
@@ -179,7 +155,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="large"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 administratorIndicator
                             />
                         </Container>
@@ -191,7 +167,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="x-small"
                                 imageUrl={null}
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 icon={{name: 'text'}}
                             />
 
@@ -199,7 +175,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="small"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 icon={{name: 'text'}}
                             />
 
@@ -207,7 +183,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="medium"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 icon={{name: 'audio', color: 'var(--sd-colour-state--done)'}}
                             />
 
@@ -215,7 +191,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="large"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
                             />
 
@@ -223,7 +199,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="x-large"
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 icon={{name: 'text'}}
                             />
 
@@ -231,7 +207,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 size="xx-large"
                                 imageUrl={null}
                                 initials="JL"
-                                tooltip="Jeffrey Lebowski"
+                                displayName="Jeffrey Lebowski"
                                 icon={{name: 'video-cancel', color: 'var(--sd-colour-state--in-progress)'}}
                             />
 
@@ -244,9 +220,9 @@ export default class AvatarDoc extends React.PureComponent {
                         // Combo
 
                         <Avatar
+                            displayName="Jeffrey Lebowski"
                             imageUrl="/avatar.jpg"
-                            initials={null}
-                            tooltip="User 1"
+                            initials='Jeffrey Lebowski'
                             size="large"
                             icon={{name: 'print', color: 'red'}}
                             statusIndicator="online"
@@ -254,9 +230,9 @@ export default class AvatarDoc extends React.PureComponent {
                         />
 
                         <Avatar
+                            displayName="Jeffrey Lebowski"
                             imageUrl={null}
-                            initials="BC"
-                            tooltip="User 2"
+                            initials="Jeffrey Lebowski"
                             size="large"
                             icon={{name: 'print', color: 'red'}}
                             statusIndicator="offline"
@@ -264,9 +240,9 @@ export default class AvatarDoc extends React.PureComponent {
                         />
 
                         <Avatar
+                            displayName="Jeffrey Lebowski"
                             imageUrl={null}
-                            initials={null}
-                            tooltip="User 3"
+                            initials='Jeffrey Lebowski'
                             size="large"
                             icon={{name: 'print', color: 'red'}}
                             administratorIndicator
@@ -277,42 +253,42 @@ export default class AvatarDoc extends React.PureComponent {
                             size="x-small"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                         />
 
                         <Avatar
                             size="small"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                         />
 
                         <Avatar
                             size="medium"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                         />
 
                         <Avatar
                             size="large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                         />
 
                         <Avatar
                             size="x-large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                         />
 
                         <Avatar
                             size="xx-large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                         />
 
 
@@ -321,7 +297,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="x-small"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             statusIndicator="online"
                         />
 
@@ -329,7 +305,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="x-small"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             statusIndicator="offline"
                         />
 
@@ -337,7 +313,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             statusIndicator="online"
                         />
 
@@ -345,7 +321,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             statusIndicator="offline"
                         />
 
@@ -355,7 +331,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             administratorIndicator
                         />
 
@@ -365,7 +341,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="x-small"
                             imageUrl={null}
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             icon={{name: 'text'}}
                         />
 
@@ -373,7 +349,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="small"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             icon={{name: 'text'}}
                         />
 
@@ -381,7 +357,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="medium"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             icon={{name: 'audio', color: 'var(--sd-colour-state--done)'}}
                         />
 
@@ -389,7 +365,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
                         />
 
@@ -397,7 +373,7 @@ export default class AvatarDoc extends React.PureComponent {
                             size="x-large"
                             imageUrl="/avatar.jpg"
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             icon={{name: 'text'}}
                         />
 
@@ -405,10 +381,9 @@ export default class AvatarDoc extends React.PureComponent {
                             size="xx-large"
                             imageUrl={null}
                             initials="JL"
-                            tooltip="Jeffrey Lebowski"
+                            displayName="Jeffrey Lebowski"
                             icon={{name: 'video-cancel', color: 'var(--sd-colour-state--in-progress)'}}
                         />
-
 
                         </AvatarWrapper>
                     `}
@@ -419,7 +394,7 @@ export default class AvatarDoc extends React.PureComponent {
                 <p className='docs-page__paragraph'></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <p className="docs-page__paragraph">// Various sizes</p>
+                        <p className="docs-page__paragraph">// With action</p>
                         <AvatarGroup
                             size="x-small"
                             items={avatars}
@@ -459,63 +434,43 @@ export default class AvatarDoc extends React.PureComponent {
                             items={avatars}
                         />
 
-                        <p className="docs-page__paragraph">// With action</p>
-                        <Container gap='medium' className='sd-margin-b--3'>
-                            {(() => {
-                                const placeholder: IAvatarPlaceholderInGroup = {
-                                    kind: 'plus-button',
-                                    icon:{name: 'print', color: 'red'},
-                                    onClick: () => {
-                                        console.log('plus button clicked');
-                                    },
-                                };
-
-                                return (
-                                    <AvatarGroup
-                                        size="large"
-                                        items={[...avatars.slice(0,2), placeholder]}
-                                    />
-                                );
-                            })()}
-                        </Container>
-
                         <p className="docs-page__paragraph">// With icons</p>
                         {(() => {
                             const avatars: Array<IAvatarInGroup> = [
                                 {
                                     imageUrl: 'avatar.jpg',
-                                    initials: "JL",
-                                    tooltip: null,
+                                    initials: "U1",
+                                    displayName: 'User1',
                                     icon:{name: 'print', color: 'red'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "AB",
-                                    tooltip: null,
+                                    initials: "U2",
+                                    displayName: 'User2',
                                     icon:{name: 'print', color: 'green'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "FG",
-                                    tooltip: null,
+                                    initials: "U3",
+                                    displayName: 'User3',
                                     icon:{name: 'print', color: 'blue'},
                                 },
                                 {
                                     imageUrl: 'avatar-3.jpg',
-                                    initials: "JL",
-                                    tooltip: null,
+                                    initials: "U4",
+                                    displayName: 'User4',
                                     icon:{name: 'print', color: 'yellow'},
                                 },
                                 {
                                     imageUrl: 'avatar-4.jpg',
-                                    initials: "JL",
-                                    tooltip: null,
+                                    initials: "U5",
+                                    displayName: 'User5',
                                     icon:{name: 'print', color: 'orange'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "KU",
-                                    tooltip: null,
+                                    initials: "U6",
+                                    displayName: 'User6',
                                     icon:{name: 'print', color: 'lime'},
                                 },
                             ];
@@ -617,37 +572,37 @@ export default class AvatarDoc extends React.PureComponent {
                                 {
                                     imageUrl: 'avatar.jpg',
                                     initials: "JL",
-                                    tooltip: null,
+                                    displayName: null,
                                     icon:{name: 'print', color: 'red'},
                                 },
                                 {
                                     imageUrl: null,
                                     initials: "AB",
-                                    tooltip: null,
+                                    displayName: null,
                                     icon:{name: 'print', color: 'green'},
                                 },
                                 {
                                     imageUrl: null,
                                     initials: "FG",
-                                    tooltip: null,
+                                    displayName: null,
                                     icon:{name: 'print', color: 'blue'},
                                 },
                                 {
                                     imageUrl: 'avatar-3.jpg',
                                     initials: "JL",
-                                    tooltip: null,
+                                    displayName: null,
                                     icon:{name: 'print', color: 'yellow'},
                                 },
                                 {
                                     imageUrl: 'avatar-4.jpg',
                                     initials: "JL",
-                                    tooltip: null,
+                                    displayName: null,
                                     icon:{name: 'print', color: 'orange'},
                                 },
                                 {
                                     imageUrl: null,
                                     initials: "KU",
-                                    tooltip: null,
+                                    displayName: null,
                                     icon:{name: 'print', color: 'lime'},
                                 },
                             ];

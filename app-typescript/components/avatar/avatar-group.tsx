@@ -4,6 +4,8 @@ import {Avatar, IPropsAvatar} from './avatar';
 import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentNumber} from './avatar-number';
 import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
+import { Spacer } from '../Spacer';
+import {WithPopover} from '../WithPopover';
 
 export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
 export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
@@ -21,6 +23,13 @@ export interface IPropsAvatarGroup {
      * if exceeded, "+1"/"+2"/"+n" button will be shown
      */
     max?: number | 'show-all';
+
+    zIndex?: number;
+
+    // unless a custom onClick handler is passed
+    // a popover would get shown when maximum number
+    // of avatars is exceeded.
+    onClick?(): void;
 }
 
 function isAvatar(item: IAvatarInGroup | IAvatarPlaceholderInGroup): item is IAvatarInGroup {
@@ -46,41 +55,117 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
         })();
         const itemsOverLimit = items.length - max;
 
-        return (
-            <div
-                className={classNames(
-                    'sd-avatar-group',
-                    'sd-avatar-group--stacked',
-                    `sd-avatar-group--stacked--gap-${gap}`,
-                )}
-                role='group'
-            >
-                {
-                    items.slice(0, max).map((item, index) => {
-                        if (isAvatar(item)) {
-                            return (
-                                <Avatar {...item} key={index} size={size} />
-                            );
-                        } else {
-                            return (
-                                <AvatarPlaceholder
-                                    {...item}
-                                    key={index}
-                                    size={this.props.size}
-                                />
-                            );
-                        }
-                    })
-                }
+        const PlusButtonWrapper: React.ComponentType<{onToggle(event: HTMLElement): void}> = ({children, onToggle}) => {
+            if (this.props.onClick == null) {
+                return (
+                    <button
+                        style={{padding: 0}}
+                        onClick={(event) => {
+                            if (this.props.onClick == null) {
+                                onToggle(event.target as HTMLElement);
+                            }
+                        }}
+                    >
+                       {children}
+                    </button>
+                );
+            } else {
+                return <>{children}</>;
+            }
+        };
 
-                {
-                    itemsOverLimit > 0 && (
-                        <AvatarWrapper size={size} isEmpty={false}>
-                            <AvatarContentNumber number={`${itemsOverLimit}`} />
-                        </AvatarWrapper>
-                    )
-                }
-            </div>
+        const someHaveDisplayName = this.props.items.some((item) => isAvatar(item) && item.displayName.length > 0);
+
+        return (
+            <WithPopover
+                zIndex={this.props.zIndex ?? 101}
+                placement='bottom-end'
+                component={() => (
+                    <div className="avatar-popup">
+                        {this.props.items.map((item, index) => {
+                            return (
+                                someHaveDisplayName
+                                    ? <Spacer h alignItems='center' gap='16' noGrow key={index}>
+                                        {
+                                            isAvatar(item)
+                                                && item.displayName
+                                        }
+
+                                        {
+                                            isAvatar(item)
+                                                ? (
+                                                    <Avatar
+                                                        size='small'
+                                                        imageUrl={item.imageUrl}
+                                                        initials={item.initials}
+                                                        displayName={item.displayName}
+                                                        icon={item.icon}
+                                                    />
+                                                )
+                                                : (
+                                                    <AvatarPlaceholder
+                                                        kind='plus-button'
+                                                        size='small'
+                                                        icon={item.icon}
+                                                        onClick={item.onClick}
+                                                    />
+                                                )
+                                        }
+                                    </Spacer>
+                                    : <div>
+                                        <AvatarPlaceholder
+                                            kind='plus-button'
+                                            size='small'
+                                            icon={item.icon}
+                                            onClick={isAvatar(item) ? undefined : item.onClick}
+                                            key={index}
+                                        />
+                                    </div>
+                            );
+                        })}
+                    </div>
+                )}
+            >
+                {(onToggle) => (
+                    <div
+                        className={classNames(
+                            'sd-avatar-group',
+                            'sd-avatar-group--stacked',
+                            `sd-avatar-group--stacked--gap-${gap}`,
+                        )}
+                        role='group'
+                        onClick={this.props.onClick}
+                    >
+                        {
+                            items.slice(0, max).map((item, index) => {
+                                if (isAvatar(item)) {
+                                    return (
+                                        <Avatar {...item} key={index} size={size} />
+                                    );
+                                } else {
+                                    return (
+                                        <AvatarPlaceholder
+                                            {...item}
+                                            key={index}
+                                            size={this.props.size}
+                                        />
+                                    );
+                                }
+                            })
+                        }
+
+                        {
+                            itemsOverLimit > 0 && (
+                                <PlusButtonWrapper onToggle={onToggle}>
+                                    <AvatarWrapper size={size} isEmpty={false}>
+                                        <AvatarContentNumber number={`${itemsOverLimit}`} />
+                                    </AvatarWrapper>
+                                </PlusButtonWrapper>
+                            )
+                        }
+                    </div>
+                )}
+            </WithPopover>
         );
     }
 }
