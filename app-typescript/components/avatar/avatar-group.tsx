@@ -30,11 +30,6 @@ export interface IPropsAvatarGroup {
     onClick?(): void;
 }
 
-interface IPlusButton {
-    children: React.ReactNode;
-    onToggle(event: HTMLElement): void;
-}
-
 function isAvatar(item: IAvatarInGroup | IAvatarPlaceholderInGroup): item is IAvatarInGroup {
     return (item as any)['kind'] == null;
 }
@@ -58,7 +53,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
         })();
         const itemsOverLimit = items.length - max;
 
-        const PlusButtonWrapper = ({children, onToggle}: IPlusButton) => {
+        const PlusButtonWrapper: React.ComponentType<{onToggle(event: HTMLElement): void}> = ({children, onToggle}) => {
             if (this.props.onClick == null) {
                 return (
                     <button
@@ -77,39 +72,53 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
             }
         };
 
+        const someHaveDisplayName = this.props.items.some((item) => isAvatar(item) && item.displayName.length > 0);
+
         return (
             <WithPopover
+                zIndex={1050}
                 placement='bottom-end'
                 component={() => (
                     <div className="avatar-popup">
                         {this.props.items.map((item, index) => {
                             return (
-                                <Spacer h alignItems='center' noGrow gap='16' key={index}>
-                                    {
-                                        isAvatar(item)
-                                            && item.displayName
-                                    }
+                                someHaveDisplayName
+                                    ? <Spacer h alignItems='center' gap='16' noGrow key={index}>
+                                        {
+                                            isAvatar(item)
+                                                && item.displayName
+                                        }
 
-                                    {
-                                        isAvatar(item)
-                                            ? (
-                                                <Avatar
-                                                size='small'
-                                                imageUrl={item.imageUrl}
-                                                initials={item.initials}
-                                                displayName={item.displayName}
-                                                icon={item.icon}
-                                                />
-                                            )
-                                            : (
-                                                <AvatarPlaceholder
-                                                    kind='plus-button'
-                                                    size='small'
-                                                    icon={item.icon}
-                                                />
-                                            )
-                                    }
-                                </Spacer>
+                                        {
+                                            isAvatar(item)
+                                                ? (
+                                                    <Avatar
+                                                        size='small'
+                                                        imageUrl={item.imageUrl}
+                                                        initials={item.initials}
+                                                        displayName={item.displayName}
+                                                        icon={item.icon}
+                                                    />
+                                                )
+                                                : (
+                                                    <AvatarPlaceholder
+                                                        kind='plus-button'
+                                                        size='small'
+                                                        icon={item.icon}
+                                                        onClick={item.onClick}
+                                                    />
+                                                )
+                                        }
+                                    </Spacer>
+                                    : <div>
+                                        <AvatarPlaceholder
+                                            kind='plus-button'
+                                            size='small'
+                                            icon={item.icon}
+                                            onClick={isAvatar(item) ? undefined : item.onClick}
+                                            key={index}
+                                        />
+                                    </div>
                             );
                         })}
                     </div>
