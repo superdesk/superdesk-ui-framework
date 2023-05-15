@@ -1,7 +1,7 @@
 // CHECKBOX & RADIO BUTTONS : form-elements/checkbox.scss
 // --------------
 
-// Custom checkox & Radio buttons 
+// Custom checkox & Radio buttons
 
 
 $checkBoxBorderColor: var(--color-checkbox-border);
@@ -149,7 +149,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
                 color: $white;
             }
         }
-        .sd-label--disabled { 
+        .sd-label--disabled {
             opacity: 1 !important;
             cursor: not-allowed !important;
         }
@@ -186,7 +186,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
             margin-inline-start: 0.8rem;
         }
     }
-    .sd-label--disabled { 
+    .sd-label--disabled {
         opacity: 0.40;
     }
 }
@@ -371,7 +371,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
             box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         }
     }
-    .sd-label--disabled { 
+    .sd-label--disabled {
         opacity: 1 !important;
         cursor: not-allowed !important;
     }
@@ -381,6 +381,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
 .sd-check-button__group {
     display: flex;
     flex-direction: row;
+    flex-grow: 1;
+    flex-wrap: wrap;
     align-items: center;
     gap: $sd-base-increment * 1;
     flex: 0;
@@ -435,7 +437,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     .sd-radio-new + label:empty {
         margin: 0 !important;
     }
-    .sd-label--disabled { 
+    .sd-label--disabled {
         opacity: 0.40;
     }
     &[label-position="left"], &[label-position="start"] {
@@ -609,7 +611,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
                 box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 3px $sd-colour--focus-shadow;
             }
         }
-        
+
     }
 }
 
