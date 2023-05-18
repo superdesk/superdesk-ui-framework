@@ -381,11 +381,10 @@ $checkButtonBorderRadius: $border-radius__base--small;
 .sd-check-button__group {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     flex-wrap: wrap;
     align-items: center;
     gap: $sd-base-increment * 1;
-    flex: 0;
+    flex: 1 0;
     &--left, &--start {
         margin-inline-end: auto;
     }
