@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 
 export interface IPropsSpacer {
     h?: boolean; // horizontal
@@ -21,13 +20,6 @@ export interface IPropsSpacer {
 }
 
 export class Spacer extends React.PureComponent<IPropsSpacer> {
-    constructor(props: IPropsSpacer) {
-        super(props);
-        this.state = {
-            items: [],
-        };
-
-    }
     render() {
         const {h, v, gap, justifyContent, alignItems, noGrow, noWrap} = this.props;
 

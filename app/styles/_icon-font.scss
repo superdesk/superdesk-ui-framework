@@ -86,12 +86,6 @@ $icon-base-size: 16px;
 .icon--green {
     color: $green !important;
 }
-.icon--rotate-180 {
-    transform: rotate(180deg);
-}
-.icon--rotate-90 {
-    transform: rotate(90deg);
-}
 .icon--full-opacity {
     opacity: 1 !important;
 }
@@ -330,7 +324,10 @@ $sd-icon-font: (
         &.color--white {
             color: hsla(214, 13%, 90, 1) !important;
         }
-
+        
+        &.scale--1\.5x {
+            --icon-base-size: 24px
+        }
         &.scale--2x {
             --icon-base-size: 32px
         }
