@@ -8,7 +8,7 @@ import { createPopper, Instance } from '@popperjs/core';
 import {isEqual} from 'lodash';
 import {getTextColor} from './Label';
 import {IInputWrapper} from './Form/InputWrapper';
-import {PillPreview} from './PreviewPill';
+import {SelectPreview} from './PreviewPill';
 
 interface IState<T> {
     value: Array<T>;
@@ -570,9 +570,27 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     render() {
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <SelectPreview
+                    kind={!this.props.allowMultiple
+                        ? {
+                            mode: 'single-select',
+                            getBorderColor: this.props.getBorderColor,
+                        }
+                        : {
+                            mode: 'multi-select',
+                            getBackgroundColor: this.props.getBackgroundColor,
+                        }
+                    }
+                    items={this.state.value}
+                    valueTemplate={this.props.valueTemplate}
+                    getLabel={this.props.getLabel}
+                />
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     error={this.props.error}
                     required={this.props.required}
@@ -890,16 +908,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         }
                     </div>
                 </InputWrapper>
-                : <PillPreview
-                    singleSelect={!this.props.allowMultiple}
-                    array={this.state.value}
-                    valueTemplate={this.props.valueTemplate}
-                    getBackgroundColor={this.props.getBackgroundColor}
-                    getBorderColor={this.props.getBorderColor}
-                    getTextColor={getTextColor}
-                    getLabel={this.props.getLabel}
-                />
-        );
+            );
+        }
     }
 }
 

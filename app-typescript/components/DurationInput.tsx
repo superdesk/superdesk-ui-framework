@@ -278,9 +278,17 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     render() {
         let InputClasses = classNames('sd-input__duration-input');
 
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <div className='sd-input__duration-input-preview'>
+                    <div><span className='duration-input-preview'>{this.state.hours}</span><span className='sd-input__suffix'>h</span></div>
+                    <div><span className='duration-input-preview'>{this.state.minutes}</span><span className='sd-input__suffix'>m</span></div>
+                    <div><span className='duration-input-preview'>{this.state.seconds}</span><span className='sd-input__suffix'>s</span></div>
+                </div>
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     error={this.props.error}
                     required={this.props.required}
@@ -355,12 +363,8 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                         <span className='sd-input__suffix'>s</span>
                     </div>
                 </InputWrapper>
-                : <div className='sd-input__duration-input-preview'>
-                    <div><span className='duration-input-preview'>{this.state.hours}</span><span className='sd-input__suffix'>h</span></div>
-                    <div><span className='duration-input-preview'>{this.state.minutes}</span><span className='sd-input__suffix'>m</span></div>
-                    <div><span className='duration-input-preview'>{this.state.seconds}</span><span className='sd-input__suffix'>s</span></div>
-                </div>
-        );
+            );
+        }
     }
 }
 

@@ -21,9 +21,15 @@ class Select extends React.Component<ISelect> {
     }
 
     render() {
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <div>
+                    <span>{this.props.value}</span>
+                </div>
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     error={this.props.error}
                     required={this.props.required}
@@ -48,10 +54,8 @@ class Select extends React.Component<ISelect> {
                         {this.props.children}
                     </select>
                 </InputWrapper>
-                : <div>
-                    <span>{this.props.value}</span>
-                </div>
-        );
+            );
+        }
     }
 }
 

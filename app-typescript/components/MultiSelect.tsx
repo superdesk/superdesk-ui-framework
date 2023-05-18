@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from "./Form";
 import {IInputWrapper} from './Form/InputWrapper';
-import {PillPreview} from './PreviewPill';
+import {SelectPreview} from './PreviewPill';
 
 interface IProps<T> extends IInputWrapper {
     value: Array<T>;
@@ -50,9 +50,18 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
             'showFilter': this.props.filter,
         });
 
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <SelectPreview
+                    kind={{mode: 'multi-select'}}
+                    items={this.state.value}
+                    valueTemplate={this.props.selectedItemTemplate}
+                    getLabel={this.props.optionLabel}
+                />
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     error={this.props.error}
                     required={this.props.required}
@@ -87,11 +96,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         inputId={this.htmlId}
                     />
                 </InputWrapper>
-                : <PillPreview
-                    array={this.state.value}
-                    valueTemplate={this.props.selectedItemTemplate}
-                    getLabel={this.props.optionLabel}
-                />
-        );
+            );
+        }
     }
 }

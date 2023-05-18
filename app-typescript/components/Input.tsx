@@ -28,19 +28,9 @@ interface IPropsNumber extends IPropsBase {
 
 type IProps = IPropsText | IPropsNumber | IPropsPassword;
 
-interface IState {
-    value: string | number;
-    error: string | null;
-}
-
-export class Input extends React.Component<IProps, IState> {
+export class Input extends React.Component<IProps> {
     constructor(props: IProps) {
         super(props);
-
-        this.state = {
-            value: this.props.value ?? '',
-            error: null,
-        };
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -48,39 +38,29 @@ export class Input extends React.Component<IProps, IState> {
     htmlId = nextId();
 
     handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.setState({ value: event.target.value });
-
         if (this.props.type === 'number') {
             this.props.onChange(Number(event.target.value));
         } else {
             this.props.onChange(event.target.value);
         }
-
-        if (this.props.maxLength) {
-            const invalid = event.target.value.length > this.props.maxLength;
-            this.setState({ error: invalid === true ? 'Length exceeded' : null});
-        }
-    }
-
-    componentDidUpdate(prevProps: any) {
-        if (prevProps.value !== this.props.value) {
-            this.setState({value: this.props.value ?? ''});
-        }
     }
 
     render() {
-        const error: string | null | undefined = this.state.error ?? this.props.error;
-        const invalid = error != null;
-
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <div>
+                    <span>{this.props.value}</span>
+                </div>
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     required={this.props.required}
                     disabled={this.props.disabled}
-                    value={this.state.value}
-                    invalid={invalid}
-                    error={error}
+                    value={this.props.value}
+                    invalid={this.props.error != null ? true : false}
+                    error={this.props.error}
                     info={this.props.info}
                     maxLength={this.props.maxLength}
                     inlineLabel={this.props.inlineLabel}
@@ -96,7 +76,7 @@ export class Input extends React.Component<IProps, IState> {
                         className='sd-input__input'
                         type={this.props.type ?? 'text'}
                         id={this.htmlId}
-                        value={this.state.value}
+                        value={this.props.value}
                         aria-describedby={this.htmlId + 'label'}
                         tabIndex={this.props.tabindex}
                         onChange={this.handleChange}
@@ -104,9 +84,7 @@ export class Input extends React.Component<IProps, IState> {
                         disabled={this.props.disabled}
                     />
                 </InputWrapper>
-                : <div>
-                    <span>{this.state.value}</span>
-                </div>
-        );
+            );
+        }
     }
 }

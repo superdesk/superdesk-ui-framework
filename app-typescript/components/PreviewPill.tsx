@@ -1,51 +1,87 @@
+import classNames from 'classnames';
 import * as React from 'react';
+import {getTextColor} from './Label';
 
 interface IProps<T> {
-    array: Array<T>;
-    singleSelect?: boolean;
+    items: Array<T>;
+    kind: {
+        mode: 'single-select'; getBorderColor?(item: T): string;
+    } | {
+        mode: 'multi-select'; getBackgroundColor?(item: T): string;
+    };
     getLabel(item: T): string;
     valueTemplate?(item: T, Wrapper?: React.ElementType): React.ComponentType<T> | JSX.Element | undefined;
-    getBackgroundColor?(item: T): string;
-    getBorderColor?(item: T): string;
-    getTextColor?(item: string): 'black' | 'white' | undefined;
 }
 
-export class PillPreview<T> extends React.Component<IProps<T>> {
-
+export class SelectPreview<T> extends React.Component<IProps<T>> {
     render() {
         return (
             <div className="tags-preview">
                 <ul className="tags-preview__tag-list">
-                    {this.props.array.map((item, i: number) => {
+                    {this.props.items.map((item, i: number) => {
                         const Wrapper: React.ComponentType<{backgroundColor?: string, borderColor?: string}>
-                        = ({backgroundColor, borderColor, children}) => (
-                            <li
-                                className={`tags-preview__tag-item ${this.props.singleSelect ? 'tags-preview__tag-item--single-select' : ''} ${(this.props.getBorderColor || borderColor) ? 'tags-preview__tag-item--border' : ''}`}
-                                style={this.props.valueTemplate
-                                    ? {backgroundColor, borderColor}
-                                    : this.props.getBackgroundColor
-                                        ? {
-                                            backgroundColor: this.props.getBackgroundColor(item),
-                                        }
-                                        : this.props.getBorderColor &&
-                                            {
-                                                borderLeftColor: this.props.getBorderColor(item),
+                        = ({backgroundColor, borderColor, children}) => {
+                            let classes = classNames('tags-preview__tag-item', {
+                                'tags-preview__tag-item--single-select': this.props.kind.mode === 'single-select',
+                                'tags-preview__tag-item--border': (
+                                    this.props.kind.mode === 'single-select' && this.props.kind.getBorderColor
+                                    )
+                                    || borderColor,
+                            });
+
+                            return (
+                                <li
+                                    className={classes}
+                                    style={(() => {
+                                        if (this.props.valueTemplate != null) {
+                                            return {backgroundColor, borderColor};
+                                        } else {
+                                            if (
+                                                this.props.kind.mode === 'multi-select'
+                                                && this.props.kind.getBackgroundColor != null
+                                            ) {
+                                                return {
+                                                    backgroundColor: this.props.kind.getBackgroundColor(item),
+                                                };
+                                            } else {
+                                                if (
+                                                    this.props.kind.mode === 'single-select'
+                                                    && this.props.kind.getBorderColor != null
+                                                ) {
+                                                    return {
+                                                        borderLeftColor: this.props.kind.getBorderColor(item),
+                                                    };
+                                                } else {
+                                                    return undefined;
+                                                }
                                             }
-                                }
-                            >
-                                <span
-                                    className="tags-input__helper-box"
-                                    style={{color:
-                                        backgroundColor
-                                            ? this.props.getTextColor?.(backgroundColor)
-                                            : this.props.getBackgroundColor
-                                                &&  this.props.getTextColor?.(this.props.getBackgroundColor(item)),
-                                    }}
+                                        }
+                                    })()}
                                 >
-                                    {children}
-                                </span>
-                            </li>
-                        );
+                                    <span
+                                        className="tags-input__helper-box"
+                                        style={(() => {
+                                            if (backgroundColor != null) {
+                                                return {color: getTextColor(backgroundColor)};
+                                            } else {
+                                                if (
+                                                    this.props.kind.mode === 'multi-select'
+                                                    && this.props.kind.getBackgroundColor != null
+                                                ) {
+                                                    return {color: getTextColor(
+                                                        this.props.kind.getBackgroundColor(item),
+                                                    )};
+                                                } else {
+                                                    return undefined;
+                                                }
+                                            }
+                                        })()}
+                                    >
+                                        {children}
+                                    </span>
+                                </li>
+                            );
+                        };
 
                         return (
                             <React.Fragment key={i}>

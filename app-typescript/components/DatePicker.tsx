@@ -131,9 +131,15 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
             };
         }
 
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <div>
+                    <span>{moment(this.state.value as Date).format(this.props.dateFormat)}</span>
+                </div>
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     error={this.props.error}
                     required={this.props.required}
@@ -201,10 +207,8 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                         }}
                     />
                 </InputWrapper>
-                : <div>
-                    <span>{moment(this.state.value as Date).format(this.props.dateFormat)}</span>
-                </div>
-        );
+            );
+        }
     }
 }
 

@@ -3,7 +3,7 @@ import { Chips } from '@superdesk/primereact/chips';
 import {InputWrapper} from './Form';
 import nextId from "react-id-generator";
 import {IInputWrapper} from './Form/InputWrapper';
-import {PillPreview} from './PreviewPill';
+import {SelectPreview} from './PreviewPill';
 
 interface IProps extends IInputWrapper {
     value: Array<string>;
@@ -17,9 +17,17 @@ export class TagInput extends React.Component<IProps> {
     render() {
         const {onChange, value, placeholder} = this.props;
 
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <SelectPreview
+                    kind={{mode: 'multi-select'}}
+                    items={this.props.value}
+                    getLabel={(item) => item}
+                />
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     error={this.props.error}
                     required={this.props.required}
@@ -36,14 +44,11 @@ export class TagInput extends React.Component<IProps> {
                         separator=","
                         onChange={(event) => onChange(event.value)}
                         value={value}
-                        placeholder={!this.props.disabled ? placeholder : undefined}
+                        placeholder={this.props.disabled ? undefined : placeholder}
                         disabled={this.props.disabled}
                     />
                 </InputWrapper>
-                : <PillPreview
-                    array={this.props.value}
-                    getLabel={(item) => item}
-                />
-        );
+            );
+        }
     }
 }

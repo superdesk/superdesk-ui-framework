@@ -9,6 +9,9 @@ interface IState {
     invalid: boolean;
     value: any;
     value2: any;
+    value3: any;
+    value4: any;
+    value5: any;
 }
 
 export default class InputsDoc extends React.Component<{}, IState> {
@@ -21,6 +24,9 @@ export default class InputsDoc extends React.Component<{}, IState> {
             invalid: false,
             value: '',
             value2: null,
+            value3: '',
+            value4: '',
+            value5: '',
         }
     }
 
@@ -47,7 +53,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             <div className='form__row'>
                                 <Input
                                     label='Input label'
-                                    value={''}
+                                    value={this.state.value}
                                     type='text'
                                     info='This is some hint message'
                                     inlineLabel={this.state.inlineLabel}
@@ -62,7 +68,7 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             <div className='form__row'>
                                 <Input
                                     label='Number Input'
-                                    value={this.state.value}
+                                    value={this.state.value2}
                                     type='number'
                                     info='Morbi leo risus porta ac consectetur ac.'
                                     tabindex={0}
@@ -74,14 +80,14 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             <div className='form__row'>
                                 <Input
                                     label='Input label'
-                                    value={''}
+                                    value={this.state.value3}
                                     type='text'
                                     placeholder='Placeholder'
                                     info='Donec id elit non mi porta gravida at eget metus.'
                                     inlineLabel={true}
                                     labelHidden={true}
                                     tabindex={0}
-                                    onChange={(value) => this.setState({value2: value})}
+                                    onChange={(value) => this.setState({value3: value})}
                                 />
                             </div>
 
@@ -89,13 +95,13 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             <div className='form__row'>
                                 <Input
                                     label='Input label'
-                                    value={''}
+                                    value={this.state.value4}
                                     boxedStyle={true}
-                                    maxLength={25}
+                                    maxLength={30}
                                     placeholder='Placeholder'
                                     type='text'
                                     tabindex={0}
-                                    onChange={(value) => this.setState({value2: value})}
+                                    onChange={(value) => this.setState({value4: value})}
                                 />
                             </div>
 
@@ -103,14 +109,14 @@ export default class InputsDoc extends React.Component<{}, IState> {
                             <div className='form__row'>
                                 <Input
                                     label='Input label'
-                                    value={''}
+                                    value={this.state.value5}
                                     boxedStyle={true}
                                     boxedLable={true}
-                                    maxLength={25}
+                                    maxLength={30}
                                     placeholder='Placeholder'
                                     type='text'
                                     tabindex={0}
-                                    onChange={(value) => this.setState({value2: value})}
+                                    onChange={(value) => this.setState({value5: value})}
                                 />
                             </div>
                         </div>

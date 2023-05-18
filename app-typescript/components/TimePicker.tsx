@@ -13,9 +13,15 @@ export class TimePicker extends React.PureComponent<IProps> {
     private htmlId = nextId();
 
     render() {
-        return (
-            !this.props.preview
-                ? <InputWrapper
+        if (this.props.preview) {
+            return (
+                <div>
+                    <span>{this.props.value}</span>
+                </div>
+            );
+        } else {
+            return (
+                <InputWrapper
                     label={this.props.label}
                     error={this.props.error}
                     required={this.props.required}
@@ -40,9 +46,7 @@ export class TimePicker extends React.PureComponent<IProps> {
                         }}
                     />
                 </InputWrapper>
-                : <div>
-                    <span>{this.props.value}</span>
-                </div>
-        );
+            );
+        }
     }
 }
