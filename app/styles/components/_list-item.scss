@@ -1,7 +1,7 @@
 // LIST ITEMS : components/list-items.scss
 // --------------
 
-//background color 
+//background color
 $sd-ListItem-background: var(--sd-item__main-Bg);
 $sd-ListItem-background-hover: var(--sd-item__main-Bg--hover);
 $sd-ListItem-background-selected: var(--sd-item__main-Bg--selected);
@@ -38,7 +38,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         &:hover {
             background-color: $sd-ListItem-background;
             cursor: default;
-        } 
+        }
     }
     &--inactive {
         background-color: transparent;
@@ -140,7 +140,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     background-color: transparent;
     &--locked, &--error {
         background: $red;
-    }    
+    }
     &--success, &--active {
         background: $green;
     }
@@ -198,7 +198,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
             justify-content: center;
             z-index: 2;
             opacity: 0;
-            transition: opacity 0.2s linear; 
+            transition: opacity 0.2s linear;
             .sd-check__wrapper {
                 height: 1.6rem;
                 width: 1.6rem;
@@ -222,7 +222,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
             .sd-list-item__checkbox-container {
                 opacity: 1;
             }
-        } 
+        }
     }
 }
 
@@ -313,18 +313,12 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 }
 
 .sd-list-item {
-    [class^="icon-"],
-    [class*=" icon-"] {
-        opacity: 0.75;
-        vertical-align: middle;
-        color: var(--color-icon-default);
-    }
     time {
         [class^="icon-"],
         [class*=" icon-"] {
             vertical-align: top;
             margin-inline-end: 0.2rem;
-        }  
+        }
     }
 }
 
@@ -475,7 +469,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 }
 .sd-list-item--activated {
 .dropdown__toggle {
-    
+
         [class^="icon-"],
         [class*=" icon-"] {
             opacity: 1;
@@ -586,7 +580,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
                 color: var(--sd-colour-interactive--darken-20);
                 border-bottom: 1px dotted currentColor;
             }
-        }  
+        }
     }
     .sd-list-header__number {
         margin-inline-start: 1rem;
