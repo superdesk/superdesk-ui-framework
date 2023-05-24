@@ -133,8 +133,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.recursion(this.state.options);
         document.addEventListener("mousedown", (event) => {
             if (
-                (!this.dropdownRef.current?.contains(event.target as HTMLElement))
-                && (!this.openDropdownRef.current?.contains(event.target as HTMLElement))
+                (this.dropdownRef.current?.contains(event.target as HTMLElement) !== true)
+                && (this.openDropdownRef.current?.contains(event.target as HTMLElement) !== true)
             ) {
                 this.setState({openDropdown: false});
             }
