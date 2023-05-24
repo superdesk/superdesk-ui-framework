@@ -132,11 +132,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     componentDidMount = () => {
         this.recursion(this.state.options);
         document.addEventListener("mousedown", (event) => {
-            if (!(event.target instanceof HTMLInputElement)) {
-                return;
-            }
-            if ((this.dropdownRef.current && !this.dropdownRef.current.contains(event.target))
-            && (this.openDropdownRef.current && !this.openDropdownRef.current.contains(event.target))) {
+            if (
+                (!this.dropdownRef.current?.contains(event.target as HTMLElement))
+                && (!this.openDropdownRef.current?.contains(event.target as HTMLElement))
+            ) {
                 this.setState({openDropdown: false});
             }
         });
@@ -150,6 +149,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 );
                 if (e.key === 'Backspace') {
                     this.backButton();
+                    this.backButtonValue();
 
                     const {buttonTarget} = this.state;
                     const className = buttonTarget.pop();
