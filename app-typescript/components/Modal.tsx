@@ -1,12 +1,15 @@
 import * as React from 'react';
 import { Dialog as PrimeDialog } from '@superdesk/primereact/dialog';
 import classNames from 'classnames';
+import {noop} from 'lodash';
 
 interface IProps {
     id?: string;
     className?: string;
     theme?: string;
     visible?: boolean;
+    zIndex?: number;
+    closeOnEscape?: boolean;
     contentBg?: 'default' | 'medium' | 'dark';
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
     size?: 'small' | 'medium' | 'large' | 'x-large';
@@ -15,10 +18,8 @@ interface IProps {
     maximizable?: boolean;
     headerTemplate?: JSX.Element | string;
     footerTemplate?: JSX.Element | string;
-    closeOnEscape?: boolean;
-    zIndex?: number;
     onShow?(): void;
-    onHide(): void;
+    onHide?(): void;
 }
 
 export class Modal extends React.Component<IProps, {}> {
@@ -43,9 +44,10 @@ export class Modal extends React.Component<IProps, {}> {
                     maximizable={this.props.maximizable}
                     contentClassName={classes}
                     onShow={this.props.onShow}
-                    onHide={this.props.onHide}
+                    onHide={this.props.onHide ?? noop}
                     zIndex={this.props.zIndex ? this.props.zIndex : 1000}
                     position={this.props.position}
+                    closable={this.props.onHide != null ? true : false}
                 >
                     {this.props.children}
                 </PrimeDialog>
