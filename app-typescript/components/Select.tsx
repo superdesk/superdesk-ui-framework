@@ -27,35 +27,35 @@ class Select extends React.Component<ISelect> {
                     <span>{this.props.value}</span>
                 </div>
             );
-        } else {
-            return (
-                <InputWrapper
-                    label={this.props.label}
-                    error={this.props.error}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    readonly={this.props.readonly}
-                    info={this.props.info}
-                    inlineLabel={this.props.inlineLabel}
-                    labelHidden={this.props.labelHidden}
-                    fullWidth={this.props.fullWidth}
-                    htmlId={this.htmlId}
-                    tabindex={this.props.tabindex}
-                >
-                    <select
-                        className='sd-input__select'
-                        id={this.htmlId}
-                        value={this.props.value}
-                        aria-describedby={this.htmlId}
-                        tabIndex={this.props.tabindex}
-                        onChange={this.handleChange}
-                        disabled={this.props.disabled || this.props.readonly}
-                    >
-                        {this.props.children}
-                    </select>
-                </InputWrapper>
-            );
         }
+
+        return (
+            <InputWrapper
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                readonly={this.props.readonly}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                fullWidth={this.props.fullWidth}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <select
+                    className='sd-input__select'
+                    id={this.htmlId}
+                    value={this.props.value}
+                    aria-describedby={this.htmlId}
+                    tabIndex={this.props.tabindex}
+                    onChange={this.handleChange}
+                    disabled={this.props.disabled || this.props.readonly}
+                >
+                    {this.props.children}
+                </select>
+            </InputWrapper>
+        );
     }
 }
 

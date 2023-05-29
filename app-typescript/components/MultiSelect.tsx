@@ -4,7 +4,7 @@ import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from "./Form";
 import {IInputWrapper} from './Form/InputWrapper';
-import {SelectPreview} from './PreviewPill';
+import {SelectPreview} from './SelectPreview';
 
 interface IProps<T> extends IInputWrapper {
     value: Array<T>;
@@ -59,44 +59,44 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     getLabel={this.props.optionLabel}
                 />
             );
-        } else {
-            return (
-                <InputWrapper
-                    label={this.props.label}
-                    error={this.props.error}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    info={this.props.info}
-                    inlineLabel={this.props.inlineLabel}
-                    labelHidden={this.props.labelHidden}
-                    htmlId={this.htmlId}
-                    tabindex={this.props.tabindex}
-                >
-                    <PrimeMultiSelect
-                        panelClassName={classes}
-                        value={this.props.value}
-                        options={this.props.options}
-                        onChange={({value}) => this.props.onChange(value)}
-                        display="chip"
-                        zIndex={this.props.zIndex}
-                        filter={this.props.filter}
-                        appendTo={document.body}
-                        placeholder={this.props.placeholder}
-                        optionLabel={(option) => this.props.optionLabel(option)}
-                        emptyFilterMessage={this.props.emptyFilterMessage}
-                        filterPlaceholder={this.props.filterPlaceholder}
-                        itemTemplate={this.props.itemTemplate}
-                        selectedItemTemplate={this.props.selectedItemTemplate}
-                        maxSelectedLabels={this.props.maxSelectedLabels ?? 4}
-                        selectedItemsLabel={this.props.selectedItemsLabel}
-                        ariaLabelledBy={this.htmlId + 'label'}
-                        tabIndex={this.props.tabIndex ? this.props.tabIndex : '0'}
-                        showClear={this.props.showClear}
-                        disabled={this.props.disabled}
-                        inputId={this.htmlId}
-                    />
-                </InputWrapper>
-            );
         }
+
+        return (
+            <InputWrapper
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <PrimeMultiSelect
+                    panelClassName={classes}
+                    value={this.props.value}
+                    options={this.props.options}
+                    onChange={({value}) => this.props.onChange(value)}
+                    display="chip"
+                    zIndex={this.props.zIndex}
+                    filter={this.props.filter}
+                    appendTo={document.body}
+                    placeholder={this.props.placeholder}
+                    optionLabel={(option) => this.props.optionLabel(option)}
+                    emptyFilterMessage={this.props.emptyFilterMessage}
+                    filterPlaceholder={this.props.filterPlaceholder}
+                    itemTemplate={this.props.itemTemplate}
+                    selectedItemTemplate={this.props.selectedItemTemplate}
+                    maxSelectedLabels={this.props.maxSelectedLabels ?? 4}
+                    selectedItemsLabel={this.props.selectedItemsLabel}
+                    ariaLabelledBy={this.htmlId + 'label'}
+                    tabIndex={this.props.tabIndex ? this.props.tabIndex : '0'}
+                    showClear={this.props.showClear}
+                    disabled={this.props.disabled}
+                    inputId={this.htmlId}
+                />
+            </InputWrapper>
+        );
     }
 }

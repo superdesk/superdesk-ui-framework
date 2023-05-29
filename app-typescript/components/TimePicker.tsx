@@ -19,34 +19,34 @@ export class TimePicker extends React.PureComponent<IProps> {
                     <span>{this.props.value}</span>
                 </div>
             );
-        } else {
-            return (
-                <InputWrapper
-                    label={this.props.label}
-                    error={this.props.error}
+        }
+
+        return (
+            <InputWrapper
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <input
+                    value={this.props.value}
+                    type="time"
+                    className="sd-input__input"
+                    id={this.htmlId}
+                    aria-labelledby={this.htmlId + 'label'}
+                    step={this.props.allowSeconds ? 1 : undefined}
                     required={this.props.required}
                     disabled={this.props.disabled}
-                    info={this.props.info}
-                    inlineLabel={this.props.inlineLabel}
-                    labelHidden={this.props.labelHidden}
-                    htmlId={this.htmlId}
-                    tabindex={this.props.tabindex}
-                >
-                    <input
-                        value={this.props.value}
-                        type="time"
-                        className="sd-input__input"
-                        id={this.htmlId}
-                        aria-labelledby={this.htmlId + 'label'}
-                        step={this.props.allowSeconds ? 1 : undefined}
-                        required={this.props.required}
-                        disabled={this.props.disabled}
-                        onChange={(event) => {
-                            this.props.onChange(event.target.value);
-                        }}
-                    />
-                </InputWrapper>
-            );
-        }
+                    onChange={(event) => {
+                        this.props.onChange(event.target.value);
+                    }}
+                />
+            </InputWrapper>
+        );
     }
 }

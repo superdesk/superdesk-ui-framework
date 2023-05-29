@@ -43,17 +43,15 @@ export class SelectPreview<T> extends React.Component<IProps<T>> {
                                                 return {
                                                     backgroundColor: this.props.kind.getBackgroundColor(item),
                                                 };
+                                            } else if (
+                                                this.props.kind.mode === 'single-select'
+                                                && this.props.kind.getBorderColor != null
+                                            ) {
+                                                return {
+                                                    borderLeftColor: this.props.kind.getBorderColor(item),
+                                                };
                                             } else {
-                                                if (
-                                                    this.props.kind.mode === 'single-select'
-                                                    && this.props.kind.getBorderColor != null
-                                                ) {
-                                                    return {
-                                                        borderLeftColor: this.props.kind.getBorderColor(item),
-                                                    };
-                                                } else {
-                                                    return undefined;
-                                                }
+                                                return undefined;
                                             }
                                         }
                                     })()}

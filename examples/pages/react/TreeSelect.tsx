@@ -306,7 +306,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 kind="asynchronous"
                                 value={this.state.value}
                                 getLabel={({display_name}) => display_name}
-                                getId={({qcode}) => qcode.display_name}
+                                getId={({display_name}) => display_name}
                                 selectBranchWithChildren
                                 allowMultiple
                                 searchOptions={searchOptions}

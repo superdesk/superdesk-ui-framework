@@ -133,82 +133,83 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 
         if (this.props.preview) {
             return (
+                // We have to do type assertion here because the core issue lies in primereact's calendar interface.
                 <div>
                     <span>{moment(this.state.value as Date).format(this.props.dateFormat)}</span>
                 </div>
             );
-        } else {
-            return (
-                <InputWrapper
-                    label={this.props.label}
-                    error={this.props.error}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    info={this.props.info}
-                    inlineLabel={this.props.inlineLabel}
-                    labelHidden={this.props.labelHidden}
-                    htmlId={this.htmlId}
-                    tabindex={this.props.tabindex}
-                >
-                    <Calendar
-                        inputId={this.htmlId}
-                        ariaLabelledBy={this.htmlId + 'label'}
-                        ref={(ref) => {
-                            this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;
-                        }}
-                        value={this.state.value === null ? undefined : this.state.value}
-                        onChange={(event) => {
-                            const result = parseFromPrimeReactCalendarFormat(event.value);
-
-                            if (result !== 'failed-to-parse') {
-                                this.setState({value: event.value, valid: true});
-                                this.props.onChange(result);
-                            } else {
-                                // updating internal state so a user can continue typing and enter a valid value
-                                this.setState({value: event.value, valid: false});
-                            }
-                        }}
-                        locale={locale}
-                        dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
-                        showIcon={true}
-                        icon="icon-calendar"
-                        headerTemplate={() => this.props.headerButtonBar == null ? null : (
-                            <div className="datepicker-header-toolbar">
-                                {this.props.headerButtonBar.map(({label, days}, i) => (
-                                    <button
-                                        key={i}
-                                        className="btn btn--small"
-                                        onClick={() => {
-                                            this.props.onChange(addDays(new Date(), days));
-                                            if (
-                                                this.instance != null
-                                                && typeof this.instance.hideOverlay === 'function'
-                                            ) {
-                                                this.instance.hideOverlay();
-                                            }
-                                        }}
-                                    >
-                                        {label}
-                                    </button>
-                                ))}
-                            </div>
-                        )}
-                        appendTo={document.body} // making it work inside `overflow:hidden`
-                        disabled={this.props.disabled}
-                        onBlur={(event) => {
-                            // @ts-ignore: Object is possibly 'null'.
-                            if (!event?.target.value) {
-                                // @ts-ignore: Object is possibly 'null'.
-                                this.setState({valid: true, value: null});
-                            } else {
-                                // restoring internal state to current props value
-                                this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
-                            }
-                        }}
-                    />
-                </InputWrapper>
-            );
         }
+
+        return (
+            <InputWrapper
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <Calendar
+                    inputId={this.htmlId}
+                    ariaLabelledBy={this.htmlId + 'label'}
+                    ref={(ref) => {
+                        this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;
+                    }}
+                    value={this.state.value === null ? undefined : this.state.value}
+                    onChange={(event) => {
+                        const result = parseFromPrimeReactCalendarFormat(event.value);
+
+                        if (result !== 'failed-to-parse') {
+                            this.setState({value: event.value, valid: true});
+                            this.props.onChange(result);
+                        } else {
+                            // updating internal state so a user can continue typing and enter a valid value
+                            this.setState({value: event.value, valid: false});
+                        }
+                    }}
+                    locale={locale}
+                    dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
+                    showIcon={true}
+                    icon="icon-calendar"
+                    headerTemplate={() => this.props.headerButtonBar == null ? null : (
+                        <div className="datepicker-header-toolbar">
+                            {this.props.headerButtonBar.map(({label, days}, i) => (
+                                <button
+                                    key={i}
+                                    className="btn btn--small"
+                                    onClick={() => {
+                                        this.props.onChange(addDays(new Date(), days));
+                                        if (
+                                            this.instance != null
+                                            && typeof this.instance.hideOverlay === 'function'
+                                        ) {
+                                            this.instance.hideOverlay();
+                                        }
+                                    }}
+                                >
+                                    {label}
+                                </button>
+                            ))}
+                        </div>
+                    )}
+                    appendTo={document.body} // making it work inside `overflow:hidden`
+                    disabled={this.props.disabled}
+                    onBlur={(event) => {
+                        // @ts-ignore: Object is possibly 'null'.
+                        if (!event?.target.value) {
+                            // @ts-ignore: Object is possibly 'null'.
+                            this.setState({valid: true, value: null});
+                        } else {
+                            // restoring internal state to current props value
+                            this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
+                        }
+                    }}
+                />
+            </InputWrapper>
+        );
     }
 }
 

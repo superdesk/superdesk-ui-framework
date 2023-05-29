@@ -52,39 +52,39 @@ export class Input extends React.Component<IProps> {
                     <span>{this.props.value}</span>
                 </div>
             );
-        } else {
-            return (
-                <InputWrapper
-                    label={this.props.label}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    value={this.props.value}
-                    invalid={this.props.error != null ? true : false}
-                    error={this.props.error}
-                    info={this.props.info}
-                    maxLength={this.props.maxLength}
-                    inlineLabel={this.props.inlineLabel}
-                    labelHidden={this.props.labelHidden}
-                    size={this.props.size ?? 'medium'}
-                    fullWidth={this.props.fullWidth}
-                    htmlId={this.htmlId}
-                    boxedStyle={this.props.boxedStyle}
-                    boxedLable={this.props.boxedLable}
-                    tabindex={this.props.tabindex}
-                >
-                    <input
-                        className='sd-input__input'
-                        type={this.props.type ?? 'text'}
-                        id={this.htmlId}
-                        value={this.props.value}
-                        aria-describedby={this.htmlId + 'label'}
-                        tabIndex={this.props.tabindex}
-                        onChange={this.handleChange}
-                        placeholder={this.props.placeholder}
-                        disabled={this.props.disabled}
-                    />
-                </InputWrapper>
-            );
         }
+
+        return (
+            <InputWrapper
+                label={this.props.label}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                value={this.props.value}
+                invalid={this.props.error != null ? true : false}
+                error={this.props.error}
+                info={this.props.info}
+                maxLength={this.props.maxLength}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                size={this.props.size ?? 'medium'}
+                fullWidth={this.props.fullWidth}
+                htmlId={this.htmlId}
+                boxedStyle={this.props.boxedStyle}
+                boxedLable={this.props.boxedLable}
+                tabindex={this.props.tabindex}
+            >
+                <input
+                    className='sd-input__input'
+                    type={this.props.type ?? 'text'}
+                    id={this.htmlId}
+                    value={this.props.value}
+                    aria-describedby={this.htmlId + 'label'}
+                    tabIndex={this.props.tabindex}
+                    onChange={this.handleChange}
+                    placeholder={this.props.placeholder}
+                    disabled={this.props.disabled}
+                />
+            </InputWrapper>
+        );
     }
 }

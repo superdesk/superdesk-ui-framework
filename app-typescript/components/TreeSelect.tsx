@@ -8,7 +8,7 @@ import { createPopper, Instance } from '@popperjs/core';
 import {isEqual} from 'lodash';
 import {getTextColor} from './Label';
 import {IInputWrapper} from './Form/InputWrapper';
-import {SelectPreview} from './PreviewPill';
+import {SelectPreview} from './SelectPreview';
 
 interface IState<T> {
     value: Array<T>;
@@ -573,14 +573,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         if (this.props.preview) {
             return (
                 <SelectPreview
-                    kind={!this.props.allowMultiple
+                    kind={this.props.allowMultiple
                         ? {
-                            mode: 'single-select',
-                            getBorderColor: this.props.getBorderColor,
-                        }
-                        : {
                             mode: 'multi-select',
                             getBackgroundColor: this.props.getBackgroundColor,
+                        }
+                        : {
+                            mode: 'single-select',
+                            getBorderColor: this.props.getBorderColor,
                         }
                     }
                     items={this.state.value}
@@ -588,173 +588,210 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     getLabel={this.props.getLabel}
                 />
             );
-        } else {
-            return (
-                <InputWrapper
-                    label={this.props.label}
-                    error={this.props.error}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    info={this.props.info}
-                    inlineLabel={this.props.inlineLabel}
-                    labelHidden={this.props.labelHidden}
-                    htmlId={this.htmlId}
-                    tabindex={this.props.tabindex}
-                >
-                    <div className={`tags-input sd-input__input tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'}`}>
-                        {this.props.allowMultiple
-                            ? <div className="tags-input__tags">
-                                {this.props.readOnly
-                                    || <button ref={this.openDropdownRef}
-                                        className={`tags-input__add-button ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}`}
-                                        onClick={() => {
-                                            if (!this.props.disabled) {
-                                                this.setState({openDropdown: !this.state.openDropdown});
-                                            }
-                                        }}
-                                    >
-                                        <i className="icon-plus-large"></i>
-                                    </button>
-                                }
-                                <ul className="tags-input__tag-list">
-                                    {this.state.value.map((item, i: number) => {
-                                        const Wrapper: React.ComponentType<{backgroundColor?: string}>
-                                        = ({backgroundColor, children}) => (
-                                            <li
-                                                className={"tags-input__tag-item tags-input__tag-item--multi-select"
-                                                + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
-                                                onClick={() => (!this.props.readOnly && !this.props.disabled)
-                                                    && this.removeClick(i)
-                                                }
-                                                style={this.props.valueTemplate
-                                                ? {backgroundColor}
-                                                : this.props.getBackgroundColor
-                                                && {backgroundColor: this.props.getBackgroundColor(item)}}
-                                            >
-                                                <span
-                                                    className="tags-input__helper-box"
-                                                    style={
-                                                        {color: backgroundColor
-                                                            ? getTextColor(backgroundColor)
-                                                            : this.props.getBackgroundColor
-                                                                &&  getTextColor(this.props.getBackgroundColor(item)),
-                                                        }
-                                                    }
-                                                >
-                                                    {children}
-                                                    {!this.props.readOnly
-                                                        && <span className="tags-input__remove-button">
-                                                            <Icon name="close-small"></Icon>
-                                                        </span>
-                                                    }
-                                                </span>
-                                            </li>
-                                        );
+        }
 
-                                        return (
-                                            <React.Fragment key={i}>
-                                                {this.props.valueTemplate
-                                                    ? this.props.valueTemplate(item, Wrapper)
-                                                    : <Wrapper>
-                                                        <span>{this.props.getLabel(item)}</span>
-                                                    </Wrapper>
-                                                }
-                                            </React.Fragment>
-                                        );
-                                    })}
-                                </ul>
-                                {this.state.value.length > 0
-                                    ? (this.props.readOnly || this.props.disabled)
-                                        || <button
-                                            className="tags-input__remove-value"
-                                            style={{position: 'relative', bottom: '2px'}}
-                                            onClick={() => this.setState({value: []})}
-                                        >
-                                            <Icon name='remove-sign'></Icon>
-                                        </button>
-                                    : null
-                                }
-                            </div>
-                            : <div className="tags-input__tags">
-                                {this.props.readOnly
-                                    || <button
-                                        className="tags-input__overlay-button"
-                                        ref={this.openDropdownRef}
-                                        onClick={() => this.setState({openDropdown: !this.state.openDropdown})}
-                                    >
-                                    </button>
-                                }
-                                {this.state.value.length < 1
-                                    && <span
-                                            className={ 'tags-input__single-item'
-                                                + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')
-                                            }
-                                        >
-                                        <span className="tags-input__placeholder">
-                                            {this.props.placeholder}
-                                        </span>
-                                    </span>
-                                }
+        return (
+            <InputWrapper
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <div className={`tags-input sd-input__input tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'}`}>
+                    {this.props.allowMultiple
+                        ? <div className="tags-input__tags">
+                            {this.props.readOnly
+                                || <button ref={this.openDropdownRef}
+                                    className={`tags-input__add-button ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}`}
+                                    onClick={() => {
+                                        if (!this.props.disabled) {
+                                            this.setState({openDropdown: !this.state.openDropdown});
+                                        }
+                                    }}
+                                >
+                                    <i className="icon-plus-large"></i>
+                                </button>
+                            }
+                            <ul className="tags-input__tag-list">
                                 {this.state.value.map((item, i: number) => {
-                                    const Wrapper: React.ComponentType<{backgroundColor?: string, borderColor?: string}>
-                                    = ({backgroundColor, borderColor, children}) => (
-                                        <span
-                                            className={ 'tags-input__single-item'
-                                                + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')
+                                    const Wrapper: React.ComponentType<{backgroundColor?: string}>
+                                    = ({backgroundColor, children}) => (
+                                        <li
+                                            className={"tags-input__tag-item tags-input__tag-item--multi-select"
+                                            + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')}
+                                            onClick={() => (!this.props.readOnly && !this.props.disabled)
+                                                && this.removeClick(i)
                                             }
-                                            onClick={() => !this.props.readOnly && this.removeClick(i)
-                                            }
+                                            style={this.props.valueTemplate
+                                            ? {backgroundColor}
+                                            : this.props.getBackgroundColor
+                                            && {backgroundColor: this.props.getBackgroundColor(item)}}
                                         >
-                                            {this.props.getBorderColor
-                                                && <div
-                                                    className="item-border item-border-selected"
-                                                    style={borderColor
-                                                        ? {backgroundColor: borderColor}
-                                                        : {backgroundColor: this.props.getBorderColor(item)}
-                                                    }
-                                                >
-                                                </div>
-                                            }
                                             <span
-                                                style={{color: backgroundColor && getTextColor(backgroundColor)}}
                                                 className="tags-input__helper-box"
+                                                style={
+                                                    {color: backgroundColor
+                                                        ? getTextColor(backgroundColor)
+                                                        : this.props.getBackgroundColor
+                                                            &&  getTextColor(this.props.getBackgroundColor(item)),
+                                                    }
+                                                }
                                             >
-                                                <span
-                                                    className={backgroundColor && `tags-input__tag-item`}
-                                                    style={{backgroundColor, margin: 0}}
-                                                >
-                                                    {children}
-                                                </span>
-                                                {this.props.readOnly
-                                                    || <span className="tags-input__remove-button">
-                                                        <Icon name='remove-sign'></Icon>
+                                                {children}
+                                                {!this.props.readOnly
+                                                    && <span className="tags-input__remove-button">
+                                                        <Icon name="close-small"></Icon>
                                                     </span>
                                                 }
                                             </span>
-                                        </span>
+                                        </li>
                                     );
 
-                                    return <React.Fragment key={i}>
-                                        {this.props.valueTemplate
-                                            ? this.props.valueTemplate(item, Wrapper)
-                                            : <Wrapper>
-                                                <span>{this.props.getLabel(item)}</span>
-                                            </Wrapper>
-                                        }
-                                    </React.Fragment>;
+                                    return (
+                                        <React.Fragment key={i}>
+                                            {this.props.valueTemplate
+                                                ? this.props.valueTemplate(item, Wrapper)
+                                                : <Wrapper>
+                                                    <span>{this.props.getLabel(item)}</span>
+                                                </Wrapper>
+                                            }
+                                        </React.Fragment>
+                                    );
                                 })}
-                            </div>
-                        }
+                            </ul>
+                            {this.state.value.length > 0
+                                ? (this.props.readOnly || this.props.disabled)
+                                    || <button
+                                        className="tags-input__remove-value"
+                                        style={{position: 'relative', bottom: '2px'}}
+                                        onClick={() => this.setState({value: []})}
+                                    >
+                                        <Icon name='remove-sign'></Icon>
+                                    </button>
+                                : null
+                            }
+                        </div>
+                        : <div className="tags-input__tags">
+                            {this.props.readOnly
+                                || <button
+                                    className="tags-input__overlay-button"
+                                    ref={this.openDropdownRef}
+                                    onClick={() => this.setState({openDropdown: !this.state.openDropdown})}
+                                >
+                                </button>
+                            }
+                            {this.state.value.length < 1
+                                && <span
+                                        className={ 'tags-input__single-item'
+                                            + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')
+                                        }
+                                    >
+                                    <span className="tags-input__placeholder">
+                                        {this.props.placeholder}
+                                    </span>
+                                </span>
+                            }
+                            {this.state.value.map((item, i: number) => {
+                                const Wrapper: React.ComponentType<{backgroundColor?: string, borderColor?: string}>
+                                = ({backgroundColor, borderColor, children}) => (
+                                    <span
+                                        className={ 'tags-input__single-item'
+                                            + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')
+                                        }
+                                        onClick={() => !this.props.readOnly && this.removeClick(i)
+                                        }
+                                    >
+                                        {this.props.getBorderColor
+                                            && <div
+                                                className="item-border item-border-selected"
+                                                style={borderColor
+                                                    ? {backgroundColor: borderColor}
+                                                    : {backgroundColor: this.props.getBorderColor(item)}
+                                                }
+                                            >
+                                            </div>
+                                        }
+                                        <span
+                                            style={{color: backgroundColor && getTextColor(backgroundColor)}}
+                                            className="tags-input__helper-box"
+                                        >
+                                            <span
+                                                className={backgroundColor && `tags-input__tag-item`}
+                                                style={{backgroundColor, margin: 0}}
+                                            >
+                                                {children}
+                                            </span>
+                                            {this.props.readOnly
+                                                || <span className="tags-input__remove-button">
+                                                    <Icon name='remove-sign'></Icon>
+                                                </span>
+                                            }
+                                        </span>
+                                    </span>
+                                );
 
-                        {this.state.openDropdown
-                            && <div
-                                className={"autocomplete autocomplete--multi-select"
-                                    + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')
-                                }
-                                style={{zIndex: this.props.zIndex}}
-                                ref={this.dropdownRef}
-                            >
-                                <div className='autocomplete__header'>
+                                return <React.Fragment key={i}>
+                                    {this.props.valueTemplate
+                                        ? this.props.valueTemplate(item, Wrapper)
+                                        : <Wrapper>
+                                            <span>{this.props.getLabel(item)}</span>
+                                        </Wrapper>
+                                    }
+                                </React.Fragment>;
+                            })}
+                        </div>
+                    }
+
+                    {this.state.openDropdown
+                        && <div
+                            className={"autocomplete autocomplete--multi-select"
+                                + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')
+                            }
+                            style={{zIndex: this.props.zIndex}}
+                            ref={this.dropdownRef}
+                        >
+                            <div className='autocomplete__header'>
+                                <div
+                                    className="autocomplete__icon"
+                                    onClick={() => {
+                                        this.backButtonValue();
+                                        this.backButton();
+                                    }}
+                                >
+                                    <Icon name="search" className="search"></Icon>
+                                </div>
+                                <div className='autocomplete__filter'>
+                                    <input
+                                        className="autocomplete__input"
+                                        type="text"
+                                        placeholder={this.props.searchPlaceholder}
+                                        ref={this.inputRef}
+                                        value={this.state.searchFieldValue}
+                                        onChange={(event) => {
+                                            if (this.props.kind === 'synchronous') {
+                                                this.setState({searchFieldValue: event.target.value});
+                                                this.popperInstance?.update();
+                                            } else if (this.props.kind === 'asynchronous') {
+                                                if (this.ICancelFn) {
+                                                    this.ICancelFn();
+                                                }
+                                                this.setState({searchFieldValue: event.target.value, options: []});
+                                                this.popperInstance?.update();
+                                                this.debounceFn();
+                                            } else {
+                                                return;
+                                            }
+                                        }}
+                                    />
+                                </div>
+                            </div>
+                            {(this.state.activeTree.length > 0 && this.state.buttonValue != null)
+                                && <div className='autocomplete__category-header'>
                                     <div
                                         className="autocomplete__icon"
                                         onClick={() => {
@@ -762,154 +799,117 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             this.backButton();
                                         }}
                                     >
-                                        <Icon name="search" className="search"></Icon>
+                                        <Icon name="arrow-left" className="arrow-left"></Icon>
                                     </div>
                                     <div className='autocomplete__filter'>
-                                        <input
-                                            className="autocomplete__input"
-                                            type="text"
-                                            placeholder={this.props.searchPlaceholder}
-                                            ref={this.inputRef}
-                                            value={this.state.searchFieldValue}
-                                            onChange={(event) => {
-                                                if (this.props.kind === 'synchronous') {
-                                                    this.setState({searchFieldValue: event.target.value});
-                                                    this.popperInstance?.update();
-                                                } else if (this.props.kind === 'asynchronous') {
-                                                    if (this.ICancelFn) {
-                                                        this.ICancelFn();
-                                                    }
-                                                    this.setState({searchFieldValue: event.target.value, options: []});
-                                                    this.popperInstance?.update();
-                                                    this.debounceFn();
-                                                } else {
-                                                    return;
-                                                }
-                                            }}
-                                        />
+                                        <button className={'autocomplete__category-title'}>
+                                            {this.props.optionTemplate
+                                                ? this.props.optionTemplate(this.state.buttonValue.value)
+                                                : this.props.getLabel(this.state.buttonValue.value)
+                                            }
+                                        </button>
+
+                                        {this.props.selectBranchWithChildren
+                                            && this.branchButton(this.state.buttonValue)
+                                        }
                                     </div>
                                 </div>
-                                {(this.state.activeTree.length > 0 && this.state.buttonValue != null)
-                                    && <div className='autocomplete__category-header'>
-                                        <div
-                                            className="autocomplete__icon"
-                                            onClick={() => {
-                                                this.backButtonValue();
-                                                this.backButton();
-                                            }}
-                                        >
-                                            <Icon name="arrow-left" className="arrow-left"></Icon>
-                                        </div>
-                                        <div className='autocomplete__filter'>
-                                            <button className={'autocomplete__category-title'}>
-                                                {this.props.optionTemplate
-                                                    ? this.props.optionTemplate(this.state.buttonValue.value)
-                                                    : this.props.getLabel(this.state.buttonValue.value)
-                                                }
-                                            </button>
-
-                                            {this.props.selectBranchWithChildren
-                                                && this.branchButton(this.state.buttonValue)
-                                            }
-                                        </div>
-                                    </div>
-                                }
-                                {this.state.loading
-                                ? <ul className="suggestion-list--loader"><Loader overlay={true}></Loader></ul>
-                                : this.state.searchFieldValue === ''
-                                    ? this.props.getOptions
-                                        ? <ul
-                                            className="suggestion-list suggestion-list--multi-select"
-                                            ref={this.ref}
-                                        >
-                                            {this.state.options.map((option, i: React.Key | undefined) => {
-                                                let selectedItem = this.state.value.some((obj) =>
-                                                    this.props.getId(obj) === this.props.getId(option.value),
-                                                );
-                                                return (
-                                                    <li
-                                                        key={i}
-                                                        className={`suggestion-item suggestion-item--multi-select`}
-                                                        onClick={(event) => {
-                                                            event.preventDefault();
-                                                            event.stopPropagation();
-                                                            this.handleTree(event, option);
-                                                        }}
-                                                    >
-                                                        <button
-                                                            className={`suggestion-item--btn ${this.props.getId(option.value)}`}
-                                                            onKeyDown={(event) => {
-                                                                if (event.key === 'Enter' && option.children) {
-                                                                    this.setState({
-                                                                        buttonTarget: [
-                                                                            ...this.state.buttonTarget,
-                                                                            this.props.getId(option.value),
-                                                                        ],
-                                                                    });
-                                                                }
-                                                            }}
-                                                        >
-                                                            {(this.props.getBorderColor && !this.props.allowMultiple)
-                                                                && <div
-                                                                    className="item-border"
-                                                                    style={{
-                                                                        backgroundColor: this.props.getBorderColor(
-                                                                            option.value,
-                                                                        ),
-                                                                    }}
-                                                                >
-                                                                </div>
-                                                            }
-                                                            <span
-                                                                className={
-                                                                    'suggestion-item--bgcolor'
-                                                                    + (selectedItem ? ' suggestion-item--disabled' : '')
-                                                                }
-                                                                style={
-                                                                    (this.props.getBackgroundColor && option.value)
-                                                                        ? {
-                                                                            backgroundColor:
-                                                                            this.props.getBackgroundColor(option.value),
-                                                                            color:
-                                                                            getTextColor(this.props.getBackgroundColor(
-                                                                                option.value,
-                                                                                ),
-                                                                            ),
-                                                                        }
-                                                                        : undefined
-                                                                }
-                                                            >
-                                                                {this.props.optionTemplate
-                                                                    ? this.props.optionTemplate(option.value)
-                                                                    : this.props.getLabel(option.value)
-                                                                }
-                                                            </span>
-                                                            {option.children
-                                                                && <span className="suggestion-item__icon">
-                                                                    <Icon name="chevron-right-thin"></Icon>
-                                                                </span>
-                                                            }
-                                                        </button>
-                                                    </li>
-                                                );
-                                            })}
-                                        </ul>
-                                        : null
-                                    : <ul
+                            }
+                            {this.state.loading
+                            ? <ul className="suggestion-list--loader"><Loader overlay={true}></Loader></ul>
+                            : this.state.searchFieldValue === ''
+                                ? this.props.getOptions
+                                    ? <ul
                                         className="suggestion-list suggestion-list--multi-select"
                                         ref={this.ref}
                                     >
-                                        {this.filteredItem(this.props.singleLevelSearch
-                                            ? this.state.options : this.state.filterArr)
-                                        }
+                                        {this.state.options.map((option, i: React.Key | undefined) => {
+                                            let selectedItem = this.state.value.some((obj) =>
+                                                this.props.getId(obj) === this.props.getId(option.value),
+                                            );
+                                            return (
+                                                <li
+                                                    key={i}
+                                                    className={`suggestion-item suggestion-item--multi-select`}
+                                                    onClick={(event) => {
+                                                        event.preventDefault();
+                                                        event.stopPropagation();
+                                                        this.handleTree(event, option);
+                                                    }}
+                                                >
+                                                    <button
+                                                        className={`suggestion-item--btn ${this.props.getId(option.value)}`}
+                                                        onKeyDown={(event) => {
+                                                            if (event.key === 'Enter' && option.children) {
+                                                                this.setState({
+                                                                    buttonTarget: [
+                                                                        ...this.state.buttonTarget,
+                                                                        this.props.getId(option.value),
+                                                                    ],
+                                                                });
+                                                            }
+                                                        }}
+                                                    >
+                                                        {(this.props.getBorderColor && !this.props.allowMultiple)
+                                                            && <div
+                                                                className="item-border"
+                                                                style={{
+                                                                    backgroundColor: this.props.getBorderColor(
+                                                                        option.value,
+                                                                    ),
+                                                                }}
+                                                            >
+                                                            </div>
+                                                        }
+                                                        <span
+                                                            className={
+                                                                'suggestion-item--bgcolor'
+                                                                + (selectedItem ? ' suggestion-item--disabled' : '')
+                                                            }
+                                                            style={
+                                                                (this.props.getBackgroundColor && option.value)
+                                                                    ? {
+                                                                        backgroundColor:
+                                                                        this.props.getBackgroundColor(option.value),
+                                                                        color:
+                                                                        getTextColor(this.props.getBackgroundColor(
+                                                                            option.value,
+                                                                            ),
+                                                                        ),
+                                                                    }
+                                                                    : undefined
+                                                            }
+                                                        >
+                                                            {this.props.optionTemplate
+                                                                ? this.props.optionTemplate(option.value)
+                                                                : this.props.getLabel(option.value)
+                                                            }
+                                                        </span>
+                                                        {option.children
+                                                            && <span className="suggestion-item__icon">
+                                                                <Icon name="chevron-right-thin"></Icon>
+                                                            </span>
+                                                        }
+                                                    </button>
+                                                </li>
+                                            );
+                                        })}
                                     </ul>
-                                }
-                            </div>
-                        }
-                    </div>
-                </InputWrapper>
-            );
-        }
+                                    : null
+                                : <ul
+                                    className="suggestion-list suggestion-list--multi-select"
+                                    ref={this.ref}
+                                >
+                                    {this.filteredItem(this.props.singleLevelSearch
+                                        ? this.state.options : this.state.filterArr)
+                                    }
+                                </ul>
+                            }
+                        </div>
+                    }
+                </div>
+            </InputWrapper>
+        );
     }
 }
 
