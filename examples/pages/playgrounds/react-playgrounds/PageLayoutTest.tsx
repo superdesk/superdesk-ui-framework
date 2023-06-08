@@ -56,37 +56,37 @@ export class PageLayoutTest extends React.Component<IProps, IState> {
         return (
             <Layout.PageLayout
             header={(
-<SubNav zIndex={2}>
-                <ButtonGroup align="start" padded={true}>
-                    <Button
-                        text="Open left panel"
-                        style="hollow"
-                        onClick={() => this.setState({'leftPanelOpen': !this.state.leftPanelOpen})}
-                    />
-                </ButtonGroup>
-                <ButtonGroup align='end'>
-                    <Button
-                            text="Open right panel"
+                <SubNav>
+                    <ButtonGroup align="start" padded={true}>
+                        <Button
+                            text="Open left panel"
                             style="hollow"
-                            onClick={() => this.setState({'rightPanelOpen': !this.state.rightPanelOpen})}
+                            onClick={() => this.setState({'leftPanelOpen': !this.state.leftPanelOpen})}
                         />
-                    <Divider size="mini" />
-                    <ButtonGroup subgroup={true} spaces="no-space">
-                        <Dropdown
-                            items={[
-                                {
-                                    type: 'group', label: 'Chose a theme', items: [
-                                        'divider',
-                                        { label: 'Light', onSelect: () => this.handleTheme('light-ui')},
-                                        { label: 'Dark', onSelect: () => this.handleTheme('dark-ui')},
-                                    ]
-                                },
-                            ]}>
-                            <NavButton type='default' icon='adjust' onClick={()=> false} />
-                        </Dropdown>
                     </ButtonGroup>
-                </ButtonGroup>
-            </SubNav>
+                    <ButtonGroup align='end'>
+                        <Button
+                                text="Open right panel"
+                                style="hollow"
+                                onClick={() => this.setState({'rightPanelOpen': !this.state.rightPanelOpen})}
+                            />
+                        <Divider size="mini" />
+                        <ButtonGroup subgroup={true} spaces="no-space">
+                            <Dropdown
+                                items={[
+                                    {
+                                        type: 'group', label: 'Chose a theme', items: [
+                                            'divider',
+                                            { label: 'Light', onSelect: () => this.handleTheme('light-ui')},
+                                            { label: 'Dark', onSelect: () => this.handleTheme('dark-ui')},
+                                        ]
+                                    },
+                                ]}>
+                                <NavButton type='default' icon='adjust' onClick={()=> false} />
+                            </Dropdown>
+                        </ButtonGroup>
+                    </ButtonGroup>
+                </SubNav>
             )}
             leftPanelOpen={this.state.leftPanelOpen}
             leftPanel={(

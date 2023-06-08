@@ -4,11 +4,11 @@ import ReactDOM from 'react-dom';
 import {createPopper, Instance as PopperInstance, Placement, Modifier} from '@popperjs/core';
 import {throttle} from 'lodash';
 import maxSize from 'popper-max-size-modifier';
+import {getNextZIndex} from '../zIndex';
 
 interface IPropsPopupPositioner {
     referenceElement: HTMLElement;
     placement: Placement;
-    zIndex?: number;
     onClose(): void;
     closeOnHoverEnd?: boolean;
 }
@@ -16,6 +16,7 @@ interface IPropsPopupPositioner {
 class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> {
     private wrapperEl: HTMLDivElement | null;
     private popper: PopperInstance | null;
+    private zIndex: number = getNextZIndex();
 
     constructor(props: IPropsPopupPositioner) {
         super(props);
@@ -123,7 +124,12 @@ class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> {
                 ref={(el) => {
                     this.wrapperEl = el;
                 }}
-                style={{zIndex: this.props.zIndex ?? 1, position: 'absolute', left: '-100vw', display: 'flex'}}
+                style={{
+                    zIndex: this.zIndex,
+                    position: 'absolute',
+                    left: '-100vw',
+                    display: 'flex',
+                }}
             >
                 {this.props.children}
             </div>
@@ -138,7 +144,6 @@ export function showPopup(
     referenceElement: HTMLElement,
     placement: Placement,
     Component: React.ComponentType<{closePopup(): void}>,
-    zIndex?: number,
     closeOnHoverEnd?: boolean,
     onClose?: () => void,
 ): {close: () => void} {
@@ -158,7 +163,6 @@ export function showPopup(
                 referenceElement={referenceElement}
                 placement={placement}
                 onClose={closeFn}
-                zIndex={zIndex}
                 closeOnHoverEnd={closeOnHoverEnd || false}
             >
                 <Component

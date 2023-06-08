@@ -3,6 +3,7 @@ import { IconButton } from '../IconButton';
 import { Spinner, LoadingOverlay } from '../Spinner';
 import classNames from 'classnames';
 import {ButtonGroup} from '../ButtonGroup';
+import {getNextZIndex} from '../../zIndex';
 
 // ============= Panel ============ //
 
@@ -44,7 +45,6 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
 
 interface IPropsPanelHeader {
     color?: 'light' | 'darker' | 'blueGrey' | 'blueGreyDarker'; // defaults to 'light'
-    zIndex?: number;
     title?: string;
     theme?: 'light-ui' | 'dark-ui'; // defaults to 'light
     className?: string;
@@ -53,6 +53,7 @@ interface IPropsPanelHeader {
 }
 
 class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
+    private zIndex: number = getNextZIndex();
     constructor(props: IPropsPanelHeader) {
         super(props);
     }
@@ -66,7 +67,7 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
         }, this.props.className);
 
         let style = {
-            zIndex: this.props.zIndex ? this.props.zIndex : 10,
+            zIndex: this.zIndex,
         };
 
         let defaultTheme = darkColors.includes(this.props.color || '') ? 'dark-ui' : null;

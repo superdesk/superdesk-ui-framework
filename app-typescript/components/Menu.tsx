@@ -4,6 +4,7 @@ import {SyntheticEvent} from 'react';
 import {TieredMenu} from '@superdesk/primereact/tieredmenu';
 import {MenuItem as IPrimeMenuItem} from '@superdesk/primereact/components/menuitem/MenuItem';
 import {assertNever} from '../helpers';
+import {getNextZIndex} from '../zIndex';
 
 /**
  * Known issues:
@@ -57,10 +58,7 @@ interface IMenuBranch {
 interface IProps {
     items: Array<IMenuItem>;
     children: (toggle: (event: SyntheticEvent) => void) => JSX.Element;
-    zIndex?: number;
 }
-
-const superdeskTopBarZIndex = 1030;
 
 function isSeparator(item: IMenuItem): item is ISeparator {
     return (item as any)['separator'] === true;
@@ -77,6 +75,7 @@ function isMenuBranch(item: IMenuItem): item is IMenuBranch {
 export class Menu extends React.Component<IProps, {}> {
     private menu: TieredMenu | null;
     private focusedBefore: Element | null;
+    private zIndex: number = getNextZIndex();
 
     constructor(props: IProps) {
         super(props);
@@ -164,7 +163,7 @@ export class Menu extends React.Component<IProps, {}> {
                             }
                         }}
                         data-test-id="menu"
-                        baseZIndex={this.props.zIndex ?? superdeskTopBarZIndex}
+                        baseZIndex={this.zIndex}
                     />
                 </div>
             </React.Fragment>

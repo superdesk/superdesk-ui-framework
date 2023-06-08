@@ -7,7 +7,6 @@ export interface IPropsWithPopover {
     children(toggle: (referenceElement: HTMLElement) => void): React.ReactNode;
     placement: Placement;
     component: React.ComponentType<{closePopup(): void}>;
-    zIndex?: number;
     closeOnHoverEnd?: boolean;
     onClose?: () => void;
 }
@@ -30,7 +29,6 @@ export class WithPopover extends React.PureComponent<IPropsWithPopover> {
                 referenceElement,
                 this.props.placement,
                 this.props.component,
-                this.props.zIndex,
                 this.props.closeOnHoverEnd,
                 () => {
                     this.closePopup = undefined;

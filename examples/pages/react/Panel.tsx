@@ -359,7 +359,6 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                 <p className="docs-page__paragraph">PanelHeader</p>
                 <PropsList>
                     <Prop name='title' isRequired={false} type='string' default='/' description='Specifies the title of the panel.'/>
-                    <Prop name='zIndex' isRequired={false} type='number' default='1' description='Increase the z-index of the header if needed.'/>
                     <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Explicitly define the theme just for the of Panel Header. All child elements and the content inside the Header will inherit the selected theme.'/>
                     <Prop name='color' isRequired={false} type='light | darker | blueGrey | blueGreyDarker' default='light' description='Background colour of the Panel Header. blueGrey and blueGreyDarker will also change the text colour to white.'/>
                     <Prop name='ClassName' isRequired={false} type='string' default='false' description='Add custom or helper classes to modify the default behaviour if needed. Use only if necessary.'/>

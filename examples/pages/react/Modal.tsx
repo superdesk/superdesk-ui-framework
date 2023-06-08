@@ -79,7 +79,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         </ButtonGroup>
 
                         <Modal headerTemplate="Basic modal"
-                            zIndex={10000}
                             maximizable
                             visible={this.state.modalBasic}
                             onHide={() => {this.setState({modalBasic: false})}}>
@@ -240,7 +239,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupPreview>
                     <Button text="Maximizable modal" onClick={() => this.setState({maximizableModal: true})} />
                         <Modal headerTemplate="Maximizable modal"
-                            zIndex={1000}
                             maximizable
                             visible={this.state.maximizableModal}
                             size="small"
@@ -261,7 +259,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
                         <Button text="Maximizable modal" onClick={() => this.setState({maximizableModal: true})} />
                         <Modal
                             headerTemplate="Maximizable modal"
-                            zIndex={1000}
                             maximizable
                             visible={this.state.maximizableModal}
                             size="small"
@@ -284,7 +281,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                         <Modal headerTemplate="Modal with position top"
                             position="top"
-                            zIndex={10000}
                             visible={this.state.top}
                             onHide={() => {this.setState({top: false})}}>
                             <p>This modal has position top.</p>
@@ -292,7 +288,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                         <Modal headerTemplate="Modal with position bottom"
                             position="bottom"
-                            zIndex={10000}
                             visible={this.state.bottom}
                             onHide={() => {this.setState({bottom: false})}}>
                             <p>This modal has position bottom.</p>
@@ -300,7 +295,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                         <Modal headerTemplate="Modal with position left"
                             position="left"
-                            zIndex={10000}
                             visible={this.state.left}
                             onHide={() => {this.setState({left: false})}}>
                             <p>This modal has position left.</p>
@@ -308,7 +302,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                         <Modal headerTemplate="Modal with position right"
                             position="right"
-                            zIndex={10000}
                             visible={this.state.right}
                             onHide={() => {this.setState({right: false})}}>
                             <p>This modal has position right.</p>
@@ -317,7 +310,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         <Modal headerTemplate="Modal with position top"
                             position="top"
-                            zIndex={10000}
                             visible={this.state.top}
                             onHide={() => {this.setState({top: false})}}>
                             <p>This modal has position top.</p>
@@ -325,7 +317,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                         <Modal headerTemplate="Modal with position bottom"
                             position="bottom"
-                            zIndex={10000}
                             visible={this.state.bottom}
                             onHide={() => {this.setState({bottom: false})}}>
                             <p>This modal has position bottom.</p>
@@ -333,7 +324,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                         <Modal headerTemplate="Modal with position left"
                             position="left"
-                            zIndex={10000}
                             visible={this.state.left}
                             onHide={() => {this.setState({left: false})}}>
                             <p>This modal has position left.</p>
@@ -341,7 +331,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
 
                         <Modal headerTemplate="Modal with position right"
                             position="right"
-                            zIndex={10000}
                             visible={this.state.right}
                             onHide={() => {this.setState({right: false})}}>
                             <p>This modal has position right.</p>
@@ -358,7 +347,6 @@ export default class ModalDoc extends React.Component<{}, IState> {
                     <Prop name='size' isRequired={false} type='small | medium | large | x-large' default='/' description='Size of the modal. If not defined it will adapt to the width of the content.' />
                     <Prop name='position' isRequired={false} type="center | top | bottom | left | right | top-left | top-right | bottom-left | bottom-right" default='center' description='Position of the dialog.' />
                     <Prop name='visible' isRequired={true} type='boolean' default='false' description='Specifies the visibility of the dialog' />
-                    <Prop name='zIndex' isRequired={true} type='number' default='false' description='zIndex of modal' />
                     <Prop name='contentPadding' isRequired={true} type="'none' | 'small' | 'medium' | 'large'" default='false' description='Padding of content' />
                     <Prop name='contentBg' isRequired={true} type="'default' | 'medium' | 'dark'" default='false' description='Background of content' />
                     <Prop name='headerTemplate' isRequired={false} type='element' default='null' description='Label of header' />

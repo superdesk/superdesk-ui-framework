@@ -9,7 +9,7 @@ export default class SubNavDoc extends React.Component {
                 <h2 className='docs-page__h2'>Sub Navigation bar</h2>
                 <p></p>
                 <Markup.ReactMarkupCodePreview>{`
-                    <SubNav zIndex={2}>
+                    <SubNav>
                         <ButtonGroup align='start'>
                             <NavButton icon='search' onClick={()=> false} />
                         </ButtonGroup>
@@ -22,7 +22,7 @@ export default class SubNavDoc extends React.Component {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <SubNav zIndex={4}>
+                        <SubNav>
                             <ButtonGroup align='start'>
                                 <NavButton icon='search' onClick={()=> false} />
                             </ButtonGroup>
@@ -30,7 +30,7 @@ export default class SubNavDoc extends React.Component {
                                 <NavButton icon='expand-thin' type='highlight' onClick={()=> false} />
                             </ButtonGroup>
                         </SubNav>
-                        <SubNav color='darker' zIndex={3}>
+                        <SubNav color='darker'>
                             <ButtonGroup align='start'>
                                 <NavButton icon='filter-large' type='darker' onClick={()=> false} />
                             </ButtonGroup>
@@ -48,7 +48,7 @@ export default class SubNavDoc extends React.Component {
                             </ButtonGroup>
                         </SubNav>
                         <br />
-                        <SubNav color='darker' zIndex={2}>
+                        <SubNav color='darker'>
                             <ButtonGroup align='start' padded={true}>
                             <Button text='Something' onClick={()=> false} />
                                 <Button text='Else' onClick={()=> false} />
@@ -58,7 +58,7 @@ export default class SubNavDoc extends React.Component {
                             </ButtonGroup>
                         </SubNav>
                         <br />
-                        <SubNav color='blueGreyDarker' zIndex={1}>
+                        <SubNav color='blueGreyDarker'>
                             <ButtonGroup align='center'>
                             <Button text='One' onClick={()=> false} />
                                 <Button text='Two' onClick={()=> false} />
@@ -72,7 +72,7 @@ export default class SubNavDoc extends React.Component {
                         </SubNav>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <SubNav zIndex={4}>
+                        <SubNav>
                             <ButtonGroup align='start'>
                                 <NavButton icon='search' onClick={()=> false} />
                             </ButtonGroup>
@@ -80,7 +80,7 @@ export default class SubNavDoc extends React.Component {
                                 <NavButton icon='expand-thin' type='highlight' onClick={()=> false} />
                             </ButtonGroup>
                         </SubNav>
-                        <SubNav color='darker' zIndex={3}>
+                        <SubNav color='darker'>
                             <ButtonGroup align='start'>
                                 <NavButton icon='filter-large' type='darker' onClick={()=> false} />
                             </ButtonGroup>
@@ -100,7 +100,7 @@ export default class SubNavDoc extends React.Component {
 
                         <br />
 
-                        <SubNav color='darker' zIndex={2}>
+                        <SubNav color='darker'>
                             <ButtonGroup align='start' padded={true}>
                             <Button text='Something' onClick={()=> false} />
                                 <Button text='Else' onClick={()=> false} />
@@ -112,7 +112,7 @@ export default class SubNavDoc extends React.Component {
                         
                         <br />
 
-                        <SubNav color='blueGreyDarker' zIndex={1}>
+                        <SubNav color='blueGreyDarker'>
                             <ButtonGroup align='center'>
                             <Button text='One' onClick={()=> false} />
                                 <Button text='Two' onClick={()=> false} />
@@ -132,7 +132,6 @@ export default class SubNavDoc extends React.Component {
                 <PropsList>
                     <Prop name='color' isRequired={false} type='light | darker | blueGrey | blueGreyDarker' default='light' description='Background colour of the SubNav component.'/>
                     <Prop name='theme' isRequired={false} type='light | dark' default='/' description='Choose the UI theme. It will inherit the default theme if not set. All child elements will inherit the theme of the SubNav if it is set.'/>
-                    <Prop name='zIndex' isRequired={true} type='number' default='1000' description='Increase the default z-index value (1000) by the specified amount.'/>
                     <Prop name='className' isRequired={false} type='string' default='/' description='Add helper classes or custom CSS styles.'/>
                 </PropsList>
             </section>

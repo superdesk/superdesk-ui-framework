@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Dialog as PrimeDialog } from '@superdesk/primereact/dialog';
 import classNames from 'classnames';
+import {getNextZIndex} from './../zIndex';
 
 interface IProps {
     id?: string;
@@ -16,12 +17,13 @@ interface IProps {
     headerTemplate?: JSX.Element | string;
     footerTemplate?: JSX.Element | string;
     closeOnEscape?: boolean;
-    zIndex?: number;
     onShow?(): void;
     onHide(): void;
 }
 
 export class Modal extends React.Component<IProps, {}> {
+    private zIndex: number = getNextZIndex();
+
     render() {
         let classes = classNames({
             [`p-dialog-content--${this.props.size}`]: this.props.size,
@@ -44,7 +46,7 @@ export class Modal extends React.Component<IProps, {}> {
                     contentClassName={classes}
                     onShow={this.props.onShow}
                     onHide={this.props.onHide}
-                    zIndex={this.props.zIndex ? this.props.zIndex : 1000}
+                    zIndex={this.zIndex}
                     position={this.props.position}
                 >
                     {this.props.children}

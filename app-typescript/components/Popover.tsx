@@ -7,7 +7,6 @@ interface IProps {
     triggerSelector: string; // CSS selector for an element that will be used to toggle the popover.
     displayCloseButton?: boolean; // defaults to true
     placement?: PopperOptions['placement']; // defaults to auto
-    zIndex?: number;
 }
 
 export class Popover extends React.Component<IProps> {
@@ -17,7 +16,6 @@ export class Popover extends React.Component<IProps> {
                 triggerSelector={this.props.triggerSelector}
                 placement={this.props.placement ?? 'auto'}
                 className="sd-popover"
-                zIndex={this.props.zIndex}
             >
                 <div className="sd-popover__header">
                     <h4 className="sd-popover__title" tabIndex={0} id='popoverTitle'>{this.props.title}</h4>

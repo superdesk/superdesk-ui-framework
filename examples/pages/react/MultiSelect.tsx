@@ -67,7 +67,6 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                     onChange={(e: any) => this.setState({value: e})}
                                     filter
                                     showSelectAll
-                                    zIndex={2000}
                                     placeholder='Select a color'
                                     optionLabel={(option) => `${option.name} :: ${option.colorCode}`}
                                     required

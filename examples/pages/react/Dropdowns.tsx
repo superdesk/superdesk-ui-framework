@@ -13,33 +13,34 @@ export default class DropdownDoc extends React.Component {
                             { label: 'Action 1', onSelect: () => 1 },
                             { label: 'Action 2', onSelect: () => 1 },
                             { label: 'Action 3', onSelect: () => 1 },
-                        ]}>
-                       Toogle button
+                        ]}
+                    >
+                       Toggle button
                     </Dropdown>
-
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className='docs-page__paragraph'>By default dropdown menu is positioned left comparing to dropdown toggle button element. For right positioned menu (second example) add prop value <code>align = 'right'</code></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <Dropdown
-                            append
                             items={[
                                 { label: 'Action 1', onSelect: () => 1 },
                                 { label: 'Action 2', onSelect: () => 1 },
                                 { label: 'Action 3', onSelect: () => 1 },
-                            ]}>
+                            ]}
+                        >
                             Left aligned (default)
-                            </Dropdown>
+                        </Dropdown>
                         <Dropdown
                             align='right'
                             items={[
                                 { label: 'Action 1', onSelect: () => 1 },
                                 { label: 'Action 2', onSelect: () => 1 },
                                 { label: 'Action 3', onSelect: () => 1 },
-                            ]}>
+                            ]}
+                        >
                             Right aligned
-                            </Dropdown>
+                        </Dropdown>
 
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -48,7 +49,8 @@ export default class DropdownDoc extends React.Component {
                                 { label: 'Action 1', onSelect: () => 1 },
                                 { label: 'Action 2', onSelect: () => 1 },
                                 { label: 'Action 3', onSelect: () => 1 },
-                            ]}>
+                            ]}
+                        >
                             Left aligned (default)
                         </Dropdown>
                         <Dropdown
@@ -57,19 +59,168 @@ export default class DropdownDoc extends React.Component {
                                 { label: 'Action 1', onSelect: () => 1 },
                                 { label: 'Action 2', onSelect: () => 1 },
                                 { label: 'Action 3', onSelect: () => 1 },
-                            ]}>
+                            ]}
+                        >
                             Right aligned
                         </Dropdown>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h3 className="docs-page__h3">Dropdown Append To Body</h3>
-                <p className='docs-page__paragraph'>Add prop value <code>append = true</code> to the dropdown element to append to the inner dropdown menu to the body. This is useful when the dropdown button is inside a div with overflow: hidden, and the menu would otherwise be hidden.</p>
+                <h3 className="docs-page__h3">Multilevel dropdown</h3>
+                <p className='docs-page__paragraph'>To create a second level in the dropdown menu add item with props <code>type = 'submenu'</code> and <code>item</code>.
+                The submenu opens by default on the right side of the parent menu.</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group',
+                                    label: 'Create new',
+                                    items: [
+                                        {
+                                            type: 'submenu',
+                                            label: 'Rundown',
+                                            icon: 'plus-sign',
+                                            items: [
+                                                {
+                                                    type: 'submenu',
+                                                    label: 'Show 1',
+                                                    icon: 'plus-sign',
+                                                    items: [
+                                                        {
+                                                            type: 'submenu',
+                                                            label: 'Show 3',
+                                                            icon: 'plus-sign',
+                                                            items: []
+                                                        }
+                                                    ],
+                                                },
+                                                {
+                                                    type: 'submenu',
+                                                    label: 'Show 2',
+                                                    icon: 'plus-sign',
+
+                                                    items: [
+                                                        {
+                                                            type: 'submenu',
+                                                            label: 'Show 4',
+                                                            icon: 'plus-sign',
+                                                            items: [
+                                                                {
+                                                                    type: 'submenu',
+                                                                    label: 'Show 5',
+                                                                    icon: 'plus-sign',
+                                                                    items: []
+                                                                }
+                                                            ],
+                                                        },
+                                                    ],
+                                                },
+                                            ],
+                                        },
+                                    ],
+                                },
+                                {
+                                    type: 'group', label: 'actions', items: [
+                                        'divider',
+                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                        'divider',
+                                    ]
+                                },
+                                {
+                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                        { label: 'Action 1', onSelect: () => 1 },
+                                        { label: 'Action 2', onSelect: () => 1 },
+                                        { label: 'Action 3', onSelect: () => 1 },
+                                        { label: 'Action 4', onSelect: () => 1 },
+                                    ]
+                                }
+                            ]}
+                        >
+                            Multilevel dropdown
+                        </Dropdown>
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group', label: 'actions', items: [
+                                        'divider',
+                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                        'divider',
+                                    ]
+                                },
+                                {
+                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                        { label: 'Action 1', onSelect: () => 1 },
+                                        { label: 'Action 2', onSelect: () => 1 },
+                                        { label: 'Action 3', onSelect: () => 1 },
+                                        { label: 'Action 4', onSelect: () => 1 },
+                                    ]
+                                }
+                            ]}
+                        >
+                            Submenu on the left
+                        </Dropdown>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group', label: 'actions', items: [
+                                        'divider',
+                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                        'divider',
+                                    ]
+                                },
+                                {
+                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                        { label: 'Action 1', onSelect: () => 1 },
+                                        { label: 'Action 2', onSelect: () => 1 },
+                                        { label: 'Action 3', onSelect: () => 1 },
+                                        { label: 'Action 4', onSelect: () => 1 },
+                                    ]
+                                }
+                            ]}
+                        >
+                            Multilevel dropdown
+                        </Dropdown>
+                        <Dropdown
+                            items={[
+                                {
+                                    type: 'group', label: 'actions', items: [
+                                        'divider',
+                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
+                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
+                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
+                                        'divider',
+                                    ]
+                                },
+                                {
+                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                        { label: 'Action 1', onSelect: () => 1 },
+                                        { label: 'Action 2', onSelect: () => 1 },
+                                        { label: 'Action 3', onSelect: () => 1 },
+                                        { label: 'Action 4', onSelect: () => 1 },
+                                    ]
+                                }
+                            ]}
+                        >
+                            Submenu on the left
+                        </Dropdown>
+                    `}
+                    </Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <h3 className="docs-page__h3">Dropdown with scrolling content</h3>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <Dropdown
-                        append={true}
                         header={[
                             {
                                 type: 'group',
@@ -473,9 +624,6 @@ export default class DropdownDoc extends React.Component {
                                             },
                                         ],
                                     },
-
-
-
                                 ],
                             },
                         ]}
@@ -521,6 +669,7 @@ export default class DropdownDoc extends React.Component {
                             },
                         ]}
                     >
+                        Dropdown with scrolling content
                     </Dropdown>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -539,157 +688,13 @@ export default class DropdownDoc extends React.Component {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h3 className="docs-page__h3">Multilevel dropdown</h3>
-                <p className='docs-page__paragraph'>To create a second level in the dropdown menu add item with props <code>type = 'submenu'</code> and <code>item</code>.
-                The submenu opens by default on the right side of the parent menu.</p>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                        <Dropdown
-                            items={[
-                                {
-                                    type: 'group',
-                                    label: 'Create new',
-                                    items: [
-                                        {
-                                            type: 'submenu',
-                                            label: 'Rundown',
-                                            icon: 'plus-sign',
-                                            items: [
-                                                {
-                                                    type: 'submenu',
-                                                    label: 'Show 1',
-                                                    icon: 'plus-sign',
-                                                    items: [
-                                                        {
-                                                            type: 'submenu',
-                                                            label: 'Show 3',
-                                                            icon: 'plus-sign',
-                                                            items: []
-                                                        }
-                                                    ],
-                                                },
-                                                {
-                                                    type: 'submenu',
-                                                    label: 'Show 2',
-                                                    icon: 'plus-sign',
-
-                                                    items: [
-                                                        {
-                                                            type: 'submenu',
-                                                            label: 'Show 4',
-                                                            icon: 'plus-sign',
-                                                            items: [
-                                                                {
-                                                                    type: 'submenu',
-                                                                    label: 'Show 5',
-                                                                    icon: 'plus-sign',
-                                                                    items: []
-                                                                }
-                                                            ],
-                                                        },
-                                                    ],
-                                                },
-                                            ],
-                                        },
-                                    ],
-                                },
-                                {
-                                    type: 'group', label: 'actions', items: [
-                                        'divider',
-                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
-                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
-                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
-                                        'divider',
-                                    ]
-                                },
-                                {
-                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
-                                        { label: 'Action 1', onSelect: () => 1 },
-                                        { label: 'Action 2', onSelect: () => 1 },
-                                        { label: 'Action 3', onSelect: () => 1 },
-                                        { label: 'Action 4', onSelect: () => 1 },
-                                    ]
-                                }]}>
-                            Multilevel dropdown
-                            </Dropdown>
-                        <Dropdown
-                            items={[
-                                {
-                                    type: 'group', label: 'actions', items: [
-                                        'divider',
-                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
-                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
-                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
-                                        'divider',
-                                    ]
-                                },
-                                {
-                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
-                                        { label: 'Action 1', onSelect: () => 1 },
-                                        { label: 'Action 2', onSelect: () => 1 },
-                                        { label: 'Action 3', onSelect: () => 1 },
-                                        { label: 'Action 4', onSelect: () => 1 },
-                                    ]
-                                }]}>
-                            Submenu on the left
-                            </Dropdown>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>{`
-                        <Dropdown
-                            items={[
-                                {
-                                    type: 'group', label: 'actions', items: [
-                                        'divider',
-                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
-                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
-                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
-                                        'divider',
-                                    ]
-                                },
-                                {
-                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
-                                        { label: 'Action 1', onSelect: () => 1 },
-                                        { label: 'Action 2', onSelect: () => 1 },
-                                        { label: 'Action 3', onSelect: () => 1 },
-                                        { label: 'Action 4', onSelect: () => 1 },
-                                    ]
-                                }]}>
-                            Multilevel dropdown
-                        </Dropdown>
-                        <Dropdown
-                            items={[
-                                {
-                                    type: 'group', label: 'actions', items: [
-                                        'divider',
-                                        { label: 'Edit', icon: 'pencil', onSelect: () => 1 },
-                                        { label: 'Copy', icon: 'copy', onSelect: () => 1 },
-                                        { label: 'Delete', icon: 'trash', onSelect: () => 1 },
-                                        'divider',
-                                    ]
-                                },
-                                {
-                                    type: 'submenu', label: 'Second level actions', icon: 'star', items: [
-                                        { label: 'Action 1', onSelect: () => 1 },
-                                        { label: 'Action 2', onSelect: () => 1 },
-                                        { label: 'Action 3', onSelect: () => 1 },
-                                        { label: 'Action 4', onSelect: () => 1 },
-                                    ]
-                                }]}>
-                            Submenu on the left
-                        </Dropdown>
-                    `}
-                    </Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
                 <h3 className="docs-page__h3">Navigation dropdown</h3>
                 <p className='docs-page__paragraph'>Example of a dropdown inside a subnavigation element.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <SubNav zIndex={1} color='darker'>
+                        <SubNav color='darker'>
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
-                                //align='right'
-                                append
                                 header={[
                                     {
                                         type: 'group', label: 'actions', items: [
@@ -728,18 +733,18 @@ export default class DropdownDoc extends React.Component {
                                         ]
                                     }
                                 ]}
-                                    footer={[
+                                footer={[
 
-                                        {
-                                            type: 'submenu', label: 'Second level actions', icon: 'star', items: [
-                                                { label: 'Action 1', onSelect: () => 1 },
-                                                { label: 'Action 2', onSelect: () => 1 },
-                                                { label: 'Action 3', onSelect: () => 1 },
-                                                { label: 'Action 4', onSelect: () => 1 },
-                                            ]
-                                        }
-                                    ]}
-                                    >
+                                    {
+                                        type: 'submenu', label: 'Second level actions', icon: 'star', items: [
+                                            { label: 'Action 1', onSelect: () => 1 },
+                                            { label: 'Action 2', onSelect: () => 1 },
+                                            { label: 'Action 3', onSelect: () => 1 },
+                                            { label: 'Action 4', onSelect: () => 1 },
+                                        ]
+                                    }
+                                ]}
+                            >
                                 <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
@@ -747,7 +752,7 @@ export default class DropdownDoc extends React.Component {
                         </SubNav>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <SubNav zIndex={1} color='darker'>
+                        <SubNav color='darker'>
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
                                 items={[
@@ -767,7 +772,9 @@ export default class DropdownDoc extends React.Component {
                                             { label: 'Action 3', onSelect: () => 1 },
                                             { label: 'Action 4', onSelect: () => 1 },
                                         ]
-                                    }]}>
+                                    }
+                                ]}
+                            >
                                 <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
@@ -781,10 +788,9 @@ export default class DropdownDoc extends React.Component {
                 <p className='docs-page__paragraph'></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <SubNav zIndex={1} color='darker'>
+                        <SubNav color='darker'>
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
-                            append={true}
                                 header={[
                                     {
                                         type: 'group',
@@ -886,7 +892,7 @@ export default class DropdownDoc extends React.Component {
                                         ],
                                     },
                                 ]}
-                                >
+                            >
                                 <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
@@ -894,7 +900,7 @@ export default class DropdownDoc extends React.Component {
                         </SubNav>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <SubNav zIndex={1} color='darker'>
+                        <SubNav color='darker'>
                             <h3 className="subnav__page-title">Subnav title</h3>
                             <Dropdown
                                 header={[
@@ -931,7 +937,8 @@ export default class DropdownDoc extends React.Component {
                                             { label: 'Create package', icon: 'composite', onSelect: () => 1 },
                                         ]
                                     },
-                                ]}>
+                                ]}
+                            >
                                 <button className='sd-navbtn'>
                                     <i className="icon-dots-vertical"></i>
                                 </button>
@@ -945,7 +952,6 @@ export default class DropdownDoc extends React.Component {
                 <PropsList>
                     <Prop name='label' isRequired={false} type='string' default='/' description='Text value of label.'/>
                     <Prop name='align' isRequired={false} type='left | right' default='left' description='Position of dropdown menu based on button'/>
-                    <Prop name='append' isRequired={false} type='boolean' default='false' description='Append inner dropdown menu to the body'/>
                     <Prop name='items' isRequired={true} type='Array<menuitem | submenu | menugroup | "divider">' default='/' description='Items, divider, groups or submenu of dropdown menu'/>
                     <Prop name='children' isRequired={true} type='React.ReactNode' default='/' description='If children is "string" type than button have default style with arrow, also children can be custom styled buttons'/>
                 </PropsList>

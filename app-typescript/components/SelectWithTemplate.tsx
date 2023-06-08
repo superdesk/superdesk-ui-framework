@@ -1,6 +1,5 @@
 import * as React from 'react';
 import {Dropdown} from '@superdesk/primereact/dropdown';
-// import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 
@@ -38,7 +37,9 @@ interface IState<T> {
 }
 
 const labelKey = 'label';
-
+/**
+ * @deprecated use MultiSelect or TreeSelect
+ */
 export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>> {
     componentRef: Dropdown | null;
     private htmlId = nextId();
