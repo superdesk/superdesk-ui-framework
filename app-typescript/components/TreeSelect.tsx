@@ -804,7 +804,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                         }}
                                                     >
                                                         <button
-                                                            className={`suggestion-item--btn ${this.props.getId(option.value)}`}
+                                                            className={`suggestion-item--btn z${this.props.getId(option.value)}z`}
                                                             onKeyDown={(event) => {
                                                                 if (event.key === 'Enter' && option.children) {
                                                                     this.setState({
