@@ -133,7 +133,9 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 
         if (this.props.preview) {
             return (
-                // We have to do type assertion here because the core issue lies in primereact's calendar interface.
+                // We have to do type assertion here because we wrap primereact's component using
+                // a narrower interface i.e. primereact supports an array of dates or a single date,
+                // and our wrapped component will only ever use a single date.
                 <div>
                     <span>{moment(this.state.value as Date).format(this.props.dateFormat)}</span>
                 </div>
