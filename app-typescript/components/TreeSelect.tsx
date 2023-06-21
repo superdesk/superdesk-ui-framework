@@ -143,7 +143,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 this.backButtonValue();
 
                 const {buttonTarget} = this.state;
-                const className = buttonTarget.pop();
+                const className = `${buttonTarget.pop()}-focus`;
 
                 if (className != null) {
                     const element: HTMLElement = document.getElementsByClassName(className)[0] as HTMLElement;
@@ -849,7 +849,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                     }}
                                                 >
                                                     <button
-                                                        className={`suggestion-item--btn`}
+                                                        className={`suggestion-item--btn ${this.props.getId(option.value)}-focus`}
                                                         onKeyDown={(event) => {
                                                             if (event.key === 'Enter' && option.children) {
                                                                 this.setState({
