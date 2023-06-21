@@ -23,15 +23,16 @@ export class TimePicker extends React.PureComponent<IProps> {
 
         return (
             <InputWrapper
-                label={this.props.label}
-                error={this.props.error}
-                required={this.props.required}
-                disabled={this.props.disabled}
-                info={this.props.info}
-                inlineLabel={this.props.inlineLabel}
-                labelHidden={this.props.labelHidden}
-                htmlId={this.htmlId}
-                tabindex={this.props.tabindex}
+                    label={this.props.label}
+                    error={this.props.error}
+                    required={this.props.required}
+                    disabled={this.props.disabled}
+                        info={this.props.info}
+                    inlineLabel={this.props.inlineLabel}
+                    labelHidden={this.props.labelHidden}
+                        htmlId={this.htmlId}
+                    tabindex={this.props.tabindex}
+            
             >
                 <input
                     value={this.props.value}

@@ -29,7 +29,6 @@
             transition: all 0.2s ease-out, color 0.1s ease-out;
             &:hover {
                 background-color: hsla(214, 13%, 55%, 0.2);
-                
             }
             &:active {
                 background-color: hsla(214, 13%, 55%, 0.3);
@@ -154,7 +153,7 @@
 .p-calendar {
     @include pr-input-item-base;
     .p-inputtext {
-        color: inherit;
+        color: var(--color-text);
         height: $height-input--default;
         background-color: transparent;
         border: none;
@@ -178,7 +177,7 @@
         margin: 0 4px 0 0;
         [class^="icon-"],
         [class*=" icon-"] {
-            color: inherit;
+            color: var(--color-text);
             margin-top: -2px;
             opacity: 0.75;
         }

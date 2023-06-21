@@ -101,6 +101,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.branchButton = this.branchButton.bind(this);
         this.handleDebounce = this.handleDebounce.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.onMouseDown = this.onMouseDown.bind(this);
+        this.onKeyDown = this.onKeyDown.bind(this);
         this.dropdownRef = React.createRef();
         this.ref = React.createRef();
         this.inputRef = React.createRef();
@@ -120,38 +122,47 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.categoryButtonRef.current?.focus();
     }
 
-    componentDidMount = () => {
-        this.recursion(this.state.options);
-        document.addEventListener("mousedown", (event) => {
-            if (!(event.target instanceof HTMLInputElement)) {
-                return;
-            }
-            if ((this.dropdownRef.current && !this.dropdownRef.current.contains(event.target))
-            && (this.openDropdownRef.current && !this.openDropdownRef.current.contains(event.target))) {
-                this.setState({openDropdown: false});
-            }
-        });
+    onMouseDown = (event: MouseEvent) => {
+        if (
+            (this.dropdownRef.current?.contains(event.target as HTMLElement) !== true)
+            && (this.openDropdownRef.current?.contains(event.target as HTMLElement) !== true)
+        ) {
+            this.setState({openDropdown: false});
+        }
+    }
 
-        document.addEventListener("keydown", (e: KeyboardEvent) => {
-            if (this.state.openDropdown && this.ref.current) {
-                keyboardNavigation(
-                    e,
-                    this.ref.current,
-                    this.categoryButtonRef.current ? this.buttonFocus : this.inputFocus,
-                );
-                if (e.key === 'Backspace') {
-                    this.backButton();
+    onKeyDown = (e: KeyboardEvent) => {
+        if (this.state.openDropdown && this.ref.current) {
+            keyboardNavigation(
+                e,
+                this.ref.current,
+                this.categoryButtonRef.current ? this.buttonFocus : this.inputFocus,
+            );
+            if (e.key === 'Backspace') {
+                this.backButton();
+                this.backButtonValue();
 
-                    const {buttonTarget} = this.state;
-                    const className = buttonTarget.pop();
+                const {buttonTarget} = this.state;
+                const className = buttonTarget.pop();
 
-                    if (className != null) {
-                        const element: HTMLElement = document.getElementsByClassName(className)[0] as HTMLElement;
-                        element.focus();
-                    }
+                if (className != null) {
+                    const element: HTMLElement = document.getElementsByClassName(className)[0] as HTMLElement;
+                    element.focus();
                 }
             }
-        });
+        }
+    }
+
+    componentDidMount = () => {
+        this.recursion(this.state.options);
+
+        document.addEventListener("mousedown", this.onMouseDown);
+        document.addEventListener("keydown", this.onKeyDown);
+    }
+
+    componentWillUnmount(): void {
+        document.removeEventListener("mousedown", this.onMouseDown);
+        document.removeEventListener("keydown", this.onKeyDown);
     }
 
     componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
@@ -838,7 +849,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                     }}
                                                 >
                                                     <button
-                                                        className={`suggestion-item--btn ${this.props.getId(option.value)}`}
+                                                        className={`suggestion-item--btn`}
                                                         onKeyDown={(event) => {
                                                             if (event.key === 'Enter' && option.children) {
                                                                 this.setState({
