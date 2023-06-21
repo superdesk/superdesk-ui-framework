@@ -1,5 +1,4 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import moment from 'moment';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
