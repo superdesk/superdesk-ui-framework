@@ -13,7 +13,7 @@ interface IState {
 }
 
 export class ResizeObserverComponent extends React.PureComponent<IProps, IState> {
-    el: HTMLDivElement | null;
+    el: HTMLDivElement | null | undefined;
     observerInstance: any;
 
     constructor(props: IProps) {
