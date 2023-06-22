@@ -416,6 +416,9 @@ $checkButtonBorderRadius: $border-radius__base--small;
     &.sd-check-button__group--compact {
         gap: $sd-base-increment * 0.5;
     }
+    &.sd-check-button__group--no-wrap {
+        flex-wrap: nowrap;
+    }
 }
 
 .sd-check-new__wrapper {
