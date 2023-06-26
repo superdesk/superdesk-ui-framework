@@ -1,23 +1,13 @@
 import * as React from 'react';
-import classNames from 'classnames';
 import moment from 'moment';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
+import {IInputWrapper} from './Form/InputWrapper';
 
-interface IProps {
+interface IProps extends IInputWrapper {
     hours?: number;
     minutes?: number;
     seconds?: number;
-    disabled?: boolean;
-    inlineLabel?: boolean;
-    required?: boolean;
-    fullWidth?: boolean;
-    invalid?: boolean;
-    labelHidden?: boolean;
-    tabindex?: number;
-    label?: string;
-    info?: string;
-    error?: string;
     onChange(e: number): void;
 }
 
@@ -285,82 +275,92 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 
     render() {
-        let InputClasses = classNames('sd-input__duration-input');
+        if (this.props.preview) {
+            return (
+                <div className='sd-input__duration-input-preview'>
+                    <div><span className='duration-input-preview'>{this.state.hours}</span><span className='sd-input__suffix'>h</span></div>
+                    <div><span className='duration-input-preview'>{this.state.minutes}</span><span className='sd-input__suffix'>m</span></div>
+                    <div><span className='duration-input-preview'>{this.state.seconds}</span><span className='sd-input__suffix'>s</span></div>
+                </div>
+            );
+        }
 
         return (
             <InputWrapper
-            label={this.props.label}
-            error={this.props.error}
-            required={this.props.required}
-            disabled={this.props.disabled}
-            invalid={this.props.invalid}
-            info={this.props.info}
-            inlineLabel={this.props.inlineLabel}
-            labelHidden={this.props.labelHidden}
-            fullWidth={this.props.fullWidth}
-            htmlId={this.htmlId}
-            tabindex={this.props.tabindex}>
-                <div className={InputClasses}>
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <div className={'sd-input__duration-input'}>
                     <input
-                    className={`duration-input ${this.state.blink === 'hour' ? 'blink_me' : ''}`}
-                    type='text'
-                    id='hours'
-                    autoComplete="off"
-                    max={99}
-                    min={0}
-                    ref={this.hourRef}
-                    value={this.state.hours}
-                    disabled={this.props.disabled}
-                    onKeyDown={(event) => this.handleKeyDown(event)}
-                    onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.minuteRef.current)}
-                    onChange={(event) => { this.handleChange(event, 'hours'); }}
-                    onBlur={(event) => this.setState({hours: this.zeroPad(event.target.value)})}
-                    onKeyPress={(event) => {
-                        if (!/[0-9]/.test(event.key)) {
-                            event.preventDefault();
-                        }
-                    }} />
+                        className={`duration-input ${this.state.blink === 'hour' ? 'blink_me' : ''}`}
+                        type='text'
+                        id='hours'
+                        autoComplete="off"
+                        max={99}
+                        min={0}
+                        ref={this.hourRef}
+                        value={this.state.hours}
+                        disabled={this.props.disabled}
+                        onKeyDown={(event) => this.handleKeyDown(event)}
+                        onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.minuteRef.current)}
+                        onChange={(event) => { this.handleChange(event, 'hours'); }}
+                        onBlur={(event) => this.setState({hours: this.zeroPad(event.target.value)})}
+                        onKeyPress={(event) => {
+                            if (!/[0-9]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                    />
                     <span className='sd-input__suffix'>h</span>
 
                     <input
-                    className={`duration-input ${this.state.blink === 'minute' ? 'blink_me' : ''}`}
-                    type='text'
-                    id='minutes'
-                    autoComplete="off"
-                    ref={this.minuteRef}
-                    value={this.state.minutes}
-                    disabled={this.props.disabled}
-                    onKeyDown={(event) => this.handleKeyDown(event)}
-                    onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.secondRef.current)}
-                    onChange={(event) => { this.handleChange(event, 'minutes'); }}
-                    onBlur={(event) => this.setState({minutes: this.zeroPad(event.target.value)})}
-                    onKeyPress={(event) => {
-                        if (!/[0-9]/.test(event.key)) {
-                            event.preventDefault();
-                        }
-                    }} />
+                        className={`duration-input ${this.state.blink === 'minute' ? 'blink_me' : ''}`}
+                        type='text'
+                        id='minutes'
+                        autoComplete="off"
+                        ref={this.minuteRef}
+                        value={this.state.minutes}
+                        disabled={this.props.disabled}
+                        onKeyDown={(event) => this.handleKeyDown(event)}
+                        onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.secondRef.current)}
+                        onChange={(event) => { this.handleChange(event, 'minutes'); }}
+                        onBlur={(event) => this.setState({minutes: this.zeroPad(event.target.value)})}
+                        onKeyPress={(event) => {
+                            if (!/[0-9]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                    />
                     <span className='sd-input__suffix'>m</span>
 
                     <input
-                    className='duration-input'
-                    type='text'
-                    id='seconds'
-                    autoComplete="off"
-                    ref={this.secondRef}
-                    value={this.state.seconds}
-                    disabled={this.props.disabled}
-                    onKeyDown={(event) => this.handleKeyDown(event)}
-                    onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.hourRef.current)}
-                    onChange={(event) => { this.handleChange(event, 'seconds'); }}
-                    onBlur={(event) => this.setState({seconds: this.zeroPad(event.target.value)})}
-                    onKeyPress={(event) => {
-                        if (!/[0-9]/.test(event.key)) {
-                            event.preventDefault();
-                        }
-                    }} />
+                        className='duration-input'
+                        type='text'
+                        id='seconds'
+                        autoComplete="off"
+                        ref={this.secondRef}
+                        value={this.state.seconds}
+                        disabled={this.props.disabled}
+                        onKeyDown={(event) => this.handleKeyDown(event)}
+                        onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.hourRef.current)}
+                        onChange={(event) => { this.handleChange(event, 'seconds'); }}
+                        onBlur={(event) => this.setState({seconds: this.zeroPad(event.target.value)})}
+                        onKeyPress={(event) => {
+                            if (!/[0-9]/.test(event.key)) {
+                                event.preventDefault();
+                            }
+                        }}
+                    />
                     <span className='sd-input__suffix'>s</span>
                 </div>
-                </InputWrapper>
+            </InputWrapper>
         );
     }
 }

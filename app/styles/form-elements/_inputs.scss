@@ -514,6 +514,7 @@
 
 /////////////////  -------------------- NEW INPUTS ---------------------  /////////////////
 
+
 .sd-input__input {
     @include Line-input-base;
     &--invalid {
@@ -633,9 +634,6 @@
         color: $red;
     }
 }
-
-
-//----
 
 .sd-input {
     padding-top: 0;
@@ -1069,15 +1067,13 @@
             }
         }
     }
-
+    &--disabled * {
+        cursor: not-allowed !important;
+    }
 }
 
+
 /////////////////  -------------------- Duration & Time-Date input ---------------------  /////////////////
-
-
-
-
-
 
 
 .sd-input__duration-input,
@@ -1101,11 +1097,11 @@
         appearance: none;
         border: 0;
         background-color: transparent;
-        height: 3.2rem;
         display: inline-block;
-        color: var(--color-text);
         text-align: end;
+        color: var(--color-text);
         width: 2.5ch;
+        height: 3.2rem;
         font-size: 1.4rem;
         padding: 0 !important;
         line-height: 3.2rem;
@@ -1169,7 +1165,7 @@
 }
 
 @keyframes blinker {
-50% {
-    opacity: 0;
-}
+    50% {
+        opacity: 0;
+    }
 }
