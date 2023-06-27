@@ -9,7 +9,6 @@ interface IState {
     inlineLabel: boolean;
     required: boolean;
     disabled: boolean;
-    invalid: boolean;
 }
 
 export default class AutocompleteDoc extends React.Component<{}, IState> {
@@ -23,9 +22,8 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                 { name: 'Item 4', value: 'item-4', description: 'Some description for item 4'}
             ],
             inlineLabel: false,
-            required: true,
+            required: false,
             disabled: false,
-            invalid: false,
         }
     }
 
@@ -84,7 +82,6 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                 <CheckGroup>
                                     <Checkbox checked={this.state.required} label={{ text: 'Required input' }} onChange={(value) => { this.setState({ required: value }) }} />
                                     <Checkbox checked={this.state.disabled} label={{ text: 'Disabled input' }} onChange={(value) => { this.setState({ disabled: value }) }} />
-                                    <Checkbox checked={this.state.invalid} label={{ text: 'Invalid input' }} onChange={(value) => { this.setState({ invalid: value }) }} />
                                     <Checkbox checked={this.state.inlineLabel} label={{ text: 'Label positioned inline' }} onChange={(value) => { this.setState({ inlineLabel: value }) }} />
                                 </CheckGroup>
                             </div>
@@ -99,9 +96,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     inlineLabel={this.state.inlineLabel}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
-                                    onChange={() => { }}
-                                    onSelect={() => { }} />
+                                    onChange={() => false}
+                                    onSelect={() => false}
+                                />
                             </div>
                         </div>
 
@@ -122,9 +119,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                             inlineLabel="Autocomplete label
                             required={this.state.required}
                             disabled={this.state.disabled}
-                            invalid={this.state.invalid}
-                            onChange={() => { }}
-                            onSelect={() => { }} />
+                            onChange={() => false}
+                            onSelect={() => false}
+                        />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -149,9 +146,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     placeholder='Search'
                                     required={this.state.required}
                                     disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
-                                    onChange={() => { }}
-                                    onSelect={() => { }} />
+                                    onChange={() => false}
+                                    onSelect={() => false}
+                                />
                             </div>
                         </div>
 
@@ -173,9 +170,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                             placeholder='Search'
                             required={this.state.required}
                             disabled={this.state.disabled}
-                            invalid={this.state.invalid}
-                            onChange={() => { }}
-                            onSelect={() => { }} />
+                            onChange={() => false}
+                            onSelect={() => false}
+                        />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -199,9 +196,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     inlineLabel={this.state.inlineLabel}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
-                                    onChange={(value) => { this.setState({ }) }}
-                                    onSelect={(value) => { this.setState({ }) }} />
+                                    onChange={(value) => false}
+                                    onSelect={(value) => false}
+                                />
                             </div>
                         </div>
 
@@ -236,9 +233,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                             inlineLabel={this.state.inlineLabel}
                             required={this.state.required}
                             disabled={this.state.disabled}
-                            invalid={this.state.invalid}
-                            onChange={(value) => { this.setState({ }) }}
-                            onSelect={(value) => { this.setState({ }) }} />
+                            onChange={(value) => false}
+                            onSelect={(value) => false}
+                        />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -262,9 +259,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                                     inlineLabel={this.state.inlineLabel}
                                     required={this.state.required}
                                     disabled={this.state.disabled}
-                                    invalid={this.state.invalid}
-                                    onChange={(value) => { this.setState({ }) }}
-                                    onSelect={(value) => { this.setState({ }) }} />
+                                    onChange={(value) => false}
+                                    onSelect={(value) => false}
+                                />
                             </div>
                         </div>
 
@@ -286,9 +283,9 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                             inlineLabel={this.state.inlineLabel}
                             required={this.state.required}
                             disabled={this.state.disabled}
-                            invalid={this.state.invalid}
-                            onChange={(value) => { this.setState({ }) }}
-                            onSelect={(value) => { this.setState({ }) }} />
+                            onChange={(value) => false}
+                            onSelect={(value) => false}
+                        />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -303,9 +300,13 @@ export default class AutocompleteDoc extends React.Component<{}, IState> {
                     <Prop name='info' isRequired={false} type='string' default='/' description='Hint text' />
                     <Prop name='error' isRequired={false} type='string' default='/' description='Error text' />
                     <Prop name='placeholder' isRequired={false} type='string' default='/' description='Placeholder text for the input field.' />
-                    <Prop name='isSearchField' isRequired={false} type='boolean' default='false' 
-                          description='Styles the input as a search field, adds a search icon and the option to clear the field. No visible 
-                                       lable is present in this option.' />
+                    <Prop
+                        name='isSearchField'
+                        isRequired={false}
+                        type='boolean'
+                        default='false' 
+                        description='Styles the input as a search field, adds a search icon and the option to clear the field. No visible lable is present in this option.'
+                    />
                     <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline' />
                     <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required' />
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled' />

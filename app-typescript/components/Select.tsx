@@ -1,34 +1,17 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
+import {IInputWrapper} from './Form/InputWrapper';
 
-interface ISelect {
+interface ISelect extends IInputWrapper {
     value?: string;
-    label: string;
-    info?: string;
-    error?: string;
-    required?: boolean;
-    disabled?: boolean;
-    invalid?: boolean;
-    inlineLabel?: boolean;
-    labelHidden?: boolean;
-    tabindex?: number;
-    fullWidth?: boolean;
     onChange(newValue: string): void;
 }
 
-interface IState {
-    invalid: boolean;
-}
-
-class Select extends React.Component<ISelect, IState> {
+class Select extends React.Component<ISelect> {
     private htmlId = nextId();
     constructor(props: ISelect) {
         super(props);
-
-        this.state = {
-            invalid: this.props.invalid ?? false,
-        };
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -38,13 +21,21 @@ class Select extends React.Component<ISelect, IState> {
     }
 
     render() {
+        if (this.props.preview) {
+            return (
+                <div>
+                    <span>{this.props.value}</span>
+                </div>
+            );
+        }
+
         return (
             <InputWrapper
                 label={this.props.label}
                 error={this.props.error}
                 required={this.props.required}
                 disabled={this.props.disabled}
-                invalid={this.state.invalid}
+                readonly={this.props.readonly}
                 info={this.props.info}
                 inlineLabel={this.props.inlineLabel}
                 labelHidden={this.props.labelHidden}
@@ -59,7 +50,7 @@ class Select extends React.Component<ISelect, IState> {
                     aria-describedby={this.htmlId}
                     tabIndex={this.props.tabindex}
                     onChange={this.handleChange}
-                    disabled={this.props.disabled}
+                    disabled={this.props.disabled || this.props.readonly}
                 >
                     {this.props.children}
                 </select>

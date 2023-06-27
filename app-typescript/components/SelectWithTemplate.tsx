@@ -2,8 +2,9 @@ import * as React from 'react';
 import {Dropdown} from '@superdesk/primereact/dropdown';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
+import {IInputWrapper} from './Form/InputWrapper';
 
-interface IProps<T> {
+interface IProps<T>  extends IInputWrapper {
     // Don't forget to cancel unfinished requests every the prop is called.
     getItems(searchString: string | null): Promise<Array<T>>;
     value: T;
@@ -13,21 +14,11 @@ interface IProps<T> {
     itemTemplate: React.ComponentType<{option: T | null}>;
     noResultsFoundMessage: string;
     filterPlaceholder?: string;
-    disabled?: boolean;
     autoFocus?: boolean;
     autoOpen?: boolean; // Avoid using this - the dropdown may cover important elements.
     width?: 'min' | '100%'; // defaults to min
     zIndex?: number;
     'data-test-id'?: string;
-    inlineLabel?: boolean;
-    required?: boolean;
-    fullWidth?: boolean;
-    invalid?: boolean;
-    labelHidden?: boolean;
-    tabindex?: number;
-    label?: string;
-    info?: string;
-    error?: string;
 }
 
 interface IState<T> {

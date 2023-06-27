@@ -7,7 +7,7 @@ import {
 } from '.';
 
 interface IPropsBase {
-    label?: string;
+    label: string;
     maxLength?: number;
     info?: string;
     inlineLabel?: boolean;

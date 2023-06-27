@@ -96,7 +96,7 @@
                 box-shadow: var(--sd-shadow--z1);
                 border-color: var(--sd-colour-line--strong);
             }
-            
+
         }
     }
     input:checked {
@@ -145,6 +145,10 @@
 }
 
 [data-theme="dark-ui"] {
+    input[type="time"]::-webkit-calendar-picker-indicator {
+        filter: invert(1);
+    }
+
     figure[data-theme="dark-ui"] {
         --color-text:                      hsla(0, 0%, 96%, 1);
         --color-text-light:                hsla(214, 13%, 96%, 0.75);
@@ -173,7 +177,7 @@
         --sd-colour--shadow-line:          hsla(214, 13%, 70%, 0);
         --sd-colour-line--medium:          hsla(214, 13%, 20%, 0.2);
 
-        
+
     }
     figure[data-theme="contrast-light-ui"] {
         --color-text:                      hsla(0, 0%, 0%, 1);
