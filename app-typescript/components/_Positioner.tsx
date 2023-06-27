@@ -24,7 +24,7 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
     popperInstance: any;
     previouslyFocusedElement: HTMLElement | undefined;
     public zIndex: number = getNextZIndex();
-    
+
     constructor(props: IPropsPopperWrapper) {
         super(props);
 

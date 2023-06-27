@@ -32,7 +32,7 @@ export class SubNav extends React.PureComponent<IProps> {
             'subnav--light': this.props.color === undefined,
             [`subnav--${this.props.color}`]: this.props.color || this.props.color !== undefined,
         }, this.props.className);
-     
+
         let defaultTheme = darkColors.includes(this.props.color || '') ? 'dark-ui' : null;
 
         return (
