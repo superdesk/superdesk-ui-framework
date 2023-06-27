@@ -163,7 +163,7 @@ export class Menu extends React.Component<IProps, {}> {
                             }
                         }}
                         data-test-id="menu"
-                        baseZIndex={this.zIndex}
+                        zIndex={this.zIndex}
                     />
                 </div>
             </React.Fragment>
