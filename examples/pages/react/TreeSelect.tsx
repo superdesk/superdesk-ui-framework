@@ -2,7 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import { PropsList, Prop } from '../../../app-typescript';
 import { MultiSelect } from '../../../app-typescript/components/MultiSelect';
-import { ITreeNode, TreeSelect } from '../../../app-typescript/components/TreeSelect';
+import { ITreeNode, TreeSelect } from '../../../app-typescript/components/TreeSelect/TreeSelect';
 
 interface IState {
     value: any;
