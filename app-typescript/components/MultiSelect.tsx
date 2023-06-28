@@ -3,6 +3,7 @@ import { MultiSelect as PrimeMultiSelect } from "@superdesk/primereact/multisele
 import classNames from 'classnames';
 import nextId from "react-id-generator";
 import { InputWrapper } from "./Form";
+import {getNextZIndex} from '../zIndex';
 import {IInputWrapper} from './Form/InputWrapper';
 import {SelectPreview} from './SelectPreview';
 
@@ -19,7 +20,6 @@ interface IProps<T> extends IInputWrapper {
     filter?: boolean;
     showClear?: boolean;
     showSelectAll?: boolean;
-    zIndex?: number;
     optionLabel: (option: T) => string;
     itemTemplate?(item: T): JSX.Element | undefined;
     selectedItemTemplate?(value: T): JSX.Element | undefined;
@@ -34,6 +34,7 @@ interface IState<T> {
 
 export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private htmlId = nextId();
+    private zIndex: number = getNextZIndex();
 
     constructor(props: IProps<T>) {
         super(props);
@@ -79,7 +80,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     options={this.props.options}
                     onChange={({value}) => this.props.onChange(value)}
                     display="chip"
-                    zIndex={this.props.zIndex}
+                    zIndex={this.zIndex}
                     filter={this.props.filter}
                     appendTo={document.body}
                     placeholder={this.props.placeholder}

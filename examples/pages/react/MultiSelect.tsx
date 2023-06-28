@@ -62,7 +62,6 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <MultiSelect
-                                preview
                                     value={this.state.value}
                                     options={ItemArr}
                                     optionLabel={(option) => option.name}
@@ -71,7 +70,8 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                     placeholder='Select a color'
                                     filter
                                     showSelectAll
-                                    zIndex={2000}
+                                    required
+                                    tabindex={1}
                                     onChange={(e: any) => this.setState({value: e})}
                                 />
                             </div>

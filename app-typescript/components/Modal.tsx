@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { Dialog as PrimeDialog } from '@superdesk/primereact/dialog';
 import classNames from 'classnames';
+import {getNextZIndex} from './../zIndex';
 import {noop} from 'lodash';
 
 interface IProps {
@@ -8,7 +9,6 @@ interface IProps {
     className?: string;
     theme?: string;
     visible?: boolean;
-    zIndex?: number;
     closeOnEscape?: boolean;
     contentBg?: 'default' | 'medium' | 'dark';
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
@@ -23,6 +23,8 @@ interface IProps {
 }
 
 export class Modal extends React.Component<IProps, {}> {
+    private zIndex: number = getNextZIndex();
+
     render() {
         let classes = classNames({
             [`p-dialog-content--${this.props.size}`]: this.props.size,
@@ -44,8 +46,8 @@ export class Modal extends React.Component<IProps, {}> {
                     maximizable={this.props.maximizable}
                     contentClassName={classes}
                     onShow={this.props.onShow}
+                    zIndex={this.zIndex}
                     onHide={this.props.onHide ?? noop}
-                    zIndex={this.props.zIndex ? this.props.zIndex : 1000}
                     position={this.props.position}
                     closable={this.props.onHide != null ? true : false}
                 >

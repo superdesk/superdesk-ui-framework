@@ -7,6 +7,7 @@ import { InputWrapper } from "./Form";
 import { createPopper, Instance } from '@popperjs/core';
 import {isEqual} from 'lodash';
 import {getTextColor} from './Label';
+import {getNextZIndex} from '../zIndex';
 import {IInputWrapper} from './Form/InputWrapper';
 import {SelectPreview} from './SelectPreview';
 
@@ -35,7 +36,6 @@ interface IPropsBase<T> extends IInputWrapper {
     singleLevelSearch?: boolean;
     placeholder?: string;
     searchPlaceholder?: string;
-    zIndex?: number;
     getLabel(item: T): string;
     getId(item: T): string;
     getBackgroundColor?(item: T): string;
@@ -72,6 +72,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private categoryButtonRef: React.RefObject<HTMLButtonElement>;
     private openDropdownRef: React.RefObject<HTMLButtonElement>;
     private htmlId: string = nextId();
+    private zIndex: number = getNextZIndex();
     private popperInstance: Instance | null;
 
     constructor(props: IProps<T>) {
@@ -760,11 +761,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                     {this.state.openDropdown
                         && <div
-                            className={"autocomplete autocomplete--multi-select"
-                                + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')
-                            }
-                            style={{zIndex: this.props.zIndex}}
+                            className={"autocomplete autocomplete--multi-select" + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')}
                             ref={this.dropdownRef}
+                            style={{zIndex: this.zIndex}}
                         >
                             <div className='autocomplete__header'>
                                 <div

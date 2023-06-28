@@ -17,7 +17,7 @@ export default class CreateButtonDoc extends React.Component {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <SubNav zIndex={2}>
+                        <SubNav>
                             <ButtonGroup align='start' spaces='no-space'>
                                 <Tooltip text='Filters' flow='right'>
                                     <NavButton icon='filter-large' type='darker' state="active" text="Filter" onClick={() => false} />
@@ -34,7 +34,7 @@ export default class CreateButtonDoc extends React.Component {
                         </SubNav>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <SubNav zIndex={2}>
+                        <SubNav>
                             <ButtonGroup align='start' spaces='no-space'>
                                 <Tooltip text='Filters' flow='right'>
                                     <NavButton icon='filter-large' type='darker' state="active" text="Filter" onClick={() => false} />

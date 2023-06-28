@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import * as _popper from 'popper.js';
 import {PopperOptions} from 'popper.js';
+import {getNextZIndex} from '../zIndex';
 
 const Popper = _popper.default;
 
@@ -22,6 +23,7 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
     wrapper: HTMLDivElement;
     popperInstance: any;
     previouslyFocusedElement: HTMLElement | undefined;
+    public zIndex: number = getNextZIndex();
 
     constructor(props: IPropsPopperWrapper) {
         super(props);
@@ -42,9 +44,7 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
 
         const dropdownElement = this.wrapper;
 
-        if (this.props.zIndex != null) {
-            dropdownElement.style.zIndex = this.props.zIndex.toString();
-        }
+        dropdownElement.style.zIndex = this.zIndex.toString();
 
         const rect = this.props.triggerElement.getBoundingClientRect();
 
@@ -110,7 +110,6 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
 interface IPropsPositioner {
     triggerSelector: string;
     placement: PopperOptions['placement'];
-    zIndex?: number;
     className?: string;
 }
 

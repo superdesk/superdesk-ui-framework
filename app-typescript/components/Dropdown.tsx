@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { createPopper } from '@popperjs/core';
 import { useId } from "react-id-generator";
+import {getNextZIndex} from './../zIndex';
 
 export interface IMenuItem {
     label: string | React.ReactNode;
@@ -33,9 +34,7 @@ interface IMenu {
     items: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     header?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
     footer?: Array<IMenuItem | ISubmenu | IMenuGroup | 'divider'>;
-    append?: boolean;
     children: React.ReactNode;
-    zIndex?: number;
     onChange?(event?: any): void;
 }
 
@@ -46,11 +45,15 @@ export const Dropdown = ({
     header,
     footer,
     children,
-    append,
     align,
-    zIndex,
     onChange,
 }: IMenu) => {
+    const [zIndex, setZIndex] = React.useState<number>(-1);
+
+    if (zIndex === -1) {
+        setZIndex(getNextZIndex());
+    }
+
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
     const [menuID] = useId();
@@ -84,7 +87,7 @@ export const Dropdown = ({
     }, [change]);
 
     React.useLayoutEffect(() => {
-        if (append && change) {
+        if (change) {
             addInPlaceholder();
         }
         setChange(true);
@@ -93,10 +96,11 @@ export const Dropdown = ({
     function createAppendMenu() {
         if (header && footer) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot'
+                <div
+                    className='dropdown__menu dropdown__menu--has-head-foot'
                     id={menuID} role='menu'
                     ref={ref}
-                    style={{zIndex: zIndex}}
+                    style={{zIndex}}
                 >
                     <ul className='dropdown__menu-header'>
                         {headerElements}
@@ -111,10 +115,12 @@ export const Dropdown = ({
             );
         } else if (header) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot'
-                id={menuID} role='menu'
-                ref={ref}
-                style={{zIndex: zIndex}}>
+                <div
+                    className='dropdown__menu dropdown__menu--has-head-foot'
+                    id={menuID} role='menu'
+                    ref={ref}
+                    style={{zIndex}}
+                >
                     <ul className='dropdown__menu-header'>
                         {headerElements}
                     </ul>
@@ -125,11 +131,13 @@ export const Dropdown = ({
             );
         } else if (footer) {
             return (
-                <div className='dropdown__menu dropdown__menu--has-head-foot'
-                id={menuID}
-                role='menu'
-                ref={ref}
-                style={{zIndex: zIndex}}>
+                <div
+                    className='dropdown__menu dropdown__menu--has-head-foot'
+                    id={menuID}
+                    role='menu'
+                    ref={ref}
+                    style={{zIndex}}
+                >
                     <ul className='dropdown__menu-body'>
                         {dropdownElements}
                     </ul>
@@ -140,10 +148,12 @@ export const Dropdown = ({
             );
         } else {
             return (
-                <ul className='dropdown__menu '
-                id={menuID} role='menu'
-                ref={ref}
-                style={{zIndex: zIndex}}>
+                <ul
+                    className='dropdown__menu '
+                    id={menuID} role='menu'
+                    ref={ref}
+                    style={{zIndex}}
+                >
                     {dropdownElements}
                 </ul>
             );
@@ -154,27 +164,19 @@ export const Dropdown = ({
         if (!open) {
             let menuRef: any;
             setOpen(true);
-            if (!append) {
+
+            setTimeout(() => {
                 menuRef = ref.current;
                 let toggleRef = buttonRef.current;
                 if (toggleRef && menuRef) {
                     createPopper(toggleRef, menuRef, {
                         placement: checkAlign() ? 'bottom-end' : 'bottom-start',
+                        strategy: 'fixed',
                     });
+                    menuRef.style.display = 'block';
                 }
-            } else {
-                setTimeout(() => {
-                    menuRef = ref.current;
-                    let toggleRef = buttonRef.current;
-                    if (toggleRef && menuRef) {
-                        createPopper(toggleRef, menuRef, {
-                            placement: checkAlign() ? 'bottom-end' : 'bottom-start',
-                            strategy: 'fixed',
-                        });
-                        menuRef.style.display = 'block';
-                    }
-                }, 0);
-            }
+            }, 0);
+
             document.addEventListener('click', closeMenu);
             setTimeout(() => {
                 menuRef.getElementsByTagName('button')[0].focus();
@@ -215,20 +217,23 @@ export const Dropdown = ({
             item['items'].forEach((el: any, key: number) => {
                 submenuItems.push(each(el, key));
             });
+
             return (
                 <DropdownItemWithSubmenu
-                key={index}
-                index={index}
-                item={item}
-                menuID={menuID}
-                subMenuItems={submenuItems}
-                onChange={onChange} />
+                    key={index}
+                    index={index}
+                    item={item}
+                    menuID={menuID}
+                    subMenuItems={submenuItems}
+                    onChange={onChange}
+                />
             );
         } else if (item['type'] === 'group') {
             let groupItems: any = [];
             item['items'].forEach((el: any, key: number) => {
                 groupItems.push(each(el, key));
             });
+
             return (
                 <React.Fragment key={index}>
                     <li>
@@ -242,103 +247,49 @@ export const Dropdown = ({
         } else {
             return (
                 <DropdownItem
-                key={index}
-                label={item['label']}
-                icon={item['icon']}
-                active={item['active']}
-                onSelect={item['onSelect']}
-                onChange={onChange} />
+                    key={index}
+                    label={item['label']}
+                    icon={item['icon']}
+                    active={item['active']}
+                    onSelect={item['onSelect']}
+                    onChange={onChange}
+                />
             );
         }
     }
 
     return (
         <div className={'dropdown ' + (open ? 'open' : '')}>
-            {typeof children === 'object' ?
-                (React.isValidElement(children) ?
-                    <div ref={buttonRef} style={{ display: 'content' }}>
-                        {(() => {
-                            const attrs = {
-                                className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
-                                'aria-haspopup': "menu",
-                                'aria-expanded': open,
-                                onClick: toggleDisplay,
-                                ref: buttonRef,
-                            };
+            {
+                typeof children === 'object'
+                    ? (React.isValidElement(children)
+                        ? <div ref={buttonRef} style={{ display: 'content' }}>
+                            {(() => {
+                                const attrs = {
+                                    className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
+                                    'aria-haspopup': "menu",
+                                    'aria-expanded': open,
+                                    onClick: toggleDisplay,
+                                    ref: buttonRef,
+                                };
 
-                            return React.cloneElement(children, attrs);
-                        })()}
-                    </div> : null)
-                :
-                <button ref={buttonRef}
-                className=' dropdown__toggle dropdown-toggle'
-                aria-haspopup="menu"
-                tabIndex={0}
-                aria-expanded={open}
-                onClick={toggleDisplay}>
-                    {children}
-                    <span className="dropdown__caret"></span>
-                </button>}
-
-            {append ?
-                null : (function() {
-                    if (header && footer) {
-                        return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot'
-                            role='menu'
-                            ref={ref}
-                            style={{zIndex: zIndex}}>
-                                <ul className='dropdown__menu-header'>
-                                    {headerElements}
-                                </ul>
-                                <ul className='dropdown__menu-body'>
-                                    {dropdownElements}
-                                </ul>
-                                <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                                    {footerElements}
-                                </ul>
-                            </div>
-                        );
-                    } else if (header) {
-                        return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot'
-                            role='menu'
-                            ref={ref}
-                            style={{zIndex: zIndex}}>
-                                <ul className='dropdown__menu-header'>
-                                    {headerElements}
-                                </ul>
-                                <ul className='dropdown__menu-body'>
-                                    {dropdownElements}
-                                </ul>
-                            </div>
-                        );
-                    } else if (footer) {
-                        return (
-                            <div className='dropdown__menu dropdown__menu--has-head-foot'
-                            role='menu'
-                            ref={ref}
-                            style={{zIndex: zIndex}}>
-                                <ul className='dropdown__menu-body'>
-                                    {dropdownElements}
-                                </ul>
-                                <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                                    {footerElements}
-                                </ul>
-                            </div>
-                        );
-                    } else {
-                        return (
-                            <ul className='dropdown__menu'
-                            role='menu'
-                            ref={ref}
-                            style={{zIndex: zIndex}}>
-                                {dropdownElements}
-                            </ul>
-                        );
-                    }
-                })()}
-        </div >
+                                return React.cloneElement(children, attrs);
+                            })()}
+                        </div>
+                        : null)
+                    : <button
+                        ref={buttonRef}
+                        className=' dropdown__toggle dropdown-toggle'
+                        aria-haspopup="menu"
+                        tabIndex={0}
+                        aria-expanded={open}
+                        onClick={toggleDisplay}
+                    >
+                        {children}
+                        <span className="dropdown__caret"></span>
+                    </button>
+            }
+        </div>
     );
 };
 
@@ -351,16 +302,18 @@ onChange,
 }: IMenuItemRes) => {
     return (
         <li role='none' className={active ? 'dropdown__menu-item--active' : ''}>
-            <button tabIndex={0}
-            role='menuitem'
-            onClick={() => {
-                setTimeout(() => {
-                    onSelect();
-                });
-                if (onChange) {
-                    onChange();
-                }
-            }}>
+            <button
+                tabIndex={0}
+                role='menuitem'
+                onClick={() => {
+                    setTimeout(() => {
+                        onSelect();
+                    });
+                    if (onChange) {
+                        onChange();
+                    }
+                }}
+            >
                 <i className={icon ? ('icon-' + icon) : ''}></i>
                 {label}
             </button>
@@ -402,31 +355,35 @@ const DropdownItemWithSubmenu = ({
 
     return (
         <li key={index} ref={refButtonSubMenu}>
-            <div className='dropdown'
-            onMouseLeave={() => setOpen(false)}>
+            <div
+                className='dropdown'
+                onMouseLeave={() => setOpen(false)}
+            >
                 <button
-                className='dropdown__toggle dropdown-toggle'
-                aria-haspopup="menu"
-                tabIndex={0}
-                onClick={() => {
-                    if (item.onSelect) {
-                        setTimeout(() => {
-                            item.onSelect();
-                        });
-                    }
-                    if (onChange) {
-                        onChange();
-                    }
-                }}
-                onMouseOver={() => setOpen(true) }>
+                    className='dropdown__toggle dropdown-toggle'
+                    aria-haspopup="menu"
+                    tabIndex={0}
+                    onClick={() => {
+                        if (item.onSelect) {
+                            setTimeout(() => {
+                                item.onSelect();
+                            });
+                        }
+                        if (onChange) {
+                            onChange();
+                        }
+                    }}
+                    onMouseOver={() => setOpen(true)}
+                >
                     {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                     {item['label']}
                 </button>
                 <ul
-                role='menu'
-                ref={refSubMenu}
-                style={{display: 'none'}}
-                className='dropdown__menu'>
+                    role='menu'
+                    ref={refSubMenu}
+                    style={{display: 'none'}}
+                    className='dropdown__menu'
+                >
                     {subMenuItems}
                 </ul>
             </div>

@@ -130,7 +130,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
             <Components.Layout header='My Profile' theme={this.state.theme}>
                 <Components.LayoutContainer>
                     <Components.HeaderPanel>
-                        <SubNav zIndex={2}>
+                        <SubNav>
                             <ButtonGroup align='start' spaces='no-space'>
                                 <Tooltip text='User list' flow='right'>
                                     <NavButton icon='arrow-left' onClick={() => false} />
@@ -142,7 +142,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                             </AvatarWrapper>
                             <h2 className='subnav__page-title'>Jeffrey Lebowski</h2>
                         </SubNav>
-                        <SubNav zIndex={1}>
+                        <SubNav>
                             <SubNavDivider width='small' />
                             <Tabs onClick={this.handleClick}>
                                 <TabLabel label='Overview' indexValue={0}/>
@@ -180,7 +180,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                         <Container id="profile" direction='column' className='sd-radius--medium sd-panel-bg--gradient-1 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <Container className='sd-flex-justify-space-between sd-margin-b--2'>
                                                 <Label text='Active' type='success' style='translucent' />
-                                                <Switch toolTipFlow='left' label={{text:'Toggle active', hidden: true}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                                <Switch toolTipFlow='left' label={{content:'Toggle active', hidden: true}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                                             </Container>
                                             <Container direction='column' className='sd-flex-align-items-center sd-margin-x--auto'>
                                                 <AvatarWrapper size="xx-large">
@@ -478,7 +478,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                     <SimpleListItem stacked={true}>
                                         <Heading type='h3'>Feature preview</Heading>
                                         <Container className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
-                                            <Switch label={{text:'Enable Feature Preview'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                            <Switch label={{content:'Enable Feature Preview'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                                         </Container>
                                     </SimpleListItem>
                                     <SimpleListItem stacked={true}>
@@ -518,8 +518,8 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                     <Heading type='h3'>Notifications</Heading>
                                         <Container className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <SwitchGroup>
-                                                <Switch label={{text:'Send notifications via email'}} value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
-                                                <Switch label={{text:'Allow Desktop Notifications'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
+                                                <Switch label={{content:'Send notifications via email'}} value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
+                                                <Switch label={{content:'Allow Desktop Notifications'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
                                             </SwitchGroup>
                                         </Container>
                                     </SimpleListItem>
