@@ -13,7 +13,7 @@ interface IPropsPopupPositioner {
     closeOnHoverEnd?: boolean;
 }
 
-class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> {
+export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> {
     private wrapperEl: HTMLDivElement | null;
     private popper: PopperInstance | null;
     private zIndex: number = getNextZIndex();

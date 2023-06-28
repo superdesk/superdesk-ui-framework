@@ -9,7 +9,6 @@ interface IProps {
     className?: string;
     theme?: string;
     visible?: boolean;
-    zIndex?: number;
     closeOnEscape?: boolean;
     contentBg?: 'default' | 'medium' | 'dark';
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
