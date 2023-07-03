@@ -97,6 +97,7 @@ export { MultiSelect } from './components/MultiSelect';
 export { ResizablePanels } from './components/ResizablePanels';
 export { WithPopover } from './components/WithPopover';
 export { Spacer, SpacerBlock } from './components/Spacer';
+export { DragHandle } from './components/DragHandle'
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
