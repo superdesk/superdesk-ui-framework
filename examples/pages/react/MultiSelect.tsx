@@ -7,7 +7,6 @@ import { Label } from '../../../app-typescript';
 interface IColor {
     name: string;
     colorCode?: string;
-    itemLabel?: string;
 }
 
 interface IState {
@@ -16,22 +15,22 @@ interface IState {
 }
 
 const ItemArr: Array<IColor> = [
-    {name: 'Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss', colorCode: '#FF0000', itemLabel:'SDG001'},
-    {name: 'Cyan', colorCode: '#00FFFF', itemLabel:'SDG002'},
-    {name: 'Blue', colorCode: '#0000FF', itemLabel:'SDG003'},
-    {name: 'DarkBlue', colorCode: '#0000A0', itemLabel:'SDG004'},
-    {name: 'Purple', colorCode: '#800080', itemLabel:'SDG005'},
-    {name: 'Yellow', colorCode: '#FFFF00', itemLabel:'SDG006'},
-    {name: 'Lime', colorCode: '#00FF00', itemLabel:'SDG007'},
-    {name: 'Magenta', colorCode: '#FF00FF', itemLabel:'SDG008'},
-    {name: 'Silver', colorCode: '#C0C0C0', itemLabel:'SDG009'},
-    {name: 'Gray', colorCode: '#808080', itemLabel:'SDG010'},
-    {name: 'Black', colorCode: '#000000', itemLabel:'SDG011'},
-    {name: 'Orange', colorCode: '#FFA500', itemLabel:'SDG012'},
-    {name: 'Brown', colorCode: '#A52A2A', itemLabel:'SDG013'},
-    {name: 'Maroon', colorCode: '#800000', itemLabel:'SDG014'},
-    {name: 'Green', colorCode: '#008000', itemLabel:'SDG015'},
-    {name: 'Olive', colorCode: '#808000', itemLabel:'SDG016'},
+    {name: 'Red', colorCode: '#FF0000'},
+    {name: 'Cyan', colorCode: '#00FFFF'},
+    {name: 'Blue', colorCode: '#0000FF'},
+    {name: 'DarkBlue', colorCode: '#0000A0'},
+    {name: 'Purple', colorCode: '#800080'},
+    {name: 'Yellow', colorCode: '#FFFF00'},
+    {name: 'Lime', colorCode: '#00FF00'},
+    {name: 'Magenta', colorCode: '#FF00FF'},
+    {name: 'Silver', colorCode: '#C0C0C0'},
+    {name: 'Gray', colorCode: '#808080'},
+    {name: 'Black', colorCode: '#000000'},
+    {name: 'Orange', colorCode: '#FFA500'},
+    {name: 'Brown', colorCode: '#A52A2A'},
+    {name: 'Maroon', colorCode: '#800000'},
+    {name: 'Green', colorCode: '#008000'},
+    {name: 'Olive', colorCode: '#808000'},
 ];
 
 export class MultiselectDocs extends React.Component<{}, IState> {
@@ -115,10 +114,9 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                     itemTemplate={(option) => {
                                         if (option) {
                                             return (
-                                                <div style={{display: 'flex', alignItems: 'center', maxWidth: '720px'}}>
-                                                    {/* <div style={{width: 10, height: 10, marginInlineEnd: 10, backgroundColor: option.colorCode}} /> */}
-                                                    <Label text={option.itemLabel} style="translucent" />
-                                                    <span className='sd-text__normal sd-padding-l--1 sd-whitespace--normal'>{option.name}</span>
+                                                <div style={{display: 'flex', alignItems: 'center'}}>
+                                                    <div style={{width: 10, height: 10, marginInlineEnd: 10, backgroundColor: option.colorCode}} />
+                                                    <span>{option.name}</span>
                                                 </div>
                                             );
                                         }
