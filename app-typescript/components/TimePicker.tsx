@@ -24,29 +24,31 @@ export class TimePicker extends React.PureComponent<IProps> {
     render() {
         return (
             <InputWrapper
-            label={this.props.label}
-            error={this.props.error}
-            required={this.props.required}
-            disabled={this.props.disabled}
-            invalid={this.props.invalid}
-            info={this.props.info}
-            inlineLabel={this.props.inlineLabel}
-            labelHidden={this.props.labelHidden}
-            fullWidth={this.props.fullWidth}
-            htmlId={this.htmlId}
-            tabindex={this.props.tabindex}>
-                <input
-                id={this.htmlId}
-                aria-labelledby={this.htmlId + 'label'}
-                type="time"
-                step={this.props.allowSeconds ? 1 : undefined}
-                className="sd-input__input"
-                value={this.props.value}
+                label={this.props.label}
+                error={this.props.error}
                 required={this.props.required}
                 disabled={this.props.disabled}
-                onChange={(event) => {
-                    this.props.onChange(event.target.value);
-                }}/>
+                invalid={this.props.invalid}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                fullWidth={this.props.fullWidth}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+            >
+                <input
+                    id={this.htmlId}
+                    aria-labelledby={this.htmlId + 'label'}
+                    type="time"
+                    step={this.props.allowSeconds ? 1 : undefined}
+                    className="sd-input__input"
+                    value={this.props.value}
+                    required={this.props.required}
+                    disabled={this.props.disabled}
+                    onChange={(event) => {
+                        this.props.onChange(event.target.value);
+                    }}
+                />
             </InputWrapper>
         );
     }

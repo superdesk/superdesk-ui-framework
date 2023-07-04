@@ -653,9 +653,14 @@
         grid-row: 2/3;
         grid-column: 2/4;
     }
+
     .sd-input__input-container {
         grid-row: 2/3;
         grid-column: 2/4;
+    }
+
+    .sd-input__input-container:has(input[type="time"]) {
+        min-width: 110px;
     }
 
     textarea {
