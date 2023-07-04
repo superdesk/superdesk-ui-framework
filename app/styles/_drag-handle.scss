@@ -1,0 +1,24 @@
+.drag-handle {
+    height: 30px;
+    width: 8px;
+    opacity: 0.85;
+}
+
+.drag-handle-wrapper {
+    padding: 6px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--sd-colour-line--medium);
+    border-start-start-radius: 3px;
+    border-end-start-radius: 3px;
+    &:hover {
+        background-color: var(--sd-colour-line--strong);
+        cursor: grab;
+    }
+    &:active {
+        background-color: var(--sd-colour-interactive);
+        cursor: grabbing;
+        opacity: 1;
+    }
+}
