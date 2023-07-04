@@ -55,7 +55,8 @@ import TextDoc from "./Text";
 import ContainerDoc from './Container';
 import DropZoneDoc from './DropZone';
 import CreateButtonDoc from './CreateButton';
-import TagInputDocs from './TagInputDocs'
+import TagInputDocs from './TagInputDocs';
+import DragHandleDocs from './DragHandleDocs';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
@@ -122,6 +123,9 @@ const pages = {
             },
             'menu': {
                 name: 'Menu',
+            },
+            "drag-handle": {
+                name: 'Drag handle'
             }
         }
     },
@@ -366,6 +370,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/sub-navigation" component={SubNavDoc} />
                         <Route path="/react/dropdowns" component={DropdownDoc} />
                         <Route path="/react/toast" component={ToastsDoc} />
+                        <Route path="/react/drag-handle" component={DragHandleDocs} />
                         <Route path="/react/tag-input" component={TagInputDocs} />
                         <Route path="/react/empty-states" component={EmptyStateDoc} />
                         <Route path="/react/grid-list" component={GridListDoc} />
