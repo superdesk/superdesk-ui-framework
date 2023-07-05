@@ -696,14 +696,15 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
 .sd-grid-item-header {
     padding: 4px 0;
     margin-bottom: 6px;
-    border-bottom: 5px solid #4d4d4d;
+    border-bottom: 5px solid var(--sd-colour-neutral);
     display: flex;
 
-    &__heading {
+    .sd-grid-item-header__heading {
         color: var(--color-text);
         font-size: 15px;
         font-weight: 500;
         flex-grow: 1;
+        min-height: 32px;
 
         & + div {
             margin-inline-start: 8px;
@@ -714,12 +715,12 @@ $sd-grid-item-shadow-activated:         0 0 0 2px  var(--sd-colour-interactive--
             color: inherit;
 
             span {
-                border-bottom: 1px dotted $sd-blueMedium;
+                border-bottom: 1px dotted var(--sd-colour-interactive);
             }
 
             [class^="icon-"],
             [class*=" icon-"] {
-                color: $sd-blueMedium;
+                color: var(--sd-colour-interactive);
                 margin-inline-start: 8px;
             }
 

@@ -550,13 +550,13 @@ $planningEditor-width: 53rem;
 
 .sd-content-navigation-panel {
     width: 20rem;
-    background-color: #f0f0f0;
+    background-color: var(--sd-colour-background__left-nav);
     flex-shrink: 0;
     display: flex;
     flex-direction: column;
     overflow: auto;
     overflow-x: hidden;
-    border-right-color: $grayLight;
+    border-right-color: var(--sd-colour-line--light);
     border-right-style: solid;
     border-right-width: 0;
     transition: all .2s ease-out .1s;
