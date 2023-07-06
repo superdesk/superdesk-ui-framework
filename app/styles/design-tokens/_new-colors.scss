@@ -374,6 +374,9 @@
 
 [data-theme="dark-ui"] {
 
+    // COMPONENT: SD CARD
+    --sd-card-header-bg-color--secondary: hsla(214, 30%, 30%, 1);
+
     // INTERACTIVE PRIMARY
     --sd-colour-interactive-hs:             160, 50%;
     //--sd-colour-interactive-hs:             198, 50%;
@@ -581,20 +584,24 @@
 
 :root, [data-theme="light-ui"] {
 
-    //--color-background-topmenu:           hsla(0, 0%, 17%, 1);
+    // COMPONENT: SD CARD
+    --sd-card-header-bg-color--normal:      hsla(214, 20%, 42%, 1);
+    --sd-card-header-bg-color--secondary:   hsla(214, 30%, 20%, 1);
+    --sd-card-header-bg-color--inactive:    hsla(214, 13%, 74%, 1);
+    --sd-card-header-bg-color--active:      hsla(214, 40%, 50%, 1);
+    --sd-card-header-bg-color--light:       var(--sd-colour-panel-bg--300);
+    --sd-card-header-bg-color--gradient-1:  linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
+
 
     --sd-colour-test-1:                   hsl(308 71% 40% / 50%);   
     --sd-colour-test-2:                   hsl(9 59% 49% / 0.5);
   
     --sd-colour-background__main-list:    hsla(0, 0%, 97%, 1);
   
-  
-  
     --sd-colour-background__base--00:     hsla(0, 0%, 100%, 1);
     --sd-colour-background__base--10:     hsla(0, 0%, 90%, 1);
     --sd-colour-background__base--20:     hsla(0, 0%, 80%, 1);
     --sd-colour-background__base--30:     hsla(0, 0%, 70%, 1);
-  
   
     --color-text:                         hsla(214, 13%, 20%, 1);
     --color-text--inverse:                hsla(214, 13%, 98%, 1);
@@ -681,7 +688,7 @@
     --color-text:                         hsla(0, 0%, 96%, 1);
     --color-text-light:                   hsla(214, 13%, 76%, 1);
     --color-text-lighter:                 hsla(214, 13%, 56%, 1);
-    --color-icon-default:                 hsla(214, 13%, 64%, 1);
+    --color-icon-default:                 hsla(214, 13%, 90%, 1);
     --sd-slugline-color:                  hsla(197, 60%, 75%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 60%, 65%, 1);
     --sd-navy-color:                      hsla(240, 90%, 75%, 1);

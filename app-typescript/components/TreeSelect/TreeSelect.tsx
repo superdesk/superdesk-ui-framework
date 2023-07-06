@@ -634,7 +634,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     <i className="icon-plus-large"></i>
                                 </button>
                             }
-
                             <ul className="tags-input__tag-list">
                                 {this.state.value.map((item, i: number) => {
                                     const Wrapper: React.ComponentType<{backgroundColor?: string}>

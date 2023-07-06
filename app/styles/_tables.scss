@@ -91,7 +91,7 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
 
     .sd-display-table__cell {
         font-weight: 600;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+        border-bottom: 2px solid var(--sd-colour-line--light);
     }
 }
 .sd-display-table__body {
@@ -103,7 +103,7 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
 .sd-display-table__cell {
     display: table-cell;
     padding: 1.2rem 0.8rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--sd-colour-line--light);
     font-weight: 500;
     text-align: start;
 
@@ -127,12 +127,12 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     flex-wrap: nowrap;
     justify-content: center;
     padding: 1.2rem 0.8rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--sd-colour-line--light);
     font-weight: 500;
     text-align: start;
     min-width: 120px;
 }
 .sd-flex-table--head .sd-flex-table__cell {
     font-weight: 600;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--sd-colour-line--light);
 }

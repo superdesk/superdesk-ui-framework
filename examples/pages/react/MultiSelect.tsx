@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import { PropsList, Prop } from '../../../app-typescript';
 import { MultiSelect } from '../../../app-typescript';
+import { Label } from '../../../app-typescript';
 
 interface IColor {
     name: string;
@@ -115,7 +116,7 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                                             return (
                                                 <div style={{display: 'flex', alignItems: 'center'}}>
                                                     <div style={{width: 10, height: 10, marginInlineEnd: 10, backgroundColor: option.colorCode}} />
-                                                    <div>{option.name}</div>
+                                                    <span>{option.name}</span>
                                                 </div>
                                             );
                                         }
