@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 export interface IInputCommon {
-    label: string;
+    label?: string;
     info?: string;
     error?: string;
     required?: boolean;
