@@ -1132,7 +1132,6 @@
 
 .sd-input {
     .p-multiselect,
-    .p-calendar,
     .p-multiselect,
     .p-dropdown,
     .tags-input {
@@ -1143,19 +1142,11 @@
     &.sd-input--disabled,
     &.sd-input--disabled:hover {
         .p-multiselect,
-        .p-calendar,
         .p-multiselect,
         .p-dropdown,
         .tags-input {
             opacity: 0.5;
             cursor: not-allowed;
-        }
-        .p-calendar {
-            .p-calendar-icon {
-                pointer-events: none;
-            }
-            border-bottom: 1px dotted var(--color-input-border);
-            background-color: var(--color-input-bg);
         }
     }
 }
