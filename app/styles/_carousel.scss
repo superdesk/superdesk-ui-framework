@@ -1,8 +1,4 @@
-// WELCOME MODAL
-// ------
-
 // Modal for onboarding pages. Includes support for slider and pagination.
-
 
 .sd-carousel {
     position: fixed;
@@ -48,6 +44,7 @@
     flex-grow: 1;
 
 }
+
 .sd-carousel__page-header {
     width: 100%;
     height: 200px;
@@ -56,12 +53,14 @@
     flex-grow: 0;
     position: relative;
     overflow: hidden;
-    &--color-2 {
-        background-color: hsl(268, 22%, 53%);
-    }
-    &--color-3 {
-        background-color: hsl(184, 42%, 60%);
-    }
+}
+
+.sd-carousel__page-header--color-2 {
+    background-color: hsl(268, 22%, 53%);
+}
+
+.sd-carousel__page-header--color-3 {
+    background-color: hsl(184, 42%, 60%);
 }
 
 .sd-carousel__page-header-illustration {
@@ -91,12 +90,14 @@
     font-size: 1.6rem;
     line-height: 140%;
     font-weight: 300;
+
     p {
         margin-bottom: 1em;
         &:last-child, &:only-child {
             margin-bottom: 0;
         }
     }
+
     h3 {
         font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
         font-size: 2rem;
@@ -104,18 +105,18 @@
         font-weight: 700;
     }
 }
+
 .sd-carousel__page-footer {
     text-align: center;
     padding: 0 3rem 3rem;
     flex-grow: 0;
 }
 
-
 @mixin modalNavButton-style(
-  $background: var(--sd-item__main-Bg),
-  $background-hover: var(--sd-item__main-Bg--hover),
-  $background-active: var(--sd-item__main-Bg--alternate)) 
-  {
+    $background: var(--sd-item__main-Bg),
+    $background-hover: var(--sd-item__main-Bg--hover),
+    $background-active: var(--sd-item__main-Bg--alternate)
+) {
     border-radius: $border-radius__base--full;
     cursor: pointer;
     height: 5.6rem;
@@ -127,12 +128,15 @@
     color: $sd-green;
     transition: $button-transition;
     background-color: $background;
+
     &:hover {
         background-color: $background-hover;
     }
+
     &:active {
         background-color: $background-active;
     }
+
     &::after {
         content: " ";
         font-family: 'sd_icons';
@@ -150,35 +154,42 @@
 
 .sd-carousel__nav-button {
     @include modalNavButton-style;
-    &--next {
-        right: -88px;
-        color: inherit;
-        &::after {
-            content: "\e643";
-        }
+}
+
+.sd-carousel__nav-button--next {
+    right: -88px;
+    color: inherit;
+
+    &::after {
+        content: "\e643";
     }
-    &--prev {
-        left: -88px;
-        color: inherit;
-        &::after {
-            content: "\e642";
-        }
+}
+
+.sd-carousel__nav-button--prev {
+    left: -88px;
+    color: inherit;
+
+    &::after {
+        content: "\e642";
     }
-    &--end {
-        right: -88px;
-        background-color: var(--sd-colour-success);
-        &::after {
-            content: "\e61d";
-            color: $white;
-        }
-        &:hover {
-            background-color: var(--sd-colour-success--hover);
-        }
-        &:active {
-            background-color: var(--sd-colour-success--active);
-        }
+}
+
+.sd-carousel__nav-button--end {
+    right: -88px;
+    background-color: var(--sd-colour-success);
+
+    &::after {
+        content: "\e61d";
+        color: $white;
     }
 
+    &:hover {
+        background-color: var(--sd-colour-success--hover);
+    }
+
+    &:active {
+        background-color: var(--sd-colour-success--active);
+    }
 }
 
 .sd-carousel__page-indication-bar {
@@ -188,6 +199,7 @@
     text-align: center;
     width: 100%;
 }
+
 .sd-carousel__page-indicator {
     background-color: rgba(255,255,255,.2);
     border: 1px solid rgba(0,0,0,.4);
@@ -198,10 +210,11 @@
     width: 1.4rem;
     margin: 0.6rem;
     transition: $button-transition;
-    &--selected {
-        background-color: rgba(255,255,255,0.8);
-        border-color: rgba(0,0,0,.6);
-    }
+}
+
+.sd-carousel__page-indicator--selected {
+    background-color: rgba(255,255,255,0.8);
+    border-color: rgba(0,0,0,.6);
 }
 
 .sd-carousel__backdrop {

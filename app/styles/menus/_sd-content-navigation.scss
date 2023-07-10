@@ -1,8 +1,7 @@
 // CONTENT NAVIGATION
-// ----
 
-$sd-contentNavBtn-bgHoverColor: rgba(94,169,200,0.2);
-$sd-contentNavBtn-bgActiveColor: rgba(255,255,255,1);
+$sd-contentNavBtn-bgHoverColor: rgba(94, 169, 200, 0.2);
+$sd-contentNavBtn-bgActiveColor: rgba(255, 255, 255, 1);
 $sd-contentNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-out;
 
 .sd-content-nav {
@@ -13,6 +12,7 @@ $sd-contentNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-ou
     opacity: 1;
     transition: all .2s ease-out .3s;
 }
+
 .sd-content-nav__btn {
     display: block;
     font-size: 1.4rem;
@@ -20,24 +20,29 @@ $sd-contentNavBtn-transition: background-color 0.2s ease-out, color 0.1s ease-ou
     text-decoration: none;
     color: $grayDarker;
     padding: 1.6rem 2rem;
+
     transition: $sd-contentNavBtn-transition;
+
     &:hover {
         background-color: $sd-contentNavBtn-bgHoverColor;
         color: $sd-text;
         text-decoration: none;
     }
-    &:active, &--active {
-        background-color: $sd-contentNavBtn-bgActiveColor;
-        color: $sd-colour-interactive;
-    }
 }
+
+.sd-content-nav__btn:active,
+.sd-content-nav__btn--active {
+    background-color: $sd-contentNavBtn-bgActiveColor;
+    color: $sd-colour-interactive;
+}
+
 .sd-content-nav-title {
     font-size: 1.5rem;
     font-weight: 300;
+}
 
-    &--uppercase {
-        font-size: 1.3rem;
-        font-weight: 400;
-        text-transform: uppercase;
-    }
+.sd-content-nav-title--uppercase {
+    font-size: 1.3rem;
+    font-weight: 400;
+    text-transform: uppercase;
 }

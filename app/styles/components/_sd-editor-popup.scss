@@ -3,16 +3,19 @@ $editor-popup-padding: 1.6rem;
 .editor-popup {
     display: none;
     position: fixed;
-    &--open {
-        display: inline-block;
-        z-index: 1040; // higher than top/bottom bars, lower than modals
-    }
-    &--annotation {
-        border-top: 3px solid $annotation-color;
-    }
-    &--comment {
-        border-top: 3px solid $comment-color;
-    }
+}
+
+.editor-popup--open {
+    display: inline-block;
+    z-index: 1040; // higher than top/bottom bars, lower than modals
+}
+
+.editor-popup--annotation {
+    border-top: 3px solid $annotation-color;
+}
+
+.editor-popup--comment {
+    border-top: 3px solid $comment-color;
 }
 
 .editor-popup__main {
@@ -20,6 +23,7 @@ $editor-popup-padding: 1.6rem;
     color: var(--color-text);
     width: 32rem;
     max-height: 100%;
+
     &.editor-popup__main--floating {
         background-color: var(--color-dropdown-menu-Bg);
         z-index: 2;
@@ -37,44 +41,54 @@ $editor-popup-padding: 1.6rem;
     padding: $editor-popup-padding;
     padding-bottom: 1rem;
 }
+
 .editor-popup__author-name {
+    @include text-overflow;
     display: block;
     margin: 0 0 0.2rem;
     font-weight: 500;
     line-height: 100%;
-    @include text-overflow;
 }
+
 .editor-popup__time {
     font-size: 1.1rem;
     font-weight: 400;
 }
+
 .editor-popup__header-text {
     flex-grow: 1;
     flex-shrink: 1;
     overflow: hidden;
 }
+
 .editor-popup__header-tools {
     margin:  -2rem -1rem 0 0.4rem;
+
     .icn-btn {
       opacity: 0.2;  
     }
+
     &:hover {
         .icn-btn {
             opacity: 1;  
           }
     }
 }
+
 // content
 .editor-popup__content-block {
     padding: $editor-popup-padding;
     position: relative;
-    &--scrollable {
-        max-height: 20rem;
-    }
+
     p + p {
         margin-top: 1rem;
     }
 }
+
+.editor-popup__content-block--scrollable {
+    max-height: 20rem;
+}
+
 .editor-popup__info-bar {
     margin-bottom: 0.4rem;
 }

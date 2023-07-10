@@ -1,12 +1,14 @@
 // Nested dropdowns
-// -------------------------------------------------
+
 .dropdown {
     &.open {
         li .dropdown {
             display: block;
             float: none;
+
             .dropdown__toggle {
                 padding-inline-end: 2.4rem;
+
                 &::after {
                     position: absolute;
                     inset-inline-end: 0.8rem;
@@ -25,32 +27,39 @@
                     opacity: .4;
                 }
             }
+
             &:not(.open) .dropdown__menu {
                 display: none;
             }
+
             > .dropdown__menu {
                 inset-inline-start: 100%;
                 inset-inline-end: auto;
                 inset-block-start: 0;
                 min-width: 160px;
                 z-index: 10;
+
                 &.dropdown__menu--submenu-left {
                     inset-inline-start: auto;
                     inset-inline-end: 100%;
                 }
+
                 &.upward {
                     inset-block-start: auto;
                     inset-block-end: -16px;
                 }
+
                 &.dropdown--align-right {
                     inset-inline-start: auto;
                     inset-inline-end: 100%;
                 }
             }
+
             &.dropdown--dropup > .dropdown__menu {
                 inset-block-start: auto;
                 inset-block-end: 0;
             }
+            
             &:hover {
                 > .dropdown__menu {
                     display: block;

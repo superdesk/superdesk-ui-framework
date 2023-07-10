@@ -1,4 +1,3 @@
-
 $photo-nav-transition: all 0.2s ease-out;
 
 .sd-photo-preview  {
@@ -10,18 +9,22 @@ $photo-nav-transition: all 0.2s ease-out;
     height: calc(100vh - 53px);
     position: relative;
     overflow: hidden;
-    &--grid-only {
-        grid-template-rows: 0 1fr;
-        .sd-photo-preview__image {
-            height: 0;
-            overflow: hidden;
-        }
-        .sd-photo-preview__thumb-strip {
-            overflow-y: auto;
-            &--with-controls {
-                padding-top: 4.8rem;
-            }
-        }
+}
+
+.sd-photo-preview--grid-only {
+    grid-template-rows: 0 1fr;
+
+    .sd-photo-preview__image {
+        height: 0;
+        overflow: hidden;
+    }
+
+    .sd-photo-preview__thumb-strip {
+        overflow-y: auto;
+    }
+
+    .sd-photo-preview__thumb-strip--with-controls {
+        padding-top: 4.8rem;
     }
 }
 
@@ -47,6 +50,7 @@ $photo-nav-transition: all 0.2s ease-out;
     text-align: center;
     background-color: var(--sd-colour-bg__photo-preview);
     max-height: 100%; // needed for firefox
+
     &.actioning {
         &::before {
             content: '';
@@ -64,6 +68,7 @@ $photo-nav-transition: all 0.2s ease-out;
         }
     }
 }
+
 .sd-photo-preview__video {
     display: grid;
     grid-template-rows: 1fr auto;
@@ -72,6 +77,7 @@ $photo-nav-transition: all 0.2s ease-out;
     justify-content: center;
     max-height: none;
     background-color: #232323;
+
     .sd-photo-preview__video-inner {
         grid-row: 1/2;
         display: grid;
@@ -85,6 +91,7 @@ $photo-nav-transition: all 0.2s ease-out;
         max-width: 100%;
         min-width: 48rem;
     }
+
     .sd-photo-preview__video-container {
         grid-row: 1/2;
         margin: 0;
@@ -92,6 +99,7 @@ $photo-nav-transition: all 0.2s ease-out;
         flex-direction: row;
         align-items: center;
         justify-content: center;
+
         video {
             max-width: 110vh;
             width: auto;
@@ -100,6 +108,7 @@ $photo-nav-transition: all 0.2s ease-out;
             margin-top: 2rem;
         }
     } 
+
     .sd-photo-preview__video-tools {
         grid-row: 2/3;
         margin: 0.8rem auto 3.2rem;
@@ -111,14 +120,16 @@ $photo-nav-transition: all 0.2s ease-out;
         flex-direction: row;
         align-items: center;
         width: 100%;
-        &--blank {
-            background-color: rgba(0, 0, 0, 0);
-            padding: 0.6rem;
-        }
-    }  
+    }
+
+    .sd-photo-preview__video-tools--blank {
+        background-color: rgba(0, 0, 0, 0);
+        padding: 0.6rem;
+    }
 }
 
 .sd-photo-preview__label {
+    @include text-overflow;
     background: rgba(0, 0, 0, 0.25);
     color: inherit;
     padding: 0.8rem 2rem;
@@ -127,7 +138,6 @@ $photo-nav-transition: all 0.2s ease-out;
     border-radius: $border-radius__base--x-small;
     font-weight: 300;
     min-width: 16rem;
-    @include text-overflow;
 }
 
 .sd-photo-preview__image {
@@ -135,6 +145,7 @@ $photo-nav-transition: all 0.2s ease-out;
     max-width: calc(100vw - 40rem);
     transition: max-width 0.2s ease-in-out; 
     padding: 1.6rem;
+
     img {
         max-width: 100%;
         max-height: 100%;
@@ -149,8 +160,6 @@ $photo-nav-transition: all 0.2s ease-out;
     }
 }
 
-
-
 .sd-photo-preview__thumb-strip {
     grid-column: 1/2;
     grid-row: 2/3;
@@ -159,23 +168,27 @@ $photo-nav-transition: all 0.2s ease-out;
     box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.2);
     position: relative;
     overflow-y: auto;
-    &--video {
-        min-height: 10rem;
-        display: flex;
-        flex-direction: row;
-        overflow: visible;
-    }
 }
+
+.sd-photo-preview__thumb-strip--video {
+    min-height: 10rem;
+    display: flex;
+    flex-direction: row;
+    overflow: visible;
+}
+
 .sd-photo-preview__thumbnail-edit {
     position: relative;
     height: 16rem;
     flex-grow: 0;
+
     img {
         max-width: 100%;
         height: auto;
         max-height: 16rem;
         display: block;
     }
+
     .sd-photo-preview__thumbnail-edit-label {
         position: absolute;
         top: -2.2rem;
@@ -201,10 +214,12 @@ $photo-nav-transition: all 0.2s ease-out;
     z-index: 1;
     opacity: 0;
     color: $white;
+
     &:hover {
         opacity: 1;
     }
 }
+
 .image-overlay__button-block {
     display: flex;
     flex-direction: row;
@@ -212,6 +227,7 @@ $photo-nav-transition: all 0.2s ease-out;
     justify-content: center;
     flex-grow: 1;
 }
+
 .image-overlay__button {
     flex-grow: 0;
     flex-shrink: 0;
@@ -228,28 +244,34 @@ $photo-nav-transition: all 0.2s ease-out;
     cursor: pointer;
     text-decoration: none;
     background-color: rgba(0, 0, 0, 0.2);
+
     i {
         color: inherit;
         line-height: 1;
         opacity: 0.6;
         transition: 0.2s linear all;
     }
+
     &:hover {
         border-color: white;
         background-color: rgba(0, 0, 0, 0.6);
         text-decoration: none;
+
         i {
             opacity: 1;
         }
     }
+
     &:active {
         border-color: $sd-colour-interactive;
         background-color: rgba(0, 0, 0, 0.8);
+
         i {
             color: $sd-colour-interactive;
         }
     }
 }
+
 .image-overlay__button + .image-overlay__button {
     margin-left: 0.8rem;
 }
@@ -266,11 +288,13 @@ $photo-nav-transition: all 0.2s ease-out;
         }
     }
 }
+
 .sd-photo-preview--edit-video {
     .sd-photo-preview__video {
         .sd-photo-preview__video-inner {
             max-height: calc(100vh - 53px - 160px);
             max-width: 100vw;
+
             .sd-photo-preview__video-container  {
                 video {
                     max-width: calc(100vw - 4rem);
@@ -280,12 +304,14 @@ $photo-nav-transition: all 0.2s ease-out;
         }
     }
 }
+
 .sd-photo-preview--view-video {
     .sd-photo-preview__video {
         .sd-photo-preview__video-inner {
             max-height: calc(100vh - 53px);
             max-width: calc(100vw - 44rem);
-            .sd-photo-preview__video-container  {
+
+            .sd-photo-preview__video-container {
                 video {
                     max-width: calc(100vw - 44rem);
                     max-height: calc(100vh - 53px - 90px);
@@ -313,14 +339,17 @@ $photo-nav-transition: all 0.2s ease-out;
     transition: $photo-nav-transition;
     background-color: $background-normal;
     opacity: 0.3;
+
     &:hover {
         opacity: 0.6;
         background-color: $background-hover;
     }
+
     &:active {
         opacity: 0.8;
         background-color: $background-active;
     }
+
     &::after {
         content: " ";
         font-family: 'sd_icons';
@@ -355,14 +384,17 @@ $photo-nav-transition: all 0.2s ease-out;
     cursor: pointer;
     text-decoration: none !important;
     transition: $photo-nav-transition;
+
     [class^="icon-"],
     [class*=" icon-"] {
         color: $white; 
         flex-shrink: 0;
     }
+
     &:hover {
         opacity: 1;
     }
+
     &:active {
         background-color: $sd-colour-interactive;
         opacity: 1;
@@ -371,19 +403,22 @@ $photo-nav-transition: all 0.2s ease-out;
 
 .sd-photo-preview__nav-button {
     @include photoNavButton-style;
-    &--next {
-        right: 0.8rem;
-        color: inherit;
-        &::after {
-            content: "\e643";
-        }
+}
+
+.sd-photo-preview__nav-button--next {
+    right: 0.8rem;
+    color: inherit;
+
+    &::after {
+        content: "\e643";
     }
-    &--prev {
-        left: 0.8rem;
-        color: inherit;
-        &::after {
-            content: "\e642";
-        }
+}
+.sd-photo-preview__nav-button--prev {
+    left: 0.8rem;
+    color: inherit;
+
+    &::after {
+        content: "\e642";
     }
 }
 
@@ -406,6 +441,7 @@ $photo-nav-transition: all 0.2s ease-out;
     margin-top: -10.6rem;
     z-index: 1;
 }
+
 .upload__info-icon {
     margin: 0 auto;
     height: 7.4rem;
@@ -414,6 +450,7 @@ $photo-nav-transition: all 0.2s ease-out;
     opacity: 0.25;
     text-align: center;
 }
+
 .upload__info-heading {
     margin: 0 auto;
     opacity: 0.5;
@@ -424,6 +461,7 @@ $photo-nav-transition: all 0.2s ease-out;
     font-size: 2.4rem;
     font-weight: 300;
 }
+
 .upload__info-label {
     position: relative;
     text-align: center;
@@ -431,6 +469,7 @@ $photo-nav-transition: all 0.2s ease-out;
     margin: 2.2rem auto;
     color: var(--color-text-lighter);
     opacity: 0.85;
+
     &::after, &::before {
         content: "___________";
         position: absolute;
@@ -438,9 +477,11 @@ $photo-nav-transition: all 0.2s ease-out;
         color: inherit;
         opacity: 0.25;
     }
+    
     &::after { 
         margin-left: 1.5rem;
     }
+    
     &::before {
         margin-left: -7.8rem;
     }

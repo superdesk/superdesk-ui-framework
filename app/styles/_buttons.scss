@@ -47,42 +47,52 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     border: 1px solid transparent;
     background-color: var(--sd-btn-bg);
     gap: 0.6rem;
+
     &:hover {
         background-color: var(--sd-btn-bg--hover);
         box-shadow: var(--new-button-hover-shadow);
         text-decoration: none !important;
     }
+
     &:active {
         background-color: var(--sd-btn-bg--active);
         box-shadow: $new-button-active-shadow;
     }
+
     &:focus-visible {
         box-shadow: $button-focus-box-shadow;
     }
+
     [class^="icon-"], [class*=" icon-"] {
         color: currentColor;
     }
 }
+
 @mixin new-button-hollow {
     border: 1px solid var(--sd-btn-border);
     background-color: transparent !important;
     box-shadow: inset 0 0 0 0px var(--sd-btn-border);
+
     [class^="icon-"], [class*=" icon-"] {
         color: var(--sd-btn-color);
     }
+
     &:hover {
         box-shadow: none;
         border-color: var(--sd-btn-color);
         box-shadow: inset 0 0 0 2px var(--sd-btn-border);
     }
+
     &:active {
         border-color: var(--sd-btn-color);
         box-shadow: inset 0 0 0 2px var(--sd-btn-color);
     }
+
     &:focus-visible {
         box-shadow: $button-focus-box-shadow;
     }
 }
+
 @mixin new-button-text-only {
     border: none;
     background-color: transparent;
@@ -92,19 +102,23 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     --sd-btn-bg--hover: hsla(var(--sd-btn-l), 0.20);
     --sd-btn-bg--active: hsla(var(--sd-btn-l), 0.16);
     --sd-btn-bg--shadow: hsla(var(--sd-btn-l), 0.24);
+
     [class^="icon-"], [class*=" icon-"] {
         color: currentColor;
     }
+
     &:hover {
         box-shadow: none;
         background-color: var(--sd-btn-bg--hover);
         box-shadow: inset 0 0 0 0 var(--sd-btn-bg--shadow);
     }
+
     &:active {
         box-shadow: none;
         background-color: var(--sd-btn-bg--active);
         box-shadow: inset 0 0 0 4px var(--sd-btn-bg--shadow);
     }
+
     &:focus-visible {
         box-shadow: $button-focus-box-shadow;
     }
@@ -115,78 +129,10 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     --sd-btn-bg--hover: var(--sd-colour-btn-bg-neutral--hover);
     --sd-btn-bg--active: var(--sd-colour-btn-bg-neutral--active);
     color: var(--sd-colour-btn-txt-neutral);
-
     @include new-button-base;
-    // Sizes
-    &--small {
-        padding: $padding-x__button--small;
-        height: $height__button--small;
-        font-size: $font-size__button--small;
-    }
-    &--large {
-        padding: $padding-x__button--large;
-        height: $height__button--large;
-        font-size: $font-size__button--large;
-    }
-    &--expanded {
-        width: 100%;
-        margin-right: 0;
-        margin-left: 0;
-    }
+
     [class^="icon-"], [class*=" icon-"] {
         margin-inline-start: -0.3rem;
-    }
-    // Colours
-    &--primary, &--success, &--warning, &--alert, &--highlight, &--sd-green, &--secondary {
-        color: $white;
-        [class^="icon-"], [class*=" icon-"] {
-        color: $white;
-        }
-        .sd-spinner__path {
-        stroke: $white;
-        }
-    }
-    
-    &--primary {
-        --sd-btn-bg: var(--sd-colour-primary);
-        --sd-btn-bg--hover: var(--sd-colour-primary--hover);
-        --sd-btn-bg--active: var(--sd-colour-primary--active);
-    }
-
-    &--success {
-        --sd-btn-bg: var(--sd-colour-success);
-        --sd-btn-bg--hover: var(--sd-colour-success--hover);
-        --sd-btn-bg--active: var(--sd-colour-success--active);
-    }
-
-    &--warning {
-        --sd-btn-bg: var(--sd-colour-warning);
-        --sd-btn-bg--hover: var(--sd-colour-warning--hover);
-        --sd-btn-bg--active: var(--sd-colour-warning--active);
-    }
-
-    &--alert {
-        --sd-btn-bg: var(--sd-colour-alert);
-        --sd-btn-bg--hover: var(--sd-colour-alert--hover);
-        --sd-btn-bg--active: var(--sd-colour-alert--active);
-    }
-
-    &--highlight {
-        --sd-btn-bg: var(--sd-colour-highlight);
-        --sd-btn-bg--hover: var(--sd-colour-highlight--hover);
-        --sd-btn-bg--active: var(--sd-colour-highlight--active);
-    }
-
-    &--sd-green {
-        --sd-btn-bg: var(--sd-colour-superdesk);
-        --sd-btn-bg--hover: var(--sd-colour-superdesk--hover);
-        --sd-btn-bg--active: var(--sd-colour-superdesk--active);
-    }
-
-    &--secondary {
-        --sd-btn-bg: var(--sd-colour-secondary);
-        --sd-btn-bg--hover: var(--sd-colour-secondary--hover);
-        --sd-btn-bg--active: var(--sd-colour-secondary--active);
     }
 
     // Hollow style
@@ -195,6 +141,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         --sd-btn-color: var(--sd-colour-btn-txt-neutral);
         color: var(--sd-colour-btn-txt-neutral);
         @include new-button-hollow;
+
         &.btn--primary {
             --sd-btn-border: var(--sd-colour-interactive-btn-border);
             --sd-btn-color: var(--sd-colour-interactive);
@@ -229,6 +176,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
             --sd-btn-border: var(--sd-colour-secondary-btn-border);
             --sd-btn-color: var(--sd-colour-secondary);
         }
+
         &.btn--primary,
         &.btn--success,
         &.btn--warning,
@@ -237,16 +185,19 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         &.btn--sd-green,
         &.btn--secondary {
             color: var(--sd-btn-color);
+
             .sd-spinner__path {
                 stroke: var(--sd-btn-color);
             }
         }
     }
+
     // Text only
     &.btn--text-only {
         --sd-btn-hs: 214, 13%;
         color: var(--sd-colour-btn-txt-neutral);
         @include new-button-text-only;
+
         &.btn--primary {
             --sd-btn-hs: var(--sd-colour-primary-hs);
         }
@@ -274,6 +225,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         &.btn--secondary {
             --sd-btn-hs: var(--sd-colour-secondary-hs);
         }
+
         &.btn--primary,
         &.btn--success,
         &.btn--warning,
@@ -282,37 +234,119 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         &.btn--sd-green,
         &.btn--secondary {
             color: var(--sd-btn-txt);
+
             .sd-spinner__path {
                 stroke: var(--sd-btn-txt);
             }
         }
     }
+
     &.btn--icon-only {
         [class^="icon-"], [class*=" icon-"] {
             margin: 0;
         }
+
         &.btn--icon-only-circle {
             border-radius: $border-radius__base--full;
             padding: 0;
             width: $height__button--default;
+
             &.btn--small {
                 width: $height__button--small;
             }
+
             &.btn--large {
                 width: $height__button--large;
             }
         }
     }
+
     &.btn--disabled, &[disabled] {
         opacity: $button-opacity-disabled;
         cursor: not-allowed;
         pointer-events: none;
         box-shadow: none !important;
+
         &:hover, &:active {
         cursor: not-allowed;
         }
     }
 }
+
+// Sizes
+.btn--small {
+    padding: $padding-x__button--small;
+    height: $height__button--small;
+    font-size: $font-size__button--small;
+}
+
+.btn--large {
+    padding: $padding-x__button--large;
+    height: $height__button--large;
+    font-size: $font-size__button--large;
+}
+
+.btn--expanded {
+    width: 100%;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+// Colours
+.btn--primary, .btn--success, .btn--warning, .btn--alert, .btn--highlight, .btn--sd-green, .btn--secondary {
+    color: $white;
+
+    [class^="icon-"], [class*=" icon-"] {
+        color: $white;
+    }
+
+    .sd-spinner__path {
+        stroke: $white;
+    }
+}
+
+.btn--primary {
+    --sd-btn-bg: var(--sd-colour-primary);
+    --sd-btn-bg--hover: var(--sd-colour-primary--hover);
+    --sd-btn-bg--active: var(--sd-colour-primary--active);
+}
+
+.btn--success {
+    --sd-btn-bg: var(--sd-colour-success);
+    --sd-btn-bg--hover: var(--sd-colour-success--hover);
+    --sd-btn-bg--active: var(--sd-colour-success--active);
+}
+
+.btn--warning {
+    --sd-btn-bg: var(--sd-colour-warning);
+    --sd-btn-bg--hover: var(--sd-colour-warning--hover);
+    --sd-btn-bg--active: var(--sd-colour-warning--active);
+}
+
+.btn--alert {
+    --sd-btn-bg: var(--sd-colour-alert);
+    --sd-btn-bg--hover: var(--sd-colour-alert--hover);
+    --sd-btn-bg--active: var(--sd-colour-alert--active);
+}
+
+.btn--highlight {
+    --sd-btn-bg: var(--sd-colour-highlight);
+    --sd-btn-bg--hover: var(--sd-colour-highlight--hover);
+    --sd-btn-bg--active: var(--sd-colour-highlight--active);
+}
+
+.btn--sd-green {
+    --sd-btn-bg: var(--sd-colour-superdesk);
+    --sd-btn-bg--hover: var(--sd-colour-superdesk--hover);
+    --sd-btn-bg--active: var(--sd-colour-superdesk--active);
+}
+
+.btn--secondary {
+    --sd-btn-bg: var(--sd-colour-secondary);
+    --sd-btn-bg--hover: var(--sd-colour-secondary--hover);
+    --sd-btn-bg--active: var(--sd-colour-secondary--active);
+}
+
 ////////////////////////////// END NEW BUTTONS /////////////////////////////
 
 // Plain Icon buttons
@@ -332,38 +366,47 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     text-decoration: none;
     cursor: pointer;
     flex-shrink: 0;
+
     [class^="icon-"], [class*=" icon-"] {
         color: var(--color-icon-default) !important;
         vertical-align: baseline !important;
     }
+
     &:hover {
         opacity: 1;
         text-decoration: none;
         background-color: hsla(214, 13%, 55%, 0.2);
     }
+
     &:focus-visible {
         opacity: 1;
         background-color: hsla(214, 13%, 55%, 0.2);
         box-shadow: $icn-button-focus-box-shadow;
         outline: none;
+
         [class^="icon-"], [class*=" icon-"] {
             opacity: 1;
         }
     }
+
     &:active {
         opacity: 1;
         background-color: hsla(214, 13%, 55%, 0.3);
+
         [class^="icon-"], [class*=" icon-"] {
             color: $sd-colour-interactive;
             opacity: 1;
         }
     }
+
     &--disabled {
         opacity: $icn-button-opacity-disabled;
+
         &:hover, &:active, &:focus-visible {
             background-color: transparent !important;
             cursor: not-allowed;
             opacity: $icn-button-opacity-disabled;
+
             [class^="icon-"], [class*=" icon-"] {
                 opacity: 1;
                 color: inherit !important;
@@ -374,61 +417,74 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 .icn-btn {
     @include icn-btn-style;
-    &--small {
-        height: $height__button--small;
-        width: $height__button--small;
-    }
-    &--x-large {
-        height: $height__button--x-large;
-        width: $height__button--x-large;
-        [class^="icon-"], [class*=" icon-"] {
-            vertical-align: baseline !important;
-            font-size: 2.4rem;
-            height: 2.4rem;
-            width: 2.4rem;
-            line-height: 2.4rem;
-        }
-        
-    }
-    &--outline {
-        border: 1px solid currentColor;
-        &:active:not(.icn-btn--disabled) {
-            border-color: var(--sd-colour-interactive);
-        }
-    }
-    &--outlineWhite {
-        color: hsla(214, 13%, 95%, 0.8) !important;
-        border: 1px solid currentColor;
-        [class^="icon-"], [class*=" icon-"] {
-            color: hsla(214, 13%, 95%, 0.8) !important;
-        }
-        &:hover:not(.icn-btn--disabled) {
-            color: hsla(214, 13%, 95%, 1) !important;
-            border-color: hsla(214, 13%, 95%, 1);
-            background-color: hsla(0, 0%, 0%, 0.4);
-            [class^="icon-"], [class*=" icon-"] {
-                color: hsla(214, 13%, 95%, 1) !important;
-            }
-        }
-        &:active:not(.icn-btn--disabled) {
-            border-color: var(--sd-colour-interactive);
-            background-color: hsla(0, 0%, 0%, 0.6);
-        }
-    }
+
     &.icn-btn--x-large.icn-btn--outline,
     &.icn-btn--x-large.icn-btn--outlineWhite {
         border-width: 2px;
     }
 }
+
+.icn-btn--small {
+    height: $height__button--small;
+    width: $height__button--small;
+}
+
+.icn-btn--x-large {
+    height: $height__button--x-large;
+    width: $height__button--x-large;
+
+    [class^="icon-"], [class*=" icon-"] {
+        vertical-align: baseline !important;
+        font-size: 2.4rem;
+        height: 2.4rem;
+        width: 2.4rem;
+        line-height: 2.4rem;
+    }
+    
+}
+
+.icn-btn--outline {
+    border: 1px solid currentColor;
+
+    &:active:not(.icn-btn--disabled) {
+        border-color: var(--sd-colour-interactive);
+    }
+}
+
+.icn-btn--outlineWhite {
+    color: hsla(214, 13%, 95%, 0.8) !important;
+    border: 1px solid currentColor;
+
+    [class^="icon-"], [class*=" icon-"] {
+        color: hsla(214, 13%, 95%, 0.8) !important;
+    }
+
+    &:hover:not(.icn-btn--disabled) {
+        color: hsla(214, 13%, 95%, 1) !important;
+        border-color: hsla(214, 13%, 95%, 1);
+        background-color: hsla(0, 0%, 0%, 0.4);
+        [class^="icon-"], [class*=" icon-"] {
+            color: hsla(214, 13%, 95%, 1) !important;
+        }
+    }
+
+    &:active:not(.icn-btn--disabled) {
+        border-color: var(--sd-colour-interactive);
+        background-color: hsla(0, 0%, 0%, 0.6);
+    }
+}
+
 .p-dialog-header-close {
     @include icn-btn-style;
     height: $height__button--small;
     width: $height__button--small;
+
     &:hover {
         opacity: 1;
         text-decoration: none;
         background-color: hsla(0, 0%, 61%, 0.2) !important;
     }
+
     &:active {
         opacity: 1;
         background-color: hsla(0, 0%, 61%, 0.3);
@@ -436,14 +492,13 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 }
 
 // Button navigation 
-// --------------------------------------------------
-
 .button-nav {
   display: flex;
   flex-direction: row;
   align-content: center;
   gap: $sd-base-increment;
 }
+
 .button-nav__btn {
     color: var(--color-text);
     display: inline-block;
@@ -463,9 +518,11 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     text-decoration: none;
     cursor: pointer;
     background-color: var(--sd-colour-bg__button-nav-btn);
+
     &:hover {
         background-color: var(--sd-colour-bg__button-nav-btn--hover);
     }
+
     &:active, &--active, &--active:hover {
         background-color: var(--sd-colour-bg__button-nav-btn--active);
         box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.25);
@@ -477,6 +534,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     display: flex;
     align-items: center;
     gap: 6px;
+
     [class^="icon-"], [class*=" icon-"] {
         opacity: 0.6;
     }
@@ -484,8 +542,6 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 
 // BUTTON GROUPS 
-// --------------------------------------------------
-
 .button-group {
     display: flex;
     flex-direction: row;
@@ -495,83 +551,103 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     .btn {
         margin: 0;
     }
-    &--left, &--start {
-        margin-inline-end: auto;
+}
+
+.button-group--left, .button-group--start {
+    margin-inline-end: auto;
+
+    .sd-navbtn {
+        border-inline-width: 0 1px;
+    }
+
+    &.button-group--compact {
+        gap: 0.5 * $sd-base-increment;
+    }
+
+    .button-group--inline {
         .sd-navbtn {
             border-inline-width: 0 1px;
         }
-        &.button-group--compact {
-            gap: 0.5 * $sd-base-increment;
-        }
-        .button-group--inline {
-            .sd-navbtn {
-                border-inline-width: 0 1px;
-            }
-        }
     }
-    &--inline {
-        margin-inline-end: 0;
-        .sd-navbtn {
-            border-inline-width: 0 1px;
-        }
+}
+
+.button-group--inline {
+    margin-inline-end: 0;
+
+    .sd-navbtn {
+        border-inline-width: 0 1px;
     }
-    &--right, &--end {
-        margin-inline-start: auto;
-    }
-    &--center {
-        margin-inline-start: auto;
-        margin-inline-end: auto;
-        .sd-navbtn {
-            border-inline-width: 0 1px;
-            &:first-child {
-                border-inline-width: 1px 1px;
-            }
+}
+
+.button-group--right, .button-group--end {
+    margin-inline-start: auto;
+}
+
+.button-group--center {
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+
+    .sd-navbtn {
+        border-inline-width: 0 1px;
+        &:first-child {
+            border-inline-width: 1px 1px;
         }
     }
-    &--vertical {
-        flex-grow: 1;
-        flex-direction: column;
-        align-items: stretch;
-        justify-content: center;
-    }
-    &--comfort {
-        gap: $sd-base-increment;
-    }
-    &--loose {
-        gap: $sd-base-increment * 2;
-    }
-    &--compact {
-        gap: $sd-base-increment * 0.5;
-    }
-    &--no-space {
-        gap: unset;
-    }
-    &--padded {
-        padding-inline-start: $sd-base-increment * 2;
-        padding-inline-end: $sd-base-increment * 2;
-    }
+}
+
+.button-group--vertical {
+    flex-grow: 1;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+}
+
+.button-group--comfort {
+    gap: $sd-base-increment;
+}
+
+.button-group--loose {
+    gap: $sd-base-increment * 2;
+}
+
+.button-group--compact {
+    gap: $sd-base-increment * 0.5;
+}
+
+.button-group--no-space {
+    gap: unset;
+}
+
+.button-group--padded {
+    padding-inline-start: $sd-base-increment * 2;
+    padding-inline-end: $sd-base-increment * 2;
 }
 
 .button-group__divider {
     width: 1px;
     height: $sd-base-increment * 3;
-    &--mini {
-        padding: 0 !important;
-        width: 0;
-        border: none !important;
-    }
-    &--small {
-        @include sd-margin('0-5', 'x');
-    }
-    &--medium {
-        @include sd-margin('1', 'x');
-    }
-    &--large {
-        @include sd-margin('1-5', 'x');
-    }
-    &--border {
-        border-left: 1px dotted var(--sd-colour-line--strong);
-    }
+}
+
+.button-group__divider--mini {
+    padding: 0 !important;
+    width: 0;
+    border: none !important;
+}
+
+.button-group__divider--small {
+    @include sd-margin('0-5', 'x');
+}
+
+.button-group__divider--medium {
+    @include sd-margin('1', 'x');
+}
+
+.button-group__divider--large {
+    @include sd-margin('1-5', 'x');
+}
+
+.button-group__divider--border {
+    border-left: 1px dotted var(--sd-colour-line--strong);
 }
 
 .button-group--vertical {
@@ -579,22 +655,27 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         height: 1px;
         width: auto;
         @include sd-margin('0', 'x');
-        &--border {
-            border-left: none;
-            border-top: 1px dotted var(--sd-colour-line--strong);
-        }
+
         &.button-group__divider--mini {
             @include sd-padding('1-5', 'top');
         }
+
         &.button-group__divider--small {
             @include sd-margin('0-5', 'y');
         }
+
         &.button-group__divider--medium {
             @include sd-margin('1', 'y');
         }
+
         &.button-group__divider--large {
             @include sd-margin('1-5', 'y');
         }
+    }
+
+    .button-group__divider--border {
+        border-left: none;
+        border-top: 1px dotted var(--sd-colour-line--strong);
     }
 }
 
@@ -612,6 +693,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     justify-content: center;
     border: 0px solid var(--sd-colour-line--x-light);
     border-inline-width: 1px 0;
+
     .circle {
         display: inline-block;
         text-align: center;
@@ -625,6 +707,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         position: relative;
         transition: all 0.2s ease;
     }
+
     &:hover {
         .circle {
             width: 3.4rem;
@@ -632,6 +715,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
             margin-inline-start: 0;
         }
     }
+
     &:active {
         .circle {
             width: 6.8rem;
@@ -641,6 +725,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
             transition: all 0.05s ease;
         }
     }
+
     i {
         position: absolute;
         z-index: 1;
@@ -678,16 +763,20 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     justify-content: center;
     z-index: 2;
 }
+
 .btn--loading {
     color: transparent;
     pointer-events: none;
 }
+
 .btn {
     &[data-loading="true"] {
         pointer-events: none;
+
         .sd-spinner {
             margin-inline-start: -0.3rem;
         }
+        
         &.btn--icon-only {
             .sd-spinner {
                 margin-inline-start: 0;

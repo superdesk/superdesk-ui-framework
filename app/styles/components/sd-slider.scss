@@ -2,7 +2,6 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
 
 .sd-slider__range, input[type="range"] {
     width: 100%;
-
     position: relative;
     height: 0.2rem;
     margin-top: 1.25rem;
@@ -32,6 +31,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
         &:hover {
             background-color: var(--sd-colour-interactive--darken-10);
         }
+
         &:active {
             transform: scale(1.4);
             cursor: -webkit-grabbing;
@@ -41,6 +41,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
 
     &:focus {
         box-shadow: 0 0 0 1px rgba(123, 123, 123, 0.3);
+
         &::-webkit-slider-thumb {
             background-color: var(--sd-colour-interactive--darken-10);
         }
@@ -79,6 +80,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     &:hover {
         background-color: var(--sd-colour-interactive--darken-10);
     }
+
     &:active, &--active {
         transform: scale(1.4);
         cursor: -webkit-grabbing;
@@ -99,6 +101,7 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     background-color: var(--sd-colour-interactive--alpha-30);
     opacity: 0;
     transition: $sd-slider-transition;
+    
     &:focus {
         transform: scale(1);
         opacity: 1;

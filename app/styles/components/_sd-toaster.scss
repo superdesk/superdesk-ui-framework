@@ -32,31 +32,37 @@ $toast-sizes: (
     overflow: hidden;
     padding: 0 20px 20px;
     pointer-events: none;
+
     &.sd-toast__container--top {
         top: $sd-toast-position-top;
         bottom: auto;
     }
+
     &.sd-toast__container--top-left {
         top: $sd-toast-position-top;
         bottom: auto;
         align-items: flex-start;
     }
+
     &.sd-toast__container--top-right {
         top: $sd-toast-position-top;
         bottom: auto;
         align-items: flex-end;
     }
+
     &.sd-toast__container--bottom {
         flex-direction: column-reverse;
         top: auto;
         bottom: 0;
     }
+
     &.sd-toast__container--bottom-left {
         flex-direction: column-reverse;
         top: auto;
         bottom: 0;
         align-items: flex-start;
     }
+
     &.sd-toast__container--bottom-right {
         flex-direction: column-reverse;
         top: auto;
@@ -64,37 +70,26 @@ $toast-sizes: (
         align-items: flex-end;
     }
 }
+
 .sd-toast {
+    @include sd-padding('1-5');
 	display: flex;
 	align-items: flex-start;
 	position: relative!important;
     margin: 2rem 0 0;
-    @include sd-padding('1-5');
     border-radius: $border-radius__base--medium;
     overflow: hidden;
 	box-shadow: $sd-toast-shadow;
 	background-color: $sd-toast-colour-bg;
 	min-width: $sd-toast-min-width;
     max-width: $sd-toast-max-width;
-    pointer-events: all; 
-    &--appear,
-    &--enter {
-        transform: translateY(-40px); 
-        height: 0px;  
-    }
-    &--appear-active,
-    &--enter-active {
-        transform: translateY(0);
-        transition-property: transform, height;
-        transition-duration:.3s;
-        transition-timing-function: cubic-bezier(.54, 1.12, .38, 1.11);
-        transition-delay: 0;
-        -webkit-transition-delay: 0;
-    }
+    pointer-events: all;
+
     &.sd-toast--appear ~ .sd-toast,
     &.sd-toast--enter ~ .sd-toast {
         transform: translateY(-40px);
     }
+
     .sd-toast__icon {
         [class^="icon-"] {
             color: inherit;
@@ -102,22 +97,11 @@ $toast-sizes: (
             margin: 0.6rem 0.4rem 0.6rem 0.6rem;
         }
     }
-    &--exit {
-        opacity: 1;
-        -webkit-filter: blur(0);
-        filter: blur(0);
-    }
-    &--exit-active {
-        opacity: 0;
-        filter: blur(10px);
-        transition-property: opacity, filter;
-        transition-duration: .3s;
-        transition-timing-function: cubic-bezier(.4, 1, .75, .9);
-        transition-delay: 0;
-    }
+
     &.sd-toast--exit ~ .sd-toast {
         transform: translateY(0);
     }
+
     &.sd-toast--exit-active ~ .sd-toast {
         transform: translateY(-40px);
         transition-property: transform;
@@ -137,6 +121,7 @@ $toast-sizes: (
                 left: 0px;
                 background-color: $color;
             }
+
             .sd-toast__icon {
                 color: $color;
             }
@@ -149,27 +134,61 @@ $toast-sizes: (
     }
 }
 
+.sd-toast--appear,
+.sd-toast--enter {
+    transform: translateY(-40px); 
+    height: 0px;  
+}
+
+.sd-toast--appear-active,
+.sd-toast--enter-active {
+    transform: translateY(0);
+    transition-property: transform, height;
+    transition-duration:.3s;
+    transition-timing-function: cubic-bezier(.54, 1.12, .38, 1.11);
+    transition-delay: 0;
+    -webkit-transition-delay: 0;
+}
+
+.sd-toast--exit {
+    opacity: 1;
+    -webkit-filter: blur(0);
+    filter: blur(0);
+}
+
+.sd-toast--exit-active {
+    opacity: 0;
+    filter: blur(10px);
+    transition-property: opacity, filter;
+    transition-duration: .3s;
+    transition-timing-function: cubic-bezier(.4, 1, .75, .9);
+    transition-delay: 0;
+}
+
 .sd-toast__message {
     flex: 1 1 auto;
     padding: 0.4rem 1.2rem 0.4rem 1.2rem;
     font-size: 1.4rem;
     line-height: 150%;
     color: $sd-toast-colour-text;
+
     p + p {
         margin-top: 0.8rem;
-
     }
 }
+
 .sd-toast__message-header {
     display: flex;
     flex-direction: row;
     margin-bottom: 0.2rem;
     color: $sd-text;
+
     time {
         font-size: 1.2rem;
         color: $sd-toast-colour-text;
         margin-right: 0.2rem;
     }
+
     .sd-toast__heading {
         flex-grow: 1;   
     }
@@ -179,14 +198,17 @@ $toast-sizes: (
     font-size: inherit;
     font-weight: 600;
 }
+
 .sd-toast__actions {
     flex: 0 0 auto;
     opacity: 0.4;
     margin: -0.2rem -0.4rem 0 0;
 }
+
 .sd-toast__icon {
     flex: 0 0 auto;
 }
+
 .sd-toast__avatar {
     flex: 0 0 auto;
     margin: 0.6rem 0.4rem 0.6rem 0.6rem;

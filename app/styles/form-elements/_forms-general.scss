@@ -1,336 +1,396 @@
 .form__row {
-    width:100%;
-    padding-bottom: 2rem;
-    &--flex {
-        display: flex;
-        align-items: baseline;
-    }
-    &--no-padding {
-        padding-bottom: 0;
-    }
-    &--small-padding, &--s-padding {
-        padding-bottom: 0.8rem;
-    }
-    &--l-padding {
-        padding-bottom: 3rem;
-    }
-    &--xl-padding {
-        padding-bottom: 4rem;
-    }
-    &--inner {
-        padding-bottom: 0;
-        padding-top: 1rem;
-    }
-    &--bordered {
-        padding: 1rem 0;
-        border-bottom: 1px solid rgba(123, 123, 123, 0.3);
-        &:first-child, &:only-child {
-            border-top: 1px solid rgba(123, 123, 123, 0.3);
-        }
-    }
-    &--flex-NEW {
-        display: flex;
-        align-items: baseline;
-    }
+	width: 100%;
+	padding-bottom: 2rem;
 }
 
 .form__row--flex {
-    // behavior for simple inline form inputs
-    .sd-line-input {
-        flex-grow: 1;
-    }
-    .sd-line-input + .btn {
-        flex-grow: 0;
-        vertical-align: bottom;
-        margin: 0 0 0 1.2rem;
-    }
-    .sd-line-input + .sd-line-input{
-        margin-left: 1.2rem;
-    }
-    // For more complex inline form combinations an additional element that goes inside .form__row--flex container is provided.
-    .form__row-item {
-        flex-basis: 0;
-        flex-grow: 1;
-        margin: 0 0.6rem;
-        &:first-child {
-            margin-left: 0;
-        }
-        &:last-child {
-            margin-right: 0;
-        }
-        &:only-child {
-            margin: 0;
-        }
-        &--no-grow {
-            flex-basis: auto;
-            flex-grow: 0;
-        }
-    }
+	display: flex;
+	align-items: baseline;
+}
+
+.form__row--no-padding {
+	padding-bottom: 0;
+}
+
+.form__row--small-padding,
+.form__row--s-padding {
+	padding-bottom: 0.8rem;
+}
+
+.form__row--l-padding {
+	padding-bottom: 3rem;
+}
+
+.form__row--xl-padding {
+	padding-bottom: 4rem;
+}
+
+.form__row--inner {
+	padding-bottom: 0;
+	padding-top: 1rem;
+}
+
+.form__row--bordered {
+	padding: 1rem 0;
+	border-bottom: 1px solid rgba(123, 123, 123, 0.3);
+
+	&:first-child,
+	&:only-child {
+		border-top: 1px solid rgba(123, 123, 123, 0.3);
+	}
+}
+
+.form__row--flex-NEW {
+	display: flex;
+	align-items: baseline;
+}
+
+.form__row--flex {
+	// behavior for simple inline form inputs
+	.sd-line-input {
+		flex-grow: 1;
+	}
+
+	.sd-line-input+.btn {
+		flex-grow: 0;
+		vertical-align: bottom;
+		margin: 0 0 0 1.2rem;
+	}
+
+	.sd-line-input+.sd-line-input {
+		margin-left: 1.2rem;
+	}
+
+	// For more complex inline form combinations an additional element that goes inside .form__row--flex container is provided.
+	.form__row-item {
+		flex-basis: 0;
+		flex-grow: 1;
+		margin: 0 0.6rem;
+
+		&:first-child {
+			margin-left: 0;
+		}
+
+		&:last-child {
+			margin-right: 0;
+		}
+
+		&:only-child {
+			margin: 0;
+		}
+	}
+
+	.form__row-item--no-grow {
+		flex-basis: auto;
+		flex-grow: 0;
+	}
 }
 
 .form__row,
 .form__row-item {
-    label {
-        vertical-align: middle;
-        line-height: 1;
-        margin-right: 0.6rem;
-         @include transition(color, 0.15s, ease-in);
-         &.form__row-label.form-label {
-             display: block;
-             width: 100%;
-             margin-bottom: 1rem;
-             margin-right: 0;
-         }
-    }
+	label {
+		vertical-align: middle;
+		line-height: 1;
+		margin-right: 0.6rem;
+		@include transition(color, 0.15s, ease-in);
+
+		&.form__row-label.form-label {
+			display: block;
+			width: 100%;
+			margin-bottom: 1rem;
+			margin-right: 0;
+		}
+	}
 }
+
 .label--active {
-    color: var(--sd-colour-interactive--darken-10);
+	color: var(--sd-colour-interactive--darken-10);
 }
 
 .form__block {
-    display: block;
-    margin-bottom: 1rem;
-    padding: 2rem;
-    border-radius: $border-radius__base--x-small;
-    box-shadow: 0 0 0 1px rgba(0,0,0,0.1), 0 1px 4px 0 rgba(0,0,0,0.2);
+	display: block;
+	margin-bottom: 1rem;
+	padding: 2rem;
+	border-radius: $border-radius__base--x-small;
+	box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 1px 4px 0 rgba(0, 0, 0, 0.2);
 }
+
 .form__heading {
-    font-size: 1.6rem;
-    padding-bottom: 1.2rem;
-    line-height: 120%;
+	font-size: 1.6rem;
+	padding-bottom: 1.2rem;
+	line-height: 120%;
 }
+
+
 
 /// ---------------------------- NEW FORM LAYOUT ---------------------------- ///
 
-
-
 .form__group {
-    display: flex;
-    flex-direction: row;
-    width:100%;
-    align-items: flex-start;
-    gap: $sd-base-increment * 2;
-    &--condensed {
-        gap: $sd-base-increment;
-    }
-    &--relaxed {
-        gap: $sd-base-increment * 3;
-    }
-    .form__item {
-        margin-bottom: $sd-base-increment * 2;
-    }
-    &--mb-0 {
-        .form__item {
-            margin-bottom: 0;
-        }
-    }
-    &--mb-1 {
-        .form__item {
-            margin-bottom: $sd-base-increment;
-        }
-    }
-    &--mb-2 {
-        .form__item {
-            margin-bottom: $sd-base-increment * 2;
-        }
-    }
-    &--mb-3 {
-        .form__item {
-            margin-bottom: $sd-base-increment * 3;
-        }
-    }
-    &--mb-4 {
-        .form__item {
-            margin-bottom: $sd-base-increment * 4;
-        }
-    }
-    &--rows, 
-    &--vertical {
-        flex-direction: column;
-        align-items: stretch;
-        .form__item {
-            margin-bottom: 0 !important;
-        }
-        &.form__group--mb-0 {
-            margin-bottom: 0;
-            
-        }
-        &.form__group--mb-1 {
-            margin-bottom: $sd-base-increment;
-            
-        }
-        &.form__group--mb-2 {
-            margin-bottom: $sd-base-increment * 2;
-            
-        }
-        &.form__group--mb-3 {
-            margin-bottom: $sd-base-increment * 3;
-            
-        }
-        &.form__group--mb-4 {
-            margin-bottom: $sd-base-increment * 4;
-        }
-    }
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: flex-start;
+	gap: $sd-base-increment * 2;
+
+	.form__item {
+		margin-bottom: $sd-base-increment * 2;
+	}
+}
+
+.form__group--condensed {
+	gap: $sd-base-increment;
+}
+
+.form__group--relaxed {
+	gap: $sd-base-increment * 3;
+}
+
+.form__group--mb-0 {
+	.form__item {
+		margin-bottom: 0;
+	}
+}
+
+.form__group--mb-1 {
+	.form__item {
+		margin-bottom: $sd-base-increment;
+	}
+}
+
+.form__group--mb-2 {
+	.form__item {
+		margin-bottom: $sd-base-increment * 2;
+	}
+}
+
+.form__group--mb-3 {
+	.form__item {
+		margin-bottom: $sd-base-increment * 3;
+	}
+}
+
+.form__group--mb-4 {
+	.form__item {
+		margin-bottom: $sd-base-increment * 4;
+	}
+}
+
+.form__group--rows,
+.form__group--vertical {
+	flex-direction: column;
+	align-items: stretch;
+
+	.form__item {
+		margin-bottom: 0 !important;
+	}
+
+	&.form__group--mb-0 {
+		margin-bottom: 0;
+
+	}
+
+	&.form__group--mb-1 {
+		margin-bottom: $sd-base-increment;
+
+	}
+
+	&.form__group--mb-2 {
+		margin-bottom: $sd-base-increment * 2;
+
+	}
+
+	&.form__group--mb-3 {
+		margin-bottom: $sd-base-increment * 3;
+
+	}
+
+	&.form__group--mb-4 {
+		margin-bottom: $sd-base-increment * 4;
+	}
 }
 
 .form__header {
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
+	margin-bottom: 1rem;
+	font-size: 1.6rem;
 }
 
 .form__label {
-    margin-bottom: 0.8rem;
+	margin-bottom: 0.8rem;
 }
 
 .form__item {
-    flex: 1 1 0;
-    min-width: 12rem;
-    margin: 0;
-    &--auto-width {
-        flex-grow: 0;
-        min-width: 0;
-        flex-basis: auto;
-    }
+	flex: 1 1 0;
+	min-width: 12rem;
+	margin: 0;
+}
+
+.form__item--auto-width {
+	flex-grow: 0;
+	min-width: 0;
+	flex-basis: auto;
 }
 
 .form__text-block {
-    min-height: $form-input-height;
-    margin-top: $form-label-height;
-    color: inherit;
-    font-size: 1.3rem;
-    display: inline-flex;
-    align-items: center;
+	min-height: $form-input-height;
+	margin-top: $form-label-height;
+	color: inherit;
+	font-size: 1.3rem;
+	display: inline-flex;
+	align-items: center;
 }
+
 .form__item.form__item--auto-width {
-    .btn,
-    .icn-btn {
-        margin-top: $form-label-height;
-    }
+
+	.btn,
+	.icn-btn {
+		margin-top: $form-label-height;
+	}
 }
 
 .form__group.form__group--inline-label {
-    .sd-input {
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto auto auto;
-        .sd-input__label {
-            grid-row: 2/3;
-            grid-column: 1/2;
-            padding-inline-end: 1rem;
-            padding-inline-start: 0;
-            padding-block-start: 0.4rem;
-            padding-block-end: 0;
-            position: relative;
-            max-width: 260px;
-            min-width: 100px;
-            text-align: end;
-            position: relative;
-            align-self: center;
-            line-height: 1.2;
-            &.a11y-only {
-                font-size: 0.01px !important;
-                height: 0;
-                width: 0;
-                min-width: 0;
-                overflow: hidden;
-                padding: 0 !important;
-                margin: 0 !important;
-                opacity: 0 !important;
-            }
-        }
-    }
-    .form__text-block {
-        margin-top: 0;
-    }
-    .form__item.form__item--auto-width {
-        .btn,
-        .icn-btn {
-            margin-top: 0;
-        }
-    }
+	.sd-input {
+		grid-template-columns: auto 1fr auto;
+		grid-template-rows: auto auto auto;
+
+		.sd-input__label {
+			grid-row: 2/3;
+			grid-column: 1/2;
+			padding-inline-end: 1rem;
+			padding-inline-start: 0;
+			padding-block-start: 0.4rem;
+			padding-block-end: 0;
+			position: relative;
+			max-width: 260px;
+			min-width: 100px;
+			text-align: end;
+			position: relative;
+			align-self: center;
+			line-height: 1.2;
+
+			&.a11y-only {
+				font-size: 0.01px !important;
+				height: 0;
+				width: 0;
+				min-width: 0;
+				overflow: hidden;
+				padding: 0 !important;
+				margin: 0 !important;
+				opacity: 0 !important;
+			}
+		}
+	}
+
+	.form__text-block {
+		margin-top: 0;
+	}
+
+	.form__item.form__item--auto-width {
+
+		.btn,
+		.icn-btn {
+			margin-top: 0;
+		}
+	}
 }
 
 .sd-form-element {
-    background-color: var(--color-form-bg);
-    color: var(--color-text);
+	background-color: var(--color-form-bg);
+	color: var(--color-text);
 }
+
+
 
 /// ---------------------------- NEW FORM LAYOUT TEST---------------------------- ///
 
 .form__group-new {
-    display: flex;
-    flex-direction: row;
-    width:100%;
-    align-items: flex-start;
-    gap: $sd-base-increment * 2;
-    .sd-input {
-        flex: 1 1 0;
-        min-width: 12rem;
-        margin: 0;
-        align-self: flex-start;
-    }
-    .btn,
-    .icn-btn {
-        flex: 0 0 auto;
-        margin-top: $form-label-height;
-    }
-    .sd-text {
-        min-height: $form-input-height;
-        margin-block-start: $form-label-height;
-        line-height: $form-input-height;
-    }
-    &--condensed {
-        gap: $sd-base-increment;
-    }
-    &--relaxed {
-        gap: $sd-base-increment * 3;
-    }
-    &--mb-0 {
-        margin-bottom: 0;
-    }
-    &--mb-1 {
-        margin-bottom: $sd-base-increment;
-    }
-    &--mb-2 {
-        margin-bottom: $sd-base-increment * 2;
-    }
-    &--mb-3 {
-        margin-bottom: $sd-base-increment * 3;
-    }
-    &--mb-4 {
-        margin-bottom: $sd-base-increment * 4;
-    }
-    &--inline-labels {
-        .btn,
-        .icn-btn,
-        .sd-text {
-            margin-top: 0;
-        }
-    }
-    &--inline-labels {
-        .btn,
-        .icn-btn,
-        .sd-text {
-            margin-top: 0;
-        }
-    }
+	display: flex;
+	flex-direction: row;
+	width: 100%;
+	align-items: flex-start;
+	gap: $sd-base-increment * 2;
 
+	.sd-input {
+		flex: 1 1 0;
+		min-width: 12rem;
+		margin: 0;
+		align-self: flex-start;
+	}
+
+	.btn,
+	.icn-btn {
+		flex: 0 0 auto;
+		margin-top: $form-label-height;
+	}
+
+	.sd-text {
+		min-height: $form-input-height;
+		margin-block-start: $form-label-height;
+		line-height: $form-input-height;
+	}
+}
+
+.form__group-new--condensed {
+	gap: $sd-base-increment;
+}
+
+.form__group-new--relaxed {
+	gap: $sd-base-increment * 3;
+}
+
+.form__group-new--mb-0 {
+	margin-bottom: 0;
+}
+
+.form__group-new--mb-1 {
+	margin-bottom: $sd-base-increment;
+}
+
+.form__group-new--mb-2 {
+	margin-bottom: $sd-base-increment * 2;
+}
+
+.form__group-new--mb-3 {
+	margin-bottom: $sd-base-increment * 3;
+}
+
+.form__group-new--mb-4 {
+	margin-bottom: $sd-base-increment * 4;
+}
+
+.form__group-new--inline-labels {
+
+	.btn,
+	.icn-btn,
+	.sd-text {
+		margin-top: 0;
+	}
+}
+
+.form__group-new--inline-labels {
+
+	.btn,
+	.icn-btn,
+	.sd-text {
+		margin-top: 0;
+	}
 }
 
 .form__group-new__wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    .form__group-new__label {
-        flex: 0 0 auto;
-        min-height: $form-label-height + 0.4rem;
-        display: inline-block;
-        font-size: 1.6rem;
-        margin: 0;
-        margin-bottom: $sd-base-increment * 1.5;
-        line-height: 1;
-        color: var(--color-label-text);
-        //text-transform: uppercase;
-        font-weight: 500;
-        letter-spacing: 0.02em;
-    }
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+
+	.form__group-new__label {
+		flex: 0 0 auto;
+		min-height: $form-label-height + 0.4rem;
+		display: inline-block;
+		font-size: 1.6rem;
+		margin: 0;
+		margin-bottom: $sd-base-increment * 1.5;
+		line-height: 1;
+		color: var(--color-label-text);
+		//text-transform: uppercase;
+		font-weight: 500;
+		letter-spacing: 0.02em;
+	}
 }

@@ -9,15 +9,19 @@
 .clearfix {
     @include clearfix();
 }
+
 .no-padding {
     padding: 0 !important;
 }
+
 .no-margin {
     margin: 0 !important;
 }
+
 .no-border {
     border: 0 !important;
 }
+
 .no-line-height {
     line-height: 0 !important;
 }
@@ -27,25 +31,26 @@
 }
 
 // DISPLAY HELPERS
-// --------------------------------------------------
 // Use classes with the form '.sd-display-- ', others will be deprecated
-
 .sd-display--none {
     display: none !important;
 }
+
 .sd-display--inline {
     display: inline !important;
 }
+
 .sd-display--inline-block {
     display: inline-block !important;
 }
+
 .sd-display--block {
     display: block !important;
 }
 
 // Browser ignores this element from the flow. 
 // Use it to wrap other elements without breaking the layout (e.g. flex or grid)
-.sd-display--contents { 
+.sd-display--contents {
     display: contents !important;
 }
 
@@ -53,125 +58,157 @@
 .sd-display--table {
     display: table;
 }
+
 .sd-display--table-cell {
     display: table-cell;
 }
+
 .sd-display--table-row {
     display: table-row;
 }
+
 .sd-display--table-column {
     display: table-column;
 }
+
 .sd-display--table-column-group {
     display: table-column-group;
 }
+
 .sd-display--table-row-group {
     display: table-row-group;
 }
+
 .sd-display--table-footer-group {
     display: table-footer-group;
 }
+
 .sd-display--table-header-group {
     display: table-header-group;
 }
+
 .sd-display--table-caption {
     display: table-caption;
 }
 
-
 .sd-display--inline-flex {
     display: inline-flex !important;
 }
+
 .sd-display--flex {
     display: flex !important;
 }
 
-
 // FLEXBOX PROPERTIES
-
 // Flex direction
 .sd-flex--direction-row {
     flex-direction: row !important;
 }
+
 .sd-flex--direction-col {
     flex-direction: column !important;
 }
+
 .sd-flex--direction-row-reverse {
     flex-direction: row-reverse !important;
 }
+
 .sd-flex--direction-col-reverse {
     flex-direction: column-reverse !important;
 }
+
 // Flex wrap
 .sd-flex--wrap {
     flex-wrap: wrap;
 }
+
 .sd-flex--wrap-reverse {
     flex-wrap: wrap-reverse;
 }
+
 .sd-flex--nowrap {
     flex-wrap: nowrap;
 }
+
 // Flex flex
 .sd-flex--flex-1 {
     flex: 1 1 0%;
 }
+
 .sd-flex--flex-1 {
     flex: 1 1 0%;
 }
+
 .sd-flex--flex-auto {
     flex: 1 1 auto;
 }
+
 .sd-flex--flex-initial {
     flex: 0 1 auto;
 }
+
 .sd-flex--flex-none {
     flex: none;
 }
+
 // Flex shrink & grow
 .sd-flex--shrink {
     flex-shrink: 1 !important;
 }
+
 .sd-flex--shrink-0 {
     flex-shrink: 0 !important;
 }
+
 .sd-flex--grow {
     flex-grow: 1 !important;
 }
+
 .sd-flex--grow-0 {
     flex-grow: 0 !important;
 }
+
 // Flex alignment
 .sd-flex--justify-start {
     justify-content: flex-start !important;
 }
+
 .sd-flex--justify-end {
     justify-content: flex-end !important;
 }
+
 .sd-flex--justify-center {
     justify-content: center !important;
 }
+
 .sd-flex--justify-between {
     justify-content: space-between !important;
 }
+
 .sd-flex--justify-around {
     justify-content: space-around !important;
 }
+
 .sd-flex--justify-evenly {
     justify-content: space-evenly !important;
 }
+
 .sd-flex--items-start {
     align-items: flex-start !important;
 }
+
 .sd-flex--items-end {
     align-items: flex-end !important;
 }
+
 .sd-flex--items-center {
     align-items: center !important;
 }
+
 .sd-flex--items-baseline {
     align-items: baseline !important;
 }
+
 .sd-flex--items-stretch {
     align-items: stretch !important;
 }
@@ -182,131 +219,152 @@
 }
 
 // POSITION HELPERS
-// --------------------------------------------------
 .sd-position--static {
     position: static;
 }
+
 .sd-position--fixed {
     position: fixed;
 }
+
 .sd-position--relative {
     position: relative;
 }
+
 .sd-position--absolute {
     position: absolute;
 }
+
 .sd-position--sticky {
     position: sticky;
 }
 
 // OVERFLOW HELPERS
-// --------------------------------------------------
-
 .sd-overflow--auto {
     overflow: auto !important;
 }
+
 .sd-overflow--hidden {
     overflow: hidden !important;
 }
+
 .sd-overflow--visible {
     overflow: visible !important;
 }
+
 .sd-overflow--scroll {
     overflow: scroll !important;
 }
+
 .sd-overflow--x-auto {
     overflow-x: auto !important;
 }
+
 .sd-overflow--y-auto {
     overflow-y: auto !important;
 }
+
 .sd-overflow--x-hidden {
     overflow-x: hidden !important;
 }
+
 .sd-overflow--y-hidden {
     overflow-y: hidden !important;
 }
+
 .sd-overflow--x-visible {
     overflow-x: visible !important;
 }
+
 .sd-overflow--y-visible {
     overflow-y: visible !important;
 }
+
 .sd-overflow--x-scroll {
     overflow-x: scroll !important;
 }
+
 .sd-overflow--y-scroll {
     overflow-y: scroll !important;
 }
 
 // Text overflow
-.sd-overflow-ellipsis, .sd-overflow--ellipsis {
+.sd-overflow-ellipsis,
+.sd-overflow--ellipsis {
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
 }
 
 // OBJECT FIT HELPERS
-// --------------------------------------------------
-
 .sd-object-fit--contain {
     object-fit: contain;
 }
+
 .sd-object-fit--cover {
     object-fit: cover;
 }
+
 .sd-object-fit--fill {
     object-fit: fill;
 }
+
 .sd-object-fit--none {
     object-fit: none;
 }
+
 .sd-object-fit--scale-down {
     object-fit: scale-down;
 }
 
 // OBJECT POSITION HELPERS
-// --------------------------------------------------
 // Defines the positin of any selected replaced element (e.g., an <img>)
 // within the box that contains it. For it to work it must be used with 'sd-object-fit--none' (object-fit: none;)
 
 .sd-object-position--bottom {
     object-position: bottom;
 }
+
 .sd-object-position--center {
     object-position: center;
 }
+
 .sd-object-position--left {
     object-position: left;
 }
+
 .sd-object-position--left-bottom {
     object-position: left bottom;
 }
+
 .sd-object-position--left-top {
     object-position: left top;
 }
+
 .sd-object-position--right {
     object-position: right;
 }
+
 .sd-object-position--right-bottom {
     object-position: right bottom;
 }
+
 .sd-object-position--right-top {
     object-position: right top;
 }
+
 .sd-object-position--top {
     object-position: top;
 }
 
 // SHADOW HELPER CLASSES
-// --------------------------------------------------
 
 $sd-shadowProperties: (
     'z0': (none),
-    'z1': (0 1px 3px rgba(0,0,0,.16), 0 0 1px rgba(0,0,0,.1)),
-    'z2': (0 1px 4px rgba(0,0,0,.16), 0 2px 6px rgba(0,0,0,.12), 0 0 1px rgba(0,0,0,.1)),
-    'z3': (0 1px 6px rgba(0,0,0,.16), 0 3px 8px rgba(0,0,0,.24), 0 0 1px rgba(0,0,0,.1)),
-    'z4': (0 2px 10px rgba(0,0,0,.2), 0 6px 16px rgba(0,0,0,.3), 0 0 1px rgba(0,0,0,.1)),
+    'z1': (0 1px 3px rgba(0, 0, 0, .16), 0 0 1px rgba(0, 0, 0, .1)),
+    'z2': (0 1px 4px rgba(0, 0, 0, .16), 0 2px 6px rgba(0, 0, 0, .12), 0 0 1px rgba(0, 0, 0, .1)),
+    'z3': (0 1px 6px rgba(0, 0, 0, .16), 0 3px 8px rgba(0, 0, 0, .24), 0 0 1px rgba(0, 0, 0, .1)),
+    'z4': (0 2px 10px rgba(0, 0, 0, .2), 0 6px 16px rgba(0, 0, 0, .3), 0 0 1px rgba(0, 0, 0, .1)),
 );
 // Add more shadow items with this syntax and new classes will be generated:
 // z5: (0 2px 10px rgba(0,0,0,.2), ... ),
@@ -315,13 +373,15 @@ $sd-shadowProperties: (
 
 @mixin shadowMixinExtend {
     transition: box-shadow 0.3s ease-out;
+
     &.btn:active {
         box-shadow: none !important;
         transition: box-shadow 0.4s ease-out;
     }
 }
 
-@each $name, $value in $sd-shadowProperties {
+@each $name,
+$value in $sd-shadowProperties {
     .sd-shadow--#{$name} {
         box-shadow: #{$value} !important;
         @include shadowMixinExtend;
@@ -348,7 +408,6 @@ $sd-shadowProperties: (
 
 
 // WEBKIT SCROLL
-// --------------------------------------------------
 
 ::-webkit-scrollbar {
     width: 8px;
@@ -357,6 +416,7 @@ $sd-shadowProperties: (
     position: fixed;
     right: 10px;
 }
+
 ::-webkit-scrollbar:hover {
     background-color: var(--sd-colour__webkit-scrollbar--hover);
     cursor: pointer;
@@ -365,28 +425,28 @@ $sd-shadowProperties: (
 ::-webkit-scrollbar-thumb {
     background: var(--sd-colour__webkit-scrollbar-thumb);
 }
+
 ::-webkit-scrollbar-thumb:hover {
     background: var(--sd-colour__webkit-scrollbar-thumb--hover);
     cursor: pointer;
 }
 
 // HEADINGS 
-// --------------------------------------------------
-
 .sd-heading-3 {
     font-size: 1.6rem;
-    margin-bottom: 1.6rem; 
+    margin-bottom: 1.6rem;
 }
 
 // Deafult text syles based on type of data  
-// --------------------------------------------------
 p strong {
     font-weight: 500;
 }
+
 time {
     color: $sd-text-light;
     font-weight: 400;
     letter-spacing: .025em;
+
     &.small {
         font-size: calc(100% - 0.1rem);
     }
@@ -407,39 +467,50 @@ time {
 //     }
 // }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     margin: 0;
-}
-.sd-heading {
-    margin: 0;
-    &--h1 {
-        font-size: calc(var(--text-size--base) * 2.4);
-        font-weight: 400;
-    }
-    &--h2 {
-        font-size: calc(var(--text-size--base) * 2);
-        font-weight: 500;
-    }
-    &--h3 {
-        font-size: calc(var(--text-size--base) * 1.6);
-        font-weight: 400;
-    }
-    &--h4 {
-        font-size: calc(var(--text-size--base) * 1.5);
-        font-weight: 500;
-    }
-    &--h5 {
-        font-size: calc(var(--text-size--base) * 1.4);
-        font-weight: 500;
-    }
-    &--h6 {
-        font-size: calc(var(--text-size--base) * 1.2);
-        font-weight: 500;
-        text-transform: uppercase;
-        color: $sd-text-light;
-    }
 }
 
+.sd-heading {
+    margin: 0;
+}
+
+.sd-heading--h1 {
+    font-size: calc(var(--text-size--base) * 2.4);
+    font-weight: 400;
+}
+
+.sd-heading--h2 {
+    font-size: calc(var(--text-size--base) * 2);
+    font-weight: 500;
+}
+
+.sd-heading--h3 {
+    font-size: calc(var(--text-size--base) * 1.6);
+    font-weight: 400;
+}
+
+.sd-heading--h4 {
+    font-size: calc(var(--text-size--base) * 1.5);
+    font-weight: 500;
+}
+
+.sd-heading--h5 {
+    font-size: calc(var(--text-size--base) * 1.4);
+    font-weight: 500;
+}
+
+.sd-heading--h6 {
+    font-size: calc(var(--text-size--base) * 1.2);
+    font-weight: 500;
+    text-transform: uppercase;
+    color: $sd-text-light;
+}
 
 .sd-text {
     font-size: 1.4rem;
@@ -459,103 +530,131 @@ h1, h2, h3, h4, h5, h6 {
 .sd-text--light {
     font-weight: 300;
 }
+
 .sd-text__normal,
 .sd-text--normal {
     font-weight: 400;
 }
-.sd-text--medium  {
+
+.sd-text--medium {
     font-weight: 500;
 }
+
 .sd-text__strong,
-.sd-text--strong  {
+.sd-text--strong {
     font-weight: 700;
 }
-.sd-text--bold  {
+
+.sd-text--bold {
     font-weight: 700;
 }
+
 // Font style
 .sd-text__italic,
 .sd-text--italic {
     font-style: italic;
 }
+
 .sd-text--non-italic {
     font-style: normal;
 }
+
 // Text alignment
 .sd-text-align--left,
 .sd-text-align--start {
     text-align: start;
 }
+
 .sd-text__center,
 .sd-text-align--center {
     text-align: center;
 }
+
 .sd-text__right,
 .sd-text-align--right,
 .sd-text-align--end {
     text-align: end;
 }
+
 .sd-text-align--justify {
     text-align: justify;
 }
+
 // Font family
 .sd-text__serif,
-.sd-text--serif  {
+.sd-text--serif {
     font-family: $baseFontFamilySerif;
 }
-.sd-text--sans  {
+
+.sd-text--sans {
     font-family: $baseFontFamily;
 }
-.sd-text--mono  {
+
+.sd-text--mono {
     font-family: $baseFontFamilyMono;
 }
+
 // Word Break
 .sd-word-break--normal {
     overflow-wrap: normal;
     word-break: normal;
 }
+
 .sd-word-break--words {
     overflow-wrap: break-word;
 }
+
 .sd-word-break--all {
     word-break: break-all;
 }
+
 // Whitespace
 .sd-whitespace--normal {
     white-space: normal;
 }
+
 .sd-whitespace--nowrap {
     white-space: nowrap;
 }
+
 .sd-whitespace--pre {
     white-space: pre;
 }
+
 .sd-whitespace--pre-line {
     white-space: pre-line;
 }
+
 .sd-whitespace--pre-wrap {
     white-space: pre-wrap;
 }
+
 // Text Transform
 .sd-txt-transform--uppercase {
     text-transform: uppercase;
 }
+
 .sd-txt-transform--lowercase {
     text-transform: lowercase;
 }
+
 .sd-txt-transform--capitalize {
     text-transform: capitalize;
 }
+
 .sd-txt-transform--none {
     text-transform: none;
 }
+
 // Text Decoration
 .sd-txt-decoration--underline {
     text-decoration: underline;
 }
+
 .sd-txt-decoration--line-through {
     text-decoration: line-through;
 }
+
 .sd-txt-decoration--none {
     text-decoration: none;
 }
@@ -568,30 +667,37 @@ h1, h2, h3, h4, h5, h6 {
     display: -webkit-box;
     -webkit-box-orient: vertical;
 }
+
 .sd-line-clamp--1 {
     @include line-clamp-base;
     -webkit-line-clamp: 1;
 }
+
 .sd-line-clamp--2 {
     @include line-clamp-base;
     -webkit-line-clamp: 2;
 }
+
 .sd-line-clamp--3 {
     @include line-clamp-base;
     -webkit-line-clamp: 3;
 }
+
 .sd-line-clamp--4 {
     @include line-clamp-base;
     -webkit-line-clamp: 4;
 }
+
 .sd-line-clamp--5 {
     @include line-clamp-base;
     -webkit-line-clamp: 5;
 }
+
 .sd-line-clamp--6 {
     @include line-clamp-base;
     -webkit-line-clamp: 6;
 }
+
 .sd-line-clamp--none {
     -webkit-line-clamp: unset;
 }
@@ -604,6 +710,7 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     margin-right: 1rem;
 }
+
 .sd-text__title {
     color: inherit;
     font-weight: 500;
@@ -615,13 +722,16 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--color-text-light);
     font-weight: 400;
     letter-spacing: .025em;
-    &--small {
-        font-size: 1.2rem;
-    }
 }
+
+.sd-text__date-time--small {
+    font-size: 1.2rem;
+}
+
 .sd-text__date-and-author {
     font-size: 1.3rem;
 }
+
 .sd-text__author {
     font-weight: 500;
 }
@@ -633,106 +743,140 @@ h1, h2, h3, h4, h5, h6 {
 
 .sd-text-icon {
     display: inline-flex;
+
     i {
         margin-right: 0.3rem;
     }
 }
-.sd-text-icon + .sd-text-icon {
+
+.sd-text-icon+.sd-text-icon {
     margin-right: 1rem;
 }
-.sd-text-icon.sd-text-icon--aligned-r + .sd-text-icon.sd-text-icon--aligned-r {
+
+.sd-text-icon.sd-text-icon--aligned-r+.sd-text-icon.sd-text-icon--aligned-r {
     margin-right: 0;
     margin-left: 1rem;
 }
 
 // Opacity helpers
-// -------------------------------------------------
-
 .sd-opacity--20 {
     opacity: 0.2 !important;
 }
+
 .sd-opacity--25 {
     opacity: 0.25 !important;
 }
+
 .sd-opacity--30 {
     opacity: 0.3 !important;
 }
+
 .sd-opacity--40 {
     opacity: 0.4 !important;
 }
+
 .sd-opacity--50 {
     opacity: 0.5 !important;
 }
+
 .sd-opacity--60 {
     opacity: 0.6 !important;
 }
+
 .sd-opacity--75 {
     opacity: 0.75 !important;
 }
 
 
 // Margin auto
-// -------------------------------------------------
-
 .ml-auto,
 .sd-margin-l--auto,
 .sd-margin-s--auto {
     margin-inline-start: auto !important;
 }
+
 .mr-auto,
 .sd-margin-r--auto,
 .sd-margin-e--auto {
     margin-inline-end: auto !important;
 }
+
 .mt-auto,
 .sd-margin-t--auto {
     margin-top: auto !important;
 }
+
 .mb-auto,
 .sd-margin-b--auto {
     margin-bottom: auto !important;
 }
+
 .mlr-auto,
 .sd-margin-x--auto {
     margin-inline-start: auto !important;
     margin-inline-end: auto !important;
 }
+
 .sd-margin-y--auto {
     margin-top: auto !important;
     margin-bottom: auto !important;
 }
+
 .sd-margin--auto {
     margin: auto !important;
 }
 
 // Common margin overrides
-// -------------------------------------------------
-
 // $sd-base-increment - default size of the increment is 0.8rem;
 // For example: .sd-margin-t--1 {margin-top: 0.8rem}, .sd-padding-l--2 {padding-left: 1.6rem}
-$sd-increments: ('0': 0, '0-5': 0.5, '1': 1, '1-5': 1.5, '2': 2, '3': 3, '4' : 4, '5' : 5); // Number of increments, genarates new classes eg. .sd-padding-top--4, .sd-margin-top--4
-$sd-sides: (top, right, bottom, left, x, y); // It's generating these sides
-$sd-properties: (padding, margin); // It's generating these properties
+$sd-increments: (
+    '0': 0,
+    '0-5': 0.5,
+    '1': 1,
+    '1-5': 1.5,
+    '2': 2,
+    '3': 3,
+    '4' : 4,
+    '5' : 5
+); // Number of increments, genarates new classes eg. .sd-padding-top--4, .sd-margin-top--4
+$sd-sides: (
+    top,
+    right,
+    bottom,
+    left,
+    x,
+    y
+); // It's generating these sides
+$sd-properties: (
+    padding,
+    margin
+); // It's generating these properties
 
-@each $incrementName, $incrementValue in $sd-increments {
+@each $incrementName,
+$incrementValue in $sd-increments {
     @each $property in $sd-properties {
         @each $side in $sd-sides {
-            @if($side == x) {
+            @if($side ==x) {
                 .sd-#{$property}-#{$side}--#{$incrementName} {
                     #{$property}-left: #{$sd-base-increment * $incrementValue} !important;
                     #{$property}-right: #{$sd-base-increment * $incrementValue} !important;
                 }
-            } @else if ($side == y) {
+            }
+
+            @else if ($side ==y) {
                 .sd-#{$property}-#{$side}--#{$incrementName} {
                     #{$property}-top: #{$sd-base-increment * $incrementValue} !important;
                     #{$property}-bottom: #{$sd-base-increment * $incrementValue} !important;
                 }
-            } @else {
+            }
+
+            @else {
                 .sd-#{$property}-#{str-slice($side, 1, 1)}--#{$incrementName} {
                     #{$property}-#{$side}: #{$sd-base-increment * $incrementValue} !important;
                 }
             }
         }
+
         .sd-#{$property}--#{$incrementName} {
             #{$property}: #{$sd-base-increment * $incrementValue} !important;
         }
@@ -748,16 +892,20 @@ $sd-properties: (padding, margin); // It's generating these properties
 
 
 @mixin sd-spacing($property, $sd-incrementValue, $side) {
-    @if ($side == false) {
+    @if ($side ==false) {
         #{$property}: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
-    } @else if ($side == x) {
+    }
+
+    @else if ($side ==x) {
         #{$property}-left: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
         #{$property}-right: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
     }
-    @else if ($side == y) {
+
+    @else if ($side ==y) {
         #{$property}-top: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
         #{$property}-bottom: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
     }
+
     @else {
         #{$property}-#{$side}: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
     }
@@ -771,7 +919,7 @@ $sd-properties: (padding, margin); // It's generating these properties
     @include sd-spacing('padding', $sd-incrementValue, $side)
 }
 
-//-------------------------------------------------------
+
 // START: This part should not be used for new stuff, it's only here for older implemetation. 
 // Once the implemented classes are refactored this should be removed
 
@@ -779,49 +927,57 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-padding-all--0 {
     padding: 0 !important;
 }
+
 .sd-padding-all--0-5 {
     padding: $sd-base-increment * 0.5 !important;
 }
+
 .sd-padding-all--1 {
     padding: $sd-base-increment !important;
 }
+
 .sd-padding-all--1-5 {
     padding: $sd-base-increment * 1.5 !important;
 }
+
 .sd-padding-all--2 {
     padding: $sd-base-increment * 2 !important;
 }
+
 .sd-padding-all--3 {
     padding: $sd-base-increment * 3 !important;
 }
+
 // margin all (KILL THIS AFTER REFACTORING)
 .sd-margin-all--0 {
     margin: 0 !important;
 }
+
 .sd-margin-all--0-5 {
     margin: $sd-base-increment * 0.5 !important;
 }
+
 .sd-margin-all--1 {
     margin: $sd-base-increment * 1 !important;
 }
+
 .sd-margin-all--1-5 {
     margin: $sd-base-increment * 1.5 !important;
 }
+
 .sd-margin-all--2 {
     margin: $sd-base-increment * 2 !important;
 }
+
 .sd-margin-all--3 {
     margin: $sd-base-increment * 3 !important;
 }
 // END
-//-------------------------------------------------------
 
 
 .sd-wrap-helper {
     display: contents !important;
 }
-
-
 
 .sd-accessibility__btn-text--invisible,
 .sd-accessibility__screenreader-text {
@@ -833,92 +989,111 @@ $sd-properties: (padding, margin); // It's generating these properties
     pointer-events: none;
 }
 
-
 // remove this after refactoring
-// --------------------------------------------
 .overflow-auto {
     overflow: auto !important;
 }
+
 .overflow-hidden {
     overflow: hidden !important;
 }
+
 .overflow-x-hidden {
     overflow-x: hidden !important;
 }
+
 .sd-d-none {
     display: none !important;
 }
+
 .sd-d-inline {
     display: inline !important;
 }
+
 .sd-d-inline-block {
     display: inline-block !important;
 }
+
 .sd-d-block {
     display: block !important;
 }
+
 .sd-d-flex {
     display: flex !important;
 }
+
 .sd-d-inline-flex {
     display: inline-flex !important;
 }
-
 
 .sd-display-flex-column {
     display: flex;
     flex-direction: column;
     overflow: auto;
 }
+
 .sd-flex-wrap {
     flex-wrap: wrap;
 }
+
 .sd-flex-shrink {
     flex-shrink: 1 !important;
 }
+
 .sd-flex-no-shrink {
     flex-shrink: 0 !important;
 }
+
 .sd-flex-justify-end {
     justify-content: flex-end !important;
 }
+
 .sd-flex-justify-center {
-    justify-content: center  !important;
+    justify-content: center !important;
 }
+
 .sd-flex-justify-space-between {
-    justify-content: space-between  !important;
+    justify-content: space-between !important;
 }
+
 .sd-flex-align-items-center {
     align-items: center !important;
 }
+
 .sd-flex-grow {
     flex-grow: 1 !important;
 }
+
 .sd-flex-no-grow {
     flex-grow: 0 !important;
 }
+
 .sd-no-wrap {
     white-space: nowrap;
 }
-// --------------------------------------------
 
 
 // Border Radius
 .sd-radius--x-small {
     border-radius: var(--b-radius--x-small);
 }
+
 .sd-radius--small {
     border-radius: var(--b-radius--small);
 }
+
 .sd-radius--medium {
     border-radius: var(--b-radius--medium);
 }
+
 .sd-radius--large {
     border-radius: var(--b-radius--large);
 }
+
 .sd-radius--x-large {
     border-radius: var(--b-radius--x-large);
 }
+
 .sd-radius--full {
     border-radius: var(--b-radius--full);
 }
@@ -927,28 +1102,35 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-border--x-light {
     border: 1px solid var(--sd-colour-line--x-light);
 }
+
 .sd-border--light {
     border: 1px solid var(--sd-colour-line--light);
 }
+
 .sd-border--medium {
     border: 1px solid var(--sd-colour-line--medium);
 }
+
 .sd-border--strong {
     border: 1px solid var(--sd-colour-line--strong);
 }
+
 .sd-border--x-light {
     border: 1px solid var(--sd-colour-line--x-light);
 }
+
 .sd-border-style--dotted {
     border-style: dotted !important;
 }
-.sd-border-style--dashed{
+
+.sd-border-style--dashed {
     border-style: dashed !important;
 }
 
 .sd-border-width--2 {
     border-width: 2px;
 }
+
 .sd-border-width--3 {
     border-width: 3px;
 }
@@ -957,12 +1139,15 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-font-size--x-small {
     font-size: calc(var(--text-size--base) * 1.2); // 12px;
 }
+
 .sd-font-size--small {
     font-size: calc(var(--text-size--base) * 1.4); // 14px;
 }
+
 .sd-font-size--medium {
     font-size: calc(var(--text-size--base) * 1.6); // 16px;
 }
+
 .sd-font-size--large {
     font-size: calc(var(--text-size--base) * 2); // 20px;
 }
@@ -971,9 +1156,11 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-text-color--lighter {
     color: var(--color-text-lighter) !important;
 }
+
 .sd-text-color--light {
     color: var(--color-text-light) !important;
 }
+
 .sd-text-color--normal {
     color: var(--color-text) !important;
 }
@@ -982,9 +1169,11 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-panel-bg--100 {
     background-color: var(--sd-colour-panel-bg--100);
 }
+
 .sd-panel-bg--000 {
     background-color: var(--sd-item__main-Bg);
 }
+
 .sd-panel-bg--gradient-1 {
     background-color: var(--sd-item__main-Bg);
     background: linear-gradient(180deg, var(--sd-colour-interactive--alpha-20) 0%, var(--sd-item__main-Bg) 40%);
@@ -993,58 +1182,73 @@ $sd-properties: (padding, margin); // It's generating these properties
 .sd-state--focus:focus-within,
 .sd-state--active {
     box-shadow: var(--sd-shadow__item--selected) !important;
-    transition: box-shadow 0.3s ease, filter 0.3s ease ;
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
 }
+
 .sd-width--xxx-small {
     width: var(--width__container--xxx-small) !important;
 }
+
 .sd-width--xx-small {
     width: var(--width__container--xx-small);
 }
+
 .sd-width--x-small {
     width: var(--width__container--x-small);
 }
+
 .sd-width--small {
     width: var(--width__container--small);
 }
+
 .sd-width--medium {
     width: var(--width__container--medium);
 }
-.sd-width--large { 
+
+.sd-width--large {
     width: var(--width__container--large);
 }
+
 .sd-width--x-large {
     width: var(--width__container--x-large);
 }
+
 .sd-width--xx-large {
     width: var(--width__container--xx-large);
 }
+
 .sd-width--xxx-large {
     width: var(--width__container--xxx-large);
 }
+
 .sd-width--full {
     width: var(--width__container--full);
 }
 
-
 .sd-gap--x-small {
     gap: var(--gap--x-small);
 }
+
 .sd-gap--small {
     gap: var(--gap--small);
 }
+
 .sd-gap--medium {
     gap: var(--gap--medium);
 }
+
 .sd-gap--large {
     gap: var(--gap--large);
 }
+
 .sd-gap--x-large {
     gap: var(--gap--x-large);
 }
+
 .sd-gap--xx-large {
     gap: var(--gap--xx-large);
 }
+
 .sd-gap--auto {
     gap: var(--gap--auto);
 }

@@ -8,6 +8,7 @@
     min-height: 3.2rem;
     overflow-x: auto;
     grid-column: 2/3;
+
     .sd-bottom-nav-list__item {
         flex: 0 1 24rem;
         display: flex;
@@ -20,6 +21,7 @@
         border-inline-end: 1px solid hsla(214, 13%, 90%, 0.14);
         background-color: var(--sd-colour-bottom-bar__item);
         overflow: hidden;
+
         .sd-bottom-nav-list__item-title {
             font-size: 1.4rem;
             line-height: 1;
@@ -32,16 +34,19 @@
             align-self: stretch;
             align-items: center;
             gap: 8px;
+
             &:hover {
                 color: var(--sd-colour-interactive);
                 cursor: pointer;
             }
+
             [class^="icon-"],
             [class*=" icon-"] {
                 flex-shrink: 0;
                 color: inherit !important;
                 opacity: 0.75;
             }
+
             span {
                 padding-top: 2px;
                 overflow: hidden;
@@ -52,19 +57,23 @@
                 flex-shrink: 1;
             }
         }
-        &--active {
-            background-color: var(--sd-colour-bottom-bar__item--active);
-            .sd-bottom-nav-list__item-title,
-            .sd-bottom-nav-list__item-title:hover {
-                color: hsla(214, 13%, 98%, 1);
-            }
+    }
+
+    .sd-bottom-nav-list__item--active {
+        background-color: var(--sd-colour-bottom-bar__item--active);
+
+        .sd-bottom-nav-list__item-title,
+        .sd-bottom-nav-list__item-title:hover {
+            color: hsla(214, 13%, 98%, 1);
         }
-        &--disabled {
-            opacity: 0.5;
+    }
+
+    .sd-bottom-nav-list__item--disabled {
+        opacity: 0.5;
+        pointer-events: none;
+
+        .sd-bottom-nav-list__item-title {
             pointer-events: none;
-            .sd-bottom-nav-list__item-title {
-                pointer-events: none;
-            }
         }
     }
 }

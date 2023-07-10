@@ -18,6 +18,7 @@ $font-size__label--large: 1.2rem;
     background-color: transparent !important;
     color: $color;
 }
+
 @mixin label-translucent-style($color: $label-color-alt) {
     background-color: $label-background-translucent;
     color: $color;
@@ -42,6 +43,7 @@ $font-size__label--large: 1.2rem;
     white-space: nowrap;
     border: 1px solid transparent;
     font-weight: 500;
+
     &--large {
         padding-block-start: $padding-y__label--large;
         padding-block-end: $padding-y__label--large;
@@ -73,8 +75,9 @@ $font-size__label--large: 1.2rem;
     white-space: nowrap;
     color: var(--color-text--inverse);
     background-color: var(--sd-lbl-bg);
+
     [class^="icon-"], [class*=" icon-"] {
-      color: currentColor;
+        color: currentColor;
     }
   }
 
@@ -82,21 +85,26 @@ $font-size__label--large: 1.2rem;
     @include label;
     background: $label-background;
     color: $label-color;
+
     @each $name, $color in $label-palette {
         &.label--#{$name} {
             background: $color;
         }
     }
+
     &.label--hollow {
         @include label-hollow-style;
+
         @each $name, $color in $label-palette {
             &.label--#{$name} {
                 @include label-hollow-style($color);
             }
         }
     }
+
     &.label--translucent {
         @include label-translucent-style;
+
         @each $name, $color in $label-palette {
             &.label--#{$name} {
                 @include label-translucent-style($color);
@@ -104,18 +112,21 @@ $font-size__label--large: 1.2rem;
             }
         }
     }
-    &--annotation {
-        background-color: $annotation-color;
-        color: $grayMedium;
-    }
-    &--comment {
-        background-color: $comment-color;
-        color: $grayMedium;
-    }
-    &--no-transform {
-        text-transform: none;
-        letter-spacing: 0.04em;
-    }
+}
+
+.label--annotation {
+    background-color: $annotation-color;
+    color: $grayMedium;
+}
+
+.label--comment {
+    background-color: $comment-color;
+    color: $grayMedium;
+}
+
+.label--no-transform {
+    text-transform: none;
+    letter-spacing: 0.04em;
 }
 
 // link label
@@ -144,6 +155,7 @@ a.label {
         font-variant: normal;
         text-transform: none;
     }
+
     &:hover, &:focus {
         box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
     }
@@ -153,6 +165,7 @@ a.label {
     border: 1px solid var(--sd-navy-color);
     color: var(--sd-navy-color);
 }
+
 .label.label--darkBlue2 {
     background: var(--sd-navy-color);
 }

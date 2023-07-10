@@ -1,5 +1,4 @@
 // MODALS
-// ------
 
 // Recalculate z-index where appropriate
 $zindexDropdown: 2000;
@@ -12,9 +11,9 @@ $nav-height: 48px;
 .modal-open {
     overflow: hidden;
     .dropdown__menu {  z-index: $zindexDropdown + $zindexModal; }
-    .dropdown.open { *z-index: $zindexDropdown + $zindexModal; }
-    .popover       {  z-index: $zindexPopover  + $zindexModal; }
-    .tooltip       {  z-index: $zindexTooltip  + $zindexModal; }
+    .dropdown.open  { *z-index: $zindexDropdown + $zindexModal; }
+    .popover        {  z-index: $zindexPopover  + $zindexModal; }
+    .tooltip        {  z-index: $zindexTooltip  + $zindexModal; }
 }
 
 // Variables
@@ -35,7 +34,6 @@ $modal-subnav-height : $nav-height;
 $modal-padding : $sd-base-increment * 2;
 $modal-box-shadow: var(--sd-shadow__modal);
 
-
 // Map with all modal sizes
 $modal-sizes: (
   default: $modal-base-width,
@@ -48,7 +46,7 @@ $modal-sizes: (
 @mixin modal-base(
     $align-items: flex-start, 
     $space-around: 40px
-    ) {
+) {
     position: fixed;
     left: $space-around;
     right: $space-around;
@@ -60,12 +58,14 @@ $modal-sizes: (
     z-index: $zindexModal;
     display: none;
 }
+
 @mixin modal-dialog() {
     display: flex;
     max-height: 100%;
     flex: 0 1 auto;
     margin: 0 auto;
 }
+
 @mixin modal-content() {
     background-color: $modal-bg-color;
     display: flex;
@@ -74,6 +74,7 @@ $modal-sizes: (
     border-radius: $modal-border-radius;
     box-shadow: $modal-box-shadow;
 }
+
 @mixin modal-header() {
     padding: $modal-padding - $sd-base-increment $modal-padding;
     border-bottom: 1px solid $modal-line-color;
@@ -81,13 +82,16 @@ $modal-sizes: (
     background-color: $modal-bg-color;
     border-radius: $border-radius__base--large $border-radius__base--large 0 0;
 }
+
 @mixin modal-body() {
     background: $modal-bg-color;
     overflow-y: auto;
     padding: $modal-padding;
     position: relative;
 }
+
 @mixin modal-footer() {
+    @include clearfix(); // clear it in case folks use .pull-* classes on buttons
     padding: $modal-padding - $sd-base-increment $modal-padding;
     text-align: end; // right align buttons
     border-top: 1px solid $modal-line-color;
@@ -95,15 +99,16 @@ $modal-sizes: (
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    @include clearfix(); // clear it in case folks use .pull-* classes on buttons
 }
 
 // Base modal calculation, with different sizes
 .modal {
     @include modal-base;
+
     &.in {
         display: flex !important;
     }
+
     // default size, no class needed
     .modal__dialog {
         @include modal-dialog();
@@ -120,27 +125,33 @@ $modal-sizes: (
                 align-items: initial;
                 flex-direction: initial;
                 padding: 10px;
+
                 .modal__content {
                     margin: 0 !important;
                 }
+
                 .modal__body {
                     flex: 1 1 auto !important;
                 }
             }
         }
+
         // fullscreen modal (preview article dialog)
         @if $name == fullscreen {
             &--#{$name} {
                 @include modal-base(flex-start, 0px);
+
                 .modal__dialog {
                     width: 100%;
                     height: 100%;
-                } 
+                }
+
                 .modal__content {
+                    @include border-radius(0);
                     flex: 0 0 100%;
                     margin: 0;
-                    @include border-radius(0);
                 }
+
                 .modal__body {
                     max-height: none;
                     flex: 1 1 auto !important;
@@ -149,18 +160,21 @@ $modal-sizes: (
                 }
             }
         }
+
         // all other sizes from $modal-sizes except default one
         @if $name != default {
             &--#{$name} {
                 .modal__dialog {
                    max-width: $value; 
                 }
+
                 .modal__body {
                     max-width: $value !important;
                 }
             }
         }
     }
+
     // modifier, change body to white background 
     // &.modal--white {
     //     .modal__body {
@@ -168,12 +182,15 @@ $modal-sizes: (
     //     }
     // }
     // fix for calling a modal from another modal
+
     &.modal--double {
         z-index: 1060;
+
         &+.modal__backdrop {
             z-index: 1055;
         }
     }
+
     // modal with tabs and footer inside body
     &.modal--tabs {
         .modal__body {
@@ -182,28 +199,32 @@ $modal-sizes: (
             flex-direction: column;
             padding: 0;
             background: transparent;
+
             // fix for modal with form
             > form {
                 display: flex;
                 flex-direction: column;
             }
         }
+
         .modal__body-header {
             height: 48px;
             width: 100%;
             border-bottom: 1px solid $modal-line-color;
             padding: 0;
-            &--add-padding {
-                padding: 1rem 2rem; // useful if we use body header for something else but tabs
-                height: auto;
-                min-height: 48px;
-            }
-            &--flex {
-                display: flex;
-                align-items: center;
-            }
-
         }
+
+        .modal__body-header--add-padding {
+            padding: 1rem 2rem; // useful if we use body header for something else but tabs
+            height: auto;
+            min-height: 48px;
+        }
+
+        .modal__body-header--flex {
+            display: flex;
+            align-items: center;
+        }
+
         .modal__body-content {
             flex: 1 1 auto;
             width: 100%;
@@ -211,6 +232,7 @@ $modal-sizes: (
             padding: $modal-padding;
             min-height: 60px;
         }
+
         .modal__body-footer {
             flex: 0 0 auto;
             padding: $modal-padding - .8rem $modal-padding;
@@ -220,139 +242,170 @@ $modal-sizes: (
             display: flex;
         }
     }
+
     p {
         margin: 0 0 1em 0;
     }
 }
+
 .modal__content {
     @include modal-content();
     flex: 0 0 100%;
+
     .modal__header, .modal__footer {
         flex: 0 0 auto;
         width: 100%;            
     }
+
     .modal__footer {
         &> .btn + .btn {
             margin-left: $sd-base-increment;
         }
-    } 
+    }
+
     .modal__header {
         @include modal-header();
         position: relative;
-        &--padding-20 {
-            padding: 10px 20px;
+    }
+
+    .modal__header--padding-20 {
+        padding: 10px 20px;
+    }
+
+    .modal__header--flex {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+
+        .modal__heading {
+            flex-grow: 1;
         }
-        &--flex {
-            display: flex !important;
-            flex-direction: row !important;
-            align-items: center;
-            .modal__heading {
-                flex-grow: 1;
-                &--no-grow {
-                    flex-grow: 0;
-                }
-            }
+
+        .modal__heading--no-grow {
+            flex-grow: 0;
         }
     }
+
     .modal__sliding-toolbar {
         @include sliding-toolbar;
         max-height: 5.4rem;
     }
+
     .modal__header-element-grow {
         flex-grow: 1;
     }
+
     .modal__header-buttons {
         display: flex;
         align-content: center;
-        &--right {
-            justify-content: right;
-            .btn, .dropdown {
-                margin: 0 0 0 1rem;
-            }
-        }
-        &--center {
-            justify-content: center;
-        }
-        &--grow {
-            flex-grow: 1;
+    }
+
+    .modal__header-buttons--right {
+        justify-content: right;
+
+        .btn, .dropdown {
+            margin: 0 0 0 1rem;
         }
     }
+
+    .modal__header-buttons--center {
+        justify-content: center;
+    }
+
+    .modal__header-buttons--grow {
+        flex-grow: 1;
+    }
+
     .modal__footer {
         @include modal-footer();
     }
+
     .modal__body {
         @include modal-body();
         flex: 0 1 auto;
         width: 100%; 
         max-width: $modal-base-width;
-        // modifier to add min height, if needed
-        &--add-min-height {
-            min-height: 300px; 
-            // we reset this value if the screen height is lower than 500px
-            @media (max-height: 500px) {
-                min-height: auto;
-            }
-        }
-        &--no-padding {
-            padding: 0 !important;
-        }           
+        // modifier to add min height, if needed          
     }
+
+    .modal__body--add-min-height {
+        min-height: 300px; 
+
+        // we reset this value if the screen height is lower than 500px
+        @media (max-height: 500px) {
+            min-height: auto;
+        }
+    }
+
+    .modal__body--no-padding {
+        padding: 0 !important;
+    } 
+
     .modal__body-heading {
         font-size: 1.8rem;
         color: $sd-text;
         font-weight: 400;
         margin-bottom: 2rem;
         line-height: 100%;
-        &--inactive {
-            color: $sd-text-light;
-        }
+
         .badge {
             vertical-align: bottom;
             margin-right: 0.6rem;
         }
     }
+
+    .modal__body-heading--inactive {
+        color: $sd-text-light;
+    }
 }
+
 .modal__content {
     .subnav {
         flex-shrink: 0;
     }
 }
+
 .modal__close {
     margin: 2px -6px 0;
     border: 0;
     background: 0;
     padding: 0px 4px;
     opacity: 0.3;
+
     &:hover {
         opacity: 0.7;
         cursor: pointer;
     }
 }
+
 .modal__header--flex {
     .icn-btn {
         margin-right: - $sd-base-increment;
     }
 }
+
 .modal__header {
     .icn-btn {
         opacity: 0.3;
         transition: opacity 0.2s ease-in-out;
     }
+
     &:hover {
         .icn-btn {
             opacity: 0.75;
+
             &:hover {
                 opacity: 1;
             }
         }
     }
 }
+
 .modal__heading {
     font-size: 18px;
     font-weight: 300;
     line-height: 27px;
     color: var(--color-text-light);
-
 }
 
 // Background
@@ -364,9 +417,11 @@ $modal-sizes: (
     left: 0;
     z-index: $zindexModalBackdrop;
     background-color: var(--sd-colour-bg--03);
+
     // Fade for backdrop
     &.fade { opacity: 0; }
 }
+
 .modal__backdrop,
 .modal__backdrop.fade.in {
     opacity: 0.5;
@@ -376,6 +431,7 @@ $modal-sizes: (
     .modal__header, .modal__body {
         @include sd-padding('3', 'left');
     }
+    
     .modal__heading {
         min-width: 12rem;
     }

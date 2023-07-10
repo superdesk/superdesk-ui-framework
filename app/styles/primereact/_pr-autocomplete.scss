@@ -10,12 +10,14 @@
     @include pr-dropdown-panel-base;
     margin-top: 16px;
     padding: 1rem 0;
+
     .p-autocomplete-items {
         padding: 0;
     }
 
     .p-autocomplete-list-item, .p-autocomplete-item {
         @include pr-menu-item-base;
+        
         b {
             font-weight: 600;
         }

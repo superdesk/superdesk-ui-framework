@@ -1,9 +1,4 @@
 // LAYOUT : Basic Layouts : layout/basic-layout.scss
-// -----------------------------------------------------
-
-// ============================================================================
-// 
-// ============================================================================
 
 .sd-page {
     position: absolute;
@@ -31,15 +26,17 @@
     background-color: var(--sd-colour-panel-bg--100);
     display: flex;
     flex-direction: column;
-    &--double-left-nav {
-        left: 400px;
-    } 
 }
+
+.sd-page__main-content--double-left-nav {
+    left: 400px;
+} 
 
 .sd-page__sidebar {
     & + .sd-page__main-content {
         left: 240px;
     }
+
     & + .sd-content-navigation-panel {
         left: 240px;
         top: 0;
@@ -57,18 +54,19 @@
     align-items: center;
     padding: 0 20px;
     z-index: 3;
-    &--justify-space-between {
-        justify-content: space-between;
-    }
+}
+
+.sd-page__header--justify-space-between {
+    justify-content: space-between;
 }
 
 .sd-page__element-grow {
     flex-grow: 1;
     display: inline-block;
+}
 
-    &--x-padding {
-        padding: 0 20px;
-    }
+.sd-page__element-grow--x-padding {
+    padding: 0 20px;
 }
 
 .sd-page__page-heading {
@@ -82,18 +80,18 @@
     padding: 20px;
     overflow: auto;
     background-color: $mainListBackGround;
+}
 
-    &--centered-dashboard {
-        display: grid;
-        grid-template-columns: 1fr;
-        grid-template-rows: 1fr;
-        align-items: center;
-        justify-content: center;
+.sd-page__content--centered-dashboard {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    justify-content: center;
 
-        .sd-grid-list {
-            width: 60%;
-            margin: 0 auto;
-        }
+    .sd-grid-list {
+        width: 60%;
+        margin: 0 auto;
     }
 }
 
@@ -116,20 +114,24 @@
     box-shadow: -2px 0 12px 0 rgba(0,0,0,0.3);
     overflow: hidden;
     transition: all 0.1s ease-out;
+
     .side-panel {
         opacity: 0;
         transition: all 0.2s ease-out;
         transition-delay: .1s;
     }
-    &--open {
-        width:40rem;
-        overflow: auto;
-        .side-panel {
-            opacity: 1;
-        }
-        &.sd-overlay-panel--large {
-            width:68rem;
-        }
+}
+
+.sd-overlay-panel--open {
+    width:40rem;
+    overflow: auto;
+
+    .side-panel {
+        opacity: 1;
+    }
+    
+    &.sd-overlay-panel--large {
+        width:68rem;
     }
 }
 
