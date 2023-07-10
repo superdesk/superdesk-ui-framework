@@ -161,6 +161,15 @@
         padding: 0.2rem 0.8rem 0;
         width: 100%;
     }
+    &.sd-input--disabled:hover {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    .p-calendar-icon {
+        pointer-events: none;
+    }
+    border-bottom: 1px dotted var(--color-input-border);
+    background-color: var(--color-input-bg);
 }
 
 .p-calendar-w-btn {
@@ -190,6 +199,7 @@
 
     }
 }
+
 .p-datepicker-calendar {
     margin-bottom: 8px;
 }
