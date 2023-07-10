@@ -498,10 +498,6 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
 
     &.side-panel--transparent {
         background-color: transparent;
-
-        .side-panel__header {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
     }
 }
 

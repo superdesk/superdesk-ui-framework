@@ -1,15 +1,15 @@
 // Default sd-card  styling
 
 //color variables
-$card-item-header-bg-normal: hsl(200, 18%, 46%);
-$card-item-header-bg-inactive: hsl(0, 0%, 69%);
-$card-item-header-bg-active: $sd-blueMedium;
-$card-item-header-bg-light: var(--sd-colour-panel-bg--300);
-$card-item-header-bg-gradient-1: linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
-$card-item-header-bg-secondary: $subnav-background-blue-grey-darker;
+$card-item-header-bg-normal: var(--sd-card-header-bg-color--normal);
+$card-item-header-bg-inactive: var(--sd-card-header-bg-color--inactive);
+$card-item-header-bg-active: var(--sd-card-header-bg-color--active);
+$card-item-header-bg-light: var(--sd-card-header-bg-color--light);
+$card-item-header-bg-secondary: var(--sd-card-header-bg-color--secondary);
+$card-item-header-bg-gradient-1: var(--sd-card-header-bg-color--gradient-1);
 $card-item-top-border-height: 0.4rem;
-$card-item-rounded-radius: $border-radius__base--large;
-$card-item-default-radius: $border-radius__base--medium;
+$card-item-rounded-radius: var(--b-radius--large);
+$card-item-default-radius: var(--b-radius--medium);
 
 //shadows
 $card-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
@@ -41,11 +41,8 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     .sd-card__actions-group {
         display: flex;
         align-items: center;
-        margin-right: .3rem;
-
-        a + a {
-            margin-left: .6rem;
-        }
+        margin-inline-end: var(--gap--x-small);
+        gap: var(--gap--x-small);
     }
 
     .sd-card__header {
@@ -139,7 +136,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     // sd-card__heading should go inside sd-card__header
     .sd-card__heading {
         @include sd-padding('1-5', 'x');
-        padding-top: $card-item-top-border-height;
+        padding-block-start: $card-item-top-border-height;
         flex-grow: 1;
         font-size: 1.2rem;
         line-height: 100%;
@@ -152,21 +149,31 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
 
     .sd-card__heading--editable {
-        padding: 1rem 1.6rem 1rem;
-        text-transform: initial;
-
-        &:hover {
-            cursor: text;
-        }
-
-        > input {
-            margin-top: 6px;
+        padding: var(--gap--small) var(--gap--small) var(--gap--small);
+        text-transform: initial !important;
+        .sd-card__heading-dummy-input {
+            display: flex;
+            align-items: center;
+            height: 3.2rem;
+            border: 2px solid transparent;
+            border-radius: var(--b-radius--medium);
+            padding: 0 0.8rem;
+            transition: all 0.2s ease;
+            text-transform: initial !important;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 1;
+            &:hover {
+                border-color: var(--color-input-border);
+                cursor: text;
+            }
         }
     }
 
     .sd-card__sub-header {
         @include sd-padding('1-5', 'x');
-        background-color: #9daeb7;
+        background-color: hsl(201, 15%, 67%);
         display: flex;
         align-items: center;
         color: $white;
@@ -208,7 +215,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
 
     .sd-card__thumbnail {
-        margin-top: 0.4rem;
+        margin-block-start: 0.4rem;
         line-height: 0;
         background-color: var(--sd-item__thumb-Bg);
 
@@ -231,10 +238,9 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             font-size: 11px;
             color: rgba(0,0,0,.5);
             letter-spacing: 0.04em;
-            margin-bottom: 4px;
-
+            margin-block-end: 4px;
             &.with-value {
-                margin-bottom: 0;
+                margin-block-end: 0;
             }
 
             .label {
@@ -269,7 +275,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
     .sd-card__content--scrollable {
         min-height: 20vh;
-        max-height: 30vh;
+        max-height: 34vh;
         overflow-y: auto;
     }
 
@@ -282,7 +288,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         color: inherit;
         font-size: 1.6rem;
         letter-spacing: initial;
-        padding-bottom: $sd-base-increment;
+        padding-block-end: $sd-base-increment;
     }
 
     .sd-card__placeholder {
@@ -306,8 +312,9 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         padding: 0;
         list-style: none;
 
-        li, .sd-card__content-list-item {
-            padding: 16px;
+        li,
+        .sd-card__content-list-item {
+            padding: var(--gap--medium);
             border-bottom: 1px solid var(--sd-colour-line--light);
 
             .sd-card__content-list-inline-span {
@@ -339,7 +346,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         }
 
         .sd-card__content-list-item--small {
-            padding: 7px 16px;
+            padding: var(--gap--small) var(--gap--small) var(--gap--small) var(--gap--medium);
 
             h4 {
                 margin: 0;
@@ -358,24 +365,24 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             i {
                 display: inline-block;
                 opacity: 0.5;
-                margin-top: -2px;
+                margin-block-start: -2px;
             }
         }
 
         .button__view-all {
-            border-bottom: 1px dotted #5598B4;
-            color: #5598B4;
+            border-bottom: 1px dotted var(--sd-colour-interactive);
+            color: var(--sd-colour-interactive);
             cursor: pointer;
         }
 
         .sd-card__content-list-block-link {
             display: block;
             padding: .8rem 1.6rem;
-            color: $gray;
+            color: var(--color-text);
             text-decoration: none;
 
             &:hover {
-                color: $grayDarker;
+                color: var(--color-text);
             }
         }
 
@@ -388,7 +395,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             }
 
             &:hover {
-                background-color: rgba(94,169,200, .15);
+                background-color: var(--sd-colour-interactive--alpha-20);
 
                 i {
                     display: inline-flex;
@@ -403,12 +410,12 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
     .sd-card__time-date {
         font-size: 11px;
-        color: #ababab;
+        color: var(--color-text-light);
         font-weight: 300;
     }
 
     .sd-card__time-date--reverse-color {
-        color: rgba(255,255,255, 0.6);
+        color: hsla(0, 0%, 100%, 0.7);
     }
 
     .sd-card__footer {
@@ -444,7 +451,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         width: 100%;
         position: relative;
         height: 0;
-        padding-bottom: 75%;
+        padding-block-end: 75%;
         overflow: hidden;
         text-align: center;
 
@@ -455,14 +462,14 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
 
     .sd-card__thumbnail--size-xs {
-        padding-bottom: 35%;
+        padding-block-end: 35%;
         .sd-card__thumbnail-heading {
             font-size: 18px;
         }
     }
 
     .sd-card__thumbnail--size-xxs {
-        padding-bottom: 16%;
+        padding-block-end: 16%;
 
         .sd-card__thumbnail-heading {
             font-size: 18px;
@@ -470,19 +477,19 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
 
     .sd-card__thumbnail--size-s {
-        padding-bottom: 50%;
+        padding-block-end: 50%;
     }
 
     .sd-card__thumbnail--size-m {
-        padding-bottom: 75%; // default value; 
+        padding-block-end: 75%; // default value; 
     }
 
     .sd-card__thumbnail--size-l {
-        padding-bottom: 100%; // default value; 
+        padding-block-end: 100%; // default value; 
     }
 
     .sd-card__thumbnail--size-xl {
-        padding-bottom: 125%; // default value; 
+        padding-block-end: 125%; // default value; 
     }
 
     .sd-card__file-type-icn {

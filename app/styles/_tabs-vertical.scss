@@ -1,14 +1,14 @@
 // VERTICAL TABS
 
 .nav-tabs-vertical {
-    width: 2rem;
-    border-right: 1px solid #ccc;
+    width: 3rem;
+    border-right: 1px solid var(--sd-colour-line--medium);
     transition: all .2s ease-out .3s; 
     opacity: 1;
 }
 
 .nav-tabs-vertical__list {
-    width: 2rem;
+    width: 3rem;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -16,13 +16,13 @@
 
 .nav-tabs-vertical__tab {
     display: inline-block;
-    width: 2rem;
-    line-height: 2rem;
+    width: 3rem;
+    line-height: 1rem;
 }
 
 .nav-tabs-vertical__tab--active {
     .nav-tabs-vertical__link {
-        color: $grayDarker;                
+        color: var(--color-text);                  
     }
 }
 
@@ -30,7 +30,7 @@
     display: inline-block;
     font-size: 1.1rem;
     font-weight: 500;
-    color: $grayText;
+    color: var(--color-text-light);
     text-transform: uppercase;
     white-space: nowrap;
     margin: 10px 0;
@@ -40,7 +40,7 @@
     transform-origin: 0 0;    
 
     &:hover {
-        color: $grayDarker;
+        color: var(--color-text);
     }
 
     &:after {
