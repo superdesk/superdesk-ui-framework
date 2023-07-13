@@ -1,46 +1,18 @@
-// ============================================================================
 // SUBNAV
-// ============================================================================
 
 .subnav {
+    @include transition(all, 0.3s, ease);
     position: relative;
     display: flex;
     height: $subnav-height;
     background: $subnav-background;
     border-bottom: 0px;
     box-shadow: var(--sd-shadow__subnav);
-    @include transition(all, 0.3s, ease);
     z-index: 3;
     align-items: center;
     color: $sd-text;
     flex-shrink: 0;
-    &--padded {
-        padding: 10px 20px;
-    }
-    &--darker {
-        background: $subnav-background-darker !important;
-    }
-    &--dark-blue-grey, &--blueGreyDarker {
-        background: $subnav-background-dark-blue-grey !important;
-        color: $white;
-        .navbtn:hover {
-            background: rgba(255, 255, 255, 0.20);
-        }
-    }
-    &--mid-blue-grey, &--blueGrey {
-        background: $subnav-background-blue-grey !important;
-        color: $white;
-    }
-    &--absolute {
-        position: absolute;
-        top:48px;
-        left:0;
-        right:0;
-    }
-    + .subnav,
-    &--lower-z-index {
-        z-index: 2;
-    }
+    
     .sd-check__group {
         padding: 0;
         display: flex;
@@ -48,21 +20,59 @@
         align-items: center;
     }
 }
+
+.subnav--padded {
+    padding: 10px 20px;
+}
+
+.subnav--darker {
+    background: $subnav-background-darker !important;
+}
+
+.subnav--dark-blue-grey, .subnav--blueGreyDarker {
+    background: $subnav-background-dark-blue-grey !important;
+    color: $white;
+
+    .navbtn:hover {
+        background: rgba(255, 255, 255, 0.20);
+    }
+}
+
+.subnav--mid-blue-grey, .subnav--blueGrey {
+    background: $subnav-background-blue-grey !important;
+    color: $white;
+}
+
+.subnav--absolute {
+    position: absolute;
+    top:48px;
+    left:0;
+    right:0;
+}
+
+.subnav + .subnav,
+.subnav--lower-z-index {
+    z-index: 2;
+}
+
 .subnav__element-grow {
     flex-grow: 1;
 }
+
 .subnav__page-title {
+    @include text-overflow();
+    @include text-normal();
     padding: 0 1.6rem;
     color: inherit;
     font-size: 1.8rem;
     line-height: 2.8rem;
     flex-grow: 1;
-    @include text-overflow();
-    @include text-normal();
-    &--no-grow {
-        flex-grow: 0;
-    }
 }
+
+.subnav__page-title--no-grow {
+    flex-grow: 0;
+}
+
 .subnav__desk-stage {
     flex-grow: 1;
 }
@@ -70,20 +80,23 @@
 .subnav__divider {
     display: inline-flex;
     height: 100%;
-    &--small {
-        width: $sd-base-increment * 1.5;
-    }
-    &--medium {
-        width: $sd-base-increment * 2;
-    }
-    &--large {
-        width: $sd-base-increment * 3;
-    }
-    &--x-large {
-        width: $sd-base-increment * 4;
-    }
 }
 
+.subnav__divider--small {
+    width: $sd-base-increment * 1.5;
+}
+
+.subnav__divider--medium {
+    width: $sd-base-increment * 2;
+}
+
+.subnav__divider--large {
+    width: $sd-base-increment * 3;
+}
+
+.subnav__divider--x-large {
+    width: $sd-base-increment * 4;
+}
 
 .subnav {
     &.subnav--level2 {
@@ -93,6 +106,7 @@
         z-index: 2;
         box-shadow: none;
     }
+
     .sd-nav-tabs {
         box-shadow: none;
     }
@@ -102,9 +116,8 @@
     @include sliding-toolbar; // See mixins.scss for details
 }
 
-// ============================================================================
+
 // NEW NAVBUTTONS
-// ============================================================================
   
 $navbutton-transition: all 0.2s ease-out, color 0.1s ease-out;
 $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-70), inset 0 0 0 3px var(--sd-colour-interactive--alpha-40);
@@ -113,16 +126,13 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     position: relative;
     height: $subnav-height;
     width: 4.8rem;
-
     display: inline-flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-
     background: transparent;
     color: var(--color-text);
     text-align: center;
-
     text-decoration: none;
     border: 0;
     border: 0px solid var(--sd-colour-line--x-light);
@@ -135,25 +145,32 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         vertical-align: baseline !important;
         transition: opacity 0.2s ease-out;
     }
+
     [class^="big-icon--"], [class*=" big-icon--"],
     [class^="icon-"], [class*=" icon-"] {
         color: currentColor;
     }
+
     &:hover {
         background: var(--color-navbutton-bg-hover);
+
         > i {
             opacity: 1;
         }
     }
+
     &:active {
         background: transparent;
         box-shadow: inset 0 0 0 4px var(--color-navbutton-shadow-active);
+
         > i {
             opacity: 1;
         }
     }
+
     &:focus-visible {
         box-shadow: $navbutton-focus-box-shadow;
+
         > i {
             opacity: 1;
         }
@@ -162,72 +179,65 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
   
 .sd-navbtn {
     @include navbutton-base;
+
     &.sd-navbtn--highlight {
         background: var(--sd-colour-highlight);
         border-color: var(--sd-colour-highlight);
         color: $white;
+
         &:hover {
             background-color: var(--sd-colour-highlight--hover);
             border-color: var(--sd-colour-highlight--hover);
         }
+
         &:active {
             background: var(--sd-colour-highlight);
             border-color: var(--sd-colour-highlight);
-
         }
     }
+
     &.sd-navbtn--darker {
         background: var(--color-navbutton-bg-100);
+
         &:hover {
             background-color: var(--color-navbutton-bg-100-hover);
         }
+
         &:active {
             background: var(--color-navbutton-bg-100);
         }
     }
+
     &.sd-navbtn--dark {
         background: var(--color-navbutton-bg-dark);
         color: $white;
+
         &:hover {
             background-color: var(--color-navbutton-bg-dark-hover);
         }
+
         &:active {
             background: var(--color-navbutton-bg-dark);
         }
     }
+
     &.sd-navbtn--primary,
     &.sd-navbtn--active {
         background: var(--sd-colour-interactive);
         border-color: var(--sd-colour-interactive);
         color: $white;
+
         &:hover {
             background-color:  var(--sd-colour-interactive--hover);
             border-color:  var(--sd-colour-interactive--hover);
         }
+
         &:active {
             background: var(--sd-colour-interactive);
             border-color: var(--sd-colour-interactive);
         }
-        
     }
-    &--left {
-        border-width: 0 1px 0 0;
-    }
-    &--textual {
-        width: auto;
-        @include sd-padding('1', 'x');
-        .sd-navbtn__text {
-            display: inline-flex;
-            font-size: 1.4rem;
-            position: relative;
-            @include sd-margin('0-5', 'x');
-            margin-right: $sd-base-increment / 2;
-            margin-left: $sd-base-increment;
-        }
-        i {
-            margin-left: $sd-base-increment / 2;
-        }
-    }
+
     .badge {
         position: absolute;
         top: $sd-base-increment / 2;
@@ -235,12 +245,36 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         z-index: 1;
     }
 }
+
+.sd-navbtn--left {
+    border-width: 0 1px 0 0;
+}
+
+.sd-navbtn--textual {
+    @include sd-padding('1', 'x');
+    width: auto;
+
+    .sd-navbtn__text {
+        @include sd-margin('0-5', 'x');
+        display: inline-flex;
+        font-size: 1.4rem;
+        position: relative;
+        margin-right: $sd-base-increment / 2;
+        margin-left: $sd-base-increment;
+    }
+
+    i {
+        margin-left: $sd-base-increment / 2;
+    }
+}
+
 .dropdown {
     .sd-navbtn {
         &.sd-navbtn--textual {
             .sd-navbtn__text {
                 color: currentColor;
                 padding-right: 16px;
+
                 &::after {
                     content: '';
                     display: inline-flex;
@@ -270,19 +304,23 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         box-shadow: 0 8px 0 0px var(--color-dropdown-menu-Bg), -2px -1px 8px -2px rgba(0, 0, 0, 0.24), 3px -1px 8px -2px rgba(0, 0, 0, 0.24);
         border-color: transparent !important;
         z-index: 2001;
+
         i {
             opacity: 1;
             color: $sd-colour-interactive;
         }
+
         &.sd-navbtn--textual {
             .sd-navbtn__text {
                 color: $sd-colour-interactive;
+
                 &::after {
                     opacity: 1;
                 }
             }
         }
     }
+
     .sd-create-btn {
         background-color: var(--color-dropdown-menu-Bg);
         position: relative;
@@ -311,41 +349,51 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     cursor:pointer;
     background: transparent;
     transition: background-color 0.2s ease-out, color 0.1s ease-out;
+
     i {
         opacity: 0.75;
         vertical-align: baseline !important;
         transition: opacity 0.2s ease-out;
     }
+
     [class^="big-icon--"],
     [class*=" big-icon--"] {
         line-height: 1;
         color: $sd-text;
         display: block;
     }
+
     .big-icon--send-to {
         margin-left: 0.3rem;
     }
+
     [class^="icon-"],
     [class*=" icon-"] {
         color: $sd-text;
     }
+
     &:hover {
         background: var(--color-navbutton-bg-hover);
+
         > i {
             opacity: 1;
         }
     }
+
     &.navbtn--left {
         border-inline-width: 0 1px;
     }
+
     &.navbtn--blue {
         background: $sd-colour-interactive;
         border-color: var(--sd-colour-interactive--lighten-10);
         color: $white;
+
         &.disabled {
             background: var(--sd-colour-interactive--lighten-30);
         }
     }
+
     &.navbtn--text-only {
         width: auto;
         line-height: $subnav-height;
@@ -353,28 +401,35 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         border-inline-width: 0 1px;
         font-size: 1.5rem;
     }
+
     &.navbtn--border-r {
         border-inline-end: 1px !important;
     }
+
     &.navbtn--highlighted {
         background-color: $purple !important;
         transition: all 0.3s;
         padding: 0 0 0 9px;
         color: $white;
-    &:hover {
-        background-color: darken($purple, 10%);
+
+        &:hover {
+            background-color: darken($purple, 10%);
+        }
     }
-    }
+
     &.navbtn--darker {
         background-color: rgba(0, 0, 0, 0.05);
     }
+
     &.navbtn--active {
         background-color: $sd-colour-interactive;
+
         > i {
-        opacity: 1;
-        color: $white;
+            opacity: 1;
+            color: $white;
+        }
     }
-    }
+
     &.navbtn--publish {
         background-color: rgba(0, 0, 0, 0.05);
     }
@@ -386,11 +441,13 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         color: $sd-colour-interactive;
         box-shadow: -2px -1px 5px -2px rgba(0, 0, 0, 0.2), 3px -1px 5px -2px rgba(0, 0, 0, 0.2);
         z-index: $zindexDropdown + 1;
+
         > i {
             opacity: 1;
             color: $sd-colour-interactive;
         }
     }
+
     .sd-create-btn {
         i {
             color: $white;
@@ -399,107 +456,124 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 }
   
 .subnav__stretch-bar {
+    @include sd-margin('1-5', 'x');
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
-    @include sd-margin('1-5', 'x');
     align-items: center;
+
     &.subnav__stretch-bar--right {
         text-align: end;
         justify-content: flex-end;
     }
 }
+
 .subnav__content-bar {
+    @include sd-margin('1-5', 'x');
     display: flex;
     flex-direction: row;
     flex-grow: 0;
     flex-shrink: 1;
-    @include sd-margin('1-5', 'x');
     align-items: center;
+
     &.subnav__content-bar--right {
         text-align: end;
         justify-content: flex-end;
         }
 }
+
 .subnav__spacer {
     width: 1px;
     height: $subnav-height;
     flex-grow: 0;
     border-left: 1px solid rgba(0,0,0,.1);
     margin: auto 2rem;
-    &--dotted {
-        border-left: 1px dotted rgba(0,0,0,.3);
-        height: $subnav-height / 2;
-    }
-    &--no-r-margin {
-        margin-right: -0.1rem;
-    }
-    &--no-l-margin {
-        margin-left: 0;
-    }
-    &--no-margin {
-        margin-left: 0;
-        margin-right: 0; 
-    }
-  
 }
+
+.subnav__spacer--dotted {
+    border-left: 1px dotted rgba(0,0,0,.3);
+    height: $subnav-height / 2;
+}
+
+.subnav__spacer--no-r-margin {
+    margin-right: -0.1rem;
+}
+
+.subnav__spacer--no-l-margin {
+    margin-left: 0;
+}
+
+.subnav__spacer--no-margin {
+    margin-left: 0;
+    margin-right: 0; 
+}
+
 .subnav__button-stack {
     position: relative;
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
+}
 
-    &--square-buttons {
-        height:48px;
-        margin: 0 0 0 16px;
-        display: flex;
-        flex-wrap: nowrap;
+.subnav__button-stack--square-buttons {
+    height:48px;
+    margin: 0 0 0 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-grow: 0;
+    flex-shrink: 1;
+    max-width: 100%;
+}
+
+.subnav__button-stack--custom-buttons {
+    margin: 0 auto;
+    padding: 10px 12px;
+    border: 1px solid rgba(0,0,0,0.1);
+    border-width: 0 1px;
+    box-sizing: border-box;
+    display: flex;
+    max-width: 100%;
+
+    .btn {
         flex-grow: 0;
-        flex-shrink: 1;
-        max-width: 100%;
+        margin:0 4px;
     }
-    &--custom-buttons {
-        margin: 0 auto;
-        padding: 10px 12px;
-        border: 1px solid rgba(0,0,0,0.1);
-        border-width: 0 1px;
-        box-sizing: border-box;
-        display: flex;
-        max-width: 100%;
-        .btn {
-            flex-grow: 0;
-            margin:0 4px;
-        }
-        .btn__text--short {
-            display: none;
-        }
-        .btn__text {
-            display: inline;
-        }
+
+    .btn__text--short {
+        display: none;
     }
-    &--right {
-        text-align: end;
-        padding-right: 2rem;
+
+    .btn__text {
+        display: inline;
     }
-    &--padded {
-        padding: 0 1rem;
-        flex-shrink: 0;
-    }
+}
+
+.subnav__button-stack--right {
+    text-align: end;
+    padding-right: 2rem;
+}
+
+.subnav__button-stack--padded {
+    padding: 0 1rem;
+    flex-shrink: 0;
 }
 
 .subnav__button-stack--custom-buttons {
     .btn__text--short {
         display: none;
     }
+
     .btn__text {
         display: inline;
     }
 }
+
 .compact {
     .subnav__button-stack--custom-buttons {
         .btn__text--short {
             display: inline;
         }
+
         .btn__text {
             display: none;
         }
@@ -511,14 +585,17 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     flex-grow: 1;
     justify-content: flex-end;
     padding: 10px 0;
+
     .btn {
         flex-grow: 0;
         margin:0 4px;
     }
+
     .btn--close {
         .btn__text--alt-icon {
             display: none;
         }
+
         .btn__text {
             display: inline;
         }
@@ -529,50 +606,58 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     &.compact {
         .btn--close {
             padding: 0 3px 0 6px;
+
             .btn__text--alt-icon {
-            display: inline;
-            opacity: 0.7;
+                display: inline;
+                opacity: 0.7;
             }
+
             .btn__text {
-            display: none;
+                display: none;
             }
         }
     }
 }
 
-// ============================================================================
+
 // PLANNING SPECIFIC ADDITIONS FOR RESPONSIVE BEHAVIOUR OF THE SUBNAV BAR
-// ============================================================================
 
 .subnav--responsive {
     .navbtn.navbtn--text-only {
         font-size: 1.4rem;
     }
+
     .subnav__stretch-bar {
         margin-right: 0;
     }
+
     .subnav__spacer {
         margin-left: 1.2rem;
     }
+
     #planning-dropdown {
         display: none;
         margin-left: -1.2rem;
     }
+
     .dropdown__toggle {
         white-space: nowrap;
         position: relative;
         overflow: hidden;
         text-overflow: ellipsis;
         padding-right: 2.6rem !important;
+
         .dropdown__caret {
             position: absolute;
             top: 50%;
             inset-inline-end: 1rem;
         }
     }
+
     .navbtn {
         flex-shrink: 0;
     }
+
     .navbtn.navbtn--text-only {
         flex-shrink: 1;
         padding: 0 1.2rem;
@@ -589,17 +674,19 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
             margin: 0 1.2rem;
             margin-right: 0;
         }
+
         .subnav__button-stack--padded {
             padding: 0 0.6rem;
         }
+
         .navbtn.navbtn--text-only {
             font-size: 1.3rem;
         }
     }
 }
+
   
 // ------------- MEDIA QUERIES ---------------------
-// -------------------------------------------------
   
 @media only screen and (max-width: 1366px) {
     .sd-page-content--slide-in--open .sd-page-content__content-block--30-slide {
@@ -618,24 +705,29 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         #planning-dropdown {
             display: block;
         }
+
         #planning-buttons {
             display: none;
         }
+
         .dropdown__toggle {
             max-width: 160px;
         }
+        
         &.compact--level-1 {
             .dropdown__toggle {
-            max-width: 160px;
+                max-width: 160px;
             }
         }
     }
 }
+
 @media only screen and (max-width: 1024px) {
     .subnav--responsive.compact--level-1 {
         #planning-dropdown {
             display: block;
         }
+
         #planning-buttons {
             display: none;
         }
@@ -651,6 +743,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
                 #planning-dropdown {
                     display: block;
                 }
+
                 #planning-buttons {
                     display: none;
                 }
@@ -665,9 +758,11 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
             #planning-dropdown {
                 display: block;
             }
+
             #planning-buttons {
                 display: none;
             }
+            
             .dropdown__toggle {
                 max-width: 160px;
             }

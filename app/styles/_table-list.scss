@@ -1,6 +1,6 @@
 // Boxed lists
 // Simpler version of the list item.
-// ---------------------------------------------
+
 .table-list {
     display: flex;
     flex-direction: column;
@@ -8,12 +8,14 @@
     overflow: hidden !important;
     padding: 1px;
     //gap: $sd-base-increment * 1.5;
-    &--comfortable {
-        gap: $sd-base-increment * 2;
-    }
-    &--contained {
-        gap: 0;
-    }
+}
+
+.table-list--comfortable {
+    gap: $sd-base-increment * 2;
+}
+
+.table-list--contained {
+    gap: 0;
 }
 
 .table-list--read-only {
@@ -37,63 +39,12 @@ $table-list-palette: $sd-basic-palette;
     transition: all 0.2s ease-in-out;
     inset-inline-start: 0;
 
-    &--margin {
-        margin-bottom: $sd-base-increment;
-    }
-
-    &--selected {
-        box-shadow: var(--sd-shadow__item--selected-thin);
-    }
-    &--clickable {
-        &:hover {
-            cursor: pointer;
-            border: 1px solid var(--sd-colour-line--strong);
-            box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.1);
-        }
-        &:active {
-            border-color: var(--sd-colour-interactive);
-        }
-    }
-    &--draggable {
-        &::after {
-            content: "";
-            width: 20px;
-            position: absolute;
-            inset-block: -1px;
-            inset-inline-start: 0px;
-            background-image: url(../img/dots.svg);
-            background-repeat: no-repeat;
-            background-position: center center;
-            z-index: 2;
-            border-radius: var(--b-radius--small);
-            opacity: 0;
-        }
-        &:hover {
-            border-left-width: 16px;
-            &::after {
-                inset-inline-start: -18px;
-                opacity: 0.65;
-                cursor: grab;
-            }
-        }
-        &:active {
-            border-color: var(--sd-colour-interactive);
-            cursor: grabbing;
-            &::after {
-                opacity: 1 !important;
-                cursor: grabbing;
-            }
-        }
-    }
-    &--locked {
-        border-color: hsla(350, 70%, 60%, 0.75);
-        border-left-color: hsla(350, 70%, 60%, 0.75) !important;
-    }
     &.table-list__item--selected.table-list__item--clickable {
         &:hover {
             box-shadow: var(--sd-shadow__item--selected-thin);
         }
     }
+
     &:hover {
         .table-list__slide-in-actions,
         .table-list__actions--slide-in {
@@ -103,18 +54,82 @@ $table-list-palette: $sd-basic-palette;
             overflow: visible;
             opacity: 1;
             transition: all ease-in 0.1s;
+
             .icn-btn {
                 opacity: 0.4;
+
                 &:hover {
                     opacity: 1;
                 }
             }
         }
     }
-    &--disabled {
-        pointer-events: none;
-        opacity: 0.5;
+}
+
+.table-list__item--margin {
+    margin-bottom: $sd-base-increment;
+}
+
+.table-list__item--selected {
+    box-shadow: var(--sd-shadow__item--selected-thin);
+}
+
+.table-list__item--clickable {
+    &:hover {
+        cursor: pointer;
+        border: 1px solid var(--sd-colour-line--strong);
+        box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.1);
     }
+
+    &:active {
+        border-color: var(--sd-colour-interactive);
+    }
+}
+
+.table-list__item--draggable {
+    &::after {
+        content: "";
+        width: 20px;
+        position: absolute;
+        inset-block: -1px;
+        inset-inline-start: 0px;
+        background-image: url(../img/dots.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
+        z-index: 2;
+        border-radius: var(--b-radius--small);
+        opacity: 0;
+    }
+
+    &:hover {
+        border-left-width: 16px;
+
+        &::after {
+            inset-inline-start: -18px;
+            opacity: 0.65;
+            cursor: grab;
+        }
+    }
+
+    &:active {
+        border-color: var(--sd-colour-interactive);
+        cursor: grabbing;
+
+        &::after {
+            opacity: 1 !important;
+            cursor: grabbing;
+        }
+    }
+}
+
+.table-list__item--locked {
+    border-color: hsla(350, 70%, 60%, 0.75);
+    border-left-color: hsla(350, 70%, 60%, 0.75) !important;
+}
+
+.table-list__item--disabled {
+    pointer-events: none;
+    opacity: 0.5;
 }
 
 .table-list__add-item {
@@ -130,12 +145,12 @@ $table-list-palette: $sd-basic-palette;
     border: 1px dashed var(--sd-colour-line--medium);
     transition: all 0.2s ease-in-out;
     inset-inline-start: 0;
+}
 
-    &--container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.table-list__add-item--container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .table-list__item-border {
@@ -147,8 +162,6 @@ $table-list-palette: $sd-basic-palette;
     inset-inline-start: 3px;
     border-radius: 2px;
 }
-
-
 
 .table-list__item-content {
     grid-column: contentCol;
@@ -161,6 +174,7 @@ $table-list-palette: $sd-basic-palette;
     align-items: center;
     gap:8px;
 }
+
 .table-list__item-border {
     width: 6px;
     background-color: var(--sd-colour-panel-bg--100);
@@ -170,25 +184,27 @@ $table-list-palette: $sd-basic-palette;
     inset-inline-start: 3px;
     border-radius: 2px;
 }
+
 .table-list__item-content-block {
     display: flex;
     align-items: center;
     gap: 8px;
-    &--center {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-        font-size: 14px;
-        font-weight: 500;
-        span {
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            max-width: 100%;
-        }
-    }
 }
 
+.table-list__item-content-block--center {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+
+    span {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: 100%;
+    }
+}
 
 .table-list__slide-in-actions,
 .table-list__static-actions,
@@ -211,6 +227,7 @@ $table-list-palette: $sd-basic-palette;
     overflow: hidden;
     opacity: 0;
     transition: all ease-in-out 0.2s;
+
     .icn-btn {
         flex: 0 0 auto;
         opacity: 0;
@@ -222,13 +239,16 @@ $table-list-palette: $sd-basic-palette;
 .table-list__actions--static  {
     grid-column: actionsVisible;
     grid-row: mainRow;
+
     .icn-btn {
         opacity: 0.4;
+
         &:hover {
             opacity: 1;
         }
     }
 }
+
 .table-list__item {
     &.table-list__item--align-center {
         .table-list__item-content {
@@ -244,16 +264,19 @@ $table-list-palette: $sd-basic-palette;
     align-items: center;
     justify-content: center;
     position: relative;
+
     &:hover {
         .table-list__add-bar  {
             opacity: 1;
             height: 32px;
             transform: scale(1);
         }
+
         &::after {
             opacity: 1;
         }
     }
+
     &::after {
         content: '';
         position: absolute;
@@ -295,6 +318,7 @@ $table-list-palette: $sd-basic-palette;
     &.table-list__item--drag-handles-always {
         border-left-width: 16px;
         border-left-color: var(--sd-colour-line--medium);
+
         &::after {
             content: "";
             width: 20px;
@@ -308,37 +332,47 @@ $table-list-palette: $sd-basic-palette;
             border-radius: var(--b-radius--small);
             opacity: 0.85;
         }
+
         &:hover {
             border-left-color: var(--sd-colour-line--strong);
+
             &::after {
                 cursor: grab;
             }
         }
+
         &:active {
             border-color: var(--sd-colour-interactive);
             cursor: grabbing;
+
             &::after {
                 opacity: 1 !important;
                 cursor: grabbing;
             }
         }
     }
+
     &.table-list__item--drag-handles-none {
         border-left-width: 1px;
+
         &::after {
             content: "";
             width: 0;
             opacity: 0;
         }
+
         &:hover {
             border-left-color: var(--sd-colour-line--strong);
+
             &::after {
                 cursor: grab;
             }
         }
+
         &:active {
             border-color: var(--sd-colour-interactive);
             cursor: grabbing;
+            
             &::after {
                 opacity: 1 !important;
                 cursor: grabbing;

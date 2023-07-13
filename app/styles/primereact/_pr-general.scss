@@ -19,6 +19,7 @@
     text-decoration: none;
     text-align: start;
     transition: $sd-transition__menu-item;
+
     &:hover,
     &:focus,
     &.p-highlight {
@@ -26,6 +27,7 @@
         text-decoration: none;
         cursor: pointer;
     }
+
     &:active {
         background-color: $sd-colour-background__menu-item--active;
     }
@@ -46,6 +48,7 @@
         background-color: var(--color-input-bg--hover);
         border-color: var(--color-input-border-hover);
     }
+    
     &:focus, &:focus-within, &.p-focus {
         background-color: var(--sd-colour-interactive--alpha-20);
         box-shadow: 0 1px 0 0 $sd-colour-interactive;

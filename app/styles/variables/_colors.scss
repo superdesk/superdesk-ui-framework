@@ -1,5 +1,4 @@
 // variables/colors.scss
-// -------------------------------------------------------------------------
 
 // Refernce Colours
 // $ref-color-primary:         hsla(198, 50%, 50%, 1);
@@ -27,70 +26,67 @@
 // $ref-color-light-grey--07:  hsl(214, 13%, 65%);
 // $ref-color-light-grey--08:  hsl(214, 13%, 60%);
 
-///// ==============
+///// =====================================================================
 
+$sd-colour-interactive: var(--sd-colour-interactive);
+$sd-colour--focus-shadow: var(--sd-colour-interactive--alpha-40);
 
-$sd-colour-interactive:                     var(--sd-colour-interactive);
-$sd-colour--focus-shadow:                   var(--sd-colour-interactive--alpha-40);
+$mainListBackGround: var(--sd-colour-panel-bg--100);
+$subnav-background: var(--sd-colour-panel-bg--100);
+$subnav-background-darker: var(--sd-colour-panel-bg--200);
 
-$mainListBackGround:                        var(--sd-colour-panel-bg--100);
-$subnav-background:                         var(--sd-colour-panel-bg--100);
-$subnav-background-darker:                  var(--sd-colour-panel-bg--200);
-
-$subnav-background-blue-grey:               var(--color-subnav-bg--blueGrey-00);
-$subnav-background-blue-grey-darker:        var(--color-subnav-bg--blueGrey-10);
-$subnav-background-dark-blue-grey:          var(--color-subnav-bg--blueGrey-10);
-$subnav-background-darkUi:                  var(--color-subnav-bg--00);
+$subnav-background-blue-grey: var(--color-subnav-bg--blueGrey-00);
+$subnav-background-blue-grey-darker: var(--color-subnav-bg--blueGrey-10);
+$subnav-background-dark-blue-grey: var(--color-subnav-bg--blueGrey-10);
+$subnav-background-darkUi: var(--color-subnav-bg--00);
 
 // NEWLY DEFINED COLOURS
 // =========================================================================
-$sd-colour-background__base:                        hsla(0, 0%, 100%, 1);
-$sd-colour-background__panel--default:              hsla(0, 0%, 100%, 1);
+$sd-colour-background__base: hsla(0, 0%, 100%, 1);
+$sd-colour-background__panel--default: hsla(0, 0%, 100%, 1);
 
-$sd-colour-brand__base--supedesk:                   hsla(152, 71%, 40%, 1);
-$sd-colour-brand__base--primary:                    hsla(165, 59%, 49%, 1);
-$sd-colour-brand__base--secondary:                  hsla(185, 33%, 57%, 1);
+$sd-colour-brand__base--supedesk: hsla(152, 71%, 40%, 1);
+$sd-colour-brand__base--primary: hsla(165, 59%, 49%, 1);
+$sd-colour-brand__base--secondary: hsla(185, 33%, 57%, 1);
 
-$sd-colour-text__base:                              var(--color-text);
-$sd-colour-text__base--light:                       var(--color-text-light);
-$sd-colour-text__slugline:                          var(--sd-slugline-color);
+$sd-colour-text__base: var(--color-text);
+$sd-colour-text__base--light: var(--color-text-light);
+$sd-colour-text__slugline: var(--sd-slugline-color);
 
-$sd-colour-background__sliding-toolbar:             var(--sd-colour-bg__sliding-toolbar);
+$sd-colour-background__sliding-toolbar: var(--sd-colour-bg__sliding-toolbar);
 
-$sd-colour-background__menu-item:                   transparent;
-$sd-colour-background__menu-item--hover:            var(--sd-colour-interactive--alpha-20);
-$sd-colour-background__menu-item--active:           var(--sd-colour-interactive--alpha-30);
+$sd-colour-background__menu-item: transparent;
+$sd-colour-background__menu-item--hover: var(--sd-colour-interactive--alpha-20);
+$sd-colour-background__menu-item--active: var(--sd-colour-interactive--alpha-30);
 
-$sd-colour-background__button-primary--normal:      var(--sd-colour-interactive);
-$sd-colour-background__button-primary--hover:       var(--sd-colour-interactive--hover);
-$sd-colour-background__button-primary--active:      var(--sd-colour-interactive--active);
+$sd-colour-background__button-primary--normal: var(--sd-colour-interactive);
+$sd-colour-background__button-primary--hover: var(--sd-colour-interactive--hover);
+$sd-colour-background__button-primary--active: var(--sd-colour-interactive--active);
 
-// =========================================================================
-
-
+// ==========================================================================
 
 // Basic colors
-$sd-blue:               hsla(198, 49%, 58%, 1);
-$sd-blueMedium:         hsla(198, 49%, 47%, 1);
-$sd-blueDark:           hsla(197, 100%, 25%, 1);
-$sd-green:              hsla(152, 71%, 40%, 1);
+$sd-blue: hsla(198, 49%, 58%, 1);
+$sd-blueMedium: hsla(198, 49%, 47%, 1);
+$sd-blueDark: hsla(197, 100%, 25%, 1);
+$sd-green: hsla(152, 71%, 40%, 1);
 
-$green:                 hsla(120, 40%, 46%, 1);
-$red:                   hsla(358, 79%, 50%, 1);
-$yellow:                hsla(45, 100%, 53%, 1);
-$orange:                hsla(35, 100%, 43%, 1);
-$purple:                hsla(291, 64%, 42%, 1);
+$green: hsla(120, 40%, 46%, 1);
+$red: hsla(358, 79%, 50%, 1);
+$yellow: hsla(45, 100%, 53%, 1);
+$orange: hsla(35, 100%, 43%, 1);
+$purple: hsla(291, 64%, 42%, 1);
 
-$black:                 hsl(214, 13%, 0%);
-$grayDarker:            hsl(214, 13%, 13%);
-$grayDark:              hsl(214, 13%, 20%);
-$grayMedium:            hsl(214, 13%, 27%);
-$gray:                  hsl(214, 13%, 40%);
-$grayNeutral:           hsl(214, 13%, 48%);
-$grayText:              hsl(214, 13%, 45%);
-$grayLight:             hsl(214, 13%, 60%);
-$grayLighter:           hsl(214, 13%, 96%);
-$white:                 hsl(214, 13%, 100%);
+$black: hsl(214, 13%, 0%);
+$grayDarker: hsl(214, 13%, 13%);
+$grayDark: hsl(214, 13%, 20%);
+$grayMedium: hsl(214, 13%, 27%);
+$gray: hsl(214, 13%, 40%);
+$grayNeutral: hsl(214, 13%, 48%);
+$grayText: hsl(214, 13%, 45%);
+$grayLight: hsl(214, 13%, 60%);
+$grayLighter: hsl(214, 13%, 96%);
+$white: hsl(214, 13%, 100%);
 
 // Greys
 // $gray--900:             hsl(214, 13%, 20%);
@@ -106,14 +102,14 @@ $white:                 hsl(214, 13%, 100%);
 // $grey--50:              hsl(214, 13%, 96%);
 
 // Extended colors
-$fernGreen:             hsla(91, 47%, 34%, 1);
-$oldGold:               hsla(48, 100%, 41%, 1);
-$darkOrange:            hsla(31, 100%, 43%, 1);
-$fireBrick:             hsla(7, 100%, 37%, 1);
-$deepPink:              hsla(325, 100%, 45%, 1);
-$darkMagenta:           hsla(300, 100%, 27%, 1);
-$darkViolet:            hsla(280, 100%, 34%, 1);
-$navy:                  hsla(240, 100%, 25%, 1);
+$fernGreen: hsla(91, 47%, 34%, 1);
+$oldGold: hsla(48, 100%, 41%, 1);
+$darkOrange: hsla(31, 100%, 43%, 1);
+$fireBrick: hsla(7, 100%, 37%, 1);
+$deepPink: hsla(325, 100%, 45%, 1);
+$darkMagenta: hsla(300, 100%, 27%, 1);
+$darkViolet: hsla(280, 100%, 34%, 1);
+$navy: hsla(240, 100%, 25%, 1);
 
 // Panel backgrounds
 // $panel-bg--00:          #fff;
@@ -126,76 +122,72 @@ $navy:                  hsla(240, 100%, 25%, 1);
 // Text specific colors
 //Subnav colours
 
-$sd-text:               var(--color-text);
-$sd-text-light:         var(--color-text-light);
-$sd-text-lighter:       var(--color-text-lighter);
-$sd-slugline:           var(--sd-slugline-color);
-$sd-slugline-darkUI:    hsl(196, 19%, 50%);
+$sd-text: var(--color-text);
+$sd-text-light: var(--color-text-light);
+$sd-text-lighter: var(--color-text-lighter);
+$sd-slugline: var(--sd-slugline-color);
+$sd-slugline-darkUI: hsl(196, 19%, 50%);
 
 // Light border color that works well on white and dark backgrounds
 $neutral-border-color: scale-color($grayNeutral, $alpha: -50%);
 
 // Misc
-$avatarBG:                            hsla(168, 31%, 55%, 1);
-$sd-background:                       hsla(0, 0%, 97%, 1);
-$sd-background-darkUI:                hsla(0, 0%, 23%, 1);
-$sd-filters-bg:                       hsla(0, 0%, 93%, 1);
-$sd-filters-darkUI-bg:                hsla(0, 0%, 20%, 1);
+$avatarBG: hsla(168, 31%, 55%, 1);
+$sd-background: hsla(0, 0%, 97%, 1);
+$sd-background-darkUI: hsla(0, 0%, 23%, 1);
+$sd-filters-bg: hsla(0, 0%, 93%, 1);
+$sd-filters-darkUI-bg: hsla(0, 0%, 20%, 1);
 
-$sd-hover:                            hsla(196, 52%, 96%, 1);
-$transparent-gray:                    hsla(0, 0%, 0%, 0.15);
-$transparent-white:                   hsla(0, 0%, 100%, 0.4);
-$sd-inputBorderColor:                 $transparent-gray;
+$sd-hover: hsla(196, 52%, 96%, 1);
+$transparent-gray: hsla(0, 0%, 0%, 0.15);
+$transparent-white: hsla(0, 0%, 100%, 0.4);
+$sd-inputBorderColor: $transparent-gray;
 
-$photoBG-dark:                        hsla(0, 0%, 17%, 1);
-$annotation-color:                    hsla(87, 68%, 61%, 1);
-$comment-color:                       hsla(54, 100%, 72%, 1);
+$photoBG-dark: hsla(0, 0%, 17%, 1);
+$annotation-color: hsla(87, 68%, 61%, 1);
+$comment-color: hsla(54, 100%, 72%, 1);
 
-$sd-inputBorderColor-darkUi:          $transparent-white;
+$sd-inputBorderColor-darkUi: $transparent-white;
 
 //Subnav colours
 
-
-
-
-
 $sd-basic-palette: (
-  default: hsla(214, 13%, 60%, 1),
-  primary: $sd-blue,
-  success: $green,
-  warning: $orange,
-  alert: $red,
-  highlight: $purple,
-  sd-green: $sd-green, 
+	default: hsla(214, 13%, 60%, 1),
+	primary: $sd-blue,
+	success: $green,
+	warning: $orange,
+	alert: $red,
+	highlight: $purple,
+	sd-green: $sd-green,
 );
 
 $sd-extended-palette: (
-  default: $grayDark,
-  primary: $sd-blue,
-  success: $green,
-  warning: $orange,
-  alert: $red,
-  highlight: $purple,
+	default: $grayDark,
+	primary: $sd-blue,
+	success: $green,
+	warning: $orange,
+	alert: $red,
+	highlight: $purple,
 
-  success2: $fernGreen,
-  yellow2: $oldGold,
-  orange2: $darkOrange,
-  red2: $fireBrick,
-  highlight2: $deepPink,
-  highlight3: $darkMagenta,
-  highlight4: $darkViolet,
-  darkBlue2: $navy,
-  sd-green: $sd-green,
+	success2: $fernGreen,
+	yellow2: $oldGold,
+	orange2: $darkOrange,
+	red2: $fireBrick,
+	highlight2: $deepPink,
+	highlight3: $darkMagenta,
+	highlight4: $darkViolet,
+	darkBlue2: $navy,
+	sd-green: $sd-green,
 );
 
 $sd-basic-palette-ui-dark: (
-  default: $grayLighter,
-  primary: $sd-blue,
-  success: $green,
-  warning: $orange,
-  alert: $red,
-  highlight: #bf00e0,
-  sd-green: $sd-green,
+	default: $grayLighter,
+	primary: $sd-blue,
+	success: $green,
+	warning: $orange,
+	alert: $red,
+	highlight: #bf00e0,
+	sd-green: $sd-green,
 );
 
 // Dark UI
@@ -207,67 +199,73 @@ $default-color-ui-dark: map-get($sd-basic-palette-ui-dark, default);
 
 // Additional colors with shades -- Material design based
 $baseColors: (
-  red:          hsla(4, 90%, 58%, 1),
-  pink:         hsla(340, 82%, 52%, 1),
-  purple:       hsla(291, 64%, 42%, 1),
-  deep-purple:  hsla(262, 52%, 47%, 1),
-  indigo:       hsla(231, 48%, 48%, 1),
-  blue:         hsla(207, 90%, 54%, 1),
-  light-blue:   hsla(199, 98%, 48%, 1),
-  cyan:         hsla(187, 100%, 42%, 1),
-  teal:         hsla(174, 100%, 29%, 1),
-  green:        hsla(122, 39%, 49%, 1),
-  light-green:  hsla(88, 50%, 53%, 1),
-  lime:         hsla(66, 70%, 54%, 1),
-  yellow:       hsla(54, 100%, 62%, 1),
-  amber:        hsla(45, 100%, 51%, 1),
-  orange:       hsla(36, 100%, 50%, 1),
-  deep-orange:  hsla(14, 100%, 57%, 1),
-  brown:        hsla(16, 25%, 38%, 1),
-  grey:         hsla(0, 0%, 57%, 1),
-  blue-grey:    hsla(200, 18%, 46%, 1)
+	red: hsla(4, 90%, 58%, 1),
+	pink: hsla(340, 82%, 52%, 1),
+	purple: hsla(291, 64%, 42%, 1),
+	deep-purple: hsla(262, 52%, 47%, 1),
+	indigo: hsla(231, 48%, 48%, 1),
+	blue: hsla(207, 90%, 54%, 1),
+	light-blue: hsla(199, 98%, 48%, 1),
+	cyan: hsla(187, 100%, 42%, 1),
+	teal: hsla(174, 100%, 29%, 1),
+	green: hsla(122, 39%, 49%, 1),
+	light-green: hsla(88, 50%, 53%, 1),
+	lime: hsla(66, 70%, 54%, 1),
+	yellow: hsla(54, 100%, 62%, 1),
+	amber: hsla(45, 100%, 51%, 1),
+	orange: hsla(36, 100%, 50%, 1),
+	deep-orange: hsla(14, 100%, 57%, 1),
+	brown: hsla(16, 25%, 38%, 1),
+	grey: hsla(0, 0%, 57%, 1),
+	blue-grey: hsla(200, 18%, 46%, 1)
 );
 
 @function colorMap($baseColors, $variations) {
-  $colors:();
-  
-  @each $color, $value in $baseColors {
-    $maxVar: 36;
-    $mid: $variations / 2;
-    $dist: $mid - 1;
-    $step: $maxVar / $dist;
-    
-    // lighten and darken
-    @for $i from 1 through $dist {
-      $percent: $maxVar - ($step * ($i - 1));
-      $darken: ($variations - $i) * 100;
-      $lighten: $i * 100;
+	$colors: ();
 
-      $colors: map-merge($colors, (
-         #{$color}--#{$lighten}: lighten($value, $percent),
-         #{$color}--#{$darken}:  darken($value, $percent)
-      ));
-    }
+	@each $color,
+	$value in $baseColors {
+		$maxVar: 36;
+		$mid: $variations / 2;
+		$dist: $mid - 1;
+		$step: $maxVar / $dist;
 
-    // middle eg 500
-    $colors: map-merge($colors, (#{$color}--50: lighten($value, 38.7)));
-    $colors: map-merge($colors, (#{$color}--#{$variations/2*100}: $value));
-  }
-  @return $colors;
+		// lighten and darken
+		@for $i from 1 through $dist {
+			$percent: $maxVar - ($step * ($i - 1));
+			$darken: ($variations - $i) * 100;
+			$lighten: $i * 100;
+
+			$colors: map-merge($colors, (
+				#{$color}--#{$lighten}: lighten($value, $percent),
+				#{$color}--#{$darken}: darken($value, $percent))
+			);
+		}
+
+		// middle eg 500
+		$colors: map-merge($colors, (#{$color}--50: lighten($value, 38.7)));
+		$colors: map-merge($colors, (#{$color}--#{$variations/2*100}: $value));
+	}
+
+	@return $colors;
 }
 
-@each $color, $value in colorMap($baseColors, 10) {
-  .#{$color} { 
-    background-color: $value;
-  }
-  .hollow-#{$color} { 
-    color: $value !important;
-    border-color: $value !important;
-    &:hover{
-      color: $value !important;
-    }
-  }
-  .text-#{$color} { 
-    color: $value;
-  }
+@each $color,
+$value in colorMap($baseColors, 10) {
+	.#{$color} {
+		background-color: $value;
+	}
+
+	.hollow-#{$color} {
+		color: $value !important;
+		border-color: $value !important;
+
+		&:hover {
+			color: $value !important;
+		}
+	}
+
+	.text-#{$color} {
+		color: $value;
+	}
 }

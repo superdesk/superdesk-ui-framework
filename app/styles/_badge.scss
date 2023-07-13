@@ -1,6 +1,3 @@
-
-
-
 /// Default colors for badges.
 $badge-background: var(--sd-colour-bg--08) !default;
 $badge-background-translucent: var(--sd-colour-bg-translucent--08);
@@ -13,9 +10,7 @@ $badge-palette: $sd-basic-palette !default;
 /// Default padding inside badges.
 $badge-padding: 0.4em 0.5em 0.3em!default;
 
-
 $badge-minwidth: 1.8em !default;
-
 
 /// Default font size and line height for badges.
 $badge-font-size: 1rem !default;
@@ -35,6 +30,7 @@ $badge-lineheight: 1.1em !default;
     --sd-badge-bg: var(--sd-colour-bg--08);
     background-color: var(--sd-badge-bg);
     color: var(--color-text--inverse);
+
     &--square {
         border-radius: $border-radius__base--x-small;
     }
@@ -42,27 +38,35 @@ $badge-lineheight: 1.1em !default;
 
 .badge {
     @include badge;
+
     &.badge--primary {
         --sd-badge-bg: var(--sd-colour-primary);
     }
+
     &.badge--success {
         --sd-badge-bg: var(--sd-colour-success);
     }
+
     &.badge--warning {
         --sd-badge-bg: var(--sd-colour-warning);
     }
+
     &.badge--alert {
         --sd-badge-bg: var(--sd-colour-alert);
     }
+
     &.badge--highlight {
         --sd-badge-bg: var(--sd-colour-highlight);
     }
+
     &.badge--sd-green {
         --sd-badge-bg: var(--sd-colour-superdesk);
     }
+
     &.badge--secondary {
         --sd-btn-bg: var(--sd-colour-secondary);
     }
+
     // light gray
     &.badge--light {
         background-color: var(--sd-colour-bg-translucent--08);
@@ -75,11 +79,13 @@ $badge-lineheight: 1.1em !default;
 .element-with-badge {
     display: inline-block;
     position: relative;
+
     .badge {
       position: absolute;
       top: -.5rem;
       right: -.8rem;
     }
+    
     + .element-with-badge, + .btn {
       margin-left: 1.2rem;
       vertical-align: top;

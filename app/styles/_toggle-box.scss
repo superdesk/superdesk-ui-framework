@@ -1,50 +1,61 @@
 // Toggle box aka collapsible panel
-// ----
 
 .toggle-box {
     position: relative;
     align-self: stretch;
+
     &.hidden {
         .toggle-box__chevron {
             i {
                 transform: rotate(0);
             }
-            &--circle {
-                background-color: var(--sd-colour-btn-bg-neutral);
-                i {
-                    color: var(--color-text-light);
-                }
+        }
+
+        .toggle-box__chevron--circle {
+            background-color: var(--sd-colour-btn-bg-neutral);
+
+            i {
+                color: var(--color-text-light);
             }
         }
+
         .toggle-box__content-wraper {
             max-height: 0;
             transition: all ease-out .5s;
         }
+
         .toggle-box__header {
             margin-bottom: 0;
         }
     }
+
     // Stylings
     &.toggle-box--circle {
         .toggle-box__chevron {
             background-color: var(--sd-colour-btn-bg-neutral);
+
             i {
                 color: var(--sd-colour-btn-txt-neutral);
             }
         }
     }
+
     &.toggle-box--marg-b10 {
         margin-bottom: 1rem;
     }
+
     &.toggle-box--margin-none {
         margin-bottom: 0;
     }
+
     &.toggle-box--margin-small {
         margin-bottom: $sd-base-increment * 2;
     }
+
     &.toggle-box--margin-normal {
         margin-bottom: $sd-base-increment * 3;
     }
+
     &.toggle-box--margin-large {
         margin-bottom: $sd-base-increment * 4;
     }
@@ -74,36 +85,43 @@ a.toggle-box__header {
             transform: rotate(90deg);
         }
     }
+
     .toggle-box__label {
         font-size: 1.2rem;
         padding: 0 1rem 0 0.8rem;
         color: var(--color-label-text);
         text-transform: uppercase;
     }
+
     .toggle-box__line {
         flex: 1;
         height: 1px;
         margin: auto 0.4rem auto 0;
         background: var(--sd-colour-line--light);
     }
+
     &:hover {
         .toggle-box__label {
             color: var(--sd-colour-interactive);
             text-decoration: none !important;
         }
     }
+
     &:focus {
         background: none !important;
     }
+
     &:focus-visible {
         .toggle-box__chevron {
             box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
         }
+
         .toggle-box__label {
             color: var(--sd-colour-interactive);
         }
     }
-     * {
+
+    * {
         text-decoration: none !important;
     }
 }
@@ -120,11 +138,13 @@ a.toggle-box__header {
 .toggle-box__button {
     color: $grayLight;
     cursor: pointer;
+
     i {
         color: $grayLight;
         margin-right: 0.5rem;
         vertical-align: text-bottom;
     }
+    
     &:hover {
         text-decoration: none;
         color: $white;

@@ -1,6 +1,5 @@
 // BIG ICON FONT
 // Icons for the left and right sidebar and large action buttons in the top subnavigation bar
-// -------------------------------------------
 
 // All icons receive the styles of the <i> tag with a base class
 // of .i and are then given a unique class to add width, height,
@@ -12,14 +11,14 @@
 $icon-color: $grayDark !default;
 
 @font-face {
-  font-family: 'sd_big-icons';
-  src:  url('../fonts/sd_big-icons.eot?v4j36k');
-  src:  url('../fonts/sd_big-icons.eot?v4j36k#iefix') format('embedded-opentype'),
-    url('../fonts/sd_big-icons.ttf?v4j36k') format('truetype'),
-    url('../fonts/sd_big-icons.woff?v4j36k') format('woff'),
-    url('../fonts/sd_big-icons.svg?v4j36k#sd_big-icons') format('svg');
-  font-weight: normal;
-  font-style: normal;
+	font-family: 'sd_big-icons';
+	src:  url('../fonts/sd_big-icons.eot?v4j36k');
+	src:  url('../fonts/sd_big-icons.eot?v4j36k#iefix') format('embedded-opentype'),
+		url('../fonts/sd_big-icons.ttf?v4j36k') format('truetype'),
+		url('../fonts/sd_big-icons.woff?v4j36k') format('woff'),
+		url('../fonts/sd_big-icons.svg?v4j36k#sd_big-icons') format('svg');
+	font-weight: normal;
+	font-style: normal;
 }
 
 @mixin big-icon-base {
@@ -49,9 +48,11 @@ $icon-color: $grayDark !default;
 .big-icon--blue {
     color: $sd-colour-interactive;
 }
+
 .big-icon--white {
     color: $white !important;
 }
+
 [class*=big-icon--].red,
 .big-icon--red {
     color: $fireBrick;
@@ -119,27 +120,35 @@ $sd-big-icon-font: (
 @each $name, $value in $sd-big-icon-font {
     &.big-icon--#{$name} {
         content: $value;
+
         &.color--default {
             color: $icon-color;
         }
+
         &.color--primary {
             color: var(--sd-colour-primary) !important;
         }
+
         &.color--success {
             color: var(--sd-colour-success) !important;
         }
+
         &.color--warning {
             color: var(--sd-colour-warning) !important;
         }
+
         &.color--alert {
             color: var(--sd-colour-alert) !important;
         }
+
         &.color--highlight {
             color: var(--sd-colour-highlight) !important;
         }
+
         &.color--light {
             color: var(--color-text-lighter) !important;
         }
+
         &.color--white {
             color: hsla(214, 13%, 90, 1) !important;
         }
@@ -147,13 +156,16 @@ $sd-big-icon-font: (
         &.scale--2x {
             --big-icon-size: 52px
         }
+
         &.scale--3x {
             --big-icon-size: 78px
         }
+
         &.scale--4x {
             --big-icon-size: 104px
         }
     }
+	
     &.big-icon--#{$name}:before {
         content: $value;
     }

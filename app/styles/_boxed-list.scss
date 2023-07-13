@@ -1,15 +1,15 @@
 // Boxed lists
 // Simpler version of the list item.
-// ---------------------------------------------
 .boxed-list {
     display: flex;
     flex-direction: column;
     align-self: stretch;
     gap: $sd-base-increment * 1.5;
     margin-bottom: $sd-base-increment * 2;
-    &--comfortable {
-        gap: $sd-base-increment * 2;
-    }
+}
+
+.boxed-list--comfortable {
+    gap: $sd-base-increment * 2;
 }
 
 $boxed-list-palette: $sd-basic-palette;
@@ -24,6 +24,7 @@ $boxed-list-palette: $sd-basic-palette;
     background-color: var(--sd-item__main-Bg);
     box-shadow: $shadow__base--z1;
     transition: all 0.2s ease-in-out;
+
     @each $name, $color in $boxed-list-palette {
         &.boxed-list__item--#{$name} {
             &::before {
@@ -39,28 +40,14 @@ $boxed-list-palette: $sd-basic-palette;
             }
         }
     }
-    &--selected {
-        box-shadow: var(--sd-shadow__item--selected);
-    }
-    &--unread {
-        box-shadow: var(--sd-shadow__item--unread);
-    }
-    &--clickable {
-        &:hover {
-            cursor: pointer;
-            box-shadow: $shadow__base--z3;
-        }
-    }
-    &--blank {
-        background-color: transparent !important;
-        box-shadow: none;
-    }
+
     &.boxed-list__item--selected.boxed-list__item--clickable {
         &:hover {
             box-shadow: var(--sd-shadow__item--selected);
             background-color: var(--color-selected-bg--hover) !important;
         }
     }
+
     &:hover {
         .boxed-list__slide-in-actions,
         .boxed-list__actions--slide-in {
@@ -70,30 +57,56 @@ $boxed-list-palette: $sd-basic-palette;
             overflow: visible;
             opacity: 1;
             transition: all ease-in 0.1s;
+
             .icn-btn {
                 opacity: 0.4;
+
                 &:hover {
                     opacity: 1;
                 }
             }
         }
     }
-    &--disabled {
-        pointer-events: none;
-        opacity: 0.5;
+}
+
+.boxed-list__item--selected {
+    box-shadow: var(--sd-shadow__item--selected);
+}
+
+.boxed-list__item--unread {
+    box-shadow: var(--sd-shadow__item--unread);
+}
+
+.boxed-list__item--clickable {
+    &:hover {
+        cursor: pointer;
+        box-shadow: $shadow__base--z3;
     }
-    &--comfortable {
-        min-height: 3.2rem;
-        @include sd-padding('1-5');
-    }
-    &--compact {
-        min-height: none;
-        padding: $sd-base-increment $sd-base-increment $sd-base-increment $sd-base-increment * 0.5;
-    }
-    &--loose {
-        min-height: 4.8rem;
-        @include sd-padding('2');
-    }
+}
+
+.boxed-list__item--blank {
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.boxed-list__item--disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.boxed-list__item--comfortable {
+    min-height: 3.2rem;
+    @include sd-padding('1-5');
+}
+
+.boxed-list__item--compact {
+    min-height: none;
+    padding: $sd-base-increment $sd-base-increment $sd-base-increment $sd-base-increment * 0.5;
+}
+
+.boxed-list__item--loose {
+    min-height: 4.8rem;
+    @include sd-padding('2');
 }
 
 .boxed-list__item-media {
@@ -103,6 +116,7 @@ $boxed-list-palette: $sd-basic-palette;
     flex-direction: column;
     padding: 0 0.2rem 0 0.2rem;
     flex: 0 1 auto;
+
     [class^="icon-"],
     [class*="icon-"],
     [class^="big-icon--"],
@@ -110,6 +124,7 @@ $boxed-list-palette: $sd-basic-palette;
         color: var(--color-text);
         opacity: 0.5;
     }
+
     [class^="icon-"],
     [class*="icon-"] {
         color: var(--color-text);
@@ -129,21 +144,25 @@ $boxed-list-palette: $sd-basic-palette;
     padding: 0 0.8rem 0 0.8rem;
     overflow: hidden;
     position: relative;
-    &--centered {
-        align-items: center;
-        justify-content: center;
-    }
 }
+
+.boxed-list__item-content--centered {
+    align-items: center;
+    justify-content: center;
+}
+
 .boxed-list__item-content-row {
     display: flex;
     flex-direction: row;
     align-items: baseline;
     justify-content: flex-start;
-    &--fixed {
-        align-items: baseline;
-        white-space: nowrap;
-    }
 }
+
+.boxed-list__item-content-row--fixed {
+    align-items: baseline;
+    white-space: nowrap;
+}
+
 .boxed-list__item-footer {
     grid-column: 1/-1;
     grid-row: footerRow;
@@ -152,9 +171,10 @@ $boxed-list-palette: $sd-basic-palette;
     align-items: center;
     padding: 0.8rem 0.8rem 0 0.8rem;
     margin-top: 0.8rem;
-    &--allign-baseline {
-        align-items: baseline;
-    }
+}
+
+.boxed-list__item-footer--allign-baseline {
+    align-items: baseline;
 }
 
 .boxed-list__item-content-row + .boxed-list__item-content-row  {
@@ -171,6 +191,7 @@ $boxed-list-palette: $sd-basic-palette;
     align-items: center;
     flex-grow: 0;
     gap: 2px;
+
     .icn-btn {
         margin: 0 -0.6rem 0 0;
     }
@@ -185,6 +206,7 @@ $boxed-list-palette: $sd-basic-palette;
     overflow: hidden;
     opacity: 0;
     transition: all ease-in-out 0.2s;
+
     .icn-btn {
         flex: 0 0 auto;
         opacity: 0;
@@ -196,13 +218,16 @@ $boxed-list-palette: $sd-basic-palette;
 .boxed-list__actions--static  {
     grid-column: actionsVisible;
     grid-row: mainRow;
+
     .icn-btn {
         opacity: 0.4;
+
         &:hover {
             opacity: 1;
         }
     }
 }
+
 .boxed-list__item {
     &.boxed-list__item--align-center {
         .boxed-list__item-content {

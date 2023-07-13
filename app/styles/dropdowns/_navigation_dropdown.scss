@@ -12,18 +12,22 @@
         position: relative;
         z-index: 2;
         background: transparent;
+        
         &:hover {
             background: rgba(255,255,255,0);
         }
+
         &.condensed {
             padding: 0 14px;
         }
     }
+
     &.open {
         & > .dropdown__toggle {
             background-color: var(--color-dropdown-menu-Bg);
             color: $sd-colour-interactive;
             z-index: 3;
+
             &.sd-create-btn {
                 .circle {
                     width: 32px;
@@ -47,9 +51,11 @@
         min-width: 200px;
         box-shadow: $shadow__dropdown--default;
         padding: 10px 0;
+
         &:before {
             display: none;
         }
+
         li {
             > a, > button, > span {
                 margin: 0;
@@ -57,15 +63,19 @@
                 padding: 6px 16px;
                 line-height: 19px;
             }
+
             > span {
                 display: block;
+
                 &:hover {
                     background: none;
                 }
             }
-      > .dropdown__menu-label {
-          min-width: 205px;
-      }
+
+            > .dropdown__menu-label {
+                min-width: 205px;
+            }
+
             button {
                 &.full {
                     width: 100%;
@@ -74,15 +84,18 @@
                     padding: 10px 10px;
                     border-top: 1px solid #e0e0e0;
                     border-radius: 0px;
+
                     i {
                         margin-right: 10px;
                     }
+
                     &:hover {
                         background: $sd-colour-interactive;
                         color: #fff;
                     }
                 }
             }
+
             &:active {
                 > button {
                     background: $sd-colour-interactive;
@@ -90,6 +103,7 @@
                 }
             }
         }
+        
         .fieldset {
             button {
                 display: inline-block;

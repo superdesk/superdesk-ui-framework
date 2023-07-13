@@ -1,5 +1,4 @@
 // Large Searchbar
-// -----------------------------------------------------
 
 // Large searchbar is usualy used inside the 'subnav' component, hence the flex-grow property;
 
@@ -12,60 +11,74 @@
     transition: all 0.2s ease-out;
     height: 100%; // adapts to the height of the parent element, usually .subnav. 
     max-height: $subnav-height;
-    &--focused {
-        background-color: var(--sd-colour-bg__searchbar);
-        box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 6px var(--sd-colour-interactive--alpha-20);
+}
+
+.sd-searchbar--focused {
+    background-color: var(--sd-colour-bg__searchbar);
+    box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 6px var(--sd-colour-interactive--alpha-20);
+}
+
+.sd-searchbar--border-r {
+    border-right: 1px solid var(--sd-colour-line--x-light);
+}
+
+.sd-searchbar--border-l {
+    border-left: 1px solid var(--sd-colour-line--x-light);
+}
+
+.sd-searchbar--border-l-r {
+    border-right: 1px solid var(--sd-colour-line--x-light);
+    border-left: 1px solid var(--sd-colour-line--x-light);
+}
+
+.sd-searchbar--border-bottom {
+    border-bottom: 1px solid var(--sd-colour-line--light);
+}
+
+.sd-searchbar--small {
+    height: 3.6rem;
+}
+
+.sd-searchbar--boxed {
+    height: 4rem;
+    border-radius: $border-radius__base--medium;
+    border: 1px solid var(--color-border-line--medium);
+    background-color: var(--sd-colour-bg__searchbar);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.14);
+    transition: box-shadow 0.2s ease-out;
+
+    &:hover {
+        border-color: rgba(123,123,123,0.6);
     }
-    &--border-r {
-        border-right: 1px solid var(--sd-colour-line--x-light);
-    }
-    &--border-l {
-        border-left: 1px solid var(--sd-colour-line--x-light);
-    }
-    &--border-l-r {
-        border-right: 1px solid var(--sd-colour-line--x-light);
-        border-left: 1px solid var(--sd-colour-line--x-light);
-    }
-    &--border-bottom {
-        border-bottom: 1px solid var(--sd-colour-line--light);
-    }
-    &--small {
-        height: 3.6rem;
-    }
-    &--boxed {
-        height: 4rem;
-        border-radius: $border-radius__base--medium;
-        border: 1px solid var(--color-border-line--medium);
-        background-color: var(--sd-colour-bg__searchbar);
-        box-shadow: inset 0 2px 4px rgba(0,0,0,0.14);
+
+    &.sd-searchbar--focused,
+    &:focus-within {
         transition: box-shadow 0.2s ease-out;
-        &:hover {
-            border-color: rgba(123,123,123,0.6);
-        }
-        &.sd-searchbar--focused,
-        &:focus-within {
-            transition: box-shadow 0.2s ease-out;
-            border-color: var(--sd-colour-interactive--alpha-70);
-            box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
+        border-color: var(--sd-colour-interactive--alpha-70);
+        box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
 
-        }
-        &.sd-searchbar--invalid {
-            border-color: rgba(229, 28, 35, 0.75);
-            box-shadow: inset 0 0 0 1px rgba(229,28,35,0.1), inset 0 0 0 4px rgba(229,28,35,0.1);
+    }
 
-        }
-        &.sd-searchbar--disabled {
-            opacity: 0.5;
+    &.sd-searchbar--invalid {
+        border-color: rgba(229, 28, 35, 0.75);
+        box-shadow: inset 0 0 0 1px rgba(229,28,35,0.1), inset 0 0 0 4px rgba(229,28,35,0.1);
+
+    }
+
+    &.sd-searchbar--disabled {
+        opacity: 0.5;
+        cursor: not-allowed !important;
+
+        .sd-searchbar__input {
             cursor: not-allowed !important;
-            .sd-searchbar__input {
-                cursor: not-allowed !important;
-            }
-            &:hover {
-                border-color: rgba(123,123,123,0.4);
-            }
+        }
+
+        &:hover {
+            border-color: rgba(123,123,123,0.4);
         }
     }
 }
+
 .sd-searchbar__input, input[type="text"].sd-searchbar__input, input[type="search"].sd-searchbar__input {
     flex-grow: 1;
     flex-shrink: 1;
@@ -78,6 +91,7 @@
     box-shadow: none !important;
     padding-right: 1rem;
     height: auto;
+
     &::placeholder {
         color: $sd-text-light;
         font-weight: 300;
@@ -96,6 +110,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     &::after {
         content:"\e618";
         width: 16px;
@@ -113,13 +128,14 @@
     }
     
 }
+
 .sd-searchbar--boxed {
     .sd-searchbar__icon {
         width: 4rem;
         margin-right: 0;
     }
-
 }
+
 .sd-searchbar__search-btn {
     height: 2.8rem;
     width: 2.8rem;
@@ -136,16 +152,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     i {
         transition: color 0.2s ease-out;
         color: $sd-colour-interactive;
     }
+
     &:hover {
         background-color: var(--sd-colour-interactive--alpha-80);
         i {
             color: $white;
         }
     }
+
     &:active {
         background-color: $sd-colour-interactive;
         opacity: 1;
@@ -154,13 +173,16 @@
         }
     }
 }
+
 .sd-searchbar__search-btn--active {
     background-color: $sd-colour-interactive;
-        opacity: 1;
-        i {
-            color: $white;
-        }
+    opacity: 1;
+
+    i {
+        color: $white;
+    }
 }
+
 [dir="rtl"] {
     .sd-searchbar__search-btn {
         i.icon-chevron-right-thin {
@@ -168,6 +190,7 @@
         }
     }
 }
+
 .sd-searchbar__cancel {
     height: 1.6rem;
     width: 1.6rem;
@@ -180,12 +203,15 @@
     opacity: 0.35;
     transition: opacity 0.2s ease-out;
     color: currentColor;
+
     i {
         color: $sd-text; 
     }
+
     &:hover {
         opacity: 0.7;
     }
+
     &:active {
         opacity: 1;
     }
@@ -200,6 +226,7 @@
     letter-spacing: 0.03em;
     display: block;
     margin-top: 8px;
+
     .sd-searchbar__message {
         color: $red;
     }
@@ -208,6 +235,7 @@
 [data-theme="dark-ui"] {
     .sd-searchbar--boxed {
         background-color: hsla(0, 0%, 0%, 0.2);
+        
         &.sd-searchbar--focused {
             background-color: hsla(0, 0%, 0%, 0.25) !important;
         }
