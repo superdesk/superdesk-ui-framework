@@ -80,13 +80,14 @@ $sd-slider-transition: transform .4s cubic-bezier(.25,.8,.25,1), background-colo
     &:hover {
         background-color: var(--sd-colour-interactive--darken-10);
     }
-
-    &:active, &--active {
-        transform: scale(1.4);
-        cursor: -webkit-grabbing;
-        cursor: grabbing;
-    }
 }
+
+.sd-slider__handle:active, .sd-slider__handle--active {
+    transform: scale(1.4);
+    cursor: -webkit-grabbing;
+    cursor: grabbing;
+}
+
 .sd-slider__focus-ring {
     position: absolute;
     top: -1.4rem;

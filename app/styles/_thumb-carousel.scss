@@ -165,18 +165,18 @@
             opacity: 0.6;
         }
     }
+}
 
-    &--highlight, &.p-highlight {
-        > button {
-            width: 16px;
-            background-color: var(--sd-colour-interactive);
+.sd-thumb-carousel__indicator--highlight, .sd-thumb-carousel__indicator.p-highlight {
+    > button {
+        width: 16px;
+        background-color: var(--sd-colour-interactive);
 
-            &:hover {
-                opacity: 1;
-            }
+        &:hover {
+            opacity: 1;
         }
-        
     }
+    
 }
 
 .sd-thumb-carousel__btn--prev, .sd-thumb-carousel__btn--next,
