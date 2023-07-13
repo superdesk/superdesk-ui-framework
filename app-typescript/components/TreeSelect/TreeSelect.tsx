@@ -178,13 +178,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         } else if (!isEqual(prevProps.value, this.props.value)) {
             this.props.onChange(this.state.value);
         }
+
         if (prevState.openDropdown !== this.state.openDropdown) {
             this.toggleMenu();
         }
+
         if (this.props.kind === 'synchronous') {
-            if ((prevState.activeTree !== this.state.activeTree)
-            || (prevState.filterArr !== this.state.filterArr)
-            || (prevState.options !== this.state.options)) {
+            if (
+                (prevState.activeTree !== this.state.activeTree)
+                || (prevState.filterArr !== this.state.filterArr)
+                || (prevState.options !== this.state.options)
+            ) {
                 this.popperInstance?.update();
             }
         }
@@ -239,6 +243,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.setState({
             value: newTags,
         });
+
         this.props.onChange(this.state.value);
     }
 
@@ -441,7 +446,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             let filteredArr = arr.filter((item) => {
                 if (this.state.searchFieldValue) {
                     if (this.props.getLabel(item.value)
-                    .toLowerCase().includes(this.state.searchFieldValue.toLowerCase())) {
+                        .toLowerCase()
+                        .includes(this.state.searchFieldValue.toLowerCase())
+                    ) {
                         return item.value;
                     } else {
                         return;
@@ -524,6 +531,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         element.focus();
                     });
                 }
+
                 if (e.key === 'ArrowUp') {
                     e.preventDefault();
                     e.stopPropagation();
@@ -634,6 +642,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     <i className="icon-plus-large"></i>
                                 </button>
                             }
+
                             <ul className="tags-input__tag-list">
                                 {this.state.value.map((item, i: number) => {
                                     const Wrapper: React.ComponentType<{backgroundColor?: string}>
@@ -653,8 +662,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                                     return (
                                         <React.Fragment key={i}>
-                                            {
-                                            this.props.valueTemplate
+                                            {this.props.valueTemplate
                                                 ? this.props.valueTemplate(item, Wrapper)
                                                 : (
                                                     <Wrapper>
@@ -690,8 +698,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     onClick={() => {
                                         this.setState({openDropdown: !this.state.openDropdown});
                                     }}
-                                >
-                                </button>
+                                />
                             }
 
                             {this.state.value.length < 1
@@ -714,8 +721,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             'tags-input__single-item'
                                             + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')
                                         }
-                                        onClick={() => !this.props.readOnly && this.removeClick(i)
-                                        }
+                                        onClick={() => !this.props.readOnly && this.removeClick(i)}
                                     >
                                         {this.props.getBorderColor
                                             && <div
@@ -796,6 +802,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 if (this.ICancelFn) {
                                                     this.ICancelFn();
                                                 }
+
                                                 this.setState({searchFieldValue: event.target.value, options: []});
                                                 this.popperInstance?.update();
                                                 this.debounceFn();
