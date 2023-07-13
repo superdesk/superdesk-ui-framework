@@ -1,39 +1,52 @@
 // Animation, TODO: Refactor
 .fade.ng-hide {
-  opacity: 0;
+	opacity: 0;
 }
 
 .fade.ng-hide-remove,
 .fade.ng-hide-add {
-  display: block !important;
+	display: block !important;
 }
 
 .fade.ng-hide-remove {
-  transition: all linear 200ms;
+	transition: all linear 200ms;
 }
 
 .fade.ng-hide-add {
-  position: absolute;
-  transition: all linear 300ms;
+	position: absolute;
+	transition: all linear 300ms;
 }
 
 @keyframes fadeIn {
-  0% {opacity:0;}
-  50% {opacity:0;}
-  100% {opacity:1;}
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
 }
 
 @keyframes dropOut2 {
-  0% {transform: translateY(-4.8rem);}
-  100% {transform: translateY(0);}
+	0% {
+		transform: translateY(-4.8rem);
+	}
+
+	100% {
+		transform: translateY(0);
+	}
 }
 
 .sd-card__thumbnail {
-  transition: all 0.2s ease-in;
-  height: 20rem;
-
+	transition: all 0.2s ease-in;
+	height: 20rem;
 }
+
 .sd-card__thumbnail.ng-hide {
-  opacity: 0;
-  height: 0.1rem !important;
+	opacity: 0;
+	height: 0.1rem !important;
 }

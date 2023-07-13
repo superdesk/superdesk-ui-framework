@@ -7,19 +7,23 @@ $background-main: $sd-background;
     padding: 1rem;
     padding-bottom: 0;
     height: 100%;
+
     ::-webkit-scrollbar {
         border-left: 4px solid transparent !important;
         border-right: 1px solid transparent !important;
         width: 6px !important;
         background: transparent !important;
     }
+
     ::-webkit-scrollbar-track {
         background: transparent !important;
         border-left: 3px solid transparent !important;
+
         &:hover {
             background: rgba(0,0,0,.05) !important;
         }
     }
+
     ::-webkit-scrollbar-thumb {
         border-left: 3px solid transparent !important;
     }
@@ -32,13 +36,16 @@ $background-main: $sd-background;
     margin: 0 1rem;
     height: 100%;
     min-width: 20rem;
+
     .sd-list-item-group {
         margin: 0;
     }
-    &--wide {
-        min-width: 36rem;
-    }
 }
+
+.sd-kanban-list__board--wide {
+    min-width: 36rem;
+}
+
 .sd-kanban-list__board-header {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -51,6 +58,7 @@ $background-main: $sd-background;
     border-bottom: 4px solid var(--sd-colour-bg--09);
     padding: 0 0 0.4rem 0;
     margin: 0 0.1rem;
+
     .sd-list-header {
         margin: 0 !important;
         flex-grow: 1;
@@ -59,10 +67,12 @@ $background-main: $sd-background;
         text-overflow: ellipsis;
         width: 100%;
     }
+
     .sd-list-header__name {
         flex-grow: 1;
     }
 }
+
 .sd-kanban-list__board-content {
     grid-column: 1/2;
     grid-row: 2/3;

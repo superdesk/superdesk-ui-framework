@@ -1,5 +1,4 @@
 // TABS
-// ----
 
 // Variables
 $nav-tabs-padding: 0.8rem;
@@ -12,7 +11,6 @@ $nav-tab-active-link-color: $sd-text; // active state text color
 $nav-tab-link-border-color: var(--sd-colour-line--strong); // hover state, border bottom color  
 $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state border bottom color
 
-
 // Mixins
 @mixin nav-tabs-base {
     height: $nav-height;
@@ -22,10 +20,12 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     box-shadow: 0 1px 0 0 var(--color-border-line--light);
     gap: $sd-base-increment;
 }
+
 @mixin nav-tab-link(
-     $link-color: $nav-tab-link-color,
-     $border-bottom-hover-color: $nav-tab-link-border-color
+    $link-color: $nav-tab-link-color,
+    $border-bottom-hover-color: $nav-tab-link-border-color
 ) {
+    @include text-overflow();
     margin: 0;
     padding: 0;
     padding-inline: $nav-tabs-padding;
@@ -37,13 +37,14 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     border:0;
     border-bottom: 3px solid transparent;
     text-decoration: none;
-    @include text-overflow();
+
     &:hover {
         border-bottom-color: $border-bottom-hover-color;
         background: none;
         text-decoration: none;
     }
 }
+
 @mixin nav-tab-link-active(
     $active-link-color: $sd-text,
     $border-bottom-color: $nav-tab-active-link-border-color
@@ -54,11 +55,11 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     color: $active-link-color;
 }
 
-
 // NEW 
 @mixin nav-tabs-tab(
-     $border-bottom-hover-color: $nav-tab-link-border-color
+    $border-bottom-hover-color: $nav-tab-link-border-color
 ) {
+    @include text-overflow();
     margin: 0;
     padding: 0;
     padding-inline: $nav-tabs-padding;
@@ -72,18 +73,20 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     border-bottom: 3px solid transparent;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
-    @include text-overflow();
+
     span {
         line-height: 1;
         display: inline-block;
         margin-top: 3px;
     }
+
     &:hover {
         border-bottom-color: $border-bottom-hover-color;
         background: none;
         text-decoration: none;
     }
 }
+
 @mixin nav-tabs-tab-active(
     $border-bottom-color: $nav-tab-active-link-border-color
 ) {
@@ -91,104 +94,86 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     cursor: default;
     border-bottom-color: $border-bottom-color;
     color: $sd-text;
+
     span {
         opacity: 1;
     }
 }
 
-
 .nav-tabs {
     @include nav-tabs-base();
+}
 
-    // single tab
-    &__tab {
-        margin-block-end: -1px;
-        @include text-overflow();
-        display: flex;
-        flex-shrink: 1;
-        // active state
-        &--active,
-        &--active:hover {
-            flex-shrink: 0;
-            .nav-tabs__link {
-                @include nav-tab-link-active();
-            }
-        }
-    }
-    &__pane {
-        &--padding {
-            padding: 2rem;
-        }
-        .subnav {
-            margin-top: 1px;
-        }
-    }
-    // tab link
-    &__link {
-        @include nav-tab-link();
-    }
+// single tab
+.nav-tabs__tab {
+    margin-block-end: -1px;
+    @include text-overflow();
+    display: flex;
+    flex-shrink: 1;
+}
 
-    // Smaller nav tabs
-    &--small {
-        padding: 0 .4rem;
-        .nav-tabs {
-            &__link {                
-                font-size: $nav-tabs-font-size-small;
-                margin: 0 .8rem;
-            }
-        }
-    }
-    
-    // Bigger nav tabs
-    &--big, &--large {
-        .nav-tabs {
-            &__link {                
-                font-size: $nav-tabs-font-size-big;                
-            }
-        }
-    }
+// active state
+.nav-tabs__tab--active,
+.nav-tabs__tab--active:hover {
+    flex-shrink: 0;
 
-    // Nav tabs content
-    &__content {
-        padding: 2rem;
-        overflow: auto;
-
-        &--small {
-            padding: 1.2rem;
-        }
+    .nav-tabs__link {
+        @include nav-tab-link-active();
     }
 }
 
+.nav-tabs__pane {
+    .subnav {
+        margin-top: 1px;
+    }
+}
+
+.nav-tabs__pane--padding {
+    padding: 2rem;
+}
+
+// tab link
+.nav-tabs__link {
+    @include nav-tab-link();
+}
+
+// Smaller nav tabs
+.nav-tabs--small {
+    padding: 0 .4rem;
+
+    .nav-tabs__link {                
+        font-size: $nav-tabs-font-size-small;
+        margin: 0 .8rem;
+    }
+}
+
+// Bigger nav tabs
+.nav-tabs--big, .nav-tabs--large {
+    .nav-tabs__link {                
+        font-size: $nav-tabs-font-size-big;                
+    }
+
+}
+
+// Nav tabs content
+.nav-tabs__content {
+    padding: 2rem;
+    overflow: auto;
+}
+
+.nav-tabs__content--small {
+    padding: 1.2rem;
+}
 
 .sd-nav-tabs {
     @include nav-tabs-base();
     flex-grow: 1;
-    // single tab
-    &__tab {
-        @include nav-tabs-tab();
-        display: flex;
-        flex-shrink: 1;
-        // active state
-        &--active,
-        &--active:hover {
-            @include nav-tabs-tab-active();
-            flex-shrink: 0;
-        }
-    }
-    &__pane {
-        &--padding {
-            padding: 2rem;
-        }
-        .subnav {
-            margin-block-start: 1px;
-        }
-    }
-
 
     // Smaller nav tabs
     &.sd-nav-tabs--small {
         padding: 0 .4rem;
         gap: $sd-base-increment / 2;
+
         .sd-nav-tabs__tab {
             font-size: $nav-tabs-font-size-small;
             letter-spacing: 0.025em;
@@ -200,18 +185,43 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     &.sd-nav-tabs--big,
     &.sd-nav-tabs--large {
         gap: $sd-base-increment * 1.5;
+
         .sd-nav-tabs__tab {
             font-size: $nav-tabs-font-size-big;
         }
     }
+}
 
-    // Nav tabs content
-    &__content {
-        padding: 2rem;
-        overflow: auto;
+// single tab
+.sd-nav-tabs__tab {
+    @include nav-tabs-tab();
+    display: flex;
+    flex-shrink: 1;
+}
 
-        &--small {
-            padding: 1.2rem;
-        }
+// active state
+.sd-nav-tabs__tab--active,
+.sd-nav-tabs__tab--active:hover {
+    @include nav-tabs-tab-active();
+    flex-shrink: 0;
+}
+
+.sd-nav-tabs__pane {
+    .subnav {
+        margin-block-start: 1px;
     }
+}
+
+.sd-nav-tabs__pane--padding {
+    padding: 2rem;
+}
+
+// Nav tabs content
+.sd-nav-tabs__content {
+    padding: 2rem;
+    overflow: auto;
+}
+
+.sd-nav-tabs__content--small {
+    padding: 1.2rem;
 }

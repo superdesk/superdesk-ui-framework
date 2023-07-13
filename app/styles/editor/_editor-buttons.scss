@@ -7,12 +7,7 @@ $editor-styleButton-color: 			var(--sd-editor-colour__txt);
 $editor-styleButton-active-color: 	var(--sd-editor-colour__button-txt--active);
 $editor-styleButton-size: 			3rem;
 
-
 .Editor3-styleButton {
-	&--short {
-		padding-right: 0.2rem;
-		margin-right: -1rem;
-	}
 	color: $editor-styleButton-color;
 	cursor: pointer;
 	margin: 0.4rem 0.2rem;
@@ -23,17 +18,20 @@ $editor-styleButton-size: 			3rem;
 	border-radius: $editor-styleButton-size / 2;
 	text-align: center;
 	line-height: 1.6rem;
+
 	[class*="icon-"] {
 		color: inherit;
 		opacity: 0.5;
 		vertical-align: middle;
 	}
+
 	&:hover {
 		[class*="icon-"] {
 			color: inherit;
 			opacity: 0.9;
 		}
 	}
+
 	.inactive {
 		[class*="icon-"] {
 			opacity: 0.2;
@@ -44,6 +42,7 @@ $editor-styleButton-size: 			3rem;
 			}
 		}
 	}
+	
 	&.Editor3-activeButton, &.Editor3-activeButton:hover {
 		color: $editor-styleButton-active-color;
 		background-color: rgba(0, 0, 0, 0.075);
@@ -51,4 +50,9 @@ $editor-styleButton-size: 			3rem;
 			opacity: 1;
 		}
 	}
+}
+
+.Editor3-styleButton--short {
+	padding-right: 0.2rem;
+	margin-right: -1rem;
 }

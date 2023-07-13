@@ -4,16 +4,19 @@
     gap: $sd-base-increment * 2;
     flex-grow: 1;
     align-self: stretch;
-    &--small {
-        grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
-    }
-    &--medium {
-        grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    }
-    &--large {
-        grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
-        gap: $sd-base-increment * 3;
-    }
+}
+
+.sd-theme-selector__list--small {
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+}
+
+.sd-theme-selector__list--medium {
+    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+}
+
+.sd-theme-selector__list--large {
+    grid-template-columns: repeat(auto-fill, minmax(24rem, 1fr));
+    gap: $sd-base-increment * 3;
 }
 
 .sd-theme-selector__item {
@@ -23,22 +26,26 @@
     background-color: var(--sd-item__main-Bg);
     position: relative;
     overflow: visible;
+    transition: all 0.3s ease;
+
     &:disabled {
         opacity: 0.75;
         cursor: not-allowed;
     }
-    transition: all 0.3s ease;
 }
+
 .sd-theme-selector__item-thumb {
     display: flex;
     aspect-ratio: 1.66;
     border-radius: var(--b-radius--medium) var(--b-radius--medium) 0 0;
     overflow: hidden;
+
     svg {
         width: 100%;
         height: auto;
     }
 }
+
 .sd-theme-selector__item-action {
     display: flex;
     flex-direction: row;
@@ -51,6 +58,7 @@
     padding: 0 $sd-base-increment * 1.5;
     box-shadow: 0 -3px 6px -2px hsla(0, 0%, 0%, 0.12);
 }
+
 .sd-theme-selector__input {
     position: absolute;
     inset-block-start: 0px;
@@ -63,10 +71,12 @@
     border-width: 0px;
     overflow: hidden;
     outline: none !important;
+
     &:hover {
         cursor: pointer;
     }
 }
+
 .sd-theme-selector__label {
     position: absolute;
     inset-block-start: 0px;
@@ -81,63 +91,76 @@
     color: transparent;
     user-select: none;
 }
+
 .sd-theme-selector__label-text {
     font-size: 1.4rem;
     color: var(--color-text);
 }
+
 .sd-theme-selector__item {
     input:hover {
-        & ~ .sd-check-new,
-        & ~ .sd-radio-new  {
+
+        &~.sd-check-new,
+        &~.sd-radio-new {
             border-color: var(--color-checkbox-border-hover);
         }
+
         &:not(:checked) {
-            & ~ label {
+            &~label {
                 box-shadow: var(--sd-shadow--z1);
                 border-color: var(--sd-colour-line--strong);
             }
 
         }
     }
+
     input:checked {
-        & ~ .sd-radio-new  {
+        &~.sd-radio-new {
             border-color: $sd-colour-interactive;
             background: $sd-colour-interactive;
+
             &::after {
                 opacity: 1;
                 transform: scale(1, 1);
             }
         }
-        & ~ .sd-radio-new {
+
+        &~.sd-radio-new {
             background: transparent;
         }
-        & ~ label {
+
+        &~label {
             box-shadow: 0 0 0 1px var(--sd-colour-interactive), inset 0 0 0 2px var(--sd-colour-interactive--alpha-30);
         }
-        & ~ .sd-theme-selector__label-text {
+
+        &~.sd-theme-selector__label-text {
             color: $sd-colour-interactive;
         }
     }
+
     input:focus-visible {
-        & ~ label {
+        &~label {
             box-shadow: 0 0 0 2px var(--sd-colour-interactive--alpha-30);
         }
     }
+
     input:disabled {
         z-index: 1;
         cursor: not-allowed;
         pointer-events: none;
 
-        & ~ label {
+        &~label {
             z-index: 2;
             cursor: not-allowed;
             box-shadow: none !important;
             border-color: var(--sd-colour-line--light) !important;
         }
-        & ~ .sd-theme-selector__label-text {
+
+        &~.sd-theme-selector__label-text {
             opacity: 0.4;
         }
-        & ~ .sd-radio-new {
+
+        &~.sd-radio-new {
             opacity: 0.4;
             border-color: var(--color-checkbox-border) !important;
         }
@@ -150,44 +173,46 @@
     }
 
     figure[data-theme="dark-ui"] {
-        --color-text:                      hsla(0, 0%, 96%, 1);
-        --color-text-light:                hsla(214, 13%, 96%, 0.75);
-        --color-text-lighter:              hsla(214, 13%, 96%, 0.55);
-        --color-icon-default:              hsla(214, 13%, 96%, 0.65);
+        --color-text: hsla(0, 0%, 96%, 1);
+        --color-text-light: hsla(214, 13%, 96%, 0.75);
+        --color-text-lighter: hsla(214, 13%, 96%, 0.55);
+        --color-icon-default: hsla(214, 13%, 96%, 0.65);
 
-        --sd-colour-panel-bg--100:         hsla(214, 13%, 16%, 1);
-        --sd-colour-interactive:           hsla(160, 50%, 50%, 1);
-        --sd-colour-btn-bg-neutral:        hsla(214, 13%, 50%, 0.4);
-        --sd-colour-sidebar-menu--00:      hsla(214, 13%, 25%, 1);
-        --color-icon-default:              hsla(214, 13%, 96%, 0.65);
-        --sd-colour--shadow-line:          hsla(214, 13%, 74%, 0.2);
-        --sd-colour-line--medium:          hsla(214, 13%, 70%, 0.2);
+        --sd-colour-panel-bg--100: hsla(214, 13%, 16%, 1);
+        --sd-colour-interactive: hsla(160, 50%, 50%, 1);
+        --sd-colour-btn-bg-neutral: hsla(214, 13%, 50%, 0.4);
+        --sd-colour-sidebar-menu--00: hsla(214, 13%, 25%, 1);
+        --color-icon-default: hsla(214, 13%, 96%, 0.65);
+        --sd-colour--shadow-line: hsla(214, 13%, 74%, 0.2);
+        --sd-colour-line--medium: hsla(214, 13%, 70%, 0.2);
 
     }
+
     figure[data-theme="light-ui"] {
-        --color-text:                      hsla(0, 0%, 20%, 1);
-        --color-text-light:                hsla(214, 13%, 20%, 0.75);
-        --color-text-lighter:              hsla(214, 13%, 20%, 0.55);
-        --color-icon-default:              hsla(214, 13%, 30%, 1);
+        --color-text: hsla(0, 0%, 20%, 1);
+        --color-text-light: hsla(214, 13%, 20%, 0.75);
+        --color-text-lighter: hsla(214, 13%, 20%, 0.55);
+        --color-icon-default: hsla(214, 13%, 30%, 1);
 
-        --sd-colour-panel-bg--100:         hsla(214, 13%, 96%, 1);
-        --sd-colour-interactive:           hsla(198, 50%, 50%, 1);
-        --sd-colour-btn-bg-neutral:        hsla(214, 13%, 50%, 0.4);
-        --sd-colour-sidebar-menu--00:      hsla(214, 13%, 85%, 1);
-        --sd-colour--shadow-line:          hsla(214, 13%, 70%, 0);
-        --sd-colour-line--medium:          hsla(214, 13%, 20%, 0.2);
+        --sd-colour-panel-bg--100: hsla(214, 13%, 96%, 1);
+        --sd-colour-interactive: hsla(198, 50%, 50%, 1);
+        --sd-colour-btn-bg-neutral: hsla(214, 13%, 50%, 0.4);
+        --sd-colour-sidebar-menu--00: hsla(214, 13%, 85%, 1);
+        --sd-colour--shadow-line: hsla(214, 13%, 70%, 0);
+        --sd-colour-line--medium: hsla(214, 13%, 20%, 0.2);
 
 
     }
-    figure[data-theme="contrast-light-ui"] {
-        --color-text:                      hsla(0, 0%, 0%, 1);
-        --color-text-light:                hsla(214, 13%, 10%, 0.85);
-        --color-text-lighter:              hsla(214, 13%, 10%, 0.65);
-        --color-icon-default:              hsla(214, 13%, 20%, 1);
 
-        --sd-colour-panel-bg--100:         hsla(214, 13%, 96%, 1);
-        --sd-colour-sidebar-menu--00:      hsla(214, 13%, 90%, 1);
-        --sd-colour--shadow-line:          hsla(214, 13%, 60%, 0);
-        --sd-colour-line--medium:          hsla(214, 13%, 20%, 0.4);
+    figure[data-theme="contrast-light-ui"] {
+        --color-text: hsla(0, 0%, 0%, 1);
+        --color-text-light: hsla(214, 13%, 10%, 0.85);
+        --color-text-lighter: hsla(214, 13%, 10%, 0.65);
+        --color-icon-default: hsla(214, 13%, 20%, 1);
+
+        --sd-colour-panel-bg--100: hsla(214, 13%, 96%, 1);
+        --sd-colour-sidebar-menu--00: hsla(214, 13%, 90%, 1);
+        --sd-colour--shadow-line: hsla(214, 13%, 60%, 0);
+        --sd-colour-line--medium: hsla(214, 13%, 20%, 0.4);
     }
 }

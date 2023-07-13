@@ -5,8 +5,6 @@
     z-index: 1000;
 }
 
-
-
 .p-dialog-mask {
     position: fixed;
     top: 0;
@@ -35,7 +33,7 @@
     pointer-events: auto;
     max-height: 90%;
     transform: scale(1);
-    
+
     overflow: hidden;
 }
 
@@ -82,6 +80,7 @@
 }
 
 /* Animation */
+
 /* Center */
 .p-dialog-enter {
     opacity: 0;
@@ -228,11 +227,11 @@
 }
 
 .p-dialog .p-dialog-header .p-dialog-title {
+    @include sd-padding('2', 'right');
     font-size: 1.8rem;
     font-weight: 300;
     line-height: 27px;
     opacity: 0.8;
-    @include sd-padding('2', 'right');
 }
 
 .p-dialog .p-dialog-header .p-dialog-header-icon {
@@ -263,6 +262,7 @@
 .p-dialog .p-dialog-content {
     background-color: transparent;
     font-size: 1.4rem;
+
     p {
         line-height: 1.5;
     }
@@ -302,15 +302,18 @@
         -moz-osx-font-smoothing: grayscale;
         opacity: 0.6;
         transition: color .1s ease-out, opacity .1s ease-out;
+
         &::before {
             content: "\e647";
         }
     }
+
     &:hover {
         .p-dialog-header-close-icon {
             opacity: 1;
         }
     }
+
     &:active {
         .p-dialog-header-close-icon {
             color: $sd-colour-interactive !important;
@@ -320,52 +323,57 @@
 }
 
 .p-dialog-content {
-    // size
-    &--small {
-        width: var(--width__modal--small);
-    }
-    &--medium {
-        width: var(--width__modal--medium);
-    }
-    &--large {
-        width: var(--width__modal--large);
-        min-height: 20rem;
-    }
-    &--x-large {
-        width: var(--width__modal--x-large);
-        //min-height: 30rem;
-        height: calc(100vh - 200px);
-    }
-    // padding
-    &--0-padding {
-        padding: 0 !important;
-    }
-    &--s-padding {
-        padding: $sd-base-increment * 2;
-    }
-    &--m-padding {
-        padding: $sd-base-increment * 3
-    }
-    &--l-padding {
-        padding: $sd-base-increment * 4;
-    }
-}
-
-.p-dialog-content-bg {
-    &--default {
-        background-color: transparent !important;
-    }
-    &--dark {
-        background-color: var(--sd-colour-panel-bg--200) !important;
-    }
-    &--medium {
-        background-color: var(--sd-colour-panel-bg--100) !important;
-    }
-}
-
-.p-dialog-content {
     //max-height: 100%;
     .sd-main-content-grid {
         height: 100% !important;
     }
+}
+
+// size
+.p-dialog-content--small {
+    width: var(--width__modal--small);
+}
+
+.p-dialog-content--medium {
+    width: var(--width__modal--medium);
+}
+
+.p-dialog-content--large {
+    width: var(--width__modal--large);
+    min-height: 20rem;
+}
+
+.p-dialog-content--x-large {
+    width: var(--width__modal--x-large);
+    //min-height: 30rem;
+    height: calc(100vh - 200px);
+}
+
+// padding
+.p-dialog-content--0-padding {
+    padding: 0 !important;
+}
+
+.p-dialog-content--s-padding {
+    padding: $sd-base-increment * 2;
+}
+
+.p-dialog-content--m-padding {
+    padding: $sd-base-increment * 3
+}
+
+.p-dialog-content--l-padding {
+    padding: $sd-base-increment * 4;
+}
+
+.p-dialog-content-bg--default {
+    background-color: transparent !important;
+}
+
+.p-dialog-content-bg--dark {
+    background-color: var(--sd-colour-panel-bg--200) !important;
+}
+
+.p-dialog-content-bg--medium {
+    background-color: var(--sd-colour-panel-bg--100) !important;
 }

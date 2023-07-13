@@ -1,6 +1,5 @@
 @import '../variables/_colors.scss';
 
-
 // extra small
 $circular-progress-size-xs: 20px;
 $circular-progress-stroke-xs: 2;
@@ -21,10 +20,10 @@ $circular-progress-stroke-l: 4;
 $circular-progress-size-xl: 102px;
 $circular-progress-stroke-xl: 6;
 
-
 .progress-bar-container {
     display: inline-block;
     position: relative;
+
     .progress-text {
         -moz-transform: translate(-50%, -50%);
         -ms-transform: translate(-50%, -50%);
@@ -51,15 +50,18 @@ $circular-progress-stroke-xl: 6;
     height: 20px;
     transform: rotate(-90deg);
     display: block;
+
     circle {
         stroke: rgba(123, 123, 123, 0.4);
         stroke-width: 2;
         fill: transparent;
     }
+
     .progressbar {
         stroke: $green;
         fill: transparent;
     }
+
     .error & {
         .progressbar {
             stroke: transparent !important;
@@ -79,6 +81,7 @@ $circular-progress-stroke-xl: 6;
     box-shadow: inset 0 0 0 0 currentColor;
     transition: box-shadow 0.3s ease-in-out;
     z-index: 2;
+
     i {
         color: $white;
         text-align: center;
@@ -89,16 +92,20 @@ $circular-progress-stroke-xl: 6;
         transition: all .14s ease-in;
         transition-delay: .2s;
     }
+
     &.progress-done--completed {
         box-shadow: inset 0 0 0 50px currentColor;
+
         i {
             transform: scale(1);
             opacity: 1; 
         }
     }
+
     &.progress-done--error {
         color: $red;
         box-shadow: inset 0 0 0 50px currentColor;
+
         i {
             transform: scale(1);
             opacity: 1; 
@@ -106,102 +113,125 @@ $circular-progress-stroke-xl: 6;
     }
 }
 
-.sd-circular-progress {
-    &--xs {
-        .progress-svg {
-            width: $circular-progress-size-xs;
-            height: $circular-progress-size-xs;
-            circle {
-                stroke-width: $circular-progress-stroke-xs;
-            }
+.sd-circular-progress--xs {
+    .progress-svg {
+        width: $circular-progress-size-xs;
+        height: $circular-progress-size-xs;
+
+        circle {
+            stroke-width: $circular-progress-stroke-xs;
         }
-        .progress-text {
-            display: none;
+    }
+
+    .progress-text {
+        display: none;
+    }
+
+    .progress-done {
+        margin: $circular-progress-stroke-xs - 1px;
+
+        i {
+            transition-duration: .12s;
         }
-        .progress-done {
-            margin: $circular-progress-stroke-xs - 1px;
+
+        &.progress-done--completed, &.progress-done--error {
+            box-shadow: inset 0 0 0 10px currentColor;
+
             i {
-                transition-duration: .12s;
-            }
-            &.progress-done--completed, &.progress-done--error {
-                box-shadow: inset 0 0 0 10px currentColor;
-                i {
-                  transform: scale(0.8);  
-                }
+              transform: scale(0.8);  
             }
         }
     }
-    &--s {
-        .progress-svg {
-            width: $circular-progress-size-s;
-            height: $circular-progress-size-s;
-            circle {
-                stroke-width: $circular-progress-stroke-s;
-            }
+}
+
+.sd-circular-progress--s {
+    .progress-svg {
+        width: $circular-progress-size-s;
+        height: $circular-progress-size-s;
+
+        circle {
+            stroke-width: $circular-progress-stroke-s;
         }
-        .progress-text {
-            display: none;
+    }
+
+    .progress-text {
+        display: none;
+    }
+
+    .progress-done {
+        margin: $circular-progress-stroke-s - 1px;
+
+        i {
+            transition-duration: .12s;
         }
-        .progress-done {
-            margin: $circular-progress-stroke-s - 1px;
+
+        &.progress-done--completed, &.progress-done--error {
+            box-shadow: inset 0 0 0 16px currentColor;
+        }
+    }
+}
+
+.sd-circular-progress--m {
+    .progress-svg {
+        width: $circular-progress-size-m;
+        height: $circular-progress-size-m;
+
+        circle {
+            stroke-width: $circular-progress-stroke-m;
+        }
+    }
+
+    .progress-done {
+        margin: $circular-progress-stroke-m - 1px;
+
+        &.progress-done--completed, &.progress-done--error {
+            box-shadow: inset 0 0 0 26px currentColor;
+
             i {
-                transition-duration: .12s;
-            }
-            &.progress-done--completed, &.progress-done--error {
-                box-shadow: inset 0 0 0 16px currentColor;
+                transform: scale(1.4);
             }
         }
     }
-    &--m {
-        .progress-svg {
-            width: $circular-progress-size-m;
-            height: $circular-progress-size-m;
-            circle {
-                stroke-width: $circular-progress-stroke-m;
-            }
-        }
-        .progress-done {
-            margin: $circular-progress-stroke-m - 1px;
-            &.progress-done--completed, &.progress-done--error {
-                box-shadow: inset 0 0 0 26px currentColor;
-                i {
-                    transform: scale(1.4);
-                }
-            }
+}
+
+.sd-circular-progress--l {
+    .progress-svg {
+        width: $circular-progress-size-l;
+        height: $circular-progress-size-l;
+
+        circle {
+            stroke-width: $circular-progress-stroke-l;
         }
     }
-    &--l {
-        .progress-svg {
-            width: $circular-progress-size-l;
-            height: $circular-progress-size-l;
-            circle {
-                stroke-width: $circular-progress-stroke-l;
+
+    .progress-done {
+        margin: $circular-progress-stroke-l - 1px;
+
+        &.progress-done--completed, &.progress-done--error {
+            i {
+                transform: scale(2);
             }
-        }
-        .progress-done {
-            margin: $circular-progress-stroke-l - 1px;
-            &.progress-done--completed, &.progress-done--error {
-                i {
-                    transform: scale(2);
-                }
-                
-            }
+            
         }
     }
-    &--xl {
-        .progress-svg {
-            width: $circular-progress-size-xl;
-            height: $circular-progress-size-xl;
-            circle {
-                stroke-width: $circular-progress-stroke-xl;
-            }
+}
+
+.sd-circular-progress--xl {
+    .progress-svg {
+        width: $circular-progress-size-xl;
+        height: $circular-progress-size-xl;
+
+        circle {
+            stroke-width: $circular-progress-stroke-xl;
         }
-        .progress-done {
-            margin: $circular-progress-stroke-xl - 1px;
-            &.progress-done--completed, &.progress-done--error  {
-                i {
-                    transform: scale(2.4);
-                }
+    }
+
+    .progress-done {
+        margin: $circular-progress-stroke-xl - 1px;
+        
+        &.progress-done--completed, &.progress-done--error  {
+            i {
+                transform: scale(2.4);
             }
         }
     }

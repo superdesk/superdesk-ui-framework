@@ -1,15 +1,18 @@
 // ========== Outer Editor Layout (Frame) ========== //
+
 .sd-editor-grid {
     display: grid;
     grid-template-columns: [sideBarLeft] auto [editorContent] 1fr [sideTabPinned] auto [sideTabOverlay] auto [sideTabsBar] auto [editorOverlay] 0 [editorOverlay-end];
     grid-template-rows: [editorSubnav] auto [editorContent] 1fr [editorContent-end];
     height: 100%;
 }
+
 .sd-editor-grid__editor-subnav {
     grid-column: 1 / 6;
     grid-row: editorSubnav;
     height: $nav-height;
 }
+
 .sd-editor-grid__sidebar-left {
     grid-column: sideBarLeft;
     grid-row: editorContent;
@@ -19,6 +22,7 @@
     width: $sd-sidebarMenu-width;
     overflow-y: auto;
 }
+
 .sd-editor-grid__editor-content {
     grid-column: editorContent;
     grid-row: editorContent;
@@ -26,6 +30,7 @@
     position: relative;
     overflow-y: auto;
 }
+
 .sd-editor-grid__sidetabs-content-pinned {
     grid-column: sideTabPinned;
     grid-row: editorContent;
@@ -38,12 +43,14 @@
     width: 0;
     z-index: 1;
     transition: all 0.2s ease;
+
     &.sidetab-content-pinned--pinned {
         overflow-y: auto;
         overflow-x: hidden;
         width: auto;
         max-height: 100%;
     }
+
     &.sidetab-content-pinned--open {
         overflow-y: auto;
         overflow-x: hidden;
@@ -51,6 +58,7 @@
         max-height: 100%;
     }
 }
+
 .sd-editor-grid__sidetabs-content-overlay {
     grid-column: sideTabOverlay;
     grid-row: editorContent;
@@ -63,6 +71,7 @@
     width: 0;
     background-color: var(--sd-colour-panel-bg--000);
     z-index: 10;
+
     .sidetabs-content-overlay__inner {
         opacity: 0;
         position: absolute;
@@ -78,8 +87,10 @@
         grid-template-rows: 1fr;
         z-index: 10;
     }
+
     &.sidetab-content-overlay--open {
         overflow: visible;
+
         .sidetabs-content-overlay__inner {
             opacity: 1;
             width: auto;
@@ -90,6 +101,7 @@
         }
     }
 }
+
 .sd-editor-grid__sidetabs-bar {
     display: grid;
     grid-template-rows: 1fr;
@@ -99,8 +111,8 @@
     width: $sd-sidebarMenu-width;
     overflow-y: auto;
     z-index: 11;
-
 }
+
 .sd-editor-grid__editor-overlay {
     grid-column: editorOverlay;
     grid-row-start: editorSubnav;
@@ -121,6 +133,7 @@
     position: relative;
     height: 100%;
 }
+
 .sd-editor-content__toolbar {
     grid-column: editorMain;
     grid-row: editorToolbar;
@@ -134,13 +147,15 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.2);
-    &--custom {
-        height: auto;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0;
-    }
 }
+
+.sd-editor-content__toolbar--custom {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+}
+
 .sd-editor-content__save-bar {
     height: $nav-height;
     position: relative;
@@ -153,13 +168,15 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: 0px 1px 3px -1px rgba(0, 0, 0, 0.2);
-    &--custom {
-        height: auto;
-        flex-direction: column;
-        align-items: stretch;
-        padding: 0;
-    }
 }
+
+.sd-editor-content__save-bar--custom {
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+    padding: 0;
+}
+
 .sd-editor-content__toolbar-inner {
     height: $nav-height;
     position: relative;
@@ -182,14 +199,15 @@
     grid-template-columns: [bookmarkBar] auto [mainContent] 1fr;
     flex-direction: column;
     overflow-y: auto;
+
     p {
         font-size: 16px;
         line-height: 1.5;
         margin-bottom: 24px;
     }
 }
-.sd-editor-content__authoring-header {
 
+.sd-editor-content__authoring-header {
     grid-column: 1 / 3;
     grid-row: authoringHeader;
     display: flex;
@@ -202,7 +220,8 @@
     box-shadow: 0px 1px 4px -1px rgba(0, 0, 0, 0.25);
     max-height: 1400px;
     transition: max-height 0.12s ease-in;
-    & > .authoring-header__holder {
+
+    &>.authoring-header__holder {
         height: auto;
         opacity: 1;
         overflow: visible;
@@ -211,20 +230,24 @@
         width: 100%;
         max-width: var(--width__container--xxx-large);
     }
+
     &.authoring-header--collapsed {
         max-height: 0;
         padding: 0 $sd-base-increment * 1.5;
+
         .authoring-header__toggle {
             i {
                 transform: rotate(180deg);
             }
         }
-        & > .authoring-header__holder {
+
+        &>.authoring-header__holder {
             height: 0px;
             opacity: 0;
             overflow: hidden;
             transition: opacity 0.4s 0.1s;
         }
+
         &.authoring-header--padding-small,
         &.authoring-header--padding-medium,
         &.authoring-header--padding-large {
@@ -232,16 +255,20 @@
             padding-block-end: 0 !important;
         }
     }
+
     &.authoring-header--padding-small {
         padding: $sd-base-increment * 3 $sd-base-increment * 1.5;
     }
+
     &.authoring-header--padding-medium {
         padding: $sd-base-increment * 3 $sd-base-increment * 3;
     }
+
     &.authoring-header--padding-large {
         padding: $sd-base-increment * 3 $sd-base-increment * 4;
     }
 }
+
 .authoring-header__toggle {
     position: absolute;
     width: 37px;
@@ -261,14 +288,17 @@
     align-items: center;
     justify-content: center;
     transition: all ease-in 0.12s;
+
     &:hover {
         height: 32px;
         bottom: -32px;
         padding-top: 2px;
+
         i {
             opacity: 1;
         }
     }
+
     i {
         height: 15px;
         transition: all 0.5s;
@@ -301,18 +331,22 @@
 .sd-editor-toolbar__content {
     display: inline-flex;
     gap: 8px;
+
     dl {
         display: flex;
         gap: 4px;
         font-size: 1.2rem;
+
         &:not(:first-child) {
             border-inline-start: 1px solid var(--sd-colour-line--light);
             padding-inline-start: 8px;
         }
     }
+
     dt {
         font-weight: 500;
     }
+
     dd,
     dd time {
         font-weight: 400;
@@ -323,6 +357,7 @@
 .sd-editor-grid__sidetabs-bar,
 .sd-editor-grid__sidebar-left {
     position: relative;
+
     ::-webkit-scrollbar {
         width: 4px;
         height: 4px;
@@ -330,6 +365,7 @@
         position: absolute;
         inset-block-end: 0;
     }
+
     ::-webkit-scrollbar:hover {
         background-color: var(--sd-colour__webkit-scrollbar--hover);
         background-color: transparent;
@@ -339,6 +375,7 @@
     ::-webkit-scrollbar-thumb {
         background: var(--sd-colour__webkit-scrollbar-thumb);
     }
+
     ::-webkit-scrollbar-thumb:hover {
         background: var(--sd-colour__webkit-scrollbar-thumb--hover);
         cursor: pointer;
@@ -351,12 +388,12 @@
     grid-template-rows: 1fr;
     grid-auto-columns: auto;
     overflow-y: auto;
-
     width: 0;
     min-width: 0;
     overflow: hidden;
     opacity: 0;
     transition: all ease-in-out 0.1s;
+
     .sd-content-wrapper__main-content-area.sd-main-content-grid {
         grid-column: 1 / 2 !important;
     }
@@ -369,6 +406,7 @@
         width: auto;
         min-width: 45vw;
         max-width: 45vw;
+
         &.sd-editor__container--large {
             min-width: 52vw;
         }
@@ -396,9 +434,11 @@
     min-height: 5.6rem;
     border-radius: var(--b-radius--large);
     display: block;
+
     &:hover {
         border-color: var(--color-input-border-hover);
     }
+
     &:focus {
         outline: none;
         border-color: var(--sd-colour-interactive--alpha-50);

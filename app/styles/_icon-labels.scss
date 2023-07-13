@@ -35,6 +35,7 @@ $icon-size--small: 1.2rem;
     white-space: nowrap;
     cursor: default;
     line-height: 1;
+
     [class^="icon-"], & [class*=" icon-"] {
         color: $label-icon-color;
         margin-inline-end: .4rem;
@@ -49,6 +50,7 @@ $icon-size--small: 1.2rem;
     border-radius: $border-radius__base--full;
     padding-inline: 1.2rem;
     gap: 4px;
+
     [class^="icon-"], & [class*=" icon-"] {
         margin-inline-end: .2rem;
         margin-inline-start: -4px;
@@ -59,26 +61,29 @@ $icon-size--small: 1.2rem;
 
 .label-icon {
     @include label-icon;
-
     background: $label-icon-background;
     color: $label-icon-color;
 
     @each $name, $color in $label-icon-palette {
         &.label-icon--#{$name} {
             color: $color;
+
             [class^="icon-"], & [class*=" icon-"] {
                 color: $color !important;
             }
         }
     }
+
     &.label-icon--translucent {
         @include label-icon-translucent;
         background-color: $label-icon-background-translucent;
+
         @each $name, $color in $label-icon-palette {
             &.label-icon--#{$name} {
                 background-color: scale-color($color, $alpha: -88%);
             }
         }
+
         &.label-icon--large {
             [class^="icon-"], & [class*=" icon-"] {
                 margin-inline-start: -4px;
@@ -88,6 +93,7 @@ $icon-size--small: 1.2rem;
                 line-height: 1;
             }
         }
+
         &.label-icon--small {
             [class^="icon-"], & [class*=" icon-"] {
                 margin-inline-start: -3px;
@@ -98,6 +104,7 @@ $icon-size--small: 1.2rem;
             }
         }
     }
+
     &.label-icon--large {
         height: $sd-base-increment * 4;
         padding: 0 $sd-base-increment * 2;
@@ -105,6 +112,7 @@ $icon-size--small: 1.2rem;
         font-weight: 500;
         line-height: inherit;
     }
+
     &.label-icon--small{
         height: $sd-base-increment * 2;
         padding: 0 $sd-base-increment * 1;
@@ -113,11 +121,13 @@ $icon-size--small: 1.2rem;
         line-height: inherit;
         letter-spacing: 0.06em;
         gap: 2px;
+
         .label-icon--inner-label {
             font-weight: 400;
             letter-spacing: 0.06em;
         }
     }
+
     .label-icon--inner-label {
         font-weight: 300;
         text-transform: uppercase;

@@ -1,7 +1,5 @@
 // Flex grid
 // Grid has equal columns, default setup is 'no wrap'
-// ---------------------------------------------
-
 
 $flex-grid-gap:          $sd-base-increment * 2; // space between items is $flex-grid-gap*2
 $flex-grid-gap-small:    $sd-base-increment; // alternative small gap
@@ -25,6 +23,7 @@ $flex-grid-media: (
         }
     }
 }
+
 @mixin basic-grid-boxed {
     @for $i from $flex-grid-columns through 1 {
         &-#{$i} {
@@ -36,16 +35,20 @@ $flex-grid-media: (
                 flex: 0 0 calc(#{100% / $i} - #{$flex-grid-gap / $i * ($i - 1)});
                 max-width: calc(#{100% / $i} - #{$flex-grid-gap / $i * ($i - 1)});
             }
+
             & > .btn,
             & > .icn-btn, 
             & > .toggle-button {
                 flex-shrink: 0;
             }
+
             .sd-check__wrapper {
                 display: flex;
+
                 .sd-checkbox.sd-checkbox--button-style {
                     display: flex;
                     flex-grow: 1;
+
                     label {
                         flex-grow: 1;
                     }
@@ -66,16 +69,20 @@ $flex-grid-media: (
                 flex: 0 0 calc(#{100% / $i} - #{$flex-grid-gap-small / $i * ($i - 1)});
                 max-width: calc(#{100% / $i} - #{$flex-grid-gap-small / $i * ($i - 1)});
             }
+
             & > .btn,
             & > .icn-btn, 
             & > .toggle-button {
                 flex-shrink: 0;
             }
+
             .sd-check__wrapper {
                 display: flex;
+
                 .sd-checkbox.sd-checkbox--button-style {
                     display: flex;
                     flex-grow: 1;
+
                     label {
                         flex-grow: 1;
                     }
@@ -91,68 +98,80 @@ $flex-grid-media: (
     flex-direction: row;
     // overflow: hidden;
     // overflow-x: auto;
+    
     .flex-grid__item {
         position: relative;
-
-        &--d-flex {
-            display: flex;
-        }
-        &--column {
-            flex-direction: column;
-        }
-    }
-    &--wrap-items {
-        flex-wrap: wrap;
-    }
-    &--content-center {
-        justify-content: center;
-    }
-    &--grow {
-        flex-grow: 1;
-    }
-    &--boxed {
-        gap: $flex-grid-gap;
-        .flex-grid__item {
-            margin: 0;
-        }
     }
 
-    &--boxed-small {
-        gap: $flex-grid-gap-small;
-        .flex-grid__item, .sd-check__wrapper, .btn, .toggle-button {
-            margin: 0 !important;
-        }
+    .flex-grid__item--d-flex {
+        display: flex;
     }
 
-    &--plain {
-        gap: $flex-grid-gap;
-        .flex-grid__item {
-            margin: 0;
-            padding: 0;
-        }
+    .flex-grid__item--column {
+        flex-direction: column;
     }
-    
-    // default grid setup (mobile first), calc for 1-6 columns
-    &--small {
-        @include basic-grid;
-    }
+}
 
-    &--boxed {
-        &.flex-grid--small {
-            @include basic-grid-boxed;
-        }
+.flex-grid--wrap-items {
+    flex-wrap: wrap;
+}
+
+.flex-grid--content-center {
+    justify-content: center;
+}
+
+.flex-grid--grow {
+    flex-grow: 1;
+}
+
+.flex-grid--boxed {
+    gap: $flex-grid-gap;
+
+    .flex-grid__item {
+        margin: 0;
     }
-    &--boxed-small {
-        &.flex-grid--small {
-            @include basic-grid-boxed-small;
-        }
+}
+
+.flex-grid--boxed-small {
+    gap: $flex-grid-gap-small;
+
+    .flex-grid__item, .sd-check__wrapper, .btn, .toggle-button {
+        margin: 0 !important;
     }
-    &--padding {
-        padding: 2rem;
+}
+
+.flex-grid--plain {
+    gap: $flex-grid-gap;
+
+    .flex-grid__item {
+        margin: 0;
+        padding: 0;
     }
-    &--scroll {
-        overflow-y: auto;
+}
+
+// default grid setup (mobile first), calc for 1-6 columns
+.flex-grid--small {
+    @include basic-grid;
+}
+
+.flex-grid--boxed {
+    &.flex-grid--small {
+        @include basic-grid-boxed;
     }
+}
+
+.flex-grid--boxed-small {
+    &.flex-grid--small {
+        @include basic-grid-boxed-small;
+    }
+}
+
+.flex-grid--padding {
+    padding: 2rem;
+}
+
+.flex-grid--scroll {
+    overflow-y: auto;
 }
 
 .flex-grid.flex-grid--boxed + .flex-grid.flex-grid--boxed {
@@ -165,19 +184,19 @@ $flex-grid-media: (
 // Media queries
 @each $name, $value in $flex-grid-media {
     @media only screen and (min-width: $value) {
-        .flex-grid {
-            &--#{$name} {
-                @include basic-grid;
+        .flex-grid--#{$name} {
+            @include basic-grid;
+        }
+
+        .flex-grid--boxed {
+            &.flex-grid--#{$name} {
+                @include basic-grid-boxed;
             }
-            &--boxed {
-                &.flex-grid--#{$name} {
-                    @include basic-grid-boxed;
-                }
-            }
-            &--boxed-small {
-                &.flex-grid--#{$name} {
-                    @include basic-grid-boxed-small;
-                }
+        }
+
+        .flex-grid--boxed-small {
+            &.flex-grid--#{$name} {
+                @include basic-grid-boxed-small;
             }
         }
     }

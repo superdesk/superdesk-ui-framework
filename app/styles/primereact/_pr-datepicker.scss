@@ -2,6 +2,7 @@
     @include pr-dropdown-panel-base;
     padding: 12px;
     margin-top: 1px;
+
     .p-datepicker-title {
         text-transform: uppercase;
         font-weight: bold;
@@ -17,6 +18,7 @@
         padding: .8em 4px;
         min-height: 32px;
         margin-bottom: 8px;
+
         .p-datepicker-prev,
         .p-datepicker-next {
             display: flex;
@@ -27,23 +29,28 @@
             height: $sd-base-increment * 4;
             width: $sd-base-increment * 4;
             transition: all 0.2s ease-out, color 0.1s ease-out;
+
             &:hover {
                 background-color: hsla(214, 13%, 55%, 0.2);
             }
+
             &:active {
                 background-color: hsla(214, 13%, 55%, 0.3);
                 color: var(--sd-colour-interactive);
             }
+
             &:focus-visible {
                 background-color: hsla(214, 13%, 55%, 0.2);
                 box-shadow: $icn-button-focus-box-shadow;
                 outline: none;
+
                 [class^="icon-"], [class*=" icon-"] {
                     opacity: 1;
                 }
             }
 
         }
+
         .datepicker-header-toolbar {
             width: 100%;
             display: flex;
@@ -69,6 +76,7 @@
     display: block;
     text-align: center;
 }
+
 .p-datepicker-year {
     font-weight: 400;
     margin-top: 4px;
@@ -90,10 +98,12 @@
 .p-datepicker table td > span {
     &:not(.p-highlight):not(.p-disabled) {
         transition: all ease 0.2s;
+
         &:hover {
             background-color: var(--sd-colour-interactive--alpha-10);
             box-shadow: inset 0 0 0 1px var(--sd-colour-interactive);
         }
+
         &:active {
             background-color: var(--sd-colour-interactive--alpha-20);
         }
@@ -133,13 +143,11 @@
     color: $white;
 }
 
-
 // calendar icon button
 .p-datepicker-trigger {
     @extend .p-inputtext;
     font-size: 1.4em;
     cursor: pointer;
-
 
     .p-button-icon-left {
         color: #7F7F7F;
@@ -152,6 +160,7 @@
 
 .p-calendar {
     @include pr-input-item-base;
+
     .p-inputtext {
         color: var(--color-text);
         height: $height-input--default;
@@ -160,6 +169,17 @@
         font-size: 1.4rem;
         padding: 0.2rem 0.8rem 0;
         width: 100%;
+    }
+    &.sd-input--disabled:hover {
+        opacity: 0.5;
+        cursor: not-allowed;
+        .p-calendar {
+            .p-calendar-icon {
+                pointer-events: none;
+            }
+            border-bottom: 1px dotted var(--color-input-border);
+            background-color: var(--color-input-bg);
+        }
     }
 }
 
@@ -175,12 +195,14 @@
         height: 2.4rem;
         color: inherit;
         margin: 0 4px 0 0;
+
         [class^="icon-"],
         [class*=" icon-"] {
             color: var(--color-text);
             margin-top: -2px;
             opacity: 0.75;
         }
+
         &:hover {
             [class^="icon-"],
             [class*=" icon-"] {
@@ -190,6 +212,7 @@
 
     }
 }
+
 .p-datepicker-calendar {
     margin-bottom: 8px;
 }

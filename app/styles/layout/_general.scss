@@ -1,76 +1,90 @@
 // LAYOUT : General : layout/general.scss
-// -----------------------------------------------------
 
 .button-stack {
-  height:$subnav-height !important;
-  position: relative;
-  margin: 0 20px 0 0;
-  float: left;
-    > .btn {
-    margin-left: 20px;
-    margin-top: 10px;
-  }
-  &.right-stack, &--right {
-    float: right;
-    margin: 0 0 0 5px;
-    .navbtn {
-      border-left: 1px solid var(--sd-colour-line--x-light) !important;
-      border-right: 0 !important;
-    }
-    > .btn {
-      margin-right: 12px;
-      margin-left: 0;
-    }
-  }
+	height: $subnav-height !important;
+	position: relative;
+	margin: 0 20px 0 0;
+	float: left;
+
+	>.btn {
+		margin-left: 20px;
+		margin-top: 10px;
+	}
+}
+
+.button-stack.right-stack,
+.button-stack--right {
+	float: right;
+	margin: 0 0 0 5px;
+
+	.navbtn {
+		border-left: 1px solid var(--sd-colour-line--x-light) !important;
+		border-right: 0 !important;
+	}
+
+	>.btn {
+		margin-right: 12px;
+		margin-left: 0;
+	}
 }
 
 a.text-link {
-  text-decoration: none;
-  color: var(--sd-colour-interactive--darken-10);
-  transition: all 0.1s ease-in;
-  display: inline-block;
-  cursor: pointer;
-  &:hover {
-    text-decoration: underline;
-  }
-  [class^="icon-"], [class*=" icon-"] {
-    color: currentColor;
-    vertical-align: middle;
-    margin-right: 0.3rem;
-    position: relative;
-    top: -0.2rem;
-  }
-  &.text-link--white {
-    color: rgba(255, 255, 255, 0.4);
-    &:hover {
-      color: rgba(255, 255, 255, 0.75);
-      text-decoration: none;
-    }
-    &:active {
-      color: rgba(255, 255, 255, 1);
-    }
-  }
+	text-decoration: none;
+	color: var(--sd-colour-interactive--darken-10);
+	transition: all 0.1s ease-in;
+	display: inline-block;
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+
+	[class^="icon-"],
+	[class*=" icon-"] {
+		color: currentColor;
+		vertical-align: middle;
+		margin-right: 0.3rem;
+		position: relative;
+		top: -0.2rem;
+	}
+
+	&.text-link--white {
+		color: rgba(255, 255, 255, 0.4);
+
+		&:hover {
+			color: rgba(255, 255, 255, 0.75);
+			text-decoration: none;
+		}
+
+		&:active {
+			color: rgba(255, 255, 255, 1);
+		}
+	}
 }
+
 .text-link__group {
-  > a.text-link {
-    margin: 0.4rem 0.4rem 0.4rem 0;
-    font-size: 1.4rem;
-    padding: 0 .6rem 0 0;
-    border-right: 1px dotted var(--sd-colour-line--medium);
-    &:last-child {
-      padding-right: 0;
-      border-right: none;
-    }
-  }
-  .text-link__item {
-    display: inline-block;
-    padding: 0 .8rem 0 0;
-    margin: 0.6rem 0.8rem 0.6rem 0;
-    font-size: 1.4rem;
-    border-right: 1px dotted var(--sd-colour-line--medium);
-    &:last-child {
-      padding-right: 0;
-      border-right: none;
-    }
-  }
+	>a.text-link {
+		margin: 0.4rem 0.4rem 0.4rem 0;
+		font-size: 1.4rem;
+		padding: 0 .6rem 0 0;
+		border-right: 1px dotted var(--sd-colour-line--medium);
+
+		&:last-child {
+			padding-right: 0;
+			border-right: none;
+		}
+	}
+
+	.text-link__item {
+		display: inline-block;
+		padding: 0 .8rem 0 0;
+		margin: 0.6rem 0.8rem 0.6rem 0;
+		font-size: 1.4rem;
+		border-right: 1px dotted var(--sd-colour-line--medium);
+
+		&:last-child {
+			padding-right: 0;
+			border-right: none;
+		}
+	}
 }

@@ -1,5 +1,6 @@
 .sd-toggle-button {
     @include sd-padding('1-5', 'x');
+    @include text-overflow;
     line-height: 1;
     border: 1px solid $checkButtonBorderColor;
     border-radius: $checkButtonBorderRadius;
@@ -10,28 +11,31 @@
     gap: 8px;
     height: $sd-base-increment * 4;
     color: var(--color-text);
-    @include text-overflow;
     cursor: pointer;
     text-decoration: none;
     font-size: 1.2rem;
     background: transparent;
     transition: all 0.2s ease-out;
+
     [class^="icon-"],
     [class*=" icon-"],
     .sd-toggle-button__icon {
         color: currentColor;
     }
+
     &:hover {
         border-color: $checkButtonBorderColorHover;
         box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
         color: var(--color-text);
     }
+
     &.sd-toggle--active {
         background-color: var(--sd-colour-interactive--active);
         border-color: var(--sd-colour-interactive--active);
         border-top-color: var(--sd-colour-interactive--darken-20);
         box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         color: $white;
+        
         &:hover {
             color: $white;
             border-color: var(--sd-colour-interactive--active);
