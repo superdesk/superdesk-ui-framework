@@ -164,7 +164,7 @@ export class Menu extends React.Component<IProps, {}> {
                             }
                         }}
                         data-test-id="menu"
-                        baseZIndex={this.props.zIndex ?? superdeskTopBarZIndex}
+                        zIndex={this.props.zIndex ?? superdeskTopBarZIndex}
                     />
                 </div>
             </React.Fragment>
