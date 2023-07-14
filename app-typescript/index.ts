@@ -90,7 +90,7 @@ export { Text } from './components/Text/Text';
 export { Time } from './components/Text/Time';
 export { Heading } from './components/Text/Heading';
 export { BottomNav } from './components/Navigation/BottomNav';
-export { TreeSelect } from './components/TreeSelect';
+export { TreeSelect } from './components/TreeSelect/TreeSelect';
 export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 export { MultiSelect } from './components/MultiSelect';
