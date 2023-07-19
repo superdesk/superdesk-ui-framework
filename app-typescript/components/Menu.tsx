@@ -60,7 +60,7 @@ interface IProps {
     zIndex?: number;
 }
 
-const superdeskTopBarZIndex = 1030;
+const superdeskTopBarZIndex = 1050;
 
 function isSeparator(item: IMenuItem): item is ISeparator {
     return (item as any)['separator'] === true;
