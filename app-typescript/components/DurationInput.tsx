@@ -289,6 +289,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             <InputWrapper
                 label={this.props.label}
                 error={this.props.error}
+                invalid={this.props.error != null ? true : false}
                 required={this.props.required}
                 disabled={this.props.disabled}
                 info={this.props.info}

@@ -918,45 +918,29 @@
 }
 
 .sd-input--invalid {
-    input,
-    textarea {
-        &.sd-input__input {
-            background-color: hsla(357, 79%, 50%, 0.075);
+    .sd-input__input,
+    .sd-input__select,
+    .sd-input__duration-input,
+    .p-multiselect,
+    .p-calendar {
+        background-color: hsla(357, 79%, 50%, 0.075);
+        border-color: $red;
+
+        &:hover {
+            background-color: hsla(357, 79%, 50%, 0.12);
             border-color: $red;
-
-            &:hover {
-                background-color: hsla(357, 79%, 50%, 0.12);
-                border-color: $red;
-            }
-
-            &:focus {
-                background-color: hsla(357, 79%, 50%, 0.16);
-                border-color: $red;
-                box-shadow: 0 1px 0 0 $red;
-            }
         }
-    }
 
-    select {
-        &.sd-input__select {
-            background-color: hsla(357, 79%, 50%, 0.075);
+        &:focus {
+            background-color: hsla(357, 79%, 50%, 0.16);
             border-color: $red;
-
-            &:hover {
-                background-color: hsla(357, 79%, 50%, 0.12);
-                border-color: $red;
-            }
-
-            &:focus {
-                background-color: hsla(357, 79%, 50%, 0.16);
-                border-color: $red;
-                box-shadow: 0 1px 0 0 $red;
-            }
+            box-shadow: 0 1px 0 0 $red;
         }
     }
 
     .sd-input__label,
-    .sd-input__message {
+    .sd-input__message,
+    .sd-input__message-box {
         color: $red;
     }
 }

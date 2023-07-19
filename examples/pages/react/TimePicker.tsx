@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
 import {PropsList, Prop} from '../../../app-typescript';
 import {TimePicker} from '../../../app-typescript/components/TimePicker';
@@ -12,6 +11,7 @@ class TimePickerExample extends React.PureComponent<{}, {time: string}> {
             time: '',
         };
     }
+
     render() {
         return (
             <TimePicker
@@ -20,9 +20,8 @@ class TimePickerExample extends React.PureComponent<{}, {time: string}> {
                     this.setState({time});
                 }}
                 allowSeconds
-                label={'This is Label'}
-                info={'This is info'}
-                error={'This is error'}
+                label='This is Label'
+                info='This is info'
             />
         );
     }
@@ -54,9 +53,8 @@ export default class TimePickerDoc extends React.Component {
                                 this.setState({time});
                             }}
                             allowSeconds
-                            label={'This is Label'}
-                            info={'This is info'}
-                            error={'This is error'}
+                            label='This is Label'
+                            info='This is info'
                         />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>

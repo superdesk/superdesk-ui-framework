@@ -1,8 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import { PropsList, Prop } from '../../../app-typescript';
-import { MultiSelect } from '../../../app-typescript/components/MultiSelect';
-import { ITreeNode, TreeSelect } from '../../../app-typescript/components/TreeSelect/TreeSelect';
+import { TreeSelect } from '../../../app-typescript/components/TreeSelect/TreeSelect';
 
 interface IState {
     value: any;
@@ -171,8 +170,7 @@ let options2 = [
 ]
 
 let fetchedArr = [];
-fetch('https://nominatim.openstreetmap.org/search/berlin?format=json&addressdetails=1&limit=20').then(response => response.json()).then(data => fetchedArr = data
-);
+fetch('https://nominatim.openstreetmap.org/search/berlin?format=json&addressdetails=1&limit=20').then(response => response.json()).then(data => fetchedArr = data);
 
 type ICancelFn = () => void;
 
@@ -205,7 +203,6 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             inputValue: '',
             arr: []
         }
-
 
         this.handleChange = this.handleChange.bind(this);
     }
@@ -252,10 +249,9 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     getLabel={(item) => item.name}
                                     selectBranchWithChildren
                                     allowMultiple
-                                    searchPlaceholder='Search...'
-                                    info='Info Message'
-                                    error='Error Message'
                                     label='TreeSelect Label'
+                                    info='Info Message'
+                                    searchPlaceholder='Search...'
                                     getBackgroundColor={(item: any) => item.bgColor} 
                                     valueTemplate={(item, Wrapper) => {
                                         return (
@@ -273,16 +269,15 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
                             kind='synchronous'
-                            value={[{name: 'Item 1'}, {name: 'Item 2'}]}
+                            value={[{name: 'Category1'}]}
                             getOptions={() => options}
                             getId={(item) => item.name}
                             getLabel={(item) => item.name}
                             selectBranchWithChildren
                             allowMultiple
+                            label='TreeSelect Label'
+                            info='Info Message'
                             searchPlaceholder='Search...'
-                            info={'Info Message'}
-                            error={'Error Message'}
-                            label={'TreeSelect Label'}
                             getBackgroundColor={(item: any) => item.bgColor} 
                             valueTemplate={(item, Wrapper) => {
                                 return (
@@ -310,9 +305,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 selectBranchWithChildren
                                 allowMultiple
                                 searchOptions={searchOptions}
-                                info='Info Message'
-                                error='Error Message'
                                 label='TreeSelect Label'
+                                info='Info Message'
                                 onChange={(val) => {
                                     this.setState({value: val});
                                 }}
@@ -326,10 +320,12 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             kind="asynchronous"
                             value={this.state.value}
                             getLabel={({display_name}) => display_name}
-                            getId={({qcode}) => qcode.display_name}
+                            getId={({display_name}) => display_name}
                             selectBranchWithChildren
                             allowMultiple
                             searchOptions={searchOptions}
+                            label='TreeSelect Label'
+                            info='Info Message'
                             onChange={(val) => {
                                 this.setState({value: val});
                             }}
@@ -351,10 +347,9 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     getId={(item) => item.name}
                                     getBorderColor={(item) => item.border}
                                     selectBranchWithChildren
-                                    placeholder='Select one'
-                                    info='Info Message'
-                                    error='Error Message'
                                     label='TreeSelect Label'
+                                    info='Info Message'
+                                    placeholder='Select one'
                                     optionTemplate={(item: any) => {
                                         return <div>Label: {item.name}</div>
                                     }}
@@ -372,13 +367,14 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Markup.ReactMarkupCode>{`
                         <TreeSelect
                             kind='synchronous'
-                            value={[{name: 'Item 1'}]}
+                            value={[]}
                             getOptions={() => options2}
                             getLabel={(item) => item.name}
                             getId={(item) => item.name}
-                            getBackgroundColor={(item) => item.bgColor}
                             getBorderColor={(item) => item.border}
                             selectBranchWithChildren
+                            label='TreeSelect Label'
+                            info='Info Message'
                             placeholder='Select one'
                             optionTemplate={(item: any) => {
                                 return <div>Label: {item.name}</div>
