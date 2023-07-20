@@ -25,6 +25,7 @@ export class TimePicker extends React.PureComponent<IProps> {
             <InputWrapper
                 label={this.props.label}
                 error={this.props.error}
+                invalid={this.props.error != null}
                 required={this.props.required}
                 disabled={this.props.disabled}
                 info={this.props.info}

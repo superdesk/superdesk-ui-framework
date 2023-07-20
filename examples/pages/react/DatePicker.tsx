@@ -10,6 +10,7 @@ class DatePickerExample extends React.PureComponent<{}, {date: Date | null}> {
             date: new Date(),
         };
     }
+
     render() {
         return (
             <DatePicker
@@ -18,9 +19,8 @@ class DatePickerExample extends React.PureComponent<{}, {date: Date | null}> {
                 onChange={(date) => {
                     this.setState({date});
                 }}
-                label={'This is Label'}
-                info={'This is info'}
-                error={'This is error'}
+                label='This is Label'
+                info='This is info'
             />
         );
     }
@@ -40,6 +40,7 @@ export default class DatePickerDoc extends React.Component<{}, IState> {
             date: new Date(),
         };
     }
+
     render() {
         return (
             <section className="docs-page__container">
@@ -67,9 +68,8 @@ export default class DatePickerDoc extends React.Component<{}, IState> {
                                 onChange={(date) => {
                                     this.setState({today: date});
                                 }}
-                                label={'This is Label'}
-                                info={'This is info'}
-                                error={'This is error'}
+                                label='This is Label'
+                                info='This is info'
                             />
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -123,9 +123,8 @@ export default class DatePickerDoc extends React.Component<{}, IState> {
                                 onChange={(date) => {
                                     this.setState({date});
                                 }}
-                                label={'This is Label'}
-                                info={'This is info'}
-                                error={'This is error'}
+                                label='This is Label'
+                                info='This is info'
                                 headerButtonBar={[{days: 0, label: 'today'}, {days: 1, label: 'tomorow'}, {days: 2, label: 'in 2 days'}]}
                             />
                         </div>
@@ -137,9 +136,8 @@ export default class DatePickerDoc extends React.Component<{}, IState> {
                             onChange={(date) => {
                                 this.setState({date});
                             }}
-                            label={'This is Label'}
-                            info={'This is info'}
-                            error={'This is error'}
+                            label='This is Label'
+                            info='This is info'
                             headerButtonBar={[{days: 0, label: 'today'}, {days: 1, label: 'tomorow'}, {days: 2, label: 'in 2 days'}]}
                         />
                     `}</Markup.ReactMarkupCode>

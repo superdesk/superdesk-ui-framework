@@ -30,9 +30,8 @@ export default class TagInputDocs extends React.Component<{}, {value: Array<stri
                             <TagInput
                                 value={this.state.value}
                                 placeholder="Type Here"
-                                label={'Tag-input Label'}
-                                info={'Info Message'}
-                                error={'Error Message'}
+                                label='Tag-input Label'
+                                info='Info Message'
                                 onChange={(value) => {
                                     this.setState({
                                         value: value,
@@ -45,9 +44,8 @@ export default class TagInputDocs extends React.Component<{}, {value: Array<stri
                         <TagInput
                             value={this.state.value}
                             placeholder="Type Here"
-                            label={'Tag-input Label'}
-                            info={'Info Message'}
-                            error={'Error Message'}
+                            label='Tag-input Label'
+                            info='Info Message'
                             onChange={(value) => {
                                 this.setState({
                                     value: value,

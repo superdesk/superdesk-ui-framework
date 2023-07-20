@@ -70,8 +70,8 @@ export default class DurationInputDoc extends React.Component<{}, IState> {
                             disabled={this.state.disabled}
                             required={this.state.required}
                             inlineLabel={this.state.inlineLabel}
-                            onChange={(e) => {
-                                this.setState({value: e})
+                            onChange={(value) => {
+                                this.setState({value})
                             }}
                         />
                     `}</Markup.ReactMarkupCode>

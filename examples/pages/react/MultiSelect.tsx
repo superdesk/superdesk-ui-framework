@@ -63,7 +63,6 @@ export class MultiselectDocs extends React.Component<{}, IState> {
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <div className='form__row'>
                                 <MultiSelect
-                                preview
                                     value={this.state.value}
                                     options={ItemArr}
                                     optionLabel={(option) => option.name}

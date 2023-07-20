@@ -55,7 +55,6 @@ export default class InputsDoc extends React.Component<{}, IState> {
                                 <Select
                                     value={this.state.value}
                                     label='Select label'
-                                    error='This is error message'
                                     info='This is some hint message'
                                     required={this.state.required}
                                     disabled={this.state.disabled}
@@ -77,7 +76,6 @@ export default class InputsDoc extends React.Component<{}, IState> {
                         <Select
                             value={this.state.value}
                             label='Select label'
-                            error='This is error message'
                             info='This is some hint message'
                             required={this.state.required}
                             disabled={this.state.disabled}
