@@ -21,6 +21,7 @@
 .p-chips-token-icon {
     color: var(--color-text-lighter);
     font-size: 20px;
+    
     &:hover {
         cursor: pointer;
         color: var(--color-text-light);
@@ -41,7 +42,7 @@
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    gap: $sd-base-increment / 8;
+    gap: $sd-base-increment / 2;
     width: 100%;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     border-radius: 2px 2px 0 0;

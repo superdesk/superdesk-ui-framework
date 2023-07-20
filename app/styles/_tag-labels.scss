@@ -7,10 +7,10 @@ $tag-label-BG-inverse:      var(--sd-colour__tag-label-Bg--inverse);
 $tag-label-Txt-inverse:     var(--sd-colour__tag-label-Txt--inverse);
 
 $tag-bg-colors: (
-  default: $tag-label-BG-default,
-  darker: $tag-label-BG-darker,
-  highlight1: $tag-label-BG-highlight-1,
-  highlight2: $tag-label-BG-highlight-2,
+    default: $tag-label-BG-default,
+    darker: $tag-label-BG-darker,
+    highlight1: $tag-label-BG-highlight-1,
+    highlight2: $tag-label-BG-highlight-2,
 );
 /// Coloring classes. A map of classes to output in the CSS.
 $tag-label-palette: $tag-bg-colors !default;
@@ -43,8 +43,6 @@ $tag-label-lineheight: 100% !default;
     text-align: center;
     font-weight: 400;
     transition: background-color .2s ease-out, opacity .1s ease-out;
-    margin: 0.2rem 0;
-    margin-right: 0.3rem;
     height: $sd-base-increment * 3;
     color: var(--color-text);
 }
@@ -55,18 +53,17 @@ $tag-label-lineheight: 100% !default;
 
     @each $name, $color in $tag-label-palette {
         &.tag-label--#{$name} {
-        background: $color;
+            background: $color;
         }
     }
-    &--square {
-        border-radius: $border-radius__base--x-small;
-    }
+
     > span {
         max-width: 235px;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
     }
+
     .tag-label__remove {
         height: 1.8rem;
         width: 1.8rem;
@@ -86,6 +83,7 @@ $tag-label-lineheight: 100% !default;
         transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
         margin-inline-start: 0.8rem;
         margin-inline-end: -1rem;
+
         [class^="icon-"], [class*=" icon-"] {
             color: var(--color-text-light);
             font-size: 1.6rem;
@@ -95,39 +93,49 @@ $tag-label-lineheight: 100% !default;
             opacity: 0.4;
             transition: color .1s ease-out, opacity .1s ease-out;
         }
+
         &:hover {
             text-decoration: none;
             background-color: var(--sd-colour__tag-label-remove-Bg--hover);
+
             [class^="icon-"], [class*=" icon-"] {
                 opacity: 0.85;
             }
         }
+
           &:active {
             background-color: var(--sd-colour__tag-label-remove-Bg--hover);
+
             [class^="icon-"], [class*=" icon-"] {
-              color: $sd-colour-interactive;
-              opacity: 1;
+                color: $sd-colour-interactive;
+                opacity: 1;
             }
         }
     }
+
     &.tag-label--inverse {
         color: $tag-label-Txt-inverse;
         background-color: $tag-label-BG-inverse;
     }
+
     .tag-label--text-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 4px;
     }
+
     .tag-label--text-label {
         opacity: 0.7;
     }
 }
 
+.tag-label--square {
+    border-radius: $border-radius__base--x-small;
+}
+
 // ----------------- SEARCH TAGS -----------------
 // -----------------------------------------------
-
 
 .sd-search-tags__bar {
     position: relative;
@@ -138,19 +146,24 @@ $tag-label-lineheight: 100% !default;
     box-shadow: 0 1px 1px 0 hsla(0, 0%, 0%, 0.12);
     background-color: var(--sd-colour-bg-translucent--10);
 }
+
 .sd-search-tags__tag-list {
     margin: 0.6rem 0;
+
     &:empty {
         padding: 0 !important;
     }
+
     .sd-search-tags__tag {
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 }
+
 .sd-search-tags__tag-list:empty {
     padding: 0 !important;
 }
+
 .sd-search-tags__tag {
     font-size: 1.3rem;
 }

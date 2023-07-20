@@ -60,7 +60,7 @@ interface IProps {
     zIndex?: number;
 }
 
-const superdeskTopBarZIndex = 1030;
+const superdeskTopBarZIndex = 1050;
 
 function isSeparator(item: IMenuItem): item is ISeparator {
     return (item as any)['separator'] === true;
@@ -164,7 +164,7 @@ export class Menu extends React.Component<IProps, {}> {
                             }
                         }}
                         data-test-id="menu"
-                        baseZIndex={this.props.zIndex ?? superdeskTopBarZIndex}
+                        zIndex={this.props.zIndex ?? superdeskTopBarZIndex}
                     />
                 </div>
             </React.Fragment>

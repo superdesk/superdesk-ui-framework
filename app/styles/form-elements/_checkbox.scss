@@ -1,8 +1,4 @@
-// CHECKBOX & RADIO BUTTONS : form-elements/checkbox.scss
-// --------------
-
-// Custom checkox & Radio buttons
-
+// CHECKBOX & RADIO BUTTONS
 
 $checkBoxBorderColor: var(--color-checkbox-border);
 $checkBoxBorderColorHover: var(--color-checkbox-border-hover);
@@ -10,7 +6,6 @@ $checkButtonTextColor: var(--color-text-light);
 $checkButtonBorderColor: var(--sd-colour-line--light);
 $checkButtonBorderColorHover: var(--sd-colour-line--strong);
 $checkButtonBorderRadius: $border-radius__base--small;
-
 
 @mixin check-base {
     width: 1.6rem;
@@ -27,7 +22,10 @@ $checkButtonBorderRadius: $border-radius__base--small;
 .sd-checkbox {
     @include check-base;
     border-radius: $border-radius__base--x-small;
+
     &::after {
+        @include opacity(0);
+        @include transition(all, 0.2s, ease-in);
         font-family: 'sd_icons';
         content:'\e61d';
         font-weight: 400;
@@ -41,128 +39,146 @@ $checkButtonBorderRadius: $border-radius__base--small;
         position: absolute;
         top: 0;
         left: 0;
-        @include opacity(0);
-        @include transition(all, 0.2s, ease-in);
         transform: scale(0.25, 0.25);
     }
+
     &:hover {
         border-color: $checkBoxBorderColorHover;
         cursor: pointer;
     }
+
     &.checked, &[checked="checked"] {
         border-color: $sd-colour-interactive;
         background: $sd-colour-interactive;
+
         &::after {
             opacity: 1;
             transform: scale(1, 1);
         }
+
         &:hover {
             border-color: var(--sd-colour-interactive--hover);
             background-color: var(--sd-colour-interactive--hover);
         }
     }
-    // Modifier for .sd-checkbox to create a radio button
-    &--radio {
+    
+}
+
+// Modifier for .sd-checkbox to create a radio button
+.sd-checkbox--radio {
+    border-radius: $border-radius__base--full;
+
+    &::after {
+        height: 0.8rem;
+        width: 0.8rem;
         border-radius: $border-radius__base--full;
+        content:' ';
+        position: absolute;
+        background-color: $sd-colour-interactive;
+        top: 0.2rem;
+        inset-inline-start: 0.2rem;
+        opacity: 0;
+        transition: all 0.1s ease-in;
+        transform: scale(0.25, 0.25);
+    }
+
+    &.checked, &[checked="checked"] {
+        border-color: $sd-colour-interactive;
+        background: transparent;
+
         &::after {
-            height: 0.8rem;
-            width: 0.8rem;
-            border-radius: $border-radius__base--full;
-            content:' ';
-            position: absolute;
-            background-color: $sd-colour-interactive;
-            top: 0.2rem;
-            inset-inline-start: 0.2rem;
-            opacity: 0;
-            transition: all 0.1s ease-in;
-            transform: scale(0.25, 0.25);
+            opacity: 1;
+            transform: scale(1, 1);
         }
-        &.checked, &[checked="checked"] {
-            border-color: $sd-colour-interactive;
+
+        &:hover {
             background: transparent;
-            &::after {
-                opacity: 1;
-                transform: scale(1, 1);
-            }
-            &:hover {
-                background: transparent;
-            }
         }
     }
-    // This modifier creates button styled checkboxes or radio buttons
-    &--button-style {
-        width: auto;
-        padding: 0 1.2rem;
-        line-height: 1;
-        color: $checkButtonTextColor;
-        border: 1px solid $checkButtonBorderColor;
-        border-radius: $checkButtonBorderRadius;
-        @include transition(all, 0.2s, ease-out);
-        display: inline-flex;
-        align-items: center;
-        text-align: center;
-        height: $sd-base-increment * 4;
+}
+
+// This modifier creates button styled checkboxes or radio buttons
+.sd-checkbox--button-style {
+    @include transition(all, 0.2s, ease-out);
+    @include text-overflow;
+    width: auto;
+    padding: 0 1.2rem;
+    line-height: 1;
+    color: $checkButtonTextColor;
+    border: 1px solid $checkButtonBorderColor;
+    border-radius: $checkButtonBorderRadius;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    height: $sd-base-increment * 4;
+
+    label {
         @include text-overflow;
-        label {
-            margin:0;
-            display: inline;
-            cursor: pointer;
-            transition: none;
-            text-align: center;
-            line-height: 16px;
-            font-family: $baseFontFamily;
-            @include text-overflow;
-            [class^="icon-"], [class*=" icon-"] {
-                vertical-align: middle;
-            }
+        margin:0;
+        display: inline;
+        cursor: pointer;
+        transition: none;
+        text-align: center;
+        line-height: 16px;
+        font-family: $baseFontFamily;
 
-        }
         [class^="icon-"], [class*=" icon-"] {
-            color: currentColor;
-        }
-        i + label {
-            margin-inline-start: 8px;
-        }
-
-        &::after {
-            content:'';
-            display: none;
-        }
-        &:hover {
-            color: var(--color-text);
-            border-color: $checkButtonBorderColorHover;
-            box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
-        }
-        &.checked, &[checked="checked"] {
-            background-color: var(--sd-colour-interactive--active);
-            border-color: var(--sd-colour-interactive--active);
-            border-top-color: var(--sd-colour-interactive--darken-20);
-            box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
-            color: $white;
-            &:hover {
-                color: $white;
-                border-color: var(--sd-colour-interactive--hover);
-                background-color: var(--sd-colour-interactive--active);
-                box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
-            }
-            label {
-                color: $white;
-            }
-        }
-        .sd-label--disabled {
-            opacity: 1 !important;
-            cursor: not-allowed !important;
+            vertical-align: middle;
         }
     }
-    &--disabled, &[disabled="disabled"] {
-        opacity: 0.40;
-        cursor: not-allowed !important;
+
+    [class^="icon-"], [class*=" icon-"] {
+        color: currentColor;
+    }
+
+    i + label {
+        margin-inline-start: 8px;
+    }
+
+    &::after {
+        content:'';
+        display: none;
+    }
+
+    &:hover {
+        color: var(--color-text);
+        border-color: $checkButtonBorderColorHover;
+        box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.2);
+    }
+
+    &.checked, &[checked="checked"] {
+        background-color: var(--sd-colour-interactive--active);
+        border-color: var(--sd-colour-interactive--active);
+        border-top-color: var(--sd-colour-interactive--darken-20);
+        box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
+        color: $white;
+
         &:hover {
-            color: $checkButtonTextColor;
-            border-color: $checkButtonBorderColor;
-            box-shadow: none;
+            color: $white;
+            border-color: var(--sd-colour-interactive--hover);
+            background-color: var(--sd-colour-interactive--active);
+            box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         }
 
+        label {
+            color: $white;
+        }
+    }
+
+    .sd-label--disabled {
+        opacity: 1 !important;
+        cursor: not-allowed !important;
+    }
+}
+
+.sd-checkbox--disabled, .sd-checkbox[disabled="disabled"] {
+    opacity: 0.40;
+    cursor: not-allowed !important;
+
+    &:hover {
+        color: $checkButtonTextColor;
+        border-color: $checkButtonBorderColor;
+        box-shadow: none;
     }
 }
 
@@ -171,21 +187,22 @@ $checkButtonBorderRadius: $border-radius__base--small;
     vertical-align: middle;
 }
 
-
-
 .sd-check__wrapper {
     display: inline-block;
+
     .sd-checkbox + label {
         display: inline-block;
         vertical-align: middle;
         margin: 0;
         margin-inline-start: 0.6rem;
+
         i {
             margin: 0;
             margin-inline-end: 0.4rem;
             margin-inline-start: 0.8rem;
         }
     }
+
     .sd-label--disabled {
         opacity: 0.40;
     }
@@ -195,23 +212,28 @@ $checkButtonBorderRadius: $border-radius__base--small;
     padding: 0;
     display: flex;
     gap: $sd-base-increment;
-    &--grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-        grid-gap: $sd-base-increment;
-        .sd-check__wrapper {
-            display: block;
-            .sd-checkbox.sd-checkbox--button-style {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-            }
-        }
-        .sd-check-button__text-label-inner {
-            white-space: normal;
+}
+
+.sd-check__group--grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    grid-gap: $sd-base-increment;
+
+    .sd-check__wrapper {
+        display: block;
+
+        .sd-checkbox.sd-checkbox--button-style {
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
+
+    .sd-check-button__text-label-inner {
+        white-space: normal;
+    }
 }
+
 .sd-check-button__group--grid {
     .sd-check-button--native {
         .sd-check-button__text-label-inner {
@@ -229,6 +251,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
 .sd-check-new {
     @include check-base;
     border-radius: $border-radius__base--x-small;
+
     &::after {
         font-family: 'sd_icons';
         content:'\e61d';
@@ -247,40 +270,48 @@ $checkButtonBorderRadius: $border-radius__base--small;
         transition: all 0.2s ease-in;
         transform: scale(0.25, 0.25);
     }
+
     &:hover {
         border-color: $checkBoxBorderColorHover;
         cursor: pointer;
     }
+
     &.checked, &[checked="checked"] {
         border-color: $sd-colour-interactive;
         background: $sd-colour-interactive;
+
         &::after {
             opacity: 1;
             transform: scale(1, 1);
         }
+
         &:hover {
             border-color: var(--sd-colour-interactive--hover);
             background-color: var(--sd-colour-interactive--hover);
         }
     }
-    &--disabled, &[disabled="disabled"] {
-        opacity: 0.40;
-        cursor: not-allowed !important;
-        &:hover {
-            color: $checkButtonTextColor;
-            border-color: $checkButtonBorderColor;
-            box-shadow: none;
-        }
+}
 
+.sd-check-new--disabled, .sd-check-new[disabled="disabled"] {
+    opacity: 0.40;
+    cursor: not-allowed !important;
+    
+    &:hover {
+        color: $checkButtonTextColor;
+        border-color: $checkButtonBorderColor;
+        box-shadow: none;
     }
 }
+
 .sd-radio-new {
     @include check-base;
     border-radius: $border-radius__base--full;
+
     &:hover {
         border-color: $checkBoxBorderColorHover;
         cursor: pointer;
     }
+
     &::after {
         height: 0.8rem;
         width: 0.8rem;
@@ -294,27 +325,31 @@ $checkButtonBorderRadius: $border-radius__base--small;
         transition: all 0.1s ease-in;
         transform: scale(0.25, 0.25);
     }
+
     &.checked, &[checked="checked"] {
         border-color: $sd-colour-interactive;
         background: transparent;
+
         &::after {
             opacity: 1;
             transform: scale(1, 1);
         }
+
         &:hover {
             background: transparent;
             cursor: default;
         }
     }
-    &--disabled, &[disabled="disabled"] {
-        opacity: 0.40;
-        cursor: not-allowed !important;
-        &:hover {
-            color: $checkButtonTextColor;
-            border-color: $checkButtonBorderColor;
-            box-shadow: none;
-        }
+}
 
+.sd-radio-new--disabled, .sd-radio-new[disabled="disabled"] {
+    opacity: 0.40;
+    cursor: not-allowed !important;
+
+    &:hover {
+        color: $checkButtonTextColor;
+        border-color: $checkButtonBorderColor;
+        box-shadow: none;
     }
 }
 
@@ -330,6 +365,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     height: $sd-base-increment * 4;
     color: var(--color-text);
     cursor: pointer;
+
     .sd-check-button__text-label {
         display: flex;
         margin:0;
@@ -341,12 +377,15 @@ $checkButtonBorderRadius: $border-radius__base--small;
         opacity: 0.8;
         transition: opacity 0.2s ease-in-out;
     }
+
     [class^="icon-"], [class*=" icon-"] {
         color: currentColor;
     }
+
     i + .sd-check-button__text-label {
         margin-inline-start: $sd-base-increment;
     }
+
     &:hover {
         .sd-check-button__text-label {
             opacity: 1;
@@ -355,15 +394,18 @@ $checkButtonBorderRadius: $border-radius__base--small;
             color: var(--color-text);
         }
     }
+
     &.checked, &[checked="checked"] {
         background-color: var(--sd-colour-interactive--active);
         border-color: var(--sd-colour-interactive--active);
         border-top-color: var(--sd-colour-interactive--darken-20);
         box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         color: $white;
+
         .sd-check-button__text-label {
             opacity: 1;
         }
+
         &:hover {
             color: $white;
             border-color: var(--sd-colour-interactive--active);
@@ -371,12 +413,12 @@ $checkButtonBorderRadius: $border-radius__base--small;
             box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         }
     }
+
     .sd-label--disabled {
         opacity: 1 !important;
         cursor: not-allowed !important;
     }
 }
-
 
 .sd-check-button__group {
     display: flex;
@@ -385,36 +427,48 @@ $checkButtonBorderRadius: $border-radius__base--small;
     align-items: center;
     gap: $sd-base-increment * 1;
     flex: 1 0;
-    &--left, &--start {
-        margin-inline-end: auto;
-    }
-    &--right, &--end {
-        margin-inline-start: auto;
-    }
-    &--center {
-        margin-inline-start: auto;
-        margin-inline-end: auto;
-    }
-    &--inline {
-        margin-inline-start: 0;
-        margin-inline-end: 0;
-    }
-    &--grid {
-        flex: 1 1 0;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
-        grid-gap: $sd-base-increment;
-        align-self: stretch;
-        &.sd-check-button__group--compact {
-            grid-gap: $sd-base-increment / 2;
-        }
-    }
+
     &.sd-check-button__group--padded {
         margin-inline-start: $sd-base-increment * 1.5;
         margin-inline-end: $sd-base-increment * 1.5;
     }
+
     &.sd-check-button__group--compact {
         gap: $sd-base-increment * 0.5;
+    }
+
+    &.sd-check-button__group--no-wrap {
+        flex-wrap: nowrap;
+    }
+}
+
+.sd-check-button__group--left, .sd-check-button__group--start {
+    margin-inline-end: auto;
+}
+
+.sd-check-button__group--right, .sd-check-button__group--end {
+    margin-inline-start: auto;
+}
+
+.sd-check-button__group--center {
+    margin-inline-start: auto;
+    margin-inline-end: auto;
+}
+
+.sd-check-button__group--inline {
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+}
+
+.sd-check-button__group--grid {
+    flex: 1 1 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+    grid-gap: $sd-base-increment;
+    align-self: stretch;
+
+    &.sd-check-button__group--compact {
+        grid-gap: $sd-base-increment / 2;
     }
 }
 
@@ -424,37 +478,46 @@ $checkButtonBorderRadius: $border-radius__base--small;
     align-items: center;
     user-select: none;
     position: relative;
+
     label {
         line-height: 100%;
         margin: 0;
     }
+
     .sd-check-new + label,
     .sd-radio-new + label {
         margin-inline-start: $sd-base-increment;
     }
+
     .sd-check-new + label:empty,
     .sd-radio-new + label:empty {
         margin: 0 !important;
     }
+
     .sd-label--disabled {
         opacity: 0.40;
     }
+
     &[label-position="left"], &[label-position="start"] {
         label {
             margin-inline-end: $sd-base-increment;
             margin-inline-start: 0;
+
             &:empty {
                 margin: 0 !important;
             }
         }
+
         .sd-check-new__input {
             inset-inline-start: auto;
             inset-inline-end: 0;
         }
+
         .sd-check-new, .sd-radio-new {
             order: 2;
         }
     }
+
     input:hover {
         & ~ .sd-check-new,
         & ~ .sd-radio-new  {
@@ -467,14 +530,17 @@ $checkButtonBorderRadius: $border-radius__base--small;
         & ~ .sd-radio-new  {
             border-color: $sd-colour-interactive;
             background: $sd-colour-interactive;
+
             &::after {
                 opacity: 1;
                 transform: scale(1, 1);
             }
         }
+
         & ~ .sd-radio-new {
             background: transparent;
         }
+
         & ~ label {
             color: $sd-colour-interactive;
         }
@@ -489,13 +555,16 @@ $checkButtonBorderRadius: $border-radius__base--small;
 
     input:disabled {
         cursor: not-allowed;
+
         & ~ label {
             opacity: 0.6;
         }
+
         & ~ .sd-check-new,
         & ~ .sd-radio-new  {
             opacity: 0.6;
         }
+
         &:hover {
             & ~ .sd-check-new,
             & ~ .sd-radio-new  {
@@ -528,11 +597,12 @@ $checkButtonBorderRadius: $border-radius__base--small;
     flex-direction: row;
     align-items: center;
     gap: $sd-base-increment * 3;
-    &--vertical {
-        gap: $sd-base-increment * 2;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+}
+
+.sd-check__group-new--vertical {
+    gap: $sd-base-increment * 2;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .sd-check-button {
@@ -543,6 +613,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         box-shadow: none !important;
         background: transparent;
         overflow: visible;
+
         .sd-check-button__text-label {
             padding-inline-start: 1.2rem;
             padding-inline-end: 1.2rem;
@@ -558,16 +629,17 @@ $checkButtonBorderRadius: $border-radius__base--small;
             cursor: pointer;
             width: 100%;
             white-space: nowrap;
+
             .sd-check-button__text-label-inner {
                 user-select: none;
                 display: inline-block;
             }
+
             i + .sd-check-button__text-label-inner {
                 margin-inline-start: $sd-base-increment;
             }
         }
     }
-
 
     .sd-check-button__input {
         position: absolute;
@@ -605,6 +677,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         .sd-check-button__text-label {
             box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
         }
+
         .sd-check-button__input:checked {
             & ~ label {
                 box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2), 0 0 0 3px $sd-colour--focus-shadow;
@@ -618,15 +691,13 @@ $checkButtonBorderRadius: $border-radius__base--small;
 // END NEW CHECKBOX & RADIO
 // ============================================================================
 
-
-
 // TOGGLE BUTTON
 // use of this will be discontinued. It is here just to support older components in
 // Superdeks untill they are refactored
 
-
 .toggle-button {
     @include sd-padding('1-5', 'x');
+    @include text-overflow;
     line-height: 1;
     border: 1px solid $checkButtonBorderColor;
     border-radius: $checkButtonBorderRadius;
@@ -637,29 +708,32 @@ $checkButtonBorderRadius: $border-radius__base--small;
     gap: 8px;
     height: $sd-base-increment * 4;
     color: var(--color-text);
-    @include text-overflow;
     cursor: pointer;
     text-decoration: none;
     font-size: 1.2rem;
     background: transparent;
     transition: all 0.2s ease-out;
+
     [class^="icon-"],
     [class*=" icon-"],
     .toggle-button__icon {
         color: currentColor;
     }
+
     &:hover {
         border-color: $checkButtonBorderColorHover;
         box-shadow: 0 1px 4px 0 hsla(0, 0%, 0%, 0.16);
         color: var(--color-text);
         text-decoration: none !important;
     }
+
     &.toggle-button--active {
         background-color: var(--sd-colour-interactive--active);
         border-color: var(--sd-colour-interactive--active);
         border-top-color: var(--sd-colour-interactive--darken-20);
         box-shadow: inset 0 2px 0 0 hsla(0, 0%, 0%, 0.2);
         color: $white;
+        
         &:hover {
             color: $white;
             border-color: var(--sd-colour-interactive--active);

@@ -7,11 +7,16 @@ $layout-grid-gap-small: .4rem; // alternative small gap
 
 // map for media breakpoints, 'small' is mandatory and reserved as mobile first
 $layout-grid-media: (
-    xsmall: 0, // 0px, mobile first
-    small: 40em, // 640px
-    medium: 60em, // 960px
-    large: 64em, // 1024px
-    xlarge: 75em,  // 1200px
+    xsmall: 0,
+    // 0px, mobile first
+    small: 40em,
+    // 640px
+    medium: 60em,
+    // 960px
+    large: 64em,
+    // 1024px
+    xlarge: 75em,
+    // 1200px
     xxlarge: 90em // 1440px
 );
 
@@ -22,6 +27,7 @@ $layout-grid-media: (
     padding: 0 $layout-grid-gutter;
     flex-wrap: wrap;
 }
+
 @mixin layout-grid-columns {
     @for $i from 1 through $layout-grid-columns {
         &--col-#{$i} {
@@ -31,6 +37,7 @@ $layout-grid-media: (
         }
     }
 }
+
 @mixin layout-grid-responsive {
     @for $i from 1 through $layout-grid-columns {
         &-#{$i} {
@@ -40,6 +47,7 @@ $layout-grid-media: (
         }
     }
 }
+
 @mixin layout-grid-responsive-boxed {
     @for $i from 1 through $layout-grid-columns {
         &-#{$i} {
@@ -49,6 +57,7 @@ $layout-grid-media: (
         }
     }
 }
+
 @mixin layout-grid-responsive-boxed-small {
     @for $i from 1 through $layout-grid-columns {
         &-#{$i} {
@@ -58,88 +67,105 @@ $layout-grid-media: (
         }
     }
 }
+
 .grid {
     @include grid;
+
     .grid__item {
         flex: 1 1 auto;
         padding: 0 $layout-grid-gutter;
+
         &.grid__item {
             @include layout-grid-columns;
         }
-        & > .grid {
+
+        &>.grid {
             margin-left: -$layout-grid-gutter;
             margin-right: -$layout-grid-gutter;
             padding: 0;
         }
     }
-    &--padding-fix {
-        margin-left: -$layout-grid-gutter;
-        margin-right: -$layout-grid-gutter;
-        padding: 0;
-    }
-    &--margin {
-        margin-top: $layout-grid-gutter;
-        margin-bottom: $layout-grid-gutter; 
-    }
-    &--wrap {
-        flex-wrap: wrap;
-    }
-    &--boxed {
-        margin-left: -$layout-grid-gap;
-        margin-right: -$layout-grid-gap;
-        .grid__item {
-            margin: $layout-grid-gap;
-            padding: 0;           
-        }
-        &-styled {
-            .grid__item {
-                background-color: white;
-                border-radius: $border-radius__base--x-small;
-                box-shadow: 0 1px 4px rgba(0,0,0,.12);
-            }
-        }
-    }
-    &--boxed-small {
-        margin-left: -$layout-grid-gap-small;
-        margin-right: -$layout-grid-gap-small;
-        .grid__item {
-            margin: $layout-grid-gap-small;
-            padding: 0;           
-        }
-        &-styled {
-            .grid__item {
-                background-color: white;
-                border-radius: $border-radius__base--x-small;
-                box-shadow: 0 1px 4px rgba(0,0,0,.12);
-            }
-        }
-    }
-    & + .grid {
+
+    &+.grid {
         margin-top: 1rem;
     }
 }
 
+.grid--padding-fix {
+    margin-left: -$layout-grid-gutter;
+    margin-right: -$layout-grid-gutter;
+    padding: 0;
+}
+
+.grid--margin {
+    margin-top: $layout-grid-gutter;
+    margin-bottom: $layout-grid-gutter;
+}
+
+.grid--wrap {
+    flex-wrap: wrap;
+}
+
+.grid--boxed {
+    margin-left: -$layout-grid-gap;
+    margin-right: -$layout-grid-gap;
+
+    .grid__item {
+        margin: $layout-grid-gap;
+        padding: 0;
+    }
+}
+
+.grid--boxed-styled {
+    .grid__item {
+        background-color: white;
+        border-radius: $border-radius__base--x-small;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+    }
+}
+
+.grid--boxed-small {
+    margin-left: -$layout-grid-gap-small;
+    margin-right: -$layout-grid-gap-small;
+
+    .grid__item {
+        margin: $layout-grid-gap-small;
+        padding: 0;
+    }
+}
+
+.grid--boxed-small-styled {
+    .grid__item {
+        background-color: white;
+        border-radius: $border-radius__base--x-small;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, .12);
+    }
+}
+
 // Media queries
-@each $name, $value in $layout-grid-media {
+@each $name,
+$value in $layout-grid-media {
     @media only screen and (min-width: $value) {
         .grid {
             .grid__item {
                 &.gi-#{$name} {
                     @include layout-grid-responsive;
-                }                
-            }
-            &--boxed {
-                .grid__item {
-                    &.gi-#{$name} {
-                        @include layout-grid-responsive-boxed;
-                    }
                 }
             }
-            &--boxed-small {
-                .grid__item {
-                    &.gi-#{$name} {
-                        @include layout-grid-responsive-boxed-small;
-                    }
+        }
+
+        .grid--boxed {
+            .grid__item {
+                &.gi-#{$name} {
+                    @include layout-grid-responsive-boxed;
+                }
+            }
+        }
+
+        .grid--boxed-small {
+            .grid__item {
+                &.gi-#{$name} {
+                    @include layout-grid-responsive-boxed-small;
                 }
             }
         }

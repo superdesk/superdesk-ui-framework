@@ -1,5 +1,4 @@
-// FORM ELEMENTS : Input and slect : form-elements/inputs.scss
-// input, textarea, select {
+// FORM ELEMENTS : Input and select : form-elements/inputs.scss
 
 @mixin Line-input-base {
     @include appearance-reset();
@@ -15,22 +14,26 @@
     border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
     display: block;
     position: relative;
+
     &::placeholder {
         color: var(--color-text-lighter);
         font-weight: 400;
         opacity: 0.75;
-      }
+    }
+
     &:hover {
         border-color: var(--color-input-border-hover);
         background-color: var(--color-input-bg--hover);
     }
+
     &:focus {
         box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
         border-color: var(--sd-colour-interactive);
         background-color: var(--sd-colour-interactive--alpha-20);
+
         &::placeholder {
             opacity: 0.45;
-          }
+        }
     }
 }
 
@@ -46,6 +49,7 @@
     font-weight: 500;
     letter-spacing: 0.08em;
 }
+
 @mixin Boxed-label-base {
     background-color: hsla(214, 13%, 30%, 0.4);
     border-radius: var(--b-radius--small);
@@ -73,78 +77,96 @@
     @include Form-label-base;
     min-width: 75px;
     min-height: 1.6rem;
-    &--light {
-        color: var(--color-text-lighter);
-        font-weight: 400;
+
+}
+
+.form-label--light {
+    color: var(--color-text-lighter);
+    font-weight: 400;
+}
+
+.form-label--marg-b10 {
+    margin-bottom: 10px;
+}
+
+.form-label--block {
+    display: block;
+}
+
+.form-label--required {
+    position: relative;
+
+    &::after {
+        color: $red;
+        content: "*";
+        vertical-align: top;
+        font-size: 1.2rem;
+        padding-inline-start: 0.3rem;
+        margin-top: -2px
     }
-    &--marg-b10 {
-        margin-bottom: 10px;
+}
+
+.form-label--invalid {
+    color: $red;
+}
+
+.form-label--focused {
+    color: var(--sd-colour-interactive);
+
+    &.form-label--invalid {
+        color: $red;
     }
-    &--block {
-        display: block;
-    }
-    &--required {
-        position: relative;
+}
+
+.form-label--boxed {
+    @include Boxed-label-base;
+
+    &.form-label--required {
         &::after {
-            color:$red;
+            margin-inline-start: 0.2rem;
+            color: #e41b21;
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
             padding-inline-start: 0.3rem;
-            margin-top: -2px
+            position: absolute;
+            inset-block-start: -4px;
+            inset-inline-end: -10px;
         }
     }
-    &--invalid {
-        color: $red;
+
+    &.form-label--invalid,
+    &.form-label--invalid.form-label--focused {
+        background-color: $red;
+        color: hsl(214, 13%, 96%);
     }
-    &--focused {
-        color: var(--sd-colour-interactive);
-        &.form-label--invalid {
-            color: $red;
-        }
-    }
-    &--boxed {
-        @include Boxed-label-base;
-        &--light {
-            background-color: hsla(214, 13%, 30%, 0.4);
-            color: hsl(214, 13%, 96%);
-        }
-        &--dark {
-            background-color: hsla(214, 13%, 30%, 0.4);
-            color: hsl(214, 13%, 96%);
-        }
-        &.form-label--required {
-            &::after {
-                margin-inline-start: 0.2rem;
-                color: #e41b21;
-                content: "*";
-                vertical-align: top;
-                font-size: 1.2rem;
-                padding-inline-start: 0.3rem;
-                position: absolute;
-                inset-block-start: -4px;
-                inset-inline-end: -10px;
-            }
-        }
-        &.form-label--invalid,
-        &.form-label--invalid.form-label--focused {
-            background-color: $red;
-            color: hsl(214, 13%, 96%);
-        }
-        &.form-label--focused {
-            background-color: var(--sd-colour-interactive);
-            color: hsl(214, 13%, 96%);
-        }
+
+    &.form-label--focused {
+        background-color: var(--sd-colour-interactive);
+        color: hsl(214, 13%, 96%);
     }
 }
+
+.form-label--boxed--light {
+    background-color: hsla(214, 13%, 30%, 0.4);
+    color: hsl(214, 13%, 96%);
+}
+
+.form-label--boxed--dark {
+    background-color: hsla(214, 13%, 30%, 0.4);
+    color: hsl(214, 13%, 96%);
+}
+
 .form-label__container {
-    display:flex;
+    display: flex;
     flex-direction: row;
     align-items: center;
+
     .form-label {
         flex-grow: 1;
     }
 }
+
 .form-label__info-block {
     color: inherit;
     font-size: 1.2rem;
@@ -157,55 +179,56 @@
     padding-top: 1.8rem;
     position: relative;
 
-    &--flex-row {
-        display: inline-flex;
-        align-items: center;
-        border-bottom: 1px solid var(--color-input-border);
-        width: 100%;
-    }
-    &__value {
-        margin-inline-end: 6px;
-        text-transform: uppercase;
-    }
-    input, textarea {
+    input,
+    textarea {
         &.sd-line-input__input {
             @include Line-input-base;
-            &--center {
-                text-align: center;
-            }
         }
+
+        &.sd-line-input__input--center {
+            text-align: center;
+        }
+
         &.sd-line-input__color {
             @include Line-input-base;
             width: 26px;
             height: 26px;
             border: none;
             outline: none;
+
             ::-webkit-color-swatch {
                 border: none;
                 outline: none;
                 -webkit-appearance: none;
             }
+
             ::-webkit-color-swatch-wrapper {
                 padding: 0;
             }
         }
     }
+
     input[type="file"] {
         &.sd-line-input__input {
             height: 3rem;
             padding-top: 0.6rem;
             font-size: 1.3rem;
+
             &:focus {
                 outline: none;
             }
         }
     }
+
     select {
+        cursor: pointer;
+
         &.sd-line-input__select {
             @include Line-input-base;
             display: block;
             position: relative;
             z-index: 2;
+
             option {
                 color: var(--color-text);
                 font-size: 1.4rem;
@@ -213,52 +236,64 @@
                 background-color: var(--color-dropdown-menu-Bg);
             }
         }
-        cursor: pointer;
     }
+
     textarea.sd-line-input__input {
         padding-top: 0.6rem;
         display: block;
     }
-    .sd-line-input__info-left, .sd-line-input__info-right { // use for 1-2 letter info that appear inside inputs ("W" - for width; "H" - for height; px, mm - for units, etc.)
+
+    .sd-line-input__info-left,
+    .sd-line-input__info-right {
+        // use for 1-2 letter info that appear inside inputs ("W" - for width; "H" - for height; px, mm - for units, etc.)
         position: absolute;
         inset-block-start: 2.5rem;
         opacity: 0.3;
         font-size: 1.5rem;
         font-weight: 300;
     }
+
     .sd-line-input__info-right {
         inset-inline-end: 0.8rem;
     }
+
     .sd-line-input__info-left {
         inset-inline-start: 0.8rem;
     }
 
-    .sd-line-input__icon-left, .sd-line-input__icon-right {
+    .sd-line-input__icon-left,
+    .sd-line-input__icon-right {
         position: absolute;
         inset-block-start: 1.6rem;
         cursor: pointer;
     }
+
     .sd-line-input__icon-right {
         inset-inline-end: 0.2rem;
     }
+
     .sd-line-input__icon-right.icn-btn {
         inset-inline-end: 0.2rem;
         inset-block-start: 1.8rem;
         z-index: 1;
     }
+
     .sd-line-input__icon-left {
         left: 0.2rem;
     }
 
     &.sd-line-input--indent-l30 {
-        input, textarea {
+        input,
+        textarea {
             &.sd-line-input__input {
                 padding-inline-start: 3rem;
             }
         }
     }
+
     &.sd-line-input--indent-r30 {
-        input, textarea {
+        input,
+        textarea {
             &.sd-line-input__input {
                 padding-inline-end: 3rem;
             }
@@ -270,16 +305,17 @@
         position: absolute;
         line-height: 100%;
         margin: 0;
-        inset-block-start:0;
-        &--required::after {
-            color:$red;
-            content: "*";
-            vertical-align: top;
-            font-size: 1.2rem;
-            padding-inline-start: 0.3rem;
-        }
-
+        inset-block-start: 0;
     }
+
+    .sd-line-input__label--required::after {
+        color: $red;
+        content: "*";
+        vertical-align: top;
+        font-size: 1.2rem;
+        padding-inline-start: 0.3rem;
+    }
+
     .sd-line-input__hint,
     .sd-line-input__message,
     .sd-line-input__char-count {
@@ -290,6 +326,7 @@
         font-weight: 300;
         letter-spacing: 0.03em;
     }
+
     .sd-line-input__hint {
         position: absolute;
         inset-inline-start: 1px;
@@ -297,6 +334,7 @@
         padding-inline-end: 5.5rem;
         margin-top: 0.4rem;
     }
+
     .sd-line-input__char-count {
         position: absolute;
         inset-inline-end: 1px;
@@ -306,22 +344,28 @@
         font-weight: 400;
         font-style: italic;
     }
+
     .sd-line-input__message {
         padding-top: 0.4rem;
     }
+
     &.sd-line-input--invalid {
         .sd-line-input__label,
         .sd-line-input__message {
-            color:$red;
+            color: $red;
         }
-        input, textarea {
+
+        input,
+        textarea {
             &.sd-line-input__input {
                 background-color: hsla(357, 79%, 50%, 0.075);
                 border-color: $red;
+
                 &:hover {
                     background-color: hsla(357, 79%, 50%, 0.12);
                     border-color: $red;
                 }
+
                 &:focus {
                     background-color: hsla(357, 79%, 50%, 0.16);
                     border-color: $red;
@@ -329,14 +373,17 @@
                 }
             }
         }
+
         select {
             &.sd-line-input__select {
                 background-color: hsla(357, 79%, 50%, 0.075);
                 border-color: $red;
+
                 &:hover {
                     background-color: hsla(357, 79%, 50%, 0.12);
                     border-color: $red;
                 }
+
                 &:focus {
                     background-color: hsla(357, 79%, 50%, 0.16);
                     border-color: $red;
@@ -347,8 +394,11 @@
     }
 
     &.sd-line-input--disabled {
-        input, textarea {
-            &.sd-line-input__input, &.sd-input__input:hover, &.sd-input__input:focus {
+        input,
+        textarea {
+            &.sd-line-input__input,
+            &.sd-input__input:hover,
+            &.sd-input__input:focus {
                 opacity: 0.5;
                 background-color: var(--color-input-bg);
                 border-bottom: 1px dotted var(--color-input-border);
@@ -356,8 +406,11 @@
                 box-shadow: none;
             }
         }
+
         select {
-            &.sd-line-input__select, &.sd-line-input__select:hover, &.sd-line-input__select:focus {
+            &.sd-line-input__select,
+            &.sd-line-input__select:hover,
+            &.sd-line-input__select:focus {
                 opacity: 0.5;
                 background-color: var(--color-input-bg);
                 border-bottom: 1px dotted var(--color-input-border);
@@ -366,7 +419,6 @@
             }
         }
     }
-
 
     &.sd-line-input--is-select {
         &::after {
@@ -384,11 +436,13 @@
             content: "";
             z-index: 0;
         }
+
         &:hover {
             &::after {
                 opacity: 0.6;
             }
         }
+
         &.sd-line-input--disabled {
             &:hover {
                 &::after {
@@ -396,17 +450,20 @@
                 }
             }
         }
+
         &.sd-line-input--no-label {
             &::after {
                 inset-block-start: 1.4rem;
             }
         }
+
         &.sd-line-input--label-left {
             &::after {
                 inset-block-start: 1.2rem;
             }
         }
     }
+
     &.sd-line-input--is-color {
         .sd-line-input__label {
             line-height: 140%;
@@ -415,76 +472,22 @@
 
     &.sd-line-input--required {
         .sd-line-input__label::after {
-            color:$red;
+            color: $red;
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
             padding-inline-start: 0.3rem;
         }
     }
+
     &.sd-line-input--no-label {
         padding-top: 0;
     }
+
     &.sd-line-input--no-margin {
         margin-bottom: 0;
     }
-    &--label-left, &--label-left-auto {
-        padding-top: 0;
-        margin: 0;
-        display: grid;
-        grid-template-columns: auto 1rem 1fr auto;
-        grid-template-rows: auto auto;
-        grid-gap: 0;
-        .sd-line-input__label {
-            margin-top: 0.1rem;
-            grid-column: 1/2;
-            grid-row: 1/2;
-            position: static;
-            min-width: 7.6rem;
-            max-width: 12rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .sd-line-input__input, .sd-line-input__select {
-            grid-row: 1/2;
-            grid-column: 3/5;
-        }
-        .sd-line-input__hint, .sd-line-input__message {
-            position: static;
-            grid-row: 2/3;
-            grid-column: 3/4;
-            padding-inline-end: 0;
-        }
-        .sd-line-input__char-count {
-            position: static;
-            grid-row: 2/3;
-            grid-column: 5/4;
-            text-align: end;
-            padding-inline-start: 1.6rem;
-        }
-    }
-    &--label-left-auto {
-        .sd-line-input__label {
-            min-width: auto;
-            max-width: none;
-        }
-    }
-    &--with-button {
-        input, textarea {
-            &.sd-line-input__input {
-                height: 3rem;
-                text-indent: 2.8rem;
-            }
-        }
-    }
-    &--with-icon-l {
-        input, textarea {
-            &.sd-line-input__input {
-                padding-inline-end: 3rem;
-            }
-        }
-    }
+
     .sd-line-input__plus-btn {
         position: absolute;
         inset-block-start: 1.8rem;
@@ -496,14 +499,16 @@
         border-radius: $border-radius__base--x-small;
         cursor: pointer;
         text-align: center;
+
         &::before {
+            @include icon-base;
             margin-top: 0.2rem;
             content: "\e629";
-            @include icon-base;
             color: $white;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
         }
+
         &:hover {
             background-color: $sd-colour-interactive;
         }
@@ -511,102 +516,200 @@
 
 }
 
+.sd-line-input--flex-row {
+    display: inline-flex;
+    align-items: center;
+    border-bottom: 1px solid var(--color-input-border);
+    width: 100%;
+}
 
-/////////////////  -------------------- NEW INPUTS ---------------------  /////////////////
+.sd-line-input__value {
+    margin-inline-end: 6px;
+    text-transform: uppercase;
+}
 
-.sd-input__input {
-    @include Line-input-base;
-    &--invalid {
-        border-bottom: 1px solid $red;
-        background-color: hsla(357, 79%, 50%, 0.075);
-        &:hover {
-            background-color: hsla(357, 79%, 50%, 0.12);
-            border-bottom-color: $red;
-        }
-        &:focus {
-            background-color: hsla(357, 79%, 50%, 0.16);
-            border-bottom-color: $red;
-            box-shadow: 0 1px 0 0 $red;
-        }
-    }
-    &--disabled {
-        opacity: 0.5;
-        background-color: var(--color-input-bg);
-        border-bottom: 1px dotted var(--color-input-border);
-        cursor: not-allowed !important;
-        box-shadow: none;
-        &:hover {
-            background-color: var(--color-input-bg);
-            border-bottom-color: var(--color-input-border);
-        }
-    }
-    &--boxed-style {
-        border: 0;
-        border: 2px solid var(--color-input-border);
-        background-color: transparent;
-        transition: all ease 0.3s;
-        border-radius: var(--b-radius--large);
-        display: block;
-        &:hover {
-            border-color: var(--color-input-border-hover);
-            background-color: transparent;
-        }
-        &:focus {
-            outline: none;
-            border-color: var(--sd-colour-interactive--alpha-50);
-            box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
-            background-color: transparent;
-        }
-
-        &.sd-input__input--disabled {
-            border: 2px solid var(--color-input-border);
-           // cursor: not-allowed !important;
-            box-shadow: none;
-            &:hover {
-                //background-color: var(--color-input-bg);
-                border-color: var(--color-input-border);
-            }
-        }
-
-        &.sd-input__input--invalid {
-            background-color: hsla(357, 79%, 50%, 0.075);
-            border-color: $red;
-            &:hover,
-            &:focus {
-                background-color: hsla(357, 79%, 50%, 0.12);
-                box-shadow: none !important;
-            }
-        }
-    }
-    &--medium {
-        border-radius: var(--b-radius--medium);
-        &:focus {
-            box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-20);
-        }
-    }
-    &--large {
-        padding: 0 1.6rem;
-        min-height: 4.8rem;
-        font-size: 2.4rem;
-        font-weight: 500;
-    }
-    &--x-large {
-        padding: 0 1.6rem;
-        min-height: 5.6rem;
-        font-size: 3.2rem;
-        font-weight: 500;
+.sd-line-input--label-left-auto {
+    .sd-line-input__label {
+        min-width: auto;
+        max-width: none;
     }
 }
 
+.sd-line-input--with-button {
+    input,
+    textarea {
+        &.sd-line-input__input {
+            height: 3rem;
+            text-indent: 2.8rem;
+        }
+    }
+}
+
+.sd-line-input--with-icon-l {
+    input,
+    textarea {
+        &.sd-line-input__input {
+            padding-inline-end: 3rem;
+        }
+    }
+}
+
+.sd-line-input--label-left,
+.sd-line-input--label-left-auto {
+    padding-top: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: auto 1rem 1fr auto;
+    grid-template-rows: auto auto;
+    grid-gap: 0;
+
+    .sd-line-input__label {
+        margin-top: 0.1rem;
+        grid-column: 1/2;
+        grid-row: 1/2;
+        position: static;
+        min-width: 7.6rem;
+        max-width: 12rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sd-line-input__input,
+    .sd-line-input__select {
+        grid-row: 1/2;
+        grid-column: 3/5;
+    }
+
+    .sd-line-input__hint,
+    .sd-line-input__message {
+        position: static;
+        grid-row: 2/3;
+        grid-column: 3/4;
+        padding-inline-end: 0;
+    }
+
+    .sd-line-input__char-count {
+        position: static;
+        grid-row: 2/3;
+        grid-column: 5/4;
+        text-align: end;
+        padding-inline-start: 1.6rem;
+    }
+}
+
+
+/////////////////  -------------------- NEW INPUTS ---------------------  /////////////////
+
+
+.sd-input__input {
+    @include Line-input-base;
+}
+
+.sd-input__input--invalid {
+    border-bottom: 1px solid $red;
+    background-color: hsla(357, 79%, 50%, 0.075);
+
+    &:hover {
+        background-color: hsla(357, 79%, 50%, 0.12);
+        border-bottom-color: $red;
+    }
+
+    &:focus {
+        background-color: hsla(357, 79%, 50%, 0.16);
+        border-bottom-color: $red;
+        box-shadow: 0 1px 0 0 $red;
+    }
+}
+
+.sd-input__input--disabled {
+    opacity: 0.5;
+    background-color: var(--color-input-bg);
+    border-bottom: 1px dotted var(--color-input-border);
+    cursor: not-allowed !important;
+    box-shadow: none;
+
+    &:hover {
+        background-color: var(--color-input-bg);
+        border-bottom-color: var(--color-input-border);
+    }
+}
+
+.sd-input__input--boxed-style {
+    border: 0;
+    border: 2px solid var(--color-input-border);
+    background-color: transparent;
+    transition: all ease 0.3s;
+    border-radius: var(--b-radius--large);
+    display: block;
+
+    &:hover {
+        border-color: var(--color-input-border-hover);
+        background-color: transparent;
+    }
+
+    &:focus {
+        outline: none;
+        border-color: var(--sd-colour-interactive--alpha-50);
+        box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
+        background-color: transparent;
+    }
+
+    &.sd-input__input--disabled {
+        border: 2px solid var(--color-input-border);
+        // cursor: not-allowed !important;
+        box-shadow: none;
+
+        &:hover {
+            //background-color: var(--color-input-bg);
+            border-color: var(--color-input-border);
+        }
+    }
+
+    &.sd-input__input--invalid {
+        background-color: hsla(357, 79%, 50%, 0.075);
+        border-color: $red;
+
+        &:hover,
+        &:focus {
+            background-color: hsla(357, 79%, 50%, 0.12);
+            box-shadow: none !important;
+        }
+    }
+}
+
+.sd-input__input--medium {
+    border-radius: var(--b-radius--medium);
+
+    &:focus {
+        box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-20);
+    }
+}
+
+.sd-input__input--large {
+    padding: 0 1.6rem;
+    min-height: 4.8rem;
+    font-size: 2.4rem;
+    font-weight: 500;
+}
+
+.sd-input__input--x-large {
+    padding: 0 1.6rem;
+    min-height: 5.6rem;
+    font-size: 3.2rem;
+    font-weight: 500;
+}
+
 .sd-input__select {
+    @include Line-input-base;
     display: block;
     position: relative;
-    @include Line-input-base;
     padding-inline-end: 2rem;
     min-width: 5rem;
     cursor: pointer;
+
     option {
-        color:inherit;
+        color: inherit;
         font-size: 1.4rem;
         line-height: 2rem;
         background-color: var(--color-dropdown-menu-Bg);
@@ -625,17 +728,16 @@
     letter-spacing: 0.03em;
     display: block;
 }
+
 .sd-input__char-count {
     font-size: 1.1rem;
     font-weight: 400;
     font-style: italic;
-    &--error {
-        color: $red;
-    }
 }
 
-
-//----
+.sd-input__char-count--error {
+    color: $red;
+}
 
 .sd-input {
     padding-top: 0;
@@ -646,7 +748,6 @@
     grid-gap: 0;
     position: relative;
     align-self: stretch;
-
 
     .sd-input__input {
         //@include Line-input-base;
@@ -669,16 +770,19 @@
             min-height: $form-input-height;
         }
     }
+
     input[type="file"] {
         &.sd-input__input {
             height: 3rem;
             padding-top: 0.6rem;
             font-size: 1.3rem;
+
             &:focus {
                 outline: none;
             }
         }
     }
+
     .sd-input__select {
         // display: block;
         // position: relative;
@@ -696,6 +800,7 @@
         //     color: var(--color-dropdown-menu-text);
         // }
     }
+
     &.sd-input--is-select {
         &::after {
             position: relative;
@@ -717,21 +822,25 @@
             content: "";
             z-index: 0;
         }
+
         &:hover {
             &::after {
                 opacity: 0.6;
             }
         }
     }
+
     .sd-input__message-box {
         grid-row: 3/4;
         grid-column: 2/3;
     }
+
     .sd-input__icon-right {
         grid-row: 2/3;
         grid-column: 3/4;
         z-index: 1;
     }
+
     .sd-input__hint,
     .sd-input__message,
     .sd-input__char-count {
@@ -744,6 +853,7 @@
         // letter-spacing: 0.03em;
         // display: block;
     }
+
     .sd-input__char-count {
         // font-size: 1.1rem;
         // font-weight: 400;
@@ -754,6 +864,7 @@
         //     color: $red;
         // }
     }
+
     .sd-input__label {
         @include Form-label-base;
         position: relative;
@@ -762,322 +873,364 @@
         margin: 0;
         grid-row: 1/2;
         grid-column: 2/4;
-        &--required::after {
-            color:$red;
-            content: "*";
-            vertical-align: top;
-            font-size: 1.2rem;
-            padding-inline-start: 0.3rem;
-        }
-        &--boxed {
-            @include Boxed-label-base;
-        }
     }
-    &--inline-label {
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto auto auto;
-        .sd-input__label {
-            grid-row: 2/3;
-            grid-column: 1/2;
-            padding-inline-end: 1rem;
-            padding-inline-start: 0;
-            padding-block-start: 0.4rem;
-            padding-block-end: 0;
-            position: relative;
 
-            max-width: 260px;
-            min-width: 100px;
-            text-align: end;
-            position: relative;
-            align-self: center;
-            line-height: 1.2;
-            &::after {
-                position: absolute;
-                z-index: 2;
-                inset-block-start: -2px;
-                inset-inline-end: 4px;
-            }
-        }
+    .sd-input__label--required::after {
+        color: $red;
+        content: "*";
+        vertical-align: top;
+        font-size: 1.2rem;
+        padding-inline-start: 0.3rem;
     }
-    &--invalid {
-        input, textarea {
-            &.sd-input__input {
-                background-color: hsla(357, 79%, 50%, 0.075);
-                border-color: $red;
-                &:hover {
-                    background-color: hsla(357, 79%, 50%, 0.12);
-                    border-color: $red;
-                }
-                &:focus {
-                    background-color: hsla(357, 79%, 50%, 0.16);
-                    border-color: $red;
-                    box-shadow: 0 1px 0 0 $red;
-                }
-            }
-        }
-        select {
-            &.sd-input__select {
-                background-color: hsla(357, 79%, 50%, 0.075);
-                border-color: $red;
-                &:hover {
-                    background-color: hsla(357, 79%, 50%, 0.12);
-                    border-color: $red;
-                }
-                &:focus {
-                    background-color: hsla(357, 79%, 50%, 0.16);
-                    border-color: $red;
-                    box-shadow: 0 1px 0 0 $red;
-                }
-            }
-        }
-        .sd-input__label, .sd-input__message {
-            color: $red;
-        }
+
+    .sd-input__label--boxed {
+        @include Boxed-label-base;
     }
-    &--required {
-        .sd-input__label::after  {
-            color:$red;
-            content: "*";
-            vertical-align: top;
-            font-size: 1.2rem;
-            padding-inline-start: 0.3rem;
-        }
-        .sd-input__label.sd-input__label--boxed::after {
+
+}
+
+.sd-input--inline-label {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto auto;
+
+    .sd-input__label {
+        grid-row: 2/3;
+        grid-column: 1/2;
+        padding-inline-end: 1rem;
+        padding-inline-start: 0;
+        padding-block-start: 0.4rem;
+        padding-block-end: 0;
+        position: relative;
+        max-width: 260px;
+        min-width: 100px;
+        text-align: end;
+        position: relative;
+        align-self: center;
+        line-height: 1.2;
+
+        &::after {
             position: absolute;
-            inset-block-start: -4px;
-            inset-inline-end: -10px;
+            z-index: 2;
+            inset-block-start: -2px;
+            inset-inline-end: 4px;
         }
     }
-    &--disabled {
-        input, textarea {
-            &.sd-input__input, &.sd-input__input:hover, &.sd-input__input:focus {
-                opacity: 0.5;
-                background-color: var(--color-input-bg);
-                border-bottom: 1px dotted var(--color-input-border);
-                cursor: not-allowed !important;
-                box-shadow: none;
+}
+
+.sd-input--invalid {
+    .sd-input__input,
+    .sd-input__select,
+    .sd-input__duration-input,
+    .p-multiselect,
+    .p-calendar {
+        background-color: hsla(357, 79%, 50%, 0.075);
+        border-color: $red;
+
+        &:hover {
+            background-color: hsla(357, 79%, 50%, 0.12);
+            border-color: $red;
+        }
+
+        &:focus {
+            background-color: hsla(357, 79%, 50%, 0.16);
+            border-color: $red;
+            box-shadow: 0 1px 0 0 $red;
+        }
+    }
+
+    .sd-input__label,
+    .sd-input__message,
+    .sd-input__message-box {
+        color: $red;
+    }
+}
+
+.sd-input--required {
+    .sd-input__label::after {
+        color: $red;
+        content: "*";
+        vertical-align: top;
+        font-size: 1.2rem;
+        padding-inline-start: 0.3rem;
+    }
+
+    .sd-input__label.sd-input__label--boxed::after {
+        position: absolute;
+        inset-block-start: -4px;
+        inset-inline-end: -10px;
+    }
+}
+
+.sd-input--disabled {
+    input,
+    textarea {
+        &.sd-input__input,
+        &.sd-input__input:hover,
+        &.sd-input__input:focus {
+            opacity: 0.5;
+            background-color: var(--color-input-bg);
+            border-bottom: 1px dotted var(--color-input-border);
+            cursor: not-allowed !important;
+            box-shadow: none;
+        }
+    }
+
+    select {
+        &.sd-input__select,
+        &.sd-input__select:hover,
+        &.sd-input__select:focus {
+            opacity: 0.5;
+            background-color: var(--color-input-bg);
+            border-bottom: 1px dotted var(--color-input-border);
+            cursor: not-allowed !important;
+            box-shadow: none;
+        }
+
+        &.sd-input__select:hover {
+            &::after {
+                @include opacity(30);
             }
         }
-        select {
-            &.sd-input__select, &.sd-input__select:hover, &.sd-input__select:focus {
-                opacity: 0.5;
-                background-color: var(--color-input-bg);
-                border-bottom: 1px dotted var(--color-input-border);
-                cursor: not-allowed !important;
-                box-shadow: none;
-            }
-            &.sd-input__select:hover {
-                &::after {
-                    @include opacity(30);
-                }
-            }
+    }
+
+    div {
+        &.sd-input__duration-input,
+        &.sd-input__duration-input:hover,
+        &.sd-input__duration-input:focus {
+            opacity: 0.5;
+            //background-color: var(--color-input-bg);
+            //border-bottom: 1px dotted var(--color-input-border);
+            cursor: not-allowed !important;
+            box-shadow: none;
         }
-        div {
-            &.sd-input__duration-input, &.sd-input__duration-input:hover, &.sd-input__duration-input:focus {
+
+        input {
+            &.duration-input,
+            &.duration-input:hover,
+            &.duration-input:focus {
                 opacity: 0.5;
                 //background-color: var(--color-input-bg);
                 //border-bottom: 1px dotted var(--color-input-border);
                 cursor: not-allowed !important;
                 box-shadow: none;
             }
-            input {
-                &.duration-input, &.duration-input:hover, &.duration-input:focus {
-                    opacity: 0.5;
-                    //background-color: var(--color-input-bg);
-                    //border-bottom: 1px dotted var(--color-input-border);
-                    cursor: not-allowed !important;
-                    box-shadow: none;
-                }
+        }
+    }
+
+    .sd-input__label,
+    .sd-input__message-box,
+    .sd-input__char-count {
+        opacity: 0.5 !important;
+        pointer-events: none !important;
+    }
+
+    .sd-input__hint,
+    .sd-input__message,
+    .sd-input__char-count {
+        pointer-events: none;
+    }
+}
+
+.sd-input--no-label {
+    grid-template-rows: auto auto auto;
+}
+
+.sd-input--full-width {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.sd-input--medium {
+    &.sd-input--boxed-style {
+        .sd-input__input,
+        .sd-input__select {
+            border-radius: var(--b-radius--medium);
+
+            &:focus {
+                box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-20);
             }
         }
-        .sd-input__label, .sd-input__message-box, .sd-input__char-count {
-            opacity: 0.5 !important;
-            pointer-events: none !important;
+    }
+}
+
+.sd-input--large {
+    .sd-input__input,
+    .sd-input__select {
+        padding: 0 1.6rem;
+        min-height: 4.8rem;
+        font-size: 2.4rem;
+        font-weight: 500;
+    }
+
+    .sd-input__select {
+        line-height: 2.4rem;
+
+        option {
+            color: var(--color-text);
+            font-size: 1.4rem !important;
+            line-height: 2rem;
+            background-color: var(--color-dropdown-menu-Bg);
         }
+    }
+}
+
+.sd-input--x-large {
+    .sd-input__input,
+    .sd-input__select {
+        padding: 0 1.6rem;
+        min-height: 5.6rem;
+        font-size: 3.2rem;
+        font-weight: 500;
+    }
+
+    .sd-input__select {
+        line-height: 3.2rem;
+
+        option {
+            color: var(--color-text);
+            font-size: 1.4rem !important;
+            line-height: 2rem;
+            background-color: var(--color-dropdown-menu-Bg);
+        }
+    }
+}
+
+.sd-input--boxed-style {
+    .sd-input__input,
+    .sd-input__select {
+        border: 0;
+        border: 2px solid var(--color-input-border);
+        background-color: transparent;
+        transition: all ease 0.3s;
+        border-radius: var(--b-radius--large);
+        display: block;
+
+        &:hover {
+            border-color: var(--color-input-border-hover);
+            background-color: transparent;
+        }
+
+        &:focus {
+            outline: none;
+            border-color: var(--sd-colour-interactive--alpha-50);
+            box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
+            background-color: transparent;
+        }
+    }
+
+    &.sd-input--disabled {
+        input,
+        textarea {
+            &.sd-input__input,
+            &.sd-input__input:hover,
+            &.sd-input__input:focus {
+                opacity: 0.5;
+                background-color: transparent;
+                border: 2px solid var(--color-input-border) !important;
+                box-shadow: none;
+            }
+        }
+
+        select {
+            &.sd-input__select,
+            &.sd-input__select:hover,
+            &.sd-input__select:focus {
+                opacity: 0.5;
+                background-color: transparent;
+                border: 2px solid var(--color-input-border) !important;
+                //ursor: not-allowed !important;
+                box-shadow: none;
+            }
+        }
+
+        .tags-input__add-button {
+            pointer-events: none;
+        }
+
+        .sd-input__label,
+        .sd-input__message-box,
+        .sd-input__char-count {
+            .sd-input__label,
+            .sd-input__message-box,
+            .sd-input__char-count {
+                opacity: 0.5;
+            }
+        }
+
         .sd-input__hint,
         .sd-input__message,
         .sd-input__char-count {
             pointer-events: none;
         }
     }
-    &--no-label {
-        grid-template-rows: auto auto auto;
-    }
-    &--full-width {
-        flex-grow: 1;
-        width: 100%;
-    }
 
-    &--medium {
-        &.sd-input--boxed-style {
-            .sd-input__input,
-            .sd-input__select {
-                border-radius: var(--b-radius--medium);
+    &.sd-input--invalid {
+        input,
+        textarea {
+            &.sd-input__input {
                 &:focus {
-                    box-shadow: inset 0 0 0 3px var(--sd-colour-interactive--alpha-20);
-                }
-            }
-        }
-    }
-    &--large {
-        .sd-input__input,
-        .sd-input__select {
-            padding: 0 1.6rem;
-            min-height: 4.8rem;
-            font-size: 2.4rem;
-            font-weight: 500;
-        }
-        .sd-input__select {
-            line-height: 2.4rem;
-            option {
-                color: var(--color-text);
-                font-size: 1.4rem !important;
-                line-height: 2rem;
-                background-color: var(--color-dropdown-menu-Bg);
-            }
-        }
-    }
-    &--x-large {
-        .sd-input__input,
-        .sd-input__select {
-            padding: 0 1.6rem;
-            min-height: 5.6rem;
-            font-size: 3.2rem;
-            font-weight: 500;
-        }
-        .sd-input__select {
-            line-height: 3.2rem;
-            option {
-                color: var(--color-text);
-                font-size: 1.4rem !important;
-                line-height: 2rem;
-                background-color: var(--color-dropdown-menu-Bg);
-            }
-        }
-    }
-    &--boxed-style {
-        .sd-input__input,
-        .sd-input__select {
-            border: 0;
-            border: 2px solid var(--color-input-border);
-            background-color: transparent;
-            transition: all ease 0.3s;
-            border-radius: var(--b-radius--large);
-            display: block;
-            &:hover {
-                border-color: var(--color-input-border-hover);
-                background-color: transparent;
-            }
-            &:focus {
-                outline: none;
-                border-color: var(--sd-colour-interactive--alpha-50);
-                box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
-                background-color: transparent;
-            }
-        }
-
-        &.sd-input--disabled {
-            input,
-            textarea {
-                &.sd-input__input,
-                &.sd-input__input:hover,
-                &.sd-input__input:focus {
-                    opacity: 0.5;
-                    background-color: transparent;
-                    border: 2px solid var(--color-input-border) !important;
+                    background-color: hsla(357, 79%, 50%, 0.1);
                     box-shadow: none;
                 }
             }
-            select {
-                &.sd-input__select,
-                &.sd-input__select:hover,
-                &.sd-input__select:focus {
-                    opacity: 0.5;
-                    background-color: transparent;
-                    border: 2px solid var(--color-input-border) !important;
-                    //ursor: not-allowed !important;
+        }
+
+        select {
+            &.sd-input__select {
+                &:focus {
+                    background-color: hsla(357, 79%, 50%, 0.1);
                     box-shadow: none;
                 }
             }
-            .tags-input__add-button {
-                pointer-events: none;
-            }
-            .sd-input__label,
-            .sd-input__message-box,
-            .sd-input__char-count {
-                .sd-input__label,
-                .sd-input__message-box,
-                .sd-input__char-count {
-                    opacity: 0.5;
-                }
-            }
-            .sd-input__hint,
-            .sd-input__message,
-            .sd-input__char-count {
-                pointer-events: none;
-            }
         }
 
-        &.sd-input--invalid {
-            input, textarea {
-                &.sd-input__input {
-                    &:focus {
-                        background-color: hsla(357, 79%, 50%, 0.1);
-                        box-shadow: none;
-                    }
-                }
-            }
-            select {
-                &.sd-input__select {
-                    &:focus {
-                        background-color: hsla(357, 79%, 50%, 0.1);
-                        box-shadow: none;
-                    }
-                }
-            }
-            .sd-input__label, .sd-input__message {
-                color: $red;
-            }
+        .sd-input__label,
+        .sd-input__message {
+            color: $red;
         }
     }
-    &--boxed-label {
-        grid-template-columns: auto 1fr auto;
-        grid-template-rows: auto auto auto;
-        &:hover {
-            .sd-input__label {
-                &.sd-input__label--boxed {
-                    background-color: hsla(214, 13%, 30%, 0.54);
-                }
-            }
-        }
-        &:focus-within {
-            .sd-input__label {
-                &.sd-input__label--boxed {
-                    background-color: var(--sd-colour-interactive--alpha-70);
-                }
-            }
-        }
-        &.sd-input--invalid {
-            .sd-input__label--boxed {
-                background-color: $red !important;
-                color: hsla(214, 13%, 100%, 1);
-            }
-        }
-        &.sd-input--disabled {
-            .sd-input__label--boxed {
-                background-color: hsla(214, 13%, 0%, 0.4) !important;
-            }
-        }
-    }
-
 }
 
+.sd-input--boxed-label {
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto auto;
+
+    &:hover {
+        .sd-input__label {
+            &.sd-input__label--boxed {
+                background-color: hsla(214, 13%, 30%, 0.54);
+            }
+        }
+    }
+
+    &:focus-within {
+        .sd-input__label {
+            &.sd-input__label--boxed {
+                background-color: var(--sd-colour-interactive--alpha-70);
+            }
+        }
+    }
+
+    &.sd-input--invalid {
+        .sd-input__label--boxed {
+            background-color: $red !important;
+            color: hsla(214, 13%, 100%, 1);
+        }
+    }
+
+    &.sd-input--disabled {
+        .sd-input__label--boxed {
+            background-color: hsla(214, 13%, 0%, 0.4) !important;
+        }
+    }
+}
+
+.sd-input--disabled * {
+    cursor: not-allowed !important;
+}
+
+
 /////////////////  -------------------- Duration & Time-Date input ---------------------  /////////////////
-
-
-
-
-
 
 
 .sd-input__duration-input,
@@ -1087,6 +1240,7 @@
     gap: 2px;
     grid-row: 2/3;
     grid-column: 2/4;
+
     &:focus-within {
         box-shadow: 0 1px 0 0 var(--sd-colour-interactive);
         border-color: var(--sd-colour-interactive);
@@ -1101,27 +1255,31 @@
         appearance: none;
         border: 0;
         background-color: transparent;
-        height: 3.2rem;
         display: inline-block;
-        color: var(--color-text);
         text-align: end;
+        color: var(--color-text);
         width: 2.5ch;
+        height: 3.2rem;
         font-size: 1.4rem;
         padding: 0 !important;
         line-height: 3.2rem;
+
         &::-webkit-outer-spin-button,
         &::-webkit-inner-spin-button {
             -webkit-appearance: none;
             margin: 0;
         }
+
         &[type=number] {
             -moz-appearance: textfield;
         }
     }
+
     span {
         display: flex;
         align-items: center;
     }
+
     .sd-input__suffix {
         height: 3.2rem;
         line-height: 3.2rem;
@@ -1136,7 +1294,6 @@
 
 .sd-input {
     .p-multiselect,
-    .p-calendar,
     .p-multiselect,
     .p-dropdown,
     .tags-input {
@@ -1144,22 +1301,15 @@
         grid-column: 2/4;
         width: 100%;
     }
+
     &.sd-input--disabled,
     &.sd-input--disabled:hover {
         .p-multiselect,
-        .p-calendar,
         .p-multiselect,
         .p-dropdown,
         .tags-input {
             opacity: 0.5;
             cursor: not-allowed;
-        }
-        .p-calendar {
-            .p-calendar-icon {
-                pointer-events: none;
-            }
-            border-bottom: 1px dotted var(--color-input-border);
-            background-color: var(--color-input-bg);
         }
     }
 }
@@ -1169,7 +1319,7 @@
 }
 
 @keyframes blinker {
-50% {
-    opacity: 0;
-}
+    50% {
+        opacity: 0;
+    }
 }

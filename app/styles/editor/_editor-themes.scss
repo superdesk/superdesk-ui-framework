@@ -1,114 +1,119 @@
 // EDITOR Themes
 
-
 :root {
-    --sd-editor-colour__main-bg:            hsla(0, 0%, 100%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 0%, 20%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(0, 0%, 20%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__button-bg--active:  hsla(214, 13%, 96%, 0.2);
-    --sd-editor-colour__button-txt--active: var(--sd-colour-interactive);
-    --sd-editor-colour__field-label-bg:     hsla(214, 13%, 12%, 0.5);
-    --sd-editor-colour__field-label-txt:    hsla(214, 13%, 96%, 0.8);
+	--sd-editor-colour__main-bg: hsla(0, 0%, 100%, 1);
+	--sd-editor-colour__main-bg--alt: hsla(214, 13%, 96%, 1);
+	--sd-editor-colour__main-border: hsla(214, 13%, 12%, 0.2);
+	--sd-editor-colour__txt: hsla(0, 0%, 20%, 1);
+	--sd-editor-colour__txt--accent: var(--sd-colour-interactive);
+	--sd-editor-colour__quote-border: hsla(0, 0%, 20%, 0.5);
+	--sd-editor-colour__controls-bg: hsla(214, 13%, 96%, 1);
+	--sd-editor-colour__controls-border: hsla(214, 13%, 12%, 0.2);
+	--sd-editor-colour__button-bg--active: hsla(214, 13%, 96%, 0.2);
+	--sd-editor-colour__button-txt--active: var(--sd-colour-interactive);
+	--sd-editor-colour__field-label-bg: hsla(214, 13%, 12%, 0.5);
+	--sd-editor-colour__field-label-txt: hsla(214, 13%, 96%, 0.8);
 
-    --sd-editor-colour__float-toolbar-bg:   hsla(214, 13%, 96%, 0.96);
+	--sd-editor-colour__float-toolbar-bg: hsla(214, 13%, 96%, 0.96);
 
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
+	--sd-editor-colour__comment-bg: hsla(54, 100%, 61%, 0.3);
+	--sd-editor-colour__annotation: hsla(91, 100%, 40%, 0.6);
+	--sd-editor-colour__removing: hsla(279, 64%, 47%, 1);
+	--sd-editor-colour__removing-bg: hsla(279, 64%, 47%, 0.12);
+	--sd-editor-colour__adding: hsla(82, 90%, 32%, 1);
+	--sd-editor-colour__adding-bg: hsla(82, 90%, 32%, 0.16);
 }
+
 .sd-editor--theme-default {
-    --sd-editor-colour__main-bg:            hsla(0, 0%, 100%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 0%, 20%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(0, 0%, 20%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(214, 13%, 96%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__button-bg--active:  hsla(214, 13%, 99%, 0.9);
+	--sd-editor-colour__main-bg: hsla(0, 0%, 100%, 1);
+	--sd-editor-colour__main-bg--alt: hsla(214, 13%, 96%, 1);
+	--sd-editor-colour__main-border: hsla(214, 13%, 12%, 0.2);
+	--sd-editor-colour__txt: hsla(0, 0%, 20%, 1);
+	--sd-editor-colour__txt--accent: var(--sd-colour-interactive);
+	--sd-editor-colour__quote-border: hsla(0, 0%, 20%, 0.5);
+	--sd-editor-colour__controls-bg: hsla(214, 13%, 96%, 1);
+	--sd-editor-colour__controls-border: hsla(214, 13%, 12%, 0.2);
+	--sd-editor-colour__button-bg--active: hsla(214, 13%, 99%, 0.9);
 }
+
 .sd-editor--theme-dark {
-    --sd-editor-colour__main-bg:            hsla(214, 13%, 12%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(214, 13%, 16%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 85%, 0.2);
-    --sd-editor-colour__txt:                hsla(214, 13%, 85%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(214, 13%, 85%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(214, 13%, 16%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
+	--sd-editor-colour__main-bg: hsla(214, 13%, 12%, 1);
+	--sd-editor-colour__main-bg--alt: hsla(214, 13%, 16%, 1);
+	--sd-editor-colour__main-border: hsla(214, 13%, 85%, 0.2);
+	--sd-editor-colour__txt: hsla(214, 13%, 85%, 1);
+	--sd-editor-colour__txt--accent: var(--sd-colour-interactive);
+	--sd-editor-colour__quote-border: hsla(214, 13%, 85%, 0.5);
+	--sd-editor-colour__controls-bg: hsla(214, 13%, 16%, 1);
+	--sd-editor-colour__controls-border: hsla(214, 13%, 85%, 0.2);
 
-    --sd-editor-colour__field-label-bg:     hsla(214, 13%, 5%, 0.9);
+	--sd-editor-colour__field-label-bg: hsla(214, 13%, 5%, 0.9);
 
-    --sd-editor-colour__float-toolbar-bg:   hsla(214, 13%, 16%, 0.96);
+	--sd-editor-colour__float-toolbar-bg: hsla(214, 13%, 16%, 0.96);
 
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.16);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
+	--sd-editor-colour__comment-bg: hsla(54, 100%, 61%, 0.16);
+	--sd-editor-colour__annotation: hsla(91, 100%, 40%, 0.6);
+	--sd-editor-colour__removing: hsla(279, 64%, 47%, 1);
+	--sd-editor-colour__removing-bg: hsla(279, 64%, 47%, 0.12);
+	--sd-editor-colour__adding: hsla(82, 90%, 32%, 1);
+	--sd-editor-colour__adding-bg: hsla(82, 90%, 32%, 0.16);
 }
+
 .sd-editor--theme-blue {
-    --sd-editor-colour__main-bg:            hsla(212, 89%, 22%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(212, 89%, 28%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 85%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 0%, 100%, 1);
-    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
-    --sd-editor-colour__quote-border:       hsla(214, 13%, 85%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(212, 89%, 26%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
+	--sd-editor-colour__main-bg: hsla(212, 89%, 22%, 1);
+	--sd-editor-colour__main-bg--alt: hsla(212, 89%, 28%, 1);
+	--sd-editor-colour__main-border: hsla(214, 13%, 85%, 0.2);
+	--sd-editor-colour__txt: hsla(0, 0%, 100%, 1);
+	--sd-editor-colour__txt--accent: hsla(307, 100%, 50%, 1);
+	--sd-editor-colour__quote-border: hsla(214, 13%, 85%, 0.5);
+	--sd-editor-colour__controls-bg: hsla(212, 89%, 26%, 1);
+	--sd-editor-colour__controls-border: hsla(214, 13%, 85%, 0.2);
 }
+
 .sd-editor--theme-turquoise {
-    --sd-editor-colour__main-bg:            hsla(178, 49%, 57%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(178, 49%, 64%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(213, 49%, 14%, 1);
-    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
-    --sd-editor-colour__quote-border:       hsla(213, 49%, 14%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(178, 49%, 61%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.12);
+	--sd-editor-colour__main-bg: hsla(178, 49%, 57%, 1);
+	--sd-editor-colour__main-bg--alt: hsla(178, 49%, 64%, 1);
+	--sd-editor-colour__main-border: hsla(214, 13%, 12%, 0.2);
+	--sd-editor-colour__txt: hsla(213, 49%, 14%, 1);
+	--sd-editor-colour__txt--accent: hsla(307, 100%, 50%, 1);
+	--sd-editor-colour__quote-border: hsla(213, 49%, 14%, 0.5);
+	--sd-editor-colour__controls-bg: hsla(178, 49%, 61%, 1);
+	--sd-editor-colour__controls-border: hsla(214, 13%, 12%, 0.12);
 
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 90%, 32%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 32%, 0.16);
+	--sd-editor-colour__comment-bg: hsla(54, 100%, 61%, 0.3);
+	--sd-editor-colour__annotation: hsla(91, 100%, 40%, 0.6);
+	--sd-editor-colour__removing: hsla(279, 64%, 47%, 1);
+	--sd-editor-colour__removing-bg: hsla(279, 64%, 47%, 0.12);
+	--sd-editor-colour__adding: hsla(82, 90%, 32%, 1);
+	--sd-editor-colour__adding-bg: hsla(82, 90%, 32%, 0.16);
 }
+
 .sd-editor--theme-military {
-    --sd-editor-colour__main-bg:            hsla(70, 25%, 50%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(70, 25%, 58%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(71, 25%, 13%, 1);
-    --sd-editor-colour__txt--accent:        hsla(307, 100%, 50%, 1);
-    --sd-editor-colour__quote-border:       hsla(71, 25%, 13%, 0.5);
-    --sd-editor-colour__controls-bg:        hsla(70, 25%, 52%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 12%, 0.12);
+	--sd-editor-colour__main-bg: hsla(70, 25%, 50%, 1);
+	--sd-editor-colour__main-bg--alt: hsla(70, 25%, 58%, 1);
+	--sd-editor-colour__main-border: hsla(214, 13%, 12%, 0.2);
+	--sd-editor-colour__txt: hsla(71, 25%, 13%, 1);
+	--sd-editor-colour__txt--accent: hsla(307, 100%, 50%, 1);
+	--sd-editor-colour__quote-border: hsla(71, 25%, 13%, 0.5);
+	--sd-editor-colour__controls-bg: hsla(70, 25%, 52%, 1);
+	--sd-editor-colour__controls-border: hsla(214, 13%, 12%, 0.12);
 
-    --sd-editor-colour__comment-bg:         hsla(54, 100%, 61%, 0.3);
-    --sd-editor-colour__annotation:         hsla(91, 100%, 40%, 0.6);
-    --sd-editor-colour__removing:           hsla(279, 64%, 47%, 1);
-    --sd-editor-colour__removing-bg:        hsla(279, 64%, 47%, 0.12);
-    --sd-editor-colour__adding:             hsla(82, 100%, 20%, 1);
-    --sd-editor-colour__adding-bg:          hsla(82, 90%, 22%, 0.16);
+	--sd-editor-colour__comment-bg: hsla(54, 100%, 61%, 0.3);
+	--sd-editor-colour__annotation: hsla(91, 100%, 40%, 0.6);
+	--sd-editor-colour__removing: hsla(279, 64%, 47%, 1);
+	--sd-editor-colour__removing-bg: hsla(279, 64%, 47%, 0.12);
+	--sd-editor-colour__adding: hsla(82, 100%, 20%, 1);
+	--sd-editor-colour__adding-bg: hsla(82, 90%, 22%, 0.16);
 }
+
 .sd-editor--theme-natural {
-    --sd-editor-colour__main-bg:            hsla(51, 57%, 85%, 1);
-    --sd-editor-colour__main-bg--alt:       hsla(51, 57%, 79%, 1);
-    --sd-editor-colour__main-border:        hsla(214, 13%, 12%, 0.2);
-    --sd-editor-colour__txt:                hsla(0, 18%, 10%, 1);
-    --sd-editor-colour__txt--accent:        var(--sd-colour-interactive);
-    --sd-editor-colour__quote-border:       hsla(0, 18%, 10%, .5);
-    --sd-editor-colour__controls-bg:        hsla(51, 57%, 82%, 1);
-    --sd-editor-colour__controls-border:    hsla(214, 13%, 85%, 0.2);
+	--sd-editor-colour__main-bg: hsla(51, 57%, 85%, 1);
+	--sd-editor-colour__main-bg--alt: hsla(51, 57%, 79%, 1);
+	--sd-editor-colour__main-border: hsla(214, 13%, 12%, 0.2);
+	--sd-editor-colour__txt: hsla(0, 18%, 10%, 1);
+	--sd-editor-colour__txt--accent: var(--sd-colour-interactive);
+	--sd-editor-colour__quote-border: hsla(0, 18%, 10%, .5);
+	--sd-editor-colour__controls-bg: hsla(51, 57%, 82%, 1);
+	--sd-editor-colour__controls-border: hsla(214, 13%, 85%, 0.2);
 }
 
 $color-swatch-border-color: transparent;
@@ -120,323 +125,369 @@ $color-swatch-inner-size: 6rem;
 $theme-background: $white !default;
 $theme-color: $sd-text !default;
 
-
 // Theme fonts
 $font-sans-1: $baseFontFamily;
 $font-serif-1: $baseFontFamilySerif;
 $font-monospace-1: $baseFontFamilyMono;
 
 $theme-font-list: (
-  sans: $font-sans-1,
-  serif: $font-serif-1,
-  mono: $font-monospace-1,
+	sans: $font-sans-1,
+	serif: $font-serif-1,
+	mono: $font-monospace-1,
 );
 
 $themes: (
-  'default': (
-    'bg-color': $white,
-    'text-color': $sd-text
-  ),
-  'dark': (
-    'bg-color': $grayDarker,
-    'text-color': #AACCD1
-  ),
-  'blue': (
-    'bg-color': #06356A,
-    'text-color': $white
-  ),
-  'turquoise': (
-    'bg-color': #5AC7C3,
-    'text-color': #122235
-  ),
-  'military': (
-    'bg-color': #949E5F,
-    'text-color': #252818
-  ),
-  'natural': (
-    'bg-color': #EFE9C5,
-    'text-color': #1D1414
-  )
+	'default': ('bg-color': $white,
+		'text-color': $sd-text ),
+	'dark': ('bg-color': $grayDarker,
+		'text-color': #AACCD1),
+	'blue': ('bg-color': #06356A,
+		'text-color': $white ),
+	'turquoise': ('bg-color': #5AC7C3,
+		'text-color': #122235),
+	'military': ('bg-color': #949E5F,
+		'text-color': #252818),
+	'natural': ('bg-color': #EFE9C5,
+		'text-color': #1D1414)
 );
 
 $headline-font-size: (
-    small: 2.3rem,
-    medium: 2.8rem,
-    large: 3.2rem,
+	small: 2.3rem,
+	medium: 2.8rem,
+	large: 3.2rem,
 );
 
 $abstract-font-size: (
-    small: 1.4rem,
-    medium: 1.6rem,
-    large: 1.8rem,
+	small: 1.4rem,
+	medium: 1.6rem,
+	large: 1.8rem,
 );
 
 $body-font-size: (
-    small: 1.4rem,
-    medium: 1.6rem,
-    large: 1.8rem,
+	small: 1.4rem,
+	medium: 1.6rem,
+	large: 1.8rem,
 );
 
 @mixin editor-lable-base() {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 0.8rem;
-    height: 1.8rem;
-    vertical-align: middle;
-    border-radius: $border-radius__base--x-small;
-    text-transform: uppercase;
-    line-height: 1;
-    letter-spacing: 0.05em;
-    font-size: 1rem;
-    white-space: nowrap;
-    font-weight: 400;
-    background-color: var(--sd-editor-colour__field-label-bg);
-    color: $white;
-    font-family: "Roboto";
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: 0 0.8rem;
+	height: 1.8rem;
+	vertical-align: middle;
+	border-radius: $border-radius__base--x-small;
+	text-transform: uppercase;
+	line-height: 1;
+	letter-spacing: 0.05em;
+	font-size: 1rem;
+	white-space: nowrap;
+	font-weight: 400;
+	background-color: var(--sd-editor-colour__field-label-bg);
+	color: $white;
+	font-family: "Roboto";
 }
 
 .color-swatch__list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(6.8rem, 6.8rem));
-    grid-gap: 0.9rem;
-    margin: 0.4rem 0 2.4rem 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(6.8rem, 6.8rem));
+	grid-gap: 0.9rem;
+	margin: 0.4rem 0 2.4rem 0;
 }
+
 @mixin color-swatch-base() {
-    height: $color-swatch-size;
-    width: $color-swatch-size;
-    padding: 0.2rem;
-    border-radius: $border-radius__base--full;
-    border: 2px solid $color-swatch-border-color;
+	height: $color-swatch-size;
+	width: $color-swatch-size;
+	padding: 0.2rem;
+	border-radius: $border-radius__base--full;
+	border: 2px solid $color-swatch-border-color;
 }
+
 @mixin color-swatch-inner-base() {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: $color-swatch-inner-size;
-    width: $color-swatch-inner-size;
-    border-radius: $border-radius__base--full;
-    background-color: var(--sd-editor-colour__main-bg);
-    color: var(--sd-editor-colour__txt);
-    text-align: center;
-    font-size: 2rem;
-    line-height: $color-swatch-inner-size;
-    text-transform: uppercase;
-    box-shadow: 0 1px 3px rgba(0,0,0,.16), 0 0 1px rgba(0,0,0,.1);
-    cursor: pointer;
-    &:hover {
-        box-shadow: 0 1px 3px rgba(0,0,0,.26), 0 0 1px rgba(0,0,0,.2);
-    }
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: $color-swatch-inner-size;
+	width: $color-swatch-inner-size;
+	border-radius: $border-radius__base--full;
+	background-color: var(--sd-editor-colour__main-bg);
+	color: var(--sd-editor-colour__txt);
+	text-align: center;
+	font-size: 2rem;
+	line-height: $color-swatch-inner-size;
+	text-transform: uppercase;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .16), 0 0 1px rgba(0, 0, 0, .1);
+	cursor: pointer;
+
+	&:hover {
+		box-shadow: 0 1px 3px rgba(0, 0, 0, .26), 0 0 1px rgba(0, 0, 0, .2);
+	}
 }
+
 .color-swatch {
-    @include color-swatch-base();
-    &--selected {
-        border-color: $color-swatch-border-active-color;
-        .color-swatch__inner {
-            box-shadow: none !important;
-        }
-    }
+	@include color-swatch-base();
 }
+
+.color-swatch--selected {
+	border-color: $color-swatch-border-active-color;
+
+	.color-swatch__inner {
+		box-shadow: none !important;
+	}
+}
+
 .color-swatch__inner {
-    @include color-swatch-inner-base();
+	@include color-swatch-inner-base();
 }
 
 // ------ THEME PREVIEW ------ //
-// text fields
+
 .text-field__headline {
-    font-weight: 500;
-    min-height: 6rem;
+	font-weight: 500;
+	min-height: 6rem;
 }
+
 .text-field__abstract {
-    font-weight: 400;
-    font-style: italic;
-    min-height: 9.2rem;
+	font-weight: 400;
+	font-style: italic;
+	min-height: 9.2rem;
 }
+
 .text-field__body {
-    font-weight: 300;
-    min-height: 9.2rem;
+	font-weight: 300;
+	min-height: 9.2rem;
 }
 
 .theme-editor {
-    background-color: var(--sd-editor-colour__main-bg);
-    color: var(--sd-editor-colour__txt);
+	background-color: var(--sd-editor-colour__main-bg);
+	color: var(--sd-editor-colour__txt);
 }
 
 .theme-preview {
-    margin: 0 -2rem -2rem -2rem;
-    padding: 2rem;
-    background-color: var(--sd-editor-colour__main-bg);
-    color: var(--sd-editor-colour__txt);
-    .theme-preview__label {
-        opacity: 0.7;
-        transition: opacity 0.3s ease-out;
-    }
-    &:hover {
-        .theme-preview__label {
-            opacity: 1;
-        }
-    }
-    @each $name, $font in $theme-font-list {
-        &.sd-editor--font-#{$name} {
-            font-family: $font;
-        }
-    }
-    @each $name, $size in $headline-font-size {
-        &.sd-editor--headline-#{$name} {
-            .text-field__headline {
-                font-size: $size;
-            }
-        }
-    }
-    @each $name, $size in $abstract-font-size {
-        &.sd-editor--abstract-#{$name} {
-            .text-field__abstract {
-                font-size: $size;
-            }
-        }
-    }
-    @each $name, $size in $body-font-size {
-        &.sd-editor--body-#{$name} {
-            .text-field__body {
-                font-size: $size;
-            }
-        }
-    }
+	margin: 0 -2rem -2rem -2rem;
+	padding: 2rem;
+	background-color: var(--sd-editor-colour__main-bg);
+	color: var(--sd-editor-colour__txt);
+
+	.theme-preview__label {
+		opacity: 0.7;
+		transition: opacity 0.3s ease-out;
+	}
+
+	&:hover {
+		.theme-preview__label {
+			opacity: 1;
+		}
+	}
+
+	@each $name,
+	$font in $theme-font-list {
+		&.sd-editor--font-#{$name} {
+			font-family: $font;
+		}
+	}
+
+	@each $name,
+	$size in $headline-font-size {
+		&.sd-editor--headline-#{$name} {
+			.text-field__headline {
+				font-size: $size;
+			}
+		}
+	}
+
+	@each $name,
+	$size in $abstract-font-size {
+		&.sd-editor--abstract-#{$name} {
+			.text-field__abstract {
+				font-size: $size;
+			}
+		}
+	}
+
+	@each $name,
+	$size in $body-font-size {
+		&.sd-editor--body-#{$name} {
+			.text-field__body {
+				font-size: $size;
+			}
+		}
+	}
 }
 
 .theme-preview__block {
-    margin-bottom: 1.2rem;
-    &:last-child {
-        margin-bottom: 0;
-    }
-    .sd-checkbox--button-style, .sd-checkbox--button-style:hover{
-        color: var(--sd-editor-colour__txt);
-        border-color: var(--sd-editor-colour__main-border);
-        &.checked {
-            border-color: var(--sd-colour-interactive--active) !important;
-            color: $white;
-            label {
-                color: $white !important;
-            }
-        }
-    }
-    .sd-checkbox--button-style label, .sd-checkbox--button-style:hover label {
-        color: var(--sd-editor-colour__txt);
-    }
+	margin-bottom: 1.2rem;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	.sd-checkbox--button-style,
+	.sd-checkbox--button-style:hover {
+		color: var(--sd-editor-colour__txt);
+		border-color: var(--sd-editor-colour__main-border);
+
+		&.checked {
+			border-color: var(--sd-colour-interactive--active) !important;
+			color: $white;
+
+			label {
+				color: $white !important;
+			}
+		}
+	}
+
+	.sd-checkbox--button-style label,
+	.sd-checkbox--button-style:hover label {
+		color: var(--sd-editor-colour__txt);
+	}
 }
+
 .theme-preview__label {
-    @include editor-lable-base();
+	@include editor-lable-base();
 }
+
 .theme-preview__text-field {
-    display: flex;
-    line-height: 140%;
-    color: inherit;
-    font-family: inherit;
-    border-bottom: 1px dotted var(--sd-editor-colour__main-border);
-    margin-bottom: 0.8rem;
-    padding: 1rem 0 0.5rem;
-    flex-direction: column;
-    justify-content: flex-end;
+	display: flex;
+	line-height: 140%;
+	color: inherit;
+	font-family: inherit;
+	border-bottom: 1px dotted var(--sd-editor-colour__main-border);
+	margin-bottom: 0.8rem;
+	padding: 1rem 0 0.5rem;
+	flex-direction: column;
+	justify-content: flex-end;
 }
+
 .theme-preview__media-field {
-    display: flex;
-    color: inherit;
-    font-family: inherit;
-    margin-bottom: 0.8rem;
-    padding: 1rem 0 0.5rem;
-    flex-direction: column;
+	display: flex;
+	color: inherit;
+	font-family: inherit;
+	margin-bottom: 0.8rem;
+	padding: 1rem 0 0.5rem;
+	flex-direction: column;
 }
+
 .theme-preview__button-bar {
-    text-align: end;
-    .sd-check__wrapper + .sd-check__wrapper {
-        margin-left: 0.2rem;
-    }
+	text-align: end;
+
+	.sd-check__wrapper+.sd-check__wrapper {
+		margin-left: 0.2rem;
+	}
 }
 
 // ------ THEME IN EDITOR ------ //
 
-
 .main-article {
-    background-color: var(--sd-editor-colour__main-bg);
-    color: var(--sd-editor-colour__txt);
-    .Editor3-root {
-        .DraftEditor-editorContainer {
-            blockquote {
-                margin: 0 0 0 4px;
-                box-shadow: -4px 0 0 var(--sd-editor-colour__quote-border);
-                font-style: italic;
-                font-weight: 400;
-                padding: 0.5em 0 0 1em;
-            }
-        }
-    }
+	background-color: var(--sd-editor-colour__main-bg);
+	color: var(--sd-editor-colour__txt);
+
+	.Editor3-root {
+		.DraftEditor-editorContainer {
+			blockquote {
+				margin: 0 0 0 4px;
+				box-shadow: -4px 0 0 var(--sd-editor-colour__quote-border);
+				font-style: italic;
+				font-weight: 400;
+				padding: 0.5em 0 0 1em;
+			}
+		}
+	}
 }
 
 .main-article {
-    @each $name, $font in $theme-font-list {
-        &.sd-editor--font-#{$name} {
-            font-family: $font;
-        }
-    }
-    @each $name, $size in $headline-font-size {
-        &.sd-editor--headline-#{$name} {
-            .headline .Editor3-root .DraftEditor-editorContainer {
-                font-size: $size;
-            }
-            // Editor 2
-            .headline .text-editor, .headline p .text-editor, .headline div .text-editor {
-                font-size: $size;
-            }
-        }
-    }
-    @each $name, $size in $abstract-font-size {
-        &.sd-editor--abstract-#{$name} {
-            .abstract .Editor3-root .DraftEditor-editorContainer {
-                font-size: $size;
-            }
-            // Editor 2
-            .abstract, .abstract p, .abstract div {
-                font-size: $size;
-            }
-        }
-    }
-    @each $name, $size in $body-font-size {
-        &.sd-editor--body-#{$name} {
-            .Editor3-root .DraftEditor-editorContainer {
-                font-size: $size;
-                h1 {
-                    font-size: 2em;
-                }
-                h2 {
-                    font-size: 1.5em;
-                    line-height: 140%;
-                }
-                h3 {
-                    font-size: 1.125em;
-                }
-                h4 {
-                    font-size: 0.875em;
-                }
-                h5 {
-                    font-size: 0.75em;
-                }
-                h6 {
-                    font-size: 0.6875em;
-                    color: inherit;
-                    opacity: 0.7;
-                    letter-spacing: 0.03em;
-                }
-                h1, h2, h3, h4, h5, h6 {
-                    line-height: 140%;
-                }
-            }
-            // Editor 2
-            .body-text .text-editor {
-                font-size: $size;
-                p {
-                    font-size: $size;
-                }
-            }
-        }
-    }
+
+	@each $name,
+	$font in $theme-font-list {
+		&.sd-editor--font-#{$name} {
+			font-family: $font;
+		}
+	}
+
+	@each $name,
+	$size in $headline-font-size {
+		&.sd-editor--headline-#{$name} {
+			.headline .Editor3-root .DraftEditor-editorContainer {
+				font-size: $size;
+			}
+
+			// Editor 2
+			.headline .text-editor,
+			.headline p .text-editor,
+			.headline div .text-editor {
+				font-size: $size;
+			}
+		}
+	}
+
+	@each $name,
+	$size in $abstract-font-size {
+		&.sd-editor--abstract-#{$name} {
+			.abstract .Editor3-root .DraftEditor-editorContainer {
+				font-size: $size;
+			}
+
+			// Editor 2
+			.abstract,
+			.abstract p,
+			.abstract div {
+				font-size: $size;
+			}
+		}
+	}
+
+	@each $name,
+	$size in $body-font-size {
+		&.sd-editor--body-#{$name} {
+			.Editor3-root .DraftEditor-editorContainer {
+				font-size: $size;
+
+				h1 {
+					font-size: 2em;
+				}
+
+				h2 {
+					font-size: 1.5em;
+					line-height: 140%;
+				}
+
+				h3 {
+					font-size: 1.125em;
+				}
+
+				h4 {
+					font-size: 0.875em;
+				}
+
+				h5 {
+					font-size: 0.75em;
+				}
+
+				h6 {
+					font-size: 0.6875em;
+					color: inherit;
+					opacity: 0.7;
+					letter-spacing: 0.03em;
+				}
+
+				h1,
+				h2,
+				h3,
+				h4,
+				h5,
+				h6 {
+					line-height: 140%;
+				}
+			}
+
+			// Editor 2
+			.body-text .text-editor {
+				font-size: $size;
+
+				p {
+					font-size: $size;
+				}
+			}
+		}
+	}
 }

@@ -1,5 +1,3 @@
-
-
 .sd-collapse-box {
     display: flex;
     flex-direction: column;
@@ -7,6 +5,7 @@
     position: relative;
     margin-bottom: 1rem;
     border: 1px solid var(--sd-colour--shadow-line--m);
+
     .sd-collapse-box__header {
         display: block;
         flex-grow: 0;
@@ -14,23 +13,18 @@
         min-height: 3.8rem;
         animation: fadeIn 0.3s ease-in 0s 1;    
     }
+
     .sd-collapse-box__tools {
         position: absolute;
         right: 1rem;
         top: 0.8rem;
         z-index: 2;
         color: var(--color-icon-default);
-        &--flex {
-            position: relative;
-            right: 0;
-            top: 0;
-            display: flex;
-            flex-direction: row;
-            margin: -1.4rem -1rem;
-        }
+
         .sd-collapse-box__collapse-btn {
             flex-grow: 1;
             color: var(--color-icon-default);
+
             &:hover {
                 .icn-btn {
                     background-color: hsla(214, 13%, 60%, 0.25);
@@ -38,6 +32,7 @@
                     opacity: 1;
                 }
             }
+
             &:active {
                 .icn-btn {
                     background-color: hsla(214, 13%, 70%, 0.25);
@@ -48,49 +43,64 @@
         }
     }
 
+    .sd-collapse-box__tools--flex {
+        position: relative;
+        right: 0;
+        top: 0;
+        display: flex;
+        flex-direction: row;
+        margin: -1.4rem -1rem;
+    }
+
     .sd-collapse-box__content-wraper {
         flex-grow: 1;
         position: relative;
         transition: all ease-in-out .4s;
         max-height: 0;
     }
+
     .sd-collapse-box__content {
         padding: 2rem;
         display: none;
         animation: fadeIn 0.3s ease-in 0s 1;
-
-        &--border-locked {
-            border-left: 4px solid $red;
-        }
-        &--border-success {
-            border-left: 4px solid $green;
-        }
     }
+
+    .sd-collapse-box__content--border-locked {
+        border-left: 4px solid $red;
+    }
+
+    .sd-collapse-box__content--border-success {
+        border-left: 4px solid $green;
+    }
+
     .sd-collapse-box__content-block { // place inside .sd-collapse-box__content
         padding: 1rem;
         margin: 0 -2rem 3rem -2rem;
-        &--top {
-            margin-top: 2.2rem;
-        }
     }
 
-    &--open {
-        .sd-collapse-box__content-wraper {
-            max-height: 80rem;
-        }
-        .sd-collapse-box__content {
-            display: block;
-            animation: fadeIn 0.3s ease-in 0s 1;
-        }
-        .sd-collapse-box__header {
-            display: none;
-            animation: fadeIn 0.3s ease-in 0s 1;    
-        }
+    .sd-collapse-box__content-block--top {
+        margin-top: 2.2rem;
     }
-    &--margin-small {
-        margin-bottom: 0.5rem;
+}
+
+.sd-collapse-box--open {
+    .sd-collapse-box__content-wraper {
+        max-height: 80rem;
     }
 
+    .sd-collapse-box__content {
+        display: block;
+        animation: fadeIn 0.3s ease-in 0s 1;
+    }
+
+    .sd-collapse-box__header {
+        display: none;
+        animation: fadeIn 0.3s ease-in 0s 1;    
+    }
+}
+
+.sd-collapse-box--margin-small {
+    margin-bottom: 0.5rem;
 }
 
 .sd-collapse-box__content, .sd-collapse-box__content-block {
@@ -108,6 +118,7 @@
     overflow: hidden;
     border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
 }
+
 .sd-collapse-box__sliding-toolbar {
     position: absolute;
     display: flex;
@@ -122,6 +133,7 @@
     animation: dropOut2 0.3s cubic-bezier(0.695, 0.105, 0.285, 1.275) 1;
     background-color: var(--sd-colour-bg__sliding-toolbar);
     box-shadow: var(--sd-shadow__sliding-toolbar);
+    
     .sliding-toolbar__inner {
         flex-grow: 1;
         display: flex;

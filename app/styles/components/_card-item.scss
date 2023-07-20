@@ -1,16 +1,15 @@
 // Default sd-card  styling
-// ---------------------------------------------
 
 //color variables
-$card-item-header-bg-normal: hsl(200, 18%, 46%);
-$card-item-header-bg-inactive: hsl(0, 0%, 69%);
-$card-item-header-bg-active: $sd-blueMedium;
-$card-item-header-bg-light: var(--sd-colour-panel-bg--300);
-$card-item-header-bg-gradient-1: linear-gradient(180deg, rgba(96,184,194,1) 2%, rgba(30,176,108,1) 90%);
-$card-item-header-bg-secondary: $subnav-background-blue-grey-darker;
+$card-item-header-bg-normal: var(--sd-card-header-bg-color--normal);
+$card-item-header-bg-inactive: var(--sd-card-header-bg-color--inactive);
+$card-item-header-bg-active: var(--sd-card-header-bg-color--active);
+$card-item-header-bg-light: var(--sd-card-header-bg-color--light);
+$card-item-header-bg-secondary: var(--sd-card-header-bg-color--secondary);
+$card-item-header-bg-gradient-1: var(--sd-card-header-bg-color--gradient-1);
 $card-item-top-border-height: 0.4rem;
-$card-item-rounded-radius: $border-radius__base--large;
-$card-item-default-radius: $border-radius__base--medium;
+$card-item-rounded-radius: var(--b-radius--large);
+$card-item-default-radius: var(--b-radius--medium);
 
 //shadows
 $card-item-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 5px rgba(0,0,0,.16);
@@ -27,58 +26,25 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     min-height: 12rem;
     display: flex;
     flex-direction: column;
-    &--with-click {
-        @include transition(all, 100ms, ease-in);
-        cursor: pointer;
-        text-decoration: none;
-        &:hover {
-            box-shadow: $card-item-shadow-hover;
-            transform: translate(0, -2px);
-        }
-        &:active {
-            box-shadow: $card-item-shadow-active;
-        }
-    }
-    &--rounded {
-        border-radius: $card-item-rounded-radius;
-        .sd-card__header {
-            border-radius: $card-item-rounded-radius $card-item-rounded-radius 0 0;
-            &::before {
-                border-radius: $card-item-rounded-radius $card-item-rounded-radius 0 0;
-            }
-        }
-    }
-    &--flex-grow {
-        flex-grow: 1;
-    }
-    &--auto-height {
-        min-height: 0;
-    }
-    &--blank {
-        background-color: transparent;
-        box-shadow: none;
-        &:hover {
-            box-shadow: $card-item-shadow-hover-light;
-        }
-    }
+
     .sd-card__actions   {
         margin: 0.4rem 0.4rem 0 0;
         visibility: hidden;
     }
+
     &:hover {
         .sd-card__actions   {
-        visibility: visible;
+            visibility: visible;
         }
     }
+
     .sd-card__actions-group {
         display: flex;
         align-items: center;
-        margin-right: .3rem;
-
-        a + a {
-            margin-left: .6rem;
-        }
+        margin-inline-end: var(--gap--x-small);
+        gap: var(--gap--x-small);
     }
+
     .sd-card__header {
         position: relative;
         flex-grow: 0;
@@ -90,6 +56,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         min-height: $sd-base-increment * 5 + $card-item-top-border-height;
         color: $white;
         border-radius: $card-item-default-radius $card-item-default-radius 0 0;
+
         &::before {
             content: "";
             position: absolute;
@@ -100,72 +67,76 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             background-color: rgba(0,0,0,.2);
             border-radius: $card-item-default-radius $card-item-default-radius 0 0;
         }
-        // use only for positioning, not for styling
-        &--empty {
-            height:8px;
+    }
+
+    // use only for positioning, not for styling
+    .sd-card__header--empty {
+        height:8px;
+    }
+
+    .sd-card__header--light,
+    .sd-card__header--white  {
+        background-color: var(--sd-item__main-Bg);
+        color: $sd-text;
+        box-shadow: 0 1px 0 var(--sd-colour-line--light);
+
+        &::before {
+            background-color: hsla(214, 13%, 50%, 0.5);
         }
-        &--light,
-        &--white  {
-            
-            background-color: var(--sd-item__main-Bg);
-            color: $sd-text;
-            box-shadow: 0 1px 0 var(--sd-colour-line--light);
-            &::before {
-                background-color: hsla(214, 13%, 50%, 0.5);
-            }
+    }
+
+    .sd-card__header--light {
+        background-color: $card-item-header-bg-light;
+
+        .sd-card__thumbnail {
+            background-color: var(--sd-item__thumb-Bg--light);
         }
-        &--light {
-            background-color: $card-item-header-bg-light;
-            .sd-card__thumbnail {
-                background-color: var(--sd-item__thumb-Bg--light);
-            }
-        }
-        &--gradient-1 {
-            background: $card-item-header-bg-gradient-1;
-            .sd-card__thumbnail {
-                background-color: transparent;
-            }
-        }
-        &--blank {
+    }
+
+    .sd-card__header--gradient-1 {
+        background: $card-item-header-bg-gradient-1;
+
+        .sd-card__thumbnail {
             background-color: transparent;
-            &::before {
-                background-color: transparent;
-            }
-            .sd-card__thumbnail {
-                background-color: transparent;
-            }
-        }
-        &--with-thumb {
-            position: relative;
-            flex-direction: column;
-            .sd-card__actions {
-                position: absolute;
-                top: 0.4rem;
-                right:0;
-                z-index: 2;
-            }
-        }
-        &--padding {
-            padding: 1rem 0;
-        }
-        &--secondary-color {
-            background-color: $card-item-header-bg-secondary;
         }
     }
-    &--active {
-        .sd-card__header {
-            background-color: $card-item-header-bg-active;
+
+    .sd-card__header--blank {
+        background-color: transparent;
+
+        &::before {
+            background-color: transparent;
+        }
+
+        .sd-card__thumbnail {
+            background-color: transparent;
         }
     }
-    &--inactive {
-        .sd-card__header {
-            background-color: $card-item-header-bg-inactive;
+
+    .sd-card__header--with-thumb {
+        position: relative;
+        flex-direction: column;
+
+        .sd-card__actions {
+            position: absolute;
+            top: 0.4rem;
+            right:0;
+            z-index: 2;
         }
     }
+
+    .sd-card__header--padding {
+        padding: 1rem 0;
+    }
+
+    .sd-card__header--secondary-color {
+        background-color: $card-item-header-bg-secondary;
+    }
+    
     // sd-card__heading should go inside sd-card__header
     .sd-card__heading {
         @include sd-padding('1-5', 'x');
-        padding-top: $card-item-top-border-height;
+        padding-block-start: $card-item-top-border-height;
         flex-grow: 1;
         font-size: 1.2rem;
         line-height: 100%;
@@ -175,19 +146,34 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         text-overflow: ellipsis;
         overflow: hidden;
         color: inherit;
-        &--editable {
-            padding: 1rem 1.6rem 1rem;
-            text-transform: initial;
+    }
+
+    .sd-card__heading--editable {
+        padding: var(--gap--small) var(--gap--small) var(--gap--small);
+        text-transform: initial !important;
+        .sd-card__heading-dummy-input {
+            display: flex;
+            align-items: center;
+            height: 3.2rem;
+            border: 2px solid transparent;
+            border-radius: var(--b-radius--medium);
+            padding: 0 0.8rem;
+            transition: all 0.2s ease;
+            text-transform: initial !important;
+            font-size: 1.4rem;
+            font-weight: 400;
+            letter-spacing: 0;
+            line-height: 1;
             &:hover {
+                border-color: var(--color-input-border);
                 cursor: text;
-            }
-            > input {
-                margin-top: 6px;
             }
         }
     }
+
     .sd-card__sub-header {
-        background-color: #9daeb7;
+        @include sd-padding('1-5', 'x');
+        background-color: hsl(201, 15%, 67%);
         display: flex;
         align-items: center;
         color: $white;
@@ -197,35 +183,42 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         letter-spacing: 0.08em;
         text-transform: uppercase;
         min-height: $sd-base-increment * 3;
-        @include sd-padding('1-5', 'x');
-        &--success {
-            background-color: $green;
-        }
     }
+
+    .sd-card__sub-header--success {
+        background-color: $green;
+    }
+
     .sd-card__btn-group {
         margin: 14px 6px 0 0;
-        &--right {
-            float: right;
-        }
+
         .btn {
             background: transparent;
             padding: 10px 2px;
             color: $white;
             opacity: 0.4;
+
             &:focus, &:hover {
                 box-shadow: none;
                 opacity: 1;
             }
+
             [class^="icon-"], 
             [class*=" icon-"] {
                 color: $white;
             }
         }
     }
+    
+    .sd-card__btn-group--right {
+        float: right;
+    }
+
     .sd-card__thumbnail {
-        margin-top: 0.4rem;
+        margin-block-start: 0.4rem;
         line-height: 0;
         background-color: var(--sd-item__thumb-Bg);
+
         & + .sd-card__heading {
             background-color: var(--sd-item__main-Bg);
             font-weight: 500;
@@ -239,15 +232,17 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     .sd-card__content {
         @include sd-padding('2');
         flex-grow: 1;
+
         h4 {
             text-transform: uppercase;
             font-size: 11px;
             color: rgba(0,0,0,.5);
             letter-spacing: 0.04em;
-            margin-bottom: 4px;
+            margin-block-end: 4px;
             &.with-value {
-                margin-bottom: 0;
+                margin-block-end: 0;
             }
+
             .label {
                 float: right;
                 height: 15px;
@@ -261,6 +256,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
                 letter-spacing: .06em;
                 font-weight: 400;
             }
+
             .value-label {
                 float: right;
                 font-size: 13px;
@@ -269,27 +265,32 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
                 text-transform: none;
                 letter-spacing: 0em;
             }
+
             &.sd-card__h4--normal-case {
                 font-size: 12px;
                 text-transform: initial;
             }
         }
-        &--scrollable {
-            min-height: 20vh;
-            max-height: 30vh;
-            overflow-y: auto;
-        }
-        &--padd-10 {
-            padding: 1rem;
-        }
     }
+
+    .sd-card__content--scrollable {
+        min-height: 20vh;
+        max-height: 34vh;
+        overflow-y: auto;
+    }
+
+    .sd-card__content--padd-10 {
+        padding: 1rem;
+    }
+
     .sd-card__content-heading, h4.sd-card__content-heading {
         text-transform: none;
         color: inherit;
         font-size: 1.6rem;
         letter-spacing: initial;
-        padding-bottom: $sd-base-increment;
+        padding-block-end: $sd-base-increment;
     }
+
     .sd-card__placeholder {
         padding: 16px;
         flex-grow: 1;
@@ -300,88 +301,104 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         color: $grayLight;
         font-weight: 300;
         font-size: 1.2rem;
-
-        &--cursorPointer {
-            cursor: pointer;
-        }
-
     }
+
+    .sd-card__placeholder--cursorPointer {
+        cursor: pointer;
+    }
+
     .sd-card__content-list {
         margin: -16px;
         padding: 0;
         list-style: none;
 
-        li, .sd-card__content-list-item {
-            padding: 16px;
+        li,
+        .sd-card__content-list-item {
+            padding: var(--gap--medium);
             border-bottom: 1px solid var(--sd-colour-line--light);
-            &--inline {
-                display: flex;
-                h4 { flex: 1 1; }
-                span { 
-                    flex: 1 1; 
-                    text-align: end;
-                }
-            }
+
             .sd-card__content-list-inline-span {
                 display: inline-block;
             }
+
             &:last-child {
                 border: none;
             }
-            &--border-bottom {
-                &:last-child {
-                    border-bottom: 1px solid var(--sd-colour-line--light);
-                }
+        }
+
+        .sd-card__content-list-item--inline {
+            display: flex;
+
+            h4 {
+                flex: 1 1;
             }
-            &--small {
-                padding: 7px 16px;
-                h4 {
-                    margin: 0;
-                }
-            }
-            &--no-padding {
-                padding: 0;
+
+            span { 
+                flex: 1 1; 
+                text-align: end;
             }
         }
+
+        .sd-card__content-list-item--border-bottom {
+            &:last-child {
+                border-bottom: 1px solid var(--sd-colour-line--light);
+            }
+        }
+
+        .sd-card__content-list-item--small {
+            padding: var(--gap--small) var(--gap--small) var(--gap--small) var(--gap--medium);
+
+            h4 {
+                margin: 0;
+            }
+        }
+
+        .sd-card__content-list-item--no-padding {
+            padding: 0;
+        }
+
         .creation-time {
             display: block;
             font-size: 12px;
             color: var(--color-text-light);
+
             i {
                 display: inline-block;
                 opacity: 0.5;
-                margin-top: -2px;
+                margin-block-start: -2px;
             }
         }
+
         .button__view-all {
-            border-bottom: 1px dotted #5598B4;
-            color: #5598B4;
+            border-bottom: 1px dotted var(--sd-colour-interactive);
+            color: var(--sd-colour-interactive);
             cursor: pointer;
         }
 
         .sd-card__content-list-block-link {
             display: block;
             padding: .8rem 1.6rem;
-            color: $gray;
+            color: var(--color-text);
             text-decoration: none;
 
             &:hover {
-                color: $grayDarker;
+                color: var(--color-text);
+            }
+        }
+
+        .sd-card__content-list-block-link--icon-hover {
+            display: flex;
+            justify-content: space-between;
+
+            i {
+                display: none;
             }
 
-            &--icon-hover {
-                display: flex;
-                justify-content: space-between;
+            &:hover {
+                background-color: var(--sd-colour-interactive--alpha-20);
 
                 i {
-                    display: none;
-                }
-                &:hover {
-                    background-color: rgba(94,169,200, .15);
-
-                    i {
-                        display: inline-flex;
-                    }
+                    display: inline-flex;
                 }
             }
         }
@@ -390,32 +407,37 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     .sd-card__article-header {
         padding: 16px;
     }
+
     .sd-card__time-date {
         font-size: 11px;
-        color: #ababab;
+        color: var(--color-text-light);
         font-weight: 300;
-        &--reverse-color {
-            color: rgba(255,255,255, 0.6);
-        }
+    }
+
+    .sd-card__time-date--reverse-color {
+        color: hsla(0, 0%, 100%, 0.7);
     }
 
     .sd-card__footer {
+        @include sd-padding('1-5', 'x');
         display: flex;
         flex-direction: row;
         align-items: center;
-        @include sd-padding('1-5', 'x');
         min-height: $sd-base-increment * 6;
         background-color: var(--sd-item__main-Bg);
         border-radius: 0 0 $card-item-default-radius $card-item-default-radius;
         box-shadow: 0 -1px 0 0 var(--sd-colour-line--light);
         gap: $sd-base-increment;
-        &--right-align {
-            justify-content: flex-end;
-        }
-        &--spread {
-            justify-content: space-between;
-        }
     }
+
+    .sd-card__footer--right-align {
+        justify-content: flex-end;
+    }
+
+    .sd-card__footer--spread {
+        justify-content: space-between;
+    }
+
     .sd-card__full-click {
         position: absolute;
         top:0;
@@ -424,42 +446,52 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         left:0;
         z-index: 2;
     }
+
     .sd-card__thumbnail {
         width: 100%;
         position: relative;
         height: 0;
-        padding-bottom: 75%;
+        padding-block-end: 75%;
         overflow: hidden;
         text-align: center;
+
         img {
             width: 100%;
             height: auto;
         }
-        &--size-xs {
-            padding-bottom: 35%;
-            .sd-card__thumbnail-heading {
-                font-size: 18px;
-            }
-        }
-        &--size-xxs {
-            padding-bottom: 16%;
-            .sd-card__thumbnail-heading {
-                font-size: 18px;
-            }
-        }
-        &--size-s {
-            padding-bottom: 50%;
-        }
-        &--size-m {
-            padding-bottom: 75%; // default value; 
-        }
-        &--size-l {
-            padding-bottom: 100%; // default value; 
-        }
-        &--size-xl {
-            padding-bottom: 125%; // default value; 
+    }
+
+    .sd-card__thumbnail--size-xs {
+        padding-block-end: 35%;
+        .sd-card__thumbnail-heading {
+            font-size: 18px;
         }
     }
+
+    .sd-card__thumbnail--size-xxs {
+        padding-block-end: 16%;
+
+        .sd-card__thumbnail-heading {
+            font-size: 18px;
+        }
+    }
+
+    .sd-card__thumbnail--size-s {
+        padding-block-end: 50%;
+    }
+
+    .sd-card__thumbnail--size-m {
+        padding-block-end: 75%; // default value; 
+    }
+
+    .sd-card__thumbnail--size-l {
+        padding-block-end: 100%; // default value; 
+    }
+
+    .sd-card__thumbnail--size-xl {
+        padding-block-end: 125%; // default value; 
+    }
+
     .sd-card__file-type-icn {
         color: $white;
         font-size: 5.2rem;
@@ -472,6 +504,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         line-height: 5.2rem;
         opacity: 0.5;
     }
+
     .sd-card__thumbnail-heading {
         font-family: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
         font-weight: 700;
@@ -490,5 +523,60 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         justify-content: center;
         line-height: 120%;
 
+    }
+}
+
+.sd-card--with-click {
+    @include transition(all, 100ms, ease-in);
+    cursor: pointer;
+    text-decoration: none;
+
+    &:hover {
+        box-shadow: $card-item-shadow-hover;
+        transform: translate(0, -2px);
+    }
+
+    &:active {
+        box-shadow: $card-item-shadow-active;
+    }
+}
+
+.sd-card--rounded {
+    border-radius: $card-item-rounded-radius;
+
+    .sd-card__header {
+        border-radius: $card-item-rounded-radius $card-item-rounded-radius 0 0;
+
+        &::before {
+            border-radius: $card-item-rounded-radius $card-item-rounded-radius 0 0;
+        }
+    }
+}
+
+.sd-card--flex-grow {
+    flex-grow: 1;
+}
+
+.sd-card--auto-height {
+    min-height: 0;
+}
+
+.sd-card--blank {
+    background-color: transparent;
+    box-shadow: none;
+    
+    &:hover {
+        box-shadow: $card-item-shadow-hover-light;
+    }
+}
+
+.sd-card--active {
+    .sd-card__header {
+        background-color: $card-item-header-bg-active;
+    }
+}
+.sd-card--inactive {
+    .sd-card__header {
+        background-color: $card-item-header-bg-inactive;
     }
 }

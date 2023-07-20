@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "3.0.35",
+  "version": "3.0.46",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -93,7 +93,7 @@
   "dependencies": {
     "@material-ui/lab": "^4.0.0-alpha.56",
     "@popperjs/core": "^2.4.0",
-    "@superdesk/primereact": "^5.0.2-10",
+    "@superdesk/primereact": "^5.0.2-12",
     "@superdesk/react-resizable-panels": "0.0.39",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/node": "^14.10.2",

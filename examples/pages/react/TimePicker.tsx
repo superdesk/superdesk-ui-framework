@@ -1,5 +1,4 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
 import {PropsList, Prop} from '../../../app-typescript';
 import {TimePicker} from '../../../app-typescript/components/TimePicker';
@@ -12,19 +11,17 @@ class TimePickerExample extends React.PureComponent<{}, {time: string}> {
             time: '',
         };
     }
+
     render() {
         return (
             <TimePicker
-            value={this.state.time}
-            onChange={(time) => {
-                this.setState({time});
-            }}
-            required
-            tabindex={1}
-            label={'This is Label'}
-            info={'This is info'}
-            error={'This is error'}
-            allowSeconds
+                value={this.state.time}
+                onChange={(time) => {
+                    this.setState({time});
+                }}
+                allowSeconds
+                label='This is Label'
+                info='This is info'
             />
         );
     }
@@ -36,25 +33,12 @@ export default class TimePickerDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Time picker</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    class TimePickerExample extends React.PureComponent<{}, {time: string}> {
-                        constructor(props) {
-                            super(props);
-                            this.state = {time: ''};
-                        }
-                        render() {
-                            return (
-                                <TimePicker
-                                value={this.state.time}
-                                onChange={(time) => {
-                                    this.setState({time});
-                                }}
-                                label={'This is Label'}
-                                info={'This is info'}
-                                error={'This is error'}
-                                />
-                            );
-                        }
-                    }
+                    <TimePicker
+                        value={this.state.time}
+                        onChange={(time) => {
+                            this.setState({time});
+                        }}
+                    />
                 `}</Markup.ReactMarkupCodePreview>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
@@ -63,13 +47,14 @@ export default class TimePickerDoc extends React.Component {
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <TimePickerExample
+                        <TimePicker
                             value={this.state.time}
-                            disabled={false}
-                            required={true}
                             onChange={(time) => {
                                 this.setState({time});
                             }}
+                            allowSeconds
+                            label='This is Label'
+                            info='This is info'
                         />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -78,6 +63,12 @@ export default class TimePickerDoc extends React.Component {
                 <PropsList>
                     <Prop name='value' isRequired={true} type='string' default='/' description='Item value.' />
                     <Prop name='allowSeconds' isRequired={true} type='string' default='/' description='Allow seconds.' />
+                    <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Label of component.' />
+                    <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline.' />
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.'/>
+                    <Prop name='info' isRequired={false} type='string' default='/' description='Info message of component.' />
+                    <Prop name='error' isRequired={false} type='string' default='/' description='Error message of component.' />
                     <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required.' />
                     <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled.' />
                 </PropsList>

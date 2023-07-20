@@ -1,68 +1,84 @@
 @import 'variables';
+
 @mixin clearfix {
     *zoom: 1;
+
     &:before,
         &:after {
         display: table;
         content: "";
     }
+
     &:after {
         clear: both;
     }
 }
+
 // Border radius
 @mixin border-radius($radius) {
-            border-radius: $radius;
+    border-radius: $radius;
 }
+
 @mixin box-shadow-both($shadow1 , $shadow2) {
     box-shadow: $shadow1, $shadow2;
 }
+
 // Text overflow ellipsis
 @mixin text-overflow() {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
+
 // Font weight
 @mixin text-light() {
     font-weight: 300;
 }
+
 @mixin text-normal() {
     font-weight: 400;
 }
+
 @mixin text-semibold() {
     font-weight: 500;
 }
+
 @mixin text-bold() {
     font-weight: 700;
 }
+
 @mixin text-extrabold() {
     font-weight: 800;
 }
+
 // Box sizing
 @mixin box-sizing($boxmodel) {
-        box-sizing: $boxmodel;
+    box-sizing: $boxmodel;
 }
+
 @mixin border-box() {
     @include box-sizing(border-box);
 }
+
 // Opacity
 @mixin opacity($opacity: 100) {
     opacity: $opacity / 100;
-     filter: "alpha(opacity=#{$opacity})";
+    filter: "alpha(opacity=#{$opacity})";
 }
+
 // Box shadow
 @mixin box-shadow($top, $left, $blur, $spread, $color, $inset: false) {
-  @if $inset {
-    -webkit-box-shadow:inset $top $left $blur $spread $color;
-    -moz-box-shadow:inset $top $left $blur $spread $color;
-    box-shadow:inset $top $left $blur $spread $color;
-  } @else {
-    -webkit-box-shadow: $top $left $blur $spread $color;
-    -moz-box-shadow: $top $left $blur $spread $color;
-    box-shadow: $top $left $blur $spread $color;
-  }
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $spread $color;
+        -moz-box-shadow:inset $top $left $blur $spread $color;
+        box-shadow:inset $top $left $blur $spread $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $spread $color;
+        -moz-box-shadow: $top $left $blur $spread $color;
+        box-shadow: $top $left $blur $spread $color;
+    }
 }
+
 // Transition -- example: @include transition(padding, 1s, ease-in-out);
 @mixin transition($transition-property, $transition-time, $method) {
 	-webkit-transition: $transition-property $transition-time $method;
@@ -94,43 +110,47 @@
     box-shadow: var(--sd-shadow__sliding-toolbar);
     gap: $sd-base-increment;
     height: $nav-height;
+
     &--right {
         text-align: end;
         justify-content: flex-end;
     }
+
     .sliding-toolbar__inner {
         flex-grow: 1;
         display: flex;
         align-items: center;
         gap: $sd-base-increment;
+        
         &--right {
             text-align: end;
         }
     }
+
     .sliding-toolbar__info-text {
         font-weight: 400;
         opacity: 0.75;
         font-size: 1.4rem;
     }
 }
+
 .sliding-toolbar {
     @include sliding-toolbar();
+
     &--static {
         position: static;
         animation: none;
     }
 }
 
-
-
 // User select
 // For selecting text on the page
 @mixin user-select($select) {
     -webkit-user-select: $select;
-         -moz-user-select: $select;
-             -o-user-select: $select;
-                    user-select: $select;
--webkit-touch-callout: $select;
-     -khtml-user-select: $select;
-            -ms-user-select: $select;
+    -moz-user-select: $select;
+    -o-user-select: $select;
+    user-select: $select;
+    -webkit-touch-callout: $select;
+    -khtml-user-select: $select;
+    -ms-user-select: $select;
 }

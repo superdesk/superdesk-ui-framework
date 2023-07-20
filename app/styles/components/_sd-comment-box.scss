@@ -9,16 +9,19 @@
     height: 2.8rem;
     resize: none;
 }
+
 .comment-box__reply-toolbar {
     display: none;
     padding-top: 1rem;
-    &--active {
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: var(--gap--small);
-    }
 }
+
+.comment-box__reply-toolbar--active {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: var(--gap--small);
+}
+
 .comment-box__button-toolbar {
     margin-top: 1.2rem;
     display: flex;
@@ -26,10 +29,12 @@
     align-items: center;
     justify-content: flex-start;
     gap: var(--gap--small);
-    &--right {
-        justify-content: flex-end;
-    }
-    &--small {
-        margin-top: 0.6rem;
-    }
+}
+
+.comment-box__button-toolbar--right {
+    justify-content: flex-end;
+}
+
+.comment-box__button-toolbar--small {
+    margin-top: 0.6rem;
 }

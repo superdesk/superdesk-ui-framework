@@ -1,9 +1,11 @@
 // Superdesk specific
+
 .sd-searchbar, .sd-input--inline-label {
     .p-autocomplete-panel {
         margin-top: 0;
     }
 }
+
 .sd-input--inline-label {
     .p-autocomplete {
         display: block;
@@ -21,6 +23,7 @@
 
     }
 }
+
 .sd-searchbar {
     .p-autocomplete-loader {
         &.pi {
@@ -29,15 +32,18 @@
         }
     }
 }
+
 .sd-input {
     .p-autocomplete-loader {
         margin-top: -1.4rem;
+        
         &.pi {
             font-size: 2rem !important;
             background-color: transparent;
         }
     }
 }
+
 .sd-input.sd-input--inline-label {
     .p-autocomplete-loader {
         margin-top: -1rem;

@@ -90,7 +90,7 @@ export { Text } from './components/Text/Text';
 export { Time } from './components/Text/Time';
 export { Heading } from './components/Text/Heading';
 export { BottomNav } from './components/Navigation/BottomNav';
-export { TreeSelect } from './components/TreeSelect';
+export { TreeSelect } from './components/TreeSelect/TreeSelect';
 export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 export { MultiSelect } from './components/MultiSelect';
@@ -98,6 +98,7 @@ export { ResizablePanels } from './components/ResizablePanels';
 export { WithPopover } from './components/WithPopover';
 export { Spacer, SpacerBlock } from './components/Spacer';
 export { ResizeObserverComponent } from './components/ResizeObserverComponent';
+export { DragHandle } from './components/DragHandle';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

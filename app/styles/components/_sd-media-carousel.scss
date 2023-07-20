@@ -39,12 +39,14 @@
     position: relative;
     overflow: hidden;
     text-align: center;
+
     img, video {
         max-height: 40em;
         width: auto !important;
         margin: 0 auto !important;
     }
 }
+
 .sd-media-carousel__page-media {
     width:100%;
     height:100%;
@@ -60,6 +62,7 @@
     position: relative;
     overflow: hidden;
     text-align: center;
+
     img {
         max-width: 100%;
         max-height: 100%;
@@ -69,9 +72,9 @@
 }
 
 @mixin carouselNavButton-style(
-$background: rgba(255,255,255,0.3),
-$background-hover: scale-color($background, $alpha: 50%),
-$background-active: scale-color($background, $alpha: 100%)) 
+    $background: rgba(255,255,255,0.3),
+    $background-hover: scale-color($background, $alpha: 50%),
+    $background-active: scale-color($background, $alpha: 100%)) 
 {
     border-radius: $border-radius__base--full;
     cursor: pointer;
@@ -85,12 +88,15 @@ $background-active: scale-color($background, $alpha: 100%))
     transition: $button-transition;
     background-color: $background;
     z-index: 3;
+
     &:hover {
         background-color: $background-hover;
     }
+
     &:active {
         background-color: $background-active;
     }
+
     &::after {
         content: " ";
         font-family: 'sd_icons';
@@ -110,68 +116,82 @@ $background-active: scale-color($background, $alpha: 100%))
     @include carouselNavButton-style;
     transition: opacity 0.2s ease-out;
     opacity: 0;
-    &--next {
-        right: -18px;
-        color: inherit;
-        &::after {
-            content: "\e643";
-        }
-    }
-    &--prev {
-        left: -18px;
-        color: inherit;
-        &::after {
-            content: "\e642";
-        }
-    }
-    &--next-inner {
-        right: 0;
-        color: $sd-text;
-        border-radius: $border-radius__base--full 0 0 $border-radius__base--full;
-        box-shadow: none;
-        &::after {
-            content: "\e643";
-        }
-    }
-    &--prev-inner {
-        left: 0;
-        color: $sd-text;
-        border-radius: 0 $border-radius__base--full $border-radius__base--full 0;
-        box-shadow: none;
-        &::after {
-            content: "\e642";
-        }
+}
 
+.sd-media-carousel__nav-button--next {
+    right: -18px;
+    color: inherit;
+
+    &::after {
+        content: "\e643";
     }
-    &--next-inner, &--prev-inner {
-        &::after {
-            opacity: 0.5;
-            transition: opacity 0.2s ease-out;
-        }
-        &:hover {
-            &::after {
-                opacity: 1;
-                color: $sd-text;
-            }
-        }
+}
+
+.sd-media-carousel__nav-button--prev {
+    left: -18px;
+    color: inherit;
+
+    &::after {
+        content: "\e642";
     }
-    &--next-inner, &--prev-inner {
-        &:active {
-            &::after {
-                color: $sd-colour-interactive;
-            }
-        }
-    } 
-    &--disabled {
-        background-color: rgba(255,255,255,0.4) !important;
-        cursor: default;
-        opacity: 0.2;
+}
+
+.sd-media-carousel__nav-button--next-inner {
+    right: 0;
+    color: $sd-text;
+    border-radius: $border-radius__base--full 0 0 $border-radius__base--full;
+    box-shadow: none;
+
+    &::after {
+        content: "\e643";
+    }
+}
+
+.sd-media-carousel__nav-button--prev-inner {
+    left: 0;
+    color: $sd-text;
+    border-radius: 0 $border-radius__base--full $border-radius__base--full 0;
+    box-shadow: none;
+
+    &::after {
+        content: "\e642";
+    }
+
+}
+
+.sd-media-carousel__nav-button--next-inner, .sd-media-carousel__nav-button--prev-inner {
+    &::after {
+        opacity: 0.5;
+        transition: opacity 0.2s ease-out;
+    }
+
+    &:hover {
         &::after {
-            opacity: 0.75;
-            color: $sd-text !important;
+            opacity: 1;
+            color: $sd-text;
         }
     }
 }
+
+.sd-media-carousel__nav-button--next-inner, .sd-media-carousel__nav-button--prev-inner {
+    &:active {
+        &::after {
+            color: $sd-colour-interactive;
+        }
+    }
+} 
+
+.sd-media-carousel__nav-button--disabled {
+    background-color: rgba(255,255,255,0.4) !important;
+    cursor: default;
+    opacity: 0.2;
+
+    &::after {
+        opacity: 0.75;
+        color: $sd-text !important;
+    }
+}
+
 .sd-media-carousel__dialog {
     &:hover {
         .sd-media-carousel__nav-button {
@@ -188,6 +208,7 @@ $background-active: scale-color($background, $alpha: 100%))
     text-align: center;
     width: 100%;
 }
+
 .sd-media-carousel__page-indicator {
     background-color: rgba(255,255,255,.2);
     border: 1px solid rgba(0,0,0,.4);
@@ -198,10 +219,11 @@ $background-active: scale-color($background, $alpha: 100%))
     width: 1.4rem;
     margin: 0.6rem;
     transition: $button-transition;
-    &--selected {
-        background-color: rgba(255,255,255,0.8);
-        border-color: rgba(0,0,0,.6);
-    }
+}
+
+.sd-media-carousel__page-indicator--selected {
+    background-color: rgba(255,255,255,0.8);
+    border-color: rgba(0,0,0,.6);
 }
 
 .sd-media-carousel__thumb-strip {
@@ -209,11 +231,13 @@ $background-active: scale-color($background, $alpha: 100%))
     grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
     grid-gap: 1rem;
     margin: 1.4rem 0;
+
     i {
         margin: auto;
         color: inherit;
     }
 }
+
 .sd-media-carousel__thumb-strip-item {
     box-shadow: 0 1px 4px rgba(0,0,0,.25), 0 0 1px 1px rgba(0,0,0,.1);
     border: 1px solid rgba(255,255,255,0.2);
@@ -222,22 +246,26 @@ $background-active: scale-color($background, $alpha: 100%))
     flex-direction: column;
     cursor: pointer;
     transition: all ease-in 0.2s;
+
     &:hover {
         box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
         border: 1px solid rgba(255,255,255,0.4);
     }
-    &--active {
-        outline: 1px solid $sd-colour-interactive;
-        border: 1px solid rgba(255,255,255,0.8);
-        box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
-        cursor: default;
-        .sd-media-carousel__thumb {
-            img {
-                filter: brightness(1) grayscale(100%);
-            }
+}
+
+.sd-media-carousel__thumb-strip-item--active {
+    outline: 1px solid $sd-colour-interactive;
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
+    cursor: default;
+
+    .sd-media-carousel__thumb {
+        img {
+            filter: brightness(1) grayscale(100%);
         }
     }
 }
+
 .sd-media-carousel__thumb {
     display: flex;
     flex-grow: 0;
@@ -251,24 +279,14 @@ $background-active: scale-color($background, $alpha: 100%))
     overflow: hidden;
     text-align: center;
     background-color: $photoBG-dark;
-    &--add {
-        box-shadow: 0 1px 4px rgba(0,0,0,.25), 0 0 1px 1px rgba(0,0,0,.1);
-        border: 1px solid rgba(255,255,255,0.8);
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        transition: all ease-in 0.2s;
-        &:hover {
-            box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
-            border: 1px solid rgba(255,255,255,1);
-        }
-    }
+
     img {
         max-width: 100%;
         max-height: 6rem;
         object-fit: cover;
         object-position: 50% 50%;
     }
+
     i {
         font-size: 3.2rem;
         line-height: 3.2rem;
@@ -277,6 +295,20 @@ $background-active: scale-color($background, $alpha: 100%))
         margin: auto;
         color: $white;
         opacity: .35;
+    }
+}
+
+.sd-media-carousel__thumb--add {
+    box-shadow: 0 1px 4px rgba(0,0,0,.25), 0 0 1px 1px rgba(0,0,0,.1);
+    border: 1px solid rgba(255,255,255,0.8);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all ease-in 0.2s;
+
+    &:hover {
+        box-shadow: 0 1px 4px rgba(0,0,0,.35), 0 0 1px 1px rgba(0,0,0,.4);
+        border: 1px solid rgba(255,255,255,1);
     }
 }
 
@@ -292,15 +324,18 @@ $background-active: scale-color($background, $alpha: 100%))
     border: 1px solid transparent;
     transition: all ease-in-out 0.2s;
     background-color: transparent; 
+
     &[contenteditable="true"],
     &textarea:not(disabled) {
         &:hover {
             border-color: var(--sd-colour-interactive--alpha-60);
         }
+
         &:focus {
             border-color: $sd-colour-interactive;
             box-shadow: inset 0 -1px 0 0 $sd-colour-interactive;
         }
+
         &:empty {
             &:before {
                 position: absolute;
@@ -314,6 +349,7 @@ $background-active: scale-color($background, $alpha: 100%))
     }
     
 }
+
 textarea.sd-media-carousel__media-caption, 
 textarea.sd-media-carousel__media-title {
     color: inherit;
@@ -327,14 +363,17 @@ textarea.sd-media-carousel__media-title {
     border: 1px solid transparent;
     transition: all ease-in-out 0.2s;
     background-color: transparent; 
+
     &:not(disabled) {
         &:hover {
             border-color: var(--sd-colour-interactive--alpha-60);
         }
+
         &:focus {
             border-color: $sd-colour-interactive;
             box-shadow: inset 0 0 0 4px var(--sd-colour-interactive--alpha-30);
         }
+
         &:empty {
             &:before {
                 position: absolute;
@@ -347,9 +386,11 @@ textarea.sd-media-carousel__media-title {
         }  
     }
 }
+
 .sd-media-carousel__media-caption {
     min-height: 4rem;
 }
+
 .sd-media-carousel__media-title {
     font-size: 1.5rem;
     font-weight: 500;

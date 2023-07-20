@@ -1,9 +1,8 @@
 import * as React from 'react';
-
 import * as Markup from '../../js/react';
 import {DatePicker, PropsList, Prop, DatePickerISO} from '../../../app-typescript';
 
-class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
+class DatePickerExample extends React.PureComponent<{}, {date: Date | null}> {
     constructor(props) {
         super(props);
 
@@ -11,59 +10,49 @@ class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
             date: new Date(),
         };
     }
+
     render() {
         return (
             <DatePicker
-            value={this.state.date}
-            dateFormat="YYYY-MM-DD"
-            onChange={(date) => {
-                this.setState({date});
-            }}
-            required
-            tabindex={1}
-            label={'This is Label'}
-            info={'This is info'}
-            error={'This is error'}
+                value={this.state.date}
+                dateFormat="YYYY-MM-DD"
+                onChange={(date) => {
+                    this.setState({date});
+                }}
+                label='This is Label'
+                info='This is info'
             />
         );
     }
 }
 
-export default class DatePickerDoc extends React.Component {
+interface IState {
+    today: string;
+    date: Date | null;
+} 
+
+export default class DatePickerDoc extends React.Component<{}, IState> {
     constructor(props) {
         super(props);
 
         this.state = {
-            today: new Date(),
+            today: '',
+            date: new Date(),
         };
     }
+
     render() {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Date picker</h2>
                 <Markup.ReactMarkupCodePreview>{`
-                    class DatePickerExample extends React.PureComponent<{}, {date: Date}> {
-                        constructor(props) {
-                            super(props);
-                            this.state = {date: new Date()};
-                        }
-                        render() {
-                            return (
-                                <DatePicker
-                                    value={this.state.date}
-                                    dateFormat="YYYY-MM-DD"
-                                    onChange={(date) => {
-                                        this.setState({date});
-                                    }}
-                                    required
-                                    tabindex={1}
-                                    label={'This is Label'}
-                                    info={'This is info'}
-                                    error={'This is error'}
-                                />
-                            );
-                        }
-                    }
+                    <DatePicker
+                        value={this.state.date}
+                        dateFormat="YYYY-MM-DD"
+                        onChange={(date) => {
+                            this.setState({date});
+                        }}
+                    />
                 `}</Markup.ReactMarkupCodePreview>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
@@ -74,25 +63,22 @@ export default class DatePickerDoc extends React.Component {
                         <p className="docs-page__paragraph">// DatePickerISO</p>
                         <div className='docs-page__content-row'>
                             <DatePickerISO
-                            value={'2019-01-01'}
-                            dateFormat="YYYY-MM-DD"
-                            onChange={(date) => {
-                                this.setState({date});
-                            }}   
-                            tabindex={1}
-                            label={'This is Label'}
-                            info={'This is info'}
-                            error={'This is error'}
+                                value={'2019-01-01'}
+                                dateFormat="YYYY-MM-DD"
+                                onChange={(date) => {
+                                    this.setState({today: date});
+                                }}
+                                label='This is Label'
+                                info='This is info'
                             />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                         <DatePicker
+                        <DatePicker
                             value={this.state.date}
                             onChange={(date) => {
                                 this.setState({date});
                             }}
-                            disabled={false}
                             dateFormat="YYYY-MM-DD"
                             shortcuts={[
                                 {label: 'tomorrow', days: 1},
@@ -131,19 +117,16 @@ export default class DatePickerDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row'>
-                        <DatePicker
-                            value={this.state.today}
-                            dateFormat="YYYY-MM-DD"
-                            onChange={(today) => {
-                                this.setState({today});
-                            }}
-                            required
-                            tabindex={1}
-                            label={'This is Label'}
-                            info={'This is info'}
-                            error={'This is error'}
-                            headerButtonBar={[{days: 0, label: 'today'}, {days: 1, label: 'tomorow'}, {days: 2, label: 'in 2 days'}]}
-                        />
+                            <DatePicker
+                                value={this.state.date}
+                                dateFormat="YYYY-MM-DD"
+                                onChange={(date) => {
+                                    this.setState({date});
+                                }}
+                                label='This is Label'
+                                info='This is info'
+                                headerButtonBar={[{days: 0, label: 'today'}, {days: 1, label: 'tomorow'}, {days: 2, label: 'in 2 days'}]}
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -153,11 +136,8 @@ export default class DatePickerDoc extends React.Component {
                             onChange={(date) => {
                                 this.setState({date});
                             }}
-                            required
-                            tabindex={1}
-                            label={'This is Label'}
-                            info={'This is info'}
-                            error={'This is error'}
+                            label='This is Label'
+                            info='This is info'
                             headerButtonBar={[{days: 0, label: 'today'}, {days: 1, label: 'tomorow'}, {days: 2, label: 'in 2 days'}]}
                         />
                     `}</Markup.ReactMarkupCode>
@@ -165,17 +145,18 @@ export default class DatePickerDoc extends React.Component {
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequired={false} type='Date' default='/' description='Item value' />
-                    <Prop name='dateFormat' isRequired={true} type='string' default='/' description='Date format to use, i.e. "MM/DD/YYYY"' />
-                    <Prop name='locale' isRequired={false} type='string' default='/' description='see: https://primefaces.org/primereact/showcase/#/calendar' />
-                    <Prop name='headerButtonBar' isRequired={false} type='Array' default='/' description='Aditional button in header, ex. [{label: "today", days: 0}, {label: "tomorrow", days: 1}]' />
-                    <Prop name='label' isRequired={false} type='string' default='/' description='Input label'/>
-                    <Prop name='info' isRequired={false} type='string' default='/' description='Hint text'/>
-                    <Prop name='error' isRequired={false} type='string' default='/' description='Error text'/>
-                    <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline'/>
-                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required'/>
-                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled'/>
-                    <Prop name='invalid' isRequired={false} type='boolean' default='false' description='Mark field as invalid'/>
+                    <Prop name='value' isRequired={false} type='Date' default='/' description='Value of the component.' />
+                    <Prop name='dateFormat' isRequired={true} type='string' default='/' description='Date format to use, i.e. "MM/DD/YYYY".' />
+                    <Prop name='locale' isRequired={false} type='string' default='/' description='see: https://primefaces.org/primereact/showcase/#/calendar.' />
+                    <Prop name='headerButtonBar' isRequired={false} type='Array' default='/' description='Aditional button in header, ex. [{label: "today", days: 0}, {label: "tomorrow", days: 1}].' />
+                    <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop name='label' isRequired={false} type='string' default='/' description='Label of component.' />
+                    <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline.' />
+                    <Prop name='tabindex' isRequired={false} type='number' default='/' description='Indicates an element can be focused on, and determines how that focus is handled.'/>
+                    <Prop name='info' isRequired={false} type='string' default='/' description='Info message of component.' />
+                    <Prop name='error' isRequired={false} type='string' default='/' description='Error message of component.' />
+                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required.' />
+                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled.' />
                 </PropsList>
 
                 <h3 className='docs-page__h3'>Events</h3>

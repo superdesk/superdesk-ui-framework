@@ -1,5 +1,4 @@
 // TABLES : tables.scss
-// 
 
 $sd-tableBgColor: var(--sd-item__main-Bg);
 $sd-tableBorderColor: var(--sd-colour-line--medium);
@@ -11,7 +10,6 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     border-top: 1px solid $sd-tableBorderColor;
     border-bottom: 1px solid $sd-tableBorderColor;
 
-
     th, td {
         padding: 1.2rem 0.8rem;
         text-align: start;
@@ -19,15 +17,18 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
         border-bottom: 1px solid $sd-tableBorderColor;
         font-weight: 500;
     }
+
     tr:last-child {
         td {
             border-bottom: none;
         }
     }
+
     th {
         font-weight: 600;
         border-bottom: 2px solid $sd-tableBorderColor;
     }
+
     // Bottom align for column headings
     thead th {
         vertical-align: bottom;
@@ -45,14 +46,17 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     box-shadow: 0 1px 4px 0 rgba(0,0,0,.2);
     border: none;
 }
+
 .sd-table {
     td {
         vertical-align: middle;
     }
+    
     th {
         vertical-align: top;
     }
 }
+
 .sd-table--action-hover {
     td,
     .sd-display-table__cell,
@@ -70,6 +74,7 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
         }
     }
 }
+
 .sd-table-two-rows {
     padding: 0.8rem;
     vertical-align: middle;
@@ -86,24 +91,28 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     display: table;
     width: 100%;
 }
+
 .sd-display-table__head {
     display: table-row-group;
 
     .sd-display-table__cell {
         font-weight: 600;
-        border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+        border-bottom: 2px solid var(--sd-colour-line--light);
     }
 }
+
 .sd-display-table__body {
     display: table-row-group;
 }
+
 .sd-display-table__row {
     display: table-row;
 }
+
 .sd-display-table__cell {
     display: table-cell;
     padding: 1.2rem 0.8rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--sd-colour-line--light);
     font-weight: 500;
     text-align: start;
 
@@ -117,22 +126,25 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     display: flex;
     flex-direction: column;
 }
+
 .sd-flex-table__row {
     display: flex;
     flex-direction: row;
 }
+
 .sd-flex-table__cell {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
     padding: 1.2rem 0.8rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid var(--sd-colour-line--light);
     font-weight: 500;
     text-align: start;
     min-width: 120px;
 }
+
 .sd-flex-table--head .sd-flex-table__cell {
     font-weight: 600;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.15);
+    border-bottom: 2px solid var(--sd-colour-line--light);
 }

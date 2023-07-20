@@ -39,9 +39,11 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     background-color: var(--sd-alert-bg);
     display: flex;
     gap: $sd-base-increment * 2;
+
     & strong {
         font-weight: 500;
     }
+
     &--hidden {
         opacity: 0;
         max-height: 0.1rem;
@@ -51,6 +53,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         font-size: 0.1rem;
         transition: $sd-alert-transition;
     }
+
     &--small {
         font-size: 1.3rem;
         padding-block-start: $sd-alert-padding-y-small;
@@ -60,30 +63,38 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         transition: $sd-alert-transition-small;
         gap: $sd-base-increment * 1;
     }
+
     &--marg-b12 {
         margin-bottom: 1.2rem;
     }
+
     &--no-margin {
         margin-bottom: 0;
     }
+
     &--margin-none {
         margin-block-end: 0;
     }
+
     &--margin-small {
         margin-block-end: 1.6rem;
     }
+
     &--margin-normal {
         margin-block-end: 2.4rem;
     }
+
     &--margin-large {
         margin-block-end: 3.2rem;
     }
+
     &--banner-style {
         margin: 0;
         box-shadow: none !important;
         border-radius: 0 !important;
     }
 }
+
 @mixin sd-alert-hollow {
     border: 1px solid var(--sd-alert-border);
     background-color: var(--sd-alert-bg);
@@ -91,55 +102,34 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     --sd-alert-l: var(--sd-alert-hs), 50%;
     --sd-alert-txt: hsla(var(--sd-alert-l), 1);
     --sd-alert-bg: hsla(var(--sd-alert-l), 0.05);
+
     [class^="icon-"], [class*=" icon-"] {
-      color: var(--sd-alert-color);
+        color: var(--sd-alert-color);
     }
-  }
+}
 
 
 .sd-alert {
     @include sd-alert;
     color: var(--color-text-light);
     --sd-alert-bg: var(--sd-colour-alert-bg-neutral);
+
     p {
         font-size: 1.4rem;
         color: inherit;
         margin-block-end: 1em;
+
         &:last-child, &:only-child {
             margin-block-end: 0;
         }
     }
-    &--primary, &--info, &--success, &--warning, &--alert, &--highlight, &--sd-green {
-        color: $white;
-    }
-    &--primary, &--info {
-        --sd-alert-bg: var(--sd-colour-info);
-    }
-    
-    &--success {
-        --sd-alert-bg: var(--sd-colour-success);
-    }
-    
-    &--warning {
-        --sd-alert-bg: var(--sd-colour-warning);
-    }
-    
-    &--alert {
-        --sd-alert-bg: var(--sd-colour-alert);
-    }
-    
-    &--highlight {
-        --sd-alert-bg: var(--sd-colour-highlight);
-    }
-    
-    &--sd-green {
-        --sd-alert-bg: var(--sd-colour-superdesk);
-    }
+
     &.sd-alert--hollow {
         --sd-alert-hs: 214, 13%;
         --sd-alert-border: var(--sd-colour-line--strong);
         --sd-alert-color: var(--color-text-light);
         @include sd-alert-hollow;
+
         &.sd-alert--primary {
             --sd-alert-hs: var(--sd-colour-info-hs);
             --sd-alert-border: var(--sd-colour-info);
@@ -181,14 +171,15 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
             --sd-alert-color: var(--sd-colour-superdesk);
             color: var(--sd-alert-color);
         }
-
     }
+
     .sd-alert__icon {
         display: flex;
         align-items: center;
         justify-content: center;
         width: 3.2rem;
         height: 3.2rem;
+
         [class^="icon-"], [class*=" icon-"] {
             width: 3.2rem;
             height: 3.2rem;
@@ -197,6 +188,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
             color: currentColor;
         }
     }
+
     &.sd-alert--small {
         .sd-alert__icon {
             margin-block-start: 0px;
@@ -207,6 +199,34 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
             }
         }
     }
+}
+
+.sd-alert--primary, .sd-alert--info, .sd-alert--success, .sd-alert--warning, .sd-alert--alert, .sd-alert--highlight, .sd-alert--sd-green {
+    color: $white;
+}
+
+.sd-alert--primary, .sd-alert--info {
+    --sd-alert-bg: var(--sd-colour-info);
+}
+
+.sd-alert--success {
+    --sd-alert-bg: var(--sd-colour-success);
+}
+
+.sd-alert--warning {
+    --sd-alert-bg: var(--sd-colour-warning);
+}
+
+.sd-alert--alert {
+    --sd-alert-bg: var(--sd-colour-alert);
+}
+
+.sd-alert--highlight {
+    --sd-alert-bg: var(--sd-colour-highlight);
+}
+
+.sd-alert--sd-green {
+    --sd-alert-bg: var(--sd-colour-superdesk);
 }
 
 .sd-alert__content {
@@ -226,6 +246,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     line-height: 2.1rem;
     color: inherit;
     border-radius: $border-radius__base--full;
+
     &::after {
         font-family: sd_icons;
         font-size: 16px;
@@ -243,10 +264,12 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         text-transform: none;
         -webkit-font-smoothing: antialiased;
     }
+
     &:hover {
         opacity: .8;
         background-color: hsla(0, 0%, 100%, 0.3);
     }
+
     &:active {
         opacity: 1;
         background-color: hsla(0, 0%, 100%, 0.5);
@@ -285,62 +308,70 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     flex-shrink: 1;
     transition: all linear 100ms 0.2s, background-color ease-in 200ms;
     background-color: var(--sd-colour-neutral);
+
     & [class^="icon-"], & [class*=" icon-"] {
         color:inherit;
         margin-top: 0.3rem;
     }
+
     &:hover {
         background-color: var(--sd-colour-neutral--hover);
     }
-    &--hidden {
-        opacity: 0;
-        height:1px;
-        width:1px;
-        flex-shrink: 1;
-        transition: all linear 100ms;
-    }
-    &--primary, &--info {
-        background-color: var(--sd-colour-info);
-        &:hover {
-            background-color: var(--sd-colour-info--hover);
-        }
-    }
-    
-    &--success {
-        background-color: var(--sd-colour-success);
-        &:hover {
-            background-color: var(--sd-colour-success--hover);
-        }
-    }
-    
-    &--warning {
-        background-color: var(--sd-colour-warning);
-        &:hover {
-            background-color: var(--sd-colour-warning--hover);
-        }
-    }
-    
-    &--alert {
-        background-color: var(--sd-colour-alert);
-        &:hover {
-            background-color: var(--sd-colour-alert--hover);
-        }
-    }
-    
-    &--highlight {
-        background-color: var(--sd-colour-highlight);
-        &:hover {
-            background-color: var(--sd-colour-highlight--hover);
-        }
-    }
-    
-    &--sd-green {
-        background-color: var(--sd-colour-superdesk);
-        &:hover {
-            background-color: var(--sd-colour-superdesk--hover);
-        }
-    }
+}
 
+.sd-alert__info-btn--hidden {
+    opacity: 0;
+    height:1px;
+    width:1px;
+    flex-shrink: 1;
+    transition: all linear 100ms;
+}
+
+.sd-alert__info-btn--primary, .sd-alert__info-btn--info {
+    background-color: var(--sd-colour-info);
+
+    &:hover {
+        background-color: var(--sd-colour-info--hover);
+    }
+}
+
+.sd-alert__info-btn--success {
+    background-color: var(--sd-colour-success);
+
+    &:hover {
+        background-color: var(--sd-colour-success--hover);
+    }
+}
+
+.sd-alert__info-btn--warning {
+    background-color: var(--sd-colour-warning);
+
+    &:hover {
+        background-color: var(--sd-colour-warning--hover);
+    }
+}
+
+.sd-alert__info-btn--alert {
+    background-color: var(--sd-colour-alert);
+    &:hover {
+        background-color: var(--sd-colour-alert--hover);
+    }
+}
+
+.sd-alert__info-btn--highlight {
+    background-color: var(--sd-colour-highlight);
+
+    &:hover {
+        background-color: var(--sd-colour-highlight--hover);
+    }
+}
+
+.sd-alert__info-btn--sd-green {
+    background-color: var(--sd-colour-superdesk);
+    
+    &:hover {
+        background-color: var(--sd-colour-superdesk--hover);
+    }
 }
 
 .sd-alert__container {
