@@ -61,7 +61,7 @@ export class Input extends React.Component<IProps> {
                 disabled={this.props.disabled}
                 value={this.props.value}
                 error={this.props.error}
-                invalid={this.props.error != null ? true : false}
+                invalid={this.props.error != null}
                 info={this.props.info}
                 maxLength={this.props.maxLength}
                 inlineLabel={this.props.inlineLabel}

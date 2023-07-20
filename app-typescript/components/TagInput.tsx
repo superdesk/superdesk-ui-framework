@@ -31,7 +31,7 @@ export class TagInput extends React.Component<IProps> {
             <InputWrapper
                 label={this.props.label}
                 error={this.props.error}
-                invalid={this.props.error != null ? true : false}
+                invalid={this.props.error != null}
                 required={this.props.required}
                 disabled={this.props.disabled}
                 info={this.props.info}
