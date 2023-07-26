@@ -177,7 +177,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             this.props.onChange(this.state.value);
         } else if (!isEqual(prevProps.value, this.props.value)) {
             this.setState({
-                value: this.props.value ? this.props.value : [],
+                value: this.props.value ?? [],
             })
         }
 
