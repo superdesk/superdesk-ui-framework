@@ -178,7 +178,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         } else if (!isEqual(prevProps.value, this.props.value)) {
             this.setState({
                 value: this.props.value ?? [],
-            })
+            });
         }
 
         if (prevState.openDropdown !== this.state.openDropdown) {
