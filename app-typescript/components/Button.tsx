@@ -3,7 +3,16 @@ import classNames from 'classnames';
 import { Icon } from './Icon';
 import { Spinner } from './Spinner';
 
-interface IButtonBase {
+interface IPropsButton {
+    text: string;
+    onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
+
+    expand?: boolean;
+    style?: 'filled' | 'hollow' | 'text-only'; // defaults to 'filled'
+    shape?: 'square' | 'round'; // defaults to 'square'
+    isLoading?: boolean;
+    loadingLabel?: string;
+    tooltip?: string;
     id?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
@@ -12,17 +21,7 @@ interface IButtonBase {
     icon?: string;
     disabled?: boolean;
     iconOnly?: boolean;
-    onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
     'data-test-id'?: string;
-}
-
-interface IPropsButton extends IButtonBase {
-    text: string;
-    expand?: boolean;
-    style?: 'filled' | 'hollow' | 'text-only'; // defaults to 'filled'
-    shape?: 'square' | 'round'; // defaults to 'square'
-    isLoading?: boolean;
-    loadingLabel?: string;
 }
 
 export class Button extends React.PureComponent<IPropsButton> {
@@ -47,7 +46,9 @@ export class Button extends React.PureComponent<IPropsButton> {
                 data-loading={this.props.isLoading}
                 onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
                 aria-label={this.props.iconOnly ? this.props.text : ''}
-                data-test-id={this.props['data-test-id']}>
+                data-test-id={this.props['data-test-id']}
+                title={this.props.tooltip}
+            >
                 {this.props.isLoading ? <Spinner size="mini" /> : null}
                 {this.props.icon && !this.props.isLoading ? <Icon name={this.props.icon} /> : null}
                 {this.props.iconOnly ? null : this.props.text}
