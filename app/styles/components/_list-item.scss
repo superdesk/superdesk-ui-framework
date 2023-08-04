@@ -16,6 +16,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     background-color: $sd-ListItem-background;
     transition: background-color 0.2s linear;
     flex-shrink: 0;
+    color: var(--color-text);
 
     &:hover {
         background-color: $sd-ListItem-background-hover;
