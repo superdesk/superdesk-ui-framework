@@ -18,11 +18,35 @@ export interface IPropsAvatar {
         name: string;
         color?: string;
     };
+
+    /**
+     * displayName is shown as tooltip by default
+     * use this if you need to add additional information (it will be added on a new line)
+     */
+    tooltip?: string;
+
+    /**
+     * JSX resulting from rendering of one of the following components:
+     * AvatarContentText
+     * AvatarContentImage
+     */
+    customContent?: JSX.Element;
 }
 
 export class Avatar extends React.PureComponent<IPropsAvatar> {
     render() {
-        const {imageUrl, initials, size, statusIndicator, administratorIndicator, icon, displayName} = this.props;
+        const {
+            imageUrl,
+            initials,
+            size,
+            statusIndicator,
+            administratorIndicator,
+            icon,
+            displayName,
+            customContent,
+        } = this.props;
+
+        const tooltipCombined = [displayName, this.props.tooltip].filter((str) => (str ?? '').trim().length > 0).join('\n');
 
         return (
             <AvatarWrapper
@@ -32,16 +56,19 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
                 icon={icon}
                 isEmpty={false}
             >
-                {
-                    imageUrl != null || initials == null
-                        ? (
-                            <AvatarContentImage imageUrl={imageUrl} tooltipText={displayName} />
-                        )
-                        : (
-                            <AvatarContentText text={initials} tooltipText={displayName} />
-                        )
-                }
-
+                {(() => {
+                    if (customContent != null) {
+                        return customContent;
+                    } else if (imageUrl != null || initials == null) {
+                        return (
+                            <AvatarContentImage imageUrl={imageUrl} tooltipText={tooltipCombined} />
+                        );
+                    } else {
+                        return (
+                            <AvatarContentText text={initials} tooltipText={tooltipCombined} />
+                        );
+                    }
+                })()}
             </AvatarWrapper>
         );
     }
