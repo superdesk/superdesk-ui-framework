@@ -39,12 +39,11 @@ export class AvatarPlaceholder extends React.PureComponent<IPropsAvatarPlacehold
                         );
                     } else if (kind === 'user-icon') {
                         return (
-                            <span onClick={onClick}>
-                                <AvatarContentImage
-                                    imageUrl={null}
-                                    tooltipText={tooltip ?? undefined}
-                                />
-                            </span>
+                            <AvatarContentImage
+                                imageUrl={null}
+                                tooltipText={tooltip ?? undefined}
+                                onClick={onClick}
+                            />
                         );
                     } else {
                         return null;
