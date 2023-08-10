@@ -1,11 +1,12 @@
 import * as React from 'react';
 import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentAdd} from './avatar-action-add';
+import {AvatarContentImage} from './avatar-image';
 
 export interface IPropsAvatarPlaceholder {
     // kind is used to it's easy to add
     // other types of placeholders without breaking existing usages
-    kind: 'plus-button';
+    kind: 'plus-button' | 'user-icon';
     tooltip?: string | null; // nullable, but mandatory to communicate importance
 
     size: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';
@@ -20,7 +21,7 @@ export interface IPropsAvatarPlaceholder {
 
 export class AvatarPlaceholder extends React.PureComponent<IPropsAvatarPlaceholder> {
     render() {
-        const {size, tooltip, icon} = this.props;
+        const {size, tooltip, icon, kind, onClick} = this.props;
 
         return (
             <AvatarWrapper
@@ -28,7 +29,26 @@ export class AvatarPlaceholder extends React.PureComponent<IPropsAvatarPlacehold
                 isEmpty={false}
                 icon={icon}
             >
-                <AvatarContentAdd tooltipText={tooltip ?? undefined} onClick={this.props.onClick} />
+                {(() => {
+                    if (kind === 'plus-button') {
+                        return (
+                            <AvatarContentAdd
+                                tooltipText={tooltip ?? undefined}
+                                onClick={onClick}
+                            />
+                        );
+                    } else if (kind === 'user-icon') {
+                        return (
+                            <AvatarContentImage
+                                imageUrl={null}
+                                tooltipText={tooltip ?? undefined}
+                                onClick={onClick}
+                            />
+                        );
+                    } else {
+                        return null;
+                    }
+                })()}
             </AvatarWrapper>
         );
     }
