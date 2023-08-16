@@ -12,6 +12,7 @@ interface IProps<T>  extends IInputWrapper {
     onChange(value: T): void;
     areEqual(a: T, b: T): boolean; // Using reference equality for objects is error prone.
     itemTemplate: React.ComponentType<{option: T | null}>;
+    valueTemplate: React.ComponentType<{option: T | null}>;
     noResultsFoundMessage: string;
     filterPlaceholder?: string;
     autoFocus?: boolean;
@@ -55,6 +56,7 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
     }
     render() {
         const ItemTemplate = this.props.itemTemplate;
+        const ValueTemplate = this.props.valueTemplate;
         const {loading, options} = this.state;
         const {
             value,
@@ -115,8 +117,16 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
                 filterBy={labelKey}
                 showClear={!required}
                 emptyFilterMessage={emptyFilterMessage}
-                valueTemplate={(option) => <ItemTemplate option={option == null ? null : option.original} />}
-                itemTemplate={(option) => <ItemTemplate option={option.original} />}
+                itemTemplate={(option) => <ItemTemplate option={option?.original ?? null} />}
+                valueTemplate={(option) => ValueTemplate != null
+                    ? (
+                        <ValueTemplate option={option?.original ?? null} />
+
+                    )
+                    : (
+                        <ItemTemplate option={option?.original ?? null} />
+                    )
+                }
                 disabled={disabled}
                 required={required}
                 autoFocus={autoFocus}

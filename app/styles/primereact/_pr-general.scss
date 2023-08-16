@@ -36,7 +36,7 @@
 @mixin pr-input-item-base {
     display: inline-flex;
     align-items: center;
-    height: $height-input--default;
+    min-height: $height-input--default;
     border-bottom: 1px solid var(--color-input-border);
     background-color: var(--color-input-bg);
     font-size: 1.4rem;
@@ -48,7 +48,7 @@
         background-color: var(--color-input-bg--hover);
         border-color: var(--color-input-border-hover);
     }
-    
+
     &:focus, &:focus-within, &.p-focus {
         background-color: var(--sd-colour-interactive--alpha-20);
         box-shadow: 0 1px 0 0 $sd-colour-interactive;
