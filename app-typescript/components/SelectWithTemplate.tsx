@@ -12,7 +12,7 @@ interface IProps<T>  extends IInputWrapper {
     onChange(value: T): void;
     areEqual(a: T, b: T): boolean; // Using reference equality for objects is error prone.
     itemTemplate: React.ComponentType<{option: T | null}>;
-    valueTemplate: React.ComponentType<{option: T | null}>;
+    valueTemplate?: React.ComponentType<{option: T | null}>;
     noResultsFoundMessage: string;
     filterPlaceholder?: string;
     autoFocus?: boolean;
