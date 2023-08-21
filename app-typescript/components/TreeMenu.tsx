@@ -20,7 +20,6 @@ interface IState<T> {
 }
 
 interface IProps<T> {
-    width?: string;
     zIndex?: number;
     searchPlaceholder?: string;
     singleLevelSearch?: boolean;
@@ -335,13 +334,9 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                         && <div id='TREEMENU_DROPDOWN'>
                             <div
                                 ref={this.dropdownRef}
-                                className={
-                                    "autocomplete autocomplete--multi-select"
-                                    + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')
-                                }
+                                className="autocomplete autocomplete--multi-select autocomplete--fixed-width"
                                 style={{
                                     zIndex: this.props.zIndex,
-                                    width: '280px',
                                 }}
                             >
                                 <div className='autocomplete__header'>
