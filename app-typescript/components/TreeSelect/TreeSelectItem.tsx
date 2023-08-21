@@ -9,8 +9,9 @@ export function getPrefixedItemId(id: string) {
 
 interface IProps<T> {
     option: ITreeNode<T>;
-    selectedItem: boolean;
+    selectedItem?: boolean;
     allowMultiple?: boolean;
+    labelWrap?: boolean;
     handleTree(event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeNode<T>): any;
     getLabel(item: T): string;
     getId(item: T): string;
@@ -25,7 +26,10 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
     render() {
         return (
             <li
-                className='suggestion-item suggestion-item--multi-select'
+                className={
+                    'suggestion-item suggestion-item--multi-select'
+                    + (this.props.labelWrap ? ' suggestion-item--wrap' : '')
+                }
                 onClick={(event) => {
                     this.props.onClick?.();
                     event.preventDefault();
@@ -55,7 +59,9 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                     <span
                         className={
                             'suggestion-item--bgcolor'
-                            + (this.props.selectedItem ? ' suggestion-item--disabled' : '')}
+                            + (this.props.selectedItem ? ' suggestion-item--disabled' : '')
+                            + (this.props.labelWrap ? ' suggestion-item--bgcolor--wrap' : '')
+                        }
                         style={
                             (this.props.getBackgroundColor && this.props.option.value)
                                 ? {
