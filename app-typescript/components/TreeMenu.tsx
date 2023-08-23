@@ -308,7 +308,6 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                         getId={this.props.getId}
                         optionTemplate={this.props.optionTemplate}
                         getLabel={this.props.getLabel}
-                        labelWrap
                         onClick={() => {
                             onSelect(option);
 
@@ -410,7 +409,6 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                                         getId={this.props.getId}
                                                         optionTemplate={this.props.optionTemplate}
                                                         getLabel={this.props.getLabel}
-                                                        labelWrap
                                                         onKeyDown={() => this.setState({
                                                             buttonTarget: [
                                                                 ...this.state.buttonTarget,

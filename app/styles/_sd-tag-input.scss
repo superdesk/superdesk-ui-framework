@@ -351,10 +351,6 @@ tags-input,
         }
     }
 
-    .suggestion-item--wrap {
-        white-space: normal;
-    }
-
     .suggestion-item--multi-select {
         display: flex;
         align-items: center;
@@ -388,15 +384,11 @@ tags-input,
         justify-content: center;
         align-items: center;
         border-radius: 99px;
-        white-space: nowrap;
+        white-space: normal;
 
         &[style*="background-color"] {
             padding-inline: 8px;
         }
-    }
-
-    .suggestion-item--bgcolor--wrap {
-        white-space: normal;
     }
 
     .suggestion-item--disabled {
