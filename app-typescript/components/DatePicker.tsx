@@ -37,6 +37,7 @@ interface IDatePickerBase extends IInputWrapper {
 interface IDatePicker extends IDatePickerBase {
     value: Date | null;
     onChange(valueNext: Date | null): void;
+    'data-test-id'?: string;
 }
 
 const internalPrimereactClassnames = {
@@ -160,6 +161,13 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                     ariaLabelledBy={this.htmlId + 'label'}
                     ref={(ref) => {
                         this.instance = ref as unknown as IPrivatePrimeReactCalendarApi;
+
+                        const refAny: any = ref;
+
+                        if (this.props['data-test-id'] != null && refAny?.inputElement != null) {
+                            refAny.inputElement.setAttribute('data-test-id', this.props['data-test-id']);
+                        }
+
                     }}
                     value={this.state.value === null ? undefined : this.state.value}
                     onChange={(event) => {

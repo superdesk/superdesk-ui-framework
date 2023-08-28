@@ -47,6 +47,7 @@ interface IPropsBase<T> extends IInputWrapper {
     optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
     valueTemplate?(item: T, Wrapper: React.ElementType): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
+    'data-test-id'?: string;
 }
 
 interface IPropsSync<T> extends IPropsBase<T> {
@@ -701,6 +702,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     onClick={() => {
                                         this.setState({openDropdown: !this.state.openDropdown});
                                     }}
+                                    data-test-id={this.props['data-test-id']}
                                 />
                             }
 

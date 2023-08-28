@@ -6,6 +6,7 @@ interface IPropsBase extends IInputCommon {
     maxLength?: number;
     placeholder?: string;
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
+    'data-test-id': string;
 }
 
 interface IPropsText extends IPropsBase {
@@ -83,6 +84,7 @@ export class Input extends React.Component<IProps> {
                     onChange={this.handleChange}
                     placeholder={this.props.placeholder}
                     disabled={this.props.disabled}
+                    data-test-id={this.props['data-test-id']}
                 />
             </InputWrapper>
         );
