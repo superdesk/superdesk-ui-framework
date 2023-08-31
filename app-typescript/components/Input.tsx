@@ -6,7 +6,7 @@ interface IPropsBase extends IInputCommon {
     maxLength?: number;
     placeholder?: string;
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
-    'data-test-id': string;
+    'data-test-id'?: string;
 }
 
 interface IPropsText extends IPropsBase {

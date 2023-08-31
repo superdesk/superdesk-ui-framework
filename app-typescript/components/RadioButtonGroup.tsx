@@ -23,6 +23,7 @@ interface IProps {
     required?: boolean;
     tabindex?: number;
     onChange(nextValue: string): void;
+    'data-test-id'?: string;
 }
 
 export class RadioButtonGroup extends React.Component<IProps> {
@@ -50,7 +51,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
         return (
             <React.Fragment>
                 {!this.props.group?.groupLabel ?
-                    <div role="radiogroup" className={classes} aria-labelledby={this.props.group?.groupLabelledBy}>{
+                    <div role="radiogroup" className={classes} aria-labelledby={this.props.group?.groupLabelledBy} data-test-id={this.props['data-test-id']}>{
                         this.props.options.map((item: any, index: number) => (
                             <span className="sd-check-button sd-check-button--native"
                                 key={index}
@@ -76,7 +77,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
                     }</div>
                 : null }
                 {this.props.group?.groupLabel ?
-                    <div className='sd-check-button__group-wrapper'>
+                    <div className='sd-check-button__group-wrapper' data-test-id={this.props['data-test-id']}>
 
                         <FormLabel forId={this.htmlId + 'group'} text={this.props.group.groupLabel} />
                         <div role="radiogroup" id={this.htmlId + 'group'} className={classes}>{

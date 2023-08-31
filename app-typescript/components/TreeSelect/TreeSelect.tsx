@@ -704,7 +704,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     onClick={() => {
                                         this.setState({openDropdown: !this.state.openDropdown});
                                     }}
-                                    data-test-id={this.props['data-test-id']}
+                                    data-test-id={this.state.openDropdown ? undefined : this.props['data-test-id']}
                                 />
                             }
 
@@ -778,7 +778,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                 {createPortal(
                     this.state.openDropdown
-                        && <div id='TREESELECT_DROPDOWN'>
+                        && <div id='TREESELECT_DROPDOWN' data-test-id={this.props['data-test-id']}>
                             <div
                                 className={
                                     "autocomplete autocomplete--multi-select"
@@ -823,6 +823,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                     return;
                                                 }
                                             }}
+                                            data-test-id="filter-input"
                                         />
                                     </div>
                                 </div>
@@ -860,6 +861,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             ? <ul
                                                 className="suggestion-list suggestion-list--multi-select"
                                                 ref={this.ref}
+                                                data-test-id="options"
                                             >
                                                 {this.state.options.map((option, i: React.Key | undefined) => {
                                                     let selectedItem = this.state.value.some((obj) =>
