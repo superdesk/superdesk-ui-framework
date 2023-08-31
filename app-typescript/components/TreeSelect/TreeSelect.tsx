@@ -509,7 +509,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 ? this.props.optionTemplate(item.value)
                                 : (
                                     <span
-                                        className={selectedItem ? 'suggestion-item--disabled' : undefined}
+                                        className={selectedItem ? 'suggestion-item--selected' : undefined}
                                     >
                                         {this.props.getLabel(item.value)}
                                     </span>

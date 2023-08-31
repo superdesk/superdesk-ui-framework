@@ -4,7 +4,7 @@ const getButtonList = (menuRef: HTMLUListElement | undefined): Array<HTMLButtonE
 
     if (list != null) {
         [...list].filter((item) => {
-            if (item.querySelectorAll('.suggestion-item--btn').length > 0) {
+            if (item.querySelectorAll('.suggestion-item--btn:not([disabled])').length > 0) {
                 buttons.push(item.querySelector('.suggestion-item--btn') as HTMLButtonElement);
             }
         });

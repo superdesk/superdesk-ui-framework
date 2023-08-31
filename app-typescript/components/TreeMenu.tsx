@@ -39,6 +39,7 @@ interface IParent<T> {
 
 interface IChildren<T> {
     value: T;
+    disabled?: boolean;
     onSelect(): void;
 }
 
@@ -97,7 +98,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     listNavigation = () => {
-        const element: HTMLElement = document.querySelector('.suggestion-item--btn') as HTMLElement;
+        const element: HTMLElement = document.querySelector('.suggestion-item--btn:not([disabled])') as HTMLElement;
         element.focus();
     }
 
@@ -189,7 +190,8 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             if (this.inputRef.current) {
                 this.inputFocus();
             } else {
-                const element: HTMLElement = document.querySelector('.suggestion-item--btn') as HTMLElement;
+                const element: HTMLElement
+                    = document.querySelector('.suggestion-item--btn:not([disabled])') as HTMLElement;
                 element.focus();
             }
         } else {
@@ -240,8 +242,11 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             });
         }
 
-        const element: HTMLElement = document.querySelector('.suggestion-item--btn') as HTMLElement;
-        element.focus();
+        setTimeout(() => {
+            const element: HTMLElement
+                = document.querySelectorAll('.suggestion-item--btn:not([disabled])')[0] as HTMLButtonElement;
+            element.focus();
+        });
     }
 
     backButton(): void {
@@ -298,11 +303,18 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                     }
                 };
 
+                const disabledItem = (item) => {
+                    if (nodeCanBeSelected(item)) {
+                        return item.disabled;
+                    }
+                };
+
                 return (
                     <TreeSelectItem
                         key={i}
                         option={option}
                         handleTree={this.handleTree}
+                        disabledItem={disabledItem(option)}
                         getBorderColor={this.props.getBorderColor}
                         getBackgroundColor={this.props.getBackgroundColor}
                         getId={this.props.getId}
@@ -398,12 +410,19 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                                     }
                                                 };
 
+                                                const disabledItem = (item) => {
+                                                    if (nodeCanBeSelected(item)) {
+                                                        return item.disabled;
+                                                    }
+                                                };
+
                                                 return (
                                                     <TreeSelectItem
                                                         key={i}
                                                         option={option}
                                                         handleTree={this.handleTree}
                                                         onClick={onSelect(option)}
+                                                        disabledItem={disabledItem(option)}
                                                         getBorderColor={this.props.getBorderColor}
                                                         getBackgroundColor={this.props.getBackgroundColor}
                                                         getId={this.props.getId}

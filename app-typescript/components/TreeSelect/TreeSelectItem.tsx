@@ -10,6 +10,7 @@ export function getPrefixedItemId(id: string) {
 interface IProps<T> {
     option: ITreeNode<T>;
     selectedItem?: boolean;
+    disabledItem?: boolean;
     allowMultiple?: boolean;
     handleTree(event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeNode<T>): any;
     getLabel(item: T): string;
@@ -27,20 +28,26 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
             <li
                 className='suggestion-item suggestion-item--multi-select'
                 onClick={(event) => {
-                    this.props.onClick?.();
-                    event.preventDefault();
-                    event.stopPropagation();
-                    this.props.handleTree(event, this.props.option);
+                    if (!this.props.disabledItem) {
+                        this.props.onClick?.();
+                        event.preventDefault();
+                        event.stopPropagation();
+                        this.props.handleTree(event, this.props.option);
+                    }
                 }}
             >
                 <button
                     // the className is generated in order to focus the element later
-                    className={`suggestion-item--btn ${getPrefixedItemId(this.props.getId(this.props.option.value))}`}
+                    className={
+                        `suggestion-item--btn ${getPrefixedItemId(this.props.getId(this.props.option.value))}`
+                        + (this.props.disabledItem ? ' suggestion-item--disabled' : '')
+                    }
                     onKeyDown={(event) => {
                         if (event.key === 'Enter' && this.props.option.children) {
                             this.props.onKeyDown?.();
                         }
                     }}
+                    disabled={this.props.disabledItem}
                 >
                     {(this.props.getBorderColor && !this.props.allowMultiple)
                         && <div
@@ -55,7 +62,7 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                     <span
                         className={
                             'suggestion-item--bgcolor'
-                            + (this.props.selectedItem ? ' suggestion-item--disabled' : '')
+                            + (this.props.selectedItem ? ' suggestion-item--selected' : '')
                         }
                         style={
                             (this.props.getBackgroundColor && this.props.option.value)
