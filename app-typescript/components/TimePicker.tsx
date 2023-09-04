@@ -7,6 +7,7 @@ interface IProps extends IInputWrapper {
     value: string; // will output time as ISO8601 time string(e.g. 16:55) or an empty string if there's no value
     onChange(valueNext: string): void;
     allowSeconds?: boolean;
+    'data-test-id'?: string;
 }
 
 export class TimePicker extends React.PureComponent<IProps> {
@@ -46,6 +47,7 @@ export class TimePicker extends React.PureComponent<IProps> {
                     onChange={(event) => {
                         this.props.onChange(event.target.value);
                     }}
+                    data-test-id={this.props['data-test-id']}
                 />
             </InputWrapper>
         );

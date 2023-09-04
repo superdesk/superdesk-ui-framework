@@ -7,6 +7,7 @@ interface ITabs {
     children: Array<any>;
     onClick(i: number): void;
     initiallySelectedIndex?: number;
+    'data-test-id'?: string;
 }
 
 interface ITabLabel {
@@ -31,7 +32,8 @@ export const TabLabel = ({label}: ITabLabel) => {
     );
 };
 
-export const Tabs = ({initiallySelectedIndex, size, theme, ariaLabel, children, onClick}: ITabs) => {
+export const Tabs = (props: ITabs) => {
+    const {initiallySelectedIndex, size, theme, ariaLabel, children, onClick} = props;
     const [index, setIndex] = React.useState(initiallySelectedIndex ?? 0);
 
     function handleSelected(i: number) {
@@ -49,7 +51,12 @@ export const Tabs = ({initiallySelectedIndex, size, theme, ariaLabel, children, 
     });
 
     return (
-        <div className={classes} role='tablist' aria-label={ariaLabel ? ariaLabel : 'tabs'}>
+        <div
+            className={classes}
+            role='tablist'
+            aria-label={ariaLabel ? ariaLabel : 'tabs'}
+            data-test-id={props['data-test-id']}
+        >
             {
                 children.map((item, i) => (
                     <button
