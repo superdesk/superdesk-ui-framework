@@ -51,7 +51,12 @@ export class RadioButtonGroup extends React.Component<IProps> {
         return (
             <React.Fragment>
                 {!this.props.group?.groupLabel ?
-                    <div role="radiogroup" className={classes} aria-labelledby={this.props.group?.groupLabelledBy} data-test-id={this.props['data-test-id']}>{
+                    <div
+                        role="radiogroup"
+                        className={classes}
+                        aria-labelledby={this.props.group?.groupLabelledBy}
+                        data-test-id={this.props['data-test-id']}
+                    >{
                         this.props.options.map((item: any, index: number) => (
                             <span className="sd-check-button sd-check-button--native"
                                 key={index}
