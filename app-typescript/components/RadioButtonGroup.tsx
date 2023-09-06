@@ -70,8 +70,12 @@ export class RadioButtonGroup extends React.Component<IProps> {
                                     disabled={item.disabled}
                                     required={this.props.required}
                                     checked={item.value === this.props.value} />
-                                <label className="sd-check-button__text-label" htmlFor={this.htmlId + index}
-                                    aria-label={item.labelHidden ? item.label : undefined}>
+                                <label
+                                    className="sd-check-button__text-label"
+                                    htmlFor={this.htmlId + index}
+                                    aria-label={item.labelHidden ? item.label : undefined}
+                                    data-test-id="item"
+                                >
 
                                     { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }
                                     { !item.labelHidden || !item.icon ?
