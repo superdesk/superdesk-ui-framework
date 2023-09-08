@@ -371,7 +371,7 @@ tags-input,
             outline: none;
         }
 
-        &:hover {
+        &:hover:not([disabled]) {
             background-color: var(--sd-colour-interactive--alpha-10) !important;
         }
     }
@@ -384,15 +384,20 @@ tags-input,
         justify-content: center;
         align-items: center;
         border-radius: 99px;
-        white-space: nowrap;
+        white-space: normal;
 
         &[style*="background-color"] {
             padding-inline: 8px;
         }
     }
 
+    .suggestion-item--selected {
+        opacity: 0.5;
+    }
+
     .suggestion-item--disabled {
         opacity: 0.5;
+        cursor: default;
     }
 
     .suggestion-item--nothing-found {

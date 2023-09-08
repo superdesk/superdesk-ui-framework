@@ -62,6 +62,7 @@ import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import { SelectWithTemplateDocs } from './SelectWithTemplate';
 import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
+import { TreeMenuDocs } from './TreeMenu';
 import DurationInputDoc from './DurationInput';
 import {WithPaginationDocs} from './WithPaginationDocs';
 import { PopoverDoc } from './Popover';
@@ -123,6 +124,9 @@ const pages = {
             },
             'menu': {
                 name: 'Menu',
+            },
+            'treemenu': {
+                name: 'TreeMenu',
             },
             "drag-handle": {
                 name: 'Drag handle'
@@ -353,6 +357,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/with-size-observer" component={WithSizeObserverDocs} />
                         <Route path="/react/multiselect" component={MultiselectDocs} />
                         <Route path="/react/treeselect" component={TreeSelectDocs} />
+                        <Route path="/react/treemenu" component={TreeMenuDocs} />
                         <Route path="/react/duration-input" component={DurationInputDoc} />
                         <Route path="/react/with-pagination" component={WithPaginationDocs} />
                         <Route path="/react/popover" component={PopoverDoc} />
