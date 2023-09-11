@@ -42,7 +42,7 @@ export class Button extends React.PureComponent<IPropsButton> {
                 id={this.props.id}
                 className={classes}
                 tabIndex={0}
-                disabled={this.props.isLoading}
+                disabled={this.props.disabled || this.props.isLoading}
                 data-loading={this.props.isLoading}
                 onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
                 aria-label={this.props.iconOnly ? this.props.text : ''}
