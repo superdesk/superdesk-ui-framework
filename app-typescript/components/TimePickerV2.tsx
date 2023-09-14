@@ -1,8 +1,8 @@
-import {setSeconds} from 'date-fns/esm';
 import * as React from 'react';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
+import {range} from 'lodash';
 
 interface IProps extends IInputWrapper {
     value: string;
@@ -26,47 +26,49 @@ interface IState {
     value: string;
 }
 
-let hours = Array.from(Array(25).keys());
-let minutes = Array.from(Array(60).keys());
-let seconds = Array.from(Array(60).keys());
-
 export class TimePickerV2 extends React.PureComponent<IProps, IState> {
     private htmlId = nextId();
+    private hours = range(25);
+    private minutes = range(60);
+    private seconds = range(60);
 
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
         this.state = {
-            hoursOption: this.stringifyArray(hours, this.props.disableOptions.hours ?? []),
-            minutesOptions: this.stringifyArray(minutes, this.props.disableOptions.minutes ?? []),
-            secondsOptions: this.stringifyArray(seconds, this.props.disableOptions.seconds ?? []),
+            hoursOption: this.stringifyArray(this.hours, this.props.disableOptions.hours ?? []),
+            minutesOptions: this.stringifyArray(this.minutes, this.props.disableOptions.minutes ?? []),
+            secondsOptions: this.stringifyArray(this.seconds, this.props.disableOptions.seconds ?? []),
             hours: this.stateUpdate('hours', this.props.disableOptions.hours ?? []),
             minutes: this.stateUpdate('minutes', this.props.disableOptions.minutes ?? []),
             seconds: this.stateUpdate('seconds', this.props.disableOptions.seconds ?? []),
             value: '',
         };
 
-        this.zeroPad = this.zeroPad.bind(this);
+        this.handleChange = this.handleChange.bind(this);
         this.stateUpdate = this.stateUpdate.bind(this);
         this.stringifyArray = this.stringifyArray.bind(this);
+        this.setValue = this.setValue.bind(this);
+        this.zeroPad = this.zeroPad.bind(this);
     }
 
     stringifyArray(arr: Array<number>, disabledOptions: Array<number>): Array<string> {
-        let filteredArrWithDisabledOptions = arr.filter((item) => !disabledOptions?.includes(item));
-        return filteredArrWithDisabledOptions.map((value) => {
-            return this.zeroPad(value);
-        });
+        return arr
+            .filter((item) => !disabledOptions?.includes(item))
+            .map((value) => {
+                return this.zeroPad(value);
+            });
     }
 
     stateUpdate(state: string, disabledOption: Array<number>): string {
-        let niz = this.props.value.split(':');
+        const dividedValue = this.props.value.split(':');
         let value;
 
         if (state === 'hours') {
-            value = niz[0];
+            value = dividedValue[0];
         } else if (state === 'minutes') {
-            value = niz[1];
+            value = dividedValue[1];
         } else {
-            value = niz[2];
+            value = dividedValue[2];
         }
 
         if (!disabledOption?.includes(Number(value)) && value != null) {
@@ -87,6 +89,20 @@ export class TimePickerV2 extends React.PureComponent<IProps, IState> {
     }
 
     componentDidMount(): void {
+        this.setValue();
+    }
+
+    componentDidUpdate(_prevProps: Readonly<IProps>, prevState: Readonly<IState>): void {
+        if (
+            prevState.hours !== this.state.hours
+            || prevState.minutes !== this.state.minutes
+            || prevState.seconds !== this.state.seconds
+        ) {
+            this.setValue();
+        }
+    }
+
+    setValue() {
         if (this.props.allowSeconds) {
             this.setState({
                 value: `${this.state.hours}:${this.state.minutes}:${this.state.seconds}`,
@@ -98,33 +114,11 @@ export class TimePickerV2 extends React.PureComponent<IProps, IState> {
         }
     }
 
-    componentDidUpdate(_prevProps: Readonly<IProps>, prevState: Readonly<IState>): void {
-        if (
-            prevState.hours !== this.state.hours
-            || prevState.minutes !== this.state.minutes
-            || prevState.seconds !== this.state.seconds
-        ) {
-            if (this.props.allowSeconds) {
-                this.setState({
-                    value: `${this.state.hours}:${this.state.minutes}:${this.state.seconds}`,
-                });
-            } else {
-                this.setState({
-                    value: `${this.state.hours}:${this.state.minutes}`,
-                });
-            }
-        }
-    }
-
-    valueUpdate() {
-        setTimeout(() => this.props.onChange(this.state.value));
-    }
-
-    handleChange(event, state: 'hours' | 'minutes' | 'seconds') {
-        let stateClone = {};
-        stateClone[state] = event.target.value;
-        this.setState(stateClone);
-        this.valueUpdate();
+    handleChange(event: React.ChangeEvent<HTMLSelectElement>, state: 'hours' | 'minutes' | 'seconds') {
+        this.setState({[state]: event.target.value} as any);
+        setTimeout(() => {
+            this.props.onChange(this.state.value);
+        });
     }
 
     render() {
@@ -150,8 +144,8 @@ export class TimePickerV2 extends React.PureComponent<IProps, IState> {
                                 this.handleChange(event, 'hours');
                             }}
                         >
-                            {this.state.hoursOption.map((hour, index) => {
-                                return <option value={hour} key={index}>{hour}</option>;
+                            {this.state.hoursOption.map((hour) => {
+                                return <option value={hour} label={hour} key={hour} />;
                             })}
                         </select>
 
@@ -166,33 +160,31 @@ export class TimePickerV2 extends React.PureComponent<IProps, IState> {
                                 this.handleChange(event, 'minutes');
                             }}
                         >
-                            {this.state.minutesOptions.map((minute, index) => {
-                                return <option value={minute} key={index}>{minute}</option>;
+                            {this.state.minutesOptions.map((minute) => {
+                                return <option value={minute} label={minute} key={minute} />;
                             })}
                         </select>
 
                         <span className='time-picker-v2-suffix'>m</span>
                     </div>
 
-                    {this.props.allowSeconds
-                        && (
-                            <div className='input-wrapper__time-picker-v2'>
-                                <select
-                                    className='sd-input__select'
-                                    value={this.state.seconds}
-                                    onChange={(event) => {
-                                        this.handleChange(event, 'seconds');
-                                    }}
-                                >
-                                    {this.state.secondsOptions.map((second, index) => {
-                                        return <option value={second} key={index}>{second}</option>;
-                                    })}
-                                </select>
+                    {this.props.allowSeconds && (
+                        <div className='input-wrapper__time-picker-v2'>
+                            <select
+                                className='sd-input__select'
+                                value={this.state.seconds}
+                                onChange={(event) => {
+                                    this.handleChange(event, 'seconds');
+                                }}
+                            >
+                                {this.state.secondsOptions.map((second) => {
+                                    return <option value={second} label={second} key={second} />;
+                                })}
+                            </select>
 
-                                <span className='time-picker-v2-suffix'>s</span>
-                            </div>
-                        )
-                    }
+                            <span className='time-picker-v2-suffix'>s</span>
+                        </div>
+                    )}
                 </div>
             </InputWrapper>
         );
