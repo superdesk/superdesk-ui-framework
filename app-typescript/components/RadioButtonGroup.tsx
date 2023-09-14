@@ -48,6 +48,9 @@ export class RadioButtonGroup extends React.Component<IProps> {
             [`sd-check-button__group--grid`]: this.props.group?.grid,
             [`sd-check-button__group--padded`]: this.props.group?.padded === true,
         });
+
+        const selectedOption = this.props.value == null ? undefined : this.props.options.find(({value}) => value === this.props.value);
+
         return (
             <React.Fragment>
                 {!this.props.group?.groupLabel ?
@@ -56,6 +59,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
                         className={classes}
                         aria-labelledby={this.props.group?.groupLabelledBy}
                         data-test-id={this.props['data-test-id']}
+                        data-test-value={selectedOption == null ? undefined : selectedOption.label}
                     >{
                         this.props.options.map((item: any, index: number) => (
                             <span className="sd-check-button sd-check-button--native"
@@ -86,7 +90,11 @@ export class RadioButtonGroup extends React.Component<IProps> {
                     }</div>
                 : null }
                 {this.props.group?.groupLabel ?
-                    <div className='sd-check-button__group-wrapper' data-test-id={this.props['data-test-id']}>
+                    <div
+                        className='sd-check-button__group-wrapper'
+                        data-test-id={this.props['data-test-id']}
+                        data-test-value={selectedOption == null ? undefined : selectedOption.label}
+                    >
 
                         <FormLabel forId={this.htmlId + 'group'} text={this.props.group.groupLabel} />
                         <div role="radiogroup" id={this.htmlId + 'group'} className={classes}>{
