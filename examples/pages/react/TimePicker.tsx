@@ -36,10 +36,10 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
         super(props);
 
         this.state = {
-            time: '14:00',
+            time: '09:05',
         };
     }
-    
+
     render() {
         return (
             <section className="docs-page__container">
@@ -77,8 +77,8 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
                         <div className='docs-page__content-row'>
                             <TimePickerV2
                                 value={this.state.time}
-                                label='This is Label'                 
-                                disableOptions={{
+                                label='This is Label'
+                                disabledOptions={{
                                     minutes: changedMinutes,
                                 }}
                                 onChange={(time) => {
@@ -90,7 +90,7 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
                     <Markup.ReactMarkupCode>{`
                         <TimePickerV2
                             value={this.state.time}
-                            label='This is Label'                 
+                            label='This is Label'
                             disableOptions={{
                                 minutes: changedMinutes,
                             }}
@@ -99,7 +99,7 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
                             }}
                         />
                     `}</Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>                
+                </Markup.ReactMarkup>
 
                 <h3 className='docs-page__h3'>Props</h3>
                 <PropsList>
