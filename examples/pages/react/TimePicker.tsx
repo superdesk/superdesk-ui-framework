@@ -36,7 +36,7 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
         super(props);
 
         this.state = {
-            time: '09:05',
+            time: '14:00',
         };
     }
 
@@ -82,9 +82,9 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
                                     minutes: changedMinutes,
                                 }}
                                 onChange={(time) => {
-                                    this.setState({time})
-                                }}
-                              />
+                                    this.setState({time});
+                                }}     
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`

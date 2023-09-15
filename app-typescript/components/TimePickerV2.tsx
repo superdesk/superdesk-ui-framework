@@ -6,7 +6,6 @@ import {range} from 'lodash';
 
 interface IProps extends IInputWrapper {
     value: string;
-    onChange(valueNext: string): void;
     allowSeconds?: boolean;
     disabledOptions: {
         hours?: Array<number>;
@@ -14,6 +13,7 @@ interface IProps extends IInputWrapper {
         seconds?: Array<number>;
     };
     'data-test-id'?: string;
+    onChange(valueNext: string): void;
 }
 
 type ITimeUnit = 'hours' | 'minutes' | 'seconds';
@@ -29,16 +29,16 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
 
         this.handleChangeForTimeUnit = this.handleChangeForTimeUnit.bind(this);
         this.stringifyArray = this.stringifyArray.bind(this);
-        this.numberToTimeString = this.numberToTimeString.bind(this);
+        this.zeroPad = this.zeroPad.bind(this);
     }
 
     stringifyArray(array: Array<number>, timeUnit: ITimeUnit): Array<string> {
         return array
             .filter((item) => !(this.props.disabledOptions[timeUnit] ?? []).includes(item))
-            .map((value) => this.numberToTimeString(value));
+            .map((value) => this.zeroPad(value));
     }
 
-    numberToTimeString(value: number) {
+    zeroPad(value: number) {
         if (value.toString().length === 1 || value === 0) {
             return `0${value}`;
         } else if (!value) {
@@ -48,32 +48,59 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         }
     }
 
+    updateValue(timeUnit: ITimeUnit, stringifyArr: Array<string>): string {
+        const dividedValue = this.props.value.split(':');
+        let value;
+
+        if (timeUnit === 'hours') {
+            value = dividedValue[0];
+        } else if (timeUnit === 'minutes') {
+            value = dividedValue[1];
+        } else {
+            value = dividedValue[2];
+        }
+
+        if (!this.props.disabledOptions[timeUnit]?.includes(Number(value)) && value != null) {
+            return value;
+        } else {
+            return stringifyArr[0];
+        }
+    }
+
+    componentDidMount(): void {
+        if (this.props.allowSeconds) {
+            this.props.onChange(`${this.updateValue('hours', this.hoursStringified)}:${this.updateValue('minutes', this.minutesStringified)}:${this.updateValue('seconds', this.secondsStringified)}`);
+        } else {
+            this.props.onChange(`${this.updateValue('hours', this.hoursStringified)}:${this.updateValue('minutes', this.minutesStringified)}`);
+        }
+    }
+
     handleChangeForTimeUnit(value: string, timeUnit: ITimeUnit) {
-        const timeUnitValuesArray = this.props.value.split(':')
+        const timeUnitValuesArray = this.props.value.split(':');
 
         switch (timeUnit) {
             case 'hours':
                 this.props.onChange(
                     this.props.allowSeconds
                         ? `${value}:${timeUnitValuesArray[1]}:${timeUnitValuesArray[2]}`
-                        : `${value}:${timeUnitValuesArray[1]}`
-                )
+                        : `${value}:${timeUnitValuesArray[1]}`,
+                );
                 break;
             case 'minutes':
                 this.props.onChange(
                     this.props.allowSeconds
                         ? `${timeUnitValuesArray[0]}:${value}:${timeUnitValuesArray[2]}`
-                        : `${timeUnitValuesArray[0]}:${value}`
-                )
+                        : `${timeUnitValuesArray[0]}:${value}`,
+                );
                 break;
             case 'seconds':
-                this.props.onChange(`${timeUnitValuesArray[0]}:${timeUnitValuesArray[1]}:${value}`)
+                this.props.onChange(`${timeUnitValuesArray[0]}:${timeUnitValuesArray[1]}:${value}`);
                 break;
         }
     }
 
     render() {
-        const timeUnitValuesArray = this.props.value.split(':')
+        const timeUnitValuesArray = this.props.value.split(':');
 
         return (
             <InputWrapper
@@ -97,7 +124,9 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                 this.handleChangeForTimeUnit(target.value, 'hours');
                             }}
                         >
-                            {this.hoursStringified.map((hour) => <option value={hour} label={hour} key={hour} />)}
+                            {this.hoursStringified.map((hour) => (
+                                <option value={hour} label={hour} key={hour} />
+                            ))}
                         </select>
                         <span className='time-picker-v2-suffix'>:</span>
                     </div>
@@ -109,9 +138,11 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                 this.handleChangeForTimeUnit(target.value, 'minutes');
                             }}
                         >
-                            {this.minutesStringified.map((minute) => <option value={minute} label={minute} key={minute} />)}
+                            {this.minutesStringified.map((minute) => (
+                                <option value={minute} label={minute} key={minute} />
+                            ))}
                         </select>
-                        <span className='time-picker-v2-suffix'>:</span>
+                        {this.props.allowSeconds && (<span className='time-picker-v2-suffix'>:</span>)}
                     </div>
                     {this.props.allowSeconds && (
                         <div className='input-wrapper__time-picker-v2'>
@@ -122,7 +153,9 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                     this.handleChangeForTimeUnit(target.value, 'seconds');
                                 }}
                             >
-                                {this.secondsStringified.map((second) => <option value={second} label={second} key={second} />)}
+                                {this.secondsStringified.map((second) => (
+                                    <option value={second} label={second} key={second} />
+                                ))}
                             </select>
                         </div>
                     )}
