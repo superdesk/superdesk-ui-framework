@@ -48,6 +48,7 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                         }
                     }}
                     disabled={this.props.disabledItem}
+                    data-test-id="option"
                 >
                     {(this.props.getBorderColor && !this.props.allowMultiple)
                         && <div
