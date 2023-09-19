@@ -13,7 +13,16 @@ interface IProps {
     contentBg?: 'default' | 'medium' | 'dark';
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
     size?: 'small' | 'medium' | 'large' | 'x-large';
-    position?: "center" | "top" | "bottom" | "left" | "right" | "top-left" | "top-right" | "bottom-left" | "bottom-right";
+    position?:
+        "center"
+        | "top"
+        | "bottom"
+        | "left"
+        | "right"
+        | "top-left"
+        | "top-right"
+        | "bottom-left"
+        | "bottom-right";
     maximized?: boolean;
     maximizable?: boolean;
     headerTemplate?: JSX.Element | string;

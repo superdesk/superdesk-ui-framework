@@ -41,7 +41,10 @@ export class TagInput extends React.Component<IProps> {
                 tabindex={this.props.tabindex}
             >
                 <Chips
-                    className={`tags-input--multi-select sd-input__input ${this.props.disabled ? ' tags-input__padding-disabled' : ''}`}
+                    className={`
+                        tags-input--multi-select sd-input__input
+                        ${this.props.disabled ? ' tags-input__padding-disabled' : ''}`
+                    }
                     allowDuplicate={false}
                     separator=","
                     onChange={(event) => onChange(event.value)}

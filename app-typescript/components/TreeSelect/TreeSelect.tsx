@@ -629,7 +629,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 tabindex={this.props.tabindex}
             >
                 <div
-                    className={`tags-input sd-input__input tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'}`}
+                    className={`
+                        tags-input sd-input__input
+                        tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'}`
+                    }
                     ref={this.treeSelectRef}
                 >
                     {this.props.allowMultiple
@@ -637,7 +640,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             {this.props.readOnly
                                 || <button
                                     ref={this.openDropdownRef}
-                                    className={`tags-input__add-button ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}`}
+                                    className={`
+                                        tags-input__add-button
+                                        ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}`
+                                    }
                                     onClick={(e) => {
                                         e.stopPropagation();
 
