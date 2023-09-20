@@ -83,7 +83,7 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
                                 }}
                                 onChange={(time) => {
                                     this.setState({time});
-                                }}     
+                                }}
                             />
                         </div>
                     </Markup.ReactMarkupPreview>

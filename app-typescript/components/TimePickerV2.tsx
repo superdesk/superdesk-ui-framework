@@ -1,8 +1,7 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
-import {range} from 'lodash';
+import {padStart, range} from 'lodash';
 
 interface IProps extends IInputWrapper {
     value: string;
@@ -19,84 +18,49 @@ interface IProps extends IInputWrapper {
 type ITimeUnit = 'hours' | 'minutes' | 'seconds';
 
 export class TimePickerV2 extends React.PureComponent<IProps> {
-    private htmlId = nextId();
-    private hoursStringified = this.stringifyArray(range(25), 'hours');
-    private minutesStringified = this.stringifyArray(range(60), 'minutes');
-    private secondsStringified = this.stringifyArray(range(60), 'seconds');
-
     constructor(props: IProps) {
         super(props);
 
-        this.handleChangeForTimeUnit = this.handleChangeForTimeUnit.bind(this);
-        this.stringifyArray = this.stringifyArray.bind(this);
-        this.zeroPad = this.zeroPad.bind(this);
+        this.handleTimeChange = this.handleTimeChange.bind(this);
+        this.updateTime = this.updateTime.bind(this);
     }
 
-    stringifyArray(array: Array<number>, timeUnit: ITimeUnit): Array<string> {
-        return array
-            .filter((item) => !(this.props.disabledOptions[timeUnit] ?? []).includes(item))
-            .map((value) => this.zeroPad(value));
-    }
-
-    zeroPad(value: number) {
-        if (value.toString().length === 1 || value === 0) {
-            return `0${value}`;
-        } else if (!value) {
-            return '00';
-        } else {
-            return value.toString();
-        }
-    }
-
-    updateValue(timeUnit: ITimeUnit, stringifyArr: Array<string>): string {
+    updateTime(timeUnit: ITimeUnit, timeStringArray: Array<string>): string {
         const dividedValue = this.props.value.split(':');
-        let value;
+        const value = (() => {
+            if (timeUnit === 'hours') {
+                return dividedValue[0];
+            } else if (timeUnit === 'minutes') {
+                return dividedValue[1];
+            }
 
-        if (timeUnit === 'hours') {
-            value = dividedValue[0];
-        } else if (timeUnit === 'minutes') {
-            value = dividedValue[1];
-        } else {
-            value = dividedValue[2];
-        }
+            return dividedValue[2];
+        })();
 
         if (!this.props.disabledOptions[timeUnit]?.includes(Number(value)) && value != null) {
             return value;
-        } else {
-            return stringifyArr[0];
         }
+
+        return timeStringArray[0];
+    }
+
+    getTimeUnitToStringArray(timeUnit: ITimeUnit) {
+        return (timeUnit === 'hours' ? range(25) : range(60))
+            .filter((item) => !(this.props.disabledOptions[timeUnit] ?? []).includes(item))
+            .map((value) => padStart(value.toString(), 2, '0'));
     }
 
     componentDidMount(): void {
-        if (this.props.allowSeconds) {
-            this.props.onChange(`${this.updateValue('hours', this.hoursStringified)}:${this.updateValue('minutes', this.minutesStringified)}:${this.updateValue('seconds', this.secondsStringified)}`);
-        } else {
-            this.props.onChange(`${this.updateValue('hours', this.hoursStringified)}:${this.updateValue('minutes', this.minutesStringified)}`);
-        }
+        const timeString = `${this.updateTime('hours', this.getTimeUnitToStringArray('hours'))}:${this.updateTime('minutes', this.getTimeUnitToStringArray('minutes'))}${this.props.allowSeconds && `:${this.updateTime('seconds', this.getTimeUnitToStringArray('seconds'))}`}`
+
+        this.props.onChange(timeString);
     }
 
-    handleChangeForTimeUnit(value: string, timeUnit: ITimeUnit) {
-        const timeUnitValuesArray = this.props.value.split(':');
+    handleTimeChange(index: number, newValue: string) {
+        let current = this.props.value.split(':');
+        current[index] = newValue;
 
-        switch (timeUnit) {
-            case 'hours':
-                this.props.onChange(
-                    this.props.allowSeconds
-                        ? `${value}:${timeUnitValuesArray[1]}:${timeUnitValuesArray[2]}`
-                        : `${value}:${timeUnitValuesArray[1]}`,
-                );
-                break;
-            case 'minutes':
-                this.props.onChange(
-                    this.props.allowSeconds
-                        ? `${timeUnitValuesArray[0]}:${value}:${timeUnitValuesArray[2]}`
-                        : `${timeUnitValuesArray[0]}:${value}`,
-                );
-                break;
-            case 'seconds':
-                this.props.onChange(`${timeUnitValuesArray[0]}:${timeUnitValuesArray[1]}:${value}`);
-                break;
-        }
+        this.props.onChange(current.join(':'))
     }
 
     render() {
@@ -112,7 +76,6 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                 info={this.props.info}
                 inlineLabel={this.props.inlineLabel}
                 labelHidden={this.props.labelHidden}
-                htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
             >
                 <div className='sd__input__time-picker-v2' data-test-id={this.props['data-test-id']}>
@@ -121,10 +84,10 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                             className='sd-input__select'
                             value={timeUnitValuesArray[0]}
                             onChange={({target}) => {
-                                this.handleChangeForTimeUnit(target.value, 'hours');
+                                this.handleTimeChange(0, target.value);
                             }}
                         >
-                            {this.hoursStringified.map((hour) => (
+                            {this.getTimeUnitToStringArray('hours').map((hour) => (
                                 <option value={hour} label={hour} key={hour} />
                             ))}
                         </select>
@@ -135,10 +98,10 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                             className='sd-input__select'
                             value={timeUnitValuesArray[1]}
                             onChange={({target}) => {
-                                this.handleChangeForTimeUnit(target.value, 'minutes');
+                                this.handleTimeChange(1, target.value);
                             }}
                         >
-                            {this.minutesStringified.map((minute) => (
+                            {this.getTimeUnitToStringArray('minutes').map((minute) => (
                                 <option value={minute} label={minute} key={minute} />
                             ))}
                         </select>
@@ -150,10 +113,10 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                 className='sd-input__select'
                                 value={timeUnitValuesArray[2]}
                                 onChange={({target}) => {
-                                    this.handleChangeForTimeUnit(target.value, 'seconds');
+                                    this.handleTimeChange(2, target.value);
                                 }}
                             >
-                                {this.secondsStringified.map((second) => (
+                                {this.getTimeUnitToStringArray('seconds').map((second) => (
                                     <option value={second} label={second} key={second} />
                                 ))}
                             </select>
