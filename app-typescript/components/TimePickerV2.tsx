@@ -26,6 +26,9 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         this.getOptionsForTimeUnit = this.getOptionsForTimeUnit.bind(this);
     }
 
+    /**
+     * in case initial time is not valid according to disabled options, we return first valid option
+     */
     private getCorrectedTime(timeUnit: ITimeUnit, timeStringArray: Array<string>): string {
         const dividedValue = this.props.value.split(':');
         const value = (() => {
