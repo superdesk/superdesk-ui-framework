@@ -4,7 +4,7 @@ import {IInputWrapper} from './Form/InputWrapper';
 import {padStart, range} from 'lodash';
 
 interface IProps extends IInputWrapper {
-    value: string;
+    value: string; // ISO 8601, 13:59:01
     allowSeconds?: boolean;
     disabledOptions: {
         hours?: Array<number>;
@@ -22,10 +22,11 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         super(props);
 
         this.handleTimeChange = this.handleTimeChange.bind(this);
-        this.updateTime = this.updateTime.bind(this);
+        this.getCorrectedTime = this.getCorrectedTime.bind(this);
+        this.getOptionsForTimeUnit = this.getOptionsForTimeUnit.bind(this);
     }
 
-    updateTime(timeUnit: ITimeUnit, timeStringArray: Array<string>): string {
+    private getCorrectedTime(timeUnit: ITimeUnit, timeStringArray: Array<string>): string {
         const dividedValue = this.props.value.split(':');
         const value = (() => {
             if (timeUnit === 'hours') {
@@ -37,30 +38,37 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
             return dividedValue[2];
         })();
 
-        if (!this.props.disabledOptions[timeUnit]?.includes(Number(value)) && value != null) {
+        if (!(this.props.disabledOptions[timeUnit] ?? []).includes(parseInt(value, 10)) && value != null) {
             return value;
         }
 
         return timeStringArray[0];
     }
 
-    getTimeUnitToStringArray(timeUnit: ITimeUnit) {
-        return (timeUnit === 'hours' ? range(25) : range(60))
+    private getOptionsForTimeUnit(timeUnit: ITimeUnit): Array<string> {
+        return (timeUnit === 'hours' ? range(24) : range(60))
             .filter((item) => !(this.props.disabledOptions[timeUnit] ?? []).includes(item))
             .map((value) => padStart(value.toString(), 2, '0'));
     }
 
-    componentDidMount(): void {
-        const timeString = `${this.updateTime('hours', this.getTimeUnitToStringArray('hours'))}:${this.updateTime('minutes', this.getTimeUnitToStringArray('minutes'))}${this.props.allowSeconds && `:${this.updateTime('seconds', this.getTimeUnitToStringArray('seconds'))}`}`
-
-        this.props.onChange(timeString);
-    }
-
-    handleTimeChange(index: number, newValue: string) {
+    private handleTimeChange(index: number, newValue: string) {
         let current = this.props.value.split(':');
         current[index] = newValue;
 
         this.props.onChange(current.join(':'))
+    }
+
+    componentDidMount(): void {
+        const correctedTime = [
+            this.getCorrectedTime('hours', this.getOptionsForTimeUnit('hours')),
+            ':',
+            this.getCorrectedTime('minutes', this.getOptionsForTimeUnit('minutes')),
+            this.props.allowSeconds ? `:${this.getCorrectedTime('seconds', this.getOptionsForTimeUnit('seconds'))}` : '',
+        ].join('');
+
+        if (this.props.value !== correctedTime) {
+            this.props.onChange(correctedTime);
+        }
     }
 
     render() {
@@ -87,7 +95,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                 this.handleTimeChange(0, target.value);
                             }}
                         >
-                            {this.getTimeUnitToStringArray('hours').map((hour) => (
+                            {this.getOptionsForTimeUnit('hours').map((hour) => (
                                 <option value={hour} label={hour} key={hour} />
                             ))}
                         </select>
@@ -101,7 +109,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                 this.handleTimeChange(1, target.value);
                             }}
                         >
-                            {this.getTimeUnitToStringArray('minutes').map((minute) => (
+                            {this.getOptionsForTimeUnit('minutes').map((minute) => (
                                 <option value={minute} label={minute} key={minute} />
                             ))}
                         </select>
@@ -116,7 +124,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                     this.handleTimeChange(2, target.value);
                                 }}
                             >
-                                {this.getTimeUnitToStringArray('seconds').map((second) => (
+                                {this.getOptionsForTimeUnit('seconds').map((second) => (
                                     <option value={second} label={second} key={second} />
                                 ))}
                             </select>
