@@ -20,13 +20,18 @@ type IMeridiem = 'AM' | 'PM';
 
 export class TimePickerV2 extends React.PureComponent<IProps> {
     private timeFormat: IMeridiem;
+    private is12HourFormat: boolean;
+
     constructor(props: IProps) {
         super(props);
 
         this.handleTimeChange = this.handleTimeChange.bind(this);
         this.getCorrectedTime = this.getCorrectedTime.bind(this);
         this.getOptionsForTimeUnit = this.getOptionsForTimeUnit.bind(this);
-        this.is12HourFormat = this.is12HourFormat.bind(this);
+        this.updateAmPmValue = this.updateAmPmValue.bind(this);
+
+        const hour = new Date().toLocaleTimeString([], { hour: 'numeric' });
+        this.is12HourFormat = hour.includes('AM') || hour.includes('PM');
 
         this.timeFormat = 'AM';
     }
@@ -57,7 +62,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         let format12HourArr = range(1, 13);
         format12HourArr.unshift(format12HourArr.pop() as number);
 
-        return (timeUnit === 'hours' ? this.is12HourFormat() ? format12HourArr : range(24) : range(60))
+        return (timeUnit === 'hours' ? this.is12HourFormat ? format12HourArr : range(24) : range(60))
             .filter((item) => !(this.props.disabledOptions[timeUnit] ?? []).includes(item))
             .map((value) => padStart(value.toString(), 2, '0'));
     }
@@ -65,15 +70,23 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
     private handleTimeChange(index: number, newValue: string) {
         let current = this.props.value.split(':');
 
-        let update12HourValue = this.timeFormat === 'PM'
-            ? newValue === '12'
-                ? newValue
-                : (Number(newValue) + 12).toString()
-            : newValue === '12'
-                ? '00'
-                : newValue;
+        const updated12HourValue = (() => {
+            if (this.timeFormat === 'PM') {
+                if (newValue === '12') {
+                    return newValue;
+                } else {
+                    return (parseInt(newValue) + 12).toString()
+                }
+            } else {
+                if (newValue === '12') {
+                    return '00'
+                } else {
+                    return newValue
+                }
+            }
+        })();
 
-        current[index] = this.is12HourFormat() ? update12HourValue : newValue;
+        current[index] = this.is12HourFormat ? updated12HourValue : newValue;
 
         this.props.onChange(current.join(':'));
     }
@@ -93,10 +106,8 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         }
     }
 
-    is12HourFormat(): boolean {
-        const hour = new Date().toLocaleTimeString([], { hour: 'numeric' });
-        const is12HourFormat = hour.includes('AM') || hour.includes('PM');
-        return !is12HourFormat ? true : false;
+    updateAmPmValue(value: number) {
+        return padStart((value).toString(), 2, '0');
     }
 
     render() {
@@ -105,11 +116,11 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         /**
         * updating the initial value from props
         */
-        if (this.is12HourFormat()) {
-            if (Number(timeUnitValuesArray[0]) > 12) {
+        if (this.is12HourFormat) {
+            if (parseInt(timeUnitValuesArray[0]) > 12) {
                 this.timeFormat = 'PM';
-                timeUnitValuesArray[0] = padStart((Number(timeUnitValuesArray[0]) - 12).toString(), 2, '0');
-            } else if (Number(timeUnitValuesArray[0]) === 12) {
+                timeUnitValuesArray[0] = this.updateAmPmValue(parseInt(timeUnitValuesArray[0]) - 12);
+            } else if (parseInt(timeUnitValuesArray[0]) === 12) {
                 this.timeFormat = 'PM';
             }
         }
@@ -170,7 +181,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                             </select>
                         </div>
                     )}
-                    {this.is12HourFormat() && (
+                    {this.is12HourFormat && (
                         <div className='input-wrapper__time-picker-v2'>
                             <span className='time-picker-v2-suffix' />
                             <select
@@ -182,16 +193,16 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                     let splitValue = this.props.value.split(':');
 
                                     if (target.value === 'PM') {
-                                        splitValue[0] = padStart((Number(splitValue[0]) + 12).toString(), 2, '0');
+                                        splitValue[0] = this.updateAmPmValue(parseInt(splitValue[0]) + 12);
                                     } else {
-                                        splitValue[0] = padStart((Number(splitValue[0]) - 12).toString(), 2, '0');
+                                        splitValue[0] = this.updateAmPmValue(parseInt(splitValue[0]) - 12);
                                     }
 
                                     this.props.onChange(splitValue.join(':'));
                                 }}
                             >
-                                <option value={'AM'} label={'AM'} />
-                                <option value={'PM'} label={'PM'} />
+                                <option value='AM' label='AM' />
+                                <option value='PM' label='PM' />
                             </select>
                         </div>
                     )}
