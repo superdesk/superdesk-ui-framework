@@ -75,13 +75,13 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                 if (newValue === '12') {
                     return newValue;
                 } else {
-                    return (parseInt(newValue) + 12).toString()
+                    return (parseInt(newValue, 10) + 12).toString();
                 }
             } else {
                 if (newValue === '12') {
-                    return '00'
+                    return '00';
                 } else {
-                    return newValue
+                    return newValue;
                 }
             }
         })();
@@ -117,10 +117,10 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         * updating the initial value from props
         */
         if (this.is12HourFormat) {
-            if (parseInt(timeUnitValuesArray[0]) > 12) {
+            if (parseInt(timeUnitValuesArray[0], 10) > 12) {
                 this.timeFormat = 'PM';
-                timeUnitValuesArray[0] = this.updateAmPmValue(parseInt(timeUnitValuesArray[0]) - 12);
-            } else if (parseInt(timeUnitValuesArray[0]) === 12) {
+                timeUnitValuesArray[0] = this.updateAmPmValue(parseInt(timeUnitValuesArray[0], 10) - 12);
+            } else if (parseInt(timeUnitValuesArray[0], 10) === 12) {
                 this.timeFormat = 'PM';
             }
         }
@@ -193,9 +193,9 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                     let splitValue = this.props.value.split(':');
 
                                     if (target.value === 'PM') {
-                                        splitValue[0] = this.updateAmPmValue(parseInt(splitValue[0]) + 12);
+                                        splitValue[0] = this.updateAmPmValue(parseInt(splitValue[0], 10) + 12);
                                     } else {
-                                        splitValue[0] = this.updateAmPmValue(parseInt(splitValue[0]) - 12);
+                                        splitValue[0] = this.updateAmPmValue(parseInt(splitValue[0], 10) - 12);
                                     }
 
                                     this.props.onChange(splitValue.join(':'));
