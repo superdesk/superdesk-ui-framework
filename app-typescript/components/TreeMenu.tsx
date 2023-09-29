@@ -463,6 +463,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                             </ul>
                         }
                     </div>
+                </WithPortal>
             </div>
         );
     }
