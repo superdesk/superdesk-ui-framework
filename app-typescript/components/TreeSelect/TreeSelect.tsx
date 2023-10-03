@@ -513,7 +513,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             this.handleValue(event, item);
                         }}
                     >
-                        <button className="suggestion-item--btn">
+                        <button className="suggestion-item--btn" data-test-id="option">
                             {this.props.optionTemplate
                                 ? this.props.optionTemplate(item.value)
                                 : (
@@ -635,6 +635,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                data-test-id={this.props['data-test-id']}
             >
                 <div
                     className={`
@@ -643,6 +644,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         }
                     `}
                     ref={this.treeSelectRef}
+                    data-test-id={this.props.allowMultiple ? undefined : 'open-popover'}
                 >
                     {this.props.allowMultiple
                         ? <div className="tags-input__tags">
@@ -663,6 +665,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             });
                                         }
                                     }}
+                                    data-test-id="open-popover"
                                 >
                                     <i className="icon-plus-large"></i>
                                 </button>
@@ -723,7 +726,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     onClick={() => {
                                         this.setState({openDropdown: !this.state.openDropdown});
                                     }}
-                                    data-test-id={this.state.openDropdown ? undefined : this.props['data-test-id']}
                                 />
                             }
 
@@ -767,14 +769,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             <span
                                                 className={backgroundColor && `tags-input__tag-item`}
                                                 style={{backgroundColor, margin: 0}}
+                                                data-test-id="item"
                                             >
                                                 {children}
                                             </span>
 
-                                            {this.props.readOnly
-                                                || <span className="tags-input__remove-button">
-                                                    <Icon name='remove-sign'></Icon>
-                                                </span>
+                                            {
+                                                (this.props.readOnly !== true && this.props.required !== true) && (
+                                                    <span className="tags-input__remove-button" data-test-id="clear-value">
+                                                        <Icon name='remove-sign'></Icon>
+                                                    </span>
+                                                )
                                             }
                                         </span>
                                     </span>

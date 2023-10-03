@@ -27,6 +27,7 @@ interface IPropsBase extends IInputWrapper {
     value?: string | number;
     htmlId?: string;
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
+    'data-test-id'?: string;
 }
 
 interface IState {
@@ -61,7 +62,7 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
         });
 
         return (
-            <div className={classes}>
+            <div className={classes} data-test-id={this.props['data-test-id']}>
                 <label
                     className={labelClasses}
                     htmlFor={this.props.htmlId}
