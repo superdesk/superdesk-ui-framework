@@ -2,9 +2,7 @@ import * as React from "react";
 import {createPortal} from 'react-dom';
 
 interface IProps {
-    container: Element;
-    openDropdown: boolean;
-    id: string;
+    active: boolean;
     'data-test-id'?: string;
 }
 
@@ -37,21 +35,14 @@ export class WithPortal extends React.Component<IProps> {
     render() {
         return (
             <div ref={this.ref}>
-                {
-                    this.props.openDropdown
-                    && (
-                        createPortal(
-                            <div
-                                id={this.props.id}
-                                data-test-id={this.props['data-test-id']}
-                                data-theme={this.dataTheme}
-                            >
-                                {this.props.children}
-                            </div>,
-                            this.props.container,
-                        )
+                {this.props.active && (
+                    createPortal(
+                        <div data-theme={this.dataTheme} data-test-id={this.props['data-test-id']}>
+                            {this.props.children}
+                        </div>,
+                        document.body,
                     )
-                }
+                )}
             </div>
         );
     }

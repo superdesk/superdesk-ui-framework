@@ -349,12 +349,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                     {this.props.children(this.toggle)}
                 </div>
 
-                <WithPortal
-                    openDropdown={this.state.openDropdown}
-                    container={document.body}
-                    id='TREEMENU_DROPDOWN'
-                    data-test-id={this.props['data-test-id']}
-                >
+                <WithPortal active={this.state.openDropdown} data-test-id={this.props['data-test-id']}>
                     <div
                         ref={this.dropdownRef}
                         className="autocomplete autocomplete--multi-select autocomplete--fixed-width"

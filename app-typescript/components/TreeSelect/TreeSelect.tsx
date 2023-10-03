@@ -795,12 +795,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     }
                 </div>
 
-                <WithPortal
-                    openDropdown={this.state.openDropdown}
-                    container={document.body}
-                    id='TREESELECT_DROPDOWN'
-                    data-test-id={this.props['data-test-id']}
-                >
+                <WithPortal active={this.state.openDropdown} data-test-id={this.props['data-test-id']}>
                     <div
                         className={
                             "autocomplete autocomplete--multi-select"
