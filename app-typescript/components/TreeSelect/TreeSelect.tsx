@@ -764,7 +764,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                                             {
                                                 (this.props.readOnly !== true && this.props.required !== true) && (
-                                                    <span className="tags-input__remove-button" data-test-id="clear-value">
+                                                    <span
+                                                        className="tags-input__remove-button"
+                                                        data-test-id="clear-value"
+                                                    >
                                                         <Icon name='remove-sign'></Icon>
                                                     </span>
                                                 )
