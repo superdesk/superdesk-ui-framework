@@ -800,7 +800,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     }
                 </div>
 
-                <WithPortal active={this.state.openDropdown} data-test-id={this.props['data-test-id']}>
+                <WithPortal active={this.state.openDropdown} data-test-id="tree-select-popover">
                     <div
                         className={
                             "autocomplete autocomplete--multi-select"
