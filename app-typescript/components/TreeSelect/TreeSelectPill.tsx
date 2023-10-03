@@ -29,6 +29,7 @@ export class TreeSelectPill<T> extends React.Component<IProps<T>> {
                         : this.props.getBackgroundColor
                             && {backgroundColor: this.props.getBackgroundColor(this.props.item)}
                 }
+                data-test-id="item"
             >
                 <span
                     className="tags-input__helper-box"
@@ -42,7 +43,7 @@ export class TreeSelectPill<T> extends React.Component<IProps<T>> {
                     {this.props.children}
 
                     {!this.props.readOnly
-                        && <span className="tags-input__remove-button">
+                        && <span className="tags-input__remove-button" data-test-id="remove">
                             <Icon name="close-small"></Icon>
                         </span>
                     }
