@@ -36,6 +36,7 @@ interface IPropsBase<T> extends IInputWrapper {
     selectBranchWithChildren?: boolean;
     readOnly?: boolean;
     width?: string;
+    fullWidth?: boolean;
     allowMultiple?: boolean;
     loading?: boolean;
     singleLevelSearch?: boolean;
@@ -627,6 +628,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                fullWidth={this.props.fullWidth}
                 data-test-id={this.props['data-test-id']}
             >
                 <div
