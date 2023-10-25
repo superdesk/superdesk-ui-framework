@@ -35,7 +35,8 @@ interface IPropsBase<T> extends IInputWrapper {
     value?: Array<T>;
     selectBranchWithChildren?: boolean;
     readOnly?: boolean;
-    width?: string;
+    popoverWidth?: 'medium' | 'match-input';
+    inputWidth?: '100%';
     allowMultiple?: boolean;
     loading?: boolean;
     singleLevelSearch?: boolean;
@@ -627,6 +628,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                fullWidth={this.props.inputWidth === '100%' ?? false}
                 data-test-id={this.props['data-test-id']}
             >
                 <div
@@ -788,7 +790,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             <div
                                 className={
                                     "autocomplete autocomplete--multi-select"
-                                    + (this.props.width === 'medium' ? ' autocomplete--fixed-width' : '')
+                                    + (this.props.popoverWidth === 'medium' ? ' autocomplete--fixed-width' : '')
                                 }
                                 style={{
                                     zIndex: this.props.zIndex,
