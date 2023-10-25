@@ -49,7 +49,9 @@ export class RadioButtonGroup extends React.Component<IProps> {
             [`sd-check-button__group--padded`]: this.props.group?.padded === true,
         });
 
-        const selectedOption = this.props.value == null ? undefined : this.props.options.find(({value}) => value === this.props.value);
+        const selectedOption = this.props.value == null
+            ? undefined
+            : this.props.options.find(({value}) => value === this.props.value);
 
         return (
             <React.Fragment>
