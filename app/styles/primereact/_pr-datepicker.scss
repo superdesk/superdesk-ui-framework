@@ -216,3 +216,7 @@
 .p-datepicker-calendar {
     margin-bottom: 8px;
 }
+
+.p-datepicker-today > span {
+    background-color: var(--sd-colour-interactive--alpha-20);
+}
