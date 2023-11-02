@@ -25,7 +25,7 @@
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     height: $nav-height;
-    border-bottom: 1px solid var(--sd-colour-line--light);
+    border-block-end: 1px solid var(--sd-colour-line--light);
     padding-inline: $sd-base-increment * 2 $sd-base-increment;
     display: flex;
     flex-direction: row;

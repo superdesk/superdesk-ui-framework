@@ -35,7 +35,7 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     color: $link-color;
     background: none;
     border:0;
-    border-bottom: 3px solid transparent;
+    border-block-end: 3px solid transparent;
     text-decoration: none;
 
     &:hover {
@@ -70,14 +70,14 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
     color: $sd-text-light;
     background: none;
     border:0;
-    border-bottom: 3px solid transparent;
+    border-block-end: 3px solid transparent;
     text-decoration: none;
     transition: all 0.2s ease-in-out;
 
     span {
         line-height: 1;
         display: inline-block;
-        margin-top: 3px;
+        margin-block-start: 3px;
     }
 
     &:hover {
@@ -124,7 +124,7 @@ $nav-tab-active-link-border-color: $sd-colour-interactive;  // active state bord
 
 .nav-tabs__pane {
     .subnav {
-        margin-top: 1px;
+        margin-block-start: 1px;
     }
 }
 

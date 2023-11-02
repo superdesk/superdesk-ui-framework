@@ -19,20 +19,20 @@
 }
 
 .sd-searchbar--border-r {
-    border-right: 1px solid var(--sd-colour-line--x-light);
+    border-inline-end: 1px solid var(--sd-colour-line--x-light);
 }
 
 .sd-searchbar--border-l {
-    border-left: 1px solid var(--sd-colour-line--x-light);
+    border-inline-start: 1px solid var(--sd-colour-line--x-light);
 }
 
 .sd-searchbar--border-l-r {
-    border-right: 1px solid var(--sd-colour-line--x-light);
-    border-left: 1px solid var(--sd-colour-line--x-light);
+    border-inline-end: 1px solid var(--sd-colour-line--x-light);
+    border-inline-start: 1px solid var(--sd-colour-line--x-light);
 }
 
 .sd-searchbar--border-bottom {
-    border-bottom: 1px solid var(--sd-colour-line--light);
+    border-block-end: 1px solid var(--sd-colour-line--light);
 }
 
 .sd-searchbar--small {
@@ -89,7 +89,7 @@
     background-color: transparent;
     border: 0;
     box-shadow: none !important;
-    padding-right: 1rem;
+    padding-inline-end: 1rem;
     height: auto;
 
     &::placeholder {
@@ -132,7 +132,7 @@
 .sd-searchbar--boxed {
     .sd-searchbar__icon {
         width: 4rem;
-        margin-right: 0;
+        margin-inline-end: 0;
     }
 }
 
@@ -225,7 +225,7 @@
     margin: 0.5rem 0;
     letter-spacing: 0.03em;
     display: block;
-    margin-top: 8px;
+    margin-block-start: 8px;
 
     .sd-searchbar__message {
         color: $red;

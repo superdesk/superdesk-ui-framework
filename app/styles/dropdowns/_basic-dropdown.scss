@@ -76,9 +76,9 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     vertical-align: middle;
     margin-block-start: -2px;
     margin-inline-start: 6px;
-    border-left:  4px solid transparent;
-    border-right: 4px solid transparent;
-    border-top:   4px solid $sd-text;
+    border-inline-start:  4px solid transparent;
+    border-inline-end: 4px solid transparent;
+    border-block-start:   4px solid $sd-text;
     opacity: .3;
     content: "";
     transition: all 0.1s ease-in;
@@ -102,7 +102,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
 .dropdown__menu {
     position: absolute;
-    top: 100%;
+    inset-block-start: 100%;
     inset-inline-start: 0;
     z-index: $zindexDropdown;
     display: none; // none by default, but block on "open" of the menu
@@ -203,8 +203,8 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         height: $sd-base-increment * 4;
         border: 1px solid var(--sd-colour-line--light);
         border-radius: var(--b-radius--small);
-        padding-right: 5px;
-        padding-left: 5px;
+        padding-inline-end: 5px;
+        padding-inline-start: 5px;
         transition: all 0.2s ease;
         color: var(--color-text);
         background-color: var(--sd-colour-bg__searchbar);
@@ -305,7 +305,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         position: relative;
         color: #747474;
         padding: .6rem 1.6rem;
-        margin-bottom: .2rem;
+        margin-block-end: .2rem;
         font-size: 1.3rem;
         text-align: start;
     }
@@ -315,7 +315,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         margin: 0;
 
         + .dropdown__menu-info {
-            margin-left: 4px;
+            margin-inline-start: 4px;
         }
     }
 }
@@ -341,7 +341,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         cursor: pointer;
 
         i {
-            margin-right: 0 !important;
+            margin-inline-end: 0 !important;
         }
 
         &:hover, &:focus {
@@ -351,14 +351,14 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     }
 }
 .dropdown__menu-header {
-    border-bottom: 1px solid var(--color-border-line--light);
+    border-block-end: 1px solid var(--color-border-line--light);
     margin-block-end: 0.6rem;
 }
 
 .dropdown__menu-footer {
     padding: 1rem;
     margin-block-start: 0.6rem;
-    border-top: 1px solid var(--color-border-line--light);
+    border-block-start: 1px solid var(--color-border-line--light);
 }
 
 .dropdown__menu-footer--align-right {
@@ -454,16 +454,16 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     // Reverse the caret
     .dropdown__caret {
         @include transition(all, 0.2s, eas-in);
-        border-top: 0;
-        border-bottom: 4px solid $black;
+        border-block-start: 0;
+        border-block-end: 4px solid $black;
         content: "\2191";
     }
 
     // Different positioning for bottom up menu
     .dropdown__menu {
-        top: auto;
-        bottom: 100%;
-        margin-bottom: 4px;
+        inset-block-start: auto;
+        inset-block-end: 100%;
+        margin-block-end: 4px;
     }
 
     &.open {
@@ -478,7 +478,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     vertical-align: middle;
 
     .dropdown__menu {
-        top: -2.3rem;
+        inset-block-start: -2.3rem;
         inset-inline-start: auto;
         inset-inline-end: calc(100% + 0.3rem);
     }
@@ -489,7 +489,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     vertical-align: middle;
 
     .dropdown__menu {
-        top: -2.3rem;
+        inset-block-start: -2.3rem;
         inset-inline-start: 100%;
     }
 }
@@ -511,8 +511,8 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 .dropdown--dropright, .dropdown--dropleft {
     &.dropdown--dropup {
         .dropdown__menu {
-            bottom: -2.3rem;
-            top: auto;
+            inset-block-end: -2.3rem;
+            inset-block-start: auto;
         }
     }
 }
@@ -594,7 +594,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
         border-radius: $dropdownMenuBorderRadius;
         border:0;
         z-index: 1;
-        margin-top: -1px;
+        margin-block-start: -1px;
 
         &:before {
             display: none;
@@ -608,7 +608,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
                 padding: 0;
 
                 i {
-                    margin-right: 0;
+                    margin-inline-end: 0;
                 }
 
                 span {
@@ -624,7 +624,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     color: inherit;
     font-weight: 300;
     opacity: 0.65;
-    padding-right: 0.5rem; 
+    padding-inline-end: 0.5rem; 
     letter-spacing: 0.02rem;
 }
 
@@ -662,7 +662,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     .dropdown__toggle--line {
         border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
         background-color: var(--color-input-bg);
-        border-bottom: 1px solid var(--color-input-border);
+        border-block-end: 1px solid var(--color-input-border);
 
         &:hover {
             border-color: var(--color-input-border-hover);
@@ -697,8 +697,8 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
     .dropdown__toggle {
         .dropdown__caret {
-            float: right;
-            margin-top: 6px;
+            float: inline-end;
+            margin-block-start: 6px;
         }
     }
 }
@@ -711,12 +711,12 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     overflow-x: hidden;
 
     li {
-        margin-bottom: 4px;
+        margin-block-end: 4px;
     }
 
     li button {
         width: 300px !important;
-        padding-right: 30px;
+        padding-inline-end: 30px;
         overflow: hidden;
         text-overflow: ellipsis;
         position: relative;
@@ -724,8 +724,8 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 
         i {
             position: absolute;
-            right: -5px;
-            top: 9px;
+            inset-inline-end: -5px;
+            inset-block-start: 9px;
         }
 
         &.disabled, &.disabled:hover {

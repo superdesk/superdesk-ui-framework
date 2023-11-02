@@ -4,27 +4,27 @@
 	height: $subnav-height !important;
 	position: relative;
 	margin: 0 20px 0 0;
-	float: left;
+	float: inline-start;
 
 	>.btn {
-		margin-left: 20px;
-		margin-top: 10px;
+		margin-inline-start: 20px;
+		margin-block-start: 10px;
 	}
 }
 
 .button-stack.right-stack,
 .button-stack--right {
-	float: right;
+	float: inline-end;
 	margin: 0 0 0 5px;
 
 	.navbtn {
-		border-left: 1px solid var(--sd-colour-line--x-light) !important;
-		border-right: 0 !important;
+		border-inline-start: 1px solid var(--sd-colour-line--x-light) !important;
+		border-inline-end: 0 !important;
 	}
 
 	>.btn {
-		margin-right: 12px;
-		margin-left: 0;
+		margin-inline-end: 12px;
+		margin-inline-start: 0;
 	}
 }
 
@@ -43,9 +43,9 @@ a.text-link {
 	[class*=" icon-"] {
 		color: currentColor;
 		vertical-align: middle;
-		margin-right: 0.3rem;
+		margin-inline-end: 0.3rem;
 		position: relative;
-		top: -0.2rem;
+		inset-block-start: -0.2rem;
 	}
 
 	&.text-link--white {
@@ -67,11 +67,11 @@ a.text-link {
 		margin: 0.4rem 0.4rem 0.4rem 0;
 		font-size: 1.4rem;
 		padding: 0 .6rem 0 0;
-		border-right: 1px dotted var(--sd-colour-line--medium);
+		border-inline-end: 1px dotted var(--sd-colour-line--medium);
 
 		&:last-child {
-			padding-right: 0;
-			border-right: none;
+			padding-inline-end: 0;
+			border-inline-end: none;
 		}
 	}
 
@@ -80,11 +80,11 @@ a.text-link {
 		padding: 0 .8rem 0 0;
 		margin: 0.6rem 0.8rem 0.6rem 0;
 		font-size: 1.4rem;
-		border-right: 1px dotted var(--sd-colour-line--medium);
+		border-inline-end: 1px dotted var(--sd-colour-line--medium);
 
 		&:last-child {
-			padding-right: 0;
-			border-right: none;
+			padding-inline-end: 0;
+			border-inline-end: none;
 		}
 	}
 }

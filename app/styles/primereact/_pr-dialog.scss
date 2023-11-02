@@ -7,8 +7,8 @@
 
 .p-dialog-mask {
     position: fixed;
-    top: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
     width: 100%;
     height: 100%;
     display: none;
@@ -216,7 +216,7 @@
 }
 
 .p-dialog .p-dialog-header {
-    border-bottom: 0 none;
+    border-block-end: 0 none;
     background: transparent;
     position: relative;
     z-index: 1012;
@@ -227,7 +227,7 @@
 }
 
 .p-dialog .p-dialog-header .p-dialog-title {
-    @include sd-padding('2', 'right');
+    padding-inline-end: var(--space--2);
     font-size: 1.8rem;
     font-weight: 300;
     line-height: 27px;
@@ -241,7 +241,7 @@
     background: transparent;
     border-radius: $border-radius__base--full;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
-    margin-right: 0;
+    margin-inline-end: 0;
 }
 
 .p-dialog .p-dialog-header .p-dialog-header-icon:enabled:hover {
@@ -256,7 +256,7 @@
 }
 
 .p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
-    margin-right: 0;
+    margin-inline-end: 0;
 }
 
 .p-dialog .p-dialog-content {
@@ -269,7 +269,7 @@
 }
 
 .p-dialog .p-dialog-footer {
-    border-top: 0 none;
+    border-block-start: 0 none;
     background-color: transparent;
     padding: 0.8rem 1.6rem;
     text-align: end;

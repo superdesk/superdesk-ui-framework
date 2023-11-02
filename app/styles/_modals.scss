@@ -48,10 +48,10 @@ $modal-sizes: (
     $space-around: 40px
 ) {
     position: fixed;
-    left: $space-around;
-    right: $space-around;
-    top: $space-around;
-    bottom: $space-around;
+    inset-inline-start: $space-around;
+    inset-inline-end: $space-around;
+    inset-block-start: $space-around;
+    inset-block-end: $space-around;
     align-items: $align-items;
     flex-direction: column;
     overflow: hidden;
@@ -77,7 +77,7 @@ $modal-sizes: (
 
 @mixin modal-header() {
     padding: $modal-padding - $sd-base-increment $modal-padding;
-    border-bottom: 1px solid $modal-line-color;
+    border-block-end: 1px solid $modal-line-color;
     min-height: $modal-header-height;
     background-color: $modal-bg-color;
     border-radius: $border-radius__base--large $border-radius__base--large 0 0;
@@ -94,7 +94,7 @@ $modal-sizes: (
     @include clearfix(); // clear it in case folks use .pull-* classes on buttons
     padding: $modal-padding - $sd-base-increment $modal-padding;
     text-align: end; // right align buttons
-    border-top: 1px solid $modal-line-color;
+    border-block-start: 1px solid $modal-line-color;
     min-height: $modal-footer-height;
     display: flex;
     align-items: center;
@@ -210,7 +210,7 @@ $modal-sizes: (
         .modal__body-header {
             height: 48px;
             width: 100%;
-            border-bottom: 1px solid $modal-line-color;
+            border-block-end: 1px solid $modal-line-color;
             padding: 0;
         }
 
@@ -236,7 +236,7 @@ $modal-sizes: (
         .modal__body-footer {
             flex: 0 0 auto;
             padding: $modal-padding - .8rem $modal-padding;
-            border-top: 1px solid $modal-line-color;
+            border-block-start: 1px solid $modal-line-color;
             text-align: end;
             min-height: $modal-footer-height;
             display: flex;
@@ -259,7 +259,7 @@ $modal-sizes: (
 
     .modal__footer {
         &> .btn + .btn {
-            margin-left: $sd-base-increment;
+            margin-inline-start: $sd-base-increment;
         }
     }
 
@@ -301,7 +301,7 @@ $modal-sizes: (
     }
 
     .modal__header-buttons--right {
-        justify-content: right;
+        justify-content: flex-end;
 
         .btn, .dropdown {
             margin: 0 0 0 1rem;
@@ -345,12 +345,12 @@ $modal-sizes: (
         font-size: 1.8rem;
         color: $sd-text;
         font-weight: 400;
-        margin-bottom: 2rem;
+        margin-block-end: 2rem;
         line-height: 100%;
 
         .badge {
             vertical-align: bottom;
-            margin-right: 0.6rem;
+            margin-inline-end: 0.6rem;
         }
     }
 
@@ -380,7 +380,7 @@ $modal-sizes: (
 
 .modal__header--flex {
     .icn-btn {
-        margin-right: - $sd-base-increment;
+        margin-inline-end: - $sd-base-increment;
     }
 }
 
@@ -411,10 +411,10 @@ $modal-sizes: (
 // Background
 .modal__backdrop {
     position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
     z-index: $zindexModalBackdrop;
     background-color: var(--sd-colour-bg--03);
 
@@ -429,7 +429,7 @@ $modal-sizes: (
 
 .modal--fullscreen {
     .modal__header, .modal__body {
-        @include sd-padding('3', 'left');
+        padding-inline-start: var(--space--3);
     }
     
     .modal__heading {

@@ -1,21 +1,21 @@
 sd-tag-input {
     display: block;
-    padding-bottom: 3rem;
+    padding-block-end: 3rem;
 
     &[data-label] {
         position: relative;
-        padding-top: 1rem;
+        padding-block-start: 1rem;
     }
 }
 
 // Testing
 .sd-tag-input {
     display: block;
-    padding-bottom: 3rem;
+    padding-block-end: 3rem;
 
     &[data-label] {
         position: relative;
-        padding-top: 1rem;
+        padding-block-start: 1rem;
     }
 }
 // Testing
@@ -25,7 +25,7 @@ sd-tag-input {
     display: inline-block;
     font-size: 1.1rem;
     margin: 0;
-    top:0;
+    inset-block-start:0;
     line-height: 100%;
     color: var(--color-text-light);
     text-transform: uppercase;
@@ -40,8 +40,8 @@ tags-input,
 
     .tags-input__host {
         position: relative;
-        margin-top: 0.5rem;
-        margin-bottom: 0;
+        margin-block-start: 0.5rem;
+        margin-block-end: 0;
         height: 100%;
 
         &:active {
@@ -102,15 +102,15 @@ tags-input,
                 color: var(--color-text);
                 cursor: pointer;
                 transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
-                margin-right: -1rem;
-                margin-left:  0.8rem;
+                margin-inline-end: -1rem;
+                margin-inline-start:  0.8rem;
 
                 [class^="icon-"], [class*=" icon-"] {
                     color: var(--color-text-light);
                     font-size: 1.6rem;
                     flex-grow: 0;
                     flex-shrink: 0;
-                    margin-left: 1px;
+                    margin-inline-start: 1px;
                     opacity: 0.4;
                     transition: color .1s ease-out, opacity .1s ease-out;
                 }
@@ -160,7 +160,7 @@ tags-input,
             outline: none;
             margin: 0.2rem;
             padding: 0;
-            float: left;
+            float: inline-start;
             height: 26px;
             color: currentColor;
             background-color: transparent;
@@ -190,7 +190,7 @@ tags-input,
 
     .tags-input__tags--boxed {
         background-color: rgba(0, 0, 0, 0.05);
-        padding-left: 0.4rem;
+        padding-inline-start: 0.4rem;
         border-radius: $border-radius__base--x-small;
 
         &:hover {
@@ -200,7 +200,7 @@ tags-input,
 
     &.ng-invalid {
         .tags-input__tags {
-            border-bottom: 1px solid $red !important;
+            border-block-end: 1px solid $red !important;
             box-shadow: 0 1px 0 $red !important;
         }
     }
@@ -486,7 +486,7 @@ tags-input,
         align-items: center;
         justify-content: center;
         gap: 4px;
-        border-bottom: 1px solid var(--sd-colour-line--light);
+        border-block-end: 1px solid var(--sd-colour-line--light);
         padding: 4px;
     }
 
@@ -495,7 +495,7 @@ tags-input,
         align-items: center;
         justify-content: center;
         gap: 4px;
-        border-bottom: 1px solid var(--sd-colour-line--x-light);
+        border-block-end: 1px solid var(--sd-colour-line--x-light);
         padding: 4px;
     }
 
@@ -625,9 +625,9 @@ tags-input,
         display: inline-block;
         margin-inline-end: 1rem;
         vertical-align: middle;
-        border-left: 0.4rem solid transparent;
-        border-right: 0.4rem solid transparent;
-        border-top: 0.4rem solid var(--color-text);
+        border-inline-start: 0.4rem solid transparent;
+        border-inline-end: 0.4rem solid transparent;
+        border-block-start: 0.4rem solid var(--color-text);
         pointer-events: none;
         opacity: 0.4;
         content: "";

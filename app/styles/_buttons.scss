@@ -288,8 +288,8 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 .btn--expanded {
     width: 100%;
-    margin-right: 0;
-    margin-left: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
 }
 
 // Colours
@@ -635,47 +635,47 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 }
 
 .button-group__divider--small {
-    @include sd-margin('0-5', 'x');
+    margin-inline: var(--space--0-5);
 }
 
 .button-group__divider--medium {
-    @include sd-margin('1', 'x');
+    margin-inline: var(--space--1);
 }
 
 .button-group__divider--large {
-    @include sd-margin('1-5', 'x');
+    margin-inline: var(--space--1-5);
 }
 
 .button-group__divider--border {
-    border-left: 1px dotted var(--sd-colour-line--strong);
+    border-inline-start: 1px dotted var(--sd-colour-line--strong);
 }
 
 .button-group--vertical {
     .button-group__divider {
         height: 1px;
         width: auto;
-        @include sd-margin('0', 'x');
+        margin-inline: var(--space--0);
 
         &.button-group__divider--mini {
-            @include sd-padding('1-5', 'top');
+            padding-block-start: var(--space--1-5);
         }
 
         &.button-group__divider--small {
-            @include sd-margin('0-5', 'y');
+            margin-block: var(--space--0-5);
         }
 
         &.button-group__divider--medium {
-            @include sd-margin('1', 'y');
+            margin-block: var(--space--1);
         }
 
         &.button-group__divider--large {
-            @include sd-margin('1-5', 'y');
+            margin-block: var(--space--1-5);
         }
     }
 
     .button-group__divider--border {
-        border-left: none;
-        border-top: 1px dotted var(--sd-colour-line--strong);
+        border-inline-start: none;
+        border-block-start: 1px dotted var(--sd-colour-line--strong);
     }
 }
 
@@ -754,10 +754,10 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 .btn__state--loading {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     display: flex;
     align-items: center;
     justify-content: center;

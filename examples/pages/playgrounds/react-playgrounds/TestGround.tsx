@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading} from '../../../../app-typescript/index';
 import { Carousel } from '../../../../app-typescript/index';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
@@ -91,10 +91,31 @@ export class TestGround extends React.Component<IProps, IState> {
                             </button>
 
                         </div>
+
                         <hr />
 
+                        <Container gap="large" direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus my-5'>
+                            <Heading type='h3'>Curabitur blandit tempus porttitor.</Heading>
+                            <Text color='light'>
+                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et...
+                            </Text>
+                            <ButtonGroup align="end">
+                                <Button text="Cancel" onClick={()=> false} type="default" style="hollow" />
+                                <Button text="Submit" onClick={()=> false} type="primary" />
+                            </ButtonGroup>
+                        </Container>
+
                         <h3 className="docs-page__h3 sd-margin-y--0">Form test</h3>
+
                         <hr />
+
+                        <img src="/path/toimage" alt="my image" 
+                            onError={({ currentTarget }) => {
+                                currentTarget.onerror = null; // prevents looping
+                                currentTarget.src="/illustration--playground.svg";
+                                currentTarget.classList.add('broken-img')
+                            }} />
+
                         <div className="input-wrap">
                             <FormLabel invalid required={true} state='focused' text="Form Label" forId="input1" />
                             <IconButton size='small' icon="settings" ariaValue="Screen-reader text" onClick={()=> false} />
@@ -159,10 +180,6 @@ export class TestGround extends React.Component<IProps, IState> {
                                 info='Nullam Sollicitudin'
                                 error='Error message'
                                 inlineLabel={false}
-                                shortcuts={[
-                                    {label: 'tomorrow', days: 1},
-                                    {label: 'yesterday', days: -1},
-                                ]}
                             />
                             <TimePicker
                                 value={this.state.time}
@@ -211,10 +228,6 @@ export class TestGround extends React.Component<IProps, IState> {
                                 error='Error message'
                                 inlineLabel={true}
                                 labelHidden={true}
-                                shortcuts={[
-                                    {label: 'tomorrow', days: 1},
-                                    {label: 'yesterday', days: -1},
-                                ]}
                             />
                             <TimePicker
                                 value={this.state.time}
@@ -260,10 +273,6 @@ export class TestGround extends React.Component<IProps, IState> {
                                 info='Nullam Sollicitudin'
                                 error='Error message'
                                 inlineLabel={false}
-                                shortcuts={[
-                                    {label: 'tomorrow', days: 1},
-                                    {label: 'yesterday', days: -1},
-                                ]}
                             />
                             <TimePicker
                                 value={this.state.time}

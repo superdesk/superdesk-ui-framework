@@ -10,7 +10,7 @@
     background: $tag-label-BG-default;
     color: currentColor;
     padding: 5px;
-    border-left: 20px;
+    border-inline-start: 20px;
     border-radius: 30px;
 
     &.selected {
@@ -51,7 +51,7 @@
 
 .tags-input__padding-disabled {
     span {
-        padding-left: 0;
+        padding-inline-start: 0;
         padding-inline: 4px;
     }
 }

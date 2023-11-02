@@ -71,7 +71,7 @@ $iconSize-small: 2.4rem;
 
     [class^="big-icon--"],
     [class*=" big-icon--"] {
-        margin-top: -4px;
+        margin-block-start: -4px;
         width: $iconSize-large;
         height: $iconSize-large;
         font-size: $iconSize-large;

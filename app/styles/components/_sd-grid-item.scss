@@ -25,10 +25,10 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
         &::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset-block-start: 0;
+            inset-inline-end: 0;
+            inset-block-end: 0;
+            inset-inline-start: 0;
             z-index: 3;
             background-image: url(../img/three-dots.svg);
             background-repeat: no-repeat;
@@ -47,8 +47,8 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
 
     .sd-grid-item__actions--top {
         position: absolute;
-        top: 0.8rem;
-        right: 0.5rem;
+        inset-block-start: 0.8rem;
+        inset-inline-end: 0.5rem;
         z-index: 2;
     }
 
@@ -345,9 +345,9 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
     .sd-grid-item__progress {
         z-index: 2;
         position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
+        inset-block-end: 0;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
         height: 0.4rem;
         background-color: rgba(0, 0, 0, 0.4);
     }
@@ -357,8 +357,8 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
         position: absolute;
         height: 5.6rem;
         width: 5.6rem;
-        top: 50%;
-        margin-top: -2.8rem;
+        inset-block-start: 50%;
+        margin-block-start: -2.8rem;
         border-radius: $border-radius__base--full;
         background-color: rgba(0, 0, 0, 0.3);
         padding: 0.2rem;
@@ -369,7 +369,7 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
         height: 0.4rem;
         width: 0%;
         background-color: $green;
-        top: 50
+        inset-block-start: 50
     }
 
     .sd-grid-item--element-grow {
@@ -425,7 +425,7 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
 
     .sd-grid-item__footer {
         padding: 0.4rem 0.2rem;
-        border-top: 1px solid var(--sd-colour-line--x-light);
+        border-block-start: 1px solid var(--sd-colour-line--x-light);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -503,10 +503,10 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
 
     .sd-grid-item__full-click {
         position: absolute;
-        top: 0;
-        bottom: 0;
-        right: 0;
-        left: 0;
+        inset-block-start: 0;
+        inset-block-end: 0;
+        inset-inline-end: 0;
+        inset-inline-start: 0;
         z-index: 2;
     }
 
@@ -580,7 +580,7 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
             font-family: 'sd_icons';
             content: "\e605";
             position: absolute;
-            top: 50%;
+            inset-block-start: 50%;
             margin: auto;
             margin-block-start: -2.4rem;
             font-size: 4.8rem;
@@ -684,7 +684,7 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
             background: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMTYiIGhlaWdodD0iMTE2IiB2aWV3Qm94PSIwIDAgMTE2IDExNiI+PHBhdGggZmlsbD0iIzdCN0I3QiIgZD0iTTU4IDBDMjYgMCAwIDI2IDAgNThzMjYgNTggNTggNTggNTgtMjYgNTgtNThTOTAgMCA1OCAwem0zNy4xIDM4LjhMNDYuMyA4Ny42Yy0uNS41LTEuMi41LTEuNyAwTDE4LjkgNjEuOGMtLjUtLjUtLjUtMS4yIDAtMS43bDguMi04LjJjLjUtLjUgMS4yLS41IDEuNyAwTDQ1IDY4LjFjLjMuMy44LjMgMS4xIDBsMzkuMi0zOS4yYy41LS41IDEuMi0uNSAxLjcgMGw4LjIgOC4yYy40LjUuNCAxLjItLjEgMS43eiIvPjwvc3ZnPg==) no-repeat;
             background-size: 9.6rem;
             background-position: 0 0;
-            bottom: 0;
+            inset-block-end: 0;
             inset-inline-end: 0rem;
             opacity: 0.14;
         }
@@ -805,8 +805,8 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
 
 .sd-grid-item-header {
     padding: 4px 0;
-    margin-bottom: 6px;
-    border-bottom: 5px solid var(--sd-colour-neutral);
+    margin-block-end: 6px;
+    border-block-end: 5px solid var(--sd-colour-neutral);
     display: flex;
 }
 
@@ -826,7 +826,7 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
         color: inherit;
 
         span {
-            border-bottom: 1px dotted var(--sd-colour-interactive);
+            border-block-end: 1px dotted var(--sd-colour-interactive);
         }
 
         [class^="icon-"],

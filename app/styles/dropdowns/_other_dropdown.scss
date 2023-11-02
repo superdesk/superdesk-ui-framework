@@ -1,7 +1,7 @@
 
 .sd-widget.metadata {
     .dropdown {
-        margin-right: -5px;
+        margin-inline-end: -5px;
 
         .dropdown__toggle {
             display: inline-block;
@@ -9,7 +9,7 @@
             min-width: 40px;
             box-sizing: border-box;
             height: 28px;
-            margin-top: -5px;
+            margin-block-start: -5px;
             border-radius: $border-radius__base--x-small;
             border: 1px solid #f8f8f8;
             padding: 4px 10px;
@@ -23,7 +23,7 @@
 
         .dropdown__menu {
             margin: 0;
-            margin-top: -5px;
+            margin-block-start: -5px;
             box-sizing: border-box;
             border-radius:0;
             max-width: $tabpane-width - 40px;
@@ -53,7 +53,7 @@
 
     .dropdown-nested {
         position: absolute;
-        right: 0px;
-        margin-top: 0px;
+        inset-inline-end: 0px;
+        margin-block-start: 0px;
     }
 }

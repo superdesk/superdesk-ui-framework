@@ -65,11 +65,11 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     }
 
     &--marg-b12 {
-        margin-bottom: 1.2rem;
+        margin-block-end: 1.2rem;
     }
 
     &--no-margin {
-        margin-bottom: 0;
+        margin-block-end: 0;
     }
 
     &--margin-none {
@@ -254,8 +254,8 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
         width: 16px;
         height:16px;
         position: absolute;
-        top:0;
-        left: 0.3rem;
+        inset-block-start:0;
+        inset-inline-start: 0.3rem;
         line-height: inherit;
         color: inherit;
         font-style: normal;
@@ -311,7 +311,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
 
     & [class^="icon-"], & [class*=" icon-"] {
         color:inherit;
-        margin-top: 0.3rem;
+        margin-block-start: 0.3rem;
     }
 
     &:hover {
@@ -384,6 +384,6 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     .sd-alert {
         box-shadow: none !important;
         border-radius: unset !important;
-        margin-bottom: 0;
+        margin-block-end: 0;
     }
 }
