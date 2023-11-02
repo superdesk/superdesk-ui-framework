@@ -1,9 +1,9 @@
 .pull-left {
-    float: left;
+    float: inline-start;
 }
 
 .pull-right {
-    float: right;
+    float: inline-end;
 }
 
 .clearfix {
@@ -330,7 +330,7 @@
 }
 
 .sd-object-position--left {
-    object-position: left;
+    object-position: inline-start;
 }
 
 .sd-object-position--left-bottom {
@@ -406,15 +406,13 @@ $value in $sd-shadowProperties {
 // }
 
 
-
 // WEBKIT SCROLL
-
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
     margin: -1px 0;
     position: fixed;
-    right: 10px;
+    inset-inline-end: 10px;
 }
 
 ::-webkit-scrollbar:hover {
@@ -434,7 +432,7 @@ $value in $sd-shadowProperties {
 // HEADINGS 
 .sd-heading-3 {
     font-size: 1.6rem;
-    margin-bottom: 1.6rem;
+    margin-block-end: 1.6rem;
 }
 
 // Deafult text syles based on type of data  
@@ -454,18 +452,6 @@ time {
 
 // TYPOGRAPHY HELPERS
 // -------------------------------------------------
-
-// .sd-text {
-//     color: inherit;
-//     font-weight: 300;
-//     line-height: 1.5;
-//     &--medium {
-//         font-size: 1.4rem;
-//     }
-//     &--large {
-//         font-size: 1.6rem;
-//     }
-// }
 
 h1,
 h2,
@@ -708,7 +694,7 @@ h6 {
     font-weight: 500;
     font-size: 1.2rem;
     text-transform: uppercase;
-    margin-right: 1rem;
+    margin-inline-end: 1rem;
 }
 
 .sd-text__title {
@@ -745,17 +731,17 @@ h6 {
     display: inline-flex;
 
     i {
-        margin-right: 0.3rem;
+        margin-inline-end: 0.3rem;
     }
 }
 
 .sd-text-icon+.sd-text-icon {
-    margin-right: 1rem;
+    margin-inline-end: 1rem;
 }
 
 .sd-text-icon.sd-text-icon--aligned-r+.sd-text-icon.sd-text-icon--aligned-r {
-    margin-right: 0;
-    margin-left: 1rem;
+    margin-inline-end: 0;
+    margin-inline-start: 1rem;
 }
 
 // Opacity helpers
@@ -803,12 +789,12 @@ h6 {
 
 .mt-auto,
 .sd-margin-t--auto {
-    margin-top: auto !important;
+    margin-block-start: auto !important;
 }
 
 .mb-auto,
 .sd-margin-b--auto {
-    margin-bottom: auto !important;
+    margin-block-end: auto !important;
 }
 
 .mlr-auto,
@@ -818,110 +804,510 @@ h6 {
 }
 
 .sd-margin-y--auto {
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+    margin-block-start: auto !important;
+    margin-block-end: auto !important;
 }
 
 .sd-margin--auto {
     margin: auto !important;
 }
 
-// Common margin overrides
-// $sd-base-increment - default size of the increment is 0.8rem;
-// For example: .sd-margin-t--1 {margin-top: 0.8rem}, .sd-padding-l--2 {padding-left: 1.6rem}
-$sd-increments: (
-    '0': 0,
-    '0-5': 0.5,
-    '1': 1,
-    '1-5': 1.5,
-    '2': 2,
-    '3': 3,
-    '4' : 4,
-    '5' : 5
-); // Number of increments, genarates new classes eg. .sd-padding-top--4, .sd-margin-top--4
-$sd-sides: (
-    top,
-    right,
-    bottom,
-    left,
-    x,
-    y
-); // It's generating these sides
-$sd-properties: (
-    padding,
-    margin
-); // It's generating these properties
-
-@each $incrementName,
-$incrementValue in $sd-increments {
-    @each $property in $sd-properties {
-        @each $side in $sd-sides {
-            @if($side ==x) {
-                .sd-#{$property}-#{$side}--#{$incrementName} {
-                    #{$property}-left: #{$sd-base-increment * $incrementValue} !important;
-                    #{$property}-right: #{$sd-base-increment * $incrementValue} !important;
-                }
-            }
-
-            @else if ($side ==y) {
-                .sd-#{$property}-#{$side}--#{$incrementName} {
-                    #{$property}-top: #{$sd-base-increment * $incrementValue} !important;
-                    #{$property}-bottom: #{$sd-base-increment * $incrementValue} !important;
-                }
-            }
-
-            @else {
-                .sd-#{$property}-#{str-slice($side, 1, 1)}--#{$incrementName} {
-                    #{$property}-#{$side}: #{$sd-base-increment * $incrementValue} !important;
-                }
-            }
-        }
-
-        .sd-#{$property}--#{$incrementName} {
-            #{$property}: #{$sd-base-increment * $incrementValue} !important;
-        }
-    }
+// MARGINS ---------------------------------------------- //
+// MARGIN (all sides)
+.m-0,
+.sd-margin--0 {
+    margin: 0 !important;
 }
-
-// MARGIN AND PADDING MIXINS
-// You can create new classes with this syntax:
-// .customClass {@include sd-margin('0-5', 'top')}
-// Output:
-// .customClass { margin-top: 0.8rem !important; }
-// if you want the value to be applied to all sides write only the number eg. @include sd-margin('0-5')
-
-
-@mixin sd-spacing($property, $sd-incrementValue, $side) {
-    @if ($side ==false) {
-        #{$property}: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
-    }
-
-    @else if ($side ==x) {
-        #{$property}-left: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
-        #{$property}-right: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
-    }
-
-    @else if ($side ==y) {
-        #{$property}-top: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
-        #{$property}-bottom: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
-    }
-
-    @else {
-        #{$property}-#{$side}: #{$sd-base-increment * map-get($sd-increments, $sd-incrementValue)};
-    }
+.m-0-5,
+.sd-margin--0-5 {
+    margin: calc(0.5 * var(--base-increment)) !important;
 }
-
-@mixin sd-margin($sd-incrementValue, $side: false) {
-    @include sd-spacing('margin', $sd-incrementValue, $side)
+.m-1,
+.sd-margin--1 {
+    margin: calc(1 * var(--base-increment)) !important;
 }
-
-@mixin sd-padding($sd-incrementValue, $side: false) {
-    @include sd-spacing('padding', $sd-incrementValue, $side)
+.m-1-5,
+.sd-margin--1-5 {
+    margin: calc(1.5 * var(--base-increment)) !important;
 }
-
-
-// START: This part should not be used for new stuff, it's only here for older implemetation. 
-// Once the implemented classes are refactored this should be removed
+.m-2,
+.sd-margin--2 {
+    margin: calc(2 * var(--base-increment)) !important;
+}
+.m-3,
+.sd-margin--3 {
+    margin: calc(3 * var(--base-increment)) !important;
+}
+.m-4,
+.sd-margin--4 {
+    margin: calc(4 * var(--base-increment)) !important;
+}
+.m-5,
+.sd-margin--5 {
+    margin: calc(5 * var(--base-increment)) !important;
+}
+// MARGIN INLINE START (left)
+.ms-0,
+.sd-margin-l--0 {
+    margin-inline-start: 0 !important;
+}
+.ms-0-5,
+.sd-margin-l--0-5 {
+    margin-inline-start: calc(0.5 * var(--base-increment)) !important;
+}
+.ms-1,
+.sd-margin-l--1 {
+    margin-inline-start: calc(1 * var(--base-increment)) !important;
+}
+.ms-1-5,
+.sd-margin-l--1-5 {
+    margin-inline-start: calc(1.5 * var(--base-increment)) !important;
+}
+.ms-2,
+.sd-margin-l--2 {
+    margin-inline-start: calc(2 * var(--base-increment)) !important;
+}
+.ms-3,
+.sd-margin-l--3 {
+    margin-inline-start: calc(3 * var(--base-increment)) !important;
+}
+.ms-4,
+.sd-margin-l--4 {
+    margin-inline-start: calc(4 * var(--base-increment)) !important;
+}
+.ms-5,
+.sd-margin-l--5 {
+    margin-inline-start: calc(5 * var(--base-increment)) !important;
+}
+// MARGIN INLINE END (right)
+.me-0,
+.sd-margin-r--0 {
+    margin-inline-end: 0 !important;
+}
+.me-0-5,
+.sd-margin-r--0-5 {
+    margin-inline-end: calc(0.5 * var(--base-increment)) !important;
+}
+.me-1,
+.sd-margin-r--1 {
+    margin-inline-end: calc(1 * var(--base-increment)) !important;
+}
+.me-1-5,
+.sd-margin-r--1-5 {
+    margin-inline-end: calc(1.5 * var(--base-increment)) !important;
+}
+.me-2,
+.sd-margin-r--2 {
+    margin-inline-end: calc(2 * var(--base-increment)) !important;
+}
+.me-3,
+.sd-margin-r--3 {
+    margin-inline-end: calc(3 * var(--base-increment)) !important;
+}
+.me-4,
+.sd-margin-r--4 {
+    margin-inline-end: calc(4 * var(--base-increment)) !important;
+}
+.me-5,
+.sd-margin-r--5 {
+    margin-inline-end: calc(5 * var(--base-increment)) !important;
+}
+// MARGIN INLINE (x, left and right)
+.mx-0,
+.sd-margin-x--0 {
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+}
+.mx-0-5,
+.sd-margin-r--0-5 {
+    margin-inline-start: calc(0.5 * var(--base-increment)) !important;
+    margin-inline-end: calc(0.5 * var(--base-increment)) !important;
+}
+.mx-1,
+.sd-margin-x--1 {
+    margin-inline-start: calc(1 * var(--base-increment)) !important;
+    margin-inline-end: calc(1 * var(--base-increment)) !important;
+}
+.mx-1-5,
+.sd-margin-x--1-5 {
+    margin-inline-start: calc(1.5 * var(--base-increment)) !important;
+    margin-inline-end: calc(1.5 * var(--base-increment)) !important;
+}
+.mx-2,
+.sd-margin-x--2 {
+    margin-inline-start: calc(2 * var(--base-increment)) !important;
+    margin-inline-end: calc(2 * var(--base-increment)) !important;
+}
+.mx-3,
+.sd-margin-x--3 {
+    margin-inline-start: calc(3 * var(--base-increment)) !important;
+    margin-inline-end: calc(3 * var(--base-increment)) !important;
+}
+.mx-4,
+.sd-margin-x--4 {
+    margin-inline-start: calc(4 * var(--base-increment)) !important;
+    margin-inline-end: calc(4 * var(--base-increment)) !important;
+}
+.mx-5,
+.sd-margin-x--5 {
+    margin-inline-start: calc(5 * var(--base-increment)) !important;
+    margin-inline-end: calc(5 * var(--base-increment)) !important;
+}
+// MARGIN BLOCK START (top)
+.mt-0,
+.sd-margin-t--0 {
+    margin-block-start: 0 !important;
+}
+.mt-0-5,
+.sd-margin-t--0-5 {
+    margin-block-start: calc(0.5 * var(--base-increment)) !important;
+}
+.mt-1,
+.sd-margin-t--1 {
+    margin-block-start: calc(1 * var(--base-increment)) !important;
+}
+.mt-1-5,
+.sd-margin-t--1-5 {
+    margin-block-start: calc(1.5 * var(--base-increment)) !important;
+}
+.mt-2,
+.sd-margin-t--2 {
+    margin-block-start: calc(2 * var(--base-increment)) !important;
+}
+.mt-3,
+.sd-margin-t--3 {
+    margin-block-start: calc(3 * var(--base-increment)) !important;
+}
+.mt-4,
+.sd-margin-t--4 {
+    margin-block-start: calc(4 * var(--base-increment)) !important;
+}
+.mt-5,
+.sd-margin-t--5 {
+    margin-block-start: calc(5 * var(--base-increment)) !important;
+}
+// MARGIN BLOCK END (bottom)
+.mb--0,
+.sd-margin-b--0 {
+    margin-block-end: 0 !important;
+}
+.mb-0-5,
+.sd-margin-b--0-5 {
+    margin-block-end: calc(0.5 * var(--base-increment)) !important;
+}
+.mb-1,
+.sd-margin-b--1 {
+    margin-block-end: calc(1 * var(--base-increment)) !important;
+}
+.mb-1-5,
+.sd-margin-b--1-5 {
+    margin-block-end: calc(1.5 * var(--base-increment)) !important;
+}
+.mb-2,
+.sd-margin-b--2 {
+    margin-block-end: calc(2 * var(--base-increment)) !important;
+}
+.mb-3,
+.sd-margin-b--3 {
+    margin-block-end: calc(3 * var(--base-increment)) !important;
+}
+.mb-4,
+.sd-margin-b--4 {
+    margin-block-end: calc(4 * var(--base-increment)) !important;
+}
+.mb-5,
+.sd-margin-b--5 {
+    margin-block-end: calc(5 * var(--base-increment)) !important;
+}
+// MARGIN BLOCK (y, top & bottom)
+.my-0,
+.sd-margin-y--0 {
+    margin-block-start: 0 !important;
+    margin-block-end: 0 !important;
+}
+.my-0-5,
+.sd-margin-y--0-5 {
+    margin-block-start: calc(0.5 * var(--base-increment)) !important;
+    margin-block-end: calc(0.5 * var(--base-increment)) !important;
+}
+.my-1,
+.sd-margin-y--1 {
+    margin-block-start: calc(1 * var(--base-increment)) !important;
+    margin-block-end: calc(1 * var(--base-increment)) !important;
+}
+.my-1-5,
+.sd-margin-y--1-5 {
+    margin-block-start: calc(1.5 * var(--base-increment)) !important;
+    margin-block-end: calc(1.5 * var(--base-increment)) !important;
+}
+.my-2,
+.sd-margin-y--2 {
+    margin-block-start: calc(2 * var(--base-increment)) !important;
+    margin-block-end: calc(2 * var(--base-increment)) !important;
+}
+.my-3,
+.sd-margin-y--3 {
+    margin-block-start: calc(3 * var(--base-increment)) !important;
+    margin-block-end: calc(3 * var(--base-increment)) !important;
+}
+.my-4,
+.sd-margin-y--4 {
+    margin-block-start: calc(4 * var(--base-increment)) !important;
+    margin-block-end: calc(4 * var(--base-increment)) !important;
+}
+.my-5,
+.sd-margin-y--5 {
+    margin-block-start: calc(5 * var(--base-increment)) !important;
+    margin-block-end: calc(5 * var(--base-increment)) !important;
+}
+// PADDINGS ---------------------------------------------- //
+// PADDING (all sides)
+.p-0,
+.sd-padding--0 {
+    padding: 0 !important;
+}
+.p-0-5,
+.sd-padding--0-5 {
+    padding: calc(0.5 * var(--base-increment)) !important;
+}
+.p-1,
+.sd-padding--1 {
+    padding: calc(1 * var(--base-increment)) !important;
+}
+.p-1-5,
+.sd-padding--1-5 {
+    padding: calc(1.5 * var(--base-increment)) !important;
+}
+.p-2,
+.sd-padding--2 {
+    padding: calc(2 * var(--base-increment)) !important;
+}
+.p-3,
+.sd-padding--3 {
+    padding: calc(3 * var(--base-increment)) !important;
+}
+.p-4,
+.sd-padding--4 {
+    padding: calc(4 * var(--base-increment)) !important;
+}
+.p-5,
+.sd-padding--5 {
+    padding: calc(5 * var(--base-increment)) !important;
+}
+// PADDING INLINE START (left)
+.ps-0,
+.sd-padding-l--0 {
+    padding-inline-start: 0 !important;
+}
+.ps-0-5,
+.sd-padding-l--0-5 {
+    padding-inline-start: calc(0.5 * var(--base-increment)) !important;
+}
+.ps-1,
+.sd-padding-l--1 {
+    padding-inline-start: calc(1 * var(--base-increment)) !important;
+}
+.ps-1-5,
+.sd-padding-l--1-5 {
+    padding-inline-start: calc(1.5 * var(--base-increment)) !important;
+}
+.ps-2,
+.sd-padding-l--2 {
+    padding-inline-start: calc(2 * var(--base-increment)) !important;
+}
+.ps-3,
+.sd-padding-l--3 {
+    padding-inline-start: calc(3 * var(--base-increment)) !important;
+}
+.ps-4,
+.sd-padding-l--4 {
+    padding-inline-start: calc(4 * var(--base-increment)) !important;
+}
+.ps-5,
+.sd-padding-l--5 {
+    padding-inline-start: calc(5 * var(--base-increment)) !important;
+}
+// PADDING INLINE END (right)
+.pe-0,
+.sd-padding-r--0 {
+    padding-inline-end: 0 !important;
+}
+.pe-0-5,
+.sd-padding-r--0-5 {
+    padding-inline-end: calc(0.5 * var(--base-increment)) !important;
+}
+.pe-1,
+.sd-padding-r--1 {
+    padding-inline-end: calc(1 * var(--base-increment)) !important;
+}
+.pe-1-5,
+.sd-padding-r--1-5 {
+    padding-inline-end: calc(1.5 * var(--base-increment)) !important;
+}
+.pe-2,
+.sd-padding-r--2 {
+    padding-inline-end: calc(2 * var(--base-increment)) !important;
+}
+.pe-3,
+.sd-padding-r--3 {
+    padding-inline-end: calc(3 * var(--base-increment)) !important;
+}
+.pe-4,
+.sd-padding-r--4 {
+    padding-inline-end: calc(4 * var(--base-increment)) !important;
+}
+.pe-5,
+.sd-padding-r--5 {
+    padding-inline-end: calc(5 * var(--base-increment)) !important;
+}
+// PADDING INLINE (x, left and right)
+.px-0,
+.sd-padding-x--0 {
+    padding-inline-start: 0 !important;
+    padding-inline-end: 0 !important;
+}
+.px-0-5,
+.sd-padding-r--0-5 {
+    padding-inline-start: calc(0.5 * var(--base-increment)) !important;
+    padding-inline-end: calc(0.5 * var(--base-increment)) !important;
+}
+.px-1,
+.sd-padding-x--1 {
+    padding-inline-start: calc(1 * var(--base-increment)) !important;
+    padding-inline-end: calc(1 * var(--base-increment)) !important;
+}
+.px-1-5,
+.sd-padding-x--1-5 {
+    padding-inline-start: calc(1.5 * var(--base-increment)) !important;
+    padding-inline-end: calc(1.5 * var(--base-increment)) !important;
+}
+.px-2,
+.sd-padding-x--2 {
+    padding-inline-start: calc(2 * var(--base-increment)) !important;
+    padding-inline-end: calc(2 * var(--base-increment)) !important;
+}
+.px-3,
+.sd-padding-x--3 {
+    padding-inline-start: calc(3 * var(--base-increment)) !important;
+    padding-inline-end: calc(3 * var(--base-increment)) !important;
+}
+.px-4,
+.sd-padding-x--4 {
+    padding-inline-start: calc(4 * var(--base-increment)) !important;
+    padding-inline-end: calc(4 * var(--base-increment)) !important;
+}
+.px-5,
+.sd-padding-x--5 {
+    padding-inline-start: calc(5 * var(--base-increment)) !important;
+    padding-inline-end: calc(5 * var(--base-increment)) !important;
+}
+// PADDING BLOCK START (top)
+.pt-0,
+.sd-padding-t--0 {
+    padding-block-start: 0 !important;
+}
+.pt-0-5,
+.sd-padding-t--0-5 {
+    padding-block-start: calc(0.5 * var(--base-increment)) !important;
+}
+.pt-1,
+.sd-padding-t--1 {
+    padding-block-start: calc(1 * var(--base-increment)) !important;
+}
+.pt-1-5,
+.sd-padding-t--1-5 {
+    padding-block-start: calc(1.5 * var(--base-increment)) !important;
+}
+.pt-2,
+.sd-padding-t--2 {
+    padding-block-start: calc(2 * var(--base-increment)) !important;
+}
+.pt-3,
+.sd-padding-t--3 {
+    padding-block-start: calc(3 * var(--base-increment)) !important;
+}
+.pt-4,
+.sd-padding-t--4 {
+    padding-block-start: calc(4 * var(--base-increment)) !important;
+}
+.pt-5,
+.sd-padding-t--5 {
+    padding-block-start: calc(5 * var(--base-increment)) !important;
+}
+// PADDING BLOCK END (bottom)
+.pb--0,
+.sd-padding-b--0 {
+    padding-block-end: 0 !important;
+}
+.pb-0-5,
+.sd-padding-b--0-5 {
+    padding-block-end: calc(0.5 * var(--base-increment)) !important;
+}
+.pb-1,
+.sd-padding-b--1 {
+    padding-block-end: calc(1 * var(--base-increment)) !important;
+}
+.pb-1-5,
+.sd-padding-b--1-5 {
+    padding-block-end: calc(1.5 * var(--base-increment)) !important;
+}
+.pb-2,
+.sd-padding-b--2 {
+    padding-block-end: calc(2 * var(--base-increment)) !important;
+}
+.pb-3,
+.sd-padding-b--3 {
+    padding-block-end: calc(3 * var(--base-increment)) !important;
+}
+.pb-4,
+.sd-padding-b--4 {
+    padding-block-end: calc(4 * var(--base-increment)) !important;
+}
+.pb-5,
+.sd-padding-b--5 {
+    padding-block-end: calc(5 * var(--base-increment)) !important;
+}
+// PADDING BLOCK (y, top & bottom)
+.py-0,
+.sd-padding-y--0 {
+    padding-block-start: 0 !important;
+    padding-block-end: 0 !important;
+}
+.py-0-5,
+.sd-padding-y--0-5 {
+    padding-block-start: calc(0.5 * var(--base-increment)) !important;
+    padding-block-end: calc(0.5 * var(--base-increment)) !important;
+}
+.py-1,
+.sd-padding-y--1 {
+    padding-block-start: calc(1 * var(--base-increment)) !important;
+    padding-block-end: calc(1 * var(--base-increment)) !important;
+}
+.py-1-5,
+.sd-padding-y--1-5 {
+    padding-block-start: calc(1.5 * var(--base-increment)) !important;
+    padding-block-end: calc(1.5 * var(--base-increment)) !important;
+}
+.py-2,
+.sd-padding-y--2 {
+    padding-block-start: calc(2 * var(--base-increment)) !important;
+    padding-block-end: calc(2 * var(--base-increment)) !important;
+}
+.py-3,
+.sd-padding-y--3 {
+    padding-block-start: calc(3 * var(--base-increment)) !important;
+    padding-block-end: calc(3 * var(--base-increment)) !important;
+}
+.py-4,
+.sd-padding-y--4 {
+    padding-block-start: calc(4 * var(--base-increment)) !important;
+    padding-block-end: calc(4 * var(--base-increment)) !important;
+}
+.py-5,
+.sd-padding-y--5 {
+    padding-block-start: calc(5 * var(--base-increment)) !important;
+    padding-block-end: calc(5 * var(--base-increment)) !important;
+}
 
 // padding all  (KILL THIS AFTER REFACTORING)
 .sd-padding-all--0 {
@@ -972,6 +1358,7 @@ $incrementValue in $sd-increments {
 .sd-margin-all--3 {
     margin: $sd-base-increment * 3 !important;
 }
+
 // END
 
 
@@ -983,7 +1370,7 @@ $incrementValue in $sd-increments {
 .sd-accessibility__screenreader-text {
     position: absolute;
     top: 0;
-    left: 0;
+    inset-inline-start: 0;
     font-size: 0.1rem;
     color: transparent !important;
     pointer-events: none;

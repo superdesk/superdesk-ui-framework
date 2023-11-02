@@ -2,45 +2,45 @@
 
 .sd-page {
     position: absolute;
-    top: 48px;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset-block-start: 48px;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     background: #fff;
     overflow: hidden;
 }
 
 .sd-page__sidebar {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
 }
 
 .sd-page__main-content {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     background-color: var(--sd-colour-panel-bg--100);
     display: flex;
     flex-direction: column;
 }
 
 .sd-page__main-content--double-left-nav {
-    left: 400px;
+    inset-inline-start: 400px;
 } 
 
 .sd-page__sidebar {
     & + .sd-page__main-content {
-        left: 240px;
+        inset-inline-start: 240px;
     }
 
     & + .sd-content-navigation-panel {
-        left: 240px;
-        top: 0;
-        bottom: 0;
+        inset-inline-start: 240px;
+        inset-block-start: 0;
+        inset-block-end: 0;
         position: absolute;
     }
 }
@@ -48,7 +48,7 @@
 .sd-page__header {
     height:48px;
     flex-shrink: 0;
-    border-bottom: 1px solid var(--sd-colour-line--light);
+    border-block-end: 1px solid var(--sd-colour-line--light);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -105,9 +105,9 @@
 .sd-overlay-panel {
     z-index: 2;
     position: absolute;
-    top: $subnav-height;
-    right: 0;
-    bottom: 3rem;
+    inset-block-start: $subnav-height;
+    inset-inline-end: 0;
+    inset-block-end: 3rem;
     width: 0;
     background-color: $white;
     color: $sd-text;

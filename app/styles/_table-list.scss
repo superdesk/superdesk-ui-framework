@@ -48,7 +48,7 @@ $table-list-palette: $sd-basic-palette;
     &:hover {
         .table-list__slide-in-actions,
         .table-list__actions--slide-in {
-            padding-left: 0.6rem;
+            padding-inline-start: 0.6rem;
             width: auto;
             max-width: 56px;
             overflow: visible;
@@ -67,7 +67,7 @@ $table-list-palette: $sd-basic-palette;
 }
 
 .table-list__item--margin {
-    margin-bottom: $sd-base-increment;
+    margin-block-end: $sd-base-increment;
 }
 
 .table-list__item--selected {

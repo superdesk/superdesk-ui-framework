@@ -32,22 +32,22 @@
                 .circle {
                     width: 32px;
                     height: 32px;
-                    margin-top: 8px;
-                    margin-left: 0;
+                    margin-block-start: 8px;
+                    margin-inline-start: 0;
                 }
             }
         }
     }
 
     .caret {
-        margin-left: 15px;
+        margin-inline-start: 15px;
     }
 
     .dropdown__menu {
         border-radius: 0px;
         border:0;
         z-index: 2;
-        margin-top: -1px;
+        margin-block-start: -1px;
         min-width: 200px;
         box-shadow: $shadow__dropdown--default;
         padding: 10px 0;
@@ -82,11 +82,11 @@
                     margin: 0;
                     height: 41px;
                     padding: 10px 10px;
-                    border-top: 1px solid #e0e0e0;
+                    border-block-start: 1px solid #e0e0e0;
                     border-radius: 0px;
 
                     i {
-                        margin-right: 10px;
+                        margin-inline-end: 10px;
                     }
 
                     &:hover {
@@ -111,8 +111,8 @@
                 width: auto;
                 min-width: 50px;
                 clear: none;
-                margin-right: 10px;
-                float: right;
+                margin-inline-end: 10px;
+                float: inline-end;
             }
         }
     }

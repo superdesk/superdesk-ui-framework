@@ -5,19 +5,19 @@ $background-main: $sd-background;
     flex-direction: row;
     flex-wrap: nowrap;
     padding: 1rem;
-    padding-bottom: 0;
+    padding-block-end: 0;
     height: 100%;
 
     ::-webkit-scrollbar {
-        border-left: 4px solid transparent !important;
-        border-right: 1px solid transparent !important;
+        border-inline-start: 4px solid transparent !important;
+        border-inline-end: 1px solid transparent !important;
         width: 6px !important;
         background: transparent !important;
     }
 
     ::-webkit-scrollbar-track {
         background: transparent !important;
-        border-left: 3px solid transparent !important;
+        border-inline-start: 3px solid transparent !important;
 
         &:hover {
             background: rgba(0,0,0,.05) !important;
@@ -25,7 +25,7 @@ $background-main: $sd-background;
     }
 
     ::-webkit-scrollbar-thumb {
-        border-left: 3px solid transparent !important;
+        border-inline-start: 3px solid transparent !important;
     }
 }
 .sd-kanban-list__board {
@@ -55,7 +55,7 @@ $background-main: $sd-background;
     display: flex;
     flex-direction: row;
     align-items: center;
-    border-bottom: 4px solid var(--sd-colour-bg--09);
+    border-block-end: 4px solid var(--sd-colour-bg--09);
     padding: 0 0 0.4rem 0;
     margin: 0 0.1rem;
 
@@ -85,6 +85,6 @@ $background-main: $sd-background;
 [class*="--dark-ui"],
 .dark-ui {
     .sd-kanban-list__board-header {
-        border-bottom: 4px solid rgba(86, 110, 119, 1) !important;
+        border-block-end: 4px solid rgba(86, 110, 119, 1) !important;
     }
 }

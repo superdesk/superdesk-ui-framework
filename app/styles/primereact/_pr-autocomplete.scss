@@ -8,7 +8,7 @@
 
 .p-autocomplete-panel {
     @include pr-dropdown-panel-base;
-    margin-top: 16px;
+    margin-block-start: 16px;
     padding: 1rem 0;
 
     .p-autocomplete-items {

@@ -4,10 +4,10 @@
     padding: 0;
     color: $sd-text;
     list-style: none;
-    border-bottom: 0;
-    border-left: 0;
-    border-right: 0;
-    border-top: 1px var(--sd-colour-line--medium);
+    border-block-end: 0;
+    border-inline-start: 0;
+    border-inline-end: 0;
+    border-block-start: 1px var(--sd-colour-line--medium);
     border-style: solid;
 
     &.sd-content-divider--with-text {
@@ -17,10 +17,10 @@
         font-size: 16px;
         white-space: nowrap;
         text-align: center;
-        border-top: 0;
-        border-bottom: 0;
-        border-left: 0;
-        border-right: 0;
+        border-block-start: 0;
+        border-block-end: 0;
+        border-inline-start: 0;
+        border-inline-end: 0;
         border-top-color: var(--sd-colour-line--medium);
         border-style: solid;
     }
@@ -58,14 +58,14 @@
         &::before, &::after {
             content: "";
             position: relative;
-            top: 50%;
+            inset-block-start: 50%;
             width: 50%;
-            border-top: 1px transparent;
+            border-block-start: 1px transparent;
             border-top-color: transparent;
             border-top-color: inherit;
-            border-bottom: 0;
-            border-left: 0;
-            border-right: 0;
+            border-block-end: 0;
+            border-inline-start: 0;
+            border-inline-end: 0;
             transform: translateY(50%);
             border-style: inherit;
         }
@@ -114,8 +114,8 @@
         display: inline-block;
         //margin: $sd-base-increment * 0.5 $sd-base-increment * 1.5;
         vertical-align: middle;
-        border-top: 0;
-        border-left: 1px var(--sd-colour-line--medium);
+        border-block-start: 0;
+        border-inline-start: 1px var(--sd-colour-line--medium);
         border-style: solid;
         flex-grow: 0;
         align-self: stretch;
@@ -127,7 +127,7 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            border-left: 0;
+            border-inline-start: 0;
 
             .sd-content-divider__inner-text {
                 padding: $sd-base-increment * 0.5 $sd-base-increment * 2;
@@ -138,10 +138,10 @@
                 background-color: transparent;
                 position: relative;
                 height: 50%;
-                border-left: 1px var(--sd-colour-line--medium);
-                border-right: 0;
-                border-bottom: 0;
-                border-top: 0;
+                border-inline-start: 1px var(--sd-colour-line--medium);
+                border-inline-end: 0;
+                border-block-end: 0;
+                border-block-start: 0;
                 width: 1px;
                 border-style: solid;
             }
