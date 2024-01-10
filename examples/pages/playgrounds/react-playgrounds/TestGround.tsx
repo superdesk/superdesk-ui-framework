@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, BoxedListContentRow} from '../../../../app-typescript/index';
 import { Carousel } from '../../../../app-typescript/index';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
@@ -27,6 +27,7 @@ interface IState {
     invalid: boolean;
     date: any;
     time: string;
+    modalPlanningTemplates: boolean;
 }
 
 export class TestGround extends React.Component<IProps, IState> {
@@ -47,6 +48,7 @@ export class TestGround extends React.Component<IProps, IState> {
             invalid: false,
             date: '01/08/2022',
             time: '16:50',
+            modalPlanningTemplates: false,
         }
     }
 
@@ -63,9 +65,55 @@ export class TestGround extends React.Component<IProps, IState> {
             <Components.Layout header='Testing Ground'>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
+                        <Button text="Planning Templates" onClick={() => this.setState({modalPlanningTemplates: true})} />
+                        <Modal headerTemplate="Planning templates"
+                            zIndex={10000}
+                            visible={this.state.modalPlanningTemplates}
+                            contentPadding='medium'
+                            contentBg='medium'
+                            size='medium'
+                            onHide={() => {this.setState({modalPlanningTemplates: false})}}>
+                            <div className='modal__sticky-header'>
+                                <SearchBar placeholder='Search templates' boxed={true}>
+                                    <Dropdown
+                                        items={[
+                                            { label: 'Features', onSelect: () => 1 },
+                                            { label: 'Sports', onSelect: () => 1 },
+                                            { label: 'Entertainment', onSelect: () => 1 },
+                                        ]}>
+                                    All Calendars
+                                    </Dropdown>
+                                </SearchBar>
+                            </div>
 
-                        <h3 className="docs-page__h3 sd-margin-y--0">Pagination</h3>
+                            <Heading type='h6' className='mt-1 mb-1'>Features</Heading>
+                            <BoxedList>
+                                <BoxedListItem clickable={true}>Features -- template one cras fringilla</BoxedListItem>
+                                <BoxedListItem clickable={true}>Features -- template two sit quam</BoxedListItem>
+                                <BoxedListItem clickable={true}>Features -- template fermentum quam venenatis</BoxedListItem>
+                                <BoxedListItem clickable={true}>Features -- template dapibus mattis</BoxedListItem>
+                            </BoxedList>
+                            <Heading type='h6' className='mt-2 mb-1'>Sports</Heading>
+                            <BoxedList>
+                                <BoxedListItem clickable={true}>Sports -- template one fermentum venenatis</BoxedListItem>
+                                <BoxedListItem clickable={true}>Sports -- template two cras condimentum</BoxedListItem>
+                                <BoxedListItem clickable={true}>Sports -- template bibendum commodo nibh</BoxedListItem>
+                            </BoxedList>
+
+                        </Modal>
+                        <h3 className="docs-page__h3 ">Planning Templates</h3>
+                        <SearchBar placeholder='Search' boxed={true}>
+                            <Dropdown
+                                items={[
+                                    { label: 'Action 1', onSelect: () => 1 },
+                                    { label: 'Action 2', onSelect: () => 1 },
+                                    { label: 'Action 3', onSelect: () => 1 },
+                                ]}>
+                            Toogle button
+                            </Dropdown>
+                        </SearchBar>
                         <hr />
+                        <h3 className="docs-page__h3 sd-margin-y--0">Pagination</h3>
                         <div className='sd-pagination'>
                             <button className='sd-pagination__item sd-pagination__item--start' disabled>
                                 <Icon name='backward-thin' />
@@ -169,7 +217,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 label='Text input'
                                 placeholder='Enter text'
                                 disabled={true} />
-                            <DatePicker
+                            {/* <DatePicker
                                 value={this.state.date}
                                 onChange={(date) => {
                                     this.setState({date});
@@ -189,7 +237,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 onChange={(time) => {
                                     this.setState({time});
                                 }}
-                            />
+                            /> */}
                             <Button text="Clear" onClick={()=> false} />
                             <Button text="Cancel" onClick={()=> false} />
                             <Button text="Save" type='primary' onClick={()=> false} />
@@ -216,7 +264,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 inlineLabel={true}
                                 labelHidden={true}
                                 disabled={false} />
-                            <DatePicker
+                            {/* <DatePicker
                                 value={this.state.date}
                                 onChange={(date) => {
                                     this.setState({date});
@@ -239,7 +287,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 onChange={(time) => {
                                     this.setState({time});
                                 }}
-                            />
+                            /> */}
                             <Button text="Save" type='primary' onClick={()=> false} />
                         </FormRowNew>
 
@@ -262,7 +310,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 placeholder='Enter text'
                                 labelHidden={true}
                                 disabled={false} />
-                            <DatePicker
+                            {/* <DatePicker
                                 value={this.state.date}
                                 onChange={(date) => {
                                     this.setState({date});
@@ -273,8 +321,8 @@ export class TestGround extends React.Component<IProps, IState> {
                                 info='Nullam Sollicitudin'
                                 error='Error message'
                                 inlineLabel={false}
-                            />
-                            <TimePicker
+                            /> */}
+                            {/* <TimePicker
                                 value={this.state.time}
                                 // disabled={true}
                                 required={true}
@@ -282,7 +330,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 onChange={(time) => {
                                     this.setState({time});
                                 }}
-                            />
+                            /> */}
                             <Button text="Save" type='primary' onClick={()=> false} />
                         </FormRowNew>
 
