@@ -495,7 +495,9 @@ h6 {
     font-size: calc(var(--text-size--base) * 1.2);
     font-weight: 500;
     text-transform: uppercase;
-    color: $sd-text-light;
+    color: var(--color-text-light);
+    letter-spacing: 0.06em;
+
 }
 
 .sd-text {
