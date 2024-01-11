@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, DatePickerISO} from '../../../../app-typescript/index';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
 interface IProps {
@@ -41,7 +41,7 @@ export class TestGround extends React.Component<IProps, IState> {
             value6: undefined,
             selctedTheme: 'light',
             invalid: false,
-            date: '01/08/2022',
+            date: new Date('2022-01-08'),
             time: '16:50',
             modalPlanningTemplates: false,
         }
@@ -216,6 +216,25 @@ export class TestGround extends React.Component<IProps, IState> {
                                 label='Text input'
                                 placeholder='Enter text'
                                 disabled={true}
+                            />
+                            <DatePicker
+                                value={this.state.date}
+                                dateFormat="YYYY-MM-DD"
+                                disabled={true}
+                                required={true}
+                                label='Date'
+                                onChange={(date) => {
+                                    this.setState({date});
+                                }}
+                            />
+                            <TimePicker
+                                value={this.state.time}
+                                disabled={true}
+                                required={true}
+                                label='Time'
+                                onChange={(time) => {
+                                    this.setState({time});
+                                }}
                             />
                             <Button text="Clear" onClick={()=> false} />
                             <Button text="Cancel" onClick={()=> false} />
