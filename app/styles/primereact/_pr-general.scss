@@ -37,7 +37,7 @@
     display: inline-flex;
     align-items: center;
     min-height: $height-input--default;
-    border-bottom: 1px solid var(--color-input-border);
+    border-block-end: 1px solid var(--color-input-border);
     background-color: var(--color-input-bg);
     font-size: 1.4rem;
     transition: border linear 0.2s, box-shadow linear 0.2s;

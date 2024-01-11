@@ -56,6 +56,7 @@ export class SearchBar extends React.PureComponent<IProps, IState> {
         });
         return (
             <div className={classes} ref={this.inputRef}>
+                {this.props.children}
                 <label className="sd-searchbar__icon"></label>
                 <input id="search-input"
                 ref={(input: any) => (input && this.props.focused) && input.focus()}

@@ -13,9 +13,9 @@
 
     .inner {
         position:absolute;
-        left:0.2rem;
+        inset-inline-start:0.2rem;
         width:1.4rem;
-        top:0.2rem;
+        inset-block-start:0.2rem;
         height:1.4rem;
         background: $white;
         border-radius: $border-radius__base--full;
@@ -27,7 +27,7 @@
         background: var(--sd-colour-interactive--active);
 
         .inner {
-            left:2.4rem;
+            inset-inline-start:2.4rem;
         }
     }
 

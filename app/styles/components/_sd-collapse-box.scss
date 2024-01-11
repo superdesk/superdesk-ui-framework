@@ -3,7 +3,7 @@
     flex-direction: column;
     border-radius: $border-radius__base--small;
     position: relative;
-    margin-bottom: 1rem;
+    margin-block-end: 1rem;
     border: 1px solid var(--sd-colour--shadow-line--m);
 
     .sd-collapse-box__header {
@@ -16,8 +16,8 @@
 
     .sd-collapse-box__tools {
         position: absolute;
-        right: 1rem;
-        top: 0.8rem;
+        inset-inline-end: 1rem;
+        inset-block-start: 0.8rem;
         z-index: 2;
         color: var(--color-icon-default);
 
@@ -45,8 +45,8 @@
 
     .sd-collapse-box__tools--flex {
         position: relative;
-        right: 0;
-        top: 0;
+        inset-inline-end: 0;
+        inset-block-start: 0;
         display: flex;
         flex-direction: row;
         margin: -1.4rem -1rem;
@@ -66,11 +66,11 @@
     }
 
     .sd-collapse-box__content--border-locked {
-        border-left: 4px solid $red;
+        border-inline-start: 4px solid $red;
     }
 
     .sd-collapse-box__content--border-success {
-        border-left: 4px solid $green;
+        border-inline-start: 4px solid $green;
     }
 
     .sd-collapse-box__content-block { // place inside .sd-collapse-box__content
@@ -79,7 +79,7 @@
     }
 
     .sd-collapse-box__content-block--top {
-        margin-top: 2.2rem;
+        margin-block-start: 2.2rem;
     }
 }
 
@@ -100,20 +100,20 @@
 }
 
 .sd-collapse-box--margin-small {
-    margin-bottom: 0.5rem;
+    margin-block-end: 0.5rem;
 }
 
 .sd-collapse-box__content, .sd-collapse-box__content-block {
     .form__row:last-of-type {
-        padding-bottom: 0;
+        padding-block-end: 0;
     }
 }
 
 .sd-collapse-box__sliding-toolbar-wrapper {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     height: 4.6rem;
     overflow: hidden;
     border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
@@ -123,10 +123,10 @@
     position: absolute;
     display: flex;
     align-items: center;
-    top: 0;
+    inset-block-start: 0;
     height: 4.2rem;
-    left: 0;
-    right: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     z-index: 3;
     padding: 0 16px;
     color: var(--color-text);

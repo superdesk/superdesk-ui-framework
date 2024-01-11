@@ -37,8 +37,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
         -moz-osx-font-smoothing: grayscale;
         color: #fff;
         position: absolute;
-        top: 0;
-        left: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0;
         transform: scale(0.25, 0.25);
     }
 
@@ -75,7 +75,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
         content:' ';
         position: absolute;
         background-color: $sd-colour-interactive;
-        top: 0.2rem;
+        inset-block-start: 0.2rem;
         inset-inline-start: 0.2rem;
         opacity: 0;
         transition: all 0.1s ease-in;
@@ -354,7 +354,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
 }
 
 .sd-check-button {
-    @include sd-padding('1-5', 'x');
+    padding-inline: var(--space--1-5);
     line-height: 1;
     border: 1px solid $checkButtonBorderColor;
     border-radius: $checkButtonBorderRadius;
@@ -696,7 +696,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
 // Superdeks untill they are refactored
 
 .toggle-button {
-    @include sd-padding('1-5', 'x');
+    padding-inline: var(--space--1-5);
     @include text-overflow;
     line-height: 1;
     border: 1px solid $checkButtonBorderColor;

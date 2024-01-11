@@ -7,26 +7,26 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     width: 100%;
     border-collapse: separate;
     border-spacing: 0px;
-    border-top: 1px solid $sd-tableBorderColor;
-    border-bottom: 1px solid $sd-tableBorderColor;
+    border-block-start: 1px solid $sd-tableBorderColor;
+    border-block-end: 1px solid $sd-tableBorderColor;
 
     th, td {
         padding: 1.2rem 0.8rem;
         text-align: start;
         vertical-align: top;
-        border-bottom: 1px solid $sd-tableBorderColor;
+        border-block-end: 1px solid $sd-tableBorderColor;
         font-weight: 500;
     }
 
     tr:last-child {
         td {
-            border-bottom: none;
+            border-block-end: none;
         }
     }
 
     th {
         font-weight: 600;
-        border-bottom: 2px solid $sd-tableBorderColor;
+        border-block-end: 2px solid $sd-tableBorderColor;
     }
 
     // Bottom align for column headings
@@ -82,7 +82,7 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     flex-direction: column;
 
     span + span {
-        margin-left: .4rem;
+        margin-inline-start: .4rem;
     }
 }
 
@@ -97,7 +97,7 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
 
     .sd-display-table__cell {
         font-weight: 600;
-        border-bottom: 2px solid var(--sd-colour-line--light);
+        border-block-end: 2px solid var(--sd-colour-line--light);
     }
 }
 
@@ -112,7 +112,7 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
 .sd-display-table__cell {
     display: table-cell;
     padding: 1.2rem 0.8rem;
-    border-bottom: 1px solid var(--sd-colour-line--light);
+    border-block-end: 1px solid var(--sd-colour-line--light);
     font-weight: 500;
     text-align: start;
 
@@ -138,7 +138,7 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
     flex-wrap: nowrap;
     justify-content: center;
     padding: 1.2rem 0.8rem;
-    border-bottom: 1px solid var(--sd-colour-line--light);
+    border-block-end: 1px solid var(--sd-colour-line--light);
     font-weight: 500;
     text-align: start;
     min-width: 120px;
@@ -146,5 +146,5 @@ $sd-tableBorderColor: var(--sd-colour-line--medium);
 
 .sd-flex-table--head .sd-flex-table__cell {
     font-weight: 600;
-    border-bottom: 2px solid var(--sd-colour-line--light);
+    border-block-end: 2px solid var(--sd-colour-line--light);
 }

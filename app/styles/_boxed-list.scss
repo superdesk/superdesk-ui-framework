@@ -4,12 +4,16 @@
     display: flex;
     flex-direction: column;
     align-self: stretch;
-    gap: $sd-base-increment * 1.5;
-    margin-bottom: $sd-base-increment * 2;
+    gap: $sd-base-increment * 1;
+    margin-block-end: $sd-base-increment * 2;
+}
+
+.boxed-list--compact {
+    gap: $sd-base-increment * 1;
 }
 
 .boxed-list--comfortable {
-    gap: $sd-base-increment * 2;
+    gap: $sd-base-increment * 1.5;
 }
 
 $boxed-list-palette: $sd-basic-palette;
@@ -32,8 +36,8 @@ $boxed-list-palette: $sd-basic-palette;
                 width: 4px;
                 height: 100%;
                 position: absolute;
-                top: 0px;
-                left: 0px;
+                inset-block-start: 0px;
+                inset-inline-start: 0px;
                 background-color: $color;
                 z-index: 1;
                 border-radius: 3px 0 0 3px;
@@ -51,7 +55,7 @@ $boxed-list-palette: $sd-basic-palette;
     &:hover {
         .boxed-list__slide-in-actions,
         .boxed-list__actions--slide-in {
-            padding-left: 0.6rem;
+            padding-inline-start: 0.6rem;
             width: auto;
             max-width: 32px;
             overflow: visible;
@@ -80,7 +84,10 @@ $boxed-list-palette: $sd-basic-palette;
 .boxed-list__item--clickable {
     &:hover {
         cursor: pointer;
-        box-shadow: $shadow__base--z3;
+        box-shadow: $shadow__base--z2;
+    }
+    &:active {
+        box-shadow: 0 0 2px 1px hsla(0, 0%, 0%, 0.12);
     }
 }
 
@@ -96,7 +103,7 @@ $boxed-list-palette: $sd-basic-palette;
 
 .boxed-list__item--comfortable {
     min-height: 3.2rem;
-    @include sd-padding('1-5');
+    padding: var(--space--1-5);
 }
 
 .boxed-list__item--compact {
@@ -106,7 +113,7 @@ $boxed-list-palette: $sd-basic-palette;
 
 .boxed-list__item--loose {
     min-height: 4.8rem;
-    @include sd-padding('2');
+    padding: var(--space--2);
 }
 
 .boxed-list__item-media {
@@ -170,7 +177,7 @@ $boxed-list-palette: $sd-basic-palette;
     flex-direction: row;
     align-items: center;
     padding: 0.8rem 0.8rem 0 0.8rem;
-    margin-top: 0.8rem;
+    margin-block-start: 0.8rem;
 }
 
 .boxed-list__item-footer--allign-baseline {
@@ -178,7 +185,7 @@ $boxed-list-palette: $sd-basic-palette;
 }
 
 .boxed-list__item-content-row + .boxed-list__item-content-row  {
-    margin-top: 0.8rem;
+    margin-block-start: 0.8rem;
 }
 
 .boxed-list__slide-in-actions,

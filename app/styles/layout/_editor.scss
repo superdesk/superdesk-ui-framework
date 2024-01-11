@@ -76,9 +76,9 @@
         opacity: 0;
         position: absolute;
         overflow: hidden;
-        top: 0;
+        inset-block-start: 0;
         width: 0;
-        bottom: 0;
+        inset-block-end: 0;
         inset-inline-end: -320px;
         transition: width 0.2s ease-in-out, opacity 0.2s ease;
         box-shadow: -2px 0 12px hsla(0, 0%, 0%, 0), -3px 0 0 0px hsla(214, 13%, 60%, 0);
@@ -203,7 +203,7 @@
     p {
         font-size: 16px;
         line-height: 1.5;
-        margin-bottom: 24px;
+        margin-block-end: 24px;
     }
 }
 
@@ -276,9 +276,9 @@
     border: 0;
     padding: 0 0 4px;
     inset-inline-start: 50%;
-    margin-left: -18.5px;
+    margin-inline-start: -18.5px;
     margin-block-start: -18.5px;
-    bottom: -25px;
+    inset-block-end: -25px;
     background-color: var(--sd-colour-panel-bg--100);
     z-index: 3;
     line-height: 0;
@@ -291,8 +291,8 @@
 
     &:hover {
         height: 32px;
-        bottom: -32px;
-        padding-top: 2px;
+        inset-block-end: -32px;
+        padding-block-start: 2px;
 
         i {
             opacity: 1;

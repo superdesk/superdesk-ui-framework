@@ -24,15 +24,15 @@ $photo-nav-transition: all 0.2s ease-out;
     }
 
     .sd-photo-preview__thumb-strip--with-controls {
-        padding-top: 4.8rem;
+        padding-block-start: 4.8rem;
     }
 }
 
 .sd-photo-preview__thumb-controls {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     min-height: 4.8rem;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
     z-index: 2;
@@ -55,10 +55,10 @@ $photo-nav-transition: all 0.2s ease-out;
         &::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset-block-start: 0;
+            inset-inline-end: 0;
+            inset-block-end: 0;
+            inset-inline-start: 0;
             z-index: 999;
             background-image: url(../img/three-dots.svg);
             background-repeat: no-repeat;
@@ -105,7 +105,7 @@ $photo-nav-transition: all 0.2s ease-out;
             width: auto;
             height: auto;
             max-height: 100vh;
-            margin-top: 2rem;
+            margin-block-start: 2rem;
         }
     } 
 
@@ -191,9 +191,9 @@ $photo-nav-transition: all 0.2s ease-out;
 
     .sd-photo-preview__thumbnail-edit-label {
         position: absolute;
-        top: -2.2rem;
-        left: 0;
-        right: 0;
+        inset-block-start: -2.2rem;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
         height: 2rem;
         text-align: center;
         opacity: 0.5;
@@ -202,10 +202,10 @@ $photo-nav-transition: all 0.2s ease-out;
 
 .image-overlay {
     position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    inset-block-start: 0;
+    inset-inline-end: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -273,7 +273,7 @@ $photo-nav-transition: all 0.2s ease-out;
 }
 
 .image-overlay__button + .image-overlay__button {
-    margin-left: 0.8rem;
+    margin-inline-start: 0.8rem;
 }
 
 .sd-photo-preview__video-frames {
@@ -332,7 +332,7 @@ $photo-nav-transition: all 0.2s ease-out;
     height: 5.6rem;
     line-height: 5.6rem;
     position: absolute;
-    top: calc(50% - 2.8rem);
+    inset-block-start: calc(50% - 2.8rem);
     width: 5.6rem;
     box-shadow: 0 4px 24px rgba(0,0,0,.20), 0 10px 28px rgba(0,0,0,.35);
     color: $white;
@@ -356,8 +356,8 @@ $photo-nav-transition: all 0.2s ease-out;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         position: absolute;
-        top:0;
-        left:0;
+        inset-block-start:0;
+        inset-inline-start:0;
         text-align: center;
         z-index: 2;
         color: $white;
@@ -368,8 +368,8 @@ $photo-nav-transition: all 0.2s ease-out;
 
 .sd-photo-preview__slide-in-button {
     position: absolute !important;
-    top: 2.4rem;
-    right: 0;
+    inset-block-start: 2.4rem;
+    inset-inline-end: 0;
     z-index: 2;
     background-color: hsla(0, 0%, 100%, 0.1);
     height:4.8rem;
@@ -406,7 +406,7 @@ $photo-nav-transition: all 0.2s ease-out;
 }
 
 .sd-photo-preview__nav-button--next {
-    right: 0.8rem;
+    inset-inline-end: 0.8rem;
     color: inherit;
 
     &::after {
@@ -414,7 +414,7 @@ $photo-nav-transition: all 0.2s ease-out;
     }
 }
 .sd-photo-preview__nav-button--prev {
-    left: 0.8rem;
+    inset-inline-start: 0.8rem;
     color: inherit;
 
     &::after {
@@ -424,10 +424,10 @@ $photo-nav-transition: all 0.2s ease-out;
 
 .upload__target {
     position: absolute;
-    top:0;
-    right: 0;
-    bottom: 0; 
-    left:0;
+    inset-block-start:0;
+    inset-inline-end: 0;
+    inset-block-end: 0; 
+    inset-inline-start:0;
     z-index: 0;
     border: 2px dashed $sd-colour-interactive;
     background-color: var(--sd-colour-interactive--alpha-10);
@@ -437,8 +437,8 @@ $photo-nav-transition: all 0.2s ease-out;
     margin: 0 auto;
     max-width: 40rem;
     position: relative;
-    top: 50%;
-    margin-top: -10.6rem;
+    inset-block-start: 50%;
+    margin-block-start: -10.6rem;
     z-index: 1;
 }
 
@@ -455,7 +455,7 @@ $photo-nav-transition: all 0.2s ease-out;
     margin: 0 auto;
     opacity: 0.5;
     text-align: center;
-    padding-top: 3rem;
+    padding-block-start: 3rem;
     text-align: center;
     color: var(--color-text-light);
     font-size: 2.4rem;
@@ -473,17 +473,17 @@ $photo-nav-transition: all 0.2s ease-out;
     &::after, &::before {
         content: "___________";
         position: absolute;
-        top: -0.5rem;
+        inset-block-start: -0.5rem;
         color: inherit;
         opacity: 0.25;
     }
     
     &::after { 
-        margin-left: 1.5rem;
+        margin-inline-start: 1.5rem;
     }
     
     &::before {
-        margin-left: -7.8rem;
+        margin-inline-start: -7.8rem;
     }
 }
 .upload__info-button {

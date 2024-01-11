@@ -1,7 +1,7 @@
 .p-datepicker {
     @include pr-dropdown-panel-base;
     padding: 12px;
-    margin-top: 1px;
+    margin-block-start: 1px;
 
     .p-datepicker-title {
         text-transform: uppercase;
@@ -17,7 +17,7 @@
         flex-wrap: wrap;
         padding: .8em 4px;
         min-height: 32px;
-        margin-bottom: 8px;
+        margin-block-end: 8px;
 
         .p-datepicker-prev,
         .p-datepicker-next {
@@ -56,7 +56,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-bottom: 16px;
+            margin-block-end: 16px;
             gap: $sd-base-increment;
 
             button {
@@ -79,7 +79,7 @@
 
 .p-datepicker-year {
     font-weight: 400;
-    margin-top: 4px;
+    margin-block-start: 4px;
     color: var(--color-text-light);
 }
 
@@ -120,8 +120,8 @@
     height: 32px;
     border-radius: $border-radius__base--x-small;
     font-weight: normal;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-inline-start: 4px;
+    margin-inline-end: 4px;
     transition: $sd-transition__menu-item;
 }
 
@@ -133,8 +133,8 @@
     height: 24px;
     text-align: center;
     font-weight: normal;
-    margin-left: 4px;
-    margin-right: 4px;
+    margin-inline-start: 4px;
+    margin-inline-end: 4px;
 }
 
 // selected date style
@@ -177,7 +177,7 @@
             .p-calendar-icon {
                 pointer-events: none;
             }
-            border-bottom: 1px dotted var(--color-input-border);
+            border-block-end: 1px dotted var(--color-input-border);
             background-color: var(--color-input-bg);
         }
     }
@@ -199,7 +199,7 @@
         [class^="icon-"],
         [class*=" icon-"] {
             color: var(--color-text);
-            margin-top: -2px;
+            margin-block-start: -2px;
             opacity: 0.75;
         }
 
@@ -214,5 +214,9 @@
 }
 
 .p-datepicker-calendar {
-    margin-bottom: 8px;
+    margin-block-end: 8px;
+}
+
+.p-datepicker-today > span {
+    background-color: var(--sd-colour-interactive--alpha-20);
 }

@@ -98,10 +98,10 @@
     position: absolute;
     display: flex;
     align-items: center;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     z-index: 3;
     padding: 0 $sd-base-increment * 2;
     color: $sd-colour-text__base;
