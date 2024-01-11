@@ -1,6 +1,4 @@
 import * as React from 'react';
-import { SidebarMenu } from './SidebarMenu';
-import { AuthoringContent } from './AuthoringContent';
 
 interface IProps {
     header: string;

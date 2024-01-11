@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioButton, Input, Select, Option } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, Select, Option } from '../../../../app-typescript/index';
 
 interface IProps {
     children?: React.ReactNode;
@@ -65,7 +65,9 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                         'divider',
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
-                        { icon: 'picture', size: 'big' }]} />
+                        { icon: 'picture', size: 'big' }
+                    ]}
+                />
 
                 <div className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
                     <Components.HeaderPanel >
@@ -81,7 +83,9 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                                 { label: 'File archive', onSelect: () => this.setState({ dropDownState: 'File archive' }) },
                                                 { label: 'AP images', onSelect: () => this.setState({ dropDownState: 'AP archive' }) },
                                             ]
-                                        }]}>
+                                        }
+                                    ]}
+                                >
                                     <NavButton onClick={() => false} />
                                 </Dropdown>
                             </ButtonGroup>
@@ -93,13 +97,6 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                             <ButtonGroup >
                                 <NavButton icon='filter-large' onClick={this.handleFilter} />
                             </ButtonGroup>
-                            <CheckButtonGroup >
-                                <RadioButton value={this.state.itemType} onChange={(value) => this.setState({ itemType: value })} options={[
-                                    { value: 'itemtype01', label: 'All item types' },
-                                    { value: 'itemtype02', label: 'Images only' },
-                                    { value: 'itemtype03', label: 'Videos only' },
-                                    { value: 'itemtype04', label: 'Documents only' }]} />
-                            </CheckButtonGroup>
                             <ButtonGroup align='end'>
                                 <NavButton icon='adjust' onClick={this.handleTheme} />
                                 <NavButton icon='th-list' onClick={() => false} />
@@ -115,23 +112,24 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                 <Components.PanelContentBlock>
                                     <div className="form__group">
                                         <div className="form__item">
-                                            <Input label='TITLE'
-                                                error='This is error message'
+                                            <Input
+                                                type='text'
+                                                label='TITLE'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
                                     <div className="form__group">
                                         <div className="form__item">
-                                            <Select label='Source'
+                                            <Select
+                                                label='Source'
                                                 value='Select ingest source...'
-                                                error='This is error message'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => false}
+                                            >
                                                 <Option value="option-1">Select ingest source...</Option>
                                                 <Option value="option-2">Associated Press</Option>
                                                 <Option value="option-3">Reuters</Option>
@@ -140,32 +138,35 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                     </div>
                                     <div className="form__group" >
                                         <div className="form__item">
-                                            <Input label='LOCATION'
-                                                error='This is error message'
+                                            <Input
+                                                type='text'
+                                                label='LOCATION'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
                                     <div className="form__group">
                                         <div className="form__item">
-                                            <Input label='CATEGORY'
-                                                error='This is error message'
+                                            <Input
+                                                type='text'
+                                                label='CATEGORY'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
                                     <div className="form__group">
                                         <div className="form__item">
-                                            <Input label='SUBJECT'
-                                                error='This is error message'
+                                            <Input
+                                                type='text'
+                                                label='SUBJECT'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
 
@@ -173,12 +174,11 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                         <div className="form__item">
                                             <Select label='Usage right'
                                                 value='--- Not selected ---'
-                                                error='This is error message'
                                                 info='Dolor in hendrerit.'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => false}
+                                            >
                                                 <Option value="">--- Not selected ---</Option>
                                                 <Option value="single">Single usage</Option>
                                                 <Option value="time">Time restricted</Option>

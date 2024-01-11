@@ -20,7 +20,7 @@ interface IState {
 
 export class SearchBar extends React.PureComponent<IProps, IState> {
     private inputRef: any;
-    constructor(props) {
+    constructor(props: IProps) {
         super(props);
         this.state = {
             inputValue: this.props.value ? this.props.value : '', 
@@ -46,27 +46,34 @@ export class SearchBar extends React.PureComponent<IProps, IState> {
     }
 
     render() {
-        let classes = classNames('sd-searchbar', {
+        const classes = classNames('sd-searchbar', {
             [`sd-searchbar--${this.state.type}`] : this.props.type,
             'sd-searchbar--expanded': this.state.type === 'expanded' || this.props.type === undefined,
             'sd-searchbar--focused' : this.state.focused,
             'sd-searchbar--boxed': this.state.boxed,
         });
+
         return (
             <div className={classes} ref={this.inputRef}>
                 <label className="sd-searchbar__icon"></label>
-                <input id="search-input"
-                ref={(input: any) => (input && this.props.focused) && input.focus()}
+
+                <input
+                    id="search-input"
+                    ref={(input: any) => (input && this.props.focused) && input.focus()}
                     className="sd-searchbar__input"
                     type="text"
                     placeholder={this.props.placeholder}
                     value={this.state.inputValue}
                     onChange={(e) => this.setState({inputValue: e.target.value})}
-                    onFocus={() => this.setState({focused: true})} />
-                {this.state.inputValue &&
-                <button className="sd-searchbar__cancel" onClick={() => this.setState({inputValue: ''})}>
-                    <Icon name='remove-sign' />
-                </button>}
+                    onFocus={() => this.setState({focused: true})}
+                />
+
+                {this.state.inputValue && (
+                    <button className="sd-searchbar__cancel" onClick={() => this.setState({inputValue: ''})}>
+                        <Icon name='remove-sign' />
+                    </button>
+                )}
+
                 <button id="sd-searchbar__search-btn" className="sd-searchbar__search-btn" onSubmit={() => this.props.onSubmit}>
                     <Icon name='chevron-right-thin' />
                 </button>

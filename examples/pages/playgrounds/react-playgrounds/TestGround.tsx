@@ -1,12 +1,7 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, Input, Select, Option, Label, Icon, IconButton, CheckGroup, GridList, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, DatePicker, TimePicker, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, BoxedListContentRow} from '../../../../app-typescript/index';
-import { Carousel } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem} from '../../../../app-typescript/index';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
-
-
-import dummy_items from '../dummy-data/items';
-
 
 interface IProps {
     children?: React.ReactNode;
@@ -72,7 +67,8 @@ export class TestGround extends React.Component<IProps, IState> {
                             contentPadding='medium'
                             contentBg='medium'
                             size='medium'
-                            onHide={() => {this.setState({modalPlanningTemplates: false})}}>
+                            onHide={() => {this.setState({modalPlanningTemplates: false})}}
+                        >
                             <div className='modal__sticky-header'>
                                 <SearchBar placeholder='Search templates' boxed={true}>
                                     <Dropdown
@@ -80,8 +76,9 @@ export class TestGround extends React.Component<IProps, IState> {
                                             { label: 'Features', onSelect: () => 1 },
                                             { label: 'Sports', onSelect: () => 1 },
                                             { label: 'Entertainment', onSelect: () => 1 },
-                                        ]}>
-                                    All Calendars
+                                        ]}
+                                    >
+                                        All Calendars
                                     </Dropdown>
                                 </SearchBar>
                             </div>
@@ -108,11 +105,14 @@ export class TestGround extends React.Component<IProps, IState> {
                                     { label: 'Action 1', onSelect: () => 1 },
                                     { label: 'Action 2', onSelect: () => 1 },
                                     { label: 'Action 3', onSelect: () => 1 },
-                                ]}>
-                            Toogle button
+                                ]}
+                            >
+                                Toogle button
                             </Dropdown>
                         </SearchBar>
+
                         <hr />
+
                         <h3 className="docs-page__h3 sd-margin-y--0">Pagination</h3>
                         <div className='sd-pagination'>
                             <button className='sd-pagination__item sd-pagination__item--start' disabled>
@@ -121,23 +121,18 @@ export class TestGround extends React.Component<IProps, IState> {
                             <button className='sd-pagination__item sd-pagination__item--back' disabled>
                                 <Icon name='chevron-left-thin' />
                             </button>
-
                             <button className='sd-pagination__item'>1</button>
                             <button className='sd-pagination__item sd-pagination__item--active'>2</button>
                             <button className='sd-pagination__item'>3</button>
                             <button className='sd-pagination__item'>4</button>
-
                             <span className='sd-pagination__item sd-pagination__item--more'>...</span>
-
                             <button className='sd-pagination__item'>12</button>
-
                             <button className='sd-pagination__item sd-pagination__item--forward'>
                                 <Icon name='chevron-right-thin' />
                             </button>
                             <button className='sd-pagination__item sd-pagination__item--end'>
                                 <Icon name='forward-thin' />
                             </button>
-
                         </div>
 
                         <hr />
@@ -157,17 +152,20 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <hr />
 
-                        <img src="/path/toimage" alt="my image" 
+                        <img
+                            src="/path/toimage"
+                            alt="my image" 
                             onError={({ currentTarget }) => {
                                 currentTarget.onerror = null; // prevents looping
                                 currentTarget.src="/illustration--playground.svg";
                                 currentTarget.classList.add('broken-img')
-                            }} />
+                            }}
+                        />
 
                         <div className="input-wrap">
                             <FormLabel invalid required={true} state='focused' text="Form Label" forId="input1" />
                             <IconButton size='small' icon="settings" ariaValue="Screen-reader text" onClick={()=> false} />
-                            <InputBase placeholder='Test placeholder' boxedStyle invalid type='text' id="input1" value='' onChange={(value) => {}} />
+                            <InputBase placeholder='Test placeholder' boxedStyle invalid type='text' id="input1" value='' onChange={() => false} />
                             <div className="input-wrap__message-box">
                                 <div className="sd-input__hint">Error message</div>
                             </div>
@@ -179,7 +177,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <div className="input-wrap input-wrap--boxed">
                             <FormLabel style='boxed' text="Form Label" required={true} forId="input2" />
                             <IconButton size='small' icon="settings" ariaValue="Screen-reader text" onClick={()=> false} />
-                            <InputBase disabled size='medium' placeholder='Test placeholder' boxedStyle type='text' id="input2" value='' onChange={(value) => {}} />
+                            <InputBase disabled size='medium' placeholder='Test placeholder' boxedStyle type='text' id="input2" value='' onChange={() => false} />
                             <div className="input-wrap__message-box">
                                 <div className="sd-input__hint">Error message</div>
                             </div>
@@ -187,107 +185,67 @@ export class TestGround extends React.Component<IProps, IState> {
                         </div>
 
                         <hr />
-                        <hr />
 
                         <InputNew
                             label='test'
                             value=''
-                            onChange={(value) => false}
+                            onChange={() => false}
                             placeholder='test'
                             required={true}
                             info='Nullam Sollicitudin'
                             maxLength={20}
-                            error='Error message'
                             inlineLabel={true}
                             labelHidden={true}
-                            type='text' />
+                            type='text'
+                        />
                         
                         <hr />
+
                         <div className='form__group-new'>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => false}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
-                                disabled={true} />
-                            <Input value=''
-                                onChange={(value) => {}}
-                                type='text'
-                                label='Text input'
-                                placeholder='Enter text'
-                                disabled={true} />
-                            {/* <DatePicker
-                                value={this.state.date}
-                                onChange={(date) => {
-                                    this.setState({date});
-                                }}
                                 disabled={true}
-                                dateFormat="DD-MM-YYYY"
-                                label='Date'
-                                info='Nullam Sollicitudin'
-                                error='Error message'
-                                inlineLabel={false}
                             />
-                            <TimePicker
-                                value={this.state.time}
+                            <Input value=''
+                                onChange={() => false}
+                                type='text'
+                                label='Text input'
+                                placeholder='Enter text'
                                 disabled={true}
-                                required={true}
-                                label='Time'
-                                onChange={(time) => {
-                                    this.setState({time});
-                                }}
-                            /> */}
+                            />
                             <Button text="Clear" onClick={()=> false} />
                             <Button text="Cancel" onClick={()=> false} />
                             <Button text="Save" type='primary' onClick={()=> false} />
                         </div>
+
                         <hr />
 
                         <FormRowNew rowLabel='My group label' inlineLabels={true}>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => false}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
                                 inlineLabel={true}
                                 labelHidden={true}
-                                disabled={false} />
+                                disabled={false}
+                            />
                             <Text size='small' align='center'>To:</Text>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => false}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
                                 inlineLabel={true}
                                 labelHidden={true}
-                                disabled={false} />
-                            {/* <DatePicker
-                                value={this.state.date}
-                                onChange={(date) => {
-                                    this.setState({date});
-                                }}
-                                // disabled={true}
-                                dateFormat="DD-MM-YYYY"
-                                label='Date'
-                                info='Nullam Sollicitudin'
-                                error='Error message'
-                                inlineLabel={true}
-                                labelHidden={true}
+                                disabled={false}
                             />
-                            <TimePicker
-                                value={this.state.time}
-                                // disabled={true}
-                                required={true}
-                                inlineLabel={true}
-                                labelHidden={true}
-                                label='Time'
-                                onChange={(time) => {
-                                    this.setState({time});
-                                }}
-                            /> */}
                             <Button text="Save" type='primary' onClick={()=> false} />
                         </FormRowNew>
 
@@ -296,47 +254,31 @@ export class TestGround extends React.Component<IProps, IState> {
                         <FormRowNew>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => false}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
-                                disabled={false} />
+                                disabled={false}
+                            />
                             <Text size='small' align='center'>To:</Text>
                             <Input
                                 value=''
-                                onChange={(value) => {}}
+                                onChange={() => false}
                                 type='text'
                                 label='Text input'
                                 placeholder='Enter text'
                                 labelHidden={true}
-                                disabled={false} />
-                            {/* <DatePicker
-                                value={this.state.date}
-                                onChange={(date) => {
-                                    this.setState({date});
-                                }}
-                                // disabled={true}
-                                dateFormat="DD-MM-YYYY"
-                                label='Date'
-                                info='Nullam Sollicitudin'
-                                error='Error message'
-                                inlineLabel={false}
-                            /> */}
-                            {/* <TimePicker
-                                value={this.state.time}
-                                // disabled={true}
-                                required={true}
-                                label='Time'
-                                onChange={(time) => {
-                                    this.setState({time});
-                                }}
-                            /> */}
+                                disabled={false}
+                            />
                             <Button text="Save" type='primary' onClick={()=> false} />
                         </FormRowNew>
 
                         <hr />
+
                         <h3 className="docs-page__h3 sd-margin-y--0">Table list (draggable)</h3>
+
                         <hr />
+
                         <h4 className="docs-page__h4 sd-margin-y--1">Handles visible</h4>
                         <ul className='table-list table-list--gap-s'>
                             <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-always'>
@@ -414,6 +356,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         </ul>
 
                         <hr />
+
                         <h4 className="docs-page__h4 sd-margin-y--1">Handles hidden</h4>
                         <ul className='table-list table-list--gap-s'>
                             <li className='table-list__item table-list__item--clickable table-list__item--draggable table-list__item--drag-handles-none'>
@@ -491,6 +434,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         </ul>
 
                         <hr />
+
                         <h4 className="docs-page__h4 sd-margin-y--1">Handles on hover</h4>
                         <ul className='table-list table-list--gap-s'>
                             <li className='table-list__item table-list__item--clickable table-list__item--draggable'>
@@ -566,11 +510,13 @@ export class TestGround extends React.Component<IProps, IState> {
                                 </div>
                             </li>
                         </ul>
-                        <hr />
+
                         <hr />
 
                         <h3 className="docs-page__h3 sd-margin-y--0 sd-margin-t--3">Table list with items between</h3>
+
                         <hr />
+
                         <ul className='table-list table-list--contained'>
                             <li className='table-list__item-container'>
                                 <div className='table-list__item table-list__item--clickable table-list__item--draggable'>
@@ -658,14 +604,16 @@ export class TestGround extends React.Component<IProps, IState> {
                             </li>
                         </ul>
 
-                        <hr /><hr />
+                        <hr />
 
                         <h3 className="docs-page__h3 sd-margin-y--0">Checkbox</h3>
+
                         <hr />
+
                         <div className="sd-check__group-new sd-check__group-new--vertical">
                             <Checkbox label={{text: 'Label side not defined'}} onChange={(value) => console.log('value changed', value)} />
                             <Checkbox label={{text: 'Defined label side - right', side: 'end'}} onChange={(value) => console.log('value changed', value)} />
-                            <Checkbox label={{text: 'This checkbox is disabled'}} onChange={(value) => console.log('value changed', value)} disabled={true}/>
+                            <Checkbox label={{text: 'This checkbox is disabled'}} onChange={(value) => console.log('value changed', value)} disabled={true} />
                         </div>
 
                         <hr />
@@ -684,10 +632,10 @@ export class TestGround extends React.Component<IProps, IState> {
                             <CheckboxButton label={{text: 'Hell yeah!'}} onChange={(value) => console.log('value changed', value)} />
                         </div>
 
-                        <hr /><hr />
+                        <hr />
+
                         <h3 className="docs-page__h3 sd-margin-y--0 sd-margin-b--3">Duration input</h3>
 
-                        
                         <div className="sd-input">
                             <label className="sd-input__label" id="duration01">Input label</label>
                             <div className="sd-input__duration-input" id="id06" aria-describedby="duration01">
@@ -706,48 +654,40 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <h3 className="docs-page__h3 sd-margin-y--0 sd-margin-b--3">testiramt</h3>
 
-                        
-                        <div className="sd-input">
-                            <label className="sd-input__label" id="duration01">Input label</label>
-                            {/* temp */}
-                            <div id="pr_id_1" className="p-dropdown p-component p-inputwrapper p-dropdown-clearable"><div className="p-hidden-accessible"><input type="text" aria-haspopup="listbox" /></div><div className="p-hidden-accessible p-dropdown-hidden-select"><select aria-hidden="true"><option value=""> </option></select></div><span className="p-dropdown-label p-inputtext p-placeholder"><div>Select a color</div></span><div className="p-dropdown-trigger" role="button" aria-haspopup="listbox" aria-expanded="false"><span className="p-dropdown-trigger-icon pi pi-chevron-down p-clickable"></span></div></div>
-                            {/* temp */}
-                            
-                            
-                            <div className="sd-input__char-count">0 / 30</div>
-                            <div className="sd-input__message-box">
-                                <div className="sd-input__hint">This is some hint message</div>
-                            </div>
-                        </div>
-
                         <hr />
 
                         <h3 className="docs-page__h3 sd-margin-t--2 sd-margin-b--0">Radio</h3>
+
                         <hr />
+
                         <div className="sd-check__group-new">
-                            <RadioGroup value={this.state.value2} options={[
-                                {label: "Radio 1", value: "somevalue1"},
-                                {label: "Radio 2", value: "somevalue2"},
-                                {label: "Radio 3", value: "somevalue3"},
-                            ]} onChange={(value) => this.setState(() => ({ value2: value }))} />
+                            <RadioGroup
+                                value={this.state.value2}
+                                options={[
+                                    {label: "Radio 1", value: "somevalue1"},
+                                    {label: "Radio 2", value: "somevalue2"},
+                                    {label: "Radio 3", value: "somevalue3"},
+                                ]}
+                                onChange={(value) => this.setState(() => ({ value2: value }))}
+                            />
                         </div>
 
                         <hr />
 
                         <div className="sd-check__group-new sd-check-button__group--left">
-                            <RadioButtonGroup value={this.state.value3} options={[
-                                {label: "RadioButton with an icon", value: "somevalue4", icon: "th-list"},
-                                {label: "RadioButton with no visible text, only an icon", value: "somevalue5", icon: "th", labelHidden: true},
-                                {label: "Normal RadioButton", value: "somevalue6"},
-                            ]} onChange={(value) => this.setState(() => ({ value3: value }))} />
+                            <RadioButtonGroup
+                                value={this.state.value3}
+                                options={[
+                                    {label: "RadioButton with an icon", value: "somevalue4", icon: "th-list"},
+                                    {label: "RadioButton with no visible text, only an icon", value: "somevalue5", icon: "th", labelHidden: true},
+                                    {label: "Normal RadioButton", value: "somevalue6"},
+                                ]}
+                                onChange={(value) => this.setState(() => ({ value3: value }))}
+                            />
                         </div>
 
-
                         <hr />
-                        
-                        {/* <Carousel></Carousel> */}
 
-                        <hr />
                         <div className="sd-thumb-carousel" data-theme="dark-ui">
                             <div className="sd-thumb-carousel__header">
                                 <h4 className="sd-thumb-carousel__heading">Mountain bike Championships gallery</h4>
@@ -802,7 +742,9 @@ export class TestGround extends React.Component<IProps, IState> {
                                 parturient montes, nascetur ridiculus mus.
                             </div>
                         </div>
+
                         <hr />
+
                         <div className="button-group button-group--comfort">
                             <div className="color-swatch colour-test--1"></div>
                             <div className="color-swatch colour-test--2"></div>
@@ -810,14 +752,21 @@ export class TestGround extends React.Component<IProps, IState> {
                         </div>
 
                         <hr />
+
                         <Container className='sd-padding--4 sd-panel-bg--100 sd-radius--large'>
-                            <ThemeSelector size='small' options={[
-                                {label: 'Light', value: 'light', theme: 'light'},
-                                {label: 'Dark', value: 'dark', theme: 'dark'},
-                                {label: 'High Contrast', value: 'high-contrast', theme: 'contrast-light', disabled: true},
-                            ]} onChange={($event)=>{this.setState({selctedTheme: $event})}} value={this.state.selctedTheme} />
+                            <ThemeSelector
+                                size='small'
+                                options={[
+                                    {label: 'Light', value: 'light', theme: 'light'},
+                                    {label: 'Dark', value: 'dark', theme: 'dark'},
+                                    {label: 'High Contrast', value: 'high-contrast', theme: 'contrast-light', disabled: true},
+                                ]}
+                                onChange={($event)=>{this.setState({selctedTheme: $event})}} value={this.state.selctedTheme}
+                            />
                         </Container>
+
                         <hr />
+
                         <Container className='sd-padding--4 sd-panel-bg--100 sd-radius--large'>
                             <Button text="Exit" type='primary' onClick={()=> false} />
                             <Divider />
@@ -825,16 +774,19 @@ export class TestGround extends React.Component<IProps, IState> {
                             <Divider />
                             <Button text="Save" type='primary' onClick={()=> false} />
                         </Container>
+
                         <hr />
+
                         <Container className='sd-padding--4 sd-panel-bg--100 sd-radius--large'>
-                            
                             <InputWrapper
                                 label="Label"
                                 invalid={false}>
                                 <input type='text' />
                             </InputWrapper>
                         </Container>
+
                         <hr />
+
                         <Container className='sd-padding--4 sd-panel-bg--100 sd-radius--large'>
                             <div className='sd-dropzone__drop-target'>
                                 <div className='sd-dropzone__target-border'></div>

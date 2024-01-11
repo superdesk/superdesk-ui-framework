@@ -1,5 +1,9 @@
 {
-    "files": ["./app-typescript/index.ts", "./globals.d.ts"],
+    "files": [
+        "./app-typescript/index.ts",
+        "./globals.d.ts",
+        "./examples/pages/playgrounds/react-playgrounds/Index.tsx"
+    ],
     "compilerOptions": {
         "outDir": "./react",
         "module": "commonjs",
