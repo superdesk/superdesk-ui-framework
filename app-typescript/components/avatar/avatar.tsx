@@ -46,7 +46,8 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
             customContent,
         } = this.props;
 
-        const tooltipCombined = [displayName, this.props.tooltip].filter((str) => (str ?? '').trim().length > 0).join('\n');
+        const tooltipCombined = [displayName, this.props.tooltip]
+            .filter((str) => (str ?? '').trim().length > 0).join('\n');
 
         return (
             <AvatarWrapper

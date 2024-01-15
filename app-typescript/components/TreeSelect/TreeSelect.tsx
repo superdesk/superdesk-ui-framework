@@ -632,7 +632,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 data-test-id={this.props['data-test-id']}
             >
                 <div
-                    className={`tags-input sd-input__input tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'}`}
+                    className={`
+                        tags-input sd-input__input
+                        tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'}`
+                    }
                     ref={this.treeSelectRef}
                     data-test-id={this.props.allowMultiple ? undefined : 'open-popover'}
                 >
@@ -641,7 +644,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             {this.props.readOnly
                                 || <button
                                     ref={this.openDropdownRef}
-                                    className={`tags-input__add-button ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}`}
+                                    className={`
+                                        tags-input__add-button
+                                        ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}`
+                                    }
                                     onClick={(e) => {
                                         e.stopPropagation();
 
@@ -760,7 +766,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                                             {
                                                 (this.props.readOnly !== true && this.props.required !== true) && (
-                                                    <span className="tags-input__remove-button" data-test-id="clear-value">
+                                                    <span
+                                                        className="tags-input__remove-button"
+                                                        data-test-id="clear-value"
+                                                    >
                                                         <Icon name='remove-sign'></Icon>
                                                     </span>
                                                 )

@@ -67,9 +67,13 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
                                 data-sd-tooltip={item['tooltip']}
                                 data-flow='right'
                                 className={item.hover ? 'authoring-active__item' : ''}>
-                                    <a className={'sd-sidebar-menu__btn'
-                                    + (this.state.hover ? ' sd-sidebar-menu__btn--closed ' : '')
-                                    + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
+                                    <a
+                                        className={'sd-sidebar-menu__btn'
+                                            + (this.state.hover ? ' sd-sidebar-menu__btn--closed ' : '')
+                                            + (item['active']
+                                                ? ' sd-sidebar-menu__btn--active'
+                                                : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : '')
+                                        )}
                                         onClick={() => {
                                             this.handleClick(index);
                                             if (item.hover) {
@@ -78,7 +82,8 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
                                                     item.onCLick();
                                                 }
                                             }
-                                        }}>
+                                        }}
+                                    >
                                         <span className='sd-sidebar-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>

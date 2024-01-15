@@ -40,12 +40,23 @@ export class ThemeSelector extends React.Component<IProps> {
                     <div className='sd-theme-selector__item'
                         key={index}
                         tabIndex={-1}>
-                        <figure className="sd-theme-selector__item-thumb" data-theme={item.theme + '-ui'} aria-hidden="true">
+                        <figure
+                            className="sd-theme-selector__item-thumb"
+                            data-theme={item.theme + '-ui'}
+                            aria-hidden="true"
+                        >
                             <svg viewBox="0 0 156 94" xmlns="http://www.w3.org/2000/svg">
                                 <g fill="none" fillRule="evenodd">
                                     <path d="m0 0h156v94h-156z" fill="var(--sd-colour-panel-bg--100)" />
                                     <circle cx="144" cy="33" fill="var(--color-text-lighter)" r="4" />
-                                    <rect fill="var(--sd-colour-interactive)" height="15" rx="2" width="58" x="91" y="71" />
+                                    <rect
+                                        fill="var(--sd-colour-interactive)"
+                                        height="15"
+                                        rx="2"
+                                        width="58"
+                                        x="91"
+                                        y="71"
+                                    />
                                     <g fill="var(--sd-colour-btn-bg-neutral)">
                                         <rect height="15" rx="2" width="58" x="29" y="52" />
                                         <rect height="15" rx="2" width="58" x="29" y="71" />
