@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, IconButton, Divider, Tooltip, Select, Option, Text, SlidingToolbar, Container, Label, IconLabel } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Input, IconButton, Divider, Tooltip, Select, Option, Text, SlidingToolbar, Container, Label, IconLabel } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -144,7 +144,6 @@ export class RundownEditor extends React.Component<IProps, IState> {
                             <Button text="Save Rundown" onClick={()=> false} type="primary" />
                             <Divider size="mini" />
                             <ButtonGroup subgroup={true} spaces="no-space">
-
                                 <Tooltip text='Minimize' flow='left'>
                                     <NavButton type='default' icon='minimize' iconSize='big' text='Minimize' onClick={()=> false} />
                                 </Tooltip>
@@ -185,42 +184,36 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                         <Select
                                             label='Type'
                                             value='Type value'
-                                            error='This is error message'
-                                            info=''
                                             required={true}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}}>
-                                                <Option>Type 1</Option>
-                                                <Option>Type 2</Option>
+                                            onChange={() => false}
+                                        >
+                                            <Option>Type 1</Option>
+                                            <Option>Type 2</Option>
                                         </Select>
                                     </Form.FormItem>
                                     <Form.FormItem>
                                         <Select
                                             label='Show'
                                             value='show value'
-                                            error='This is error message'
-                                            info=''
                                             required={true}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}}>
-                                                <Option>Marker</Option>
-                                                <Option>Tabu</Option>
+                                            onChange={() => false}
+                                        >
+                                            <Option>Marker</Option>
+                                            <Option>Tabu</Option>
                                         </Select>
                                     </Form.FormItem>
                                     <Form.FormItem>
                                         <Select
                                             label='Show section'
                                             value='Some value'
-                                            error='This is error message'
-                                            info=''
                                             required={true}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}}>
-                                                <Option>Section 1</Option>
-                                                <Option>Section 2</Option>
+                                            onChange={() => false}
+                                        >
+                                            <Option>Section 1</Option>
+                                            <Option>Section 2</Option>
                                         </Select>
                                     </Form.FormItem>
                                 </Form.FormGroup>
@@ -230,24 +223,20 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             type='text'
                                             label='Slugline'
                                             value=''
-                                            error='This is error message'
-                                            info=''
                                             required={false}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}} />
+                                            onChange={() => false}
+                                        />
                                     </Form.FormItem>
                                     <Form.FormItem>
                                         <Input
                                             type='text'
                                             label='Category'
                                             value=''
-                                            error='This is error message'
-                                            info=''
                                             required={false}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}} />
+                                            onChange={() => false}
+                                        />
                                     </Form.FormItem>
                                 </Form.FormGroup>
                                 <Form.FormGroup>
@@ -256,11 +245,10 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             type='text'
                                             label='Author'
                                             value='This is some value'
-                                            error='This is error message'
                                             required={true}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}} />
+                                            onChange={() => false}
+                                        />
                                     </Form.FormItem>
                                 </Form.FormGroup>
                                 <Form.FormGroup marginBottom='2'>
@@ -269,69 +257,66 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                             type='text'
                                             label='Start Time'
                                             value=''
-                                            error='This is error message'
                                             required={true}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}} />
+                                            onChange={() => false}
+                                        />
                                     </Form.FormItem>
                                     <Form.FormItem>
                                         <Input
                                             type='text'
                                             label='End Time'
                                             value=''
-                                            error='This is error message'
                                             required={true}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}} />
+                                            onChange={() => false}
+                                        />
                                     </Form.FormItem>
                                     <Form.FormItem>
                                         <Input
                                             type='text'
                                             label='Duration'
                                             value=''
-                                            error='This is error message'
                                             required={true}
                                             disabled={false}
-                                            invalid={false}
-                                            onChange={(value) => {}} />
+                                            onChange={() => false}
+                                        />
                                     </Form.FormItem>
                                 </Form.FormGroup>
                             </React.Fragment>
                         )}
-                        >
-                            <Container direction='column' className='sd-margin-y--2'>
-                                <Input
-                                    label='Rundown title'
-                                    value={'Marker // 01.06.2022'}
-                                    boxedStyle={true}
-                                    boxedLable={true}
-                                    size='x-large'
-                                    placeholder='Rundown title'
-                                    labelHidden={true}
-                                    type='text'
-                                    tabindex={0}
-                                    onChange={(value) => this.setState({inputValue: value})} />
-                            </Container>
-                            <ButtonGroup>
-                                <IconLabel style='translucent' innerLabel='Airtime:' text='19:00 - 19:45' size='large' type='primary' icon='time' />
-                                <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='large' type='warning' />
-                                <Text color='light' size='medium' className='sd-margin--0'>OF</Text>
-                                <IconLabel style='translucent' innerLabel='Planned:'text='00:45' size='large' />
-                            </ButtonGroup>
-                            <TableList
-                                className='sd-margin-y--4'
-                                dragAndDrop
-                                addItem
-                                array={this.state.array}
-                                itemsDropdown={() => [
-                                    { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
-                                    { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
-                                    { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
-                                ]}
+                    >
+                        <Container direction='column' className='sd-margin-y--2'>
+                            <Input
+                                label='Rundown title'
+                                value={'Marker // 01.06.2022'}
+                                boxedStyle={true}
+                                boxedLable={true}
+                                size='x-large'
+                                placeholder='Rundown title'
+                                labelHidden={true}
+                                type='text'
+                                tabindex={0}
+                                onChange={(value) => this.setState({inputValue: value})}
                             />
-
+                        </Container>
+                        <ButtonGroup>
+                            <IconLabel style='translucent' innerLabel='Airtime:' text='19:00 - 19:45' size='large' type='primary' icon='time' />
+                            <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='large' type='warning' />
+                            <Text color='light' size='medium' className='sd-margin--0'>OF</Text>
+                            <IconLabel style='translucent' innerLabel='Planned:'text='00:45' size='large' />
+                        </ButtonGroup>
+                        <TableList
+                            className='sd-margin-y--4'
+                            dragAndDrop
+                            addItem
+                            array={this.state.array}
+                            itemsDropdown={() => [
+                                { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
+                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                            ]}
+                        />
                     </Layout.AuthoringMain>
                 </Layout.MainPanel>
 
@@ -373,7 +358,6 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                 </div>
                                             </React.Fragment>
                                         )}
-
                                         authoringHeader={(
                                             <React.Fragment>
                                                 <Form.FormGroup inlineLabel={false}>
@@ -381,28 +365,24 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                         <Select
                                                             label='Type'
                                                             value='Type value'
-                                                            error='This is error message'
-                                                            info=' '
                                                             required={true}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}}>
-                                                                <Option>Type 1</Option>
-                                                                <Option>Type 2</Option>
+                                                            onChange={() => false}
+                                                        >
+                                                            <Option>Type 1</Option>
+                                                            <Option>Type 2</Option>
                                                         </Select>
                                                     </Form.FormItem>
                                                     <Form.FormItem>
                                                         <Select
                                                             label='Show section'
                                                             value='Some value'
-                                                            error='This is error message'
-                                                            info=' '
                                                             required={true}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}}>
-                                                                <Option>Section 1</Option>
-                                                                <Option>Section 2</Option>
+                                                            onChange={() => false}
+                                                        >
+                                                            <Option>Section 1</Option>
+                                                            <Option>Section 2</Option>
                                                         </Select>
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
@@ -411,14 +391,12 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                         <Select
                                                             label='Duration'
                                                             value='Some value'
-                                                            error='This is error message'
-                                                            info=' '
                                                             required={true}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}}>
-                                                                <Option>Option 1</Option>
-                                                                <Option>Option 2</Option>
+                                                            onChange={() => false}
+                                                        >
+                                                            <Option>Option 1</Option>
+                                                            <Option>Option 2</Option>
                                                         </Select>
                                                     </Form.FormItem>
                                                     <Form.FormItem>
@@ -426,12 +404,10 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                             type='text'
                                                             label='Category'
                                                             value=' '
-                                                            error='This is error message'
-                                                            info=' '
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => false}
+                                                        />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup inlineLabel={false}>
@@ -440,20 +416,16 @@ export class RundownEditor extends React.Component<IProps, IState> {
                                                             type='text'
                                                             label='Author'
                                                             value='This is some value'
-                                                            error='This is error message'
-                                                            info=' '
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => false}
+                                                        />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                             </React.Fragment>
                                         )}
-                                    >
-                                    </Layout.AuthoringMain>
+                                    />
                                 }
-
                                 sideBar={(
                                     <Nav.SideBarTabs
                                         items={[
