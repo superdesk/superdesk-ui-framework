@@ -26,53 +26,53 @@ $toast-sizes: (
     flex-direction: column;
     align-items: center;
     position: fixed;
-    right: 0;
-    left: 0;
+    inset-inline-end: 0;
+    inset-inline-start: 0;
     z-index: $sd-toast-z-index;
     overflow: hidden;
     padding: 0 20px 20px;
     pointer-events: none;
 
     &.sd-toast__container--top {
-        top: $sd-toast-position-top;
-        bottom: auto;
+        inset-block-start: $sd-toast-position-top;
+        inset-block-end: auto;
     }
 
     &.sd-toast__container--top-left {
-        top: $sd-toast-position-top;
-        bottom: auto;
+        inset-block-start: $sd-toast-position-top;
+        inset-block-end: auto;
         align-items: flex-start;
     }
 
     &.sd-toast__container--top-right {
-        top: $sd-toast-position-top;
-        bottom: auto;
+        inset-block-start: $sd-toast-position-top;
+        inset-block-end: auto;
         align-items: flex-end;
     }
 
     &.sd-toast__container--bottom {
         flex-direction: column-reverse;
-        top: auto;
-        bottom: 0;
+        inset-block-start: auto;
+        inset-block-end: 0;
     }
 
     &.sd-toast__container--bottom-left {
         flex-direction: column-reverse;
-        top: auto;
-        bottom: 0;
+        inset-block-start: auto;
+        inset-block-end: 0;
         align-items: flex-start;
     }
 
     &.sd-toast__container--bottom-right {
         flex-direction: column-reverse;
-        top: auto;
-        bottom: 0;
+        inset-block-start: auto;
+        inset-block-end: 0;
         align-items: flex-end;
     }
 }
 
 .sd-toast {
-    @include sd-padding('1-5');
+    padding: var(--space--1-5);
 	display: flex;
 	align-items: flex-start;
 	position: relative!important;
@@ -117,8 +117,8 @@ $toast-sizes: (
                 width: 4px;
                 height: 100%;
                 position: absolute;
-                top: 0px;
-                left: 0px;
+                inset-block-start: 0px;
+                inset-inline-start: 0px;
                 background-color: $color;
             }
 
@@ -173,20 +173,20 @@ $toast-sizes: (
     color: $sd-toast-colour-text;
 
     p + p {
-        margin-top: 0.8rem;
+        margin-block-start: 0.8rem;
     }
 }
 
 .sd-toast__message-header {
     display: flex;
     flex-direction: row;
-    margin-bottom: 0.2rem;
+    margin-block-end: 0.2rem;
     color: $sd-text;
 
     time {
         font-size: 1.2rem;
         color: $sd-toast-colour-text;
-        margin-right: 0.2rem;
+        margin-inline-end: 0.2rem;
     }
 
     .sd-toast__heading {

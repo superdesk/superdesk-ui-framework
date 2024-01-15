@@ -146,9 +146,15 @@ export class Autocomplete extends React.Component<IProps, IState> {
                         onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)}
                         onSelect={(event: {originalEvent: Event, value: any}) => this.handleSelect(event)} />
 
-                    {this.props.isSearchField && this.state.selectedItem ?
-                        <button className="sd-searchbar__cancel" onClick={() => this.handleInputClear()}><i className="icon-remove-sign" aria-label="remove-sign"></i></button>
-                    : null }
+                    {this.props.isSearchField && this.state.selectedItem
+                        ? <button
+                            className="sd-searchbar__cancel"
+                            onClick={() => this.handleInputClear()}
+                        >
+                            <i className="icon-remove-sign" aria-label="remove-sign" />
+                        </button>
+                        : null
+                    }
 
                     {!this.props.isSearchField ?
                         <div className='sd-input__message-box'>

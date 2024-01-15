@@ -6,7 +6,7 @@
     display: flex;
     height: $subnav-height;
     background: $subnav-background;
-    border-bottom: 0px;
+    border-block-end: 0px;
     box-shadow: var(--sd-shadow__subnav);
     z-index: 3;
     align-items: center;
@@ -45,9 +45,9 @@
 
 .subnav--absolute {
     position: absolute;
-    top:48px;
-    left:0;
-    right:0;
+    inset-block-start:48px;
+    inset-inline-start:0;
+    inset-inline-end:0;
 }
 
 .subnav + .subnav,
@@ -101,8 +101,8 @@
 .subnav {
     &.subnav--level2 {
         position: absolute;
-        top:0;
-        left: 0;
+        inset-block-start:0;
+        inset-inline-start: 0;
         z-index: 2;
         box-shadow: none;
     }
@@ -240,8 +240,8 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
     .badge {
         position: absolute;
-        top: $sd-base-increment / 2;
-        right: $sd-base-increment / 2;
+        inset-block-start: $sd-base-increment / 2;
+        inset-inline-end: $sd-base-increment / 2;
         z-index: 1;
     }
 }
@@ -251,20 +251,20 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 }
 
 .sd-navbtn--textual {
-    @include sd-padding('1', 'x');
+    padding-inline: var(--space--1);
     width: auto;
 
     .sd-navbtn__text {
-        @include sd-margin('0-5', 'x');
+        margin-inline: var(--space--0-5);
         display: inline-flex;
         font-size: 1.4rem;
         position: relative;
-        margin-right: $sd-base-increment / 2;
-        margin-left: $sd-base-increment;
+        margin-inline-end: $sd-base-increment / 2;
+        margin-inline-start: $sd-base-increment;
     }
 
     i {
-        margin-left: $sd-base-increment / 2;
+        margin-inline-start: $sd-base-increment / 2;
     }
 }
 
@@ -273,7 +273,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         &.sd-navbtn--textual {
             .sd-navbtn__text {
                 color: currentColor;
-                padding-right: 16px;
+                padding-inline-end: 16px;
 
                 &::after {
                     content: '';
@@ -281,14 +281,14 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
                     width: 0;
                     height: 0;
                     position: absolute;
-                    top: calc(50% - 2px);
-                    right: 0;
+                    inset-block-start: calc(50% - 2px);
+                    inset-inline-end: 0;
                     vertical-align: middle;
-                    //margin-top: -2px;
-                    margin-left: 8px;
-                    border-left:  4px solid transparent;
-                    border-right: 4px solid transparent;
-                    border-top:   4px solid currentColor;
+                    //margin-block-start: -2px;
+                    margin-inline-start: 8px;
+                    border-inline-start:  4px solid transparent;
+                    border-inline-end: 4px solid transparent;
+                    border-block-start:   4px solid currentColor;
                     opacity: .75;
                     @include transition(all, 0.1s, ease-in);
                 }
@@ -364,7 +364,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     }
 
     .big-icon--send-to {
-        margin-left: 0.3rem;
+        margin-inline-start: 0.3rem;
     }
 
     [class^="icon-"],
@@ -456,7 +456,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 }
   
 .subnav__stretch-bar {
-    @include sd-margin('1-5', 'x');
+    margin-inline: var(--space--1-5);
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
@@ -469,7 +469,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 }
 
 .subnav__content-bar {
-    @include sd-margin('1-5', 'x');
+    margin-inline: var(--space--1-5);
     display: flex;
     flex-direction: row;
     flex-grow: 0;
@@ -486,26 +486,26 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     width: 1px;
     height: $subnav-height;
     flex-grow: 0;
-    border-left: 1px solid rgba(0,0,0,.1);
+    border-inline-start: 1px solid rgba(0,0,0,.1);
     margin: auto 2rem;
 }
 
 .subnav__spacer--dotted {
-    border-left: 1px dotted rgba(0,0,0,.3);
+    border-inline-start: 1px dotted rgba(0,0,0,.3);
     height: $subnav-height / 2;
 }
 
 .subnav__spacer--no-r-margin {
-    margin-right: -0.1rem;
+    margin-inline-end: -0.1rem;
 }
 
 .subnav__spacer--no-l-margin {
-    margin-left: 0;
+    margin-inline-start: 0;
 }
 
 .subnav__spacer--no-margin {
-    margin-left: 0;
-    margin-right: 0; 
+    margin-inline-start: 0;
+    margin-inline-end: 0; 
 }
 
 .subnav__button-stack {
@@ -550,7 +550,7 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 
 .subnav__button-stack--right {
     text-align: end;
-    padding-right: 2rem;
+    padding-inline-end: 2rem;
 }
 
 .subnav__button-stack--padded {
@@ -628,16 +628,16 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
     }
 
     .subnav__stretch-bar {
-        margin-right: 0;
+        margin-inline-end: 0;
     }
 
     .subnav__spacer {
-        margin-left: 1.2rem;
+        margin-inline-start: 1.2rem;
     }
 
     #planning-dropdown {
         display: none;
-        margin-left: -1.2rem;
+        margin-inline-start: -1.2rem;
     }
 
     .dropdown__toggle {
@@ -645,11 +645,11 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
         position: relative;
         overflow: hidden;
         text-overflow: ellipsis;
-        padding-right: 2.6rem !important;
+        padding-inline-end: 2.6rem !important;
 
         .dropdown__caret {
             position: absolute;
-            top: 50%;
+            inset-block-start: 50%;
             inset-inline-end: 1rem;
         }
     }
@@ -667,12 +667,12 @@ $navbutton-focus-box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-
 .sd-page-content--slide-in--open {
     .subnav--responsive {
         .sd-check__wrapper + .sd-check__wrapper {
-            margin-left: 0.4rem;
+            margin-inline-start: 0.4rem;
         }
 
         .subnav__stretch-bar {
             margin: 0 1.2rem;
-            margin-right: 0;
+            margin-inline-end: 0;
         }
 
         .subnav__button-stack--padded {

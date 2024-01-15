@@ -80,26 +80,26 @@ $layout-grid-media: (
         }
 
         &>.grid {
-            margin-left: -$layout-grid-gutter;
-            margin-right: -$layout-grid-gutter;
+            margin-inline-start: -$layout-grid-gutter;
+            margin-inline-end: -$layout-grid-gutter;
             padding: 0;
         }
     }
 
     &+.grid {
-        margin-top: 1rem;
+        margin-block-start: 1rem;
     }
 }
 
 .grid--padding-fix {
-    margin-left: -$layout-grid-gutter;
-    margin-right: -$layout-grid-gutter;
+    margin-inline-start: -$layout-grid-gutter;
+    margin-inline-end: -$layout-grid-gutter;
     padding: 0;
 }
 
 .grid--margin {
-    margin-top: $layout-grid-gutter;
-    margin-bottom: $layout-grid-gutter;
+    margin-block-start: $layout-grid-gutter;
+    margin-block-end: $layout-grid-gutter;
 }
 
 .grid--wrap {
@@ -107,8 +107,8 @@ $layout-grid-media: (
 }
 
 .grid--boxed {
-    margin-left: -$layout-grid-gap;
-    margin-right: -$layout-grid-gap;
+    margin-inline-start: -$layout-grid-gap;
+    margin-inline-end: -$layout-grid-gap;
 
     .grid__item {
         margin: $layout-grid-gap;
@@ -125,8 +125,8 @@ $layout-grid-media: (
 }
 
 .grid--boxed-small {
-    margin-left: -$layout-grid-gap-small;
-    margin-right: -$layout-grid-gap-small;
+    margin-inline-start: -$layout-grid-gap-small;
+    margin-inline-end: -$layout-grid-gap-small;
 
     .grid__item {
         margin: $layout-grid-gap-small;

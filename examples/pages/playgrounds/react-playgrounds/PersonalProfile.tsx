@@ -1,29 +1,24 @@
 import * as React from 'react';
 import * as Components from './components/Index';
 import { 
-    Button, ButtonGroup, IconButton, NavButton,
+    Button, ButtonGroup, NavButton,
     SubNav, SubNavDivider,
-    Dropdown,
-    Checkbox, CheckGroup, CheckButtonGroup, CheckboxButton, RadioGroup, RadioButtonGroup, Switch, SwitchGroup,
+    Checkbox, CheckGroup, CheckButtonGroup, CheckboxButton, RadioButtonGroup, Switch, SwitchGroup,
     Input, Select, Option,
-    Label, Badge,
-    Icon,
+    Label,
     Tooltip,
     Tabs, TabLabel, TabContent, TabPanel,
-    AvatarWrapper, AvatarContentImage, AvatarContentText,
+    AvatarWrapper, AvatarContentImage,
     LeftMenu,
     SimpleList, SimpleListItem,
     Container,
     Heading, Text,
     Divider,
     ThemeSelector,
-    Tag
+    Tag,
 } from '../../../../app-typescript/index';
-import * as GridElements from '../../../../app-typescript/components/GridItem';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
-
-import dummy_items from '../dummy-data/items';
 
 interface IProps {
     children?: React.ReactNode;
@@ -91,7 +86,6 @@ export class PersonalProfile extends React.Component<IProps, IState> {
         this.handleClick=this.handleClick.bind(this);
     }
 
-
     handleFilter() {
         this.setState((state) => ({
             openFilter: !state.openFilter,
@@ -117,7 +111,6 @@ export class PersonalProfile extends React.Component<IProps, IState> {
             item.status.push(status);
         }
     }
-
 
     handleClick = (number: number) => {
         this.setState({
@@ -149,7 +142,6 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                 <TabLabel label='Personal preferences' indexValue={1}/>
                                 <TabLabel label='Privileges' indexValue={2}/>
                             </Tabs>
-
                         </SubNav>
                     </Components.HeaderPanel>
                     {/* TOOLBAR HEADER */}
@@ -158,7 +150,8 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                             <Layout.LeftPanel open={true}>
                                 <Layout.Panel background='transparent' size='xx-small'>
                                     <Layout.PanelContent>
-                                        <LeftMenu ariaLabel={'Left navigation'} 
+                                        <LeftMenu
+                                            ariaLabel={'Left navigation'} 
                                             scrollSpy='#scrollContainer'
                                             activeItemId='1'
                                             style='blanc' 
@@ -169,7 +162,8 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 { id: '4', label: 'Language', ref: 'language' },
                                                 { id: '5', label: 'Author info', ref: 'autorInfo' }
                                             ]}]}
-                                            onSelect={() => {console.log('onSelect triggered')}} />
+                                            onSelect={() => {console.log('onSelect triggered')}}
+                                        />
                                     </Layout.PanelContent>
                                 </Layout.Panel>
                             </Layout.LeftPanel>
@@ -180,7 +174,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                         <Container id="profile" direction='column' className='sd-radius--medium sd-panel-bg--gradient-1 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <Container className='sd-flex-justify-space-between sd-margin-b--2'>
                                                 <Label text='Active' type='success' style='translucent' />
-                                                <Switch toolTipFlow='left' label={{text:'Toggle active', hidden: true}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                                <Switch toolTipFlow='left' label={{content:'Toggle active', hidden: true}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                                             </Container>
                                             <Container direction='column' className='sd-flex-align-items-center sd-margin-x--auto'>
                                                 <AvatarWrapper size="xx-large">
@@ -202,11 +196,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             label='First Name'
                                                             type='text'
                                                             value='Jeffrey'
-                                                            error='Error message'
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => false}
+                                                        />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='3'>
@@ -215,11 +208,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             label='Last Name'
                                                             type='text'
                                                             value='Lebowski'
-                                                            error='Error message'
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => false}
+                                                        />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='4'>
@@ -228,26 +220,22 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             label='Username'
                                                             type='text'
                                                             value='the_dude'
-                                                            error='Error message'
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => false}
+                                                        />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
-
-
                                                 <Form.FormGroup marginBottom='3'>
                                                     <Form.FormItem>
                                                         <Input
                                                             label='Email'
                                                             type='text'
                                                             value='jeffrey.lebowski@bloodsimple.org'
-                                                            error='Error message'
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => false}
+                                                        />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='3'>
@@ -256,22 +244,21 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             label='Phone number'
                                                             type='text'
                                                             value='+381 64 155 22 55'
-                                                            error='Error message'
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}} />
+                                                            onChange={() => false}
+                                                        />
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
                                                 <Form.FormGroup marginBottom='4'>
                                                     <Form.FormItem>
-                                                    <Select
-                                                        label='Role'
-                                                        value='Select user role'
-                                                        required={false}
-                                                        disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}}>
+                                                        <Select
+                                                            label='Role'
+                                                            value='Select user role'
+                                                            required={false}
+                                                            disabled={false}
+                                                            onChange={() => false}
+                                                        >
                                                             <Option>Editor</Option>
                                                             <Option>Journalist</Option>
                                                             <Option>Photographer</Option>
@@ -308,14 +295,14 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             labelHidden={true}
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}}>
-                                                                <Option>International</Option>
-                                                                <Option>Kulture</Option>
-                                                                <Option>National</Option>
-                                                                <Option>News</Option>
-                                                                <Option>Politics</Option>
-                                                                <Option>Sports</Option>
+                                                            onChange={() => false}
+                                                        >
+                                                            <Option>International</Option>
+                                                            <Option>Kulture</Option>
+                                                            <Option>National</Option>
+                                                            <Option>News</Option>
+                                                            <Option>Politics</Option>
+                                                            <Option>Sports</Option>
                                                         </Select> 
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
@@ -332,12 +319,12 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                             labelHidden={true}
                                                             required={false}
                                                             disabled={false}
-                                                            invalid={false}
-                                                            onChange={(value) => {}}>
-                                                                <Option>English</Option>
-                                                                <Option>German</Option>
-                                                                <Option>French</Option>
-                                                                <Option>Serbian</Option>
+                                                            onChange={() => false}
+                                                        >
+                                                            <Option>English</Option>
+                                                            <Option>German</Option>
+                                                            <Option>French</Option>
+                                                            <Option>Serbian</Option>
                                                         </Select> 
                                                     </Form.FormItem>
                                                 </Form.FormGroup>
@@ -352,11 +339,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Sign-Off'
                                                         type='text'
                                                         value='the_dude'
-                                                        error='Error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => false}
+                                                    />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='3'>
@@ -365,11 +351,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Byline'
                                                         type='text'
                                                         value='Jeffrey Lebowski'
-                                                        error='Error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => false}
+                                                    />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='3'>
@@ -378,11 +363,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Job Title'
                                                         type='text'
                                                         value='the_dude'
-                                                        error='Error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => false}
+                                                    />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='4'>
@@ -391,11 +375,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Biography'
                                                         type='text'
                                                         value='the_dude'
-                                                        error='Error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => false}
+                                                    />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Heading className='sd-margin-t--3 sd-margin-b--2' type='h4'>Social media</Heading>
@@ -405,11 +388,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Facebook'
                                                         type='text'
                                                         value='the_dude'
-                                                        error='Error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => false}
+                                                    />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='3'>
@@ -418,11 +400,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Instagram'
                                                         type='text'
                                                         value='the_dude'
-                                                        error='Error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => false}
+                                                    />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup marginBottom='2'>
@@ -431,14 +412,12 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Twitter'
                                                         type='text'
                                                         value='the_dude'
-                                                        error='Error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} />
+                                                        onChange={() => false}
+                                                    />
                                                 </Form.FormItem>
                                             </Form.FormGroup>
-
                                         </Container>
                                     </SimpleListItem>
                                 </SimpleList>
@@ -454,7 +433,6 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                             <Layout.LeftPanel open={true}>
                                 <Layout.Panel background='transparent' size='xx-small'>
                                     <Layout.PanelContent>
-
                                         <LeftMenu ariaLabel={'Left navigation'} 
                                             activeItemId='#1'
                                             style='blanc' 
@@ -468,7 +446,8 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                 { id: '7', label: 'Vocabulary values' },
                                                 { id: '8', label: 'Appearance' }
                                             ]}]}
-                                            onSelect={() => false} />
+                                            onSelect={() => false}
+                                        />
                                     </Layout.PanelContent>
                                 </Layout.Panel>
                             </Layout.LeftPanel>
@@ -478,7 +457,7 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                     <SimpleListItem stacked={true}>
                                         <Heading type='h3'>Feature preview</Heading>
                                         <Container className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
-                                            <Switch label={{text:'Enable Feature Preview'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                            <Switch label={{content:'Enable Feature Preview'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
                                         </Container>
                                     </SimpleListItem>
                                     <SimpleListItem stacked={true}>
@@ -518,8 +497,8 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                     <Heading type='h3'>Notifications</Heading>
                                         <Container className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <SwitchGroup>
-                                                <Switch label={{text:'Send notifications via email'}} value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
-                                                <Switch label={{text:'Allow Desktop Notifications'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
+                                                <Switch label={{content:'Send notifications via email'}} value={this.state.value2} onChange={(value) => this.setState(() => ({ value2: value }))} />
+                                                <Switch label={{content:'Allow Desktop Notifications'}} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
                                             </SwitchGroup>
                                         </Container>
                                     </SimpleListItem>
@@ -532,11 +511,10 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                         label='Dateline / Located'
                                                         type='text'
                                                         value=''
-                                                        error='This is error message'
                                                         required={false}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}} /> 
+                                                        onChange={() => false}
+                                                    /> 
                                                 </Form.FormItem>
                                             </Form.FormGroup>
                                             <Form.FormGroup>
@@ -544,14 +522,13 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                                     <Select
                                                         label='Place'
                                                         value='This is some value'
-                                                        error='This is error message'
                                                         required={true}
                                                         disabled={false}
-                                                        invalid={false}
-                                                        onChange={(value) => {}}>
-                                                            <Option>Select place</Option>
-                                                            <Option>Option 1</Option>
-                                                            <Option>Option 2</Option>
+                                                        onChange={() => false}
+                                                    >
+                                                        <Option>Select place</Option>
+                                                        <Option>Option 1</Option>
+                                                        <Option>Option 2</Option>
                                                     </Select> 
                                                 </Form.FormItem>
                                             </Form.FormGroup>
@@ -607,17 +584,20 @@ export class PersonalProfile extends React.Component<IProps, IState> {
                                         <Container direction='column' className='sd-radius--medium sd-panel-bg--000 sd-shadow--z2 sd-padding--3 sd-state--focus'>
                                             <Heading type='h4'>Themes</Heading>
                                             <Text color='light' className='sd-margin-b--2'>Change the appearance of Superdesk across the whole application.</Text>
-                                            <ThemeSelector size='small' options={[
-                                                {label: 'Light', value: 'light-ui', theme: 'light'},
-                                                {label: 'Dark', value: 'dark-ui', theme: 'dark'},
-                                                {label: 'High Contrast', value: 'high-contrast', theme: 'contrast-light', disabled: true},
-                                            ]} onChange={($event)=>{this.setState({theme: $event})}} value={this.state.theme} />
+                                            <ThemeSelector
+                                                size='small'
+                                                options={[
+                                                    {label: 'Light', value: 'light-ui', theme: 'light'},
+                                                    {label: 'Dark', value: 'dark-ui', theme: 'dark'},
+                                                    {label: 'High Contrast', value: 'high-contrast', theme: 'contrast-light', disabled: true},
+                                                ]}
+                                                onChange={($event)=>{this.setState({theme: $event})}} value={this.state.theme}
+                                            />
                                         </Container>
                                     </SimpleListItem>
                                 </SimpleList>
                             </Layout.MainPanel>
                             {/* MAIN CONTENT (Monitoring) */}
-
                             <Layout.RightPanel open={this.state.openPreview}>
                             </Layout.RightPanel>
                             {/* PREVIEW PANEL*/}

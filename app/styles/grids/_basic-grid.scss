@@ -175,10 +175,10 @@ $flex-grid-media: (
 }
 
 .flex-grid.flex-grid--boxed + .flex-grid.flex-grid--boxed {
-    margin-top: $flex-grid-gap;
+    margin-block-start: $flex-grid-gap;
 }
 .flex-grid.flex-grid--boxed--small + .flex-grid.flex-grid--boxed--small {
-    margin-top: $flex-grid-gap-small;
+    margin-block-start: $flex-grid-gap-small;
 }
 
 // Media queries

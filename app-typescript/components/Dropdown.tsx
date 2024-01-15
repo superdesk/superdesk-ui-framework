@@ -259,7 +259,9 @@ export const Dropdown = ({
                     <div ref={buttonRef} style={{ display: 'content' }}>
                         {(() => {
                             const attrs = {
-                                className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
+                                className: children.props.className
+                                    ? (children.props.className + ' dropdown__toggle dropdown-toggle')
+                                    : 'dropdown__toggle dropdown-toggle',
                                 'aria-haspopup': "menu",
                                 'aria-expanded': open,
                                 onClick: toggleDisplay,

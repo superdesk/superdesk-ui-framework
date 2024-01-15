@@ -66,7 +66,11 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
                 }
                 {this.props.itemColum.map((item, index) => {
                     return <div
-                        className={`sd-list-item__column ${item.fullwidth && 'sd-list-item__column--grow'} ${!item.border && 'sd-list-item__column--no-border'}`}
+                        className={`
+                            sd-list-item__column
+                            ${item.fullwidth && 'sd-list-item__column--grow'}
+                            ${!item.border && 'sd-list-item__column--no-border'}`
+                    }
                         key={index}>
                         {item.itemRow.map((e, i) => {
                             return (

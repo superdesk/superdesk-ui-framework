@@ -1,10 +1,9 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioButtonGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, RadioButtonGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
 import dummy_items from '../dummy-data/items';
-
 
 interface IProps {
     children?: React.ReactNode;
@@ -78,7 +77,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                         { icon: 'spike', size: 'big' },
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
-                        { icon: 'picture', size: 'big', active: true }]} />
+                        { icon: 'picture', size: 'big', active: true }
+                    ]}
+                />
 
                 <Components.LayoutContainer>
                     <Components.HeaderPanel>
@@ -94,7 +95,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 { label: 'File archive', onSelect: () => this.setState({ dropDownState: 'File archive' }) },
                                                 { label: 'AP images', onSelect: () => this.setState({ dropDownState: 'AP archive' }) },
                                             ]
-                                        }]}>
+                                        }
+                                    ]}
+                                >
                                     <NavButton text={this.state.dropDownState ? this.state.dropDownState : 'All Archives'} onClick={() => false} />
                                 </Dropdown>
                             </ButtonGroup>
@@ -108,13 +111,17 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                             <ButtonGroup align='inline'>
                                 <NavButton icon='filter-large' onClick={this.handleFilter} />
                             </ButtonGroup>
-                            <RadioButtonGroup value={this.state.itemType} onChange={(value) => this.setState({ itemType: value })}
+                            <RadioButtonGroup
+                                value={this.state.itemType}
+                                onChange={(value) => this.setState({ itemType: value })}
                                 options={[
-                                { value: 'itemtype01', label: 'All item types' },
-                                { value: 'itemtype02', label: 'Images only' },
-                                { value: 'itemtype03', label: 'Videos only' },
-                                { value: 'itemtype04', label: 'Documents only' }
-                                ]} group={{padded: true}} />
+                                    { value: 'itemtype01', label: 'All item types' },
+                                    { value: 'itemtype02', label: 'Images only' },
+                                    { value: 'itemtype03', label: 'Videos only' },
+                                    { value: 'itemtype04', label: 'Documents only' }
+                                ]}
+                                group={{padded: true}}
+                            />
                             <ButtonGroup align='end' spaces='no-space'>
                                 <Dropdown
                                     items={[
@@ -125,7 +132,8 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 { label: 'Dark', onSelect: () => this.handleTheme('dark-ui')},
                                             ]
                                         },
-                                    ]}>
+                                    ]}
+                                >
                                     <NavButton type='default' icon='adjust' onClick={()=> false} />
                                 </Dropdown>
                                 <NavButton icon='th-list' onClick={() => false} />
@@ -145,22 +153,22 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 label='Title'
                                                 type='text'
                                                 value=''
-                                                error='This is error message'
+                                                info='This is info message'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
                                     <div className="form__group">
                                         <div className="form__item">
                                             <Select label='Source'
                                                 value='Select ingest source...'
-                                                error='This is error message'
+                                                info='This is info message'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => false}
+                                            >
                                                 <Option value="option-1">Select ingest source...</Option>
                                                 <Option value="option-2">Associated Press</Option>
                                                 <Option value="option-3">Reuters</Option>
@@ -174,11 +182,11 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                 label='Keyword'
                                                 type='text'
                                                 value=''
-                                                error='This is error message'
+                                                info='This is info message'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
 
@@ -186,12 +194,11 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                         <div className="form__item">
                                             <Select label='Usage right'
                                                 value='--- Not selected ---'
-                                                error='This is error message'
-                                                info='Dolor in hendrerit.'
+                                                info='This is info message'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => false}
+                                            >
                                                 <Option value="">--- Not selected ---</Option>
                                                 <Option value="single">Single usage</Option>
                                                 <Option value="time">Time restricted</Option>
@@ -213,7 +220,7 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                     <Components.MainPanel >
 
                         <GridList size="small" gap="medium" margin="1">
-                            {dummy_items.map((item, index) =>
+                            {dummy_items.map((item: any, index: any) =>
                                 <GridElements.GridItem locked={item.locked} status={item.status} onClick={this.handlePreview} itemtype={item.type} key={index}>
                                     <GridElements.GridItemCheckWrapper>
                                         <Checkbox checked={item.selected} label={{text:''}} onChange={(value) => {
@@ -272,7 +279,9 @@ export class SamsPlayground extends React.Component<IProps, IState> {
                                                         { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
                                                         { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
                                                     ]
-                                                }]}>
+                                                }
+                                            ]}
+                                        >
                                             <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
                                         </Dropdown>
                                     </div>

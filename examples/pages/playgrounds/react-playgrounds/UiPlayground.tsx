@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, CheckButtonGroup, RadioGroup, RadioButtonGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Dropdown, RadioButtonGroup, Input, Select, Option, Label, Icon, IconButton, Checkbox, GridList, Badge } from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 
 import dummy_items from '../dummy-data/items';
@@ -77,7 +77,9 @@ export class UiPlayground extends React.Component<IProps, IState> {
                         { icon: 'spike', size: 'big' },
                         { icon: 'personal', size: 'big' },
                         { icon: 'global-search', size: 'big' },
-                        { icon: 'picture', size: 'big', active: true }]} />
+                        { icon: 'picture', size: 'big', active: true }
+                    ]}
+                />
 
                 <Components.LayoutContainer>
                     <Components.HeaderPanel>
@@ -93,7 +95,9 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                                 { label: 'File archive', onSelect: () => this.setState({ dropDownState: 'File archive' }) },
                                                 { label: 'AP images', onSelect: () => this.setState({ dropDownState: 'AP archive' }) },
                                             ]
-                                        }]}>
+                                        }
+                                    ]}
+                                >
                                     <NavButton text={this.state.dropDownState ? this.state.dropDownState : 'All Archives'} onClick={() => false} />
                                 </Dropdown>
                             </ButtonGroup>
@@ -107,11 +111,16 @@ export class UiPlayground extends React.Component<IProps, IState> {
                             <ButtonGroup align='inline'>
                                 <NavButton icon='filter-large' onClick={this.handleFilter} />
                             </ButtonGroup>
-                            <RadioButtonGroup options={[
-                                {value:'test10', label:'Radio button with icon'},
-                                {value:'test11', label:'I have an icon!'},
-                                {value:'test12', label:'Yeah, me too!'},
-                            ]} group={{padded:true}} value={this.state.itemType} onChange={(value) => this.setState({ itemType: value })} />
+                            <RadioButtonGroup
+                                options={[
+                                    {value:'test10', label:'Radio button with icon'},
+                                    {value:'test11', label:'I have an icon!'},
+                                    {value:'test12', label:'Yeah, me too!'},
+                                ]}
+                                group={{padded:true}}
+                                value={this.state.itemType}
+                                onChange={(value) => this.setState({ itemType: value })}
+                            />
                             <ButtonGroup align='end' spaces='no-space'>
                                 <Dropdown
                                     items={[
@@ -123,7 +132,8 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                                 { label: 'Accessible Light', icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui')},
                                             ]
                                         },
-                                    ]}>
+                                    ]}
+                                >
                                     <NavButton type='default' icon='adjust' onClick={()=> false} />
                                 </Dropdown>
                                 <NavButton icon='th-list' onClick={() => false} />
@@ -145,8 +155,8 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                                 value='Title'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
                                     <div className="form__group">
@@ -156,8 +166,8 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                                 error='This is error message'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => false}
+                                            >
                                                 <Option value="option-1">Select ingest source...</Option>
                                                 <Option value="option-2">Associated Press</Option>
                                                 <Option value="option-3">Reuters</Option>
@@ -173,8 +183,8 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                                 value='Keyword'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }} />
+                                                onChange={() => false}
+                                            />
                                         </div>
                                     </div>
 
@@ -186,8 +196,8 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                                 info='Dolor in hendrerit.'
                                                 inlineLabel={false}
                                                 disabled={false}
-                                                invalid={false}
-                                                onChange={(value) => { }}>
+                                                onChange={() => false}
+                                            >
                                                 <Option value="">--- Not selected ---</Option>
                                                 <Option value="single">Single usage</Option>
                                                 <Option value="time">Time restricted</Option>
@@ -206,16 +216,19 @@ export class UiPlayground extends React.Component<IProps, IState> {
                     </Components.LeftPanel>
                     {/* FILTER PANEL*/}
 
-                    <Components.MainPanel >
-
+                    <Components.MainPanel>
                         <GridList size="small" gap="medium" margin="3">
-                            {dummy_items.map((item, index) =>
+                            {dummy_items.map((item: any, index: any) =>
                                 <GridElements.GridItem locked={item.locked} status={item.status} onClick={this.handlePreview} itemtype={item.type} key={index}>
                                     <GridElements.GridItemCheckWrapper>
-                                        <Checkbox checked={item.selected} label={{text:''}} onChange={(value) => {
-                                            item.selected = value;
-                                            this.changeStatus(item, 'selected');
-                                        }} />
+                                        <Checkbox
+                                            checked={item.selected}
+                                            label={{text:''}}
+                                            onChange={(value) => {
+                                                item.selected = value;
+                                                this.changeStatus(item, 'selected');
+                                            }}
+                                        />
                                     </GridElements.GridItemCheckWrapper>
                                     <GridElements.GridItemTopActions>
                                         <IconButton icon='fullscreen' ariaValue='More actions' onClick={()=> false} />
@@ -265,7 +278,9 @@ export class UiPlayground extends React.Component<IProps, IState> {
                                                         { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
                                                         { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
                                                     ]
-                                                }]}>
+                                                }
+                                            ]}
+                                        >
                                             <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
                                         </Dropdown>
                                     </div>

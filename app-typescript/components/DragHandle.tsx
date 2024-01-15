@@ -6,7 +6,7 @@ export class DragHandle extends React.PureComponent {
     render() {
         return (
             <div className="drag-handle-wrapper">
-                <img src={dragHandleImg} className="drag-handle" />
+                <img src={dragHandleImg} className="drag-handle" draggable={false} />
             </div>
         );
     }

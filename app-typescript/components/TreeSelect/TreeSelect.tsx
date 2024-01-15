@@ -35,7 +35,8 @@ interface IPropsBase<T> extends IInputWrapper {
     value?: Array<T>;
     selectBranchWithChildren?: boolean;
     readOnly?: boolean;
-    width?: string;
+    width?: 'medium' | 'match-input';
+    inputWidth?: '100%';
     allowMultiple?: boolean;
     loading?: boolean;
     singleLevelSearch?: boolean;
@@ -635,14 +636,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                fullWidth={this.props.inputWidth === '100%' ?? false}
                 data-test-id={this.props['data-test-id']}
             >
                 <div
                     className={`
-                        tags-input sd-input__input tags-input--${
-                            this.props.allowMultiple ? 'multi-select' : 'single-select'
-                        }
-                    `}
+                        tags-input sd-input__input
+                        tags-input--${this.props.allowMultiple ? 'multi-select' : 'single-select'}`
+                    }
                     ref={this.treeSelectRef}
                     data-test-id={this.props.allowMultiple ? undefined : 'open-popover'}
                 >
@@ -653,8 +654,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     ref={this.openDropdownRef}
                                     className={`
                                         tags-input__add-button
-                                        ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}
-                                    `}
+                                        ${this.props.disabled ? 'tags-input__add-button--disabled' : ''}`
+                                    }
                                     onClick={(e) => {
                                         e.stopPropagation();
 
@@ -776,7 +777,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                                             {
                                                 (this.props.readOnly !== true && this.props.required !== true) && (
-                                                    <span className="tags-input__remove-button" data-test-id="clear-value">
+                                                    <span
+                                                        className="tags-input__remove-button"
+                                                        data-test-id="clear-value"
+                                                    >
                                                         <Icon name='remove-sign'></Icon>
                                                     </span>
                                                 )

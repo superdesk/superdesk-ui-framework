@@ -125,7 +125,13 @@ export const DropdownFirst = ({
     if (headerFooter) {
         return (
             <div className={classes} >
-                <button className={navDropdown ? 'dropdown__toggle navbtn dropdown-toggle' : 'dropdown__toggle nav-btn dropdown-toggle'} onClick={isOpen}>
+                <button
+                    className={navDropdown
+                        ? 'dropdown__toggle navbtn dropdown-toggle'
+                        : 'dropdown__toggle nav-btn dropdown-toggle'
+                    }
+                    onClick={isOpen}
+                >
                     {icon ?
                         (<i className={"icon-" + icon}></i>) :
                         (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)
@@ -157,7 +163,13 @@ export const DropdownFirst = ({
         } else {
             return (
                 <div className={classes} >
-                    <button className={navDropdown ? 'dropdown__toggle navbtn dropdown-toggle' : 'dropdown__toggle nav-btn dropdown-toggle'} onClick={isOpen}>
+                    <button
+                        className={navDropdown
+                            ? 'dropdown__toggle navbtn dropdown-toggle'
+                            : 'dropdown__toggle nav-btn dropdown-toggle'
+                        }
+                        onClick={isOpen}
+                    >
                         {icon ?
                             (<i className={"icon-" + icon}></i>) :
                             (<React.Fragment>{name}<span className="dropdown__caret"></span></React.Fragment>)

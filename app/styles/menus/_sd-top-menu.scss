@@ -4,11 +4,11 @@ $sd-topMenu-background: var(--sd-colour-top-menu);
     background: $sd-topMenu-background;
     height: $nav-height;
     position: absolute;
-    right: 0;
-    left: 0;
-    top: 0;
+    inset-inline-end: 0;
+    inset-inline-start: 0;
+    inset-block-start: 0;
     z-index: $zindexFixedNavbar;
-    margin-bottom: 0;
+    margin-block-end: 0;
     transition: all 0.3s ease;
     display: flex;
     flex-direction: row;
@@ -73,14 +73,14 @@ $sd-topMenu-background: var(--sd-colour-top-menu);
 
     .label {
         position: absolute;
-        top: 3px;
-        left: 3px;
+        inset-block-start: 3px;
+        inset-inline-start: 3px;
         text-shadow: none;
     }
 }
 
 .current-user-details--compact {
-    @include sd-padding('1');
+    padding: var(--space--1);
     display: flex;
     flex-direction: column;
     justify-content: center;

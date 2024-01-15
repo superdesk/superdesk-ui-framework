@@ -63,7 +63,11 @@ class TabList extends React.PureComponent<ITabList, IState> {
                             onClick={() => this.handleChange(index)}
                             role='tab'
                             aria-selected={this.state.index === index ? 'true' : 'false'}
-                            className={'sd-nav-tabs__tab' + (this.state.index === index ? ' sd-nav-tabs__tab--active' : '')}>
+                            className={
+                                'sd-nav-tabs__tab'
+                                + (this.state.index === index ? ' sd-nav-tabs__tab--active' : '')
+                            }
+                        >
                             <span>{item.props.label}</span>
                         </button>)}
                 </div>
