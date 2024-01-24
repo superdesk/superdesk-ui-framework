@@ -431,7 +431,9 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                                 optionTemplate={this.props.optionTemplate}
                                                 getLabel={this.props.getLabel}
                                                 disabledItem={disabledItem(option)}
-                                                parentCategory={this.state.buttonValue && this.props.getLabel(this.state.buttonValue.value)}
+                                                parentCategory={this.state.buttonValue
+                                                    && this.props.getLabel(this.state.buttonValue.value)
+                                                }
                                                 getBorderColor={this.props.getBorderColor}
                                                 getBackgroundColor={this.props.getBackgroundColor}
                                                 onClick={onSelect(option)}

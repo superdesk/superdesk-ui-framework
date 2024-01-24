@@ -25,7 +25,7 @@ interface IProps<T> {
 
 export class TreeSelectItem<T> extends React.Component<IProps<T>> {
     render() {
-        const ariaLabel = this.props.parentCategory != undefined
+        const ariaLabel = this.props.parentCategory !== undefined
             ? `${this.props.getLabel(this.props.option.value)}, parent ${this.props.parentCategory}`
             : this.props.getLabel(this.props.option.value);
 

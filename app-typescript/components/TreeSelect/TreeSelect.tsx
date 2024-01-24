@@ -901,7 +901,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                     optionTemplate={this.props.optionTemplate}
                                                     selectedItem={selectedItem}
                                                     allowMultiple={this.props.allowMultiple}
-                                                    parentCategory={this.state.buttonValue && this.props.getLabel(this.state.buttonValue.value)}
+                                                    parentCategory={this.state.buttonValue
+                                                        && this.props.getLabel(this.state.buttonValue.value)
+                                                    }
                                                     getBorderColor={this.props.getBorderColor}
                                                     getBackgroundColor={this.props.getBackgroundColor}
                                                     onKeyDown={() => this.setState({
