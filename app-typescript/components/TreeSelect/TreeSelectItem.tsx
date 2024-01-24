@@ -12,6 +12,7 @@ interface IProps<T> {
     selectedItem?: boolean;
     disabledItem?: boolean;
     allowMultiple?: boolean;
+    parentCategory?: string | undefined;
     handleTree(event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeNode<T>): any;
     getLabel(item: T): string;
     getId(item: T): string;
@@ -24,9 +25,14 @@ interface IProps<T> {
 
 export class TreeSelectItem<T> extends React.Component<IProps<T>> {
     render() {
+        const ariaLabel = this.props.parentCategory != undefined
+            ? `${this.props.getLabel(this.props.option.value)}, parent ${this.props.parentCategory}`
+            : this.props.getLabel(this.props.option.value);
+
         return (
             <li
                 className='suggestion-item suggestion-item--multi-select'
+                role='none'
                 onClick={(event) => {
                     if (!this.props.disabledItem) {
                         this.props.onClick?.();
@@ -49,6 +55,9 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                     }}
                     disabled={this.props.disabledItem}
                     data-test-id="option"
+                    role='treeItem'
+                    aria-selected={this.props.selectedItem === true}
+                    aria-disabled={this.props.disabledItem === true}
                 >
                     {(this.props.getBorderColor && !this.props.allowMultiple)
                         && <div
@@ -74,6 +83,7 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                                 }
                                 : undefined
                         }
+                        aria-label={ariaLabel}
                     >
                         {this.props.optionTemplate
                             ? this.props.optionTemplate(this.props.option.value)
@@ -82,7 +92,7 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                     </span>
 
                     {this.props.option.children
-                        && <span className="suggestion-item__icon">
+                        && <span className="suggestion-item__icon" aria-hidden="true">
                             <Icon name="chevron-right-thin"></Icon>
                         </span>
                     }

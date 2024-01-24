@@ -11,7 +11,7 @@ interface IState<T> {
     openDropdown: boolean;
     activeTree: Array<Array<ITreeMenuNode<T>>>;
     buttonTree: Array<ITreeMenuNode<T>>;
-    buttonValue: ITreeMenuNode<T> | null;
+    buttonValue: ITreeMenuNode<T> | undefined;
     filterArr: Array<ITreeMenuNode<T>>;
     searchFieldValue: string;
     firstBranchOptions: Array<ITreeMenuNode<T>>;
@@ -73,7 +73,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             buttonTree: [],
             buttonTarget: [],
             filterArr: [],
-            buttonValue: null,
+            buttonValue: undefined,
             openDropdown: false,
         };
 
@@ -269,11 +269,9 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
 
         const item = this.state.buttonTree.pop();
 
-        if (item != null) {
-            this.setState({
-                buttonValue: item,
-            });
-        }
+        this.setState({
+            buttonValue: item,
+        });
     }
 
     recursion(arr: Array<ITreeMenuNode<T>>) {
@@ -409,6 +407,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                 <ul
                                     ref={this.ref}
                                     className="suggestion-list suggestion-list--multi-select"
+                                    role='tree'
                                 >
                                     {this.state.options.map((option, i: React.Key | undefined) => {
                                         const onSelect = (item) => {
@@ -428,13 +427,14 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                                 key={i}
                                                 option={option}
                                                 handleTree={this.handleTree}
-                                                onClick={onSelect(option)}
-                                                disabledItem={disabledItem(option)}
-                                                getBorderColor={this.props.getBorderColor}
-                                                getBackgroundColor={this.props.getBackgroundColor}
                                                 getId={this.props.getId}
                                                 optionTemplate={this.props.optionTemplate}
                                                 getLabel={this.props.getLabel}
+                                                disabledItem={disabledItem(option)}
+                                                parentCategory={this.state.buttonValue && this.props.getLabel(this.state.buttonValue.value)}
+                                                getBorderColor={this.props.getBorderColor}
+                                                getBackgroundColor={this.props.getBackgroundColor}
+                                                onClick={onSelect(option)}
                                                 onKeyDown={() => this.setState({
                                                     buttonTarget: [
                                                         ...this.state.buttonTarget,

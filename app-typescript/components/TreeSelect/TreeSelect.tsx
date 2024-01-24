@@ -23,7 +23,7 @@ interface IState<T> {
     filterArr: Array<ITreeNode<T>>;
     searchFieldValue: string;
     buttonTree: Array<ITreeNode<T>>;
-    buttonValue: ITreeNode<T> | null;
+    buttonValue: ITreeNode<T> | undefined;
     buttonMouseEvent: boolean;
     loading: boolean;
 
@@ -94,7 +94,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             filterArr: [],
             buttonTree: [],
             buttonTarget: [],
-            buttonValue: null,
+            buttonValue: undefined,
             buttonMouseEvent: false,
             openDropdown: false,
             loading: false,
@@ -439,11 +439,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
         const item = this.state.buttonTree.pop();
 
-        if (item != null) {
-            this.setState({
-                buttonValue: item,
-            });
-        }
+        this.setState({
+            buttonValue: item,
+        });
     }
 
     recursion(arr: Array<ITreeNode<T>>) {
@@ -667,6 +665,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         }
                                     }}
                                     data-test-id="open-popover"
+                                    aria-haspopup="tree"
+                                    aria-expanded={this.state.openDropdown}
                                 >
                                     <i className="icon-plus-large"></i>
                                 </button>
@@ -817,12 +817,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         ref={this.dropdownRef}
                     >
                         <div className='autocomplete__header'>
-                            <div
-                                className="autocomplete__icon"
-                                onClick={() => {
-                                    this.backButton();
-                                }}
-                            >
+                            <div className="autocomplete__icon">
                                 <Icon name="search" className="search"></Icon>
                             </div>
 
@@ -888,6 +883,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         className="suggestion-list suggestion-list--multi-select"
                                         ref={this.ref}
                                         data-test-id="options"
+                                        role='tree'
+                                        aria-multiselectable={this.props.allowMultiple}
                                     >
                                         {this.state.options.map((option, i: React.Key | undefined) => {
                                             let selectedItem = this.state.value.some((obj) =>
@@ -899,13 +896,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                     key={i}
                                                     option={option}
                                                     handleTree={this.handleTree}
+                                                    getId={this.props.getId}
+                                                    getLabel={this.props.getLabel}
+                                                    optionTemplate={this.props.optionTemplate}
                                                     selectedItem={selectedItem}
                                                     allowMultiple={this.props.allowMultiple}
+                                                    parentCategory={this.state.buttonValue && this.props.getLabel(this.state.buttonValue.value)}
                                                     getBorderColor={this.props.getBorderColor}
                                                     getBackgroundColor={this.props.getBackgroundColor}
-                                                    getId={this.props.getId}
-                                                    optionTemplate={this.props.optionTemplate}
-                                                    getLabel={this.props.getLabel}
                                                     onKeyDown={() => this.setState({
                                                         buttonTarget: [
                                                             ...this.state.buttonTarget,
