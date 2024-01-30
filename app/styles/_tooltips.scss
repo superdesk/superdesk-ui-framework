@@ -256,16 +256,6 @@
 	}
 }
 
-[disabled]:hover {
-
-	&[sd-tooltip]::before,
-	&[data-sd-tooltip]::before,
-	&[sd-tooltip]::after,
-	&[data-sd-tooltip]::after {
-		display: none !important;
-	}
-}
-
 // ====== APEND TO BODY (Prime React) ====== //
 
 .p-tooltip {
