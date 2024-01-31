@@ -27,6 +27,7 @@ interface IProps {
     maximizable?: boolean;
     headerTemplate?: JSX.Element | string;
     footerTemplate?: JSX.Element | string;
+    ['data-test-id']?: string;
     onShow?(): void;
     onHide?(): void;
 }
@@ -41,8 +42,11 @@ export class Modal extends React.Component<IProps, {}> {
             [`p-dialog-content--padding-${this.props.contentPadding}`]: this.props.contentPadding,
         }, this.props.className);
         return (
-            <div style={{display: 'content'}}
-                data-theme={this.props.theme !== 'dark' ? null : 'dark-ui' }>
+            <div
+                style={{display: 'content'}}
+                data-theme={this.props.theme !== 'dark' ? null : 'dark-ui' }
+                data-test-id={this.props['data-test-id']}
+            >
                 <PrimeDialog
                     id={this.props.id}
                     visible={this.props.visible}
