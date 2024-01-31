@@ -146,32 +146,32 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
             --sd-btn-border: var(--sd-colour-interactive-btn-border);
             --sd-btn-color: var(--sd-colour-interactive);
         }
-    
+
         &.btn--success {
             --sd-btn-border: var(--sd-colour-success-btn-border);
             --sd-btn-color: var(--sd-colour-success);
         }
-    
+
         &.btn--warning {
             --sd-btn-border: var(--sd-colour-warning-btn-border);
             --sd-btn-color: var(--sd-colour-warning);
         }
-    
+
         &.btn--alert {
             --sd-btn-border: var(--sd-colour-alert-btn-border);
             --sd-btn-color: var(--sd-colour-alert);
         }
-    
+
         &.btn--highlight {
             --sd-btn-border: var(--sd-colour-highlight-btn-border);
             --sd-btn-color: var(--sd-colour-highlight);
         }
-    
+
         &.btn--sd-green {
             --sd-btn-border: var(--sd-colour-superdesk-btn-border);
             --sd-btn-color: var(--sd-colour-superdesk);
         }
-    
+
         &.btn--secondary {
             --sd-btn-border: var(--sd-colour-secondary-btn-border);
             --sd-btn-color: var(--sd-colour-secondary);
@@ -201,27 +201,27 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         &.btn--primary {
             --sd-btn-hs: var(--sd-colour-primary-hs);
         }
-    
+
         &.btn--success {
             --sd-btn-hs: var(--sd-colour-success-hs);
         }
-    
+
         &.btn--warning {
             --sd-btn-hs: var(--sd-colour-warning-hs);
         }
-    
+
         &.btn--alert {
             --sd-btn-hs: var(--sd-colour-alert-hs);
         }
-    
+
         &.btn--highlight {
             --sd-btn-hs: var(--sd-colour-highlight-hs);
         }
-    
+
         &.btn--sd-green {
             --sd-btn-hs: var(--sd-colour-superdesk-hs);
         }
-    
+
         &.btn--secondary {
             --sd-btn-hs: var(--sd-colour-secondary-hs);
         }
@@ -264,11 +264,15 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     &.btn--disabled, &[disabled] {
         opacity: $button-opacity-disabled;
         cursor: not-allowed;
-        pointer-events: none;
+
+        :not(.no-disable) {
+            pointer-events: none;
+        }
+
         box-shadow: none !important;
 
         &:hover, &:active {
-        cursor: not-allowed;
+            cursor: not-allowed;
         }
     }
 }
@@ -440,7 +444,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         width: 2.4rem;
         line-height: 2.4rem;
     }
-    
+
 }
 
 .icn-btn--outline {
@@ -491,7 +495,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
 }
 
-// Button navigation 
+// Button navigation
 .button-nav {
   display: flex;
   flex-direction: row;
@@ -529,7 +533,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
 }
 
-// Button icon group 
+// Button icon group
 .btn-icon-group {
     display: flex;
     align-items: center;
@@ -541,13 +545,13 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 }
 
 
-// BUTTON GROUPS 
+// BUTTON GROUPS
 .button-group {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: $sd-base-increment;
-    
+
     .btn {
         margin: 0;
     }
@@ -776,7 +780,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         .sd-spinner {
             margin-inline-start: -0.3rem;
         }
-        
+
         &.btn--icon-only {
             .sd-spinner {
                 margin-inline-start: 0;
