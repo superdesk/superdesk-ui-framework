@@ -87,7 +87,7 @@ export class SideBarMenu extends React.PureComponent<IProps, IState> {
                                         <span className='sd-sidebar-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>
-                                        <i className='sd-sidebar-menu__helper-icon big-icon--chevron-inset-inline-start'></i>
+                                        <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
                                     </a>
                                 </li>);
                         }
