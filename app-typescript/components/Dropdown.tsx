@@ -37,6 +37,7 @@ interface IMenu {
     children: React.ReactNode;
     zIndex?: number;
     onChange?(event?: any): void;
+    maxHeight?: number;
 }
 
 const DROPDOWN_ID_CONTAINER = "sd-dropdown-constainer";
@@ -50,6 +51,7 @@ export const Dropdown = ({
     align,
     zIndex,
     onChange,
+    maxHeight,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
@@ -59,6 +61,7 @@ export const Dropdown = ({
     const headerElements = header?.map((el, index) => {
         return each(el, index);
     });
+    const maxHeightStyle = maxHeight ? {maxHeight} : {};
 
     const dropdownElements = items.map((el, index) => {
         return each(el, index);
@@ -143,7 +146,7 @@ export const Dropdown = ({
                 <ul className='dropdown__menu '
                 id={menuID} role='menu'
                 ref={ref}
-                style={{zIndex: zIndex}}>
+                style={{...{zIndex: zIndex, overflowY: 'auto'}, ...maxHeightStyle}}>
                     {dropdownElements}
                 </ul>
             );
