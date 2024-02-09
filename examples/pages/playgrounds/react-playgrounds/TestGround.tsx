@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, TreeSelect, Menu} from '../../../../app-typescript/index';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
 interface IProps {
@@ -23,7 +23,20 @@ interface IState {
     date: any;
     time: string;
     modalPlanningTemplates: boolean;
+    treeSelectValue: any;
 }
+
+let options2 = [
+    {
+        value: {name: 'A long category Category1'},
+    },
+    {
+        value: {name: 'Category2'},
+    },
+    {
+        value: {name: 'Category3'},
+    },
+]
 
 export class TestGround extends React.Component<IProps, IState> {
     constructor(props: IProps) {
@@ -44,6 +57,7 @@ export class TestGround extends React.Component<IProps, IState> {
             date: new Date('2022-01-08'),
             time: '16:50',
             modalPlanningTemplates: false,
+            treeSelectValue: [],
         }
     }
 
@@ -98,6 +112,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             </BoxedList>
 
                         </Modal>
+
                         <h3 className="docs-page__h3 ">Planning Templates</h3>
                         <SearchBar placeholder='Search' boxed={true}>
                             <Dropdown
@@ -107,10 +122,28 @@ export class TestGround extends React.Component<IProps, IState> {
                                     { label: 'Action 3', onSelect: () => 1 },
                                 ]}
                             >
-                                Toogle button
+                                With dropdown
                             </Dropdown>
                         </SearchBar>
+                        <hr />
+                        <SearchBar placeholder='Search' boxed={true}>
+                            <TreeSelect
+                                kind={'synchronous'}
+                                value={this.state.treeSelectValue}
+                                getOptions={() => options2}
+                                getLabel={(item) => item.name}
+                                getId={(item) => item.name}
+                                onChange={() => false}
+                                placeholder='Select a desk'
+                                width='medium'
+                                inlineLabel
+                                labelHidden
+                            >
+                                With TreeSelect
+                            </TreeSelect>
+                        </SearchBar>
 
+                        <hr />
                         <hr />
 
                         <h3 className="docs-page__h3 sd-margin-y--0">Pagination</h3>

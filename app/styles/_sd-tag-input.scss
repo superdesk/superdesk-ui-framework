@@ -143,6 +143,7 @@ tags-input,
                     display: flex;
                     flex-direction: row;
                     align-items: center;
+                    gap: var(--space--2);
 
                     span {
                         flex-grow: 1;
@@ -467,6 +468,7 @@ tags-input,
     .tags-input__helper-box {
         display: flex;
         align-items: center;
+        gap: var(--space--2);
     }
 }
 
@@ -661,6 +663,7 @@ tags-input,
         display: flex;
         width: 100%;
         align-items: center;
+        gap: var(--space--2);
     }
 
     .tags-input__remove-button {
