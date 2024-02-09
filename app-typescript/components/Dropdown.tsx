@@ -272,12 +272,15 @@ export const Dropdown = ({
                         })()}
                     </div> : null)
                 :
-                <button ref={buttonRef}
-                className=' dropdown__toggle dropdown-toggle'
-                aria-haspopup="menu"
-                tabIndex={0}
-                aria-expanded={open}
-                onClick={toggleDisplay}>
+                <button
+                    style={{whiteSpace: 'nowrap'}}
+                    ref={buttonRef}
+                    className=' dropdown__toggle dropdown-toggle'
+                    aria-haspopup="menu"
+                    tabIndex={0}
+                    aria-expanded={open}
+                    onClick={toggleDisplay}
+                >
                     {children}
                     <span className="dropdown__caret"></span>
                 </button>}
@@ -353,16 +356,18 @@ onChange,
 }: IMenuItemRes) => {
     return (
         <li role='none' className={active ? 'dropdown__menu-item--active' : ''}>
-            <button tabIndex={0}
-            role='menuitem'
-            onClick={() => {
-                setTimeout(() => {
-                    onSelect();
-                });
-                if (onChange) {
-                    onChange();
-                }
-            }}>
+            <button
+                tabIndex={0}
+                role='menuitem'
+                onClick={() => {
+                    setTimeout(() => {
+                        onSelect();
+                    });
+                    if (onChange) {
+                        onChange();
+                    }
+                }}
+            >
                 <i className={icon ? ('icon-' + icon) : ''}></i>
                 {label}
             </button>
@@ -407,20 +412,21 @@ const DropdownItemWithSubmenu = ({
             <div className='dropdown'
             onMouseLeave={() => setOpen(false)}>
                 <button
-                className='dropdown__toggle dropdown-toggle'
-                aria-haspopup="menu"
-                tabIndex={0}
-                onClick={() => {
-                    if (item.onSelect) {
-                        setTimeout(() => {
-                            item.onSelect();
-                        });
-                    }
-                    if (onChange) {
-                        onChange();
-                    }
-                }}
-                onMouseOver={() => setOpen(true) }>
+                    className='dropdown__toggle dropdown-toggle'
+                    aria-haspopup="menu"
+                    tabIndex={0}
+                    onClick={() => {
+                        if (item.onSelect) {
+                            setTimeout(() => {
+                                item.onSelect();
+                            });
+                        }
+                        if (onChange) {
+                            onChange();
+                        }
+                    }}
+                    onMouseOver={() => setOpen(true) }
+                >
                     {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                     {item['label']}
                 </button>
