@@ -28,7 +28,7 @@ export interface IPropsArrayItem {
     hexColor?: string;
     locked?: boolean;
     positionLocked?: boolean;
-    selected?: boolean
+    selected?: boolean;
     onClick?(): void;
     onDoubleClick?(): void;
 }
