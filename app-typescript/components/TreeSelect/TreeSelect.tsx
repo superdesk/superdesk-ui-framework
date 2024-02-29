@@ -23,7 +23,7 @@ interface IState<T> {
     filterArr: Array<ITreeNode<T>>;
     searchFieldValue: string;
     buttonTree: Array<ITreeNode<T>>;
-    buttonValue: ITreeNode<T> | undefined;
+    buttonValue: ITreeNode<T> | null;
     buttonMouseEvent: boolean;
     loading: boolean;
 
@@ -94,7 +94,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             filterArr: [],
             buttonTree: [],
             buttonTarget: [],
-            buttonValue: undefined,
+            buttonValue: null,
             buttonMouseEvent: false,
             openDropdown: false,
             loading: false,
@@ -440,7 +440,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         const item = this.state.buttonTree.pop();
 
         this.setState({
-            buttonValue: item,
+            buttonValue: item ?? null,
         });
     }
 
@@ -896,16 +896,17 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                     key={i}
                                                     option={option}
                                                     handleTree={this.handleTree}
-                                                    getId={this.props.getId}
-                                                    getLabel={this.props.getLabel}
-                                                    optionTemplate={this.props.optionTemplate}
                                                     selectedItem={selectedItem}
                                                     allowMultiple={this.props.allowMultiple}
-                                                    parentCategory={this.state.buttonValue
-                                                        && this.props.getLabel(this.state.buttonValue.value)
+                                                    parentCategory={this.state.buttonValue == null
+                                                        ? undefined
+                                                        : this.props.getLabel(this.state.buttonValue.value)
                                                     }
                                                     getBorderColor={this.props.getBorderColor}
                                                     getBackgroundColor={this.props.getBackgroundColor}
+                                                    getId={this.props.getId}
+                                                    getLabel={this.props.getLabel}
+                                                    optionTemplate={this.props.optionTemplate}
                                                     onKeyDown={() => this.setState({
                                                         buttonTarget: [
                                                             ...this.state.buttonTarget,
