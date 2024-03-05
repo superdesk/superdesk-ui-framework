@@ -704,7 +704,7 @@
     @include Line-input-base;
     display: block;
     position: relative;
-    padding-inline-end: 2rem;
+    padding-inline-end: var(--space--3);
     min-width: 5rem;
     cursor: pointer;
 
@@ -804,23 +804,30 @@
     &.sd-input--is-select {
         &::after {
             position: relative;
-            z-index: 1;
+            font-family: 'sd_icons';
+            content: "\e64b";
             grid-row: 2/3;
             grid-column: 2/4;
+            --icon-base-size: 14px !important;
+            width: var(--icon-base-size);
+            height: var(--icon-base-size);
+            line-height: var(--icon-base-size);
+            font-size: var(--icon-base-size);
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            color: var(--color-icon-default);
+            -webkit-font-smoothing: antialiased;
             align-self: center;
             justify-self: flex-end;
             display: inline-block;
-            width: 0;
-            height: 0;
-            margin-inline-end: 1rem;
-            vertical-align: middle;
-            border-inline-start: 0.4rem solid transparent;
-            border-inline-end: 0.4rem solid transparent;
-            border-block-start: 0.4rem solid var(--color-text);
+            margin-inline-end: var(--space--1);
             pointer-events: none;
-            opacity: 0.4;
-            content: "";
+            opacity: 0.4; 
             z-index: 0;
+            transition: opacity 0.2s ease;
         }
 
         &:hover {
@@ -829,6 +836,40 @@
             }
         }
     }
+    .sd-input__select-caret-wrapper {
+        position: relative;
+        &::after {
+            --icon-base-size: 14px !important;
+            font-family: 'sd_icons';
+            content: "\e64b";
+            position: absolute;
+            inset-block-start: 10px;
+            inset-inline-end: 0;
+            width: var(--icon-base-size);
+            height: var(--icon-base-size);
+            line-height: var(--icon-base-size);
+            font-size: var(--icon-base-size);
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            color: var(--color-text);
+            -webkit-font-smoothing: antialiased;
+            margin-inline-end: var(--space--1);
+            pointer-events: none;
+            opacity: 0.6; 
+            z-index: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        &:hover {
+            &::after {
+                opacity: 1;
+            }
+        }
+    }
+
 
     .sd-input__message-box {
         grid-row: 3/4;

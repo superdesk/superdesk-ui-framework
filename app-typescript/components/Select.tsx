@@ -44,17 +44,19 @@ class Select extends React.Component<ISelect> {
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
             >
-                <select
-                    className='sd-input__select'
-                    id={this.htmlId}
-                    value={this.props.value}
-                    aria-describedby={this.htmlId}
-                    tabIndex={this.props.tabindex}
-                    onChange={this.handleChange}
-                    disabled={this.props.disabled || this.props.readonly}
-                >
-                    {this.props.children}
-                </select>
+                <span className='sd-input__select-caret-wrapper'>
+                    <select
+                        className='sd-input__select'
+                        id={this.htmlId}
+                        value={this.props.value}
+                        aria-describedby={this.htmlId}
+                        tabIndex={this.props.tabindex}
+                        onChange={this.handleChange}
+                        disabled={this.props.disabled || this.props.readonly}
+                    >
+                        {this.props.children}
+                    </select>
+                </span>
             </InputWrapper>
         );
     }

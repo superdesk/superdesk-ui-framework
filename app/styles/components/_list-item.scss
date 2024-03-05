@@ -283,6 +283,10 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     &:only-child {
         margin: 0.2rem 0;
     }
+    &.sd-list-item__row--overflow-visible {
+        overflow: visible !important;
+    }
+
 }
 
 .sd-list-item__row--only-child {

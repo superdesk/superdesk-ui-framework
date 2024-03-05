@@ -14,7 +14,7 @@ export class FormLabel extends React.PureComponent<IProps> {
         });
 
         return (
-            <div className={classes}>{this.props.text}</div>
+            <label className={classes}>{this.props.text}</label>
         );
     }
 }

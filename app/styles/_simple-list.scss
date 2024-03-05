@@ -12,12 +12,24 @@ $simple-list-border-color: $neutral-border-color;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: 0.8rem;
+        gap: var(--space--1);
         color: var(--color-text);
 
         [class^="icon-"], [class*=" icon-"] {
             flex-grow: 0;
             flex-shrink: 0;
+        }
+        &.simple-list__item--gap-none {
+            gap: 0;
+        }
+        &.simple-list__item--gap-small {
+            gap: var(--space-0-5);
+        }
+        &.simple-list__item--gap-medium {
+            gap: var(--space-1);
+        }
+        &.simple-list__item--gap-large {
+            gap: var(--space-1-5);
         }
     }
 
