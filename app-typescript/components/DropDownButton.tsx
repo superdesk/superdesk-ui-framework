@@ -6,7 +6,7 @@ interface IProps {
     disabled?: boolean;
     required?: boolean;
     expand?: boolean;
-    style?: 'blanck'| 'bordered'; 
+    style?: 'blanck'| 'bordered';
     tabindex?: number;
     size?: 'small'| 'medium' | 'large';
     innerLabel?: string;
@@ -21,8 +21,10 @@ export class DropDownButton extends React.Component<IProps> {
     render() {
         let classes = classNames('sd-dropdown-button', {
             'sd-dropdown-button--expanded': this.props.expand,
-            [`sd-dropdown-button--${this.props.size}`]: this.props.size !== 'medium' && this.props.size !== undefined,
-            [`sd-dropdown-button--${this.props.style}`]: this.props.style !== 'bordered' && this.props.style !== undefined,
+            [`sd-dropdown-button--${this.props.size}`]:
+                this.props.size !== 'medium' && this.props.size !== undefined,
+            [`sd-dropdown-button--${this.props.style}`]:
+                this.props.style !== 'bordered' && this.props.style !== undefined,
             'sd-dropdown-button--disabled': this.props.disabled,
         });
         return (
@@ -35,7 +37,7 @@ export class DropDownButton extends React.Component<IProps> {
                 tabIndex={this.props.tabindex}
             >
                 <span className="sd-dropdown-button__text-block">
-                    {this.props.innerLabel == null ? null : 
+                    {this.props.innerLabel == null ? null :
                         <label className="sd-dropdown-button__text-label">{this.props.innerLabel}:</label>
                     }
                     <span className="sd-dropdown-button__text-value">{this.props.value}</span>
