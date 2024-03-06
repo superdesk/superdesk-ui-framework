@@ -13,6 +13,7 @@ interface IProps {
 interface IPropsItem {
     stacked?: boolean;
     justify?: 'flex-start' | 'flex-end' | 'center' | 'space-between';
+    gap?: 'none' | 'small' | 'medium' | 'large';
     id?: string;
 }
 
@@ -23,6 +24,8 @@ class SimpleListItem extends React.PureComponent<IPropsItem> {
             'simple-list__item--justify-flex-start': this.props.justify === undefined,
             [`simple-list__item--justify-${this.props.justify}`]:
                 this.props.justify || this.props.justify !== undefined,
+            [`simple-list__item--gap-${this.props.gap}`]:
+            this.props.gap || this.props.gap !== undefined,
         });
         return (
             <li className={classes} id={this.props.id || undefined}>

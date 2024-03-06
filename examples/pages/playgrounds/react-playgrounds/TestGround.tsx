@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, TreeSelect} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, TreeSelect, ContentDivider, Select, Option, AvatarGroup} from '../../../../app-typescript/index';
+import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
 interface IProps {
@@ -23,7 +24,12 @@ interface IState {
     date: any;
     time: string;
     modalPlanningTemplates: boolean;
+    modalSaveEvent: boolean;
+    modalSaveEvent2: boolean;
+    modalSaveEvent3: boolean;
     treeSelectValue: any;
+    value: any;
+    valueS2: any;
 }
 
 let options2 = [
@@ -57,7 +63,12 @@ export class TestGround extends React.Component<IProps, IState> {
             date: new Date('2022-01-08'),
             time: '16:50',
             modalPlanningTemplates: false,
+            modalSaveEvent: false,
+            modalSaveEvent2: false,
+            modalSaveEvent3: false,
             treeSelectValue: [],
+            value: undefined,
+            valueS2: undefined,
         }
     }
 
@@ -70,11 +81,283 @@ export class TestGround extends React.Component<IProps, IState> {
     }
 
     render() {
+        const avatars: Array<IAvatarInGroup> = [
+            {
+                imageUrl: null,
+                initials: "VS",
+                displayName: 'Vladimir Stefanovic',
+                icon:{name: 'text', color: 'var(--sd-colour-highlight)'},
+            },
+            {
+                imageUrl: null,
+                initials: "JL",
+                displayName: 'Jeffrey Lebowski',
+                icon:{name: 'photo', color: 'var(--sd-colour-highlight)'}
+            },
+            {
+                imageUrl: null,
+                initials: "WS",
+                displayName: 'Walter Sobchak',
+                icon:{name: 'video', color: 'var(--sd-colour-highlight)'}
+            },
+            {
+                imageUrl: null,
+                initials: "ML",
+                displayName: 'Maude Lebowski',
+                icon:{name: 'file', color: 'var(--sd-colour-highlight)'}
+            },
+        ];
+        const modalSaveEventFooterOne=(
+            <ButtonGroup align="end">
+                <Button text='Cancel' onClick={() => this.setState({modalSaveEvent:false})} />
+                <Button type='primary' text='Save' onClick={() => this.setState({modalSaveEvent:false})} />
+            </ButtonGroup>
+        );
+        const modalSaveEventFooterTwo=(
+            <ButtonGroup align="end">
+                <Button text='Cancel' onClick={() => this.setState({modalSaveEvent2:false})} />
+                <Button type='primary' text='Save' onClick={() => this.setState({modalSaveEvent2:false})} />
+            </ButtonGroup>
+        );
+        const modalSaveEventFooterThree=(
+            <ButtonGroup align="end">
+                <Button text='Cancel' onClick={() => this.setState({modalSaveEvent3:false})} />
+                <Button type='primary' text='Save' onClick={() => this.setState({modalSaveEvent3:false})} />
+            </ButtonGroup>
+        );
         return (
             <Components.Layout header='Testing Ground'>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
+                        <ButtonGroup>
+                            <Button text="Save Event Modal (Event only)" onClick={() => this.setState({modalSaveEvent: true})} />
+                            <Button text="Save Event Modal (Event & Planning)" onClick={() => this.setState({modalSaveEvent2: true})} />
+                            <Button text="Save Event Modal (Planning only)" onClick={() => this.setState({modalSaveEvent3: true})} />
+                        </ButtonGroup>
+                        <hr />
+                        {/* <button type="button" className="sd-dropdown-button" aria-haspopup="true" aria-expanded="false">
+                            <span className="sd-dropdown-button__text-block">
+                                <label className="sd-dropdown-button__text-label">Coverage:</label>
+                                <span className="sd-dropdown-button__text-value">Events &amp; Coverages</span>
+                            </span>
+                            <Icon name='chevron-down-thin' />
+                        </button> */}
+                        
+                        <hr />
                         <Button text="Planning Templates" onClick={() => this.setState({modalPlanningTemplates: true})} />
+                        <span></span>
+                        
+                        
+                         {/* Event Saving modals */}
+                         {/* Event Only (This one existed Before) */}
+                        <Modal 
+                            headerTemplate="Save Event"
+                            zIndex={10000}
+                            visible={this.state.modalSaveEvent}
+                            contentPadding='medium'
+                            contentBg='medium'
+                            size='medium'
+                            footerTemplate={modalSaveEventFooterOne}
+                            onHide={() => {this.setState({modalSaveEvent: false})}}
+                        >
+                            <div>
+                                <FormLabel text='Name'/>
+                                <Text size='small' weight='medium'>Australian Open 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Date'/>
+                                <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Repeat Summary'/>
+                                <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='No. of events'/>
+                                <Text size='small' weight='medium'>1</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <Text size='small' className='mb-1 mt-0-5'><strong>This is a recurring event</strong>. Update all recurring events or just this one?</Text>
+                            <Select
+                                value={this.state.value}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(value) => {
+                                    this.setState({
+                                        value: value,
+                                    })
+                                }}
+                            >
+                                <Option>This event only</Option>
+                                <Option>This and all future events</Option>
+                                <Option>All events</Option>
+                            </Select>
+                        </Modal>
+
+                        {/* Event and Planning */}
+                        <Modal 
+                            headerTemplate="Save Event"
+                            zIndex={10000}
+                            visible={this.state.modalSaveEvent2}
+                            contentPadding='medium'
+                            contentBg='medium'
+                            size='medium'
+                            footerTemplate={modalSaveEventFooterTwo}
+                            onHide={() => {this.setState({modalSaveEvent2: false})}}
+                        >
+                            <div>
+                                <FormLabel text='Name'/>
+                                <Text size='small' weight='medium'>Australian Open 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Date'/>
+                                <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Repeat Summary'/>
+                                <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='No. of events'/>
+                                <Text size='small' weight='medium'>1</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <Text size='small' className='mb-1 mt-0-5'><strong>This is a recurring event</strong>. Update all recurring events or just this one?</Text>
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(value) => {
+                                    this.setState({
+                                        value: value,
+                                    })
+                                }}
+                            >
+                                <Option>This event only</Option>
+                                <Option>This and all future events</Option>
+                                <Option>All events</Option>
+                            </Select>
+                            <ContentDivider type="dashed" margin='small' />
+                            <Heading type='h4' className='mb-1'>Related Planning(s)</Heading>
+                            <div className='sd-list-item-group--space-between-items'>
+                                <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
+                                    <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div className="sd-list-item__row">
+                                            <i role="presentation" className="icon-calendar icon--light-blue"></i>
+                                            <span className="sd-list-item__slugline">Planning Slug</span>
+                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                            </span>
+                                        </div>
+                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1">
+                                            <Label text='draft' style='translucent'/>
+                                            <span className="sd-margin-s--auto">
+                                            <AvatarGroup
+                                                size="x-small"
+                                                items={avatars}
+                                            />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Update all recurring planning or just this one?
+                            </Text>
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(valueS2) => {
+                                    this.setState({
+                                        value: valueS2,
+                                    })
+                                }}
+                            >
+                                <Option>This planning only</Option>
+                                <Option>This and all future plannings</Option>
+                                <Option>All plannings</Option>
+                            </Select>
+
+                        </Modal>
+
+                        {/* Planning only */}
+                        <Modal 
+                            headerTemplate="Save Event"
+                            zIndex={10000}
+                            visible={this.state.modalSaveEvent3}
+                            contentPadding='medium'
+                            contentBg='medium'
+                            size='medium'
+                            footerTemplate={modalSaveEventFooterThree}
+                            onHide={() => {this.setState({modalSaveEvent3: false})}}
+                        >
+                            <Heading type='h4' className='mb-1'>Related Planning(s)</Heading>
+                            <div className='sd-list-item-group--space-between-items'>
+                                <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
+                                    <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div className="sd-list-item__row">
+                                            <i role="presentation" className="icon-calendar icon--light-blue"></i>
+                                            <span className="sd-list-item__slugline">Planning Slug</span>
+                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                            </span>
+                                        </div>
+                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1">
+                                            <Label text='draft' style='translucent'/>
+                                            <span className="sd-margin-s--auto">
+                                            <AvatarGroup
+                                                size="x-small"
+                                                items={avatars}
+                                            />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Update all recurring planning or just this one?
+                            </Text>
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(valueS2) => {
+                                    this.setState({
+                                        value: valueS2,
+                                    })
+                                }}
+                            >
+                                <Option>This planning only</Option>
+                                <Option>This and all future plannings</Option>
+                                <Option>All plannings</Option>
+                            </Select>
+
+                        </Modal>
+
+                        {/* Planning templates modal */}
                         <Modal headerTemplate="Planning templates"
                             zIndex={10000}
                             visible={this.state.modalPlanningTemplates}

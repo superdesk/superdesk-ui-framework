@@ -11,6 +11,9 @@
     --space--3: calc(3 * var(--base-increment)); // 24px;
     --space--4: calc(4 * var(--base-increment)); // 32px;
     --space--5: calc(5 * var(--base-increment)); // 40px;
+    --space--6: calc(6 * var(--base-increment)); // 48px;
+    --space--7: calc(7 * var(--base-increment)); // 56px;
+    --space--8: calc(8 * var(--base-increment)); // 64px;
 
     --gap--none: 0; // 0px
     --gap--x-small: 0.4rem; // 4px
@@ -50,6 +53,11 @@
 
     // TEXT SIZE
     --text-size--base: 1rem;
+    --text-size-x-small: calc(var(--text-size--base) * 1.2); // 12px;
+    --text-size-small: calc(var(--text-size--base) * 1.4); // 14px;
+    --text-size-medium: calc(var(--text-size--base) * 1.6); // 16px;
+    --text-size-large: calc(var(--text-size--base) * 2); // 20px;
+
 
     // SHADOW
     --sd-shadow--z1: 0 0 0 1px var(--sd-shadow-outline), 0 1px 3px hsla(0, 0%, 0%, 0.16), 0 0 1px hsla(0, 0%, 0%, 0.1);
@@ -57,14 +65,19 @@
     --sd-shadow--z3: 0 0 0 1px var(--sd-shadow-outline), 0 1px 6px hsla(0, 0%, 0%, 0.16), 0 3px 8px hsla(0, 0%, 0%, 0.24), 0 0 1px hsla(0, 0%, 0%, 0.1);
     --sd-shadow--z4: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.2), 0 6px 16px hsla(0, 0%, 0%, 0.3), 0 0 1px hsla(0, 0%, 0%, 0.1);
 
-
     // DROP-SHADOW Filter
     --sd-drop-shadow--z1: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 3px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 0 1px rhsla(0, 0%, 0%, 0.12));
     --sd-drop-shadow--z2: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 4px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 2px 6px rhsla(0, 0%, 0%, 0.14)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
     --sd-drop-shadow--z3: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 6px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 3px 8px rhsla(0, 0%, 0%, 0.26)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
     --sd-drop-shadow--z4: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 2px 10px hsla(0, 0%, 0%, 0.24)) drop-shadow(0 6px 16px rhsla(0, 0%, 0%, 0.32)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
 
+    // FORM ELEMENTS
+    // Size 
+    --form-element-height-small: var(--space--3);
+    --form-element-height-medium: var(--space--4);
+    --form-element-height-large: var(--space--5);
 }
+
 
 :root,
 [data-theme="light-ui"] {
