@@ -27,6 +27,7 @@ interface IState {
     modalSaveEvent: boolean;
     modalSaveEvent2: boolean;
     modalSaveEvent3: boolean;
+    modalSaveEvent4: boolean;
     treeSelectValue: any;
     value: any;
     valueS2: any;
@@ -66,6 +67,7 @@ export class TestGround extends React.Component<IProps, IState> {
             modalSaveEvent: false,
             modalSaveEvent2: false,
             modalSaveEvent3: false,
+            modalSaveEvent4: false,
             treeSelectValue: [],
             value: undefined,
             valueS2: undefined,
@@ -249,8 +251,12 @@ export class TestGround extends React.Component<IProps, IState> {
                                 <Option>This and all future events</Option>
                                 <Option>All events</Option>
                             </Select>
-                            <ContentDivider type="dashed" margin='small' />
-                            <Heading type='h4' className='mb-1'>Related Planning(s)</Heading>
+                            <ContentDivider type="solid" margin="medium" />
+                            <Heading type='h3' className='mb-1 sd-text--strong'>Related Planning(s)</Heading>
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Apply the changes to all recurring planning items or just this one?
+                            </Text>
                             <div className='sd-list-item-group--space-between-items'>
                                 <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
                                     <div className="sd-list-item__border sd-list-item__border--locked"></div>
@@ -274,10 +280,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </div>
-                            <Text size='small' className='mb-1'>
-                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
-                                Update all recurring planning or just this one?
-                            </Text>
+
                             <Select
                                 value={this.state.valueS2}
                                 label='Update:'
@@ -309,7 +312,11 @@ export class TestGround extends React.Component<IProps, IState> {
                             footerTemplate={modalSaveEventFooterThree}
                             onHide={() => {this.setState({modalSaveEvent3: false})}}
                         >
-                            <Heading type='h4' className='mb-1'>Related Planning(s)</Heading>
+                            <Heading type='h3' className='mb-1 sd-text--strong'>Related Planning(s)</Heading>
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Apply the changes to all recurring planning items or just this one?
+                            </Text>
                             <div className='sd-list-item-group--space-between-items'>
                                 <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
                                     <div className="sd-list-item__border sd-list-item__border--locked"></div>
@@ -333,10 +340,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </div>
-                            <Text size='small' className='mb-1'>
-                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
-                                Update all recurring planning or just this one?
-                            </Text>
+
                             <Select
                                 value={this.state.valueS2}
                                 label='Update:'
@@ -347,6 +351,55 @@ export class TestGround extends React.Component<IProps, IState> {
                                 onChange={(valueS2) => {
                                     this.setState({
                                         value: valueS2,
+                                    })
+                                }}
+                            >
+                                <Option>This planning only</Option>
+                                <Option>This and all future plannings</Option>
+                                <Option>All plannings</Option>
+                            </Select>
+
+                            <ContentDivider type="dashed" margin='small' />
+
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Apply the changes to all recurring planning items or just this one?
+                            </Text>
+
+                            <div className='sd-list-item-group--space-between-items'>
+                                <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
+                                    <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div className="sd-list-item__row">
+                                            <i role="presentation" className="icon-calendar icon--light-blue"></i>
+                                            <span className="sd-list-item__slugline">Planning Slug</span>
+                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                            </span>
+                                        </div>
+                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1">
+                                            <Label text='draft' style='translucent'/>
+                                            <span className="sd-margin-s--auto">
+                                            <AvatarGroup
+                                                size="small"
+                                                items={avatars}
+                                            />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(valueS3) => {
+                                    this.setState({
+                                        value: valueS3,
                                     })
                                 }}
                             >
