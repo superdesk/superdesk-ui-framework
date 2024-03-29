@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 import { ReactNav, ReactDefault } from '../../js/react';
-import { ButtonGroup, Button, NavButton, Dropdown } from '../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, Dropdown, IllustrationButton } from '../../../app-typescript/index';
 
 import {
     Switch,
@@ -69,6 +69,7 @@ import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
 import {WithSizeObserverDocs} from './WithSizeObserver';
 import {ResizablePanelsDoc} from './ResizablePanels';
+import { IllustrationButtonDoc } from './IllustrationButton';
 
 const pages = {
     basicComponents: {
@@ -130,6 +131,9 @@ const pages = {
             },
             "drag-handle": {
                 name: 'Drag handle'
+            },
+            "illustration-button" : {
+                name: 'Illustration Button'
             }
         }
     },
@@ -399,6 +403,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/react/dropzone" component={DropZoneDoc} />
                         <Route path="/react/create-button" component={CreateButtonDoc} />
                         <Route path="/react/resizable-panels" component={ResizablePanelsDoc} />
+                        <Route path="/react/illustration-button" component={IllustrationButtonDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
