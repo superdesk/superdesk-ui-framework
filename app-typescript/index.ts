@@ -77,6 +77,8 @@ export { DropZone } from './components/DropZone';
 export { CreateButton } from './components/CreateButton';
 export { SearchBar } from './components/SearchBar';
 export { WithSizeObserver } from './components/WithSizeObserver';
+export { SvgIconIllustration } from './components/SvgIconIllustration';
+export { IllustrationButton } from './components/IllustrationButton';
 
 export * from './components/Layouts';
 export * from './components/Form';

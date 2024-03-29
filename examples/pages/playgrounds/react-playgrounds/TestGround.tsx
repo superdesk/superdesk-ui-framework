@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, TreeSelect, ContentDivider, Select, Option, AvatarGroup} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, TreeSelect, ContentDivider, Select, Option, AvatarGroup, SvgIconIllustration, IllustrationButton} from '../../../../app-typescript/index';
 import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
@@ -31,6 +31,7 @@ interface IState {
     treeSelectValue: any;
     value: any;
     valueS2: any;
+    thisTheme: string;
 }
 
 let options2 = [
@@ -71,6 +72,7 @@ export class TestGround extends React.Component<IProps, IState> {
             treeSelectValue: [],
             value: undefined,
             valueS2: undefined,
+            thisTheme: 'light-ui',
         }
     }
 
@@ -81,6 +83,12 @@ export class TestGround extends React.Component<IProps, IState> {
             item.status.push(status);
         }
     }
+
+    toggleTheme = () => {
+        this.setState( {
+            thisTheme: this.state.thisTheme === 'light-ui' ? 'dark-ui' : 'light-ui',
+        });
+      };
 
     render() {
         const avatars: Array<IAvatarInGroup> = [
@@ -109,6 +117,7 @@ export class TestGround extends React.Component<IProps, IState> {
                 icon:{name: 'file', color: 'var(--sd-colour-highlight)'}
             },
         ];
+
         const modalSaveEventFooterOne=(
             <ButtonGroup align="end">
                 <Button text='Cancel' onClick={() => this.setState({modalSaveEvent:false})} />
@@ -128,15 +137,129 @@ export class TestGround extends React.Component<IProps, IState> {
             </ButtonGroup>
         );
         return (
-            <Components.Layout header='Testing Ground'>
+            <Components.Layout header='Testing Ground' theme={this.state.thisTheme}>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
+
+                        <ButtonGroup align='end'>
+                            <IconButton icon="adjust" ariaValue="Toggle theme" onClick={this.toggleTheme} toolTipFlow='left' />
+                        </ButtonGroup>
+
+                        <hr />
+                        <SvgIconIllustration illustration='headlines' />
+                        <hr />
+
+                        <div className='sd-grid-list sd-grid-list--xx-small sd-grid-list--gap-s sd-grid-list--no-margin' style={{width:'290px'}}>
+                            
+                            <IllustrationButton text='Headlines' onClick={()=> false}>
+                                <SvgIconIllustration illustration='headlines' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Keywords' onClick={()=> false}>
+                                <SvgIconIllustration illustration='keywords' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Optimise' onClick={()=> false}>
+                                <SvgIconIllustration illustration='optimise' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Summary' onClick={()=> false}>
+                                <SvgIconIllustration illustration='summary' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Translate' onClick={()=> false}>
+                                <SvgIconIllustration illustration='translate' />
+                            </IllustrationButton>
+
+                            {/* <button className='illustration-button illustration-button--headlines'>
+                                <SvgIconIllustration illustration='headlines' />
+                                <span className='illustration-button__text-label'>
+                                    Headlines
+                                </span>
+                            </button>
+
+                            <button className='illustration-button illustration-button--headlines'>
+                                <SvgIconIllustration illustration='keywords' />
+                                <span className='illustration-button__text-label'>
+                                    Keywords
+                                </span>
+                            </button>
+
+                            <button className='illustration-button illustration-button--headlines'>
+                                <SvgIconIllustration illustration='optimise' />
+                                <span className='illustration-button__text-label'>
+                                    Optimise
+                                </span>
+                            </button>
+
+                            <button className='illustration-button illustration-button--headlines'>
+                                <SvgIconIllustration illustration='summary' />
+                                <span className='illustration-button__text-label'>
+                                    Summary
+                                </span>
+                            </button>
+
+                            <button className='illustration-button illustration-button--headlines'>
+                                <SvgIconIllustration illustration='translate' />
+                                <span className='illustration-button__text-label'>
+                                    Translate
+                                </span>
+                            </button> */}
+
+                        </div>
+
+                        <hr />
+
+                        <Heading type='h3'>Below is an example structure of the content inside the 'Headlines' AI Assistant section</Heading>
+                        <Text size="small" weight="light">Note: The surrounding div with inline styles is only there for the purpose of this demo. </Text>
+
+                        <div className='' style={{width:'290px', marginBlockStart:'32px'}}>
+                            <Container gap="small" direction='column'>
+                                <Text size="small" weight="medium">
+                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et aenean eu leo quam ultricies.
+                                </Text>
+                                <ButtonGroup>
+                                    <Button size='small' text="Apply" onClick={()=> false} type="default" style="hollow" />
+                                    <IconButton ariaValue='Copy' icon='copy' onClick={()=> false} />
+                                </ButtonGroup>
+                            </Container>
+
+                            <ContentDivider type="dashed" margin='small' />
+
+                            <Container gap="small" direction='column'>
+                                <Text size="small" weight="medium">
+                                Aenean eu leo quam pellentesque ornare sem lacinia quam venenatis vestibulum nullam id dolor id nibh ultricies vehicula elit.
+                                </Text>
+                                <ButtonGroup>
+                                    <Button size='small' text="Apply" onClick={()=> false} type="default" style="hollow" />
+                                    <IconButton ariaValue='Copy' icon='copy' onClick={()=> false} />
+                                </ButtonGroup>
+                            </Container>
+
+                            <ContentDivider type="dashed" margin='small' />
+
+                            <Container gap="small" direction='column'>
+                                <Text size="small" weight="medium">
+                                Vestibulum id ligula porta felis euismod semper morbi leo risus, porta ac consectetur ac, vestibulum at eros maecenas faucibus.
+                                </Text>
+                                <ButtonGroup>
+                                    <Button size='small' text="Apply" onClick={()=> false} type="default" style="hollow" />
+                                    <IconButton ariaValue='Copy' icon='copy' onClick={()=> false} />
+                                </ButtonGroup>
+                            </Container>
+
+                        </div>
+
+                        <hr />
+
                         <ButtonGroup>
                             <Button text="Save Event Modal (Event only)" onClick={() => this.setState({modalSaveEvent: true})} />
                             <Button text="Save Event Modal (Event & Planning)" onClick={() => this.setState({modalSaveEvent2: true})} />
                             <Button text="Save Event Modal (Planning only)" onClick={() => this.setState({modalSaveEvent3: true})} />
                         </ButtonGroup>
+
                         <hr />
+
                         {/* <button type="button" className="sd-dropdown-button" aria-haspopup="true" aria-expanded="false">
                             <span className="sd-dropdown-button__text-block">
                                 <label className="sd-dropdown-button__text-label">Coverage:</label>
@@ -146,6 +269,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         </button> */}
                         
                         <hr />
+
                         <Button text="Planning Templates" onClick={() => this.setState({modalPlanningTemplates: true})} />
                         <span></span>
                         

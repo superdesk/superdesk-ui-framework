@@ -585,6 +585,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 .button-group--right, .button-group--end {
     margin-inline-start: auto;
+    justify-content: flex-end;
 }
 
 .button-group--center {
@@ -793,4 +794,50 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     .tag-label {
         margin: 0 !important;
     }
+}
+
+// ILLUSTRATION BUTTONS
+
+.illustration-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space--1);
+    border-radius: var(--b-radius--large);
+    border: 1px solid var(--sd-colour-line--light);
+    padding-inline: var(--space--2);
+    padding-block-start: var(--space--2);
+    padding-block-end: var(--space--1-5);
+    box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 0, hsla(0, 0%, 0%, 0.16) 0px 6px 12px -6px, hsla(0, 0%, 0%, 0.40) 0px 2px 8px -8px;
+    transition: all 0.2s ease;
+    &:hover {
+        border: 1px solid var(--sd-colour-line--strong);
+        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 0, hsla(0, 0%, 0%, 0.24) 0px 6px 12px -6px, hsla(0, 0%, 0%, 0.60) 0px 2px 8px -8px;
+    }
+    &:active {
+        border: 1px solid var(--sd-colour-interactive);
+        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 4px;
+    }
+    &:focus-visible {
+        outline: 2px solid var(--sd-colour-interactive--alpha-60);
+        outline-offset: 1px;
+    }
+    &:disabled,
+    &.illustration-button--disabled {
+        box-shadow: none;
+        border: 1px solid var(--sd-colour-line--light);
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+}
+.illustration-button__illustration,
+.svg-icon-illustration {
+    display: inline-block;
+}
+.illustration-button__text-label {
+    font-size: var(--text-size-small);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
 }
