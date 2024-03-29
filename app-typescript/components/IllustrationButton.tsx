@@ -11,10 +11,10 @@ interface IProps {
 export class IllustrationButton extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('illustration-button', {
-            'illustration-button--disabled': this.props.disabled
+            'illustration-button--disabled': this.props.disabled,
         });
         return (
-            <button 
+            <button
                 className={classes}
                 tabIndex={0}
                 onClick={this.props.onClick}

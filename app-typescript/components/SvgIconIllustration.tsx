@@ -1,3 +1,4 @@
+{/* eslint-disable */}
 import * as React from 'react';
 import classNames from 'classnames';
 
@@ -6,8 +7,9 @@ interface IProps {
 }
 
 export class SvgIconIllustration extends React.PureComponent<IProps> {
+    /* eslint-disable no-return-assign, no-param-reassign */
     renderSVG() {
-        switch(this.props.illustration) {
+        switch (this.props.illustration) {
             case 'headlines':
                 return (
                     <svg width="64" height="32" viewBox="0 0 64 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -175,6 +177,7 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                 return null;
         }
     }
+    /* eslint-enable no-return-assign, no-param-reassign */
     render() {
         let classes = classNames('svg-icon-illustration', {
             [`svg-icon-illustration--${this.props.illustration}`] : this.props.illustration,
