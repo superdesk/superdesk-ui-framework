@@ -430,7 +430,7 @@ $body-font-size: (
 			// Editor 2
 			.abstract,
 			.abstract p,
-			.abstract div {
+			.abstract div:not(.field__label) {
 				font-size: $size;
 			}
 		}
