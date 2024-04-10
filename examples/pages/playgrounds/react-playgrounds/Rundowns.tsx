@@ -872,7 +872,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                     size='x-large' onHide={() => {this.setState({modalManageShow: false})}}
                 >
                     <Layout.LayoutContainer>
-                    <Layout.HeaderPanel>
+                        <Layout.HeaderPanel>
                             <SubNav zIndex={2}>
                                 <SearchBar placeholder='Search shows'></SearchBar>
                                 <ButtonGroup align='end' spaces='no-space'>

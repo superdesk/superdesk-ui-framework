@@ -750,6 +750,10 @@ $sd-grid-item-shadow-activated: 0 0 0 2px var(--sd-colour-interactive--alpha-50)
     margin: 2.4rem;
 }
 
+.sd-grid-list--xx-small {
+    grid-template-columns: repeat(auto-fill, minmax(11rem, 1fr));
+}
+
 .sd-grid-list--x-small {
     grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
 }
