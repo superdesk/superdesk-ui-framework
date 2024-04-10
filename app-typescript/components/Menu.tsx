@@ -137,6 +137,10 @@ export class Menu extends React.Component<IProps, {}> {
                 }
 
                 <div
+                    className='sd-overflow--y-scroll'
+                    style={{
+                        maxHeight: '100%',
+                    }}
                     onKeyDown={(event) => {
                         if (event.key === 'Escape') {
                             event.stopPropagation();
