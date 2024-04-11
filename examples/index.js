@@ -444,11 +444,8 @@ export default angular.module('ui-docs', [
             .when('/components/:name*', {
                 template: require('../examples/pages/components.html')
             })
-            .when('/react', {
-                template: require('../examples/pages/react.html')
-            })
-            .when('/react/:name*', {
-                template: require('../examples/pages/react.html')
+            .when('/design-patterns', {
+                template: require('../examples/pages/design-patterns.html')
             })
             .when('/playgrounds', {
                 template: require('../examples/pages/playgrounds.html')

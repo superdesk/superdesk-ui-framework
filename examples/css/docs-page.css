@@ -509,7 +509,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     background-color: var(--sd-colour-interactive--alpha-20);
 }
 
-.docs-page__nav-item.docs-page__nav-item--active {
+.docs-page__nav-item a.docs-page__nav-item--active {
     border-color: var(--sd-colour-interactive);
     background-color: var(--docs-page-color-bg-00);
     font-weight: 400;

@@ -6,7 +6,7 @@ import LineNumbers from 'prismjs/plugins/line-numbers/prism-line-numbers';
 import Markdown from 'prismjs/components/prism-markdown';
 import JSX from 'prismjs/components/prism-jsx';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 class ReactNav extends React.PureComponent {
     render() {
@@ -17,7 +17,7 @@ class ReactNav extends React.PureComponent {
             <ul className="docs-page__nav--sub-level">
                 {Object.keys(pages[group].items).map((page) =>
                     <li key={page} className="docs-page__nav-item">
-                        <Link to={{ pathname: '/react/' + page }}>{pages[group].items[page].name}</Link>
+                        <NavLink to={{ pathname: '/components/' + page }} activeClassName="docs-page__nav-item--active">{pages[group].items[page].name}</NavLink>
                     </li>
                 )}
             </ul>
