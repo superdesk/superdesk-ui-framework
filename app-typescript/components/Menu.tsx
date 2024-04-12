@@ -137,10 +137,6 @@ export class Menu extends React.Component<IProps, {}> {
                 }
 
                 <div
-                    className='sd-overflow--y-scroll'
-                    style={{
-                        maxHeight: '100%',
-                    }}
                     onKeyDown={(event) => {
                         if (event.key === 'Escape') {
                             event.stopPropagation();
@@ -154,6 +150,7 @@ export class Menu extends React.Component<IProps, {}> {
                     }}
                 >
                     <TieredMenu
+                        className='sd-overflow--y-auto max-h-full'
                         popup
                         model={this.toPrimeReactInterface(this.props.items)}
                         ref={(el) => this.menu = el}
