@@ -48,7 +48,7 @@
     display: block !important;
 }
 
-// Browser ignores this element from the flow. 
+// Browser ignores this element from the flow.
 // Use it to wrap other elements without breaking the layout (e.g. flex or grid)
 .sd-display--contents {
     display: contents !important;
@@ -429,13 +429,13 @@ $value in $sd-shadowProperties {
     cursor: pointer;
 }
 
-// HEADINGS 
+// HEADINGS
 .sd-heading-3 {
     font-size: 1.6rem;
     margin-block-end: 1.6rem;
 }
 
-// Deafult text syles based on type of data  
+// Deafult text syles based on type of data
 p strong {
     font-weight: 500;
 }
@@ -512,7 +512,7 @@ h6 {
     letter-spacing: 0.025em;
 }
 
-// Font weights 
+// Font weights
 
 .sd-text__light,
 .sd-text--light {
@@ -690,7 +690,7 @@ h6 {
     -webkit-line-clamp: unset;
 }
 
-// Superdesk specific text helpers 
+// Superdesk specific text helpers
 .sd-text__slugline {
     color: $sd-slugline;
     font-weight: 500;
@@ -1640,4 +1640,10 @@ h6 {
 
 .sd-gap--auto {
     gap: var(--gap--auto);
+}
+
+// MAX-HEIGHT:
+
+.max-h-full {
+    max-height: '100%',
 }
