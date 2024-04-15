@@ -884,6 +884,12 @@ $planningEditor-width: 53rem;
     }
 }
 
+.content-splitter--disabled {
+    &.sd-content-wrapper__content-splitter {
+        pointer-events: none;
+    }
+}
+
 .sd-content-wrapper__content-splitter {
     display: none;
 }

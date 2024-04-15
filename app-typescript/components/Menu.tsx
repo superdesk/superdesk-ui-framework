@@ -42,14 +42,14 @@ interface ISeparator {
 }
 
 interface IMenuLeaf {
-    label: string;
+    label: string | JSX.Element;
     icon?: IIconName;
     onClick(): void;
     disabled?: boolean;
 }
 
 interface IMenuBranch {
-    label: string;
+    label: string | JSX.Element;
     icon?: IIconName;
     children: Array<IMenuItem>;
 }
@@ -95,13 +95,13 @@ export class Menu extends React.Component<IProps, {}> {
                 return {separator: true};
             } else if (isMenuBranch(item)) {
                 return {
-                    label: item.label,
+                    label: item.label as string,
                     icon: item.icon,
                     items: this.toPrimeReactInterface(item.children),
                 };
             } else if (isMenuLeaf(item)) {
                 return {
-                    label: item.label,
+                    label: item.label as string,
                     icon: item.icon,
                     command: (event) => {
                         /**
@@ -150,6 +150,7 @@ export class Menu extends React.Component<IProps, {}> {
                     }}
                 >
                     <TieredMenu
+                        className='sd-overflow--y-auto max-h-full'
                         popup
                         model={this.toPrimeReactInterface(this.props.items)}
                         ref={(el) => this.menu = el}
