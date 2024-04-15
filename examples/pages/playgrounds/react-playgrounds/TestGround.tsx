@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, TreeSelect, ContentDivider, Select, Option, AvatarGroup, SvgIconIllustration, IllustrationButton} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker, TreeSelect, ContentDivider, Select, Option, AvatarGroup, SvgIconIllustration, IllustrationButton } from '../../../../app-typescript/index';
 import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
@@ -145,10 +145,6 @@ export class TestGround extends React.Component<IProps, IState> {
                             <IconButton icon="adjust" ariaValue="Toggle theme" onClick={this.toggleTheme} toolTipFlow='left' />
                         </ButtonGroup>
 
-                        <hr />
-                        <SvgIconIllustration illustration='headlines' />
-                        <hr />
-
                         <div className='sd-grid-list sd-grid-list--xx-small sd-grid-list--gap-s sd-grid-list--no-margin' style={{width:'290px'}}>
                             
                             <IllustrationButton text='Headlines' onClick={()=> false}>
@@ -170,41 +166,6 @@ export class TestGround extends React.Component<IProps, IState> {
                             <IllustrationButton text='Translate' onClick={()=> false}>
                                 <SvgIconIllustration illustration='translate' />
                             </IllustrationButton>
-
-                            {/* <button className='illustration-button illustration-button--headlines'>
-                                <SvgIconIllustration illustration='headlines' />
-                                <span className='illustration-button__text-label'>
-                                    Headlines
-                                </span>
-                            </button>
-
-                            <button className='illustration-button illustration-button--headlines'>
-                                <SvgIconIllustration illustration='keywords' />
-                                <span className='illustration-button__text-label'>
-                                    Keywords
-                                </span>
-                            </button>
-
-                            <button className='illustration-button illustration-button--headlines'>
-                                <SvgIconIllustration illustration='optimise' />
-                                <span className='illustration-button__text-label'>
-                                    Optimise
-                                </span>
-                            </button>
-
-                            <button className='illustration-button illustration-button--headlines'>
-                                <SvgIconIllustration illustration='summary' />
-                                <span className='illustration-button__text-label'>
-                                    Summary
-                                </span>
-                            </button>
-
-                            <button className='illustration-button illustration-button--headlines'>
-                                <SvgIconIllustration illustration='translate' />
-                                <span className='illustration-button__text-label'>
-                                    Translate
-                                </span>
-                            </button> */}
 
                         </div>
 
