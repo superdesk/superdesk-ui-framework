@@ -7,7 +7,7 @@ function sdCheck($parse) {
         replace: true,
         transclude: true,
         template: '<span class="sd-check__wrapper">' +
-                '<span class="sd-checkbox"></span><label" ng-transclude></label></span>',
+                '<span class="sd-checkbox"></span><label ng-transclude></label></span>',
         link: function ($scope, element, attrs, ngModel) {
             $scope.testId = attrs.testId || '';
 

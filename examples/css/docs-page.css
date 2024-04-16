@@ -19,6 +19,8 @@
     --docs-page-border__window-bar--top: hsla(0, 0%, 100%, 0.9);
     --docs-page-border__window-bar--bottom: hsla(0, 0%, 88%, 1);
     --docs-page-border__table: hsla(0, 0%, 0%, 0.16);
+
+    --docs-page-bg__table-tr-even: hsla(214, 13%, 50%, 0.08);
 }
 
 :root [data-theme="dark-ui"] {
@@ -703,7 +705,7 @@ pre.prettyprint {
 }
 
 .docs-page__container {
-    max-width: 832px;
+    max-width: 1200px;
     margin: 30px auto 0;
 }
 .docs-page__container--large {
@@ -720,11 +722,16 @@ pre.prettyprint {
     justify-content: center;
 }
 
+
+.docs-page__container .docs-page__code-window {
+    max-width: none !important;
+}
+
 .docs-page__container .docs-page__h2,
 .docs-page__container .docs-page__h3,
-.docs-page__container .docs-page__code-window,
-.docs-page__container .docs-page__paragraph {
-    max-width: none !important;
+.docs-page__container .docs-page__paragraph,
+.docs-page__container .docs-page__paragraph--small {
+    max-width: 85ch;
 }
 
 .docs-page__content-block {
@@ -956,6 +963,17 @@ doc-gif-img:hover img {
 .docs-page__container table td {
     border-color: var(--docs-page-border__table) !important;
 }
+
+.docs-page__container table tr td:nth-child(3) {
+    white-space: nowrap;
+}
+
+.docs-page__container table tr:nth-child(even),
+.docs-page__container table thead tr {
+    background-color: var(--docs-page-bg__table-tr-even);
+}
+
+
 
 
 /* -------------- END COLOR SWATCHES -------------- */
