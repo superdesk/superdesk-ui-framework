@@ -150,7 +150,6 @@ export class Menu extends React.Component<IProps, {}> {
                     }}
                 >
                     <TieredMenu
-                        className='sd-overflow--y-auto max-h-full'
                         popup
                         model={this.toPrimeReactInterface(this.props.items)}
                         ref={(el) => this.menu = el}
