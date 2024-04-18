@@ -4,6 +4,7 @@ import { createPopper, Instance } from '@popperjs/core';
 import {getPrefixedItemId, TreeSelectItem} from './TreeSelect/TreeSelectItem';
 import {keyboardNavigation} from './TreeSelect/KeyboardNavigation';
 import {WithPortal} from './WithPortal';
+import {nameof} from '../helpers';
 
 interface IState<T> {
     options: Array<ITreeMenuNode<T>>;
@@ -47,11 +48,11 @@ interface IChildren<T> {
 export type ITreeMenuNode<T> = IParent<T> | IChildren<T>;
 
 function nodeHasChildren<T>(item: IParent<T> | IChildren<T>): item is IParent<T> {
-    return (item as unknown as any)['children'] != null;
+    return (item as unknown as any)[nameof<IParent<T>>('children')] != null;
 }
 
 function nodeCanBeSelected<T>(item: IParent<T> | IChildren<T>): item is IChildren<T> {
-    return (item as unknown as any)['onSelect'] != null;
+    return (item as unknown as any)[nameof<IChildren<T>>('onSelect')] != null;
 }
 
 function onSelect<T>(item: ITreeMenuNode<T>) {
