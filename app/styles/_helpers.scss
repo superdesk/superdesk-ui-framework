@@ -1644,6 +1644,34 @@ h6 {
 
 // MAX-HEIGHT:
 
+.max-h-5 {
+    max-height: calc(5 * var(--base-increment)) !important;
+}
+.max-h-6 {
+    max-height: calc(6 * var(--base-increment)) !important;
+}
+.max-h-8 {
+    max-height: calc(8 * var(--base-increment)) !important;
+}
+.max-h-10 {
+    max-height: calc(10 * var(--base-increment)) !important;
+}
+.max-h-15 {
+    max-height: calc(15 * var(--base-increment)) !important;
+}
+.max-h-20 {
+    max-height: calc(20 * var(--base-increment)) !important;
+}
+.max-h-25 {
+    max-height: calc(25 * var(--base-increment)) !important;
+}
+.max-h-30 {
+    max-height: calc(30 * var(--base-increment)) !important;
+}
+
 .max-h-full {
     max-height: 100%;
+}
+.max-h-screen {
+    max-height: 100svh;
 }

@@ -420,7 +420,7 @@ class ReactPlayground extends React.Component<IProps> {
     render() {
         return (
             <Switch>
-                <Route path="/playgrounds/components/:id" render={(props) => parsePlayground(props, this.props.playgrounds)} />
+                <Route path="/playgrounds/react/:id" render={(props) => parsePlayground(props, this.props.playgrounds)} />
             </Switch>
         )
     }

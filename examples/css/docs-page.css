@@ -478,18 +478,13 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
 }
 .docs-page__small-text {
     font-size: 1.3rem;
-    font-weight: 300;
+    font-weight: 400;
     color: var(--color-text-light);
     opacity: 0.7;
 }
 
 .docs-page__nav-item {
-    position: relative;
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 300;
-    color: var(--color-text);
-    border-inline-start: 4px solid transparent;
+    position: relative; 
 }
 .docs-page__nav-item a {
     font-size: 14px;
@@ -501,13 +496,14 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     cursor: pointer;
     text-decoration: none;
     transition: all ease-in-out 0.2s;
+    border-inline-start: 4px solid transparent;
 }
 .docs-page__nav-item a:hover {
     color: var(--color-text);
     background-color: var(--docs-page-color-bg-00);
 }
 .docs-page__nav-item a:active {
-    color: var(--color-text-light);
+    color: var(--color-text);
     background-color: var(--sd-colour-interactive--alpha-20);
 }
 
@@ -515,6 +511,7 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     border-color: var(--sd-colour-interactive);
     background-color: var(--docs-page-color-bg-00);
     font-weight: 400;
+    color: var(--sd-colour-interactive);
 }
 
 .docs-page__nav-item.docs-page__nav-item--active a {

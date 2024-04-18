@@ -447,6 +447,9 @@ export default angular.module('ui-docs', [
             .when('/design-patterns', {
                 template: require('../examples/pages/design-patterns.html')
             })
+            .when('/design-patterns/:name*', {
+                template: require('../examples/pages/design-patterns.html')
+            })
             .when('/playgrounds', {
                 template: require('../examples/pages/playgrounds.html')
             })

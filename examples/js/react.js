@@ -11,13 +11,15 @@ import { Link, NavLink } from 'react-router-dom';
 class ReactNav extends React.PureComponent {
     render() {
         const pages = this.props.pages;
+        const base = this.props.base || 'components';
 
         const navigations = Object.keys(pages).map((group) => <li key={group}>
+            
             <span className="docs-page__nav-title">{pages[group].name}</span>
             <ul className="docs-page__nav--sub-level">
                 {Object.keys(pages[group].items).map((page) =>
                     <li key={page} className="docs-page__nav-item">
-                        <NavLink to={{ pathname: '/components/' + page }} activeClassName="docs-page__nav-item--active">{pages[group].items[page].name}</NavLink>
+                        <NavLink to={{ pathname: `/${base}/${page}` }} activeClassName="docs-page__nav-item--active">{pages[group].items[page].name}</NavLink>
                     </li>
                 )}
             </ul>
@@ -25,6 +27,10 @@ class ReactNav extends React.PureComponent {
 
         return (
             <aside className="docs-page__sidebar">
+                <div className="mx-1-5 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed">
+                    <label className="sd-searchbar__icon"></label>
+                    <input id="search-input" className="sd-searchbar__input" type="text" placeholder="Search" value="" />
+                </div>
                 <ul className="docs-page__nav">{navigations}</ul>
             </aside>
         )
@@ -42,6 +48,26 @@ class ReactDefault extends React.PureComponent {
                     <h2 className="docs-page__hero-h2 docs-page__color--primary">Home of Superdesk React components</h2>
                     <p className="docs-page__hero-text">As the headline suggests – React components for Superdesk. Work in progress!</p>
                     <p className="docs-page__hero-text sd-text__normal">Feel free to contribute!</p>
+                </div>
+            </section>
+        )
+    }
+}
+
+class PatternsDefault extends React.PureComponent {
+    render() {
+        return (
+            <section className="docs-page__container">
+                <div className="docs-page__hero">
+                    <figure className="docs-page__hero-image">
+                        <img src="/illustration--components.svg" alt="React" />
+                    </figure>
+                    <h2 className="docs-page__hero-h2 docs-page__color--primary">Design Patterns</h2>
+                    <p className="docs-page__hero-text">
+                        Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur.
+                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa 
+                        justo sit amet risus.
+                    </p>
                 </div>
             </section>
         )
@@ -113,14 +139,17 @@ class ReactMarkupCodePreview extends React.PureComponent {
         Prism.highlightAll();
     }
     render() {
+        const { limitHeight, children } = this.props;
+        const classes = `language-jsx ${limitHeight ? 'max-h-25' : ''}`;
+
         return (
-            <pre>
-                <code className="language-jsx">
-                    {this.props.children}
+            <pre className={limitHeight ? 'max-h-25' : ''}>
+                <code className={classes}>
+                    {children}
                 </code>
             </pre>
         )
     }
 }
 
-export { ReactNav, ReactDefault, ReactMarkup, ReactMarkupPreview, ReactMarkupCode, ReactMarkupCodePreview };
+export { ReactNav, ReactDefault, ReactMarkup, ReactMarkupPreview, ReactMarkupCode, ReactMarkupCodePreview, PatternsDefault };
