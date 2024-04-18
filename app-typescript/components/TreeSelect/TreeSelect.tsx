@@ -42,6 +42,8 @@ interface IPropsBase<T> extends IInputWrapper {
     singleLevelSearch?: boolean;
     placeholder?: string;
     searchPlaceholder?: string;
+    noResultsFoundMessage?: string;
+    openedDropdown?: boolean;
     zIndex?: number;
     'data-test-id'?: string;
     getLabel(item: T): string;
@@ -185,6 +187,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         document.addEventListener("mousedown", this.onMouseDown);
         document.addEventListener("keydown", this.onKeyDown);
         document.addEventListener("keydown", this.onPressEsc);
+
+        if (this.props.openedDropdown) {
+            this.setState({openDropdown: true});
+        }
     }
 
     componentWillUnmount(): void {
@@ -474,7 +480,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             });
 
             if (filteredArr.length === 0) {
-                return <li className="suggestion-item--nothing-found">Nothing found</li>;
+                return <li className="suggestion-item--nothing-found">{this.props.noResultsFoundMessage ?? 'Nothing found'}</li>;
             } else {
                 return filteredArr.map((option, i) => {
                     let selectedItem = this.state.value.some((obj) =>
