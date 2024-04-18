@@ -3,8 +3,8 @@ import { Icon } from "./Icon";
 import { createPopper, Instance } from '@popperjs/core';
 import {getPrefixedItemId, TreeSelectItem} from './TreeSelect/TreeSelectItem';
 import {keyboardNavigation} from './TreeSelect/KeyboardNavigation';
-import {createPortal} from 'react-dom';
 import {WithPortal} from './WithPortal';
+import {nameof} from '../helpers';
 
 interface IState<T> {
     options: Array<ITreeMenuNode<T>>;
@@ -48,11 +48,27 @@ interface IChildren<T> {
 export type ITreeMenuNode<T> = IParent<T> | IChildren<T>;
 
 function nodeHasChildren<T>(item: IParent<T> | IChildren<T>): item is IParent<T> {
-    return item['children'] != null;
+    return (item as unknown as any)[nameof<IParent<T>>('children')] != null;
 }
 
 function nodeCanBeSelected<T>(item: IParent<T> | IChildren<T>): item is IChildren<T> {
-    return item['onSelect'] != null;
+    return (item as unknown as any)[nameof<IChildren<T>>('onSelect')] != null;
+}
+
+function onSelect<T>(item: ITreeMenuNode<T>) {
+    if (nodeCanBeSelected(item)) {
+        return item.onSelect;
+    }
+
+    return undefined;
+}
+
+function disabledItem<T>(item: ITreeMenuNode<T>) {
+    if (nodeCanBeSelected(item)) {
+        return item.disabled;
+    }
+
+    return undefined;
 }
 
 export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
@@ -163,7 +179,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         document.addEventListener("keydown", this.onPressEsc);
     }
 
-    componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
+    componentDidUpdate(_prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
         if (prevState.openDropdown !== this.state.openDropdown) {
             this.toggleMenu();
         }
@@ -208,7 +224,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         }
     }
 
-    toggle(event) {
+    toggle(event: React.SyntheticEvent) {
         event.stopPropagation();
 
         this.setState({
@@ -238,7 +254,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         });
     }
 
-    handleTree(event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeMenuNode<T>) {
+    handleTree(_event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeMenuNode<T>) {
         if (nodeHasChildren(option)) {
             this.handleButton(option);
             this.handleMultiLevel(option);
@@ -305,40 +321,29 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         if (filteredArr.length === 0) {
             return <li className="suggestion-item--nothing-found">Nothing found</li>;
         } else {
-            return filteredArr.map((option, i) => {
-                const onSelect = (item) => {
-                    if (nodeCanBeSelected(item)) {
-                        return item.onSelect;
-                    }
-                };
-
-                const disabledItem = (item) => {
-                    if (nodeCanBeSelected(item)) {
-                        return item.disabled;
-                    }
-                };
-
-                return (
-                    <TreeSelectItem
-                        key={i}
-                        option={option}
-                        handleTree={this.handleTree}
-                        disabledItem={disabledItem(option)}
-                        getBorderColor={this.props.getBorderColor}
-                        getBackgroundColor={this.props.getBackgroundColor}
-                        getId={this.props.getId}
-                        optionTemplate={this.props.optionTemplate}
-                        getLabel={this.props.getLabel}
-                        onClick={() => {
+            return filteredArr.map((option, i) => (
+                <TreeSelectItem
+                    key={i}
+                    option={option}
+                    handleTree={this.handleTree}
+                    disabledItem={disabledItem(option)}
+                    getBorderColor={this.props.getBorderColor}
+                    getBackgroundColor={this.props.getBackgroundColor}
+                    getId={this.props.getId}
+                    optionTemplate={this.props.optionTemplate}
+                    getLabel={this.props.getLabel}
+                    onClick={() => {
+                        if (onSelect != null) {
                             onSelect(option);
 
                             this.setState({
                                 searchFieldValue: '',
                             });
-                        }}
-                    />
-                );
-            });
+                        }
+
+                    }}
+                />
+            ));
         }
     }
 
@@ -410,40 +415,26 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                     ref={this.ref}
                                     className="suggestion-list suggestion-list--multi-select"
                                 >
-                                    {this.state.options.map((option, i: React.Key | undefined) => {
-                                        const onSelect = (item) => {
-                                            if (nodeCanBeSelected(item)) {
-                                                return item.onSelect;
-                                            }
-                                        };
-
-                                        const disabledItem = (item) => {
-                                            if (nodeCanBeSelected(item)) {
-                                                return item.disabled;
-                                            }
-                                        };
-
-                                        return (
-                                            <TreeSelectItem
-                                                key={i}
-                                                option={option}
-                                                handleTree={this.handleTree}
-                                                onClick={onSelect(option)}
-                                                disabledItem={disabledItem(option)}
-                                                getBorderColor={this.props.getBorderColor}
-                                                getBackgroundColor={this.props.getBackgroundColor}
-                                                getId={this.props.getId}
-                                                optionTemplate={this.props.optionTemplate}
-                                                getLabel={this.props.getLabel}
-                                                onKeyDown={() => this.setState({
-                                                    buttonTarget: [
-                                                        ...this.state.buttonTarget,
-                                                        this.props.getId(option.value),
-                                                    ],
-                                                })}
-                                            />
-                                        );
-                                    })}
+                                    {this.state.options.map((option, i: React.Key | undefined) => (
+                                        <TreeSelectItem
+                                            key={i}
+                                            option={option}
+                                            handleTree={this.handleTree}
+                                            onClick={onSelect(option)}
+                                            disabledItem={disabledItem(option)}
+                                            getBorderColor={this.props.getBorderColor}
+                                            getBackgroundColor={this.props.getBackgroundColor}
+                                            getId={this.props.getId}
+                                            optionTemplate={this.props.optionTemplate}
+                                            getLabel={this.props.getLabel}
+                                            onKeyDown={() => this.setState({
+                                                buttonTarget: [
+                                                    ...this.state.buttonTarget,
+                                                    this.props.getId(option.value),
+                                                ],
+                                            })}
+                                        />
+                                    ))}
                                 </ul>
                                 : null
                             : <ul
