@@ -47,19 +47,11 @@ interface IChildren<T> {
 export type ITreeMenuNode<T> = IParent<T> | IChildren<T>;
 
 function nodeHasChildren<T>(item: IParent<T> | IChildren<T>): item is IParent<T> {
-    if ('children' in item) {
-        return item['children'] != null;
-    }
-
-    return false;
+    return (item as unknown as any)['children'] != null;
 }
 
 function nodeCanBeSelected<T>(item: IParent<T> | IChildren<T>): item is IChildren<T> {
-    if ('onSelect' in item) {
-        return item['onSelect'] != null;
-    }
-
-    return false;
+    return (item as unknown as any)['onSelect'] != null;
 }
 
 function onSelect<T>(item: ITreeMenuNode<T>) {
