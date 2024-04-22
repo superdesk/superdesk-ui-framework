@@ -118,7 +118,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
 
     listNavigation = () => {
         const element: HTMLElement = document.querySelector('.suggestion-item--btn:not([disabled])') as HTMLElement;
-        element.focus();
+        element?.focus();
     }
 
     onMouseDown = (event: MouseEvent) => {
@@ -150,7 +150,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                 if (lastElement != null) {
                     const className = getPrefixedItemId(lastElement);
                     const element: HTMLElement = document.getElementsByClassName(className)[0] as HTMLElement;
-                    element.focus();
+                    element?.focus();
                 }
             }
         }
@@ -217,7 +217,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             } else {
                 const element: HTMLElement
                     = document.querySelector('.suggestion-item--btn:not([disabled])') as HTMLElement;
-                element.focus();
+                element?.focus();
             }
         } else {
             this.openDropdownRef.current?.focus();
@@ -270,7 +270,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         setTimeout(() => {
             const element: HTMLElement
                 = document.querySelectorAll('.suggestion-item--btn:not([disabled])')[0] as HTMLButtonElement;
-            element.focus();
+            element?.focus();
         });
     }
 
