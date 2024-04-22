@@ -16,13 +16,22 @@
     --space--8: calc(8 * var(--base-increment)); // 64px;
 
     --gap--none: 0; // 0px
-    --gap--x-small: 0.4rem; // 4px
-    --gap--small: 0.8rem; // 8px
-    --gap--medium-small: 1.2rem; // 12px
-    --gap--medium: 1.6rem; // 16px
-    --gap--large: 2.4rem; // 24px;
-    --gap--x-large: 3.2rem; // 32px;
-    --gap--xx-large: 4rem; // 40px;
+    --gap-0: 0;
+    --gap--x-small: calc(0.5 * var(--base-increment)); // 4px
+    --gap-0-5: calc(0.5 * var(--base-increment)); // 4px
+    --gap--small: calc(1 * var(--base-increment)); // 8px
+    --gap-1: calc(1 * var(--base-increment)); // 8px
+    --gap--medium-small: calc(1.5 * var(--base-increment)); // 12px
+    --gap-1-5: calc(1.5 * var(--base-increment)); // 12px
+    --gap--medium: calc(2 * var(--base-increment)); // 16px
+    --gap-2: calc(2 * var(--base-increment)); // 16px
+    --gap--large: calc(3 * var(--base-increment)); // 24px;
+    --gap-3: calc(3 * var(--base-increment)); // 24px;
+    --gap--x-large: calc(4 * var(--base-increment)); // 32px;
+    --gap-4: calc(4 * var(--base-increment)); // 32px;
+    --gap--xx-large: calc(5 * var(--base-increment)); // 40px;
+    --gap-5: calc(5 * var(--base-increment)); // 40px;
+    
     --gap--auto: auto;
 
     // BORDER RADIUS

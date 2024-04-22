@@ -64,12 +64,15 @@ import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
 import { TreeMenuDocs } from './TreeMenu';
 import DurationInputDoc from './DurationInput';
-import {WithPaginationDocs} from './WithPaginationDocs';
+import { WithPaginationDocs } from './WithPaginationDocs';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
-import {WithSizeObserverDocs} from './WithSizeObserver';
-import {ResizablePanelsDoc} from './ResizablePanels';
+import { WithSizeObserverDocs } from './WithSizeObserver';
+import { ResizablePanelsDoc } from './ResizablePanels';
 import { IllustrationButtonDoc } from './IllustrationButton';
+
+// Utilities
+import {SpacingUtilitiesDoc} from './utilities/SpacingUtilities';
 
 const pages = {
     basicComponents: {
@@ -291,6 +294,17 @@ const pages = {
                 name: 'Big icon font'
             }
         }
+    },
+    utilityClasses: {
+        name: "Utility classes",
+        items: {
+            'spacing-utilities': {
+                name: 'Spacing Utilities',
+            },
+            'big-icon-font': {
+                name: 'Text utilities'
+            }
+        }
     }
 }
 interface IProps {
@@ -404,6 +418,8 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/components/create-button" component={CreateButtonDoc} />
                         <Route path="/components/resizable-panels" component={ResizablePanelsDoc} />
                         <Route path="/components/illustration-button" component={IllustrationButtonDoc} />
+                        {/* Utilities */}
+                        <Route path="/components/spacing-utilities" component={SpacingUtilitiesDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

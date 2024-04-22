@@ -19,6 +19,7 @@
     --docs-page-border__window-bar--top: hsla(0, 0%, 100%, 0.9);
     --docs-page-border__window-bar--bottom: hsla(0, 0%, 88%, 1);
     --docs-page-border__table: hsla(0, 0%, 0%, 0.16);
+    --docs-page-color-bg__table-divider-row: hsla(0, 0%, 100%, 0.8);
 
     --docs-page-bg__table-tr-even: hsla(214, 13%, 50%, 0.08);
 }
@@ -961,17 +962,63 @@ doc-gif-img:hover img {
     border-color: var(--docs-page-border__table) !important;
 }
 
-.docs-page__container table tr td:nth-child(3) {
+.docs-page__container table:not(.utilities-table) tr td:nth-child(3) {
     white-space: nowrap;
 }
 
-.docs-page__container table tr:nth-child(even),
-.docs-page__container table thead tr {
+.docs-page__container table:not(.utilities-table) tr:nth-child(even),
+.docs-page__container table:not(.utilities-table) thead tr {
     background-color: var(--docs-page-bg__table-tr-even);
 }
 
 
+.docs-page__container table.utilities-table {
+    width: 100%;
+    border-block-start: none !important;
+    margin: 0;
+    font-size: 14px;
+}
+.docs-page__container table.utilities-table thead th {
+    font-size: 14px;
+	position: sticky;
+    top: 0;
+    background-color: var(--docs-page-color-bg-00);
+    border-bottom: ;
+}
 
+.docs-page__container table.utilities-table tbody td  {
+    width: 100%;
+    font-family: monospace;
+    line-height: 1.4;
+    color: var(--color-text-light);
+}
+.docs-page__container table.utilities-table tbody td:first-child {
+    min-width: 200px;
+    width: auto;
+    color: var(--color-text);
+}
+
+.docs-page__container table.utilities-table tbody tr.utilities-table__divider-row td {
+    color: var(--color-text);
+    font-family: 'Roboto', sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.025em;
+    font-weight: 500;
+    padding-block: 8px !important;
+    background-color: var(--docs-page-color-bg__table-divider-row);
+}
+
+.utilities-table__container {
+    position: relative;
+    max-height: 438px;
+    overflow-y: auto;
+    border-block-start:1px solid var(--sd-colour-line--medium);
+    margin-block-end: var(--space--4);
+}
+
+.docs-page__container .doc-text--highlight {
+    color: var(--docs-page-color-primary) !important;
+}
 
 /* -------------- END COLOR SWATCHES -------------- */
 /* -------------- PrismJS overrides -------------- */

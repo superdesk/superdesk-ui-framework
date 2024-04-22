@@ -777,13 +777,21 @@ h6 {
 
 
 // Margin auto
+
+.m-auto,
+.sd-margin--auto {
+    margin: auto !important;
+}
+
 .ml-auto,
+.ms-auto,
 .sd-margin-l--auto,
 .sd-margin-s--auto {
     margin-inline-start: auto !important;
 }
 
 .mr-auto,
+.me-auto,
 .sd-margin-r--auto,
 .sd-margin-e--auto {
     margin-inline-end: auto !important;
@@ -800,19 +808,18 @@ h6 {
 }
 
 .mlr-auto,
+.mx-auto,
 .sd-margin-x--auto {
     margin-inline-start: auto !important;
     margin-inline-end: auto !important;
 }
 
+.my-auto,
 .sd-margin-y--auto {
     margin-block-start: auto !important;
     margin-block-end: auto !important;
 }
 
-.sd-margin--auto {
-    margin: auto !important;
-}
 
 // MARGINS ---------------------------------------------- //
 // MARGIN (all sides)
@@ -1237,7 +1244,7 @@ h6 {
     padding-block-start: calc(5 * var(--base-increment)) !important;
 }
 // PADDING BLOCK END (bottom)
-.pb--0,
+.pb-0,
 .sd-padding-b--0 {
     padding-block-end: 0 !important;
 }
@@ -1674,4 +1681,29 @@ h6 {
 }
 .max-h-screen {
     max-height: 100svh;
+}
+
+.gap-0 {
+    gap: var(--gap-0); // 0px
+}
+.gap-0-5 {
+    gap: var(--gap-0-5); // 4px
+}
+.gap-1 {
+    gap: var(--gap--x-small); // 8px
+}
+.gap-1-5 {
+    gap: var(--gap--x-small); // 12px
+}
+.gap-2 {
+    gap: var(--gap--small); // 16px
+}
+.gap-3 {
+    gap: var(--gap--none); // 24px
+}
+.gap-4 {
+    gap: var(--gap--none); // 32px
+}
+.gap-5 {
+    gap: var(--gap--none); // 40px
 }
