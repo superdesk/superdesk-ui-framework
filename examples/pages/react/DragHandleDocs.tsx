@@ -57,11 +57,11 @@ export default class DragHandleDocs extends React.Component {
                     // The number of dotted rows and dots in each row can be adjusted independently,
                     offering a wide range of size options.   
                     
-                    <DragHandle dotsInRow='2' dotsInCol='5' />
-                    <DragHandle dotsInRow='2' dotsInCol='8' />
-                    <DragHandle dotsInRow='3' dotsInCol='6' />
-                    <DragHandle dotsInRow='3' dotsInCol='8' />
-                    <DragHandle dotsInRow='3' dotsInCol='10' />
+                    <DragHandle dotsInRow='2' dotRows='5' />
+                    <DragHandle dotsInRow='2' dotRows='8' />
+                    <DragHandle dotsInRow='3' dotRows='6' />
+                    <DragHandle dotsInRow='3' dotRows='8' />
+                    <DragHandle dotsInRow='3' dotRows='10' />
                     <DragHandle dotsInRow='5' dotRows='4' />
 
                     // Blank
