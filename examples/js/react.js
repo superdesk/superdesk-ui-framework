@@ -9,27 +9,74 @@ import JSX from 'prismjs/components/prism-jsx';
 import { Link, NavLink } from 'react-router-dom';
 
 class ReactNav extends React.PureComponent {
-    render() {
-        const pages = this.props.pages;
-        const base = this.props.base || 'components';
+    constructor(props) {
+        super(props);
+        this.state = {
+            searchTerm: '',
+            expandedSections: Object.keys(this.props.pages).reduce((sections, key) => {
+                sections[key] = true;
+                return sections;
+            }, {}),
+        };
 
-        const navigations = Object.keys(pages).map((group) => <li key={group}>
-            
-            <span className="docs-page__nav-title">{pages[group].name}</span>
-            <ul className="docs-page__nav--sub-level">
-                {Object.keys(pages[group].items).map((page) =>
-                    <li key={page} className="docs-page__nav-item">
-                        <NavLink to={{ pathname: `/${base}/${page}` }} activeClassName="docs-page__nav-item--active">{pages[group].items[page].name}</NavLink>
-                    </li>
+        this.handleSearchChange = this.handleSearchChange.bind(this);
+        this.toggleSection = this.toggleSection.bind(this);
+    }
+
+    handleSearchChange(event) {
+        this.setState({ searchTerm: event.target.value });
+    }
+
+    toggleSection(section) {
+        this.setState(prevState => ({
+            expandedSections: {
+                ...prevState.expandedSections,
+                [section]: !prevState.expandedSections[section],
+            },
+        }));
+    };
+
+    render() {
+        const { pages, base = 'components' } = this.props;
+        const { searchTerm } = this.state;
+
+        const filteredPages = Object.keys(pages).reduce((filtered, section) => {
+            const filteredItems = Object.keys(pages[section].items)
+                .filter(item => pages[section].items[item].name.toLowerCase().includes(searchTerm.toLowerCase()))
+                .reduce((obj, key) => {
+                    obj[key] = pages[section].items[key];
+                    return obj;
+                }, {});
+
+            if (Object.keys(filteredItems).length > 0) {
+                filtered[section] = { ...pages[section], items: filteredItems };
+            }
+
+            return filtered;
+        }, {});
+
+        const navigations = Object.keys(filteredPages).map((group) => (
+            <li key={group}>
+                <span className="docs-page__nav-title" onClick={() => this.toggleSection(group)}>
+                    {filteredPages[group].name}
+                </span>
+                {this.state.expandedSections[group] && (
+                    <ul className="docs-page__nav--sub-level">
+                        {Object.keys(filteredPages[group].items).map((page) =>
+                            <li key={page} className="docs-page__nav-item">
+                                <NavLink to={{ pathname: `/${base}/${page}` }} activeClassName="docs-page__nav-item--active">{filteredPages[group].items[page].name}</NavLink>
+                            </li>
+                        )}
+                    </ul>
                 )}
-            </ul>
-        </li>);
+            </li>
+        ));
 
         return (
             <aside className="docs-page__sidebar">
                 <div className="mx-1-5 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed">
                     <label className="sd-searchbar__icon"></label>
-                    <input id="search-input" className="sd-searchbar__input" type="text" placeholder="Search" value="" />
+                    <input id="search-input" className="sd-searchbar__input" type="text" placeholder="Search" value={searchTerm} onChange={this.handleSearchChange} />
                 </div>
                 <ul className="docs-page__nav">{navigations}</ul>
             </aside>
@@ -65,7 +112,7 @@ class PatternsDefault extends React.PureComponent {
                     <h2 className="docs-page__hero-h2 docs-page__color--primary">Design Patterns</h2>
                     <p className="docs-page__hero-text">
                         Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur.
-                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa 
+                        Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa
                         justo sit amet risus.
                     </p>
                 </div>
