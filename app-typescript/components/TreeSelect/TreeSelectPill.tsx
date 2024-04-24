@@ -1,4 +1,6 @@
+import classNames from 'classnames';
 import * as React from "react";
+import {DragHandle} from '../DragHandle';
 import {Icon} from "../Icon";
 import {getTextColor} from '../Label';
 
@@ -10,16 +12,19 @@ interface IProps<T> {
     onRemove(): void;
     valueTemplate?(item: T, Wrapper: React.ElementType): React.ComponentType<T> | JSX.Element;
     getBackgroundColor?(item: T): string;
+    draggable?: boolean;
 }
 
 export class TreeSelectPill<T> extends React.Component<IProps<T>> {
     render() {
+        const classes = classNames('tags-input__tag-item tags-input__tag-item--multi-select', {
+            'tags-input__tag-item--readonly': this.props.readOnly,
+            'tags-input__tag-item--draggable': this.props.draggable,
+        });
+
         return (
             <li
-                className={
-                    "tags-input__tag-item tags-input__tag-item--multi-select"
-                    + (this.props.readOnly ? ' tags-input__tag-item--readonly' : '')
-                }
+                className={classes}
                 onClick={() => (!this.props.readOnly && !this.props.disabled)
                     && this.props.onRemove()
                 }
@@ -31,6 +36,9 @@ export class TreeSelectPill<T> extends React.Component<IProps<T>> {
                 }
                 data-test-id="item"
             >
+                {this.props.draggable && (
+                    <DragHandle blank={true} dotsInRow='3' dotRows='4' />
+                )}
                 <span
                     className="tags-input__helper-box"
                     style={{
