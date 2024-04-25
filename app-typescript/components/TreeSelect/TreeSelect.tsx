@@ -669,9 +669,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             : ({children}: {children: React.ReactNode}) => <ul className="tags-input__tag-list">{children}</ul>;
 
         const ItemWrapper = this.props.sortable
-            ? ({children, item, i}: {children: React.ReactNode, item: T, i: number}) => {
+            ? ({children, itemId, i}: {children: React.ReactNode, itemId: string, i: number}) => {
                 return (
-                    <Draggable draggableId={this.props.getId(item)} index={i}>
+                    <Draggable draggableId={itemId} index={i}>
                         {(provided2) => (
                             <div
                                 ref={provided2.innerRef}
@@ -752,8 +752,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                         </TreeSelectPill>
                                     );
 
+                                    const itemId = this.props.getId(item);
+
                                     return (
-                                        <ItemWrapper item={item} key={this.props.getId(item)} i={i}>
+                                        <ItemWrapper itemId={itemId} key={itemId} i={i}>
                                             {this.props.valueTemplate
                                                 ? this.props.valueTemplate(item, Wrapper)
                                                 : (
