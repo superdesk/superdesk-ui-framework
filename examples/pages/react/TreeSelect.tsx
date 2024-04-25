@@ -299,7 +299,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             <div className='form__row'>
                                 <TreeSelect
                                     kind='synchronous'
-                                    value={[{name: 'Category1'}]}
+                                    value={[{name: 'Category1'}, {name: 'Category2'}, {name: 'Category3'}]}
                                     getOptions={() => options}
                                     getId={(item) => item.name}
                                     getLabel={(item) => item.name}
