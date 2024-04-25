@@ -337,7 +337,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 <Option>All events</Option>
                             </Select>
                             <ContentDivider type="solid" margin="medium" />
-                            <Heading type='h3' className='mb-1 sd-text--strong'>Related Planning(s)</Heading>
+                            <Heading type='h3' className='mb-1 sd-text--bold'>Related Planning(s)</Heading>
                             <Text size='small' className='mb-1'>
                                 <strong>You made changes to a planning item that is a part of a recurring event</strong>.
                                 Apply the changes to all recurring planning items or just this one?
@@ -397,7 +397,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             footerTemplate={modalSaveEventFooterThree}
                             onHide={() => {this.setState({modalSaveEvent3: false})}}
                         >
-                            <Heading type='h3' className='mb-1 sd-text--strong'>Related Planning(s)</Heading>
+                            <Heading type='h3' className='mb-1 sd-text--bold'>Related Planning(s)</Heading>
                             <Text size='small' className='mb-1'>
                                 <strong>You made changes to a planning item that is a part of a recurring event</strong>.
                                 Apply the changes to all recurring planning items or just this one?

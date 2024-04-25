@@ -319,6 +319,15 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     background-color: var(--docs-page-color-bg__aside);
     overflow-y: auto;
 }
+.docs-page__sidebar-searchbar-container {
+    position: sticky;
+    top: -20px;
+    margin-top: -20px;
+    padding-block: 16px 8px;
+    background-color: var(--docs-page-color-bg__aside);
+    z-index: 2;
+}
+
 .docs-page__sidebar.scroll {
     top: 0;
     margin-top: 0;
@@ -376,12 +385,37 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     color: var(--color-text);
     font-size: 12px;
     font-weight: 500;
-    letter-spacing: 0.1em;
-    display: inline-block;
+    letter-spacing: 0.04em;
+    line-height: 1.2;
     margin-block-start: 20px;
     margin-block-end: 6px;
-    padding-inline-start: 20px;
+    padding-inline-start: 16px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+    min-height: 16px;
 }
+.docs-page__nav-title:hover {
+    cursor: pointer;
+    color: var(--sd-colour-interactive);
+}
+
+.docs-page__nav-title-caret {
+    height: 16px;
+    width: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.6;
+    margin-block-end: 2px;
+    transition: all 0.2s ease;
+}
+.docs-page__nav-title--open .docs-page__nav-title-caret {
+    transform: rotate(90deg)
+
+}
+
 .docs-page__nav > li:first-child .docs-page__nav-title {
     margin-block-start: 0;
 }
@@ -491,28 +525,29 @@ p.docs-page__paragraph b, div.docs-page__paragraph b {
     font-size: 14px;
     line-height: 32px;
     display: block;
-    padding-inline-start: 24px;
+    margin-inline-start: 22px;
+    padding-inline-start: 12px;
     color: var(--color-text-light);
     background-color: rgba(255, 255, 255, 0);
     cursor: pointer;
     text-decoration: none;
-    transition: all ease-in-out 0.2s;
-    border-inline-start: 4px solid transparent;
+    transition: all ease 0.2s;
+    border-inline-start: 1px solid var(--color-border-line--medium);
 }
 .docs-page__nav-item a:hover {
     color: var(--color-text);
-    background-color: var(--docs-page-color-bg-00);
+    border-color: var(--color-border-line--strong);
+    /* background-color: var(--docs-page-color-bg-00); */
 }
 .docs-page__nav-item a:active {
     color: var(--color-text);
-    background-color: var(--sd-colour-interactive--alpha-20);
 }
 
 .docs-page__nav-item a.docs-page__nav-item--active {
     border-color: var(--sd-colour-interactive);
-    background-color: var(--docs-page-color-bg-00);
     font-weight: 400;
     color: var(--sd-colour-interactive);
+    box-shadow: -1px 0 0 var(--sd-colour-interactive), inset 1px 0 0 var(--sd-colour-interactive);
 }
 
 .docs-page__nav-item.docs-page__nav-item--active a {
@@ -996,6 +1031,13 @@ doc-gif-img:hover img {
     min-width: 200px;
     width: auto;
     color: var(--color-text);
+}
+.docs-page__container table.utilities-table tbody td:nth-child(3){
+    min-width: 200px;
+    width: auto;
+    text-align: end;
+    padding-inline-end: var(--space--1-5);
+    font-weight: 700;
 }
 
 .docs-page__container table.utilities-table tbody tr.utilities-table__divider-row td {

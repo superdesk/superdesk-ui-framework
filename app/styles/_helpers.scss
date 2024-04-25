@@ -288,7 +288,7 @@
     overflow-y: scroll !important;
 }
 
-// Text overflow
+// TEXT OVERFLOW
 .sd-overflow-ellipsis,
 .sd-overflow--ellipsis {
     text-overflow: ellipsis;
@@ -512,140 +512,8 @@ h6 {
     letter-spacing: 0.025em;
 }
 
-// Font weights
 
-.sd-text__light,
-.sd-text--light {
-    font-weight: 300;
-}
 
-.sd-text__normal,
-.sd-text--normal {
-    font-weight: 400;
-}
-
-.sd-text--medium {
-    font-weight: 500;
-}
-
-.sd-text__strong,
-.sd-text--strong {
-    font-weight: 700;
-}
-
-.sd-text--bold {
-    font-weight: 700;
-}
-
-// Font style
-.sd-text__italic,
-.sd-text--italic {
-    font-style: italic;
-}
-
-.sd-text--non-italic {
-    font-style: normal;
-}
-
-// Text alignment
-.sd-text-align--left,
-.sd-text-align--start {
-    text-align: start;
-}
-
-.sd-text__center,
-.sd-text-align--center {
-    text-align: center;
-}
-
-.sd-text__right,
-.sd-text-align--right,
-.sd-text-align--end {
-    text-align: end;
-}
-
-.sd-text-align--justify {
-    text-align: justify;
-}
-
-// Font family
-.sd-text__serif,
-.sd-text--serif {
-    font-family: $baseFontFamilySerif;
-}
-
-.sd-text--sans {
-    font-family: $baseFontFamily;
-}
-
-.sd-text--mono {
-    font-family: $baseFontFamilyMono;
-}
-
-// Word Break
-.sd-word-break--normal {
-    overflow-wrap: normal;
-    word-break: normal;
-}
-
-.sd-word-break--words {
-    overflow-wrap: break-word;
-}
-
-.sd-word-break--all {
-    word-break: break-all;
-}
-
-// Whitespace
-.sd-whitespace--normal {
-    white-space: normal;
-}
-
-.sd-whitespace--nowrap {
-    white-space: nowrap;
-}
-
-.sd-whitespace--pre {
-    white-space: pre;
-}
-
-.sd-whitespace--pre-line {
-    white-space: pre-line;
-}
-
-.sd-whitespace--pre-wrap {
-    white-space: pre-wrap;
-}
-
-// Text Transform
-.sd-txt-transform--uppercase {
-    text-transform: uppercase;
-}
-
-.sd-txt-transform--lowercase {
-    text-transform: lowercase;
-}
-
-.sd-txt-transform--capitalize {
-    text-transform: capitalize;
-}
-
-.sd-txt-transform--none {
-    text-transform: none;
-}
-
-// Text Decoration
-.sd-txt-decoration--underline {
-    text-decoration: underline;
-}
-
-.sd-txt-decoration--line-through {
-    text-decoration: line-through;
-}
-
-.sd-txt-decoration--none {
-    text-decoration: none;
-}
 
 // Line Clamp
 // limit the number of horizontal lines in an elemnt (e.g. <p>)
@@ -1531,35 +1399,273 @@ h6 {
     border-width: 3px;
 }
 
-// Font size
-.sd-font-size--x-small {
+// ==================== TYPOGRAPHY =================== //
+
+// FONT SIZE
+.sd-font-size--x-small,
+.text-xs {
     font-size: calc(var(--text-size--base) * 1.2); // 12px;
 }
-
-.sd-font-size--small {
+.sd-font-size--small,
+.text-sm {
     font-size: calc(var(--text-size--base) * 1.4); // 14px;
 }
-
-.sd-font-size--medium {
+.sd-font-size--medium ,
+.text-md {
     font-size: calc(var(--text-size--base) * 1.6); // 16px;
 }
-
-.sd-font-size--large {
+.sd-font-size--large,
+.text-lg {
     font-size: calc(var(--text-size--base) * 2); // 20px;
 }
-
-// Text colour
-.sd-text-color--lighter {
-    color: var(--color-text-lighter) !important;
+.sd-font-size--x-large,
+.text-xl {
+    font-size: calc(var(--text-size--base) * 2.4); // 24px;
+}
+.sd-font-size--x-large,
+.text-2xl {
+    font-size: calc(var(--text-size--base) * 3.2); // 32px;
 }
 
-.sd-text-color--light {
-    color: var(--color-text-light) !important;
-}
-
-.sd-text-color--normal {
+// TEXT COLOR
+.sd-text-color--normal,
+.text-color-normal {
     color: var(--color-text) !important;
 }
+.sd-text-color--light,
+.text-color-muted {
+    color: var(--color-text-light) !important;
+}
+.sd-text-color--lighter,
+.text-color-subdued {
+    color: var(--color-text-lighter) !important;
+}
+.sd-text-color--inverse,
+.text-color-inverse {
+    color: var(--color-text--inverse) !important;
+}
+
+// FONT WEIGHTS
+.sd-text__light,
+.sd-text--light,
+.font-light {
+    font-weight: 300;
+}
+.sd-text__normal,
+.sd-text--normal,
+.font-normal {
+    font-weight: 400;
+}
+.sd-text--medium,
+.font-medium {
+    font-weight: 500;
+}
+.sd-text--medium,
+.font-semibold {
+    font-weight: 500;
+}
+.sd-text__strong,
+.sd-text--strong,
+.sd-text--bold,
+.font-bold {
+    font-weight: 700;
+}
+.font-black {
+    font-weight: 900;
+}
+
+// FONT STYLE
+.sd-text__italic,
+.sd-text--italic,
+.italic {
+    font-style: italic;
+}
+
+.sd-text--non-italic,
+.non-italic {
+    font-style: normal;
+}
+
+// TEXT ALIGN
+.sd-text-align--left,
+.sd-text-align--start,
+.text-start,
+.text-left {
+    text-align: start;
+}
+.sd-text__center,
+.sd-text-align--center,
+.text-center {
+    text-align: center;
+}
+.sd-text__right,
+.sd-text-align--right,
+.sd-text-align--end,
+.text-end {
+    text-align: end;
+}
+.sd-text-align--justify,
+.text-justify {
+    text-align: justify;
+}
+
+// FONT FAMILY
+.sd-text__serif,
+.sd-text--serif {
+    font-family: $baseFontFamilySerif;
+}
+.sd-text--sans {
+    font-family: $baseFontFamily;
+}
+.sd-text--mono {
+    font-family: $baseFontFamilyMono;
+}
+
+// WHITESPACE
+.sd-whitespace--normal,
+.whitespace-normal {
+    white-space: normal;
+}
+.sd-whitespace--nowrap,
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+.sd-whitespace--pre,
+.whitespace-pre {
+    white-space: pre;
+}
+.sd-whitespace--pre-line,
+.whitespace-pre-line {
+    white-space: pre-line;
+}
+.sd-whitespace--pre-wrap,
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
+.whitespace-break-spaces {
+    white-space: break-spaces;
+}
+
+// TEXT TRANSFORM
+.sd-txt-transform--uppercase,
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.sd-txt-transform--lowercase,
+.text-lowercase {
+    text-transform: lowercase;
+}
+
+.sd-txt-transform--capitalize,
+.text-capitalize {
+    text-transform: capitalize;
+}
+
+.sd-txt-transform--none,
+.text-normal-case {
+    text-transform: none;
+}
+
+// TEXT DECORATION
+.sd-txt-decoration--underline,
+.text-underline {
+    text-decoration: underline;
+}
+.sd-txt-decoration--line-through,
+.text-line-through {
+    text-decoration: line-through;
+}
+.sd-txt-decoration--none,
+.text-no-underline  {
+    text-decoration: none;
+}
+
+// TEXT OVERFLOW
+.sd-overflow-ellipsis,
+.sd-overflow--ellipsis,
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.text-clip {
+    text-overflow: clip;
+}
+
+// TEXT WRAP
+.text-wrap {
+    text-wrap: wrap;
+}
+.text-nowrap {
+    text-wrap: clip;
+}
+.text-balance {
+    text-wrap: balance;
+}
+.text-pretty {
+    text-wrap: pretty;
+}
+
+// WORD BREAK
+.sd-word-break--normal,
+.break-normal {
+    overflow-wrap: normal;
+    word-break: normal;
+}
+.sd-word-break--words,
+.break-words {
+    overflow-wrap: break-word;
+}
+.sd-word-break--all,
+.break-all {
+    word-break: break-all;
+}
+
+// LINE CLAMP
+// limit the number of horizontal lines in an elemnt (e.g. <p>)
+// it doesn't work if the element has set flex-grow: 1;
+@mixin line-clamp-base {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.sd-line-clamp--1,
+.line-clamp-1 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 1;
+}
+.sd-line-clamp--2,
+.line-clamp-2 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 2;
+}
+.sd-line-clamp--3,
+.line-clamp-3 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 3;
+}
+.sd-line-clamp--4,
+.line-clamp-4 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 4;
+}
+.sd-line-clamp--5,
+.line-clamp-5 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 5;
+}
+.sd-line-clamp--6,
+.line-clamp-6 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 6;
+}
+.sd-line-clamp--none,
+.line-clamp-none {
+    -webkit-line-clamp: none;
+}
+
+// ==================================================== //
 
 // Background colours
 .sd-panel-bg--100 {
@@ -1690,20 +1796,20 @@ h6 {
     gap: var(--gap-0-5); // 4px
 }
 .gap-1 {
-    gap: var(--gap--x-small); // 8px
+    gap: var(--gap-1); // 8px
 }
 .gap-1-5 {
-    gap: var(--gap--x-small); // 12px
+    gap: var(--gap-1-5); // 12px
 }
 .gap-2 {
-    gap: var(--gap--small); // 16px
+    gap: var(--gap-2); // 16px
 }
 .gap-3 {
-    gap: var(--gap--none); // 24px
+    gap: var(--gap-3); // 24px
 }
 .gap-4 {
-    gap: var(--gap--none); // 32px
+    gap: var(--gap-4); // 32px
 }
 .gap-5 {
-    gap: var(--gap--none); // 40px
+    gap: var(--gap-5); // 40px
 }

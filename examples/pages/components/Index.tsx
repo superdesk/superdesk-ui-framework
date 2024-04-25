@@ -73,6 +73,7 @@ import { IllustrationButtonDoc } from './IllustrationButton';
 
 // Utilities
 import {SpacingUtilitiesDoc} from './utilities/SpacingUtilities';
+import {TextUtilitiesDoc} from './utilities/TextUtilities';
 
 const pages = {
     basicComponents: {
@@ -301,7 +302,7 @@ const pages = {
             'spacing-utilities': {
                 name: 'Spacing Utilities',
             },
-            'big-icon-font': {
+            'text-utilities': {
                 name: 'Text utilities'
             }
         }
@@ -420,6 +421,7 @@ class ReactDoc extends React.Component<IProps, IState> {
                         <Route path="/components/illustration-button" component={IllustrationButtonDoc} />
                         {/* Utilities */}
                         <Route path="/components/spacing-utilities" component={SpacingUtilitiesDoc} />
+                        <Route path="/components/text-utilities" component={TextUtilitiesDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

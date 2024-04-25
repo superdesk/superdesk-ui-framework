@@ -57,9 +57,15 @@ class ReactNav extends React.PureComponent {
 
         const navigations = Object.keys(filteredPages).map((group) => (
             <li key={group}>
-                <span className="docs-page__nav-title" onClick={() => this.toggleSection(group)}>
+                <div 
+                    className={`docs-page__nav-title ${this.state.expandedSections[group] ? 'docs-page__nav-title--open' : ''}`} 
+                    onClick={() => this.toggleSection(group)}
+                >
+                    <span className='docs-page__nav-title-caret'>
+                        <i className="icon-chevron-right-thin" aria-label="chevron-right-thin" />
+                    </span>
                     {filteredPages[group].name}
-                </span>
+                </div>
                 {this.state.expandedSections[group] && (
                     <ul className="docs-page__nav--sub-level">
                         {Object.keys(filteredPages[group].items).map((page) =>
@@ -74,9 +80,11 @@ class ReactNav extends React.PureComponent {
 
         return (
             <aside className="docs-page__sidebar">
-                <div className="mx-1-5 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed">
-                    <label className="sd-searchbar__icon"></label>
-                    <input id="search-input" className="sd-searchbar__input" type="text" placeholder="Search" value={searchTerm} onChange={this.handleSearchChange} />
+                <div className='docs-page__sidebar-searchbar-container'>
+                    <div className="mx-2 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed">
+                        <label className="sd-searchbar__icon"></label>
+                        <input id="search-input" className="sd-searchbar__input" type="text" placeholder="Search" value={searchTerm} onChange={this.handleSearchChange} />
+                    </div>
                 </div>
                 <ul className="docs-page__nav">{navigations}</ul>
             </aside>

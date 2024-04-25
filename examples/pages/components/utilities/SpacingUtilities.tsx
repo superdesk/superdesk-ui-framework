@@ -9,7 +9,6 @@ class SpacingUtilitiesDoc extends React.Component {
                 <p className="docs-page__paragraph">
                     The Superdesk UI Framework provides various spacing utility classes to modify the positioning and look of elements. 
                     All values are set in multiples of the <code>--base-increment</code>  CSS variable, which is equivalent to 0.8rem (or 8px in our context), to ensure consistency. 
-                    Additionally, the root (html) font-size is conveniently set to 10px, making 1rem equal to 10px by default
                 </p>
                 <div className='docs-page__container-block--padding'>
                     <h3 className="docs-page__h3">Padding</h3>
