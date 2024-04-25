@@ -52,8 +52,7 @@ interface IPropsBase<T> extends IInputWrapper {
     placeholder?: string;
     searchPlaceholder?: string;
     zIndex?: number;
-    dragAndDrop?: boolean;
-    onDrag?(start: number, end: number): void;
+    sortable?: boolean;
     'data-test-id'?: string;
     getLabel(item: T): string;
     getId(item: T): string;
@@ -627,10 +626,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.setState({
             value: value,
         });
-
-        return this.props.onDrag != null
-            ? this.props.onDrag(result.source.index, result.destination.index)
-            : null;
     }
 
     render() {
@@ -654,7 +649,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             );
         }
 
-        const ListWrapper = this.props.dragAndDrop
+        const ListWrapper = this.props.sortable
             ? ({children}: {children: React.ReactNode}) => (
                 <DragDropContext onDragEnd={this.onDragEnd}>
                     <Droppable droppableId="droppable" direction="horizontal">
@@ -673,7 +668,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             )
             : ({children}: {children: React.ReactNode}) => <ul className="tags-input__tag-list">{children}</ul>;
 
-        const ItemWrapper = this.props.dragAndDrop
+        const ItemWrapper = this.props.sortable
             ? ({children, i}: {children: React.ReactNode, i: number}) => {
                 return (
                     <Draggable draggableId={`${i}`} index={i}>
@@ -689,7 +684,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                     </Draggable>
                 );
             }
-            : ({children}: {children: React.ReactNode, i: number}) => <React.Fragment>{children}</React.Fragment>
+            : ({children}: {children: React.ReactNode}) => <React.Fragment>{children}</React.Fragment>;
 
         return (
             <InputWrapper
@@ -738,7 +733,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     <i className="icon-plus-large"></i>
                                 </button>
                             }
-                            {this.props.dragAndDrop
+
+                            {this.props.sortable
                                 ? (
                                     <ListWrapper>
                                         {this.state.value.map((item, i: number) => {
@@ -752,14 +748,14 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                     backgroundColor={backgroundColor}
                                                     onRemove={() => this.removeClick(i)}
                                                     getBackgroundColor={this.props.getBackgroundColor}
-                                                    draggable={this.props.dragAndDrop}
+                                                    draggable={this.props.sortable}
                                                 >
                                                     {children}
                                                 </TreeSelectPill>
                                             );
 
                                             return (
-                                                <ItemWrapper i={i} key={i}>
+                                                <ItemWrapper key={this.props.getId(item)} i={i}>
                                                     {this.props.valueTemplate
                                                         ? this.props.valueTemplate(item, Wrapper)
                                                         : (
@@ -776,7 +772,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                     </ListWrapper>
                                 )
                                 : (
-                                    <ul className="tags-input__tag-list">
+                                    <ListWrapper>
                                         {this.state.value.map((item, i: number) => {
                                             const Wrapper: React.ComponentType<{backgroundColor?: string}>
                                             = ({backgroundColor, children}) => (
@@ -794,7 +790,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             );
 
                                             return (
-                                                <React.Fragment key={i}>
+                                                <ItemWrapper key={this.props.getId(item)} i={i}>
                                                     {this.props.valueTemplate
                                                         ? this.props.valueTemplate(item, Wrapper)
                                                         : (
@@ -805,10 +801,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                             </Wrapper>
                                                         )
                                                     }
-                                                </React.Fragment>
+                                                </ItemWrapper>
                                             );
                                         })}
-                                    </ul>
+                                    </ListWrapper>
                                 )
                             }
 

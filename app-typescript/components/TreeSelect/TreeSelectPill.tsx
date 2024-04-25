@@ -25,9 +25,6 @@ export class TreeSelectPill<T> extends React.Component<IProps<T>> {
         return (
             <li
                 className={classes}
-                onClick={() => (!this.props.readOnly && !this.props.disabled)
-                    && this.props.onRemove()
-                }
                 style={
                     this.props.valueTemplate
                         ? {backgroundColor: this.props.backgroundColor}
@@ -51,9 +48,15 @@ export class TreeSelectPill<T> extends React.Component<IProps<T>> {
                     {this.props.children}
 
                     {!this.props.readOnly
-                        && <span className="tags-input__remove-button" data-test-id="remove">
+                        && <button
+                            className="tags-input__remove-button"
+                            data-test-id="remove"
+                            onClick={() => (!this.props.readOnly && !this.props.disabled)
+                                && this.props.onRemove()
+                            }
+                        >
                             <Icon name="close-small"></Icon>
-                        </span>
+                        </button>
                     }
                 </span>
             </li>

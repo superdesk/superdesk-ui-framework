@@ -260,7 +260,6 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                             </Wrapper>
                                         );
                                     }}
-                                    dragAndDrop
                                     onChange={(e) => false}
                                 />
                             </div>
@@ -276,6 +275,64 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             getLabel={(item) => item.name}
                             selectBranchWithChildren
                             allowMultiple
+                            label='TreeSelect Label'
+                            info='Info Message'
+                            searchPlaceholder='Search...'
+                            getBackgroundColor={(item: any) => item.bgColor}
+                            valueTemplate={(item, Wrapper) => {
+                                return (
+                                    <Wrapper backgroundColor={item.bgColor}>
+                                        <span>{item.name}</span>
+                                    </Wrapper>
+                                );
+                            }}
+                            onChange={(e) => false}
+                        />
+                    `}</Markup.ReactMarkupCode>
+
+                </Markup.ReactMarkup>
+
+                <p className='docs-page__paragraph'>Sortable mode in TreeSelect.</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
+                            <div className='form__row'>
+                                <TreeSelect
+                                    kind='synchronous'
+                                    value={[{name: 'Category1'}]}
+                                    getOptions={() => options}
+                                    getId={(item) => item.name}
+                                    getLabel={(item) => item.name}
+                                    selectBranchWithChildren
+                                    allowMultiple
+                                    sortable
+                                    label='TreeSelect Label'
+                                    info='Info Message'
+                                    searchPlaceholder='Search...'
+                                    getBackgroundColor={(item: any) => item.bgColor}
+                                    valueTemplate={(item, Wrapper) => {
+                                        return (
+                                            <Wrapper backgroundColor={item.bgColor}>
+                                                <span>{item.name}</span>
+                                            </Wrapper>
+                                        );
+                                    }}
+                                    onChange={(e) => false}
+                                />
+                            </div>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+
+                    <Markup.ReactMarkupCode>{`
+                        <TreeSelect
+                            kind='synchronous'
+                            value={[{name: 'Category1'}]}
+                            getOptions={() => options}
+                            getId={(item) => item.name}
+                            getLabel={(item) => item.name}
+                            selectBranchWithChildren
+                            allowMultiple
+                            sortable
                             label='TreeSelect Label'
                             info='Info Message'
                             searchPlaceholder='Search...'
@@ -402,6 +459,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Prop name='loading' isRequired={false} type='boolean' default='false' description='Adds a loading indicator in dropdown.'/>
                     <Prop name='allowMultiple' isRequired={false} type='boolean' default='/' description='Enable multi-select mode.'/>
                     <Prop name='singleLevelSearch' isRequired={false} type='boolean' default='/' description='Limit search to only the level that is displayed.'/>
+                    <Prop name='sortable' isRequired={false} type='boolean' default='/' description='Enable drag & drop functionality.'/>
                     <Prop name='placeholder' isRequired={false} type='string' default='/' description='Placeholder of component in single select mode.'/>
                     <Prop name='searchPlaceholder' isRequired={false} type='string' default='/' description='Filter input placeholder.'/>
                     <Prop name='getLabel' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
@@ -410,7 +468,6 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                     <Prop name='getBorderColor' isRequired={true} type='Function' default='/' description='Function to return border color of individual item in options in single-select mode.'/>
                     <Prop name='valueTemplate' isRequired={false} type='Function(item, Wrapper)' default='/' description='Function that gets an item in the value and returns the content for it.'/>
                     <Prop name='optionTemplate' isRequired={false} type='Function(item)' default='/' description='Function that gets the option and returns the content for it.'/>
-                    <Prop name='searchOptions' isRequired={false} type='Function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
                     <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
                     <Prop name='label' isRequired={false} type='string' default='/' description='Label of component.' />
                     <Prop name='inlineLabel' isRequired={false} type='boolean' default='false' description='Position labels as inline.' />
