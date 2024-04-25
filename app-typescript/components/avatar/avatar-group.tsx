@@ -4,7 +4,7 @@ import {Avatar, IPropsAvatar} from './avatar';
 import {AvatarWrapper} from './avatar-wrapper';
 import {AvatarContentNumber} from './avatar-number';
 import {AvatarPlaceholder, IPropsAvatarPlaceholder} from './avatar-placeholder';
-import { Spacer } from '../Spacer';
+import {Spacer} from '@superdesk/common';
 import {WithPopover} from '../WithPopover';
 
 export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
