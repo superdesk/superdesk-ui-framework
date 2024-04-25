@@ -669,9 +669,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             : ({children}: {children: React.ReactNode}) => <ul className="tags-input__tag-list">{children}</ul>;
 
         const ItemWrapper = this.props.sortable
-            ? ({children, i}: {children: React.ReactNode, i: number}) => {
+            ? ({children, item, i}: {children: React.ReactNode, item: T, i: number}) => {
                 return (
-                    <Draggable draggableId={`${i}`} index={i}>
+                    <Draggable draggableId={this.props.getId(item)} index={i}>
                         {(provided2) => (
                             <div
                                 ref={provided2.innerRef}
@@ -734,79 +734,40 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </button>
                             }
 
-                            {this.props.sortable
-                                ? (
-                                    <ListWrapper>
-                                        {this.state.value.map((item, i: number) => {
-                                            const Wrapper: React.ComponentType<{backgroundColor?: string}>
-                                            = ({backgroundColor, children}) => (
-                                                <TreeSelectPill
-                                                    item={item}
-                                                    readOnly={this.props.readOnly}
-                                                    disabled={this.props.disabled}
-                                                    valueTemplate={this.props.valueTemplate}
-                                                    backgroundColor={backgroundColor}
-                                                    onRemove={() => this.removeClick(i)}
-                                                    getBackgroundColor={this.props.getBackgroundColor}
-                                                    draggable={this.props.sortable}
-                                                >
-                                                    {children}
-                                                </TreeSelectPill>
-                                            );
+                            <ListWrapper>
+                                {this.state.value.map((item, i: number) => {
+                                    const Wrapper: React.ComponentType<{backgroundColor?: string}>
+                                    = ({backgroundColor, children}) => (
+                                        <TreeSelectPill
+                                            item={item}
+                                            readOnly={this.props.readOnly}
+                                            disabled={this.props.disabled}
+                                            valueTemplate={this.props.valueTemplate}
+                                            backgroundColor={backgroundColor}
+                                            onRemove={() => this.removeClick(i)}
+                                            getBackgroundColor={this.props.getBackgroundColor}
+                                            draggable={this.props.sortable}
+                                        >
+                                            {children}
+                                        </TreeSelectPill>
+                                    );
 
-                                            return (
-                                                <ItemWrapper key={this.props.getId(item)} i={i}>
-                                                    {this.props.valueTemplate
-                                                        ? this.props.valueTemplate(item, Wrapper)
-                                                        : (
-                                                            <Wrapper>
-                                                                <span>
-                                                                    {this.props.getLabel(item)}
-                                                                </span>
-                                                            </Wrapper>
-                                                        )
-                                                    }
-                                                </ItemWrapper>
-                                            );
-                                        })}
-                                    </ListWrapper>
-                                )
-                                : (
-                                    <ListWrapper>
-                                        {this.state.value.map((item, i: number) => {
-                                            const Wrapper: React.ComponentType<{backgroundColor?: string}>
-                                            = ({backgroundColor, children}) => (
-                                                <TreeSelectPill
-                                                    item={item}
-                                                    readOnly={this.props.readOnly}
-                                                    disabled={this.props.disabled}
-                                                    valueTemplate={this.props.valueTemplate}
-                                                    backgroundColor={backgroundColor}
-                                                    onRemove={() => this.removeClick(i)}
-                                                    getBackgroundColor={this.props.getBackgroundColor}
-                                                >
-                                                    {children}
-                                                </TreeSelectPill>
-                                            );
-
-                                            return (
-                                                <ItemWrapper key={this.props.getId(item)} i={i}>
-                                                    {this.props.valueTemplate
-                                                        ? this.props.valueTemplate(item, Wrapper)
-                                                        : (
-                                                            <Wrapper>
-                                                                <span>
-                                                                    {this.props.getLabel(item)}
-                                                                </span>
-                                                            </Wrapper>
-                                                        )
-                                                    }
-                                                </ItemWrapper>
-                                            );
-                                        })}
-                                    </ListWrapper>
-                                )
-                            }
+                                    return (
+                                        <ItemWrapper item={item} key={this.props.getId(item)} i={i}>
+                                            {this.props.valueTemplate
+                                                ? this.props.valueTemplate(item, Wrapper)
+                                                : (
+                                                    <Wrapper>
+                                                        <span>
+                                                            {this.props.getLabel(item)}
+                                                        </span>
+                                                    </Wrapper>
+                                                )
+                                            }
+                                        </ItemWrapper>
+                                    );
+                                })}
+                            </ListWrapper>
 
                             {this.state.value.length > 0
                                 ? (this.props.readOnly || this.props.disabled)
