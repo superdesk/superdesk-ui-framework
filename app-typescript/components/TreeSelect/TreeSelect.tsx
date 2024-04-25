@@ -654,6 +654,43 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             );
         }
 
+        const ListWrapper = this.props.dragAndDrop
+            ? ({children}: {children: React.ReactNode}) => (
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="droppable" direction="horizontal">
+                        {(provided, _snapshot) => (
+                            <ul
+                                className="tags-input__tag-list"
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                            >
+                                {children}
+                                {provided.placeholder}
+                            </ul>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+            )
+            : ({children}: {children: React.ReactNode}) => <ul className="tags-input__tag-list">{children}</ul>;
+
+        const ItemWrapper = this.props.dragAndDrop
+            ? ({children, i}: {children: React.ReactNode, i: number}) => {
+                return (
+                    <Draggable draggableId={`${i}`} index={i}>
+                        {(provided2) => (
+                            <div
+                                ref={provided2.innerRef}
+                                {...provided2.draggableProps}
+                                {...provided2.dragHandleProps}
+                            >
+                                {children}
+                            </div>
+                        )}
+                    </Draggable>
+                );
+            }
+            : ({children}: {children: React.ReactNode, i: number}) => <React.Fragment>{children}</React.Fragment>
+
         return (
             <InputWrapper
                 label={this.props.label}
@@ -703,59 +740,40 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                             }
                             {this.props.dragAndDrop
                                 ? (
-                                    <DragDropContext onDragEnd={this.onDragEnd}>
-                                        <Droppable droppableId="droppable" direction="horizontal">
-                                            {(provided, _snapshot) => (
-                                                <ul
-                                                    className="tags-input__tag-list"
-                                                    ref={provided.innerRef}
-                                                    {...provided.droppableProps}
+                                    <ListWrapper>
+                                        {this.state.value.map((item, i: number) => {
+                                            const Wrapper: React.ComponentType<{backgroundColor?: string}>
+                                            = ({backgroundColor, children}) => (
+                                                <TreeSelectPill
+                                                    item={item}
+                                                    readOnly={this.props.readOnly}
+                                                    disabled={this.props.disabled}
+                                                    valueTemplate={this.props.valueTemplate}
+                                                    backgroundColor={backgroundColor}
+                                                    onRemove={() => this.removeClick(i)}
+                                                    getBackgroundColor={this.props.getBackgroundColor}
+                                                    draggable={this.props.dragAndDrop}
                                                 >
-                                                    {this.state.value.map((item, i: number) => {
-                                                        const Wrapper: React.ComponentType<{backgroundColor?: string}>
-                                                        = ({backgroundColor, children}) => (
-                                                            <TreeSelectPill
-                                                                item={item}
-                                                                readOnly={this.props.readOnly}
-                                                                disabled={this.props.disabled}
-                                                                valueTemplate={this.props.valueTemplate}
-                                                                backgroundColor={backgroundColor}
-                                                                onRemove={() => this.removeClick(i)}
-                                                                getBackgroundColor={this.props.getBackgroundColor}
-                                                                draggable={this.props.dragAndDrop}
-                                                            >
-                                                                {children}
-                                                            </TreeSelectPill>
-                                                        );
+                                                    {children}
+                                                </TreeSelectPill>
+                                            );
 
-                                                        return (
-                                                            <Draggable key={i} draggableId={`${i}`} index={i}>
-                                                                {(provided2) => (
-                                                                    <div
-                                                                        ref={provided2.innerRef}
-                                                                        {...provided2.draggableProps}
-                                                                        {...provided2.dragHandleProps}
-                                                                    >
-                                                                        {this.props.valueTemplate
-                                                                            ? this.props.valueTemplate(item, Wrapper)
-                                                                            : (
-                                                                                <Wrapper>
-                                                                                    <span>
-                                                                                        {this.props.getLabel(item)}
-                                                                                    </span>
-                                                                                </Wrapper>
-                                                                            )
-                                                                        }
-                                                                    </div>
-                                                                )}
-                                                            </Draggable>
-                                                        );
-                                                    })}
-                                                    {provided.placeholder}
-                                                </ul>
-                                            )}
-                                        </Droppable>
-                                    </DragDropContext>
+                                            return (
+                                                <ItemWrapper i={i} key={i}>
+                                                    {this.props.valueTemplate
+                                                        ? this.props.valueTemplate(item, Wrapper)
+                                                        : (
+                                                            <Wrapper>
+                                                                <span>
+                                                                    {this.props.getLabel(item)}
+                                                                </span>
+                                                            </Wrapper>
+                                                        )
+                                                    }
+                                                </ItemWrapper>
+                                            );
+                                        })}
+                                    </ListWrapper>
                                 )
                                 : (
                                     <ul className="tags-input__tag-list">

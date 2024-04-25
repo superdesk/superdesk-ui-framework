@@ -252,7 +252,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     label='TreeSelect Label'
                                     info='Info Message'
                                     searchPlaceholder='Search...'
-                                    getBackgroundColor={(item: any) => item.bgColor} 
+                                    getBackgroundColor={(item: any) => item.bgColor}
                                     valueTemplate={(item, Wrapper) => {
                                         return (
                                             <Wrapper backgroundColor={item.bgColor}>
@@ -260,6 +260,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                             </Wrapper>
                                         );
                                     }}
+                                    dragAndDrop
                                     onChange={(e) => false}
                                 />
                             </div>
@@ -278,7 +279,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             label='TreeSelect Label'
                             info='Info Message'
                             searchPlaceholder='Search...'
-                            getBackgroundColor={(item: any) => item.bgColor} 
+                            getBackgroundColor={(item: any) => item.bgColor}
                             valueTemplate={(item, Wrapper) => {
                                 return (
                                     <Wrapper backgroundColor={item.bgColor}>
