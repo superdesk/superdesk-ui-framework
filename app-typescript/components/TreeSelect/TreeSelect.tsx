@@ -51,6 +51,8 @@ interface IPropsBase<T> extends IInputWrapper {
     singleLevelSearch?: boolean;
     placeholder?: string;
     searchPlaceholder?: string;
+    noResultsFoundMessage?: string;
+    dropdownInitiallyOpen?: boolean;
     zIndex?: number;
     sortable?: boolean;
     'data-test-id'?: string;
@@ -195,6 +197,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         document.addEventListener("mousedown", this.onMouseDown);
         document.addEventListener("keydown", this.onKeyDown);
         document.addEventListener("keydown", this.onPressEsc);
+
+        if (this.props.dropdownInitiallyOpen) {
+            this.setState({openDropdown: true});
+        }
     }
 
     componentWillUnmount(): void {
@@ -511,34 +517,39 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 });
             }
         } else if (this.props.kind === 'asynchronous') {
-            return this.state.options.map((item, i) => {
-                let selectedItem = this.state.value.some((obj) =>
-                    this.props.getId(obj) === this.props.getId(item.value),
-                );
+            if (this.state.options.length > 0) {
+                return this.state.options.map((item, i) => {
+                    let selectedItem = this.state.value.some((obj) =>
+                        this.props.getId(obj) === this.props.getId(item.value),
+                    );
 
-                return (
-                    <li
-                        key={i}
-                        className='suggestion-item suggestion-item--multi-select'
-                        onClick={(event) => {
-                            this.handleValue(event, item);
-                        }}
-                    >
-                        <button className="suggestion-item--btn" data-test-id="option">
-                            {this.props.optionTemplate
-                                ? this.props.optionTemplate(item.value)
-                                : (
-                                    <span
-                                        className={selectedItem ? 'suggestion-item--selected' : undefined}
-                                    >
-                                        {this.props.getLabel(item.value)}
-                                    </span>
-                                )
-                            }
-                        </button>
-                    </li>
-                );
-            });
+                    return (
+                        <li
+                            key={i}
+                            className='suggestion-item suggestion-item--multi-select'
+                            onClick={(event) => {
+                                this.handleValue(event, item);
+                            }}
+                        >
+                            <button className="suggestion-item--btn" data-test-id="option">
+                                {this.props.optionTemplate
+                                    ? this.props.optionTemplate(item.value)
+                                    : (
+                                        <span
+                                            className={selectedItem ? 'suggestion-item--selected' : undefined}
+                                        >
+                                            {this.props.getLabel(item.value)}
+                                        </span>
+                                    )
+                                }
+                            </button>
+                        </li>
+                    );
+                });
+
+            } else {
+                return <li className="suggestion-item--nothing-found">{this.props.noResultsFoundMessage ?? 'Nothing found'}</li>;
+            }
         } else {
             return;
         }
@@ -601,14 +612,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
         if (this.props.kind === 'asynchronous') {
             if (this.state.searchFieldValue) {
-                this.setState({
-                    loading: true,
-                });
-
                 this.ICancelFn = this.props.searchOptions(this.state.searchFieldValue, (items) => {
                     this.setState({options: items, loading: false});
                     this.popperInstance?.update();
                 });
+            } else {
+                this.setState({options: this.state.firstBranchOptions, loading: false});
             }
         }
     }
@@ -909,7 +918,11 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 this.ICancelFn();
                                             }
 
-                                            this.setState({searchFieldValue: event.target.value, options: []});
+                                            this.setState({
+                                                searchFieldValue: event.target.value,
+                                                options: [],
+                                                loading: true,
+                                            });
                                             this.popperInstance?.update();
                                             this.debounceFn();
                                         } else {
