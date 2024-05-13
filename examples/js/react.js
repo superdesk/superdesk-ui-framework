@@ -1,12 +1,8 @@
 import React from 'react';
 
 import Prism from 'prismjs';
-import NormalizeWhitespace from 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
-import LineNumbers from 'prismjs/plugins/line-numbers/prism-line-numbers';
-import Markdown from 'prismjs/components/prism-markdown';
-import JSX from 'prismjs/components/prism-jsx';
 
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 class ReactNav extends React.PureComponent {
     constructor(props) {
@@ -24,7 +20,13 @@ class ReactNav extends React.PureComponent {
     }
 
     handleSearchChange(event) {
-        this.setState({ searchTerm: event.target.value });
+        this.setState({
+            searchTerm: event.target.value,
+            expandedSections: Object.keys(this.props.pages).reduce((sections, key) => {
+                sections[key] = true;
+                return sections;
+            }, {})
+        });
     }
 
     toggleSection(section) {
@@ -57,8 +59,8 @@ class ReactNav extends React.PureComponent {
 
         const navigations = Object.keys(filteredPages).map((group) => (
             <li key={group}>
-                <div 
-                    className={`docs-page__nav-title ${this.state.expandedSections[group] ? 'docs-page__nav-title--open' : ''}`} 
+                <div
+                    className={`docs-page__nav-title ${this.state.expandedSections[group] ? 'docs-page__nav-title--open' : ''}`}
                     onClick={() => this.toggleSection(group)}
                 >
                     <span className='docs-page__nav-title-caret'>
@@ -84,6 +86,11 @@ class ReactNav extends React.PureComponent {
                     <div className="mx-2 mb-1-5 sd-searchbar sd-searchbar--expanded sd-searchbar--boxed">
                         <label className="sd-searchbar__icon"></label>
                         <input id="search-input" className="sd-searchbar__input" type="text" placeholder="Search" value={searchTerm} onChange={this.handleSearchChange} />
+                        {this.state.searchTerm && (
+                            <button className="sd-searchbar__cancel" onClick={() => this.setState({ searchTerm: '' })}>
+                                <Icon name='remove-sign' />
+                            </button>
+                        )}
                     </div>
                 </div>
                 <ul className="docs-page__nav">{navigations}</ul>
