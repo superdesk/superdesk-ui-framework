@@ -9,12 +9,12 @@
     background-color: transparent;
     .drag-handle-dots {
         transition: all 0.1s ease;
-        opacity: 0.4;
+        opacity: 0.55;
     }
     &:hover {
         cursor: grab;
         .drag-handle-dots {
-            opacity: 0.8;
+            opacity: 0.85;
         }
     }
     &:active {

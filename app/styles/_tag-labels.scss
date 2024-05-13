@@ -131,7 +131,16 @@ $tag-label-lineheight: 100% !default;
 }
 
 .tag-label--square {
-    border-radius: $border-radius__base--x-small;
+    border-radius: $border-radius__base--small;
+    padding-inline-start: var(--space--1);
+}
+
+.tag-label--draggable {
+    border-radius: $border-radius__base--small;
+    padding-inline-start: 6px;
+    .drag-handle-wrapper {
+        margin-inline-end: 6px;
+    }
 }
 
 // ----------------- SEARCH TAGS -----------------

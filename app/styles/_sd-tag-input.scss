@@ -82,9 +82,8 @@ tags-input,
             }
 
             &:hover {
-                cursor: pointer;
+                cursor: default;
             }
-
             .tags-input__remove-button {
                 height: 1.8rem;
                 width: 1.8rem;
@@ -103,7 +102,6 @@ tags-input,
                 cursor: pointer;
                 transition: background-color .2s ease-out, color .1s ease-out, opacity .1s ease-out;
                 margin-inline-end: -1rem;
-                margin-inline-start:  0.8rem;
 
                 [class^="icon-"], [class*=" icon-"] {
                     color: var(--color-text-light);
@@ -143,11 +141,18 @@ tags-input,
                     display: flex;
                     flex-direction: row;
                     align-items: center;
-                    gap: var(--space--2);
+                    gap: var(--space--1);
 
                     span {
                         flex-grow: 1;
                     }
+                }
+            }
+            &.tags-input__tag-item--draggable {
+                border-radius: $border-radius__base--small;
+                padding-inline-start: 6px;
+                .drag-handle-wrapper {
+                    margin-inline-end: 6px;
                 }
             }
         }
@@ -468,7 +473,7 @@ tags-input,
     .tags-input__helper-box {
         display: flex;
         align-items: center;
-        gap: var(--space--2);
+        gap: var(--space--1);
     }
 }
 
@@ -663,7 +668,7 @@ tags-input,
         display: flex;
         width: 100%;
         align-items: center;
-        gap: var(--space--2);
+        gap: var(--space--1);
     }
 
     .tags-input__remove-button {

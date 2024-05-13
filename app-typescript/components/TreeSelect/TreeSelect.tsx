@@ -13,6 +13,15 @@ import {TreeSelectPill} from './TreeSelectPill';
 import {getPrefixedItemId, TreeSelectItem} from './TreeSelectItem';
 import {keyboardNavigation} from './KeyboardNavigation';
 import {WithPortal} from '../WithPortal';
+import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
+
+const reorder = (list: Array<any>, startIndex: number, endIndex: number) => {
+    const result = Array.from(list);
+    const [removed] = result.splice(startIndex, 1);
+    result.splice(endIndex, 0, removed);
+
+    return result;
+};
 
 interface IState<T> {
     value: Array<T>;
@@ -42,7 +51,10 @@ interface IPropsBase<T> extends IInputWrapper {
     singleLevelSearch?: boolean;
     placeholder?: string;
     searchPlaceholder?: string;
+    noResultsFoundMessage?: string;
+    dropdownInitiallyOpen?: boolean;
     zIndex?: number;
+    sortable?: boolean;
     'data-test-id'?: string;
     getLabel(item: T): string;
     getId(item: T): string;
@@ -112,7 +124,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onKeyDown = this.onKeyDown.bind(this);
         this.onPressEsc = this.onPressEsc.bind(this);
-
         this.dropdownRef = React.createRef();
         this.ref = React.createRef();
         this.inputRef = React.createRef();
@@ -120,6 +131,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.openDropdownRef = React.createRef();
         this.treeSelectRef = React.createRef();
         this.popperInstance = null;
+        this.onDragEnd = this.onDragEnd.bind(this);
     }
 
     inputFocus = () => {
@@ -185,6 +197,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         document.addEventListener("mousedown", this.onMouseDown);
         document.addEventListener("keydown", this.onKeyDown);
         document.addEventListener("keydown", this.onPressEsc);
+
+        if (this.props.dropdownInitiallyOpen) {
+            this.setState({openDropdown: true});
+        }
     }
 
     componentWillUnmount(): void {
@@ -501,34 +517,39 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 });
             }
         } else if (this.props.kind === 'asynchronous') {
-            return this.state.options.map((item, i) => {
-                let selectedItem = this.state.value.some((obj) =>
-                    this.props.getId(obj) === this.props.getId(item.value),
-                );
+            if (this.state.options.length > 0) {
+                return this.state.options.map((item, i) => {
+                    let selectedItem = this.state.value.some((obj) =>
+                        this.props.getId(obj) === this.props.getId(item.value),
+                    );
 
-                return (
-                    <li
-                        key={i}
-                        className='suggestion-item suggestion-item--multi-select'
-                        onClick={(event) => {
-                            this.handleValue(event, item);
-                        }}
-                    >
-                        <button className="suggestion-item--btn" data-test-id="option">
-                            {this.props.optionTemplate
-                                ? this.props.optionTemplate(item.value)
-                                : (
-                                    <span
-                                        className={selectedItem ? 'suggestion-item--selected' : undefined}
-                                    >
-                                        {this.props.getLabel(item.value)}
-                                    </span>
-                                )
-                            }
-                        </button>
-                    </li>
-                );
-            });
+                    return (
+                        <li
+                            key={i}
+                            className='suggestion-item suggestion-item--multi-select'
+                            onClick={(event) => {
+                                this.handleValue(event, item);
+                            }}
+                        >
+                            <button className="suggestion-item--btn" data-test-id="option">
+                                {this.props.optionTemplate
+                                    ? this.props.optionTemplate(item.value)
+                                    : (
+                                        <span
+                                            className={selectedItem ? 'suggestion-item--selected' : undefined}
+                                        >
+                                            {this.props.getLabel(item.value)}
+                                        </span>
+                                    )
+                                }
+                            </button>
+                        </li>
+                    );
+                });
+
+            } else {
+                return <li className="suggestion-item--nothing-found">{this.props.noResultsFoundMessage ?? 'Nothing found'}</li>;
+            }
         } else {
             return;
         }
@@ -591,16 +612,29 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
         if (this.props.kind === 'asynchronous') {
             if (this.state.searchFieldValue) {
-                this.setState({
-                    loading: true,
-                });
-
                 this.ICancelFn = this.props.searchOptions(this.state.searchFieldValue, (items) => {
                     this.setState({options: items, loading: false});
                     this.popperInstance?.update();
                 });
+            } else {
+                this.setState({options: this.state.firstBranchOptions, loading: false});
             }
         }
+    }
+
+    onDragEnd(result: DropResult) {
+        if (!result.destination) {
+            return;
+        }
+
+        const value = reorder(
+            this.state.value,
+            result.source.index,
+            result.destination.index,
+        );
+        this.setState({
+            value: value,
+        });
     }
 
     render() {
@@ -623,6 +657,43 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 />
             );
         }
+
+        const ListWrapper = this.props.sortable
+            ? ({children}: {children: React.ReactNode}) => (
+                <DragDropContext onDragEnd={this.onDragEnd}>
+                    <Droppable droppableId="droppable" direction="horizontal">
+                        {(provided, _snapshot) => (
+                            <ul
+                                className="tags-input__tag-list"
+                                ref={provided.innerRef}
+                                {...provided.droppableProps}
+                            >
+                                {children}
+                                {provided.placeholder}
+                            </ul>
+                        )}
+                    </Droppable>
+                </DragDropContext>
+            )
+            : ({children}: {children: React.ReactNode}) => <ul className="tags-input__tag-list">{children}</ul>;
+
+        const ItemWrapper = this.props.sortable
+            ? ({children, itemId, i}: {children: React.ReactNode, itemId: string, i: number}) => {
+                return (
+                    <Draggable draggableId={itemId} index={i}>
+                        {(provided2) => (
+                            <div
+                                ref={provided2.innerRef}
+                                {...provided2.draggableProps}
+                                {...provided2.dragHandleProps}
+                            >
+                                {children}
+                            </div>
+                        )}
+                    </Draggable>
+                );
+            }
+            : ({children}: {children: React.ReactNode}) => <React.Fragment>{children}</React.Fragment>;
 
         return (
             <InputWrapper
@@ -672,7 +743,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 </button>
                             }
 
-                            <ul className="tags-input__tag-list">
+                            <ListWrapper>
                                 {this.state.value.map((item, i: number) => {
                                     const Wrapper: React.ComponentType<{backgroundColor?: string}>
                                     = ({backgroundColor, children}) => (
@@ -684,25 +755,30 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                             backgroundColor={backgroundColor}
                                             onRemove={() => this.removeClick(i)}
                                             getBackgroundColor={this.props.getBackgroundColor}
+                                            draggable={this.props.sortable}
                                         >
                                             {children}
                                         </TreeSelectPill>
                                     );
 
+                                    const itemId = this.props.getId(item);
+
                                     return (
-                                        <React.Fragment key={i}>
+                                        <ItemWrapper itemId={itemId} key={itemId} i={i}>
                                             {this.props.valueTemplate
                                                 ? this.props.valueTemplate(item, Wrapper)
                                                 : (
                                                     <Wrapper>
-                                                        <span>{this.props.getLabel(item)}</span>
+                                                        <span>
+                                                            {this.props.getLabel(item)}
+                                                        </span>
                                                     </Wrapper>
                                                 )
                                             }
-                                        </React.Fragment>
+                                        </ItemWrapper>
                                     );
                                 })}
-                            </ul>
+                            </ListWrapper>
 
                             {this.state.value.length > 0
                                 ? (this.props.readOnly || this.props.disabled)
@@ -842,7 +918,11 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 this.ICancelFn();
                                             }
 
-                                            this.setState({searchFieldValue: event.target.value, options: []});
+                                            this.setState({
+                                                searchFieldValue: event.target.value,
+                                                options: [],
+                                                loading: true,
+                                            });
                                             this.popperInstance?.update();
                                             this.debounceFn();
                                         } else {
