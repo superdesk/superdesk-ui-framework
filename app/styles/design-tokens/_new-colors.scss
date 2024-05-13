@@ -604,9 +604,11 @@
     --sd-colour-background__base--30:     hsla(0, 0%, 70%, 1);
   
     --color-text:                         hsla(214, 13%, 20%, 1);
-    --color-text--inverse:                hsla(214, 13%, 98%, 1);
     --color-text-light:                   hsla(214, 13%, 40%, 1);
+    --color-text-muted:                   hsla(214, 13%, 40%, 1);
     --color-text-lighter:                 hsla(214, 13%, 60%, 1);
+    --color-text-subdued:                 hsla(214, 13%, 60%, 1);
+    --color-text--inverse:                hsla(214, 13%, 98%, 1);
     --color-icon-default:                 hsla(214, 13%, 30%, 1);
     --sd-slugline-color:                  hsla(197, 100%, 15%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 100%, 25%, 1);
@@ -687,7 +689,10 @@
     //color:                                hsla(0, 0%, 100%, 1);
     --color-text:                         hsla(0, 0%, 96%, 1);
     --color-text-light:                   hsla(214, 13%, 76%, 1);
+    --color-text-muted:                   hsla(214, 13%, 76%, 1);
     --color-text-lighter:                 hsla(214, 13%, 56%, 1);
+    --color-text-subdued:                 hsla(214, 13%, 56%, 1);
+    --color-text--inverse:                hsla(214, 13%, 20%, 1);
     --color-icon-default:                 hsla(214, 13%, 90%, 1);
     --sd-slugline-color:                  hsla(197, 60%, 75%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 60%, 65%, 1);

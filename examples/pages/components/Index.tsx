@@ -64,12 +64,16 @@ import { MultiselectDocs } from './MultiSelect';
 import { TreeSelectDocs } from './TreeSelect';
 import { TreeMenuDocs } from './TreeMenu';
 import DurationInputDoc from './DurationInput';
-import {WithPaginationDocs} from './WithPaginationDocs';
+import { WithPaginationDocs } from './WithPaginationDocs';
 import { PopoverDoc } from './Popover';
 import { MenuDocs } from './Menu';
-import {WithSizeObserverDocs} from './WithSizeObserver';
-import {ResizablePanelsDoc} from './ResizablePanels';
+import { WithSizeObserverDocs } from './WithSizeObserver';
+import { ResizablePanelsDoc } from './ResizablePanels';
 import { IllustrationButtonDoc } from './IllustrationButton';
+
+// Utilities
+import {SpacingUtilitiesDoc} from './utilities/SpacingUtilities';
+import {TextUtilitiesDoc} from './utilities/TextUtilities';
 
 const pages = {
     basicComponents: {
@@ -291,6 +295,17 @@ const pages = {
                 name: 'Big icon font'
             }
         }
+    },
+    utilityClasses: {
+        name: "Utility classes",
+        items: {
+            'spacing-utilities': {
+                name: 'Spacing Utilities',
+            },
+            'text-utilities': {
+                name: 'Text utilities'
+            }
+        }
     }
 }
 interface IProps {
@@ -344,66 +359,69 @@ class ReactDoc extends React.Component<IProps, IState> {
                         </Dropdown>
                     </div>
                     <Switch>
-                        <Route path="/react/buttons" component={ButtonsDoc} />
-                        <Route path="/react/icon-buttons" component={IconButtonDoc} />
-                        <Route path="/react/button-groups" component={ButtonGroupsDoc} />
-                        <Route path="/react/labels" component={LabelsDoc} />
-                        <Route path="/react/icon-labels" component={IconLabelDoc} />
-                        <Route path="/react/badges" component={BadgesDoc} />
-                        <Route path="/react/alerts" component={AlertDoc} />
-                        <Route path="/react/avatar" component={AvatarDoc} />
-                        <Route path="/react/tooltips" component={TooltipDoc} />
-                        <Route path="/react/tags" component={TagDoc} />
-                        <Route path="/react/inputs" component={InputsDoc} />
-                        <Route path="/react/autocomplete" component={AutocompleteDoc} />
-                        <Route path="/react/select" component={SelectsDoc} />
-                        <Route path="/react/select-with-template" component={SelectWithTemplateDocs} />
-                        <Route path="/react/with-size-observer" component={WithSizeObserverDocs} />
-                        <Route path="/react/multiselect" component={MultiselectDocs} />
-                        <Route path="/react/treeselect" component={TreeSelectDocs} />
-                        <Route path="/react/treemenu" component={TreeMenuDocs} />
-                        <Route path="/react/duration-input" component={DurationInputDoc} />
-                        <Route path="/react/with-pagination" component={WithPaginationDocs} />
-                        <Route path="/react/popover" component={PopoverDoc} />
-                        <Route path="/react/date-picker" component={DatePickerDoc} />
-                        <Route path="/react/time-picker" component={TimePickerDoc} />
-                        <Route path="/react/switch" component={SwitchDoc} />
-                        <Route path="/react/radiogroup" component={RadioGroupDoc} />
-                        <Route path="/react/checkbox" component={CheckboxsDoc} />
-                        <Route path="/react/tab" component={TabsDoc} />
-                        <Route path="/react/left-navigation" component={LeftNavigationsDoc} />
-                        <Route path="/react/Quick-navigation-bar" component={QuickNavBarDoc} />
-                        <Route path="/react/nav-buttons" component={NavButtonsDoc} />
-                        <Route path="/react/icon-font" component={IconFontDoc} />
-                        <Route path="/react/big-icon-font" component={BigIconFontDoc} />
-                        <Route path="/react/sub-navigation" component={SubNavDoc} />
-                        <Route path="/react/dropdowns" component={DropdownDoc} />
-                        <Route path="/react/toast" component={ToastsDoc} />
-                        <Route path="/react/drag-handle" component={DragHandleDocs} />
-                        <Route path="/react/tag-input" component={TagInputDocs} />
-                        <Route path="/react/empty-states" component={EmptyStateDoc} />
-                        <Route path="/react/grid-list" component={GridListDoc} />
-                        <Route path="/react/grid-item" component={GridItemDoc} />
-                        <Route path="/react/modal" component={ModalDoc} />
-                        <Route path="/react/carousel" component={CarouselDoc} />
-                        <Route path="/react/content-divider" component={ContentDividerDoc} />
-                        <Route path="/react/menu" component={MenuDocs} />
-                        <Route path="/react/togglebox" component={ToggleboxDocs} />
-                        <Route path="/react/list-items" component={ListItemsDoc} />
-                        <Route path="/react/panel" component={PanelDoc} />
-                        <Route path="/react/select-grid" component={SelectGridDocs} />
-                        <Route path="/react/icon-picker" component={IconPickerDocs} />
-                        <Route path="/react/simple-list" component={SimpleListDoc} />
-                        <Route path="/react/boxed-list" component={BoxedListDoc} />
-                        <Route path="/react/table-list" component={TableListDoc} />
-                        <Route path="/react/content-list" component={ContentListDoc} />
-                        <Route path="/react/heading" component={HeadingDoc} />
-                        <Route path="/react/text" component={TextDoc} />
-                        <Route path="/react/container" component={ContainerDoc} />
-                        <Route path="/react/dropzone" component={DropZoneDoc} />
-                        <Route path="/react/create-button" component={CreateButtonDoc} />
-                        <Route path="/react/resizable-panels" component={ResizablePanelsDoc} />
-                        <Route path="/react/illustration-button" component={IllustrationButtonDoc} />
+                        <Route path="/components/buttons" component={ButtonsDoc} />
+                        <Route path="/components/icon-buttons" component={IconButtonDoc} />
+                        <Route path="/components/button-groups" component={ButtonGroupsDoc} />
+                        <Route path="/components/labels" component={LabelsDoc} />
+                        <Route path="/components/icon-labels" component={IconLabelDoc} />
+                        <Route path="/components/badges" component={BadgesDoc} />
+                        <Route path="/components/alerts" component={AlertDoc} />
+                        <Route path="/components/avatar" component={AvatarDoc} />
+                        <Route path="/components/tooltips" component={TooltipDoc} />
+                        <Route path="/components/tags" component={TagDoc} />
+                        <Route path="/components/inputs" component={InputsDoc} />
+                        <Route path="/components/autocomplete" component={AutocompleteDoc} />
+                        <Route path="/components/select" component={SelectsDoc} />
+                        <Route path="/components/select-with-template" component={SelectWithTemplateDocs} />
+                        <Route path="/components/with-size-observer" component={WithSizeObserverDocs} />
+                        <Route path="/components/multiselect" component={MultiselectDocs} />
+                        <Route path="/components/treeselect" component={TreeSelectDocs} />
+                        <Route path="/components/treemenu" component={TreeMenuDocs} />
+                        <Route path="/components/duration-input" component={DurationInputDoc} />
+                        <Route path="/components/with-pagination" component={WithPaginationDocs} />
+                        <Route path="/components/popover" component={PopoverDoc} />
+                        <Route path="/components/date-picker" component={DatePickerDoc} />
+                        <Route path="/components/time-picker" component={TimePickerDoc} />
+                        <Route path="/components/switch" component={SwitchDoc} />
+                        <Route path="/components/radiogroup" component={RadioGroupDoc} />
+                        <Route path="/components/checkbox" component={CheckboxsDoc} />
+                        <Route path="/components/tab" component={TabsDoc} />
+                        <Route path="/components/left-navigation" component={LeftNavigationsDoc} />
+                        <Route path="/components/Quick-navigation-bar" component={QuickNavBarDoc} />
+                        <Route path="/components/nav-buttons" component={NavButtonsDoc} />
+                        <Route path="/components/icon-font" component={IconFontDoc} />
+                        <Route path="/components/big-icon-font" component={BigIconFontDoc} />
+                        <Route path="/components/sub-navigation" component={SubNavDoc} />
+                        <Route path="/components/dropdowns" component={DropdownDoc} />
+                        <Route path="/components/toast" component={ToastsDoc} />
+                        <Route path="/components/drag-handle" component={DragHandleDocs} />
+                        <Route path="/components/tag-input" component={TagInputDocs} />
+                        <Route path="/components/empty-states" component={EmptyStateDoc} />
+                        <Route path="/components/grid-list" component={GridListDoc} />
+                        <Route path="/components/grid-item" component={GridItemDoc} />
+                        <Route path="/components/modal" component={ModalDoc} />
+                        <Route path="/components/carousel" component={CarouselDoc} />
+                        <Route path="/components/content-divider" component={ContentDividerDoc} />
+                        <Route path="/components/menu" component={MenuDocs} />
+                        <Route path="/components/togglebox" component={ToggleboxDocs} />
+                        <Route path="/components/list-items" component={ListItemsDoc} />
+                        <Route path="/components/panel" component={PanelDoc} />
+                        <Route path="/components/select-grid" component={SelectGridDocs} />
+                        <Route path="/components/icon-picker" component={IconPickerDocs} />
+                        <Route path="/components/simple-list" component={SimpleListDoc} />
+                        <Route path="/components/boxed-list" component={BoxedListDoc} />
+                        <Route path="/components/table-list" component={TableListDoc} />
+                        <Route path="/components/content-list" component={ContentListDoc} />
+                        <Route path="/components/heading" component={HeadingDoc} />
+                        <Route path="/components/text" component={TextDoc} />
+                        <Route path="/components/container" component={ContainerDoc} />
+                        <Route path="/components/dropzone" component={DropZoneDoc} />
+                        <Route path="/components/create-button" component={CreateButtonDoc} />
+                        <Route path="/components/resizable-panels" component={ResizablePanelsDoc} />
+                        <Route path="/components/illustration-button" component={IllustrationButtonDoc} />
+                        {/* Utilities */}
+                        <Route path="/components/spacing-utilities" component={SpacingUtilitiesDoc} />
+                        <Route path="/components/text-utilities" component={TextUtilitiesDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

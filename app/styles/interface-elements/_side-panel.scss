@@ -40,6 +40,10 @@ $side-panel-Bg-200: var(--sd-colour-panel-bg--200);
         color: $white;
     }
 
+    .side-panel__header--light {
+        background-color: var(--sd-colour-panel-bg--000);
+    }
+
     .side-panel__header--darker {
         background-color: var(--sd-colour-panel-bg--100);
     }
