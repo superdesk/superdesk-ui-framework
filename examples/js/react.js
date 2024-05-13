@@ -1,8 +1,11 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
 import Prism from 'prismjs';
-
-import { NavLink } from 'react-router-dom';
+import NormalizeWhitespace from 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace';
+import LineNumbers from 'prismjs/plugins/line-numbers/prism-line-numbers';
+import Markdown from 'prismjs/components/prism-markdown';
+import JSX from 'prismjs/components/prism-jsx';
 
 class ReactNav extends React.PureComponent {
     constructor(props) {
@@ -15,8 +18,20 @@ class ReactNav extends React.PureComponent {
             }, {}),
         };
 
+        this.activeRef = React.createRef();
+
         this.handleSearchChange = this.handleSearchChange.bind(this);
         this.toggleSection = this.toggleSection.bind(this);
+    }
+
+
+    componentDidMount() {
+        if (this.activeRef.current) {
+            this.activeRef.current.scrollIntoView({
+                block: 'center',
+                inline: 'nearest'
+            });
+        }
     }
 
     handleSearchChange(event) {
@@ -71,7 +86,7 @@ class ReactNav extends React.PureComponent {
                 {this.state.expandedSections[group] && (
                     <ul className="docs-page__nav--sub-level">
                         {Object.keys(filteredPages[group].items).map((page) =>
-                            <li key={page} className="docs-page__nav-item">
+                            <li key={page} className="docs-page__nav-item" ref={`/${base}/${page}` === location.hash.replace('#', '') ? this.activeRef : null}>
                                 <NavLink to={{ pathname: `/${base}/${page}` }} activeClassName="docs-page__nav-item--active">{filteredPages[group].items[page].name}</NavLink>
                             </li>
                         )}

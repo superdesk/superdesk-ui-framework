@@ -250,7 +250,7 @@ export default angular.module('ui-docs', [
                 },
             },
         }
-        
+
     }))
 
     .factory('playgrounds', () => ({
