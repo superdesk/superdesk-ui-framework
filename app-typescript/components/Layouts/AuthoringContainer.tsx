@@ -19,8 +19,10 @@ export class AuthoringContainer extends React.PureComponent<IProps> {
         });
         return (
             <div className={classes}>
-                <div className={`sd-editor__container ${this.props.large ? 'sd-editor__container--large' : ''}`}>
-                    {this.props.children}
+                <div className='sd-editor__container-wrapper'>
+                    <div className={`sd-editor__container ${this.props.large ? 'sd-editor__container--large' : ''}`}>
+                        {this.props.children}
+                    </div>
                 </div>
             </div>
         );
