@@ -1,0 +1,31 @@
+.expand-button {
+    --sd-btn-bg: var(--sd-colour-btn-bg-neutral);
+    --sd-btn-bg--hover: var(--sd-colour-btn-bg-neutral--hover);
+    --sd-btn-bg--active: var(--sd-colour-btn-bg-neutral--active);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.2rem;
+    transition: all 0.2s ease;
+    outline: none;
+    padding-inline: var(--space--0-5);
+    background-color: var(--sd-btn-bg);
+    border-radius: 0 var(--b-radius--medium) var(--b-radius--medium) 0;
+    opacity: 0.75;
+    color: var(--color-text);
+    [class^="icon-"], [class*=" icon-"] {
+        transition: transform 0.2s ease;
+        color: currentColor;
+    }
+    &:hover {
+        padding-inline: var(--space--1);
+    }
+    &:active {
+        opacity: 1;
+    }
+    &.expand-button--expanded {
+        [class^="icon-"], [class*=" icon-"] {
+            transform: rotate(180deg);
+        }
+    }
+}
