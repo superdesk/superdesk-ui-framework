@@ -1402,6 +1402,9 @@ h6 {
 // ==================== TYPOGRAPHY =================== //
 
 // FONT SIZE
+.text-2xs {
+    font-size: calc(var(--text-size--base) * 1); // 12px;
+}
 .sd-font-size--x-small,
 .text-xs {
     font-size: calc(var(--text-size--base) * 1.2); // 12px;
