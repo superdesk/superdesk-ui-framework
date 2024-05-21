@@ -17,10 +17,15 @@ export class AuthoringContainer extends React.PureComponent<IProps> {
             this.props.background !== 'light' && this.props.background !== undefined,
             'open-editor': this.props.open,
         });
+
+        let classesContainerInner = classNames('sd-editor__container', {
+            [`sd-editor__container--large`]: this.props.large,
+        });
+
         return (
             <div className={classes}>
                 <div className='sd-editor__container-wrapper'>
-                    <div className={`sd-editor__container ${this.props.large ? 'sd-editor__container--large' : ''}`}>
+                    <div className={classesContainerInner}>
                         {this.props.children}
                     </div>
                 </div>
