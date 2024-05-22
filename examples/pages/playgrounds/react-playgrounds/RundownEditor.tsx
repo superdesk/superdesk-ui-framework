@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ButtonGroup, Button, NavButton, SubNav, Input, IconButton, Divider, Tooltip, Select, Option, Text, SlidingToolbar, Container, Label, IconLabel } from '../../../../app-typescript/index';
+import { ButtonGroup, Button, NavButton, SubNav, Input, IconButton, Divider, Tooltip, Select, Option, Text, SlidingToolbar, Container, Label, IconLabel, Icon } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
@@ -29,6 +29,7 @@ interface IState {
     array: any;
     inputValue: string;
     activeTab: string | null;
+    isExpanded: boolean;
 }
 
 export class RundownEditor extends React.Component<IProps, IState> {
@@ -117,6 +118,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
                 },
             ],
             activeTab: null,
+            isExpanded: false,
         }
         this.handleTheme = this.handleTheme.bind(this);
     }
@@ -134,11 +136,24 @@ export class RundownEditor extends React.Component<IProps, IState> {
             item.status.push(status);
         }
     }
+
+    toggleExpand = () => {
+        this.setState(prevState => ({ isExpanded: !prevState.isExpanded }));
+    }
+
     render() {
         return (
             <Layout.LayoutContainer>
                 <Layout.HeaderPanel>
                     <SubNav>
+                        <Tooltip text={this.state.isExpanded ? "Revert Authoring" : "Expand Authoring"} flow='right' appendToBody={true}>
+                            <button 
+                                className={`expand-button ${this.state.isExpanded ? "expand-button--expanded" : ""}`}
+                                onClick={this.toggleExpand}
+                            >
+                                <Icon name='chevron-left-thin' />
+                            </button>
+                        </Tooltip>
                         <ButtonGroup align='end'>
                             <Button text="Cancel" onClick={()=> false} type="default" />
                             <Button text="Save Rundown" onClick={()=> false} type="primary" />

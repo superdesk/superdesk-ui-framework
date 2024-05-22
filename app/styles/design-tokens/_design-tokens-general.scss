@@ -62,6 +62,7 @@
 
     // TEXT SIZE
     --text-size--base: 1rem;
+    --text-size-xx-small: calc(var(--text-size--base) * 1); // 10px;
     --text-size-x-small: calc(var(--text-size--base) * 1.2); // 12px;
     --text-size-small: calc(var(--text-size--base) * 1.4); // 14px;
     --text-size-medium: calc(var(--text-size--base) * 1.6); // 16px;

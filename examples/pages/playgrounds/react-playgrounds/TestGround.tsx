@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, SvgIconIllustration, IllustrationButton } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, SvgIconIllustration, IllustrationButton, SubNav, NavButton } from '../../../../app-typescript/index';
 import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
@@ -32,6 +32,7 @@ interface IState {
     value: any;
     valueS2: any;
     thisTheme: string;
+    isExpanded: boolean;
 }
 
 let options2 = [
@@ -73,6 +74,7 @@ export class TestGround extends React.Component<IProps, IState> {
             value: undefined,
             valueS2: undefined,
             thisTheme: 'light-ui',
+            isExpanded: false,
         }
     }
 
@@ -88,7 +90,11 @@ export class TestGround extends React.Component<IProps, IState> {
         this.setState( {
             thisTheme: this.state.thisTheme === 'light-ui' ? 'dark-ui' : 'light-ui',
         });
-      };
+    };
+
+    toggleExpand = () => {
+        this.setState(prevState => ({ isExpanded: !prevState.isExpanded }));
+    }
 
     render() {
         const avatars: Array<IAvatarInGroup> = [
@@ -144,6 +150,42 @@ export class TestGround extends React.Component<IProps, IState> {
                         <ButtonGroup align='end'>
                             <IconButton icon="adjust" ariaValue="Toggle theme" onClick={this.toggleTheme} toolTipFlow='left' />
                         </ButtonGroup>
+
+                        <hr />
+
+                        <SubNav color='darker'>
+                            <Tooltip text={this.state.isExpanded ? "Revert Authoring" : "Expand Authoring"} flow='right' appendToBody={true}>
+                                <button 
+                                    className={`expand-button ${this.state.isExpanded ? "expand-button--expanded" : ""}`}
+                                    onClick={this.toggleExpand}
+                                >
+                                    <Icon name='chevron-left-thin' />
+                                </button>
+                            </Tooltip>
+                            <div className='text-2xs text-uppercase sd-display--flex ms-2 gap-0-5'>
+                                <span className='font-medium'>News desk</span>
+                                <span className='font-light text-color-subdued'>/</span>
+                                <span className='text-color-muted'>Working stage</span>
+                            </div>
+                            <ButtonGroup align='end'>
+                                <Button text="Cancel" onClick={()=> false} type="default" />
+                                <Button text="Save" onClick={()=> false} type="primary" />
+                                <Divider size="mini" />
+                                <ButtonGroup subgroup={true} spaces="no-space">
+                                    <Tooltip text='Minimize' flow='left'>
+                                        <NavButton type='default' icon='minimize' iconSize='big' text='Minimize' onClick={()=> false} />
+                                    </Tooltip>
+                                    <Tooltip text='More actions' flow='left'>
+                                        <NavButton type='default' icon='dots-vertical' text='More actions' onClick={()=> false} />
+                                    </Tooltip>
+                                    <Tooltip text='Send to / Publish' flow='left'>
+                                        <NavButton type='highlight' icon='send-to' iconSize='big' text='Send to / Publish' onClick={()=> false} />
+                                    </Tooltip>
+                                </ButtonGroup>
+                            </ButtonGroup>
+                        </SubNav>
+                        
+                        <hr />
 
                         <div className='sd-grid-list sd-grid-list--xx-small sd-grid-list--gap-s sd-grid-list--no-margin' style={{width:'290px'}}>
                             
