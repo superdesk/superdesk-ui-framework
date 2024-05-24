@@ -383,6 +383,10 @@
 }
 
 .sd-editor__container-wrapper {
+    grid-column: 1 / 2;
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-auto-columns: auto;
     width: 0;
     min-width: 0;
     max-width: 0;
@@ -390,10 +394,6 @@
 }
 
 .sd-editor__container {
-    grid-column: 1 / 2;
-    display: grid;
-    grid-template-rows: 1fr;
-    grid-auto-columns: auto;
     overflow-y: auto;
     overflow: hidden;
     opacity: 0;
@@ -422,7 +422,7 @@
     }
 }
 
-.sd-content-wrapper--editor-full .open-editor .sd-editor__container {
+.sd-content-wrapper--editor-full .open-editor .sd-editor__container-wrapper {
     min-width: auto;
     max-width: none;
 }
