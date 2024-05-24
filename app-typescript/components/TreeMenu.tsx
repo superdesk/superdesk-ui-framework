@@ -57,7 +57,7 @@ function nodeCanBeSelected<T>(item: IParent<T> | IChildren<T>): item is IChildre
 
 function onSelect<T>(item: ITreeMenuNode<T>) {
     if (nodeCanBeSelected(item)) {
-        return item.onSelect;
+        return item.onSelect();
     }
 
     return undefined;
@@ -420,7 +420,9 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                             key={i}
                                             option={option}
                                             handleTree={this.handleTree}
-                                            onClick={onSelect(option)}
+                                            onClick={() => {
+                                                onSelect(option);
+                                            }}
                                             disabledItem={disabledItem(option)}
                                             getBorderColor={this.props.getBorderColor}
                                             getBackgroundColor={this.props.getBackgroundColor}
