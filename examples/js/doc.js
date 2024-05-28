@@ -1,7 +1,7 @@
 /* eslint-disable */
 /* global _, PR */
 
-import { ReactDoc, ReactPlayground } from './../pages/components/Index';
+import { ReactDoc, ReactPlayground, ReactThemePicker } from './../pages/components/Index';
 import { DesignPatternsDoc } from './../pages/design-patterns/Index';
 import { HashRouter } from 'react-router-dom';
 
@@ -177,6 +177,17 @@ function docReactPlayground(playgrounds) {
     };
 }
 
+docThemePicker.$inject = [];
+function docThemePicker() {
+    return {
+        link: function (scope, elem) {
+            ReactDOM.render(
+                <ReactThemePicker />, elem[0]
+            )
+        }
+    };
+}
+
 docGifImg.$inject = [];
 function docGifImg() {
     return {
@@ -214,4 +225,5 @@ export default angular.module('ui-docs.directives', [])
     .directive('docReact', docReact)
     .directive('docDesignPatterns', docDesignPatterns)
     .directive('docReactPlayground', docReactPlayground)
+    .directive('docThemePicker', docThemePicker)
     .directive('docGifImg', docGifImg);
