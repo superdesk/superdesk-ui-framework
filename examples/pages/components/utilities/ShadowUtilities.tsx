@@ -110,7 +110,7 @@ class ShadowUtilitiesDoc extends React.Component {
                     <div className="docs-page__code-window docs-page__example-box">
                             <div className="p-4">
                                 <p className="text-md font-light text-color-subdued mb-2">sd-drop-shadow--z3</p>
-                                <img className='sd-drop-shadow--z3' width={300} src='./../../../../app/img/SD-logo.svg' />
+                                <img className='sd-drop-shadow--z3' width={300} src='./SD-logo.svg' />
                             </div>
                     </div>
                 </div>
