@@ -23,7 +23,7 @@ class TextUtilitiesDoc extends React.Component {
                                 </tr>
                             </thead>
                             <tbody>
-                            <tr>
+                                <tr>
                                     <td>text-2xs</td>
                                     <td>{'font-size: var(--text-size-x-small);'} <span className="doc-text--highlight">/* 10px */</span></td>
                                 </tr>
@@ -408,7 +408,7 @@ class TextUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>break-normal</td>
                                     <td>
-                                        {'overflow-wrap: normal;'}
+                                        {'overflow-wrap: normal;'}<br />
                                         {'word-break: normal;'}
                                     </td>
                                 </tr>

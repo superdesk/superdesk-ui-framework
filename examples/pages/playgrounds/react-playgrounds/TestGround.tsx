@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, SvgIconIllustration, IllustrationButton, SubNav, NavButton } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, Avatar, SvgIconIllustration, IllustrationButton, SubNav, NavButton } from '../../../../app-typescript/index';
 import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
@@ -33,6 +33,9 @@ interface IState {
     valueS2: any;
     thisTheme: string;
     isExpanded: boolean;
+    openCollapsibleOne: boolean;
+    openCollapsibleTwo: boolean;
+    openCollapsibleThree: boolean;
 }
 
 let options2 = [
@@ -75,6 +78,9 @@ export class TestGround extends React.Component<IProps, IState> {
             valueS2: undefined,
             thisTheme: 'light-ui',
             isExpanded: false,
+            openCollapsibleOne: false,
+            openCollapsibleTwo: false,
+            openCollapsibleThree: false,
         }
     }
 
@@ -150,6 +156,212 @@ export class TestGround extends React.Component<IProps, IState> {
                         <ButtonGroup align='end'>
                             <IconButton icon="adjust" ariaValue="Toggle theme" onClick={this.toggleTheme} toolTipFlow='left' />
                         </ButtonGroup>
+
+                        <hr />
+
+                        <div style={{maxWidth: '600px'}} className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleOne ? 'new-collapse-box--open' : ''}`}>
+                            {/* Header */}
+                            <div className='new-collapse-box__header'>
+                                <div className='new-collapse-box__header-inner'>
+                                    <div role="listitem" className="sd-list-item sd-list-item--no-hover">
+                                        <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                        <div className="sd-list-item__column sd-list-item__column--no-border pe-0-5">
+                                            <Icon type='primary' name='calendar' scale='1.5x' ariaHidden={true} />
+                                        </div>
+                                        <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div className="sd-list-item__row">
+                                                <span className="sd-list-item__slugline">Planning Slug</span>
+                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                    <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                                </span>
+                                            </div>
+                                            <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                <Label text='draft' style='translucent'/>
+                                                <span className="sd-margin-s--auto">
+                                                <AvatarGroup
+                                                    size="x-small"
+                                                    items={avatars}
+                                                />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleOne: !prevState.openCollapsibleOne}))}>
+                                    <span className='label label--translucent new-collapse-box__divider-label'>
+                                        {this.state.openCollapsibleOne ? 'Show less' : 'Show more'}
+                                    </span>
+                                </button>
+                            </div>
+
+                            {/* Content */}
+                            <div className='new-collapse-box__content'>
+                                <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                    <div>
+                                        <FormLabel text='Name'/>
+                                        <Text size='small' weight='medium'>Australian Open 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Date'/>
+                                        <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Repeat Summary'/>
+                                        <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='No. of events'/>
+                                        <Text size='small' weight='medium'>1</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+
+                                    {/* NESTED BOX */}
+                                    <div className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleTwo ? 'new-collapse-box--open' : ''}`}>
+                                        {/* Header */}
+                                        <div className='new-collapse-box__header'>
+                                            <div className='new-collapse-box__header-inner'>
+                                                <div role="listitem" className="sd-list-item sd-list-item--no-hover">
+                                                    <div className="sd-list-item__column sd-list-item__column--no-border pe-1">
+                                                    <Avatar
+                                                        displayName="Jeffrey Lebowski"
+                                                        imageUrl={null}
+                                                        initials='JL'
+                                                        size="medium"
+                                                        icon={{name: 'photo', color: 'var(--sd-colour-highlight)'}}
+                                                    />
+
+                                                    </div>
+                                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                        <div className="sd-list-item__row">
+                                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                                <span className="sd-list-item__compound-text">
+                                                                    <span className="sd-list-item__text-strong">Photo</span>
+                                                                    <span className="sd-list-item__text-light">//</span>
+                                                                    <span className="sd-list-item__text">Archive</span>
+                                                                </span>
+                                                                
+                                                            </span>
+                                                            <time className="sd-margin-s--auto" title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                        </div>
+                                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible mb-1-5">
+                                                            <span className="sd-list-item__compound-text">
+                                                                <span className="sd-list-item__text-label">Desk:</span>
+                                                                <span>Sports</span>
+                                                            </span>
+                                                            <span className="sd-list-item__compound-text">
+                                                                <span className="sd-list-item__text-label">Assignee:</span>
+                                                                <span>Jeffrey Lebowski</span>
+                                                            </span>
+                                                            <span className='sd-margin-s--auto'>
+                                                                <Label text='in progress' style='translucent' type='success'/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleTwo: !prevState.openCollapsibleTwo}))}>
+                                                <span className='label label--translucent new-collapse-box__divider-label'>
+                                                    {this.state.openCollapsibleTwo ? 'Show less' : 'Show more'}
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className='new-collapse-box__content'>
+                                            <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                                <div>
+                                                    <FormLabel text='Name'/>
+                                                    <Text size='small' weight='medium'>Australian Open 2024</Text>
+                                                </div>
+                                                <ContentDivider type="dashed" margin='x-small' />
+                                                <div>
+                                                    <FormLabel text='Current Date'/>
+                                                    <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                                                </div>
+                                                <ContentDivider type="dashed" margin='x-small' />
+                                                <div>
+                                                    <FormLabel text='Current Repeat Summary'/>
+                                                    <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                                                </div>
+                                                <ContentDivider type="dashed" margin='x-small' />
+                                                <div>
+                                                    <FormLabel text='No. of events'/>
+                                                    <Text size='small' weight='medium'>1</Text>
+                                                </div>
+                                                {/* <ContentDivider type="dashed" margin='x-small' /> */}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Second Collapsible */}
+
+                        <div style={{maxWidth: '600px'}} className={`mt-2 sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleThree ? 'new-collapse-box--open' : ''}`}>
+                            {/* Header */}
+                            <div className='new-collapse-box__header'>
+                                <div className='new-collapse-box__header-inner'>
+                                    <div role="listitem" className="sd-list-item sd-list-item--no-hover">
+                                        <div className="sd-list-item__border sd-list-item__border--active"></div>
+                                        <div className="sd-list-item__column sd-list-item__column--no-border pe-0-5">
+                                            <Icon type='primary' name='calendar' scale='1.5x' ariaHidden={true} />
+                                        </div>
+                                        <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div className="sd-list-item__row">
+                                                <span className="sd-list-item__slugline">Planning Item Slug</span>
+                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                    <span className="sd-list-item__text-strong">Aenean eu leo quam. Pellentesque ornare sem lacinia quam</span>
+                                                </span>
+                                            </div>
+                                            <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                <Label text='in progress' type='success' style='translucent'/>
+                                                <span className="sd-margin-s--auto">
+                                                <AvatarGroup
+                                                    size="x-small"
+                                                    items={avatars}
+                                                />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleThree: !prevState.openCollapsibleThree}))}>
+                                    <span className='label label--translucent new-collapse-box__divider-label'>
+                                        {this.state.openCollapsibleThree ? 'Show less' : 'Show more'}
+                                    </span>
+                                </button>
+                            </div>
+
+                            {/* Content */}
+                            <div className='new-collapse-box__content'>
+                                <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                    <div>
+                                        <FormLabel text='Name'/>
+                                        <Text size='small' weight='medium'>Australian Open 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Date'/>
+                                        <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Repeat Summary'/>
+                                        <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='No. of events'/>
+                                        <Text size='small' weight='medium'>1</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                </div>
+                            </div>
+                        </div>
 
                         <hr />
 

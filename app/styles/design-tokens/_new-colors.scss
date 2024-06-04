@@ -368,7 +368,11 @@
     --sd-colour-state--in-progress: var(--sd-colour-highlight);
     --sd-colour-state--done: var(--sd-colour-success);
 
-
+    // New Collapsible Box
+    --collapse-box-button-color-bg-default: hsla(var(--sd-colour-cool-grey-l--85), 1);
+    --collapse-box-button-color-bg-hover: hsla(var(--sd-colour-cool-grey-l--80), 1);
+    --collapse-box-button-color-fg-default: var(--color-text);
+    --collapse-box-button-color-fg-hover: var(--color-text);
 }
 
 
@@ -531,6 +535,12 @@
     --sd-colour-state--default: var(--color-text-lighter);
     --sd-colour-state--in-progress: var(--sd-colour-highlight);
     --sd-colour-state--done: var(--sd-colour-success);
+
+    // New Collapsible Box
+    --collapse-box-button-color-bg-default: hsla(var(--sd-colour-cool-grey-l--25), 1);
+    --collapse-box-button-color-bg-hover: hsla(var(--sd-colour-cool-grey-l--30), 1);
+    --collapse-box-button-color-fg-default: var(--color-text-light);
+    --collapse-box-button-color-fg-hover: var(--color-text);
 }
 
 
