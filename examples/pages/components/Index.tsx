@@ -74,6 +74,7 @@ import { IllustrationButtonDoc } from './IllustrationButton';
 // Utilities
 import { SpacingUtilitiesDoc } from './utilities/SpacingUtilities';
 import { TextUtilitiesDoc } from './utilities/TextUtilities';
+import { ShadowUtilitiesDoc } from './utilities/ShadowUtilities';
 
 const pages = {
     basicComponents: {
@@ -300,10 +301,13 @@ const pages = {
         name: "Utility classes",
         items: {
             'spacing-utilities': {
-                name: 'Spacing Utilities',
+                name: 'Spacing utilities',
             },
             'text-utilities': {
                 name: 'Text utilities'
+            },
+            'shadow-utilities': {
+                name: 'Shadow utilities'
             }
         }
     }
@@ -379,6 +383,7 @@ class ReactDoc extends React.Component {
                         {/* Utilities */}
                         <Route path="/components/spacing-utilities" component={SpacingUtilitiesDoc} />
                         <Route path="/components/text-utilities" component={TextUtilitiesDoc} />
+                        <Route path="/components/shadow-utilities" component={ShadowUtilitiesDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
