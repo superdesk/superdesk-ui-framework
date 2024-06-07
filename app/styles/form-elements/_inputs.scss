@@ -764,6 +764,10 @@
         min-width: 110px;
     }
 
+    .sd-input__input-container .p-calendar {
+        width: 100%;
+    }
+
     textarea {
         &.sd-input__input {
             height: auto;
