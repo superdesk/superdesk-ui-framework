@@ -728,7 +728,7 @@ export class Rundowns extends React.Component<IProps, IState> {
                     contentBg='medium'
                     size='medium' onHide={() => {this.setState({modalNewShowSuccess: false})}}
                 >
-                    <Container direction='column' className='sd-flex--justify-center sd-flex--items-center sd-padding-y--2' gap='medium'>
+                    <Container direction='column' className='justify-center items-center py-2' gap='medium'>
                         <Icon name='checkmark-circle' type='success' size='big' scale='3x' />
                         <Text align='center' size='medium'>
                             The show <strong>Marker</strong> has been successfully created.<br />

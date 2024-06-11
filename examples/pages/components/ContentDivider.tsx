@@ -125,7 +125,7 @@ export default class ContentDividerDoc extends React.Component {
                         </div>
                         <p className="docs-page__paragraph ">// With text</p>
                         <p className="docs-page__paragraph--small sd-margin-b--3">Inside a flex container (flex-direction: column;).</p>
-                        <div className='docs-page__content-row sd-display--flex'>
+                        <div className='docs-page__content-row d-flex'>
                             <div style={{width:'100%'}}>
                                 Cras justo odio, dapibus ac facilisis in, egestas eget quam. Cum sociis natoque penatibus et
                                 magnis dis parturient montes, nascetur ridiculus mus. Maecenas sed diam eget risus varius blandit
