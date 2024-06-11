@@ -5,7 +5,7 @@ class ShadowUtilitiesDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
-                <h2 className="docs-page__h2">Shadow Utilities</h2>
+                <h2 className="docs-page__h2">Shadow</h2>
                 <p className="docs-page__paragraph">
                     Utility classes for managing the shadow depth of an element.
                 </p>

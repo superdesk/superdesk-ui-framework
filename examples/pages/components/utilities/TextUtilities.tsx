@@ -5,7 +5,7 @@ class TextUtilitiesDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
-                <h2 className="docs-page__h2">Text Utilities</h2>
+                <h2 className="docs-page__h2">Text</h2>
 
                 <div className='docs-page__container-block--font-size'>
                     <h3 className="docs-page__h3">Font Size</h3>
@@ -419,6 +419,46 @@ class TextUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>break-all</td>
                                     <td>{'word-break: break-all;'}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div className='docs-page__container-block--whitespace'>
+                    <h3 className="docs-page__h3">Whitespace</h3>
+                    <div className="utilities-table__container">
+                        <table className="table utilities-table">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Properties</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>whitespace-normal</td>
+                                    <td>{'white-space: normal;'}</td>
+                                </tr>
+                                <tr>
+                                    <td>whitespace-nowrap</td>
+                                    <td>{'white-space: nowrap;'}</td>
+                                </tr>
+                                <tr>
+                                    <td>whitespace-pre</td>
+                                    <td>{'white-space: pre;'}</td>
+                                </tr>
+                                <tr>
+                                    <td>whitespace-pre-line</td>
+                                    <td>{'white-space: pre-line;'}</td>
+                                </tr>
+                                <tr>
+                                    <td>whitespace-pre-wrap</td>
+                                    <td>{'white-space: pre-wrap;'}</td>
+                                </tr>
+                                <tr>
+                                    <td>whitespace-break-spaces</td>
+                                    <td>{'white-space: break-spaces;'}</td>
                                 </tr>
                             </tbody>
                         </table>

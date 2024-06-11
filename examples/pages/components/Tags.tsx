@@ -55,7 +55,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
             
             <Markup.ReactMarkup>
                 <Markup.ReactMarkupPreview>
-                <div className='docs-page__content-row sd-display--flex sd-gap--small'>
+                <div className='docs-page__content-row d-flex gap-1'>
                     {this.state.tags.map((tag,index)=>{
                         return (
                             <React.Fragment key={index}>
@@ -86,7 +86,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
 
             <Markup.ReactMarkup>
                 <Markup.ReactMarkupPreview>
-                <div className='docs-page__content-row sd-display--flex sd-gap--small'>
+                <div className='docs-page__content-row d-flex gap-1'>
                     {this.state.tags2.map((tag,index)=>{
                         return (
                             <React.Fragment key={index}>
