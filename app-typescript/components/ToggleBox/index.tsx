@@ -2,7 +2,7 @@ import * as React from 'react';
 import {SimpleToggleBox} from './SimpleToggleBox';
 import {CustomHeaderToggleBox} from './CustomHeaderToggleBox';
 
-export interface IPropsWithLabel {
+export interface IPropsSimple {
     variant: 'simple';
     title: string;
     badge?: JSX.Element;
@@ -15,17 +15,16 @@ export interface IPropsWithLabel {
     onClose?(): void;
 }
 
-export interface IPropsWithoutLabel {
-    variant: 'custom-header';
-    // always visible
+export interface IPropsCustomHeader {
+    variant: 'custom-header'; // always visible
     header: React.ReactNode;
     children: React.ReactNode;
-    toggleButton: string;
+    toggleButtonLabel: string;
     initiallyOpen?: boolean;
     onToggle?(isOpen: boolean): void;
 }
 
-type IProps = IPropsWithLabel | IPropsWithoutLabel;
+type IProps = IPropsSimple | IPropsCustomHeader;
 
 export class ToggleBox extends React.PureComponent<IProps> {
     render() {

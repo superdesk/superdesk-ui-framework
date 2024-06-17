@@ -1,13 +1,13 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import {IPropsWithoutLabel} from "./index";
+import {IPropsCustomHeader} from "../ToggleBox/index";
 
 interface IState {
     isOpen: boolean;
 }
 
-export class CustomHeaderToggleBox extends React.PureComponent<IPropsWithoutLabel, IState> {
-    constructor(props: IPropsWithoutLabel) {
+export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeader, IState> {
+    constructor(props: IPropsCustomHeader) {
         super(props);
         this.state = {
             isOpen: this.props.initiallyOpen ?? false,
@@ -40,7 +40,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsWithoutLabe
                         onClick={this.toggle}
                     >
                         <span className='label label--translucent new-collapse-box__divider-label'>
-                            {this.props.toggleButton}
+                            {this.props.toggleButtonLabel}
                         </span>
                     </button>
                 </div>

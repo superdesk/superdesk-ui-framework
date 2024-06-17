@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import nextId from "react-id-generator";
-import {IPropsWithLabel} from "./index";
+import {IPropsSimple} from "../ToggleBox/index";
 
 interface IState {
     isOpen: boolean;
@@ -13,9 +13,9 @@ interface IState {
  * @description ToggleBox used to open/close a set of details
  */
 
-export class SimpleToggleBox extends React.PureComponent<IPropsWithLabel, IState> {
+export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
     htmlId = nextId();
-    constructor(props: IPropsWithLabel) {
+    constructor(props: IPropsSimple) {
         super(props);
         this.state = {
             isOpen: this.props.initiallyOpen ?? false,

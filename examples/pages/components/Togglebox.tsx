@@ -84,7 +84,7 @@ const ToggleboxDocs = () => {
                                     </div>
                                 </div>
                             }
-                            toggleButton={'show more'}
+                            toggleButtonLabel={'show more'}
                             onToggle={(isOpen) => false}
                         >
                             <div>
