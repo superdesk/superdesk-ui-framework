@@ -69,7 +69,7 @@ export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemConte
 } from './components/GridItem';
 export { toasted } from './components/Toast';
 export { Menu } from './components/Menu';
-export { ToggleBox } from './components/Togglebox';
+export { ToggleBox } from './components/ToggleBox/index';
 export { SelectGrid } from './components/SelectGrid';
 export { IconPicker } from './components/IconPicker';
 export { ThemeSelector } from './components/ThemeSelector';
