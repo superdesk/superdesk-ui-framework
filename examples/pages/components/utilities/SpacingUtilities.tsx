@@ -5,7 +5,7 @@ class SpacingUtilitiesDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
-                <h2 className="docs-page__h2">Spacing Utilities</h2>
+                <h2 className="docs-page__h2">Spacing</h2>
                 <p className="docs-page__paragraph">
                     The Superdesk UI Framework provides various spacing utility classes to modify the positioning and look of elements. 
                     All values are set in multiples of the <code>--base-increment</code>  CSS variable, which is equivalent to 0.8rem (or 8px in our context), to ensure consistency. 

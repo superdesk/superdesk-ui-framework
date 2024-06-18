@@ -374,7 +374,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <Icon name='chevron-left-thin' />
                                 </button>
                             </Tooltip>
-                            <div className='text-2xs text-uppercase sd-display--flex ms-2 gap-0-5'>
+                            <div className='text-2xs text-uppercase d-flex ms-2 gap-0-5'>
                                 <span className='font-medium'>News desk</span>
                                 <span className='font-light text-color-subdued'>/</span>
                                 <span className='text-color-muted'>Working stage</span>

@@ -75,6 +75,15 @@ import { IllustrationButtonDoc } from './IllustrationButton';
 import { SpacingUtilitiesDoc } from './utilities/SpacingUtilities';
 import { TextUtilitiesDoc } from './utilities/TextUtilities';
 import { ShadowUtilitiesDoc } from './utilities/ShadowUtilities';
+import { PositionUtilitiesDoc } from './utilities/PositionUtilities';
+import { OverflowUtilitiesDoc } from './utilities/OverflowUtilities';
+import { DisplayUtilitiesDoc } from './utilities/DisplayUtilities';
+import { FlexAndGridUtilitiesDoc } from './utilities/FlexAndGridUtilities';
+import { BorderRadiusUtilitiesDoc } from './utilities/BorderRadiusUtilities';
+import { BorderUtilitiesDoc } from './utilities/BorderUtilities';
+import { OpacityUtilitiesDoc } from './utilities/OpacityUtilities';
+import { ObjectFitUtilitiesDoc } from './utilities/ObjectFitUtilities';
+import { ObjectPositionUtilitiesDoc } from './utilities/ObjectPositionUtilities';
 
 const pages = {
     basicComponents: {
@@ -300,14 +309,41 @@ const pages = {
     utilityClasses: {
         name: "Utility classes",
         items: {
-            'spacing-utilities': {
-                name: 'Spacing utilities',
+            'border-utilities': {
+                name: 'Border'
             },
-            'text-utilities': {
-                name: 'Text utilities'
+            'border-radius-utilities': {
+                name: 'Border Radius'
+            },
+            'display-utilities': {
+                name: 'Display'
+            },
+            'flex-and-grid-utilities': {
+                name: 'Flex & Grid'
+            },
+            'object-fit-utilities': {
+                name: 'Object Fit'
+            },
+            'object-position-utilities': {
+                name: 'Object Position'
+            },
+            'opacity-utilities': {
+                name: 'Opacity'
+            },
+            'overflow-utilities': {
+                name: 'Overflow'
+            },
+            'position-utilities': {
+                name: 'Position'
             },
             'shadow-utilities': {
-                name: 'Shadow utilities'
+                name: 'Shadow'
+            },
+            'spacing-utilities': {
+                name: 'Spacing',
+            },
+            'text-utilities': {
+                name: 'Text'
             }
         }
     }
@@ -384,6 +420,15 @@ class ReactDoc extends React.Component {
                         <Route path="/components/spacing-utilities" component={SpacingUtilitiesDoc} />
                         <Route path="/components/text-utilities" component={TextUtilitiesDoc} />
                         <Route path="/components/shadow-utilities" component={ShadowUtilitiesDoc} />
+                        <Route path="/components/position-utilities" component={PositionUtilitiesDoc} />
+                        <Route path="/components/overflow-utilities" component={OverflowUtilitiesDoc} />
+                        <Route path="/components/display-utilities" component={DisplayUtilitiesDoc} />
+                        <Route path="/components/flex-and-grid-utilities" component={FlexAndGridUtilitiesDoc} />
+                        <Route path="/components/border-radius-utilities" component={BorderRadiusUtilitiesDoc} />
+                        <Route path="/components/border-utilities" component={BorderUtilitiesDoc} />
+                        <Route path="/components/opacity-utilities" component={OpacityUtilitiesDoc} />
+                        <Route path="/components/object-fit-utilities" component={ObjectFitUtilitiesDoc} />
+                        <Route path="/components/object-position-utilities" component={ObjectPositionUtilitiesDoc} />
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>

@@ -23,7 +23,7 @@ export default class DragHandleDocs extends React.Component {
                             offering a wide range of size options.
                         </p>
                         <div className="docs-page__content-row">
-                            <div className='sd-display--flex sd-flex--items-start sd-gap--medium'>
+                            <div className='d-flex items-start sd-gap--medium'>
                                 <DragHandle dotsInRow='2' dotRows='5' />
                                 <DragHandle dotsInRow='2' dotRows='8' />
                                 <DragHandle dotsInRow='3' dotRows='6' />
@@ -39,7 +39,7 @@ export default class DragHandleDocs extends React.Component {
                             To be used within list items, draggable labels, and similar contexts.
                         </p>
                         <div className="docs-page__content-row">
-                            <div className='sd-display--flex sd-flex--items-start sd-gap--medium'>
+                            <div className='d-flex items-start sd-gap--medium'>
                                 <DragHandle blank={true} />
                                 <DragHandle dotsInRow='2' dotRows='10' blank={true} />
                                 <DragHandle dotsInRow='4' dotRows='10' blank={true} />

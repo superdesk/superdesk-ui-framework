@@ -1027,7 +1027,7 @@ doc-gif-img:hover img {
     color: var(--color-text-light);
 }
 .docs-page__container table.utilities-table tbody td:first-child {
-    min-width: 200px;
+    min-width: 280px;
     width: auto;
     color: var(--color-text);
 }
@@ -1057,8 +1057,17 @@ doc-gif-img:hover img {
     margin-block-end: var(--space--4);
 }
 
+.utilities-table__container--no-height {
+    max-height: none;
+}
+
 .docs-page__container .doc-text--highlight {
     color: var(--docs-page-color-primary) !important;
+}
+
+table.utilities-table td .border-example-box {
+    min-width: 160px;
+    height: 32px;
 }
 
 /* -------------- END COLOR SWATCHES -------------- */
