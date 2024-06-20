@@ -45,8 +45,11 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
     render() {
         let classes = classNames('toggle-box', {
             'toggle-box--margin-normal': this.props.margin === undefined,
+            'toggle-box--large-title': this.props.largeTitle,
+            'toggle-box--circle': this.props.circledChevron,
             [`toggle-box--margin-${this.props.margin}`]: this.props.margin,
             'hidden': !this.state.isOpen,
+            'open': this.state.isOpen,
         }, this.props.className);
         const { title, hideUsingCSS, children, badge } = this.props;
         const { isOpen } = this.state;
@@ -61,7 +64,8 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
                     role="button"
                     tabIndex={0}
                     onKeyDown={this.handleKeyDown}
-                    id={`togglebox-${this.htmlId}`}
+                    aria-expanded={isOpen}
+                    aria-controls={`togglebox-${this.htmlId}`}
                 >
                     <div className="toggle-box__chevron">
                         <i className="icon-chevron-right-thin" />
@@ -75,13 +79,13 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
                     {badge ? badge : null}
                 </a>
                 <div className="toggle-box__content-wraper">
-                    {isOpen && !hideUsingCSS && (
-                        <div className="toggle-box__content" aria-describedby={`togglebox-${this.htmlId}`}>
+
+                        <div id={`togglebox-${this.htmlId}`} className="toggle-box__content" aria-hidden={!isOpen}>
                             {children}
                         </div>
-                    )}
 
-                    {hideUsingCSS && (
+
+                    {/* {hideUsingCSS && (
                         <div
                             className={classNames(
                                 'toggle-box__content',
@@ -91,7 +95,7 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
                         >
                             {children}
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         );

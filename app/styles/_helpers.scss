@@ -1721,6 +1721,23 @@ h6 {
     word-break: break-all;
 }
 
+// LINE HIGHT
+.line-height-1 {
+    line-height: 1;
+}
+.line-height-xs {
+    line-height: 1.1;
+}
+.line-height-sm {
+    line-height: 1.2;
+}
+.line-height-md {
+    line-height: 1.4;
+}
+.line-height-lg {
+    line-height: 1.5;
+}
+
 // LINE CLAMP
 // limit the number of horizontal lines in an elemnt (e.g. <p>)
 // it doesn't work if the element has set flex-grow: 1;

@@ -8,7 +8,10 @@ export interface IPropsSimple {
     badge?: JSX.Element;
     children: React.ReactNode;
     hideUsingCSS?: boolean;
+    circledChevron?: boolean;
     initiallyOpen?: boolean; // defaults to false
+    largeTitle?: boolean;
+
     className?: string;
     margin?: 'none' | 'small' | 'normal' | 'large';
     onOpen?(): void;

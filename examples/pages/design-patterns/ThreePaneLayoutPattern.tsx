@@ -75,7 +75,7 @@ class ThreePaneLayoutPattern extends React.Component<IProps, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div style={{height: 600,}} className='sd-border--light'>
-                            <Layout.PageLayout
+                            <Layout.PageLayout fullHeight={true}
                                 header={(
                                     <SubNav zIndex={2}>
                                         <ButtonGroup align="inline">
