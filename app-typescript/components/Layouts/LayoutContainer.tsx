@@ -3,7 +3,7 @@ import classNames from 'classnames';
 
 interface IProps {
     children?: React.ReactNode;
-    fullHeight?: boolean; 
+    fullHeight?: boolean;
 }
 
 export class LayoutContainer extends React.PureComponent<IProps> {
