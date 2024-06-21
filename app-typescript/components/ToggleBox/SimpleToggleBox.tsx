@@ -14,7 +14,7 @@ interface IState {
  */
 
 export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
-    htmlId = nextId();
+    htmlId = "togglebox-" + nextId();
     constructor(props: IPropsSimple) {
         super(props);
         this.state = {
@@ -65,7 +65,7 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
                     tabIndex={0}
                     onKeyDown={this.handleKeyDown}
                     aria-expanded={isOpen}
-                    aria-controls={`togglebox-${this.htmlId}`}
+                    aria-controls={this.htmlId}
                 >
                     <div className="toggle-box__chevron">
                         <i className="icon-chevron-right-thin" />
@@ -79,7 +79,7 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
                     {badge ? badge : null}
                 </a>
                 <div className="toggle-box__content-wraper">
-                    <div id={`togglebox-${this.htmlId}`} className="toggle-box__content" aria-hidden={!isOpen}>
+                    <div id={this.htmlId} className="toggle-box__content" aria-hidden={!isOpen}>
                         {children}
                     </div>
                 </div>

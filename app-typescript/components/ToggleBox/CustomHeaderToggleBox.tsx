@@ -8,7 +8,7 @@ interface IState {
 }
 
 export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeader, IState> {
-    htmlId = nextId();
+    htmlId = "togglebox-" + nextId();
     constructor(props: IPropsCustomHeader) {
         super(props);
         this.state = {
@@ -42,7 +42,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
                     <button
                         className='new-collapse-box__divider'
                         onClick={this.toggle}
-                        aria-controls={`togglebox-${this.htmlId}`}
+                        aria-controls={this.htmlId}
                     >
                         <span className='label label--translucent new-collapse-box__divider-label'>
                             {this.props.toggleButtonLabel}
@@ -51,7 +51,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
                 </div>
 
                 <div className='new-collapse-box__content'>
-                    <div id={`togglebox-${this.htmlId}`} aria-hidden={!isOpen} className='new-collapse-box__content-inner p-2 pt-0-5'>
+                    <div id={this.htmlId} aria-hidden={!isOpen} className='new-collapse-box__content-inner p-2 pt-0-5'>
                         {this.props.children}
                     </div>
                 </div>
