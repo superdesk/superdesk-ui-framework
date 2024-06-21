@@ -182,12 +182,13 @@ const ToggleboxDocs = () => {
             <PropsList>
                 <Prop name='title' isRequired={true} type='string' default='null' description='Togglebox title' />
                 <Prop name='badge' isRequired={false} type='JSX.Element' default='null' description='Badge' />
-                <Prop name='hideUsingCSS' isRequired={false} type='boolean' default='false' description='Usefull when working with forms. Content of togglebox will be hidden but remain rendered.' />
                 <Prop name='initiallyOpen' isRequired={false} type='boolean' default='false' description='Opens togglebox on initial render' />
                 <Prop name='className' isRequired={false} type='string' default='null' description='Style class of the component' />
                 <Prop name='margin' isRequired={false} type='none | small | normal | large' default='normal' description='Defines the bottom margin of the toggle box.' />
                 <Prop name='onOpen' isRequired={false} type='function' default='null' description='Callback on open event' />
                 <Prop name='onClose' isRequired={false} type='function' default='null' description='Callback on close event' />
+                <Prop name='circledChevron' isRequired={false} type='boolean' default='false' description='Adds a light, circle-shaped background around the chevron.' />
+                <Prop name='largeTitle' isRequired={false} type='boolean' default='false' description='This option will increase the size of the title. Always use a circled chevron (circledChevron) in combination with this option.' />
             </PropsList>
 
             <h3 className="docs-page__h3">Props: variant: 'custom-header'</h3>
