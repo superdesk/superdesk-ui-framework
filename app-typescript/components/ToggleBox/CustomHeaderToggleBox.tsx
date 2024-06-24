@@ -8,7 +8,7 @@ interface IState {
 }
 
 export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeader, IState> {
-    htmlId = "togglebox-" + nextId();
+    htmlId = nextId('togglebox-');
     constructor(props: IPropsCustomHeader) {
         super(props);
         this.state = {

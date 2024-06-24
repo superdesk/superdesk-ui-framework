@@ -14,7 +14,7 @@ interface IState {
  */
 
 export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
-    htmlId = "togglebox-" + nextId();
+    htmlId = nextId('togglebox-');
     constructor(props: IPropsSimple) {
         super(props);
         this.state = {
