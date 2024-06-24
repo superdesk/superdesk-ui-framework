@@ -2,30 +2,31 @@
 
 .toggle-box {
     position: relative;
-    align-self: stretch;
-
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    transition: grid-template-rows 0.2s ease;
     &.hidden {
+        grid-template-rows: auto 0fr auto;
+        transition: grid-template-rows 0.2s ease;
         .toggle-box__chevron {
             i {
                 transform: rotate(0);
             }
         }
-
         .toggle-box__chevron--circle {
             background-color: var(--sd-colour-btn-bg-neutral);
-
             i {
                 color: var(--color-text-light);
             }
         }
-
         .toggle-box__content-wraper {
-            max-height: 0;
             transition: all ease-out .5s;
         }
-
-        .toggle-box__header {
-            margin-block-end: 0;
+    }
+    &.open {
+        .toggle-box__content {
+            animation: fadeIn 0.3s ease-in 0s 1;
         }
     }
 
@@ -39,23 +40,35 @@
             }
         }
     }
+    &.toggle-box--large-title {
+        .toggle-box__header,
+        a.toggle-box__header  {
+            .toggle-box__label {
+                font-size: var(--text-size-medium);
+                color: var(--color-text);
+                text-transform: none;
+                font-weight: 500;
+            }
+            &:hover {
+                .toggle-box__label {
+                    color: var(--sd-colour-interactive);
+                }
+            }
+        }
+    }
 
     &.toggle-box--marg-b10 {
         margin-block-end: 1rem;
     }
-
     &.toggle-box--margin-none {
         margin-block-end: 0;
     }
-
     &.toggle-box--margin-small {
         margin-block-end: $sd-base-increment * 2;
     }
-
     &.toggle-box--margin-normal {
         margin-block-end: $sd-base-increment * 3;
     }
-
     &.toggle-box--margin-large {
         margin-block-end: $sd-base-increment * 4;
     }
@@ -73,12 +86,12 @@
 
 .toggle-box__header,
 a.toggle-box__header {
+    grid-row: 1 / 2;
     display: flex;
     cursor: pointer;
-    margin-block-end: 1.8rem;
     align-items: center;
     text-decoration: none !important;
-
+    align-self: flex-start;
     .toggle-box__chevron {
         i {
             transition: all .3s;
@@ -87,10 +100,11 @@ a.toggle-box__header {
     }
 
     .toggle-box__label {
-        font-size: 1.2rem;
-        padding: 0 1rem 0 0.8rem;
-        color: var(--color-label-text);
+        font-size: var(--text-size-x-small);
+        padding: 0 var(--space--2) 0 var(--space--1);
+        color: var(--color-text-light);
         text-transform: uppercase;
+        transition: color 0.2s ease;
     }
 
     .toggle-box__line {
@@ -101,7 +115,8 @@ a.toggle-box__header {
     }
 
     &:hover {
-        .toggle-box__label {
+        .toggle-box__label,
+         {
             color: var(--sd-colour-interactive);
             text-decoration: none !important;
         }
@@ -115,7 +130,6 @@ a.toggle-box__header {
         .toggle-box__chevron {
             box-shadow: 0 0 0 3px $sd-colour--focus-shadow;
         }
-
         .toggle-box__label {
             color: var(--sd-colour-interactive);
         }
@@ -127,30 +141,33 @@ a.toggle-box__header {
 }
 
 .toggle-box__content-wraper {
-    transition: all ease-out .5s;
+    grid-row: 2 / 3;
+    transition: grid-template-rows 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow: hidden;
 }
 
-.toggle-box__content {  
-    animation: fadeIn 0.3s ease-in 0s 1;
+.toggle-box__content {
+    overflow-y: auto;
+    padding-block-start: 1.8rem;
+    flex:1;
 }
 
 // Buttons
 .toggle-box__button {
     color: $grayLight;
     cursor: pointer;
-
     i {
         color: $grayLight;
         margin-inline-end: 0.5rem;
         vertical-align: text-bottom;
     }
-    
     &:hover {
         text-decoration: none;
         color: $white;
         i { color: $white; }
     }
 }
-
-
-

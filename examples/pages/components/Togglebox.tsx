@@ -37,16 +37,30 @@ const ToggleboxDocs = () => {
         <section className="docs-page__container">
             <h2 className="docs-page__h2">Togglebox</h2>
             <Markup.ReactMarkupCodePreview>{`
-                    <ToggleBox title="togglebox title">togglebox content</ToggleBox>
+                    <ToggleBox variant="simple" title="togglebox title">togglebox content</ToggleBox>
                 `}
             </Markup.ReactMarkupCodePreview>
             <p className="docs-page__paragraph">Simple ToggleBox:</p>
             <Markup.ReactMarkup>
                 <Markup.ReactMarkupPreview>
                     <div style={{ marginTop: "2em" }}>
-                        <ToggleBox variant='simple' title="Simple togglebox">Togglebox content</ToggleBox>
+                        <ToggleBox variant="simple" title="Simple togglebox">Togglebox content</ToggleBox>
                         <ToggleBox variant='simple' title="With badge" badge={<Badge text='2' type='primary' />}>Togglebox content</ToggleBox>
-                        <ToggleBox variant='simple' title="Togglebox - circled chevron" className="toggle-box--circle">Togglebox content</ToggleBox>
+                        <ToggleBox variant='simple' title="Togglebox - circled chevron" circledChevron={true}>Togglebox content</ToggleBox>
+                        <ToggleBox variant='simple' title="Large title" largeTitle={true} circledChevron={true}>
+                            <div className="px-4 text-sm line-height-lg">
+                                <p className="mb-2">Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. 
+                                Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. 
+                                Curabitur blandit tempus porttitor.</p>
+
+                                <p className="mb-2">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.
+                                Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere 
+                                erat a ante venenatis dapibus posuere velit aliquet.</p>
+
+                                <p className="">Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id 
+                                ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+                            </div>
+                        </ToggleBox>
                     </div>
                 </Markup.ReactMarkupPreview>
                 <Markup.ReactMarkupCode>{`
@@ -168,12 +182,13 @@ const ToggleboxDocs = () => {
             <PropsList>
                 <Prop name='title' isRequired={true} type='string' default='null' description='Togglebox title' />
                 <Prop name='badge' isRequired={false} type='JSX.Element' default='null' description='Badge' />
-                <Prop name='hideUsingCSS' isRequired={false} type='boolean' default='false' description='Usefull when working with forms. Content of togglebox will be hidden but remain rendered.' />
                 <Prop name='initiallyOpen' isRequired={false} type='boolean' default='false' description='Opens togglebox on initial render' />
                 <Prop name='className' isRequired={false} type='string' default='null' description='Style class of the component' />
                 <Prop name='margin' isRequired={false} type='none | small | normal | large' default='normal' description='Defines the bottom margin of the toggle box.' />
                 <Prop name='onOpen' isRequired={false} type='function' default='null' description='Callback on open event' />
                 <Prop name='onClose' isRequired={false} type='function' default='null' description='Callback on close event' />
+                <Prop name='circledChevron' isRequired={false} type='boolean' default='false' description='Adds a light, circle-shaped background around the chevron.' />
+                <Prop name='largeTitle' isRequired={false} type='boolean' default='false' description='This option will increase the size of the title. Always use a circled chevron (circledChevron) in combination with this option.' />
             </PropsList>
 
             <h3 className="docs-page__h3">Props: variant: 'custom-header'</h3>
