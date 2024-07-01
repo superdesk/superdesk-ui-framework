@@ -285,11 +285,9 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
 
         const item = this.state.buttonTree.pop();
 
-        if (item != null) {
-            this.setState({
-                buttonValue: item,
-            });
-        }
+        this.setState({
+            buttonValue: item ?? null,
+        });
     }
 
     recursion(arr: Array<ITreeMenuNode<T>>) {
@@ -414,6 +412,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                 <ul
                                     ref={this.ref}
                                     className="suggestion-list suggestion-list--multi-select"
+                                    role='tree'
                                 >
                                     {this.state.options.map((option, i: React.Key | undefined) => (
                                         <TreeSelectItem
@@ -425,6 +424,10 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                             }}
                                             disabledItem={disabledItem(option)}
                                             getBorderColor={this.props.getBorderColor}
+                                            parentCategory={this.state.buttonValue == null
+                                                ? undefined
+                                                : this.props.getLabel(this.state.buttonValue.value)
+                                            }
                                             getBackgroundColor={this.props.getBackgroundColor}
                                             getId={this.props.getId}
                                             optionTemplate={this.props.optionTemplate}

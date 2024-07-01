@@ -176,6 +176,7 @@ export class TreeMenuDocs extends React.Component<{}, {}> {
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <TreeMenu
+                                searchPlaceholder='Search...'
                                 getOptions={() => options}
                                 getId={(item) => item.name}
                                 getLabel={(item) => item.name}
@@ -208,6 +209,7 @@ export class TreeMenuDocs extends React.Component<{}, {}> {
                     <Markup.ReactMarkupPreview>
                         <div className='docs-page__content-row docs-page__content-row--no-margin'>
                             <TreeMenu
+                                searchPlaceholder='Search...'
                                 getOptions={() => options2}
                                 getId={(item) => item.name}
                                 getLabel={(item) => item.name}
