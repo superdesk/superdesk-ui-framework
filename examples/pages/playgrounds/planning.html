@@ -297,7 +297,7 @@
                                         <time title="March 22, 2017 11:08 AM">12:50, 15.09.2017</time>
                                     </div>
                                     <div class="sd-list-item__row" ng-show="planningType === 'events-planning'">
-                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow"> <a class="text-link" ng-click="openNested = !openNested; leftPreviewOpen = false"><i class="icon-calendar"></i>(2) <span ng-show="openNested">Hide planning items</span><span ng-show="!openNested">Show planning items</span></a></span>
+                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow"> <a class="text-link" ng-click="openNested = !openNested; leftPreviewOpen = false"><i class="icon-calendar"></i>(5) <span ng-show="openNested">Hide planning items</span><span ng-show="!openNested">Show planning items</span></a></span>
                                     </div>
                                 </div>
                                 <div class="sd-list-item__action-menu">
@@ -337,56 +337,134 @@
                             </div>
                             <!-- Nested items -->
                             <div class="sd-list-item-nested__childs sd-shadow--z1" ng-show="planningType === 'events-planning'">
-                                <!-- Child 1 -->
-                                <div class="sd-list-item">
-                                    <div class="sd-list-item__border"></div>
-                                    <div class="sd-list-item__column">
-                                        <i class="icon-calendar icon--light-blue"></i>
-                                    </div>
-                                    <div class="sd-list-item__column">
-                                        <span class="badge badge--light">&nbsp;</span>
-                                    </div>
-                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
-                                        <div class="sd-list-item__row">
-                                            <i class="icon-text sd-list-item__inline-icon"></i><i class="icon-photo sd-list-item__inline-icon"></i>
-                                            <span class="label label--hollow">Draft</span>
-                                            <span class="sd-overflow-ellipsis sd-list-item--element-grow">
-                                                <span class="sd-list-item__slugline">Lipsum Ipsum</span><span class="sd-list-item__text-label">agenda:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item__element-rm-10">Daily agenda</span><span>Molestie consequatvel illum dolore eu feugiat nulla facilisis.</span>
-                                            </span>
-                                            <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
+                                <!-- <div class="sd-list-item-nested__childs-inner"> -->
+                                    <!-- Child 1 -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column">
+                                            <i class="icon-calendar icon--light-blue"></i>
                                         </div>
-                                    </div>
-                                    <div class="sd-list-item__action-menu">
-                                        <button class="icn-btn">
-                                            <i class="icon-dots-vertical"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                                <!-- Child 2 -->
-                                <div class="sd-list-item">
-                                    <div class="sd-list-item__border"></div>
-                                    <div class="sd-list-item__column">
-                                        <i class="icon-calendar icon--light-blue"></i>
-                                    </div>
-                                    <div class="sd-list-item__column">
-                                        <span class="badge badge--success">P</span>
-                                    </div>
-                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div class="sd-list-item__column">
+                                            <span class="badge badge--light">&nbsp;</span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                             <div class="sd-list-item__row">
-                                                <i class="icon-text sd-list-item__inline-icon"></i>
-                                                <span class="label label--success label--hollow">Scheduled</span>
+                                                <i class="icon-text sd-list-item__inline-icon"></i><i class="icon-photo sd-list-item__inline-icon"></i>
+                                                <span class="label label--hollow">Draft</span>
                                                 <span class="sd-overflow-ellipsis sd-list-item--element-grow">
-                                                    <span class="sd-list-item__slugline">Lipsum Ipsum</span><span class="sd-list-item__text-label">agenda:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item__element-rm-10">Daily agenda</span><span>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</span>
+                                                    <span class="sd-list-item__slugline">Lipsum Ipsum</span><span class="sd-list-item__text-label">agenda:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item__element-rm-10">Daily agenda</span><span>Molestie consequatvel illum dolore eu feugiat nulla facilisis.</span>
                                                 </span>
                                                 <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
                                             </div>
                                         </div>
-                                    <div class="sd-list-item__action-menu">
-                                        <button class="icn-btn">
-                                            <i class="icon-dots-vertical"></i>
-                                        </button>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
+                                    <!-- Child 2 -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column">
+                                            <i class="icon-calendar icon--light-blue"></i>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <span class="badge badge--success">P</span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                <div class="sd-list-item__row">
+                                                    <i class="icon-text sd-list-item__inline-icon"></i>
+                                                    <span class="label label--success label--hollow">Scheduled</span>
+                                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                        <span class="sd-list-item__slugline">Lipsum Ipsum</span><span class="sd-list-item__text-label">agenda:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item__element-rm-10">Daily agenda</span><span>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</span>
+                                                    </span>
+                                                    <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
+                                                </div>
+                                            </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Child 3 -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column">
+                                            <i class="icon-calendar icon--light-blue"></i>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <span class="badge badge--success">P</span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                <div class="sd-list-item__row">
+                                                    <i class="icon-text sd-list-item__inline-icon"></i>
+                                                    <span class="label label--success label--hollow">Scheduled</span>
+                                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                        <span class="sd-list-item__slugline">Lipsum Ipsum</span><span class="sd-list-item__text-label">agenda:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item__element-rm-10">Daily agenda</span><span>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</span>
+                                                    </span>
+                                                    <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
+                                                </div>
+                                            </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Child 4 -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column">
+                                            <i class="icon-calendar icon--light-blue"></i>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <span class="badge badge--success">P</span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                <div class="sd-list-item__row">
+                                                    <i class="icon-text sd-list-item__inline-icon"></i>
+                                                    <span class="label label--success label--hollow">Scheduled</span>
+                                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                        <span class="sd-list-item__slugline">Lipsum Ipsum</span><span class="sd-list-item__text-label">agenda:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item__element-rm-10">Daily agenda</span><span>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</span>
+                                                    </span>
+                                                    <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
+                                                </div>
+                                            </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!-- Child 5 -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column">
+                                            <i class="icon-calendar icon--light-blue"></i>
+                                        </div>
+                                        <div class="sd-list-item__column">
+                                            <span class="badge badge--success">P</span>
+                                        </div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                <div class="sd-list-item__row">
+                                                    <i class="icon-text sd-list-item__inline-icon"></i>
+                                                    <span class="label label--success label--hollow">Scheduled</span>
+                                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                        <span class="sd-list-item__slugline">Lipsum Ipsum</span><span class="sd-list-item__text-label">agenda:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item__element-rm-10">Daily agenda</span><span>Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper.</span>
+                                                    </span>
+                                                    <time title="March 22, 2017 11:08 AM">13:00–14:00, 15.09.2017</time>
+                                                </div>
+                                            </div>
+                                        <div class="sd-list-item__action-menu">
+                                            <button class="icn-btn">
+                                                <i class="icon-dots-vertical"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                <!-- </div> -->
+
                             </div>
                             <!-- END nested items -->
                         </div>
@@ -792,7 +870,7 @@
                                 </div>
                                 <div class="form__row">
                                     <label class="form-label form-label--light">Name</label>
-                                    <p class="sd-text__strong">Duis dolore</p>
+                                    <p class="sd-text--bold">Duis dolore</p>
                                 </div>
                                 <div class="form__row">
                                     <label class="form-label form-label--light">Description</label>

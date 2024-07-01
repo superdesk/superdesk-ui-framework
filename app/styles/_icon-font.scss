@@ -297,6 +297,9 @@ $sd-icon-font: (
     text-block: "\e6ba",
     graphic-cancel: "\e6bb",
     play-cancel: "\e6bc",
+    thumb-up: "\e6bd",
+    thumb-down: "\e6be",
+    open-ai: "\e6bf",
 );
 
 @each $name, $value in $sd-icon-font {

@@ -1,0 +1,4 @@
+{
+    "extends": "../../../../tsconfig.json",
+    "files": ["Index.tsx", "../../../../globals.d.ts"]
+}

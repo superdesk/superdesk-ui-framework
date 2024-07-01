@@ -30,381 +30,6 @@
     cursor: pointer;
 }
 
-// DISPLAY HELPERS
-// Use classes with the form '.sd-display-- ', others will be deprecated
-.sd-display--none {
-    display: none !important;
-}
-
-.sd-display--inline {
-    display: inline !important;
-}
-
-.sd-display--inline-block {
-    display: inline-block !important;
-}
-
-.sd-display--block {
-    display: block !important;
-}
-
-// Browser ignores this element from the flow. 
-// Use it to wrap other elements without breaking the layout (e.g. flex or grid)
-.sd-display--contents {
-    display: contents !important;
-}
-
-// Display Table
-.sd-display--table {
-    display: table;
-}
-
-.sd-display--table-cell {
-    display: table-cell;
-}
-
-.sd-display--table-row {
-    display: table-row;
-}
-
-.sd-display--table-column {
-    display: table-column;
-}
-
-.sd-display--table-column-group {
-    display: table-column-group;
-}
-
-.sd-display--table-row-group {
-    display: table-row-group;
-}
-
-.sd-display--table-footer-group {
-    display: table-footer-group;
-}
-
-.sd-display--table-header-group {
-    display: table-header-group;
-}
-
-.sd-display--table-caption {
-    display: table-caption;
-}
-
-.sd-display--inline-flex {
-    display: inline-flex !important;
-}
-
-.sd-display--flex {
-    display: flex !important;
-}
-
-// FLEXBOX PROPERTIES
-// Flex direction
-.sd-flex--direction-row {
-    flex-direction: row !important;
-}
-
-.sd-flex--direction-col {
-    flex-direction: column !important;
-}
-
-.sd-flex--direction-row-reverse {
-    flex-direction: row-reverse !important;
-}
-
-.sd-flex--direction-col-reverse {
-    flex-direction: column-reverse !important;
-}
-
-// Flex wrap
-.sd-flex--wrap {
-    flex-wrap: wrap;
-}
-
-.sd-flex--wrap-reverse {
-    flex-wrap: wrap-reverse;
-}
-
-.sd-flex--nowrap {
-    flex-wrap: nowrap;
-}
-
-// Flex flex
-.sd-flex--flex-1 {
-    flex: 1 1 0%;
-}
-
-.sd-flex--flex-1 {
-    flex: 1 1 0%;
-}
-
-.sd-flex--flex-auto {
-    flex: 1 1 auto;
-}
-
-.sd-flex--flex-initial {
-    flex: 0 1 auto;
-}
-
-.sd-flex--flex-none {
-    flex: none;
-}
-
-// Flex shrink & grow
-.sd-flex--shrink {
-    flex-shrink: 1 !important;
-}
-
-.sd-flex--shrink-0 {
-    flex-shrink: 0 !important;
-}
-
-.sd-flex--grow {
-    flex-grow: 1 !important;
-}
-
-.sd-flex--grow-0 {
-    flex-grow: 0 !important;
-}
-
-// Flex alignment
-.sd-flex--justify-start {
-    justify-content: flex-start !important;
-}
-
-.sd-flex--justify-end {
-    justify-content: flex-end !important;
-}
-
-.sd-flex--justify-center {
-    justify-content: center !important;
-}
-
-.sd-flex--justify-between {
-    justify-content: space-between !important;
-}
-
-.sd-flex--justify-around {
-    justify-content: space-around !important;
-}
-
-.sd-flex--justify-evenly {
-    justify-content: space-evenly !important;
-}
-
-.sd-flex--items-start {
-    align-items: flex-start !important;
-}
-
-.sd-flex--items-end {
-    align-items: flex-end !important;
-}
-
-.sd-flex--items-center {
-    align-items: center !important;
-}
-
-.sd-flex--items-baseline {
-    align-items: baseline !important;
-}
-
-.sd-flex--items-stretch {
-    align-items: stretch !important;
-}
-
-// Hide if empty
-.sd-empty:empty {
-    display: none !important;
-}
-
-// POSITION HELPERS
-.sd-position--static {
-    position: static;
-}
-
-.sd-position--fixed {
-    position: fixed;
-}
-
-.sd-position--relative {
-    position: relative;
-}
-
-.sd-position--absolute {
-    position: absolute;
-}
-
-.sd-position--sticky {
-    position: sticky;
-}
-
-// OVERFLOW HELPERS
-.sd-overflow--auto {
-    overflow: auto !important;
-}
-
-.sd-overflow--hidden {
-    overflow: hidden !important;
-}
-
-.sd-overflow--visible {
-    overflow: visible !important;
-}
-
-.sd-overflow--scroll {
-    overflow: scroll !important;
-}
-
-.sd-overflow--x-auto {
-    overflow-x: auto !important;
-}
-
-.sd-overflow--y-auto {
-    overflow-y: auto !important;
-}
-
-.sd-overflow--x-hidden {
-    overflow-x: hidden !important;
-}
-
-.sd-overflow--y-hidden {
-    overflow-y: hidden !important;
-}
-
-.sd-overflow--x-visible {
-    overflow-x: visible !important;
-}
-
-.sd-overflow--y-visible {
-    overflow-y: visible !important;
-}
-
-.sd-overflow--x-scroll {
-    overflow-x: scroll !important;
-}
-
-.sd-overflow--y-scroll {
-    overflow-y: scroll !important;
-}
-
-// Text overflow
-.sd-overflow-ellipsis,
-.sd-overflow--ellipsis {
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-
-// OBJECT FIT HELPERS
-.sd-object-fit--contain {
-    object-fit: contain;
-}
-
-.sd-object-fit--cover {
-    object-fit: cover;
-}
-
-.sd-object-fit--fill {
-    object-fit: fill;
-}
-
-.sd-object-fit--none {
-    object-fit: none;
-}
-
-.sd-object-fit--scale-down {
-    object-fit: scale-down;
-}
-
-// OBJECT POSITION HELPERS
-// Defines the positin of any selected replaced element (e.g., an <img>)
-// within the box that contains it. For it to work it must be used with 'sd-object-fit--none' (object-fit: none;)
-
-.sd-object-position--bottom {
-    object-position: bottom;
-}
-
-.sd-object-position--center {
-    object-position: center;
-}
-
-.sd-object-position--left {
-    object-position: inline-start;
-}
-
-.sd-object-position--left-bottom {
-    object-position: left bottom;
-}
-
-.sd-object-position--left-top {
-    object-position: left top;
-}
-
-.sd-object-position--right {
-    object-position: right;
-}
-
-.sd-object-position--right-bottom {
-    object-position: right bottom;
-}
-
-.sd-object-position--right-top {
-    object-position: right top;
-}
-
-.sd-object-position--top {
-    object-position: top;
-}
-
-// SHADOW HELPER CLASSES
-
-$sd-shadowProperties: (
-    'z0': (none),
-    'z1': (0 1px 3px rgba(0, 0, 0, .16), 0 0 1px rgba(0, 0, 0, .1)),
-    'z2': (0 1px 4px rgba(0, 0, 0, .16), 0 2px 6px rgba(0, 0, 0, .12), 0 0 1px rgba(0, 0, 0, .1)),
-    'z3': (0 1px 6px rgba(0, 0, 0, .16), 0 3px 8px rgba(0, 0, 0, .24), 0 0 1px rgba(0, 0, 0, .1)),
-    'z4': (0 2px 10px rgba(0, 0, 0, .2), 0 6px 16px rgba(0, 0, 0, .3), 0 0 1px rgba(0, 0, 0, .1)),
-);
-// Add more shadow items with this syntax and new classes will be generated:
-// z5: (0 2px 10px rgba(0,0,0,.2), ... ),
-// Output:
-// .sd-shadow--z5 { 0 2px 10px rgba(0,0,0,.2),...
-
-@mixin shadowMixinExtend {
-    transition: box-shadow 0.3s ease-out;
-
-    &.btn:active {
-        box-shadow: none !important;
-        transition: box-shadow 0.4s ease-out;
-    }
-}
-
-@each $name,
-$value in $sd-shadowProperties {
-    .sd-shadow--#{$name} {
-        box-shadow: #{$value} !important;
-        @include shadowMixinExtend;
-    }
-}
-
-// sd-shadow mixin
-// Uses items from $sd-shadowProperties as parameter (z1, z2...)
-// You can create new classes with this syntax:
-// .customClass { @include sd-shadow(z1); color: #fff; }
-// Output:
-// .customClass { box-shadow: 0 1px 3px rgba(0, 0, 0, 0.16), 0 0 1px rgba(0, 0, 0, 0.1); color: #fff; }
-
-@mixin sd-shadow($sd-shadowPropertiesItem) {
-    box-shadow: #{map-get($sd-shadowProperties, $sd-shadowPropertiesItem)};
-}
-
-// How to use sd-shadow mixin
-// .nekaKlasa {
-//     color: red;
-//     @include sd-shadow('z1');
-// }
-
 
 // WEBKIT SCROLL
 ::-webkit-scrollbar {
@@ -429,13 +54,13 @@ $value in $sd-shadowProperties {
     cursor: pointer;
 }
 
-// HEADINGS 
+// HEADINGS
 .sd-heading-3 {
     font-size: 1.6rem;
     margin-block-end: 1.6rem;
 }
 
-// Deafult text syles based on type of data  
+// Deafult text syles based on type of data
 p strong {
     font-weight: 500;
 }
@@ -512,185 +137,7 @@ h6 {
     letter-spacing: 0.025em;
 }
 
-// Font weights 
-
-.sd-text__light,
-.sd-text--light {
-    font-weight: 300;
-}
-
-.sd-text__normal,
-.sd-text--normal {
-    font-weight: 400;
-}
-
-.sd-text--medium {
-    font-weight: 500;
-}
-
-.sd-text__strong,
-.sd-text--strong {
-    font-weight: 700;
-}
-
-.sd-text--bold {
-    font-weight: 700;
-}
-
-// Font style
-.sd-text__italic,
-.sd-text--italic {
-    font-style: italic;
-}
-
-.sd-text--non-italic {
-    font-style: normal;
-}
-
-// Text alignment
-.sd-text-align--left,
-.sd-text-align--start {
-    text-align: start;
-}
-
-.sd-text__center,
-.sd-text-align--center {
-    text-align: center;
-}
-
-.sd-text__right,
-.sd-text-align--right,
-.sd-text-align--end {
-    text-align: end;
-}
-
-.sd-text-align--justify {
-    text-align: justify;
-}
-
-// Font family
-.sd-text__serif,
-.sd-text--serif {
-    font-family: $baseFontFamilySerif;
-}
-
-.sd-text--sans {
-    font-family: $baseFontFamily;
-}
-
-.sd-text--mono {
-    font-family: $baseFontFamilyMono;
-}
-
-// Word Break
-.sd-word-break--normal {
-    overflow-wrap: normal;
-    word-break: normal;
-}
-
-.sd-word-break--words {
-    overflow-wrap: break-word;
-}
-
-.sd-word-break--all {
-    word-break: break-all;
-}
-
-// Whitespace
-.sd-whitespace--normal {
-    white-space: normal;
-}
-
-.sd-whitespace--nowrap {
-    white-space: nowrap;
-}
-
-.sd-whitespace--pre {
-    white-space: pre;
-}
-
-.sd-whitespace--pre-line {
-    white-space: pre-line;
-}
-
-.sd-whitespace--pre-wrap {
-    white-space: pre-wrap;
-}
-
-// Text Transform
-.sd-txt-transform--uppercase {
-    text-transform: uppercase;
-}
-
-.sd-txt-transform--lowercase {
-    text-transform: lowercase;
-}
-
-.sd-txt-transform--capitalize {
-    text-transform: capitalize;
-}
-
-.sd-txt-transform--none {
-    text-transform: none;
-}
-
-// Text Decoration
-.sd-txt-decoration--underline {
-    text-decoration: underline;
-}
-
-.sd-txt-decoration--line-through {
-    text-decoration: line-through;
-}
-
-.sd-txt-decoration--none {
-    text-decoration: none;
-}
-
-// Line Clamp
-// limit the number of horizontal lines in an elemnt (e.g. <p>)
-// it doesn't work if the element has set flex-grow: 1;
-@mixin line-clamp-base {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-}
-
-.sd-line-clamp--1 {
-    @include line-clamp-base;
-    -webkit-line-clamp: 1;
-}
-
-.sd-line-clamp--2 {
-    @include line-clamp-base;
-    -webkit-line-clamp: 2;
-}
-
-.sd-line-clamp--3 {
-    @include line-clamp-base;
-    -webkit-line-clamp: 3;
-}
-
-.sd-line-clamp--4 {
-    @include line-clamp-base;
-    -webkit-line-clamp: 4;
-}
-
-.sd-line-clamp--5 {
-    @include line-clamp-base;
-    -webkit-line-clamp: 5;
-}
-
-.sd-line-clamp--6 {
-    @include line-clamp-base;
-    -webkit-line-clamp: 6;
-}
-
-.sd-line-clamp--none {
-    -webkit-line-clamp: unset;
-}
-
-// Superdesk specific text helpers 
+// Superdesk specific text helpers
 .sd-text__slugline {
     color: $sd-slugline;
     font-weight: 500;
@@ -746,75 +193,827 @@ h6 {
     margin-inline-start: 1rem;
 }
 
-// Opacity helpers
-.sd-opacity--20 {
-    opacity: 0.2 !important;
+
+// padding all  (KILL THIS AFTER REFACTORING)
+.sd-padding-all--0 {
+    padding: 0 !important;
 }
 
-.sd-opacity--25 {
-    opacity: 0.25 !important;
+.sd-padding-all--0-5 {
+    padding: $sd-base-increment * 0.5 !important;
 }
 
-.sd-opacity--30 {
-    opacity: 0.3 !important;
+.sd-padding-all--1 {
+    padding: $sd-base-increment !important;
 }
 
-.sd-opacity--40 {
-    opacity: 0.4 !important;
+.sd-padding-all--1-5 {
+    padding: $sd-base-increment * 1.5 !important;
 }
 
-.sd-opacity--50 {
-    opacity: 0.5 !important;
+.sd-padding-all--2 {
+    padding: $sd-base-increment * 2 !important;
 }
 
-.sd-opacity--60 {
-    opacity: 0.6 !important;
+.sd-padding-all--3 {
+    padding: $sd-base-increment * 3 !important;
 }
 
-.sd-opacity--75 {
-    opacity: 0.75 !important;
+// margin all (KILL THIS AFTER REFACTORING)
+.sd-margin-all--0 {
+    margin: 0 !important;
+}
+
+.sd-margin-all--0-5 {
+    margin: $sd-base-increment * 0.5 !important;
+}
+
+.sd-margin-all--1 {
+    margin: $sd-base-increment * 1 !important;
+}
+
+.sd-margin-all--1-5 {
+    margin: $sd-base-increment * 1.5 !important;
+}
+
+.sd-margin-all--2 {
+    margin: $sd-base-increment * 2 !important;
+}
+
+.sd-margin-all--3 {
+    margin: $sd-base-increment * 3 !important;
 }
 
 
-// Margin auto
+.sd-wrap-helper {
+    display: contents !important;
+}
+
+.sd-accessibility__btn-text--invisible,
+.sd-accessibility__screenreader-text {
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    font-size: 0.1rem;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+// remove this after refactoring
+.overflow-auto {
+    overflow: auto !important;
+}
+
+.overflow-hidden {
+    overflow: hidden !important;
+}
+
+.overflow-x-hidden {
+    overflow-x: hidden !important;
+}
+
+.sd-d-none {
+    display: none !important;
+}
+
+.sd-d-inline {
+    display: inline !important;
+}
+
+.sd-d-inline-block {
+    display: inline-block !important;
+}
+
+.sd-d-block {
+    display: block !important;
+}
+
+.sd-d-flex {
+    display: flex !important;
+}
+
+.sd-d-inline-flex {
+    display: inline-flex !important;
+}
+
+.sd-display-flex-column {
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.sd-flex-wrap {
+    flex-wrap: wrap;
+}
+
+.sd-flex-shrink {
+    flex-shrink: 1 !important;
+}
+
+.sd-flex-no-shrink {
+    flex-shrink: 0 !important;
+}
+
+.sd-flex-justify-end {
+    justify-content: flex-end !important;
+}
+
+.sd-flex-justify-center {
+    justify-content: center !important;
+}
+
+.sd-flex-justify-space-between {
+    justify-content: space-between !important;
+}
+
+.sd-flex-align-items-center {
+    align-items: center !important;
+}
+
+.sd-flex-grow {
+    flex-grow: 1 !important;
+}
+
+.sd-flex-no-grow {
+    flex-grow: 0 !important;
+}
+
+.sd-no-wrap {
+    white-space: nowrap;
+}
+
+
+
+
+
+
+
+
+
+// FONT FAMILY
+.sd-text__serif,
+.sd-text--serif {
+    font-family: $baseFontFamilySerif;
+}
+.sd-text--sans {
+    font-family: $baseFontFamily;
+}
+.sd-text--mono {
+    font-family: $baseFontFamilyMono;
+}
+
+// WHITESPACE
+.sd-whitespace--normal,
+.whitespace-normal {
+    white-space: normal;
+}
+.sd-whitespace--nowrap,
+.whitespace-nowrap {
+    white-space: nowrap;
+}
+.sd-whitespace--pre,
+.whitespace-pre {
+    white-space: pre;
+}
+.sd-whitespace--pre-line,
+.whitespace-pre-line {
+    white-space: pre-line;
+}
+.sd-whitespace--pre-wrap,
+.whitespace-pre-wrap {
+    white-space: pre-wrap;
+}
+.whitespace-break-spaces {
+    white-space: break-spaces;
+}
+
+
+
+// ==================================================== //
+
+// Background colours
+.sd-panel-bg--100 {
+    background-color: var(--sd-colour-panel-bg--100);
+}
+
+.sd-panel-bg--000 {
+    background-color: var(--sd-item__main-Bg);
+}
+
+.sd-panel-bg--gradient-1 {
+    background-color: var(--sd-item__main-Bg);
+    background: linear-gradient(180deg, var(--sd-colour-interactive--alpha-20) 0%, var(--sd-item__main-Bg) 40%);
+}
+
+.sd-state--focus:focus-within,
+.sd-state--active {
+    box-shadow: var(--sd-shadow__item--selected) !important;
+    transition: box-shadow 0.3s ease, filter 0.3s ease;
+}
+
+.sd-width--xxx-small {
+    width: var(--width__container--xxx-small) !important;
+}
+
+.sd-width--xx-small {
+    width: var(--width__container--xx-small);
+}
+
+.sd-width--x-small {
+    width: var(--width__container--x-small);
+}
+
+.sd-width--small {
+    width: var(--width__container--small);
+}
+
+.sd-width--medium {
+    width: var(--width__container--medium);
+}
+
+.sd-width--large {
+    width: var(--width__container--large);
+}
+
+.sd-width--x-large {
+    width: var(--width__container--x-large);
+}
+
+.sd-width--xx-large {
+    width: var(--width__container--xx-large);
+}
+
+.sd-width--xxx-large {
+    width: var(--width__container--xxx-large);
+}
+
+.sd-width--full {
+    width: var(--width__container--full);
+}
+
+.sd-gap--x-small {
+    gap: var(--gap--x-small);
+}
+
+.sd-gap--small {
+    gap: var(--gap--small);
+}
+
+.sd-gap--medium {
+    gap: var(--gap--medium);
+}
+
+.sd-gap--large {
+    gap: var(--gap--large);
+}
+
+.sd-gap--x-large {
+    gap: var(--gap--x-large);
+}
+
+.sd-gap--xx-large {
+    gap: var(--gap--xx-large);
+}
+
+.sd-gap--auto {
+    gap: var(--gap--auto);
+}
+
+// MAX-HEIGHT:
+
+.max-h-5 {
+    max-height: calc(5 * var(--base-increment)) !important;
+}
+.max-h-6 {
+    max-height: calc(6 * var(--base-increment)) !important;
+}
+.max-h-8 {
+    max-height: calc(8 * var(--base-increment)) !important;
+}
+.max-h-10 {
+    max-height: calc(10 * var(--base-increment)) !important;
+}
+.max-h-15 {
+    max-height: calc(15 * var(--base-increment)) !important;
+}
+.max-h-20 {
+    max-height: calc(20 * var(--base-increment)) !important;
+}
+.max-h-25 {
+    max-height: calc(25 * var(--base-increment)) !important;
+}
+.max-h-30 {
+    max-height: calc(30 * var(--base-increment)) !important;
+}
+
+.max-h-full {
+    max-height: 100%;
+}
+.max-h-screen {
+    max-height: 100svh;
+}
+
+
+
+// Hide if empty
+.sd-empty:empty,
+.empty-hidden:empty {
+    display: none !important;
+}
+
+
+// ================================================================================================
+// DOCUMENTED UTILITY CLASSES 
+// ================================================================================================
+
+// DISPLAY HELPERS --------------------------------------------------------------------------------
+// Use classes with the form '.d-block' etc., others will be deprecated
+.sd-display--block,
+.d-block {
+    display: block !important;
+}
+.sd-display--inline-block,
+.d-inline-block {
+    display: inline-block !important;
+}
+.sd-display--inline,
+.d-inline {
+    display: inline !important;
+}
+.sd-display--flex,
+.d-flex  {
+    display: flex !important;
+}
+.sd-display--inline-flex,
+.d-inline-flex  {
+    display: inline-flex !important;
+}
+.d-grid  {
+    display: grid !important;
+}
+.d-inline-grid  {
+    display: grid !important;
+}
+.sd-display--contents, // Browser ignores this element from the flow. se it to wrap other elements without breaking the layout (e.g. flex or grid)
+.d-contents {
+    display: contents !important;
+}
+.sd-display--none,
+.d-none {
+    display: none !important;
+}
+.d-flow-root {
+    display: flow-root !important;
+}
+.d-list-item {
+    display: list-item !important;
+}
+// Display Table
+.sd-display--table,
+.d-table {
+    display: table;
+}
+.d-inline-table {
+    display: table;
+}
+.sd-display--table-caption,
+.d-table-caption {
+    display: table-caption;
+}
+.sd-display--table-cell,
+.d-table-cell {
+    display: table-cell;
+}
+.sd-display--table-column,
+.d-table-column {
+    display: table-column;
+}
+.sd-display--table-column-group,
+.d-table-column-group {
+    display: table-column-group;
+}
+.sd-display--table-footer-group,
+.d-table-footer-group {
+    display: table-footer-group;
+}
+.sd-display--table-header-group,
+.d-table-header-group {
+    display: table-header-group;
+}
+.sd-display--table-row,
+.d-table-row {
+    display: table-row;
+}
+.sd-display--table-row-group,
+.d-table-row-group {
+    display: table-row-group;
+}
+
+// FLEXBOX & GRID PROPERTIES ----------------------------------------------------------------------
+// Flex direction
+.sd-flex--direction-row,
+.flex-row {
+    flex-direction: row !important;
+}
+.sd-flex--direction-col,
+.flex-col {
+    flex-direction: column !important;
+}
+.sd-flex--direction-row-reverse,
+.flex-row-reverse {
+    flex-direction: row-reverse !important;
+}
+.sd-flex--direction-col-reverse,
+.flex-col-reverse {
+    flex-direction: column-reverse !important;
+}
+// Flex wrap
+.sd-flex--wrap,
+.flex-wrap {
+    flex-wrap: wrap;
+}
+.sd-flex--wrap-reverse,
+.flex-wrap-reverse {
+    flex-wrap: wrap-reverse;
+}
+.sd-flex--nowrap,
+.flex-nowrap {
+    flex-wrap: nowrap;
+}
+// Flex flex
+.sd-flex--flex-1,
+.flex-1 {
+    flex: 1 1 0%;
+}
+.sd-flex--flex-auto,
+.flex-auto  {
+    flex: 1 1 auto;
+}
+.sd-flex--flex-initial,
+.flex-initial  {
+    flex: 0 1 auto;
+}
+.sd-flex--flex-none,
+.flex-none {
+    flex: none;
+}
+// Flex grow & shrink
+.sd-flex--grow,
+.flex-grow {
+    flex-grow: 1 !important;
+}
+.sd-flex--grow-0,
+.flex-grow-0 {
+    flex-grow: 0 !important;
+}
+.sd-flex--shrink,
+.flex-shrink {
+    flex-shrink: 1 !important;
+}
+.sd-flex--shrink-0,
+.flex-shrink-0 {
+    flex-shrink: 0 !important;
+}
+// Flex justify content
+.sd-flex--justify-start,
+.justify-start {
+    justify-content: flex-start !important;
+}
+.sd-flex--justify-end,
+.justify-end {
+    justify-content: flex-end !important;
+}
+.sd-flex--justify-center,
+.justify-center {
+    justify-content: center !important;
+}
+.sd-flex--justify-between,
+.justify-between {
+    justify-content: space-between !important;
+}
+.sd-flex--justify-around,
+.justify-around {
+    justify-content: space-around !important;
+}
+.sd-flex--justify-evenly,
+.justify-evenly {
+    justify-content: space-evenly !important;
+}
+.justify-normal {
+    justify-content: normal !important;
+}
+.justify-stretch {
+    justify-content: stretch !important;
+}
+// Flex align items
+.sd-flex--items-start,
+.items-start {
+    align-items: flex-start !important;
+}
+.sd-flex--items-end,
+.items-end {
+    align-items: flex-end !important;
+}
+.sd-flex--items-center,
+.items-center  {
+    align-items: center !important;
+}
+.sd-flex--items-baseline,
+.items-baseline  {
+    align-items: baseline !important;
+}
+.sd-flex--items-stretch,
+.items-stretch {
+    align-items: stretch !important;
+}
+// Grid Justify Items
+.justify-items-start {
+    justify-items: start;
+}
+.justify-items-end {
+    justify-items: end;
+}
+.justify-items-center  {
+    justify-items: center;
+}
+.justify-items-stretch  {
+    justify-items: stretch;
+}
+// Flex & Grid Align Content
+.content-normal {
+    align-content: normal;
+}
+.content-center {
+    align-content: center;
+}
+.content-start {
+    align-content: start;
+}
+.content-end {
+    align-content: end;
+}
+.content-between {
+    align-content: space-between;
+}
+.content-around {
+    align-content: space-around;
+}
+.content-evenly {
+    align-content: space-evenly;
+}
+.content-baseline {
+    align-content: baseline;
+}
+.content-stretch {
+    align-content: stretch;
+}
+// Flex & Grid Align Self
+.self-auto {
+    align-self: auto;
+}
+.self-start {
+    align-self: flex-start;
+}
+.self-end {
+    align-self: flex-end;
+}
+.self-center {
+    align-self: center;
+}
+.self-stretch {
+    align-self: stretch;
+}
+.self-baseline {
+    align-self: baseline;
+}
+// Grid Justify Self
+.justify-self-auto {
+    justify-self: auto;
+}
+.justify-self-start {
+    justify-self: start;
+}
+.justify-self-end {
+    justify-self: end;
+}
+.justify-self-center {
+    justify-self: center;
+}
+.justify-self-stretch {
+    justify-self: stretch;
+}
+// Place Content
+.place-content-center {
+    place-content: center;
+}
+.place-content-start {
+    place-content: start;
+}
+.place-content-end {
+    place-content: end;
+}
+.place-content-between {
+    place-content: space-between;
+}
+.place-content-around {
+    place-content: space-around;
+}
+.place-content-evenly {
+    place-content: space-evenly;
+}
+.place-content-baseline {
+    place-content: baseline;
+}
+.place-content-stretch {
+    place-content: stretch;
+}
+// Place Items
+.place-items-start {
+    place-items: start;
+}
+.place-items-end {
+    place-items: end;
+}
+.place-items-center {
+    place-items: center;
+}
+.place-items-baseline {
+    place-items: baseline;
+}
+.place-items-stretch {
+    place-items: stretch;
+}
+// Place Self
+.place-self-auto {
+    place-self: auto;
+}
+.place-self-start {
+    place-self: start;
+}
+.place-self-end {
+    place-self: end;
+}
+.place-self-center {
+    place-self: center;
+}
+.place-self-stretch {
+    place-self: stretch;
+}
+
+// POSITION HELPERS -------------------------------------------------------------------------------
+.sd-position--static,
+.p-static  {
+    position: static;
+}
+
+.sd-position--fixed,
+.p-fixed {
+    position: fixed;
+}
+
+.sd-position--relative,
+.p-relative {
+    position: relative;
+}
+
+.sd-position--absolute,
+.p-absolute {
+    position: absolute;
+}
+
+.sd-position--sticky,
+.p-sticky {
+    position: sticky;
+}
+
+// OVERFLOW HELPERS -------------------------------------------------------------------------------
+.sd-overflow--auto,
+.overflow-auto {
+    overflow: auto !important;
+}
+.sd-overflow--hidden,
+.overflow-hidden {
+    overflow: hidden !important;
+}
+.sd-overflow--visible,
+.overflow-visible {
+    overflow: visible !important;
+}
+.sd-overflow--scroll,
+.overflow-scroll {
+    overflow: scroll !important;
+}
+.sd-overflow--x-auto,
+.overflow-x-auto  {
+    overflow-x: auto !important;
+}
+.sd-overflow--y-auto,
+.overflow-y-auto  {
+    overflow-y: auto !important;
+}
+.sd-overflow--x-hidden,
+.overflow-x-hidden {
+    overflow-x: hidden !important;
+}
+.sd-overflow--y-hidden,
+.overflow-y-hidden {
+    overflow-y: hidden !important;
+}
+.sd-overflow--x-visible,
+.overflow-x-visible {
+    overflow-x: visible !important;
+}
+.sd-overflow--y-visible,
+.overflow-y-visible {
+    overflow-y: visible !important;
+}
+.sd-overflow--x-scroll,
+.overflow-x-scroll {
+    overflow-x: scroll !important;
+}
+.sd-overflow--y-scroll,
+.overflow-y-scroll {
+    overflow-y: scroll !important;
+}
+.overflow-clip {
+    overflow: clip !important;
+}
+.overflow-x-clip {
+    overflow-x: clip !important;
+}
+.overflow-y-clip {
+    overflow-y: clip !important;
+}
+
+// SHADOW HELPER CLASSES --------------------------------------------------------------------------
+.sd-shadow--z1 {
+    box-shadow: var(--sd-shadow--z1);
+}
+.sd-shadow--z2 {
+    box-shadow: var(--sd-shadow--z2);  
+}
+.sd-shadow--z3 {
+    box-shadow: var(--sd-shadow--z3);
+}
+.sd-shadow--z4 {
+    box-shadow: var(--sd-shadow--z4);
+}
+.sd-shadow--none {
+    box-shadow: none;
+}
+// Uses the drop-shadow filter property
+.sd-drop-shadow--z1 {
+    filter: var(--sd-drop-shadow--z1);
+}
+.sd-drop-shadow--z2 {
+    filter: var(--sd-drop-shadow--z2);  
+}
+.sd-drop-shadow--z3 {
+    filter: var(--sd-drop-shadow--z3);
+}
+.sd-drop-shadow--z4 {
+    filter: var(--sd-drop-shadow--z4);
+}
+
+// MARGINS ----------------------------------------------------------------------------------------
+
+// MARGIN AUTO
+.m-auto,
+.sd-margin--auto {
+    margin: auto !important;
+}
 .ml-auto,
+.ms-auto,
 .sd-margin-l--auto,
 .sd-margin-s--auto {
     margin-inline-start: auto !important;
 }
-
 .mr-auto,
+.me-auto,
 .sd-margin-r--auto,
 .sd-margin-e--auto {
     margin-inline-end: auto !important;
 }
-
 .mt-auto,
 .sd-margin-t--auto {
     margin-block-start: auto !important;
 }
-
 .mb-auto,
 .sd-margin-b--auto {
     margin-block-end: auto !important;
 }
-
 .mlr-auto,
+.mx-auto,
 .sd-margin-x--auto {
     margin-inline-start: auto !important;
     margin-inline-end: auto !important;
 }
-
+.my-auto,
 .sd-margin-y--auto {
     margin-block-start: auto !important;
     margin-block-end: auto !important;
 }
 
-.sd-margin--auto {
-    margin: auto !important;
-}
-
-// MARGINS ---------------------------------------------- //
 // MARGIN (all sides)
 .m-0,
 .sd-margin--0 {
@@ -1062,7 +1261,8 @@ h6 {
     margin-block-start: calc(5 * var(--base-increment)) !important;
     margin-block-end: calc(5 * var(--base-increment)) !important;
 }
-// PADDINGS ---------------------------------------------- //
+
+// PADDINGS ---------------------------------------------------------------------------------------
 // PADDING (all sides)
 .p-0,
 .sd-padding--0 {
@@ -1237,7 +1437,7 @@ h6 {
     padding-block-start: calc(5 * var(--base-increment)) !important;
 }
 // PADDING BLOCK END (bottom)
-.pb--0,
+.pb-0,
 .sd-padding-b--0 {
     padding-block-end: 0 !important;
 }
@@ -1311,333 +1511,458 @@ h6 {
     padding-block-end: calc(5 * var(--base-increment)) !important;
 }
 
-// padding all  (KILL THIS AFTER REFACTORING)
-.sd-padding-all--0 {
-    padding: 0 !important;
+// GAP --------------------------------------------------------------------------------------------
+.gap-0 {
+    gap: var(--gap-0); // 0px
+}
+.gap-0-5 {
+    gap: var(--gap-0-5); // 4px
+}
+.gap-1 {
+    gap: var(--gap-1); // 8px
+}
+.gap-1-5 {
+    gap: var(--gap-1-5); // 12px
+}
+.gap-2 {
+    gap: var(--gap-2); // 16px
+}
+.gap-3 {
+    gap: var(--gap-3); // 24px
+}
+.gap-4 {
+    gap: var(--gap-4); // 32px
+}
+.gap-5 {
+    gap: var(--gap-5); // 40px
 }
 
-.sd-padding-all--0-5 {
-    padding: $sd-base-increment * 0.5 !important;
+// TYPOGRAPHY -------------------------------------------------------------------------------------
+// FONT SIZE
+.text-2xs {
+    font-size: calc(var(--text-size--base) * 1); // 12px;
+}
+.sd-font-size--x-small,
+.text-xs {
+    font-size: calc(var(--text-size--base) * 1.2); // 12px;
+}
+.sd-font-size--small,
+.text-sm {
+    font-size: calc(var(--text-size--base) * 1.4); // 14px;
+}
+.sd-font-size--medium ,
+.text-md {
+    font-size: calc(var(--text-size--base) * 1.6); // 16px;
+}
+.sd-font-size--large,
+.text-lg {
+    font-size: calc(var(--text-size--base) * 2); // 20px;
+}
+.sd-font-size--x-large,
+.text-xl {
+    font-size: calc(var(--text-size--base) * 2.4); // 24px;
+}
+.sd-font-size--x-large,
+.text-2xl {
+    font-size: calc(var(--text-size--base) * 3.2); // 32px;
 }
 
-.sd-padding-all--1 {
-    padding: $sd-base-increment !important;
+// TEXT COLOR
+.sd-text-color--normal,
+.text-color-normal {
+    color: var(--color-text) !important;
+}
+.sd-text-color--light,
+.text-color-muted {
+    color: var(--color-text-light) !important;
+}
+.sd-text-color--lighter,
+.text-color-subdued {
+    color: var(--color-text-lighter) !important;
+}
+.sd-text-color--inverse,
+.text-color-inverse {
+    color: var(--color-text--inverse) !important;
 }
 
-.sd-padding-all--1-5 {
-    padding: $sd-base-increment * 1.5 !important;
+// FONT WEIGHTS
+.sd-text__light,
+.sd-text--light,
+.font-light {
+    font-weight: 300;
+}
+.sd-text__normal,
+.sd-text--normal,
+.font-normal {
+    font-weight: 400;
+}
+.sd-text--medium,
+.font-medium {
+    font-weight: 500;
+}
+.sd-text--medium,
+.font-semibold {
+    font-weight: 500;
+}
+.sd-text__strong,
+.sd-text--strong,
+.sd-text--bold,
+.font-bold {
+    font-weight: 700;
+}
+.font-black {
+    font-weight: 900;
 }
 
-.sd-padding-all--2 {
-    padding: $sd-base-increment * 2 !important;
+// FONT STYLE
+.sd-text__italic,
+.sd-text--italic,
+.italic {
+    font-style: italic;
+}
+.sd-text--non-italic,
+.non-italic {
+    font-style: normal;
 }
 
-.sd-padding-all--3 {
-    padding: $sd-base-increment * 3 !important;
+// TEXT ALIGN
+.sd-text-align--left,
+.sd-text-align--start,
+.text-start,
+.text-left {
+    text-align: start;
+}
+.sd-text__center,
+.sd-text-align--center,
+.text-center {
+    text-align: center;
+}
+.sd-text__right,
+.sd-text-align--right,
+.sd-text-align--end,
+.text-end {
+    text-align: end;
+}
+.sd-text-align--justify,
+.text-justify {
+    text-align: justify;
 }
 
-// margin all (KILL THIS AFTER REFACTORING)
-.sd-margin-all--0 {
-    margin: 0 !important;
+// TEXT TRANSFORM
+.sd-txt-transform--uppercase,
+.text-uppercase {
+    text-transform: uppercase;
+}
+.sd-txt-transform--lowercase,
+.text-lowercase {
+    text-transform: lowercase;
+}
+.sd-txt-transform--capitalize,
+.text-capitalize {
+    text-transform: capitalize;
+}
+.sd-txt-transform--none,
+.text-normal-case {
+    text-transform: none;
 }
 
-.sd-margin-all--0-5 {
-    margin: $sd-base-increment * 0.5 !important;
+// TEXT DECORATION
+.sd-txt-decoration--underline,
+.text-underline {
+    text-decoration: underline;
+}
+.sd-txt-decoration--line-through,
+.text-line-through {
+    text-decoration: line-through;
+}
+.sd-txt-decoration--none,
+.text-no-underline  {
+    text-decoration: none;
 }
 
-.sd-margin-all--1 {
-    margin: $sd-base-increment * 1 !important;
-}
-
-.sd-margin-all--1-5 {
-    margin: $sd-base-increment * 1.5 !important;
-}
-
-.sd-margin-all--2 {
-    margin: $sd-base-increment * 2 !important;
-}
-
-.sd-margin-all--3 {
-    margin: $sd-base-increment * 3 !important;
-}
-
-// END
-
-
-.sd-wrap-helper {
-    display: contents !important;
-}
-
-.sd-accessibility__btn-text--invisible,
-.sd-accessibility__screenreader-text {
-    position: absolute;
-    top: 0;
-    inset-inline-start: 0;
-    font-size: 0.1rem;
-    color: transparent !important;
-    pointer-events: none;
-}
-
-// remove this after refactoring
-.overflow-auto {
-    overflow: auto !important;
-}
-
-.overflow-hidden {
-    overflow: hidden !important;
-}
-
-.overflow-x-hidden {
-    overflow-x: hidden !important;
-}
-
-.sd-d-none {
-    display: none !important;
-}
-
-.sd-d-inline {
-    display: inline !important;
-}
-
-.sd-d-inline-block {
-    display: inline-block !important;
-}
-
-.sd-d-block {
-    display: block !important;
-}
-
-.sd-d-flex {
-    display: flex !important;
-}
-
-.sd-d-inline-flex {
-    display: inline-flex !important;
-}
-
-.sd-display-flex-column {
-    display: flex;
-    flex-direction: column;
-    overflow: auto;
-}
-
-.sd-flex-wrap {
-    flex-wrap: wrap;
-}
-
-.sd-flex-shrink {
-    flex-shrink: 1 !important;
-}
-
-.sd-flex-no-shrink {
-    flex-shrink: 0 !important;
-}
-
-.sd-flex-justify-end {
-    justify-content: flex-end !important;
-}
-
-.sd-flex-justify-center {
-    justify-content: center !important;
-}
-
-.sd-flex-justify-space-between {
-    justify-content: space-between !important;
-}
-
-.sd-flex-align-items-center {
-    align-items: center !important;
-}
-
-.sd-flex-grow {
-    flex-grow: 1 !important;
-}
-
-.sd-flex-no-grow {
-    flex-grow: 0 !important;
-}
-
-.sd-no-wrap {
+// TEXT OVERFLOW
+.sd-overflow-ellipsis,
+.sd-overflow--ellipsis,
+.text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
     white-space: nowrap;
 }
+.text-clip {
+    text-overflow: clip;
+}
 
+// TEXT WRAP
+.text-wrap {
+    text-wrap: wrap;
+}
+.text-nowrap {
+    text-wrap: clip;
+}
+.text-balance {
+    text-wrap: balance;
+}
+.text-pretty {
+    text-wrap: pretty;
+}
 
-// Border Radius
-.sd-radius--x-small {
+// WORD BREAK
+.sd-word-break--normal,
+.break-normal {
+    overflow-wrap: normal;
+    word-break: normal;
+}
+.sd-word-break--words,
+.break-words {
+    overflow-wrap: break-word;
+}
+.sd-word-break--all,
+.break-all {
+    word-break: break-all;
+}
+
+// LINE HIGHT
+.line-height-1 {
+    line-height: 1;
+}
+.line-height-xs {
+    line-height: 1.1;
+}
+.line-height-sm {
+    line-height: 1.2;
+}
+.line-height-md {
+    line-height: 1.4;
+}
+.line-height-lg {
+    line-height: 1.5;
+}
+
+// LINE CLAMP
+// limit the number of horizontal lines in an elemnt (e.g. <p>)
+// it doesn't work if the element has set flex-grow: 1;
+@mixin line-clamp-base {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+.sd-line-clamp--1,
+.line-clamp-1 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 1;
+}
+.sd-line-clamp--2,
+.line-clamp-2 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 2;
+}
+.sd-line-clamp--3,
+.line-clamp-3 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 3;
+}
+.sd-line-clamp--4,
+.line-clamp-4 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 4;
+}
+.sd-line-clamp--5,
+.line-clamp-5 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 5;
+}
+.sd-line-clamp--6,
+.line-clamp-6 {
+    @include line-clamp-base;
+    -webkit-line-clamp: 6;
+}
+.sd-line-clamp--none,
+.line-clamp-none {
+    -webkit-line-clamp: none;
+}
+
+// BORDER RADIUS ----------------------------------------------------------------------------------
+.sd-radius--x-small,
+.radius-xs {
     border-radius: var(--b-radius--x-small);
 }
-
-.sd-radius--small {
+.sd-radius--small,
+.radius-sm {
     border-radius: var(--b-radius--small);
 }
-
-.sd-radius--medium {
+.sd-radius--medium,
+.radius-md {
     border-radius: var(--b-radius--medium);
 }
-
-.sd-radius--large {
+.sd-radius--large,
+.radius-lg {
     border-radius: var(--b-radius--large);
 }
-
-.sd-radius--x-large {
+.sd-radius--x-large,
+.radius-xl {
     border-radius: var(--b-radius--x-large);
 }
-
-.sd-radius--full {
+.sd-radius--full,
+.radius-full {
     border-radius: var(--b-radius--full);
 }
 
-// Border
-.sd-border--x-light {
+// BORDER -----------------------------------------------------------------------------------------
+.sd-border--x-light,
+.border-x-light {
     border: 1px solid var(--sd-colour-line--x-light);
 }
-
-.sd-border--light {
+.sd-border--light,
+.border-light {
     border: 1px solid var(--sd-colour-line--light);
 }
-
-.sd-border--medium {
+.sd-border--medium,
+.border-medium {
     border: 1px solid var(--sd-colour-line--medium);
 }
-
-.sd-border--strong {
+.sd-border--strong,
+.border-strong {
     border: 1px solid var(--sd-colour-line--strong);
 }
 
-.sd-border--x-light {
-    border: 1px solid var(--sd-colour-line--x-light);
+// BORDER STYLE
+.sd-border-style--solid,
+.border-solid {
+    border-style: solid;
+}
+.sd-border-style--dotted,
+.border-dotted {
+    border-style: dotted;
+}
+.sd-border-style--dashed,
+.border-dashed {
+    border-style: dashed;
+}
+.border-double {
+    border-style: double;
 }
 
-.sd-border-style--dotted {
-    border-style: dotted !important;
+// BORDER WIDTH
+.sd-border-width--0,
+.border-0 {
+    border-width: 0px;
 }
-
-.sd-border-style--dashed {
-    border-style: dashed !important;
+.sd-border-width--1,
+.border-1 {
+    border-width: 1px;
 }
-
-.sd-border-width--2 {
+.sd-border-width--2,
+.border-2 {
     border-width: 2px;
 }
-
-.sd-border-width--3 {
+.sd-border-width--3,
+.border-3 {
     border-width: 3px;
 }
-
-// Font size
-.sd-font-size--x-small {
-    font-size: calc(var(--text-size--base) * 1.2); // 12px;
+.sd-border-width--4,
+.border-4 {
+    border-width: 4px;
+}
+.border-x-0 {
+    border-inline-start-width: 0px;
+    border-inline-end-width: 0px;
+}
+.border-y-0 {
+    border-block-start-width: 0px;
+    border-block-end-width: 0px;
+}
+.border-s-0 {
+    border-inline-start-width: 0px;
+}
+.border-e-0 {
+    border-inline-end-width: 0px;
+}
+.border-t-0 {
+    border-top: 0px;
+}
+.border-b-0 {
+    border-bottom: 0px;
 }
 
-.sd-font-size--small {
-    font-size: calc(var(--text-size--base) * 1.4); // 14px;
+// OPACITY HELPERS --------------------------------------------------------------------------------
+.sd-opacity--0,
+.opacity-0 {
+    opacity: 0;
+}
+.sd-opacity--20,
+.opacity-20 {
+    opacity: 0.2;
+}
+.sd-opacity--25,
+.opacity-25 {
+    opacity: 0.25;
+}
+.sd-opacity--30,
+.opacity-30 {
+    opacity: 0.3;
+}
+.sd-opacity--40,
+.opacity-40 {
+    opacity: 0.4;
+}
+.sd-opacity--50,
+.opacity-50 {
+    opacity: 0.5;
+}
+.sd-opacity--60,
+.opacity-60 {
+    opacity: 0.6;
+}
+.sd-opacity--75,
+.opacity-75 {
+    opacity: 0.75;
 }
 
-.sd-font-size--medium {
-    font-size: calc(var(--text-size--base) * 1.6); // 16px;
+// OBJECT FIT HELPERS -----------------------------------------------------------------------------
+.object-contain {
+    object-fit: contain;
+}
+.object-cover {
+    object-fit: cover;
+}
+.object-fill {
+    object-fit: fill;
+}
+.object-none {
+    object-fit: none;
+}
+.object-scale-down {
+    object-fit: scale-down;
 }
 
-.sd-font-size--large {
-    font-size: calc(var(--text-size--base) * 2); // 20px;
-}
+// OBJECT POSITION HELPERS ------------------------------------------------------------------------
+// Defines the positin of any selected replaced element (e.g., an <img>)
+// within the box that contains it. For it to work it must be used with 'sd-object-fit--none' (object-fit: none;)
 
-// Text colour
-.sd-text-color--lighter {
-    color: var(--color-text-lighter) !important;
+.object-bottom {
+    object-position: bottom;
 }
-
-.sd-text-color--light {
-    color: var(--color-text-light) !important;
+.object-center {
+    object-position: center;
 }
-
-.sd-text-color--normal {
-    color: var(--color-text) !important;
+.object-left {
+    object-position: left;
 }
-
-// Background colours
-.sd-panel-bg--100 {
-    background-color: var(--sd-colour-panel-bg--100);
+.object-left-bottom {
+    object-position: left bottom;
 }
-
-.sd-panel-bg--000 {
-    background-color: var(--sd-item__main-Bg);
+.object-left-top {
+    object-position: left top;
 }
-
-.sd-panel-bg--gradient-1 {
-    background-color: var(--sd-item__main-Bg);
-    background: linear-gradient(180deg, var(--sd-colour-interactive--alpha-20) 0%, var(--sd-item__main-Bg) 40%);
+.object-right {
+    object-position: right;
 }
-
-.sd-state--focus:focus-within,
-.sd-state--active {
-    box-shadow: var(--sd-shadow__item--selected) !important;
-    transition: box-shadow 0.3s ease, filter 0.3s ease;
+.object-right-bottom {
+    object-position: right bottom;
 }
-
-.sd-width--xxx-small {
-    width: var(--width__container--xxx-small) !important;
+.object-right-top {
+    object-position: right top;
 }
-
-.sd-width--xx-small {
-    width: var(--width__container--xx-small);
-}
-
-.sd-width--x-small {
-    width: var(--width__container--x-small);
-}
-
-.sd-width--small {
-    width: var(--width__container--small);
-}
-
-.sd-width--medium {
-    width: var(--width__container--medium);
-}
-
-.sd-width--large {
-    width: var(--width__container--large);
-}
-
-.sd-width--x-large {
-    width: var(--width__container--x-large);
-}
-
-.sd-width--xx-large {
-    width: var(--width__container--xx-large);
-}
-
-.sd-width--xxx-large {
-    width: var(--width__container--xxx-large);
-}
-
-.sd-width--full {
-    width: var(--width__container--full);
-}
-
-.sd-gap--x-small {
-    gap: var(--gap--x-small);
-}
-
-.sd-gap--small {
-    gap: var(--gap--small);
-}
-
-.sd-gap--medium {
-    gap: var(--gap--medium);
-}
-
-.sd-gap--large {
-    gap: var(--gap--large);
-}
-
-.sd-gap--x-large {
-    gap: var(--gap--x-large);
-}
-
-.sd-gap--xx-large {
-    gap: var(--gap--xx-large);
-}
-
-.sd-gap--auto {
-    gap: var(--gap--auto);
+.object-top {
+    object-position: top;
 }

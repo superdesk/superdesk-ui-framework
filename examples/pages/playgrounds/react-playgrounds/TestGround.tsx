@@ -1,6 +1,7 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, DatePicker} from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, Avatar, SvgIconIllustration, IllustrationButton, SubNav, NavButton } from '../../../../app-typescript/index';
+import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
 interface IProps {
@@ -23,7 +24,31 @@ interface IState {
     date: any;
     time: string;
     modalPlanningTemplates: boolean;
+    modalSaveEvent: boolean;
+    modalSaveEvent2: boolean;
+    modalSaveEvent3: boolean;
+    modalSaveEvent4: boolean;
+    treeSelectValue: any;
+    value: any;
+    valueS2: any;
+    thisTheme: string;
+    isExpanded: boolean;
+    openCollapsibleOne: boolean;
+    openCollapsibleTwo: boolean;
+    openCollapsibleThree: boolean;
 }
+
+let options2 = [
+    {
+        value: {name: 'A long category Category1'},
+    },
+    {
+        value: {name: 'Category2'},
+    },
+    {
+        value: {name: 'Category3'},
+    },
+]
 
 export class TestGround extends React.Component<IProps, IState> {
     constructor(props: IProps) {
@@ -44,6 +69,18 @@ export class TestGround extends React.Component<IProps, IState> {
             date: new Date('2022-01-08'),
             time: '16:50',
             modalPlanningTemplates: false,
+            modalSaveEvent: false,
+            modalSaveEvent2: false,
+            modalSaveEvent3: false,
+            modalSaveEvent4: false,
+            treeSelectValue: [],
+            value: undefined,
+            valueS2: undefined,
+            thisTheme: 'light-ui',
+            isExpanded: false,
+            openCollapsibleOne: false,
+            openCollapsibleTwo: false,
+            openCollapsibleThree: false,
         }
     }
 
@@ -55,12 +92,664 @@ export class TestGround extends React.Component<IProps, IState> {
         }
     }
 
+    toggleTheme = () => {
+        this.setState( {
+            thisTheme: this.state.thisTheme === 'light-ui' ? 'dark-ui' : 'light-ui',
+        });
+    };
+
+    toggleExpand = () => {
+        this.setState(prevState => ({ isExpanded: !prevState.isExpanded }));
+    }
+
     render() {
+        const avatars: Array<IAvatarInGroup> = [
+            {
+                imageUrl: null,
+                initials: "VS",
+                displayName: 'Vladimir Stefanovic',
+                icon:{name: 'text', color: 'var(--sd-colour-highlight)'},
+            },
+            {
+                imageUrl: null,
+                initials: "JL",
+                displayName: 'Jeffrey Lebowski',
+                icon:{name: 'photo', color: 'var(--sd-colour-highlight)'}
+            },
+            {
+                imageUrl: null,
+                initials: "WS",
+                displayName: 'Walter Sobchak',
+                icon:{name: 'video', color: 'var(--sd-colour-highlight)'}
+            },
+            {
+                imageUrl: null,
+                initials: "ML",
+                displayName: 'Maude Lebowski',
+                icon:{name: 'file', color: 'var(--sd-colour-highlight)'}
+            },
+        ];
+
+        const modalSaveEventFooterOne=(
+            <ButtonGroup align="end">
+                <Button text='Cancel' onClick={() => this.setState({modalSaveEvent:false})} />
+                <Button type='primary' text='Save' onClick={() => this.setState({modalSaveEvent:false})} />
+            </ButtonGroup>
+        );
+        const modalSaveEventFooterTwo=(
+            <ButtonGroup align="end">
+                <Button text='Cancel' onClick={() => this.setState({modalSaveEvent2:false})} />
+                <Button type='primary' text='Save' onClick={() => this.setState({modalSaveEvent2:false})} />
+            </ButtonGroup>
+        );
+        const modalSaveEventFooterThree=(
+            <ButtonGroup align="end">
+                <Button text='Cancel' onClick={() => this.setState({modalSaveEvent3:false})} />
+                <Button type='primary' text='Save' onClick={() => this.setState({modalSaveEvent3:false})} />
+            </ButtonGroup>
+        );
         return (
-            <Components.Layout header='Testing Ground'>
+            <Components.Layout header='Testing Ground' theme={this.state.thisTheme}>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
+
+                        <ButtonGroup align='end'>
+                            <IconButton icon="adjust" ariaValue="Toggle theme" onClick={this.toggleTheme} toolTipFlow='left' />
+                        </ButtonGroup>
+
+                        <hr />
+
+                        <div style={{maxWidth: '600px'}} className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleOne ? 'new-collapse-box--open' : ''}`}>
+                            {/* Header */}
+                            <div className='new-collapse-box__header'>
+                                <div className='new-collapse-box__header-inner'>
+                                    <div role="listitem" className="sd-list-item sd-list-item--no-hover">
+                                        <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                        <div className="sd-list-item__column sd-list-item__column--no-border pe-0-5">
+                                            <Icon type='primary' name='calendar' scale='1.5x' ariaHidden={true} />
+                                        </div>
+                                        <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div className="sd-list-item__row">
+                                                <span className="sd-list-item__slugline">Planning Slug</span>
+                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                    <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                                </span>
+                                            </div>
+                                            <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                <Label text='draft' style='translucent'/>
+                                                <span className="sd-margin-s--auto">
+                                                <AvatarGroup
+                                                    size="x-small"
+                                                    items={avatars}
+                                                />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleOne: !prevState.openCollapsibleOne}))}>
+                                    <span className='label label--translucent new-collapse-box__divider-label'>
+                                        {this.state.openCollapsibleOne ? 'Show less' : 'Show more'}
+                                    </span>
+                                </button>
+                            </div>
+
+                            {/* Content */}
+                            <div className='new-collapse-box__content'>
+                                <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                    <div>
+                                        <FormLabel text='Name'/>
+                                        <Text size='small' weight='medium'>Australian Open 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Date'/>
+                                        <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Repeat Summary'/>
+                                        <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='No. of events'/>
+                                        <Text size='small' weight='medium'>1</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+
+                                    {/* NESTED BOX */}
+                                    <div className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleTwo ? 'new-collapse-box--open' : ''}`}>
+                                        {/* Header */}
+                                        <div className='new-collapse-box__header'>
+                                            <div className='new-collapse-box__header-inner'>
+                                                <div role="listitem" className="sd-list-item sd-list-item--no-hover">
+                                                    <div className="sd-list-item__column sd-list-item__column--no-border pe-1">
+                                                    <Avatar
+                                                        displayName="Jeffrey Lebowski"
+                                                        imageUrl={null}
+                                                        initials='JL'
+                                                        size="medium"
+                                                        icon={{name: 'photo', color: 'var(--sd-colour-highlight)'}}
+                                                    />
+
+                                                    </div>
+                                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                        <div className="sd-list-item__row">
+                                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                                <span className="sd-list-item__compound-text">
+                                                                    <span className="sd-list-item__text-strong">Photo</span>
+                                                                    <span className="sd-list-item__text-light">//</span>
+                                                                    <span className="sd-list-item__text">Archive</span>
+                                                                </span>
+                                                                
+                                                            </span>
+                                                            <time className="sd-margin-s--auto" title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                        </div>
+                                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible mb-1-5">
+                                                            <span className="sd-list-item__compound-text">
+                                                                <span className="sd-list-item__text-label">Desk:</span>
+                                                                <span>Sports</span>
+                                                            </span>
+                                                            <span className="sd-list-item__compound-text">
+                                                                <span className="sd-list-item__text-label">Assignee:</span>
+                                                                <span>Jeffrey Lebowski</span>
+                                                            </span>
+                                                            <span className='sd-margin-s--auto'>
+                                                                <Label text='in progress' style='translucent' type='success'/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleTwo: !prevState.openCollapsibleTwo}))}>
+                                                <span className='label label--translucent new-collapse-box__divider-label'>
+                                                    {this.state.openCollapsibleTwo ? 'Show less' : 'Show more'}
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className='new-collapse-box__content'>
+                                            <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                                <div>
+                                                    <FormLabel text='Name'/>
+                                                    <Text size='small' weight='medium'>Australian Open 2024</Text>
+                                                </div>
+                                                <ContentDivider type="dashed" margin='x-small' />
+                                                <div>
+                                                    <FormLabel text='Current Date'/>
+                                                    <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                                                </div>
+                                                <ContentDivider type="dashed" margin='x-small' />
+                                                <div>
+                                                    <FormLabel text='Current Repeat Summary'/>
+                                                    <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                                                </div>
+                                                <ContentDivider type="dashed" margin='x-small' />
+                                                <div>
+                                                    <FormLabel text='No. of events'/>
+                                                    <Text size='small' weight='medium'>1</Text>
+                                                </div>
+                                                {/* <ContentDivider type="dashed" margin='x-small' /> */}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Second Collapsible */}
+
+                        <div style={{maxWidth: '600px'}} className={`mt-2 sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleThree ? 'new-collapse-box--open' : ''}`}>
+                            {/* Header */}
+                            <div className='new-collapse-box__header'>
+                                <div className='new-collapse-box__header-inner'>
+                                    <div role="listitem" className="sd-list-item sd-list-item--no-hover">
+                                        <div className="sd-list-item__border sd-list-item__border--active"></div>
+                                        <div className="sd-list-item__column sd-list-item__column--no-border pe-0-5">
+                                            <Icon type='primary' name='calendar' scale='1.5x' ariaHidden={true} />
+                                        </div>
+                                        <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div className="sd-list-item__row">
+                                                <span className="sd-list-item__slugline">Planning Item Slug</span>
+                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                    <span className="sd-list-item__text-strong">Aenean eu leo quam. Pellentesque ornare sem lacinia quam</span>
+                                                </span>
+                                            </div>
+                                            <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                <Label text='in progress' type='success' style='translucent'/>
+                                                <span className="sd-margin-s--auto">
+                                                <AvatarGroup
+                                                    size="x-small"
+                                                    items={avatars}
+                                                />
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleThree: !prevState.openCollapsibleThree}))}>
+                                    <span className='label label--translucent new-collapse-box__divider-label'>
+                                        {this.state.openCollapsibleThree ? 'Show less' : 'Show more'}
+                                    </span>
+                                </button>
+                            </div>
+
+                            {/* Content */}
+                            <div className='new-collapse-box__content'>
+                                <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                    <div>
+                                        <FormLabel text='Name'/>
+                                        <Text size='small' weight='medium'>Australian Open 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Date'/>
+                                        <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='Current Repeat Summary'/>
+                                        <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                    <div>
+                                        <FormLabel text='No. of events'/>
+                                        <Text size='small' weight='medium'>1</Text>
+                                    </div>
+                                    <ContentDivider type="dashed" margin='x-small' />
+                                </div>
+                            </div>
+                        </div>
+
+                        <hr />
+
+                        <SubNav color='darker'>
+                            <Tooltip text={this.state.isExpanded ? "Revert Authoring" : "Expand Authoring"} flow='right' appendToBody={true}>
+                                <button 
+                                    className={`expand-button ${this.state.isExpanded ? "expand-button--expanded" : ""}`}
+                                    onClick={this.toggleExpand}
+                                >
+                                    <Icon name='chevron-left-thin' />
+                                </button>
+                            </Tooltip>
+                            <div className='text-2xs text-uppercase d-flex ms-2 gap-0-5'>
+                                <span className='font-medium'>News desk</span>
+                                <span className='font-light text-color-subdued'>/</span>
+                                <span className='text-color-muted'>Working stage</span>
+                            </div>
+                            <ButtonGroup align='end'>
+                                <Button text="Cancel" onClick={()=> false} type="default" />
+                                <Button text="Save" onClick={()=> false} type="primary" />
+                                <Divider size="mini" />
+                                <ButtonGroup subgroup={true} spaces="no-space">
+                                    <Tooltip text='Minimize' flow='left'>
+                                        <NavButton type='default' icon='minimize' iconSize='big' text='Minimize' onClick={()=> false} />
+                                    </Tooltip>
+                                    <Tooltip text='More actions' flow='left'>
+                                        <NavButton type='default' icon='dots-vertical' text='More actions' onClick={()=> false} />
+                                    </Tooltip>
+                                    <Tooltip text='Send to / Publish' flow='left'>
+                                        <NavButton type='highlight' icon='send-to' iconSize='big' text='Send to / Publish' onClick={()=> false} />
+                                    </Tooltip>
+                                </ButtonGroup>
+                            </ButtonGroup>
+                        </SubNav>
+                        
+                        <hr />
+
+                        <div className='sd-grid-list sd-grid-list--xx-small sd-grid-list--gap-s sd-grid-list--no-margin' style={{width:'290px'}}>
+                            
+                            <IllustrationButton text='Headlines' onClick={()=> false}>
+                                <SvgIconIllustration illustration='headlines' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Keywords' onClick={()=> false}>
+                                <SvgIconIllustration illustration='keywords' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Optimise' onClick={()=> false}>
+                                <SvgIconIllustration illustration='optimise' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Summary' onClick={()=> false}>
+                                <SvgIconIllustration illustration='summary' />
+                            </IllustrationButton>
+
+                            <IllustrationButton text='Translate' onClick={()=> false}>
+                                <SvgIconIllustration illustration='translate' />
+                            </IllustrationButton>
+
+                        </div>
+
+                        <hr />
+
+                        <Heading type='h3'>Below is an example structure of the content inside the 'Headlines' AI Assistant section</Heading>
+                        <Text size="small" weight="light">Note: The surrounding div with inline styles is only there for the purpose of this demo. </Text>
+
+                        <div className='' style={{width:'290px', marginBlockStart:'32px'}}>
+                            <Container gap="small" direction='column'>
+                                <Text size="small" weight="medium">
+                                Praesent commodo cursus magna, vel scelerisque nisl consectetur et aenean eu leo quam ultricies.
+                                </Text>
+                                <ButtonGroup>
+                                    <Button size='small' text="Apply" onClick={()=> false} type="default" style="hollow" />
+                                    <IconButton ariaValue='Copy' icon='copy' onClick={()=> false} />
+                                </ButtonGroup>
+                            </Container>
+
+                            <ContentDivider type="dashed" margin='small' />
+
+                            <Container gap="small" direction='column'>
+                                <Text size="small" weight="medium">
+                                Aenean eu leo quam pellentesque ornare sem lacinia quam venenatis vestibulum nullam id dolor id nibh ultricies vehicula elit.
+                                </Text>
+                                <ButtonGroup>
+                                    <Button size='small' text="Apply" onClick={()=> false} type="default" style="hollow" />
+                                    <IconButton ariaValue='Copy' icon='copy' onClick={()=> false} />
+                                </ButtonGroup>
+                            </Container>
+
+                            <ContentDivider type="dashed" margin='small' />
+
+                            <Container gap="small" direction='column'>
+                                <Text size="small" weight="medium">
+                                Vestibulum id ligula porta felis euismod semper morbi leo risus, porta ac consectetur ac, vestibulum at eros maecenas faucibus.
+                                </Text>
+                                <ButtonGroup>
+                                    <Button size='small' text="Apply" onClick={()=> false} type="default" style="hollow" />
+                                    <IconButton ariaValue='Copy' icon='copy' onClick={()=> false} />
+                                </ButtonGroup>
+                            </Container>
+
+                        </div>
+
+                        <hr />
+
+                        <ButtonGroup>
+                            <Button text="Save Event Modal (Event only)" onClick={() => this.setState({modalSaveEvent: true})} />
+                            <Button text="Save Event Modal (Event & Planning)" onClick={() => this.setState({modalSaveEvent2: true})} />
+                            <Button text="Save Event Modal (Planning only)" onClick={() => this.setState({modalSaveEvent3: true})} />
+                        </ButtonGroup>
+
+                        <hr />
+
+                        {/* <button type="button" className="sd-dropdown-button" aria-haspopup="true" aria-expanded="false">
+                            <span className="sd-dropdown-button__text-block">
+                                <label className="sd-dropdown-button__text-label">Coverage:</label>
+                                <span className="sd-dropdown-button__text-value">Events &amp; Coverages</span>
+                            </span>
+                            <Icon name='chevron-down-thin' />
+                        </button> */}
+                        
+                        <hr />
+
                         <Button text="Planning Templates" onClick={() => this.setState({modalPlanningTemplates: true})} />
+                        <span></span>
+                        
+                        
+                         {/* Event Saving modals */}
+                         {/* Event Only (This one existed Before) */}
+                        <Modal 
+                            headerTemplate="Save Event"
+                            zIndex={10000}
+                            visible={this.state.modalSaveEvent}
+                            contentPadding='medium'
+                            contentBg='medium'
+                            size='medium'
+                            footerTemplate={modalSaveEventFooterOne}
+                            onHide={() => {this.setState({modalSaveEvent: false})}}
+                        >
+                            <div>
+                                <FormLabel text='Name'/>
+                                <Text size='small' weight='medium'>Australian Open 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Date'/>
+                                <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Repeat Summary'/>
+                                <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='No. of events'/>
+                                <Text size='small' weight='medium'>1</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <Text size='small' className='mb-1 mt-0-5'><strong>This is a recurring event</strong>. Update all recurring events or just this one?</Text>
+                            <Select
+                                value={this.state.value}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(value) => {
+                                    this.setState({
+                                        value: value,
+                                    })
+                                }}
+                            >
+                                <Option>This event only</Option>
+                                <Option>This and all future events</Option>
+                                <Option>All events</Option>
+                            </Select>
+                        </Modal>
+
+                        {/* Event and Planning */}
+                        <Modal 
+                            headerTemplate="Save Event"
+                            zIndex={10000}
+                            visible={this.state.modalSaveEvent2}
+                            contentPadding='medium'
+                            contentBg='medium'
+                            size='medium'
+                            footerTemplate={modalSaveEventFooterTwo}
+                            onHide={() => {this.setState({modalSaveEvent2: false})}}
+                        >
+                            <div>
+                                <FormLabel text='Name'/>
+                                <Text size='small' weight='medium'>Australian Open 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Date'/>
+                                <Text size='small' weight='medium'>05.02.2024 @ 10:00</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='Current Repeat Summary'/>
+                                <Text size='small' weight='medium'>Every 1 day(s) until CET 28 Feb 2024</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <div>
+                                <FormLabel text='No. of events'/>
+                                <Text size='small' weight='medium'>1</Text>
+                            </div>
+                            <ContentDivider type="dashed" margin='x-small' />
+                            <Text size='small' className='mb-1 mt-0-5'><strong>This is a recurring event</strong>. Update all recurring events or just this one?</Text>
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(value) => {
+                                    this.setState({
+                                        value: value,
+                                    })
+                                }}
+                            >
+                                <Option>This event only</Option>
+                                <Option>This and all future events</Option>
+                                <Option>All events</Option>
+                            </Select>
+                            <ContentDivider type="solid" margin="medium" />
+                            <Heading type='h3' className='mb-1 sd-text--bold'>Related Planning(s)</Heading>
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Apply the changes to all recurring planning items or just this one?
+                            </Text>
+                            <div className='sd-list-item-group--space-between-items'>
+                                <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
+                                    <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div className="sd-list-item__row">
+                                            <i role="presentation" className="icon-calendar icon--light-blue"></i>
+                                            <span className="sd-list-item__slugline">Planning Slug</span>
+                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                            </span>
+                                        </div>
+                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1">
+                                            <Label text='draft' style='translucent'/>
+                                            <span className="sd-margin-s--auto">
+                                            <AvatarGroup
+                                                size="x-small"
+                                                items={avatars}
+                                            />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(valueS2) => {
+                                    this.setState({
+                                        value: valueS2,
+                                    })
+                                }}
+                            >
+                                <Option>This planning only</Option>
+                                <Option>This and all future plannings</Option>
+                                <Option>All plannings</Option>
+                            </Select>
+
+                        </Modal>
+
+                        {/* Planning only */}
+                        <Modal 
+                            headerTemplate="Save Event"
+                            zIndex={10000}
+                            visible={this.state.modalSaveEvent3}
+                            contentPadding='medium'
+                            contentBg='medium'
+                            size='medium'
+                            footerTemplate={modalSaveEventFooterThree}
+                            onHide={() => {this.setState({modalSaveEvent3: false})}}
+                        >
+                            <Heading type='h3' className='mb-1 sd-text--bold'>Related Planning(s)</Heading>
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Apply the changes to all recurring planning items or just this one?
+                            </Text>
+                            <div className='sd-list-item-group--space-between-items'>
+                                <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
+                                    <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div className="sd-list-item__row">
+                                            <i role="presentation" className="icon-calendar icon--light-blue"></i>
+                                            <span className="sd-list-item__slugline">Planning Slug</span>
+                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                            </span>
+                                        </div>
+                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1">
+                                            <Label text='draft' style='translucent'/>
+                                            <span className="sd-margin-s--auto">
+                                            <AvatarGroup
+                                                size="x-small"
+                                                items={avatars}
+                                            />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(valueS2) => {
+                                    this.setState({
+                                        value: valueS2,
+                                    })
+                                }}
+                            >
+                                <Option>This planning only</Option>
+                                <Option>This and all future plannings</Option>
+                                <Option>All plannings</Option>
+                            </Select>
+
+                            <ContentDivider type="dashed" margin='small' />
+
+                            <Text size='small' className='mb-1'>
+                                <strong>You made changes to a planning item that is a part of a recurring event</strong>.
+                                Apply the changes to all recurring planning items or just this one?
+                            </Text>
+
+                            <div className='sd-list-item-group--space-between-items'>
+                                <div role="listitem" className="sd-list-item sd-shadow--z1 mb-1">
+                                    <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div className="sd-list-item__row">
+                                            <i role="presentation" className="icon-calendar icon--light-blue"></i>
+                                            <span className="sd-list-item__slugline">Planning Slug</span>
+                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                            </span>
+                                        </div>
+                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1">
+                                            <Label text='draft' style='translucent'/>
+                                            <span className="sd-margin-s--auto">
+                                            <AvatarGroup
+                                                size="small"
+                                                items={avatars}
+                                            />
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <Select
+                                value={this.state.valueS2}
+                                label='Update:'
+                                required={false}
+                                disabled={false}
+                                inlineLabel={true}
+                                labelHidden={true}
+                                onChange={(valueS3) => {
+                                    this.setState({
+                                        value: valueS3,
+                                    })
+                                }}
+                            >
+                                <Option>This planning only</Option>
+                                <Option>This and all future plannings</Option>
+                                <Option>All plannings</Option>
+                            </Select>
+
+                        </Modal>
+
+                        {/* Planning templates modal */}
                         <Modal headerTemplate="Planning templates"
                             zIndex={10000}
                             visible={this.state.modalPlanningTemplates}
@@ -98,6 +787,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             </BoxedList>
 
                         </Modal>
+
                         <h3 className="docs-page__h3 ">Planning Templates</h3>
                         <SearchBar placeholder='Search' boxed={true}>
                             <Dropdown
@@ -107,10 +797,28 @@ export class TestGround extends React.Component<IProps, IState> {
                                     { label: 'Action 3', onSelect: () => 1 },
                                 ]}
                             >
-                                Toogle button
+                                With dropdown
                             </Dropdown>
                         </SearchBar>
+                        <hr />
+                        <SearchBar placeholder='Search' boxed={true}>
+                            <TreeSelect
+                                kind={'synchronous'}
+                                value={this.state.treeSelectValue}
+                                getOptions={() => options2}
+                                getLabel={(item) => item.name}
+                                getId={(item) => item.name}
+                                onChange={() => false}
+                                placeholder='Select a desk'
+                                width='medium'
+                                inlineLabel
+                                labelHidden
+                            >
+                                With TreeSelect
+                            </TreeSelect>
+                        </SearchBar>
 
+                        <hr />
                         <hr />
 
                         <h3 className="docs-page__h3 sd-margin-y--0">Pagination</h3>

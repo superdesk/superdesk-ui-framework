@@ -28,6 +28,7 @@ export interface IPropsArrayItem {
     hexColor?: string;
     locked?: boolean;
     positionLocked?: boolean;
+    selected?: boolean;
     onClick?(): void;
     onDoubleClick?(): void;
 }
@@ -154,6 +155,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                                                             center={item.center}
                                                             end={item.end}
                                                             action={item.action}
+                                                            selected={item.selected}
                                                             onClick={
                                                                 item.onClick
                                                                     ? item.onClick
@@ -204,6 +206,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                                 center={item.center}
                                 end={item.end}
                                 action={item.action}
+                                selected={item.selected}
                                 onClick={
                                     item.onClick
                                         ? item.onClick
@@ -264,6 +267,7 @@ export interface IPropsItem {
     showDragHandle?: 'always' | 'onHover' | 'none';
     locked?: boolean;
     positionLocked?: boolean;
+    selected?: boolean;
     onClick?(): void;
     onDoubleClick?(): void;
     onSelect?(): void;
@@ -287,6 +291,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
 
     render() {
         let classes = classNames('table-list__item', {
+            'table-list__item--selected': this.props.selected,
             'table-list__item--clickable': this.props.onClick,
             'table-list__item--draggable': this.props.dragAndDrop,
             'table-list__item--locked': this.props.locked,

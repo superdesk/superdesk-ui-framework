@@ -1,7 +1,8 @@
 /* eslint-disable */
 /* global _, PR */
 
-import { ReactDoc, ReactPlayground } from './../pages/react/Index';
+import { ReactDoc, ReactPlayground, ReactThemePicker } from './../pages/components/Index';
+import { DesignPatternsDoc } from './../pages/design-patterns/Index';
 import { HashRouter } from 'react-router-dom';
 
 import React from 'react';
@@ -115,7 +116,7 @@ function docModal($modal) {
 
             scope.openTemplateModal = function () {
                 modal = $modal.open({
-                    template: require('../pages/components/modal-template.html'),
+                    template: require('../pages/components_deprecated/modal-template.html'),
                     controller: docModalController,
                     size: 'large'
                 });
@@ -152,6 +153,18 @@ function docReact() {
     };
 }
 
+docDesignPatterns.$inject = [];
+function docDesignPatterns() {
+    return {
+        link: function (scope, elem) {
+            ReactDOM.render(
+                <HashRouter>
+                    <DesignPatternsDoc />
+                </HashRouter>, elem[0]);
+        }
+    };
+}
+
 docReactPlayground.$inject = ['playgrounds'];
 function docReactPlayground(playgrounds) {
     return {
@@ -160,6 +173,17 @@ function docReactPlayground(playgrounds) {
                 <HashRouter>
                     <ReactPlayground playgrounds={playgrounds.react} />
                 </HashRouter>, elem[0]);
+        }
+    };
+}
+
+docThemePicker.$inject = [];
+function docThemePicker() {
+    return {
+        link: function (scope, elem) {
+            ReactDOM.render(
+                <ReactThemePicker />, elem[0]
+            )
         }
     };
 }
@@ -199,5 +223,7 @@ export default angular.module('ui-docs.directives', [])
     .directive('docNav', docNav)
     .directive('docModal', docModal)
     .directive('docReact', docReact)
+    .directive('docDesignPatterns', docDesignPatterns)
     .directive('docReactPlayground', docReactPlayground)
+    .directive('docThemePicker', docThemePicker)
     .directive('docGifImg', docGifImg);

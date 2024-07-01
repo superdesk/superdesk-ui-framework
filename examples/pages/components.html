@@ -3,36 +3,13 @@
     <h1 class="docs-page__h1">Superdesk UI</h1>
     <ul class="docs-page__header-nav">
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/">Home</a></li>
-        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design">Design guidelines</a></li>
         <li class="docs-page__header-nav-item docs-page__header-nav-item--active"><a class="docs-page__header-nav-link" href="#/components">Components</a></li>
-        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/react">React</a></li>
+        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design-patterns">Design Patterns</a></li>
+        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design">Design guidelines</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/playgrounds">Playground</a></li>
     </ul>
+    <doc-theme-picker></doc-theme-picker>
 </header>
 
-<aside class="docs-page__sidebar">
-    <ul class="docs-page__nav" doc-nav>
-        <li ng-repeat="group in components">
-            <span class="docs-page__nav-title">{{group.name}}</span>
-            <ul class="docs-page__nav--sub-level">
-                <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items"
-                    ng-class="{'docs-page__nav-item--active': isActive(name)}"><a href="#/components/{{name}}">{{item.name}}</a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</aside>
 
-<main class="docs-page__content docs-page__container-fluid" ng-if="page" ng-include="'components/' + page + '.html'"></main>
-
-<main class="docs-page__content docs-page__container-fluid" ng-if="!page">
-    <section class="docs-page__container">
-        <div class="docs-page__hero">
-            <figure class="docs-page__hero-image">
-                <img src="/illustration--components.svg" alt="Components">
-            </figure>
-            <h2 class="docs-page__hero-h2 docs-page__color--primary">Superdesk HTML/CSS and Angular UI components</h2>
-            <p class="docs-page__hero-text">Since we are moving completely to React, check fist if what you are looking for is available as a react component. If it's not – this is the right place to look.</p>
-        </div>
-    </section>
-</main>
+<doc-react class="d-contents"></doc-react>

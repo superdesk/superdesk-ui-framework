@@ -3,11 +3,12 @@
     <h1 class="docs-page__h1">Superdesk UI</h1>
     <ul class="docs-page__header-nav">
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/">Home</a></li>
-        <li class="docs-page__header-nav-item docs-page__header-nav-item--active"><a class="docs-page__header-nav-link" href="#/design">Design guidelines</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/components">Components</a></li>
-        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/react">React</a></li>
+        <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/design-patterns">Design Patterns</a></li>
+        <li class="docs-page__header-nav-item docs-page__header-nav-item--active"><a class="docs-page__header-nav-link" href="#/design">Design guidelines</a></li>
         <li class="docs-page__header-nav-item"><a class="docs-page__header-nav-link" href="#/playgrounds">Playground</a></li>
     </ul>
+    <doc-theme-picker></doc-theme-picker>
 </header>
 
 <aside class="docs-page__sidebar">
@@ -15,8 +16,8 @@
         <li ng-repeat="group in design">
             <span class="docs-page__nav-title">{{group.name}}</span>
             <ul class="docs-page__nav--sub-level">
-                <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items"
-                    ng-class="{'docs-page__nav-item--active': isActive(name)}"><a href="#/design/{{name}}">{{item.name}}</a>
+                <li class="docs-page__nav-item" ng-repeat="(name, item) in group.items">
+                    <a ng-class="{'docs-page__nav-item--active': isActive(name)}" href="#/design/{{name}}">{{item.name}}</a>
                 </li>
             </ul>
         </li>

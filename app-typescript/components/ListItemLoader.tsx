@@ -4,7 +4,7 @@ import { Skeleton } from './Skeleton';
 export class ListItemLoader extends React.Component<{}> {
     render() {
         return (
-            <div className="sd-list-item sd-shadow--z1 sd-list-item--no-hover">
+            <div className="sd-list-item sd-shadow--z1 sd-list-item--no-hover" data-test-id="list-item-placeholder">
                 <div className="sd-list-item__border"></div>
                 <div className="sd-list-item__column">
                     <Skeleton shape="circle" size="2rem" />

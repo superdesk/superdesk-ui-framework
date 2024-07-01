@@ -69,7 +69,7 @@ export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemConte
 } from './components/GridItem';
 export { toasted } from './components/Toast';
 export { Menu } from './components/Menu';
-export { ToggleBox } from './components/Togglebox';
+export { ToggleBox } from './components/ToggleBox/index';
 export { SelectGrid } from './components/SelectGrid';
 export { IconPicker } from './components/IconPicker';
 export { ThemeSelector } from './components/ThemeSelector';
@@ -77,6 +77,8 @@ export { DropZone } from './components/DropZone';
 export { CreateButton } from './components/CreateButton';
 export { SearchBar } from './components/SearchBar';
 export { WithSizeObserver } from './components/WithSizeObserver';
+export { SvgIconIllustration } from './components/SvgIconIllustration';
+export { IllustrationButton } from './components/IllustrationButton';
 
 export * from './components/Layouts';
 export * from './components/Form';
@@ -91,13 +93,15 @@ export { Time } from './components/Text/Time';
 export { Heading } from './components/Text/Heading';
 export { BottomNav } from './components/Navigation/BottomNav';
 export { TreeSelect } from './components/TreeSelect/TreeSelect';
+export { TreeMenu } from './components/TreeMenu';
 export { TableList, TableListItem } from './components/Lists/TableList';
 export { ContentListItem } from './components/Lists/ContentList';
 export { MultiSelect } from './components/MultiSelect';
 export { ResizablePanels } from './components/ResizablePanels';
 export { WithPopover } from './components/WithPopover';
-export { Spacer, SpacerBlock } from './components/Spacer';
+export { Spacer, SpacerBlock } from '@superdesk/common';
 export { ResizeObserverComponent } from './components/ResizeObserverComponent';
+export { DragHandleDots } from './components/DragHandleDots';
 export { DragHandle } from './components/DragHandle';
 
 // declare non-typescript exports to prevent errors

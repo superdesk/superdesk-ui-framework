@@ -19,12 +19,13 @@ interface IProps {
     rightPanelOpen?: boolean;
     leftPanel?: React.ReactNode;
     leftPanelOpen?: boolean;
+    fullHeight?: boolean; // For cases where the parent container is not display: grid;
 }
 
 export class PageLayout extends React.PureComponent<IProps> {
     render() {
         return (
-            <LayoutContainer>
+            <LayoutContainer fullHeight={this.props.fullHeight}>
                 {this.props.header && (
                     <HeaderPanel>
                         {this.props.header}
