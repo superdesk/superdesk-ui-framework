@@ -27,6 +27,7 @@ export { DatePicker } from './components/DatePicker';
 export { DatePickerISO } from './components/DatePicker';
 export { DatePickerLocaleSettings } from './components/DatePicker';
 export { TimePicker } from './components/TimePicker';
+export { TimePickerV2 } from './components/TimePickerV2';
 export { FormLabel } from './components/FormLabel';
 export { Switch } from './components/Switch';
 export { SwitchGroup } from './components/SwitchGroup';

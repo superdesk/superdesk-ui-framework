@@ -1365,3 +1365,17 @@
         opacity: 0;
     }
 }
+
+.sd__input__time-picker-v2 {
+    display: flex;
+}
+
+.input-wrapper__time-picker-v2 {
+    display: flex;
+    align-items: center;
+}
+
+.time-picker-v2-suffix {
+    padding: 0 8px;
+    font-size: 1.6rem;
+}
