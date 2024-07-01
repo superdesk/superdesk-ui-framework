@@ -17,10 +17,12 @@ export default class TagDoc extends React.Component<{}, ITag> {
                 {text: 'Inverse tag', shade:'inverse'},
                 {text: 'Lorem ipsum', shade:'highlight1'},
                 {text: 'Dolor amet', shade:'highlight2', shape:'square'},
-                {text: 'Read only tag', readOnly: true}
+                {text: 'Read only tag', readOnly: true},
+                {text: 'Draggable tag', draggable: true},
             ],
             tags2: [
                 {text: 'Tag with label', label: 'Label'},
+                {text: 'I am', draggable: true, label: 'Draggable'}
             ],
         }
         this.handleClick=this.handleClick.bind(this);
@@ -53,19 +55,21 @@ export default class TagDoc extends React.Component<{}, ITag> {
             
             <Markup.ReactMarkup>
                 <Markup.ReactMarkupPreview>
-                <div className='docs-page__content-row'>
+                <div className='docs-page__content-row d-flex gap-1'>
                     {this.state.tags.map((tag,index)=>{
-                            return (
-                                <React.Fragment key={index}>
-                                    <Tag keyValue={index}
-                                        text={tag.text}
-                                        shade={tag.shade}
-                                        shape={tag.shape}
-                                        readOnly={tag.readOnly}
-                                        onClick={()=>this.handleClick(index)}/>
-                                </React.Fragment>
+                        return (
+                            <React.Fragment key={index}>
+                                <Tag keyValue={index}
+                                    text={tag.text}
+                                    shade={tag.shade}
+                                    shape={tag.shape}
+                                    label={tag.label}
+                                    readOnly={tag.readOnly}
+                                    draggable={tag.draggable}
+                                    onClick={()=>this.handleClick(index)}/>
+                            </React.Fragment>
                         )
-                        })}
+                    })}
                 </div>
                 </Markup.ReactMarkupPreview>
                 <Markup.ReactMarkupCode>{`
@@ -74,7 +78,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
                     <Tag text='Inverse tag' shade='inverse' onClick={()=>false}/>
                     <Tag text='Lorem ipsum' shade='highlight1' onClick={()=>false}/>
                     <Tag text='Dolor amet' shade='highlight2' shape='square' onClick={()=>false}/>
-                    <Tag text='Read only tag' readOnly={trye} onClick={()=>false}/>
+                    <Tag text='Read only tag' readOnly={true} onClick={()=>false}/>
                     
                 `}          
                 </Markup.ReactMarkupCode>
@@ -82,17 +86,18 @@ export default class TagDoc extends React.Component<{}, ITag> {
 
             <Markup.ReactMarkup>
                 <Markup.ReactMarkupPreview>
-                <div className='docs-page__content-row'>
+                <div className='docs-page__content-row d-flex gap-1'>
                     {this.state.tags2.map((tag,index)=>{
-                            return (
-                                <React.Fragment key={index}>
-                                    <Tag keyValue={index}
-                                        text={tag.text}
-                                        label={tag.label}
-                                        onClick={() => this.handleClick2(index)}/>
-                                </React.Fragment>
+                        return (
+                            <React.Fragment key={index}>
+                                <Tag keyValue={index}
+                                    text={tag.text}
+                                    label={tag.label}
+                                    draggable={tag.draggable}
+                                    onClick={() => this.handleClick2(index)}/>
+                            </React.Fragment>
                         )
-                        })}
+                    })}
                 </div>
                 </Markup.ReactMarkupPreview>
                 <Markup.ReactMarkupCode>{`

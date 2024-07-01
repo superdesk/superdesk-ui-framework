@@ -2,7 +2,7 @@
 
 .sd-searchbar, .sd-input--inline-label {
     .p-autocomplete-panel {
-        margin-top: 0;
+        margin-block-start: 0;
     }
 }
 
@@ -19,7 +19,7 @@
         color: inherit !important;
         z-index: 1;
         border-radius: $border-radius__base--full;
-        right:8px;
+        inset-inline-end:8px;
 
     }
 }
@@ -35,7 +35,7 @@
 
 .sd-input {
     .p-autocomplete-loader {
-        margin-top: -1.4rem;
+        margin-block-start: -1.4rem;
         
         &.pi {
             font-size: 2rem !important;
@@ -46,6 +46,6 @@
 
 .sd-input.sd-input--inline-label {
     .p-autocomplete-loader {
-        margin-top: -1rem;
+        margin-block-start: -1rem;
     }
 }

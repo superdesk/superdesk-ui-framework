@@ -11,7 +11,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 4px;
+    margin-block-end: 4px;
     min-height: 20px;
 }
 
@@ -25,5 +25,5 @@
 }
 
 .sd-popover__close {
-    margin-right: -4px;
+    margin-inline-end: -4px;
 }

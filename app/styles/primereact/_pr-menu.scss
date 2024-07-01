@@ -1,7 +1,7 @@
 .p-tieredmenu {
     &, .p-submenu-list {
-        padding-top: $sd-base-increment;
-        padding-bottom: $sd-base-increment;
+        padding-block-start: $sd-base-increment;
+        padding-block-end: $sd-base-increment;
         background-color: var(--color-dropdown-menu-Bg);
         box-shadow: $shadow__dropdown--default;
         border-radius: $border-radius__base--small;
@@ -31,7 +31,7 @@
     }
     
     .p-menuitem-icon {
-        margin-right: 0.8rem;
+        margin-inline-end: 0.8rem;
         color: var(--color-icon-default);
     }
 }

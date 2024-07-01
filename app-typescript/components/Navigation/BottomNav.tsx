@@ -58,8 +58,15 @@ export class BottomNav extends React.PureComponent<IProps, IState> {
             <ul className='sd-bottom-nav-list'>
                 {this.props.items.map((item, index) => {
                     return (
-                        <li key={index}
-                            className={'sd-bottom-nav-list__item' + (item['active'] ? ' sd-bottom-nav-list__item--active' : (index === this.state.index ? ' sd-bottom-nav-list__item--active' : ''))}>
+                        <li
+                            key={index}
+                            className={
+                                'sd-bottom-nav-list__item'
+                                + (item['active']
+                                    ? ' sd-bottom-nav-list__item--active'
+                                    : (index === this.state.index ? ' sd-bottom-nav-list__item--active' : ''))
+                            }
+                        >
                             <a className='sd-bottom-nav-list__item-title' onClick={(event) => {
                                 this.handleClick(index);
                                 item.onClick(event);

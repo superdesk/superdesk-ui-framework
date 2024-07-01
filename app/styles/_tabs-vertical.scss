@@ -2,7 +2,7 @@
 
 .nav-tabs-vertical {
     width: 3rem;
-    border-right: 1px solid var(--sd-colour-line--medium);
+    border-inline-end: 1px solid var(--sd-colour-line--medium);
     transition: all .2s ease-out .3s; 
     opacity: 1;
 }
@@ -45,8 +45,8 @@
 
     &:after {
         content: "";
-        float: left;
-        margin-top: 100%;
+        float: inline-start;
+        margin-block-start: 100%;
     }
 }
 

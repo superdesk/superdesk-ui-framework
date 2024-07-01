@@ -76,7 +76,12 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
                                         );
                                 } else {
                                     return (
-                                        <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right' className="sd-quickbar-menu__list-item">
+                                        <li
+                                            key={index}
+                                            data-sd-tooltip={item['tooltip']}
+                                            data-flow='right'
+                                            className="sd-quickbar-menu__list-item"
+                                        >
                                             <a role='button' aria-label={item['tooltip']} className={'sd-quickbar__btn'}
                                                 onClick={() => this.handleClick(item, index, event)}>
                                                 <Icon size={'small'} name={item['icon']} />
@@ -98,7 +103,10 @@ export class QuickNavBar extends React.PureComponent<IProps, IState> {
                                     <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
                                         <a role='button'
                                             aria-label={item['tooltip']}
-                                            className={'sd-quickbar__btn' +  (index === this.state.index ? ' sd-quickbar__btn--active' : '')}
+                                            className={
+                                                'sd-quickbar__btn'
+                                                +  (index === this.state.index ? ' sd-quickbar__btn--active' : '')
+                                            }
                                             onClick={() => this.handleClick(item, index, event)}>
                                                 <Icon size={'small'} name={item['icon']} />
                                         </a>

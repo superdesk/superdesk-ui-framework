@@ -60,9 +60,9 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         &::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
+            inset-block-start: 0;
+            inset-inline-start: 0;
+            inset-inline-end: 0;
             height: $card-item-top-border-height;
             background-color: rgba(0,0,0,.2);
             border-radius: $card-item-default-radius $card-item-default-radius 0 0;
@@ -119,8 +119,8 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
         .sd-card__actions {
             position: absolute;
-            top: 0.4rem;
-            right:0;
+            inset-block-start: 0.4rem;
+            inset-inline-end:0;
             z-index: 2;
         }
     }
@@ -135,7 +135,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     
     // sd-card__heading should go inside sd-card__header
     .sd-card__heading {
-        @include sd-padding('1-5', 'x');
+        padding-inline: var(--space--1-5);
         padding-block-start: $card-item-top-border-height;
         flex-grow: 1;
         font-size: 1.2rem;
@@ -172,7 +172,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
 
     .sd-card__sub-header {
-        @include sd-padding('1-5', 'x');
+        padding-inline: var(--space--1-5);
         background-color: hsl(201, 15%, 67%);
         display: flex;
         align-items: center;
@@ -211,7 +211,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
     
     .sd-card__btn-group--right {
-        float: right;
+        float: inline-end;
     }
 
     .sd-card__thumbnail {
@@ -230,7 +230,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         }
     }
     .sd-card__content {
-        @include sd-padding('2');
+        padding: var(--space--2);
         flex-grow: 1;
 
         h4 {
@@ -244,7 +244,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             }
 
             .label {
-                float: right;
+                float: inline-end;
                 height: 15px;
                 margin: auto 0;
                 padding: 3px 5px 0;
@@ -258,7 +258,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
             }
 
             .value-label {
-                float: right;
+                float: inline-end;
                 font-size: 13px;
                 color: var(--color-text);
                 font-weight: 400;
@@ -315,7 +315,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         li,
         .sd-card__content-list-item {
             padding: var(--gap--medium);
-            border-bottom: 1px solid var(--sd-colour-line--light);
+            border-block-end: 1px solid var(--sd-colour-line--light);
 
             .sd-card__content-list-inline-span {
                 display: inline-block;
@@ -341,7 +341,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
         .sd-card__content-list-item--border-bottom {
             &:last-child {
-                border-bottom: 1px solid var(--sd-colour-line--light);
+                border-block-end: 1px solid var(--sd-colour-line--light);
             }
         }
 
@@ -370,7 +370,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         }
 
         .button__view-all {
-            border-bottom: 1px dotted var(--sd-colour-interactive);
+            border-block-end: 1px dotted var(--sd-colour-interactive);
             color: var(--sd-colour-interactive);
             cursor: pointer;
         }
@@ -419,7 +419,7 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
     }
 
     .sd-card__footer {
-        @include sd-padding('1-5', 'x');
+        padding-inline: var(--space--1-5);
         display: flex;
         flex-direction: row;
         align-items: center;
@@ -440,10 +440,10 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
 
     .sd-card__full-click {
         position: absolute;
-        top:0;
-        bottom:0;
-        right:0;
-        left:0;
+        inset-block-start:0;
+        inset-block-end:0;
+        inset-inline-end:0;
+        inset-inline-start:0;
         z-index: 2;
     }
 
@@ -498,8 +498,8 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         height: 5.2rem;
         width: 5.2rem;
         position: absolute;
-        top: 50%;
-        left: 50%;
+        inset-block-start: 50%;
+        inset-inline-start: 50%;
         margin: -2.6rem 0 0 -2.6rem;
         line-height: 5.2rem;
         opacity: 0.5;
@@ -513,11 +513,11 @@ $card-item-shadow-hover-light: 0 1px 6px rgba(0,0,0,.1), 0 2px 12px rgba(31, 17,
         text-align: center;
         color: $white;
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0;
+        inset-inline-end: 0;
         margin: 0;
-        bottom: 0;
+        inset-block-end: 0;
         display: flex;
         align-items: center;
         justify-content: center;

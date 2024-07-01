@@ -1,0 +1,11 @@
+:root,
+[data-theme="dark-ui"],
+[data-theme="accessible-light-ui"],
+[data-theme="contrast-light-ui"] {
+    // Drag Handle
+    --drag-handle-boxed-color-bg-normal: var(--sd-colour-line--medium);
+    --drag-handle-boxed-color-bg-hover: var(--sd-colour-line--strong);
+    --drag-handle-boxed-color-bg-active: var(--sd-colour-interactive);
+    --drag-handle-boxed-radius: var(--b-radius--medium) 0 0 var(--b-radius--medium);
+    --drag-handle-boxed-padding: var(--space--1);
+}

@@ -37,6 +37,7 @@ interface IMenu {
     children: React.ReactNode;
     zIndex?: number;
     onChange?(event?: any): void;
+    maxHeight?: number;
 }
 
 const DROPDOWN_ID_CONTAINER = "sd-dropdown-constainer";
@@ -50,6 +51,7 @@ export const Dropdown = ({
     align,
     zIndex,
     onChange,
+    maxHeight,
 }: IMenu) => {
     const [open, setOpen] = React.useState(false);
     const [change, setChange] = React.useState(false);
@@ -59,6 +61,7 @@ export const Dropdown = ({
     const headerElements = header?.map((el, index) => {
         return each(el, index);
     });
+    const maxHeightStyle = maxHeight ? {maxHeight} : {};
 
     const dropdownElements = items.map((el, index) => {
         return each(el, index);
@@ -143,7 +146,7 @@ export const Dropdown = ({
                 <ul className='dropdown__menu '
                 id={menuID} role='menu'
                 ref={ref}
-                style={{zIndex: zIndex}}>
+                style={{...{zIndex: zIndex, overflowY: 'auto'}, ...maxHeightStyle}}>
                     {dropdownElements}
                 </ul>
             );
@@ -259,7 +262,9 @@ export const Dropdown = ({
                     <div ref={buttonRef} style={{ display: 'content' }}>
                         {(() => {
                             const attrs = {
-                                className: children.props.className ? (children.props.className + ' dropdown__toggle dropdown-toggle') : 'dropdown__toggle dropdown-toggle',
+                                className: children.props.className
+                                    ? (children.props.className + ' dropdown__toggle dropdown-toggle')
+                                    : 'dropdown__toggle dropdown-toggle',
                                 'aria-haspopup': "menu",
                                 'aria-expanded': open,
                                 onClick: toggleDisplay,
@@ -270,12 +275,15 @@ export const Dropdown = ({
                         })()}
                     </div> : null)
                 :
-                <button ref={buttonRef}
-                className=' dropdown__toggle dropdown-toggle'
-                aria-haspopup="menu"
-                tabIndex={0}
-                aria-expanded={open}
-                onClick={toggleDisplay}>
+                <button
+                    style={{whiteSpace: 'nowrap'}}
+                    ref={buttonRef}
+                    className=' dropdown__toggle dropdown-toggle'
+                    aria-haspopup="menu"
+                    tabIndex={0}
+                    aria-expanded={open}
+                    onClick={toggleDisplay}
+                >
                     {children}
                     <span className="dropdown__caret"></span>
                 </button>}

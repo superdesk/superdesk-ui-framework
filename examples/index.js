@@ -250,12 +250,95 @@ export default angular.module('ui-docs', [
                 },
             },
         }
-        
+
     }))
 
     .factory('playgrounds', () => ({
+        // React playgrounds
+        'react': {
+            'first-playground': {
+                name: 'First playground',
+                component: 'FirstPlayground'
+            },
+            'sams-playground': {
+                name: 'SAMS',
+                component: 'SamsPlayground'
+            },
+            'test-ground': {
+                name: 'Test Ground',
+                component: 'TestGround'
+            },
+            'ui-playground': {
+                name: 'UI',
+                component: 'UiPlayground'
+            },
+            'pagelayout-test': {
+                name: 'PageLayout Test',
+                component: 'PageLayoutTest'
+            },
+            'editor-test': {
+                name: 'Editor Layout Test',
+                component: 'EditorTest'
+            },
+            'personal-profile': {
+                name: 'Personal Profile',
+                component: 'PersonalProfile'
+            },
+            'rundown-editor': {
+                name: 'Rundown Editor',
+                component: 'RundownEditor'
+            },
+            'rundowns': {
+                name: 'Rundowns',
+                component: 'Rundowns'
+            },
+            'core-layout': {
+                name: 'Core Layout',
+                component: 'CoreLayout'
+            },
+            'multiedit': {
+                name: 'Multiedit',
+                component: 'Multiedit'
+            }
+        },
+        
+        // Publisher playgrounds
+        publisher: {
+            'publisher-dashboard': {
+                name: 'Dashboard',
+                page: 'publisher-dashboard.html'
+            },
+            'publisher-content-lists': {
+                name: 'Content Lists',
+                page: 'publisher-content-lists.html'
+            },
+            'publisher-content-list-manual': {
+                name: 'Content List - Manual',
+                page: 'publisher-content-list-manual.html'
+            },
+            'publisher-content-list-automatic': {
+                name: 'Content List - Automatic',
+                page: 'publisher-content-list-automatic.html'
+            },
+            'publisher-output-control': {
+                name: 'Output Control',
+                page: 'publisher-output-control.html'
+            },
+            'publisher-content-analytics': {
+                name: 'Content Analytics',
+                page: 'publisher-content-analytics.html'
+            },
+            'publisher-website-settings': {
+                name: 'Website Settings',
+                page: 'publisher-website-settings.html'
+            },
+            'publisher-website-settings-general': {
+                name: 'Website Settings - General',
+                page: 'publisher-website-settings-general.html'
+            },
+        },
         // Superdesk playgrounds
-        superdesk: {
+        'archived': {
             'planning': {
                 name: 'Planning',
                 page: 'buttons.html'
@@ -341,89 +424,6 @@ export default angular.module('ui-docs', [
                 page: 'editor-3-test.html'
             },
         },
-        // Publisher playgrounds
-        publisher: {
-            'publisher-dashboard': {
-                name: 'Dashboard',
-                page: 'publisher-dashboard.html'
-            },
-            'publisher-content-lists': {
-                name: 'Content Lists',
-                page: 'publisher-content-lists.html'
-            },
-            'publisher-content-list-manual': {
-                name: 'Content List - Manual',
-                page: 'publisher-content-list-manual.html'
-            },
-            'publisher-content-list-automatic': {
-                name: 'Content List - Automatic',
-                page: 'publisher-content-list-automatic.html'
-            },
-            'publisher-output-control': {
-                name: 'Output Control',
-                page: 'publisher-output-control.html'
-            },
-            'publisher-content-analytics': {
-                name: 'Content Analytics',
-                page: 'publisher-content-analytics.html'
-            },
-            'publisher-website-settings': {
-                name: 'Website Settings',
-                page: 'publisher-website-settings.html'
-            },
-            'publisher-website-settings-general': {
-                name: 'Website Settings - General',
-                page: 'publisher-website-settings-general.html'
-            },
-        },
-
-        // React playgrounds
-        react: {
-            'first-playground': {
-                name: 'First playground',
-                component: 'FirstPlayground'
-            },
-            'sams-playground': {
-                name: 'SAMS',
-                component: 'SamsPlayground'
-            },
-            'test-ground': {
-                name: 'Test Ground',
-                component: 'TestGround'
-            },
-            'ui-playground': {
-                name: 'UI',
-                component: 'UiPlayground'
-            },
-            'pagelayout-test': {
-                name: 'PageLayout Test',
-                component: 'PageLayoutTest'
-            },
-            'editor-test': {
-                name: 'Editor Layout Test',
-                component: 'EditorTest'
-            },
-            'personal-profile': {
-                name: 'Personal Profile',
-                component: 'PersonalProfile'
-            },
-            'rundown-editor': {
-                name: 'Rundown Editor',
-                component: 'RundownEditor'
-            },
-            'rundowns': {
-                name: 'Rundowns',
-                component: 'Rundowns'
-            },
-            'core-layout': {
-                name: 'Core Layout',
-                component: 'CoreLayout'
-            },
-            'multiedit': {
-                name: 'Multiedit',
-                component: 'Multiedit'
-            }
-        }
     }))
 
     .config(($routeProvider) => {
@@ -444,11 +444,11 @@ export default angular.module('ui-docs', [
             .when('/components/:name*', {
                 template: require('../examples/pages/components.html')
             })
-            .when('/react', {
-                template: require('../examples/pages/react.html')
+            .when('/design-patterns', {
+                template: require('../examples/pages/design-patterns.html')
             })
-            .when('/react/:name*', {
-                template: require('../examples/pages/react.html')
+            .when('/design-patterns/:name*', {
+                template: require('../examples/pages/design-patterns.html')
             })
             .when('/playgrounds', {
                 template: require('../examples/pages/playgrounds.html')

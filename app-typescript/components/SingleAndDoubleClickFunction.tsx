@@ -5,7 +5,7 @@ export interface ICallbacks {
 
 export function setupSingleAndDoubleClick(): (event: React.MouseEvent, cb: ICallbacks) => void {
     let timer: number | undefined;
-    let delay: number;
+    let delay: number = 250;
 
     return (event, cb: ICallbacks) => {
         clearTimeout(timer);

@@ -2,12 +2,36 @@
 
 :root {
     // GENERAL
-    --gap--x-small: 0.4rem; // 4px
-    --gap--small: 0.8rem; // 8px
-    --gap--medium: 1.6rem; // 16px
-    --gap--large: 2.4rem; // 24px;
-    --gap--x-large: 3.2rem; // 32px;
-    --gap--xx-large: 4rem; // 40px;
+    --base-increment: 0.8rem; // 8px
+    --space--0: 0; // 0px
+    --space--0-5: calc(0.5 * var(--base-increment)); // 4px
+    --space--1: calc(1 * var(--base-increment)); // 8px
+    --space--1-5: calc(1.5 * var(--base-increment)); // 12px
+    --space--2: calc(2 * var(--base-increment)); // 16px
+    --space--3: calc(3 * var(--base-increment)); // 24px;
+    --space--4: calc(4 * var(--base-increment)); // 32px;
+    --space--5: calc(5 * var(--base-increment)); // 40px;
+    --space--6: calc(6 * var(--base-increment)); // 48px;
+    --space--7: calc(7 * var(--base-increment)); // 56px;
+    --space--8: calc(8 * var(--base-increment)); // 64px;
+
+    --gap--none: 0; // 0px
+    --gap-0: 0;
+    --gap--x-small: calc(0.5 * var(--base-increment)); // 4px
+    --gap-0-5: calc(0.5 * var(--base-increment)); // 4px
+    --gap--small: calc(1 * var(--base-increment)); // 8px
+    --gap-1: calc(1 * var(--base-increment)); // 8px
+    --gap--medium-small: calc(1.5 * var(--base-increment)); // 12px
+    --gap-1-5: calc(1.5 * var(--base-increment)); // 12px
+    --gap--medium: calc(2 * var(--base-increment)); // 16px
+    --gap-2: calc(2 * var(--base-increment)); // 16px
+    --gap--large: calc(3 * var(--base-increment)); // 24px;
+    --gap-3: calc(3 * var(--base-increment)); // 24px;
+    --gap--x-large: calc(4 * var(--base-increment)); // 32px;
+    --gap-4: calc(4 * var(--base-increment)); // 32px;
+    --gap--xx-large: calc(5 * var(--base-increment)); // 40px;
+    --gap-5: calc(5 * var(--base-increment)); // 40px;
+    
     --gap--auto: auto;
 
     // BORDER RADIUS
@@ -38,6 +62,14 @@
 
     // TEXT SIZE
     --text-size--base: 1rem;
+    --text-size-xx-small: calc(var(--text-size--base) * 1); // 10px;
+    --text-size-x-small: calc(var(--text-size--base) * 1.2); // 12px;
+    --text-size-small: calc(var(--text-size--base) * 1.4); // 14px;
+    --text-size-medium: calc(var(--text-size--base) * 1.6); // 16px;
+    --text-size-large: calc(var(--text-size--base) * 2); // 20px;
+    --text-size-x-large: calc(var(--text-size--base) * 2.4); // 24px;
+    --text-size-xx-large: calc(var(--text-size--base) * 3.2); // 32px;
+
 
     // SHADOW
     --sd-shadow--z1: 0 0 0 1px var(--sd-shadow-outline), 0 1px 3px hsla(0, 0%, 0%, 0.16), 0 0 1px hsla(0, 0%, 0%, 0.1);
@@ -45,14 +77,20 @@
     --sd-shadow--z3: 0 0 0 1px var(--sd-shadow-outline), 0 1px 6px hsla(0, 0%, 0%, 0.16), 0 3px 8px hsla(0, 0%, 0%, 0.24), 0 0 1px hsla(0, 0%, 0%, 0.1);
     --sd-shadow--z4: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.2), 0 6px 16px hsla(0, 0%, 0%, 0.3), 0 0 1px hsla(0, 0%, 0%, 0.1);
 
-
     // DROP-SHADOW Filter
-    --sd-drop-shadow--z1: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 3px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 0 1px rhsla(0, 0%, 0%, 0.12));
-    --sd-drop-shadow--z2: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 4px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 2px 6px rhsla(0, 0%, 0%, 0.14)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
-    --sd-drop-shadow--z3: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 6px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 3px 8px rhsla(0, 0%, 0%, 0.26)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
-    --sd-drop-shadow--z4: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 2px 10px hsla(0, 0%, 0%, 0.24)) drop-shadow(0 6px 16px rhsla(0, 0%, 0%, 0.32)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
+    --sd-drop-shadow--z1: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 3px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.12));
+    --sd-drop-shadow--z2: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 4px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 2px 6px hsla(0, 0%, 0%, 0.14)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
+    --sd-drop-shadow--z3: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 6px hsla(0, 0%, 0%, 0.18)) drop-shadow(0 3px 8px hsla(0, 0%, 0%, 0.26)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
+    --sd-drop-shadow--z4: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 2px 10px hsla(0, 0%, 0%, 0.24)) drop-shadow(0 6px 16px hsla(0, 0%, 0%, 0.32)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.1));
+    --sd-drop-shadow--none: drop-shadow(0 0 0 transparent);
 
+    // FORM ELEMENTS
+    // Size 
+    --form-element-height-small: var(--space--3);
+    --form-element-height-medium: var(--space--4);
+    --form-element-height-large: var(--space--5);
 }
+
 
 :root,
 [data-theme="light-ui"] {
@@ -67,12 +105,25 @@
 
 [data-theme="dark-ui"],
 .dark-ui {
-    --sd-shadow-outline: hsl(214, 13%, 60%, 0.14);
+    --sd-shadow-outline: hsl(214, 13%, 60%, 0.28);
     --sd-shadow-outline--2: hsl(214, 13%, 60%, 0.1);
     --sd-shadow__dropdown: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.6), 0 3px 1px -2px hsla(0, 0%, 0%, 0.2);
     --sd-shadow__modal: 0 0 0 1px var(--sd-shadow-outline), 0 0 8px 2px hsla(0, 0%, 0%, 0.4);
     --sd-shadow__toast: 0 0 0 1px var(--sd-shadow-outline--2), 0 2px 4px hsla(0, 0%, 0%, 0.24), 0 8px 12px hsla(0, 0%, 0%, 0.26);
     --sd-shadow__menu-item--focus-inner: inset 0 0 0 4px var(--sd-colour-interactive--alpha-20), inset 0 0 0 1px var(--sd-colour-interactive--alpha-50);
+
+    // SHADOW
+    --sd-shadow--z1: 0 0 0 1px var(--sd-shadow-outline), 0 1px 3px hsla(0, 0%, 0%, 0.36), 0 0 1px hsla(0, 0%, 0%, 0.2);
+    --sd-shadow--z2: 0 0 0 1px var(--sd-shadow-outline), 0 1px 4px hsla(0, 0%, 0%, 0.36), 0 2px 6px hsla(0, 0%, 0%, 0.24), 0 0 1px hsla(0, 0%, 0%, 0.2);
+    --sd-shadow--z3: 0 0 0 1px var(--sd-shadow-outline), 0 1px 6px hsla(0, 0%, 0%, 0.36), 0 3px 8px hsla(0, 0%, 0%, 0.48), 0 0 1px hsla(0, 0%, 0%, 0.2);
+    --sd-shadow--z4: 0 0 0 1px var(--sd-shadow-outline), 0 2px 10px hsla(0, 0%, 0%, 0.4), 0 6px 16px hsla(0, 0%, 0%, 0.6), 0 0 1px hsla(0, 0%, 0%, 0.2);
+
+    // DROP-SHADOW Filter
+    --sd-drop-shadow--z1: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 3px hsla(0, 0%, 0%, 0.38)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.2));
+    --sd-drop-shadow--z2: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 4px hsla(0, 0%, 0%, 0.38)) drop-shadow(0 2px 6px hsla(0, 0%, 0%, 0.28)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.2));
+    --sd-drop-shadow--z3: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 6px hsla(0, 0%, 0%, 0.38)) drop-shadow(0 3px 8px hsla(0, 0%, 0%, 0.50)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.2));
+    --sd-drop-shadow--z4: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 2px 10px hsla(0, 0%, 0%, 0.44)) drop-shadow(0 6px 16px hsla(0, 0%, 0%, 0.64)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.2));
+    
 }
 
 .sd-top-menu,

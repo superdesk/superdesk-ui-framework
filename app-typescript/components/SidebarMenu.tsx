@@ -50,7 +50,14 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
                         } else {
                             return (
                                 <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
-                                    <a className={'sd-sidebar-menu__btn' + (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '') + (item['active'] ? ' sd-sidebar-menu__btn--active' : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : ''))}
+                                    <a className={
+                                        'sd-sidebar-menu__btn'
+                                        + (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '')
+                                        + (item['active']
+                                            ? ' sd-sidebar-menu__btn--active'
+                                            : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : '')
+                                        )
+                                    }
                                         onClick={() => this.handleClick(index)}>
                                         <span className='sd-sidebar-menu__main-icon '>
                                             <Icon size={item['size']} name={item['icon']} />

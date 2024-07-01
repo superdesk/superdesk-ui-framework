@@ -261,7 +261,13 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 
     handleFocusOnKeyUp(event: React.KeyboardEvent<HTMLInputElement>, ref: HTMLInputElement | null) {
-        if (event.key !== 'ArrowRight' && event.key !== 'ArrowLeft' && event.key !== 'ArrowUp' && event.key !== 'ArrowDown' && event.key !== 'Backspace') {
+        if (
+            event.key !== 'ArrowRight'
+            && event.key !== 'ArrowLeft'
+            && event.key !== 'ArrowUp'
+            && event.key !== 'ArrowDown'
+            && event.key !== 'Backspace'
+        ) {
             if ((event.keyCode > 46 && event.keyCode < 58) || (event.keyCode > 95 && event.keyCode < 106)) {
                 const target = event.target as HTMLInputElement;
                 if (target.value.length >= 2) {
@@ -278,9 +284,18 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         if (this.props.preview) {
             return (
                 <div className='sd-input__duration-input-preview'>
-                    <div><span className='duration-input-preview'>{this.state.hours}</span><span className='sd-input__suffix'>h</span></div>
-                    <div><span className='duration-input-preview'>{this.state.minutes}</span><span className='sd-input__suffix'>m</span></div>
-                    <div><span className='duration-input-preview'>{this.state.seconds}</span><span className='sd-input__suffix'>s</span></div>
+                    <div>
+                        <span className='duration-input-preview'>{this.state.hours}</span>
+                        <span className='sd-input__suffix'>h</span>
+                    </div>
+                    <div>
+                        <span className='duration-input-preview'>{this.state.minutes}</span>
+                        <span className='sd-input__suffix'>m</span>
+                    </div>
+                    <div>
+                        <span className='duration-input-preview'>{this.state.seconds}</span>
+                        <span className='sd-input__suffix'>s</span>
+                    </div>
                 </div>
             );
         }

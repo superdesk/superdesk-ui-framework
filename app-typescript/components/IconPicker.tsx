@@ -61,7 +61,7 @@ export class IconPicker extends React.PureComponent<IProps, IState> {
     itemTemplate = ({ item }: { item: IItem | null }) => item ?
         (<>
             <Icon name={item.value} />
-            <span className="sd-text__normal sd-padding-t--1">
+            <span className="sd-text--normal sd-padding-t--1">
                 {item.label}
             </span>
         </>) : null

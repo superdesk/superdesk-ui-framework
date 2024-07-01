@@ -11,7 +11,18 @@ interface IPropsPanel {
     side?: 'left' | 'right';
     theme?: 'light' | 'dark';
     className?: string;
-    size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large' | 'xxx-large' | 'full' | 'auto';
+    size?:
+        'xx-small'
+        | 'x-small'
+        | 'small'
+        | 'medium'
+        | 'large'
+        | 'x-large'
+        | 'xx-large'
+        | 'xxx-large'
+        | 'full'
+        | 'auto'
+        | {custom: React.CSSProperties['width']};
     background?: 'transparent' | 'light' | 'grey'; // defaults to light (white)
     open?: boolean;
 }
@@ -24,14 +35,23 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
                 this.props.background !== 'light' && this.props.background !== undefined,
         }, this.props.className);
 
-        let classes2 = classNames('side-panel__container', {
-            [`side-panel__container--${this.props.side}`]: this.props.side,
-            [`side-panel__container--${this.props.size}`]: this.props.size,
-            [`panel-open`]: this.props.open,
-        });
+        const classes2Obj: {[className: string]: boolean} = {
+            [`side-panel__container--${this.props.side}`]: this.props.side !== null,
+            [`panel-open`]: this.props.open === true,
+        };
+
+        const style: React.CSSProperties = {};
+
+        if (typeof this.props.size === 'string') {
+            classes2Obj[`side-panel__container--${this.props.size}`] = true;
+        } else if (this.props.size != null) {
+            style.width = this.props.size.custom;
+        }
+
+        let classes2 = classNames('side-panel__container', classes2Obj);
 
         return (
-            <div className={classes2} data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
+            <div className={classes2} style={style} data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
                 <div className={classes}>
                     {this.props.children}
                 </div>

@@ -146,32 +146,32 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
             --sd-btn-border: var(--sd-colour-interactive-btn-border);
             --sd-btn-color: var(--sd-colour-interactive);
         }
-    
+
         &.btn--success {
             --sd-btn-border: var(--sd-colour-success-btn-border);
             --sd-btn-color: var(--sd-colour-success);
         }
-    
+
         &.btn--warning {
             --sd-btn-border: var(--sd-colour-warning-btn-border);
             --sd-btn-color: var(--sd-colour-warning);
         }
-    
+
         &.btn--alert {
             --sd-btn-border: var(--sd-colour-alert-btn-border);
             --sd-btn-color: var(--sd-colour-alert);
         }
-    
+
         &.btn--highlight {
             --sd-btn-border: var(--sd-colour-highlight-btn-border);
             --sd-btn-color: var(--sd-colour-highlight);
         }
-    
+
         &.btn--sd-green {
             --sd-btn-border: var(--sd-colour-superdesk-btn-border);
             --sd-btn-color: var(--sd-colour-superdesk);
         }
-    
+
         &.btn--secondary {
             --sd-btn-border: var(--sd-colour-secondary-btn-border);
             --sd-btn-color: var(--sd-colour-secondary);
@@ -201,27 +201,27 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         &.btn--primary {
             --sd-btn-hs: var(--sd-colour-primary-hs);
         }
-    
+
         &.btn--success {
             --sd-btn-hs: var(--sd-colour-success-hs);
         }
-    
+
         &.btn--warning {
             --sd-btn-hs: var(--sd-colour-warning-hs);
         }
-    
+
         &.btn--alert {
             --sd-btn-hs: var(--sd-colour-alert-hs);
         }
-    
+
         &.btn--highlight {
             --sd-btn-hs: var(--sd-colour-highlight-hs);
         }
-    
+
         &.btn--sd-green {
             --sd-btn-hs: var(--sd-colour-superdesk-hs);
         }
-    
+
         &.btn--secondary {
             --sd-btn-hs: var(--sd-colour-secondary-hs);
         }
@@ -264,11 +264,15 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     &.btn--disabled, &[disabled] {
         opacity: $button-opacity-disabled;
         cursor: not-allowed;
-        pointer-events: none;
+
+        :not(.no-disable) {
+            pointer-events: none;
+        }
+
         box-shadow: none !important;
 
         &:hover, &:active {
-        cursor: not-allowed;
+            cursor: not-allowed;
         }
     }
 }
@@ -288,8 +292,8 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 .btn--expanded {
     width: 100%;
-    margin-right: 0;
-    margin-left: 0;
+    margin-inline-end: 0;
+    margin-inline-start: 0;
 }
 
 // Colours
@@ -440,7 +444,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         width: 2.4rem;
         line-height: 2.4rem;
     }
-    
+
 }
 
 .icn-btn--outline {
@@ -491,7 +495,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
 }
 
-// Button navigation 
+// Button navigation
 .button-nav {
   display: flex;
   flex-direction: row;
@@ -529,7 +533,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
 }
 
-// Button icon group 
+// Button icon group
 .btn-icon-group {
     display: flex;
     align-items: center;
@@ -541,13 +545,13 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 }
 
 
-// BUTTON GROUPS 
+// BUTTON GROUPS
 .button-group {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: $sd-base-increment;
-    
+
     .btn {
         margin: 0;
     }
@@ -581,6 +585,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 .button-group--right, .button-group--end {
     margin-inline-start: auto;
+    justify-content: flex-end;
 }
 
 .button-group--center {
@@ -635,47 +640,47 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 }
 
 .button-group__divider--small {
-    @include sd-margin('0-5', 'x');
+    margin-inline: var(--space--0-5);
 }
 
 .button-group__divider--medium {
-    @include sd-margin('1', 'x');
+    margin-inline: var(--space--1);
 }
 
 .button-group__divider--large {
-    @include sd-margin('1-5', 'x');
+    margin-inline: var(--space--1-5);
 }
 
 .button-group__divider--border {
-    border-left: 1px dotted var(--sd-colour-line--strong);
+    border-inline-start: 1px dotted var(--sd-colour-line--strong);
 }
 
 .button-group--vertical {
     .button-group__divider {
         height: 1px;
         width: auto;
-        @include sd-margin('0', 'x');
+        margin-inline: var(--space--0);
 
         &.button-group__divider--mini {
-            @include sd-padding('1-5', 'top');
+            padding-block-start: var(--space--1-5);
         }
 
         &.button-group__divider--small {
-            @include sd-margin('0-5', 'y');
+            margin-block: var(--space--0-5);
         }
 
         &.button-group__divider--medium {
-            @include sd-margin('1', 'y');
+            margin-block: var(--space--1);
         }
 
         &.button-group__divider--large {
-            @include sd-margin('1-5', 'y');
+            margin-block: var(--space--1-5);
         }
     }
 
     .button-group__divider--border {
-        border-left: none;
-        border-top: 1px dotted var(--sd-colour-line--strong);
+        border-inline-start: none;
+        border-block-start: 1px dotted var(--sd-colour-line--strong);
     }
 }
 
@@ -754,10 +759,10 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
 .btn__state--loading {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    inset-block-start: 0;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -776,7 +781,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
         .sd-spinner {
             margin-inline-start: -0.3rem;
         }
-        
+
         &.btn--icon-only {
             .sd-spinner {
                 margin-inline-start: 0;
@@ -789,4 +794,50 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     .tag-label {
         margin: 0 !important;
     }
+}
+
+// ILLUSTRATION BUTTONS
+
+.illustration-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space--1);
+    border-radius: var(--b-radius--large);
+    border: 1px solid var(--sd-colour-line--light);
+    padding-inline: var(--space--2);
+    padding-block-start: var(--space--2);
+    padding-block-end: var(--space--1-5);
+    box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 0, hsla(0, 0%, 0%, 0.16) 0px 6px 12px -6px, hsla(0, 0%, 0%, 0.40) 0px 2px 8px -8px;
+    transition: all 0.2s ease;
+    &:hover {
+        border: 1px solid var(--sd-colour-line--strong);
+        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 0, hsla(0, 0%, 0%, 0.24) 0px 6px 12px -6px, hsla(0, 0%, 0%, 0.60) 0px 2px 8px -8px;
+    }
+    &:active {
+        border: 1px solid var(--sd-colour-interactive);
+        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 4px;
+    }
+    &:focus-visible {
+        outline: 2px solid var(--sd-colour-interactive--alpha-60);
+        outline-offset: 1px;
+    }
+    &:disabled,
+    &.illustration-button--disabled {
+        box-shadow: none;
+        border: 1px solid var(--sd-colour-line--light);
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+}
+.illustration-button__illustration,
+.svg-icon-illustration {
+    display: inline-block;
+}
+.illustration-button__text-label {
+    font-size: var(--text-size-small);
+    font-weight: 500;
+    line-height: 1.2;
+    text-align: center;
 }

@@ -89,7 +89,7 @@ $tag-label-lineheight: 100% !default;
             font-size: 1.6rem;
             flex-grow: 0;
             flex-shrink: 0;
-            margin-left: 1px;
+            margin-inline-start: 1px;
             opacity: 0.4;
             transition: color .1s ease-out, opacity .1s ease-out;
         }
@@ -131,7 +131,16 @@ $tag-label-lineheight: 100% !default;
 }
 
 .tag-label--square {
-    border-radius: $border-radius__base--x-small;
+    border-radius: $border-radius__base--small;
+    padding-inline-start: var(--space--1);
+}
+
+.tag-label--draggable {
+    border-radius: $border-radius__base--small;
+    padding-inline-start: 6px;
+    .drag-handle-wrapper {
+        margin-inline-end: 6px;
+    }
 }
 
 // ----------------- SEARCH TAGS -----------------
@@ -142,7 +151,7 @@ $tag-label-lineheight: 100% !default;
     z-index: 2;
     display: flex;
     align-items: center;
-    @include sd-padding('1', 'x');
+    padding-inline: var(--space--1);
     box-shadow: 0 1px 1px 0 hsla(0, 0%, 0%, 0.12);
     background-color: var(--sd-colour-bg-translucent--10);
 }
@@ -155,8 +164,8 @@ $tag-label-lineheight: 100% !default;
     }
 
     .sd-search-tags__tag {
-        margin-left: 2px !important;
-        margin-right: 2px !important;
+        margin-inline-start: 2px !important;
+        margin-inline-end: 2px !important;
     }
 }
 

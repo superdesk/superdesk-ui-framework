@@ -4,21 +4,21 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
 .sd-sidebar-menu {
 	position: absolute;
-	bottom: 0;
+	inset-block-end: 0;
 	width: $sd-sidebarMenu-width;
-	top: $nav-height;
+	inset-block-start: $nav-height;
 	background-color: $sd-sidebarMenu-background;
 	z-index: $zindexFixedNavbar - 1;
 	transition: all .3s ease;
 }
 
 .sd-sidebar-menu--left {
-	left: 0;
+	inset-inline-start: 0;
 	box-shadow: 2px 0 5px 0 rgba(0, 0, 0, .25);
 
 	&.main-menu__open {
-		left: $sd-main-menu-width;
-		//right: 0; This doesn't seam to have any function; To be tested; 
+		inset-inline-start: $sd-main-menu-width;
+		//inset-inline-end: 0; This doesn't seam to have any function; To be tested; 
 	}
 }
 
@@ -30,8 +30,8 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 .sd-sidebar-menu__spacer {
 	width: $sd-sidebarMenu-width / 2;
 	margin: 1.8rem auto;
-	border-top: 1px dotted var(--sd-colour-line--medium);
-	border-bottom: 0;
+	border-block-start: 1px dotted var(--sd-colour-line--medium);
+	border-block-end: 0;
 }
 
 .sd-sidebar-menu__btn {
@@ -76,15 +76,15 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
 .sd-sidebar-menu__main-icon {
 	position: absolute;
-	top: 0.5rem;
-	left: 0.5rem;
+	inset-block-start: 0.5rem;
+	inset-inline-start: 0.5rem;
 	transition: left 0.2s ease-out;
 }
 
 .sd-sidebar-menu__helper-icon {
 	position: absolute;
-	top: 0.5rem;
-	left: 3rem;
+	inset-block-start: 0.5rem;
+	inset-inline-start: 3rem;
 	transition: left 0.2s ease-out, transform 0.2s;
 }
 
@@ -98,11 +98,11 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
 		&:hover {
 			.sd-sidebar-menu__main-icon {
-				left: -3rem;
+				inset-inline-start: -3rem;
 			}
 
 			.sd-sidebar-menu__helper-icon {
-				left: 0.5rem;
+				inset-inline-start: 0.5rem;
 			}
 		}
 	}
@@ -111,16 +111,16 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 		.sd-sidebar-menu__btn--active {
 			.sd-sidebar-menu__helper-icon {
 				transform: rotate(180deg);
-				left: -3rem;
+				inset-inline-start: -3rem;
 			}
 
 			&:hover {
 				.sd-sidebar-menu__main-icon {
-					left: 4rem;
+					inset-inline-start: 4rem;
 				}
 
 				.sd-sidebar-menu__helper-icon {
-					left: 0.5rem;
+					inset-inline-start: 0.5rem;
 				}
 			}
 		}
@@ -129,8 +129,8 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 
 .sd-sidetab-menu {
 	position: absolute;
-	bottom: 0;
-	top: 0;
+	inset-block-end: 0;
+	inset-block-start: 0;
 	width: $sd-sidebarMenu-width;
 	background-color: $sd-sideTabMenu-background;
 	z-index: 16;
@@ -146,7 +146,7 @@ $sd-sideTabMenu-background: var(--sd-colour-sidebar-menu--20);
 }
 
 .sd-sidetab-menu--right {
-	right: 0;
+	inset-inline-end: 0;
 	box-shadow: inset 4px 0 5px -3px rgba(0, 0, 0, 0.25);
 
 }
@@ -212,8 +212,8 @@ i.sd-sidetab-menu__helper-icon {
 
 .sd-sidetab-menu__info-label {
 	position: absolute;
-	top: 0.3rem;
-	right: 0.3rem;
+	inset-block-start: 0.3rem;
+	inset-inline-end: 0.3rem;
 	text-shadow: none;
 	z-index: 3;
 	margin: 0;
@@ -235,14 +235,14 @@ i.sd-sidetab-menu__helper-icon {
 			opacity: 0;
 			height: 0.8rem;
 			width: 0.8rem;
-			left: 2.0rem;
+			inset-inline-start: 2.0rem;
 			font-size: 8px;
 
 			i {
 				opacity: 0;
 				height: 0.8rem;
 				width: 0.8rem;
-				left: 2.0rem;
+				inset-inline-start: 2.0rem;
 				font-size: 8px;
 			}
 		}
@@ -270,7 +270,7 @@ i.sd-sidetab-menu__helper-icon {
 			opacity: 0;
 			//height:0.8rem;
 			//width:0.8rem;
-			//left: 2.0rem;
+			//inset-inline-start: 2.0rem;
 			font-size: 8px;
 
 			i {
@@ -278,7 +278,7 @@ i.sd-sidetab-menu__helper-icon {
 				height: 0.8rem !important;
 				width: 0.8rem !important;
 				font-size: 8px !important;
-				//left: 2.0rem
+				//inset-inline-start: 2.0rem
 			}
 		}
 	}
@@ -318,14 +318,14 @@ i.sd-sidetab-menu__helper-icon {
 .sd-side-menu__helper-icon,
 .sd-side-menu__main-icon {
 	position: absolute;
-	top: 0.5rem;
-	left: 0.5rem;
+	inset-block-start: 0.5rem;
+	inset-inline-start: 0.5rem;
 }
 
 .sd-side-menu__helper-icon {
 	opacity: 0;
 	margin: 0;
-	left: 0.6rem;
+	inset-inline-start: 0.6rem;
 	width: 2.4rem;
 	height: 2.4rem;
 	font-size: 2.4rem;
@@ -341,8 +341,8 @@ i.sd-sidetab-menu__helper-icon {
 
 .sd-side-menu__info-label {
 	position: absolute;
-	top: 0.3rem;
-	right: 0.3rem;
+	inset-block-start: 0.3rem;
+	inset-inline-end: 0.3rem;
 	text-shadow: none;
 	z-index: 3;
 	margin: 0;
@@ -363,7 +363,7 @@ i.sd-sidetab-menu__helper-icon {
 //       opacity: 0;
 //       height:0.8rem;
 //       width:0.8rem;
-//       left: 2.0rem;
+//       inset-inline-start: 2.0rem;
 //       font-size: 8px;
 //     }
 //   }
@@ -386,7 +386,7 @@ i.sd-sidetab-menu__helper-icon {
 			opacity: 0;
 			height: 0.8rem;
 			width: 0.8rem;
-			left: 2.0rem;
+			inset-inline-start: 2.0rem;
 			font-size: 8px;
 		}
 	}
@@ -400,7 +400,7 @@ i.sd-sidetab-menu__helper-icon {
 	position: relative;
 
 	ul {
-		margin-top: 24px;
+		margin-block-start: 24px;
 	}
 }
 

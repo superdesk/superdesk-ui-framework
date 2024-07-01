@@ -57,15 +57,15 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Left</p>
-                        <div className='sd-display--flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
+                        <div className='d-flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
                             {this.state.openPanel1 ? null : 
-                                <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                                <div className='d-flex items-center justify-center sd-flex--grow'>
                                     <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel1': true})} />
                                 </div> 
                             }
                             <PanelElements.Panel side='left' background='light' open={this.state.openPanel1} size='x-small'>
                                 <PanelElements.PanelHeader
-                                    title='This is the title for the Panel'
+                                    title='This is the Panel title'
                                     onClose={() => this.setState({'openPanel1': false})}
                                     iconButtons={[
                                         <Rotate degrees={this.state.rotate ? 90 : 0}>
@@ -92,7 +92,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                     <Markup.ReactMarkupCode>{`
                         // Left
                         {this.state.openPanel1 ? null : 
-                            <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                            <div className='d-flex items-center justify-center sd-flex--grow'>
                                 <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel1': true})} />
                             </div> 
                         }
@@ -130,9 +130,9 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Right, custom elements inside the footer + dark theme.</p>
-                        <div className='sd-display--flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
+                        <div className='d-flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
                             {this.state.openPanel2 ? null :
-                                <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                                <div className='d-flex items-center justify-center sd-flex--grow'>
                                     <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel2': true})} />
                                 </div>
                             }
@@ -168,7 +168,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                         // Right, custom elements inside the footer + dark theme.
 
                         {this.state.openPanel2 ? null :
-                            <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                            <div className='d-flex items-center justify-center sd-flex--grow'>
                                 <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel2': true})} />
                             </div>
                         }
@@ -201,9 +201,9 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// With PanelHeaderSlidingToolbar element inside the PanelHeader</p>
-                        <div className='sd-display--flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
+                        <div className='d-flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
                             {this.state.openPanel3 ? null :
-                                <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                                <div className='d-flex items-center justify-center sd-flex--grow'>
                                     <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel3': true})} />
                                 </div>
                             }
@@ -245,7 +245,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                         // With PanelHeaderSlidingToolbar element inside the PanelHeader
 
                         {this.state.openPanel3 ? null :
-                            <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                            <div className='d-flex items-center justify-center sd-flex--grow'>
                                 <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel3': true})} />
                             </div>
                         }
@@ -284,9 +284,9 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// With PanelTools (allowing custom actions) + dark theme</p>
-                        <div className='sd-display--flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
+                        <div className='d-flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '400px'}}>
                             {this.state.openPanel4 ? null :
-                                <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                                <div className='d-flex items-center justify-center sd-flex--grow'>
                                     <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel4': true})} />
                                 </div>
                             }
@@ -317,7 +317,7 @@ export default class PanelDoc extends React.Component<IProps, IState> {
                         // With PanelTools (allowing custom actions) + dark theme
 
                         {this.state.openPanel4 ? null :
-                            <div className='sd-display--flex sd-flex--items-center sd-flex--justify-center sd-flex--grow'>
+                            <div className='d-flex items-center justify-center sd-flex--grow'>
                                 <Button text="Open Panel" style="filled" onClick={() => this.setState({'openPanel4': true})} />
                             </div>
                         }

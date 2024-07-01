@@ -5,6 +5,7 @@ interface IProps {
     children?: React.ReactNode;
     background?: 'transparent' | 'light' | 'grey' | 'dark';
     visible?: boolean; // defaults to light (white)
+    disabled?: boolean;
 }
 
 export class ContentSplitter extends React.PureComponent<IProps> {
@@ -13,6 +14,7 @@ export class ContentSplitter extends React.PureComponent<IProps> {
             [`sd-content-wrapper__content-splitter--${this.props.background}`]:
             this.props.background !== 'light' && this.props.background !== undefined,
             'content-splitter--visible': this.props.visible,
+            'content-splitter--disabled': this.props.disabled,
         });
         return (
             <div className={classes}>

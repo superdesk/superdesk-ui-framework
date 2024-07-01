@@ -3,7 +3,8 @@ import { Icon } from "./Icon";
 import { createPopper, Instance } from '@popperjs/core';
 import {getPrefixedItemId, TreeSelectItem} from './TreeSelect/TreeSelectItem';
 import {keyboardNavigation} from './TreeSelect/KeyboardNavigation';
-import {createPortal} from 'react-dom';
+import {WithPortal} from './WithPortal';
+import {nameof} from '../helpers';
 
 interface IState<T> {
     options: Array<ITreeMenuNode<T>>;
@@ -23,6 +24,7 @@ interface IProps<T> {
     zIndex?: number;
     searchPlaceholder?: string;
     singleLevelSearch?: boolean;
+    'data-test-id'?: string;
     getOptions?(): Array<ITreeMenuNode<T>>;
     getLabel(item: T): string;
     getId(item: T): string;
@@ -46,18 +48,34 @@ interface IChildren<T> {
 export type ITreeMenuNode<T> = IParent<T> | IChildren<T>;
 
 function nodeHasChildren<T>(item: IParent<T> | IChildren<T>): item is IParent<T> {
-    return item['children'] != null;
+    return (item as unknown as any)[nameof<IParent<T>>('children')] != null;
 }
 
 function nodeCanBeSelected<T>(item: IParent<T> | IChildren<T>): item is IChildren<T> {
-    return item['onSelect'] != null;
+    return (item as unknown as any)[nameof<IChildren<T>>('onSelect')] != null;
+}
+
+function onSelect<T>(item: ITreeMenuNode<T>) {
+    if (nodeCanBeSelected(item)) {
+        return item.onSelect();
+    }
+
+    return undefined;
+}
+
+function disabledItem<T>(item: ITreeMenuNode<T>) {
+    if (nodeCanBeSelected(item)) {
+        return item.disabled;
+    }
+
+    return undefined;
 }
 
 export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
     private dropdownRef: React.RefObject<HTMLInputElement>;
     private ref: React.RefObject<HTMLUListElement>;
     private openDropdownRef: React.RefObject<HTMLDivElement>;
-    private treeSelectRef: React.RefObject<HTMLDivElement>;
+    private treeMenuRef: React.RefObject<HTMLDivElement>;
     private inputRef: React.RefObject<HTMLInputElement>;
     private popperInstance: Instance | null;
 
@@ -80,14 +98,15 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         this.handleButton = this.handleButton.bind(this);
         this.handleTree = this.handleTree.bind(this);
         this.toggleMenu = this.toggleMenu.bind(this);
+        this.toggle = this.toggle.bind(this);
         this.onMouseDown = this.onMouseDown.bind(this);
         this.onKeyDown = this.onKeyDown.bind(this);
-        this.toggle = this.toggle.bind(this);
+        this.onPressEsc = this.onPressEsc.bind(this);
 
         this.dropdownRef = React.createRef();
         this.ref = React.createRef();
         this.openDropdownRef = React.createRef();
-        this.treeSelectRef = React.createRef();
+        this.treeMenuRef = React.createRef();
         this.inputRef = React.createRef();
 
         this.popperInstance = null;
@@ -99,16 +118,19 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
 
     listNavigation = () => {
         const element: HTMLElement = document.querySelector('.suggestion-item--btn:not([disabled])') as HTMLElement;
-        element.focus();
+        element?.focus();
     }
 
     onMouseDown = (event: MouseEvent) => {
         if (
             (this.dropdownRef.current?.contains(event.target as HTMLElement) !== true)
-            && (this.treeSelectRef.current?.contains(event.target as HTMLElement) !== true)
+            && (this.treeMenuRef.current?.contains(event.target as HTMLElement) !== true)
             && this.state.openDropdown
         ) {
-            this.setState({openDropdown: false});
+            this.setState({
+                openDropdown: false,
+                searchFieldValue: '',
+            });
         }
     }
 
@@ -128,9 +150,18 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                 if (lastElement != null) {
                     const className = getPrefixedItemId(lastElement);
                     const element: HTMLElement = document.getElementsByClassName(className)[0] as HTMLElement;
-                    element.focus();
+                    element?.focus();
                 }
             }
+        }
+    }
+
+    onPressEsc = (event: KeyboardEvent) => {
+        if (event.key === 'Escape' && this.state.openDropdown) {
+            this.setState({
+                openDropdown: false,
+                searchFieldValue: '',
+            });
         }
     }
 
@@ -139,14 +170,16 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
 
         document.addEventListener("mousedown", this.onMouseDown);
         document.addEventListener("keydown", this.onKeyDown);
+        document.addEventListener("keydown", this.onPressEsc);
     }
 
     componentWillUnmount(): void {
         document.removeEventListener("mousedown", this.onMouseDown);
         document.removeEventListener("keydown", this.onKeyDown);
+        document.addEventListener("keydown", this.onPressEsc);
     }
 
-    componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
+    componentDidUpdate(_prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
         if (prevState.openDropdown !== this.state.openDropdown) {
             this.toggleMenu();
         }
@@ -165,14 +198,6 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             if (this.openDropdownRef.current && this.dropdownRef.current) {
                 this.popperInstance = createPopper(this.openDropdownRef.current, this.dropdownRef.current, {
                     placement: 'bottom-start',
-                    modifiers: [
-                        {
-                            name: 'offset',
-                            options: {
-                                offset: [-4, 4],
-                            },
-                        },
-                    ],
                 });
             }
 
@@ -192,14 +217,14 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             } else {
                 const element: HTMLElement
                     = document.querySelector('.suggestion-item--btn:not([disabled])') as HTMLElement;
-                element.focus();
+                element?.focus();
             }
         } else {
             this.openDropdownRef.current?.focus();
         }
     }
 
-    toggle(event) {
+    toggle(event: React.SyntheticEvent) {
         event.stopPropagation();
 
         this.setState({
@@ -229,7 +254,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         });
     }
 
-    handleTree(event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeMenuNode<T>) {
+    handleTree(_event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeMenuNode<T>) {
         if (nodeHasChildren(option)) {
             this.handleButton(option);
             this.handleMultiLevel(option);
@@ -245,7 +270,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         setTimeout(() => {
             const element: HTMLElement
                 = document.querySelectorAll('.suggestion-item--btn:not([disabled])')[0] as HTMLButtonElement;
-            element.focus();
+            element?.focus();
         });
     }
 
@@ -296,164 +321,137 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         if (filteredArr.length === 0) {
             return <li className="suggestion-item--nothing-found">Nothing found</li>;
         } else {
-            return filteredArr.map((option, i) => {
-                const onSelect = (item) => {
-                    if (nodeCanBeSelected(item)) {
-                        return item.onSelect;
-                    }
-                };
-
-                const disabledItem = (item) => {
-                    if (nodeCanBeSelected(item)) {
-                        return item.disabled;
-                    }
-                };
-
-                return (
-                    <TreeSelectItem
-                        key={i}
-                        option={option}
-                        handleTree={this.handleTree}
-                        disabledItem={disabledItem(option)}
-                        getBorderColor={this.props.getBorderColor}
-                        getBackgroundColor={this.props.getBackgroundColor}
-                        getId={this.props.getId}
-                        optionTemplate={this.props.optionTemplate}
-                        getLabel={this.props.getLabel}
-                        onClick={() => {
+            return filteredArr.map((option, i) => (
+                <TreeSelectItem
+                    key={i}
+                    option={option}
+                    handleTree={this.handleTree}
+                    disabledItem={disabledItem(option)}
+                    getBorderColor={this.props.getBorderColor}
+                    getBackgroundColor={this.props.getBackgroundColor}
+                    getId={this.props.getId}
+                    optionTemplate={this.props.optionTemplate}
+                    getLabel={this.props.getLabel}
+                    onClick={() => {
+                        if (onSelect != null) {
                             onSelect(option);
 
                             this.setState({
                                 searchFieldValue: '',
                             });
-                        }}
-                    />
-                );
-            });
+                        }
+
+                    }}
+                />
+            ));
         }
     }
 
     render() {
         return (
-            <div ref={this.treeSelectRef}>
+            <div ref={this.treeMenuRef}>
                 <div ref={this.openDropdownRef}>
                     {this.props.children(this.toggle)}
                 </div>
 
-                {createPortal(
-                    this.state.openDropdown
-                        && <div id='TREEMENU_DROPDOWN'>
+                <WithPortal active={this.state.openDropdown}  data-test-id="tree-menu-popover">
+                    <div
+                        ref={this.dropdownRef}
+                        className="autocomplete autocomplete--multi-select autocomplete--fixed-width"
+                        style={{
+                            zIndex: this.props.zIndex,
+                        }}
+                    >
+                        <div className='autocomplete__header'>
                             <div
-                                ref={this.dropdownRef}
-                                className="autocomplete autocomplete--multi-select autocomplete--fixed-width"
-                                style={{
-                                    zIndex: this.props.zIndex,
+                                className="autocomplete__icon"
+                                onClick={() => {
+                                    this.backButton();
                                 }}
                             >
-                                <div className='autocomplete__header'>
-                                    <div
-                                        className="autocomplete__icon"
-                                        onClick={() => {
-                                            this.backButton();
-                                        }}
-                                    >
-                                        <Icon name="search" className="search"></Icon>
-                                    </div>
+                                <Icon name="search" className="search"></Icon>
+                            </div>
 
-                                    <div className='autocomplete__filter'>
-                                        <input
-                                            className="autocomplete__input"
-                                            type="text"
-                                            placeholder={this.props.searchPlaceholder}
-                                            ref={this.inputRef}
-                                            value={this.state.searchFieldValue}
-                                            onChange={(event) => {
-                                                this.setState({searchFieldValue: event.target.value});
-                                                this.popperInstance?.update();
-                                            }}
-                                        />
-                                    </div>
+                            <div className='autocomplete__filter'>
+                                <input
+                                    className="autocomplete__input"
+                                    type="text"
+                                    placeholder={this.props.searchPlaceholder}
+                                    ref={this.inputRef}
+                                    value={this.state.searchFieldValue}
+                                    onChange={(event) => {
+                                        this.setState({searchFieldValue: event.target.value});
+                                        this.popperInstance?.update();
+                                    }}
+                                />
+                            </div>
+                        </div>
+
+                        {(this.state.activeTree.length > 0 && this.state.buttonValue != null)
+                            && <div className='autocomplete__category-header'>
+                                <div
+                                    className="autocomplete__icon"
+                                    onClick={() => {
+                                        this.backButton();
+                                    }}
+                                >
+                                    <Icon name="arrow-left" className="arrow-left"></Icon>
                                 </div>
 
-                                {(this.state.activeTree.length > 0 && this.state.buttonValue != null)
-                                    && <div className='autocomplete__category-header'>
-                                        <div
-                                            className="autocomplete__icon"
-                                            onClick={() => {
-                                                this.backButton();
-                                            }}
-                                        >
-                                            <Icon name="arrow-left" className="arrow-left"></Icon>
-                                        </div>
-
-                                        <div className='autocomplete__filter'>
-                                            <button className='autocomplete__category-title'>
-                                                {this.props.optionTemplate
-                                                    ? this.props.optionTemplate(this.state.buttonValue.value)
-                                                    : this.props.getLabel(this.state.buttonValue.value)
-                                                }
-                                            </button>
-                                        </div>
-                                    </div>
-                                }
-
-                                {this.state.searchFieldValue === '' ?
-                                    this.props.getOptions ?
-                                        <ul
-                                            ref={this.ref}
-                                            className="suggestion-list suggestion-list--multi-select"
-                                        >
-                                            {this.state.options.map((option, i: React.Key | undefined) => {
-                                                const onSelect = (item) => {
-                                                    if (nodeCanBeSelected(item)) {
-                                                        return item.onSelect;
-                                                    }
-                                                };
-
-                                                const disabledItem = (item) => {
-                                                    if (nodeCanBeSelected(item)) {
-                                                        return item.disabled;
-                                                    }
-                                                };
-
-                                                return (
-                                                    <TreeSelectItem
-                                                        key={i}
-                                                        option={option}
-                                                        handleTree={this.handleTree}
-                                                        onClick={onSelect(option)}
-                                                        disabledItem={disabledItem(option)}
-                                                        getBorderColor={this.props.getBorderColor}
-                                                        getBackgroundColor={this.props.getBackgroundColor}
-                                                        getId={this.props.getId}
-                                                        optionTemplate={this.props.optionTemplate}
-                                                        getLabel={this.props.getLabel}
-                                                        onKeyDown={() => this.setState({
-                                                            buttonTarget: [
-                                                                ...this.state.buttonTarget,
-                                                                this.props.getId(option.value),
-                                                            ],
-                                                        })}
-                                                    />
-                                                );
-                                            })}
-                                        </ul>
-                                        : null
-                                    : <ul
-                                        className="suggestion-list suggestion-list--multi-select"
-                                        ref={this.ref}
-                                    >
-                                        {this.filteredItem(
-                                            this.props.singleLevelSearch
-                                                ? this.state.options
-                                                : this.state.filterArr,
-                                        )}
-                                    </ul>
-                                }
+                                <div className='autocomplete__filter'>
+                                    <button className='autocomplete__category-title'>
+                                        {this.props.optionTemplate
+                                            ? this.props.optionTemplate(this.state.buttonValue.value)
+                                            : this.props.getLabel(this.state.buttonValue.value)
+                                        }
+                                    </button>
+                                </div>
                             </div>
-                        </div>,
-                    document.body,
-                )}
+                        }
+
+                        {this.state.searchFieldValue === '' ?
+                            this.props.getOptions ?
+                                <ul
+                                    ref={this.ref}
+                                    className="suggestion-list suggestion-list--multi-select"
+                                >
+                                    {this.state.options.map((option, i: React.Key | undefined) => (
+                                        <TreeSelectItem
+                                            key={i}
+                                            option={option}
+                                            handleTree={this.handleTree}
+                                            onClick={() => {
+                                                onSelect(option);
+                                            }}
+                                            disabledItem={disabledItem(option)}
+                                            getBorderColor={this.props.getBorderColor}
+                                            getBackgroundColor={this.props.getBackgroundColor}
+                                            getId={this.props.getId}
+                                            optionTemplate={this.props.optionTemplate}
+                                            getLabel={this.props.getLabel}
+                                            onKeyDown={() => this.setState({
+                                                buttonTarget: [
+                                                    ...this.state.buttonTarget,
+                                                    this.props.getId(option.value),
+                                                ],
+                                            })}
+                                        />
+                                    ))}
+                                </ul>
+                                : null
+                            : <ul
+                                className="suggestion-list suggestion-list--multi-select"
+                                ref={this.ref}
+                            >
+                                {this.filteredItem(
+                                    this.props.singleLevelSearch
+                                        ? this.state.options
+                                        : this.state.filterArr,
+                                )}
+                            </ul>
+                        }
+                    </div>
+                </WithPortal>
             </div>
         );
     }

@@ -142,7 +142,7 @@ export default class AlertDoc extends React.Component {
                 This will strip all margins and the border-radius from the component. Hollow style is not recommended in this case, and small size is advised.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='sd-display--flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '360px'}}>
+                        <div className='d-flex' style={{border: '1px solid var(--sd-colour-line--medium)', backgroundColor: 'var(--sd-colour-panel-bg--100)', maxHeight: '360px'}}>
                             <PanelElements.Panel open={true} side='left' size='small'>
                                 <PanelElements.PanelHeader title='Panel example' onClose={()=> false}>
                                     <Alert type='warning' icon='exclamation-sign' banner={true} size='small'>

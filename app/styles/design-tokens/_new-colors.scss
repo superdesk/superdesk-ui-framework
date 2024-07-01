@@ -368,7 +368,11 @@
     --sd-colour-state--in-progress: var(--sd-colour-highlight);
     --sd-colour-state--done: var(--sd-colour-success);
 
-
+    // New Collapsible Box
+    --collapse-box-button-color-bg-default: hsla(var(--sd-colour-cool-grey-l--85), 1);
+    --collapse-box-button-color-bg-hover: hsla(var(--sd-colour-cool-grey-l--80), 1);
+    --collapse-box-button-color-fg-default: var(--color-text);
+    --collapse-box-button-color-fg-hover: var(--color-text);
 }
 
 
@@ -531,6 +535,12 @@
     --sd-colour-state--default: var(--color-text-lighter);
     --sd-colour-state--in-progress: var(--sd-colour-highlight);
     --sd-colour-state--done: var(--sd-colour-success);
+
+    // New Collapsible Box
+    --collapse-box-button-color-bg-default: hsla(var(--sd-colour-cool-grey-l--25), 1);
+    --collapse-box-button-color-bg-hover: hsla(var(--sd-colour-cool-grey-l--30), 1);
+    --collapse-box-button-color-fg-default: var(--color-text-light);
+    --collapse-box-button-color-fg-hover: var(--color-text);
 }
 
 
@@ -604,9 +614,11 @@
     --sd-colour-background__base--30:     hsla(0, 0%, 70%, 1);
   
     --color-text:                         hsla(214, 13%, 20%, 1);
-    --color-text--inverse:                hsla(214, 13%, 98%, 1);
     --color-text-light:                   hsla(214, 13%, 40%, 1);
+    --color-text-muted:                   hsla(214, 13%, 40%, 1);
     --color-text-lighter:                 hsla(214, 13%, 60%, 1);
+    --color-text-subdued:                 hsla(214, 13%, 60%, 1);
+    --color-text--inverse:                hsla(214, 13%, 98%, 1);
     --color-icon-default:                 hsla(214, 13%, 30%, 1);
     --sd-slugline-color:                  hsla(197, 100%, 15%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 100%, 25%, 1);
@@ -687,7 +699,10 @@
     //color:                                hsla(0, 0%, 100%, 1);
     --color-text:                         hsla(0, 0%, 96%, 1);
     --color-text-light:                   hsla(214, 13%, 76%, 1);
+    --color-text-muted:                   hsla(214, 13%, 76%, 1);
     --color-text-lighter:                 hsla(214, 13%, 56%, 1);
+    --color-text-subdued:                 hsla(214, 13%, 56%, 1);
+    --color-text--inverse:                hsla(214, 13%, 20%, 1);
     --color-icon-default:                 hsla(214, 13%, 90%, 1);
     --sd-slugline-color:                  hsla(197, 60%, 75%, 1) !important;
     --sd-time-schedule-color:             hsla(268, 60%, 65%, 1);

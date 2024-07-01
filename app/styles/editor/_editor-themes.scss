@@ -316,10 +316,10 @@ $body-font-size: (
 }
 
 .theme-preview__block {
-	margin-bottom: 1.2rem;
+	margin-block-end: 1.2rem;
 
 	&:last-child {
-		margin-bottom: 0;
+		margin-block-end: 0;
 	}
 
 	.sd-checkbox--button-style,
@@ -352,8 +352,8 @@ $body-font-size: (
 	line-height: 140%;
 	color: inherit;
 	font-family: inherit;
-	border-bottom: 1px dotted var(--sd-editor-colour__main-border);
-	margin-bottom: 0.8rem;
+	border-block-end: 1px dotted var(--sd-editor-colour__main-border);
+	margin-block-end: 0.8rem;
 	padding: 1rem 0 0.5rem;
 	flex-direction: column;
 	justify-content: flex-end;
@@ -363,7 +363,7 @@ $body-font-size: (
 	display: flex;
 	color: inherit;
 	font-family: inherit;
-	margin-bottom: 0.8rem;
+	margin-block-end: 0.8rem;
 	padding: 1rem 0 0.5rem;
 	flex-direction: column;
 }
@@ -372,7 +372,7 @@ $body-font-size: (
 	text-align: end;
 
 	.sd-check__wrapper+.sd-check__wrapper {
-		margin-left: 0.2rem;
+		margin-inline-start: 0.2rem;
 	}
 }
 
@@ -430,7 +430,7 @@ $body-font-size: (
 			// Editor 2
 			.abstract,
 			.abstract p,
-			.abstract div {
+			.abstract div:not(.field__label) {
 				font-size: $size;
 			}
 		}
