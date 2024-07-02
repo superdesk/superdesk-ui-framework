@@ -3,7 +3,7 @@ import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import moment from 'moment';
 import { Calendar, LocaleSettings, CalendarProps } from '@superdesk/primereact/calendar';
-import { throttle } from 'lodash';
+import { range, throttle } from 'lodash';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 import { IInputWrapper } from './Form/InputWrapper';
@@ -37,6 +37,8 @@ interface IDatePickerBase extends IInputWrapper {
 interface IDatePicker extends IDatePickerBase {
     value: Date | null;
     onChange(valueNext: Date | null): void;
+    maxDate?: Date;
+    minDate?: Date;
     'data-test-id'?: string;
 }
 
@@ -208,6 +210,8 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                     )}
                     appendTo={document.body} // making it work inside `overflow:hidden`
                     disabled={this.props.disabled}
+                    minDate={this.props.minDate}
+                    maxDate={this.props.maxDate}
                     onBlur={(event) => {
                         // @ts-ignore: Object is possibly 'null'.
                         if (!event?.target.value) {
