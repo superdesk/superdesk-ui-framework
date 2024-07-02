@@ -700,6 +700,9 @@ $planningEditor-width: 53rem;
     grid-template-columns: [slideInLeft] auto [mainContent] 1fr [slideInRight] auto [overlayContainer] 0;
     grid-template-rows: [headerToolbar] auto [contentBlock] 1fr;
     overflow: auto;
+    &.sd-main-content-grid--full-height {
+        height: 100%;
+    }
 }
 
 .sd-main-content-grid__header {

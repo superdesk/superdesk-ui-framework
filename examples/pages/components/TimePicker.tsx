@@ -2,6 +2,10 @@ import * as React from 'react';
 import * as Markup from '../../js/react';
 import {PropsList, Prop} from '../../../app-typescript';
 import {TimePicker} from '../../../app-typescript/components/TimePicker';
+import {TimePickerV2} from '../../../app-typescript/components/TimePickerV2';
+
+let minutes = Array.from(Array(60).keys());
+let changedMinutes = minutes.filter((num) => num % 15 !== 0)
 
 class TimePickerExample extends React.PureComponent<{}, {time: string}> {
     constructor(props) {
@@ -27,7 +31,15 @@ class TimePickerExample extends React.PureComponent<{}, {time: string}> {
     }
 }
 
-export default class TimePickerDoc extends React.Component {
+export default class TimePickerDoc extends React.Component<{}, {time: string}> {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            time: '14:00',
+        };
+    }
+
     render() {
         return (
             <section className="docs-page__container">
@@ -55,6 +67,36 @@ export default class TimePickerDoc extends React.Component {
                             allowSeconds
                             label='This is Label'
                             info='This is info'
+                        />
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+                <p className='docs-page__paragraph'>TimePickerV2:</p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className='docs-page__content-row'>
+                            <TimePickerV2
+                                value={this.state.time}
+                                label='This is Label'
+                                disabledOptions={{
+                                    minutes: changedMinutes,
+                                }}
+                                onChange={(time) => {
+                                    this.setState({time});
+                                }}
+                            />
+                        </div>
+                    </Markup.ReactMarkupPreview>
+                    <Markup.ReactMarkupCode>{`
+                        <TimePickerV2
+                            value={this.state.time}
+                            label='This is Label'
+                            disableOptions={{
+                                minutes: changedMinutes,
+                            }}
+                            onChange={(time) => {
+                                this.setState({time})
+                            }}
                         />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
