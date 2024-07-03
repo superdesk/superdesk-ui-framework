@@ -39,6 +39,7 @@ interface IDatePicker extends IDatePickerBase {
     onChange(valueNext: Date | null): void;
     maxDate?: Date;
     minDate?: Date;
+    showButtonBar?: boolean;
     'data-test-id'?: string;
 }
 
@@ -159,6 +160,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 tabindex={this.props.tabindex}
             >
                 <Calendar
+                    showButtonBar={this.props.showButtonBar}
                     inputId={this.htmlId}
                     ariaLabelledBy={this.htmlId + 'label'}
                     ref={(ref) => {
