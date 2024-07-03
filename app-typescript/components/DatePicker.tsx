@@ -40,7 +40,6 @@ interface IDatePicker extends IDatePickerBase {
     onChange(valueNext: Date | null): void;
     maxDate?: Date;
     minDate?: Date;
-    required?: boolean;
     'data-test-id'?: string;
 }
 
@@ -162,13 +161,15 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
             >
                 <Calendar
                     footerTemplate={this.props.required !== true ? () => (
-                        <Button
-                            onClick={() => {
-                                this.props.onChange(null);
-                            }}
-                            text='Clear'
-                            data-test-id='clear-button'
-                        />
+                        <div className='d-flex justify-end'>
+                            <Button
+                                onClick={() => {
+                                    this.props.onChange(null);
+                                }}
+                                text='Clear'
+                                data-test-id='clear-button'
+                            />
+                        </div>
                     ) : undefined}
                     inputId={this.htmlId}
                     ariaLabelledBy={this.htmlId + 'label'}
