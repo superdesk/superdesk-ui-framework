@@ -37,6 +37,9 @@ interface IDatePickerBase extends IInputWrapper {
 interface IDatePicker extends IDatePickerBase {
     value: Date | null;
     onChange(valueNext: Date | null): void;
+    maxDate?: Date;
+    minDate?: Date;
+    showButtonBar?: boolean;
     'data-test-id'?: string;
 }
 
@@ -157,6 +160,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 tabindex={this.props.tabindex}
             >
                 <Calendar
+                    showButtonBar={this.props.showButtonBar}
                     inputId={this.htmlId}
                     ariaLabelledBy={this.htmlId + 'label'}
                     ref={(ref) => {
@@ -208,6 +212,8 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                     )}
                     appendTo={document.body} // making it work inside `overflow:hidden`
                     disabled={this.props.disabled}
+                    minDate={this.props.minDate}
+                    maxDate={this.props.maxDate}
                     onBlur={(event) => {
                         // @ts-ignore: Object is possibly 'null'.
                         if (!event?.target.value) {
