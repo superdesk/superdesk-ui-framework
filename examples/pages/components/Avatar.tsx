@@ -192,15 +192,24 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
+                                icon={{name: 'text', color: 'var(--sd-colour-state--in-workflow)'}}
                             />
 
                             <Avatar
                                 size="x-large"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                displayName="Jeffrey Lebowski"
-                                icon={{name: 'text'}}
+                                imageUrl={null}
+                                initials={null}
+                                displayName="Unassigned"
+                                emptyLight
+                                icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
+                            />
+
+                            <Avatar
+                                size="x-large"
+                                imageUrl={null}
+                                initials={null}
+                                displayName="Unassigned"
+                                icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
                             />
 
                             <Avatar
@@ -208,10 +217,34 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl={null}
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                icon={{name: 'video-cancel', color: 'var(--sd-colour-state--in-progress)'}}
+                                icon={{name: 'video-cancel', color: 'var(--sd-colour-state--canceled)'}}
                             />
 
                         </Container>
+                        <p className="docs-page__paragraph">// With icon and Coverage status indicator</p>
+                        <Container gap='medium' className='sd-margin-b--3'>
+                            <Avatar 
+                                displayName="Unassigned"
+                                imageUrl={null}
+                                initials={null}
+                                size="small"
+                                icon={{name: 'text', color: 'var(--sd-colour-state--assigned)'}}
+                                coverageStatus={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            />
+                            <Avatar 
+                                displayName="Unassigned"
+                                imageUrl={null}
+                                initials={null}
+                                size="small"
+                                icon={{name: 'photo', color: 'var(--sd-colour-state--assigned)'}}
+                                coverageStatus={{color: 'var(--sd-colour-coverage-state--not-covering)'}}
+                            />
+
+
+                        </Container>
+
+                            
+
 
 
                     </Markup.ReactMarkupPreview>

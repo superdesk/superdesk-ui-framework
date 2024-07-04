@@ -100,6 +100,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                                                         initials={item.initials}
                                                         displayName={item.displayName}
                                                         icon={item.icon}
+                                                        coverageStatus={item.coverageStatus}
                                                     />
                                                 )
                                                 : (
@@ -157,7 +158,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                         {
                             itemsOverLimit > 0 && (
                                 <PlusButtonWrapper onToggle={onToggle}>
-                                    <AvatarWrapper size={size} isEmpty={false}>
+                                    <AvatarWrapper size={size} emptyLight={false}>
                                         <AvatarContentNumber number={`${itemsOverLimit}`} />
                                     </AvatarWrapper>
                                 </PlusButtonWrapper>

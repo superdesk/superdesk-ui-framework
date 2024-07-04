@@ -14,9 +14,12 @@ interface IPropsAvatarWrapper {
     };
     children: React.ReactNode;
     'data-test-id'?: string;
-    isEmpty?: boolean;
+    emptyLight?: boolean;
     icon?: {
         name: string;
+        color?: string;
+    };
+    coverageStatus?: {
         color?: string;
     };
 
@@ -28,6 +31,8 @@ interface IPropsAvatarWrapper {
 export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
     render() {
         const {icon} = this.props;
+        const {coverageStatus} = this.props;
+
 
         return (
             <span
@@ -40,7 +45,7 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                     'sd-avatar--xx-large': this.props.size === 'xx-large',
                     'sd-avatar--indicator-status--online' : this.props.statusIndicator?.status === 'online',
                     'sd-avatar--indicator-status--offline' : this.props.statusIndicator?.status === 'offline',
-                    'sd-avatar--empty-light': this.props.isEmpty,
+                    'sd-avatar--empty-light': this.props.emptyLight,
                 })}
                 data-test-id={this.props['data-test-id']}
                 title={this.props.statusIndicator != null ? this.props.statusIndicator.tooltipText : ""}
@@ -63,6 +68,12 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                         <span className="sd-avatar__icon">
                             <Icon name={icon.name} color={icon.color} />
                         </span>
+                    )
+                }
+
+                {
+                    coverageStatus != null && (
+                        <span style={{backgroundColor: coverageStatus.color}} className="sd-avatar__coverage-state"></span>
                     )
                 }
 

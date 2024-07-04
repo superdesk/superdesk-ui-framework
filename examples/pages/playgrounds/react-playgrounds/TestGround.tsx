@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, Avatar, SvgIconIllustration, IllustrationButton, SubNav, NavButton } from '../../../../app-typescript/index';
+import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, Avatar, SvgIconIllustration, IllustrationButton, SubNav, NavButton, } from '../../../../app-typescript/index';
 import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
@@ -106,27 +106,37 @@ export class TestGround extends React.Component<IProps, IState> {
         const avatars: Array<IAvatarInGroup> = [
             {
                 imageUrl: null,
+                initials: null,
+                //isEmpty: true,
+                displayName: 'Unassigned',
+                icon:{name: 'video', color: 'var(--sd-colour-state--default)'},
+                coverageStatus:{color: 'var(--sd-colour-coverage-state--not-covering)'}
+            },
+            {
+                imageUrl: null,
+                initials: null,
+                displayName: 'Unassigned',
+                //isEmpty: true,
+                icon:{name: 'file', color: 'var(--sd-colour-state--unassigned)'},
+                coverageStatus:{color: 'var(--sd-colour-coverage-state--on-merit)'}
+            },
+            {
+                imageUrl: null,
                 initials: "VS",
                 displayName: 'Vladimir Stefanovic',
-                icon:{name: 'text', color: 'var(--sd-colour-highlight)'},
+                icon:{name: 'text', color: 'var(--sd-colour-state--in-progress)'},
             },
             {
                 imageUrl: null,
                 initials: "JL",
                 displayName: 'Jeffrey Lebowski',
-                icon:{name: 'photo', color: 'var(--sd-colour-highlight)'}
+                icon:{name: 'photo', color: 'var(--sd-colour-state--in-workflow)'}
             },
             {
                 imageUrl: null,
                 initials: "WS",
                 displayName: 'Walter Sobchak',
-                icon:{name: 'video', color: 'var(--sd-colour-highlight)'}
-            },
-            {
-                imageUrl: null,
-                initials: "ML",
-                displayName: 'Maude Lebowski',
-                icon:{name: 'file', color: 'var(--sd-colour-highlight)'}
+                icon:{name: 'text', color: 'var(--sd-colour-state--done)'},
             },
         ];
 
@@ -158,6 +168,18 @@ export class TestGround extends React.Component<IProps, IState> {
                         </ButtonGroup>
 
                         <hr />
+
+                        <Avatar 
+                            displayName="Jeffrey Lebowski"
+                            imageUrl={null}
+                            initials='JL'
+                            size="small"
+                            coverageStatus={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
+                        />
+
+                        <hr />
+
 
                         <div style={{maxWidth: '600px'}} className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleOne ? 'new-collapse-box--open' : ''}`}>
                             {/* Header */}
