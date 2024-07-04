@@ -7,6 +7,7 @@ import { throttle } from 'lodash';
 import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 import { IInputWrapper } from './Form/InputWrapper';
+import {Button} from './Button';
 
 export type DatePickerLocaleSettings = Omit<LocaleSettings, 'today' | 'clear'>;
 
@@ -39,7 +40,6 @@ interface IDatePicker extends IDatePickerBase {
     onChange(valueNext: Date | null): void;
     maxDate?: Date;
     minDate?: Date;
-    showButtonBar?: boolean;
     'data-test-id'?: string;
 }
 
@@ -160,7 +160,17 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 tabindex={this.props.tabindex}
             >
                 <Calendar
-                    showButtonBar={this.props.showButtonBar}
+                    footerTemplate={this.props.required !== true ? () => (
+                        <div className='d-flex justify-end'>
+                            <Button
+                                onClick={() => {
+                                    this.props.onChange(null);
+                                }}
+                                text='Clear'
+                                data-test-id='clear-button'
+                            />
+                        </div>
+                    ) : undefined}
                     inputId={this.htmlId}
                     ariaLabelledBy={this.htmlId + 'label'}
                     ref={(ref) => {
