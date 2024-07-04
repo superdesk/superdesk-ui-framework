@@ -73,7 +73,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl={null}
                                 initials="Jeffrey Lebowski"
                                 size="large"
-                                icon={{name: 'print', color: 'red'}}
+                                icon={{name: 'print', color: 'var(--sd-colour-state--in-workflow)'}}
                                 statusIndicator="offline"
                                 administratorIndicator
                             />
@@ -83,7 +83,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl={null}
                                 initials='Jeffrey Lebowski'
                                 size="large"
-                                icon={{name: 'print', color: 'red'}}
+                                icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
                                 administratorIndicator
                             />
 
@@ -192,15 +192,24 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl="/avatar.jpg"
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
+                                icon={{name: 'text', color: 'var(--sd-colour-state--in-workflow)'}}
                             />
 
                             <Avatar
                                 size="x-large"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                displayName="Jeffrey Lebowski"
-                                icon={{name: 'text'}}
+                                imageUrl={null}
+                                initials={null}
+                                displayName="Unassigned"
+                                emptyLight
+                                icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
+                            />
+
+                            <Avatar
+                                size="x-large"
+                                imageUrl={null}
+                                initials={null}
+                                displayName="Unassigned"
+                                icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
                             />
 
                             <Avatar
@@ -208,12 +217,29 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl={null}
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
-                                icon={{name: 'video-cancel', color: 'var(--sd-colour-state--in-progress)'}}
+                                icon={{name: 'video-cancel', color: 'var(--sd-colour-state--canceled)'}}
                             />
 
                         </Container>
-
-
+                        <p className="docs-page__paragraph">// With icon and Coverage status indicator</p>
+                        <Container gap='medium' className='sd-margin-b--3'>
+                            <Avatar 
+                                displayName="Unassigned"
+                                imageUrl={null}
+                                initials={null}
+                                size="small"
+                                icon={{name: 'text', color: 'var(--sd-colour-state--assigned)'}}
+                                coverageStatus={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            />
+                            <Avatar 
+                                displayName="Unassigned"
+                                imageUrl={null}
+                                initials={null}
+                                size="small"
+                                icon={{name: 'photo', color: 'var(--sd-colour-state--assigned)'}}
+                                coverageStatus={{color: 'var(--sd-colour-coverage-state--not-covering)'}}
+                            />
+                        </Container>
                     </Markup.ReactMarkupPreview>
 
                     <Markup.ReactMarkupCode>{`
@@ -234,7 +260,7 @@ export default class AvatarDoc extends React.PureComponent {
                             imageUrl={null}
                             initials="Jeffrey Lebowski"
                             size="large"
-                            icon={{name: 'print', color: 'red'}}
+                            icon={{name: 'print', color: 'var(--sd-colour-state--in-workflow)}}
                             statusIndicator="offline"
                             administratorIndicator
                         />
@@ -244,7 +270,7 @@ export default class AvatarDoc extends React.PureComponent {
                             imageUrl={null}
                             initials='Jeffrey Lebowski'
                             size="large"
-                            icon={{name: 'print', color: 'red'}}
+                            icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
                             administratorIndicator
                         />
 
@@ -366,15 +392,24 @@ export default class AvatarDoc extends React.PureComponent {
                             imageUrl="/avatar.jpg"
                             initials="JL"
                             displayName="Jeffrey Lebowski"
-                            icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
+                            icon={{name: 'text', color: 'var(--sd-colour-state--in-workflow)'}}
                         />
 
                         <Avatar
                             size="x-large"
-                            imageUrl="/avatar.jpg"
-                            initials="JL"
-                            displayName="Jeffrey Lebowski"
-                            icon={{name: 'text'}}
+                            imageUrl={null}
+                            initials={null}
+                            displayName="Unassigned"
+                            emptyLight
+                            icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
+                        />
+
+                        <Avatar
+                            size="x-large"
+                            imageUrl={null}
+                            initials={null}
+                            displayName="Unassigned"
+                            icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
                         />
 
                         <Avatar
@@ -382,10 +417,27 @@ export default class AvatarDoc extends React.PureComponent {
                             imageUrl={null}
                             initials="JL"
                             displayName="Jeffrey Lebowski"
-                            icon={{name: 'video-cancel', color: 'var(--sd-colour-state--in-progress)'}}
+                            icon={{name: 'video-cancel', color: 'var(--sd-colour-state--canceled)'}}
                         />
 
-                        </AvatarWrapper>
+                        // With icon and Coverage status indicator
+                        <Avatar 
+                            displayName="Unassigned"
+                            imageUrl={null}
+                            initials={null}
+                            size="small"
+                            icon={{name: 'text', color: 'var(--sd-colour-state--assigned)'}}
+                            coverageStatus={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                        />
+                        <Avatar 
+                            displayName="Unassigned"
+                            imageUrl={null}
+                            initials={null}
+                            size="small"
+                            icon={{name: 'photo', color: 'var(--sd-colour-state--assigned)'}}
+                            coverageStatus={{color: 'var(--sd-colour-coverage-state--not-covering)'}}
+                        />
+
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -453,25 +505,25 @@ export default class AvatarDoc extends React.PureComponent {
                                     imageUrl: null,
                                     initials: "U3",
                                     displayName: 'User3',
-                                    icon:{name: 'print', color: 'blue'},
+                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-workflow)'},
                                 },
                                 {
                                     imageUrl: 'avatar-3.jpg',
                                     initials: "U4",
                                     displayName: 'User4',
-                                    icon:{name: 'print', color: 'yellow'},
+                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-progress)'},
                                 },
                                 {
                                     imageUrl: 'avatar-4.jpg',
                                     initials: "U5",
                                     displayName: 'User5',
-                                    icon:{name: 'print', color: 'orange'},
+                                    icon:{name: 'print', color: 'var(--sd-colour-highlight)'},
                                 },
                                 {
                                     imageUrl: null,
                                     initials: "U6",
                                     displayName: 'User6',
-                                    icon:{name: 'print', color: 'lime'},
+                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-progress)'},
                                 },
                             ];
 
@@ -571,39 +623,39 @@ export default class AvatarDoc extends React.PureComponent {
                             const avatars: Array<IAvatarInGroup> = [
                                 {
                                     imageUrl: 'avatar.jpg',
-                                    initials: "JL",
-                                    displayName: null,
+                                    initials: "U1",
+                                    displayName: 'User1',
                                     icon:{name: 'print', color: 'red'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "AB",
-                                    displayName: null,
+                                    initials: "U2",
+                                    displayName: 'User2',
                                     icon:{name: 'print', color: 'green'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "FG",
-                                    displayName: null,
-                                    icon:{name: 'print', color: 'blue'},
+                                    initials: "U3",
+                                    displayName: 'User3',
+                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-workflow)'},
                                 },
                                 {
                                     imageUrl: 'avatar-3.jpg',
-                                    initials: "JL",
-                                    displayName: null,
-                                    icon:{name: 'print', color: 'yellow'},
+                                    initials: "U4",
+                                    displayName: 'User4',
+                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-progress)'},
                                 },
                                 {
                                     imageUrl: 'avatar-4.jpg',
-                                    initials: "JL",
-                                    displayName: null,
-                                    icon:{name: 'print', color: 'orange'},
+                                    initials: "U5",
+                                    displayName: 'User5',
+                                    icon:{name: 'print', color: 'var(--sd-colour-highlight)'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "KU",
-                                    displayName: null,
-                                    icon:{name: 'print', color: 'lime'},
+                                    initials: "U6",
+                                    displayName: 'User6',
+                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-progress)'},
                                 },
                             ];
 

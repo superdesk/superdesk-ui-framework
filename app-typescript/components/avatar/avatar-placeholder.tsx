@@ -26,7 +26,7 @@ export class AvatarPlaceholder extends React.PureComponent<IPropsAvatarPlacehold
         return (
             <AvatarWrapper
                 size={size}
-                isEmpty={false}
+                emptyLight={false}
                 icon={icon}
             >
                 {(() => {

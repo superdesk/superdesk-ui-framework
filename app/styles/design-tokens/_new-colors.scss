@@ -351,22 +351,32 @@
     --sd-colour__tag-label-Bg--inverse: var(--sd-colour-bg--08);
     --sd-colour__tag-label-Txt--inverse: hsla(214, 13%, 98%, 1);
 
-    --sd-colour-avatar-bg: hsl(197, 100%, 25%);
+    // Avatars
+    --sd-colour-avatar-bg: hsl(197, 100%, 30%);
     --sd-colour-avatar-border: var(--sd-colour-avatar-bg);
-
     --sd-colour-avatar-bg--light: hsla(214, 13%, 90%, 1);
-    --sd-colour-avatar-border--light: hsla(214, 13%, 65%, 1);
-    --sd-colour-avatar-border--light-hover: hsla(214, 13%, 45%, 1);
-    --sd-colour-avatar-dummy: hsla(214, 13%, 75%, 0.60);
+    --sd-colour-avatar-bg--empty: hsl(212, 20%, 48%);
+    --sd-colour-avatar-bg--empty-light: hsla(214, 13%, 90%, 1);
+    --sd-colour-avatar-border--light: var(--sd-colour-line--medium);
+    --sd-colour-avatar-border--light-hover: var(--sd-colour-line--strong);
+    --sd-colour-avatar-dummy: hsla(214, 13%, 97%, 0.50);
     --sd-colour-avatar-add: hsla(214, 13%, 55%, 1);
     --sd-colour-avatar-add--hover: hsla(214, 13%, 45%, 1);
-
-    --sd-colour-avatar-outline--offline: hsla(214, 13%, 85%, 1);
+    --sd-colour-avatar-outline--offline: var(--sd-colour-line--light);
     --sd-colour-avatar-outline--online: var(--sd-colour-success);
-
+    // Avatar icon states
     --sd-colour-state--default: var(--color-text-lighter);
-    --sd-colour-state--in-progress: var(--sd-colour-highlight);
+    --sd-colour-state--unassigned: var(--color-text-lighter);
+    --sd-colour-state--assigned: var(--color-text-lighter);
+    --sd-colour-state--canceled: var(--color-text-lighter);
+    --sd-colour-state--in-progress: var(--sd-colour-warning);
+    --sd-colour-state--in-workflow: var(--sd-colour-info);
+    --sd-colour-state--completed: var(--sd-colour-success);
     --sd-colour-state--done: var(--sd-colour-success);
+    // Avatar dot states (coverage status indication)
+    --sd-colour-coverage-state--default: var(--color-text-lighter);
+    --sd-colour-coverage-state--on-merit: var(--sd-colour-warning);
+    --sd-colour-coverage-state--not-covering: var(--sd-colour-alert);
 
     // New Collapsible Box
     --collapse-box-button-color-bg-default: hsla(var(--sd-colour-cool-grey-l--85), 1);
@@ -522,19 +532,26 @@
     --sd-colour__tag-label-Bg--inverse: hsla(214, 13%, 55%, 0.95);
     --sd-colour__tag-label-Txt--inverse: hsla(214, 13%, 10%, 1);
 
+    // Avatars
     --sd-colour-avatar-bg: hsl(197, 100%, 25%);
-    --sd-colour-avatar-border: hsl(197, 100%, 25%);
-
-    --sd-colour-avatar-bg--light: hsla(214, 13%, 20%, 1);
+    --sd-colour-avatar-border: var(--sd-colour-avatar-bg);
+    --sd-colour-avatar-bg--light: hsla(214, 13%, 30%, 1);
+    --sd-colour-avatar-bg--empty: hsl(212, 20%, 32%);
+    --sd-colour-avatar-bg--empty-light: hsla(214, 13%, 90%, 1);
+    --sd-colour-avatar-border--light: var(--sd-colour-line--medium);
+    --sd-colour-avatar-border--light-hover: var(--sd-colour-line--strong);
     --sd-colour-avatar-border--light: hsla(214, 13%, 45%, 1);
     --sd-colour-avatar-border--light-hover: hsla(214, 13%, 65%, 1);
     --sd-colour-avatar-dummy: hsla(214, 13%, 98%, 0.25);
     --sd-colour-avatar-add: hsla(214, 13%, 65%, 1);
     --sd-colour-avatar-add--hover: hsla(214, 13%, 90%, 1);
-
+    --sd-colour-avatar-outline--offline: var(--sd-colour-line--medium);
+    --sd-colour-avatar-outline--online: var(--sd-colour-success);
+    // Avatar dot states (coverage status indication)
     --sd-colour-state--default: var(--color-text-lighter);
-    --sd-colour-state--in-progress: var(--sd-colour-highlight);
-    --sd-colour-state--done: var(--sd-colour-success);
+    --sd-colour-state--unassigned: var(--color-text-lighter);
+    --sd-colour-state--assigned: var(--color-text-lighter);
+    --sd-colour-state--canceled: var(--color-text-lighter);
 
     // New Collapsible Box
     --collapse-box-button-color-bg-default: hsla(var(--sd-colour-cool-grey-l--25), 1);
