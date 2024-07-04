@@ -33,7 +33,6 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
         const {icon} = this.props;
         const {coverageStatus} = this.props;
 
-
         return (
             <span
                 className={classNames('sd-avatar', {
@@ -73,10 +72,12 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
 
                 {
                     coverageStatus != null && (
-                        <span style={{backgroundColor: coverageStatus.color}} className="sd-avatar__coverage-state"></span>
+                        <span
+                            style={{backgroundColor: coverageStatus.color}}
+                            className="sd-avatar__coverage-state">
+                        </span>
                     )
                 }
-
             </span>
         );
     }
