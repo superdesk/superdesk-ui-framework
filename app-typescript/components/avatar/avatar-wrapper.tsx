@@ -14,12 +14,12 @@ interface IPropsAvatarWrapper {
     };
     children: React.ReactNode;
     'data-test-id'?: string;
-    emptyLight?: boolean;
+    noAvatarPlaceholderColor?: 'subtle' | 'strong'; // defaults to strong; only applies to placeholder image
     icon?: {
         name: string;
         color?: string;
     };
-    coverageStatus?: {
+    statusDot?: {
         color?: string;
     };
 
@@ -31,7 +31,7 @@ interface IPropsAvatarWrapper {
 export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
     render() {
         const {icon} = this.props;
-        const {coverageStatus} = this.props;
+        const {statusDot} = this.props;
 
         return (
             <span
@@ -44,7 +44,7 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                     'sd-avatar--xx-large': this.props.size === 'xx-large',
                     'sd-avatar--indicator-status--online' : this.props.statusIndicator?.status === 'online',
                     'sd-avatar--indicator-status--offline' : this.props.statusIndicator?.status === 'offline',
-                    'sd-avatar--empty-light': this.props.emptyLight,
+                    'sd-avatar--empty-light': this.props.noAvatarPlaceholderColor === 'subtle',
                 })}
                 data-test-id={this.props['data-test-id']}
                 title={this.props.statusIndicator != null ? this.props.statusIndicator.tooltipText : ""}
@@ -71,9 +71,9 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                 }
 
                 {
-                    coverageStatus != null && (
+                    statusDot != null && (
                         <span
-                            style={{backgroundColor: coverageStatus.color}}
+                            style={{backgroundColor: statusDot.color}}
                             className="sd-avatar__coverage-state">
                         </span>
                     )

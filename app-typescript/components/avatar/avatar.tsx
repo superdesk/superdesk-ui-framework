@@ -18,10 +18,10 @@ export interface IPropsAvatar {
         name: string;
         color?: string;
     };
-    coverageStatus?: {
+    statusDot?: {
         color?: string;
     };
-    emptyLight?: boolean;
+    noAvatarPlaceholderColor?: 'subtle' | 'strong';  // defaults to strong; only applies to placeholder image
 
     /**
      * displayName is shown as tooltip by default
@@ -46,10 +46,10 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
             statusIndicator,
             administratorIndicator,
             icon,
-            emptyLight,
+            noAvatarPlaceholderColor,
             displayName,
             customContent,
-            coverageStatus,
+            statusDot,
         } = this.props;
 
         const tooltipCombined = [displayName, this.props.tooltip]
@@ -61,9 +61,8 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
                 statusIndicator={statusIndicator ? {status: statusIndicator, tooltipText: ''} : undefined}
                 administratorIndicator={administratorIndicator ? {enabled: true, tooltipText: ''} : undefined}
                 icon={icon}
-                coverageStatus={coverageStatus}
-
-                emptyLight={emptyLight}
+                statusDot={statusDot}
+                noAvatarPlaceholderColor={noAvatarPlaceholderColor}
             >
                 {(() => {
                     if (customContent != null) {
