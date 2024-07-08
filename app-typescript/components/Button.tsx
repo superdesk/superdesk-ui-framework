@@ -50,7 +50,7 @@ export class Button extends React.PureComponent<IPropsButton> {
                 title={this.props.tooltip}
             >
                 {this.props.isLoading ? <Spinner size="mini" /> : null}
-                {this.props.icon && !this.props.isLoading ? <Icon name={this.props.icon} /> : null}
+                {this.props.icon && !this.props.isLoading ? <Icon ariaHidden name={this.props.icon} /> : null}
                 {this.props.iconOnly ? null : this.props.text}
             </button>
         );
