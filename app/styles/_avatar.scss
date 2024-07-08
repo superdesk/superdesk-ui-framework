@@ -109,6 +109,9 @@
         .sd-avatar-content--dummy-img {
             background-color: var(--sd-colour-avatar-bg--light);
             border: 1px dashed var(--sd-colour-avatar-border--light);
+            svg {
+                opacity: 0.25;
+            }
         }
     }
 
@@ -129,16 +132,16 @@
 
     }
     .sd-avatar__coverage-state {
-        --dot-size: 8px;
+        --dot-size: 6px;
         display: flex;
         height: var(--dot-size);
         width: var(--dot-size);
         position: absolute;
         background-color: var(--sd-colour-coverage-state--default);
-        z-index: 1;
+        z-index: 2;
         border-radius: var(--b-radius--full);
-        inset-block-start: -2px;
-        inset-inline-end: -4px;
+        inset-block-end: -3px;
+        inset-inline-end: 3px;
         box-shadow: 0 0 0 1px var(--sd-item__main-Bg);
     }
 

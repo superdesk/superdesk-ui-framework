@@ -107,18 +107,16 @@ export class TestGround extends React.Component<IProps, IState> {
             {
                 imageUrl: null,
                 initials: null,
-                //isEmpty: true,
                 displayName: 'Unassigned',
                 icon:{name: 'video', color: 'var(--sd-colour-state--default)'},
-                coverageStatus:{color: 'var(--sd-colour-coverage-state--not-covering)'}
+                statusDot:{color: 'var(--sd-colour-coverage-state--not-covering)'}
             },
             {
                 imageUrl: null,
                 initials: null,
                 displayName: 'Unassigned',
-                //isEmpty: true,
                 icon:{name: 'file', color: 'var(--sd-colour-state--unassigned)'},
-                coverageStatus:{color: 'var(--sd-colour-coverage-state--on-merit)'}
+                statusDot:{color: 'var(--sd-colour-coverage-state--on-merit)'}
             },
             {
                 imageUrl: null,
@@ -174,8 +172,8 @@ export class TestGround extends React.Component<IProps, IState> {
                             imageUrl={null}
                             initials='JL'
                             size="small"
-                            coverageStatus={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
-                            icon={{name: 'text', color: 'var(--sd-colour-state--in-progress)'}}
+                            statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            icon={{name: 'text'}}
                         />
 
                         <hr />

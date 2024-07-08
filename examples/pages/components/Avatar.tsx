@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 
-import {Container, Avatar, AvatarGroup} from '../../../app-typescript';
+import {Container, Avatar, AvatarGroup, AvatarPlaceholder} from '../../../app-typescript';
 import {IAvatarInGroup, IAvatarPlaceholderInGroup} from '../../../app-typescript/components/avatar/avatar-group';
 
 const avatars: Array<IAvatarInGroup> = [
@@ -200,8 +200,13 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl={null}
                                 initials={null}
                                 displayName="Unassigned"
-                                emptyLight
+                                noAvatarPlaceholderColor='subtle'
                                 icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
+                            />
+
+                            <AvatarPlaceholder 
+                                kind='plus-button'
+                                size='x-large'
                             />
 
                             <Avatar
@@ -229,7 +234,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 initials={null}
                                 size="small"
                                 icon={{name: 'text', color: 'var(--sd-colour-state--assigned)'}}
-                                coverageStatus={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                                statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
                             />
                             <Avatar 
                                 displayName="Unassigned"
@@ -237,7 +242,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 initials={null}
                                 size="small"
                                 icon={{name: 'photo', color: 'var(--sd-colour-state--assigned)'}}
-                                coverageStatus={{color: 'var(--sd-colour-coverage-state--not-covering)'}}
+                                statusDot={{color: 'var(--sd-colour-coverage-state--not-covering)'}}
                             />
                         </Container>
                     </Markup.ReactMarkupPreview>
@@ -427,7 +432,7 @@ export default class AvatarDoc extends React.PureComponent {
                             initials={null}
                             size="small"
                             icon={{name: 'text', color: 'var(--sd-colour-state--assigned)'}}
-                            coverageStatus={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
+                            statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
                         />
                         <Avatar 
                             displayName="Unassigned"
@@ -435,7 +440,7 @@ export default class AvatarDoc extends React.PureComponent {
                             initials={null}
                             size="small"
                             icon={{name: 'photo', color: 'var(--sd-colour-state--assigned)'}}
-                            coverageStatus={{color: 'var(--sd-colour-coverage-state--not-covering)'}}
+                            statusDot={{color: 'var(--sd-colour-coverage-state--not-covering)'}}
                         />
 
                     `}

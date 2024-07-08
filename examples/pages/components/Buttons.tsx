@@ -223,7 +223,7 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                     <p className="docs-page__paragraph">// Large default and small</p>
                     <div className="docs-page__content-row">
-                    <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" iconOnly={true} onClick={()=> false} />
+                        <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" iconOnly={true} onClick={()=> false} />
                         <Button type="primary" icon="plus-sign" text="plus-sign" style="hollow" size="large" iconOnly={true} onClick={()=> false} />
                         <Button type="highlight" icon="bell" text="bell" size="large" iconOnly={true} onClick={()=> false} />
                         <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={()=> false} />
@@ -236,14 +236,16 @@ export default class ButtonsDoc extends React.Component {
 
                     <p className="docs-page__paragraph">// Circle (large, default and small)</p>
                     <div className="docs-page__content-row">
-                    <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="warning" icon="exclamation-sign" text="exclamation-sign" size="large" shape="round" iconOnly={true} onClick={()=> false} />
                         <Button type="primary" icon="plus-large" text="plus-large" style="hollow" size="large" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button icon="chevron-up-thin" text="Pull up" style="hollow" shape="round" size="large" iconOnly={true} onClick={()=> false} />
                         <Button type="highlight" icon="bell" text="bell" size="large" shape="round" iconOnly={true} onClick={()=> false} />
                         <Button size="normal" icon="info-sign" text="info-sign" shape="round" iconOnly={true} onClick={()=> false} />
                         <Button type="primary" icon="plus-large" text="plus-large" shape="round" iconOnly={true} onClick={()=> false} />
                         <Button type="success" icon="ok" text="ok" shape="round" iconOnly={true} onClick={()=> false} />
                         <Button type="alert" icon="close-small" text="close-small" size="small" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" text="plus-large" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button type="primary" icon="plus-large" text="Add New" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                        <Button icon="chevron-up-thin" text="Pull up" size="small" shape="round" iconOnly={true} onClick={()=> false} />
                         <Button type="sd-green" icon="star" text="star" size="small" shape="round" iconOnly={true} onClick={()=> false} />
                     </div>
                     </Markup.ReactMarkupPreview>
