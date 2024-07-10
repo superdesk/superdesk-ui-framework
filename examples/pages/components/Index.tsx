@@ -84,6 +84,7 @@ import { BorderUtilitiesDoc } from './utilities/BorderUtilities';
 import { OpacityUtilitiesDoc } from './utilities/OpacityUtilities';
 import { ObjectFitUtilitiesDoc } from './utilities/ObjectFitUtilities';
 import { ObjectPositionUtilitiesDoc } from './utilities/ObjectPositionUtilities';
+import LoaderDoc from './Loader';
 
 
 interface IPages {
@@ -181,7 +182,11 @@ const pages: IPages = {
             "illustration-button": {
                 name: 'Illustration Button',
                 component: IllustrationButtonDoc,
-            }
+            },
+            "loader": {
+                name: 'Loader',
+                component: LoaderDoc,
+            },
         }
     },
     navigationComponents: {
