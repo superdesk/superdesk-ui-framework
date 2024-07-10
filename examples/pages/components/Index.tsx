@@ -85,69 +85,102 @@ import { OpacityUtilitiesDoc } from './utilities/OpacityUtilities';
 import { ObjectFitUtilitiesDoc } from './utilities/ObjectFitUtilities';
 import { ObjectPositionUtilitiesDoc } from './utilities/ObjectPositionUtilities';
 
-const pages = {
+
+interface IPages {
+    [group: string]: {
+        name: string;
+        items: {
+            [urlId: string]: {
+                name: string;
+                component: React.ComponentType<any>;
+            }
+        };
+    };
+}
+
+const pages: IPages = {
     basicComponents: {
         name: 'Basic Components',
         items: {
             'buttons': {
                 name: 'Buttons',
+                component: ButtonsDoc,
             },
             'icon-buttons': {
-                name: 'Icon Buttons'
+                name: 'Icon Buttons',
+                component: IconButtonDoc,
             },
             'button-groups': {
-                name: 'Button Group & Divider'
+                name: 'Button Group & Divider',
+                component: ButtonGroupsDoc,
             },
             'labels': {
                 name: 'Labels',
+                component: LabelsDoc,
             },
             'icon-labels': {
-                name: 'Icon Labels'
+                name: 'Icon Labels',
+                component: IconLabelDoc,
             },
             'badges': {
                 name: 'Badges',
+                component: BadgesDoc,
             },
             'alerts': {
-                name: 'Alerts'
+                name: 'Alerts',
+                component: AlertDoc,
             },
             'avatar': {
                 name: 'Avatar',
+                component: AvatarDoc,
             },
             'tooltips': {
-                name: 'Tooltips'
+                name: 'Tooltips',
+                component: TooltipDoc,
             },
             'tags': {
-                name: 'Tags'
+                name: 'Tags',
+                component: TagDoc,
             },
             'dropdowns': {
-                name: 'Dropdowns'
+                name: 'Dropdowns',
+                component: DropdownDoc,
             },
             'nav-buttons': {
-                name: 'Nav buttons'
+                name: 'Nav buttons',
+                component: NavButtonsDoc,
             },
             'toast': {
-                name: 'Toasts'
+                name: 'Toasts',
+                component: ToastsDoc,
             },
             'popover': {
-                name: 'Popover'
+                name: 'Popover',
+                component: PopoverDoc,
             },
             'modal': {
-                name: 'Modal'
+                name: 'Modal',
+                component: ModalDoc,
             },
             'carousel': {
-                name: 'Carousel'
+                name: 'Carousel',
+                component: CarouselDoc,
             },
             'menu': {
                 name: 'Menu',
+                component: MenuDocs,
             },
             'treemenu': {
                 name: 'TreeMenu',
+                component: TreeMenuDocs,
             },
             "drag-handle": {
-                name: 'Drag handle'
+                name: 'Drag handle',
+                component: DragHandleDocs,
             },
             "illustration-button": {
-                name: 'Illustration Button'
+                name: 'Illustration Button',
+                component: IllustrationButtonDoc,
             }
         }
     },
@@ -155,16 +188,20 @@ const pages = {
         name: "Navigation",
         items: {
             'tab': {
-                name: 'Tabs'
+                name: 'Tabs',
+                component: TabsDoc,
             },
             'left-navigation': {
-                name: 'Left navigation'
+                name: 'Left navigation',
+                component: LeftNavigationsDoc,
             },
-            'Quick-navigation-bar': {
-                name: 'Quick navigation bar'
+            'quick-navigation-bar': {
+                name: 'Quick navigation bar',
+                component: QuickNavBarDoc,
             },
             'sub-navigation': {
-                name: 'Sub navigation bar'
+                name: 'Sub navigation bar',
+                component: SubNavDoc,
             },
         }
     },
@@ -172,16 +209,20 @@ const pages = {
         name: "Containers",
         items: {
             'container': {
-                name: 'Container component'
+                name: 'Container component',
+                component: ContainerDoc,
             },
             'empty-states': {
-                name: 'Empty states'
+                name: 'Empty states',
+                component: EmptyStateDoc,
             },
             'grid-item': {
-                name: 'Grid Item'
+                name: 'Grid Item',
+                component: GridItemDoc,
             },
             'panel': {
-                name: 'Panel'
+                name: 'Panel',
+                component: PanelDoc,
             },
         }
     },
@@ -189,13 +230,16 @@ const pages = {
         name: "Layout",
         items: {
             'content-divider': {
-                name: 'Content Divider'
+                name: 'Content Divider',
+                component: ContentDividerDoc,
             },
             "togglebox": {
-                name: "Togglebox"
+                name: "Togglebox",
+                component: ToggleboxDocs,
             },
             "resizable-panels": {
-                name: "Resizable panels"
+                name: "Resizable panels",
+                component: ResizablePanelsDoc,
             },
         }
     },
@@ -203,10 +247,12 @@ const pages = {
         name: "Text",
         items: {
             'heading': {
-                name: 'Heading component'
+                name: 'Heading component',
+                component: HeadingDoc,
             },
             'text': {
-                name: 'Text component'
+                name: 'Text component',
+                component: TextDoc,
             },
         }
     },
@@ -214,25 +260,32 @@ const pages = {
         name: "Lists",
         items: {
             'grid-list': {
-                name: 'Grid List'
+                name: 'Grid List',
+                component: GridListDoc,
             },
             'list-items': {
-                name: 'List items'
+                name: 'List items',
+                component: ListItemsDoc,
             },
             'simple-list': {
-                name: 'Simple list'
+                name: 'Simple list',
+                component: SimpleListDoc,
             },
             'boxed-list': {
-                name: 'Boxed list'
+                name: 'Boxed list',
+                component: BoxedListDoc,
             },
             'table-list': {
-                name: 'Table list'
+                name: 'Table list',
+                component: TableListDoc,
             },
             'content-list': {
-                name: 'Content list'
+                name: 'Content list',
+                component: ContentListDoc,
             },
             'with-pagination': {
-                name: 'With pagination'
+                name: 'With pagination',
+                component: WithPaginationDocs,
             },
         }
     },
@@ -241,57 +294,75 @@ const pages = {
         items: {
             'inputs': {
                 name: 'Inputs',
+                component: InputsDoc,
             },
             'autocomplete': {
                 name: 'Autocomplete',
+                component: AutocompleteDoc,
             },
             'tag-input': {
                 name: 'Tag Input',
+                component: TagInputDocs,
             },
             'select': {
                 name: 'Select',
+                component: SelectsDoc,
             },
             'select-grid': {
                 name: 'Select Grid',
+                component: SelectGridDocs,
             },
             'select-with-template': {
                 name: 'Select with template',
+                component: SelectWithTemplateDocs,
             },
             'with-size-observer': {
                 name: 'With size observer',
+                component: WithSizeObserverDocs,
             },
             'multiselect': {
                 name: 'MultiSelect',
+                component: MultiselectDocs,
             },
             'treeselect': {
                 name: 'TreeSelect',
+                component: TreeSelectDocs,
             },
             'date-picker': {
                 name: 'Date Picker',
+                component: DatePickerDoc,
             },
             'time-picker': {
                 name: 'Time Picker',
+                component: TimePickerDoc,
             },
             'icon-picker': {
                 name: 'Icon Picker',
+                component: IconPickerDocs,
             },
             'duration-input': {
                 name: 'Duration Input',
+                component: DurationInputDoc,
             },
             'switch': {
-                name: 'Switch'
+                name: 'Switch',
+                component: SwitchDoc,
             },
             'radiogroup': {
-                name: 'RadioGroup'
+                name: 'RadioGroup',
+                component: RadioGroupDoc,
             },
             'checkbox': {
-                name: 'Checkbox'
+                name: 'Checkbox',
+                component: CheckboxsDoc,
             },
             'dropzone': {
-                name: 'DropZone'
+                name: 'DropZone',
+                component: DropZoneDoc,
             },
             'create-button': {
-                name: 'CreateButton'
+                name: 'CreateButton',
+                component: CreateButtonDoc,
             },
         }
     },
@@ -300,9 +371,11 @@ const pages = {
         items: {
             'icon-font': {
                 name: 'Icon font',
+                component: IconFontDoc,
             },
             'big-icon-font': {
-                name: 'Big icon font'
+                name: 'Big icon font',
+                component: BigIconFontDoc,
             }
         }
     },
@@ -310,42 +383,62 @@ const pages = {
         name: "Utility classes",
         items: {
             'border-utilities': {
-                name: 'Border'
+                name: 'Border',
+                component: BorderUtilitiesDoc,
             },
             'border-radius-utilities': {
-                name: 'Border Radius'
+                name: 'Border Radius',
+                component: BorderRadiusUtilitiesDoc,
             },
             'display-utilities': {
-                name: 'Display'
+                name: 'Display',
+                component: DisplayUtilitiesDoc,
             },
             'flex-and-grid-utilities': {
-                name: 'Flex & Grid'
+                name: 'Flex & Grid',
+                component: FlexAndGridUtilitiesDoc,
             },
             'object-fit-utilities': {
-                name: 'Object Fit'
+                name: 'Object Fit',
+                component: ObjectFitUtilitiesDoc,
             },
             'object-position-utilities': {
-                name: 'Object Position'
+                name: 'Object Position',
+                component: ObjectPositionUtilitiesDoc,
             },
             'opacity-utilities': {
-                name: 'Opacity'
+                name: 'Opacity',
+                component: OpacityUtilitiesDoc,
             },
             'overflow-utilities': {
-                name: 'Overflow'
+                name: 'Overflow',
+                component: OverflowUtilitiesDoc,
             },
             'position-utilities': {
-                name: 'Position'
+                name: 'Position',
+                component: PositionUtilitiesDoc,
             },
             'shadow-utilities': {
-                name: 'Shadow'
+                name: 'Shadow',
+                component: ShadowUtilitiesDoc,
             },
             'spacing-utilities': {
                 name: 'Spacing',
+                component: SpacingUtilitiesDoc,
             },
             'text-utilities': {
-                name: 'Text'
-            }
+                name: 'Text',
+                component: TextUtilitiesDoc,
+            },
         }
+    }
+}
+
+const routes: Array<{path: string; component: React.ComponentType<any>}> = [];
+
+for (const group of Object.values(pages)) {
+    for (const [id, value] of Object.entries(group.items)) {
+        routes.push({path: `/components/${id}`, component: value.component});
     }
 }
 
@@ -356,79 +449,10 @@ class ReactDoc extends React.Component {
                 <ReactNav pages={pages} />
                 <main className="docs-page__content docs-page__container-fluid">
                     <Switch>
-                        <Route path="/components/buttons" component={ButtonsDoc} />
-                        <Route path="/components/icon-buttons" component={IconButtonDoc} />
-                        <Route path="/components/button-groups" component={ButtonGroupsDoc} />
-                        <Route path="/components/labels" component={LabelsDoc} />
-                        <Route path="/components/icon-labels" component={IconLabelDoc} />
-                        <Route path="/components/badges" component={BadgesDoc} />
-                        <Route path="/components/alerts" component={AlertDoc} />
-                        <Route path="/components/avatar" component={AvatarDoc} />
-                        <Route path="/components/tooltips" component={TooltipDoc} />
-                        <Route path="/components/tags" component={TagDoc} />
-                        <Route path="/components/inputs" component={InputsDoc} />
-                        <Route path="/components/autocomplete" component={AutocompleteDoc} />
-                        <Route path="/components/select" component={SelectsDoc} />
-                        <Route path="/components/select-with-template" component={SelectWithTemplateDocs} />
-                        <Route path="/components/with-size-observer" component={WithSizeObserverDocs} />
-                        <Route path="/components/multiselect" component={MultiselectDocs} />
-                        <Route path="/components/treeselect" component={TreeSelectDocs} />
-                        <Route path="/components/treemenu" component={TreeMenuDocs} />
-                        <Route path="/components/duration-input" component={DurationInputDoc} />
-                        <Route path="/components/with-pagination" component={WithPaginationDocs} />
-                        <Route path="/components/popover" component={PopoverDoc} />
-                        <Route path="/components/date-picker" component={DatePickerDoc} />
-                        <Route path="/components/time-picker" component={TimePickerDoc} />
-                        <Route path="/components/switch" component={SwitchDoc} />
-                        <Route path="/components/radiogroup" component={RadioGroupDoc} />
-                        <Route path="/components/checkbox" component={CheckboxsDoc} />
-                        <Route path="/components/tab" component={TabsDoc} />
-                        <Route path="/components/left-navigation" component={LeftNavigationsDoc} />
-                        <Route path="/components/Quick-navigation-bar" component={QuickNavBarDoc} />
-                        <Route path="/components/nav-buttons" component={NavButtonsDoc} />
-                        <Route path="/components/icon-font" component={IconFontDoc} />
-                        <Route path="/components/big-icon-font" component={BigIconFontDoc} />
-                        <Route path="/components/sub-navigation" component={SubNavDoc} />
-                        <Route path="/components/dropdowns" component={DropdownDoc} />
-                        <Route path="/components/toast" component={ToastsDoc} />
-                        <Route path="/components/drag-handle" component={DragHandleDocs} />
-                        <Route path="/components/tag-input" component={TagInputDocs} />
-                        <Route path="/components/empty-states" component={EmptyStateDoc} />
-                        <Route path="/components/grid-list" component={GridListDoc} />
-                        <Route path="/components/grid-item" component={GridItemDoc} />
-                        <Route path="/components/modal" component={ModalDoc} />
-                        <Route path="/components/carousel" component={CarouselDoc} />
-                        <Route path="/components/content-divider" component={ContentDividerDoc} />
-                        <Route path="/components/menu" component={MenuDocs} />
-                        <Route path="/components/togglebox" component={ToggleboxDocs} />
-                        <Route path="/components/list-items" component={ListItemsDoc} />
-                        <Route path="/components/panel" component={PanelDoc} />
-                        <Route path="/components/select-grid" component={SelectGridDocs} />
-                        <Route path="/components/icon-picker" component={IconPickerDocs} />
-                        <Route path="/components/simple-list" component={SimpleListDoc} />
-                        <Route path="/components/boxed-list" component={BoxedListDoc} />
-                        <Route path="/components/table-list" component={TableListDoc} />
-                        <Route path="/components/content-list" component={ContentListDoc} />
-                        <Route path="/components/heading" component={HeadingDoc} />
-                        <Route path="/components/text" component={TextDoc} />
-                        <Route path="/components/container" component={ContainerDoc} />
-                        <Route path="/components/dropzone" component={DropZoneDoc} />
-                        <Route path="/components/create-button" component={CreateButtonDoc} />
-                        <Route path="/components/resizable-panels" component={ResizablePanelsDoc} />
-                        <Route path="/components/illustration-button" component={IllustrationButtonDoc} />
-                        {/* Utilities */}
-                        <Route path="/components/spacing-utilities" component={SpacingUtilitiesDoc} />
-                        <Route path="/components/text-utilities" component={TextUtilitiesDoc} />
-                        <Route path="/components/shadow-utilities" component={ShadowUtilitiesDoc} />
-                        <Route path="/components/position-utilities" component={PositionUtilitiesDoc} />
-                        <Route path="/components/overflow-utilities" component={OverflowUtilitiesDoc} />
-                        <Route path="/components/display-utilities" component={DisplayUtilitiesDoc} />
-                        <Route path="/components/flex-and-grid-utilities" component={FlexAndGridUtilitiesDoc} />
-                        <Route path="/components/border-radius-utilities" component={BorderRadiusUtilitiesDoc} />
-                        <Route path="/components/border-utilities" component={BorderUtilitiesDoc} />
-                        <Route path="/components/opacity-utilities" component={OpacityUtilitiesDoc} />
-                        <Route path="/components/object-fit-utilities" component={ObjectFitUtilitiesDoc} />
-                        <Route path="/components/object-position-utilities" component={ObjectPositionUtilitiesDoc} />
+                        {
+                            routes.map((route) => <Route key={route.path} path={route.path} component={route.component} />)
+                        }
+
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
