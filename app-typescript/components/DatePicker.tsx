@@ -165,6 +165,12 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                             <Button
                                 onClick={() => {
                                     this.props.onChange(null);
+                                    if (
+                                        this.instance != null
+                                        && typeof this.instance.hideOverlay === 'function'
+                                    ) {
+                                        this.instance.hideOverlay();
+                                    }
                                 }}
                                 text='Clear'
                                 data-test-id='clear-button'
