@@ -450,7 +450,7 @@ class ReactDoc extends React.Component {
                 <main className="docs-page__content docs-page__container-fluid">
                     <Switch>
                         {
-                            routes.map((route) => <Route path={route.path} component={route.component} />)
+                            routes.map((route) => <Route key={route.path} path={route.path} component={route.component} />)
                         }
 
                         <Route path="/" component={ReactDefault} />
