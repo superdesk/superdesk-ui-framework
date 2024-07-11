@@ -1,6 +1,24 @@
 // Animated loader
 
+.sd-loader--inline {
+    display: inline-flex;
+    width: 100%;
+    min-width: 90px;
+    height: 100%;
+    min-height: 30px;
+
+    // inlining img/three-dots.svg as base64 encoded URL to have loader ready on application start
+    // otherwise, loader image would only start downloading when it already needs to be shown
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjMwIiB2aWV3Qm94PSIwIDAgMTIwIDMwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGZpbGw9IiM3YjdiN2IiPjxjaXJjbGUgY3g9IjE1IiBjeT0iMTUiIHI9IjE1Ij48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSIxNSIgdG89IjE1IiBiZWdpbj0iMHMiIGR1cj0iMC44cyIgdmFsdWVzPSIxNTs5OzE1IiBjYWxjTW9kZT0ibGluZWFyIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9wYWNpdHkiIGZyb209IjEiIHRvPSIxIiBiZWdpbj0iMHMiIGR1cj0iMC44cyIgdmFsdWVzPSIxOy41OzEiIGNhbGNNb2RlPSJsaW5lYXIiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPjwvY2lyY2xlPjxjaXJjbGUgY3g9IjYwIiBjeT0iMTUiIHI9IjkiIGZpbGwtb3BhY2l0eT0iMC4zIj48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSI5IiB0bz0iOSIgYmVnaW49IjBzIiBkdXI9IjAuOHMiIHZhbHVlcz0iOTsxNTs5IiBjYWxjTW9kZT0ibGluZWFyIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9wYWNpdHkiIGZyb209IjAuNSIgdG89IjAuNSIgYmVnaW49IjBzIiBkdXI9IjAuOHMiIHZhbHVlcz0iLjU7MTsuNSIgY2FsY01vZGU9ImxpbmVhciIgcmVwZWF0Q291bnQ9ImluZGVmaW5pdGUiIC8+PC9jaXJjbGU+PGNpcmNsZSBjeD0iMTA1IiBjeT0iMTUiIHI9IjE1Ij48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJyIiBmcm9tPSIxNSIgdG89IjE1IiBiZWdpbj0iMHMiIGR1cj0iMC44cyIgdmFsdWVzPSIxNTs5OzE1IiBjYWxjTW9kZT0ibGluZWFyIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIgLz48YW5pbWF0ZSBhdHRyaWJ1dGVOYW1lPSJmaWxsLW9wYWNpdHkiIGZyb209IjEiIHRvPSIxIiBiZWdpbj0iMHMiIGR1cj0iMC44cyIgdmFsdWVzPSIxOy41OzEiIGNhbGNNb2RlPSJsaW5lYXIiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiAvPjwvY2lyY2xlPjwvc3ZnPg==");
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60px;
+    background-color: var(--sd-colour-overlay-actioning);
+}
+
 .sd-loader {
+    @extend .sd-loader--inline;
     content: '';
     display: block;
     position: absolute;
@@ -9,9 +27,4 @@
     inset-block-end: 0;
     inset-inline-start: 0;
     z-index: 99999;
-    background-image: url(../img/three-dots.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: 60px;
-    background-color: var(--sd-colour-overlay-actioning);
 }
