@@ -61,7 +61,7 @@ export class SideBarTabs extends React.PureComponent<IProps> {
                                         className={classNames(
                                             'sd-sidetab-menu__btn',
                                             {'sd-sidetab-menu__btn--active':
-                                                item.id === this.props.activeTab && this.props.disabled != true
+                                                item.id === this.props.activeTab && this.props.disabled !== true,
                                             },
                                         )}
                                         onClick={() => this.handleClick(item)}
