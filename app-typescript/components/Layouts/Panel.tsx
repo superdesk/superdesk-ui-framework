@@ -70,6 +70,7 @@ interface IPropsPanelHeader {
     className?: string;
     onClose?(): void;
     iconButtons?: Array<React.ReactNode>;
+    disabled?: boolean;
 }
 
 class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
@@ -111,11 +112,14 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
                                     && this.props.iconButtons
                                 }
                                 {this.props.onClose != null
-                                    && <IconButton
-                                        icon='close-small'
-                                        ariaValue='Close'
-                                        onClick={this.props.onClose}
-                                    />
+                                    && (
+                                        <IconButton
+                                            disabled={this.props.disabled}
+                                            icon='close-small'
+                                            ariaValue='Close'
+                                            onClick={this.props.onClose}
+                                        />
+                                    )
                                 }
                             </ButtonGroup>
                         )
