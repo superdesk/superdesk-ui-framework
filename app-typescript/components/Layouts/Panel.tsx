@@ -111,11 +111,13 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
                                     && this.props.iconButtons
                                 }
                                 {this.props.onClose != null
-                                    && <IconButton
-                                        icon='close-small'
-                                        ariaValue='Close'
-                                        onClick={this.props.onClose}
-                                    />
+                                    && (
+                                        <IconButton
+                                            icon='close-small'
+                                            ariaValue='Close'
+                                            onClick={this.props.onClose}
+                                        />
+                                    )
                                 }
                             </ButtonGroup>
                         )
