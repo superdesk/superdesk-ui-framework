@@ -575,6 +575,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     .sd-list-item {
         margin-block-start: 0;
         border-block-start: 1px solid var(--sd-colour-line--x-light);
+        overflow: hidden;
     }
     .sd-list-item-nested__childs-inner {
         overflow: hidden;
@@ -641,13 +642,6 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     .sd-list-item-nested {
         + .sd-list-item {
             border-block-start: none;
-        }
-    }
-
-    .sd-list-item-nested__childs {
-        .sd-list-item {
-            margin-block-start: 0;
-            border-block-start: 1px solid var(--sd-colour-line--x-light);
         }
     }
 }
