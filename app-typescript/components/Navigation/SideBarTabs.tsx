@@ -8,6 +8,7 @@ interface IProps {
     onActiveTabChange(val: string | null): void;
     items: Array<ISideBarTab | 'divider'>;
     side?: 'none' | 'left' | 'right';
+    disabled?: boolean;
 }
 
 export interface ISideBarTab {
@@ -53,12 +54,15 @@ export class SideBarTabs extends React.PureComponent<IProps> {
                         } else {
                             return (
                                 <li key={index} data-sd-tooltip={item.tooltip} data-flow='left'>
-                                    <a
+                                    <button
+                                        disabled={this.props.disabled}
                                         role='button'
                                         aria-label={item.tooltip}
                                         className={classNames(
                                             'sd-sidetab-menu__btn',
-                                            {'sd-sidetab-menu__btn--active': item.id === this.props.activeTab},
+                                            {'sd-sidetab-menu__btn--active':
+                                                item.id === this.props.activeTab && this.props.disabled !== true,
+                                            },
                                         )}
                                         onClick={() => this.handleClick(item)}
                                     >
@@ -71,7 +75,7 @@ export class SideBarTabs extends React.PureComponent<IProps> {
                                         </span>
 
                                         <i className='sd-sidetab-menu__helper-icon icon-close-small'></i>
-                                    </a>
+                                    </button>
                                 </li>
                             );
                         }
