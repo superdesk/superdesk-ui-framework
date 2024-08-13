@@ -42,7 +42,7 @@ export class SubNav extends React.PureComponent<IProps> {
             <div
                 data-theme={this.props.theme ? `${this.props.theme}-ui` : defaultTheme}
                 className={classes} style={style}
-                data-test-id={this.props['data-test-id']}
+                data-test-id={this.props['data-test-id'] ?? 'subnav'}
             >
                 {this.props.children}
             </div>

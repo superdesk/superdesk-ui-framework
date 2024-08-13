@@ -45,7 +45,7 @@ export class SideBarTabs extends React.PureComponent<IProps> {
 
     render() {
         return (
-            <div className='sd-sidetab-menu sd-sidetab-menu--static' data-test-id={this.props['data-test-id']}>
+            <div className='sd-sidetab-menu sd-sidetab-menu--static' data-test-id={this.props['data-test-id'] ?? 'sidebar-tabs'}>
                 <ul>
                     {this.props.items.map((item, index) => {
                         if (item === 'divider') {
