@@ -9,6 +9,7 @@ interface IProps {
     items: Array<ISideBarTab | 'divider'>;
     side?: 'none' | 'left' | 'right';
     disabled?: boolean;
+    ['data-test-id']?: string;
 }
 
 export interface ISideBarTab {
@@ -44,7 +45,7 @@ export class SideBarTabs extends React.PureComponent<IProps> {
 
     render() {
         return (
-            <div className='sd-sidetab-menu sd-sidetab-menu--static'>
+            <div className='sd-sidetab-menu sd-sidetab-menu--static' data-test-id={this.props['data-test-id']}>
                 <ul>
                     {this.props.items.map((item, index) => {
                         if (item === 'divider') {
@@ -65,6 +66,8 @@ export class SideBarTabs extends React.PureComponent<IProps> {
                                             },
                                         )}
                                         onClick={() => this.handleClick(item)}
+                                        data-test-id='widget-icon'
+                                        data-test-value={item.id}
                                     >
                                         {item.badgeValue != null && (
                                             <Badge text={item['badgeValue']} type='primary' />

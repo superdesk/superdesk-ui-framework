@@ -25,6 +25,7 @@ interface IPropsPanel {
         | {custom: React.CSSProperties['width']};
     background?: 'transparent' | 'light' | 'grey'; // defaults to light (white)
     open?: boolean;
+    ['data-test-id']?: string
 }
 
 export default class Panel extends React.PureComponent<IPropsPanel> {
@@ -51,7 +52,12 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
         let classes2 = classNames('side-panel__container', classes2Obj);
 
         return (
-            <div className={classes2} style={style} data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
+            <div
+                className={classes2}
+                style={style}
+                data-theme={this.props.theme ? `${this.props.theme}-ui` : null}
+                data-test-id={this.props['data-test-id']}
+            >
                 <div className={classes}>
                     {this.props.children}
                 </div>
