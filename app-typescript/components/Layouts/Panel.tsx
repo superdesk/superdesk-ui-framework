@@ -56,7 +56,7 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
                 className={classes2}
                 style={style}
                 data-theme={this.props.theme ? `${this.props.theme}-ui` : null}
-                data-test-id={this.props['data-test-id']}
+                data-test-id={this.props['data-test-id'] ?? 'panel'}
             >
                 <div className={classes}>
                     {this.props.children}
