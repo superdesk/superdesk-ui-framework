@@ -30,6 +30,11 @@ interface IState {
     isOpen: boolean;
 }
 
+const VERTICAL_OFFSET = 3;
+const HORIZONTAL_OFFSET = 1;
+const PAGE_OFFSET = 16;
+const FIRST_ROW_INDEXES = [0, 1, 2];
+
 export class SelectGrid extends React.PureComponent<IProps, IState> {
     htmlId = nextId();
     buttonContainer: React.RefObject<HTMLDivElement>;
@@ -142,21 +147,21 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                 this.select(this.state.items[itemIndex]);
                 return;
             } else if (event.code === "ArrowRight") {
-                itemIndex += 1;
+                itemIndex += HORIZONTAL_OFFSET;
             } else if (event.code === "ArrowLeft") {
-                itemIndex -= 1;
+                itemIndex -= HORIZONTAL_OFFSET;
             } else if (event.code === "ArrowDown") {
-                itemIndex += 4;
+                itemIndex += VERTICAL_OFFSET;
             } else if (event.code === "ArrowUp") {
-                if (itemIndex === 0) {
+                if (FIRST_ROW_INDEXES.includes(itemIndex)) {
                     this.searchInput?.current?.focus();
                     return;
                 }
-                itemIndex -= 4;
+                itemIndex -= VERTICAL_OFFSET;
             } else if (event.code === "PageDown") {
-                itemIndex += 16;
+                itemIndex += PAGE_OFFSET;
             } else if (event.code === "PageUp") {
-                itemIndex -= 16;
+                itemIndex -= PAGE_OFFSET;
             }
 
             if (itemIndex < 0) {
@@ -208,9 +213,8 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                         <div
                             className="select-grid__body"
                             ref={this.gridContainer}
-
                         >
-                            <Loader overlay={this.state.loading} />
+                            {this.state.loading && <Loader overlay={this.state.loading} />}
                             {this.state.items.map((item, index) => (
                                 <div
                                     key={this.htmlId + item.label}
@@ -221,6 +225,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                                     aria-label={item.name}
                                     onClick={() => this.select(item)}
                                 >
+                                    {index}
                                     <ItemTemplate item={item} />
                                 </div>
                             ))}
