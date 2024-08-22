@@ -31,7 +31,7 @@ interface IState {
 
 const GRID_COLS = 3;
 const GRID_ROWS = 5;
-const PAGE_SIZE = GRID_COLS * GRID_ROWS
+const PAGE_SIZE = GRID_COLS * GRID_ROWS;
 
 export class SelectGrid extends React.PureComponent<IProps, IState> {
     htmlId = nextId();
