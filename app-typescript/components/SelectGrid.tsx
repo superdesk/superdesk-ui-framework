@@ -30,9 +30,8 @@ interface IState {
 }
 
 const GRID_COLS = 3;
-const GRID_ROWS = 1;
-const PAGE_ITEMS = 15;
-const FIRST_ROW_ITEMS_INDEXES = [0, 1, 2];
+const GRID_ROWS = 5;
+const PAGE_SIZE = GRID_COLS * GRID_ROWS
 
 export class SelectGrid extends React.PureComponent<IProps, IState> {
     htmlId = nextId();
@@ -138,22 +137,22 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                 this.select(this.state.items[itemIndex]);
                 return;
             } else if (event.code === "ArrowRight") {
-                itemIndex += GRID_ROWS;
+                itemIndex += 1;
             } else if (event.code === "ArrowLeft") {
-                itemIndex -= GRID_ROWS;
+                itemIndex -= 1;
             } else if (event.code === "ArrowDown") {
                 itemIndex += GRID_COLS;
             } else if (event.code === "ArrowUp") {
-                if (FIRST_ROW_ITEMS_INDEXES.includes(itemIndex)) {
+                if (itemIndex < GRID_COLS) {
                     this.searchInput?.current?.focus();
                     return;
                 }
 
                 itemIndex -= GRID_COLS;
             } else if (event.code === "PageDown") {
-                itemIndex += PAGE_ITEMS;
+                itemIndex += PAGE_SIZE;
             } else if (event.code === "PageUp") {
-                itemIndex -= PAGE_ITEMS;
+                itemIndex -= PAGE_SIZE;
             }
 
             if (itemIndex < 0) {
