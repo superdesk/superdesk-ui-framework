@@ -19,7 +19,7 @@ interface IProps {
     getItems(searchString: string | null): Promise<Array<IItem>>;
     onChange(value: IItem): void;
     itemTemplate: React.ComponentType<{ item: IItem | null }>;
-    triggerTemplate: React.ComponentType<any>;
+    triggerTemplate: React.ComponentType<{onClick: (e: React.SyntheticEvent) => void; }>;
     label: string;
     filterPlaceholder?: string;
 }
@@ -27,8 +27,11 @@ interface IProps {
 interface IState {
     items: Array<IItem>;
     loading: boolean;
-    isOpen: boolean;
 }
+
+const GRID_COLS = 3;
+const GRID_ROWS = 5;
+const PAGE_SIZE = GRID_COLS * GRID_ROWS;
 
 export class SelectGrid extends React.PureComponent<IProps, IState> {
     htmlId = nextId();
@@ -40,7 +43,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
 
-        this.state = { items: [], loading: true, isOpen: false };
+        this.state = { items: [], loading: true };
 
         this.buttonContainer = React.createRef();
         this.overlayPanel = React.createRef();
@@ -58,32 +61,16 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
         document.removeEventListener('keydown', this.handleKeydown);
     }
 
-    togglePopup = (event?: React.SyntheticEvent) => {
+    mountPopup = (event?: React.SyntheticEvent) => {
         if (!event) {
-            // @ts-ignore
-            this.overlayPanel.current.hide();
+            this.overlayPanel.current?.hide();
         } else {
-            // @ts-ignore
-            this.overlayPanel.current.toggle(event);
+            this.overlayPanel.current?.toggle(event);
         }
 
-        setTimeout(() => {
-            // Now that the popup has (dis)appeared handle items and events
-
-            if (this.state.isOpen) {
-                document.removeEventListener('keydown', this.handleKeydown);
-                // @ts-ignore
-                this.buttonContainer.current.querySelector('button')?.focus();
-            } else {
-                document.addEventListener('keydown', this.handleKeydown);
-                this.loadItems();
-                // @ts-ignore
-                this.searchInput.current.focus();
-            }
-
-            this.setState({ isOpen: !this.state.isOpen });
-        });
-
+        document.addEventListener('keydown', this.handleKeydown);
+        setTimeout(() => { this.searchInput.current?.focus(); });
+        this.loadItems();
     }
 
     search = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,9 +85,18 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
         });
     }
 
+    hidePopupAndRefocus = () => {
+        document.removeEventListener('keydown', this.handleKeydown);
+        this.overlayPanel.current?.hide();
+        this.buttonContainer.current?.querySelector('button')?.focus();
+    }
+
     select = (item: IItem) => {
         this.props.onChange(item);
-        this.togglePopup();
+        this.hidePopupAndRefocus();
+
+        // trigger component update
+        this.forceUpdate();
     }
 
     getItemElement = (index: number): HTMLDivElement | null | undefined => {
@@ -122,7 +118,8 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
         if (event.code === "Escape") {
             event.preventDefault();
             event.stopPropagation();
-            this.togglePopup();
+
+            this.hidePopupAndRefocus();
         } else if (activeElement === this.searchInput?.current) {
             if (event.code === "ArrowDown") {
                 event.preventDefault();
@@ -131,13 +128,11 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                 event.preventDefault();
                 this.select(this.state.items[0]);
             }
-            // @ts-ignore
-        } else if (document.activeElement.getAttribute('data-item-index') && navKeys.includes(event.code)) {
-            // @ts-ignore
-            let itemIndex = parseInt(activeElement.getAttribute('data-item-index'), 10);
+        } else if (document.activeElement?.getAttribute('data-item-index') && navKeys.includes(event.code)) {
+            let itemIndex = parseInt(activeElement?.getAttribute('data-item-index') as string, 10);
 
-            // Prevent default behaviour, such as scrolling
-            event.preventDefault();
+            event.preventDefault(); // Prevent scrolling, etc.
+
             if (event.code === "Enter") {
                 this.select(this.state.items[itemIndex]);
                 return;
@@ -146,17 +141,18 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
             } else if (event.code === "ArrowLeft") {
                 itemIndex -= 1;
             } else if (event.code === "ArrowDown") {
-                itemIndex += 4;
+                itemIndex += GRID_COLS;
             } else if (event.code === "ArrowUp") {
-                if (itemIndex === 0) {
+                if (itemIndex < GRID_COLS) {
                     this.searchInput?.current?.focus();
                     return;
                 }
-                itemIndex -= 4;
+
+                itemIndex -= GRID_COLS;
             } else if (event.code === "PageDown") {
-                itemIndex += 16;
+                itemIndex += PAGE_SIZE;
             } else if (event.code === "PageUp") {
-                itemIndex -= 16;
+                itemIndex -= PAGE_SIZE;
             }
 
             if (itemIndex < 0) {
@@ -179,14 +175,18 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                     className="sd-input sd-input--grid-select"
                     ref={this.buttonContainer}
                     aria-label={this.props.label}
+                    key={this.props.label}
                 >
                     <label className="sd-input__label">
                         {this.props.label}
                     </label>
-                    <TriggerTemplate onClick={this.togglePopup} />
-
+                    <TriggerTemplate onClick={this.mountPopup} />
                 </div>
                 <OverlayPanel
+                    onHide={() => {
+                        document.removeEventListener('keydown', this.handleKeydown);
+                        this.buttonContainer.current?.querySelector('button')?.focus();
+                    }}
                     ref={this.overlayPanel}
                     dismissable={true}
                     className="select-grid__overlay-panel"
@@ -205,12 +205,8 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                                 />
                             </div>
                         </div>
-                        <div
-                            className="select-grid__body"
-                            ref={this.gridContainer}
-
-                        >
-                            <Loader overlay={this.state.loading} />
+                        <div className="select-grid__body" ref={this.gridContainer}>
+                            {this.state.loading && <Loader overlay={this.state.loading} />}
                             {this.state.items.map((item, index) => (
                                 <div
                                     key={this.htmlId + item.label}
@@ -221,7 +217,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                                     aria-label={item.name}
                                     onClick={() => this.select(item)}
                                 >
-                                    <ItemTemplate item={item} />
+                                    <ItemTemplate key={item.value} item={item} />
                                 </div>
                             ))}
                         </div>

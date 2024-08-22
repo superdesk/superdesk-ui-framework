@@ -52,25 +52,29 @@ export class IconPicker extends React.PureComponent<IProps, IState> {
         this.props.onChange(item.value);
     }
 
-    triggerTemplate = (props: any) => <Button
-        icon={this.props.value}
-        text={this.props.value}
-        onClick={(e) => { props.onClick(e); }}
-        iconOnly={true} />
+    triggerTemplate = (props: {onClick: (e: React.SyntheticEvent) => void; }) => (
+        <Button
+            icon={this.props.value}
+            text={this.props.value}
+            onClick={(e) => { props.onClick(e); }}
+            iconOnly={true}
+        />
+    )
 
-    itemTemplate = ({ item }: { item: IItem | null }) => item ?
-        (<>
+    itemTemplate = ({ item }: { item: IItem | null }) => item && (
+        <>
             <Icon name={item.value} />
             <span className="sd-text--normal sd-padding-t--1">
                 {item.label}
             </span>
-        </>) : null
+        </>
+    )
 
     render() {
         return (
             <SelectGrid
-                label={this.props.label || "Icon"}
-                filterPlaceholder={this.props.filterPlaceholder || "Search..."}
+                label={this.props.label ?? "Icon"}
+                filterPlaceholder={this.props.filterPlaceholder ?? "Search..."}
                 getItems={this.getItems}
                 onChange={this.onChange}
                 itemTemplate={this.itemTemplate}
