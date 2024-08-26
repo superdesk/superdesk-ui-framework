@@ -24,7 +24,7 @@
     padding: 1rem;
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(9rem, 1fr));
+    grid-template-columns: repeat(3, minmax(9rem, 1fr));
 }
 
 .select-grid__item {
