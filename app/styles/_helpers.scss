@@ -1743,7 +1743,7 @@ h6 {
 // it doesn't work if the element has set flex-grow: 1;
 @mixin line-clamp-base {
     overflow: hidden;
-    display: -webkit-box;
+    display: -webkit-box !important;
     -webkit-box-orient: vertical;
 }
 .sd-line-clamp--1,

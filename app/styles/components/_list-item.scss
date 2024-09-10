@@ -561,6 +561,9 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         max-height: var(--parent-item-height);
         height: var(--parent-item-height);
     }
+    .sd-list-item {
+        overflow: hidden;
+    }
 }
 
 .sd-list-item-nested__childs {
