@@ -33,6 +33,7 @@
     "@types/chart.js": "^2.9.24",
     "@types/classnames": "^2.2.9",
     "@types/enzyme": "^3.10.12",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/lodash": "^4.14.161",
     "@types/mocha": "^9.1.1",
     "@types/react": "16.8.23",
@@ -54,6 +55,8 @@
     "code-prettify": "^0.1.0",
     "copy-webpack-plugin": "^4.6.0",
     "css-loader": "^2.1.1",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.7",
     "eslint": "^4.6.1",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-angular": "^3.1.1",
@@ -68,6 +71,7 @@
     "jsdom-global": "3.0.2",
     "lodash": "4.17.21",
     "mocha": "^8.4.0",
+    "moment": "^2.29.3",
     "node-sass": "6.0",
     "prismjs": "^1.28.0",
     "prop-types": "^15.6.0",
@@ -95,18 +99,16 @@
     "@superdesk/common": "0.0.28",
     "@superdesk/primereact": "^5.0.2-12",
     "@superdesk/react-resizable-panels": "0.0.39",
-    "@types/enzyme-adapter-react-16": "^1.0.6",
-    "@types/node": "^14.10.2",
     "chart.js": "^2.9.3",
     "date-fns": "2.7.0",
-    "enzyme": "^3.11.0",
-    "enzyme-adapter-react-16": "^1.15.7",
-    "moment": "^2.29.3",
     "popper-max-size-modifier": "^0.2.0",
     "popper.js": "1.14.4",
     "primeicons": "2.0.0",
     "react-beautiful-dnd": "^13.0.0",
     "react-id-generator": "^3.0.0",
     "react-scrollspy": "^3.4.3"
+  },
+  "peerDependencies": {
+    "moment": "*"
   }
 }
