@@ -159,6 +159,10 @@
     padding: 0;
     overflow: hidden;
     transition: all 0.2s ease;
+    min
+    .hide-on-open {
+        display: none;
+    }
 }
 .new-collapse-box__content {
     grid-row: 2 / 3;
@@ -253,3 +257,31 @@
         }           
     }
 }
+
+.new-collapse-box {
+    > .new-collapse-box__header  {
+        .new-collapse-box__header-inner {
+           transition: all .2s ease;
+           min-height: auto;
+           .hide-on-open {
+                animation: appear .2s;
+                display: flex;
+                opacity: 1;
+           }
+       }
+   }
+    &.new-collapse-box--open {
+        > .new-collapse-box__header  {
+             .new-collapse-box__header-inner {
+                min-height: var(--space--4);
+                background-color: var(--sd-item__main-Bg);
+                .hide-on-open {
+                    display: none;
+                    opacity: 0;
+                    animation: vanish .2s;
+                }
+            }
+        }
+    }
+}
+
