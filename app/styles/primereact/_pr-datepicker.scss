@@ -220,3 +220,13 @@
 .p-datepicker-today > span {
     background-color: var(--sd-colour-interactive--alpha-20);
 }
+
+.sd-input__input-container {
+    .p-calendar {
+        display: flex;
+        &.p-calendar-w-btn {
+            min-width: 116px;
+            width: auto;
+        }
+    }
+}

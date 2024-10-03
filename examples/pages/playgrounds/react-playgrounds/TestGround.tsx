@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Components from './components/Index';
 import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdown, Input, Label, Icon, IconButton, Badge, ThemeSelector, Container, IconLabel, Tooltip, Spinner, Divider, InputWrapper, InputNew, InputBase, Text, FormRowNew, ButtonGroup, Heading, SearchBar, Modal, BoxedList, BoxedListItem, TimePicker, TreeSelect, DatePicker, ContentDivider, Select, Option, AvatarGroup, Avatar, SvgIconIllustration, IllustrationButton, SubNav, NavButton, } from '../../../../app-typescript/index';
 import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
+import * as Form from '../../../../app-typescript/components/Form';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
 
 interface IProps {
@@ -36,6 +37,8 @@ interface IState {
     openCollapsibleOne: boolean;
     openCollapsibleTwo: boolean;
     openCollapsibleThree: boolean;
+    openCollapsibleFour: boolean;
+    openCollapsibleFive: boolean;
 }
 
 let options2 = [
@@ -49,6 +52,29 @@ let options2 = [
         value: {name: 'Category3'},
     },
 ]
+let options3 = [
+    {
+        value: {name: 'Norvegian'},
+    },
+    {
+        value: {name: 'Suomi'},
+    },
+    {
+        value: {name: 'English'},
+    },
+]
+let options4 = [
+    {
+        value: {name: 'Turku, Finland'},
+    },
+    {
+        value: {name: 'Helsinki, Finland'},
+    },
+    {
+        value: {name: 'Rovaniemi, Finland'},
+    },
+]
+
 
 export class TestGround extends React.Component<IProps, IState> {
     constructor(props: IProps) {
@@ -81,6 +107,8 @@ export class TestGround extends React.Component<IProps, IState> {
             openCollapsibleOne: false,
             openCollapsibleTwo: false,
             openCollapsibleThree: false,
+            openCollapsibleFour: false,
+            openCollapsibleFive: false,
         }
     }
 
@@ -165,6 +193,473 @@ export class TestGround extends React.Component<IProps, IState> {
                             <IconButton icon="adjust" ariaValue="Toggle theme" onClick={this.toggleTheme} toolTipFlow='left' />
                         </ButtonGroup>
 
+                        <div style={{maxWidth: '600px'}} className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleFour ? 'new-collapse-box--open' : ''}`}>
+                            {/* Header */}
+                            <div className='new-collapse-box__header'>
+                                <div className='new-collapse-box__header-inner'>
+                                    <div role="listitem" className="sd-list-item sd-list-item--no-hover">
+                                        <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                        <div className="sd-list-item__column sd-list-item__column--no-border pe-0-5">
+                                            <Icon type='primary' name='calendar' scale='1.5x' ariaHidden={true} />
+                                        </div>
+                                        <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
+                                            <div className="sd-list-item__row">
+                                                <span className="sd-list-item__slugline">Planning Slug</span>
+                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                    <span className="sd-list-item__text-strong">Cras justo odio, dapibus ac facilisis in.</span>
+                                                </span>
+                                            </div>
+                                            <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                <Label text='draft' style='translucent'/>
+                                                <span className="sd-margin-s--auto">
+                                                    <AvatarGroup
+                                                        size="x-small"
+                                                        items={avatars}
+                                                    />
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row ps-0">
+                                            <ButtonGroup orientation='vertical' spaces='compact'>
+                                                <IconButton size='small' icon='external' ariaValue='Open in modal' onClick={()=> false} /> 
+                                                <IconButton size='small' icon='trash' ariaValue='Delete Coverage' onClick={()=> false} />
+                                            </ButtonGroup>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleFour: !prevState.openCollapsibleFour}))}>
+                                    <span className='label label--translucent new-collapse-box__divider-label'>
+                                        {this.state.openCollapsibleFour ? 'Show less' : 'Show more'}
+                                    </span>
+                                </button>
+                            </div>
+
+                            {/* Content */}
+                            <div className='new-collapse-box__content'>
+                                <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <TreeSelect
+                                                kind={'synchronous'}
+                                                value={this.state.treeSelectValue}
+                                                getOptions={() => options3}
+                                                getLabel={(item) => item.name}
+                                                getId={(item) => item.name}
+                                                allowMultiple
+                                                sortable
+                                                required
+                                                label='Language'
+                                                onChange={() => false}
+                                                placeholder='Add language'
+                                                width='medium'
+                                            >
+                                        </TreeSelect>
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <DatePicker
+                                                value={this.state.date}
+                                                dateFormat="YYYY-MM-DD"
+                                                onChange={(date) => {
+                                                    this.setState({date});
+                                                }}
+                                                label='Planning date'
+                                            />
+                                        </Form.FormItem>
+                                        <Form.FormItem>
+                                        <TimePicker
+                                            value={this.state.time}
+                                            onChange={(time) => {
+                                                this.setState({time});
+                                            }}
+                                            allowSeconds
+                                            label='Planning time'
+                                            labelHidden
+                                        />
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Input
+                                                label='Slugline'
+                                                value={''}
+                                                type='text'
+                                                tabindex={0}
+                                                onChange={(value) => this.setState({value: value})}
+                                            />
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Input
+                                                label='Name'
+                                                value={''}
+                                                type='text'
+                                                tabindex={0}
+                                                onChange={(value) => this.setState({value: value})}
+                                            />
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Input
+                                                label='Headline'
+                                                value={''}
+                                                type='text'
+                                                tabindex={0}
+                                                onChange={(value) => this.setState({value: value})}
+                                            />
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Select
+                                                value={this.state.value}
+                                                label='Priority'
+                                                onChange={(value) => {
+                                                    this.setState({
+                                                        value: value,
+                                                    })
+                                                }}
+                                            >
+                                                <Option>None</Option>
+                                                <Option>1</Option>
+                                                <Option>2</Option>
+                                                <Option>3</Option>
+                                                <Option>4</Option>
+                                                <Option>5</Option>
+                                                <Option>6</Option>
+                                            </Select>
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <TreeSelect
+                                                kind={'synchronous'}
+                                                value={this.state.treeSelectValue}
+                                                getOptions={() => options4}
+                                                getLabel={(item) => item.name}
+                                                getId={(item) => item.name}
+                                                label='Place'
+                                                onChange={() => false}
+                                                placeholder='Select place'
+                                                width='match-input'
+                                            >
+                                        </TreeSelect>
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Input
+                                                label='Description'
+                                                value={''}
+                                                type='text'
+                                                tabindex={0}
+                                                onChange={(value) => this.setState({value: value})}
+                                            />
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <Form.FormGroup>
+                                        <Form.FormItem>
+                                            <Input
+                                                label='Internal note'
+                                                value={''}
+                                                type='text'
+                                                tabindex={0}
+                                                onChange={(value) => this.setState({value: value})}
+                                            />
+                                        </Form.FormItem>
+                                    </Form.FormGroup>
+                                    <div className='d-flex items-center justify-between mb-1-5'>
+                                        <Heading type='h4'>Coverages</Heading>
+                                        <Button type="primary" icon="plus-large" text="plus-large" size='small' shape="round" iconOnly={true} onClick={()=> false} />
+                                    </div>
+                                    <div className='sd-border--medium border-dashed p-1-5 radius-md d-flex items-center justify-center'>
+                                        <span className='text-sm text-color-subdued'>No Coverages yet</span>
+                                    </div>
+                                    
+                                    {/* <ContentDivider type="dashed" margin='x-small' /> */}
+
+                                    {/* NESTED BOX */}
+                                    <div className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleFive ? 'new-collapse-box--open' : ''}`}>
+                                        {/* Header */}
+                                        <div className='new-collapse-box__header'>
+                                            <div className='new-collapse-box__header-inner'>
+                                                <div role="listitem" className="sd-list-item sd-list-item--no-hover hide-on-open">
+                                                    <div className="sd-list-item__column sd-list-item__column--no-border pe-1">
+                                                        <Avatar
+                                                            displayName="Jeffrey Lebowski"
+                                                            imageUrl={null}
+                                                            initials='JL'
+                                                            size="medium"
+                                                            icon={{name: 'photo', color: 'var(--sd-colour-highlight)'}}
+                                                        />
+                                                    </div>
+                                                    <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                        <div className="sd-list-item__row">
+                                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                                <span className="sd-list-item__compound-text">
+                                                                    <span className="sd-list-item__text-strong">Photo</span>
+                                                                    <span className="sd-list-item__text-light">//</span>
+                                                                    <span className="sd-list-item__text">Archive</span>
+                                                                </span>
+                                                                
+                                                            </span>
+                                                            <time className="sd-margin-s--auto" title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
+                                                        </div>
+                                                        <div className="sd-list-item__row sd-list-item__row--overflow-visible mb-1-5">
+                                                            <span className="sd-list-item__compound-text">
+                                                                <span className="sd-list-item__text-label">Desk:</span>
+                                                                <span>Sports</span>
+                                                            </span>
+                                                            <span className="sd-list-item__compound-text">
+                                                                <span className="sd-list-item__text-label">Assignee:</span>
+                                                                <span>Jeffrey Lebowski</span>
+                                                            </span>
+                                                            <span className='sd-margin-s--auto'>
+                                                                <Label text='draft' style='translucent' type='default'/>
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                                        <div className="side-panel__top-tools-right">
+                                                            <button id="coverages[0]-item-actions" className="icn-btn dropdown__toggle" title="Actions" aria-label="More actions">
+                                                                <i className="icon-dots-vertical"></i>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button className='new-collapse-box__divider' onClick={() => this.setState(prevState => ({openCollapsibleFive: !prevState.openCollapsibleFive}))}>
+                                                <span className='label label--translucent new-collapse-box__divider-label'>
+                                                    {this.state.openCollapsibleFive ? 'Show less' : 'Show more'}
+                                                </span>
+                                            </button>
+                                        </div>
+
+                                        {/* Content */}
+                                        <div className='new-collapse-box__content'>
+                                            <div className='new-collapse-box__content-inner p-2 pt-0-5'>
+                                                <Container className='sd-border--mediu sd-panel-bg--000 p-1-5 radius-lg sd-shadow--z1 mb-3'>
+                                                    <div role="listitem" className="sd-list-item sd-list-item--no-hover flex-grow">
+                                                        <div className="sd-list-item__column sd-list-item__column--no-border px-0">
+                                                        <Avatar
+                                                            displayName="Jeffrey Lebowski"
+                                                            imageUrl={null}
+                                                            initials='JL'
+                                                            size="large"
+                                                        />
+
+                                                        </div>
+                                                        <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border gap-0-5">
+                                                            <div className="sd-list-item__row m-0 flex-grow">
+                                                                <span className="sd-overflow-ellipsis flex-grow">
+                                                                    <span className="sd-list-item__compound-text">
+                                                                        <span className="sd-list-item__text-strong">Photo</span>
+                                                                        <span className="sd-list-item__text-light">//</span>
+                                                                        <span className="sd-list-item__text">Archive</span>
+                                                                    </span>
+                                                                    
+                                                                    
+                                                                </span>
+                                                                <Label text='Draft' style='translucent' type='default' />
+                                                            </div>
+                                                            <div className="sd-list-item__row sd-list-item__row--overflow-visible m-0 flex-grow">
+                                                                <span className="sd-list-item__compound-text">
+                                                                    <span className="sd-list-item__text-label">Desk:</span>
+                                                                    <span>Sports</span>
+                                                                </span>
+                                                                <span className="sd-list-item__compound-text">
+                                                                    <span className="sd-list-item__text-label">Assignee:</span>
+                                                                    <span>Jeffrey Lebowski</span>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                        <div className="sd-list-item__column px-0 gap-0-5">
+                                                            <div className="sd-list-item__row justify-end m-0 flex-grow">
+                                                                <button className="btn btn btn--hollow btn--small">Reassign</button>
+                                                            </div>
+                                                            <div className="sd-list-item__row justify-end m-0 flex-grow">
+                                                                <button className="btn btn btn--hollow btn--small">Remove</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </Container>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Select
+                                                            value={this.state.value}
+                                                            label='Coverage type'
+                                                            required
+                                                            onChange={(value) => {
+                                                                this.setState({
+                                                                    value: value,
+                                                                })
+                                                            }}
+                                                        >
+                                                            <Option>None</Option>
+                                                            <Option>Text</Option>
+                                                            <Option>Picture</Option>
+                                                            <Option>Video</Option>
+                                                            <Option>Audio</Option>
+                                                            <Option>Infographic</Option>
+                                                            <Option>Live video</Option>
+                                                            <Option>Live blog</Option>
+                                                        </Select>
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Select
+                                                            value={this.state.value}
+                                                            label='Genre'
+                                                            onChange={(value) => {
+                                                                this.setState({
+                                                                    value: value,
+                                                                })
+                                                            }}
+                                                        >
+                                                            <Option>Article (news)</Option>
+                                                            <Option>Sidebar</Option>
+                                                            <Option>Factbox</Option>
+                                                            <Option>Feature</Option>
+                                                            <Option>Newsfeature</Option>
+                                                            <Option>Backgrounder</Option>
+                                                            <Option>Opinion</Option>
+                                                            <Option>Modular</Option>
+                                                        </Select>
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            label='Slugline'
+                                                            value={''}
+                                                            type='text'
+                                                            tabindex={0}
+                                                            onChange={(value) => this.setState({value: value})}
+                                                        />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            label='Ed note'
+                                                            value={''}
+                                                            type='text'
+                                                            tabindex={0}
+                                                            onChange={(value) => this.setState({value: value})}
+                                                        />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            label='Internal note'
+                                                            value={''}
+                                                            type='text'
+                                                            tabindex={0}
+                                                            onChange={(value) => this.setState({value: value})}
+                                                        />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Select
+                                                            value={this.state.value}
+                                                            label='Coverage Status'
+                                                            onChange={(value) => {
+                                                                this.setState({
+                                                                    value: value,
+                                                                })
+                                                            }}
+                                                        >
+                                                            <Option>Planned</Option>
+                                                            <Option>On merit</Option>
+                                                            <Option>Not planned</Option>
+                                                            <Option>On request</Option>
+                                                        </Select>
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <DatePicker
+                                                            value={this.state.date}
+                                                            dateFormat="YYYY-MM-DD"
+                                                            required
+                                                            onChange={(date) => {
+                                                                this.setState({date});
+                                                            }}
+                                                            label='Due'
+                                                        />
+                                                    </Form.FormItem>
+                                                    <Form.FormItem>
+                                                        <TimePicker
+                                                            value={this.state.time}
+                                                            onChange={(time) => {
+                                                                this.setState({time});
+                                                            }}
+                                                            allowSeconds
+                                                            label='Planning time'
+                                                            labelHidden
+                                                        />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <TreeSelect
+                                                            kind={'synchronous'}
+                                                            value={this.state.treeSelectValue}
+                                                            getOptions={() => options3}
+                                                            getLabel={(item) => item.name}
+                                                            getId={(item) => item.name}
+                                                            label='Language'
+                                                            onChange={() => false}
+                                                            placeholder='Select place'
+                                                            required
+                                                            width='match-input'
+                                                        >
+                                                    </TreeSelect>
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            label='Coverage contact'
+                                                            value={''}
+                                                            type='text'
+                                                            tabindex={0}
+                                                            onChange={(value) => this.setState({value: value})}
+                                                        />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <Form.FormGroup>
+                                                    <Form.FormItem>
+                                                        <Input
+                                                            label='Headline'
+                                                            value={''}
+                                                            type='text'
+                                                            tabindex={0}
+                                                            onChange={(value) => this.setState({value: value})}
+                                                        />
+                                                    </Form.FormItem>
+                                                </Form.FormGroup>
+                                                <div className='mb-1'>
+                                                    <FormLabel text='Attachments' />
+                                                    <div className="basic-drag-block mt-0-5">
+                                                        <Icon size='big' name='upload-alt' /> <span className="basic-drag-block__text"> Drag files here or</span> <a className="text-link" href="">browse</a>.
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <hr />
 
                         <Avatar 
@@ -198,10 +693,10 @@ export class TestGround extends React.Component<IProps, IState> {
                                             <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
                                                 <Label text='draft' style='translucent'/>
                                                 <span className="sd-margin-s--auto">
-                                                <AvatarGroup
-                                                    size="x-small"
-                                                    items={avatars}
-                                                />
+                                                    <AvatarGroup
+                                                        size="x-small"
+                                                        items={avatars}
+                                                    />
                                                 </span>
                                             </div>
                                         </div>

@@ -50,3 +50,24 @@
 	opacity: 0;
 	height: 0.1rem !important;
 }
+
+@keyframes appear {
+	from {
+		display: none;
+		opacity: 0;
+	}
+	to {
+		display: flex;
+		opacity: 1;
+	}
+}
+@keyframes vanish {
+	from {
+		display: flex;
+		opacity: 1;
+	}
+	to {
+		display: none;
+		opacity: 0;
+	}
+}
