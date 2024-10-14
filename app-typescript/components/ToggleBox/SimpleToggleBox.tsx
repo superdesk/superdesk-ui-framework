@@ -74,10 +74,6 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
             'open': this.state.isOpen,
         }, this.props.className);
 
-        const childrenClasses = classNames('toggle-box__content', {
-            'toggle-box__content--animation': this.state.isAnimating,
-        });
-
         const { title, children, badge } = this.props;
         const { isOpen } = this.state;
 
@@ -106,7 +102,7 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
                     {badge ? badge : null}
                 </a>
                 <div className="toggle-box__content-wraper">
-                    <div id={this.htmlId} className={childrenClasses} aria-hidden={!isOpen} ref={this.contentRef}>
+                    <div id={this.htmlId} className={'toggle-box__content' + (this.state.isAnimating && ' toggle-box__content--animation')} aria-hidden={!isOpen} ref={this.contentRef}>
                         {children}
                     </div>
                 </div>
