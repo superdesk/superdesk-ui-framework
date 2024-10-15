@@ -28,6 +28,7 @@ $boxed-list-palette: $sd-basic-palette;
     background-color: var(--sd-item__main-Bg);
     box-shadow: $shadow__base--z1;
     transition: all 0.2s ease-in-out;
+    flex-shrink: 0;
 
     @each $name, $color in $boxed-list-palette {
         &.boxed-list__item--#{$name} {
@@ -240,6 +241,6 @@ $boxed-list-palette: $sd-basic-palette;
         .boxed-list__item-content {
             justify-content: center;
         }
-        
+
     }
 }
