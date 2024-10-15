@@ -179,7 +179,6 @@
         grid-template-rows: auto 1fr auto;
         .new-collapse-box__content {
             > .new-collapse-box__content-inner {
-                animation: fadeIn 0.3s ease-in 0s 1;
                 overflow-y: auto;
                 .new-collapse-box { // Nested -- collapse-box inside a parent collapse-box
                     &.new-collapse-box--open {

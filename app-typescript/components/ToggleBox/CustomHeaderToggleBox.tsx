@@ -5,14 +5,18 @@ import {IPropsCustomHeader} from "../ToggleBox/index";
 
 interface IState {
     isOpen: boolean;
+    isAnimating: boolean;
 }
 
 export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeader, IState> {
     htmlId = nextId('togglebox-');
+    contentRef = React.createRef<HTMLDivElement>();
+
     constructor(props: IPropsCustomHeader) {
         super(props);
         this.state = {
             isOpen: this.props.initiallyOpen ?? false,
+            isAnimating: false,
         };
     }
 
@@ -22,9 +26,30 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
         });
     }
 
+    componentDidUpdate(_prevProps: IPropsCustomHeader, prevState: IState) {
+        if (prevState.isOpen !== this.state.isOpen) {
+            this.setState({ isAnimating: true });
+
+            if (this.contentRef.current) {
+                this.contentRef.current.addEventListener('animationend', this.handleAnimationEnd);
+            }
+        }
+    }
+
+    handleAnimationEnd = () => {
+        this.setState({ isAnimating: false });
+
+        if (this.contentRef.current) {
+            this.contentRef.current.removeEventListener('animationend', this.handleAnimationEnd);
+        }
+    }
+
     render() {
-        let classes = classNames('sd-shadow--z1 new-collapse-box', {
+        const classes = classNames('sd-shadow--z1 new-collapse-box', {
             'new-collapse-box--open': this.state.isOpen,
+        });
+        const childrenClasses = classNames('new-collapse-box__content-inner p-2 pt-0-5', {
+            'toggle-box__content--animation': this.state.isAnimating,
         });
         const { isOpen } = this.state;
 
@@ -51,7 +76,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
                 </div>
 
                 <div className='new-collapse-box__content'>
-                    <div id={this.htmlId} aria-hidden={!isOpen} className='new-collapse-box__content-inner p-2 pt-0-5'>
+                    <div id={this.htmlId} aria-hidden={!isOpen} className={childrenClasses}>
                         {this.props.children}
                     </div>
                 </div>
