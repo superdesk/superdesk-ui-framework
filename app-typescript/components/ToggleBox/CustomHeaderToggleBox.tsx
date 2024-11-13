@@ -67,7 +67,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
                         aria-controls={this.htmlId}
                     >
                         <span className='label label--translucent new-collapse-box__divider-label'>
-                            {this.props.toggleButtonLabel}
+                            {this.props.getToggleButtonLabel(isOpen)}
                         </span>
                     </button>
                 </div>

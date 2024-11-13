@@ -21,7 +21,7 @@ export interface IPropsCustomHeader {
     variant: 'custom-header'; // always visible
     header: React.ReactNode;
     children: React.ReactNode;
-    toggleButtonLabel: string;
+    getToggleButtonLabel: (isOpen: boolean) => string;
     initiallyOpen?: boolean;
     onToggle?(isOpen: boolean): void;
 }
