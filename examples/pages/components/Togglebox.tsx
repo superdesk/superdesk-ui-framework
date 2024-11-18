@@ -49,15 +49,15 @@ const ToggleboxDocs = () => {
                         <ToggleBox variant='simple' title="Togglebox - circled chevron" circledChevron={true}>Togglebox content</ToggleBox>
                         <ToggleBox variant='simple' title="Large title" largeTitle={true} circledChevron={true}>
                             <div className="px-4 text-sm line-height-lg">
-                                <p className="mb-2">Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue. 
-                                Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. 
+                                <p className="mb-2">Maecenas sed diam eget risus varius blandit sit amet non magna. Nulla vitae elit libero, a pharetra augue.
+                                Donec id elit non mi porta gravida at eget metus. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.
                                 Curabitur blandit tempus porttitor.</p>
 
                                 <p className="mb-2">Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Nullam quis risus eget urna mollis ornare vel eu leo.
-                                Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere 
+                                Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. Integer posuere
                                 erat a ante venenatis dapibus posuere velit aliquet.</p>
 
-                                <p className="">Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id 
+                                <p className="">Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id
                                 ligula porta felis euismod semper. Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
                             </div>
                         </ToggleBox>
@@ -98,12 +98,12 @@ const ToggleboxDocs = () => {
                                     </div>
                                 </div>
                             }
-                            toggleButtonLabel={'show more'}
+                            getToggleButtonLabel={() => 'show more'}
                             onToggle={(isOpen) => false}
                         >
                             <div>
                                 <FormLabel text='Name'/>
-                                <Text size='small' weight='medium'>Australian Open 2024</Text>
+                                <Text size='small' weight='medium'>Australian Open 2024-</Text>
                             </div>
                             <ContentDivider type="dashed" margin='x-small' />
                             <div>
@@ -148,6 +148,7 @@ const ToggleboxDocs = () => {
                                 </div>
                             </div>
                         }
+                        getToggleButtonLabel={() => 'show more'}
                         onToggle={() => false}
                     >
                         <div>

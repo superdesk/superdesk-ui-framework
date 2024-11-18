@@ -24,6 +24,13 @@ export interface IPropsCustomHeader {
     getToggleButtonLabel: (isOpen: boolean) => string;
     initiallyOpen?: boolean;
     onToggle?(isOpen: boolean): void;
+
+    /**
+     * 'after-first-opening' - will start rendering children upon first opening the togglebox.
+     * If togglebox is closed, it will continue rendering children in order to prevent unmounting
+     * and losing state of components rendered in children.
+     */
+    renderChildren?: 'when-open' | 'always' | 'after-first-opening'; // defaults to 'always'
 }
 
 type IProps = IPropsSimple | IPropsCustomHeader;
