@@ -45,7 +45,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         const origDate = this.props.value ?? new Date();
 
         selectedDate.setHours(origDate.getHours());
-        selectedDate.setHours(origDate.getMinutes());
+        selectedDate.setMinutes(origDate.getMinutes());
 
         this.props.onChange(selectedDate);
     }
@@ -55,9 +55,9 @@ export class DateTimePicker extends React.PureComponent<IProps> {
     }
 
     render() {
-        const convertedValue = this.props.value ? new Date(this.props.value) : null;
-        const convertedTimeValue = convertedValue
-            ? `${this.prepareFormat(convertedValue.getHours())}:${this.prepareFormat(convertedValue.getMinutes())}`
+        const {value} = this.props;
+        const convertedTimeValue = value
+            ? `${this.prepareFormat(value.getHours())}:${this.prepareFormat(value.getMinutes())}`
             : '';
 
         return (
@@ -68,7 +68,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                         preview={this.props.preview}
                         required={this.props.required}
                         hideClearButton={true}
-                        value={convertedValue ?? null}
+                        value={value}
                         onChange={(val) => {
                             this.handleDateChange(val);
                         }}
