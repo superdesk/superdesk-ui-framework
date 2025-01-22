@@ -1,14 +1,13 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
 import {PropsList, Prop, DateTimePicker} from '../../../app-typescript';
-import moment from 'moment';
 
-class DateTimePickerExample extends React.PureComponent<{}, {dateTime: moment.Moment | null}> {
+class DateTimePickerExample extends React.PureComponent<{}, {dateTime: Date | null}> {
     constructor(props) {
         super(props);
 
         this.state = {
-            dateTime: moment(),
+            dateTime: new Date(),
         };
     }
 
@@ -19,7 +18,7 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: moment.Mo
                 value={this.state.dateTime}
                 dateFormat="YYYY-MM-DD"
                 onChange={(val) => {
-                    const parsedVal = val != null && (val.length > 0) ? moment(val) : null;
+                    const parsedVal = val != null ? new Date(val) : null;
 
                     this.setState({dateTime: parsedVal});
                 }}
@@ -30,7 +29,7 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: moment.Mo
 
 interface IState {
     today: string;
-    dateTime: moment.Moment | null;
+    dateTime: Date | null;
 }
 
 export default class DateTimePickerDoc extends React.Component<{}, IState> {
@@ -39,7 +38,7 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
 
         this.state = {
             today: '',
-            dateTime: moment(),
+            dateTime: new Date(),
         };
     }
 

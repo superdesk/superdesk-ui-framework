@@ -4,16 +4,15 @@ import {Spacer} from '@superdesk/common';
 import {defaultTo} from 'lodash';
 import {TimePicker} from './TimePicker';
 import {IconButton} from './IconButton';
-import moment from 'moment';
 
 interface IProps {
-    value: moment.Moment | null;
+    value: Date | null;
     label: {
         text: string;
         hidden?: boolean;
     };
     dateFormat: string;
-    onChange: (value: string | null) => void;
+    onChange: (value: Date | null) => void;
     preview?: boolean;
     fullWidth?: boolean;
     allowSeconds?: boolean;
@@ -27,12 +26,12 @@ const MIN_WIDTH = 348;
 export class DateTimePicker extends React.PureComponent<IProps> {
     handleTimeChange = (time: string) => {
         const [hours, minutes] = time.split(':').map((x) => defaultTo(parseInt(x, 10), 0)); // handle NaN value
-        const origDate = this.props.value ?? moment();
+        const origDate = this.props.value ?? new Date();
 
-        origDate.hour(hours);
-        origDate.minute(minutes);
+        origDate.setHours(hours);
+        origDate.setMinutes(minutes);
 
-        this.props.onChange(origDate.toISOString());
+        this.props.onChange(origDate);
     }
 
     handleDateChange = (date: Date | null) => {
@@ -42,13 +41,13 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             return;
         }
 
-        const selectedDate = moment(date);
-        const origDate = this.props.value ?? moment();
+        const selectedDate = new Date(date);
+        const origDate = this.props.value ?? new Date();
 
-        selectedDate.hour(origDate.hours());
-        selectedDate.minute(origDate.minutes());
+        selectedDate.setHours(origDate.getHours());
+        selectedDate.setHours(origDate.getMinutes());
 
-        this.props.onChange(selectedDate.toISOString());
+        this.props.onChange(selectedDate);
     }
 
     prepareFormat(unitOfTime: number) {
@@ -56,9 +55,9 @@ export class DateTimePicker extends React.PureComponent<IProps> {
     }
 
     render() {
-        const convertedValue = this.props.value ? moment(this.props.value) : null;
+        const convertedValue = this.props.value ? new Date(this.props.value) : null;
         const convertedTimeValue = convertedValue
-            ? `${this.prepareFormat(convertedValue.hours())}:${this.prepareFormat(convertedValue.minutes())}`
+            ? `${this.prepareFormat(convertedValue.getHours())}:${this.prepareFormat(convertedValue.getMinutes())}`
             : '';
 
         return (
@@ -69,7 +68,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                         preview={this.props.preview}
                         required={this.props.required}
                         hideClearButton={true}
-                        value={convertedValue?.toDate() ?? null}
+                        value={convertedValue ?? null}
                         onChange={(val) => {
                             this.handleDateChange(val);
                         }}
