@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {DatePicker} from '../components/DatePicker';
 import {Spacer} from '@superdesk/common';
-import {cloneDeep, defaultTo} from 'lodash';
+import {defaultTo} from 'lodash';
 import {TimePicker} from './TimePicker';
 import {IconButton} from './IconButton';
 
