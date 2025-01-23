@@ -36,7 +36,14 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
         }
     }
 
-    toggle = (): void => {
+    /**
+     * Called via ref
+     */
+    public isOpen = () => {
+        return this.state.isOpen;
+    }
+
+    public toggle = (): void => {
         this.setState({ isOpen: !this.state.isOpen }, () => {
             if (!this.state.isOpen && this.props.onClose) {
                 this.props.onClose();

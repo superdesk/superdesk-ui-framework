@@ -15,6 +15,7 @@ export interface IPropsSimple {
     margin?: 'none' | 'small' | 'normal' | 'large';
     onOpen?(): void;
     onClose?(): void;
+    toggleBoxRef?: React.RefObject<SimpleToggleBox>;
 }
 
 export interface IPropsCustomHeader {
@@ -24,6 +25,7 @@ export interface IPropsCustomHeader {
     getToggleButtonLabel: (isOpen: boolean) => string;
     initiallyOpen?: boolean;
     onToggle?(isOpen: boolean): void;
+    toggleBoxRef?: React.RefObject<CustomHeaderToggleBox>;
 }
 
 type IProps = IPropsSimple | IPropsCustomHeader;
@@ -32,11 +34,11 @@ export class ToggleBox extends React.PureComponent<IProps> {
     render() {
         if (this.props.variant === "simple") {
             return (
-                <SimpleToggleBox {...this.props} />
+                <SimpleToggleBox ref={this.props.toggleBoxRef} {...this.props} />
             );
         } else {
             return (
-                <CustomHeaderToggleBox {...this.props} />
+                <CustomHeaderToggleBox ref={this.props.toggleBoxRef} {...this.props} />
             );
         }
     }

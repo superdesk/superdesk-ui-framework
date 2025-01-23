@@ -20,7 +20,14 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
         };
     }
 
-    toggle = (): void => {
+    /**
+     * Called via ref
+     */
+    public isOpen = () => {
+        return this.state.isOpen;
+    }
+
+    public toggle = (): void => {
         this.setState({isOpen: !this.state.isOpen}, () => {
             this.props.onToggle?.(this.state.isOpen);
         });

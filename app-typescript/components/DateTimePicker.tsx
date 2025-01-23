@@ -12,7 +12,7 @@ interface IProps {
         hidden?: boolean;
     };
     dateFormat: string;
-    onChange: (value: string | null) => void;
+    onChange: (value: Date | null) => void;
     preview?: boolean;
     fullWidth?: boolean;
     allowSeconds?: boolean;
@@ -26,28 +26,26 @@ const MIN_WIDTH = 348;
 export class DateTimePicker extends React.PureComponent<IProps> {
     handleTimeChange = (time: string) => {
         const [hours, minutes] = time.split(':').map((x) => defaultTo(parseInt(x, 10), 0)); // handle NaN value
-        const origDate = this.props.value ?? new Date();
+        const origDate = this.props.value ? new Date(this.props.value) : new Date();
 
-        origDate.setHours(hours);
-        origDate.setMinutes(minutes);
+        origDate.setHours(hours, minutes);
 
-        this.props.onChange(origDate.toISOString());
+        this.props.onChange(origDate);
     }
 
-    handleDateChange = (date?: string) => {
+    handleDateChange = (date: Date | null) => {
         if (date == null) {
             this.props.onChange(null);
 
             return;
         }
 
-        const selectedDate = new Date(date);
         const origDate = this.props.value ?? new Date();
+        const selectedDate = new Date(date);
 
-        selectedDate.setHours(origDate.getHours());
-        selectedDate.setMinutes(origDate.getMinutes());
+        selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
 
-        this.props.onChange(selectedDate.toISOString());
+        this.props.onChange(selectedDate);
     }
 
     prepareFormat(unitOfTime: number) {
@@ -55,9 +53,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
     }
 
     render() {
-        const convertedValue = this.props.value ? new Date(this.props.value) : null;
-        const convertedTimeValue = convertedValue
-            ? `${this.prepareFormat(convertedValue.getHours())}:${this.prepareFormat(convertedValue.getMinutes())}`
+        const convertedTimeValue = this.props.value != null
+            ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
             : '';
 
         return (
@@ -68,9 +65,9 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                         preview={this.props.preview}
                         required={this.props.required}
                         hideClearButton={true}
-                        value={convertedValue}
+                        value={this.props.value}
                         onChange={(val) => {
-                            this.handleDateChange(val?.toString());
+                            this.handleDateChange(val);
                         }}
                         dateFormat={this.props.dateFormat}
                         label={this.props.label.text}
