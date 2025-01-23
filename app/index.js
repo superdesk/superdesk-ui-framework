@@ -49,6 +49,7 @@ export {
     Popover,
     Carousel,
     ContentDivider,
+    CalendarWeekDayItem,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

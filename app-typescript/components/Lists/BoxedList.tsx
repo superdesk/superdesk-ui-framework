@@ -77,6 +77,7 @@ interface IPropsItem {
     clickable?: boolean;
     alignVertical?: 'start' | 'center';
     slideInActions?: boolean;
+    coloredBg?: boolean;
     selected?: boolean;
     unread?: boolean;
     onClick?(): void;
@@ -107,6 +108,7 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
             'boxed-list__item--clickable': this.props.clickable === true,
             'boxed-list__item--selected': this.props.selected,
             'boxed-list__item--unread': this.props.unread,
+            'boxed-list__item--colored-bg': this.props.coloredBg,
             [`boxed-list__item--${this.props.type}`]: this.props.type || this.props.type !== undefined,
             [`boxed-list__item--align-${this.props.alignVertical}`]: this.props.alignVertical,
         });

@@ -135,12 +135,18 @@
     --sd-colour-interactive:                hsla(var(--sd-colour-interactive-l--50), 1);
     --sd-colour-interactive--hover:         hsla(var(--sd-colour-interactive-l--60), 1);
     --sd-colour-interactive--active:        hsla(var(--sd-colour-interactive-l--40), 1);
+    --sd-colour-interactive--text:          hsla(var(--sd-colour-interactive-l--30), 1);
     --sd-colour-interactive-btn-border:     hsla(var(--sd-colour-interactive-l--50), 0.5);
+    --sd-colour-interactive-translucent-10: hsla(var(--sd-colour-interactive-l--50), 0.1);
+    --sd-colour-interactive-translucent-25: hsla(var(--sd-colour-interactive-l--50), 0.25);
         // ---
     --sd-colour-primary:                    hsla(var(--sd-colour-primary-l--50), 1);
     --sd-colour-primary--hover:             hsla(var(--sd-colour-primary-l--60), 1);
     --sd-colour-primary--active:            hsla(var(--sd-colour-primary-l--40), 1);
+    --sd-colour-primary--text:              hsla(var(--sd-colour-primary-l--30), 1);
     --sd-colour-primary-btn-border:         hsla(var(--sd-colour-primary-l--50), 0.5);
+    --sd-colour-primary-translucent-10:     hsla(var(--sd-colour-primary-l--50), 0.1);
+    --sd-colour-primary-translucent-25:     hsla(var(--sd-colour-primary-l--50), 0.25);
         // ---
     --sd-colour-secondary:                  hsla(var(--sd-colour-secondary-l--50), 1);
     --sd-colour-secondary--hover:           hsla(var(--sd-colour-secondary-l--60), 1);
@@ -150,22 +156,34 @@
     --sd-colour-success:                    hsla(var(--sd-colour-success-l--50), 1);
     --sd-colour-success--hover:             hsla(var(--sd-colour-success-l--60), 1);
     --sd-colour-success--active:            hsla(var(--sd-colour-success-l--40), 1);
+    --sd-colour-success--text:              hsla(var(--sd-colour-success-l--30), 1);
     --sd-colour-success-btn-border:         hsla(var(--sd-colour-success-l--50), 0.5);
+    --sd-colour-success-translucent-10:     hsla(var(--sd-colour-success-l--50), 0.08);
+    --sd-colour-success-translucent-25:     hsla(var(--sd-colour-success-l--50), 0.29);
         // ---
     --sd-colour-alert:                      hsla(var(--sd-colour-alert-l--50), 1);
     --sd-colour-alert--hover:               hsla(var(--sd-colour-alert-l--60), 1);
     --sd-colour-alert--active:              hsla(var(--sd-colour-alert-l--40), 1);
+    --sd-colour-alert--text:                hsla(var(--sd-colour-alert-l--30), 1);
     --sd-colour-alert-btn-border:           hsla(var(--sd-colour-alert-l--50), 0.5);
+    --sd-colour-alert-translucent-10:       hsla(var(--sd-colour-alert-l--50), 0.08);
+    --sd-colour-alert-translucent-25:       hsla(var(--sd-colour-alert-l--50), 0.20);
         // ---
     --sd-colour-warning:                    hsla(var(--sd-colour-warning-l--50), 1);
     --sd-colour-warning--hover:             hsla(var(--sd-colour-warning-l--60), 1);
     --sd-colour-warning--active:            hsla(var(--sd-colour-warning-l--40), 1);
+    --sd-colour-warning--text:              hsla(var(--sd-colour-warning-l--30), 1);
     --sd-colour-warning-btn-border:         hsla(var(--sd-colour-warning-l--50), 0.5);
+    --sd-colour-warning-translucent-10:     hsla(var(--sd-colour-warning-l--50), 0.08);
+    --sd-colour-warning-translucent-25:     hsla(var(--sd-colour-warning-l--50), 0.25);
         // ---
     --sd-colour-highlight:                  hsla(var(--sd-colour-highlight-l--50), 1);
     --sd-colour-highlight--hover:           hsla(var(--sd-colour-highlight-l--60), 1);
     --sd-colour-highlight--active:          hsla(var(--sd-colour-highlight-l--40), 1);
+    --sd-colour-highlight--text:            hsla(var(--sd-colour-highlight-l--30), 1);
     --sd-colour-highlight-btn-border:       hsla(var(--sd-colour-highlight-l--50), 0.5);
+    --sd-colour-highlight-translucent-10:   hsla(var(--sd-colour-highlight-l--50), 0.1);
+    --sd-colour-highlight-translucent-25:   hsla(var(--sd-colour-highlight-l--50), 0.25);
         // ---
     --sd-colour-superdesk:                  hsla(var(--sd-colour-superdesk-l--40), 1);
     --sd-colour-superdesk--hover:           hsla(var(--sd-colour-superdesk-l--50), 1);
