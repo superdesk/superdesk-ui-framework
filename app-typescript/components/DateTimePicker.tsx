@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {DatePicker} from '../components/DatePicker';
 import {Spacer} from '@superdesk/common';
-import {defaultTo} from 'lodash';
+import {cloneDeep, defaultTo} from 'lodash';
 import {TimePicker} from './TimePicker';
 import {IconButton} from './IconButton';
 
@@ -26,10 +26,9 @@ const MIN_WIDTH = 348;
 export class DateTimePicker extends React.PureComponent<IProps> {
     handleTimeChange = (time: string) => {
         const [hours, minutes] = time.split(':').map((x) => defaultTo(parseInt(x, 10), 0)); // handle NaN value
-        const origDate = this.props.value ?? new Date();
+        const origDate = cloneDeep(this.props.value) ?? new Date();
 
-        origDate.setHours(hours);
-        origDate.setMinutes(minutes);
+        origDate.setHours(hours, minutes);
 
         this.props.onChange(origDate.toISOString());
     }
@@ -41,11 +40,10 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             return;
         }
 
-        const selectedDate = new Date(date);
         const origDate = this.props.value ?? new Date();
+        const selectedDate = new Date(date);
 
-        selectedDate.setHours(origDate.getHours());
-        selectedDate.setMinutes(origDate.getMinutes());
+        selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
 
         this.props.onChange(selectedDate.toISOString());
     }
@@ -55,9 +53,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
     }
 
     render() {
-        const convertedValue = this.props.value ? new Date(this.props.value) : null;
-        const convertedTimeValue = convertedValue
-            ? `${this.prepareFormat(convertedValue.getHours())}:${this.prepareFormat(convertedValue.getMinutes())}`
+        const convertedTimeValue = this.props.value != null
+            ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
             : '';
 
         return (
@@ -68,7 +65,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                         preview={this.props.preview}
                         required={this.props.required}
                         hideClearButton={true}
-                        value={convertedValue}
+                        value={this.props.value}
                         onChange={(val) => {
                             this.handleDateChange(val?.toString());
                         }}
