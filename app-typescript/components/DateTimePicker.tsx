@@ -12,7 +12,7 @@ interface IProps {
         hidden?: boolean;
     };
     dateFormat: string;
-    onChange: (value: string | null) => void;
+    onChange: (value: Date | null) => void;
     preview?: boolean;
     fullWidth?: boolean;
     allowSeconds?: boolean;
@@ -30,10 +30,10 @@ export class DateTimePicker extends React.PureComponent<IProps> {
 
         origDate.setHours(hours, minutes);
 
-        this.props.onChange(origDate.toISOString());
+        this.props.onChange(origDate);
     }
 
-    handleDateChange = (date?: string) => {
+    handleDateChange = (date: Date | null) => {
         if (date == null) {
             this.props.onChange(null);
 
@@ -45,7 +45,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
 
         selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
 
-        this.props.onChange(selectedDate.toISOString());
+        this.props.onChange(selectedDate);
     }
 
     prepareFormat(unitOfTime: number) {
@@ -67,7 +67,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                         hideClearButton={true}
                         value={this.props.value}
                         onChange={(val) => {
-                            this.handleDateChange(val?.toString());
+                            this.handleDateChange(val);
                         }}
                         dateFormat={this.props.dateFormat}
                         label={this.props.label.text}
