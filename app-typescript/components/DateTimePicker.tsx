@@ -58,8 +58,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             : '';
 
         return (
-            <div style={{width: Number(this.props.width) > MIN_WIDTH ? this.props.width : MIN_WIDTH}}>
-                <Spacer h gap="0" noGrow alignItems='end'>
+            <div style={{width: this.props.width ? this.props.width : MIN_WIDTH}}>
+                <Spacer h gap="8" alignItems='end'>
                     <DatePicker
                         disabled={this.props.disabled}
                         preview={this.props.preview}
@@ -91,7 +91,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                     {this.props.preview !== true && (
                         <IconButton
                             disabled={this.props.disabled}
-                            icon='close-small'
+                            icon='remove-sign'
                             onClick={() => {
                                 this.props.onChange(null);
                             }}
