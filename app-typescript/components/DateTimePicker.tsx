@@ -59,35 +59,39 @@ export class DateTimePicker extends React.PureComponent<IProps> {
 
         return (
             <div style={{width: this.props.width ? this.props.width : MIN_WIDTH}}>
-                <Spacer h gap="8" alignItems='end'>
-                    <DatePicker
-                        disabled={this.props.disabled}
-                        preview={this.props.preview}
-                        required={this.props.required}
-                        hideClearButton={true}
-                        value={this.props.value}
-                        onChange={(val) => {
-                            this.handleDateChange(val);
-                        }}
-                        dateFormat={this.props.dateFormat}
-                        label={this.props.label.text}
-                        inlineLabel={this.props.label.hidden ?? false}
-                        labelHidden={this.props.label.hidden ?? false}
-                        fullWidth={this.props.fullWidth}
-                    />
-                    <TimePicker
-                        disabled={this.props.disabled}
-                        preview={this.props.preview}
-                        value={convertedTimeValue}
-                        onChange={(val) => {
-                            this.handleTimeChange(val);
-                        }}
-                        inlineLabel
-                        labelHidden
-                        allowSeconds={this.props.allowSeconds}
-                        fullWidth={this.props.fullWidth}
-                        required={this.props.required}
-                    />
+                <Spacer h gap="8" alignItems='end' noWrap>
+                    <div style={{flexGrow: 1}}>
+                        <DatePicker
+                            disabled={this.props.disabled}
+                            preview={this.props.preview}
+                            required={this.props.required}
+                            hideClearButton={true}
+                            value={this.props.value}
+                            onChange={(val) => {
+                                this.handleDateChange(val);
+                            }}
+                            dateFormat={this.props.dateFormat}
+                            label={this.props.label.text}
+                            inlineLabel={this.props.label.hidden ?? false}
+                            labelHidden={this.props.label.hidden ?? false}
+                            fullWidth={this.props.fullWidth}
+                        />
+                    </div>
+                    <div style={{flexGrow: 1}}>
+                        <TimePicker
+                            disabled={this.props.disabled}
+                            preview={this.props.preview}
+                            value={convertedTimeValue}
+                            onChange={(val) => {
+                                this.handleTimeChange(val);
+                            }}
+                            inlineLabel
+                            labelHidden
+                            allowSeconds={this.props.allowSeconds}
+                            fullWidth={this.props.fullWidth}
+                            required={this.props.required}
+                        />
+                    </div>
                     {this.props.preview !== true && (
                         <IconButton
                             disabled={this.props.disabled}
