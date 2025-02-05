@@ -5,18 +5,23 @@ import {IPropsCustomHeader} from "../ToggleBox/index";
 
 interface IState {
     isOpen: boolean;
+    wasOpened: boolean;
     isAnimating: boolean;
 }
 
 export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeader, IState> {
-    htmlId = nextId('togglebox-');
-    contentRef = React.createRef<HTMLDivElement>();
+    private htmlId = nextId('togglebox-');
+    private contentRef = React.createRef<HTMLDivElement>();
 
     constructor(props: IPropsCustomHeader) {
         super(props);
+
+        const isOpen = this.props.initiallyOpen ?? false;
+
         this.state = {
-            isOpen: this.props.initiallyOpen ?? false,
+            isOpen: isOpen,
             isAnimating: false,
+            wasOpened: isOpen,
         };
     }
 
@@ -40,6 +45,10 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
             if (this.contentRef.current) {
                 this.contentRef.current.addEventListener('animationend', this.handleAnimationEnd);
             }
+        }
+
+        if (this.state.isOpen && !this.state.wasOpened) {
+            this.setState({wasOpened: true});
         }
     }
 
@@ -79,6 +88,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
                     </button>
                 </div>
 
+                {/** render wrapper unconditionally in order not to break the animation */}
                 <div className='new-collapse-box__content'>
                     <div
                         id={this.htmlId}
@@ -87,7 +97,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
                             'toggle-box__content--animation': this.state.isAnimating,
                         })}
                     >
-                        {this.props.children}
+                        {this.state.isOpen || this.state.wasOpened ? this.props.children : null}
                     </div>
                 </div>
             </div>
