@@ -221,7 +221,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                         </div>
                                         <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row ps-0">
                                             <ButtonGroup orientation='vertical' spaces='compact'>
-                                                <IconButton size='small' icon='external' ariaValue='Open in modal' onClick={()=> false} /> 
+                                                <IconButton size='small' icon='external' ariaValue='Open in modal' onClick={()=> false} />
                                                 <IconButton size='small' icon='trash' ariaValue='Delete Coverage' onClick={()=> false} />
                                             </ButtonGroup>
                                         </div>
@@ -378,7 +378,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className='sd-border--medium border-dashed p-1-5 radius-md d-flex items-center justify-center'>
                                         <span className='text-sm text-color-subdued'>No Coverages yet</span>
                                     </div>
-                                    
+
                                     {/* <ContentDivider type="dashed" margin='x-small' /> */}
 
                                     {/* NESTED BOX */}
@@ -404,7 +404,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                                                     <span className="sd-list-item__text-light">//</span>
                                                                     <span className="sd-list-item__text">Archive</span>
                                                                 </span>
-                                                                
+
                                                             </span>
                                                             <time className="sd-margin-s--auto" title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
                                                         </div>
@@ -460,8 +460,8 @@ export class TestGround extends React.Component<IProps, IState> {
                                                                         <span className="sd-list-item__text-light">//</span>
                                                                         <span className="sd-list-item__text">Archive</span>
                                                                     </span>
-                                                                    
-                                                                    
+
+
                                                                 </span>
                                                                 <Label text='Draft' style='translucent' type='default' />
                                                             </div>
@@ -662,7 +662,7 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <hr />
 
-                        <Avatar 
+                        <Avatar
                             displayName="Jeffrey Lebowski"
                             imageUrl={null}
                             initials='JL'
@@ -757,7 +757,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                                                     <span className="sd-list-item__text-light">//</span>
                                                                     <span className="sd-list-item__text">Archive</span>
                                                                 </span>
-                                                                
+
                                                             </span>
                                                             <time className="sd-margin-s--auto" title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
                                                         </div>
@@ -881,8 +881,8 @@ export class TestGround extends React.Component<IProps, IState> {
                         <hr />
 
                         <SubNav color='darker'>
-                            <Tooltip text={this.state.isExpanded ? "Revert Authoring" : "Expand Authoring"} flow='right' appendToBody={true}>
-                                <button 
+                            <Tooltip text={this.state.isExpanded ? "Revert Authoring" : "Expand Authoring"} flow='right'>
+                                <button
                                     className={`expand-button ${this.state.isExpanded ? "expand-button--expanded" : ""}`}
                                     onClick={this.toggleExpand}
                                 >
@@ -911,11 +911,11 @@ export class TestGround extends React.Component<IProps, IState> {
                                 </ButtonGroup>
                             </ButtonGroup>
                         </SubNav>
-                        
+
                         <hr />
 
                         <div className='sd-grid-list sd-grid-list--xx-small sd-grid-list--gap-s sd-grid-list--no-margin' style={{width:'290px'}}>
-                            
+
                             <IllustrationButton text='Headlines' onClick={()=> false}>
                                 <SvgIconIllustration illustration='headlines' />
                             </IllustrationButton>
@@ -997,16 +997,16 @@ export class TestGround extends React.Component<IProps, IState> {
                             </span>
                             <Icon name='chevron-down-thin' />
                         </button> */}
-                        
+
                         <hr />
 
                         <Button text="Planning Templates" onClick={() => this.setState({modalPlanningTemplates: true})} />
                         <span></span>
-                        
-                        
+
+
                          {/* Event Saving modals */}
                          {/* Event Only (This one existed Before) */}
-                        <Modal 
+                        <Modal
                             headerTemplate="Save Event"
                             visible={this.state.modalSaveEvent}
                             contentPadding='medium'
@@ -1056,7 +1056,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         </Modal>
 
                         {/* Event and Planning */}
-                        <Modal 
+                        <Modal
                             headerTemplate="Save Event"
                             visible={this.state.modalSaveEvent2}
                             contentPadding='medium'
@@ -1154,7 +1154,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         </Modal>
 
                         {/* Planning only */}
-                        <Modal 
+                        <Modal
                             headerTemplate="Save Event"
                             visible={this.state.modalSaveEvent3}
                             contentPadding='medium'
@@ -1373,7 +1373,7 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <img
                             src="/path/toimage"
-                            alt="my image" 
+                            alt="my image"
                             onError={({ currentTarget }) => {
                                 currentTarget.onerror = null; // prevents looping
                                 currentTarget.src="/illustration--playground.svg";
@@ -1417,7 +1417,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             labelHidden={true}
                             type='text'
                         />
-                        
+
                         <hr />
 
                         <div className='form__group-new'>
@@ -1776,7 +1776,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 </div>
 
                                 <div className='table-list__add-bar-container'>
-                                    <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                    <Tooltip text='Add item' flow='top'>
                                         <div className='table-list__add-bar'>
                                             <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
                                         </div>
@@ -1804,7 +1804,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 </div>
 
                                 <div className='table-list__add-bar-container'>
-                                    <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                    <Tooltip text='Add item' flow='top'>
                                         <div className='table-list__add-bar'>
                                             <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
                                         </div>
@@ -1833,7 +1833,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                 </div>
 
                                 <div className='table-list__add-bar-container'>
-                                    <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                    <Tooltip text='Add item' flow='top'>
                                         <div className='table-list__add-bar'>
                                             <Button type="primary" icon="plus-large" text="Add item" size="small" shape="round" iconOnly={true} onClick={()=> false} />
                                         </div>
@@ -1861,7 +1861,7 @@ export class TestGround extends React.Component<IProps, IState> {
                         <hr />
 
                         <Checkbox label={{text: 'The label is hidden here', hidden: true}} onChange={(value) => console.log('value changed', value)} />
-                        
+
                         <hr />
 
                         <div className="sd-check-button__group sd-check-button__group--start">
@@ -1974,9 +1974,9 @@ export class TestGround extends React.Component<IProps, IState> {
                                 </ul>
                             </div>
                             <div className="sd-thumb-carousel__description">
-                                Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue. 
-                                Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod. 
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis 
+                                Nulla vitae elit libero, a pharetra augue. Nulla vitae elit libero, a pharetra augue.
+                                Donec id elit non mi porta gravida at eget metus. Etiam porta sem malesuada magna mollis euismod.
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cum sociis natoque penatibus et magnis dis
                                 parturient montes, nascetur ridiculus mus.
                             </div>
                         </div>

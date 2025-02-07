@@ -22,7 +22,7 @@ export class CreateButton extends React.PureComponent<IProps> {
         });
         const value = this.props.value === undefined ? 'button' : this.props.value;
         return (
-            <Tooltip text={this.props.ariaValue} flow={this.props.toolTipFlow} appendToBody={true}>
+            <Tooltip text={this.props.ariaValue} flow={this.props.toolTipFlow}>
                 <button type={value}
                     className={classes}
                     tabIndex={0}

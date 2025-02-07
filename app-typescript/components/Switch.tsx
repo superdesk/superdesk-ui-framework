@@ -61,7 +61,6 @@ export class Switch extends React.PureComponent<IProps> {
                 <Tooltip
                     text={this.props.label.content}
                     flow={this.props.toolTipFlow}
-                    appendToBody={this.props.toolTipAppend}
                 >
                     <span className="sd-switch__wrapper" tabIndex={-1}>
                         {checkboxInput}
