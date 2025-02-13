@@ -32,9 +32,24 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
         return this.state.isOpen;
     }
 
-    public toggle = (): void => {
-        this.setState({isOpen: !this.state.isOpen}, () => {
-            this.props.onToggle?.(this.state.isOpen);
+    public toggle = (): Promise<boolean> => {
+        return new Promise((resolve, reject) => {
+            this.setState(
+                {isOpen: !this.state.isOpen, isAnimating: true},
+                () => {
+                    if (this.contentRef.current) {
+                        const handleAnimation = () => {
+                            this.props.onToggle?.(this.state.isOpen);
+                            this.handleAnimationEnd();
+                            resolve(this.state.isOpen);
+                        };
+
+                        this.contentRef.current.addEventListener("animationend", handleAnimation, {once: true});
+                    } else {
+                        reject();
+                    }
+                },
+            );
         });
     }
 
@@ -91,6 +106,7 @@ export class CustomHeaderToggleBox extends React.PureComponent<IPropsCustomHeade
                 {/** render wrapper unconditionally in order not to break the animation */}
                 <div className='new-collapse-box__content'>
                     <div
+                        ref={this.contentRef}
                         id={this.htmlId}
                         aria-hidden={!isOpen}
                         className={classNames('new-collapse-box__content-inner p-2 pt-0-5', {
