@@ -36,7 +36,8 @@ export class Button extends React.PureComponent<IPropsButton> {
             'btn--icon-only': this.props.iconOnly,
             'btn--ui-dark': this.props.theme === 'dark',
             'btn--icon-only-circle': this.props.shape === 'round' && this.props.iconOnly,
-            [`sd-flex-justify-${this.props.textAlign}`]: this.props.textAlign != null,
+            'sd-flex-justify-start': this.props.textAlign === 'start',
+            'sd-flex-justify-end': this.props.textAlign === 'end',
         });
 
         return (
