@@ -17,6 +17,7 @@ interface IPropsButton {
     theme?: 'light' | 'dark'; // defaults to 'light'
     type?: 'default' | 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
+    textAlign?: 'start' | 'center' | 'end'; // defaults to 'center'
     children?: never;
     icon?: string;
     disabled?: boolean;
@@ -35,6 +36,7 @@ export class Button extends React.PureComponent<IPropsButton> {
             'btn--icon-only': this.props.iconOnly,
             'btn--ui-dark': this.props.theme === 'dark',
             'btn--icon-only-circle': this.props.shape === 'round' && this.props.iconOnly,
+            [`sd-flex-justify-${this.props.textAlign}`]: this.props.textAlign != null,
         });
 
         return (
