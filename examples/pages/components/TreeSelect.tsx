@@ -12,7 +12,7 @@ interface IState {
     arr: any;
 }
 
-let options = [
+const multiSelectOptions = [
     {
         value: {name: 'Category1'},
         children: [
@@ -93,7 +93,7 @@ let options = [
     },
 ]
 
-let options2 = [
+const singleSelectOptions = [
     {
         value: {name: 'Category1', border: 'red'},
         children: [
@@ -169,9 +169,6 @@ let options2 = [
     },
 ]
 
-let fetchedArr = [];
-fetch('https://nominatim.openstreetmap.org/search/berlin?format=json&addressdetails=1&limit=20').then(response => response.json()).then(data => fetchedArr = data);
-
 type ICancelFn = () => void;
 
 function searchOptions(
@@ -181,9 +178,7 @@ function searchOptions(
     let timeout = setTimeout(() => {
 
         callback(
-            fetchedArr
-                .filter((item: any) => item.display_name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
-                .map((item) => ({value: item})),
+            multiSelectOptions.filter((item: any) => item.value.name.toLocaleLowerCase().includes(term.toLocaleLowerCase()))
         );
     }, 1000);
 
@@ -198,8 +193,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
         this.state = {
             value: [],
             value2: [],
-            options: options,
-            options2: options,
+            options: multiSelectOptions,
+            options2: multiSelectOptions,
             inputValue: '',
             arr: []
         }
@@ -244,7 +239,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 <TreeSelect
                                     kind='synchronous'
                                     value={[{name: 'Category1'}]}
-                                    getOptions={() => options}
+                                    getOptions={() => multiSelectOptions}
                                     getId={(item) => item.name}
                                     getLabel={(item) => item.name}
                                     selectBranchWithChildren
@@ -300,7 +295,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 <TreeSelect
                                     kind='synchronous'
                                     value={[{name: 'Category1'}, {name: 'Category2'}, {name: 'Category3'}]}
-                                    getOptions={() => options}
+                                    getOptions={() => multiSelectOptions}
                                     getId={(item) => item.name}
                                     getLabel={(item) => item.name}
                                     selectBranchWithChildren
@@ -358,8 +353,8 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             <TreeSelect
                                 kind="asynchronous"
                                 value={this.state.value}
-                                getLabel={({display_name}) => display_name}
-                                getId={({display_name}) => display_name}
+                                getLabel={({name}) => name}
+                                getId={({name}) => name}
                                 selectBranchWithChildren
                                 allowMultiple
                                 searchOptions={searchOptions}
@@ -400,7 +395,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                 <TreeSelect
                                     kind='synchronous'
                                     value={[]}
-                                    getOptions={() => options2}
+                                    getOptions={() => singleSelectOptions}
                                     getLabel={(item) => item.name}
                                     getId={(item) => item.name}
                                     getBorderColor={(item) => item.border}

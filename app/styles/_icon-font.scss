@@ -303,7 +303,7 @@ $sd-icon-font: (
 );
 
 @each $name, $value in $sd-icon-font {
-    &.icon-#{$name}:before {
+    .icon-#{$name}:before {
         content: $value;
     }
 

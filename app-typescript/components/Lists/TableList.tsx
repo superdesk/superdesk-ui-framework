@@ -187,7 +187,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                                     {
                                         (this.props.addItem && !this.props.readOnly)
                                             && <div className={`table-list__add-item table-list__item--margin`}>
-                                                <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                                <Tooltip text='Add item' flow='top'>
                                                     <div className='table-list__add-item--container sd-margin-x--auto'>
                                                         {this.dropDown()}
                                                     </div>
@@ -233,7 +233,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                         {
                             (this.props.addItem && !this.props.readOnly)
                                 && <div className={`table-list__add-item table-list__item--margin`}>
-                                    <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                    <Tooltip text='Add item' flow='top'>
                                         <div className='table-list__add-item--container sd-margin-x--auto'>
                                             {this.dropDown()}
                                         </div>
@@ -244,7 +244,7 @@ class TableList extends React.PureComponent<IProps, IState> {
                 : (this.props.addItem && !this.props.readOnly)
                     ? <div role='list' className={classes}>
                         <div className={`table-list__add-item table-list__item--margin`}>
-                            <Tooltip text='Add item' flow='top' appendToBody={true}>
+                            <Tooltip text='Add item' flow='top'>
                                 <div className='table-list__add-item--container sd-margin-x--auto'>
                                     {this.dropDown()}
                                 </div>
@@ -354,7 +354,7 @@ class TableListItem extends React.PureComponent<IPropsItem> {
                     {
                         this.props.addItem
                             && <div className='table-list__add-bar-container'>
-                                <Tooltip text='Add item' flow='top' appendToBody={true}>
+                                <Tooltip text='Add item' flow='top'>
                                     <div className='table-list__add-bar'>
                                         <Dropdown
                                             onChange={this.props.onAddItem}

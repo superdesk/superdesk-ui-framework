@@ -1,6 +1,4 @@
 import * as React from 'react';
-// @ts-ignore
-import * as iconFont from '../../app/styles/_icon-font.scss';
 import { Button } from './Button';
 import { Icon } from './Icon';
 import { IItem, SelectGrid } from "./SelectGrid";
@@ -85,7 +83,7 @@ export class IconPicker extends React.PureComponent<IProps, IState> {
 }
 
 const getIcons = (translateFunction: (text: string) => string): Array<IItem> => {
-    const translatedIconNameMap: any = {
+    const translatedIconNameMap = {
         'add-gallery': 'Add Gallery',
         'add-image': 'Add Image',
         'adjust': 'Adjust',
@@ -271,11 +269,8 @@ const getIcons = (translateFunction: (text: string) => string): Array<IItem> => 
         'zoom-out': 'Zoom Out',
     };
 
-    return iconFont.icon
-        .split(', ')
-        .sort()
-        .map((icon: string) => ({
-            value: icon,
-            label: translatedIconNameMap[icon] ? translateFunction(translatedIconNameMap[icon]) : icon,
-        }));
+    return Object.keys(translatedIconNameMap).sort().map((icon) => ({
+        value: icon as keyof typeof translatedIconNameMap,
+        label: translateFunction(translatedIconNameMap[icon as keyof typeof translatedIconNameMap]),
+    }));
 };

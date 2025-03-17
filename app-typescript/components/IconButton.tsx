@@ -28,10 +28,8 @@ export class IconButton extends React.PureComponent<IProps> {
 
         return (
             <Tooltip
-                text={this.props.ariaValue}
+                text={this.props.disabled ? null : this.props.ariaValue}
                 flow={this.props.toolTipFlow}
-                appendToBody={this.props.toolTipAppend}
-                disabled={this.props.disabled}
             >
                 <button
                     id={this.props.id}

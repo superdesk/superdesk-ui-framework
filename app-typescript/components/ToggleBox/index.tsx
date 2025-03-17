@@ -26,6 +26,11 @@ export interface IPropsCustomHeader {
     initiallyOpen?: boolean;
     onToggle?(isOpen: boolean): void;
     toggleBoxRef?: React.RefObject<CustomHeaderToggleBox>;
+
+    /**
+     * by default - children would only get rendered when toggle box is expanded
+     */
+    alwaysRenderChildren?: boolean;
 }
 
 type IProps = IPropsSimple | IPropsCustomHeader;

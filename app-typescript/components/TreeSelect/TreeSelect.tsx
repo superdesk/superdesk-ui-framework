@@ -96,6 +96,13 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     private popperInstance: Instance | null;
     private zIndex: number = getNextZIndex();
 
+    /*
+    * This variable is used to distinguish changes coming from outside (from props.value)
+    * from those made by the user through interaction with the component.
+    * It prevents triggering `onChange` when `props.value` updates externally.
+    */
+    private changesFromOutside: boolean;
+
     constructor(props: IProps<T>) {
         super(props);
         this.state = {
@@ -133,6 +140,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         this.treeSelectRef = React.createRef();
         this.popperInstance = null;
         this.onDragEnd = this.onDragEnd.bind(this);
+        this.changesFromOutside = false;
     }
 
     inputFocus = () => {
@@ -212,8 +220,13 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
         if (!isEqual(prevState.value, this.state.value)) {
-            this.props.onChange(this.state.value);
-        } else if (!isEqual(prevProps.value, this.props.value)) {
+            if (this.changesFromOutside) {
+                this.changesFromOutside = false;
+            } else {
+                this.props.onChange(this.state.value);
+            }
+        } else if (!isEqual(prevProps.value, this.props.value) && !isEqual(this.props.value, this.state.value)) {
+            this.changesFromOutside = true;
             this.setState({
                 value: this.props.value ?? [],
             });

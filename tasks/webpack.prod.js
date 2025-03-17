@@ -5,5 +5,6 @@ module.exports = merge(webpackConfig, {
     externals: [
         'react',
         'react-dom',
+        'angular',
     ],
 });

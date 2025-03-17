@@ -19,7 +19,7 @@ export class EditorButton extends React.PureComponent<IProps> {
             'icn-btn--small': this.props.size === 'small',
         });
         return (
-            <Tooltip text={this.props.ariaValue} flow={this.props.toolTipFlow} appendToBody={this.props.toolTipAppend}>
+            <Tooltip text={this.props.ariaValue} flow={this.props.toolTipFlow}>
                 <button
                     id={this.props.id}
                     tabIndex={0}

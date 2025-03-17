@@ -152,6 +152,10 @@
     overflow: hidden;
     transition: all 0.2s ease;
     outline: 1px solid var(--sd-colour-line--x-light);
+
+    .toggle-box__content--animation {
+        animation: fadeIn 0.3s ease-in 0s 1;
+    }
 }
 .new-collapse-box__header {
     grid-row: 1 / 2;

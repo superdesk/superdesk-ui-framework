@@ -146,7 +146,7 @@ export class RundownEditor extends React.Component<IProps, IState> {
             <Layout.LayoutContainer>
                 <Layout.HeaderPanel>
                     <SubNav>
-                        <Tooltip text={this.state.isExpanded ? "Revert Authoring" : "Expand Authoring"} flow='right' appendToBody={true}>
+                        <Tooltip text={this.state.isExpanded ? "Revert Authoring" : "Expand Authoring"} flow='right'>
                             <button
                                 className={`expand-button ${this.state.isExpanded ? "expand-button--expanded" : ""}`}
                                 onClick={this.toggleExpand}
