@@ -444,15 +444,30 @@ $checkButtonBorderRadius: $border-radius__base--small;
 
 .sd-check-button__group--left, .sd-check-button__group--start {
     margin-inline-end: auto;
+    justify-content: flex-start;
 }
 
 .sd-check-button__group--right, .sd-check-button__group--end {
     margin-inline-start: auto;
+    justify-content: flex-end;
+}
+
+.sd-check-button__group--vertical {
+    flex-direction: column;
+    align-items: flex-start;
+    .sd-check-button.sd-check-button--native {
+        align-self: stretch;
+        .sd-check-button__text-label {
+            text-align: left;
+            justify-content: flex-start;
+        }
+    }
 }
 
 .sd-check-button__group--center {
     margin-inline-start: auto;
     margin-inline-end: auto;
+    justify-content: center;
 }
 
 .sd-check-button__group--inline {

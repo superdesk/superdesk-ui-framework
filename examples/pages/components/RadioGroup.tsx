@@ -13,6 +13,9 @@ interface IState {
     value6?: string;
     value7?: string;
     value8?: string;
+    value9?: string;
+    value10?: string;
+    value11?: string;
 }
 
 export default class RadioGroupDoc extends React.Component<{}, IState> {
@@ -28,6 +31,9 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
             value6: undefined,
             value7: undefined,
             value8: undefined,
+            value9: undefined,
+            value10: undefined,
+            value11: undefined,
         };
     }
     render() {
@@ -158,6 +164,16 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                 {value:'test12', label:'Yeah, me too!', icon:'kanban-view'},
                             ]} value={this.state.value4} onChange={(value) => this.setState(() => ({ value4: value }))} />
                         </div>
+
+                        <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// With icon & vertical</p>
+                        <div className='form__group'style={{width: 240}}>
+                            <RadioButtonGroup group={{orientation: 'vertical'}} options={[
+                                {value:'test10', label:'Radio button with icon', icon:'list-view'},
+                                {value:'test11', label:'I have an icon!', icon:'grid-view'},
+                                {value:'test12', label:'Yeah, me too!', icon:'kanban-view'},
+                            ]} value={this.state.value4} onChange={(value) => this.setState(() => ({ value4: value }))} />
+                        </div>
+
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// With icon only (text label is hidden but still accessible to screenreaders)</p>
                         <div className='form__group'>
                             <RadioButtonGroup options={[
@@ -185,14 +201,21 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                             {value:'test9', label:'Button style disabled', disabled:true},
                         ]} value={this.state.value3} onChange={(value) => this.setState(() => ({ value3: value }))} />
 
-                        // Button styled radio with icon
+                        // With icon
                         <RadioButtonGroup options={[
                             {value:'test10', label:'Radio button with icon', icon:'list-view'},
                             {value:'test11', label:'I have an icon!', icon:'grid-view'},
                             {value:'test12', label:'Yeah, me too!', icon:'kanban-view'},
                         ]} value={this.state.value4} onChange={(value) => this.setState(() => ({ value4: value }))} />
 
-                        // Button style radio with icon only (text label is hidden)
+                        // With icon & vertical
+                        <RadioButtonGroup group={{orientation: 'vertical'}} options={[
+                            {value:'test10', label:'Radio button with icon', icon:'list-view'},
+                            {value:'test11', label:'I have an icon!', icon:'grid-view'},
+                            {value:'test12', label:'Yeah, me too!', icon:'kanban-view'},
+                        ]} value={this.state.value4} onChange={(value) => this.setState(() => ({ value4: value }))} />
+
+                        // With icon only (text label is hidden but still accessible to screenreaders)
                         <RadioButtonGroup options={[
                             {value:'test10', label:'Radio button with icon', icon:'list-view', labelHidden: true},
                             {value:'test11', label:'I have an icon!', icon:'grid-view', labelHidden: true},
@@ -220,7 +243,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Right</p>
                         <div className='form__row form__row--flex docs-page__test-helper-2'>
-                            <RadioButtonGroup group={{align:'end', groupLabel:'My group label'}} value={this.state.value4} options={[
+                            <RadioButtonGroup group={{align:'end'}} value={this.state.value4} options={[
                                 {value:'test304', label:'Option one'},
                                 {value:'test305', label:'Option two'},
                                 {value:'test306', label:'Option three'},

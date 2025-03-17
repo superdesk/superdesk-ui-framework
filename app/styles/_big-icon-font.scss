@@ -120,7 +120,7 @@ $sd-big-icon-font: (
 );
 
 @each $name, $value in $sd-big-icon-font {
-    &.big-icon--#{$name} {
+    .big-icon--#{$name} {
         content: $value;
 
         &.color--default {
