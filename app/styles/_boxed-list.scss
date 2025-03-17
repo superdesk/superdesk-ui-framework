@@ -4,46 +4,60 @@
     display: flex;
     flex-direction: column;
     align-self: stretch;
-    gap: $sd-base-increment * 1;
-    margin-block-end: $sd-base-increment * 2;
+    gap: var(--space--1);
+    margin-block-end: var(--space--2);
 }
 
 .boxed-list--compact {
-    gap: $sd-base-increment * 1;
+    gap: var(--space--1);
 }
 
 .boxed-list--comfortable {
-    gap: $sd-base-increment * 1.5;
+    gap: var(--space--1-5);
 }
 
-$boxed-list-palette: $sd-basic-palette;
-
 .boxed-list__item {
+    --item-bg-color: var(--sd-item__main-Bg);
+    --item-border-color: transparent;
+    --item-radius: var(--b-radius--small);
     display: grid;
     grid-template-rows: [mainRow] 1fr [footerRow] auto;
     grid-template-columns: [mediaCol] auto [contentCol] 1fr [actionsVisible] auto [actionsHidden] auto;
     position: relative;
     flex-direction: row;
-    border-radius: var(--b-radius--small);
-    background-color: var(--sd-item__main-Bg);
-    box-shadow: $shadow__base--z1;
+    border-radius: var(--item-radius);
+    background-color: var(--item-bg-color);
+    box-shadow: var(--sd-shadow--z1);
     transition: all 0.2s ease-in-out;
     flex-shrink: 0;
-
-    @each $name, $color in $boxed-list-palette {
-        &.boxed-list__item--#{$name} {
-            &::before {
-                content: "";
-                width: 4px;
-                height: 100%;
-                position: absolute;
-                inset-block-start: 0px;
-                inset-inline-start: 0px;
-                background-color: $color;
-                z-index: 1;
-                border-radius: 3px 0 0 3px;
-            }
-        }
+    &::before {
+        content: "";
+        width: 4px;
+        height: 100%;
+        position: absolute;
+        inset-block-start: 0px;
+        inset-inline-start: 0px;
+        background-color: var(--item-border-color);
+        z-index: 1;
+        border-radius: var(--item-radius) 0 0 var(--item-radius);
+    }
+    &.boxed-list__item--default {
+        --item-border-color: var(--color-neutral-medium-default);
+    }
+    &.boxed-list__item--primary {
+        --item-border-color: var(--color-primary-highlight);
+    }
+    &.boxed-list__item--success {
+        --item-border-color: var(--color-success-highlight);
+    }
+    &.boxed-list__item--alert {
+        --item-border-color: var(--color-alert-highlight);
+    }
+    &.boxed-list__item--warning {
+        --item-border-color: var(--color-warning-highlight);
+    }
+    &.boxed-list__item--highlight {
+        --item-border-color: var(--color-highlight-highlight);
     }
 
     &.boxed-list__item--selected.boxed-list__item--clickable {
@@ -70,6 +84,28 @@ $boxed-list-palette: $sd-basic-palette;
                     opacity: 1;
                 }
             }
+        }
+    }
+    &.boxed-list__item--colored-bg {
+        &.boxed-list__item--primary {
+            background-color: var(--color-primary-translucent);
+            outline: 1px solid var(--color-primary-translucent);
+        }
+        &.boxed-list__item--success {
+            background-color: var(--color-success-translucent);
+            outline: 1px solid var(--color-success-translucent);
+        }
+        &.boxed-list__item--alert {
+            background-color: var(--color-alert-translucent);
+            outline: 1px solid var(--color-alert-translucent);
+        }
+        &.boxed-list__item--warning {
+            background-color: var(--color-warning-translucent);
+            outline: 1px solid var(--color-warning-translucent);
+        }
+        &.boxed-list__item--highlight {
+            background-color: var(--color-highlight-translucent);
+            outline: 1px solid var(--color-highlight-translucent);
         }
     }
 }

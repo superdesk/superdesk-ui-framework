@@ -1,0 +1,32 @@
+:root {
+    --brand-primary-l-base: 60%;
+    --brand-primary-c-base: 40;
+
+    --brand-secondary-l-base: 60%;
+    --brand-secondary-c-base: 40  ;
+
+    // Brand primary
+    --brand-primary: lch(var(--brand-primary-l-base) var(--brand-primary-c-base) 237);
+    --brand-primary-100: lch(from var(--brand-primary) calc(l + 36) calc(c - 34) h);
+    --brand-primary-200: lch(from var(--brand-primary) calc(l + var(--l-200-add)) calc(c - 32) h);
+    --brand-primary-300: lch(from var(--brand-primary) calc(l + var(--l-300-add)) calc(c - 22) h);
+    --brand-primary-400: lch(from var(--brand-primary) calc(l + var(--l-400-add)) calc(c - 10) h);
+    --brand-primary-600: lch(from var(--brand-primary) calc(l - var(--l-600-remove)) calc(c + 0) h);
+    --brand-primary-700: lch(from var(--brand-primary) calc(l - var(--l-700-remove)) calc(c + 0) h);
+    --brand-primary-800: lch(from var(--brand-primary) calc(l - 28) calc(c + 0) h);
+    --brand-primary-950: lch(from var(--brand-primary) calc(l - 50) calc(c - 10) h);
+    --brand-primary-a32: hsl(from var(--brand-primary) h s l / .32);
+    --brand-primary-a24: hsl(from var(--brand-primary) h s l / .24);
+    --brand-primary-a16: hsl(from var(--brand-primary) h s l / .16);
+    --brand-primary-a12: hsl(from var(--brand-primary) h s l / .12);
+
+    // Brand secondary
+    --brand-secondary: lch(var(--brand-secondary-l-base) var(--brand-secondary-c-base) 166);
+    --brand-secondary-200: lch(from var(--brand-secondary) calc(l + var(--l-200-add)) calc(c - 36) h);
+    --brand-secondary-300: lch(from var(--brand-secondary) calc(l + var(--l-300-add)) calc(c - 20) h);
+    --brand-secondary-400: lch(from var(--brand-secondary) calc(l + var(--l-400-add)) calc(c - 8) h);
+    --brand-secondary-600: lch(from var(--brand-secondary) calc(l - var(--l-600-remove)) calc(c + 0) h);
+    --brand-secondary-700: lch(from var(--brand-secondary) calc(l - var(--l-700-remove)) calc(c + 0) h);
+    --brand-secondary-800: lch(from var(--brand-secondary) calc(l - 28) calc(c + 0) h);
+    --brand-secondary-950: lch(from var(--brand-secondary) calc(l - 40) calc(c + 10) h);
+}

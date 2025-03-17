@@ -30,6 +30,15 @@ export default class BoxedListDoc extends React.Component {
                             <BoxedListItem type='highlight'>Highlight type, cras mattis consectetur purus sit amet fermentum.</BoxedListItem>
                         </BoxedList>
 
+                        <p className="docs-page__paragraph">// with colored background (affects only success, warning, alert and highlight types)</p>
+
+                        <BoxedList>
+                            <BoxedListItem coloredBg type='success'>Succes, donec sed odio dui.</BoxedListItem>
+                            <BoxedListItem coloredBg type='warning'>Warning, maecenas sed diam eget risus varius.</BoxedListItem>
+                            <BoxedListItem coloredBg type='alert'>Alert. Nullam quis risus eget urna mollis ornare vel eu leo.</BoxedListItem>
+                            <BoxedListItem coloredBg type='highlight'>Highlight type, cras mattis consectetur purus sit amet fermentum.</BoxedListItem>
+                        </BoxedList>
+
                         <p className="docs-page__paragraph">// clickable, with media and actions</p>
 
                         <BoxedList>
@@ -200,6 +209,15 @@ export default class BoxedListDoc extends React.Component {
                             <BoxedListItem type='highlight'>Highlight type, cras mattis consectetur purus sit amet fermentum.</BoxedListItem>
                         </BoxedList>
 
+                        // with colored background (affects only success, warning, alert and highlight types)</p>
+
+                        <BoxedList>
+                            <BoxedListItem coloredBg type='success'>Succes, donec sed odio dui.</BoxedListItem>
+                            <BoxedListItem coloredBg type='warning'>Warning, maecenas sed diam eget risus varius.</BoxedListItem>
+                            <BoxedListItem coloredBg type='alert'>Alert. Nullam quis risus eget urna mollis ornare vel eu leo.</BoxedListItem>
+                            <BoxedListItem coloredBg type='highlight'>Highlight type, cras mattis consectetur purus sit amet fermentum.</BoxedListItem>
+                        </BoxedList>
+
                         // clickable, with media and actions
 
                         <BoxedList>
@@ -350,12 +368,19 @@ export default class BoxedListDoc extends React.Component {
                 </PropsList>
                 <p className="docs-page__paragraph">BoxedListItem</p>
                 <PropsList>
+                    <Prop name='density' isRequired={false} type='compact | comfortable | loose' default='comfortable' description='Changes the outside padding of the list item.'/>
+                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight' default='/' description='Adds a clour coded border on the right, based on the selected type.'/>
                     <Prop name='clickable' isRequired={false} type='boolean' default='false' description='Adds hover effect and changes the cursor to poiter.'/>
                     <Prop name='selected' isRequired={false} type='boolean' default='false' description='Changes the state to selected and adds apropriate styling for it.'/>
+                    <Prop name='unread' isRequired={false} type='boolean' default='false' description='Changes the state to unread and adds apropriate styling for it.'/>
+                    <Prop name='alignVertical' isRequired={false} type='start | center' default='/' description='Changes the verticla alignment of the content inside list items.'/>
                     <Prop name='slideInActions' isRequired={false} type='boolean' default='false' description='If set to true, the action buttons will be hidden and slide in from the right on hover.'/>
-                    <Prop name='type' isRequired={false} type='default | primary | success | warning | alert | highlight' default='/' description='Adds a clour coded border on the right, based on the selected type.'/>
+                    <Prop name='coloredBg' isRequired={false} type='boolean' default='false' description='Adds a colored background to the list item (affects only success, warning, alert and highlight types).'/>
+                    <Prop name='onClick' isRequired={false} type='function' default='/' description='Callback fired when pressed (combine with clickable prop).'/>
+                    <Prop name='media' isRequired={false} type='React.ReactNode' default='/' description='Adds a media element (icon, avatar, etc.) to the list item.'/>
+                    <Prop name='footer' isRequired={false} type='React.ReactNode' default='/' description='Adds a footer to the list item.'/>
+                    <Prop name='actions' isRequired={false} type='React.ReactNode' default='/' description='Adds a actions to the list item.'/>
                 </PropsList>
-
             </section>
         )
     }

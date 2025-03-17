@@ -1,30 +1,9 @@
 
-$label-background: var(--sd-colour-bg--08) !default;
-$label-color: var(--color-text--inverse) !default;
-
-/// Alternate text color for labels.
-$label-color-alt: var(--sd-colour-btn-txt-neutral) !default;
-$label-background-translucent: var(--sd-colour-bg-translucent--08);
-
-/// Coloring classes. A map of classes to output in the CSS.
-$label-palette: $sd-extended-palette;
 
 $font-size__label--default: 0.9rem;
 $font-size__label--large: 1.2rem;
 
-/// Removes background fill for hollow buttons.
-@mixin label-hollow-style($color: $label-color-alt) {
-    border: 1px solid $color;
-    background-color: transparent !important;
-    color: $color;
-}
-
-@mixin label-translucent-style($color: $label-color-alt) {
-    background-color: $label-background-translucent;
-    color: $color;
-}
-
-/// Generates base styles for a label.
+/// Base styles for a label.
 @mixin label {
     display: inline-flex;
     align-items: center;
@@ -34,7 +13,7 @@ $font-size__label--large: 1.2rem;
     padding-block-end: 0;
     padding-inline: $padding-x__label--default;
     vertical-align: middle;
-    border-radius: $border-radius__base--full;
+    border-radius: var(--b-radius--full);
     text-transform: uppercase;
     line-height: $height__label--default;
     height: $height__label--default;
@@ -43,6 +22,8 @@ $font-size__label--large: 1.2rem;
     white-space: nowrap;
     border: 1px solid transparent;
     font-weight: 500;
+    color: var(--sd-lbl-fg);
+    background-color: var(--sd-lbl-bg);
 
     &--large {
         padding-block-start: $padding-y__label--large;
@@ -54,62 +35,88 @@ $font-size__label--large: 1.2rem;
     }
 }
 
-@mixin label-base {
-    display: inline-flex;
-    align-items: center;
-    vertical-align: middle;
-    justify-content: center;
-    margin: $label-margin;
-    padding-block-start: 0;
-    padding-block-end: 0;
-    padding-inline: $padding-x__label--default;
-    height: $height__label--default;
-    font-size: $font-size__label--default;
-    border: none;
-    border-radius: $border-radius__base--full;
-    text-transform: uppercase;
-    line-height: $height__label--default;
-    font-weight: 500;
-    letter-spacing: 0.125em;
-    text-align: center;
-    white-space: nowrap;
-    color: var(--color-text--inverse);
-    background-color: var(--sd-lbl-bg);
-
-    [class^="icon-"], [class*=" icon-"] {
-        color: currentColor;
-    }
-  }
 
 .label {
     @include label;
-    background: $label-background;
-    color: $label-color;
-
-    @each $name, $color in $label-palette {
-        &.label--#{$name} {
-            background: $color;
-        }
+    --sd-lbl-bg: var(--buoyant-grey-600);
+    --sd-lbl-fg: var(--color-text-ondark);
+    &.label--success {
+        --sd-lbl-bg: var(--color-success-default);
+    }
+    &.label--warning {
+        --sd-lbl-bg: var(--color-warning-default);
+    }
+    &.label--alert {
+        --sd-lbl-bg: var(--color-alert-default);
+    }
+    &.label--highlight {
+        --sd-lbl-bg: var(--color-highlight-default);
+    }
+    &.label--primary {
+        --sd-lbl-bg: var(--color-primary-default);
+    }
+    &.label--info {
+        --sd-lbl-bg: var(--color-info-default);
     }
 
     &.label--hollow {
-        @include label-hollow-style;
+        --sd-lbl-border: var(--color-text-subdued);
+        border: 1px solid var(--sd-lbl-border);
+        background-color: transparent !important;
+        --sd-lbl-fg: var(--color-text-muted);
 
-        @each $name, $color in $label-palette {
-            &.label--#{$name} {
-                @include label-hollow-style($color);
-            }
+        &.label--success {
+            --sd-lbl-fg: var(--color-success-text);
+            --sd-lbl-border: var(--color-success-default);
+        }
+        &.label--warning {
+            --sd-lbl-fg: var(--color-warning-text);
+            --sd-lbl-border: var(--color-warning-default);
+        }
+        &.label--alert {
+            --sd-lbl-fg: var(--color-alert-text);
+            --sd-lbl-border: var(--color-alert-default);
+        }
+        &.label--highlight {
+            --sd-lbl-fg: var(--color-highlight-text);
+            --sd-lbl-border: var(--color-highlight-default);
+        }
+        &.label--primary {
+            --sd-lbl-fg: var(--color-primary-text);
+            --sd-lbl-border: var(--color-primary-default);
+        }
+        &.label--info {
+            --sd-lbl-fg: var(--color-info-text);
+            --sd-lbl-border: var(--color-info-default);
         }
     }
 
     &.label--translucent {
-        @include label-translucent-style;
-
-        @each $name, $color in $label-palette {
-            &.label--#{$name} {
-                @include label-translucent-style($color);
-                background-color: scale-color($color, $alpha: -80%);
-            }
+        --sd-lbl-bg: var(--buoyant-grey-400-a24);
+        --sd-lbl-fg: var(--color-text-muted);
+        &.label--success {
+            --sd-lbl-fg: var(--color-success-text);
+            --sd-lbl-bg: var(--color-success-translucent);
+        }
+        &.label--warning {
+            --sd-lbl-fg: var(--color-warning-text);
+            --sd-lbl-bg: var(--color-warning-translucent);
+        }
+        &.label--alert {
+            --sd-lbl-fg: var(--color-alert-text);
+            --sd-lbl-bg: var(--color-alert-translucent);
+        }
+        &.label--highlight {
+            --sd-lbl-fg: var(--color-highlight-text);
+            --sd-lbl-bg: var(--color-highlight-translucent);
+        }
+        &.label--primary {
+            --sd-lbl-fg: var(--color-primary-text);
+            --sd-lbl-bg: var(--color-primary-translucent);
+        }
+        &.label--info {
+            --sd-lbl-fg: var(--color-info-text);
+            --sd-lbl-bg: var(--color-info-translucent);
         }
     }
 }
@@ -129,7 +136,7 @@ $font-size__label--large: 1.2rem;
     letter-spacing: 0.04em;
 }
 
-// link label
+// Link label
 a.label {
     position: relative;
     text-decoration: none;
@@ -138,6 +145,9 @@ a.label {
     padding-block-end: 0;
     padding-inline-start: 0.8rem;
     padding-inline-end: 1.8rem;
+    outline-color: transparent;
+    outline-offset: 1px;
+    transition: outline 0.12s ease;
 
     &::before {
         display: inline-block;
@@ -157,7 +167,8 @@ a.label {
     }
 
     &:hover, &:focus {
-        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+        outline-offset: 1px;
+        outline: 1px solid var(--color-primary-default);
     }
 }
 

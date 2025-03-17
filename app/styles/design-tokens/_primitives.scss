@@ -1,0 +1,161 @@
+:root {
+    // PRIMITIVES / COLORS
+    // These colors should not to be applied directly to elements and components
+    --l-base: 35%;
+    --l-100-add: 55;
+    --l-200-add: 34;
+    --l-300-add: 20;
+    --l-400-add: 8;
+    --l-600-remove: 10;
+    --l-700-remove: 20;
+    --l-800-remove: 35;
+
+    --c-base: 75;
+    --c-100-remove: 60;
+    --c-200-remove: 45;
+    --c-300-remove: 30;
+    --c-400-remove: 10;
+    --c-600-add: 0;
+    --c-700-add: 0;
+    --c-800-add: 0;
+
+    // Morocco Red
+    --morocco-red-500: lch(var(--l-base) var(--c-base) 28);
+    --morocco-red-100: lch(from var(--morocco-red-500) calc(l + var(--l-100-add)) calc(c - var(--c-100-remove)) h);
+    --morocco-red-200: lch(from var(--morocco-red-500) calc(l + var(--l-200-add)) calc(c - var(--c-200-remove)) h);
+    --morocco-red-300: lch(from var(--morocco-red-500) calc(l + var(--l-300-add)) calc(c - var(--c-300-remove)) h);
+    --morocco-red-400: lch(from var(--morocco-red-500) calc(l + var(--l-400-add)) calc(c - var(--c-400-remove)) h);
+    --morocco-red-600: lch(from var(--morocco-red-500) calc(l - var(--l-600-remove)) calc(c + var(--c-600-add)) h);
+    --morocco-red-700: lch(from var(--morocco-red-500) calc(l - var(--l-700-remove)) calc(c + var(--c-700-add)) h);
+    --morocco-red-800: lch(from var(--morocco-red-500) calc(l - var(--l-800-remove)) calc(c + var(--c-800-add)) h);
+    --morocco-red-500-a32: lch(from var(--morocco-red-500) l c h / .32);
+    --morocco-red-500-a24: lch(from var(--morocco-red-500) l c h / .24);
+    --morocco-red-500-a16: lch(from var(--morocco-red-500) l c h / .16);
+    --morocco-red-500-a12: lch(from var(--morocco-red-500) l c h / .12);
+    // Syrah Soil
+    --syrah-soil-500: lch(var(--l-base) var(--c-base) 74);
+    --syrah-soil-100: lch(from var(--syrah-soil-500) calc(l + var(--l-100-add)) calc(c - var(--c-100-remove)) h);
+    --syrah-soil-200: lch(from var(--syrah-soil-500) calc(l + var(--l-200-add)) calc(c - var(--c-200-remove)) h);
+    --syrah-soil-300: lch(from var(--syrah-soil-500) calc(l + var(--l-300-add)) calc(c - var(--c-300-remove)) h);
+    --syrah-soil-400: lch(from var(--syrah-soil-500) calc(l + var(--l-400-add)) calc(c - var(--c-400-remove)) h);
+    --syrah-soil-600: lch(from var(--syrah-soil-500) calc(l - var(--l-600-remove)) calc(c + var(--c-600-add)) h);
+    --syrah-soil-700: lch(from var(--syrah-soil-500) calc(l - var(--l-700-remove)) calc(c + var(--c-700-add)) h);
+    --syrah-soil-800: lch(from var(--syrah-soil-500) calc(l - var(--l-800-remove)) calc(c + var(--c-800-add)) h);
+    --syrah-soil-500-a32: hsl(from var(--syrah-soil-500) h s l / .32);
+    --syrah-soil-500-a24: hsl(from var(--syrah-soil-500) h s l / .24);
+    --syrah-soil-500-a16: hsl(from var(--syrah-soil-500) h s l / .16);
+    --syrah-soil-500-a12: hsl(from var(--syrah-soil-500) h s l / .12);
+    // Green Brier
+    --green-brier-500: lch(var(--l-base) var(--c-base) 126);
+    --green-brier-100: lch(from var(--green-brier-500) calc(l + var(--l-100-add)) calc(c - var(--c-100-remove)) h);
+    --green-brier-200: lch(from var(--green-brier-500) calc(l + var(--l-200-add)) calc(c - var(--c-200-remove)) h);
+    --green-brier-300: lch(from var(--green-brier-500) calc(l + var(--l-300-add)) calc(c - var(--c-300-remove)) h);
+    --green-brier-400: lch(from var(--green-brier-500) calc(l + var(--l-400-add)) calc(c - var(--c-400-remove)) h);
+    --green-brier-600: lch(from var(--green-brier-500) calc(l - var(--l-600-remove)) calc(c + var(--c-600-add)) h);
+    --green-brier-700: lch(from var(--green-brier-500) calc(l - var(--l-700-remove)) calc(c + var(--c-700-add)) h);
+    --green-brier-800: lch(from var(--green-brier-500) calc(l - var(--l-800-remove)) calc(c + var(--c-800-add)) h);
+    --green-brier-400-a32: hsl(from var(--green-brier-400) h s l / .32);
+    --green-brier-400-a24: hsl(from var(--green-brier-400) h s l / .24);
+    --green-brier-400-a16: hsl(from var(--green-brier-400) h s l / .16);
+    --green-brier-400-a12: hsl(from var(--green-brier-400) h s l / .12);
+    --green-brier-500-a32: hsl(from var(--green-brier-500) h s l / .32);
+    --green-brier-500-a24: hsl(from var(--green-brier-500) h s l / .24);
+    --green-brier-500-a16: hsl(from var(--green-brier-500) h s l / .16);
+    --green-brier-500-a12: hsl(from var(--green-brier-500) h s l / .12);
+    // Sorcerer Blue
+    --sorcerer-blue-500: lch(var(--l-base) var(--c-base) 202);
+    --sorcerer-blue-100: lch(from var(--sorcerer-blue-500) calc(l + var(--l-100-add)) calc(c - var(--c-100-remove)) h);
+    --sorcerer-blue-200: lch(from var(--sorcerer-blue-500) calc(l + var(--l-200-add)) calc(c - var(--c-200-remove)) h);
+    --sorcerer-blue-300: lch(from var(--sorcerer-blue-500) calc(l + var(--l-300-add)) calc(c - var(--c-300-remove)) h);
+    --sorcerer-blue-400: lch(from var(--sorcerer-blue-500) calc(l + var(--l-400-add)) calc(c - var(--c-400-remove)) h);
+    --sorcerer-blue-600: lch(from var(--sorcerer-blue-500) calc(l - var(--l-600-remove)) calc(c + var(--c-600-add)) h);
+    --sorcerer-blue-700: lch(from var(--sorcerer-blue-500) calc(l - var(--l-700-remove)) calc(c + var(--c-700-add)) h);
+    --sorcerer-blue-800: lch(from var(--sorcerer-blue-500) calc(l - var(--l-800-remove)) calc(c + var(--c-800-add)) h);
+    --sorcerer-blue-500-a32: hsl(from var(--sorcerer-blue-500) h s l / .32);
+    --sorcerer-blue-500-a24: hsl(from var(--sorcerer-blue-500) h s l / .24);
+    --sorcerer-blue-500-a16: hsl(from var(--sorcerer-blue-500) h s l / .16);
+    --sorcerer-blue-500-a12: hsl(from var(--sorcerer-blue-500) h s l / .12);
+    // Palatinate Blue
+    --palatinate-blue-500: lch(var(--l-base) var(--c-base) 280);
+    --palatinate-blue-100: lch(from var(--palatinate-blue-500) calc(l + var(--l-100-add)) calc(c - var(--c-100-remove)) h);
+    --palatinate-blue-200: lch(from var(--palatinate-blue-500) calc(l + var(--l-200-add)) calc(c - var(--c-200-remove)) h);
+    --palatinate-blue-300: lch(from var(--palatinate-blue-500) calc(l + var(--l-300-add)) calc(c - var(--c-300-remove)) h);
+    --palatinate-blue-400: lch(from var(--palatinate-blue-500) calc(l + var(--l-400-add)) calc(c - var(--c-400-remove)) h);
+    --palatinate-blue-600: lch(from var(--palatinate-blue-500) calc(l - var(--l-600-remove)) calc(c + var(--c-600-add)) h);
+    --palatinate-blue-700: lch(from var(--palatinate-blue-500) calc(l - var(--l-700-remove)) calc(c + var(--c-700-add)) h);
+    --palatinate-blue-800: lch(from var(--palatinate-blue-500) calc(l - var(--l-800-remove)) calc(c + var(--c-800-add)) h);
+    --palatinate-blue-500-a32: hsl(from var(--palatinate-blue-500) h s l / .32);
+    --palatinate-blue-500-a24: hsl(from var(--palatinate-blue-500) h s l / .24);
+    --palatinate-blue-500-a16: hsl(from var(--palatinate-blue-500) h s l / .16);
+    --palatinate-blue-500-a12: hsl(from var(--palatinate-blue-500) h s l / .12);
+    // Purple Spot
+    --purple-spot-500: lch(var(--l-base) var(--c-base) 307);
+    --purple-spot-100: lch(from var(--purple-spot-500) calc(l + var(--l-100-add)) calc(c - var(--c-100-remove)) h);
+    --purple-spot-200: lch(from var(--purple-spot-500) calc(l + var(--l-200-add)) calc(c - var(--c-200-remove)) h);
+    --purple-spot-300: lch(from var(--purple-spot-500) calc(l + var(--l-300-add)) calc(c - var(--c-300-remove)) h);
+    --purple-spot-400: lch(from var(--purple-spot-500) calc(l + var(--l-400-add)) calc(c - var(--c-400-remove)) h);
+    --purple-spot-600: lch(from var(--purple-spot-500) calc(l - var(--l-600-remove)) calc(c + var(--c-600-add)) h);
+    --purple-spot-700: lch(from var(--purple-spot-500) calc(l - var(--l-700-remove)) calc(c + var(--c-700-add)) h);
+    --purple-spot-800: lch(from var(--purple-spot-500) calc(l - var(--l-800-remove)) calc(c + var(--c-800-add)) h);
+    --purple-spot-500-a32: hsl(from var(--purple-spot-500) h s l / .32);
+    --purple-spot-500-a24: hsl(from var(--purple-spot-500) h s l / .24);
+    --purple-spot-500-a16: hsl(from var(--purple-spot-500) h s l / .16);
+    --purple-spot-500-a12: hsl(from var(--purple-spot-500) h s l / .12);
+    // Blissful Berry
+    --blissful-berry-500: lch(var(--l-base) var(--c-base) 338);
+    --blissful-berry-100: lch(from var(--blissful-berry-500) calc(l + var(--l-100-add)) calc(c - var(--c-100-remove)) h);
+    --blissful-berry-200: lch(from var(--blissful-berry-500) calc(l + var(--l-200-add)) calc(c - var(--c-200-remove)) h);
+    --blissful-berry-300: lch(from var(--blissful-berry-500) calc(l + var(--l-300-add)) calc(c - var(--c-300-remove)) h);
+    --blissful-berry-400: lch(from var(--blissful-berry-500) calc(l + var(--l-400-add)) calc(c - var(--c-400-remove)) h);
+    --blissful-berry-600: lch(from var(--blissful-berry-500) calc(l - var(--l-600-remove)) calc(c + var(--c-600-add)) h);
+    --blissful-berry-700: lch(from var(--blissful-berry-500) calc(l - var(--l-700-remove)) calc(c + var(--c-700-add)) h);
+    --blissful-berry-800: lch(from var(--blissful-berry-500) calc(l - var(--l-800-remove)) calc(c + var(--c-800-add)) h);
+    --blissful-berry-500-a32: hsl(from var(--blissful-berry-500) h s l / .32);
+    --blissful-berry-500-a24: hsl(from var(--blissful-berry-500) h s l / .24);
+    --blissful-berry-500-a16: hsl(from var(--blissful-berry-500) h s l / .16);
+    --blissful-berry-500-a12: hsl(from var(--blissful-berry-500) h s l / .12);
+    // NEUTRAL
+    // Buoyant Grey
+    --buoyant-grey-500: lch(46% 11 260);
+    --buoyant-grey-000: lch(from var(--buoyant-grey-500) calc(l + 54) calc(c - 12) h);
+    --buoyant-grey-050: lch(from var(--buoyant-grey-500) calc(l + 50.8) calc(c - 9) h);
+    --buoyant-grey-100: lch(from var(--buoyant-grey-500) calc(l + 48.2) calc(c - 9) h);
+    --buoyant-grey-125: lch(from var(--buoyant-grey-500) calc(l + 45.5) calc(c - 8) h);
+    --buoyant-grey-150: lch(from var(--buoyant-grey-500) calc(l + 39) calc(c - 6) h);
+    --buoyant-grey-200: lch(from var(--buoyant-grey-500) calc(l + 30) calc(c - 4) h);
+    --buoyant-grey-300: lch(from var(--buoyant-grey-500) calc(l + 20) calc(c - 2) h);
+    --buoyant-grey-400: lch(from var(--buoyant-grey-500) calc(l + 10) calc(c - 0) h);
+    --buoyant-grey-600: lch(from var(--buoyant-grey-500) calc(l - 8) calc(c + 0) h);
+    --buoyant-grey-700: lch(from var(--buoyant-grey-500) calc(l - 16) calc(c + 0) h);
+    --buoyant-grey-800: lch(from var(--buoyant-grey-500) calc(l - 22) calc(c + 0) h);
+    --buoyant-grey-825: lch(from var(--buoyant-grey-500) calc(l - 26) calc(c + 0) h);
+    --buoyant-grey-850: lch(from var(--buoyant-grey-500) calc(l - 31) calc(c + 1) h);
+    --buoyant-grey-900: lch(from var(--buoyant-grey-500) calc(l - 36) calc(c + 2) h);
+    --buoyant-grey-950: lch(from var(--buoyant-grey-500) calc(l - 42) calc(c + 2) h);
+    --buoyant-grey-999: lch(from var(--buoyant-grey-500) calc(l - 46) calc(c - 11) h);
+    --buoyant-grey-200-a40: hsl(from var(--buoyant-grey-200) h s l / .40);
+    --buoyant-grey-200-a32: hsl(from var(--buoyant-grey-200) h s l / .32);
+    --buoyant-grey-200-a24: hsl(from var(--buoyant-grey-200) h s l / .24);
+    --buoyant-grey-200-a16: hsl(from var(--buoyant-grey-200) h s l / .16);
+    --buoyant-grey-200-a12: hsl(from var(--buoyant-grey-200) h s l / .12);
+    --buoyant-grey-300-a40: hsl(from var(--buoyant-grey-300) h s l / .40);
+    --buoyant-grey-300-a32: hsl(from var(--buoyant-grey-300) h s l / .32);
+    --buoyant-grey-300-a24: hsl(from var(--buoyant-grey-300) h s l / .24);
+    --buoyant-grey-300-a16: hsl(from var(--buoyant-grey-300) h s l / .16);
+    --buoyant-grey-300-a12: hsl(from var(--buoyant-grey-300) h s l / .12);
+    --buoyant-grey-400-a40: hsl(from var(--buoyant-grey-400) h s l / .40);
+    --buoyant-grey-400-a32: hsl(from var(--buoyant-grey-400) h s l / .32);
+    --buoyant-grey-400-a24: hsl(from var(--buoyant-grey-400) h s l / .24);
+    --buoyant-grey-400-a16: hsl(from var(--buoyant-grey-400) h s l / .16);
+    --buoyant-grey-400-a12: hsl(from var(--buoyant-grey-400) h s l / .12);
+    --buoyant-grey-500-a40: hsl(from var(--buoyant-grey-500) h s l / .40);
+    --buoyant-grey-500-a32: hsl(from var(--buoyant-grey-500) h s l / .32);
+    --buoyant-grey-500-a24: hsl(from var(--buoyant-grey-500) h s l / .24);
+    --buoyant-grey-500-a16: hsl(from var(--buoyant-grey-500) h s l / .16);
+    --buoyant-grey-500-a12: hsl(from var(--buoyant-grey-500) h s l / .12);
+    --buoyant-grey-600-a40: hsl(from var(--buoyant-grey-600) h s l / .40);
+    --buoyant-grey-600-a32: hsl(from var(--buoyant-grey-600) h s l / .32);
+    --buoyant-grey-600-a24: hsl(from var(--buoyant-grey-600) h s l / .24);
+    --buoyant-grey-600-a16: hsl(from var(--buoyant-grey-600) h s l / .16);
+    --buoyant-grey-600-a12: hsl(from var(--buoyant-grey-600) h s l / .12);
+}

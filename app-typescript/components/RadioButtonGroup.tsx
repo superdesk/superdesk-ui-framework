@@ -44,7 +44,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
         let classes = classNames('sd-check-button__group', {
             [`sd-check-button__group--${this.props.group?.align}`]: this.props.group?.align,
             [`sd-check-button__group--start`]: !this.props.group?.grid && this.props.group?.align === undefined,
-            [`button-group--vertical`]: this.props.group?.orientation === 'vertical',
+            [`sd-check-button__group--vertical`]: this.props.group?.orientation === 'vertical',
             [`sd-check-button__group--grid`]: this.props.group?.grid,
             [`sd-check-button__group--padded`]: this.props.group?.padded === true,
         });

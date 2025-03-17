@@ -4,6 +4,7 @@ import { Checkbox, RadioGroup, CheckboxButton, RadioButtonGroup, Button, Dropdow
 import { IAvatarInGroup } from '../../../../app-typescript/components/avatar/avatar-group';
 import * as Form from '../../../../app-typescript/components/Form';
 import { FormLabel } from '../../../../app-typescript/components/Form/FormLabel';
+import { CalendarWeekDayItem } from '../../../../app-typescript/components//Lists/CalendarWeekDayItem';
 
 interface IProps {
     children?: React.ReactNode;
@@ -192,6 +193,122 @@ export class TestGround extends React.Component<IProps, IState> {
                         <ButtonGroup align='end'>
                             <IconButton icon="adjust" ariaValue="Toggle theme" onClick={this.toggleTheme} toolTipFlow='left' />
                         </ButtonGroup>
+
+                        <div className='calendar-user-week-row mb-2 p-2'>
+                            <div className='calendar-week-day__container'>
+                                <CalendarWeekDayItem coloredBg={true}>
+                                    <Avatar
+                                        size="medium"
+                                        imageUrl={null}
+                                        initials="112"
+                                        displayName="Ido Borneman"
+                                    />
+                                    <Text size='medium' className='mt-1 mb-0-5 line-height-sm'>Ido Borneman</Text>
+                                    <Text size='small' color='light'>@COR110</Text>
+                                </CalendarWeekDayItem>
+                            </div>
+                            <div className='calendar-week-day__container'>
+                                <CalendarWeekDayItem state='success' coloredBg={true} disabled={true}>
+                                    <Text size='small'>All day</Text>
+                                    <div className='d-flex flex-wrap gap-0-5 mt-1'>
+                                        <Label text='Antwerpen' type='success' style='translucent'/>
+                                        <Label text='Mechelan' type='success' style='translucent'/>
+                                        <Label text='Turnhout' type='success' style='translucent'/>
+                                    </div>
+                                </CalendarWeekDayItem>
+                            </div>
+                            <div className='calendar-week-day__container d-flex flex-col gap-0-5'>
+                                <CalendarWeekDayItem state='alert' coloredBg={true}>
+                                    <Text size='small'>Not available</Text>
+                                </CalendarWeekDayItem>
+                            </div>
+                            <div className='calendar-week-day__container'>
+                                <CalendarWeekDayItem state='warning' coloredBg={true} hidden={true}>
+                                    <Text size='small'>20:00-23:30</Text>
+                                    <div className='d-flex flex-wrap gap-0-5 mt-1'>
+                                        <Label text='Antwerpen' type='warning' style='translucent'/>
+                                        <Label text='Mechelan' type='warning' style='translucent'/>
+                                        <Label text='Turnhout' type='warning' style='translucent'/>
+                                    </div>
+                                </CalendarWeekDayItem>
+                                <CalendarWeekDayItem state='warning' coloredBg={true}>
+                                    <Text size='small'>20:00-23:30</Text>
+                                    <div className='d-flex flex-wrap gap-0-5 mt-1'>
+                                        <Label text='Antwerpen' type='warning' style='translucent'/>
+                                        <Label text='Mechelan' type='warning' style='translucent'/>
+                                        <Label text='Turnhout' type='warning' style='translucent'/>
+                                    </div>
+                                </CalendarWeekDayItem>
+                            </div>
+                            <div className='calendar-week-day__container'>
+                                <CalendarWeekDayItem state='success' coloredBg={true}>
+                                    <Text size='small'>All day</Text>
+                                    <div className='d-flex flex-wrap gap-0-5 mt-1'>
+                                        <Label text='Antwerpen' type='success' style='translucent'/>
+                                        <Label text='Mechelan' type='success' style='translucent'/>
+                                        <Label text='Turnhout' type='success' style='translucent'/>
+                                    </div>
+                                </CalendarWeekDayItem>
+                            </div>
+                            <div className='calendar-week-day__container d-flex flex-col gap-0-5'>
+                                <CalendarWeekDayItem state='success' coloredBg={true}>
+                                    <Text size='small'>All day</Text>
+                                    <div className='d-flex flex-wrap gap-0-5 mt-1'>
+                                        <Label text='Antwerpen' type='success' style='translucent'/>
+                                        <Label text='Mechelan' type='success' style='translucent'/>
+                                        <Label text='Turnhout' type='success' style='translucent'/>
+                                    </div>
+                                </CalendarWeekDayItem>
+                            </div>
+                            <div className='calendar-week-day__container'>
+                                <CalendarWeekDayItem state='alert' coloredBg={true}>
+                                    <Text size='small'>Not available</Text>
+                                </CalendarWeekDayItem>
+                            </div>
+                            <div className='calendar-week-day__container'>
+                                <CalendarWeekDayItem state='alert' coloredBg={true}>
+                                    <Text size='small'>Not available</Text>
+                                </CalendarWeekDayItem>
+                            </div>
+                        </div>
+
+                        <BoxedList>
+                            <BoxedListItem type='success' density="compact" coloredBg>
+                                <div className='d-flex items-center gap-1'>
+                                <Avatar
+                                        size="small"
+                                        imageUrl={null}
+                                        initials="JL"
+                                        displayName="Jeffrey Lebowski"
+                                    />
+                                    <div>12</div>
+                                </div>
+                            </BoxedListItem>
+                            <BoxedListItem type='warning' density="compact" coloredBg>
+                                <div className='d-flex items-center gap-1'>
+                                <Avatar
+                                        size="small"
+                                        imageUrl={null}
+                                        initials="JL"
+                                        displayName="Jeffrey Lebowski"
+                                    />
+                                    <div>11</div>
+                                </div>
+                            </BoxedListItem>
+                            <BoxedListItem type='alert' density="compact" coloredBg>
+                                <div className='d-flex items-center gap-1'>
+                                <Avatar
+                                        size="small"
+                                        imageUrl={null}
+                                        initials="JL"
+                                        displayName="Jeffrey Lebowski"
+                                    />
+                                    <div>11</div>
+                                </div>
+                            </BoxedListItem>
+                        </BoxedList>
+
+
 
                         <div style={{maxWidth: '600px'}} className={`sd-shadow--z1 new-collapse-box ${this.state.openCollapsibleFour ? 'new-collapse-box--open' : ''}`}>
                             {/* Header */}
