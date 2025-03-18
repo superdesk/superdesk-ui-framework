@@ -80,6 +80,10 @@
 		}
 	}
 
+	.sd-flex-no-grow.sd-flex-no-grow {
+		flex-basis: auto;
+	}
+
 	.form__row-item--no-grow {
 		flex-basis: auto;
 		flex-grow: 0;
