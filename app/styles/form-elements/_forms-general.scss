@@ -63,7 +63,6 @@
 
 	// For more complex inline form combinations an additional element that goes inside .form__row--flex container is provided.
 	.form__row-item {
-		flex-basis: 0;
 		flex-grow: 1;
 		margin: 0 0.6rem;
 
@@ -78,6 +77,10 @@
 		&:only-child {
 			margin: 0;
 		}
+	}
+
+	.form__row-item:not(.sd-flex-no-grow) {
+		flex-basis: 0;
 	}
 
 	.form__row-item--no-grow {
