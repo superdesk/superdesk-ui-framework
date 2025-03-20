@@ -199,6 +199,22 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             if (this.openDropdownRef.current && this.dropdownRef.current) {
                 this.popperInstance = createPopper(this.openDropdownRef.current, this.dropdownRef.current, {
                     placement: 'bottom-start',
+                    modifiers: [
+                        {
+                            name: 'flip',
+                            enabled: true,
+                        },
+                    ],
+                    onFirstUpdate: (state) => {
+                        this.popperInstance?.setOptions({
+                            placement: state.placement,
+                            modifiers: this.popperInstance.state.options.modifiers.map((modifier) => (
+                                modifier.name === 'flip'
+                                    ? {...modifier, enabled: false}
+                                    : modifier
+                            )),
+                        });
+                    },
                 });
             }
 
