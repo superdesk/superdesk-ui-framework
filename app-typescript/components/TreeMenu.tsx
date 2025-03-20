@@ -208,12 +208,11 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                     onFirstUpdate: (state) => {
                         this.popperInstance?.setOptions({
                             placement: state.placement,
-                            modifiers: [
-                                {
-                                    name: 'flip',
-                                    enabled: false,
-                                },
-                            ],
+                            modifiers: this.popperInstance.state.options.modifiers.map(modifier =>
+                                modifier.name === 'flip'
+                                    ? {...modifier, enabled: false}
+                                    : modifier
+                            ),
                         });
                     },
                 });
