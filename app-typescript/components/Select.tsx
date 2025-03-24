@@ -6,6 +6,7 @@ import {IInputWrapper} from './Form/InputWrapper';
 interface ISelect extends IInputWrapper {
     value?: string;
     onChange(newValue: string): void;
+    'data-test-id'?: string;
 }
 
 class Select extends React.Component<ISelect> {
@@ -53,6 +54,7 @@ class Select extends React.Component<ISelect> {
                         tabIndex={this.props.tabindex}
                         onChange={this.handleChange}
                         disabled={this.props.disabled || this.props.readonly}
+                        data-test-id={this.props['data-test-id']}
                     >
                         {this.props.children}
                     </select>
