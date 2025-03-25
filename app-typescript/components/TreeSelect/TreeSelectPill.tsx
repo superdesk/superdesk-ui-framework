@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import * as React from "react";
 import {DragHandle} from '../DragHandle';
 import {Icon} from "../Icon";
-import {getTextColor} from '../Label';
+import {getTextColor} from '../../helpers';
 
 interface IProps<T> {
     item: T;

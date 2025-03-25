@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import * as React from 'react';
-import {getTextColor} from './Label';
+import {getTextColor} from '../helpers';
 
 interface IProps<T> {
     items: Array<T>;

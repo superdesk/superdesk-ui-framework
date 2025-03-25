@@ -6,7 +6,7 @@ import _debounce from 'lodash/debounce';
 import { InputWrapper } from "../Form";
 import { createPopper, Instance } from '@popperjs/core';
 import {isEqual} from 'lodash';
-import {getTextColor} from '../Label';
+import {getTextColor} from '../../helpers';
 import {IInputWrapper} from '../Form/InputWrapper';
 import {SelectPreview} from '../SelectPreview';
 import {TreeSelectPill} from './TreeSelectPill';

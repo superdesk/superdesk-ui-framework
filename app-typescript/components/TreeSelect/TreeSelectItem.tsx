@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Icon } from "../Icon";
-import {getTextColor} from '../Label';
+import {getTextColor} from '../../helpers';
 import {ITreeNode} from './TreeSelect';
 
 export function getPrefixedItemId(id: string) {

@@ -107,6 +107,7 @@ export { ResizeObserverComponent } from './components/ResizeObserverComponent';
 export { DragHandleDots } from './components/DragHandleDots';
 export { DragHandle } from './components/DragHandle';
 export { CalendarWeekDayItem } from './components/Lists/CalendarWeekDayItem';
+export { getTextColor } from './helpers';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;
