@@ -15,14 +15,7 @@ import {keyboardNavigation} from './KeyboardNavigation';
 import {WithPortal} from '../WithPortal';
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 import {getNextZIndex} from '../../zIndex';
-
-const reorder = (list: Array<any>, startIndex: number, endIndex: number) => {
-    const result = Array.from(list);
-    const [removed] = result.splice(startIndex, 1);
-    result.splice(endIndex, 0, removed);
-
-    return result;
-};
+import {arrayMove} from '@superdesk/common';
 
 interface IState<T> {
     value: Array<T>;
@@ -282,14 +275,9 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
     }
 
     removeClick(i: number) {
-        let newTags = this.state.value;
-        newTags?.splice(i, 1);
-
         this.setState({
-            value: newTags,
+            value: this.state.value.filter((_item, index) => index !== i),
         });
-
-        this.props.onChange(this.state.value);
     }
 
     handleMultiLevel(item: ITreeNode<T>) {
@@ -639,13 +627,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             return;
         }
 
-        const value = reorder(
-            this.state.value,
-            result.source.index,
-            result.destination.index,
-        );
         this.setState({
-            value: value,
+            value: arrayMove(this.state.value, result.source.index, result.destination.index),
         });
     }
 
