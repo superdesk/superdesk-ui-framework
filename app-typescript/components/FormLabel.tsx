@@ -4,6 +4,7 @@ import classNames from 'classnames';
 interface IProps {
     text: string;
     style?: 'normal' | 'light'; // defaults to normal
+    noMinHeight?: boolean;
 }
 
 export class FormLabel extends React.PureComponent<IProps> {
@@ -14,7 +15,12 @@ export class FormLabel extends React.PureComponent<IProps> {
         });
 
         return (
-            <label className={classes}>{this.props.text}</label>
+            <label
+                className={classes}
+                style={this.props.noMinHeight === true ? {minHeight: 'auto'} : undefined}
+            >
+                {this.props.text}
+            </label>
         );
     }
 }
