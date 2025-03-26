@@ -4,7 +4,9 @@ import nextId from "react-id-generator";
 import {FormLabel} from './Form/FormLabel';
 
 interface IProps {
-    value?: string;
+    value: string;
+    onChange(nextValue: string): void;
+    disabled?: boolean;
     group?: {
         orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
         grid?: boolean;
@@ -22,7 +24,6 @@ interface IProps {
     }>;
     required?: boolean;
     tabindex?: number;
-    onChange(nextValue: string): void;
     'data-test-id'?: string;
 }
 
@@ -35,7 +36,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
     }
 
     handleChange(item: any) {
-        if (!item.disabled) {
+        if (this.props.disabled !== true && item.disabled !== true) {
             this.props.onChange(item.value);
         }
     }
@@ -73,7 +74,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
                                     tabIndex={this.props.tabindex}
                                     name={this.htmlId}
                                     onChange={() => this.handleChange(item)}
-                                    disabled={item.disabled}
+                                    disabled={this.props.disabled || item.disabled}
                                     required={this.props.required}
                                     checked={item.value === this.props.value} />
                                 <label
@@ -110,7 +111,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
                                         tabIndex={0}
                                         name={this.htmlId}
                                         onChange={() => this.handleChange(item)}
-                                        disabled={item.disabled}
+                                        disabled={this.props.disabled || item.disabled}
                                         required={this.props.required}
                                         checked={item.value === this.props.value} />
                                     <label className="sd-check-button__text-label" htmlFor={this.htmlId + index}
