@@ -22,6 +22,7 @@ interface IPropsButton {
     icon?: string;
     disabled?: boolean;
     iconOnly?: boolean;
+    noMargin?: boolean;
     'data-test-id'?: string;
 }
 
@@ -51,6 +52,7 @@ export class Button extends React.PureComponent<IPropsButton> {
                 aria-label={this.props.iconOnly ? this.props.text : ''}
                 data-test-id={this.props['data-test-id']}
                 title={this.props.tooltip}
+                style={this.props.noMargin ? {margin: 0} : undefined}
             >
                 {this.props.isLoading ? <Spinner size="mini" /> : null}
                 {this.props.icon && !this.props.isLoading ? <Icon ariaHidden name={this.props.icon} /> : null}
