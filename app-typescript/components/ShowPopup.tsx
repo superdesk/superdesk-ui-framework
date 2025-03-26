@@ -138,7 +138,7 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
                                 {this.props.children}
                             </div>
                         ),
-                        document.body
+                        document.body,
                     )
             }
             </>

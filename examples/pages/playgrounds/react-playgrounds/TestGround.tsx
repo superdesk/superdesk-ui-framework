@@ -2031,7 +2031,7 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <div className="sd-check__group-new sd-check-button__group--left">
                             <RadioButtonGroup
-                                value={this.state.value3}
+                                value={this.state.value3 ?? ''}
                                 options={[
                                     {label: "RadioButton with an icon", value: "somevalue4", icon: "th-list"},
                                     {label: "RadioButton with no visible text, only an icon", value: "somevalue5", icon: "th", labelHidden: true},

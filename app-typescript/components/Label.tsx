@@ -79,4 +79,3 @@ export class Label extends React.PureComponent<IProps> {
         }
     }
 }
-
