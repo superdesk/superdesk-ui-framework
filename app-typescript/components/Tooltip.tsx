@@ -5,6 +5,7 @@ import {assertNever} from '../helpers';
 interface IProps {
     text: string | undefined | null;
     flow?: 'top' | 'left' | 'right' | 'down'; // defaults to 'top'
+    children(options: {attributes: {[name: string]: string}}): React.ReactNode;
 }
 
 function flowToPlacement(flow: IProps['flow']): Placement | undefined {
@@ -24,14 +25,18 @@ function flowToPlacement(flow: IProps['flow']): Placement | undefined {
     }
 }
 
-export class Tooltip extends React.PureComponent<IProps> {
+const tooltipAttributeName = 'data-with-tooltip';
+const getTooltipSelector = (value: string) => `[${tooltipAttributeName}=${value}]`;
+
+export class WithTooltip extends React.PureComponent<IProps> {
     private id: string;
     private instance: Instance | null;
 
     constructor(props: IProps) {
         super(props);
 
-        this.id = 'tooltip-' + Math.random().toString().slice(2);
+        // prepend a letter so ID doesn't start with a number
+        this.id = 'a' + Math.random().toString().slice(2);
         this.instance = null;
     }
 
@@ -40,7 +45,7 @@ export class Tooltip extends React.PureComponent<IProps> {
         const content = this.props.text;
 
         if (this.instance == null) {
-            this.instance = tippy('#' + this.id, {
+            this.instance = tippy(getTooltipSelector(this.id), {
                 placement: placement,
             })[0];
 
@@ -83,10 +88,20 @@ export class Tooltip extends React.PureComponent<IProps> {
     }
 
     render() {
+        return this.props.children({attributes: {[tooltipAttributeName]: this.id}});
+    }
+}
+
+export class Tooltip extends React.PureComponent<Omit<IProps, 'children'>> {
+    render() {
         return (
-            <div id={this.id} style={{display: 'inline-flex'}}>
-                {this.props.children}
-            </div>
+            <WithTooltip text={this.props.text} flow={this.props.flow}>
+                {({attributes}) => (
+                    <div {...attributes} style={{display: 'inline-flex'}}>
+                        {this.props.children}
+                    </div>
+                )}
+            </WithTooltip>
         );
     }
 }

@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Icon } from './Icon';
-import { Spinner } from './Spinner';
+import {Icon} from './Icon';
+import {Spinner} from './Spinner';
+import {WithTooltip} from './Tooltip';
 
 interface IPropsButton {
     text: string;
@@ -41,23 +42,40 @@ export class Button extends React.PureComponent<IPropsButton> {
             'sd-flex-justify-end': this.props.textAlign === 'end',
         });
 
+        const Wrapper: React.ComponentType<{children: React.ComponentProps<typeof WithTooltip>['children']}> =
+            (this.props.tooltip ?? '').length > 0
+                ? ({children}) => (
+                    <WithTooltip text={this.props.tooltip}>
+                        {({attributes}) => children({attributes})}
+                    </WithTooltip>
+                )
+                : ({children}) => (
+                    <>
+                        {children({attributes: {}})}
+                    </>
+                );
+
         return (
-            <button
-                id={this.props.id}
-                className={classes}
-                tabIndex={0}
-                disabled={this.props.disabled || this.props.isLoading}
-                data-loading={this.props.isLoading}
-                onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
-                aria-label={this.props.iconOnly ? this.props.text : ''}
-                data-test-id={this.props['data-test-id']}
-                title={this.props.tooltip}
-                style={this.props.noMargin ? {margin: 0} : undefined}
-            >
-                {this.props.isLoading ? <Spinner size="mini" /> : null}
-                {this.props.icon && !this.props.isLoading ? <Icon ariaHidden name={this.props.icon} /> : null}
-                {this.props.iconOnly ? null : this.props.text}
-            </button>
+            <Wrapper>
+                {({attributes}) => (
+                    <button
+                        {...attributes}
+                        id={this.props.id}
+                        className={classes}
+                        tabIndex={0}
+                        disabled={this.props.disabled || this.props.isLoading}
+                        data-loading={this.props.isLoading}
+                        onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
+                        aria-label={this.props.iconOnly ? this.props.text : ''}
+                        data-test-id={this.props['data-test-id']}
+                        style={this.props.noMargin ? {margin: 0} : undefined}
+                    >
+                        {this.props.isLoading ? <Spinner size="mini" /> : null}
+                        {this.props.icon && !this.props.isLoading ? <Icon ariaHidden name={this.props.icon} /> : null}
+                        {this.props.iconOnly ? null : this.props.text}
+                    </button>
+                )}
+            </Wrapper>
         );
     }
 }
