@@ -1,7 +1,8 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Icon } from './Icon';
-import { Spinner } from './Spinner';
+import {Icon} from './Icon';
+import {Spinner} from './Spinner';
+import {WithTooltip} from './Tooltip';
 
 interface IPropsButton {
     text: string;
@@ -42,22 +43,49 @@ export class Button extends React.PureComponent<IPropsButton> {
         });
 
         return (
-            <button
-                id={this.props.id}
-                className={classes}
-                tabIndex={0}
-                disabled={this.props.disabled || this.props.isLoading}
-                data-loading={this.props.isLoading}
-                onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
-                aria-label={this.props.iconOnly ? this.props.text : ''}
-                data-test-id={this.props['data-test-id']}
-                title={this.props.tooltip}
-                style={this.props.noMargin ? {margin: 0} : undefined}
-            >
-                {this.props.isLoading ? <Spinner size="mini" /> : null}
-                {this.props.icon && !this.props.isLoading ? <Icon ariaHidden name={this.props.icon} /> : null}
-                {this.props.iconOnly ? null : this.props.text}
-            </button>
+            <TooltipWrapper tooltipText={this.props.tooltip}>
+                {({attributes}) => (
+                    <button
+                        {...attributes}
+                        id={this.props.id}
+                        className={classes}
+                        tabIndex={0}
+                        disabled={this.props.disabled || this.props.isLoading}
+                        data-loading={this.props.isLoading}
+                        onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
+                        aria-label={this.props.iconOnly ? this.props.text : ''}
+                        data-test-id={this.props['data-test-id']}
+                        style={this.props.noMargin ? {margin: 0} : undefined}
+                    >
+                        {this.props.isLoading ? <Spinner size="mini" /> : null}
+                        {this.props.icon && !this.props.isLoading ? <Icon ariaHidden name={this.props.icon} /> : null}
+                        {this.props.iconOnly ? null : this.props.text}
+                    </button>
+                )}
+            </TooltipWrapper>
         );
+    }
+}
+
+interface ITooltipWrapperProps {
+    tooltipText: string | null | undefined;
+    children: React.ComponentProps<typeof WithTooltip>['children'];
+}
+
+class TooltipWrapper extends React.PureComponent<ITooltipWrapperProps> {
+    render() {
+        const {tooltipText, children} = this.props;
+
+        return (tooltipText ?? '').length > 0
+            ? (
+                <WithTooltip text={tooltipText}>
+                    {({attributes}) => children({attributes})}
+                </WithTooltip>
+            )
+            : (
+                <>
+                    {children({attributes: {}})}
+                </>
+            );
     }
 }

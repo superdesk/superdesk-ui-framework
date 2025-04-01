@@ -17,7 +17,7 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                     <div className="docs-page__content-row">
-                        <Button text="default" onClick={()=> false} />
+                        <Button text="default" onClick={()=> false} tooltip="test tooltip" />
                         <Button text="primary" type="primary" onClick={()=> false} />
                     </div>
                     <p className="docs-page__paragraph">// Other colour options</p>
@@ -101,8 +101,8 @@ export default class ButtonsDoc extends React.Component {
 
                 <h3 className="docs-page__h3">Sizing</h3>
                 <p className="docs-page__paragraph">
-                    For the default button, no size has to be specified. 
-                    To change the default size set the <code>size</code> value either to <code>small</code> or <code>large</code>. 
+                    For the default button, no size has to be specified.
+                    To change the default size set the <code>size</code> value either to <code>small</code> or <code>large</code>.
                     For the button to take the full width of the container add <code>expand={'{true}'}</code>.
                 </p>
                 <Markup.ReactMarkup>
@@ -120,7 +120,7 @@ export default class ButtonsDoc extends React.Component {
                     </div>
                     <div className="docs-page__content-row">
                         <Button text="small expanded button" expand={true} size="small" onClick={()=> false} />
-                    </div>                    
+                    </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Button text="button large" size="large" onClick={()=> false} />
@@ -201,7 +201,7 @@ export default class ButtonsDoc extends React.Component {
                         <Button text="success" type="success" icon="ok" onClick={()=> false} />
                         <Button text="warning" type="warning" icon="exclamation-sign" onClick={()=> false} />
                         <Button text="alert" type="alert" icon="warning-sign" onClick={()=> false} />
-                        
+
                         <Button text="default" icon="info-sign" style="hollow" onClick={()=> false} />
                         <Button text="primary" type="primary" icon="plus-sign" style="hollow" onClick={()=> false} />
                         <Button text="success" type="success" icon="ok" style="hollow" onClick={()=> false} />
@@ -217,7 +217,7 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Buttons with icon font only</h3>
-                <p className="docs-page__paragraph">Buttons can also contain only an icon, without any visible text. To achieve this specify the <code>icon</code> value and set <code>iconOnly={true}</code>. 
+                <p className="docs-page__paragraph">Buttons can also contain only an icon, without any visible text. To achieve this specify the <code>icon</code> value and set <code>iconOnly={true}</code>.
                 The specified text value will be used for the <code>aria-label</code>.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
