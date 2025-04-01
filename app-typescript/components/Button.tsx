@@ -42,21 +42,10 @@ export class Button extends React.PureComponent<IPropsButton> {
             'sd-flex-justify-end': this.props.textAlign === 'end',
         });
 
-        const Wrapper: React.ComponentType<{children: React.ComponentProps<typeof WithTooltip>['children']}> =
-            (this.props.tooltip ?? '').length > 0
-                ? ({children}) => (
-                    <WithTooltip text={this.props.tooltip}>
-                        {({attributes}) => children({attributes})}
-                    </WithTooltip>
-                )
-                : ({children}) => (
-                    <>
-                        {children({attributes: {}})}
-                    </>
-                );
+        const TooltipWrapper = getTooltipWrapper(this.props.tooltip);
 
         return (
-            <Wrapper>
+            <TooltipWrapper>
                 {({attributes}) => (
                     <button
                         {...attributes}
@@ -75,7 +64,23 @@ export class Button extends React.PureComponent<IPropsButton> {
                         {this.props.iconOnly ? null : this.props.text}
                     </button>
                 )}
-            </Wrapper>
+            </TooltipWrapper>
         );
     }
+}
+
+function getTooltipWrapper(
+    tooltipText: string | null | undefined,
+): React.ComponentType<{children: React.ComponentProps<typeof WithTooltip>['children']}> {
+    return (tooltipText ?? '').length > 0
+        ? ({children}) => (
+            <WithTooltip text={tooltipText}>
+                {({attributes}) => children({attributes})}
+            </WithTooltip>
+        )
+        : ({children}) => (
+            <>
+                {children({attributes: {}})}
+            </>
+        );
 }
