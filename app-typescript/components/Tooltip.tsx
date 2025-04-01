@@ -1,4 +1,5 @@
 import * as React from 'react';
+import nextId from "react-id-generator";
 import tippy, {Instance, Placement} from 'tippy.js';
 import {assertNever} from '../helpers';
 
@@ -35,8 +36,8 @@ export class WithTooltip extends React.PureComponent<IProps> {
     constructor(props: IProps) {
         super(props);
 
-        // prepend a letter so ID doesn't start with a number
-        this.id = 'a' + Math.random().toString().slice(2);
+        this.id = nextId();
+
         this.instance = null;
     }
 
