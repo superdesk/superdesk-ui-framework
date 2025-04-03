@@ -54,7 +54,10 @@ interface IPropsBase<T> extends IInputWrapper {
     getBackgroundColor?(item: T): string;
     getBorderColor?(item: T): string;
     optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
-    valueTemplate?(item: T, Wrapper: React.ComponentType<{backgroundColor: string}>): React.ComponentType<T> | JSX.Element;
+    valueTemplate?(
+        item: T,
+        Wrapper: React.ComponentType<{backgroundColor?: string}>,
+    ): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
 }
 
@@ -632,6 +635,24 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         });
     }
 
+    private renderItemContent(item: T, Wrapper: React.ComponentType<{backgroundColor?: string}>) {
+        if (this.props.valueTemplate) {
+            return this.props.valueTemplate(item, Wrapper);
+        }
+
+        const content = this.props.optionTemplate?.(item) ?? (
+            <span>
+                {this.props.getLabel(item)}
+            </span>
+        );
+
+        return (
+            <Wrapper>
+                {content}
+            </Wrapper>
+        );
+    }
+
     render() {
         if (this.props.preview) {
             return (
@@ -763,16 +784,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
                                     return (
                                         <ItemWrapper itemId={itemId} key={itemId} i={i}>
-                                            {this.props.valueTemplate
-                                                ? this.props.valueTemplate(item, Wrapper)
-                                                : (
-                                                    <Wrapper>
-                                                        <span>
-                                                            {this.props.getLabel(item)}
-                                                        </span>
-                                                    </Wrapper>
-                                                )
-                                            }
+                                            {this.renderItemContent(item, Wrapper)}
                                         </ItemWrapper>
                                     );
                                 })}
@@ -864,14 +876,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                 );
 
                                 return <React.Fragment key={i}>
-                                    {this.props.valueTemplate
-                                        ? this.props.valueTemplate(item, Wrapper)
-                                        : (
-                                            <Wrapper>
-                                                <span>{this.props.getLabel(item)}</span>
-                                            </Wrapper>
-                                        )
-                                    }
+                                    {this.renderItemContent(item, Wrapper)}
                                 </React.Fragment>;
                             })}
                         </div>
