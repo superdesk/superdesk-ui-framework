@@ -54,7 +54,7 @@ interface IPropsBase<T> extends IInputWrapper {
     getBackgroundColor?(item: T): string;
     getBorderColor?(item: T): string;
     optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
-    valueTemplate?(item: T, Wrapper: React.ElementType): React.ComponentType<T> | JSX.Element;
+    valueTemplate?(item: T, Wrapper: React.ComponentType<{backgroundColor: string}>): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
 }
 
@@ -704,6 +704,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 tabindex={this.props.tabindex}
                 fullWidth={this.props.inputWidth === '100%' ?? false}
                 data-test-id={this.props['data-test-id']}
+                autoWidth={this.props.autoWidth}
             >
                 <div
                     className={`
@@ -886,6 +887,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                         style={{
                             zIndex: this.zIndex,
                             width: this.treeSelectRef.current?.offsetWidth,
+                            minWidth: '300px',
                         }}
                         ref={this.dropdownRef}
                     >

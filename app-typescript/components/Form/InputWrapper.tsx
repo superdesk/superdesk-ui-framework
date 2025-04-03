@@ -13,6 +13,7 @@ export interface IInputCommon {
     labelHidden?: boolean;
     tabindex?: number;
     fullWidth?: boolean;
+    autoWidth?: boolean;
     boxedStyle?: boolean;
     boxedLable?: boolean;
 }
@@ -54,6 +55,7 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
             [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
             'sd-input--boxed-style': this.props.boxedStyle,
             'sd-input--boxed-label': this.props.boxedLable,
+            'sd-input--auto-width': this.props.autoWidth,
         });
 
         const labelClasses = classNames('sd-input__label', {

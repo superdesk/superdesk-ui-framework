@@ -959,6 +959,11 @@
     }
 }
 
+.sd-input--auto-width {
+    width: max-content;
+    min-width: 100px;
+}
+
 .sd-input--invalid {
     .sd-input__input,
     .sd-input__select,
