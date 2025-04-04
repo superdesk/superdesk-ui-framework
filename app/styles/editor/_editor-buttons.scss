@@ -5,47 +5,50 @@ $editor-neutral-color: 				var(--sd-editor-colour__txt);
 
 $editor-styleButton-color: 			var(--sd-editor-colour__txt);
 $editor-styleButton-active-color: 	var(--sd-editor-colour__button-txt--active);
-$editor-styleButton-size: 			3rem;
+$editor-styleButton-size: 			3.2rem;
 
 .Editor3-styleButton {
-	color: $editor-styleButton-color;
+	color: inherit;
 	cursor: pointer;
 	margin: 0.4rem 0.2rem;
 	height: $editor-styleButton-size;
 	min-width: $editor-styleButton-size;
 	padding: 0.6rem;
 	display: inline-block;
-	border-radius: $editor-styleButton-size / 2;
+	border-radius: var(--b-radius--medium);
 	text-align: center;
 	line-height: 1.6rem;
+	transition: all 0.2s ease;
 
 	[class*="icon-"] {
+		transition: opacity 0.2s ease;
 		color: inherit;
-		opacity: 0.5;
+		opacity: 0.8;
 		vertical-align: middle;
 	}
 
 	&:hover {
+		background-color: hsla(214, 13%, 60%, 0.25);
 		[class*="icon-"] {
 			color: inherit;
-			opacity: 0.9;
+			opacity: 1;
 		}
 	}
 
 	.inactive {
 		[class*="icon-"] {
-			opacity: 0.2;
+			opacity: 0.4;
 		}
 		&:hover {
 			[class*="icon-"] {
-				opacity: 0.2;
+				opacity: 0.4;
 			}
 		}
 	}
 	
 	&.Editor3-activeButton, &.Editor3-activeButton:hover {
-		color: $editor-styleButton-active-color;
-		background-color: rgba(0, 0, 0, 0.075);
+		color: var(--color-text-ondark);
+		background-color: var(--color-interactive-default);
 		[class*="icon-"] {
 			opacity: 1;
 		}
