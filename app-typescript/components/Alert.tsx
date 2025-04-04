@@ -10,6 +10,7 @@ interface IProps {
     icon?: string;
     banner?: boolean;
     margin?: 'none' | 'small' | 'normal' | 'large';
+    fullWidth?: boolean;
 }
 
 interface IState {
@@ -47,8 +48,17 @@ export class Alert extends React.PureComponent<IProps, IState> {
             'sd-alert__info-btn--hidden': this.state.open,
         });
 
+        const styles: React.CSSProperties = {};
+
+        if (this.props.fullWidth) {
+            styles.width = '100%';
+        }
+
         return (
-            <div className='sd-alert__container'>
+            <div
+                className='sd-alert__container'
+                style={styles}
+            >
                 <div className={classesAlert}>
                     {this.props.icon ?
                         <span className="sd-alert__icon">
