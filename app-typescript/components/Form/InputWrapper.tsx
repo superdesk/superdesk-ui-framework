@@ -12,7 +12,13 @@ export interface IInputCommon {
     inlineLabel?: boolean;
     labelHidden?: boolean;
     tabindex?: number;
+
+    /**
+     * Defaults to `true`
+     * If set to false, it will be as wide as content
+     */
     fullWidth?: boolean;
+
     boxedStyle?: boolean;
     boxedLable?: boolean;
 }
@@ -44,11 +50,14 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
     }
 
     render() {
+        const fullWidth = this.props.fullWidth ?? true;
+
         const classes = classNames('sd-input', {
             'sd-input--inline-label': this.props.inlineLabel,
             'sd-input--required': this.props.required,
             'sd-input--disabled': this.props.disabled,
-            'sd-input--full-width': this.props.fullWidth,
+            'sd-input--full-width': fullWidth,
+            'sd-input--content-width': !fullWidth,
             'sd-input--invalid': this.props.invalid,
             'sd-input--medium': this.props.size === undefined,
             [`sd-input--${this.props.size}`]: this.props.size || this.props.size !== undefined,

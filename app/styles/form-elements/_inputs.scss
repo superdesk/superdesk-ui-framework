@@ -825,7 +825,7 @@
             display: inline-block;
             margin-inline-end: var(--space--1);
             pointer-events: none;
-            opacity: 0.4; 
+            opacity: 0.4;
             z-index: 0;
             transition: opacity 0.2s ease;
         }
@@ -859,7 +859,7 @@
             -webkit-font-smoothing: antialiased;
             margin-inline-end: var(--space--1);
             pointer-events: none;
-            opacity: 0.6; 
+            opacity: 0.6;
             z-index: 0;
             transition: opacity 0.2s ease;
         }
@@ -957,6 +957,11 @@
             inset-inline-end: 4px;
         }
     }
+}
+
+.sd-input--content-width {
+    width: max-content;
+    min-width: 100px;
 }
 
 .sd-input--invalid {
