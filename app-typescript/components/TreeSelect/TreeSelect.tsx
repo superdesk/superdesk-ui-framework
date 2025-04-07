@@ -723,9 +723,8 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
-                fullWidth={this.props.inputWidth === '100%' ?? false}
+                fullWidth={this.props.fullWidth}
                 data-test-id={this.props['data-test-id']}
-                autoWidth={this.props.autoWidth}
             >
                 <div
                     className={`
