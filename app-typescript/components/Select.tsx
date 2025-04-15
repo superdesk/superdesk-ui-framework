@@ -50,7 +50,7 @@ class Select extends React.Component<ISelect> {
                         className='sd-input__select'
                         id={this.htmlId}
                         value={this.props.value}
-                        aria-describedby={this.htmlId}
+                        aria-describedby={this.htmlId + 'label'}
                         tabIndex={this.props.tabindex}
                         onChange={this.handleChange}
                         disabled={this.props.disabled || this.props.readonly}

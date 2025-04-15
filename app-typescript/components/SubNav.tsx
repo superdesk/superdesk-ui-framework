@@ -5,6 +5,7 @@ interface IProps {
     color?: 'light' | 'darker' | 'blueGrey' | 'blueGreyDarker'; // defaults to 'light'
     theme?: 'light' | 'dark'; // defaults to 'light
     className?: string;
+    ['data-test-id']?: string;
 }
 interface IPropsDivider {
     width?: 'small' | 'medium' | 'large' | 'x-large'; // defaults to 'medium'
@@ -38,6 +39,7 @@ export class SubNav extends React.PureComponent<IProps> {
             <div
                 data-theme={this.props.theme ? `${this.props.theme}-ui` : defaultTheme}
                 className={classes}
+                data-test-id={this.props['data-test-id']}
             >
                 {this.props.children}
             </div>
