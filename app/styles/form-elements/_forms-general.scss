@@ -79,7 +79,7 @@
 		}
 	}
 
-	.form__row-item:not(.sd-flex-no-grow) {
+	.form__row-item:not(.sd-flex-no-grow, .form__row-item--no-grow) {
 		flex-basis: 0;
 	}
 
