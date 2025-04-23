@@ -758,6 +758,7 @@
     .sd-input__input-container {
         grid-row: 2/3;
         grid-column: 2/4;
+        min-width: min-content;
     }
 
     .sd-input__input-container:has(input[type="time"]) {
