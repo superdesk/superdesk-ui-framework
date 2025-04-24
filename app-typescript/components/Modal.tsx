@@ -27,7 +27,7 @@ interface IProps {
     maximizable?: boolean;
     headerTemplate?: JSX.Element | string;
     footerTemplate?: JSX.Element | string;
-    ['data-test-id']?: string;
+    'data-test-id'?: string;
     onShow?(): void;
     onHide?(): void;
 }
@@ -47,7 +47,6 @@ export class Modal extends React.Component<IProps, {}> {
             <div
                 style={{display: 'content'}}
                 data-theme={this.props.theme !== 'dark' ? null : 'dark-ui' }
-                data-test-id={this.props['data-test-id']}
             >
                 <PrimeDialog
                     id={this.props.id}
@@ -63,6 +62,7 @@ export class Modal extends React.Component<IProps, {}> {
                     zIndex={this.zIndex}
                     position={this.props.position}
                     closable={this.props.onHide != null ? true : false}
+                    data-test-id={this.props['data-test-id']}
                 >
                     {this.props.children}
                 </PrimeDialog>

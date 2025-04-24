@@ -5,6 +5,7 @@ interface IProps {
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
     children: React.ReactNode;
     groupLabelledBy?: string;
+    'data-test-id'?: string;
 }
 
 export class CheckGroup extends React.PureComponent<IProps> {
@@ -14,7 +15,11 @@ export class CheckGroup extends React.PureComponent<IProps> {
         });
 
         return (
-            <div className={classes} aria-labelledby={this.props.groupLabelledBy}>
+            <div
+                className={classes}
+                aria-labelledby={this.props.groupLabelledBy}
+                data-test-id={this.props['data-test-id']}
+            >
                 {this.props.children}
             </div>
         );

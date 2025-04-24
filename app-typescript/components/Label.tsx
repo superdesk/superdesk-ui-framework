@@ -12,6 +12,7 @@ interface IProps {
     noTransform?: boolean;
     hexColor?: string;
     style?: 'filled' | 'hollow' | 'translucent'; // defaults to 'filled'
+    'data-test-id'?: string;
 }
 export class Label extends React.PureComponent<IProps> {
     render() {
@@ -23,13 +24,16 @@ export class Label extends React.PureComponent<IProps> {
             [`label--${this.props.style}`]: this.props.style !== 'filled' && this.props.style !== undefined,
             [`hollow-${this.props.color}`]: this.props.color && this.props.style === 'hollow',
         });
+
         if (this.props.link || this.props.onClick) {
             if (this.props.style === 'hollow') {
                 return (
                     <a className={classes}
                         href={this.props.link}
                         onClick={this.props.onClick}
-                        style={{color: this.props.hexColor, borderColor: this.props.hexColor}}>
+                        style={{color: this.props.hexColor, borderColor: this.props.hexColor}}
+                        data-test-id={this.props['data-test-id']}
+                    >
                         {this.props.text}
                     </a>
                 );
@@ -38,7 +42,9 @@ export class Label extends React.PureComponent<IProps> {
                     <a className={classes}
                         href={this.props.link}
                         onClick={this.props.onClick}
-                        style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}>
+                        style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}
+                        data-test-id={this.props['data-test-id']}
+                    >
                         {this.props.text}
                     </a>
                 );
@@ -46,7 +52,9 @@ export class Label extends React.PureComponent<IProps> {
                 return (
                     <a className={classes}
                         href={this.props.link}
-                        onClick={this.props.onClick} style={{backgroundColor: this.props.hexColor}}>
+                        onClick={this.props.onClick} style={{backgroundColor: this.props.hexColor}}
+                        data-test-id={this.props['data-test-id']}
+                    >
                         {this.props.text}
                     </a>
                 );
@@ -54,25 +62,36 @@ export class Label extends React.PureComponent<IProps> {
         } else {
              if (this.props.style === 'hollow') {
                 return (
-                    <span className={classes}
-                        style={{color: this.props.hexColor, borderColor: this.props.hexColor}}>
+                    <span
+                        className={classes}
+                        style={{color: this.props.hexColor, borderColor: this.props.hexColor}}
+                        data-test-id={this.props['data-test-id']}
+                    >
                         {this.props.text}
                     </span>
                 );
             } else if (this.props.style === 'translucent') {
                 return (
-                    <span className={classes}
-                        style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}>
+                    <span
+                        className={classes}
+                        style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}
+                        data-test-id={this.props['data-test-id']}
+                    >
                         {this.props.text}
                     </span>
                 );
             } else {
                 return (
-                    <span className={classes}
-                    style={this.props.hexColor
-                    ? {backgroundColor: this.props.hexColor, color: getTextColor(this.props.hexColor)}
-                    : undefined}>
-                        {this.props.text}
+                    <span
+                        className={classes}
+                        style={
+                            this.props.hexColor
+                                ? {backgroundColor: this.props.hexColor, color: getTextColor(this.props.hexColor)}
+                                : undefined
+                        }
+                        data-test-id={this.props['data-test-id']}
+                    >
+                            {this.props.text}
                     </span>
                 );
             }

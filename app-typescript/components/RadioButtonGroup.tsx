@@ -82,6 +82,7 @@ export class RadioButtonGroup extends React.Component<IProps> {
                                     htmlFor={this.htmlId + index}
                                     aria-label={item.labelHidden ? item.label : undefined}
                                     data-test-id="item"
+                                    data-test-value={item.label}
                                 >
 
                                     { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }

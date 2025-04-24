@@ -92,7 +92,7 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                     </span>
 
                     {this.props.option.children
-                        && <span className="suggestion-item__icon" aria-hidden="true">
+                        && <span className="suggestion-item__icon" aria-hidden="true" data-test-id="children-indicator">
                             <Icon name="chevron-right-thin"></Icon>
                         </span>
                     }
