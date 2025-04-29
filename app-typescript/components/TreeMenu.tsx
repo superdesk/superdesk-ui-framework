@@ -180,7 +180,7 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
         document.addEventListener("keydown", this.onPressEsc);
     }
 
-    componentDidUpdate(_prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
+    componentDidUpdate(prevProps: Readonly<IProps<T>>, prevState: Readonly<IState<T>>): void {
         if (prevState.openDropdown !== this.state.openDropdown) {
             this.toggleMenu();
         }
@@ -191,6 +191,18 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
             || (prevState.options !== this.state.options)
         ) {
             this.popperInstance?.update();
+        }
+
+        // Update options when getOptions prop is updated
+        if (this.props.getOptions && prevProps.getOptions !== this.props.getOptions) {
+            const newOptions = this.props.getOptions();
+            this.setState({
+                options: newOptions,
+                firstBranchOptions: newOptions,
+                filterArr: [],
+            }, () => {
+                this.recursion(newOptions);
+            });
         }
     }
 
