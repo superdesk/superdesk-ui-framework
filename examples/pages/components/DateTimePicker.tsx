@@ -14,10 +14,12 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: Date | nu
     render() {
         return (
             <DateTimePicker
-                label={{text: "Planning date"}}
+                label="Planning date"
+                labelHidden
+                inlineLabel
                 value={this.state.dateTime}
                 dateFormat="YYYY-MM-DD"
-                width="100%"
+                fullWidth
                 onChange={(val) => {
                     const parsedVal = val != null ? new Date(val) : null;
 
@@ -49,11 +51,14 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
                 <h2 className="docs-page__h2">Date picker</h2>
                 <Markup.ReactMarkupCodePreview>{`
                     <DateTimePicker
-                        label="Planning datetime"
-                        value={this.state.date}
+                        label="Planning date"
+                        value={this.state.dateTime}
                         dateFormat="YYYY-MM-DD"
-                        onChange={(date) => {
-                            this.setState({date});
+                        fullWidth
+                        onChange={(val) => {
+                            const parsedVal = val != null ? new Date(val) : null;
+
+                            this.setState({dateTime: parsedVal});
                         }}
                     />
                 `}</Markup.ReactMarkupCodePreview>
@@ -65,11 +70,15 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <DateTimePicker
-                            value={this.state.date}
-                            onChange={(date) => {
-                                this.setState({date});
-                            }}
+                            label="Planning date"
+                            value={this.state.dateTime}
                             dateFormat="YYYY-MM-DD"
+                            fullWidth
+                            onChange={(val) => {
+                                const parsedVal = val != null ? new Date(val) : null;
+
+                                this.setState({dateTime: parsedVal});
+                            }}
                         />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
