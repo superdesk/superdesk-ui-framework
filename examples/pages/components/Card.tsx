@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as Markup from "../../js/react";
-import {Card} from '../../../app-typescript/components/card';
+import {Card} from '../../../app-typescript/components/Card';
 
 export default class CardDoc extends React.Component {
     render() {

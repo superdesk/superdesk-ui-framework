@@ -9,6 +9,7 @@ export { SelectWithTemplate } from './components/SelectWithTemplate';
 export { WithPagination } from './components/WithPagination';
 export { Popover } from './components/Popover';
 export { Label } from './components/Label';
+export { Card } from './components/Card';
 export { Badge } from './components/Badge';
 export { Alert } from './components/Alert';
 export { AvatarWrapper } from './components/avatar/avatar-wrapper';
