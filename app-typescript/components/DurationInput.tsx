@@ -312,6 +312,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 <div className={'sd-input__duration-input'}>
                     <input

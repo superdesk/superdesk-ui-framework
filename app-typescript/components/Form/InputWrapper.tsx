@@ -25,9 +25,14 @@ export interface IInputCommon {
 
 export interface IInputWrapper extends IInputCommon {
     invalid?: boolean;
+
+    inputWrapper?: {
+        kind: 'custom'; // added to allow union types later
+        component: React.ComponentType<{label: string; input: React.ReactNode}>;
+    };
 }
 
-interface IPropsBase extends IInputWrapper {
+interface IProps extends IInputWrapper {
     children: React.ReactNode;
     maxLength?: number;
     value?: string | number;
@@ -40,8 +45,8 @@ interface IState {
     value: string | number;
 }
 
-export class InputWrapper extends React.Component<IPropsBase, IState> {
-    constructor(props: IPropsBase) {
+export class InputWrapper extends React.Component<IProps, IState> {
+    constructor(props: IProps) {
         super(props);
 
         this.state = {
@@ -50,6 +55,14 @@ export class InputWrapper extends React.Component<IPropsBase, IState> {
     }
 
     render() {
+        if (this.props.inputWrapper?.kind === 'custom') {
+            const Component = this.props.inputWrapper.component;
+
+            return (
+                <Component input={this.props.children} label={this.props.label ?? ''} />
+            );
+        }
+
         const fullWidth = this.props.fullWidth ?? true;
 
         const classes = classNames('sd-input', {

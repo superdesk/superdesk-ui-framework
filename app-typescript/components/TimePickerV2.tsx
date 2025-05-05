@@ -147,6 +147,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                 inlineLabel={this.props.inlineLabel}
                 labelHidden={this.props.labelHidden}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 <div className='sd__input__time-picker-v2' data-test-id={this.props['data-test-id']}>
                     <div className='input-wrapper__time-picker-v2'>

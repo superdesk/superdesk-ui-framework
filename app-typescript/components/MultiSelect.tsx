@@ -74,6 +74,7 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 <PrimeMultiSelect
                     panelClassName={classes}

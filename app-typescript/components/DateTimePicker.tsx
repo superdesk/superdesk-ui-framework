@@ -75,6 +75,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         htmlId={this.htmlId}
         tabindex={this.props.tabindex}
         fullWidth={this.props.fullWidth}
+        inputWrapper={this.props.inputWrapper}
         data-test-id={this.props["data-test-id"]}
         ref={this.props.ref}
       >

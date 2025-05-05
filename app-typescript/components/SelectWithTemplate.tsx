@@ -94,57 +94,60 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
 
         return (
             <InputWrapper
-            label={this.props.label}
-            error={this.props.error}
-            required={this.props.required}
-            disabled={this.props.disabled}
-            invalid={this.state.invalid}
-            info={this.props.info}
-            inlineLabel={this.props.inlineLabel}
-            labelHidden={this.props.labelHidden}
-            fullWidth={this.props.fullWidth}
-            htmlId={this.htmlId}
-            tabindex={this.props.tabindex}>
+                label={this.props.label}
+                error={this.props.error}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                invalid={this.state.invalid}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                fullWidth={this.props.fullWidth}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
+            >
                 <Dropdown
-                inputId={this.htmlId}
-                ariaLabelledBy={this.htmlId + 'label'}
-                value={valueInternal}
-                options={optionsInternal}
-                onChange={(e) => {
-                    onChange(e.value == null ? null : e.value.original);
-                }}
-                placeholder={fakePlaceholderWithNonBreakingSpace}
-                filterPlaceholder={filterPlaceholder}
-                filter
-                filterBy={labelKey}
-                showClear={!required}
-                emptyFilterMessage={emptyFilterMessage}
-                itemTemplate={(option) => <ItemTemplate option={option?.original ?? null} />}
-                valueTemplate={(option) => ValueTemplate != null
-                    ? (
-                        <ValueTemplate option={option?.original ?? null} />
+                    inputId={this.htmlId}
+                    ariaLabelledBy={this.htmlId + 'label'}
+                    value={valueInternal}
+                    options={optionsInternal}
+                    onChange={(e) => {
+                        onChange(e.value == null ? null : e.value.original);
+                    }}
+                    placeholder={fakePlaceholderWithNonBreakingSpace}
+                    filterPlaceholder={filterPlaceholder}
+                    filter
+                    filterBy={labelKey}
+                    showClear={!required}
+                    emptyFilterMessage={emptyFilterMessage}
+                    itemTemplate={(option) => <ItemTemplate option={option?.original ?? null} />}
+                    valueTemplate={(option) => ValueTemplate != null
+                        ? (
+                            <ValueTemplate option={option?.original ?? null} />
 
-                    )
-                    : (
-                        <ItemTemplate option={option?.original ?? null} />
-                    )
-                }
-                disabled={disabled}
-                required={required}
-                autoFocus={autoFocus}
-                appendTo={document.body}
-                loading={loading}
-                onFilterInputChange={(searchString) => {
-                    this.setState({loading: true});
-                    getItems(searchString).then((_options) => {
-                        this.setState({options: _options, loading: false});
-                    });
-                }}
-                zIndex={zIndex}
-                style={width === '100%' ? {display: 'flex', width: '100%'} : {}}
-                ref={(componentRef) => {
-                    this.componentRef = componentRef;
-                }}/>
+                        )
+                        : (
+                            <ItemTemplate option={option?.original ?? null} />
+                        )
+                    }
+                    disabled={disabled}
+                    required={required}
+                    autoFocus={autoFocus}
+                    appendTo={document.body}
+                    loading={loading}
+                    onFilterInputChange={(searchString) => {
+                        this.setState({loading: true});
+                        getItems(searchString).then((_options) => {
+                            this.setState({options: _options, loading: false});
+                        });
+                    }}
+                    zIndex={zIndex}
+                    style={width === '100%' ? {display: 'flex', width: '100%'} : {}}
+                    ref={(componentRef) => {
+                        this.componentRef = componentRef;
+                    }}
+                />
             </InputWrapper>
         );
     }

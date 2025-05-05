@@ -164,6 +164,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 <Calendar
                     className='sd-input__input'

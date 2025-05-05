@@ -1,12 +1,13 @@
 import * as React from 'react';
 import nextId from "react-id-generator";
-import {IInputCommon, InputWrapper} from './Form/InputWrapper';
+import {IInputCommon, IInputWrapper, InputWrapper} from './Form/InputWrapper';
 
 interface IPropsBase extends IInputCommon {
     maxLength?: number;
     placeholder?: string;
     size?: 'medium' | 'large' | 'x-large'; // default: 'medium'
     'data-test-id'?: string;
+    inputWrapper?: IInputWrapper['inputWrapper'];
 }
 
 interface IPropsText extends IPropsBase {
@@ -73,6 +74,7 @@ export class Input extends React.Component<IProps> {
                 boxedStyle={this.props.boxedStyle}
                 boxedLable={this.props.boxedLable}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 <input
                     className='sd-input__input'

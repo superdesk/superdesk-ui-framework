@@ -34,6 +34,7 @@ export class TimePicker extends React.PureComponent<IProps> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 <input
                     value={this.props.value}

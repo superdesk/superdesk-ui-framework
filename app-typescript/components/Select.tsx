@@ -44,6 +44,7 @@ class Select extends React.Component<ISelect> {
                 fullWidth={this.props.fullWidth}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 <span className='sd-input__select-caret-wrapper'>
                     <select

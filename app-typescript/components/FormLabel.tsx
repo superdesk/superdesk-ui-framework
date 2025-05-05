@@ -25,7 +25,6 @@ export class FormLabel extends React.PureComponent<IProps> {
             style.minHeight = 'auto';
         }
 
-
         return (
             <label
                 className={classes}
