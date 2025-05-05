@@ -86,6 +86,7 @@ import { OpacityUtilitiesDoc } from './utilities/OpacityUtilities';
 import { ObjectFitUtilitiesDoc } from './utilities/ObjectFitUtilities';
 import { ObjectPositionUtilitiesDoc } from './utilities/ObjectPositionUtilities';
 import LoaderDoc from './Loader';
+import CardDoc from './Card';
 
 
 interface IPages {
@@ -104,6 +105,10 @@ const pages: IPages = {
     basicComponents: {
         name: 'Basic Components',
         items: {
+            'card': {
+                name: 'Card',
+                component: CardDoc,
+            },
             'buttons': {
                 name: 'Buttons',
                 component: ButtonsDoc,
