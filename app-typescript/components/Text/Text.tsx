@@ -10,6 +10,7 @@ interface IProps {
     size?: 'x-small' | 'small' | 'medium' | 'large';
     color?: 'normal' | 'light' | 'lighter';
     fontStyle?: 'sans' | 'serif';
+    noMargin?: boolean;
 }
 
 export class Text extends React.PureComponent<IProps> {
@@ -27,8 +28,14 @@ export class Text extends React.PureComponent<IProps> {
             [`sd-text-color--${this.props.color}`]: this.props.color && this.props.color !== 'normal',
         }, this.props.className);
 
+        const styles: React.CSSProperties = {};
+
+        if (this.props.noMargin === true) {
+            styles.margin = 0;
+        }
+
         return (
-            <p className={classes}>
+            <p className={classes} style={styles}>
                 {this.props.children}
             </p>
         );
