@@ -12,8 +12,7 @@ interface IPropsItem {
     onClick?(): void;
 }
 
-class CalendarWeekDayItem extends React.PureComponent<IPropsItem> {
-
+export class CalendarWeekDayItem extends React.PureComponent<IPropsItem> {
     render() {
         let classes = classNames('calendar-week-day__item', {
             'calendar-week-day__item--clickable': this.props.clickable === true,
@@ -23,6 +22,7 @@ class CalendarWeekDayItem extends React.PureComponent<IPropsItem> {
             'calendar-week-day__item--hidden': this.props.hidden,
             [`calendar-week-day__item--${this.props.state}`]: this.props.state || this.props.state !== undefined,
         });
+
         return (
             <div className={classes}>
                 {this.props.children}
@@ -31,6 +31,22 @@ class CalendarWeekDayItem extends React.PureComponent<IPropsItem> {
     }
 }
 
-export {
-    CalendarWeekDayItem
-};
+export class WeeklyCalendarGrid extends React.PureComponent<{style?: React.CSSProperties}> {
+    render() {
+        return (
+            <div className="calendar-user-week-row" style={this.props.style}>
+                {this.props.children}
+            </div>
+        );
+    }
+}
+
+export class WeeklyCalendarGridItem extends React.PureComponent {
+    render() {
+        return (
+            <div className="calendar-week-day__container">
+                {this.props.children}
+            </div>
+        );
+    }
+}
