@@ -28,7 +28,7 @@ export interface IInputWrapper extends IInputCommon {
 
     inputWrapper?: {
         kind: 'custom'; // added to allow union types later
-        component: React.ComponentType<{label: string; input: React.ReactNode}>;
+        component: React.ComponentType<{label: string; input: React.ReactNode; 'data-test-id'?: string}>;
     };
 }
 
@@ -59,7 +59,11 @@ export class InputWrapper extends React.Component<IProps, IState> {
             const Component = this.props.inputWrapper.component;
 
             return (
-                <Component input={this.props.children} label={this.props.label ?? ''} />
+                <Component
+                    input={this.props.children}
+                    label={this.props.label ?? ''}
+                    data-test-id={this.props['data-test-id']}
+                />
             );
         }
 
