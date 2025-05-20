@@ -85,7 +85,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             }
             if (Number(this.minuteRef.current.value) < 0) {
                 this.setState({
-                    hours: this.zeroPad(Number(this.state.hours)) > 0
+                    hours: parseInt(`${this.zeroPad(Number(this.state.hours))}`, 10) > 0
                     ? this.zeroPad(Number(this.state.hours) - 1)
                     : this.zeroPad(Number(this.state.hours)),
                     minutes: 59,
