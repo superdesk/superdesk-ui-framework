@@ -11,6 +11,7 @@ import {Button} from './Button';
 import {getWeekStartByLocale} from 'weekstart';
 import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
 import {localization} from '../localization';
+import {assertNever} from '../helpers';
 
 interface IDatePickerBase extends IInputWrapper {
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
@@ -19,9 +20,7 @@ interface IDatePickerBase extends IInputWrapper {
     // for example [{label: 'tomorrow', days: 1}, {label: 'yesterday', days: -1}]
     headerButtonBar?: Array<{days: number, label: string}>;
 
-    locale?: {
-        code: string;
-    };
+    locale?: {type: 'code-only', code: string} | {type: 'full', payload: Omit<LocaleSettings, 'today' | 'clear'>};
 
     hideClearButton?: boolean;
 }
@@ -158,6 +157,22 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
             );
         }
 
+        const locale: LocaleSettings | undefined = (() => {
+            if (this.props.locale == null) {
+                return undefined;
+            } else if (this.props.locale.type === 'code-only') {
+                return getDatePickerLocale(this.props.locale.code);
+            } else if (this.props.locale.type === 'full') {
+                return {
+                    ...this.props.locale.payload,
+                    today: localization.translations.today,
+                    clear: localization.translations.clear,
+                } satisfies LocaleSettings;
+            } else {
+                return assertNever(this.props.locale);
+            }
+        })();
+
         const showClearButton = this.props.required === true
             ? false
             : this.props.hideClearButton !== true;
@@ -219,7 +234,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                             this.setState({value: event.value, valid: false});
                         }
                     }}
-                    locale={getDatePickerLocale(this.props.locale?.code)}
+                    locale={locale}
                     dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
                     showIcon={true}
                     icon="icon-calendar"
