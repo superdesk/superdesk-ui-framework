@@ -96,6 +96,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.4.0",
+    "@sourcefabric/common": "0.0.63",
     "@superdesk/common": "0.0.28",
     "@superdesk/primereact": "^5.0.2-13",
     "@superdesk/react-resizable-panels": "0.0.39",
@@ -107,7 +108,8 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-id-generator": "^3.0.0",
     "react-scrollspy": "^3.4.3",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "weekstart": "^2.0.0"
   },
   "peerDependencies": {
     "moment": "*"
