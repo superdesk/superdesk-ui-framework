@@ -10,169 +10,169 @@ import nextId from "react-id-generator";
 import {formatDate} from '../helpers';
 
 interface IPropsValueDate extends IInputWrapper {
-  valueType: 'date';
-  value: Date | null;
-  dateFormat: string;
-  onChange: (value: Date | null) => void;
-  preview?: boolean;
-  fullWidth?: boolean;
-  allowSeconds?: boolean;
-  required?: boolean;
-  disabled?: boolean;
-  ref?: React.LegacyRef<InputWrapper>;
-  'data-test-id'?: string;
+    valueType: 'date';
+    value: Date | null;
+    dateFormat: string;
+    onChange: (value: Date | null) => void;
+    preview?: boolean;
+    fullWidth?: boolean;
+    allowSeconds?: boolean;
+    required?: boolean;
+    disabled?: boolean;
+    ref?: React.LegacyRef<InputWrapper>;
+    'data-test-id'?: string;
 }
 
 type IValue = {date?: string; time?: string};
 
 interface IPropsValueObject extends IInputWrapper {
-  valueType: 'object';
-  value: IValue;
-  dateFormat: string;
-  onChange: (value: IValue) => void; //
-  preview?: boolean;
-  fullWidth?: boolean;
-  allowSeconds?: boolean;
-  required?: boolean;
-  disabled?: boolean;
-  ref?: React.LegacyRef<InputWrapper>;
-  'data-test-id'?: string;
+    valueType: 'object';
+    value: IValue;
+    dateFormat: string;
+    onChange: (value: IValue) => void; //
+    preview?: boolean;
+    fullWidth?: boolean;
+    allowSeconds?: boolean;
+    required?: boolean;
+    disabled?: boolean;
+    ref?: React.LegacyRef<InputWrapper>;
+    'data-test-id'?: string;
 }
 
 type IProps = IPropsValueDate | IPropsValueObject;
 
 export class DateTimePicker extends React.PureComponent<IProps> {
-  private htmlId: string = nextId();
+    private htmlId: string = nextId();
 
-  handleTimeChange = (time: string) => {
-    if (this.props.valueType === 'date') {
-      const [hours, minutes] = time
-        .split(":")
-        .map((x) => defaultTo(parseInt(x, 10), 0));
-      const origDate = this.props.value ? new Date(this.props.value) : new Date();
+    handleTimeChange = (time: string) => {
+        if (this.props.valueType === 'date') {
+            const [hours, minutes] = time
+                .split(":")
+                .map((x) => defaultTo(parseInt(x, 10), 0));
+            const origDate = this.props.value ? new Date(this.props.value) : new Date();
 
-      origDate.setHours(hours, minutes);
+            origDate.setHours(hours, minutes);
 
-      this.props.onChange(origDate);
-    } else {
-      this.props.onChange({
-        ...this.props.value,
-        time,
-      });
+            this.props.onChange(origDate);
+        } else {
+            this.props.onChange({
+                ...this.props.value,
+                time,
+            });
+        }
     }
-  }
 
-  handleDateChange = (date: Date | null) => {
-    if (this.props.valueType === 'date') {
-      if (date == null) {
-        this.props.onChange(null);
-        return;
-      }
+    handleDateChange = (date: Date | null) => {
+        if (this.props.valueType === 'date') {
+            if (date == null) {
+                this.props.onChange(null);
+                return;
+            }
 
-      const origDate = this.props.value ?? new Date();
-      const selectedDate = new Date(date);
+            const origDate = this.props.value ?? new Date();
+            const selectedDate = new Date(date);
 
-      selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
+            selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
 
-      this.props.onChange(selectedDate);
-    } else {
-      this.props.onChange({
-        ...this.props.value,
-        date: date ? formatDate(date) : undefined,
-      });
+            this.props.onChange(selectedDate);
+        } else {
+            this.props.onChange({
+                ...this.props.value,
+                date: date ? formatDate(date) : undefined,
+            });
+        }
     }
-  }
 
-  prepareFormat(unitOfTime: number) {
-    return unitOfTime.toString().padStart(2, "0");
-  }
-
-  getTimeValue(): string {
-    if (this.props.valueType === 'date') {
-
-      return this.props.value != null
-        ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
-        : "";
-    } else {
-      return this.props.value.time ?? '';
+    prepareFormat(unitOfTime: number) {
+        return unitOfTime.toString().padStart(2, "0");
     }
-  }
 
-  getDateValue(): Date | null {
-    if (this.props.valueType === 'date') {
-      return this.props.value;
-    } else {
-      return this.props.value.date ? new Date(this.props.value.date) : null;
+    getTimeValue(): string {
+        if (this.props.valueType === 'date') {
+
+        return this.props.value != null
+            ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
+            : "";
+        } else {
+            return this.props.value.time ?? '';
+        }
     }
-  }
 
-  handleClear = () => {
-    if (this.props.valueType === 'date') {
-      this.props.onChange(null);
-    } else {
-      this.props.onChange({date: undefined, time: undefined});
+    getDateValue(): Date | null {
+        if (this.props.valueType === 'date') {
+            return this.props.value;
+        } else {
+            return this.props.value.date ? new Date(this.props.value.date) : null;
+        }
     }
-  }
 
-  render() {
-    const timeValue = this.getTimeValue();
-    const dateValue = this.getDateValue();
+    handleClear = () => {
+        if (this.props.valueType === 'date') {
+            this.props.onChange(null);
+        } else {
+            this.props.onChange({date: undefined, time: undefined});
+        }
+    }
 
-    return (
-      <InputWrapper
-        label={this.props.label}
-        error={this.props.error}
-        invalid={this.props.error != null}
-        required={this.props.required}
-        disabled={this.props.disabled}
-        info={this.props.info}
-        inlineLabel={this.props.inlineLabel}
-        labelHidden={this.props.labelHidden}
-        htmlId={this.htmlId}
-        tabindex={this.props.tabindex}
-        fullWidth={this.props.fullWidth}
-        inputWrapper={this.props.inputWrapper}
-        data-test-id={this.props["data-test-id"]}
-        ref={this.props.ref}
-      >
-        <Spacer h gap="8" alignItems="end" noWrap>
-          <div style={{ flexGrow: 1 }}>
-            <DatePicker
-              disabled={this.props.disabled}
-              preview={this.props.preview}
-              required={this.props.required}
-              hideClearButton={true}
-              value={dateValue}
-              onChange={this.handleDateChange}
-              dateFormat={this.props.dateFormat}
-              inlineLabel
-              labelHidden
-              fullWidth={this.props.fullWidth}
-            />
-          </div>
-          <div style={{ flexGrow: 1 }}>
-            <TimePicker
-              disabled={this.props.disabled}
-              preview={this.props.preview}
-              value={timeValue}
-              onChange={this.handleTimeChange}
-              inlineLabel
-              labelHidden
-              allowSeconds={this.props.allowSeconds}
-              fullWidth={this.props.fullWidth}
-              required={this.props.required}
-            />
-          </div>
-          {this.props.preview !== true && (
-            <IconButton
-              disabled={this.props.disabled}
-              icon="remove-sign"
-              onClick={this.handleClear}
-              ariaValue="Clear"
-            />
-          )}
-        </Spacer>
-      </InputWrapper>
-    );
-  }
+    render() {
+        const timeValue = this.getTimeValue();
+        const dateValue = this.getDateValue();
+
+        return (
+            <InputWrapper
+                label={this.props.label}
+                error={this.props.error}
+                invalid={this.props.error != null}
+                required={this.props.required}
+                disabled={this.props.disabled}
+                info={this.props.info}
+                inlineLabel={this.props.inlineLabel}
+                labelHidden={this.props.labelHidden}
+                htmlId={this.htmlId}
+                tabindex={this.props.tabindex}
+                fullWidth={this.props.fullWidth}
+                inputWrapper={this.props.inputWrapper}
+                data-test-id={this.props["data-test-id"]}
+                ref={this.props.ref}
+            >
+                <Spacer h gap="8" alignItems="end" noWrap>
+                    <div style={{ flexGrow: 1 }}>
+                        <DatePicker
+                        disabled={this.props.disabled}
+                        preview={this.props.preview}
+                        required={this.props.required}
+                        hideClearButton={true}
+                        value={dateValue}
+                        onChange={this.handleDateChange}
+                        dateFormat={this.props.dateFormat}
+                        inlineLabel
+                        labelHidden
+                        fullWidth={this.props.fullWidth}
+                        />
+                    </div>
+                    <div style={{ flexGrow: 1 }}>
+                        <TimePicker
+                        disabled={this.props.disabled}
+                        preview={this.props.preview}
+                        value={timeValue}
+                        onChange={this.handleTimeChange}
+                        inlineLabel
+                        labelHidden
+                        allowSeconds={this.props.allowSeconds}
+                        fullWidth={this.props.fullWidth}
+                        required={this.props.required}
+                        />
+                    </div>
+                    {this.props.preview !== true && (
+                        <IconButton
+                        disabled={this.props.disabled}
+                        icon="remove-sign"
+                        onClick={this.handleClear}
+                        ariaValue="Clear"
+                        />
+                    )}
+                </Spacer>
+            </InputWrapper>
+        );
+    }
 }
