@@ -15,7 +15,7 @@ import {keyboardNavigation} from './KeyboardNavigation';
 import {WithPortal} from '../WithPortal';
 import { DragDropContext, Droppable, Draggable, DropResult } from "react-beautiful-dnd";
 import {getNextZIndex} from '../../zIndex';
-import {arrayMove} from '@superdesk/common';
+import {arrayMove} from '@sourcefabric/common';
 
 interface IState<T> {
     value: Array<T>;
