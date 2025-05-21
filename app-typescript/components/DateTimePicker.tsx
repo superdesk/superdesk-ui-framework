@@ -7,8 +7,10 @@ import { IconButton } from "./IconButton";
 import { InputWrapper } from "./Form";
 import { IInputWrapper } from "./Form/InputWrapper";
 import nextId from "react-id-generator";
+import {formatDate} from '../helpers';
 
-interface IProps extends IInputWrapper {
+interface IPropsValueDate extends IInputWrapper {
+  valueType: 'date';
   value: Date | null;
   dateFormat: string;
   onChange: (value: Date | null) => void;
@@ -21,46 +23,100 @@ interface IProps extends IInputWrapper {
   'data-test-id'?: string;
 }
 
+type IValue = {date?: string; time?: string};
+
+interface IPropsValueObject extends IInputWrapper {
+  valueType: 'object';
+  value: IValue;
+  dateFormat: string;
+  onChange: (value: IValue) => void; //
+  preview?: boolean;
+  fullWidth?: boolean;
+  allowSeconds?: boolean;
+  required?: boolean;
+  disabled?: boolean;
+  ref?: React.LegacyRef<InputWrapper>;
+  'data-test-id'?: string;
+}
+
+type IProps = IPropsValueDate | IPropsValueObject;
+
 export class DateTimePicker extends React.PureComponent<IProps> {
   private htmlId: string = nextId();
 
   handleTimeChange = (time: string) => {
-    const [hours, minutes] = time
-      .split(":")
-      .map((x) => defaultTo(parseInt(x, 10), 0)); // handle NaN value
-    const origDate = this.props.value ? new Date(this.props.value) : new Date();
+    if (this.props.valueType === 'date') {
+      const [hours, minutes] = time
+        .split(":")
+        .map((x) => defaultTo(parseInt(x, 10), 0));
+      const origDate = this.props.value ? new Date(this.props.value) : new Date();
 
-    origDate.setHours(hours, minutes);
+      origDate.setHours(hours, minutes);
 
-    this.props.onChange(origDate);
+      this.props.onChange(origDate);
+    } else {
+      this.props.onChange({
+        ...this.props.value,
+        time,
+      });
+    }
   }
 
   handleDateChange = (date: Date | null) => {
-    if (date == null) {
-      this.props.onChange(null);
+    if (this.props.valueType === 'date') {
+      if (date == null) {
+        this.props.onChange(null);
+        return;
+      }
 
-      return;
+      const origDate = this.props.value ?? new Date();
+      const selectedDate = new Date(date);
+
+      selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
+
+      this.props.onChange(selectedDate);
+    } else {
+      this.props.onChange({
+        ...this.props.value,
+        date: date ? formatDate(date) : undefined,
+      });
     }
-
-    const origDate = this.props.value ?? new Date();
-    const selectedDate = new Date(date);
-
-    selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
-
-    this.props.onChange(selectedDate);
   }
 
   prepareFormat(unitOfTime: number) {
     return unitOfTime.toString().padStart(2, "0");
   }
 
-  render() {
-    const convertedTimeValue =
-      this.props.value != null
-        ? `${this.prepareFormat(
-            this.props.value.getHours(),
-          )}:${this.prepareFormat(this.props.value.getMinutes())}`
+  getTimeValue(): string {
+    if (this.props.valueType === 'date') {
+
+      return this.props.value != null
+        ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
         : "";
+    } else {
+      return this.props.value.time ?? '';
+    }
+  }
+
+  getDateValue(): Date | null {
+    if (this.props.valueType === 'date') {
+      return this.props.value;
+    } else {
+      return this.props.value.date ? new Date(this.props.value.date) : null;
+    }
+  }
+
+  handleClear = () => {
+    if (this.props.valueType === 'date') {
+      this.props.onChange(null);
+    } else {
+      this.props.onChange({date: undefined, time: undefined});
+    }
+  }
+
+  render() {
+    const timeValue = this.getTimeValue();
+    const dateValue = this.getDateValue();
 
     return (
       <InputWrapper
@@ -86,10 +142,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
               preview={this.props.preview}
               required={this.props.required}
               hideClearButton={true}
-              value={this.props.value}
-              onChange={(val) => {
-                this.handleDateChange(val);
-              }}
+              value={dateValue}
+              onChange={this.handleDateChange}
               dateFormat={this.props.dateFormat}
               inlineLabel
               labelHidden
@@ -100,10 +154,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             <TimePicker
               disabled={this.props.disabled}
               preview={this.props.preview}
-              value={convertedTimeValue}
-              onChange={(val) => {
-                this.handleTimeChange(val);
-              }}
+              value={timeValue}
+              onChange={this.handleTimeChange}
               inlineLabel
               labelHidden
               allowSeconds={this.props.allowSeconds}
@@ -115,9 +167,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             <IconButton
               disabled={this.props.disabled}
               icon="remove-sign"
-              onClick={() => {
-                this.props.onChange(null);
-              }}
+              onClick={this.handleClear}
               ariaValue="Clear"
             />
           )}
