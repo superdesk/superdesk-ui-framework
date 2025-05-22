@@ -7,7 +7,8 @@ import { IconButton } from "./IconButton";
 import { InputWrapper } from "./Form";
 import { IInputWrapper } from "./Form/InputWrapper";
 import nextId from "react-id-generator";
-import {formatDate} from '../helpers';
+import {format} from 'date-fns';
+import {assertNever} from '../helpers';
 
 interface IPropsValueDate extends IInputWrapper {
     valueType: 'date';
@@ -54,11 +55,13 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             origDate.setHours(hours, minutes);
 
             this.props.onChange(origDate);
-        } else {
+        } else if (this.props.valueType === 'object') {
             this.props.onChange({
                 ...this.props.value,
                 time,
             });
+        } else {
+            assertNever(this.props);
         }
     }
 
@@ -75,11 +78,13 @@ export class DateTimePicker extends React.PureComponent<IProps> {
             selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
 
             this.props.onChange(selectedDate);
-        } else {
+        } else if (this.props.valueType === 'object') {
             this.props.onChange({
                 ...this.props.value,
-                date: date ? formatDate(date) : undefined,
+                date: date ? format(date, 'yyyy-MM-dd') : undefined,
             });
+        } else {
+            assertNever(this.props);
         }
     }
 
@@ -93,24 +98,30 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         return this.props.value != null
             ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
             : "";
-        } else {
+        } else if (this.props.valueType === 'object') {
             return this.props.value.time ?? '';
+        } else {
+            assertNever(this.props);
         }
     }
 
     getDateValue(): Date | null {
         if (this.props.valueType === 'date') {
             return this.props.value;
-        } else {
+        } else if (this.props.valueType === 'object') {
             return this.props.value.date ? new Date(this.props.value.date) : null;
+        } else {
+            assertNever(this.props);
         }
     }
 
     handleClear = () => {
         if (this.props.valueType === 'date') {
             this.props.onChange(null);
-        } else {
+        } else if (this.props.valueType === 'object') {
             this.props.onChange({date: undefined, time: undefined});
+        } else {
+            assertNever(this.props);
         }
     }
 
