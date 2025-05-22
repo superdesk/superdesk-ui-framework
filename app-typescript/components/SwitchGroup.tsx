@@ -10,16 +10,16 @@ interface IProps {
 
 export class SwitchGroup extends React.PureComponent<IProps> {
     render() {
-        let classes = classNames('sd-switch__group', {
-            [`sd-switch__group--vertical`]: this.props.orientation !== 'horizontal',
-            [`sd-switch__group--horizontal`]: this.props.orientation === 'horizontal',
-            [`sd-switch__group--right`]: this.props.align === 'right',
-        }, this.props.className);
-
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
+        let classes = classNames(
+            'sd-switch__group',
+            {
+                [`sd-switch__group--vertical`]: this.props.orientation !== 'horizontal',
+                [`sd-switch__group--horizontal`]: this.props.orientation === 'horizontal',
+                [`sd-switch__group--right`]: this.props.align === 'right',
+            },
+            this.props.className,
         );
+
+        return <div className={classes}>{this.props.children}</div>;
     }
 }

@@ -64,7 +64,7 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
                 `}</Markup.ReactMarkupCodePreview>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row'>
+                        <div className="docs-page__content-row">
                             <DateTimePickerExample />
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -83,19 +83,55 @@ export default class DateTimePickerDoc extends React.Component<{}, IState> {
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-                <h3 className='docs-page__h3'>Props</h3>
+                <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequired={false} type='Date' default='null' description='Value of the component.' />
-                    <Prop name='dateFormat' isRequired={true} type='string' default='/' description='Date format to use, i.e. "MM/DD/YYYY".' />
-                    <Prop name='onChange' isRequired={true} type='Function' default='/' description='Callback to invoke when value changes.'/>
-                    <Prop name='label' isRequired={false} type='string' default='/' description='Label of component.' />
-                    <Prop name='required' isRequired={false} type='boolean' default='false' description='Mark field as required.' />
-                    <Prop name='disabled' isRequired={false} type='boolean' default='false' description='Mark field as disabled.' />
+                    <Prop
+                        name="value"
+                        isRequired={false}
+                        type="Date"
+                        default="null"
+                        description="Value of the component."
+                    />
+                    <Prop
+                        name="dateFormat"
+                        isRequired={true}
+                        type="string"
+                        default="/"
+                        description='Date format to use, i.e. "MM/DD/YYYY".'
+                    />
+                    <Prop
+                        name="onChange"
+                        isRequired={true}
+                        type="Function"
+                        default="/"
+                        description="Callback to invoke when value changes."
+                    />
+                    <Prop name="label" isRequired={false} type="string" default="/" description="Label of component." />
+                    <Prop
+                        name="required"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="Mark field as required."
+                    />
+                    <Prop
+                        name="disabled"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="Mark field as disabled."
+                    />
                 </PropsList>
 
-                <h3 className='docs-page__h3'>Events</h3>
+                <h3 className="docs-page__h3">Events</h3>
                 <PropsList>
-                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Returns value of date input' />
+                    <Prop
+                        name="onChange"
+                        isRequired={true}
+                        type="function"
+                        default="/"
+                        description="Returns value of date input"
+                    />
                 </PropsList>
             </section>
         );

@@ -6,10 +6,6 @@ interface IProps {
 
 export class CoreLayoutFooter extends React.PureComponent<IProps> {
     render() {
-        return (
-            <footer className='sd-bottom-bar'>
-                {this.props.children}
-            </footer>
-        );
+        return <footer className="sd-bottom-bar">{this.props.children}</footer>;
     }
 }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import moment from 'moment';
-import nextId from "react-id-generator";
-import { InputWrapper } from './Form';
+import nextId from 'react-id-generator';
+import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 
 interface IProps extends IInputWrapper {
@@ -52,8 +52,8 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                 : Math.floor((parametar2 || 0) / 60) + Math.floor((parametar3 || 0) / 3600);
         } else if (state === 'minutes') {
             value = parametar1
-                ? (parametar1 % 60) + Math.floor((parametar2 || 0) % 3600 / 60)
-                : Math.floor((parametar2 || 0) % 3600 / 60);
+                ? (parametar1 % 60) + Math.floor(((parametar2 || 0) % 3600) / 60)
+                : Math.floor(((parametar2 || 0) % 3600) / 60);
         } else {
             value = parametar1 ? parametar1 % 60 : 0;
         }
@@ -61,7 +61,7 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     }
 
     componentDidUpdate(prevProps: any, prevState: IState) {
-        if (!this.hourRef.current || !this.minuteRef.current || !this.secondRef.current ) {
+        if (!this.hourRef.current || !this.minuteRef.current || !this.secondRef.current) {
             return;
         }
 
@@ -85,9 +85,10 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             }
             if (Number(this.minuteRef.current.value) < 0) {
                 this.setState({
-                    hours: parseInt(`${this.zeroPad(Number(this.state.hours))}`, 10) > 0
-                    ? this.zeroPad(Number(this.state.hours) - 1)
-                    : this.zeroPad(Number(this.state.hours)),
+                    hours:
+                        parseInt(`${this.zeroPad(Number(this.state.hours))}`, 10) > 0
+                            ? this.zeroPad(Number(this.state.hours) - 1)
+                            : this.zeroPad(Number(this.state.hours)),
                     minutes: 59,
                 });
                 this.setState({blink: 'hour'});
@@ -119,25 +120,30 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
             }
         }
 
-        if (this.hourRef.current.value.length === 2
-            && this.minuteRef.current.value.length === 2
-            && this.secondRef.current.value.length === 2) {
-                if ((this.props.hours !== prevProps.hours)
-                || (this.props.minutes !== prevProps.minutes)
-                || (this.props.seconds !== prevProps.seconds)) {
-                    this.setState({
-                        hours: this.stateUpdate('hours', this.props.hours, this.props.minutes, this.props.seconds),
-                        minutes: this.stateUpdate('minutes', this.props.minutes, this.props.seconds),
-                        seconds: this.stateUpdate('seconds', this.props.seconds),
-                    });
-                }
+        if (
+            this.hourRef.current.value.length === 2 &&
+            this.minuteRef.current.value.length === 2 &&
+            this.secondRef.current.value.length === 2
+        ) {
+            if (
+                this.props.hours !== prevProps.hours ||
+                this.props.minutes !== prevProps.minutes ||
+                this.props.seconds !== prevProps.seconds
+            ) {
+                this.setState({
+                    hours: this.stateUpdate('hours', this.props.hours, this.props.minutes, this.props.seconds),
+                    minutes: this.stateUpdate('minutes', this.props.minutes, this.props.seconds),
+                    seconds: this.stateUpdate('seconds', this.props.seconds),
+                });
+            }
         }
     }
 
     valueUpdate() {
         if (this.props.onChange) {
-            this.props.onChange(moment.duration(`${this.state.hours}:${this.state.minutes}:${this.state.seconds}`)
-            .asSeconds());
+            this.props.onChange(
+                moment.duration(`${this.state.hours}:${this.state.minutes}:${this.state.seconds}`).asSeconds(),
+            );
         }
     }
 
@@ -205,17 +211,15 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
         let stateClone: IState = {};
         if (event.key === 'ArrowUp') {
             if (event.target.id === 'hours') {
-                stateClone[state] = this.state[state] < 99
-                ? this.zeroPad(Number(this.state[state]) + 1)
-                : this.zeroPad(99);
+                stateClone[state] =
+                    this.state[state] < 99 ? this.zeroPad(Number(this.state[state]) + 1) : this.zeroPad(99);
             } else {
                 stateClone[state] = this.zeroPad(Number(this.state[state]) + 1);
             }
         } else if (event.key === 'ArrowDown') {
             if (event.target.id === 'hours') {
-                stateClone[state] = this.state[state] > 0
-                    ? this.zeroPad(Number(this.state[state]) - 1)
-                    : this.zeroPad(0);
+                stateClone[state] =
+                    this.state[state] > 0 ? this.zeroPad(Number(this.state[state]) - 1) : this.zeroPad(0);
             } else {
                 stateClone[state] = this.zeroPad(Number(this.state[state]) - 1);
             }
@@ -262,11 +266,11 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
 
     handleFocusOnKeyUp(event: React.KeyboardEvent<HTMLInputElement>, ref: HTMLInputElement | null) {
         if (
-            event.key !== 'ArrowRight'
-            && event.key !== 'ArrowLeft'
-            && event.key !== 'ArrowUp'
-            && event.key !== 'ArrowDown'
-            && event.key !== 'Backspace'
+            event.key !== 'ArrowRight' &&
+            event.key !== 'ArrowLeft' &&
+            event.key !== 'ArrowUp' &&
+            event.key !== 'ArrowDown' &&
+            event.key !== 'Backspace'
         ) {
             if ((event.keyCode > 46 && event.keyCode < 58) || (event.keyCode > 95 && event.keyCode < 106)) {
                 const target = event.target as HTMLInputElement;
@@ -283,18 +287,18 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
     render() {
         if (this.props.preview) {
             return (
-                <div className='sd-input__duration-input-preview'>
+                <div className="sd-input__duration-input-preview">
                     <div>
-                        <span className='duration-input-preview'>{this.state.hours}</span>
-                        <span className='sd-input__suffix'>h</span>
+                        <span className="duration-input-preview">{this.state.hours}</span>
+                        <span className="sd-input__suffix">h</span>
                     </div>
                     <div>
-                        <span className='duration-input-preview'>{this.state.minutes}</span>
-                        <span className='sd-input__suffix'>m</span>
+                        <span className="duration-input-preview">{this.state.minutes}</span>
+                        <span className="sd-input__suffix">m</span>
                     </div>
                     <div>
-                        <span className='duration-input-preview'>{this.state.seconds}</span>
-                        <span className='sd-input__suffix'>s</span>
+                        <span className="duration-input-preview">{this.state.seconds}</span>
+                        <span className="sd-input__suffix">s</span>
                     </div>
                 </div>
             );
@@ -317,8 +321,8 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                 <div className={'sd-input__duration-input'}>
                     <input
                         className={`duration-input ${this.state.blink === 'hour' ? 'blink_me' : ''}`}
-                        type='text'
-                        id='hours'
+                        type="text"
+                        id="hours"
                         autoComplete="off"
                         max={99}
                         min={0}
@@ -327,7 +331,9 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                         disabled={this.props.disabled}
                         onKeyDown={(event) => this.handleKeyDown(event)}
                         onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.minuteRef.current)}
-                        onChange={(event) => { this.handleChange(event, 'hours'); }}
+                        onChange={(event) => {
+                            this.handleChange(event, 'hours');
+                        }}
                         onBlur={(event) => this.setState({hours: this.zeroPad(event.target.value)})}
                         onKeyPress={(event) => {
                             if (!/[0-9]/.test(event.key)) {
@@ -335,19 +341,21 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                             }
                         }}
                     />
-                    <span className='sd-input__suffix'>h</span>
+                    <span className="sd-input__suffix">h</span>
 
                     <input
                         className={`duration-input ${this.state.blink === 'minute' ? 'blink_me' : ''}`}
-                        type='text'
-                        id='minutes'
+                        type="text"
+                        id="minutes"
                         autoComplete="off"
                         ref={this.minuteRef}
                         value={this.state.minutes}
                         disabled={this.props.disabled}
                         onKeyDown={(event) => this.handleKeyDown(event)}
                         onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.secondRef.current)}
-                        onChange={(event) => { this.handleChange(event, 'minutes'); }}
+                        onChange={(event) => {
+                            this.handleChange(event, 'minutes');
+                        }}
                         onBlur={(event) => this.setState({minutes: this.zeroPad(event.target.value)})}
                         onKeyPress={(event) => {
                             if (!/[0-9]/.test(event.key)) {
@@ -355,19 +363,21 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                             }
                         }}
                     />
-                    <span className='sd-input__suffix'>m</span>
+                    <span className="sd-input__suffix">m</span>
 
                     <input
-                        className='duration-input'
-                        type='text'
-                        id='seconds'
+                        className="duration-input"
+                        type="text"
+                        id="seconds"
                         autoComplete="off"
                         ref={this.secondRef}
                         value={this.state.seconds}
                         disabled={this.props.disabled}
                         onKeyDown={(event) => this.handleKeyDown(event)}
                         onKeyUp={(event) => this.handleFocusOnKeyUp(event, this.hourRef.current)}
-                        onChange={(event) => { this.handleChange(event, 'seconds'); }}
+                        onChange={(event) => {
+                            this.handleChange(event, 'seconds');
+                        }}
                         onBlur={(event) => this.setState({seconds: this.zeroPad(event.target.value)})}
                         onKeyPress={(event) => {
                             if (!/[0-9]/.test(event.key)) {
@@ -375,14 +385,14 @@ export class DurationInput extends React.PureComponent<IProps, IState> {
                             }
                         }}
                     />
-                    <span className='sd-input__suffix'>s</span>
+                    <span className="sd-input__suffix">s</span>
                 </div>
             </InputWrapper>
         );
     }
 }
 
-export function getDurationString(seconds: number,  minSections: 1 | 2 | 3 = 1) {
+export function getDurationString(seconds: number, minSections: 1 | 2 | 3 = 1) {
     function zeroPad(value: number | string) {
         if (value.toString().length === 1 || value === 0) {
             return `0${value}`;

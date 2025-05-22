@@ -28,7 +28,8 @@ export class Label extends React.PureComponent<IProps> {
         if (this.props.link || this.props.onClick) {
             if (this.props.style === 'hollow') {
                 return (
-                    <a className={classes}
+                    <a
+                        className={classes}
                         href={this.props.link}
                         onClick={this.props.onClick}
                         style={{color: this.props.hexColor, borderColor: this.props.hexColor}}
@@ -39,7 +40,8 @@ export class Label extends React.PureComponent<IProps> {
                 );
             } else if (this.props.style === 'translucent') {
                 return (
-                    <a className={classes}
+                    <a
+                        className={classes}
                         href={this.props.link}
                         onClick={this.props.onClick}
                         style={{color: this.props.hexColor, backgroundColor: `${this.props.hexColor}33`}}
@@ -48,11 +50,13 @@ export class Label extends React.PureComponent<IProps> {
                         {this.props.text}
                     </a>
                 );
-            } else  {
+            } else {
                 return (
-                    <a className={classes}
+                    <a
+                        className={classes}
                         href={this.props.link}
-                        onClick={this.props.onClick} style={{backgroundColor: this.props.hexColor}}
+                        onClick={this.props.onClick}
+                        style={{backgroundColor: this.props.hexColor}}
                         data-test-id={this.props['data-test-id']}
                     >
                         {this.props.text}
@@ -60,7 +64,7 @@ export class Label extends React.PureComponent<IProps> {
                 );
             }
         } else {
-             if (this.props.style === 'hollow') {
+            if (this.props.style === 'hollow') {
                 return (
                     <span
                         className={classes}
@@ -91,7 +95,7 @@ export class Label extends React.PureComponent<IProps> {
                         }
                         data-test-id={this.props['data-test-id']}
                     >
-                            {this.props.text}
+                        {this.props.text}
                     </span>
                 );
             }

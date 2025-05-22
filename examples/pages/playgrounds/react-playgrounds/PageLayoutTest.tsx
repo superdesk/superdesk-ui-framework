@@ -1,5 +1,17 @@
 import * as React from 'react';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Icon, IconButton, Checkbox, GridList, Badge, Divider } from '../../../../app-typescript/index';
+import {
+    ButtonGroup,
+    Button,
+    NavButton,
+    SubNav,
+    Dropdown,
+    Icon,
+    IconButton,
+    Checkbox,
+    GridList,
+    Badge,
+    Divider,
+} from '../../../../app-typescript/index';
 import * as GridElements from '../../../../app-typescript/components/GridItem';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 
@@ -34,14 +46,14 @@ export class PageLayoutTest extends React.Component<IProps, IState> {
             value1: false,
             leftPanelOpen: false,
             rightPanelOpen: false,
-        }
+        };
         this.handleTheme = this.handleTheme.bind(this);
     }
 
     handleTheme(newTheme: string) {
         this.setState({
-            theme: newTheme
-        })
+            theme: newTheme,
+        });
     }
 
     changeStatus(item: any, status: string) {
@@ -55,110 +67,144 @@ export class PageLayoutTest extends React.Component<IProps, IState> {
     render() {
         return (
             <Layout.PageLayout
-            header={(
-                <SubNav>
-                    <ButtonGroup align="start" padded={true}>
-                        <Button
-                            text="Open left panel"
-                            style="hollow"
-                            onClick={() => this.setState({'leftPanelOpen': !this.state.leftPanelOpen})}
-                        />
-                    </ButtonGroup>
-                    <ButtonGroup align='end'>
-                        <Button
-                            text="Open right panel"
-                            style="hollow"
-                            onClick={() => this.setState({'rightPanelOpen': !this.state.rightPanelOpen})}
-                        />
-                        <Divider size="mini" />
-                        <ButtonGroup subgroup={true} spaces="no-space">
-                            <Dropdown
-                                items={[
-                                    {
-                                        type: 'group', label: 'Chose a theme', items: [
-                                            'divider',
-                                            { label: 'Light', onSelect: () => this.handleTheme('light-ui')},
-                                            { label: 'Dark', onSelect: () => this.handleTheme('dark-ui')},
-                                        ]
-                                    },
-                                ]}
-                            >
-                                <NavButton type='default' icon='adjust' onClick={()=> false} />
-                            </Dropdown>
+                header={
+                    <SubNav>
+                        <ButtonGroup align="start" padded={true}>
+                            <Button
+                                text="Open left panel"
+                                style="hollow"
+                                onClick={() => this.setState({leftPanelOpen: !this.state.leftPanelOpen})}
+                            />
                         </ButtonGroup>
-                    </ButtonGroup>
-                </SubNav>
-            )}
-            leftPanelOpen={this.state.leftPanelOpen}
-            leftPanel={(
-                <Layout.Panel side='left' background='light' open={this.state.leftPanelOpen} size='x-large'>
-                    <Layout.PanelHeader  title='This is the title for the Panel' onClose={() => this.setState({'leftPanelOpen': false})} />
-                    <Layout.PanelContent>
-                        <Layout.PanelContentBlock>
-                            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                                vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
-                                risus, porta ac consectetur ac, vestibulum at eros.</p>
-                        </Layout.PanelContentBlock>
-                    </Layout.PanelContent>
-                </Layout.Panel>
-            )}
-            rightPanelOpen={this.state.rightPanelOpen}
-            rightPanel={(
-                <Layout.Panel side='right' background='grey' open={this.state.rightPanelOpen} size='small'>
-                    <Layout.PanelHeader color='blueGreyDarker' title='Right Panel Title' onClose={() => this.setState({'rightPanelOpen': false})} />
-                    <Layout.PanelContent>
-                        <Layout.PanelContentBlock>
-                            <p>Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum.
-                                Cras justo odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                            <p>Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
-                                vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo
-                                risus, porta ac consectetur ac, vestibulum at eros.</p>
-                        </Layout.PanelContentBlock>
-                    </Layout.PanelContent>
-                </Layout.Panel>
-            )}
-            main={(
-                <GridList size="small" gap="medium" margin="3">
-                    {dummy_items.map((item: any, index: any) =>
-                        <GridElements.GridItem locked={item.locked} status={item.status} itemtype={item.type} key={index}>
-                            <GridElements.GridItemCheckWrapper>
-                                <Checkbox
-                                    checked={item.selected}
-                                    label={{text:''}}
-                                    onChange={(value) => {
-                                        item.selected = value;
-                                        this.changeStatus(item, 'selected');
-                                    }}
-                                />
-                            </GridElements.GridItemCheckWrapper>
-                            <GridElements.GridItemTopActions>
-                                <IconButton icon='fullscreen' ariaValue='More actions' onClick={()=> false} />
-                            </GridElements.GridItemTopActions>
-                            <GridElements.GridItemMedia>
-                                {item.image ? <img src={item.image} alt={item.imageAlt}/> : null}
-                            </GridElements.GridItemMedia>
-                            <GridElements.GridItemContent>
-                                <GridElements.GridItemTime time={item.date} />
-                                <GridElements.GridItemTitle>{item.title}</GridElements.GridItemTitle>
-                                <GridElements.GridItemText>{item.description}</GridElements.GridItemText>
-                            </GridElements.GridItemContent>
-                            <GridElements.GridItemFooter>
-                                <GridElements.GridItemFooterBlock align='left'>
-                                    <Icon name={item.type} className='sd-grid-item__type-icn' />
-                                    <Badge text={item.urgency} color={item.urgencyColor} />
-                                    <Badge text={item.priority} shape='square' color={item.priorityColor} />
-                                </GridElements.GridItemFooterBlock>
-                                <GridElements.GridItemFooterActions>
-                                    <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> this.changeStatus(item, 'archived')} />
-                                </GridElements.GridItemFooterActions>
-                            </GridElements.GridItemFooter>
-                        </GridElements.GridItem>
-                    )}
-                </GridList>
-            )}
-        />
+                        <ButtonGroup align="end">
+                            <Button
+                                text="Open right panel"
+                                style="hollow"
+                                onClick={() => this.setState({rightPanelOpen: !this.state.rightPanelOpen})}
+                            />
+                            <Divider size="mini" />
+                            <ButtonGroup subgroup={true} spaces="no-space">
+                                <Dropdown
+                                    items={[
+                                        {
+                                            type: 'group',
+                                            label: 'Chose a theme',
+                                            items: [
+                                                'divider',
+                                                {label: 'Light', onSelect: () => this.handleTheme('light-ui')},
+                                                {label: 'Dark', onSelect: () => this.handleTheme('dark-ui')},
+                                            ],
+                                        },
+                                    ]}
+                                >
+                                    <NavButton type="default" icon="adjust" onClick={() => false} />
+                                </Dropdown>
+                            </ButtonGroup>
+                        </ButtonGroup>
+                    </SubNav>
+                }
+                leftPanelOpen={this.state.leftPanelOpen}
+                leftPanel={
+                    <Layout.Panel side="left" background="light" open={this.state.leftPanelOpen} size="x-large">
+                        <Layout.PanelHeader
+                            title="This is the title for the Panel"
+                            onClose={() => this.setState({leftPanelOpen: false})}
+                        />
+                        <Layout.PanelContent>
+                            <Layout.PanelContentBlock>
+                                <p>
+                                    Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor
+                                    sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Cras justo
+                                    odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed
+                                    consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                                <p>
+                                    Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna
+                                    mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit
+                                    tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus,
+                                    porta ac consectetur ac, vestibulum at eros.
+                                </p>
+                            </Layout.PanelContentBlock>
+                        </Layout.PanelContent>
+                    </Layout.Panel>
+                }
+                rightPanelOpen={this.state.rightPanelOpen}
+                rightPanel={
+                    <Layout.Panel side="right" background="grey" open={this.state.rightPanelOpen} size="small">
+                        <Layout.PanelHeader
+                            color="blueGreyDarker"
+                            title="Right Panel Title"
+                            onClose={() => this.setState({rightPanelOpen: false})}
+                        />
+                        <Layout.PanelContent>
+                            <Layout.PanelContentBlock>
+                                <p>
+                                    Maecenas sed diam eget risus varius blandit sit amet non magna. Lorem ipsum dolor
+                                    sit amet, consectetur adipiscing elit. Maecenas faucibus mollis interdum. Cras justo
+                                    odio, dapibus ac facilisis in, egestas eget quam. Aenean lacinia bibendum nulla sed
+                                    consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                </p>
+                                <p>
+                                    Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna
+                                    mollis euismod. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis
+                                    vestibulum. Nullam quis risus eget urna mollis ornare vel eu leo. Curabitur blandit
+                                    tempus porttitor. Aenean lacinia bibendum nulla sed consectetur. Morbi leo risus,
+                                    porta ac consectetur ac, vestibulum at eros.
+                                </p>
+                            </Layout.PanelContentBlock>
+                        </Layout.PanelContent>
+                    </Layout.Panel>
+                }
+                main={
+                    <GridList size="small" gap="medium" margin="3">
+                        {dummy_items.map((item: any, index: any) => (
+                            <GridElements.GridItem
+                                locked={item.locked}
+                                status={item.status}
+                                itemtype={item.type}
+                                key={index}
+                            >
+                                <GridElements.GridItemCheckWrapper>
+                                    <Checkbox
+                                        checked={item.selected}
+                                        label={{text: ''}}
+                                        onChange={(value) => {
+                                            item.selected = value;
+                                            this.changeStatus(item, 'selected');
+                                        }}
+                                    />
+                                </GridElements.GridItemCheckWrapper>
+                                <GridElements.GridItemTopActions>
+                                    <IconButton icon="fullscreen" ariaValue="More actions" onClick={() => false} />
+                                </GridElements.GridItemTopActions>
+                                <GridElements.GridItemMedia>
+                                    {item.image ? <img src={item.image} alt={item.imageAlt} /> : null}
+                                </GridElements.GridItemMedia>
+                                <GridElements.GridItemContent>
+                                    <GridElements.GridItemTime time={item.date} />
+                                    <GridElements.GridItemTitle>{item.title}</GridElements.GridItemTitle>
+                                    <GridElements.GridItemText>{item.description}</GridElements.GridItemText>
+                                </GridElements.GridItemContent>
+                                <GridElements.GridItemFooter>
+                                    <GridElements.GridItemFooterBlock align="left">
+                                        <Icon name={item.type} className="sd-grid-item__type-icn" />
+                                        <Badge text={item.urgency} color={item.urgencyColor} />
+                                        <Badge text={item.priority} shape="square" color={item.priorityColor} />
+                                    </GridElements.GridItemFooterBlock>
+                                    <GridElements.GridItemFooterActions>
+                                        <IconButton
+                                            icon="dots-vertical"
+                                            ariaValue="More actions"
+                                            onClick={() => this.changeStatus(item, 'archived')}
+                                        />
+                                    </GridElements.GridItemFooterActions>
+                                </GridElements.GridItemFooter>
+                            </GridElements.GridItem>
+                        ))}
+                    </GridList>
+                }
+            />
         );
     }
 }

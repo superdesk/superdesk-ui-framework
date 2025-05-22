@@ -20,7 +20,7 @@ export class Badge extends React.PureComponent<IProps> {
 
         if (this.props.children) {
             return (
-                <div className='element-with-badge' data-test-id={this.props['data-test-id']}>
+                <div className="element-with-badge" data-test-id={this.props['data-test-id']}>
                     {this.props.children}
                     <span
                         className={classes}

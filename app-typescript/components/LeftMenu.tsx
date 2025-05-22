@@ -1,6 +1,6 @@
-import * as React from "react";
-import classNames from "classnames";
-import Scrollspy from "react-scrollspy";
+import * as React from 'react';
+import classNames from 'classnames';
+import Scrollspy from 'react-scrollspy';
 
 interface IMenuItem {
     id: string;
@@ -24,8 +24,8 @@ interface IMenu {
     scrollSpy?: string;
     offset?: number;
     reverseItemBorder?: boolean;
-    style?: "default" | "inverse" | "blanc";
-    size?: "medium" | "large";
+    style?: 'default' | 'inverse' | 'blanc';
+    size?: 'medium' | 'large';
     onSelect(id: string, route: string): void;
 }
 
@@ -50,37 +50,31 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
         });
 
         if (item.ref) {
-            return document
-                .getElementById(item.ref)
-                ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+            return document.getElementById(item.ref)?.scrollIntoView({block: 'nearest', behavior: 'smooth'});
         }
 
         if (item.onClick) {
             return item.onClick();
         }
 
-        this.props.onSelect(item.id, item.route ? item.route : "");
+        this.props.onSelect(item.id, item.route ? item.route : '');
     }
 
     componentDidMount() {
         if (this.props.scrollTo) {
-            return document
-            .getElementById(this.props.scrollTo)
-            ?.scrollIntoView({ block: "nearest", behavior: "smooth" });
+            return document.getElementById(this.props.scrollTo)?.scrollIntoView({block: 'nearest', behavior: 'smooth'});
         }
     }
 
     render() {
         let classes = classNames(
-            "sd-left-nav",
+            'sd-left-nav',
             {
-                "sd-left-nav--default": this.props.style === undefined,
-                [`sd-left-nav--${this.props.style}`]:
-                this.props.style || this.props.style !== undefined,
-                "sd-left-nav--medium": this.props.size === undefined,
-                [`sd-left-nav--${this.props.size}`]:
-                this.props.size || this.props.size !== undefined,
-                "sd-left-nav--reverse-border": this.props.reverseItemBorder,
+                'sd-left-nav--default': this.props.style === undefined,
+                [`sd-left-nav--${this.props.style}`]: this.props.style || this.props.style !== undefined,
+                'sd-left-nav--medium': this.props.size === undefined,
+                [`sd-left-nav--${this.props.size}`]: this.props.size || this.props.size !== undefined,
+                'sd-left-nav--reverse-border': this.props.reverseItemBorder,
             },
             this.props.className,
         );
@@ -91,32 +85,35 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
             this.props.groups.map((element, index) => {
                 scrollSpyList = [...scrollSpyList, element.label];
                 scrollSpyItems.push(
-                    <span className="sd-left-nav__group-header" key={"group-" + index}>
+                    <span className="sd-left-nav__group-header" key={'group-' + index}>
                         {element.label}
                     </span>,
                 );
 
                 element.items.map((elementOfItem, indexOfItem) => {
-                scrollSpyList = [...scrollSpyList, `${elementOfItem.ref}`];
+                    scrollSpyList = [...scrollSpyList, `${elementOfItem.ref}`];
 
-                scrollSpyItems.push(
-                    <a key={"item-" + indexOfItem}
-                    onClick={(event) => {
-                    this.handleClick(elementOfItem, event);
-                    }}
-                    className="sd-left-nav__btn" >
-                        {elementOfItem.label}
-                    </a>,
-                );
+                    scrollSpyItems.push(
+                        <a
+                            key={'item-' + indexOfItem}
+                            onClick={(event) => {
+                                this.handleClick(elementOfItem, event);
+                            }}
+                            className="sd-left-nav__btn"
+                        >
+                            {elementOfItem.label}
+                        </a>,
+                    );
                 });
             });
 
             return (
                 <Scrollspy
-                offset={this.props.offset ? this.props.offset : -300}
-                items={scrollSpyList}
-                rootEl={this.props.scrollSpy}
-                currentClassName="sd-left-nav__btn--active" >
+                    offset={this.props.offset ? this.props.offset : -300}
+                    items={scrollSpyList}
+                    rootEl={this.props.scrollSpy}
+                    currentClassName="sd-left-nav__btn--active"
+                >
                     {scrollSpyItems.map((element) => element)}
                 </Scrollspy>
             );
@@ -126,23 +123,24 @@ export class LeftMenu extends React.PureComponent<IMenu, IState> {
             return this.props.groups.map((group, i) => {
                 return (
                     <React.Fragment key={i}>
-                    <span className="sd-left-nav__group-header">{group.label}</span>
-                    {group.items.map((item, j) => {
-                        return (
-                        <button
-                        key={j}
-                        onClick={(event) => {
-                        this.handleClick(item, event);
-                        }}
-                        className={
-                        item.id === this.state.active
-                            ? "sd-left-nav__btn sd-left-nav__btn--active"
-                            : "sd-left-nav__btn"
-                        }>
-                            {item.label}
-                        </button>
-                        );
-                    })}
+                        <span className="sd-left-nav__group-header">{group.label}</span>
+                        {group.items.map((item, j) => {
+                            return (
+                                <button
+                                    key={j}
+                                    onClick={(event) => {
+                                        this.handleClick(item, event);
+                                    }}
+                                    className={
+                                        item.id === this.state.active
+                                            ? 'sd-left-nav__btn sd-left-nav__btn--active'
+                                            : 'sd-left-nav__btn'
+                                    }
+                                >
+                                    {item.label}
+                                </button>
+                            );
+                        })}
                     </React.Fragment>
                 );
             });

@@ -13,9 +13,7 @@ export class AuthoringFrameSidePanelOverlay extends React.PureComponent<IProps> 
         });
         return (
             <div className={classes}>
-                <div className='sidetabs-content-overlay__inner'>
-                    {this.props.children}
-                </div>
+                <div className="sidetabs-content-overlay__inner">{this.props.children}</div>
             </div>
         );
     }

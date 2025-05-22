@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Icon } from './Icon';
+import {Icon} from './Icon';
 // import * as PanelElements from '../../app-typescript/components/Layouts/Panel';
 
 interface IProps {
@@ -56,33 +56,35 @@ export class DropZone extends React.PureComponent<IProps, IState> {
     }
 
     render() {
-        let classes = classNames('sd-dropzone__drop-target', {
-            'sd-dropzone__drop-target--ondragover': this.state.dragClass,
-            'sd-dropzone__drop-target--ondrop': this.state.dropClass,
-            [`sd-dropzone__drop-target--${this.props.type}`]: this.props.type,
-        }, this.props.className);
+        let classes = classNames(
+            'sd-dropzone__drop-target',
+            {
+                'sd-dropzone__drop-target--ondragover': this.state.dragClass,
+                'sd-dropzone__drop-target--ondrop': this.state.dropClass,
+                [`sd-dropzone__drop-target--${this.props.type}`]: this.props.type,
+            },
+            this.props.className,
+        );
 
         return (
-            <div className={classes}
-            onDragLeave={(event) => this.dragLeave(event)}
-            onDragEnter={(event) => this.dragEnter(event)}
-            onDragOver={(event) => this.dragOver(event)}
-            onDrop={(event) => this.drop(event)}
-            onDragStart={() => false}
-            onDragEnd={() => false}
+            <div
+                className={classes}
+                onDragLeave={(event) => this.dragLeave(event)}
+                onDragEnter={(event) => this.dragEnter(event)}
+                onDragOver={(event) => this.dragOver(event)}
+                onDrop={(event) => this.drop(event)}
+                onDragStart={() => false}
+                onDragEnd={() => false}
             >
-                <div className='sd-dropzone__target-border'>
-                </div>
-                <input type="file" className='sd-dropzone__input'/>
-                {this.props.icon ?
-                    <figure className='sd-dropzone__icon' aria-hidden='true'>
-                        <Icon name='upload-alt' size='big' />
-                    </figure> : null
-                }
-                {this.props.heading ?
-                    <h4 className='sd-dropzone__heading'>{this.props.heading}</h4> : null
-                }
-                <p className='sd-dropzone__description'>{this.props.text}</p>
+                <div className="sd-dropzone__target-border"></div>
+                <input type="file" className="sd-dropzone__input" />
+                {this.props.icon ? (
+                    <figure className="sd-dropzone__icon" aria-hidden="true">
+                        <Icon name="upload-alt" size="big" />
+                    </figure>
+                ) : null}
+                {this.props.heading ? <h4 className="sd-dropzone__heading">{this.props.heading}</h4> : null}
+                <p className="sd-dropzone__description">{this.props.text}</p>
             </div>
         );
     }

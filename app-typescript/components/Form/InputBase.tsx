@@ -56,7 +56,7 @@ export class InputBase extends React.Component<IProps, IState> {
     // htmlId = nextId();
 
     handleChange(event: React.ChangeEvent<HTMLInputElement>) {
-        this.setState({ value: event.target.value });
+        this.setState({value: event.target.value});
         if (this.props.type === 'number') {
             this.props.onChange(Number(event.target.value));
         } else {
@@ -78,18 +78,19 @@ export class InputBase extends React.Component<IProps, IState> {
             'sd-input__input--disabled': this.props.disabled,
             'sd-input__input--medium': this.props.size === undefined,
             [`sd-input__input--${this.props.size}`]: this.props.size || this.props.size !== undefined,
-
         });
         return (
-            <input className={classes}
-            type={this.props.type ?? 'text'}
-            id={this.props.htmlId}
-            value={this.state.value}
-            aria-describedby={this.props.htmlId + 'label'}
-            tabIndex={this.props.tabIndex}
-            onChange={this.handleChange}
-            placeholder={this.props.placeholder}
-            disabled={this.props.disabled} />
+            <input
+                className={classes}
+                type={this.props.type ?? 'text'}
+                id={this.props.htmlId}
+                value={this.state.value}
+                aria-describedby={this.props.htmlId + 'label'}
+                tabIndex={this.props.tabIndex}
+                onChange={this.handleChange}
+                placeholder={this.props.placeholder}
+                disabled={this.props.disabled}
+            />
         );
     }
 }

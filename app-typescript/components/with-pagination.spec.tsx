@@ -13,7 +13,7 @@ interface IPost {
 const TIMEOUT = 1000;
 
 export class Paginated extends React.PureComponent {
-    getItems(): Promise<{items: Array<IPost>, itemCount: number}> {
+    getItems(): Promise<{items: Array<IPost>; itemCount: number}> {
         return new Promise((resolve) => {
             setTimeout(() => {
                 return resolve({items: range(1, 500).map((x) => ({title: `title ${x}`})), itemCount: 500});
@@ -23,12 +23,8 @@ export class Paginated extends React.PureComponent {
 
     render() {
         return (
-            <WithPagination
-                getItems={() => this.getItems()}
-            >
-                {
-                    (items) => <div>{JSON.stringify(items)}</div>
-                }
+            <WithPagination getItems={() => this.getItems()}>
+                {(items) => <div>{JSON.stringify(items)}</div>}
             </WithPagination>
         );
     }
@@ -70,10 +66,7 @@ describe('with-pagination', () => {
         const wrapper = mount(<Paginated />);
 
         setTimeout(() => {
-            assert.strictEqual(
-                wrapper.update().find('[data-test-id="page-button-1"]').length,
-                2,
-            );
+            assert.strictEqual(wrapper.update().find('[data-test-id="page-button-1"]').length, 2);
             done();
         }, TIMEOUT + 100);
     });
@@ -85,10 +78,7 @@ describe('with-pagination', () => {
             wrapper.update();
             wrapper.find('[data-test-id="btn-3"]').at(0).simulate('click');
 
-            assert.strictEqual(
-                wrapper.find('[data-test-id="page-button-4"]').length,
-                2,
-            );
+            assert.strictEqual(wrapper.find('[data-test-id="page-button-4"]').length, 2);
             done();
         }, TIMEOUT + 100);
     });
@@ -101,10 +91,7 @@ describe('with-pagination', () => {
             wrapper.find('[data-test-id="btn-4"]').at(0).simulate('click');
             wrapper.find('[data-test-id="btn-2"]').at(0).simulate('click');
 
-            assert.strictEqual(
-                wrapper.find('[data-test-id="button4"]').length,
-                2,
-            );
+            assert.strictEqual(wrapper.find('[data-test-id="button4"]').length, 2);
             done();
         }, TIMEOUT + 100);
     });
@@ -116,10 +103,7 @@ describe('with-pagination', () => {
             wrapper.update();
             wrapper.find('[data-test-id="btn-4"]').at(0).simulate('click');
 
-            assert.strictEqual(
-                wrapper.find('[data-test-id="more-pages"]').length,
-                2,
-            );
+            assert.strictEqual(wrapper.find('[data-test-id="more-pages"]').length, 2);
             done();
         }, TIMEOUT + 100);
     });
@@ -136,10 +120,7 @@ describe('with-pagination', () => {
             wrapper.update();
             wrapper.find('[data-test-id="btn-4"]').at(1).simulate('click');
 
-            assert.strictEqual(
-                wrapper.getDOMNode().scrollTop,
-                0,
-            );
+            assert.strictEqual(wrapper.getDOMNode().scrollTop, 0);
             done();
         }, TIMEOUT + 100);
     });

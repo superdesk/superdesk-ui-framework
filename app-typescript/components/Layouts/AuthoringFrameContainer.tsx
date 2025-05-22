@@ -6,10 +6,6 @@ interface IProps {
 
 export class AuthoringFrameContainer extends React.PureComponent<IProps> {
     render() {
-        return (
-            <div className="sd-editor-grid">
-                {this.props.children}
-            </div>
-        );
+        return <div className="sd-editor-grid">{this.props.children}</div>;
     }
 }

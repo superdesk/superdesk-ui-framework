@@ -1,10 +1,7 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 
-import {
-    InputBase,
-    InputWrapper
-} from '.';
+import {InputBase, InputWrapper} from '.';
 
 interface IPropsBase {
     label: string;
@@ -61,7 +58,7 @@ export class InputNew extends React.PureComponent<IProps, IState> {
 
     componentDidUpdate(prevProps: any) {
         if (prevProps.value !== this.props.value) {
-            this.setState({ value: this.props.value });
+            this.setState({value: this.props.value});
         }
     }
 
@@ -85,14 +82,15 @@ export class InputNew extends React.PureComponent<IProps, IState> {
                 htmlId={this.htmlId}
                 boxedStyle={this.props.boxedStyle}
                 boxedLable={this.props.boxedLable}
-                tabindex={this.props.tabindex}>
+                tabindex={this.props.tabindex}
+            >
                 <InputBase
                     type="text"
                     onChange={(value: string) => {
-                        this.setState({ value: value });
-                        this.setState({ invalid: this.props.maxLength
-                            ? (value as string).length > this.props.maxLength
-                            : false });
+                        this.setState({value: value});
+                        this.setState({
+                            invalid: this.props.maxLength ? (value as string).length > this.props.maxLength : false,
+                        });
                         this.props.onChange(value as string);
                     }}
                     disabled={this.props.disabled}
@@ -100,7 +98,8 @@ export class InputNew extends React.PureComponent<IProps, IState> {
                     value={this.state.value}
                     aria-describedby={this.htmlId + 'label'}
                     tabIndex={this.props.tabindex}
-                    placeholder={this.props.placeholder} />
+                    placeholder={this.props.placeholder}
+                />
             </InputWrapper>
         );
     }

@@ -2,7 +2,7 @@ import * as React from 'react';
 import {Icon} from '../components/Icon';
 
 interface IProps<T> {
-    getItems(pageNo: number, pageSize: number, signal: AbortSignal): Promise<{items: Array<T>, itemCount: number}>;
+    getItems(pageNo: number, pageSize: number, signal: AbortSignal): Promise<{items: Array<T>; itemCount: number}>;
     children: (items: Array<T>) => JSX.Element;
     pageSize?: number;
 }
@@ -25,33 +25,27 @@ export function getPagination(currentPage: number, totalPages: number): Array<nu
         currentPage + 2,
     ].filter((page) => page >= 1 && page <= totalPages);
 
-    if (!basePages.includes(1)) { // include first and maybe dots
+    if (!basePages.includes(1)) {
+        // include first and maybe dots
         const firstInCurrentList = basePages[0];
 
         if (firstInCurrentList !== 1) {
-            basePages = [
-                'dots',
-                ...basePages,
-            ];
+            basePages = ['dots', ...basePages];
         }
 
-        basePages = [
-            1,
-            ...basePages,
-        ];
+        basePages = [1, ...basePages];
     }
 
-    if (!basePages.includes(totalPages)) { // include last and maybe dots
+    if (!basePages.includes(totalPages)) {
+        // include last and maybe dots
         const lastInCurrentList = basePages[basePages.length - 1];
 
-        if (lastInCurrentList !== totalPages - 1) { // add dots if we're skipping some numbers
+        if (lastInCurrentList !== totalPages - 1) {
+            // add dots if we're skipping some numbers
             basePages = basePages.concat('dots');
         }
 
-        basePages = [
-            ...basePages,
-            totalPages,
-        ];
+        basePages = [...basePages, totalPages];
     }
 
     return basePages;
@@ -111,9 +105,10 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
             this.inProgress = false;
             this.setState({items: res.items, currentPage: page}, () => {
                 const scrollableEl = getScrollParent(this.ref);
-                const diff = scrollableEl != null && this.ref?.scrollHeight != null
-                    ? scrollableEl.offsetHeight - this.ref.scrollHeight
-                    : null;
+                const diff =
+                    scrollableEl != null && this.ref?.scrollHeight != null
+                        ? scrollableEl.offsetHeight - this.ref.scrollHeight
+                        : null;
 
                 if (scrollableEl != null) {
                     scrollableEl.scrollTop = diff != null ? diff : 0;
@@ -137,7 +132,9 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
         const pageElements = getPagination(this.state.currentPage, this.pageCount).map((el, i) => {
             if (el === 'dots') {
                 return (
-                    <span data-test-id="more-pages" className='sd-pagination__item sd-pagination__item--more'>...</span>
+                    <span data-test-id="more-pages" className="sd-pagination__item sd-pagination__item--more">
+                        ...
+                    </span>
                 );
             } else {
                 return (
@@ -160,19 +157,19 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
             <>
                 <button
                     data-test-id="btn-1"
-                    className='sd-pagination__item sd-pagination__item--start'
+                    className="sd-pagination__item sd-pagination__item--start"
                     disabled={this.state.currentPage === 1}
                     onClick={() => this.switchPage(1)}
                 >
-                    <Icon name='backward-thin' />
+                    <Icon name="backward-thin" />
                 </button>
                 <button
                     data-test-id="btn-2"
-                    className='sd-pagination__item sd-pagination__item--start'
+                    className="sd-pagination__item sd-pagination__item--start"
                     disabled={this.state.currentPage <= 1}
                     onClick={() => this.switchPage(this.state.currentPage - 1)}
                 >
-                    <Icon name='chevron-left-thin' />
+                    <Icon name="chevron-left-thin" />
                 </button>
             </>,
         );
@@ -181,19 +178,19 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
             <>
                 <button
                     data-test-id="btn-3"
-                    className='sd-pagination__item sd-pagination__item--forward'
+                    className="sd-pagination__item sd-pagination__item--forward"
                     onClick={() => this.switchPage(this.state.currentPage + 1)}
                     disabled={this.state.currentPage === this.pageCount}
                 >
-                    <Icon name='chevron-right-thin' />
+                    <Icon name="chevron-right-thin" />
                 </button>
                 <button
                     data-test-id="btn-4"
-                    className='sd-pagination__item sd-pagination__item--end'
+                    className="sd-pagination__item sd-pagination__item--end"
                     onClick={() => this.switchPage(this.pageCount)}
                     disabled={this.state.currentPage === this.pageCount}
                 >
-                    <Icon name='forward-thin' />
+                    <Icon name="forward-thin" />
                 </button>
             </>,
         );
@@ -222,17 +219,15 @@ export class WithPagination<T> extends React.PureComponent<IProps<T>, IState<T>>
                     this.ref = element;
                 }}
             >
-                {
-                    this.pageCount > 1 ? (
-                        <>
-                            <StyledPagination />
-                            {this.props.children(this.state.items)}
-                            <StyledPagination />
-                        </>
-                    ) : (
-                        this.props.children(this.state.items)
-                    )
-                }
+                {this.pageCount > 1 ? (
+                    <>
+                        <StyledPagination />
+                        {this.props.children(this.state.items)}
+                        <StyledPagination />
+                    </>
+                ) : (
+                    this.props.children(this.state.items)
+                )}
             </div>
         );
     }

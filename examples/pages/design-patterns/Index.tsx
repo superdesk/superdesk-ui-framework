@@ -1,14 +1,11 @@
 import * as React from 'react';
 
-import { ReactNav, PatternsDefault } from '../../js/react';
-import { Dropdown } from '../../../app-typescript/index';
+import {ReactNav, PatternsDefault} from '../../js/react';
+import {Dropdown} from '../../../app-typescript/index';
 
-import {
-    Switch,
-    Route,
-} from "react-router-dom";
+import {Switch, Route} from 'react-router-dom';
 
-import { ThreePaneLayoutPattern } from './ThreePaneLayoutPattern';
+import {ThreePaneLayoutPattern} from './ThreePaneLayoutPattern';
 
 const pages = {
     basicComponents: {
@@ -23,9 +20,9 @@ const pages = {
             // 'button-groups': {
             //     name: 'Button Group & Divider'
             // },
-        }
+        },
     },
-}
+};
 class DesignPatternsDoc extends React.Component<> {
     render() {
         return (
@@ -38,8 +35,8 @@ class DesignPatternsDoc extends React.Component<> {
                     </Switch>
                 </main>
             </React.Fragment>
-        )
+        );
     }
 }
 
-export { DesignPatternsDoc };
+export {DesignPatternsDoc};

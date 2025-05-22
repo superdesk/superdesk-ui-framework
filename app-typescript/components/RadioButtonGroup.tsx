@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 import {FormLabel} from './Form/FormLabel';
 
 interface IProps {
@@ -16,11 +16,11 @@ interface IProps {
         groupLabelledBy?: string;
     };
     options: Array<{
-        label: string,
-        value: string,
+        label: string;
+        value: string;
         icon?: string;
-        labelHidden?: boolean,
-        disabled?: boolean
+        labelHidden?: boolean;
+        disabled?: boolean;
     }>;
     required?: boolean;
     tabindex?: number;
@@ -50,33 +50,36 @@ export class RadioButtonGroup extends React.Component<IProps> {
             [`sd-check-button__group--padded`]: this.props.group?.padded === true,
         });
 
-        const selectedOption = this.props.value == null
-            ? undefined
-            : this.props.options.find(({value}) => value === this.props.value);
+        const selectedOption =
+            this.props.value == null ? undefined : this.props.options.find(({value}) => value === this.props.value);
 
         return (
             <React.Fragment>
-                {!this.props.group?.groupLabel ?
+                {!this.props.group?.groupLabel ? (
                     <div
                         role="radiogroup"
                         className={classes}
                         aria-labelledby={this.props.group?.groupLabelledBy}
                         data-test-id={this.props['data-test-id']}
                         data-test-value={selectedOption == null ? undefined : selectedOption.label}
-                    >{
-                        this.props.options.map((item: any, index: number) => (
-                            <span className="sd-check-button sd-check-button--native"
+                    >
+                        {this.props.options.map((item: any, index: number) => (
+                            <span
+                                className="sd-check-button sd-check-button--native"
                                 key={index}
-                                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-
-                                <input type="radio" className="sd-check-button__input"
+                                tabIndex={this.props.tabindex === undefined ? undefined : -1}
+                            >
+                                <input
+                                    type="radio"
+                                    className="sd-check-button__input"
                                     id={this.htmlId + index}
                                     tabIndex={this.props.tabindex}
                                     name={this.htmlId}
                                     onChange={() => this.handleChange(item)}
                                     disabled={this.props.disabled || item.disabled}
                                     required={this.props.required}
-                                    checked={item.value === this.props.value} />
+                                    checked={item.value === this.props.value}
+                                />
                                 <label
                                     className="sd-check-button__text-label"
                                     htmlFor={this.htmlId + index}
@@ -84,51 +87,51 @@ export class RadioButtonGroup extends React.Component<IProps> {
                                     data-test-id="item"
                                     data-test-value={item.label}
                                 >
-
-                                    { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }
-                                    { !item.labelHidden || !item.icon ?
-                                        <span className="sd-check-button__text-label-inner">{item.label}</span> : null }
+                                    {item.icon ? <i className={`icon-${item.icon}`} aria-hidden="true" /> : null}
+                                    {!item.labelHidden || !item.icon ? (
+                                        <span className="sd-check-button__text-label-inner">{item.label}</span>
+                                    ) : null}
                                 </label>
                             </span>
-                        ))
-                    }</div>
-                : null }
-                {this.props.group?.groupLabel ?
+                        ))}
+                    </div>
+                ) : null}
+                {this.props.group?.groupLabel ? (
                     <div
-                        className='sd-check-button__group-wrapper'
+                        className="sd-check-button__group-wrapper"
                         data-test-id={this.props['data-test-id']}
                         data-test-value={selectedOption == null ? undefined : selectedOption.label}
                     >
-
                         <FormLabel forId={this.htmlId + 'group'} text={this.props.group.groupLabel} />
-                        <div role="radiogroup" id={this.htmlId + 'group'} className={classes}>{
-                            this.props.options.map((item: any, index: number) => (
-                                <span className="sd-check-button sd-check-button--native"
-                                    key={index}
-                                    tabIndex={-1}>
-
-                                    <input type="radio" className="sd-check-button__input"
+                        <div role="radiogroup" id={this.htmlId + 'group'} className={classes}>
+                            {this.props.options.map((item: any, index: number) => (
+                                <span className="sd-check-button sd-check-button--native" key={index} tabIndex={-1}>
+                                    <input
+                                        type="radio"
+                                        className="sd-check-button__input"
                                         id={this.htmlId + index}
                                         tabIndex={0}
                                         name={this.htmlId}
                                         onChange={() => this.handleChange(item)}
                                         disabled={this.props.disabled || item.disabled}
                                         required={this.props.required}
-                                        checked={item.value === this.props.value} />
-                                    <label className="sd-check-button__text-label" htmlFor={this.htmlId + index}
-                                        aria-label={item.labelHidden ? item.label : undefined}>
-
-                                        { item.icon ?  <i className={`icon-${item.icon}`} aria-hidden="true" /> : null }
-                                        { !item.labelHidden || !item.icon ?
-                                            <span className="sd-check-button__text-label-inner">
-                                                {item.label}
-                                            </span> : null }
+                                        checked={item.value === this.props.value}
+                                    />
+                                    <label
+                                        className="sd-check-button__text-label"
+                                        htmlFor={this.htmlId + index}
+                                        aria-label={item.labelHidden ? item.label : undefined}
+                                    >
+                                        {item.icon ? <i className={`icon-${item.icon}`} aria-hidden="true" /> : null}
+                                        {!item.labelHidden || !item.icon ? (
+                                            <span className="sd-check-button__text-label-inner">{item.label}</span>
+                                        ) : null}
                                     </label>
                                 </span>
-                            ))
-                        }</div>
+                            ))}
+                        </div>
                     </div>
-                : null }
+                ) : null}
             </React.Fragment>
         );
     }

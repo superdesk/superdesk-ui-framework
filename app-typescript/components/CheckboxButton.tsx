@@ -1,11 +1,11 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 
 interface IProps {
     label: {
-        text: string,
+        text: string;
         icon?: string;
-        hidden?: boolean,
+        hidden?: boolean;
     };
     checked?: boolean;
     disabled?: boolean;
@@ -30,23 +30,32 @@ export class CheckboxButton extends React.Component<IProps> {
 
     render() {
         return (
-            <span className="sd-check-button sd-check-button--native"
-                tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-                <input type="checkbox"
+            <span
+                className="sd-check-button sd-check-button--native"
+                tabIndex={this.props.tabindex === undefined ? undefined : -1}
+            >
+                <input
+                    type="checkbox"
                     className="sd-check-button__input"
                     id={this.htmlId}
                     tabIndex={this.props.tabindex}
                     checked={this.props.checked}
                     onChange={this.handleChange}
                     disabled={this.props.disabled}
-                    required={this.props.required} />
+                    required={this.props.required}
+                />
 
-                <label className="sd-check-button__text-label" htmlFor={this.htmlId}
-                    aria-label={this.props.label.hidden ? this.props.label.text : undefined}>
-                    { this.props.label.icon ?
-                        <i className={`icon-${this.props.label.icon}`} aria-hidden="true" /> : null }
-                    { !this.props.label.hidden || !this.props.label.icon ?
-                        <span className="sd-check-button__text-label-inner">{this.props.label.text}</span> : null }
+                <label
+                    className="sd-check-button__text-label"
+                    htmlFor={this.htmlId}
+                    aria-label={this.props.label.hidden ? this.props.label.text : undefined}
+                >
+                    {this.props.label.icon ? (
+                        <i className={`icon-${this.props.label.icon}`} aria-hidden="true" />
+                    ) : null}
+                    {!this.props.label.hidden || !this.props.label.icon ? (
+                        <span className="sd-check-button__text-label-inner">{this.props.label.text}</span>
+                    ) : null}
                 </label>
             </span>
         );

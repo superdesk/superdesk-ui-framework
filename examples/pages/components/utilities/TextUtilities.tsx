@@ -7,12 +7,13 @@ class TextUtilitiesDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Text</h2>
 
-                <div className='docs-page__container-block--font-size'>
+                <div className="docs-page__container-block--font-size">
                     <h3 className="docs-page__h3">Font Size</h3>
                     <p className="docs-page__paragraph">
-                        The root (HTML) font size is conveniently set to 10px, which makes 1rem equal to 10px by default.
-                        This approach simplifies the calculation of font sizes rem units. Font size helpers classes are
-                        calculated based on the <code>--text-size--base</code> variable, with a value of 1rem.
+                        The root (HTML) font size is conveniently set to 10px, which makes 1rem equal to 10px by
+                        default. This approach simplifies the calculation of font sizes rem units. Font size helpers
+                        classes are calculated based on the <code>--text-size--base</code> variable, with a value of
+                        1rem.
                     </p>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -25,38 +26,59 @@ class TextUtilitiesDoc extends React.Component {
                             <tbody>
                                 <tr>
                                     <td>text-2xs</td>
-                                    <td>{'font-size: var(--text-size-x-small);'} <span className="doc-text--highlight">/* 10px */</span></td>
+                                    <td>
+                                        {'font-size: var(--text-size-x-small);'}{' '}
+                                        <span className="doc-text--highlight">/* 10px */</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-xs</td>
-                                    <td>{'font-size: var(--text-size-x-small);'} <span className="doc-text--highlight">/* 12px */</span></td>
+                                    <td>
+                                        {'font-size: var(--text-size-x-small);'}{' '}
+                                        <span className="doc-text--highlight">/* 12px */</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-sm</td>
-                                    <td>{'font-size: var(--text-size-small);'} <span className="doc-text--highlight">/* 14px */</span></td>
+                                    <td>
+                                        {'font-size: var(--text-size-small);'}{' '}
+                                        <span className="doc-text--highlight">/* 14px */</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-md</td>
-                                    <td>{'font-size: var(--text-size-medium);'} <span className="doc-text--highlight">/* 16px */</span></td>
+                                    <td>
+                                        {'font-size: var(--text-size-medium);'}{' '}
+                                        <span className="doc-text--highlight">/* 16px */</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-lg</td>
-                                    <td>{'font-size: var(--text-size-large;'} <span className="doc-text--highlight">/* 20px */</span></td>
+                                    <td>
+                                        {'font-size: var(--text-size-large;'}{' '}
+                                        <span className="doc-text--highlight">/* 20px */</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-xl</td>
-                                    <td>{'font-size: var(--text-size-x-large);'} <span className="doc-text--highlight">/* 24px */</span></td>
+                                    <td>
+                                        {'font-size: var(--text-size-x-large);'}{' '}
+                                        <span className="doc-text--highlight">/* 24px */</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-2xl</td>
-                                    <td>{'font-size: var(--text-size-xx-large);'} <span className="doc-text--highlight">/* 32px */</span></td>
+                                    <td>
+                                        {'font-size: var(--text-size-xx-large);'}{' '}
+                                        <span className="doc-text--highlight">/* 32px */</span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--font-weight'>
+                <div className="docs-page__container-block--font-weight">
                     <h3 className="docs-page__h3">Font Weight</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -96,7 +118,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--font-style'>
+                <div className="docs-page__container-block--font-style">
                     <h3 className="docs-page__h3">Font Style</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -120,7 +142,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--line-clamp'>
+                <div className="docs-page__container-block--line-clamp">
                     <h3 className="docs-page__h3">Line Clamp</h3>
                     <p className="docs-page__paragraph">
                         Utility classes for clamping text to a specific number of lines.
@@ -137,77 +159,95 @@ class TextUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>line-clamp-1</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'display: -webkit-box;'}<br />
-                                        {'-webkit-box-orient: vertical;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'display: -webkit-box;'}
+                                        <br />
+                                        {'-webkit-box-orient: vertical;'}
+                                        <br />
                                         {'-webkit-line-clamp: 1;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>line-clamp-2</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'display: -webkit-box;'}<br />
-                                        {'-webkit-box-orient: vertical;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'display: -webkit-box;'}
+                                        <br />
+                                        {'-webkit-box-orient: vertical;'}
+                                        <br />
                                         {'-webkit-line-clamp: 2;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>line-clamp-3</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'display: -webkit-box;'}<br />
-                                        {'-webkit-box-orient: vertical;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'display: -webkit-box;'}
+                                        <br />
+                                        {'-webkit-box-orient: vertical;'}
+                                        <br />
                                         {'-webkit-line-clamp: 3;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>line-clamp-4</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'display: -webkit-box;'}<br />
-                                        {'-webkit-box-orient: vertical;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'display: -webkit-box;'}
+                                        <br />
+                                        {'-webkit-box-orient: vertical;'}
+                                        <br />
                                         {'-webkit-line-clamp: 4;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>line-clamp-5</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'display: -webkit-box;'}<br />
-                                        {'-webkit-box-orient: vertical;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'display: -webkit-box;'}
+                                        <br />
+                                        {'-webkit-box-orient: vertical;'}
+                                        <br />
                                         {'-webkit-line-clamp: 5;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>line-clamp-6</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'display: -webkit-box;'}<br />
-                                        {'-webkit-box-orient: vertical;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'display: -webkit-box;'}
+                                        <br />
+                                        {'-webkit-box-orient: vertical;'}
+                                        <br />
                                         {'-webkit-line-clamp: 6;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>line-clamp-none</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'display: -webkit-box;'}<br />
-                                        {'-webkit-box-orient: vertical;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'display: -webkit-box;'}
+                                        <br />
+                                        {'-webkit-box-orient: vertical;'}
+                                        <br />
                                         {'-webkit-line-clamp: none;'}
                                     </td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--line-height'>
+                <div className="docs-page__container-block--line-height">
                     <h3 className="docs-page__h3">Line Height</h3>
-                    <p className="docs-page__paragraph">
-                        Utilities for managing the line height of an element.
-                    </p>
+                    <p className="docs-page__paragraph">Utilities for managing the line height of an element.</p>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
                             <thead>
@@ -242,7 +282,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--font-style'>
+                <div className="docs-page__container-block--font-style">
                     <h3 className="docs-page__h3">Text Align</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -274,7 +314,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--text-color'>
+                <div className="docs-page__container-block--text-color">
                     <h3 className="docs-page__h3">Text Color</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -289,29 +329,37 @@ class TextUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>text-color-normal</td>
                                     <td>{'color: var(--color-text) !important'}</td>
-                                    <td><span className='text-color-normal'>Aa</span></td>
+                                    <td>
+                                        <span className="text-color-normal">Aa</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-color-muted</td>
                                     <td>{'color: var(--color-text-light) !important;'}</td>
-                                    <td><span className='text-color-muted'>Aa</span></td>
+                                    <td>
+                                        <span className="text-color-muted">Aa</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-color-subdued</td>
                                     <td>{'color: var(--color-text-lighter) !important;'}</td>
-                                    <td><span className='text-color-subdued'>Aa</span></td>
+                                    <td>
+                                        <span className="text-color-subdued">Aa</span>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>text-color-inverse</td>
                                     <td>{'color: var(--color-text--inverse) !important;'}</td>
-                                    <td style={{backgroundColor: 'var(--color-text-lighter)',}}><span className='text-color-inverse'>Aa</span></td>
+                                    <td style={{backgroundColor: 'var(--color-text-lighter)'}}>
+                                        <span className="text-color-inverse">Aa</span>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--text-transform'>
+                <div className="docs-page__container-block--text-transform">
                     <h3 className="docs-page__h3">Text Transform</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -343,7 +391,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--text-decoration'>
+                <div className="docs-page__container-block--text-decoration">
                     <h3 className="docs-page__h3">Text Decoration</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -371,7 +419,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--text-overflow'>
+                <div className="docs-page__container-block--text-overflow">
                     <h3 className="docs-page__h3">Text Overflow</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -385,23 +433,23 @@ class TextUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>text-ellipsis</td>
                                     <td>
-                                        {'overflow: hidden;'}<br />
-                                        {'text-overflow: ellipsis;'}<br />
+                                        {'overflow: hidden;'}
+                                        <br />
+                                        {'text-overflow: ellipsis;'}
+                                        <br />
                                         {'white-space: nowrap;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>text-clip</td>
-                                    <td>
-                                        {'text-overflow: clip;'}
-                                    </td>
+                                    <td>{'text-overflow: clip;'}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--text-wrap'>
+                <div className="docs-page__container-block--text-wrap">
                     <h3 className="docs-page__h3">Text Wrap</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -433,7 +481,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--text-wrap'>
+                <div className="docs-page__container-block--text-wrap">
                     <h3 className="docs-page__h3">Word Break</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -447,7 +495,8 @@ class TextUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>break-normal</td>
                                     <td>
-                                        {'overflow-wrap: normal;'}<br />
+                                        {'overflow-wrap: normal;'}
+                                        <br />
                                         {'word-break: normal;'}
                                     </td>
                                 </tr>
@@ -464,7 +513,7 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--whitespace'>
+                <div className="docs-page__container-block--whitespace">
                     <h3 className="docs-page__h3">Whitespace</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -504,8 +553,8 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
             </section>
-        )
+        );
     }
 }
 
-export { TextUtilitiesDoc };
+export {TextUtilitiesDoc};

@@ -24,25 +24,13 @@ export class AvatarPlaceholder extends React.PureComponent<IPropsAvatarPlacehold
         const {size, tooltip, icon, kind, onClick} = this.props;
 
         return (
-            <AvatarWrapper
-                size={size}
-                icon={icon}
-            >
+            <AvatarWrapper size={size} icon={icon}>
                 {(() => {
                     if (kind === 'plus-button') {
-                        return (
-                            <AvatarContentAdd
-                                tooltipText={tooltip ?? undefined}
-                                onClick={onClick}
-                            />
-                        );
+                        return <AvatarContentAdd tooltipText={tooltip ?? undefined} onClick={onClick} />;
                     } else if (kind === 'user-icon') {
                         return (
-                            <AvatarContentImage
-                                imageUrl={null}
-                                tooltipText={tooltip ?? undefined}
-                                onClick={onClick}
-                            />
+                            <AvatarContentImage imageUrl={null} tooltipText={tooltip ?? undefined} onClick={onClick} />
                         );
                     } else {
                         return null;

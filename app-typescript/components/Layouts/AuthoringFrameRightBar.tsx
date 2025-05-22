@@ -25,10 +25,6 @@ export class AuthoringFrameRightBar extends React.PureComponent<IProps, IState> 
         }
     }
     render() {
-        return (
-            !this.state.closed && <div className="sd-editor-grid__sidetabs-bar">
-                {this.props.children}
-            </div>
-        );
+        return !this.state.closed && <div className="sd-editor-grid__sidetabs-bar">{this.props.children}</div>;
     }
 }

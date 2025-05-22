@@ -7,9 +7,9 @@ class DisplayUtilitiesDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Display</h2>
                 <p className="docs-page__paragraph">
-                Utility classes for controlling the display box type of an element.
+                    Utility classes for controlling the display box type of an element.
                 </p>
-                <div className='docs-page__container-block--display'>
+                <div className="docs-page__container-block--display">
                     <div className="utilities-table__container utilities-table__container--no-height">
                         <table className="table utilities-table">
                             <thead>
@@ -107,10 +107,9 @@ class DisplayUtilitiesDoc extends React.Component {
                         </table>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { DisplayUtilitiesDoc };
+export {DisplayUtilitiesDoc};

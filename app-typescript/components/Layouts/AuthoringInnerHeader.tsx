@@ -42,12 +42,12 @@ export class AuthoringInnerHeader extends React.PureComponent<IProps, IState> {
                 }}
                 className={classes}
             >
-                <div className="authoring-header__holder">
-                    {this.props.children}
-                </div>
+                <div className="authoring-header__holder">{this.props.children}</div>
                 {!hideCollapseButton && (
-                    <button className="authoring-header__toggle"
-                        onClick={() => this.setState({collapsed: !this.state.collapsed})}>
+                    <button
+                        className="authoring-header__toggle"
+                        onClick={() => this.setState({collapsed: !this.state.collapsed})}
+                    >
                         <Icon name="chevron-up-thin" />
                     </button>
                 )}

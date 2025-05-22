@@ -6,10 +6,8 @@ class OpacityUtilitiesDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Opacity</h2>
-                <p className="docs-page__paragraph">
-                    Utility classes for controlling the opacity of an element. 
-                </p>
-                <div className='docs-page__container-block--opacity'>
+                <p className="docs-page__paragraph">Utility classes for controlling the opacity of an element.</p>
+                <div className="docs-page__container-block--opacity">
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
                             <thead>
@@ -55,10 +53,9 @@ class OpacityUtilitiesDoc extends React.Component {
                         </table>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { OpacityUtilitiesDoc };
+export {OpacityUtilitiesDoc};

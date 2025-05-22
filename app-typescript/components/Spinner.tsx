@@ -3,11 +3,7 @@ import classNames from 'classnames';
 
 class LoadingOverlay extends React.PureComponent {
     render() {
-        return (
-            <div className="sd-loading-overlay--plain">
-                {this.props.children}
-            </div>
-        );
+        return <div className="sd-loading-overlay--plain">{this.props.children}</div>;
     }
 }
 
@@ -29,4 +25,4 @@ class Spinner extends React.PureComponent<IProps> {
     }
 }
 
-export { Spinner, LoadingOverlay };
+export {Spinner, LoadingOverlay};

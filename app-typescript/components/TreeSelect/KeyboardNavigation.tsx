@@ -13,11 +13,7 @@ const getButtonList = (menuRef: HTMLUListElement | undefined): Array<HTMLButtonE
     return buttons;
 };
 
-const nextElement = (
-    buttons: Array<HTMLButtonElement>,
-    currentIndex: number,
-    e: KeyboardEvent,
-) => {
+const nextElement = (buttons: Array<HTMLButtonElement>, currentIndex: number, e: KeyboardEvent) => {
     e.preventDefault();
     e.stopPropagation();
 

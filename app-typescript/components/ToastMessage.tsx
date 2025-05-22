@@ -2,9 +2,7 @@ import * as React from 'react';
 import ToastText from './ToastText';
 import classNames from 'classnames';
 
-export type MessageProp =
-    | React.ReactNode
-    | string;
+export type MessageProp = React.ReactNode | string;
 
 export type Position = 'top' | 'bottom' | 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left';
 
@@ -24,22 +22,13 @@ interface IProps extends IMessageOptions {
     closeElement(id: string, position: Position): void;
 }
 
-export const ToastMessage = ({
-    id,
-    message,
-    type,
-    icon,
-    size,
-    duration,
-    position,
-    closeElement,
-}: IProps) => {
+export const ToastMessage = ({id, message, type, icon, size, duration, position, closeElement}: IProps) => {
     const [show, setShow] = React.useState(false);
     const [enter, setEnter] = React.useState(false);
     let timer: number;
     React.useEffect(() => setShow(true), []);
 
-    if (typeof duration === "number") {
+    if (typeof duration === 'number') {
         React.useEffect(() => {
             timer = window.setTimeout(() => {
                 close(id, position);

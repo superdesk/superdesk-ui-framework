@@ -6,9 +6,9 @@ interface IPropsItem {
     action?: React.ReactNode;
     locked?: boolean;
     itemColum: Array<{
-        itemRow: Array<{ content: any }>,
-        border?: boolean,
-        fullwidth?: boolean,
+        itemRow: Array<{content: any}>;
+        border?: boolean;
+        fullwidth?: boolean;
     }>;
     activated?: boolean;
     selected?: boolean;
@@ -30,58 +30,63 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
     onActionMenuClick = (event: React.MouseEvent<HTMLElement>) => {
         event.preventDefault();
         event.stopPropagation();
-    }
+    };
 
     render() {
         let classes = classNames('sd-list-item sd-shadow--z1', {
             'sd-list-item--activated': this.props.activated,
             'sd-list-item--selected': this.props.selected,
-            'fetched': this.props.archived,
-            'actioning': this.props.loading,
+            fetched: this.props.archived,
+            actioning: this.props.loading,
         });
 
         return (
             <div
-                role='listitem'
+                role="listitem"
                 className={classes}
-                onClick={(e) => this.multiClickHandler(e, {
-                    onSingleClick: () => {
-                        let selection = window.getSelection();
-                        if (this.props.onClick && selection) {
-                            if (selection.toString().length < 1) {
-                                this.props.onClick();
+                onClick={(e) =>
+                    this.multiClickHandler(e, {
+                        onSingleClick: () => {
+                            let selection = window.getSelection();
+                            if (this.props.onClick && selection) {
+                                if (selection.toString().length < 1) {
+                                    this.props.onClick();
+                                }
                             }
-                        }
-                    },
-                    onDoubleClick: () => {
-                        if (this.props.onDoubleClick) {
-                            this.props.onDoubleClick();
-                        }
-                    },
-                })}
-            >
-                {this.props.locked
-                    ? <div className="sd-list-item__border sd-list-item__border--locked"></div>
-                    : <div className="sd-list-item__border"></div>
+                        },
+                        onDoubleClick: () => {
+                            if (this.props.onDoubleClick) {
+                                this.props.onDoubleClick();
+                            }
+                        },
+                    })
                 }
+            >
+                {this.props.locked ? (
+                    <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                ) : (
+                    <div className="sd-list-item__border"></div>
+                )}
                 {this.props.itemColum.map((item, index) => {
-                    return <div
-                        className={`
+                    return (
+                        <div
+                            className={`
                             sd-list-item__column
                             ${item.fullwidth && 'sd-list-item__column--grow'}
-                            ${!item.border && 'sd-list-item__column--no-border'}`
-                    }
-                        key={index}>
-                        {item.itemRow.map((e, i) => {
-                            return (
-                                item.itemRow.length <= 1
-                                    ? <React.Fragment key={i}>{e.content}</React.Fragment>
-                                    : <div className="sd-list-item__row" key={i}>
+                            ${!item.border && 'sd-list-item__column--no-border'}`}
+                            key={index}
+                        >
+                            {item.itemRow.map((e, i) => {
+                                return item.itemRow.length <= 1 ? (
+                                    <React.Fragment key={i}>{e.content}</React.Fragment>
+                                ) : (
+                                    <div className="sd-list-item__row" key={i}>
                                         {e.content}
                                     </div>
-                            );
-                        })}
-                    </div>;
+                                );
+                            })}
+                        </div>
+                    );
                 })}
                 <div className="sd-list-item__action-menu" onClick={this.onActionMenuClick}>
                     {this.props.action}
@@ -93,20 +98,20 @@ class ContentListItem extends React.PureComponent<IPropsItem> {
 
 interface IProps {
     items: Array<{
-        itemColum: Array<IItemArray>,
-        locked?: boolean,
-        action?: React.ReactNode,
-        loading?: boolean,
-        activated?: boolean,
-        selected?: boolean,
-        archived?: boolean,
-        onClick?(): void,
+        itemColum: Array<IItemArray>;
+        locked?: boolean;
+        action?: React.ReactNode;
+        loading?: boolean;
+        activated?: boolean;
+        selected?: boolean;
+        archived?: boolean;
+        onClick?(): void;
         onDoubleClick?(): void;
     }>;
 }
 
 interface IItemArray {
-    itemRow: Array<{ content: React.ReactNode }>;
+    itemRow: Array<{content: React.ReactNode}>;
     border?: boolean;
     fullwidth?: boolean;
 }
@@ -115,25 +120,26 @@ class ContentList extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-list-item-group sd-list-item-group--space-between-items');
         return (
-            <div role='list' className={classes}>
+            <div role="list" className={classes}>
                 {this.props.items.map((item, index) => {
-                    return <ContentListItem
-                        key={index}
-                        itemColum={item.itemColum}
-                        locked={item.locked}
-                        action={item.action}
-                        loading={item.loading}
-                        activated={item.activated}
-                        selected={item.selected}
-                        archived={item.archived}
-                        onClick={item.onClick}
-                        onDoubleClick={item.onDoubleClick} />;
+                    return (
+                        <ContentListItem
+                            key={index}
+                            itemColum={item.itemColum}
+                            locked={item.locked}
+                            action={item.action}
+                            loading={item.loading}
+                            activated={item.activated}
+                            selected={item.selected}
+                            archived={item.archived}
+                            onClick={item.onClick}
+                            onDoubleClick={item.onDoubleClick}
+                        />
+                    );
                 })}
             </div>
         );
     }
 }
 
-export {
-    ContentList, ContentListItem
-};
+export {ContentList, ContentListItem};

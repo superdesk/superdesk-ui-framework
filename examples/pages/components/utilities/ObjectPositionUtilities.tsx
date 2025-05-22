@@ -9,7 +9,7 @@ class ObjectPositionUtilitiesDoc extends React.Component {
                 <p className="docs-page__paragraph">
                     Utilities for managing how a replaced element's content should be positioned within its container.
                 </p>
-                <div className='docs-page__container-block--object-position'>
+                <div className="docs-page__container-block--object-position">
                     <div className="utilities-table__container utilities-table__container--no-height">
                         <table className="table utilities-table">
                             <thead>
@@ -59,10 +59,9 @@ class ObjectPositionUtilitiesDoc extends React.Component {
                         </table>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { ObjectPositionUtilitiesDoc };
+export {ObjectPositionUtilitiesDoc};

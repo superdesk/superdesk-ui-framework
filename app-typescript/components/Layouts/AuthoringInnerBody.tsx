@@ -10,12 +10,9 @@ export class AuthoringInnerBody extends React.PureComponent<IProps> {
     render() {
         return (
             <article
-                className={classNames(
-                    'sd-editor-content__authoring-body',
-                    {
-                        'sd-editor-content__authoring-body-padding': !this.props.noPadding,
-                    },
-                )}
+                className={classNames('sd-editor-content__authoring-body', {
+                    'sd-editor-content__authoring-body-padding': !this.props.noPadding,
+                })}
             >
                 {this.props.children}
             </article>

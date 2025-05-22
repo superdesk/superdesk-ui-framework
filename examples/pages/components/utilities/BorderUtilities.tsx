@@ -6,12 +6,10 @@ class BorderUtilitiesDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Border</h2>
-                <p className="docs-page__paragraph">
-                    Utility classes for controlling the borders of an element.. 
-                </p>
-                <div className='docs-page__container-block--border'>
+                <p className="docs-page__paragraph">Utility classes for controlling the borders of an element..</p>
+                <div className="docs-page__container-block--border">
                     <h3 className="docs-page__h3">Basic Border with neutral color</h3>
-                    <p className='docs-page__paragraph'>
+                    <p className="docs-page__paragraph">
                         Utilities classes for adding a neutral 1px solid border to an element.
                     </p>
                     <div className="utilities-table__container">
@@ -27,32 +25,41 @@ class BorderUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>sd-border--x-light</td>
                                     <td>{'border: 1px solid var(--sd-colour-line--x-light);'}</td>
-                                    <td><div className='border-example-box sd-border--x-light'></div></td>
+                                    <td>
+                                        <div className="border-example-box sd-border--x-light"></div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>sd-border--light</td>
                                     <td>{'border: 1px solid var(--sd-colour-line--light);'}</td>
-                                    <td><div className='border-example-box sd-border--light'></div></td>
+                                    <td>
+                                        <div className="border-example-box sd-border--light"></div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>sd-border--medium</td>
                                     <td>{'border: 1px solid var(--sd-colour-line--medium);'}</td>
-                                    <td><div className='border-example-box sd-border--medium'></div></td>
+                                    <td>
+                                        <div className="border-example-box sd-border--medium"></div>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>sd-border--strong</td>
                                     <td>{'border: 1px solid var(--sd-colour-line--strong);'}</td>
-                                    <td><div className='border-example-box sd-border--strong'></div></td>
+                                    <td>
+                                        <div className="border-example-box sd-border--strong"></div>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--border-width'>
+                <div className="docs-page__container-block--border-width">
                     <h3 className="docs-page__h3">Border Width</h3>
-                    <p className='docs-page__paragraph'>
-                        Utilities classes for overriding the border width of an element. Options are limited to common use cases.
+                    <p className="docs-page__paragraph">
+                        Utilities classes for overriding the border width of an element. Options are limited to common
+                        use cases.
                     </p>
                     <div className="utilities-table__container utilities-table__container--no-height">
                         <table className="table utilities-table">
@@ -86,50 +93,43 @@ class BorderUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>border-x-0</td>
                                     <td>
-                                        {'border-inline-start-width: 0px;'}<br />
+                                        {'border-inline-start-width: 0px;'}
+                                        <br />
                                         {'border-inline-end-width: 0px;'}
-
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>border-y-0</td>
                                     <td>
-                                        {'border-block-start-width: 0px;'}<br />
+                                        {'border-block-start-width: 0px;'}
+                                        <br />
                                         {'border-block-end-width: 0px;'}
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>border-s-0</td>
-                                    <td>
-                                        {'border-inline-start-width: 0px;'}
-                                    </td>
+                                    <td>{'border-inline-start-width: 0px;'}</td>
                                 </tr>
                                 <tr>
                                     <td>border-e-0</td>
-                                    <td>
-                                        {'border-inline-end-width: 0px;'}
-                                    </td>
+                                    <td>{'border-inline-end-width: 0px;'}</td>
                                 </tr>
                                 <tr>
                                     <td>border-t-0</td>
-                                    <td>
-                                        {'border-top: 0px;'}
-                                    </td>
+                                    <td>{'border-top: 0px;'}</td>
                                 </tr>
                                 <tr>
                                     <td>border-b-0</td>
-                                    <td>
-                                        {'border-bottom: 0px;'}
-                                    </td>
+                                    <td>{'border-bottom: 0px;'}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--border-style'>
+                <div className="docs-page__container-block--border-style">
                     <h3 className="docs-page__h3">Border Style</h3>
-                    <p className='docs-page__paragraph'>
+                    <p className="docs-page__paragraph">
                         Utilities classes for overriding the border style of an element.
                     </p>
                     <div className="utilities-table__container utilities-table__container--no-height">
@@ -161,10 +161,9 @@ class BorderUtilitiesDoc extends React.Component {
                         </table>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { BorderUtilitiesDoc };
+export {BorderUtilitiesDoc};

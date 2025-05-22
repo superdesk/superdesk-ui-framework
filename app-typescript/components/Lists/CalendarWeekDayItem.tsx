@@ -23,11 +23,7 @@ export class CalendarWeekDayItem extends React.PureComponent<IPropsItem> {
             [`calendar-week-day__item--${this.props.state}`]: this.props.state || this.props.state !== undefined,
         });
 
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }
 
@@ -43,10 +39,6 @@ export class WeeklyCalendarGrid extends React.PureComponent<{style?: React.CSSPr
 
 export class WeeklyCalendarGridItem extends React.PureComponent {
     render() {
-        return (
-            <div className="calendar-week-day__container">
-                {this.props.children}
-            </div>
-        );
+        return <div className="calendar-week-day__container">{this.props.children}</div>;
     }
 }

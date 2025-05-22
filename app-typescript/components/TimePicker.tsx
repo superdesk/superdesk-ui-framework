@@ -1,6 +1,6 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
-import { InputWrapper } from './Form';
+import nextId from 'react-id-generator';
+import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 
 interface IProps extends IInputWrapper {

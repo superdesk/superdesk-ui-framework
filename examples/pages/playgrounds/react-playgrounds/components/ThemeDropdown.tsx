@@ -5,34 +5,34 @@ interface IProps {
 }
 
 interface IState {
-    checked: boolean,
+    checked: boolean;
 }
 
 export class ThemeDropdown extends React.PureComponent<IProps, IState> {
     constructor(props) {
         super(props);
-        this.state = { checked: false};
+        this.state = {checked: false};
         this.handleClick = this.handleClick.bind(this);
         this.handleTheme = this.handleTheme.bind(this);
     }
 
     handleClick() {
-        this.setState(state => ({
-            checked: !state.checked
+        this.setState((state) => ({
+            checked: !state.checked,
         }));
     }
 
     handleTheme(newTheme) {
         this.setState({
             checked: !this.state.checked,
-        })
+        });
         this.props.handleThemeParent(newTheme);
     }
 
     render() {
-        let classes = classNames("dropdown", {
-            "open" : this.state.checked,
-        })
+        let classes = classNames('dropdown', {
+            open: this.state.checked,
+        });
 
         let themes = ['light', 'dark'];
         return (
@@ -45,10 +45,13 @@ export class ThemeDropdown extends React.PureComponent<IProps, IState> {
                         <div className="dropdown__menu-label">Themes</div>
                     </li>
                     <li className="dropdown__menu-divider"></li>
-                    {themes.map((theme, index)=>
-                    <li key={index}><button onClick={()=>this.handleTheme(theme)}>{theme}</button></li>)}
+                    {themes.map((theme, index) => (
+                        <li key={index}>
+                            <button onClick={() => this.handleTheme(theme)}>{theme}</button>
+                        </li>
+                    ))}
                 </ul>
             </div>
-        )
+        );
     }
 }

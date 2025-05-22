@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IconButton } from '../IconButton';
-import { Spinner, LoadingOverlay } from '../Spinner';
+import {IconButton} from '../IconButton';
+import {Spinner, LoadingOverlay} from '../Spinner';
 import classNames from 'classnames';
 import {ButtonGroup} from '../ButtonGroup';
 import {getNextZIndex} from '../../zIndex';
@@ -13,7 +13,7 @@ interface IPropsPanel {
     theme?: 'light' | 'dark';
     className?: string;
     size?:
-        'xx-small'
+        | 'xx-small'
         | 'x-small'
         | 'small'
         | 'medium'
@@ -31,11 +31,15 @@ interface IPropsPanel {
 
 export default class Panel extends React.PureComponent<IPropsPanel> {
     render() {
-        let classes = classNames('side-panel', {
-            [`side-panel--${this.props.side}`]: this.props.side,
-            [`side-panel--${this.props.background}`]:
-                this.props.background !== 'light' && this.props.background !== undefined,
-        }, this.props.className);
+        let classes = classNames(
+            'side-panel',
+            {
+                [`side-panel--${this.props.side}`]: this.props.side,
+                [`side-panel--${this.props.background}`]:
+                    this.props.background !== 'light' && this.props.background !== undefined,
+            },
+            this.props.className,
+        );
 
         const classes2Obj: {[className: string]: boolean} = {
             [`side-panel__container--${this.props.side}`]: this.props.side !== null,
@@ -58,11 +62,8 @@ export default class Panel extends React.PureComponent<IPropsPanel> {
                 style={style}
                 data-theme={this.props.theme ? `${this.props.theme}-ui` : null}
                 data-test-id={this.props['data-test-id']}
-
             >
-                <div className={classes}>
-                    {this.props.children}
-                </div>
+                <div className={classes}>{this.props.children}</div>
             </div>
         );
     }
@@ -88,10 +89,14 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
     render() {
         const darkColors = ['blueGrey', 'blueGreyDarker'];
 
-        let classes = classNames('side-panel__header side-panel__header--border-b', {
-            [`side-panel__header--${this.props.color}`]: this.props.color || this.props.color !== undefined,
-            'side-panel__header--has-close': this.props.onClose,
-        }, this.props.className);
+        let classes = classNames(
+            'side-panel__header side-panel__header--border-b',
+            {
+                [`side-panel__header--${this.props.color}`]: this.props.color || this.props.color !== undefined,
+                'side-panel__header--has-close': this.props.onClose,
+            },
+            this.props.className,
+        );
 
         let style = {
             zIndex: this.zIndex,
@@ -101,35 +106,21 @@ class PanelHeader extends React.PureComponent<IPropsPanelHeader> {
 
         return (
             <div data-theme={this.props.theme || defaultTheme} className={classes} style={style}>
-                <div className='side-panel__header-wrapper'>
-                    {this.props.title != null
-                        && <div className="side-panel__header-inner">
+                <div className="side-panel__header-wrapper">
+                    {this.props.title != null && (
+                        <div className="side-panel__header-inner">
                             <h3 className="side-panel__heading">{this.props.title}</h3>
                         </div>
-                    }
+                    )}
 
-                    {(this.props.onClose == null && this.props.iconButtons == null)
-                        || (
-                            <ButtonGroup
-                                align='end'
-                                spaces='no-space'
-                                className='side-panel__btn-group'
-                            >
-                                {this.props.iconButtons != null
-                                    && this.props.iconButtons
-                                }
-                                {this.props.onClose != null
-                                    && (
-                                        <IconButton
-                                            icon='close-small'
-                                            ariaValue='Close'
-                                            onClick={this.props.onClose}
-                                        />
-                                    )
-                                }
-                            </ButtonGroup>
-                        )
-                    }
+                    {(this.props.onClose == null && this.props.iconButtons == null) || (
+                        <ButtonGroup align="end" spaces="no-space" className="side-panel__btn-group">
+                            {this.props.iconButtons != null && this.props.iconButtons}
+                            {this.props.onClose != null && (
+                                <IconButton icon="close-small" ariaValue="Close" onClick={this.props.onClose} />
+                            )}
+                        </ButtonGroup>
+                    )}
                 </div>
                 {this.props.children}
             </div>
@@ -149,16 +140,12 @@ class PanelContent extends React.PureComponent<IPropsPanelContent> {
     render() {
         return (
             <div className="side-panel__content">
-                {this.props.loading
-                    && <LoadingOverlay>
+                {this.props.loading && (
+                    <LoadingOverlay>
                         <Spinner size="large" />
                     </LoadingOverlay>
-                }
-                {this.props.empty
-                    && <LoadingOverlay>
-                        {this.props.emptyTemplate}
-                    </LoadingOverlay>
-                }
+                )}
+                {this.props.empty && <LoadingOverlay>{this.props.emptyTemplate}</LoadingOverlay>}
                 {this.props.children}
             </div>
         );
@@ -180,11 +167,7 @@ class PanelContentBlock extends React.PureComponent<IPropsContentBlock> {
             'side-panel__content-block--flex': this.props.flex,
             [`side-panel__content-block--padding-${this.props.padding}`]: this.props.padding,
         });
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }
 
@@ -192,11 +175,7 @@ class PanelContentBlock extends React.PureComponent<IPropsContentBlock> {
 
 class PanelFooter extends React.PureComponent {
     render() {
-        return (
-            <div className="side-panel__footer side-panel__footer--button-box">
-                {this.props.children}
-            </div>
-        );
+        return <div className="side-panel__footer side-panel__footer--button-box">{this.props.children}</div>;
     }
 }
 
@@ -209,18 +188,11 @@ interface IPropsSlidingToolbar {
 
 class PanelHeaderSlidingToolbar extends React.PureComponent<IPropsSlidingToolbar> {
     render() {
-        const classes = classNames(
-            'subnav__sliding-toolbar',
-            {
-                'subnav__sliding-toolbar--right': this.props.right,
-            },
-        );
+        const classes = classNames('subnav__sliding-toolbar', {
+            'subnav__sliding-toolbar--right': this.props.right,
+        });
 
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }
 
@@ -256,12 +228,4 @@ class PanelTools extends React.PureComponent<IPropsPanelTools> {
     }
 }
 
-export {
-    Panel,
-    PanelHeader,
-    PanelContent,
-    PanelContentBlock,
-    PanelFooter,
-    PanelHeaderSlidingToolbar,
-    PanelTools,
-};
+export {Panel, PanelHeader, PanelContent, PanelContentBlock, PanelFooter, PanelHeaderSlidingToolbar, PanelTools};

@@ -8,10 +8,7 @@ interface IPropsTextAvatar extends IPropsBase {
 export class AvatarContentText extends React.PureComponent<IPropsTextAvatar> {
     render() {
         return (
-            <span
-                className="sd-avatar-content sd-avatar-content--text"
-                title={this.props.tooltipText}
-            >
+            <span className="sd-avatar-content sd-avatar-content--text" title={this.props.tooltipText}>
                 <span>{this.props.text.slice(0, 3)}</span>
             </span>
         );

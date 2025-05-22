@@ -76,16 +76,10 @@ class TooltipWrapper extends React.PureComponent<ITooltipWrapperProps> {
     render() {
         const {tooltipText, children} = this.props;
 
-        return (tooltipText ?? '').length > 0
-            ? (
-                <WithTooltip text={tooltipText}>
-                    {({attributes}) => children({attributes})}
-                </WithTooltip>
-            )
-            : (
-                <>
-                    {children({attributes: {}})}
-                </>
-            );
+        return (tooltipText ?? '').length > 0 ? (
+            <WithTooltip text={tooltipText}>{({attributes}) => children({attributes})}</WithTooltip>
+        ) : (
+            <>{children({attributes: {}})}</>
+        );
     }
 }

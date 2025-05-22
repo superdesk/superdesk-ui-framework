@@ -97,24 +97,15 @@ export class InputWrapper extends React.Component<IProps, IState> {
                 >
                     {this.props.label}
                 </label>
-                <div className="sd-input__input-container">
-                    {this.props.children}
-                </div>
-                    {
-                        this.props.maxLength
-                            && <div className='sd-input__char-count'>
-                                {this.props.value?.toString().length} / {this.props.maxLength}
-                            </div>
-                    }
-                <div className='sd-input__message-box'>
-                    {
-                        this.props.info && !this.props.invalid
-                            && <div className='sd-input__hint'>{this.props.info}</div>
-                    }
-                    {
-                        this.props.invalid
-                            && <div className='sd-input__message'>{this.props.error}</div>
-                    }
+                <div className="sd-input__input-container">{this.props.children}</div>
+                {this.props.maxLength && (
+                    <div className="sd-input__char-count">
+                        {this.props.value?.toString().length} / {this.props.maxLength}
+                    </div>
+                )}
+                <div className="sd-input__message-box">
+                    {this.props.info && !this.props.invalid && <div className="sd-input__hint">{this.props.info}</div>}
+                    {this.props.invalid && <div className="sd-input__message">{this.props.error}</div>}
                 </div>
             </div>
         );

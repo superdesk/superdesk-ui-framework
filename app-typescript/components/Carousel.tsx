@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Carousel as PrimeCarousel } from '@superdesk/primereact/carousel';
-import { Badge } from './Badge';
+import {Carousel as PrimeCarousel} from '@superdesk/primereact/carousel';
+import {Badge} from './Badge';
 
 interface IImage {
     src: string;
@@ -35,27 +35,22 @@ interface IPropsResponsive {
 
 export class Carousel extends React.PureComponent<IProps, {}> {
     render() {
-
         const header = (
             <div className="sd-thumb-carousel__header">
                 {this.props.title && (
                     <>
                         <h4 className="sd-thumb-carousel__heading">{this.props.title}</h4>
-                        <Badge text={'' + (this.props.imageCount || this.props.images.length)} type='light' />
+                        <Badge text={'' + (this.props.imageCount || this.props.images.length)} type="light" />
                     </>
                 )}
                 {this.props.headerMeta && (
-                    <div className="sd-thumb-carousel__header-block--r">
-                        {this.props.headerMeta}
-                    </div>
+                    <div className="sd-thumb-carousel__header-block--r">{this.props.headerMeta}</div>
                 )}
             </div>
         );
 
         const footer = this.props.description ? (
-            <div className="sd-thumb-carousel__description">
-                {this.props.description}
-            </div>
+            <div className="sd-thumb-carousel__description">{this.props.description}</div>
         ) : null;
 
         const itemTemplate = (props: IImage) => (
@@ -66,21 +61,25 @@ export class Carousel extends React.PureComponent<IProps, {}> {
             </div>
         );
 
-        return <div style={{display: 'content'}}
-            data-theme={this.props.theme !== 'dark' ? null : 'dark-ui' }
-            className={this.props.className}>
-            <PrimeCarousel
-                id={this.props.id}
-                value={this.props.images}
-                numVisible={this.props.numVisible}
-                numScroll={this.props.numScroll}
-                responsiveOptions={this.props.responsiveOptions}
-                itemTemplate={itemTemplate}
-                header={header}
-                footer={footer}
-                indicatorsContentClassName='sd-thumb-carousel__indicators'
-                onPageChange={this.props.onPageChange}
-            />
-        </div>;
+        return (
+            <div
+                style={{display: 'content'}}
+                data-theme={this.props.theme !== 'dark' ? null : 'dark-ui'}
+                className={this.props.className}
+            >
+                <PrimeCarousel
+                    id={this.props.id}
+                    value={this.props.images}
+                    numVisible={this.props.numVisible}
+                    numScroll={this.props.numScroll}
+                    responsiveOptions={this.props.responsiveOptions}
+                    itemTemplate={itemTemplate}
+                    header={header}
+                    footer={footer}
+                    indicatorsContentClassName="sd-thumb-carousel__indicators"
+                    onPageChange={this.props.onPageChange}
+                />
+            </div>
+        );
     }
 }

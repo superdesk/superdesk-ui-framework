@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Icon } from './Icon';
-import { Tooltip } from './Tooltip';
+import {Icon} from './Icon';
+import {Tooltip} from './Tooltip';
 import classNames from 'classnames';
 
 interface IProps {
@@ -27,10 +27,7 @@ export class IconButton extends React.PureComponent<IProps> {
         });
 
         return (
-            <Tooltip
-                text={this.props.disabled ? null : this.props.ariaValue}
-                flow={this.props.toolTipFlow}
-            >
+            <Tooltip text={this.props.disabled ? null : this.props.ariaValue} flow={this.props.toolTipFlow}>
                 <button
                     id={this.props.id}
                     tabIndex={0}
@@ -39,10 +36,7 @@ export class IconButton extends React.PureComponent<IProps> {
                     disabled={this.props.disabled}
                     aria-label={this.props.ariaValue}
                 >
-                    <Icon
-                        name={this.props.icon}
-                        ariaHidden={true}
-                    />
+                    <Icon name={this.props.icon} ariaHidden={true} />
                 </button>
             </Tooltip>
         );

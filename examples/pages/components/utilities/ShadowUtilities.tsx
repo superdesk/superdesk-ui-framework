@@ -6,11 +6,9 @@ class ShadowUtilitiesDoc extends React.Component {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Shadow</h2>
-                <p className="docs-page__paragraph">
-                    Utility classes for managing the shadow depth of an element.
-                </p>
+                <p className="docs-page__paragraph">Utility classes for managing the shadow depth of an element.</p>
 
-                <div className='docs-page__container-block--box-shadow'>
+                <div className="docs-page__container-block--box-shadow">
                     <h3 className="docs-page__h3">box-shadow</h3>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -44,7 +42,7 @@ class ShadowUtilitiesDoc extends React.Component {
                             </tbody>
                         </table>
                     </div>
-                    <div className='docs-page__container-block'>
+                    <div className="docs-page__container-block">
                         <h4 className="docs-page__h4">Usage</h4>
                         <div className="docs-page__code-window">
                             <div className="sd-grid-list">
@@ -60,16 +58,18 @@ class ShadowUtilitiesDoc extends React.Component {
                                 <div className="docs-page__example-box sd-shadow--z4">
                                     <p>sd-shadow--z4</p>
                                 </div>
-                            
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--drop-shadow'>
+                <div className="docs-page__container-block--drop-shadow">
                     <h3 className="docs-page__h3">drop-shadow filter</h3>
                     <p className="docs-page__paragraph">
-                        These helper classes utilize the <code>drop-shadow</code> filter. Use them exclusively to apply a shadow to an element that doesn't correspond to its bounding box, but instead uses the element's alpha mask, such as transparent PNG or SVG. For all other situations, it is recommended to use the above classes, based on the <code>box-shadow</code> property.
+                        These helper classes utilize the <code>drop-shadow</code> filter. Use them exclusively to apply
+                        a shadow to an element that doesn't correspond to its bounding box, but instead uses the
+                        element's alpha mask, such as transparent PNG or SVG. For all other situations, it is
+                        recommended to use the above classes, based on the <code>box-shadow</code> property.
                     </p>
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
@@ -105,19 +105,18 @@ class ShadowUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
-                <div className='docs-page__container-block--drop-shadow'>
+                <div className="docs-page__container-block--drop-shadow">
                     <h4 className="docs-page__h4">Basic usage</h4>
                     <div className="docs-page__code-window docs-page__example-box">
-                            <div className="p-4">
-                                <p className="text-md font-light text-color-subdued mb-2">sd-drop-shadow--z3</p>
-                                <img className='sd-drop-shadow--z3' width={300} src='./SD-logo.svg' />
-                            </div>
+                        <div className="p-4">
+                            <p className="text-md font-light text-color-subdued mb-2">sd-drop-shadow--z3</p>
+                            <img className="sd-drop-shadow--z3" width={300} src="./SD-logo.svg" />
+                        </div>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { ShadowUtilitiesDoc };
+export {ShadowUtilitiesDoc};

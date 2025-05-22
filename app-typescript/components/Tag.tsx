@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { DragHandle } from './DragHandle';
+import {DragHandle} from './DragHandle';
 
 interface IProps {
     text: string;
@@ -13,7 +13,7 @@ interface IProps {
     onClick(): void;
 }
 
-export const Tag = ({ text, keyValue, shade, shape, readOnly, onClick, label, draggable }: IProps) => {
+export const Tag = ({text, keyValue, shade, shape, readOnly, onClick, label, draggable}: IProps) => {
     let classes = classNames('tag-label', {
         [`tag-label--${shade}`]: shade && shade !== 'light',
         'tag-label--square': shape === 'square',
@@ -21,33 +21,30 @@ export const Tag = ({ text, keyValue, shade, shape, readOnly, onClick, label, dr
     });
     return (
         <>
-            {label
-                ?
+            {label ? (
                 <span className={classes} key={keyValue}>
-                    {draggable && <DragHandle blank={true} dotsInRow='3' dotRows='4' />}
-                    <span className='tag-label--text-wrapper'>
-                        <span className='tag-label--text-label'>
-                            {label}:
-                        </span>
-                        <span className='tag-label--text'>
-                            {text}
-                        </span>
+                    {draggable && <DragHandle blank={true} dotsInRow="3" dotRows="4" />}
+                    <span className="tag-label--text-wrapper">
+                        <span className="tag-label--text-label">{label}:</span>
+                        <span className="tag-label--text">{text}</span>
                     </span>
-                    {!readOnly ? <button className='tag-label__remove' onClick={onClick}>
-                        <i className='icon-close-small'></i>
-                    </button> : null}
+                    {!readOnly ? (
+                        <button className="tag-label__remove" onClick={onClick}>
+                            <i className="icon-close-small"></i>
+                        </button>
+                    ) : null}
                 </span>
-                :
+            ) : (
                 <span className={classes} key={keyValue}>
-                    {draggable && <DragHandle blank={true} dotsInRow='3' dotRows='4' />}
-                    <span className='tag-label--text'>
-                        {text}
-                    </span>
-                    {!readOnly ? <button className='tag-label__remove' onClick={onClick}>
-                        <i className='icon-close-small'></i>
-                    </button> : null}
+                    {draggable && <DragHandle blank={true} dotsInRow="3" dotRows="4" />}
+                    <span className="tag-label--text">{text}</span>
+                    {!readOnly ? (
+                        <button className="tag-label__remove" onClick={onClick}>
+                            <i className="icon-close-small"></i>
+                        </button>
+                    ) : null}
                 </span>
-            }
+            )}
         </>
     );
 };

@@ -6,10 +6,6 @@ interface IProps {
 
 export class CoreLayoutOverlay extends React.PureComponent<IProps> {
     render() {
-        return (
-            <footer className='sd-notifications-slot'>
-                {this.props.children}
-            </footer>
-        );
+        return <footer className="sd-notifications-slot">{this.props.children}</footer>;
     }
 }

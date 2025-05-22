@@ -6,10 +6,6 @@ interface IProps {
 
 export class AuthoringFrameOverlay extends React.PureComponent<IProps> {
     render() {
-        return (
-            <div className="sd-editor-grid__editor-overlay">
-                {this.props.children}
-            </div>
-        );
+        return <div className="sd-editor-grid__editor-overlay">{this.props.children}</div>;
     }
 }

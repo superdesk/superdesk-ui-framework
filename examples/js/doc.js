@@ -1,9 +1,9 @@
 /* eslint-disable */
 /* global _, PR */
 
-import { ReactDoc, ReactPlayground, ReactThemePicker } from './../pages/components/Index';
-import { DesignPatternsDoc } from './../pages/design-patterns/Index';
-import { HashRouter } from 'react-router-dom';
+import {ReactDoc, ReactPlayground, ReactThemePicker} from './../pages/components/Index';
+import {DesignPatternsDoc} from './../pages/design-patterns/Index';
+import {HashRouter} from 'react-router-dom';
 
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -38,7 +38,7 @@ function docPrettyPrint() {
             }
 
             element.html(PR.prettyPrintOne(_.escape(element.html()), langExtension, true));
-        }
+        },
     };
 }
 
@@ -53,19 +53,14 @@ function docPlayground(components, design, playgrounds, $route) {
 
             scope.page = $route.current.params.name;
 
-            scope.items = [
-                { name: 'just' },
-                { name: 'some' },
-                { name: 'cool' },
-                { name: 'tags' }
-            ];
+            scope.items = [{name: 'just'}, {name: 'some'}, {name: 'cool'}, {name: 'tags'}];
 
             scope.freeItems = ['Audi', 'BMW', 'Opel', 'Hyundai'];
 
             scope.console = function (...data) {
                 console.log(...data);
-            }
-        }
+            };
+        },
     };
 }
 
@@ -73,17 +68,18 @@ docTabs.$inject = [];
 function docTabs() {
     return {
         link: function link(scope, elem, attr, ctrl) {
-            elem.find('.docs-page__window-bar').children('a').click(function (e) {
-                e.preventDefault();
-                $(this).addClass('active')
-                    .siblings()
-                    .removeClass('active');
+            elem.find('.docs-page__window-bar')
+                .children('a')
+                .click(function (e) {
+                    e.preventDefault();
+                    $(this).addClass('active').siblings().removeClass('active');
 
-                elem.find('.docs-page__code-' + $(this).attr('id')).show()
-                    .siblings()
-                    .hide();
-            });
-        }
+                    elem.find('.docs-page__code-' + $(this).attr('id'))
+                        .show()
+                        .siblings()
+                        .hide();
+                });
+        },
     };
 }
 
@@ -93,8 +89,8 @@ function docNav(components, $rootScope) {
         link: function link(scope, elem, attr, ctrl) {
             scope.isActive = (route) => {
                 return $rootScope.$route.current && $rootScope.$route.current.params.name === route;
-            }
-        }
+            };
+        },
     };
 }
 
@@ -118,7 +114,7 @@ function docModal($modal) {
                 modal = $modal.open({
                     template: require('../pages/components_deprecated/modal-template.html'),
                     controller: docModalController,
-                    size: 'large'
+                    size: 'large',
                 });
             };
 
@@ -137,7 +133,7 @@ function docModal($modal) {
             scope.hideCarousel = function () {
                 scope.carouselActive = false;
             };
-        }
+        },
     };
 }
 
@@ -148,8 +144,10 @@ function docReact() {
             ReactDOM.render(
                 <HashRouter>
                     <ReactDoc />
-                </HashRouter>, elem[0]);
-        }
+                </HashRouter>,
+                elem[0],
+            );
+        },
     };
 }
 
@@ -160,8 +158,10 @@ function docDesignPatterns() {
             ReactDOM.render(
                 <HashRouter>
                     <DesignPatternsDoc />
-                </HashRouter>, elem[0]);
-        }
+                </HashRouter>,
+                elem[0],
+            );
+        },
     };
 }
 
@@ -172,8 +172,10 @@ function docReactPlayground(playgrounds) {
             ReactDOM.render(
                 <HashRouter>
                     <ReactPlayground playgrounds={playgrounds.react} />
-                </HashRouter>, elem[0]);
-        }
+                </HashRouter>,
+                elem[0],
+            );
+        },
     };
 }
 
@@ -181,10 +183,8 @@ docThemePicker.$inject = [];
 function docThemePicker() {
     return {
         link: function (scope, elem) {
-            ReactDOM.render(
-                <ReactThemePicker />, elem[0]
-            )
-        }
+            ReactDOM.render(<ReactThemePicker />, elem[0]);
+        },
     };
 }
 
@@ -192,7 +192,7 @@ docGifImg.$inject = [];
 function docGifImg() {
     return {
         scope: {
-            src: '@'
+            src: '@',
         },
         template: '<img src="{{activeImage}}" ng-click="playGif()" />',
         link: function (scope) {
@@ -212,11 +212,12 @@ function docGifImg() {
                     scope.played = true;
                 }
             };
-        }
+        },
     };
 }
 
-export default angular.module('ui-docs.directives', [])
+export default angular
+    .module('ui-docs.directives', [])
     .directive('prettyprint', docPrettyPrint)
     .directive('docPlayground', docPlayground)
     .directive('docTabs', docTabs)

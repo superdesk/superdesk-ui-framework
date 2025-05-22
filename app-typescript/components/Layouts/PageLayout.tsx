@@ -1,14 +1,7 @@
 // External Modules
 import * as React from 'react';
 
-import {
-    HeaderPanel,
-    LayoutContainer,
-    LeftPanel,
-    MainPanel,
-    RightPanel,
-    IMainPanelProps,
-} from '../Layouts';
+import {HeaderPanel, LayoutContainer, LeftPanel, MainPanel, RightPanel, IMainPanelProps} from '../Layouts';
 
 interface IProps {
     header?: React.ReactNode;
@@ -26,25 +19,15 @@ export class PageLayout extends React.PureComponent<IProps> {
     render() {
         return (
             <LayoutContainer fullHeight={this.props.fullHeight}>
-                {this.props.header && (
-                    <HeaderPanel>
-                        {this.props.header}
-                    </HeaderPanel>
-                )}
-                {this.props.leftPanel && (
-                    <LeftPanel open={this.props.leftPanelOpen}>
-                        {this.props.leftPanel}
-                    </LeftPanel>
-                )}
+                {this.props.header && <HeaderPanel>{this.props.header}</HeaderPanel>}
+                {this.props.leftPanel && <LeftPanel open={this.props.leftPanelOpen}>{this.props.leftPanel}</LeftPanel>}
                 {this.props.main && (
                     <MainPanel className={this.props.mainClassName} {...this.props.mainProps}>
                         {this.props.main}
                     </MainPanel>
                 )}
                 {this.props.rightPanel && (
-                    <RightPanel open={this.props.rightPanelOpen}>
-                        {this.props.rightPanel}
-                    </RightPanel>
+                    <RightPanel open={this.props.rightPanelOpen}>{this.props.rightPanel}</RightPanel>
                 )}
             </LayoutContainer>
         );

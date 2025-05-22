@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { DragHandleDots } from './DragHandleDots';
+import {DragHandleDots} from './DragHandleDots';
 
 interface IProps {
     blank?: boolean;
@@ -14,13 +14,17 @@ const dotSize = 4; // Size of the single dot image (OneDot.svg) that gets repeat
 
 export class DragHandle extends React.PureComponent<IProps> {
     render() {
-        const classes = classNames('drag-handle-wrapper', {
-            [`drag-handle-wrapper--boxed`]: !this.props.blank,
-            'drag-handle-wrapper--blank': this.props.blank,
-        }, this.props.className);
+        const classes = classNames(
+            'drag-handle-wrapper',
+            {
+                [`drag-handle-wrapper--boxed`]: !this.props.blank,
+                'drag-handle-wrapper--blank': this.props.blank,
+            },
+            this.props.className,
+        );
 
         const calcSize = (numberOfDots: string) => {
-            return Number(numberOfDots) * dotSize - (dotSize / 2);
+            return Number(numberOfDots) * dotSize - dotSize / 2;
         };
 
         return (

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Icon } from '../Icon';
-import { Badge } from '../Badge';
+import {Icon} from '../Icon';
+import {Badge} from '../Badge';
 import classNames from 'classnames';
 
 interface IProps {
@@ -45,39 +45,33 @@ export class SideBarTabs extends React.PureComponent<IProps> {
 
     render() {
         return (
-            <div className='sd-sidetab-menu sd-sidetab-menu--static' data-test-id={this.props['data-test-id']}>
+            <div className="sd-sidetab-menu sd-sidetab-menu--static" data-test-id={this.props['data-test-id']}>
                 <ul>
                     {this.props.items.map((item, index) => {
                         if (item === 'divider') {
-                            return (
-                                <li key={index} className='sd-sidetab-menu__spacer'></li>
-                            );
+                            return <li key={index} className="sd-sidetab-menu__spacer"></li>;
                         } else {
                             return (
-                                <li key={index} data-sd-tooltip={item.tooltip} data-flow='left'>
+                                <li key={index} data-sd-tooltip={item.tooltip} data-flow="left">
                                     <button
                                         disabled={this.props.disabled}
-                                        role='button'
+                                        role="button"
                                         aria-label={item.tooltip}
-                                        className={classNames(
-                                            'sd-sidetab-menu__btn',
-                                            {'sd-sidetab-menu__btn--active':
+                                        className={classNames('sd-sidetab-menu__btn', {
+                                            'sd-sidetab-menu__btn--active':
                                                 item.id === this.props.activeTab && this.props.disabled !== true,
-                                            },
-                                        )}
+                                        })}
                                         onClick={() => this.handleClick(item)}
-                                        data-test-id='widget-icon'
+                                        data-test-id="widget-icon"
                                         data-test-value={item.id}
                                     >
-                                        {item.badgeValue != null && (
-                                            <Badge text={item['badgeValue']} type='primary' />
-                                        )}
+                                        {item.badgeValue != null && <Badge text={item['badgeValue']} type="primary" />}
 
-                                        <span className='sd-sidetab-menu__main-icon '>
+                                        <span className="sd-sidetab-menu__main-icon ">
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>
 
-                                        <i className='sd-sidetab-menu__helper-icon icon-close-small'></i>
+                                        <i className="sd-sidetab-menu__helper-icon icon-close-small"></i>
                                     </button>
                                 </li>
                             );

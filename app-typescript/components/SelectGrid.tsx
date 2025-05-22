@@ -1,7 +1,7 @@
-import * as  React from 'react';
-import nextId from "react-id-generator";
-import { OverlayPanel } from '@superdesk/primereact/overlaypanel';
-import { Loader } from "./Loader";
+import * as React from 'react';
+import nextId from 'react-id-generator';
+import {OverlayPanel} from '@superdesk/primereact/overlaypanel';
+import {Loader} from './Loader';
 
 /**
  * @ngdoc react
@@ -18,8 +18,8 @@ export interface IItem {
 interface IProps {
     getItems(searchString: string | null): Promise<Array<IItem>>;
     onChange(value: IItem): void;
-    itemTemplate: React.ComponentType<{ item: IItem | null }>;
-    triggerTemplate: React.ComponentType<{onClick: (e: React.SyntheticEvent) => void; }>;
+    itemTemplate: React.ComponentType<{item: IItem | null}>;
+    triggerTemplate: React.ComponentType<{onClick: (e: React.SyntheticEvent) => void}>;
     label: string;
     filterPlaceholder?: string;
 }
@@ -43,7 +43,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {
         super(props);
 
-        this.state = { items: [], loading: true };
+        this.state = {items: [], loading: true};
 
         this.buttonContainer = React.createRef();
         this.overlayPanel = React.createRef();
@@ -53,7 +53,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
 
     componentDidMount() {
         this.props.getItems(null).then((items) => {
-            this.setState({ items, loading: false });
+            this.setState({items, loading: false});
         });
     }
 
@@ -69,27 +69,29 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
         }
 
         document.addEventListener('keydown', this.handleKeydown);
-        setTimeout(() => { this.searchInput.current?.focus(); });
+        setTimeout(() => {
+            this.searchInput.current?.focus();
+        });
         this.loadItems();
-    }
+    };
 
     search = (event: React.ChangeEvent<HTMLInputElement>) => {
         const searchString: string = event.target.value.toLowerCase();
         this.loadItems(searchString);
-    }
+    };
 
     loadItems = (searchString: string | null = null) => {
-        this.setState({ loading: true });
+        this.setState({loading: true});
         this.props.getItems(searchString).then((items) => {
-            this.setState({ items, loading: false });
+            this.setState({items, loading: false});
         });
-    }
+    };
 
     hidePopupAndRefocus = () => {
         document.removeEventListener('keydown', this.handleKeydown);
         this.overlayPanel.current?.hide();
         this.buttonContainer.current?.querySelector('button')?.focus();
-    }
+    };
 
     select = (item: IItem) => {
         this.props.onChange(item);
@@ -97,34 +99,26 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
 
         // trigger component update
         this.forceUpdate();
-    }
+    };
 
     getItemElement = (index: number): HTMLDivElement | null | undefined => {
         return this.gridContainer.current?.querySelector(`[data-item-index="${index}"]`);
-    }
+    };
 
     handleKeydown = (event: KeyboardEvent) => {
-        const navKeys = [
-            "Enter",
-            "ArrowRight",
-            "ArrowLeft",
-            "ArrowUp",
-            "ArrowDown",
-            "PageDown",
-            "PageUp",
-        ];
+        const navKeys = ['Enter', 'ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'PageDown', 'PageUp'];
         const activeElement = document.activeElement;
 
-        if (event.code === "Escape") {
+        if (event.code === 'Escape') {
             event.preventDefault();
             event.stopPropagation();
 
             this.hidePopupAndRefocus();
         } else if (activeElement === this.searchInput?.current) {
-            if (event.code === "ArrowDown") {
+            if (event.code === 'ArrowDown') {
                 event.preventDefault();
                 this.getItemElement(0)?.focus();
-            } else if (event.code === "Enter" && this.state.items.length === 1) {
+            } else if (event.code === 'Enter' && this.state.items.length === 1) {
                 event.preventDefault();
                 this.select(this.state.items[0]);
             }
@@ -133,25 +127,25 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
 
             event.preventDefault(); // Prevent scrolling, etc.
 
-            if (event.code === "Enter") {
+            if (event.code === 'Enter') {
                 this.select(this.state.items[itemIndex]);
                 return;
-            } else if (event.code === "ArrowRight") {
+            } else if (event.code === 'ArrowRight') {
                 itemIndex += 1;
-            } else if (event.code === "ArrowLeft") {
+            } else if (event.code === 'ArrowLeft') {
                 itemIndex -= 1;
-            } else if (event.code === "ArrowDown") {
+            } else if (event.code === 'ArrowDown') {
                 itemIndex += GRID_COLS;
-            } else if (event.code === "ArrowUp") {
+            } else if (event.code === 'ArrowUp') {
                 if (itemIndex < GRID_COLS) {
                     this.searchInput?.current?.focus();
                     return;
                 }
 
                 itemIndex -= GRID_COLS;
-            } else if (event.code === "PageDown") {
+            } else if (event.code === 'PageDown') {
                 itemIndex += PAGE_SIZE;
-            } else if (event.code === "PageUp") {
+            } else if (event.code === 'PageUp') {
                 itemIndex -= PAGE_SIZE;
             }
 
@@ -163,7 +157,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
 
             this.getItemElement(itemIndex)?.focus();
         }
-    }
+    };
 
     render() {
         const ItemTemplate = this.props.itemTemplate;
@@ -177,9 +171,7 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                     aria-label={this.props.label}
                     key={this.props.label}
                 >
-                    <label className="sd-input__label">
-                        {this.props.label}
-                    </label>
+                    <label className="sd-input__label">{this.props.label}</label>
                     <TriggerTemplate onClick={this.mountPopup} />
                 </div>
                 <OverlayPanel

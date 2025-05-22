@@ -12,7 +12,6 @@ export class FormLabel extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('form-label form-label--block', {
             'form-label--light': this.props.style === 'light',
-
         });
 
         const style: React.CSSProperties = {};
@@ -26,10 +25,7 @@ export class FormLabel extends React.PureComponent<IProps> {
         }
 
         return (
-            <label
-                className={classes}
-                style={style}
-            >
+            <label className={classes} style={style}>
                 {this.props.text}
             </label>
         );

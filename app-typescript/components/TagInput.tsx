@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Chips } from '@superdesk/primereact/chips';
+import {Chips} from '@superdesk/primereact/chips';
 import {InputWrapper} from './Form';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 import {IInputWrapper} from './Form/InputWrapper';
 import {SelectPreview} from './SelectPreview';
 
@@ -18,13 +18,7 @@ export class TagInput extends React.Component<IProps> {
         const {onChange, value, placeholder} = this.props;
 
         if (this.props.preview) {
-            return (
-                <SelectPreview
-                    kind={{mode: 'multi-select'}}
-                    items={this.props.value}
-                    getLabel={(item) => item}
-                />
-            );
+            return <SelectPreview kind={{mode: 'multi-select'}} items={this.props.value} getLabel={(item) => item} />;
         }
 
         return (
@@ -44,8 +38,7 @@ export class TagInput extends React.Component<IProps> {
                 <Chips
                     className={`
                         tags-input--multi-select sd-input__input
-                        ${this.props.disabled ? ' tags-input__padding-disabled' : ''}`
-                    }
+                        ${this.props.disabled ? ' tags-input__padding-disabled' : ''}`}
                     allowDuplicate={false}
                     separator=","
                     onChange={(event) => onChange(event.value)}

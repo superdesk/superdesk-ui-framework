@@ -7,9 +7,9 @@ class ObjectFitUtilitiesDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Object Fit</h2>
                 <p className="docs-page__paragraph">
-                    Utilities for managing how a replaced element's content should be resized. 
+                    Utilities for managing how a replaced element's content should be resized.
                 </p>
-                <div className='docs-page__container-block--object-fit'>
+                <div className="docs-page__container-block--object-fit">
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
                             <thead>
@@ -39,15 +39,13 @@ class ObjectFitUtilitiesDoc extends React.Component {
                                     <td>object-scale-down</td>
                                     <td>{'object-fit: scale-down;'}</td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { ObjectFitUtilitiesDoc };
+export {ObjectFitUtilitiesDoc};

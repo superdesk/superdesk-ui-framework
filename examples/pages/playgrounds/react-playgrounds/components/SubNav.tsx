@@ -12,10 +12,6 @@ export class SubNav extends React.PureComponent<IProps> {
             'subnav-darker': this.props.theme,
         });
 
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }

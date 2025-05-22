@@ -1,8 +1,8 @@
 import * as React from 'react';
 import * as Markup from '../../../js/react';
-import { PropsList, Prop } from '../../../../app-typescript';
-import { MultiSelect } from '../../../../app-typescript/components/MultiSelect';
-import { TreeSelect } from '../../../../app-typescript/components/TreeSelect';
+import {PropsList, Prop} from '../../../../app-typescript';
+import {MultiSelect} from '../../../../app-typescript/components/MultiSelect';
+import {TreeSelect} from '../../../../app-typescript/components/TreeSelect';
 import {Example1} from './example-1';
 import {Example2} from './example-2';
 
@@ -20,41 +20,37 @@ let itemArr = [
         children: [
             {
                 value: 'Item4',
-                children: [
-                    {value: 'Item10'}
-                ]
+                children: [{value: 'Item10'}],
             },
             {
                 value: 'Item5',
-                children: [
-                    {value: 'Item11'}
-                ]
-            }
-        ]
+                children: [{value: 'Item11'}],
+            },
+        ],
     },
     {
         value: 'Item2',
         children: [
             {
-                value: 'Item6'
+                value: 'Item6',
             },
             {
-                value: 'Item7'
-            }
-        ]
+                value: 'Item7',
+            },
+        ],
     },
     {
         value: 'Item3',
         children: [
             {
-                value: 'Item8'
+                value: 'Item8',
             },
             {
-                value: 'Item9'
-            }
-        ]
+                value: 'Item9',
+            },
+        ],
     },
-]
+];
 
 let itemArr2 = [
     {
@@ -62,22 +58,15 @@ let itemArr2 = [
         children: [
             {
                 value: {name: 'name'},
-                children: [
-                    {value: { name: 'name' }
-                }
-                ]
+                children: [{value: {name: 'name'}}],
             },
             {
                 value: {name: 'name'},
-                children: [
-                    {value: {name: 'name'}
-                    }
-                ]
-            }
-        ]
-    }
-]
-
+                children: [{value: {name: 'name'}}],
+            },
+        ],
+    },
+];
 
 export class TreeSelectDocs extends React.Component<{}, IState> {
     constructor(props) {
@@ -87,27 +76,26 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
             value2: [],
             options: itemArr,
             options2: itemArr,
-            inputValue: ''
-        }
+            inputValue: '',
+        };
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e, option) {
-
-        if(option.item) {
+        if (option.item) {
             e.stopPropagation();
             e.preventDefault();
 
             this.setState({
-                options: option.item
-            })
+                options: option.item,
+            });
         }
     }
 
     render() {
         return (
-            <section className='docs-page__container'>
+            <section className="docs-page__container">
                 {/* <h2 className='docs-page__h2'>Example 1</h2>
 
                 <Example1 />
@@ -116,9 +104,10 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                 <Example2 /> */}
 
-                <h2 className='docs-page__h2'>TreeSelect</h2>
+                <h2 className="docs-page__h2">TreeSelect</h2>
 
-                <Markup.ReactMarkupCodePreview>{`
+                <Markup.ReactMarkupCodePreview>
+                    {`
                     <TreeSelect
                         options={this.state.options2}
                         getLabel={'label'}
@@ -131,11 +120,11 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
-                            <div className='form__row'>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row">
                                 <TreeSelect
                                     getOptions={() => {
-                                        return itemArr
+                                        return itemArr;
                                     }}
                                     selectBranchWithChildren={true}
                                     onChange={(e) => console.log(e)}
@@ -162,17 +151,16 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             kind={'synchronous'}
                         />
                     `}</Markup.ReactMarkupCode>
-
                 </Markup.ReactMarkup>
 
-                <p className='docs-page__paragraph'>Asynchronous mode in TreeSelect component.</p>
+                <p className="docs-page__paragraph">Asynchronous mode in TreeSelect component.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
-                            <div className='form__row'>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row">
                                 <TreeSelect
                                     getOptions={() => {
-                                        return itemArr
+                                        return itemArr;
                                     }}
                                     selectBranchWithChildren={true}
                                     onChange={() => false}
@@ -180,14 +168,12 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     kind={'asynchronous'}
                                     searchOptions={(term, callback) => {
                                         let newArr = itemArr.filter((item) => {
-                                            if (item.value
-                                                .toLowerCase().includes(term.toLowerCase())) {
-                                                    return item;
-                                                }
-                                        })
-                                        return callback(newArr)
+                                            if (item.value.toLowerCase().includes(term.toLowerCase())) {
+                                                return item;
+                                            }
+                                        });
+                                        return callback(newArr);
                                     }}
-
                                 />
                             </div>
                         </div>
@@ -213,23 +199,22 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             }}
                         />
                     `}</Markup.ReactMarkupCode>
-
                 </Markup.ReactMarkup>
 
-                <p className='docs-page__paragraph'>TreeSelect with custom template.</p>
+                <p className="docs-page__paragraph">TreeSelect with custom template.</p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
-                            <div className='form__row'>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row">
                                 <TreeSelect
                                     getOptions={() => this.state.options}
                                     kind={'synchronous'}
                                     onChange={() => false}
                                     optionTemplate={(item: any) => {
-                                        return <div>Label: {item}</div>
+                                        return <div>Label: {item}</div>;
                                     }}
                                     valueTemplate={(item: any) => {
-                                        return <span>Label: {item}</span>
+                                        return <span>Label: {item}</span>;
                                     }}
                                 />
                             </div>
@@ -249,25 +234,89 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                             }}
                         />
                     `}</Markup.ReactMarkupCode>
-
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='value' isRequired={false} type='Array<T>' default='/' description='Value of the component.'/>
-                    <Prop name='getOptions' isRequired={false} type='Function' default='/' description='An array of selectitems to display as the available options.'/>
-                    <Prop name='kind' isRequired={true} type='synchronous | asynchronous' default='/' description='Type of TreeSelect component.'/>
-                    <Prop name='width' isRequired={false} type='medium | full-width (100%)' default='100%' description='Dropdown width.'/>
-                    <Prop name='selectBranchWithChildren' isRequired={false} type='boolean' default='false' description='When specified, select branch with children is enabled.'/>
-                    <Prop name='readonly' isRequired={false} type='boolean' default='false' description='When specified, component changes are not enabled.'/>
-                    <Prop name='loading' isRequired={false} type='boolean' default='false' description='Adds a loading indicator in dropdown.'/>
-                    <Prop name='valueTemplate' isRequired={false} type='function' default='/' description='Function that gets an item in the value and returns the content for it.'/>
-                    <Prop name='optionTemplate' isRequired={false} type='function' default='/' description='Function that gets the option and returns the content for it.'/>
-                    <Prop name='searchOptions' isRequired={false} type='function' default='/' description='The function will be called when a search is initiated from UI in asynchronous mode.'/>
-                    <Prop name='onChange' isRequired={true} type='function' default='/' description='Callback to invoke when value changes.'/>
+                    <Prop
+                        name="value"
+                        isRequired={false}
+                        type="Array<T>"
+                        default="/"
+                        description="Value of the component."
+                    />
+                    <Prop
+                        name="getOptions"
+                        isRequired={false}
+                        type="Function"
+                        default="/"
+                        description="An array of selectitems to display as the available options."
+                    />
+                    <Prop
+                        name="kind"
+                        isRequired={true}
+                        type="synchronous | asynchronous"
+                        default="/"
+                        description="Type of TreeSelect component."
+                    />
+                    <Prop
+                        name="width"
+                        isRequired={false}
+                        type="medium | full-width (100%)"
+                        default="100%"
+                        description="Dropdown width."
+                    />
+                    <Prop
+                        name="selectBranchWithChildren"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="When specified, select branch with children is enabled."
+                    />
+                    <Prop
+                        name="readonly"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="When specified, component changes are not enabled."
+                    />
+                    <Prop
+                        name="loading"
+                        isRequired={false}
+                        type="boolean"
+                        default="false"
+                        description="Adds a loading indicator in dropdown."
+                    />
+                    <Prop
+                        name="valueTemplate"
+                        isRequired={false}
+                        type="function"
+                        default="/"
+                        description="Function that gets an item in the value and returns the content for it."
+                    />
+                    <Prop
+                        name="optionTemplate"
+                        isRequired={false}
+                        type="function"
+                        default="/"
+                        description="Function that gets the option and returns the content for it."
+                    />
+                    <Prop
+                        name="searchOptions"
+                        isRequired={false}
+                        type="function"
+                        default="/"
+                        description="The function will be called when a search is initiated from UI in asynchronous mode."
+                    />
+                    <Prop
+                        name="onChange"
+                        isRequired={true}
+                        type="function"
+                        default="/"
+                        description="Callback to invoke when value changes."
+                    />
                 </PropsList>
-
             </section>
-        )
+        );
     }
 }

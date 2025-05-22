@@ -6,10 +6,6 @@ interface IProps {
 
 export class AuthoringFrameLeftBar extends React.PureComponent<IProps> {
     render() {
-        return (
-            <div className="sd-editor-grid__sidebar-left">
-                {this.props.children}
-            </div>
-        );
+        return <div className="sd-editor-grid__sidebar-left">{this.props.children}</div>;
     }
 }

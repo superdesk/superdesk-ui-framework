@@ -37,12 +37,10 @@ class PropsList extends React.PureComponent {
                         <th>Description</th>
                     </tr>
                 </thead>
-                <tbody>
-                    {this.props.children}
-                </tbody>
+                <tbody>{this.props.children}</tbody>
             </table>
         );
     }
 }
 
-export { Prop, PropsList };
+export {Prop, PropsList};

@@ -37,20 +37,19 @@ export class SelectWithTemplateDocs extends React.Component<{}, IState> {
         super(props);
         this.state = {
             value: null,
-        }
+        };
     }
 
     render() {
         return (
-            <section className='docs-page__container'>
+            <section className="docs-page__container">
+                <h2 className="docs-page__h2">Select with template</h2>
 
-                <h2 className='docs-page__h2'>Select with template</h2>
-
-                <p className='docs-page__paragraph'></p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
-                            <div className='form__row'>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row">
                                 <SelectWithTemplate
                                     value={this.state.value}
                                     getItems={(searchString) => {
@@ -58,7 +57,13 @@ export class SelectWithTemplateDocs extends React.Component<{}, IState> {
                                             if (searchString == null) {
                                                 resolve(colors);
                                             } else {
-                                                resolve(colors.filter(({name}) => name.toLocaleLowerCase().includes(searchString.toLocaleLowerCase())));
+                                                resolve(
+                                                    colors.filter(({name}) =>
+                                                        name
+                                                            .toLocaleLowerCase()
+                                                            .includes(searchString.toLocaleLowerCase()),
+                                                    ),
+                                                );
                                             }
                                         });
                                     }}
@@ -67,13 +72,18 @@ export class SelectWithTemplateDocs extends React.Component<{}, IState> {
                                     }}
                                     itemTemplate={({option}) => {
                                         if (option == null) {
-                                            return (
-                                                <div>Select a color</div>
-                                            );
+                                            return <div>Select a color</div>;
                                         } else {
                                             return (
                                                 <div style={{display: 'flex', alignItems: 'center'}}>
-                                                    <div style={{width: 10, height: 10, marginInlineEnd: 10, backgroundColor: option.colorCode}} />
+                                                    <div
+                                                        style={{
+                                                            width: 10,
+                                                            height: 10,
+                                                            marginInlineEnd: 10,
+                                                            backgroundColor: option.colorCode,
+                                                        }}
+                                                    />
                                                     <div>{option.name}</div>
                                                 </div>
                                             );
@@ -91,7 +101,6 @@ export class SelectWithTemplateDocs extends React.Component<{}, IState> {
                                 />
                             </div>
                         </div>
-
                     </Markup.ReactMarkupPreview>
 
                     <Markup.ReactMarkupCode>{`
@@ -130,6 +139,6 @@ export class SelectWithTemplateDocs extends React.Component<{}, IState> {
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
             </section>
-        )
+        );
     }
 }

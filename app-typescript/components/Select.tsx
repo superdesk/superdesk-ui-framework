@@ -1,6 +1,6 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
-import { InputWrapper } from './Form';
+import nextId from 'react-id-generator';
+import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 
 interface ISelect extends IInputWrapper {
@@ -46,9 +46,9 @@ class Select extends React.Component<ISelect> {
                 tabindex={this.props.tabindex}
                 inputWrapper={this.props.inputWrapper}
             >
-                <span className='sd-input__select-caret-wrapper'>
+                <span className="sd-input__select-caret-wrapper">
                     <select
-                        className='sd-input__select'
+                        className="sd-input__select"
                         id={this.htmlId}
                         value={this.props.value}
                         aria-describedby={this.htmlId + 'label'}
@@ -71,10 +71,8 @@ interface IOption {
 
 class Option extends React.PureComponent<IOption> {
     render() {
-        return (
-            <option value={this.props.value}>{this.props.children}</option>
-        );
+        return <option value={this.props.value}>{this.props.children}</option>;
     }
 }
 
-export { Select, Option };
+export {Select, Option};

@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IProps {
-    size?: 'mini' |'small' | 'medium' | 'large'; // defaults to 'small'
+    size?: 'mini' | 'small' | 'medium' | 'large'; // defaults to 'small'
     border?: boolean;
 }
 
@@ -13,8 +13,6 @@ export class Divider extends React.PureComponent<IProps> {
             'button-group__divider--border': this.props.border === true,
             [`button-group__divider--${this.props.size}`]: this.props.size || this.props.size !== undefined,
         });
-        return (
-            <div className={classes} />
-        );
+        return <div className={classes} />;
     }
 }

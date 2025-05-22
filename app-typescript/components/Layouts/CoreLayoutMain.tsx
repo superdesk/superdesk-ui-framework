@@ -12,12 +12,12 @@ export class CoreLayoutMain extends React.PureComponent<IProps> {
     render() {
         const classes = classNames('sd-content sd-content-wrapper', {
             'sd-content-wrapper--editor-full': this.props.editorFullWidth,
-        },
-    );
+        });
         return (
             <section
-            id={this.props.id}
-            className={classes + (this.props.openPanel ? ' sd-content-wrapper--editor-full' : '')}>
+                id={this.props.id}
+                className={classes + (this.props.openPanel ? ' sd-content-wrapper--editor-full' : '')}
+            >
                 {this.props.children}
             </section>
         );

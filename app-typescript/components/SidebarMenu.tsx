@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Icon } from './Icon';
+import {Icon} from './Icon';
 
 interface IProps {
     items: Array<IItem | 'divider'>;
@@ -40,29 +40,30 @@ export class SidebarMenu extends React.PureComponent<IProps, IState> {
 
     render() {
         return (
-            <div className='sd-sidebar-menu sd-content-wrapper__left-tabs'>
-                <ul className='authoring-active'>
+            <div className="sd-sidebar-menu sd-content-wrapper__left-tabs">
+                <ul className="authoring-active">
                     {this.props.items.map((item, index) => {
                         if (item === 'divider') {
-                            return (
-                                <li key={index} className='sd-sidebar-menu__spacer'></li>
-                            );
+                            return <li key={index} className="sd-sidebar-menu__spacer"></li>;
                         } else {
                             return (
-                                <li key={index} data-sd-tooltip={item['tooltip']} data-flow='right'>
-                                    <a className={
-                                        'sd-sidebar-menu__btn'
-                                        + (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '')
-                                        + (item['active']
-                                            ? ' sd-sidebar-menu__btn--active'
-                                            : (index === this.state.index ? ' sd-sidebar-menu__btn--active' : '')
-                                        )
-                                    }
-                                        onClick={() => this.handleClick(index)}>
-                                        <span className='sd-sidebar-menu__main-icon '>
+                                <li key={index} data-sd-tooltip={item['tooltip']} data-flow="right">
+                                    <a
+                                        className={
+                                            'sd-sidebar-menu__btn' +
+                                            (index === this.state.closeIndex ? ' sd-sidebar-menu__btn--closed ' : '') +
+                                            (item['active']
+                                                ? ' sd-sidebar-menu__btn--active'
+                                                : index === this.state.index
+                                                  ? ' sd-sidebar-menu__btn--active'
+                                                  : '')
+                                        }
+                                        onClick={() => this.handleClick(index)}
+                                    >
+                                        <span className="sd-sidebar-menu__main-icon ">
                                             <Icon size={item['size']} name={item['icon']} />
                                         </span>
-                                        <i className='sd-sidebar-menu__helper-icon big-icon--chevron-left'></i>
+                                        <i className="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
                                     </a>
                                 </li>
                             );

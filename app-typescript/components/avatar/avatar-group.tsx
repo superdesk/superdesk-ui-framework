@@ -12,7 +12,7 @@ export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
 
 export type IAvatarGroupItem = IAvatarInGroup | IAvatarPlaceholderInGroup;
 
-type IGap = 'none' | 'small'| 'medium'| 'large';
+type IGap = 'none' | 'small' | 'medium' | 'large';
 
 export interface IPropsAvatarGroup {
     size: IPropsAvatar['size'];
@@ -37,9 +37,9 @@ function isAvatar(item: IAvatarInGroup | IAvatarPlaceholderInGroup): item is IAv
 export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
     render() {
         const {size, items} = this.props;
-        const someIconsHaveExtraElements = items.filter(isAvatar).some(
-            ({icon, administratorIndicator}) => icon != null || administratorIndicator != null,
-        );
+        const someIconsHaveExtraElements = items
+            .filter(isAvatar)
+            .some(({icon, administratorIndicator}) => icon != null || administratorIndicator != null);
         const gap: IGap = someIconsHaveExtraElements ? 'medium' : 'none';
 
         const max: number = (() => {
@@ -64,7 +64,7 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                             }
                         }}
                     >
-                       {children}
+                        {children}
                     </button>
                 );
             } else {
@@ -76,49 +76,42 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
 
         return (
             <WithPopover
-                placement='bottom-end'
+                placement="bottom-end"
                 component={() => (
                     <div className="avatar-popup">
                         {this.props.items.map((item, index) => {
-                            return (
-                                someHaveDisplayName
-                                    ? <Spacer h alignItems='center' gap='16' noGrow key={index}>
-                                        {
-                                            isAvatar(item)
-                                                && item.displayName
-                                        }
+                            return someHaveDisplayName ? (
+                                <Spacer h alignItems="center" gap="16" noGrow key={index}>
+                                    {isAvatar(item) && item.displayName}
 
-                                        {
-                                            isAvatar(item)
-                                                ? (
-                                                    <Avatar
-                                                        size='small'
-                                                        imageUrl={item.imageUrl}
-                                                        initials={item.initials}
-                                                        displayName={item.displayName}
-                                                        icon={item.icon}
-                                                        statusDot={item.statusDot}
-                                                    />
-                                                )
-                                                : (
-                                                    <AvatarPlaceholder
-                                                        kind='plus-button'
-                                                        size='small'
-                                                        icon={item.icon}
-                                                        onClick={item.onClick}
-                                                    />
-                                                )
-                                        }
-                                    </Spacer>
-                                    : <div>
-                                        <AvatarPlaceholder
-                                            kind='plus-button'
-                                            size='small'
+                                    {isAvatar(item) ? (
+                                        <Avatar
+                                            size="small"
+                                            imageUrl={item.imageUrl}
+                                            initials={item.initials}
+                                            displayName={item.displayName}
                                             icon={item.icon}
-                                            onClick={isAvatar(item) ? undefined : item.onClick}
-                                            key={index}
+                                            statusDot={item.statusDot}
                                         />
-                                    </div>
+                                    ) : (
+                                        <AvatarPlaceholder
+                                            kind="plus-button"
+                                            size="small"
+                                            icon={item.icon}
+                                            onClick={item.onClick}
+                                        />
+                                    )}
+                                </Spacer>
+                            ) : (
+                                <div>
+                                    <AvatarPlaceholder
+                                        kind="plus-button"
+                                        size="small"
+                                        icon={item.icon}
+                                        onClick={isAvatar(item) ? undefined : item.onClick}
+                                        key={index}
+                                    />
+                                </div>
                             );
                         })}
                     </div>
@@ -131,36 +124,24 @@ export class AvatarGroup extends React.PureComponent<IPropsAvatarGroup> {
                             'sd-avatar-group--stacked',
                             `sd-avatar-group--stacked--gap-${gap}`,
                         )}
-                        role='group'
+                        role="group"
                         onClick={this.props.onClick}
                     >
-                        {
-                            items.slice(0, max).map((item, index) => {
-                                if (isAvatar(item)) {
-                                    return (
-                                        <Avatar {...item} key={index} size={size} />
-                                    );
-                                } else {
-                                    return (
-                                        <AvatarPlaceholder
-                                            {...item}
-                                            key={index}
-                                            size={this.props.size}
-                                        />
-                                    );
-                                }
-                            })
-                        }
+                        {items.slice(0, max).map((item, index) => {
+                            if (isAvatar(item)) {
+                                return <Avatar {...item} key={index} size={size} />;
+                            } else {
+                                return <AvatarPlaceholder {...item} key={index} size={this.props.size} />;
+                            }
+                        })}
 
-                        {
-                            itemsOverLimit > 0 && (
-                                <PlusButtonWrapper onToggle={onToggle}>
-                                    <AvatarWrapper size={size}>
-                                        <AvatarContentNumber number={`${itemsOverLimit}`} />
-                                    </AvatarWrapper>
-                                </PlusButtonWrapper>
-                            )
-                        }
+                        {itemsOverLimit > 0 && (
+                            <PlusButtonWrapper onToggle={onToggle}>
+                                <AvatarWrapper size={size}>
+                                    <AvatarContentNumber number={`${itemsOverLimit}`} />
+                                </AvatarWrapper>
+                            </PlusButtonWrapper>
+                        )}
                     </div>
                 )}
             </WithPopover>

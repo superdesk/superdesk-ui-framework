@@ -1,28 +1,32 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import { GridList, Prop, PropsList } from '../../../app-typescript';
-
+import {GridList, Prop, PropsList} from '../../../app-typescript';
 
 export default class GridListDoc extends React.Component {
     render() {
         return (
-            <section className='docs-page__container'>
-                <h2 className='docs-page__h2'>GridList</h2>
-                
-                <Markup.ReactMarkupCodePreview>{`
+            <section className="docs-page__container">
+                <h2 className="docs-page__h2">GridList</h2>
+
+                <Markup.ReactMarkupCodePreview>
+                    {`
                     <GridList size="small" gap="medium" margin="1">
                     ... 
                     </GridList>
                 `}
                 </Markup.ReactMarkupCodePreview>
 
-                <p className="docs-page__paragraph">Grid list component implemented with CSS grid. The list is responsive by default, no additional media query is needed. Any container item can be placed inside the grid list but it's ideally combined with the GridItem.</p>
+                <p className="docs-page__paragraph">
+                    Grid list component implemented with CSS grid. The list is responsive by default, no additional
+                    media query is needed. Any container item can be placed inside the grid list but it's ideally
+                    combined with the GridItem.
+                </p>
 
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// default (small)</p>
                         <GridList size="small" gap="medium" margin="1">
-                        <div className="docs-page__example-box sd-shadow--z2">
+                            <div className="docs-page__example-box sd-shadow--z2">
                                 <p>Item 1</p>
                             </div>
                             <div className="docs-page__example-box sd-shadow--z2">
@@ -65,9 +69,9 @@ export default class GridListDoc extends React.Component {
                                 <p>Item 4</p>
                             </div>
                         </GridList>
-
                     </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>{`
+                    <Markup.ReactMarkupCode>
+                        {`
                         // default (small)
                         <GridList size="small" gap="medium" margin="1">
                             Item 1
@@ -92,15 +96,31 @@ export default class GridListDoc extends React.Component {
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='size' isRequired={false} type='x-small | small | medium | large' default='small' description='Specifies the size of the items in the grid. '/>
-                    <Prop name='gap' isRequired={false} type='small | medium | large | x-large' default='small' description='Defines the gap between the items inside the Grid list. '/>
-                    <Prop name='margin' isRequired={false} type='0 | 1 | 2 | 3' default='3' description='Defines the margin around the Grid list. The values are based on multipliers of the the $sd-base-increment (equal to 8px). Setting the value to 3 results in a margin of 24px.'/>
+                    <Prop
+                        name="size"
+                        isRequired={false}
+                        type="x-small | small | medium | large"
+                        default="small"
+                        description="Specifies the size of the items in the grid. "
+                    />
+                    <Prop
+                        name="gap"
+                        isRequired={false}
+                        type="small | medium | large | x-large"
+                        default="small"
+                        description="Defines the gap between the items inside the Grid list. "
+                    />
+                    <Prop
+                        name="margin"
+                        isRequired={false}
+                        type="0 | 1 | 2 | 3"
+                        default="3"
+                        description="Defines the margin around the Grid list. The values are based on multipliers of the the $sd-base-increment (equal to 8px). Setting the value to 3 results in a margin of 24px."
+                    />
                 </PropsList>
-
             </section>
-        )
+        );
     }
 }

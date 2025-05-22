@@ -12,8 +12,6 @@ export class DragHandleDots extends React.PureComponent<IProps> {
             [`drag-handle-dots--${this.props.color}`]: this.props.color,
         });
 
-        return (
-            <div style={this.props.style} className={classes}></div>
-        );
+        return <div style={this.props.style} className={classes}></div>;
     }
 }

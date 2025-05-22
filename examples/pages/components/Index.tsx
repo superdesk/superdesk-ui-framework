@@ -1,12 +1,9 @@
 import * as React from 'react';
 
-import { ReactNav, ReactDefault } from '../../js/react';
-import { ButtonGroup, Button, NavButton, Dropdown, IllustrationButton } from '../../../app-typescript/index';
+import {ReactNav, ReactDefault} from '../../js/react';
+import {ButtonGroup, Button, NavButton, Dropdown, IllustrationButton} from '../../../app-typescript/index';
 
-import {
-    Switch,
-    Route,
-} from "react-router-dom";
+import {Switch, Route} from 'react-router-dom';
 
 import InputsDoc from './Inputs';
 import AutocompleteDoc from './Autocomplete';
@@ -46,13 +43,13 @@ import ToggleboxDocs from './Togglebox';
 import ListItemsDoc from './ListItems';
 import PanelDoc from './Panel';
 import SelectGridDocs from './SelectGrid';
-import IconPickerDocs from "./IconPicker";
-import SimpleListDoc from "./SimpleList";
-import BoxedListDoc from "./BoxedList";
-import TableListDoc from "./TableList";
-import ContentListDoc from "./ContentList";
-import HeadingDoc from "./Heading";
-import TextDoc from "./Text";
+import IconPickerDocs from './IconPicker';
+import SimpleListDoc from './SimpleList';
+import BoxedListDoc from './BoxedList';
+import TableListDoc from './TableList';
+import ContentListDoc from './ContentList';
+import HeadingDoc from './Heading';
+import TextDoc from './Text';
 import ContainerDoc from './Container';
 import DropZoneDoc from './DropZone';
 import CreateButtonDoc from './CreateButton';
@@ -60,34 +57,33 @@ import TagInputDocs from './TagInputDocs';
 import DragHandleDocs from './DragHandleDocs';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
-import { SelectWithTemplateDocs } from './SelectWithTemplate';
-import { MultiselectDocs } from './MultiSelect';
-import { TreeSelectDocs } from './TreeSelect';
-import { TreeMenuDocs } from './TreeMenu';
+import {SelectWithTemplateDocs} from './SelectWithTemplate';
+import {MultiselectDocs} from './MultiSelect';
+import {TreeSelectDocs} from './TreeSelect';
+import {TreeMenuDocs} from './TreeMenu';
 import DurationInputDoc from './DurationInput';
-import { WithPaginationDocs } from './WithPaginationDocs';
-import { PopoverDoc } from './Popover';
-import { MenuDocs } from './Menu';
-import { WithSizeObserverDocs } from './WithSizeObserver';
-import { ResizablePanelsDoc } from './ResizablePanels';
-import { IllustrationButtonDoc } from './IllustrationButton';
+import {WithPaginationDocs} from './WithPaginationDocs';
+import {PopoverDoc} from './Popover';
+import {MenuDocs} from './Menu';
+import {WithSizeObserverDocs} from './WithSizeObserver';
+import {ResizablePanelsDoc} from './ResizablePanels';
+import {IllustrationButtonDoc} from './IllustrationButton';
 
 // Utilities
-import { SpacingUtilitiesDoc } from './utilities/SpacingUtilities';
-import { TextUtilitiesDoc } from './utilities/TextUtilities';
-import { ShadowUtilitiesDoc } from './utilities/ShadowUtilities';
-import { PositionUtilitiesDoc } from './utilities/PositionUtilities';
-import { OverflowUtilitiesDoc } from './utilities/OverflowUtilities';
-import { DisplayUtilitiesDoc } from './utilities/DisplayUtilities';
-import { FlexAndGridUtilitiesDoc } from './utilities/FlexAndGridUtilities';
-import { BorderRadiusUtilitiesDoc } from './utilities/BorderRadiusUtilities';
-import { BorderUtilitiesDoc } from './utilities/BorderUtilities';
-import { OpacityUtilitiesDoc } from './utilities/OpacityUtilities';
-import { ObjectFitUtilitiesDoc } from './utilities/ObjectFitUtilities';
-import { ObjectPositionUtilitiesDoc } from './utilities/ObjectPositionUtilities';
+import {SpacingUtilitiesDoc} from './utilities/SpacingUtilities';
+import {TextUtilitiesDoc} from './utilities/TextUtilities';
+import {ShadowUtilitiesDoc} from './utilities/ShadowUtilities';
+import {PositionUtilitiesDoc} from './utilities/PositionUtilities';
+import {OverflowUtilitiesDoc} from './utilities/OverflowUtilities';
+import {DisplayUtilitiesDoc} from './utilities/DisplayUtilities';
+import {FlexAndGridUtilitiesDoc} from './utilities/FlexAndGridUtilities';
+import {BorderRadiusUtilitiesDoc} from './utilities/BorderRadiusUtilities';
+import {BorderUtilitiesDoc} from './utilities/BorderUtilities';
+import {OpacityUtilitiesDoc} from './utilities/OpacityUtilities';
+import {ObjectFitUtilitiesDoc} from './utilities/ObjectFitUtilities';
+import {ObjectPositionUtilitiesDoc} from './utilities/ObjectPositionUtilities';
 import LoaderDoc from './Loader';
 import CardDoc from './Card';
-
 
 interface IPages {
     [group: string]: {
@@ -96,7 +92,7 @@ interface IPages {
             [urlId: string]: {
                 name: string;
                 component: React.ComponentType<any>;
-            }
+            };
         };
     };
 }
@@ -105,11 +101,11 @@ const pages: IPages = {
     basicComponents: {
         name: 'Basic Components',
         items: {
-            'card': {
+            card: {
                 name: 'Card',
                 component: CardDoc,
             },
-            'buttons': {
+            buttons: {
                 name: 'Buttons',
                 component: ButtonsDoc,
             },
@@ -121,7 +117,7 @@ const pages: IPages = {
                 name: 'Button Group & Divider',
                 component: ButtonGroupsDoc,
             },
-            'labels': {
+            labels: {
                 name: 'Labels',
                 component: LabelsDoc,
             },
@@ -129,27 +125,27 @@ const pages: IPages = {
                 name: 'Icon Labels',
                 component: IconLabelDoc,
             },
-            'badges': {
+            badges: {
                 name: 'Badges',
                 component: BadgesDoc,
             },
-            'alerts': {
+            alerts: {
                 name: 'Alerts',
                 component: AlertDoc,
             },
-            'avatar': {
+            avatar: {
                 name: 'Avatar',
                 component: AvatarDoc,
             },
-            'tooltips': {
+            tooltips: {
                 name: 'Tooltips',
                 component: TooltipDoc,
             },
-            'tags': {
+            tags: {
                 name: 'Tags',
                 component: TagDoc,
             },
-            'dropdowns': {
+            dropdowns: {
                 name: 'Dropdowns',
                 component: DropdownDoc,
             },
@@ -157,48 +153,48 @@ const pages: IPages = {
                 name: 'Nav buttons',
                 component: NavButtonsDoc,
             },
-            'toast': {
+            toast: {
                 name: 'Toasts',
                 component: ToastsDoc,
             },
-            'popover': {
+            popover: {
                 name: 'Popover',
                 component: PopoverDoc,
             },
-            'modal': {
+            modal: {
                 name: 'Modal',
                 component: ModalDoc,
             },
-            'carousel': {
+            carousel: {
                 name: 'Carousel',
                 component: CarouselDoc,
             },
-            'menu': {
+            menu: {
                 name: 'Menu',
                 component: MenuDocs,
             },
-            'treemenu': {
+            treemenu: {
                 name: 'TreeMenu',
                 component: TreeMenuDocs,
             },
-            "drag-handle": {
+            'drag-handle': {
                 name: 'Drag handle',
                 component: DragHandleDocs,
             },
-            "illustration-button": {
+            'illustration-button': {
                 name: 'Illustration Button',
                 component: IllustrationButtonDoc,
             },
-            "loader": {
+            loader: {
                 name: 'Loader',
                 component: LoaderDoc,
             },
-        }
+        },
     },
     navigationComponents: {
-        name: "Navigation",
+        name: 'Navigation',
         items: {
-            'tab': {
+            tab: {
                 name: 'Tabs',
                 component: TabsDoc,
             },
@@ -214,12 +210,12 @@ const pages: IPages = {
                 name: 'Sub navigation bar',
                 component: SubNavDoc,
             },
-        }
+        },
     },
     containerComponents: {
-        name: "Containers",
+        name: 'Containers',
         items: {
-            'container': {
+            container: {
                 name: 'Container component',
                 component: ContainerDoc,
             },
@@ -231,44 +227,44 @@ const pages: IPages = {
                 name: 'Grid Item',
                 component: GridItemDoc,
             },
-            'panel': {
+            panel: {
                 name: 'Panel',
                 component: PanelDoc,
             },
-        }
+        },
     },
     layoutComponents: {
-        name: "Layout",
+        name: 'Layout',
         items: {
             'content-divider': {
                 name: 'Content Divider',
                 component: ContentDividerDoc,
             },
-            "togglebox": {
-                name: "Togglebox",
+            togglebox: {
+                name: 'Togglebox',
                 component: ToggleboxDocs,
             },
-            "resizable-panels": {
-                name: "Resizable panels",
+            'resizable-panels': {
+                name: 'Resizable panels',
                 component: ResizablePanelsDoc,
             },
-        }
+        },
     },
     textComponents: {
-        name: "Text",
+        name: 'Text',
         items: {
-            'heading': {
+            heading: {
                 name: 'Heading component',
                 component: HeadingDoc,
             },
-            'text': {
+            text: {
                 name: 'Text component',
                 component: TextDoc,
             },
-        }
+        },
     },
     listComponents: {
-        name: "Lists",
+        name: 'Lists',
         items: {
             'grid-list': {
                 name: 'Grid List',
@@ -298,16 +294,16 @@ const pages: IPages = {
                 name: 'With pagination',
                 component: WithPaginationDocs,
             },
-        }
+        },
     },
     formComponents: {
-        name: "Form Components",
+        name: 'Form Components',
         items: {
-            'inputs': {
+            inputs: {
                 name: 'Inputs',
                 component: InputsDoc,
             },
-            'autocomplete': {
+            autocomplete: {
                 name: 'Autocomplete',
                 component: AutocompleteDoc,
             },
@@ -315,7 +311,7 @@ const pages: IPages = {
                 name: 'Tag Input',
                 component: TagInputDocs,
             },
-            'select': {
+            select: {
                 name: 'Select',
                 component: SelectsDoc,
             },
@@ -331,11 +327,11 @@ const pages: IPages = {
                 name: 'With size observer',
                 component: WithSizeObserverDocs,
             },
-            'multiselect': {
+            multiselect: {
                 name: 'MultiSelect',
                 component: MultiselectDocs,
             },
-            'treeselect': {
+            treeselect: {
                 name: 'TreeSelect',
                 component: TreeSelectDocs,
             },
@@ -359,19 +355,19 @@ const pages: IPages = {
                 name: 'Duration Input',
                 component: DurationInputDoc,
             },
-            'switch': {
+            switch: {
                 name: 'Switch',
                 component: SwitchDoc,
             },
-            'radiogroup': {
+            radiogroup: {
                 name: 'RadioGroup',
                 component: RadioGroupDoc,
             },
-            'checkbox': {
+            checkbox: {
                 name: 'Checkbox',
                 component: CheckboxsDoc,
             },
-            'dropzone': {
+            dropzone: {
                 name: 'DropZone',
                 component: DropZoneDoc,
             },
@@ -379,10 +375,10 @@ const pages: IPages = {
                 name: 'CreateButton',
                 component: CreateButtonDoc,
             },
-        }
+        },
     },
     generalComponents: {
-        name: "General",
+        name: 'General',
         items: {
             'icon-font': {
                 name: 'Icon font',
@@ -391,11 +387,11 @@ const pages: IPages = {
             'big-icon-font': {
                 name: 'Big icon font',
                 component: BigIconFontDoc,
-            }
-        }
+            },
+        },
     },
     utilityClasses: {
-        name: "Utility classes",
+        name: 'Utility classes',
         items: {
             'border-utilities': {
                 name: 'Border',
@@ -445,9 +441,9 @@ const pages: IPages = {
                 name: 'Text',
                 component: TextUtilitiesDoc,
             },
-        }
-    }
-}
+        },
+    },
+};
 
 const routes: Array<{path: string; component: React.ComponentType<any>}> = [];
 
@@ -464,15 +460,15 @@ class ReactDoc extends React.Component {
                 <ReactNav pages={pages} />
                 <main className="docs-page__content docs-page__container-fluid">
                     <Switch>
-                        {
-                            routes.map((route) => <Route key={route.path} path={route.path} component={route.component} />)
-                        }
+                        {routes.map((route) => (
+                            <Route key={route.path} path={route.path} component={route.component} />
+                        ))}
 
                         <Route path="/" component={ReactDefault} />
                     </Switch>
                 </main>
             </React.Fragment>
-        )
+        );
     }
 }
 
@@ -484,9 +480,12 @@ class ReactPlayground extends React.Component<IProps> {
     render() {
         return (
             <Switch>
-                <Route path="/playgrounds/react/:id" render={(props) => parsePlayground(props, this.props.playgrounds)} />
+                <Route
+                    path="/playgrounds/react/:id"
+                    render={(props) => parsePlayground(props, this.props.playgrounds)}
+                />
             </Switch>
-        )
+        );
     }
 }
 
@@ -501,7 +500,7 @@ class ReactThemePicker extends React.Component<IProps, IState> {
         super(props);
         this.state = {
             theme: 'light-ui',
-        }
+        };
         this.handleTheme = this.handleTheme.bind(this);
     }
 
@@ -509,8 +508,8 @@ class ReactThemePicker extends React.Component<IProps, IState> {
         document.body.setAttribute('data-theme', newTheme);
 
         this.setState({
-            theme: newTheme
-        })
+            theme: newTheme,
+        });
     }
 
     checkTheme(theme: string) {
@@ -522,14 +521,32 @@ class ReactThemePicker extends React.Component<IProps, IState> {
             <Dropdown
                 items={[
                     {
-                        type: 'group', label: 'Chose a theme', items: [
+                        type: 'group',
+                        label: 'Chose a theme',
+                        items: [
                             'divider',
-                            { label: 'Light', icon: 'adjust', active: this.checkTheme('light-ui'), onSelect: () => this.handleTheme('light-ui') },
-                            { label: 'Dark', icon: 'adjust', active: this.checkTheme('dark-ui'), onSelect: () => this.handleTheme('dark-ui') },
-                            { label: 'Accessible Light', active: this.checkTheme('accessible-light-ui'), icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui') },
-                        ]
+                            {
+                                label: 'Light',
+                                icon: 'adjust',
+                                active: this.checkTheme('light-ui'),
+                                onSelect: () => this.handleTheme('light-ui'),
+                            },
+                            {
+                                label: 'Dark',
+                                icon: 'adjust',
+                                active: this.checkTheme('dark-ui'),
+                                onSelect: () => this.handleTheme('dark-ui'),
+                            },
+                            {
+                                label: 'Accessible Light',
+                                active: this.checkTheme('accessible-light-ui'),
+                                icon: 'adjust',
+                                onSelect: () => this.handleTheme('accessible-light-ui'),
+                            },
+                        ],
                     },
-                ]}>
+                ]}
+            >
                 <button className="docs-page__header-button" aria-label="Change theme" onClick={() => false}>
                     <i className="icon-adjust"></i>
                 </button>
@@ -538,12 +555,9 @@ class ReactThemePicker extends React.Component<IProps, IState> {
     }
 }
 
-const parsePlayground = ({ match }, playgrounds) => {
+const parsePlayground = ({match}, playgrounds) => {
     const Component = Playgrounds[playgrounds[match.params.id].component];
-    return (
-        <Component />
-    );
+    return <Component />;
 };
 
-export { ReactDoc, ReactPlayground, ReactThemePicker };
-
+export {ReactDoc, ReactPlayground, ReactThemePicker};

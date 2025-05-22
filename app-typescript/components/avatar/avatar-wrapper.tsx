@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import {Icon} from '../Icon';
 
 interface IPropsAvatarWrapper {
-    size?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large';  // defaults to medium
+    size?: 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large'; // defaults to medium
     statusIndicator?: {
         status: 'online' | 'offline';
         tooltipText?: string;
@@ -22,7 +22,6 @@ interface IPropsAvatarWrapper {
     statusDot?: {
         color?: string;
     };
-
 }
 
 /**
@@ -42,42 +41,31 @@ export class AvatarWrapper extends React.PureComponent<IPropsAvatarWrapper> {
                     'sd-avatar--large': this.props.size === 'large',
                     'sd-avatar--x-large': this.props.size === 'x-large',
                     'sd-avatar--xx-large': this.props.size === 'xx-large',
-                    'sd-avatar--indicator-status--online' : this.props.statusIndicator?.status === 'online',
-                    'sd-avatar--indicator-status--offline' : this.props.statusIndicator?.status === 'offline',
+                    'sd-avatar--indicator-status--online': this.props.statusIndicator?.status === 'online',
+                    'sd-avatar--indicator-status--offline': this.props.statusIndicator?.status === 'offline',
                     'sd-avatar--empty-light': this.props.noAvatarPlaceholderColor === 'subtle',
                 })}
                 data-test-id={this.props['data-test-id']}
-                title={this.props.statusIndicator != null ? this.props.statusIndicator.tooltipText : ""}
+                title={this.props.statusIndicator != null ? this.props.statusIndicator.tooltipText : ''}
             >
                 {this.props.children}
 
-                {
-                    this.props.administratorIndicator?.enabled === true
-                        ? (
-                            <i
-                                className="icon-settings sd-avatar--indicator-admin"
-                                title={this.props.administratorIndicator.tooltipText}
-                            />
-                        )
-                        : null
-                }
+                {this.props.administratorIndicator?.enabled === true ? (
+                    <i
+                        className="icon-settings sd-avatar--indicator-admin"
+                        title={this.props.administratorIndicator.tooltipText}
+                    />
+                ) : null}
 
-                {
-                    icon != null && (
-                        <span className="sd-avatar__icon">
-                            <Icon name={icon.name} color={icon.color} />
-                        </span>
-                    )
-                }
+                {icon != null && (
+                    <span className="sd-avatar__icon">
+                        <Icon name={icon.name} color={icon.color} />
+                    </span>
+                )}
 
-                {
-                    statusDot != null && (
-                        <span
-                            style={{backgroundColor: statusDot.color}}
-                            className="sd-avatar__coverage-state">
-                        </span>
-                    )
-                }
+                {statusDot != null && (
+                    <span style={{backgroundColor: statusDot.color}} className="sd-avatar__coverage-state"></span>
+                )}
             </span>
         );
     }

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Popover, PropsList, Prop } from '../../../app-typescript';
+import {Popover, PropsList, Prop} from '../../../app-typescript';
 
 import * as Markup from '../../js/react';
 
@@ -8,21 +8,21 @@ export class PopoverDoc extends React.Component {
 
     render() {
         return (
-            <section className='docs-page__container'>
-
-                <h2 className='docs-page__h2'>Popover</h2>
-                <Markup.ReactMarkupCodePreview>{`
+            <section className="docs-page__container">
+                <h2 className="docs-page__h2">Popover</h2>
+                <Markup.ReactMarkupCodePreview>
+                    {`
                     <Popover triggerSelector="#trigger-button-id" title="Popover title">
                         Popover content.
                     </Popover>
                 `}
                 </Markup.ReactMarkupCodePreview>
 
-                <p className='docs-page__paragraph'></p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className='docs-page__content-row docs-page__content-row--no-margin'>
-                            <div className='form__row'>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row">
                                 <button
                                     className="btn btn-default btn--small"
                                     aria-haspopup="true"
@@ -40,7 +40,6 @@ export class PopoverDoc extends React.Component {
                                 </Popover>
                             </div>
                         </div>
-
                     </Markup.ReactMarkupPreview>
 
                     <Markup.ReactMarkupCode>{`
@@ -54,17 +53,38 @@ export class PopoverDoc extends React.Component {
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
-
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name='title' isRequired={true} type='string' default='null' description='Title of the popover component.' />
-                    <Prop name='triggerSelector' isRequired={true} type='string' default='null' description='ID selector for an element that will be used to toggle the popover.' />
-                    <Prop name='displayCloseButton' isRequired={false} type='boolean' default='true' description='Show or hide the close button.' />
-                    <Prop name='placement' isRequired={false}
-                          type='auto | auto-end | auto-start | bottom | bottom-end | bottom-start | left | left-end | left-start | right | right-end | right-start | top | top-end | top-start' 
-                          default='auto' description='Define the placement of the Popover.' />
+                    <Prop
+                        name="title"
+                        isRequired={true}
+                        type="string"
+                        default="null"
+                        description="Title of the popover component."
+                    />
+                    <Prop
+                        name="triggerSelector"
+                        isRequired={true}
+                        type="string"
+                        default="null"
+                        description="ID selector for an element that will be used to toggle the popover."
+                    />
+                    <Prop
+                        name="displayCloseButton"
+                        isRequired={false}
+                        type="boolean"
+                        default="true"
+                        description="Show or hide the close button."
+                    />
+                    <Prop
+                        name="placement"
+                        isRequired={false}
+                        type="auto | auto-end | auto-start | bottom | bottom-end | bottom-start | left | left-end | left-start | right | right-end | right-start | top | top-end | top-start"
+                        default="auto"
+                        description="Define the placement of the Popover."
+                    />
                 </PropsList>
             </section>
-        )
+        );
     }
 }

@@ -24,8 +24,7 @@ class SimpleListItem extends React.PureComponent<IPropsItem> {
             'simple-list__item--justify-flex-start': this.props.justify === undefined,
             [`simple-list__item--justify-${this.props.justify}`]:
                 this.props.justify || this.props.justify !== undefined,
-            [`simple-list__item--gap-${this.props.gap}`]:
-            this.props.gap || this.props.gap !== undefined,
+            [`simple-list__item--gap-${this.props.gap}`]: this.props.gap || this.props.gap !== undefined,
         });
         return (
             <li className={classes} id={this.props.id || undefined}>
@@ -37,13 +36,17 @@ class SimpleListItem extends React.PureComponent<IPropsItem> {
 
 class SimpleList extends React.PureComponent<IProps> {
     render() {
-        let classes = classNames('simple-list', {
-            'simple-list--compact': this.props.density === undefined,
-            'simple-list--dotted': this.props.border === true,
-            [`simple-list--${this.props.density}`]: this.props.density || this.props.density !== undefined,
-            '': this.props.width === undefined,
-            [`simple-list--fixedW-${this.props.width}`]: this.props.width || this.props.width !== undefined,
-        }, this.props.className);
+        let classes = classNames(
+            'simple-list',
+            {
+                'simple-list--compact': this.props.density === undefined,
+                'simple-list--dotted': this.props.border === true,
+                [`simple-list--${this.props.density}`]: this.props.density || this.props.density !== undefined,
+                '': this.props.width === undefined,
+                [`simple-list--fixedW-${this.props.width}`]: this.props.width || this.props.width !== undefined,
+            },
+            this.props.className,
+        );
         return (
             <ul className={classes} id={this.props.id || undefined}>
                 {this.props.children}
@@ -52,6 +55,4 @@ class SimpleList extends React.PureComponent<IProps> {
     }
 }
 
-export {
-    SimpleList, SimpleListItem
-};
+export {SimpleList, SimpleListItem};

@@ -7,9 +7,9 @@ class PositionUtilitiesDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Position</h2>
                 <p className="docs-page__paragraph">
-                Utility classes for managing the placement of an element within the DOM. 
+                    Utility classes for managing the placement of an element within the DOM.
                 </p>
-                <div className='docs-page__container-block--position'>
+                <div className="docs-page__container-block--position">
                     <div className="utilities-table__container">
                         <table className="table utilities-table">
                             <thead>
@@ -43,10 +43,9 @@ class PositionUtilitiesDoc extends React.Component {
                         </table>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { PositionUtilitiesDoc };
+export {PositionUtilitiesDoc};

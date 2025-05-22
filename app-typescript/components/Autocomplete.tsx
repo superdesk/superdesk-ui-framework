@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { AutoComplete } from '@superdesk/primereact/autocomplete';
+import {AutoComplete} from '@superdesk/primereact/autocomplete';
 import classNames from 'classnames';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 
 interface IProps {
     items: Array<any>;
@@ -78,24 +78,24 @@ export class Autocomplete extends React.Component<IProps, IState> {
                 });
             }
 
-            this.setState({ filteredItems });
+            this.setState({filteredItems});
         }, 250);
     }
 
-    handleChange(event: {originalEvent: Event, value: any}) {
-        this.setState({ selectedItem: event.value });
+    handleChange(event: {originalEvent: Event; value: any}) {
+        this.setState({selectedItem: event.value});
         this.props.onChange(event.value);
     }
 
-    handleSelect(event: {originalEvent: Event, value: any}) {
-        this.setState({ selectedItem: event.value });
+    handleSelect(event: {originalEvent: Event; value: any}) {
+        this.setState({selectedItem: event.value});
         if (this.props.onSelect) {
             this.props.onSelect(event.value);
         }
     }
 
     handleInputClear() {
-        this.setState({ selectedItem: null });
+        this.setState({selectedItem: null});
     }
 
     render() {
@@ -124,11 +124,19 @@ export class Autocomplete extends React.Component<IProps, IState> {
         return (
             <React.Fragment>
                 <div className={classes}>
-                    {this.props.label && !this.props.isSearchField ? <label className='sd-input__label'
-                        htmlFor={this.htmlId}>{this.props.label}</label> : null}
+                    {this.props.label && !this.props.isSearchField ? (
+                        <label className="sd-input__label" htmlFor={this.htmlId}>
+                            {this.props.label}
+                        </label>
+                    ) : null}
 
-                    {this.props.label && this.props.isSearchField ? <label className='sd-searchbar__icon'
-                        htmlFor={this.htmlId} aria-label={this.props.label}></label> : null}
+                    {this.props.label && this.props.isSearchField ? (
+                        <label
+                            className="sd-searchbar__icon"
+                            htmlFor={this.htmlId}
+                            aria-label={this.props.label}
+                        ></label>
+                    ) : null}
 
                     <AutoComplete
                         id={this.htmlId}
@@ -141,41 +149,44 @@ export class Autocomplete extends React.Component<IProps, IState> {
                         field={this.props.keyValue}
                         disabled={this.props.disabled}
                         minLength={this.props.minLength ? this.props.minLength : 1}
-                        onFocus={() => {this.setState({focused: true}); }}
-                        onBlur={() => {this.setState({focused: false}); }}
-                        onChange={(event: {originalEvent: Event, value: any}) => this.handleChange(event)}
-                        onSelect={(event: {originalEvent: Event, value: any}) => this.handleSelect(event)} />
+                        onFocus={() => {
+                            this.setState({focused: true});
+                        }}
+                        onBlur={() => {
+                            this.setState({focused: false});
+                        }}
+                        onChange={(event: {originalEvent: Event; value: any}) => this.handleChange(event)}
+                        onSelect={(event: {originalEvent: Event; value: any}) => this.handleSelect(event)}
+                    />
 
-                    {this.props.isSearchField && this.state.selectedItem
-                        ? <button
-                            className="sd-searchbar__cancel"
-                            onClick={() => this.handleInputClear()}
-                        >
+                    {this.props.isSearchField && this.state.selectedItem ? (
+                        <button className="sd-searchbar__cancel" onClick={() => this.handleInputClear()}>
                             <i className="icon-remove-sign" aria-label="remove-sign" />
                         </button>
-                        : null
-                    }
+                    ) : null}
 
-                    {!this.props.isSearchField ?
-                        <div className='sd-input__message-box'>
-                            {this.props.info && !this.props.invalid && !this.state.invalid ?
-                                <div className='sd-input__hint'>{this.props.info}</div> : null}
-                            {this.props.invalid || this.state.invalid ?
-                                <div className='sd-input__message'>{this.props.error}</div>
-                            : null}
+                    {!this.props.isSearchField ? (
+                        <div className="sd-input__message-box">
+                            {this.props.info && !this.props.invalid && !this.state.invalid ? (
+                                <div className="sd-input__hint">{this.props.info}</div>
+                            ) : null}
+                            {this.props.invalid || this.state.invalid ? (
+                                <div className="sd-input__message">{this.props.error}</div>
+                            ) : null}
                         </div>
-                    : null }
+                    ) : null}
                 </div>
 
-                {this.props.isSearchField ?
-                    <div className='sd-searchbar__message-box'>
-                        {this.props.info && !this.props.invalid && !this.state.invalid ?
-                            <div className='sd-searchbar__hint'>{this.props.info}</div> : null}
-                        {this.props.invalid || this.state.invalid ?
-                            <div className='sd-searchbar__message'>{this.props.error}</div>
-                        : null}
+                {this.props.isSearchField ? (
+                    <div className="sd-searchbar__message-box">
+                        {this.props.info && !this.props.invalid && !this.state.invalid ? (
+                            <div className="sd-searchbar__hint">{this.props.info}</div>
+                        ) : null}
+                        {this.props.invalid || this.state.invalid ? (
+                            <div className="sd-searchbar__message">{this.props.error}</div>
+                        ) : null}
                     </div>
-                : null }
+                ) : null}
             </React.Fragment>
         );
     }

@@ -1,4 +1,3 @@
-
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {createPopper, Instance as PopperInstance, Placement, Modifier} from '@popperjs/core';
@@ -34,8 +33,8 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
         }
 
         if (
-            this.props.getReferenceElement().contains(event.target as Node) !== true
-            && this.wrapperEl.contains(event.target as Node) !== true
+            this.props.getReferenceElement().contains(event.target as Node) !== true &&
+            this.wrapperEl.contains(event.target as Node) !== true
         ) {
             this.props.onClose();
         }
@@ -90,17 +89,10 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
              */
             setTimeout(() => {
                 if (this.wrapperEl != null) {
-                    this.popper = createPopper(
-                        this.props.getReferenceElement(),
-                        this.wrapperEl,
-                        {
-                            placement: this.props.placement,
-                            modifiers: [
-                                maxSize,
-                                applyMaxSize,
-                            ],
-                        },
-                    );
+                    this.popper = createPopper(this.props.getReferenceElement(), this.wrapperEl, {
+                        placement: this.props.placement,
+                        modifiers: [maxSize, applyMaxSize],
+                    });
                 }
             }, 50);
         }
@@ -121,26 +113,22 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
     render() {
         return (
             <>
-                {
-                    ReactDOM.createPortal(
-                        (
-                            <div
-                                ref={(el) => {
-                                    this.wrapperEl = el;
-                                }}
-                                style={{
-                                    position: 'absolute',
-                                    left: '-100vw',
-                                    display: 'flex',
-                                    zIndex: this.zIndex,
-                                }}
-                            >
-                                {this.props.children}
-                            </div>
-                        ),
-                        document.body,
-                    )
-            }
+                {ReactDOM.createPortal(
+                    <div
+                        ref={(el) => {
+                            this.wrapperEl = el;
+                        }}
+                        style={{
+                            position: 'absolute',
+                            left: '-100vw',
+                            display: 'flex',
+                            zIndex: this.zIndex,
+                        }}
+                    >
+                        {this.props.children}
+                    </div>,
+                    document.body,
+                )}
             </>
         );
     }
@@ -167,18 +155,14 @@ export function showPopup(
     };
 
     ReactDOM.render(
-        (
-            <PopupPositioner
-                getReferenceElement={() => referenceElement}
-                placement={placement}
-                onClose={closeFn}
-                closeOnHoverEnd={closeOnHoverEnd || false}
-            >
-                <Component
-                    closePopup={closeFn}
-                />
-            </PopupPositioner>
-        ),
+        <PopupPositioner
+            getReferenceElement={() => referenceElement}
+            placement={placement}
+            onClose={closeFn}
+            closeOnHoverEnd={closeOnHoverEnd || false}
+        >
+            <Component closePopup={closeFn} />
+        </PopupPositioner>,
         el,
     );
 

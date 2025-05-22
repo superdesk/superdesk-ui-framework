@@ -1,3 +1,3 @@
-export { SideBarMenu } from './SideBarMenu';
-export { SideBarTabs } from './SideBarTabs';
-export { QuickNavBar } from './QuickNavBar';
+export {SideBarMenu} from './SideBarMenu';
+export {SideBarTabs} from './SideBarTabs';
+export {QuickNavBar} from './QuickNavBar';

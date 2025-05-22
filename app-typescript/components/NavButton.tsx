@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Icon } from './Icon';
-import { Badge } from './Badge';
+import {Icon} from './Icon';
+import {Badge} from './Badge';
 interface IProps {
     id?: string;
     icon?: string;
@@ -25,17 +25,19 @@ export class NavButton extends React.PureComponent<IProps> {
         });
         const value = this.props.value === undefined ? 'button' : this.props.value;
         return (
-            <button type={value}
+            <button
+                type={value}
                 className={classes}
                 tabIndex={0}
                 onClick={this.props.onClick}
                 aria-label={this.props.text}
-                id={this.props.id}>
-                {this.props.badgeValue &&
-                    <Badge text={this.props.badgeValue} type='primary' />}
+                id={this.props.id}
+            >
+                {this.props.badgeValue && <Badge text={this.props.badgeValue} type="primary" />}
                 {this.props.icon ? <Icon name={this.props.icon} size={this.props.iconSize} /> : null}
-                {!this.props.icon && this.props.text ?
-                    <span className="sd-navbtn__text">{this.props.text}</span> : null}
+                {!this.props.icon && this.props.text ? (
+                    <span className="sd-navbtn__text">{this.props.text}</span>
+                ) : null}
             </button>
         );
     }

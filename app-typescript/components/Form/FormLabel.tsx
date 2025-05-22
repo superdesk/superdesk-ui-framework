@@ -18,7 +18,6 @@ export class FormLabel extends React.PureComponent<IProps> {
             'form-label--required': this.props.required,
             'form-label--invalid': this.props.invalid,
             [`form-label--${this.props.state}`]: this.props.state !== 'default' && this.props.state !== undefined,
-
         });
         return (
             <label htmlFor={this.props.forId} className={classes}>

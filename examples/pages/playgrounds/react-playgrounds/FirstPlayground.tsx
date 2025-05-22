@@ -1,6 +1,15 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, Input, Select, Option } from '../../../../app-typescript/index';
+import {
+    ButtonGroup,
+    Button,
+    NavButton,
+    SubNav,
+    Dropdown,
+    Input,
+    Select,
+    Option,
+} from '../../../../app-typescript/index';
 
 interface IProps {
     children?: React.ReactNode;
@@ -23,7 +32,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
             dropDownState: '',
             openPreview: false,
             openFilter: false,
-        }
+        };
         this.handleFilter = this.handleFilter.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
         this.handleTheme = this.handleTheme.bind(this);
@@ -44,62 +53,76 @@ export class FirstPlayground extends React.Component<IProps, IState> {
     handleTheme() {
         if (this.state.theme === 'light') {
             this.setState({
-                theme: 'dark'
-            })
+                theme: 'dark',
+            });
         } else {
             this.setState({
-                theme: 'light'
-            })
+                theme: 'light',
+            });
         }
     }
 
     render() {
         return (
-            <Components.Layout header='First playground' theme={this.state.theme}>
+            <Components.Layout header="First playground" theme={this.state.theme}>
                 <Components.SidebarMenu
                     items={[
-                        { icon: 'dashboard', size: 'big', tooltip: 'Dashboard' },
-                        { icon: 'view', size: 'big' },
-                        { icon: 'marked-star', size: 'big' },
-                        { icon: 'spike', size: 'big' },
+                        {icon: 'dashboard', size: 'big', tooltip: 'Dashboard'},
+                        {icon: 'view', size: 'big'},
+                        {icon: 'marked-star', size: 'big'},
+                        {icon: 'spike', size: 'big'},
                         'divider',
-                        { icon: 'personal', size: 'big' },
-                        { icon: 'global-search', size: 'big' },
-                        { icon: 'picture', size: 'big' }
+                        {icon: 'personal', size: 'big'},
+                        {icon: 'global-search', size: 'big'},
+                        {icon: 'picture', size: 'big'},
                     ]}
                 />
 
-                <div className='sd-content-wrapper__main-content-area sd-main-content-grid comfort'>
-                    <Components.HeaderPanel >
+                <div className="sd-content-wrapper__main-content-area sd-main-content-grid comfort">
+                    <Components.HeaderPanel>
                         <SubNav>
-                            <ButtonGroup align='inline'>
+                            <ButtonGroup align="inline">
                                 <Dropdown
                                     items={[
                                         {
-                                            type: 'group', label: 'Archives', items: [
+                                            type: 'group',
+                                            label: 'Archives',
+                                            items: [
                                                 'divider',
-                                                { label: 'All archives', onSelect: () => this.setState({ dropDownState: 'All archives' }) },
-                                                { label: 'Media archive', onSelect: () => this.setState({ dropDownState: 'Media archive' }) },
-                                                { label: 'File archive', onSelect: () => this.setState({ dropDownState: 'File archive' }) },
-                                                { label: 'AP images', onSelect: () => this.setState({ dropDownState: 'AP archive' }) },
-                                            ]
-                                        }
+                                                {
+                                                    label: 'All archives',
+                                                    onSelect: () => this.setState({dropDownState: 'All archives'}),
+                                                },
+                                                {
+                                                    label: 'Media archive',
+                                                    onSelect: () => this.setState({dropDownState: 'Media archive'}),
+                                                },
+                                                {
+                                                    label: 'File archive',
+                                                    onSelect: () => this.setState({dropDownState: 'File archive'}),
+                                                },
+                                                {
+                                                    label: 'AP images',
+                                                    onSelect: () => this.setState({dropDownState: 'AP archive'}),
+                                                },
+                                            ],
+                                        },
                                     ]}
                                 >
                                     <NavButton onClick={() => false} />
                                 </Dropdown>
                             </ButtonGroup>
-                            <ButtonGroup align='end'>
-                                <NavButton icon='dots-vertical' onClick={() => false} />
+                            <ButtonGroup align="end">
+                                <NavButton icon="dots-vertical" onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
                         <SubNav>
-                            <ButtonGroup >
-                                <NavButton icon='filter-large' onClick={this.handleFilter} />
+                            <ButtonGroup>
+                                <NavButton icon="filter-large" onClick={this.handleFilter} />
                             </ButtonGroup>
-                            <ButtonGroup align='end'>
-                                <NavButton icon='adjust' onClick={this.handleTheme} />
-                                <NavButton icon='th-list' onClick={() => false} />
+                            <ButtonGroup align="end">
+                                <NavButton icon="adjust" onClick={this.handleTheme} />
+                                <NavButton icon="th-list" onClick={() => false} />
                             </ButtonGroup>
                         </SubNav>
                     </Components.HeaderPanel>
@@ -107,14 +130,14 @@ export class FirstPlayground extends React.Component<IProps, IState> {
 
                     <Components.LeftPanel open={this.state.openFilter}>
                         <Components.Panel>
-                            <Components.PanelHeader handleFilterParent={this.handleFilter} title='Advanced filters' />
+                            <Components.PanelHeader handleFilterParent={this.handleFilter} title="Advanced filters" />
                             <Components.PanelContent>
                                 <Components.PanelContentBlock>
                                     <div className="form__group">
                                         <div className="form__item">
                                             <Input
-                                                type='text'
-                                                label='TITLE'
+                                                type="text"
+                                                label="TITLE"
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 onChange={() => false}
@@ -124,8 +147,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                     <div className="form__group">
                                         <div className="form__item">
                                             <Select
-                                                label='Source'
-                                                value='Select ingest source...'
+                                                label="Source"
+                                                value="Select ingest source..."
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 onChange={() => false}
@@ -136,11 +159,11 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                             </Select>
                                         </div>
                                     </div>
-                                    <div className="form__group" >
+                                    <div className="form__group">
                                         <div className="form__item">
                                             <Input
-                                                type='text'
-                                                label='LOCATION'
+                                                type="text"
+                                                label="LOCATION"
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 onChange={() => false}
@@ -150,8 +173,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                     <div className="form__group">
                                         <div className="form__item">
                                             <Input
-                                                type='text'
-                                                label='CATEGORY'
+                                                type="text"
+                                                label="CATEGORY"
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 onChange={() => false}
@@ -161,8 +184,8 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                     <div className="form__group">
                                         <div className="form__item">
                                             <Input
-                                                type='text'
-                                                label='SUBJECT'
+                                                type="text"
+                                                label="SUBJECT"
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 onChange={() => false}
@@ -172,9 +195,10 @@ export class FirstPlayground extends React.Component<IProps, IState> {
 
                                     <div className="form__group">
                                         <div className="form__item">
-                                            <Select label='Usage right'
-                                                value='--- Not selected ---'
-                                                info='Dolor in hendrerit.'
+                                            <Select
+                                                label="Usage right"
+                                                value="--- Not selected ---"
+                                                info="Dolor in hendrerit."
                                                 inlineLabel={false}
                                                 disabled={false}
                                                 onChange={() => false}
@@ -190,16 +214,14 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                                 </Components.PanelContentBlock>
                             </Components.PanelContent>
                             <Components.PanelFooter>
-                                <Button text='Clear' style='hollow' onClick={() => false} />
-                                <Button text='Submit' type='primary' onClick={() => false} />
+                                <Button text="Clear" style="hollow" onClick={() => false} />
+                                <Button text="Submit" type="primary" onClick={() => false} />
                             </Components.PanelFooter>
                         </Components.Panel>
                     </Components.LeftPanel>
                     {/* FILTER PANEL*/}
 
-                    <Components.MainPanel>
-
-                    </Components.MainPanel>
+                    <Components.MainPanel></Components.MainPanel>
                     {/* MAIN CONTENT (Monitoring) */}
 
                     <Components.RightPanel open={this.state.openPreview} />
@@ -208,7 +230,7 @@ export class FirstPlayground extends React.Component<IProps, IState> {
                     <Components.OverlayPanel />
                     {/* OVERLAY PANEL (Send To) */}
                 </div>
-            </Components.Layout >
+            </Components.Layout>
         );
     }
 }

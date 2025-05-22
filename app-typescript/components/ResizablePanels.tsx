@@ -44,9 +44,8 @@ export class ResizablePanels extends React.PureComponent<IProps> {
 
     render(): React.ReactNode {
         const {direction, primarySize, secondarySize, children} = this.props;
-        const separatorDimensions: React.CSSProperties = direction === 'horizontal'
-            ? {width: 3, height: '100%'}
-            : {height: 3, width: '100%'};
+        const separatorDimensions: React.CSSProperties =
+            direction === 'horizontal' ? {width: 3, height: '100%'} : {height: 3, width: '100%'};
 
         // Sometimes second panel is conditional. Checking here is more convenient.
         if (children.some((child) => child === false || child == null)) {

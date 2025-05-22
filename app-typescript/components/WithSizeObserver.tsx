@@ -74,13 +74,9 @@ export class WithSizeObserver extends React.PureComponent<IProps, IState> {
                  * but if parent of `ResizeObserverComponent` is resized down,
                  * it would include its own size(which is based on the initial result from this component),
                  * including children, into calculation and would produce a wrong result.
-                */}
+                 */}
                 <div style={{position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
-                    {
-                        dimensions === 'not-initialized'
-                            ? null
-                            : this.props.children(dimensions)
-                    }
+                    {dimensions === 'not-initialized' ? null : this.props.children(dimensions)}
                 </div>
             </div>
         );

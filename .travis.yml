@@ -1,9 +1,9 @@
 language: node_js
 node_js: '10'
 cache:
-  directories:
-  - "$HOME/.cache/yarn"
+    directories:
+        - '$HOME/.cache/yarn'
 before_install:
-- npm i -g npm
+    - npm i -g npm
 script:
-- yarn run lint
+    - yarn run lint
