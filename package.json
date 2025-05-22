@@ -73,6 +73,7 @@
     "mocha": "^8.4.0",
     "moment": "^2.29.3",
     "node-sass": "6.0",
+    "prettier": "3.5.3",
     "prismjs": "^1.28.0",
     "prop-types": "^15.6.0",
     "react": "16.8.6",
