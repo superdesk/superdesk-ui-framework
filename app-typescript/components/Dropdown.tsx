@@ -1,7 +1,7 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { createPopper } from '@popperjs/core';
-import { useId } from "react-id-generator";
+import {createPopper} from '@popperjs/core';
+import {useId} from 'react-id-generator';
 import {getNextZIndex} from './../zIndex';
 
 export interface IMenuItem {
@@ -39,17 +39,9 @@ interface IMenu {
     maxHeight?: number;
 }
 
-const DROPDOWN_ID_CONTAINER = "sd-dropdown-constainer";
+const DROPDOWN_ID_CONTAINER = 'sd-dropdown-constainer';
 
-export const Dropdown = ({
-    items,
-    header,
-    footer,
-    children,
-    align,
-    onChange,
-    maxHeight,
-}: IMenu) => {
+export const Dropdown = ({items, header, footer, children, align, onChange, maxHeight}: IMenu) => {
     const [zIndex, setZIndex] = React.useState<number>(-1);
 
     if (zIndex === -1) {
@@ -77,7 +69,7 @@ export const Dropdown = ({
     React.useEffect(() => {
         const existingElement = document.getElementById(DROPDOWN_ID_CONTAINER);
         if (!existingElement) {
-            const el = document.createElement("div");
+            const el = document.createElement('div');
             el.id = DROPDOWN_ID_CONTAINER;
             el.style.position = 'absolute';
             el.style.top = '0';
@@ -101,62 +93,49 @@ export const Dropdown = ({
         if (header && footer) {
             return (
                 <div
-                    className='dropdown__menu dropdown__menu--has-head-foot'
-                    id={menuID} role='menu'
+                    className="dropdown__menu dropdown__menu--has-head-foot"
+                    id={menuID}
+                    role="menu"
                     ref={ref}
                     style={{zIndex}}
                 >
-                    <ul className='dropdown__menu-header'>
-                        {headerElements}
-                    </ul>
-                    <ul className='dropdown__menu-body'>
-                        {dropdownElements}
-                    </ul>
-                    <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                        {footerElements}
-                    </ul>
+                    <ul className="dropdown__menu-header">{headerElements}</ul>
+                    <ul className="dropdown__menu-body">{dropdownElements}</ul>
+                    <ul className="dropdown__menu-footer dropdown__menu-footer--has-list ">{footerElements}</ul>
                 </div>
             );
         } else if (header) {
             return (
                 <div
-                    className='dropdown__menu dropdown__menu--has-head-foot'
+                    className="dropdown__menu dropdown__menu--has-head-foot"
                     id={menuID}
-                    role='menu'
+                    role="menu"
                     ref={ref}
                     style={{zIndex}}
                 >
-                    <ul className='dropdown__menu-header'>
-                        {headerElements}
-                    </ul>
-                    <ul className='dropdown__menu-body'>
-                        {dropdownElements}
-                    </ul>
+                    <ul className="dropdown__menu-header">{headerElements}</ul>
+                    <ul className="dropdown__menu-body">{dropdownElements}</ul>
                 </div>
             );
         } else if (footer) {
             return (
                 <div
-                    className='dropdown__menu dropdown__menu--has-head-foot'
+                    className="dropdown__menu dropdown__menu--has-head-foot"
                     id={menuID}
-                    role='menu'
+                    role="menu"
                     ref={ref}
                     style={{zIndex}}
                 >
-                    <ul className='dropdown__menu-body'>
-                        {dropdownElements}
-                    </ul>
-                    <ul className='dropdown__menu-footer dropdown__menu-footer--has-list '>
-                        {footerElements}
-                    </ul>
+                    <ul className="dropdown__menu-body">{dropdownElements}</ul>
+                    <ul className="dropdown__menu-footer dropdown__menu-footer--has-list ">{footerElements}</ul>
                 </div>
             );
         } else {
             return (
                 <ul
-                    className='dropdown__menu '
+                    className="dropdown__menu "
                     id={menuID}
-                    role='menu'
+                    role="menu"
                     ref={ref}
                     style={{...{zIndex, overflowY: 'auto'}, ...maxHeightStyle}}
                 >
@@ -247,7 +226,7 @@ export const Dropdown = ({
                 </React.Fragment>
             );
         } else if (item === 'divider') {
-            return (<li className="dropdown__menu-divider" key={index}></li>);
+            return <li className="dropdown__menu-divider" key={index}></li>;
         } else {
             return (
                 <DropdownItem
@@ -264,54 +243,48 @@ export const Dropdown = ({
 
     return (
         <div className={'dropdown ' + (open ? 'open' : '')}>
-            {
-                typeof children === 'object'
-                    ? (React.isValidElement(children)
-                        ? <div ref={buttonRef} style={{ display: 'content' }}>
-                            {(() => {
-                                const attrs = {
-                                    className: children.props.className
-                                        ? (children.props.className + ' dropdown__toggle dropdown-toggle')
-                                        : 'dropdown__toggle dropdown-toggle',
-                                    'aria-haspopup': "menu",
-                                    'aria-expanded': open,
-                                    onClick: toggleDisplay,
-                                    ref: buttonRef,
-                                };
+            {typeof children === 'object' ? (
+                React.isValidElement(children) ? (
+                    <div ref={buttonRef} style={{display: 'content'}}>
+                        {(() => {
+                            const attrs = {
+                                className: children.props.className
+                                    ? children.props.className + ' dropdown__toggle dropdown-toggle'
+                                    : 'dropdown__toggle dropdown-toggle',
+                                'aria-haspopup': 'menu',
+                                'aria-expanded': open,
+                                onClick: toggleDisplay,
+                                ref: buttonRef,
+                            };
 
-                                return React.cloneElement(children, attrs);
-                            })()}
-                        </div>
-                        : null)
-                    : <button
-                        style={{whiteSpace: 'nowrap'}}
-                        ref={buttonRef}
-                        className=' dropdown__toggle dropdown-toggle'
-                        aria-haspopup="menu"
-                        tabIndex={0}
-                        aria-expanded={open}
-                        onClick={toggleDisplay}
-                    >
-                        {children}
-                        <span className="dropdown__caret"></span>
-                    </button>
-            }
+                            return React.cloneElement(children, attrs);
+                        })()}
+                    </div>
+                ) : null
+            ) : (
+                <button
+                    style={{whiteSpace: 'nowrap'}}
+                    ref={buttonRef}
+                    className=" dropdown__toggle dropdown-toggle"
+                    aria-haspopup="menu"
+                    tabIndex={0}
+                    aria-expanded={open}
+                    onClick={toggleDisplay}
+                >
+                    {children}
+                    <span className="dropdown__caret"></span>
+                </button>
+            )}
         </div>
     );
 };
 
-const DropdownItem = ({
-label,
-icon,
-active,
-onSelect,
-onChange,
-}: IMenuItemRes) => {
+const DropdownItem = ({label, icon, active, onSelect, onChange}: IMenuItemRes) => {
     return (
-        <li role='none' className={active ? 'dropdown__menu-item--active' : ''}>
+        <li role="none" className={active ? 'dropdown__menu-item--active' : ''}>
             <button
                 tabIndex={0}
-                role='menuitem'
+                role="menuitem"
                 onClick={() => {
                     setTimeout(() => {
                         onSelect();
@@ -321,20 +294,14 @@ onChange,
                     }
                 }}
             >
-                <i className={icon ? ('icon-' + icon) : ''}></i>
+                <i className={icon ? 'icon-' + icon : ''}></i>
                 {label}
             </button>
         </li>
     );
 };
 
-const DropdownItemWithSubmenu = ({
-    index,
-    item,
-    menuID,
-    subMenuItems,
-    onChange,
-}: IMenuItem | any) => {
+const DropdownItemWithSubmenu = ({index, item, menuID, subMenuItems, onChange}: IMenuItem | any) => {
     const [open, setOpen] = React.useState<undefined | boolean>(undefined);
 
     const refButtonSubMenu = React.useRef(null);
@@ -362,12 +329,9 @@ const DropdownItemWithSubmenu = ({
 
     return (
         <li key={index} ref={refButtonSubMenu}>
-            <div
-                className='dropdown'
-                onMouseLeave={() => setOpen(false)}
-            >
+            <div className="dropdown" onMouseLeave={() => setOpen(false)}>
                 <button
-                    className='dropdown__toggle dropdown-toggle'
+                    className="dropdown__toggle dropdown-toggle"
                     aria-haspopup="menu"
                     tabIndex={0}
                     onClick={() => {
@@ -385,12 +349,7 @@ const DropdownItemWithSubmenu = ({
                     {item['icon'] ? <i className={'icon-' + item['icon']}></i> : null}
                     {item['label']}
                 </button>
-                <ul
-                    role='menu'
-                    ref={refSubMenu}
-                    style={{display: 'none'}}
-                    className='dropdown__menu'
-                >
+                <ul role="menu" ref={refSubMenu} style={{display: 'none'}} className="dropdown__menu">
                     {subMenuItems}
                 </ul>
             </div>

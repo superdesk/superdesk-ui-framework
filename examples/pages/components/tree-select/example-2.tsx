@@ -27,9 +27,7 @@ export class Example2 extends React.PureComponent<IProps, IState> {
         super(props);
 
         this.state = {
-            selectedRoles: [
-                {qcode: 'writer', name: 'Writer'},
-            ],
+            selectedRoles: [{qcode: 'writer', name: 'Writer'}],
         };
     }
 
@@ -48,7 +46,7 @@ export class Example2 extends React.PureComponent<IProps, IState> {
                         // accessing qcodes should not cause TypeScript errors
                         val.forEach((node) => {
                             console.log(node.qcode);
-                        })
+                        });
                     }}
                     allowMultiple={true}
                 />
@@ -56,4 +54,3 @@ export class Example2 extends React.PureComponent<IProps, IState> {
         );
     }
 }
-

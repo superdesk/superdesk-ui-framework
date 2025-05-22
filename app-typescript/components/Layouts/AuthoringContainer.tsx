@@ -12,9 +12,9 @@ interface IProps {
 export class AuthoringContainer extends React.PureComponent<IProps> {
     render() {
         let classes = classNames('sd-content-wrapper__authoring-content-area', {
-            [`sd-content-wrapper__authoring-content-area--${this.props.side}`] : this.props.side,
+            [`sd-content-wrapper__authoring-content-area--${this.props.side}`]: this.props.side,
             [`sd-content-wrapper__authoring-content-area--${this.props.background}`]:
-            this.props.background !== 'light' && this.props.background !== undefined,
+                this.props.background !== 'light' && this.props.background !== undefined,
             'open-editor': this.props.open,
         });
 
@@ -24,10 +24,8 @@ export class AuthoringContainer extends React.PureComponent<IProps> {
 
         return (
             <div className={classes}>
-                <div className='sd-editor__container-wrapper'>
-                    <div className={classesContainerInner}>
-                        {this.props.children}
-                    </div>
+                <div className="sd-editor__container-wrapper">
+                    <div className={classesContainerInner}>{this.props.children}</div>
                 </div>
             </div>
         );

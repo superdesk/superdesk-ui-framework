@@ -14,15 +14,9 @@ export class IllustrationButton extends React.PureComponent<IProps> {
             'illustration-button--disabled': this.props.disabled,
         });
         return (
-            <button
-                className={classes}
-                tabIndex={0}
-                onClick={this.props.onClick}
-            >
+            <button className={classes} tabIndex={0} onClick={this.props.onClick}>
                 {this.props.children}
-                <span className='illustration-button__text-label'>
-                    {this.props.text}
-                </span>
+                <span className="illustration-button__text-label">{this.props.text}</span>
             </button>
         );
     }

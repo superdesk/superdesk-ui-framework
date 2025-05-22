@@ -18,7 +18,7 @@ interface ITab {
 class Tab extends React.PureComponent<ITab> {
     render() {
         return (
-            <div className='sd-nav-tabs__pane' role='tabpanel'>
+            <div className="sd-nav-tabs__pane" role="tabpanel">
                 {this.props.children}
             </div>
         );
@@ -56,23 +56,26 @@ class TabList extends React.PureComponent<ITabList, IState> {
 
         return (
             <React.Fragment>
-                <div className={classes} role='tablist'>
-                    {this.props.children.map((item, index) =>
+                <div className={classes} role="tablist">
+                    {this.props.children.map((item, index) => (
                         <button
                             key={index}
                             onClick={() => this.handleChange(index)}
-                            role='tab'
+                            role="tab"
                             aria-selected={this.state.index === index ? 'true' : 'false'}
                             className={
-                                'sd-nav-tabs__tab'
-                                + (this.state.index === index ? ' sd-nav-tabs__tab--active' : '')
+                                'sd-nav-tabs__tab' + (this.state.index === index ? ' sd-nav-tabs__tab--active' : '')
                             }
                         >
                             <span>{item.props.label}</span>
-                        </button>)}
+                        </button>
+                    ))}
                 </div>
-                <div className={'sd-nav-tabs__content' +
-                    (this.props.theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '')}>
+                <div
+                    className={
+                        'sd-nav-tabs__content' + (this.props.theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '')
+                    }
+                >
                     {this.props.children[this.state.index]}
                 </div>
             </React.Fragment>
@@ -80,4 +83,4 @@ class TabList extends React.PureComponent<ITabList, IState> {
     }
 }
 
-export { Tab, TabList };
+export {Tab, TabList};

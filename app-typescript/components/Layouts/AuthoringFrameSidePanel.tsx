@@ -13,10 +13,6 @@ export class AuthoringFrameSidePanel extends React.PureComponent<IProps> {
             [`sidetab-content-pinned--pinned`]: this.props.pinned,
             [`sidetab-content-pinned--open`]: this.props.opened,
         });
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }

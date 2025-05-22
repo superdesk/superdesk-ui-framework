@@ -49,11 +49,7 @@ export class ResizeObserverComponent extends React.PureComponent<IProps, IState>
                     this.el = el;
                 }}
             >
-                {
-                    dimensions === 'not-initialized'
-                        ? null
-                        : this.props.children(dimensions)
-                }
+                {dimensions === 'not-initialized' ? null : this.props.children(dimensions)}
             </div>
         );
     }

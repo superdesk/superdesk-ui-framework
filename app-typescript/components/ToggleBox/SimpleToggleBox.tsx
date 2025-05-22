@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import nextId from "react-id-generator";
-import {IPropsSimple} from "../ToggleBox/index";
+import nextId from 'react-id-generator';
+import {IPropsSimple} from '../ToggleBox/index';
 
 interface IState {
     isOpen: boolean;
@@ -27,35 +27,35 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
     }
 
     handleKeyDown = (event: React.KeyboardEvent<HTMLAnchorElement>): void => {
-        if (event.key === "ArrowRight" && !this.state.isOpen) {
-            this.setState({ isOpen: true });
-        } else if (event.key === "ArrowLeft" && this.state.isOpen) {
-            this.setState({ isOpen: false });
-        } else if (event.key === "Enter") {
+        if (event.key === 'ArrowRight' && !this.state.isOpen) {
+            this.setState({isOpen: true});
+        } else if (event.key === 'ArrowLeft' && this.state.isOpen) {
+            this.setState({isOpen: false});
+        } else if (event.key === 'Enter') {
             this.toggle();
         }
-    }
+    };
 
     /**
      * Called via ref
      */
     public isOpen = () => {
         return this.state.isOpen;
-    }
+    };
 
     public toggle = (): void => {
-        this.setState({ isOpen: !this.state.isOpen }, () => {
+        this.setState({isOpen: !this.state.isOpen}, () => {
             if (!this.state.isOpen && this.props.onClose) {
                 this.props.onClose();
             } else if (this.props.onOpen) {
                 this.props.onOpen();
             }
         });
-    }
+    };
 
     componentDidUpdate(_prevProps: IPropsSimple, prevState: IState) {
         if (prevState.isOpen !== this.state.isOpen) {
-            this.setState({ isAnimating: true });
+            this.setState({isAnimating: true});
 
             if (this.contentRef.current) {
                 this.contentRef.current.addEventListener('animationend', this.handleAnimationEnd);
@@ -64,30 +64,32 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
     }
 
     handleAnimationEnd = () => {
-        this.setState({ isAnimating: false });
+        this.setState({isAnimating: false});
 
         if (this.contentRef.current) {
             this.contentRef.current.removeEventListener('animationend', this.handleAnimationEnd);
         }
-    }
+    };
 
     render() {
-        const classes = classNames('toggle-box', {
-            'toggle-box--margin-normal': this.props.margin === undefined,
-            'toggle-box--large-title': this.props.largeTitle,
-            'toggle-box--circle': this.props.circledChevron,
-            [`toggle-box--margin-${this.props.margin}`]: this.props.margin,
-            'hidden': !this.state.isOpen,
-            'open': this.state.isOpen,
-        }, this.props.className);
+        const classes = classNames(
+            'toggle-box',
+            {
+                'toggle-box--margin-normal': this.props.margin === undefined,
+                'toggle-box--large-title': this.props.largeTitle,
+                'toggle-box--circle': this.props.circledChevron,
+                [`toggle-box--margin-${this.props.margin}`]: this.props.margin,
+                hidden: !this.state.isOpen,
+                open: this.state.isOpen,
+            },
+            this.props.className,
+        );
 
-        const { title, children, badge } = this.props;
-        const { isOpen } = this.state;
+        const {title, children, badge} = this.props;
+        const {isOpen} = this.state;
 
         return (
-            <div
-                className={classes}
-            >
+            <div className={classes}>
                 <a
                     className="toggle-box__header"
                     onClick={this.toggle}
@@ -100,12 +102,8 @@ export class SimpleToggleBox extends React.PureComponent<IPropsSimple, IState> {
                     <div className="toggle-box__chevron">
                         <i className="icon-chevron-right-thin" />
                     </div>
-                    <div className="toggle-box__label">
-                        {title}
-                    </div>
-                    <div
-                        className="toggle-box__line"
-                    />
+                    <div className="toggle-box__label">{title}</div>
+                    <div className="toggle-box__line" />
                     {badge ? badge : null}
                 </a>
                 <div className="toggle-box__content-wraper">

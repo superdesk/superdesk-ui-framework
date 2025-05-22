@@ -27,9 +27,7 @@ interface ITabPanel {
 }
 
 export const TabLabel = ({label}: ITabLabel) => {
-    return (
-        <span>{label}</span>
-    );
+    return <span>{label}</span>;
 };
 
 export const Tabs = (props: ITabs) => {
@@ -53,24 +51,22 @@ export const Tabs = (props: ITabs) => {
     return (
         <div
             className={classes}
-            role='tablist'
+            role="tablist"
             aria-label={ariaLabel ? ariaLabel : 'tabs'}
             data-test-id={props['data-test-id']}
         >
-            {
-                children.map((item, i) => (
-                    <button
-                        key={i}
-                        aria-controls={'tabpanel-' + i}
-                        className={'sd-nav-tabs__tab' + (index === i ? ' sd-nav-tabs__tab--active' : '')}
-                        onClick={() => handleSelected(i)}
-                        role='tab'
-                        aria-selected={index === i ? 'true' : 'false'}
-                    >
-                        {item}
-                    </button>
-                ))
-            }
+            {children.map((item, i) => (
+                <button
+                    key={i}
+                    aria-controls={'tabpanel-' + i}
+                    className={'sd-nav-tabs__tab' + (index === i ? ' sd-nav-tabs__tab--active' : '')}
+                    onClick={() => handleSelected(i)}
+                    role="tab"
+                    aria-selected={index === i ? 'true' : 'false'}
+                >
+                    {item}
+                </button>
+            ))}
         </div>
     );
 };
@@ -78,26 +74,23 @@ export const Tabs = (props: ITabs) => {
 export const TabContent = ({theme, children, activePanel}: ITabContent) => {
     return (
         <div className={'sd-nav-tabs__content' + (theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '')}>
-            {
-                children.map((panel: any, i: number) => panel.props.indexValue === activePanel && (
-                    <div
-                        className='sd-nav-tabs__pane'
-                        role='tabpanel'
-                        aria-labelledby={'tab-' + activePanel}
-                        key={i}
-                    >
-                        {panel}
-                    </div>
-                ))
-            }
+            {children.map(
+                (panel: any, i: number) =>
+                    panel.props.indexValue === activePanel && (
+                        <div
+                            className="sd-nav-tabs__pane"
+                            role="tabpanel"
+                            aria-labelledby={'tab-' + activePanel}
+                            key={i}
+                        >
+                            {panel}
+                        </div>
+                    ),
+            )}
         </div>
     );
 };
 
 export const TabPanel = ({children, indexValue}: ITabPanel) => {
-    return (
-        <React.Fragment key={indexValue}>
-            {children}
-        </React.Fragment>
-    );
+    return <React.Fragment key={indexValue}>{children}</React.Fragment>;
 };

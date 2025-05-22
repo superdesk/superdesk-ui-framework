@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { IconButton} from '../IconButton';
+import {IconButton} from '../IconButton';
 
 interface IPropsContainer {
     children?: React.ReactNode;
@@ -14,10 +14,12 @@ class NotificationPanelContainer extends React.PureComponent<IPropsContainer> {
             [`sd-notification-panel--open`]: this.props.open,
         });
         return (
-            <div id={this.props.id}
-                aria-labelledby='notifications_title'
+            <div
+                id={this.props.id}
+                aria-labelledby="notifications_title"
                 className={classes}
-                data-theme={this.props.theme ? `${this.props.theme}-ui` : null}>
+                data-theme={this.props.theme ? `${this.props.theme}-ui` : null}
+            >
                 {this.props.children}
             </div>
         );
@@ -31,13 +33,16 @@ interface IPropsHeader {
 class NotificationPanelHeader extends React.PureComponent<IPropsHeader> {
     render() {
         return (
-            <div className='sd-notification-panel__header'>
-                <h3 id='notifications_title' className='sd-notification-panel__title'>{this.props.headerTitle}</h3>
+            <div className="sd-notification-panel__header">
+                <h3 id="notifications_title" className="sd-notification-panel__title">
+                    {this.props.headerTitle}
+                </h3>
                 <IconButton
-                    toolTipFlow='left'
-                    ariaValue='Close'
-                    icon='close-small'
-                    onClick={() => this.props.onClick()} />
+                    toolTipFlow="left"
+                    ariaValue="Close"
+                    icon="close-small"
+                    onClick={() => this.props.onClick()}
+                />
             </div>
         );
     }
@@ -47,11 +52,7 @@ interface IPropsContent {
 }
 class NotificationPanelContent extends React.PureComponent<IPropsContent> {
     render() {
-        return (
-            <div className='sd-notification-panel__content'>
-                {this.props.children}
-            </div>
-        );
+        return <div className="sd-notification-panel__content">{this.props.children}</div>;
     }
 }
 interface IPropsFooter {
@@ -60,11 +61,7 @@ interface IPropsFooter {
 }
 class NotificationPanelFooter extends React.PureComponent<IPropsFooter> {
     render() {
-        return (
-            <div className='sd-notification-panel__footer'>
-                {this.props.children}
-            </div>
-        );
+        return <div className="sd-notification-panel__footer">{this.props.children}</div>;
     }
 }
 
@@ -87,14 +84,8 @@ export default class NotificationPanel extends React.PureComponent<IProps> {
                 <NotificationPanelHeader headerTitle={this.props.headerTitle} onClick={() => this.props.onClick()}>
                     {this.props.header}
                 </NotificationPanelHeader>
-                <NotificationPanelContent>
-                    {this.props.children}
-                </NotificationPanelContent>
-                {this.props.footer && (
-                    <NotificationPanelFooter>
-                        {this.props.footer}
-                    </NotificationPanelFooter>
-                )}
+                <NotificationPanelContent>{this.props.children}</NotificationPanelContent>
+                {this.props.footer && <NotificationPanelFooter>{this.props.footer}</NotificationPanelFooter>}
             </NotificationPanelContainer>
         );
     }
@@ -105,5 +96,5 @@ export {
     NotificationPanelContainer,
     NotificationPanelHeader,
     NotificationPanelContent,
-    NotificationPanelFooter
+    NotificationPanelFooter,
 };

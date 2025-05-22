@@ -12,22 +12,15 @@ interface IProps {
 
 export class FormGroup extends React.PureComponent<IProps> {
     render() {
-        const classes = classNames(
-            'form__group',
-            {
-                'form__group--rows': this.props.rows,
-                [`form__group--vertical`]: this.props.orientation === 'vertical',
-                [`form__group--default`]: this.props.spaces === undefined,
-                [`form__group--${this.props.spaces}`]: this.props.spaces,
-                [`form__group--mb-${this.props.marginBottom}`]: this.props.marginBottom,
-                'form__group--inline-label': this.props.inlineLabel,
-            },
-        );
+        const classes = classNames('form__group', {
+            'form__group--rows': this.props.rows,
+            [`form__group--vertical`]: this.props.orientation === 'vertical',
+            [`form__group--default`]: this.props.spaces === undefined,
+            [`form__group--${this.props.spaces}`]: this.props.spaces,
+            [`form__group--mb-${this.props.marginBottom}`]: this.props.marginBottom,
+            'form__group--inline-label': this.props.inlineLabel,
+        });
 
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }

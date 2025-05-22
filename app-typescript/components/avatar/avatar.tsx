@@ -21,7 +21,7 @@ export interface IPropsAvatar {
     statusDot?: {
         color?: string;
     };
-    noAvatarPlaceholderColor?: 'subtle' | 'strong';  // defaults to strong; only applies to placeholder image
+    noAvatarPlaceholderColor?: 'subtle' | 'strong'; // defaults to strong; only applies to placeholder image
 
     /**
      * displayName is shown as tooltip by default
@@ -53,7 +53,8 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
         } = this.props;
 
         const tooltipCombined = [displayName, this.props.tooltip]
-            .filter((str) => (str ?? '').trim().length > 0).join('\n');
+            .filter((str) => (str ?? '').trim().length > 0)
+            .join('\n');
 
         return (
             <AvatarWrapper
@@ -68,13 +69,9 @@ export class Avatar extends React.PureComponent<IPropsAvatar> {
                     if (customContent != null) {
                         return customContent;
                     } else if (imageUrl != null || initials == null) {
-                        return (
-                            <AvatarContentImage imageUrl={imageUrl} tooltipText={tooltipCombined} />
-                        );
+                        return <AvatarContentImage imageUrl={imageUrl} tooltipText={tooltipCombined} />;
                     } else {
-                        return (
-                            <AvatarContentText text={initials} tooltipText={tooltipCombined} />
-                        );
+                        return <AvatarContentText text={initials} tooltipText={tooltipCombined} />;
                     }
                 })()}
             </AvatarWrapper>

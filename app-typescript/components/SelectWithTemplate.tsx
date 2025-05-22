@@ -1,10 +1,10 @@
 import * as React from 'react';
 import {Dropdown} from '@superdesk/primereact/dropdown';
-import nextId from "react-id-generator";
-import { InputWrapper } from './Form';
+import nextId from 'react-id-generator';
+import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 
-interface IProps<T>  extends IInputWrapper {
+interface IProps<T> extends IInputWrapper {
     // Don't forget to cancel unfinished requests every the prop is called.
     getItems(searchString: string | null): Promise<Array<T>>;
     value: T;
@@ -82,9 +82,10 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
         }
 
         const optionsInternal = options.map((option) => toInternalStructure(option));
-        const valueInternal = value == null
-            ? null
-            : optionsInternal?.find(({original}) => areEqual(original, value)) ?? toInternalStructure(value);
+        const valueInternal =
+            value == null
+                ? null
+                : (optionsInternal?.find(({original}) => areEqual(original, value)) ?? toInternalStructure(value));
 
         // This is regarding the placeholder for selected value.
         // itemTemplate will be used to render it, but a non-empty value
@@ -122,12 +123,10 @@ export class SelectWithTemplate<T> extends React.Component<IProps<T>, IState<T>>
                     showClear={!required}
                     emptyFilterMessage={emptyFilterMessage}
                     itemTemplate={(option) => <ItemTemplate option={option?.original ?? null} />}
-                    valueTemplate={(option) => ValueTemplate != null
-                        ? (
+                    valueTemplate={(option) =>
+                        ValueTemplate != null ? (
                             <ValueTemplate option={option?.original ?? null} />
-
-                        )
-                        : (
+                        ) : (
                             <ItemTemplate option={option?.original ?? null} />
                         )
                     }

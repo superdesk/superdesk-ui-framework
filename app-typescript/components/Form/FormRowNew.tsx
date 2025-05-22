@@ -12,30 +12,23 @@ interface IProps {
 export class FormRowNew extends React.PureComponent<IProps> {
     render() {
         const classes = classNames('form__group-new', {
-                [`form__group-new--${this.props.spaces}`]: this.props.spaces,
-                [`form__group-new--mb-${this.props.marginBottom}`]: this.props.marginBottom,
-                'form__group-new--inline-labels': this.props.inlineLabels,
-                'form__group-new--has_row-label': this.props.rowLabel,
-            },
-        );
+            [`form__group-new--${this.props.spaces}`]: this.props.spaces,
+            [`form__group-new--mb-${this.props.marginBottom}`]: this.props.marginBottom,
+            'form__group-new--inline-labels': this.props.inlineLabels,
+            'form__group-new--has_row-label': this.props.rowLabel,
+        });
 
         if (this.props.rowLabel) {
             return (
-                <div className='form__group-new__wrapper'>
-                    <label className='form__group-new__label' htmlFor="form__group-new__label">
+                <div className="form__group-new__wrapper">
+                    <label className="form__group-new__label" htmlFor="form__group-new__label">
                         {this.props.rowLabel}
                     </label>
-                    <div className={classes}>
-                        {this.props.children}
-                    </div>
+                    <div className={classes}>{this.props.children}</div>
                 </div>
             );
         } else {
-            return (
-                <div className={classes}>
-                    {this.props.children}
-                </div>
-            );
+            return <div className={classes}>{this.props.children}</div>;
         }
     }
 }

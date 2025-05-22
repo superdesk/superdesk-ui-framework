@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import * as React from "react";
+import * as React from 'react';
 import {DragHandle} from '../DragHandle';
-import {Icon} from "../Icon";
+import {Icon} from '../Icon';
 import {getTextColor} from '../../helpers';
 
 interface IProps<T> {
@@ -28,36 +28,33 @@ export class TreeSelectPill<T> extends React.Component<IProps<T>> {
                 style={
                     this.props.valueTemplate
                         ? {backgroundColor: this.props.backgroundColor}
-                        : this.props.getBackgroundColor
-                            && {backgroundColor: this.props.getBackgroundColor(this.props.item)}
+                        : this.props.getBackgroundColor && {
+                              backgroundColor: this.props.getBackgroundColor(this.props.item),
+                          }
                 }
                 data-test-id="item"
             >
-                {this.props.draggable && (
-                    <DragHandle blank={true} dotsInRow='3' dotRows='4' />
-                )}
+                {this.props.draggable && <DragHandle blank={true} dotsInRow="3" dotRows="4" />}
                 <span
                     className="tags-input__helper-box"
                     style={{
                         color: this.props.backgroundColor
                             ? getTextColor(this.props.backgroundColor)
-                            : this.props.getBackgroundColor
-                                &&  getTextColor(this.props.getBackgroundColor(this.props.item)),
+                            : this.props.getBackgroundColor &&
+                              getTextColor(this.props.getBackgroundColor(this.props.item)),
                     }}
                 >
                     {this.props.children}
 
-                    {!this.props.readOnly
-                        && <button
+                    {!this.props.readOnly && (
+                        <button
                             className="tags-input__remove-button"
                             data-test-id="remove"
-                            onClick={() => (!this.props.readOnly && !this.props.disabled)
-                                && this.props.onRemove()
-                            }
+                            onClick={() => !this.props.readOnly && !this.props.disabled && this.props.onRemove()}
                         >
                             <Icon name="close-small"></Icon>
                         </button>
-                    }
+                    )}
                 </span>
             </li>
         );

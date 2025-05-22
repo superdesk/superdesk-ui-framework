@@ -6,10 +6,6 @@ interface IProps {
 
 export class AuthorinInnerSideBar extends React.PureComponent<IProps> {
     render() {
-        return (
-            <div className="sd-editor-content__authoring-bookmark-bar ">
-                {this.props.children}
-            </div>
-        );
+        return <div className="sd-editor-content__authoring-bookmark-bar ">{this.props.children}</div>;
     }
 }

@@ -1,9 +1,9 @@
 import * as React from 'react';
-import * as ReactDOM from "react-dom";
+import * as ReactDOM from 'react-dom';
 import {MessageProp, IMessageOptions, Position} from './ToastMessage';
 import ToastWrapper from './ToastWrapper';
 
-const TOAST_ID = "react-toast";
+const TOAST_ID = 'react-toast';
 
 interface IMessageId {
     id: string;
@@ -28,17 +28,21 @@ class Toasted {
         if (existingElement) {
             element = existingElement;
         } else {
-            const el = document.createElement("div");
+            const el = document.createElement('div');
             el.id = TOAST_ID;
-            el.className = "sd-toast__container sd-toast__container--top";
+            el.className = 'sd-toast__container sd-toast__container--top';
             document.body.appendChild(el);
             element = el;
         }
 
         ReactDOM.render(
-            <ToastWrapper ref={(ref) => {
-                this.componentRef = ref;
-            }} />, element);
+            <ToastWrapper
+                ref={(ref) => {
+                    this.componentRef = ref;
+                }}
+            />,
+            element,
+        );
     }
 
     notify(message: MessageProp, options: Partial<IMessageOptions>): IMessageId | null {

@@ -40,13 +40,14 @@ export class RadioGroup extends React.Component<IProps> {
         });
 
         return (
-            <div className={classes} aria-labelledby={this.props.groupLabelledBy}>{
-                this.props.options.map((item: any, index: number) => (
-                    <span className="sd-check-new__wrapper"
+            <div className={classes} aria-labelledby={this.props.groupLabelledBy}>
+                {this.props.options.map((item: any, index: number) => (
+                    <span
+                        className="sd-check-new__wrapper"
                         key={index}
                         label-position={this.props.labelSide || null}
-                        tabIndex={this.props.tabindex === undefined ? undefined : -1}>
-
+                        tabIndex={this.props.tabindex === undefined ? undefined : -1}
+                    >
                         <input
                             type="radio"
                             className="sd-check-new__input"
@@ -60,10 +61,10 @@ export class RadioGroup extends React.Component<IProps> {
                         />
 
                         <span className="sd-radio-new"></span>
-                        <label htmlFor={this.htmlId + index} >{item.label}</label>
+                        <label htmlFor={this.htmlId + index}>{item.label}</label>
                     </span>
-                ))
-            }</div>
+                ))}
+            </div>
         );
     }
 }

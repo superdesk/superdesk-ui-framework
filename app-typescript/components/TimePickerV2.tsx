@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { InputWrapper } from './Form';
+import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 import {padStart, range} from 'lodash';
 
@@ -28,7 +28,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
         this.getOptionsForTimeUnit = this.getOptionsForTimeUnit.bind(this);
         this.padValue = this.padValue.bind(this);
 
-        const hour = new Date().toLocaleTimeString([], { hour: 'numeric' });
+        const hour = new Date().toLocaleTimeString([], {hour: 'numeric'});
         this.is12HourFormat = hour.includes('AM') || hour.includes('PM');
     }
 
@@ -115,15 +115,15 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
     }
 
     padValue(value: number) {
-        return padStart((value).toString(), 2, '0');
+        return padStart(value.toString(), 2, '0');
     }
 
     updatedTimeUnit() {
         const timeUnitValuesArray = this.props.value.split(':');
 
         /**
-        * updating the initial value from props
-        */
+         * updating the initial value from props
+         */
         if (this.is12HourFormat) {
             if (parseInt(timeUnitValuesArray[0], 10) > 12) {
                 timeUnitValuesArray[0] = this.padValue(parseInt(timeUnitValuesArray[0], 10) - 12);
@@ -149,10 +149,10 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                 tabindex={this.props.tabindex}
                 inputWrapper={this.props.inputWrapper}
             >
-                <div className='sd__input__time-picker-v2' data-test-id={this.props['data-test-id']}>
-                    <div className='input-wrapper__time-picker-v2'>
+                <div className="sd__input__time-picker-v2" data-test-id={this.props['data-test-id']}>
+                    <div className="input-wrapper__time-picker-v2">
                         <select
-                            className='sd-input__select'
+                            className="sd-input__select"
                             value={timeUnitValuesArray[0]}
                             onChange={({target}) => {
                                 this.handleTimeChange(0, target.value);
@@ -162,11 +162,11 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                 <option value={hour} label={hour} key={hour} />
                             ))}
                         </select>
-                        <span className='time-picker-v2-suffix'>:</span>
+                        <span className="time-picker-v2-suffix">:</span>
                     </div>
-                    <div className='input-wrapper__time-picker-v2'>
+                    <div className="input-wrapper__time-picker-v2">
                         <select
-                            className='sd-input__select'
+                            className="sd-input__select"
                             value={timeUnitValuesArray[1]}
                             onChange={({target}) => {
                                 this.handleTimeChange(1, target.value);
@@ -176,12 +176,12 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                 <option value={minute} label={minute} key={minute} />
                             ))}
                         </select>
-                        {this.props.allowSeconds && (<span className='time-picker-v2-suffix'>:</span>)}
+                        {this.props.allowSeconds && <span className="time-picker-v2-suffix">:</span>}
                     </div>
                     {this.props.allowSeconds && (
-                        <div className='input-wrapper__time-picker-v2'>
+                        <div className="input-wrapper__time-picker-v2">
                             <select
-                                className='sd-input__select'
+                                className="sd-input__select"
                                 value={timeUnitValuesArray[2]}
                                 onChange={({target}) => {
                                     this.handleTimeChange(2, target.value);
@@ -194,11 +194,11 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                         </div>
                     )}
                     {this.is12HourFormat && (
-                        <div className='input-wrapper__time-picker-v2'>
-                            <span className='time-picker-v2-suffix' />
+                        <div className="input-wrapper__time-picker-v2">
+                            <span className="time-picker-v2-suffix" />
                             <select
-                                className='sd-input__select'
-                                value={(parseInt(this.props.value.split(':')[0], 10) >= 12) ? 'PM' : 'AM'}
+                                className="sd-input__select"
+                                value={parseInt(this.props.value.split(':')[0], 10) >= 12 ? 'PM' : 'AM'}
                                 onChange={({target}) => {
                                     let splitValue = this.props.value.split(':');
 
@@ -211,8 +211,8 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
                                     this.props.onChange(splitValue.join(':'));
                                 }}
                             >
-                                <option value='AM' label='AM' />
-                                <option value='PM' label='PM' />
+                                <option value="AM" label="AM" />
+                                <option value="PM" label="PM" />
                             </select>
                         </div>
                     )}

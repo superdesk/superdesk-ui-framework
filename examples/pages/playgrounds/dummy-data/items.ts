@@ -3,7 +3,8 @@ const items = [
         image: '/d_trump.jpg',
         imageAlt: 'Moron',
         title: 'Lorem ipsum dolor sit amet, consectetur',
-        description: 'Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
+        description:
+            'Cras mattis consectetur purus sit amet fermentum. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.',
         date: '05.11.2020',
         type: 'photo',
         urgency: '1',
@@ -12,7 +13,7 @@ const items = [
         priorityColor: 'light-green--600',
         locked: true,
         status: ['selected'],
-        selected: true
+        selected: true,
     },
     {
         image: '/obama_2.jpg',
@@ -27,7 +28,7 @@ const items = [
         priorityColor: 'light-green--600',
         locked: false,
         status: [],
-        selected: false
+        selected: false,
     },
     {
         image: '',
@@ -42,7 +43,7 @@ const items = [
         priorityColor: 'blue-grey--300',
         locked: false,
         status: [],
-        selected: false
+        selected: false,
     },
     {
         image: '/bill.jpg',
@@ -57,7 +58,7 @@ const items = [
         priorityColor: 'blue-grey--300',
         locked: false,
         status: ['actioning'],
-        selected: false
+        selected: false,
     },
     {
         image: '/hillary.jpg',
@@ -72,7 +73,7 @@ const items = [
         priorityColor: 'blue-grey--500',
         locked: false,
         status: ['fetched'],
-        selected: false
+        selected: false,
     },
     {
         image: '/bush_2.jpg',
@@ -87,7 +88,7 @@ const items = [
         priorityColor: 'blue-grey--300',
         locked: false,
         status: [''],
-        selected: false
+        selected: false,
     },
 ];
 

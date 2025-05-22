@@ -37,14 +37,10 @@ type IProps = IPropsSimple | IPropsCustomHeader;
 
 export class ToggleBox extends React.PureComponent<IProps> {
     render() {
-        if (this.props.variant === "simple") {
-            return (
-                <SimpleToggleBox ref={this.props.toggleBoxRef} {...this.props} />
-            );
+        if (this.props.variant === 'simple') {
+            return <SimpleToggleBox ref={this.props.toggleBoxRef} {...this.props} />;
         } else {
-            return (
-                <CustomHeaderToggleBox ref={this.props.toggleBoxRef} {...this.props} />
-            );
+            return <CustomHeaderToggleBox ref={this.props.toggleBoxRef} {...this.props} />;
         }
     }
 }

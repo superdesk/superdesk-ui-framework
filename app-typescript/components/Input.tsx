@@ -1,5 +1,5 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 import {IInputCommon, IInputWrapper, InputWrapper} from './Form/InputWrapper';
 
 interface IPropsBase extends IInputCommon {
@@ -77,7 +77,7 @@ export class Input extends React.Component<IProps> {
                 inputWrapper={this.props.inputWrapper}
             >
                 <input
-                    className='sd-input__input'
+                    className="sd-input__input"
                     type={this.props.type ?? 'text'}
                     id={this.htmlId}
                     value={this.props.value}

@@ -1,11 +1,37 @@
 import * as React from 'react';
-import { ButtonGroup, Button, NavButton, SubNav, Dropdown, RadioButtonGroup, Input, Select, Option, Label, IconLabel, Icon, IconButton, Tooltip, CreateButton, Modal, EmptyState, Container, BoxedList, BoxedListItem, Text, Heading, Switch, SwitchGroup, SearchBar } from '../../../../app-typescript/index';
+import {
+    ButtonGroup,
+    Button,
+    NavButton,
+    SubNav,
+    Dropdown,
+    RadioButtonGroup,
+    Input,
+    Select,
+    Option,
+    Label,
+    IconLabel,
+    Icon,
+    IconButton,
+    Tooltip,
+    CreateButton,
+    Modal,
+    EmptyState,
+    Container,
+    BoxedList,
+    BoxedListItem,
+    Text,
+    Heading,
+    Switch,
+    SwitchGroup,
+    SearchBar,
+} from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import {RundownEditor} from './RundownEditor';
 import * as Nav from '../../../../app-typescript/components/Navigation';
-import { ContentList } from '../../../../app-typescript/components/Lists/ContentList';
-import { TableList } from '../../../../app-typescript/components/Lists/TableList';
+import {ContentList} from '../../../../app-typescript/components/Lists/ContentList';
+import {TableList} from '../../../../app-typescript/components/Lists/TableList';
 
 interface IProps {
     children?: React.ReactNode;
@@ -65,48 +91,57 @@ export class Rundowns extends React.Component<IProps, IState> {
             previousState: false,
             array: [
                 {
-                    start: <>
-                                <Label style='translucent' text='aacc' />
-                                <Label style='translucent' type='primary' text='prlg' />
-                            </>,
+                    start: (
+                        <>
+                            <Label style="translucent" text="aacc" />
+                            <Label style="translucent" type="primary" text="prlg" />
+                        </>
+                    ),
                     center: <span>Duis mollis est non commodo</span>,
                     onClick: () => false,
                 },
                 {
-                    start: <>
-                                <Label style='translucent' type='warning' text='pokr' />
-                                <Label style='translucent' text='slika' />
-                            </>,
+                    start: (
+                        <>
+                            <Label style="translucent" type="warning" text="pokr" />
+                            <Label style="translucent" text="slika" />
+                        </>
+                    ),
                     center: <span>Nullam id dolor id nibh ultricies</span>,
                     onClick: () => false,
                 },
                 {
-                    start: <>
-                                <Label style='translucent' text='aacc' />
-                                <Label style='translucent' type='primary' text='prlg' />
-                            </>,
+                    start: (
+                        <>
+                            <Label style="translucent" text="aacc" />
+                            <Label style="translucent" type="primary" text="prlg" />
+                        </>
+                    ),
                     center: <span>Duis mollis est non commodo</span>,
                     onClick: () => false,
                 },
                 {
-                    start: <>
-                                <Label style='translucent' type='warning' text='pokr' />
-                                <Label style='translucent' text='slika' />
-                            </>,
+                    start: (
+                        <>
+                            <Label style="translucent" type="warning" text="pokr" />
+                            <Label style="translucent" text="slika" />
+                        </>
+                    ),
                     center: <span>Cras mattis consectetur purus</span>,
                     onClick: () => false,
                 },
                 {
-                    start: <>
-                                <Label style='translucent' text='aacc' />
-                                <Label style='translucent' type='primary' text='prlg' />
-                            </>,
+                    start: (
+                        <>
+                            <Label style="translucent" text="aacc" />
+                            <Label style="translucent" type="primary" text="prlg" />
+                        </>
+                    ),
                     center: <span>Duis mollis est non commodo</span>,
                     onClick: () => false,
                 },
-            ]
-
-        }
+            ],
+        };
         this.handleFilter = this.handleFilter.bind(this);
         this.handlePreview = this.handlePreview.bind(this);
         this.handleTheme = this.handleTheme.bind(this);
@@ -133,8 +168,8 @@ export class Rundowns extends React.Component<IProps, IState> {
 
     handleTheme(newTheme: string) {
         this.setState({
-            theme: newTheme
-        })
+            theme: newTheme,
+        });
     }
 
     changeStatus(item: any, status: string) {
@@ -146,135 +181,240 @@ export class Rundowns extends React.Component<IProps, IState> {
     }
 
     render() {
-        const newShowFooter2=(
+        const newShowFooter2 = (
             <ButtonGroup align="end">
-                <Button text='Cancel' onClick={() => {this.setState({modalNewShowSuccess:false})}}/>
-                <Button type='primary' text='yes, Create a Template' onClick={() => {this.setState({modalNewShowSuccess: false}), this.setState({modalNewTemplate:true})}}/>
+                <Button
+                    text="Cancel"
+                    onClick={() => {
+                        this.setState({modalNewShowSuccess: false});
+                    }}
+                />
+                <Button
+                    type="primary"
+                    text="yes, Create a Template"
+                    onClick={() => {
+                        this.setState({modalNewShowSuccess: false}), this.setState({modalNewTemplate: true});
+                    }}
+                />
             </ButtonGroup>
         );
-        const newShowFooter=(
+        const newShowFooter = (
             <ButtonGroup align="end">
-                <Button text='Cancel' onClick={() => {this.setState({modalNewShow:false})}}/>
-                <Button type='primary' text='Save' onClick={() => {this.setState({modalNewShowSuccess: true}), this.setState({modalNewShow:false})}}/>
+                <Button
+                    text="Cancel"
+                    onClick={() => {
+                        this.setState({modalNewShow: false});
+                    }}
+                />
+                <Button
+                    type="primary"
+                    text="Save"
+                    onClick={() => {
+                        this.setState({modalNewShowSuccess: true}), this.setState({modalNewShow: false});
+                    }}
+                />
             </ButtonGroup>
         );
         return (
             <>
-                <Layout.Layout header='Rundowns' theme={this.state.theme}>
+                <Layout.Layout header="Rundowns" theme={this.state.theme}>
                     <Nav.SideBarMenu
                         items={[
-                            { icon: 'dashboard', size: 'big' },
-                            { icon: 'view', size: 'big', onCLick: () => this.setState({openEditor: !this.state.openEditor}) },
-                            { icon: 'marked-star', size: 'big' },
-                            { icon: 'spike', size: 'big' },
-                            { icon: 'personal', size: 'big' },
-                            { icon: 'global-search', size: 'big' },
-                            { icon: 'picture', size: 'big' },
-                            { icon: 'rundown', size: 'big', }
+                            {icon: 'dashboard', size: 'big'},
+                            {
+                                icon: 'view',
+                                size: 'big',
+                                onCLick: () => this.setState({openEditor: !this.state.openEditor}),
+                            },
+                            {icon: 'marked-star', size: 'big'},
+                            {icon: 'spike', size: 'big'},
+                            {icon: 'personal', size: 'big'},
+                            {icon: 'global-search', size: 'big'},
+                            {icon: 'picture', size: 'big'},
+                            {icon: 'rundown', size: 'big'},
                         ]}
                     />
 
                     <Layout.LayoutContainer>
                         <Layout.HeaderPanel>
                             <SubNav>
-                                <SearchBar placeholder='Search media'></SearchBar>
-                                <ButtonGroup align='end' spaces='no-space'>
+                                <SearchBar placeholder="Search media"></SearchBar>
+                                <ButtonGroup align="end" spaces="no-space">
                                     <Dropdown
                                         items={[
                                             {
-                                                type: 'group', label: 'Settings', items: [
+                                                type: 'group',
+                                                label: 'Settings',
+                                                items: [
                                                     'divider',
-                                                    { icon: 'switches', label: 'Manage Shows', onSelect: () => this.setState({modalManageShow: true}) },
-                                                    { icon: 'switches', label: 'Manage Templates', onSelect: () => this.setState({modalManageTemplate: true}) },
-                                                ]
-                                            }
+                                                    {
+                                                        icon: 'switches',
+                                                        label: 'Manage Shows',
+                                                        onSelect: () => this.setState({modalManageShow: true}),
+                                                    },
+                                                    {
+                                                        icon: 'switches',
+                                                        label: 'Manage Templates',
+                                                        onSelect: () => this.setState({modalManageTemplate: true}),
+                                                    },
+                                                ],
+                                            },
                                         ]}
                                     >
-                                        <NavButton icon='settings' onClick={() => false} />
+                                        <NavButton icon="settings" onClick={() => false} />
                                     </Dropdown>
                                     <Dropdown
                                         header={[
                                             {
-                                                type: 'group', label: 'Create', items: []
+                                                type: 'group',
+                                                label: 'Create',
+                                                items: [],
                                             },
                                             {
-                                                type: 'submenu', label: 'Rundown', icon: 'plus-sign', items: [
-                                                    { icon: 'plus-sign', label: 'Rundown', onSelect: () => 1 },
-                                                ]
+                                                type: 'submenu',
+                                                label: 'Rundown',
+                                                icon: 'plus-sign',
+                                                items: [{icon: 'plus-sign', label: 'Rundown', onSelect: () => 1}],
                                             },
                                         ]}
                                         items={[
                                             {
-                                                type: 'group', label: 'Recent Templates', items: [
-                                                    { icon: 'plus-sign', label: 'Marker Daily', onSelect: () => this.setState({ dropDownState: ' ' }) },
-                                                    { icon: 'plus-sign', label: 'Marker Weekend', onSelect: () => this.setState({ dropDownState: ' ' }) },
-                                                    { icon: 'plus-sign', label: 'Tabu Daily', onSelect: () => this.setState({ dropDownState: ' ' }) },
-                                                    { icon: 'plus-sign', label: 'Tabu Specijal', onSelect: () => this.setState({ dropDownState: ' ' }) },
-                                                ]
-                                            }
+                                                type: 'group',
+                                                label: 'Recent Templates',
+                                                items: [
+                                                    {
+                                                        icon: 'plus-sign',
+                                                        label: 'Marker Daily',
+                                                        onSelect: () => this.setState({dropDownState: ' '}),
+                                                    },
+                                                    {
+                                                        icon: 'plus-sign',
+                                                        label: 'Marker Weekend',
+                                                        onSelect: () => this.setState({dropDownState: ' '}),
+                                                    },
+                                                    {
+                                                        icon: 'plus-sign',
+                                                        label: 'Tabu Daily',
+                                                        onSelect: () => this.setState({dropDownState: ' '}),
+                                                    },
+                                                    {
+                                                        icon: 'plus-sign',
+                                                        label: 'Tabu Specijal',
+                                                        onSelect: () => this.setState({dropDownState: ' '}),
+                                                    },
+                                                ],
+                                            },
                                         ]}
                                         footer={[
                                             {
-                                                type: 'group', items: [
-                                                    { icon: 'list-plus', label: 'Create new Template', onSelect: () => this.setState({modalNewTemplate: true}) },
-                                                    { icon: 'rundown', label: 'Create new Show', onSelect: () => this.setState({modalNewShow: true}) },
-                                                ]
+                                                type: 'group',
+                                                items: [
+                                                    {
+                                                        icon: 'list-plus',
+                                                        label: 'Create new Template',
+                                                        onSelect: () => this.setState({modalNewTemplate: true}),
+                                                    },
+                                                    {
+                                                        icon: 'rundown',
+                                                        label: 'Create new Show',
+                                                        onSelect: () => this.setState({modalNewShow: true}),
+                                                    },
+                                                ],
                                             },
                                         ]}
                                     >
-
-                                        <CreateButton ariaValue='Create' onClick={() => false} />
+                                        <CreateButton ariaValue="Create" onClick={() => false} />
                                     </Dropdown>
                                 </ButtonGroup>
                             </SubNav>
                             <SubNav>
-                                <ButtonGroup align='start'>
-                                    <NavButton icon='filter-large' onClick={this.handleFilter} />
+                                <ButtonGroup align="start">
+                                    <NavButton icon="filter-large" onClick={this.handleFilter} />
                                 </ButtonGroup>
-                                <ButtonGroup align='end'>
-                                    <ButtonGroup align='sub' padded={true} >
-                                        <Button size="normal" icon="chevron-left-thin" text="Previous" shape="round" iconOnly={true} disabled onClick={()=> false} />
-                                        <Button text='Today' style='hollow' onClick={() => false} />
-                                        <Button size="normal" icon="chevron-right-thin" text="Next" shape="round" iconOnly={true} onClick={()=> false} />
+                                <ButtonGroup align="end">
+                                    <ButtonGroup align="sub" padded={true}>
+                                        <Button
+                                            size="normal"
+                                            icon="chevron-left-thin"
+                                            text="Previous"
+                                            shape="round"
+                                            iconOnly={true}
+                                            disabled
+                                            onClick={() => false}
+                                        />
+                                        <Button text="Today" style="hollow" onClick={() => false} />
+                                        <Button
+                                            size="normal"
+                                            icon="chevron-right-thin"
+                                            text="Next"
+                                            shape="round"
+                                            iconOnly={true}
+                                            onClick={() => false}
+                                        />
                                     </ButtonGroup>
                                     <RadioButtonGroup
                                         options={[
-                                            {value:'test10', label:'D'},
-                                            {value:'test11', label:'W'},
-                                            {value:'test12', label:'M'},
+                                            {value: 'test10', label: 'D'},
+                                            {value: 'test11', label: 'W'},
+                                            {value: 'test12', label: 'M'},
                                         ]}
-                                        group={{padded:false}}
+                                        group={{padded: false}}
                                         value={this.state.itemType}
-                                        onChange={(value) => this.setState({ itemType: value })}
+                                        onChange={(value) => this.setState({itemType: value})}
                                     />
-                                    <ButtonGroup align='sub' spaces='no-space'>
+                                    <ButtonGroup align="sub" spaces="no-space">
                                         <Dropdown
                                             items={[
                                                 {
-                                                    type: 'group', label: 'Chose a theme', items: [
+                                                    type: 'group',
+                                                    label: 'Chose a theme',
+                                                    items: [
                                                         'divider',
-                                                        { label: 'Light', icon: 'adjust', onSelect: () => this.handleTheme('light-ui')},
-                                                        { label: 'Dark', icon: 'adjust', onSelect: () => this.handleTheme('dark-ui')},
-                                                        { label: 'Accessible Light', icon: 'adjust', onSelect: () => this.handleTheme('accessible-light-ui')},
-                                                    ]
+                                                        {
+                                                            label: 'Light',
+                                                            icon: 'adjust',
+                                                            onSelect: () => this.handleTheme('light-ui'),
+                                                        },
+                                                        {
+                                                            label: 'Dark',
+                                                            icon: 'adjust',
+                                                            onSelect: () => this.handleTheme('dark-ui'),
+                                                        },
+                                                        {
+                                                            label: 'Accessible Light',
+                                                            icon: 'adjust',
+                                                            onSelect: () => this.handleTheme('accessible-light-ui'),
+                                                        },
+                                                    ],
                                                 },
                                             ]}
                                         >
-                                            <NavButton type='default' icon='adjust' onClick={()=> false} />
+                                            <NavButton type="default" icon="adjust" onClick={() => false} />
                                         </Dropdown>
                                         <Dropdown
                                             items={[
                                                 {
-                                                    type: 'group', label: 'Actions', items: [
+                                                    type: 'group',
+                                                    label: 'Actions',
+                                                    items: [
                                                         'divider',
-                                                        { label: 'Action one', onSelect: () => this.setState({ dropDownState: ' ' }) },
-                                                        { label: 'Action two', onSelect: () => this.setState({ dropDownState: ' ' }) },
-                                                        { label: 'Action three', onSelect: () => this.setState({ dropDownState: ' ' }) },
-                                                    ]
-                                                }
+                                                        {
+                                                            label: 'Action one',
+                                                            onSelect: () => this.setState({dropDownState: ' '}),
+                                                        },
+                                                        {
+                                                            label: 'Action two',
+                                                            onSelect: () => this.setState({dropDownState: ' '}),
+                                                        },
+                                                        {
+                                                            label: 'Action three',
+                                                            onSelect: () => this.setState({dropDownState: ' '}),
+                                                        },
+                                                    ],
+                                                },
                                             ]}
                                         >
-                                            <NavButton icon='dots-vertical' onClick={() => false} />
+                                            <NavButton icon="dots-vertical" onClick={() => false} />
                                         </Dropdown>
                                     </ButtonGroup>
                                 </ButtonGroup>
@@ -283,32 +423,35 @@ export class Rundowns extends React.Component<IProps, IState> {
                         {/* TOOLBAR HEADER */}
 
                         <Layout.LeftPanel open={this.state.openFilter}>
-                            <Layout.Panel side='left' background='grey'>
-                                <Layout.PanelHeader title='Advanced filters' onClose={() => this.setState({'openFilter': false})} />
+                            <Layout.Panel side="left" background="grey">
+                                <Layout.PanelHeader
+                                    title="Advanced filters"
+                                    onClose={() => this.setState({openFilter: false})}
+                                />
                                 <Layout.PanelContent>
                                     <Layout.PanelContentBlock>
                                         <Form.FormGroup>
                                             <Form.FormItem>
                                                 <Select
-                                                    label='Shows'
+                                                    label="Shows"
                                                     labelHidden={true}
-                                                    value='This is some value'
-                                                    info='This is some hint message'
+                                                    value="This is some value"
+                                                    info="This is some hint message"
                                                     required={true}
                                                     disabled={false}
                                                     onChange={() => false}
                                                 >
-                                                        <Option>Marker</Option>
-                                                        <Option>Tabu</Option>
+                                                    <Option>Marker</Option>
+                                                    <Option>Tabu</Option>
                                                 </Select>
                                             </Form.FormItem>
                                         </Form.FormGroup>
                                         <div className="form__group">
                                             <div className="form__item">
                                                 <Input
-                                                    label='Title'
-                                                    type='text'
-                                                    value='Title'
+                                                    label="Title"
+                                                    type="text"
+                                                    value="Title"
                                                     inlineLabel={false}
                                                     disabled={false}
                                                     onChange={() => false}
@@ -318,8 +461,8 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         <div className="form__group">
                                             <div className="form__item">
                                                 <Select
-                                                    label='Source'
-                                                    value='Select ingest source...'
+                                                    label="Source"
+                                                    value="Select ingest source..."
                                                     inlineLabel={false}
                                                     disabled={false}
                                                     onChange={() => false}
@@ -334,9 +477,9 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         <div className="form__group">
                                             <div className="form__item">
                                                 <Input
-                                                    label='Keyword'
-                                                    type='text'
-                                                    value='Keyword'
+                                                    label="Keyword"
+                                                    type="text"
+                                                    value="Keyword"
                                                     inlineLabel={false}
                                                     disabled={false}
                                                     onChange={() => false}
@@ -347,9 +490,9 @@ export class Rundowns extends React.Component<IProps, IState> {
                                         <div className="form__group">
                                             <div className="form__item">
                                                 <Select
-                                                    label='Usage right'
-                                                    value='--- Not selected ---'
-                                                    info='Dolor in hendrerit.'
+                                                    label="Usage right"
+                                                    value="--- Not selected ---"
+                                                    info="Dolor in hendrerit."
                                                     inlineLabel={false}
                                                     disabled={false}
                                                     onChange={() => false}
@@ -365,14 +508,13 @@ export class Rundowns extends React.Component<IProps, IState> {
                                     </Layout.PanelContentBlock>
                                 </Layout.PanelContent>
                                 <Layout.PanelFooter>
-                                    <Button text='Clear' style='hollow' onClick={() => false} />
-                                    <Button text='Submit' type='primary' onClick={() => false} />
+                                    <Button text="Clear" style="hollow" onClick={() => false} />
+                                    <Button text="Submit" type="primary" onClick={() => false} />
                                 </Layout.PanelFooter>
                             </Layout.Panel>
                         </Layout.LeftPanel>
                         {/* FILTER PANEL*/}
                         <Layout.MainPanel>
-
                             {/* <GridList size="small" gap="medium" margin="3">
                                 {dummy_items.map((item, index) =>
                                     <GridElements.GridItem locked={item.locked} status={item.status} onClick={this.handlePreview} itemtype={item.type} key={index}>
@@ -412,95 +554,179 @@ export class Rundowns extends React.Component<IProps, IState> {
                                     {
                                         itemColum: [
                                             {
-                                                itemRow: [{content:<>
-                                                            <i className="icon-rundown"></i>
-                                                        </>}],
-                                                border: true
+                                                itemRow: [
+                                                    {
+                                                        content: (
+                                                            <>
+                                                                <i className="icon-rundown"></i>
+                                                            </>
+                                                        ),
+                                                    },
+                                                ],
+                                                border: true,
                                             },
                                             {
                                                 itemRow: [
                                                     {
-                                                        content:
-                                                        <>
-                                                            <span className="sd-list-item__slugline">19:00 – 19:45</span>
-                                                            <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
-                                                            <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
-                                                            <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
-                                                        </>
+                                                        content: (
+                                                            <>
+                                                                <span className="sd-list-item__slugline">
+                                                                    19:00 – 19:45
+                                                                </span>
+                                                                <IconLabel
+                                                                    style="translucent"
+                                                                    innerLabel="Duration:"
+                                                                    text="00:38"
+                                                                    size="small"
+                                                                    type="warning"
+                                                                />
+                                                                <IconLabel
+                                                                    style="translucent"
+                                                                    innerLabel="Planned Duration:"
+                                                                    text="00:45"
+                                                                    size="small"
+                                                                />
+                                                                <time
+                                                                    className="sd-margin-s--auto"
+                                                                    title="June 01, 2022 11:08 AM"
+                                                                >
+                                                                    11:08, 01.06.2022
+                                                                </time>
+                                                            </>
+                                                        ),
                                                     },
                                                     {
-                                                        content:
-                                                        <>
-                                                            <Label text='Marker' color='blue--800'/>
-                                                                <span className='sd-list-item__compound-text'>
-                                                                    <span className='sd-list-item__text-label'>Template:</span>
+                                                        content: (
+                                                            <>
+                                                                <Label text="Marker" color="blue--800" />
+                                                                <span className="sd-list-item__compound-text">
+                                                                    <span className="sd-list-item__text-label">
+                                                                        Template:
+                                                                    </span>
                                                                     <span>Marker Daily</span>
                                                                 </span>
-                                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
-                                                            <Label style='translucent' text='In Progress' type='warning' />
-                                                        </>
+                                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">
+                                                                    Marker // 01.06.2022
+                                                                </span>
+                                                                <Label
+                                                                    style="translucent"
+                                                                    text="In Progress"
+                                                                    type="warning"
+                                                                />
+                                                            </>
+                                                        ),
                                                     },
                                                 ],
                                                 fullwidth: true,
-                                            }
+                                            },
                                         ],
-                                        action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                                        action: (
+                                            <IconButton
+                                                icon="dots-vertical"
+                                                ariaValue="More actions"
+                                                onClick={() => false}
+                                            />
+                                        ),
                                         locked: true,
                                         onClick: () => this.setState({openEditor: !this.state.openEditor}),
                                     },
                                     {
                                         itemColum: [
                                             {
-                                                itemRow: [{content:<>
-                                                            <i className="icon-rundown"></i>
-                                                        </>}], 
-                                                border: true
+                                                itemRow: [
+                                                    {
+                                                        content: (
+                                                            <>
+                                                                <i className="icon-rundown"></i>
+                                                            </>
+                                                        ),
+                                                    },
+                                                ],
+                                                border: true,
                                             },
                                             {
                                                 itemRow: [
                                                     {
-                                                        content: 
-                                                        <>
-                                                            <span className="sd-list-item__slugline">19:00 – 19:45</span>
-                                                            <IconLabel style='translucent' innerLabel='Duration:' text='00:38' size='small' type='warning' />
-                                                            <IconLabel style='translucent' innerLabel='Planned Duration:'text='00:45' size='small' />
-                                                            <time className='sd-margin-s--auto' title="June 01, 2022 11:08 AM">11:08, 01.06.2022</time>
-                                                        </>
+                                                        content: (
+                                                            <>
+                                                                <span className="sd-list-item__slugline">
+                                                                    19:00 – 19:45
+                                                                </span>
+                                                                <IconLabel
+                                                                    style="translucent"
+                                                                    innerLabel="Duration:"
+                                                                    text="00:38"
+                                                                    size="small"
+                                                                    type="warning"
+                                                                />
+                                                                <IconLabel
+                                                                    style="translucent"
+                                                                    innerLabel="Planned Duration:"
+                                                                    text="00:45"
+                                                                    size="small"
+                                                                />
+                                                                <time
+                                                                    className="sd-margin-s--auto"
+                                                                    title="June 01, 2022 11:08 AM"
+                                                                >
+                                                                    11:08, 01.06.2022
+                                                                </time>
+                                                            </>
+                                                        ),
                                                     },
                                                     {
-                                                        content: 
-                                                        <>
-                                                            <Label text='Tabu' color='blue--800'/>
-                                                                <span className='sd-list-item__compound-text'>
-                                                                    <span className='sd-list-item__text-label'>Template:</span>
+                                                        content: (
+                                                            <>
+                                                                <Label text="Tabu" color="blue--800" />
+                                                                <span className="sd-list-item__compound-text">
+                                                                    <span className="sd-list-item__text-label">
+                                                                        Template:
+                                                                    </span>
                                                                     <span>Tabu Daily</span>
                                                                 </span>
-                                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">Marker // 01.06.2022</span>    
-                                                            <Label style='translucent' text='Draft' />
-                                                        </>
+                                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__headline">
+                                                                    Marker // 01.06.2022
+                                                                </span>
+                                                                <Label style="translucent" text="Draft" />
+                                                            </>
+                                                        ),
                                                     },
                                                 ],
                                                 fullwidth: true,
-                                            }
+                                            },
                                         ],
-                                        action: <IconButton icon='dots-vertical' ariaValue='More actions' onClick={()=> false} />,
+                                        action: (
+                                            <IconButton
+                                                icon="dots-vertical"
+                                                ariaValue="More actions"
+                                                onClick={() => false}
+                                            />
+                                        ),
                                         onClick: () => this.setState({openPreview: !this.state.openPreview}),
                                     },
                                 ]}
                             />
-
                         </Layout.MainPanel>
                         {/* MAIN CONTENT (Monitoring) */}
                         <Layout.RightPanel open={this.state.openPreview}>
-                            <Layout.Panel side='right'>
-                                <Layout.PanelHeader title='Item preview' onClose={() => this.setState({'openPreview': false})}  />
+                            <Layout.Panel side="right">
+                                <Layout.PanelHeader
+                                    title="Item preview"
+                                    onClose={() => this.setState({openPreview: false})}
+                                />
                                 <Layout.PanelContent>
                                     <Layout.PanelContentBlock flex={true}>
-                                        <Container direction='column' gap='x-small'>
-                                            <Container direction='row' gap='small'><Text color='light'>Created 09.06.2022 by </Text><Text weight='medium'>Mika Karapet</Text></Container>
-                                            <Container direction='row' gap='small'><Text color='light'>Updated 3 hours ago by </Text><Text weight='medium'>John Doe</Text></Container>
+                                        <Container direction="column" gap="x-small">
+                                            <Container direction="row" gap="small">
+                                                <Text color="light">Created 09.06.2022 by </Text>
+                                                <Text weight="medium">Mika Karapet</Text>
+                                            </Container>
+                                            <Container direction="row" gap="small">
+                                                <Text color="light">Updated 3 hours ago by </Text>
+                                                <Text weight="medium">John Doe</Text>
+                                            </Container>
                                         </Container>
-                                        <Container className='sd-margin-s--auto sd-flex--items-center'>
+                                        <Container className="sd-margin-s--auto sd-flex--items-center">
                                             {/* <Dropdown
                                                 align = 'right'
                                                 items={[
@@ -518,33 +744,55 @@ export class Rundowns extends React.Component<IProps, IState> {
                                     </Layout.PanelContentBlock>
 
                                     <Layout.PanelContentBlock>
-                                        <Container direction='row'  gap='large' className='sd-margin-b--3'>
-                                            <Label size='large' text='Tabu' color='blue--800'/>
-                                            <Container direction='row' gap='small'>
-                                                <Text color='light' size='small' style='italic' >Template:</Text>
-                                                <Text size='small' style='italic' weight='medium'>Tabu daily</Text>
+                                        <Container direction="row" gap="large" className="sd-margin-b--3">
+                                            <Label size="large" text="Tabu" color="blue--800" />
+                                            <Container direction="row" gap="small">
+                                                <Text color="light" size="small" style="italic">
+                                                    Template:
+                                                </Text>
+                                                <Text size="small" style="italic" weight="medium">
+                                                    Tabu daily
+                                                </Text>
                                             </Container>
                                         </Container>
-                                    
-                                        <Container direction='column' className='sd-margin-y--2'>
+
+                                        <Container direction="column" className="sd-margin-y--2">
                                             {/* <FormLabel text='Title' /> */}
-                                            <Heading type='h2'>Tabu // 01.06.2022</Heading>
+                                            <Heading type="h2">Tabu // 01.06.2022</Heading>
                                         </Container>
                                         <ButtonGroup>
-                                            <IconLabel style='translucent' innerLabel='Airtime:' text='19:45 - 20:45' type='primary' />
-                                            <IconLabel style='translucent' innerLabel='Duration:' text='00:56' type='warning' />
-                                            <Text color='light' size='small' className='sd-margin--0'>OF</Text>
-                                            <IconLabel style='translucent' innerLabel='Planned:'text='01:00' />
+                                            <IconLabel
+                                                style="translucent"
+                                                innerLabel="Airtime:"
+                                                text="19:45 - 20:45"
+                                                type="primary"
+                                            />
+                                            <IconLabel
+                                                style="translucent"
+                                                innerLabel="Duration:"
+                                                text="00:56"
+                                                type="warning"
+                                            />
+                                            <Text color="light" size="small" className="sd-margin--0">
+                                                OF
+                                            </Text>
+                                            <IconLabel style="translucent" innerLabel="Planned:" text="01:00" />
                                         </ButtonGroup>
                                         <TableList
-                                            className='sd-margin-y--4'
+                                            className="sd-margin-y--4"
                                             array={this.state.array}
                                             itemsDropdown={() => [
-                                                { label: <Label style='translucent' type='primary' text='aacc' />, onSelect: () => 1 },
-                                                { label: <Label style='translucent' text='prlg' />, onSelect: () => 1 },
-                                                { label: <Label style='translucent' type='primary' text='prlg' />, onSelect: () => 1 },
+                                                {
+                                                    label: <Label style="translucent" type="primary" text="aacc" />,
+                                                    onSelect: () => 1,
+                                                },
+                                                {label: <Label style="translucent" text="prlg" />, onSelect: () => 1},
+                                                {
+                                                    label: <Label style="translucent" type="primary" text="prlg" />,
+                                                    onSelect: () => 1,
+                                                },
                                             ]}
-                                        />   
+                                        />
                                     </Layout.PanelContentBlock>
                                 </Layout.PanelContent>
                             </Layout.Panel>
@@ -559,49 +807,51 @@ export class Rundowns extends React.Component<IProps, IState> {
 
                     {/* RUNDOWN EDITOR */}
                     <Layout.AuthoringContainer open={this.state.openEditor}>
-                    <RundownEditor
-                        rightPanel={this.state.rightPanel}
-                        openPanel={() => {
-                            if (this.state.fullEditor) {
-                                this.setState({previousState: true})
-                            } else {
-                                this.setState({previousState: false})
-                            }
-                            
-                            this.setState({rightPanel: true})
-                        }}
-                        closePanel={() => {
-                            if (!this.state.previousState) {
-                                this.setState({rightPanel: false, fullEditor: false})
-                            } else {
-                                this.setState({rightPanel: false})
-                            }
-                        }}
-                    />
+                        <RundownEditor
+                            rightPanel={this.state.rightPanel}
+                            openPanel={() => {
+                                if (this.state.fullEditor) {
+                                    this.setState({previousState: true});
+                                } else {
+                                    this.setState({previousState: false});
+                                }
+
+                                this.setState({rightPanel: true});
+                            }}
+                            closePanel={() => {
+                                if (!this.state.previousState) {
+                                    this.setState({rightPanel: false, fullEditor: false});
+                                } else {
+                                    this.setState({rightPanel: false});
+                                }
+                            }}
+                        />
                     </Layout.AuthoringContainer>
                     {/* END RUNDOWN EDITOR */}
-
-                </Layout.Layout >
+                </Layout.Layout>
 
                 {/* Manage Templates Modal */}
                 <Modal
                     headerTemplate="Manage Templates"
                     visible={this.state.modalManageTemplate}
-                    contentBg='medium'
-                    contentPadding='none'
-                    size='x-large' onHide={() => {this.setState({modalManageTemplate: false})}}
+                    contentBg="medium"
+                    contentPadding="none"
+                    size="x-large"
+                    onHide={() => {
+                        this.setState({modalManageTemplate: false});
+                    }}
                 >
                     <Layout.LayoutContainer>
                         <Layout.LeftPanel open={true}>
-                            <Layout.Panel side='left' background='grey'>
+                            <Layout.Panel side="left" background="grey">
                                 <Layout.PanelHeader>
-                                    <Container className='sd-padding-x--2'>
+                                    <Container className="sd-padding-x--2">
                                         <Select
-                                            label='Shows'
+                                            label="Shows"
                                             fullWidth={true}
                                             labelHidden={true}
                                             inlineLabel={true}
-                                            value='This is some value'
+                                            value="This is some value"
                                             required={true}
                                             disabled={false}
                                             invalid={false}
@@ -615,9 +865,9 @@ export class Rundowns extends React.Component<IProps, IState> {
                                 </Layout.PanelHeader>
                                 <Layout.PanelContent>
                                     <EmptyState
-                                        title={'No show is selected'} 
-                                        description={'Please select a Show from the dropdown at the top.'} 
-                                        size="small" 
+                                        title={'No show is selected'}
+                                        description={'Please select a Show from the dropdown at the top.'}
+                                        size="small"
                                         illustration="1"
                                     />
                                     {/* <Container className='sd-margin-b--1'>
@@ -673,11 +923,11 @@ export class Rundowns extends React.Component<IProps, IState> {
                             </Layout.Panel>
                         </Layout.LeftPanel>
                         {/* FILTER PANEL*/}
-                        <Layout.MainPanel >
+                        <Layout.MainPanel>
                             <EmptyState
-                                title={'No Template selected'} 
-                                description={'Please select a Show and Template frome the side panel.'} 
-                                size="large" 
+                                title={'No Template selected'}
+                                description={'Please select a Show and Template frome the side panel.'}
+                                size="large"
                                 illustration="1"
                             />
                         </Layout.MainPanel>
@@ -690,67 +940,66 @@ export class Rundowns extends React.Component<IProps, IState> {
                     headerTemplate="Create new Show"
                     visible={this.state.modalNewShow}
                     footerTemplate={newShowFooter}
-                    contentBg='medium'
-                    size='medium' onHide={() => {this.setState({modalNewShow: false})}}
+                    contentBg="medium"
+                    size="medium"
+                    onHide={() => {
+                        this.setState({modalNewShow: false});
+                    }}
                 >
                     <Form.FormGroup>
                         <Form.FormItem>
-                            <Input
-                                label='Show name'
-                                type='text'
-                                value=''
-                                required={true}
-                                onChange={() => false}
-                            />
+                            <Input label="Show name" type="text" value="" required={true} onChange={() => false} />
                         </Form.FormItem>
-                        </Form.FormGroup>
-                        <Form.FormGroup>
+                    </Form.FormGroup>
+                    <Form.FormGroup>
                         <Form.FormItem>
-                            <Input
-                                label='Description'
-                                type='text'
-                                value=''
-                                required={false}
-                                onChange={() => false}
-                            />
+                            <Input label="Description" type="text" value="" required={false} onChange={() => false} />
                         </Form.FormItem>
-                        </Form.FormGroup>
+                    </Form.FormGroup>
                 </Modal>
                 {/* New Show Modal Success */}
                 <Modal
                     headerTemplate="Create new Show"
                     visible={this.state.modalNewShowSuccess}
                     footerTemplate={newShowFooter2}
-                    contentBg='medium'
-                    size='medium' onHide={() => {this.setState({modalNewShowSuccess: false})}}
+                    contentBg="medium"
+                    size="medium"
+                    onHide={() => {
+                        this.setState({modalNewShowSuccess: false});
+                    }}
                 >
-                    <Container direction='column' className='justify-center items-center py-2' gap='medium'>
-                        <Icon name='checkmark-circle' type='success' size='big' scale='3x' />
-                        <Text align='center' size='medium'>
-                            The show <strong>Marker</strong> has been successfully created.<br />
+                    <Container direction="column" className="justify-center items-center py-2" gap="medium">
+                        <Icon name="checkmark-circle" type="success" size="big" scale="3x" />
+                        <Text align="center" size="medium">
+                            The show <strong>Marker</strong> has been successfully created.
+                            <br />
                             Do you want to cretate a template for this show right away?
                         </Text>
                     </Container>
                 </Modal>
 
                 {/* New Template Modal */}
-                <Modal headerTemplate="Create new Template"
+                <Modal
+                    headerTemplate="Create new Template"
                     visible={this.state.modalNewTemplate}
-                    contentBg='medium'
-                    contentPadding='none'
-                    size='x-large' onHide={() => {this.setState({modalNewTemplate: false})}}
+                    contentBg="medium"
+                    contentPadding="none"
+                    size="x-large"
+                    onHide={() => {
+                        this.setState({modalNewTemplate: false});
+                    }}
                 >
                     <Layout.LayoutContainer>
                         <Layout.LeftPanel open={true}>
-                            <Layout.Panel side='left' background='grey'>
+                            <Layout.Panel side="left" background="grey">
                                 <Layout.PanelHeader>
-                                    <Container className='sd-padding-x--2'>
+                                    <Container className="sd-padding-x--2">
                                         <Select
-                                            label='Shows'
+                                            label="Shows"
                                             fullWidth={true}
                                             labelHidden={true}
                                             inlineLabel={true}
-                                            value='This is some value'
+                                            value="This is some value"
                                             required={true}
                                             disabled={false}
                                             invalid={false}
@@ -763,94 +1012,121 @@ export class Rundowns extends React.Component<IProps, IState> {
                                 </Layout.PanelHeader>
                                 <Layout.PanelContent>
                                     <Layout.PanelContentBlock>
-                                        <Container className='sd-margin-b--1-5'>
-                                            <ButtonGroup align='end'>
-                                                <Tooltip text='New template' flow='left'>
-                                                    <Button type="primary" size='small' icon="plus-large" text="Cretae new Template" shape="round" iconOnly={true} onClick={()=> false} />
+                                        <Container className="sd-margin-b--1-5">
+                                            <ButtonGroup align="end">
+                                                <Tooltip text="New template" flow="left">
+                                                    <Button
+                                                        type="primary"
+                                                        size="small"
+                                                        icon="plus-large"
+                                                        text="Cretae new Template"
+                                                        shape="round"
+                                                        iconOnly={true}
+                                                        onClick={() => false}
+                                                    />
                                                 </Tooltip>
                                             </ButtonGroup>
                                         </Container>
                                         <BoxedList>
                                             <BoxedListItem
-                                                alignVertical='center'
+                                                alignVertical="center"
                                                 clickable={true}
-                                                density='compact'
+                                                density="compact"
                                                 selected={true}
-                                                actions={(
-                                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                                )}
+                                                actions={
+                                                    <IconButton
+                                                        icon="dots-vertical"
+                                                        size="small"
+                                                        ariaValue="More actions"
+                                                        onClick={() => false}
+                                                    />
+                                                }
                                             >
-                                                <Container gap='small' >
-                                                    <Label text='Marker' color='blue--800'/>
+                                                <Container gap="small">
+                                                    <Label text="Marker" color="blue--800" />
                                                     <span>Untitled</span>
                                                 </Container>
                                             </BoxedListItem>
                                             <BoxedListItem
-                                                alignVertical='center'
+                                                alignVertical="center"
                                                 clickable={true}
-                                                density='compact'
-                                                actions={(
-                                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                                )}
+                                                density="compact"
+                                                actions={
+                                                    <IconButton
+                                                        icon="dots-vertical"
+                                                        size="small"
+                                                        ariaValue="More actions"
+                                                        onClick={() => false}
+                                                    />
+                                                }
                                             >
-                                                <Container gap='small' >
-                                                    <Label text='Marker' color='blue--800'/>
+                                                <Container gap="small">
+                                                    <Label text="Marker" color="blue--800" />
                                                     <span>Marker Daily</span>
                                                 </Container>
                                             </BoxedListItem>
                                             <BoxedListItem
-                                                alignVertical='center'
+                                                alignVertical="center"
                                                 clickable={true}
-                                                density='compact'
-                                                actions={(
-                                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                                )}
+                                                density="compact"
+                                                actions={
+                                                    <IconButton
+                                                        icon="dots-vertical"
+                                                        size="small"
+                                                        ariaValue="More actions"
+                                                        onClick={() => false}
+                                                    />
+                                                }
                                             >
-                                                <Container gap='small' >
-                                                    <Label text='Marker' color='blue--800'/>
+                                                <Container gap="small">
+                                                    <Label text="Marker" color="blue--800" />
                                                     <span>Marker Weekend</span>
                                                 </Container>
                                             </BoxedListItem>
                                             <BoxedListItem
-                                                alignVertical='center'
-                                                density='compact'
+                                                alignVertical="center"
+                                                density="compact"
                                                 clickable={true}
-                                                actions={(
-                                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                                )}
+                                                actions={
+                                                    <IconButton
+                                                        icon="dots-vertical"
+                                                        size="small"
+                                                        ariaValue="More actions"
+                                                        onClick={() => false}
+                                                    />
+                                                }
                                             >
-                                                <Container gap='small' >
-                                                    <Label text='Marker' color='blue--800'/>
+                                                <Container gap="small">
+                                                    <Label text="Marker" color="blue--800" />
                                                     <span>Marker Special</span>
                                                 </Container>
                                             </BoxedListItem>
                                         </BoxedList>
-
                                     </Layout.PanelContentBlock>
                                 </Layout.PanelContent>
                             </Layout.Panel>
                         </Layout.LeftPanel>
                         {/* FILTER PANEL*/}
-                        <Layout.MainPanel padding='none'> 
-                        <RundownEditor
-                            rightPanel={this.state.rightPanel}
-                            openPanel={() => {
-                                if (this.state.fullEditor) {
-                                    this.setState({previousState: true})
-                                } else {
-                                    this.setState({previousState: false})
-                                }
-                                
-                                this.setState({rightPanel: true})
-                            }}
-                            closePanel={() => {
-                                if (!this.state.previousState) {
-                                    this.setState({rightPanel: false, fullEditor: false})
-                                } else {
-                                    this.setState({rightPanel: false})
-                                }
-                            }}
-                        />
+                        <Layout.MainPanel padding="none">
+                            <RundownEditor
+                                rightPanel={this.state.rightPanel}
+                                openPanel={() => {
+                                    if (this.state.fullEditor) {
+                                        this.setState({previousState: true});
+                                    } else {
+                                        this.setState({previousState: false});
+                                    }
+
+                                    this.setState({rightPanel: true});
+                                }}
+                                closePanel={() => {
+                                    if (!this.state.previousState) {
+                                        this.setState({rightPanel: false, fullEditor: false});
+                                    } else {
+                                        this.setState({rightPanel: false});
+                                    }
+                                }}
+                            />
                         </Layout.MainPanel>
                         {/* MAIN CONTENT */}
                     </Layout.LayoutContainer>
@@ -861,16 +1137,19 @@ export class Rundowns extends React.Component<IProps, IState> {
                     headerTemplate="Manage Shows"
                     maximizable
                     visible={this.state.modalManageShow}
-                    contentBg='medium'
-                    contentPadding='none'
-                    size='x-large' onHide={() => {this.setState({modalManageShow: false})}}
+                    contentBg="medium"
+                    contentPadding="none"
+                    size="x-large"
+                    onHide={() => {
+                        this.setState({modalManageShow: false});
+                    }}
                 >
                     <Layout.LayoutContainer>
                         <Layout.HeaderPanel>
                             <SubNav>
-                                <SearchBar placeholder='Search shows'></SearchBar>
-                                <ButtonGroup align='end' spaces='no-space'>
-                                    <CreateButton ariaValue='New show' onClick={() => false} />
+                                <SearchBar placeholder="Search shows"></SearchBar>
+                                <ButtonGroup align="end" spaces="no-space">
+                                    <CreateButton ariaValue="New show" onClick={() => false} />
                                 </ButtonGroup>
                             </SubNav>
                         </Layout.HeaderPanel>
@@ -878,164 +1157,247 @@ export class Rundowns extends React.Component<IProps, IState> {
                         <Layout.MainPanel>
                             <BoxedList>
                                 <BoxedListItem
-                                    alignVertical='center'
+                                    alignVertical="center"
                                     clickable={true}
-                                    density='compact'
+                                    density="compact"
                                     selected={this.state.openShowEditor}
                                     onClick={() => this.setState({openShowEditor: !this.state.openShowEditor})}
-                                    actions={(
-                                        <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                    )}
+                                    actions={
+                                        <IconButton
+                                            icon="dots-vertical"
+                                            size="small"
+                                            ariaValue="More actions"
+                                            onClick={() => false}
+                                        />
+                                    }
                                 >
-                                    <Container className='sd-flex-justify-space-between'>
-                                        <Heading type='h4'>Marker</Heading>
-                                        <Text color='lighter'>3 template</Text>
+                                    <Container className="sd-flex-justify-space-between">
+                                        <Heading type="h4">Marker</Heading>
+                                        <Text color="lighter">3 template</Text>
                                     </Container>
                                 </BoxedListItem>
                                 <BoxedListItem
-                                    alignVertical='center'
+                                    alignVertical="center"
                                     clickable={true}
-                                    density='compact'
-                                    actions={(
-                                        <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                    )}
+                                    density="compact"
+                                    actions={
+                                        <IconButton
+                                            icon="dots-vertical"
+                                            size="small"
+                                            ariaValue="More actions"
+                                            onClick={() => false}
+                                        />
+                                    }
                                 >
-                                    <Container className='sd-flex-justify-space-between'>
-                                        <Heading type='h4'>Tabu</Heading>
-                                        <Text color='lighter'>3 template</Text>
+                                    <Container className="sd-flex-justify-space-between">
+                                        <Heading type="h4">Tabu</Heading>
+                                        <Text color="lighter">3 template</Text>
                                     </Container>
                                 </BoxedListItem>
                                 <BoxedListItem
-                                    alignVertical='center'
+                                    alignVertical="center"
                                     clickable={true}
-                                    density='compact'
-                                    actions={(
-                                        <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                    )}
+                                    density="compact"
+                                    actions={
+                                        <IconButton
+                                            icon="dots-vertical"
+                                            size="small"
+                                            ariaValue="More actions"
+                                            onClick={() => false}
+                                        />
+                                    }
                                 >
-                                    <Container className='sd-flex-justify-space-between'>
-                                        <Heading type='h4'>Život u ringu</Heading>
-                                        <Text color='lighter'>1 template</Text>
+                                    <Container className="sd-flex-justify-space-between">
+                                        <Heading type="h4">Život u ringu</Heading>
+                                        <Text color="lighter">1 template</Text>
                                     </Container>
                                 </BoxedListItem>
                                 <BoxedListItem
-                                    alignVertical='center'
-                                    density='compact'
+                                    alignVertical="center"
+                                    density="compact"
                                     clickable={true}
-                                    actions={(
-                                        <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                    )}
+                                    actions={
+                                        <IconButton
+                                            icon="dots-vertical"
+                                            size="small"
+                                            ariaValue="More actions"
+                                            onClick={() => false}
+                                        />
+                                    }
                                 >
-                                    <Container className='sd-flex-justify-space-between'>
-                                        <Heading type='h4'>Intervju</Heading>
-                                        <Text color='lighter'>3 templates</Text>
+                                    <Container className="sd-flex-justify-space-between">
+                                        <Heading type="h4">Intervju</Heading>
+                                        <Text color="lighter">3 templates</Text>
                                     </Container>
                                 </BoxedListItem>
                             </BoxedList>
-                            
                         </Layout.MainPanel>
                         <Layout.RightPanel open={this.state.openShowEditor}>
-                            <Layout.Panel side='right' background='grey'>
-                                <Layout.PanelHeader title='Show details' onClose={() => this.setState({'openShowEditor': false})}>  
-                                {this.state.value1 ||
-                                    <Layout.PanelHeaderSlidingToolbar>
-                                        <ButtonGroup align='start'>
-                                            <IconButton ariaValue="Close" icon="close-small" onClick={() => this.setState({openShowEditor: !this.state.openShowEditor})} />
-                                        </ButtonGroup>
-                                        <ButtonGroup align='end'>
-                                            <Button text="Save Changes" style='hollow' onClick={() => this.setState({openShowEditor: !this.state.openShowEditor})} type="primary" />
-                                        </ButtonGroup>
-                                    </Layout.PanelHeaderSlidingToolbar>}
+                            <Layout.Panel side="right" background="grey">
+                                <Layout.PanelHeader
+                                    title="Show details"
+                                    onClose={() => this.setState({openShowEditor: false})}
+                                >
+                                    {this.state.value1 || (
+                                        <Layout.PanelHeaderSlidingToolbar>
+                                            <ButtonGroup align="start">
+                                                <IconButton
+                                                    ariaValue="Close"
+                                                    icon="close-small"
+                                                    onClick={() =>
+                                                        this.setState({openShowEditor: !this.state.openShowEditor})
+                                                    }
+                                                />
+                                            </ButtonGroup>
+                                            <ButtonGroup align="end">
+                                                <Button
+                                                    text="Save Changes"
+                                                    style="hollow"
+                                                    onClick={() =>
+                                                        this.setState({openShowEditor: !this.state.openShowEditor})
+                                                    }
+                                                    type="primary"
+                                                />
+                                            </ButtonGroup>
+                                        </Layout.PanelHeaderSlidingToolbar>
+                                    )}
                                 </Layout.PanelHeader>
                                 <Layout.PanelContent>
                                     <Layout.PanelContentBlock flex={true}>
-                                        <Container direction='column' gap='x-small'>
-                                            <Container direction='row' gap='small'><Text color='light'>Created 09.06.2022 by </Text><Text weight='medium'>Mika Karapet</Text></Container>
-                                            <Container direction='row' gap='small'><Text color='light'>Updated 3 hours ago by </Text><Text weight='medium'>John Doe</Text></Container>
+                                        <Container direction="column" gap="x-small">
+                                            <Container direction="row" gap="small">
+                                                <Text color="light">Created 09.06.2022 by </Text>
+                                                <Text weight="medium">Mika Karapet</Text>
+                                            </Container>
+                                            <Container direction="row" gap="small">
+                                                <Text color="light">Updated 3 hours ago by </Text>
+                                                <Text weight="medium">John Doe</Text>
+                                            </Container>
                                         </Container>
-                                        <Container className='sd-margin-s--auto sd-flex--items-center'>
+                                        <Container className="sd-margin-s--auto sd-flex--items-center">
                                             <Dropdown
-                                                align = 'right'
+                                                align="right"
                                                 items={[
                                                     {
-                                                        type: 'group', label: 'Actions', items: [
+                                                        type: 'group',
+                                                        label: 'Actions',
+                                                        items: [
                                                             'divider',
-                                                            { label: 'Edit', icon: 'pencil', onSelect: () => this.setState({ dropDownState: 'Edit ' }) },
-                                                            { label: 'Download', icon: 'download', onSelect: () => this.setState({ dropDownState: 'Download' }) },
-                                                            { label: 'Delete', icon: 'trash', onSelect: () => this.setState({ dropDownState: 'Delete' }) },
-                                                        ]
-                                                    }
+                                                            {
+                                                                label: 'Edit',
+                                                                icon: 'pencil',
+                                                                onSelect: () => this.setState({dropDownState: 'Edit '}),
+                                                            },
+                                                            {
+                                                                label: 'Download',
+                                                                icon: 'download',
+                                                                onSelect: () =>
+                                                                    this.setState({dropDownState: 'Download'}),
+                                                            },
+                                                            {
+                                                                label: 'Delete',
+                                                                icon: 'trash',
+                                                                onSelect: () =>
+                                                                    this.setState({dropDownState: 'Delete'}),
+                                                            },
+                                                        ],
+                                                    },
                                                 ]}
                                             >
-                                                <IconButton ariaValue='dropdown-more-options' icon='dots-vertical' onClick={() => false} />
+                                                <IconButton
+                                                    ariaValue="dropdown-more-options"
+                                                    icon="dots-vertical"
+                                                    onClick={() => false}
+                                                />
                                             </Dropdown>
                                         </Container>
                                     </Layout.PanelContentBlock>
                                     <Layout.PanelContentBlock>
-                                        <SwitchGroup className='sd-margin-b--3'>
-                                            <Switch label={{content:'Active'}} value={this.state.value1} onChange={(value) => this.setState(() => ({ value1: value }))} />
+                                        <SwitchGroup className="sd-margin-b--3">
+                                            <Switch
+                                                label={{content: 'Active'}}
+                                                value={this.state.value1}
+                                                onChange={(value) => this.setState(() => ({value1: value}))}
+                                            />
                                         </SwitchGroup>
                                         <Form.FormGroup>
                                             <Form.FormItem>
                                                 <Input
-                                                    type='text'
-                                                    label='Show name'
-                                                    value='Marker'
+                                                    type="text"
+                                                    label="Show name"
+                                                    value="Marker"
                                                     required={true}
                                                     disabled={false}
                                                     onChange={() => false}
-                                                /> 
+                                                />
                                             </Form.FormItem>
                                         </Form.FormGroup>
                                         <Form.FormGroup>
                                             <Form.FormItem>
                                                 <Input
-                                                    type='text'
-                                                    label='Description'
+                                                    type="text"
+                                                    label="Description"
                                                     required={false}
                                                     disabled={false}
                                                     onChange={() => false}
-                                                /> 
+                                                />
                                             </Form.FormItem>
                                         </Form.FormGroup>
                                     </Layout.PanelContentBlock>
 
                                     <Layout.PanelContentBlock>
-                                        <Heading type='h3' className='sd-margin-b--2'>Show templates</Heading>
+                                        <Heading type="h3" className="sd-margin-b--2">
+                                            Show templates
+                                        </Heading>
                                         <BoxedList>
                                             <BoxedListItem
-                                                alignVertical='center'
-                                                density='compact'
-                                                actions={(
-                                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                                )}
+                                                alignVertical="center"
+                                                density="compact"
+                                                actions={
+                                                    <IconButton
+                                                        icon="dots-vertical"
+                                                        size="small"
+                                                        ariaValue="More actions"
+                                                        onClick={() => false}
+                                                    />
+                                                }
                                             >
-                                                <Container gap='small' >
-                                                    <Label text='Marker' color='blue--800'/>
+                                                <Container gap="small">
+                                                    <Label text="Marker" color="blue--800" />
                                                     <span>Marker Daily</span>
                                                 </Container>
                                             </BoxedListItem>
                                             <BoxedListItem
-                                                alignVertical='center'
-                                                density='compact'
-                                                actions={(
-                                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                                )}
+                                                alignVertical="center"
+                                                density="compact"
+                                                actions={
+                                                    <IconButton
+                                                        icon="dots-vertical"
+                                                        size="small"
+                                                        ariaValue="More actions"
+                                                        onClick={() => false}
+                                                    />
+                                                }
                                             >
-                                                <Container gap='small' >
-                                                    <Label text='Marker' color='blue--800'/>
+                                                <Container gap="small">
+                                                    <Label text="Marker" color="blue--800" />
                                                     <span>Marker Weekend</span>
                                                 </Container>
                                             </BoxedListItem>
                                             <BoxedListItem
-                                                alignVertical='center'
-                                                density='compact'
-                                                actions={(
-                                                    <IconButton icon="dots-vertical" size='small' ariaValue="More actions" onClick={()=> false} />
-                                                )}
+                                                alignVertical="center"
+                                                density="compact"
+                                                actions={
+                                                    <IconButton
+                                                        icon="dots-vertical"
+                                                        size="small"
+                                                        ariaValue="More actions"
+                                                        onClick={() => false}
+                                                    />
+                                                }
                                             >
-                                                <Container gap='small' >
-                                                    <Label text='Marker' color='blue--800'/>
+                                                <Container gap="small">
+                                                    <Label text="Marker" color="blue--800" />
                                                     <span>Marker Special</span>
                                                 </Container>
                                             </BoxedListItem>

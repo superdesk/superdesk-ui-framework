@@ -15,23 +15,20 @@ interface IState {
 
 const source = [
     {
-        'name': 'Article (news)',
-        'qcode': 'Article',
+        name: 'Article (news)',
+        qcode: 'Article',
     },
     {
-        'name': 'Sidebar',
-        'qcode': 'Sidebar',
+        name: 'Sidebar',
+        qcode: 'Sidebar',
     },
     {
-        'name': 'Factbox',
-        'qcode': 'Factbox',
+        name: 'Factbox',
+        qcode: 'Factbox',
     },
 ];
 
-function searchOptions(
-    term: string,
-    callback: (res: Array<ITreeNode<{name: string; qcode: string;}>>) => void,
-): void {
+function searchOptions(term: string, callback: (res: Array<ITreeNode<{name: string; qcode: string}>>) => void): void {
     setTimeout(() => {
         callback(
             source
@@ -40,7 +37,6 @@ function searchOptions(
         );
     }, 1000);
 }
-
 
 export class MultiSelectDemo extends React.PureComponent<IProps, IState> {
     constructor(props: IProps) {

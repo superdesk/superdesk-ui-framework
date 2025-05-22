@@ -1,13 +1,14 @@
-import * as React from "react";
-import * as Markup from "../../js/react";
-import { ListItemLoader, PropsList } from "../../../app-typescript";
+import * as React from 'react';
+import * as Markup from '../../js/react';
+import {ListItemLoader, PropsList} from '../../../app-typescript';
 
 export default class ListItemsDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">ListItemLoader</h2>
-                <Markup.ReactMarkupCodePreview>{`
+                <Markup.ReactMarkupCodePreview>
+                    {`
                     <ListItemLoader />
                 `}
                 </Markup.ReactMarkupCodePreview>
@@ -23,12 +24,10 @@ export default class ListItemsDoc extends React.Component {
                         <ListItemLoader />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-                
-                <h3 className="docs-page__h3">Props</h3>
-                <PropsList>
 
-                </PropsList>
+                <h3 className="docs-page__h3">Props</h3>
+                <PropsList></PropsList>
             </section>
-        )
+        );
     }
 }

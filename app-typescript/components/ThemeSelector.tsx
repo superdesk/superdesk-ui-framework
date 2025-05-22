@@ -1,14 +1,14 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 interface IProps {
     value?: string;
     size?: 'small' | 'medium' | 'large'; // defaults to small
     options: Array<{
-        label: string,
-        value: string,
+        label: string;
+        value: string;
         theme: 'light' | 'dark' | 'contrast-light'; // changes the thumb preview based on the selected theme.
-        disabled?: boolean
+        disabled?: boolean;
         checked?: boolean;
     }>;
     required?: boolean;
@@ -34,12 +34,9 @@ export class ThemeSelector extends React.Component<IProps> {
             [`sd-theme-selector__list--${this.props.size}`]: this.props.size,
         });
         return (
-            <div className={classes}>{
-                this.props.options.map((item: any, index: number) => (
-
-                    <div className='sd-theme-selector__item'
-                        key={index}
-                        tabIndex={-1}>
+            <div className={classes}>
+                {this.props.options.map((item: any, index: number) => (
+                    <div className="sd-theme-selector__item" key={index} tabIndex={-1}>
                         <figure
                             className="sd-theme-selector__item-thumb"
                             data-theme={item.theme + '-ui'}
@@ -102,7 +99,9 @@ export class ThemeSelector extends React.Component<IProps> {
                             </svg>
                         </figure>
                         <div className="sd-theme-selector__item-action">
-                            <input type="radio" className="sd-theme-selector__input"
+                            <input
+                                type="radio"
+                                className="sd-theme-selector__input"
                                 id={this.htmlId + index}
                                 tabIndex={0}
                                 name={this.htmlId}
@@ -114,11 +113,13 @@ export class ThemeSelector extends React.Component<IProps> {
                             <label className="sd-theme-selector__label" htmlFor={this.htmlId + index}>
                                 {item.label}
                             </label>
-                            <span className="sd-theme-selector__label-text" aria-hidden="true">{item.label}</span>
+                            <span className="sd-theme-selector__label-text" aria-hidden="true">
+                                {item.label}
+                            </span>
                         </div>
                     </div>
-                ))
-            }</div>
+                ))}
+            </div>
         );
     }
 }

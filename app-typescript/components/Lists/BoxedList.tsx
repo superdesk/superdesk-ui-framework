@@ -3,41 +3,25 @@ import classNames from 'classnames';
 
 class BoxedListMedia extends React.PureComponent {
     render() {
-        return (
-            <div className='boxed-list__item-media'>
-                {this.props.children}
-            </div>
-        );
+        return <div className="boxed-list__item-media">{this.props.children}</div>;
     }
 }
 
 class BoxedListContent extends React.PureComponent {
     render() {
-        return (
-            <div className='boxed-list__item-content'>
-                {this.props.children}
-            </div>
-        );
+        return <div className="boxed-list__item-content">{this.props.children}</div>;
     }
 }
 
 class BoxedListContentRow extends React.PureComponent {
     render() {
-        return (
-            <div className='boxed-list__item-content-row'>
-                {this.props.children}
-            </div>
-        );
+        return <div className="boxed-list__item-content-row">{this.props.children}</div>;
     }
 }
 
 class BoxedListFooter extends React.PureComponent {
     render() {
-        return (
-            <div className='boxed-list__item-footer'>
-                {this.props.children}
-            </div>
-        );
+        return <div className="boxed-list__item-footer">{this.props.children}</div>;
     }
 }
 
@@ -114,22 +98,11 @@ class BoxedListItem extends React.PureComponent<IPropsItem> {
         });
         return (
             <li className={classes} onClick={this.handleClick}>
+                {this.props.media && <BoxedListMedia>{this.props.media}</BoxedListMedia>}
 
-                {this.props.media && (
-                    <BoxedListMedia>
-                        {this.props.media}
-                    </BoxedListMedia>
-                )}
+                <BoxedListContent>{this.props.children}</BoxedListContent>
 
-                <BoxedListContent>
-                    {this.props.children}
-                </BoxedListContent>
-
-                {this.props.footer && (
-                    <BoxedListFooter>
-                        {this.props.footer}
-                    </BoxedListFooter>
-                )}
+                {this.props.footer && <BoxedListFooter>{this.props.footer}</BoxedListFooter>}
 
                 {this.props.actions && (
                     <BoxedListActions
@@ -155,10 +128,14 @@ interface IProps {
 
 class BoxedList extends React.PureComponent<IProps> {
     render() {
-        let classes = classNames('boxed-list', {
-            'boxed-list--compact': this.props.density === undefined,
-            [`boxed-list--${this.props.density}`]: this.props.density || this.props.density !== undefined,
-        }, this.props.className);
+        let classes = classNames(
+            'boxed-list',
+            {
+                'boxed-list--compact': this.props.density === undefined,
+                [`boxed-list--${this.props.density}`]: this.props.density || this.props.density !== undefined,
+            },
+            this.props.className,
+        );
         return (
             <ul className={classes} style={this.props.style}>
                 {this.props.children}
@@ -167,6 +144,4 @@ class BoxedList extends React.PureComponent<IProps> {
     }
 }
 
-export {
-    BoxedList, BoxedListItem, BoxedListContentRow, BoxedListActions, BoxedListFooter
-};
+export {BoxedList, BoxedListItem, BoxedListContentRow, BoxedListActions, BoxedListFooter};

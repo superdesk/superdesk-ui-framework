@@ -6,10 +6,6 @@ interface IProps {
 
 export class FormText extends React.PureComponent<IProps> {
     render() {
-        return (
-            <div className="form__text-block">
-                {this.props.children}
-            </div>
-        );
+        return <div className="form__text-block">{this.props.children}</div>;
     }
 }

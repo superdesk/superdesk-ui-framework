@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 import {createPortal} from 'react-dom';
 
 interface IProps {
@@ -6,9 +6,7 @@ interface IProps {
     'data-test-id'?: string;
 }
 
-export function findParent(
-    element: HTMLElement | null,
-) {
+export function findParent(element: HTMLElement | null) {
     let dataTheme = element;
 
     while (dataTheme != null && dataTheme?.getAttribute('data-theme') == null) {
@@ -35,14 +33,13 @@ export class WithPortal extends React.Component<IProps> {
     render() {
         return (
             <div ref={this.ref}>
-                {this.props.active && (
+                {this.props.active &&
                     createPortal(
                         <div data-theme={this.dataTheme} data-test-id={this.props['data-test-id']}>
                             {this.props.children}
                         </div>,
                         document.body,
-                    )
-                )}
+                    )}
             </div>
         );
     }

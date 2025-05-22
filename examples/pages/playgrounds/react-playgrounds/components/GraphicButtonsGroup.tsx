@@ -6,10 +6,6 @@ interface IProps {
 
 export class GraphicButtonsGroup extends React.PureComponent<IProps> {
     render() {
-        return (
-            <div className='docs-page__button-grid'>
-                {this.props.children}
-            </div>
-        );
+        return <div className="docs-page__button-grid">{this.props.children}</div>;
     }
 }

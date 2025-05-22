@@ -7,32 +7,32 @@ import {IAvatarInGroup, IAvatarPlaceholderInGroup} from '../../../app-typescript
 const avatars: Array<IAvatarInGroup> = [
     {
         imageUrl: 'avatar.jpg',
-        initials: "U1",
+        initials: 'U1',
         displayName: 'User1',
     },
     {
         imageUrl: null,
-        initials: "U2",
+        initials: 'U2',
         displayName: 'User2',
     },
     {
         imageUrl: null,
-        initials: "U3",
+        initials: 'U3',
         displayName: 'User3',
     },
     {
         imageUrl: 'avatar-3.jpg',
-        initials: "U4",
+        initials: 'U4',
         displayName: 'User4',
     },
     {
         imageUrl: 'avatar-4.jpg',
-        initials: "U5",
+        initials: 'U5',
         displayName: 'User5',
     },
     {
         imageUrl: null,
-        initials: "A6",
+        initials: 'A6',
         displayName: 'User6',
     },
 ];
@@ -43,7 +43,8 @@ export default class AvatarDoc extends React.PureComponent {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Avatar</h2>
 
-                <Markup.ReactMarkupCodePreview>{`
+                <Markup.ReactMarkupCodePreview>
+                    {`
                     <Avatar
                         size="large"
                         imageUrl="/avatar.jpg"
@@ -56,12 +57,11 @@ export default class AvatarDoc extends React.PureComponent {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Combo</p>
-                        <Container gap='medium' className='sd-margin-b--3'>
-
+                        <Container gap="medium" className="sd-margin-b--3">
                             <Avatar
                                 displayName="Jeffrey Lebowski"
                                 imageUrl="/avatar.jpg"
-                                initials='Jeffrey Lebowski'
+                                initials="Jeffrey Lebowski"
                                 size="large"
                                 icon={{name: 'print', color: 'red'}}
                                 statusIndicator="online"
@@ -81,17 +81,15 @@ export default class AvatarDoc extends React.PureComponent {
                             <Avatar
                                 displayName="Jeffrey Lebowski"
                                 imageUrl={null}
-                                initials='Jeffrey Lebowski'
+                                initials="Jeffrey Lebowski"
                                 size="large"
                                 icon={{name: 'print', color: 'var(--sd-colour-state--done)'}}
                                 administratorIndicator
                             />
-
                         </Container>
 
                         <p className="docs-page__paragraph">// Basic with size variations</p>
-                        <Container gap='medium' className='sd-margin-b--3'>
-
+                        <Container gap="medium" className="sd-margin-b--3">
                             <Avatar
                                 size="x-small"
                                 imageUrl="/avatar.jpg"
@@ -99,26 +97,11 @@ export default class AvatarDoc extends React.PureComponent {
                                 displayName="Jeffrey Lebowski"
                             />
 
-                            <Avatar
-                                size="small"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                displayName="Jeffrey Lebowski"
-                            />
+                            <Avatar size="small" imageUrl="/avatar.jpg" initials="JL" displayName="Jeffrey Lebowski" />
 
-                            <Avatar
-                                size="medium"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                displayName="Jeffrey Lebowski"
-                            />
+                            <Avatar size="medium" imageUrl="/avatar.jpg" initials="JL" displayName="Jeffrey Lebowski" />
 
-                            <Avatar
-                                size="large"
-                                imageUrl="/avatar.jpg"
-                                initials="JL"
-                                displayName="Jeffrey Lebowski"
-                            />
+                            <Avatar size="large" imageUrl="/avatar.jpg" initials="JL" displayName="Jeffrey Lebowski" />
 
                             <Avatar
                                 size="x-large"
@@ -133,12 +116,10 @@ export default class AvatarDoc extends React.PureComponent {
                                 initials="JL"
                                 displayName="Jeffrey Lebowski"
                             />
-
                         </Container>
 
                         <p className="docs-page__paragraph">// With status indicator</p>
-                        <Container gap='medium' className='sd-margin-b--3'>
-
+                        <Container gap="medium" className="sd-margin-b--3">
                             <Avatar
                                 size="large"
                                 imageUrl="/avatar.jpg"
@@ -146,11 +127,10 @@ export default class AvatarDoc extends React.PureComponent {
                                 displayName="Jeffrey Lebowski"
                                 statusIndicator="online"
                             />
-
                         </Container>
 
                         <p className="docs-page__paragraph">// With administrator indicator</p>
-                        <Container gap='medium' className='sd-margin-b--3'>
+                        <Container gap="medium" className="sd-margin-b--3">
                             <Avatar
                                 size="large"
                                 imageUrl="/avatar.jpg"
@@ -161,8 +141,7 @@ export default class AvatarDoc extends React.PureComponent {
                         </Container>
 
                         <p className="docs-page__paragraph">// With icon</p>
-                        <Container gap='medium' className='sd-margin-b--3'>
-
+                        <Container gap="medium" className="sd-margin-b--3">
                             <Avatar
                                 size="x-small"
                                 imageUrl={null}
@@ -200,14 +179,11 @@ export default class AvatarDoc extends React.PureComponent {
                                 imageUrl={null}
                                 initials={null}
                                 displayName="Unassigned"
-                                noAvatarPlaceholderColor='subtle'
+                                noAvatarPlaceholderColor="subtle"
                                 icon={{name: 'text', color: 'var(--sd-colour-state--canceled)'}}
                             />
 
-                            <AvatarPlaceholder 
-                                kind='plus-button'
-                                size='x-large'
-                            />
+                            <AvatarPlaceholder kind="plus-button" size="x-large" />
 
                             <Avatar
                                 size="x-large"
@@ -224,11 +200,10 @@ export default class AvatarDoc extends React.PureComponent {
                                 displayName="Jeffrey Lebowski"
                                 icon={{name: 'video-cancel', color: 'var(--sd-colour-state--canceled)'}}
                             />
-
                         </Container>
                         <p className="docs-page__paragraph">// With icon and Coverage status indicator</p>
-                        <Container gap='medium' className='sd-margin-b--3'>
-                            <Avatar 
+                        <Container gap="medium" className="sd-margin-b--3">
+                            <Avatar
                                 displayName="Unassigned"
                                 imageUrl={null}
                                 initials={null}
@@ -236,7 +211,7 @@ export default class AvatarDoc extends React.PureComponent {
                                 icon={{name: 'text', color: 'var(--sd-colour-state--assigned)'}}
                                 statusDot={{color: 'var(--sd-colour-coverage-state--on-merit)'}}
                             />
-                            <Avatar 
+                            <Avatar
                                 displayName="Unassigned"
                                 imageUrl={null}
                                 initials={null}
@@ -247,7 +222,8 @@ export default class AvatarDoc extends React.PureComponent {
                         </Container>
                     </Markup.ReactMarkupPreview>
 
-                    <Markup.ReactMarkupCode>{`
+                    <Markup.ReactMarkupCode>
+                        {`
                         // Combo
 
                         <Avatar
@@ -448,131 +424,94 @@ export default class AvatarDoc extends React.PureComponent {
                 </Markup.ReactMarkup>
 
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">AvatarGroup</h3>
-                <p className='docs-page__paragraph'></p>
+                <p className="docs-page__paragraph"></p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// With action</p>
-                        <AvatarGroup
-                            size="x-small"
-                            items={avatars}
-                        />
+                        <AvatarGroup size="x-small" items={avatars} />
 
                         <br />
 
-                        <AvatarGroup
-                            size="small"
-                            items={avatars}
-                        />
+                        <AvatarGroup size="small" items={avatars} />
 
                         <br />
 
-                        <AvatarGroup
-                            size="medium"
-                            items={avatars}
-                        />
+                        <AvatarGroup size="medium" items={avatars} />
 
                         <br />
 
-                        <AvatarGroup
-                            size="large"
-                            items={avatars}
-                            max={4}
-                        />
+                        <AvatarGroup size="large" items={avatars} max={4} />
 
                         <br />
 
-                        <AvatarGroup
-                            size="x-large"
-                            items={avatars}
-                        />
+                        <AvatarGroup size="x-large" items={avatars} />
 
-                        <AvatarGroup
-                            size="xx-large"
-                            items={avatars}
-                        />
+                        <AvatarGroup size="xx-large" items={avatars} />
 
                         <p className="docs-page__paragraph">// With icons</p>
                         {(() => {
                             const avatars: Array<IAvatarInGroup> = [
                                 {
                                     imageUrl: 'avatar.jpg',
-                                    initials: "U1",
+                                    initials: 'U1',
                                     displayName: 'User1',
-                                    icon:{name: 'print', color: 'red'},
+                                    icon: {name: 'print', color: 'red'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "U2",
+                                    initials: 'U2',
                                     displayName: 'User2',
-                                    icon:{name: 'print', color: 'green'},
+                                    icon: {name: 'print', color: 'green'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "U3",
+                                    initials: 'U3',
                                     displayName: 'User3',
-                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-workflow)'},
+                                    icon: {name: 'print', color: 'var(--sd-colour-state--in-workflow)'},
                                 },
                                 {
                                     imageUrl: 'avatar-3.jpg',
-                                    initials: "U4",
+                                    initials: 'U4',
                                     displayName: 'User4',
-                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-progress)'},
+                                    icon: {name: 'print', color: 'var(--sd-colour-state--in-progress)'},
                                 },
                                 {
                                     imageUrl: 'avatar-4.jpg',
-                                    initials: "U5",
+                                    initials: 'U5',
                                     displayName: 'User5',
-                                    icon:{name: 'print', color: 'var(--sd-colour-highlight)'},
+                                    icon: {name: 'print', color: 'var(--sd-colour-highlight)'},
                                 },
                                 {
                                     imageUrl: null,
-                                    initials: "U6",
+                                    initials: 'U6',
                                     displayName: 'User6',
-                                    icon:{name: 'print', color: 'var(--sd-colour-state--in-progress)'},
+                                    icon: {name: 'print', color: 'var(--sd-colour-state--in-progress)'},
                                 },
                             ];
 
                             return (
                                 <>
-                                    <AvatarGroup
-                                        size="x-small"
-                                        items={avatars}
-                                    />
+                                    <AvatarGroup size="x-small" items={avatars} />
 
                                     <br />
 
-                                    <AvatarGroup
-                                        size="small"
-                                        items={avatars}
-                                    />
+                                    <AvatarGroup size="small" items={avatars} />
 
                                     <br />
 
-                                    <AvatarGroup
-                                        size="medium"
-                                        items={avatars}
-                                    />
+                                    <AvatarGroup size="medium" items={avatars} />
 
                                     <br />
 
-                                    <AvatarGroup
-                                        size="large"
-                                        items={avatars}
-                                    />
+                                    <AvatarGroup size="large" items={avatars} />
 
                                     <br />
 
-                                    <AvatarGroup
-                                        size="x-large"
-                                        items={avatars}
-                                    />
+                                    <AvatarGroup size="x-large" items={avatars} />
 
                                     <br />
 
-                                    <AvatarGroup
-                                        size="xx-large"
-                                        items={avatars}
-                                    />
+                                    <AvatarGroup size="xx-large" items={avatars} />
 
                                     <br />
                                 </>
@@ -580,7 +519,8 @@ export default class AvatarDoc extends React.PureComponent {
                         })()}
                     </Markup.ReactMarkupPreview>
 
-                    <Markup.ReactMarkupCode>{`
+                    <Markup.ReactMarkupCode>
+                        {`
                         // Various sizes
 
                         <AvatarGroup

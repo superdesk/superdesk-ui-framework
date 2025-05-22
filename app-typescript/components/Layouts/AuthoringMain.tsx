@@ -42,14 +42,13 @@ export class AuthoringMain extends React.PureComponent<IProps> {
                         <AuthoringInnerHeader
                             hideCollapseButton={this.props.hideCollapseButton}
                             headerPadding={this.props.headerPadding}
-                            collapsed={this.props.headerCollapsed}>
+                            collapsed={this.props.headerCollapsed}
+                        >
                             {this.props.authoringHeader}
                         </AuthoringInnerHeader>
                     )}
                     {this.props.authoringBookmarks && (
-                        <AuthorinInnerSideBar>
-                            {this.props.authoringBookmarks}
-                        </AuthorinInnerSideBar>
+                        <AuthorinInnerSideBar>{this.props.authoringBookmarks}</AuthorinInnerSideBar>
                     )}
                     <AuthoringInnerBody noPadding={this.props.noPaddingForContent}>
                         {this.props.children}

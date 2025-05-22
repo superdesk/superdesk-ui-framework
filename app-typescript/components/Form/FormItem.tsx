@@ -11,10 +11,6 @@ export class FormItem extends React.PureComponent<IProps> {
         let classes = classNames('form__item', {
             'form__item--auto-width': this.props.autoWidth,
         });
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }

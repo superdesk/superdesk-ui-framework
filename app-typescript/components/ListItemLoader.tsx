@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Skeleton } from './Skeleton';
+import {Skeleton} from './Skeleton';
 
 export class ListItemLoader extends React.Component<{}> {
     render() {

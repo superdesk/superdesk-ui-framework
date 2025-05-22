@@ -23,18 +23,14 @@ export class CheckButtonGroup extends React.PureComponent<IProps> {
 
         return (
             <>
-                {this.props.groupLabel ?
-                    <div className='sd-check-button__group-wrapper' aria-labelledby={this.props.groupLabelledBy}>
+                {this.props.groupLabel ? (
+                    <div className="sd-check-button__group-wrapper" aria-labelledby={this.props.groupLabelledBy}>
                         <FormLabel forId={'group'} text={this.props.groupLabel} />
-                        <div className={classes}>
-                            {this.props.children}
-                        </div>
+                        <div className={classes}>{this.props.children}</div>
                     </div>
-                    :
-                    <div className={classes}>
-                        {this.props.children}
-                    </div>
-                }
+                ) : (
+                    <div className={classes}>{this.props.children}</div>
+                )}
             </>
         );
     }

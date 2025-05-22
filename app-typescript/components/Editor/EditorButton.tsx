@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Icon } from '../Icon';
-import { Tooltip } from '../Tooltip';
+import {Icon} from '../Icon';
+import {Tooltip} from '../Tooltip';
 import classNames from 'classnames';
 
 interface IProps {
@@ -25,7 +25,8 @@ export class EditorButton extends React.PureComponent<IProps> {
                     tabIndex={0}
                     onClick={this.props.onClick}
                     className={classes}
-                    aria-label={this.props.ariaValue}>
+                    aria-label={this.props.ariaValue}
+                >
                     <Icon name={this.props.icon} ariaHidden={true} />
                 </button>
             </Tooltip>

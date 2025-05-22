@@ -17,9 +17,7 @@ type IProps = IPropsOverlay | IPropsInline;
 export class Loader extends React.Component<IProps> {
     render() {
         if (this.props.overlay) {
-            return (
-                <div className="sd-loader" style={{backgroundColor: this.props.backgroundColor}} />
-            );
+            return <div className="sd-loader" style={{backgroundColor: this.props.backgroundColor}} />;
         } else {
             return (
                 <div

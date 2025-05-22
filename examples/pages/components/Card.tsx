@@ -1,5 +1,5 @@
-import * as React from "react";
-import * as Markup from "../../js/react";
+import * as React from 'react';
+import * as Markup from '../../js/react';
 import {Card} from '../../../app-typescript/components/Card';
 
 export default class CardDoc extends React.Component {
@@ -8,17 +8,16 @@ export default class CardDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Card</h2>
 
-                <Markup.ReactMarkupCodePreview>{`
+                <Markup.ReactMarkupCodePreview>
+                    {`
                     <Card paddingBase="1">
                         card content
                     </Card>
                 `}
                 </Markup.ReactMarkupCodePreview>
 
-                <Card paddingBase="1">
-                    card content
-                </Card>
+                <Card paddingBase="1">card content</Card>
             </section>
-        )
+        );
     }
 }

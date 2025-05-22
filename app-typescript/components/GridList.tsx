@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 interface IProps {
-    size?: 'x-small' |'small' | 'medium' | 'large'; // defaults to 'small'
+    size?: 'x-small' | 'small' | 'medium' | 'large'; // defaults to 'small'
     margin?: '0' | '1' | '2' | '3';
     gap?: 'small' | 'medium' | 'large' | 'x-large';
 }
@@ -22,10 +22,6 @@ export class GridList extends React.PureComponent<IProps> {
             },
         ]);
 
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }

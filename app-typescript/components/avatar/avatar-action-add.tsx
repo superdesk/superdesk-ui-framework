@@ -8,12 +8,7 @@ interface IProps extends IPropsBase {
 export class AvatarContentAdd extends React.PureComponent<IProps> {
     render() {
         if (this.props.onClick == null) {
-            return (
-                <span
-                    className="sd-avatar-content sd-avatar-content--add-item"
-                    title={this.props.tooltipText}
-                />
-            );
+            return <span className="sd-avatar-content sd-avatar-content--add-item" title={this.props.tooltipText} />;
         } else {
             return (
                 <button

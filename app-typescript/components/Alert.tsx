@@ -1,6 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Icon } from './Icon';
+import {Icon} from './Icon';
 
 interface IProps {
     type?: 'primary' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
@@ -55,27 +55,23 @@ export class Alert extends React.PureComponent<IProps, IState> {
         }
 
         return (
-            <div
-                className='sd-alert__container'
-                style={styles}
-            >
+            <div className="sd-alert__container" style={styles}>
                 <div className={classesAlert}>
-                    {this.props.icon ?
+                    {this.props.icon ? (
                         <span className="sd-alert__icon">
                             <Icon name={this.props.icon} />
-                        </span> : null
-                    }
-                    {this.props.restoreIcon ?
-                        <button className='sd-alert__close' onClick={this.onToggle} aria-label="Close"></button> : null}
-                    <span className="sd-alert__content">
-                        {this.props.children}
-                    </span>
+                        </span>
+                    ) : null}
+                    {this.props.restoreIcon ? (
+                        <button className="sd-alert__close" onClick={this.onToggle} aria-label="Close"></button>
+                    ) : null}
+                    <span className="sd-alert__content">{this.props.children}</span>
                 </div>
-                {this.props.restoreIcon ?
+                {this.props.restoreIcon ? (
                     <span className={classesInfoBtn} onClick={this.onToggle}>
                         <i className={this.props.restoreIcon === 'help' ? 'icon-help-large' : 'icon-info-large'}></i>
-                    </span> : null
-                }
+                    </span>
+                ) : null}
             </div>
         );
     }

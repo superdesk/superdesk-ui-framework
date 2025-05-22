@@ -1,8 +1,5 @@
 {
-    "plugins": [
-        "react",
-        "angular"
-    ],
+    "plugins": ["react", "angular"],
 
     "env": {
         "browser": true,
@@ -80,7 +77,7 @@
         "no-unsafe-negation": 2,
         "use-isnan": 2,
         "valid-typeof": 2,
-        
+
         "accessor-pairs": 2,
         "array-callback-return": 2,
         "block-scoped-var": 2,

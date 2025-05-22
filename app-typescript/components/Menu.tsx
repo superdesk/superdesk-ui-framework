@@ -132,9 +132,7 @@ export class Menu extends React.Component<IProps, {}> {
     render() {
         return (
             <React.Fragment>
-                {
-                    this.props.children(this.toggle)
-                }
+                {this.props.children(this.toggle)}
 
                 <div
                     onKeyDown={(event) => {
@@ -152,7 +150,7 @@ export class Menu extends React.Component<IProps, {}> {
                     <TieredMenu
                         popup
                         model={this.toPrimeReactInterface(this.props.items)}
-                        ref={(el) => this.menu = el}
+                        ref={(el) => (this.menu = el)}
                         appendTo={document.body}
                         onShow={() => {
                             this.focusedBefore = document.activeElement;

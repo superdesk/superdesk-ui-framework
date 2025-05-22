@@ -8,7 +8,7 @@ interface IProps {
 export class CoreLayoutContainer extends React.PureComponent<IProps> {
     render() {
         return (
-            <div className='sd-page-grid--test docs-page__full-width-helper' data-theme={this.props.theme}>
+            <div className="sd-page-grid--test docs-page__full-width-helper" data-theme={this.props.theme}>
                 {this.props.children}
             </div>
         );

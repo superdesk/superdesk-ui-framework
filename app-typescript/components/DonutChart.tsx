@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Chart } from '@superdesk/primereact/chart';
-import { ChartData, ChartOptions } from 'chart.js';
+import {Chart} from '@superdesk/primereact/chart';
+import {ChartData, ChartOptions} from 'chart.js';
 
 interface IProps {
     data: ChartData; // For more information, please refer to chart.js documentationt
@@ -11,9 +11,14 @@ interface IProps {
 
 export class DonutChart extends React.Component<IProps, {}> {
     render() {
-        return <Chart type="doughnut" width={this.props.width}
-            height={this.props.height}
-            data={this.props.data}
-            options={this.props.options} />;
+        return (
+            <Chart
+                type="doughnut"
+                width={this.props.width}
+                height={this.props.height}
+                data={this.props.data}
+                options={this.props.options}
+            />
+        );
     }
 }

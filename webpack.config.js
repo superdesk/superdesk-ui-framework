@@ -10,7 +10,7 @@ const config = {
     entry: {
         vendor: './app/vendor.js',
         examples: './examples/index.js',
-        'superdesk-ui': './app/index.js'
+        'superdesk-ui': './app/index.js',
     },
 
     output: {
@@ -81,10 +81,7 @@ const config = {
             chunks: ['vendor', 'examples', 'superdesk-ui'],
             chunksSortMode: 'manual',
         }),
-        new CopyWebpackPlugin([
-            {from: 'examples/img/', flatten: true},
-            {from: 'examples/pages/'}
-        ]),
+        new CopyWebpackPlugin([{from: 'examples/img/', flatten: true}, {from: 'examples/pages/'}]),
         new ExtractTextPlugin({
             filename: '[name].bundle.css',
         }),

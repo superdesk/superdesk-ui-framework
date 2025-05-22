@@ -1,8 +1,8 @@
-import * as React from "react";
-import { MultiSelect as PrimeMultiSelect } from "@superdesk/primereact/multiselect";
+import * as React from 'react';
+import {MultiSelect as PrimeMultiSelect} from '@superdesk/primereact/multiselect';
 import classNames from 'classnames';
-import nextId from "react-id-generator";
-import { InputWrapper } from "./Form";
+import nextId from 'react-id-generator';
+import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 import {SelectPreview} from './SelectPreview';
 import {getNextZIndex} from '../zIndex';
@@ -47,8 +47,8 @@ export class MultiSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     render() {
         let classes = classNames({
-            'showSelectAll': this.props.showSelectAll,
-            'showFilter': this.props.filter,
+            showSelectAll: this.props.showSelectAll,
+            showFilter: this.props.filter,
         });
 
         if (this.props.preview) {

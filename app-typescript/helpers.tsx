@@ -11,9 +11,9 @@ export function getTextColor(backgroundColor: string): 'black' | 'white' | undef
         const r = parseInt(backgroundColor.substr(1, 2), 16);
         const g = parseInt(backgroundColor.substr(3, 2), 16);
         const b = parseInt(backgroundColor.substr(5, 2), 16);
-        const yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+        const yiq = (r * 299 + g * 587 + b * 114) / 1000;
 
-        return (yiq >= 128) ? 'black' : 'white';
+        return yiq >= 128 ? 'black' : 'white';
     } else {
         return;
     }

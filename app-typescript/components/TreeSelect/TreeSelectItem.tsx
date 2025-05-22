@@ -1,5 +1,5 @@
-import * as React from "react";
-import { Icon } from "../Icon";
+import * as React from 'react';
+import {Icon} from '../Icon';
 import {getTextColor} from '../../helpers';
 import {ITreeNode} from './TreeSelect';
 
@@ -27,8 +27,8 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
     render() {
         return (
             <li
-                className='suggestion-item suggestion-item--multi-select'
-                role='none'
+                className="suggestion-item suggestion-item--multi-select"
+                role="none"
                 onClick={(event) => {
                     if (!this.props.disabledItem) {
                         this.props.onClick?.();
@@ -41,8 +41,8 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                 <button
                     // the className is generated in order to focus the element later
                     className={
-                        `suggestion-item--btn ${getPrefixedItemId(this.props.getId(this.props.option.value))}`
-                        + (this.props.disabledItem ? ' suggestion-item--disabled' : '')
+                        `suggestion-item--btn ${getPrefixedItemId(this.props.getId(this.props.option.value))}` +
+                        (this.props.disabledItem ? ' suggestion-item--disabled' : '')
                     }
                     onKeyDown={(event) => {
                         if (event.key === 'Enter' && this.props.option.children) {
@@ -51,46 +51,42 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                     }}
                     disabled={this.props.disabledItem}
                     data-test-id="option"
-                    role='treeitem'
+                    role="treeitem"
                     aria-selected={this.props.selectedItem === true}
                     aria-disabled={this.props.disabledItem === true}
                 >
-                    {(this.props.getBorderColor && !this.props.allowMultiple)
-                        && <div
+                    {this.props.getBorderColor && !this.props.allowMultiple && (
+                        <div
                             className="item-border"
                             style={{
                                 backgroundColor: this.props.getBorderColor(this.props.option.value),
                             }}
-                        >
-                        </div>
-                    }
+                        ></div>
+                    )}
 
                     <span
                         className={
-                            'suggestion-item--bgcolor'
-                            + (this.props.selectedItem ? ' suggestion-item--selected' : '')
+                            'suggestion-item--bgcolor' + (this.props.selectedItem ? ' suggestion-item--selected' : '')
                         }
                         style={
-                            (this.props.getBackgroundColor && this.props.option.value)
+                            this.props.getBackgroundColor && this.props.option.value
                                 ? {
-                                    backgroundColor: this.props.getBackgroundColor(this.props.option.value),
-                                    color: getTextColor(this.props.getBackgroundColor(this.props.option.value),
-                                    ),
-                                }
+                                      backgroundColor: this.props.getBackgroundColor(this.props.option.value),
+                                      color: getTextColor(this.props.getBackgroundColor(this.props.option.value)),
+                                  }
                                 : undefined
                         }
                     >
                         {this.props.optionTemplate
                             ? this.props.optionTemplate(this.props.option.value)
-                            : this.props.getLabel(this.props.option.value)
-                        }
+                            : this.props.getLabel(this.props.option.value)}
                     </span>
 
-                    {this.props.option.children
-                        && <span className="suggestion-item__icon" aria-hidden="true" data-test-id="children-indicator">
+                    {this.props.option.children && (
+                        <span className="suggestion-item__icon" aria-hidden="true" data-test-id="children-indicator">
                             <Icon name="chevron-right-thin"></Icon>
                         </span>
-                    }
+                    )}
                 </button>
             </li>
         );

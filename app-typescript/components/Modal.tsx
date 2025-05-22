@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Dialog as PrimeDialog } from '@superdesk/primereact/dialog';
+import {Dialog as PrimeDialog} from '@superdesk/primereact/dialog';
 import classNames from 'classnames';
 import {noop} from 'lodash';
 import {getNextZIndex} from './../zIndex';
@@ -14,15 +14,15 @@ interface IProps {
     contentPadding?: 'none' | 'small' | 'medium' | 'large';
     size?: 'small' | 'medium' | 'large' | 'x-large';
     position?:
-        "center"
-        | "top"
-        | "bottom"
-        | "left"
-        | "right"
-        | "top-left"
-        | "top-right"
-        | "bottom-left"
-        | "bottom-right";
+        | 'center'
+        | 'top'
+        | 'bottom'
+        | 'left'
+        | 'right'
+        | 'top-left'
+        | 'top-right'
+        | 'bottom-left'
+        | 'bottom-right';
     maximized?: boolean;
     maximizable?: boolean;
     headerTemplate?: JSX.Element | string;
@@ -36,18 +36,18 @@ export class Modal extends React.Component<IProps, {}> {
     private zIndex: number = getNextZIndex();
 
     render() {
-        let classes = classNames({
-            [`p-dialog-content--${this.props.size}`]: this.props.size,
-            'p-dialog-content-bg--default': this.props.contentBg === undefined,
-            [`p-dialog-content-bg--${this.props.contentBg}`]: this.props.contentBg,
-            'p-dialog-content--padding-small': this.props.contentPadding === undefined,
-            [`p-dialog-content--padding-${this.props.contentPadding}`]: this.props.contentPadding,
-        }, this.props.className);
+        let classes = classNames(
+            {
+                [`p-dialog-content--${this.props.size}`]: this.props.size,
+                'p-dialog-content-bg--default': this.props.contentBg === undefined,
+                [`p-dialog-content-bg--${this.props.contentBg}`]: this.props.contentBg,
+                'p-dialog-content--padding-small': this.props.contentPadding === undefined,
+                [`p-dialog-content--padding-${this.props.contentPadding}`]: this.props.contentPadding,
+            },
+            this.props.className,
+        );
         return (
-            <div
-                style={{display: 'content'}}
-                data-theme={this.props.theme !== 'dark' ? null : 'dark-ui' }
-            >
+            <div style={{display: 'content'}} data-theme={this.props.theme !== 'dark' ? null : 'dark-ui'}>
                 <PrimeDialog
                     id={this.props.id}
                     visible={this.props.visible}

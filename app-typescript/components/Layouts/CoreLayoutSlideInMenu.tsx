@@ -14,10 +14,8 @@ export class CoreLayoutSlideInMenu extends React.PureComponent<IProps> {
             [`sd-main-menu--open`]: this.props.menuOpen,
         });
         return (
-            <div id={this.props.menuId} className={classes} data-theme='dark-ui'>
-                <div className='sd-main-menu__inner'>
-                    {this.props.children}
-                </div>
+            <div id={this.props.menuId} className={classes} data-theme="dark-ui">
+                <div className="sd-main-menu__inner">{this.props.children}</div>
             </div>
         );
     }

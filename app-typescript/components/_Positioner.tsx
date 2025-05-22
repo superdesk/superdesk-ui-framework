@@ -52,7 +52,7 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
         const viewportWidth = document.documentElement.clientWidth;
 
         const availableSpaceTop = rect.top - padding;
-        const availableSpaceBottom = (viewportHeight - rect.bottom) - padding;
+        const availableSpaceBottom = viewportHeight - rect.bottom - padding;
 
         const availableSpaceLeft = rect.left;
         const availableSpaceRight = viewportWidth - rect.right;
@@ -92,8 +92,8 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
                     }
                 }}
                 tabIndex={0}
-                role='dialog'
-                aria-labelledby='popoverTitle'
+                role="dialog"
+                aria-labelledby="popoverTitle"
                 onKeyDown={(event) => {
                     if (event.key === 'Escape') {
                         event.preventDefault();
@@ -168,11 +168,13 @@ export class Positioner extends React.Component<IPropsPositioner, IStatePosition
         // the toggle button. Even if the toggle button is inside the list item.
         e.stopPropagation();
 
-        window.dispatchEvent(new CustomEvent(eventCloseOthers, {
-            detail: {
-                triggerElement: this.triggerElement,
-            },
-        }));
+        window.dispatchEvent(
+            new CustomEvent(eventCloseOthers, {
+                detail: {
+                    triggerElement: this.triggerElement,
+                },
+            }),
+        );
 
         this.setState({open: !this.state.open});
     }
@@ -180,13 +182,13 @@ export class Positioner extends React.Component<IPropsPositioner, IStatePosition
     // arguments are in a different order, because the method is bound
     closeDropdownOnOutsideClick(wrapper: HTMLElement, event: MouseEvent) {
         if (
-            this.state.open === true
-            && event != null
-            && event.target !== this.triggerElement
-            && event.target != null
-            && event.target instanceof Node // wrapper.contains accepts only Node type
-            && wrapper != null
-            && !wrapper.contains(event.target)
+            this.state.open === true &&
+            event != null &&
+            event.target !== this.triggerElement &&
+            event.target != null &&
+            event.target instanceof Node && // wrapper.contains accepts only Node type
+            wrapper != null &&
+            !wrapper.contains(event.target)
         ) {
             this.setState({
                 open: false,
@@ -197,17 +199,15 @@ export class Positioner extends React.Component<IPropsPositioner, IStatePosition
     componentDidUpdate() {
         if (this.state.open === true) {
             ReactDOM.render(
-                (
-                    <PopperWrapper
-                        {...this.props}
-                        handleCloseOthers={this.handleCloseOthers}
-                        closeDropdownOnOutsideClick={this.closeDropdownOnOutsideClick}
-                        triggerElement={this.triggerElement}
-                        close={() => {
-                            this.setState({open: false});
-                        }}
-                    />
-                ),
+                <PopperWrapper
+                    {...this.props}
+                    handleCloseOthers={this.handleCloseOthers}
+                    closeDropdownOnOutsideClick={this.closeDropdownOnOutsideClick}
+                    triggerElement={this.triggerElement}
+                    close={() => {
+                        this.setState({open: false});
+                    }}
+                />,
                 this.elementForPositioner,
             );
         } else {

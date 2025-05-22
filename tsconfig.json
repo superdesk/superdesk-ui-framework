@@ -6,10 +6,7 @@
         "declaration": true,
 
         "target": "es5",
-        "lib": [
-            "dom",
-            "es2017"
-        ],
+        "lib": ["dom", "es2017"],
         "skipLibCheck": true,
         "jsx": "react",
 
@@ -29,5 +26,5 @@
         "noUnusedParameters": true,
         "allowSyntheticDefaultImports": true,
         "esModuleInterop": true
-    },
+    }
 }

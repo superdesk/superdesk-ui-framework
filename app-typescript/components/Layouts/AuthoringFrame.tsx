@@ -31,21 +31,9 @@ export class AuthoringFrame extends React.PureComponent<IProps> {
     render() {
         return (
             <AuthoringFrameContainer>
-                {this.props.header && (
-                    <AuthoringFrameNavBar>
-                        {this.props.header}
-                    </AuthoringFrameNavBar>
-                )}
-                {this.props.leftPanel && (
-                    <AuthoringFrameLeftBar>
-                        {this.props.leftPanel}
-                    </AuthoringFrameLeftBar>
-                )}
-                {this.props.main && (
-                    <AuthoringFrameMain>
-                        {this.props.main}
-                    </AuthoringFrameMain>
-                )}
+                {this.props.header && <AuthoringFrameNavBar>{this.props.header}</AuthoringFrameNavBar>}
+                {this.props.leftPanel && <AuthoringFrameLeftBar>{this.props.leftPanel}</AuthoringFrameLeftBar>}
+                {this.props.main && <AuthoringFrameMain>{this.props.main}</AuthoringFrameMain>}
                 {this.props.sidePanel && (
                     <AuthoringFrameSidePanel opened={this.props.sidePanelOpen} pinned={this.props.sidePanelPinned}>
                         {this.props.sidePanel}
@@ -62,11 +50,7 @@ export class AuthoringFrame extends React.PureComponent<IProps> {
                     </AuthoringFrameRightBar>
                 )}
 
-                {this.props.overlayPanel && (
-                    <AuthoringFrameOverlay>
-                        {this.props.overlayPanel}
-                    </AuthoringFrameOverlay>
-                )}
+                {this.props.overlayPanel && <AuthoringFrameOverlay>{this.props.overlayPanel}</AuthoringFrameOverlay>}
             </AuthoringFrameContainer>
         );
     }

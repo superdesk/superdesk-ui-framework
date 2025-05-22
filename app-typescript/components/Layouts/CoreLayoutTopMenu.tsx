@@ -1,7 +1,7 @@
 import * as React from 'react';
 
-import { HamburgerButton } from '.';
-import { Container } from './';
+import {HamburgerButton} from '.';
+import {Container} from './';
 
 interface IProps {
     children?: React.ReactNode;
@@ -16,17 +16,16 @@ interface IProps {
 export class CoreLayoutTopMenu extends React.PureComponent<IProps> {
     render() {
         return (
-            <header className='sd-top-menu' data-theme='dark-ui'>
+            <header className="sd-top-menu" data-theme="dark-ui">
                 <HamburgerButton
                     buttonAnimation={this.props.buttonAnimation}
-                    arialabel='Toggle main menu'
+                    arialabel="Toggle main menu"
                     ariaControls={this.props.ariaControls}
                     onClick={this.props.onClick}
-                    active={this.props.active} />
-                <Container className='sd-margin-e--auto'>
-                    {this.props.heading && (
-                        <p className='sd-top-menu__header'>{this.props.heading}</p>
-                    )}
+                    active={this.props.active}
+                />
+                <Container className="sd-margin-e--auto">
+                    {this.props.heading && <p className="sd-top-menu__header">{this.props.heading}</p>}
                 </Container>
                 {this.props.children}
             </header>

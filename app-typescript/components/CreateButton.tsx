@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import { Icon } from './Icon';
-import { Tooltip } from './Tooltip';
+import {Icon} from './Icon';
+import {Tooltip} from './Tooltip';
 interface IProps {
     id?: string;
     ariaValue: string;
@@ -23,14 +23,16 @@ export class CreateButton extends React.PureComponent<IProps> {
         const value = this.props.value === undefined ? 'button' : this.props.value;
         return (
             <Tooltip text={this.props.ariaValue} flow={this.props.toolTipFlow}>
-                <button type={value}
+                <button
+                    type={value}
                     className={classes}
                     tabIndex={0}
                     onClick={this.props.onClick}
                     aria-label={this.props.ariaValue}
-                    id={this.props.id}>
-                        <Icon name="plus-large" />
-                        <span className="circle"></span>
+                    id={this.props.id}
+                >
+                    <Icon name="plus-large" />
+                    <span className="circle"></span>
                 </button>
             </Tooltip>
         );

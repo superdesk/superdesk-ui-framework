@@ -7,9 +7,9 @@ class OverflowUtilitiesDoc extends React.Component {
             <section className="docs-page__container">
                 <h2 className="docs-page__h2">Overflow</h2>
                 <p className="docs-page__paragraph">
-                Utility classes for managing how an element deals with content that exceeds the container's size. 
+                    Utility classes for managing how an element deals with content that exceeds the container's size.
                 </p>
-                <div className='docs-page__container-block--position'>
+                <div className="docs-page__container-block--position">
                     <div className="utilities-table__container utilities-table__container--no-height">
                         <table className="table utilities-table">
                             <thead>
@@ -84,10 +84,9 @@ class OverflowUtilitiesDoc extends React.Component {
                         </table>
                     </div>
                 </div>
-
             </section>
-        )
+        );
     }
 }
 
-export { OverflowUtilitiesDoc };
+export {OverflowUtilitiesDoc};

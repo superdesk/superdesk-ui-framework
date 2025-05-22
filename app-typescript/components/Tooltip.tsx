@@ -1,5 +1,5 @@
 import * as React from 'react';
-import nextId from "react-id-generator";
+import nextId from 'react-id-generator';
 import tippy, {Instance, Placement} from 'tippy.js';
 import {assertNever} from '../helpers';
 

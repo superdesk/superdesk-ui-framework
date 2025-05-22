@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { Icon } from '../Icon';
-import { IconButton } from '../IconButton';
-import { clone } from 'lodash';
+import {Icon} from '../Icon';
+import {IconButton} from '../IconButton';
+import {clone} from 'lodash';
 
 interface IProps {
     items: Array<IItem>;
@@ -55,32 +55,36 @@ export class BottomNav extends React.PureComponent<IProps, IState> {
 
     render() {
         return (
-            <ul className='sd-bottom-nav-list'>
+            <ul className="sd-bottom-nav-list">
                 {this.props.items.map((item, index) => {
                     return (
                         <li
                             key={index}
                             className={
-                                'sd-bottom-nav-list__item'
-                                + (item['active']
+                                'sd-bottom-nav-list__item' +
+                                (item['active']
                                     ? ' sd-bottom-nav-list__item--active'
-                                    : (index === this.state.index ? ' sd-bottom-nav-list__item--active' : ''))
+                                    : index === this.state.index
+                                      ? ' sd-bottom-nav-list__item--active'
+                                      : '')
                             }
                         >
-                            <a className='sd-bottom-nav-list__item-title' onClick={(event) => {
-                                this.handleClick(index);
-                                item.onClick(event);
-                            }}>
-                                {item['icon'] &&
-                                    <Icon name={item['icon']} />
-                                }
+                            <a
+                                className="sd-bottom-nav-list__item-title"
+                                onClick={(event) => {
+                                    this.handleClick(index);
+                                    item.onClick(event);
+                                }}
+                            >
+                                {item['icon'] && <Icon name={item['icon']} />}
                                 <span>{item.title}</span>
                             </a>
                             <IconButton
-                                size='small'
+                                size="small"
                                 icon="close-small"
-                                ariaValue='Delete'
-                                onClick={() => item.onRemove(index)} />
+                                ariaValue="Delete"
+                                onClick={() => item.onRemove(index)}
+                            />
                         </li>
                     );
                 })}

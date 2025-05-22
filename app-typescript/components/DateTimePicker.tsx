@@ -1,12 +1,12 @@
-import * as React from "react";
-import { DatePicker } from "../components/DatePicker";
-import { Spacer } from '@sourcefabric/common';
-import { defaultTo } from "lodash";
-import { TimePicker } from "./TimePicker";
-import { IconButton } from "./IconButton";
-import { InputWrapper } from "./Form";
-import { IInputWrapper } from "./Form/InputWrapper";
-import nextId from "react-id-generator";
+import * as React from 'react';
+import {DatePicker} from '../components/DatePicker';
+import {Spacer} from '@sourcefabric/common';
+import {defaultTo} from 'lodash';
+import {TimePicker} from './TimePicker';
+import {IconButton} from './IconButton';
+import {InputWrapper} from './Form';
+import {IInputWrapper} from './Form/InputWrapper';
+import nextId from 'react-id-generator';
 import {format} from 'date-fns';
 import {assertNever} from '../helpers';
 
@@ -47,9 +47,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
 
     handleTimeChange = (time: string) => {
         if (this.props.valueType === 'date') {
-            const [hours, minutes] = time
-                .split(":")
-                .map((x) => defaultTo(parseInt(x, 10), 0));
+            const [hours, minutes] = time.split(':').map((x) => defaultTo(parseInt(x, 10), 0));
             const origDate = this.props.value ? new Date(this.props.value) : new Date();
 
             origDate.setHours(hours, minutes);
@@ -63,7 +61,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         } else {
             assertNever(this.props);
         }
-    }
+    };
 
     handleDateChange = (date: Date | null) => {
         if (this.props.valueType === 'date') {
@@ -86,18 +84,17 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         } else {
             assertNever(this.props);
         }
-    }
+    };
 
     prepareFormat(unitOfTime: number) {
-        return unitOfTime.toString().padStart(2, "0");
+        return unitOfTime.toString().padStart(2, '0');
     }
 
     getTimeValue(): string {
         if (this.props.valueType === 'date') {
-
-        return this.props.value != null
-            ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
-            : "";
+            return this.props.value != null
+                ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
+                : '';
         } else if (this.props.valueType === 'object') {
             return this.props.value.time ?? '';
         } else {
@@ -123,7 +120,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         } else {
             assertNever(this.props);
         }
-    }
+    };
 
     render() {
         const timeValue = this.getTimeValue();
@@ -143,43 +140,43 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                 tabindex={this.props.tabindex}
                 fullWidth={this.props.fullWidth}
                 inputWrapper={this.props.inputWrapper}
-                data-test-id={this.props["data-test-id"]}
+                data-test-id={this.props['data-test-id']}
                 ref={this.props.ref}
             >
                 <Spacer h gap="8" alignItems="end" noWrap>
-                    <div style={{ flexGrow: 1 }}>
+                    <div style={{flexGrow: 1}}>
                         <DatePicker
-                        disabled={this.props.disabled}
-                        preview={this.props.preview}
-                        required={this.props.required}
-                        hideClearButton={true}
-                        value={dateValue}
-                        onChange={this.handleDateChange}
-                        dateFormat={this.props.dateFormat}
-                        inlineLabel
-                        labelHidden
-                        fullWidth={this.props.fullWidth}
+                            disabled={this.props.disabled}
+                            preview={this.props.preview}
+                            required={this.props.required}
+                            hideClearButton={true}
+                            value={dateValue}
+                            onChange={this.handleDateChange}
+                            dateFormat={this.props.dateFormat}
+                            inlineLabel
+                            labelHidden
+                            fullWidth={this.props.fullWidth}
                         />
                     </div>
-                    <div style={{ flexGrow: 1 }}>
+                    <div style={{flexGrow: 1}}>
                         <TimePicker
-                        disabled={this.props.disabled}
-                        preview={this.props.preview}
-                        value={timeValue}
-                        onChange={this.handleTimeChange}
-                        inlineLabel
-                        labelHidden
-                        allowSeconds={this.props.allowSeconds}
-                        fullWidth={this.props.fullWidth}
-                        required={this.props.required}
+                            disabled={this.props.disabled}
+                            preview={this.props.preview}
+                            value={timeValue}
+                            onChange={this.handleTimeChange}
+                            inlineLabel
+                            labelHidden
+                            allowSeconds={this.props.allowSeconds}
+                            fullWidth={this.props.fullWidth}
+                            required={this.props.required}
                         />
                     </div>
                     {this.props.preview !== true && (
                         <IconButton
-                        disabled={this.props.disabled}
-                        icon="remove-sign"
-                        onClick={this.handleClear}
-                        ariaValue="Clear"
+                            disabled={this.props.disabled}
+                            icon="remove-sign"
+                            onClick={this.handleClear}
+                            ariaValue="Clear"
                         />
                     )}
                 </Spacer>

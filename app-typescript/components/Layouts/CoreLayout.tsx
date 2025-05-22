@@ -41,23 +41,16 @@ export class CoreLayout extends React.PureComponent<IProps> {
                         heading={this.props.heading}
                         onClick={this.props.onClick}
                         active={this.props.active}
-                        ariaControls={this.props.ariaControls}>
+                        ariaControls={this.props.ariaControls}
+                    >
                         {this.props.topMenu}
                     </CoreLayoutTopMenu>
                 )}
                 <CoreLayoutMain editorFullWidth={this.props.editorFullWidth} openPanel={this.props.openPanel}>
-                        {this.props.children}
+                    {this.props.children}
                 </CoreLayoutMain>
-                {this.props.footer && (
-                    <CoreLayoutFooter>
-                        {this.props.footer}
-                    </CoreLayoutFooter>
-                )}
-                {this.props.overlay && (
-                    <CoreLayoutOverlay>
-                        {this.props.overlay}
-                    </CoreLayoutOverlay>
-                )}
+                {this.props.footer && <CoreLayoutFooter>{this.props.footer}</CoreLayoutFooter>}
+                {this.props.overlay && <CoreLayoutOverlay>{this.props.overlay}</CoreLayoutOverlay>}
             </CoreLayoutContainer>
         );
     }

@@ -1,7 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
-import nextId from "react-id-generator";
-import { Tooltip } from './Tooltip';
+import nextId from 'react-id-generator';
+import {Tooltip} from './Tooltip';
 
 interface ILabel {
     content: string | ((id: string) => React.ReactNode);
@@ -37,8 +37,8 @@ export class Switch extends React.PureComponent<IProps> {
 
     render() {
         let classes = classNames('sd-switch', {
-            'checked': this.props.value,
-            'disabled': this.props.disabled,
+            checked: this.props.value,
+            disabled: this.props.disabled,
         });
 
         const checkboxInput = (
@@ -58,20 +58,22 @@ export class Switch extends React.PureComponent<IProps> {
         // if external label is used it can't be hidden
         if (this.props.label.hidden && typeof this.props.label.content === 'string') {
             return (
-                <Tooltip
-                    text={this.props.label.content}
-                    flow={this.props.toolTipFlow}
-                >
+                <Tooltip text={this.props.label.content} flow={this.props.toolTipFlow}>
                     <span className="sd-switch__wrapper" tabIndex={-1}>
                         {checkboxInput}
-                        <label className='a11y-only' htmlFor={this.htmlId}>{this.props.label.content}</label>
+                        <label className="a11y-only" htmlFor={this.htmlId}>
+                            {this.props.label.content}
+                        </label>
                     </span>
                 </Tooltip>
             );
         } else {
-            const labelContent = typeof this.props.label.content === 'string'
-                ? <label htmlFor={this.htmlId}>{this.props.label.content}</label>
-                : this.props.label.content(this.htmlId);
+            const labelContent =
+                typeof this.props.label.content === 'string' ? (
+                    <label htmlFor={this.htmlId}>{this.props.label.content}</label>
+                ) : (
+                    this.props.label.content(this.htmlId)
+                );
 
             return (
                 <span className="sd-switch__wrapper" tabIndex={-1}>

@@ -14,11 +14,6 @@ export class PanelContentBlock extends React.PureComponent<IProps> {
             'side-panel__content-block--flex': this.props.flex,
             [`side-panel__content-block--padding-${this.props.padding}`]: this.props.padding,
         });
-        return (
-            <div className={classes}>
-                {this.props.children}
-            </div>
-        );
+        return <div className={classes}>{this.props.children}</div>;
     }
 }
-

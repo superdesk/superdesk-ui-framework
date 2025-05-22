@@ -2,11 +2,11 @@ import * as React from 'react';
 import addDays from 'date-fns/addDays';
 import format from 'date-fns/format';
 import moment from 'moment';
-import { Calendar, LocaleSettings, CalendarProps } from '@superdesk/primereact/calendar';
-import { throttle } from 'lodash';
-import nextId from "react-id-generator";
-import { InputWrapper } from './Form';
-import { IInputWrapper } from './Form/InputWrapper';
+import {Calendar, LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
+import {throttle} from 'lodash';
+import nextId from 'react-id-generator';
+import {InputWrapper} from './Form';
+import {IInputWrapper} from './Form/InputWrapper';
 import {Button} from './Button';
 import {getWeekStartByLocale} from 'weekstart';
 import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
@@ -18,9 +18,9 @@ interface IDatePickerBase extends IInputWrapper {
 
     // shortcuts can be used to jump to a date relative to today
     // for example [{label: 'tomorrow', days: 1}, {label: 'yesterday', days: -1}]
-    headerButtonBar?: Array<{days: number, label: string}>;
+    headerButtonBar?: Array<{days: number; label: string}>;
 
-    locale?: {type: 'code-only', code: string} | {type: 'full', payload: Omit<LocaleSettings, 'today' | 'clear'>};
+    locale?: {type: 'code-only'; code: string} | {type: 'full'; payload: Omit<LocaleSettings, 'today' | 'clear'>};
 
     hideClearButton?: boolean;
 }
@@ -113,10 +113,10 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 
         this.hidePopupOnScroll = throttle(() => {
             if (
-                this.instance != null
-                && this.instance.panel != null
-                && this.instance.hideOverlay != null
-                && this.instance.panel.classList.contains(internalPrimereactClassnames.overlayVisible)
+                this.instance != null &&
+                this.instance.panel != null &&
+                this.instance.hideOverlay != null &&
+                this.instance.panel.classList.contains(internalPrimereactClassnames.overlayVisible)
             ) {
                 this.instance.hideOverlay();
             }
@@ -140,7 +140,8 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
             if (this.props.value !== prevProps.value) {
                 this.setState({value: parseToPrimeReactCalendarFormat(this.props.value), valid: true});
             }
-        } else if (this.props.value.getTime() !== prevProps.value.getTime()) { // comparing by value
+        } else if (this.props.value.getTime() !== prevProps.value.getTime()) {
+            // comparing by value
             this.setState({value: parseToPrimeReactCalendarFormat(this.props.value), valid: true});
         }
     }
@@ -173,9 +174,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
             }
         })();
 
-        const showClearButton = this.props.required === true
-            ? false
-            : this.props.hideClearButton !== true;
+        const showClearButton = this.props.required === true ? false : this.props.hideClearButton !== true;
 
         return (
             <InputWrapper
@@ -192,24 +191,28 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 inputWrapper={this.props.inputWrapper}
             >
                 <Calendar
-                    className='sd-input__input'
-                    footerTemplate={showClearButton ? () => (
-                        <div className='d-flex justify-end'>
-                            <Button
-                                onClick={() => {
-                                    this.props.onChange(null);
-                                    if (
-                                        this.instance != null
-                                        && typeof this.instance.hideOverlay === 'function'
-                                    ) {
-                                        this.instance.hideOverlay();
-                                    }
-                                }}
-                                text='Clear'
-                                data-test-id='clear-button'
-                            />
-                        </div>
-                    ) : undefined}
+                    className="sd-input__input"
+                    footerTemplate={
+                        showClearButton
+                            ? () => (
+                                  <div className="d-flex justify-end">
+                                      <Button
+                                          onClick={() => {
+                                              this.props.onChange(null);
+                                              if (
+                                                  this.instance != null &&
+                                                  typeof this.instance.hideOverlay === 'function'
+                                              ) {
+                                                  this.instance.hideOverlay();
+                                              }
+                                          }}
+                                          text="Clear"
+                                          data-test-id="clear-button"
+                                      />
+                                  </div>
+                              )
+                            : undefined
+                    }
                     inputId={this.htmlId}
                     ariaLabelledBy={this.htmlId + 'label'}
                     ref={(ref) => {
@@ -220,7 +223,6 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                         if (this.props['data-test-id'] != null && refAny?.inputElement != null) {
                             refAny.inputElement.setAttribute('data-test-id', this.props['data-test-id']);
                         }
-
                     }}
                     value={this.state.value === null ? undefined : this.state.value}
                     onChange={(event) => {
@@ -238,27 +240,29 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                     dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
                     showIcon={true}
                     icon="icon-calendar"
-                    headerTemplate={() => this.props.headerButtonBar == null ? null : (
-                        <div className="datepicker-header-toolbar">
-                            {this.props.headerButtonBar.map(({label, days}, i) => (
-                                <button
-                                    key={i}
-                                    className="btn btn--small"
-                                    onClick={() => {
-                                        this.props.onChange(addDays(new Date(), days));
-                                        if (
-                                            this.instance != null
-                                            && typeof this.instance.hideOverlay === 'function'
-                                        ) {
-                                            this.instance.hideOverlay();
-                                        }
-                                    }}
-                                >
-                                    {label}
-                                </button>
-                            ))}
-                        </div>
-                    )}
+                    headerTemplate={() =>
+                        this.props.headerButtonBar == null ? null : (
+                            <div className="datepicker-header-toolbar">
+                                {this.props.headerButtonBar.map(({label, days}, i) => (
+                                    <button
+                                        key={i}
+                                        className="btn btn--small"
+                                        onClick={() => {
+                                            this.props.onChange(addDays(new Date(), days));
+                                            if (
+                                                this.instance != null &&
+                                                typeof this.instance.hideOverlay === 'function'
+                                            ) {
+                                                this.instance.hideOverlay();
+                                            }
+                                        }}
+                                    >
+                                        {label}
+                                    </button>
+                                ))}
+                            </div>
+                        )
+                    }
                     appendTo={document.body} // making it work inside `overflow:hidden`
                     disabled={this.props.disabled}
                     minDate={this.props.minDate}

@@ -20,11 +20,11 @@ export class IconLabel extends React.PureComponent<IProps> {
 
         return (
             <span className={classes}>
-                {this.props.icon ?
-                    <Icon name={this.props.icon}/> : null}
-                {this.props.innerLabel ?
-                    <span className='label-icon--inner-label'>{this.props.innerLabel}</span> : null}
-                <span className='label-icon__value'>{this.props.text}</span>
+                {this.props.icon ? <Icon name={this.props.icon} /> : null}
+                {this.props.innerLabel ? (
+                    <span className="label-icon--inner-label">{this.props.innerLabel}</span>
+                ) : null}
+                <span className="label-icon__value">{this.props.text}</span>
             </span>
         );
     }
