@@ -1,6 +1,6 @@
 {
   "name": "superdesk-ui-framework",
-  "version": "4.0.39",
+  "version": "4.0.46",
   "license": "AGPL-3.0",
   "repository": {
     "type": "git",
@@ -19,10 +19,10 @@
   "scripts": {
     "start": "webpack-dev-server --config tasks/webpack.dev.js",
     "server": "webpack --watch --config tasks/webpack.prod.js && tsc-watch",
-    "build": "webpack --config tasks/webpack.prod.js && tsc",
+    "build": "tsc -p tsconfig.json --noEmit && webpack --config tasks/webpack.prod.js && tsc",
     "build-ui": "webpack && tsc && npm run lint",
     "playground-lint": "tsc -p examples/pages/playgrounds/react-playgrounds --noEmit",
-    "lint": "eslint --parser=@typescript-eslint/parser app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}' && npm run playground-lint",
+    "lint": "tsc -p tsconfig.json --noEmit && eslint --parser=@typescript-eslint/parser app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}' && npm run playground-lint",
     "lint-fix": "tsc -p tsconfig.json --noEmit && tslint --fix -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
     "prepublishOnly": "npm run build",
     "unit-test": "mocha",
@@ -87,7 +87,7 @@
     "ts-loader": "^6.0.2",
     "ts-node": "^10.9.1",
     "tslint": "^5.18.0",
-    "typescript": "4.9.5",
+    "typescript": "^5.8.3",
     "url-loader": "^1.1.2",
     "webpack": "^3.5.5",
     "webpack-cli": "3.3.10",
@@ -96,7 +96,7 @@
   },
   "dependencies": {
     "@popperjs/core": "^2.4.0",
-    "@superdesk/common": "0.0.28",
+    "@sourcefabric/common": "0.0.63",
     "@superdesk/primereact": "^5.0.2-13",
     "@superdesk/react-resizable-panels": "0.0.39",
     "chart.js": "^2.9.3",
@@ -107,7 +107,8 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-id-generator": "^3.0.0",
     "react-scrollspy": "^3.4.3",
-    "tippy.js": "^6.3.7"
+    "tippy.js": "^6.3.7",
+    "weekstart": "^2.0.0"
   },
   "peerDependencies": {
     "moment": "*"

@@ -27,7 +27,6 @@ export { getDurationString } from './components/DurationInput';
 export { DatePicker } from './components/DatePicker';
 export { DateTimePicker } from './components/DateTimePicker';
 export { DatePickerISO } from './components/DatePicker';
-export { DatePickerLocaleSettings } from './components/DatePicker';
 export { TimePicker } from './components/TimePicker';
 export { TimePickerV2 } from './components/TimePickerV2';
 export { FormLabel } from './components/FormLabel';
@@ -103,12 +102,13 @@ export { MultiSelect } from './components/MultiSelect';
 export { ResizablePanels } from './components/ResizablePanels';
 export { WithPopover } from './components/WithPopover';
 export { PopupPositioner, showPopup } from './components/ShowPopup';
-export { Spacer, SpacerBlock } from '@superdesk/common';
+export { Spacer, SpacerBlock } from '@sourcefabric/common';
 export { ResizeObserverComponent } from './components/ResizeObserverComponent';
 export { DragHandleDots } from './components/DragHandleDots';
 export { DragHandle } from './components/DragHandle';
-export { CalendarWeekDayItem } from './components/Lists/CalendarWeekDayItem';
+export {CalendarWeekDayItem, WeeklyCalendarGrid, WeeklyCalendarGridItem} from './components/Lists/CalendarWeekDayItem';
 export { getTextColor } from './helpers';
+export { setupLocalization } from './localization';
 
 // declare non-typescript exports to prevent errors
 export declare const ToggleBoxNext: any;

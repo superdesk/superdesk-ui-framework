@@ -25,10 +25,6 @@ interface IProps<T> {
 
 export class TreeSelectItem<T> extends React.Component<IProps<T>> {
     render() {
-        const ariaLabel = this.props.parentCategory !== undefined
-            ? `${this.props.getLabel(this.props.option.value)}, parent ${this.props.parentCategory}`
-            : this.props.getLabel(this.props.option.value);
-
         return (
             <li
                 className='suggestion-item suggestion-item--multi-select'
@@ -55,7 +51,7 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                     }}
                     disabled={this.props.disabledItem}
                     data-test-id="option"
-                    role='treeItem'
+                    role='treeitem'
                     aria-selected={this.props.selectedItem === true}
                     aria-disabled={this.props.disabledItem === true}
                 >
@@ -83,7 +79,6 @@ export class TreeSelectItem<T> extends React.Component<IProps<T>> {
                                 }
                                 : undefined
                         }
-                        aria-label={ariaLabel}
                     >
                         {this.props.optionTemplate
                             ? this.props.optionTemplate(this.props.option.value)

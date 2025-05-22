@@ -4,7 +4,7 @@ import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
 import * as Nav from '../../../../app-typescript/components/Navigation';
 import { BoxedList, BoxedListItem, BoxedListContentRow } from '../../../../app-typescript/components/Lists';
-import { Spacer } from '@superdesk/common';
+import { Spacer } from '@sourcefabric/common';
 
 interface IProps {
     children?: React.ReactNode;

@@ -150,6 +150,7 @@ interface IProps {
     children?: React.ReactNode;
     density?: 'compact' | 'comfortable'; // defaults to 'compact'
     className?: string;
+    style?: React.CSSProperties;
 }
 
 class BoxedList extends React.PureComponent<IProps> {
@@ -159,7 +160,7 @@ class BoxedList extends React.PureComponent<IProps> {
             [`boxed-list--${this.props.density}`]: this.props.density || this.props.density !== undefined,
         }, this.props.className);
         return (
-            <ul className={classes}>
+            <ul className={classes} style={this.props.style}>
                 {this.props.children}
             </ul>
         );

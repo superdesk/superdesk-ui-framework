@@ -8,8 +8,10 @@ import nextId from "react-id-generator";
 import { InputWrapper } from './Form';
 import { IInputWrapper } from './Form/InputWrapper';
 import {Button} from './Button';
-
-export type DatePickerLocaleSettings = Omit<LocaleSettings, 'today' | 'clear'>;
+import {getWeekStartByLocale} from 'weekstart';
+import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
+import {localization} from '../localization';
+import {assertNever} from '../helpers';
 
 interface IDatePickerBase extends IInputWrapper {
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
@@ -18,21 +20,7 @@ interface IDatePickerBase extends IInputWrapper {
     // for example [{label: 'tomorrow', days: 1}, {label: 'yesterday', days: -1}]
     headerButtonBar?: Array<{days: number, label: string}>;
 
-    // ability to provide localisation. for example (see https://primefaces.org/primereact/showcase/#/calendar):
-    /*
-        locale={{
-            firstDayOfWeek: 1,
-            dayNames: ["domingo", "lunes", "martes", "miércoles", "jueves", "viernes", "sábado"],
-            dayNamesShort: ["dom", "lun", "mar", "mié", "jue", "vie", "sáb"],
-            dayNamesMin: ["D", "L", "M", "X", "J", "V", "S"],
-            monthNames: [
-                "enero", "febrero", "marzo", "abril", "mayo", "junio",
-                "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
-            ],
-            monthNamesShort: ["ene", "feb", "mar", "abr", "may", "jun", "jul", "ago", "sep", "oct", "nov", "dic"],
-        }}
-     */
-    locale?: DatePickerLocaleSettings;
+    locale?: {type: 'code-only', code: string} | {type: 'full', payload: Omit<LocaleSettings, 'today' | 'clear'>};
 
     hideClearButton?: boolean;
 }
@@ -79,6 +67,36 @@ function parseFromPrimeReactCalendarFormat(value: CalendarProps['value']): IDate
 
 function parseToPrimeReactCalendarFormat(value: IDatePicker['value']): CalendarProps['value'] {
     return value === null ? undefined : value;
+}
+
+function getDatePickerLocale(code?: string): LocaleSettings {
+    const localeCode = code ?? 'en-US';
+    const firstDayOfWeek = getWeekStartByLocale(localeCode);
+
+    const dayNames: {long: Array<string>; short: Array<string>; narrow: Array<string>} = {
+        long: [],
+        short: [],
+        narrow: [],
+    };
+
+    for (const weekday of getWeekdayNames(0, localeCode)) {
+        dayNames.long.push(weekday.nameLong);
+        dayNames.short.push(weekday.nameShort);
+        dayNames.narrow.push(weekday.nameNarrow);
+    }
+
+    const locale: LocaleSettings = {
+        firstDayOfWeek: firstDayOfWeek,
+        dayNames: dayNames.long,
+        dayNamesShort: dayNames.short,
+        dayNamesMin: dayNames.short, // using short instead of narrow on purpose
+        monthNames: getMonthNames(localeCode, 'long'),
+        monthNamesShort: getMonthNames(localeCode, 'short'),
+        today: localization.translations.today,
+        clear: localization.translations.clear,
+    };
+
+    return locale;
 }
 
 export class DatePicker extends React.PureComponent<IDatePicker, IState> {
@@ -128,15 +146,6 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
     }
 
     render() {
-        let locale: LocaleSettings | undefined;
-        if (this.props.locale != null) {
-            locale = {
-                ...this.props.locale,
-                today: 'today',
-                clear: 'clear',
-            };
-        }
-
         if (this.props.preview) {
             return (
                 // We have to do type assertion here because we wrap primereact's component using
@@ -147,6 +156,22 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 </div>
             );
         }
+
+        const locale: LocaleSettings | undefined = (() => {
+            if (this.props.locale == null) {
+                return undefined;
+            } else if (this.props.locale.type === 'code-only') {
+                return getDatePickerLocale(this.props.locale.code);
+            } else if (this.props.locale.type === 'full') {
+                return {
+                    ...this.props.locale.payload,
+                    today: localization.translations.today,
+                    clear: localization.translations.clear,
+                } satisfies LocaleSettings;
+            } else {
+                return assertNever(this.props.locale);
+            }
+        })();
 
         const showClearButton = this.props.required === true
             ? false

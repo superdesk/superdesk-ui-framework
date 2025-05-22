@@ -1,6 +1,6 @@
 import * as React from "react";
 import { DatePicker } from "../components/DatePicker";
-import { Spacer } from "@superdesk/common";
+import { Spacer } from '@sourcefabric/common';
 import { defaultTo } from "lodash";
 import { TimePicker } from "./TimePicker";
 import { IconButton } from "./IconButton";
