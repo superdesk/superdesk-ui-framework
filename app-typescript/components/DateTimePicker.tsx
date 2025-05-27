@@ -18,22 +18,26 @@ interface IProps extends IInputWrapper {
   required?: boolean;
   disabled?: boolean;
   ref?: React.LegacyRef<InputWrapper>;
-  'data-test-id'?: string;
+  "data-test-id"?: string;
 }
 
 export class DateTimePicker extends React.PureComponent<IProps> {
   private htmlId: string = nextId();
 
   handleTimeChange = (time: string) => {
-    const [hours, minutes] = time
+    const [hours, minutes, seconds] = time
       .split(":")
       .map((x) => defaultTo(parseInt(x, 10), 0)); // handle NaN value
     const origDate = this.props.value ? new Date(this.props.value) : new Date();
 
     origDate.setHours(hours, minutes);
 
+    if (this.props.allowSeconds) {
+      origDate.setSeconds(seconds)
+    }
+
     this.props.onChange(origDate);
-  }
+  };
 
   handleDateChange = (date: Date | null) => {
     if (date == null) {
@@ -48,19 +52,28 @@ export class DateTimePicker extends React.PureComponent<IProps> {
     selectedDate.setHours(origDate.getHours(), origDate.getMinutes());
 
     this.props.onChange(selectedDate);
-  }
+  };
 
   prepareFormat(unitOfTime: number) {
     return unitOfTime.toString().padStart(2, "0");
   }
 
   render() {
-    const convertedTimeValue =
-      this.props.value != null
-        ? `${this.prepareFormat(
-            this.props.value.getHours(),
-          )}:${this.prepareFormat(this.props.value.getMinutes())}`
-        : "";
+    const convertedTimeValue = (() => {
+      if (this.props.value == null) {
+        return undefined;
+      } else {
+        const baseTimeValue = `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`;
+
+        if (this.props.allowSeconds) {
+          return (
+            baseTimeValue + `:${this.prepareFormat(this.props.value.getSeconds())}`
+          );
+        } else {
+          return baseTimeValue;
+        }
+      }
+    })();
 
     return (
       <InputWrapper
@@ -100,14 +113,14 @@ export class DateTimePicker extends React.PureComponent<IProps> {
               disabled={this.props.disabled}
               preview={this.props.preview}
               value={convertedTimeValue}
-              onChange={(val) => {
-                this.handleTimeChange(val);
-              }}
+              onChange={this.handleTimeChange}
               inlineLabel
               labelHidden
               allowSeconds={this.props.allowSeconds}
               fullWidth={this.props.fullWidth}
               required={this.props.required}
+              headerTemplate={<div>header template</div>}
+              footerTemplate={<div>footer template</div>}
             />
           </div>
           {this.props.preview !== true && (

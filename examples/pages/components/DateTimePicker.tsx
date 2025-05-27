@@ -7,7 +7,7 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: Date | nu
         super(props);
 
         this.state = {
-            dateTime: new Date(),
+            dateTime: null,
         };
     }
 
