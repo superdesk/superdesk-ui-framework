@@ -28,5 +28,5 @@ export function getOptionsForTimeUnit(
 }
 
 export function padValue(value: number) {
-    return padStart((value).toString(), 2, '0');
+    return padStart(value.toString(), 2, '0');
 }

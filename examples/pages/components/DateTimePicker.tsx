@@ -18,7 +18,7 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: Date | nu
                 labelHidden
                 inlineLabel
                 fullWidth
-                valueType='date'
+                valueType="date"
                 value={this.state.dateTime}
                 dateFormat="YYYY-MM-DD"
                 fullWidth
