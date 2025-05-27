@@ -1,5 +1,5 @@
 .time-unit-highlight {
-    background-color: $sd-colour-interactive;
+    background-color: var(--sd-colour-interactive);
     color: $white;
 }
 
@@ -20,9 +20,9 @@
     justify-content: center;
     width: 32px;
     height: 32px;
-    border-radius: $border-radius__base--x-small;
+    border-radius: var(--b-radius--x-small);
     font-weight: normal;
-    margin-inline-start: 4px;
-    margin-inline-end: 4px;
+    margin-inline-start: var(--gap--x-small);
+    margin-inline-end: var(--gap--x-small);
     transition: $sd-transition__menu-item;
 }

@@ -12,6 +12,7 @@ interface IProps {
     allowSeconds?: boolean;
     onChange: (nextValue: string) => void;
     value?: string;
+    locale?: {code?: string; timeFormat?: 12 | 24};
 }
 
 interface IPropsTimeValueHolder {
@@ -48,42 +49,49 @@ class TimeValueHolder extends React.PureComponent<IPropsTimeValueHolder> {
     }
 }
 
+function parseUnitOfTime(unit: ITimeUnit, value?: string, is12HourFormat?: boolean): string {
+    const [hour, minutes, seconds] = (value ?? '').split(':');
+    const valueForUnit = (() => {
+        if (unit === 'hours') {
+            return hour;
+        } else if (unit === 'minutes') {
+            return minutes;
+        } else if (unit === 'seconds') {
+            return seconds;
+        } else {
+            assertNever(unit);
+        }
+    })();
+
+    const valueParsed =
+        is12HourFormat && unit === 'hours' && valueForUnit != '12'
+            ? parseInt(valueForUnit) % 12
+            : parseInt(valueForUnit);
+
+    return padValue(valueParsed);
+}
+
 export class TimePickerPopover extends React.PureComponent<IProps> {
-    is12HourFormat: boolean;
+    private is12HourFormat: boolean;
 
     // hour, minutes, seconds
-    activeTime: Array<React.RefObject<TimeValueHolder>>;
+    private inputRefs: Array<React.RefObject<TimeValueHolder>>;
 
     constructor(props: IProps) {
         super(props);
 
-        this.activeTime = [React.createRef(), React.createRef(), React.createRef()];
-
-        this.parseUnitOfTime = this.parseUnitOfTime.bind(this);
+        this.inputRefs = [React.createRef(), React.createRef(), React.createRef()];
         this.handleChange = this.handleChange.bind(this);
 
-        const hour = new Date().toLocaleTimeString([], {hour: 'numeric'});
+        const hour = new Date().toLocaleTimeString(this.props.locale?.code == null ? [] : [this.props.locale?.code], {
+            hour: 'numeric',
+        });
 
-        this.is12HourFormat = hour.includes('AM') || hour.includes('PM');
-    }
-
-    parseUnitOfTime(unit: ITimeUnit) {
-        const [hour, minutes, seconds] = (this.props.value ?? '').split(':');
-        const value = (() => {
-            if (unit === 'hours') {
-                return hour;
-            } else if (unit === 'minutes') {
-                return minutes;
-            } else if (unit === 'seconds') {
-                return seconds;
-            } else {
-                assertNever(unit);
-            }
-        })();
-
-        const valueParsed = this.is12HourFormat && unit === 'hours' ? parseInt(value) % 12 : parseInt(value);
-
-        return padValue(valueParsed);
+        debugger
+        this.is12HourFormat =
+            this.props.locale?.timeFormat != null
+                ? this.props.locale.timeFormat === 12
+                : hour.includes('AM') || hour.includes('PM');
     }
 
     handleChange(unit: ITimeUnit, value: string) {
@@ -116,15 +124,15 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
     }
 
     componentDidMount(): void {
-        this.activeTime.forEach((unitOfTime) => unitOfTime?.current?.scrollToValue?.());
+        this.inputRefs.forEach((unitOfTime) => unitOfTime?.current?.scrollToValue?.());
     }
 
     render(): React.ReactNode {
         const styleForColumnOfUnit: React.CSSProperties = {
-            overflowY: 'auto',
             maxHeight: 190,
+            overflowY: 'auto',
             scrollbarWidth: 'none',
-            marginTop: 8,
+            marginTop: 'var(--gap-1)',
         };
 
         return (
@@ -133,10 +141,10 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                     v
                     gap="0"
                     style={{
-                        padding: 8,
                         width: 200,
-                        backgroundColor: 'white',
-                        borderRadius: 3,
+                        padding: 'var(--gap-1)',
+                        backgroundColor: 'var(--color-bg-00)',
+                        borderRadius: 'var(--b-radius--small)',
                     }}
                 >
                     {this.props.headerTemplate && (
@@ -148,13 +156,38 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                     <Spacer h gap="4" noWrap justifyContent="center" alignItems="start">
                         <Spacer v gap="4" style={styleForColumnOfUnit} alignItems="center" noWrap>
                             {getOptionsForTimeUnit('hours', this.is12HourFormat).map((hour) => {
-                                const isActiveHour = hour === this.parseUnitOfTime('hours');
+                                /**
+                                 * Hour value is always in 24-hour format, so we need to adjust it
+                                 * to 12-hour if needed.
+                                 */
+                                const formattedValue = (() => {
+                                    if (this.props.value == null) {
+                                        return undefined;
+                                    }
+
+                                    const timeParsed = this.props.value.split(':');
+
+                                    if (this.is12HourFormat) {
+                                        const hourAdjusted = timeParsed?.[0] === '00' ? '12' : timeParsed?.[0];
+
+                                        if (this.props.allowSeconds) {
+                                            return `${hourAdjusted}:${timeParsed?.[1] ?? '00'}:${timeParsed?.[2] ?? '00'}`;
+                                        } else {
+                                            return `${hourAdjusted}:${timeParsed?.[1] ?? '00'}`;
+                                        }
+                                    } else {
+                                        return padValue(parseInt(hour));
+                                    }
+                                })();
+
+                                const isActiveHour =
+                                    hour === parseUnitOfTime('hours', formattedValue, this.is12HourFormat);
 
                                 return (
                                     <TimeValueHolder
-                                        ref={isActiveHour ? this.activeTime[0] : undefined}
+                                        ref={isActiveHour ? this.inputRefs[0] : undefined}
                                         onClick={() => {
-                                            this.handleChange('hours', hour);
+                                            this.handleChange('hours', hour === '00' ? '12' : hour);
                                         }}
                                         isActive={isActiveHour}
                                         value={hour}
@@ -165,11 +198,12 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                         <ContentDivider align="center" border type="solid" orientation="vertical" margin="none" />
                         <Spacer v gap="4" style={styleForColumnOfUnit} alignItems="center" noWrap>
                             {getOptionsForTimeUnit('minutes', this.is12HourFormat).map((minute) => {
-                                const isActiveMinute = minute === this.parseUnitOfTime('minutes');
+                                const isActiveMinute =
+                                    minute === parseUnitOfTime('minutes', this.props.value, this.is12HourFormat);
 
                                 return (
                                     <TimeValueHolder
-                                        ref={isActiveMinute ? this.activeTime[1] : undefined}
+                                        ref={isActiveMinute ? this.inputRefs[1] : undefined}
                                         isActive={isActiveMinute}
                                         value={minute}
                                         onClick={() => {
@@ -190,11 +224,13 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                                 />
                                 <Spacer v gap="4" style={styleForColumnOfUnit} alignItems="center" noWrap>
                                     {getOptionsForTimeUnit('seconds', this.is12HourFormat).map((second) => {
-                                        const isActiveMinute = second === this.parseUnitOfTime('seconds');
+                                        const isActiveMinute =
+                                            second ===
+                                            parseUnitOfTime('seconds', this.props.value, this.is12HourFormat);
 
                                         return (
                                             <TimeValueHolder
-                                                ref={isActiveMinute ? this.activeTime[2] : undefined}
+                                                ref={isActiveMinute ? this.inputRefs[2] : undefined}
                                                 onClick={() => {
                                                     this.handleChange('seconds', second);
                                                 }}
@@ -209,7 +245,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                         {this.is12HourFormat && (
                             <div
                                 style={{
-                                    marginTop: 8,
+                                    marginTop: 'var(--gap-1)',
                                 }}
                             >
                                 <RadioButtonGroup
@@ -225,7 +261,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                             this.props.onChange(newValue);
                                         } else {
-                                            let newValue = `${parseInt(hour) % 12}:${minutes}`;
+                                            let newValue = `${parseInt(hour) - 12}:${minutes}`;
 
                                             if (this.props.allowSeconds) {
                                                 newValue += `:${seconds}`;

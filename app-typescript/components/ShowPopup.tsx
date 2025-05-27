@@ -10,6 +10,7 @@ interface IPropsPopupPositioner {
     placement: Placement;
     onClose(): void;
     closeOnHoverEnd?: boolean;
+    'data-test-id'?: string;
 }
 
 export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> {
@@ -124,6 +125,7 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
                             display: 'flex',
                             zIndex: this.zIndex,
                         }}
+                        data-test-id={this.props['data-test-id']}
                     >
                         {this.props.children}
                     </div>,
