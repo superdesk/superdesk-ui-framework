@@ -12,7 +12,6 @@ interface IProps {
     allowSeconds?: boolean;
     onChange: (nextValue: string) => void;
     value?: string;
-    locale?: {code?: string; timeFormat?: 12 | 24};
 }
 
 interface IPropsTimeValueHolder {
@@ -83,15 +82,8 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
         this.inputRefs = [React.createRef(), React.createRef(), React.createRef()];
         this.handleChange = this.handleChange.bind(this);
 
-        const hour = new Date().toLocaleTimeString(this.props.locale?.code == null ? [] : [this.props.locale?.code], {
-            hour: 'numeric',
-        });
-
-        debugger
-        this.is12HourFormat =
-            this.props.locale?.timeFormat != null
-                ? this.props.locale.timeFormat === 12
-                : hour.includes('AM') || hour.includes('PM');
+        const hour = new Date().toLocaleTimeString([]);
+        this.is12HourFormat = hour.includes('AM') || hour.includes('PM');
     }
 
     handleChange(unit: ITimeUnit, value: string) {
@@ -187,7 +179,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                                     <TimeValueHolder
                                         ref={isActiveHour ? this.inputRefs[0] : undefined}
                                         onClick={() => {
-                                            this.handleChange('hours', hour === '00' ? '12' : hour);
+                                            this.handleChange('hours', hour);
                                         }}
                                         isActive={isActiveHour}
                                         value={hour}
