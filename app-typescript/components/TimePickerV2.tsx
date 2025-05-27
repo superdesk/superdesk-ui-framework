@@ -55,7 +55,7 @@ export class TimePickerV2 extends React.PureComponent<IProps> {
     }
 
     private getOptionsForTimeUnit(timeUnit: ITimeUnit): Array<string> {
-        let format12HourArr = range(1, 13);
+        const format12HourArr = range(1, 13);
         format12HourArr.unshift(format12HourArr.pop() as number);
 
         const timeUnitArray = (() => {
