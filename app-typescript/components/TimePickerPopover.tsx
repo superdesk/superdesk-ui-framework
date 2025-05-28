@@ -63,9 +63,9 @@ function parseUnitOfTime(unit: ITimeUnit, value?: string, is12HourFormat?: boole
     })();
 
     const valueParsed =
-        is12HourFormat && unit === 'hours' && valueForUnit != '12'
-            ? parseInt(valueForUnit) % 12
-            : parseInt(valueForUnit);
+        is12HourFormat && unit === 'hours' && valueForUnit !== '12'
+            ? parseInt(valueForUnit, 10) % 12
+            : parseInt(valueForUnit, 10);
 
     return padValue(valueParsed);
 }
@@ -168,7 +168,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                                             return `${hourAdjusted}:${timeParsed?.[1] ?? '00'}`;
                                         }
                                     } else {
-                                        return padValue(parseInt(hour));
+                                        return padValue(parseInt(hour, 10));
                                     }
                                 })();
 
@@ -245,7 +245,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                                         const [hour, minutes, seconds] = (this.props.value ?? '').split(':');
 
                                         if (nextValue === 'PM') {
-                                            let newValue = `${parseInt(hour) + 12}:${minutes}`;
+                                            let newValue = `${parseInt(hour, 10) + 12}:${minutes}`;
 
                                             if (this.props.allowSeconds) {
                                                 newValue += `:${seconds}`;
@@ -253,7 +253,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                             this.props.onChange(newValue);
                                         } else {
-                                            let newValue = `${parseInt(hour) - 12}:${minutes}`;
+                                            let newValue = `${parseInt(hour, 10) - 12}:${minutes}`;
 
                                             if (this.props.allowSeconds) {
                                                 newValue += `:${seconds}`;
@@ -272,7 +272,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                                             value: 'PM',
                                         },
                                     ]}
-                                    value={parseInt((this.props.value ?? '').split(':')[0]) < 12 ? 'AM' : 'PM'}
+                                    value={parseInt((this.props.value ?? '').split(':')[0], 10) < 12 ? 'AM' : 'PM'}
                                 />
                             </div>
                         )}
