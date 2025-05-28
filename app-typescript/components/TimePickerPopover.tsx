@@ -52,7 +52,15 @@ function parseUnitOfTime(unit: ITimeUnit, value?: string, is12HourFormat?: boole
     const [hour, minutes, seconds] = (value ?? '').split(':');
     const valueForUnit = (() => {
         if (unit === 'hours') {
-            return hour;
+            /**
+             * Hour value is always in 24-hour format, so we need to adjust it
+             * to 12-hour if needed.
+             */
+            if (is12HourFormat) {
+                return hour === '00' ? '12' : hour;
+            } else {
+                return hour;
+            }
         } else if (unit === 'minutes') {
             return minutes;
         } else if (unit === 'seconds') {
@@ -148,32 +156,8 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                     <Spacer h gap="4" noWrap justifyContent="center" alignItems="start">
                         <Spacer v gap="4" style={styleForColumnOfUnit} alignItems="center" noWrap>
                             {getOptionsForTimeUnit('hours', this.is12HourFormat).map((hour) => {
-                                /**
-                                 * Hour value is always in 24-hour format, so we need to adjust it
-                                 * to 12-hour if needed.
-                                 */
-                                const formattedValue = (() => {
-                                    if (this.props.value == null) {
-                                        return undefined;
-                                    }
-
-                                    const timeParsed = this.props.value.split(':');
-
-                                    if (this.is12HourFormat) {
-                                        const hourAdjusted = timeParsed?.[0] === '00' ? '12' : timeParsed?.[0];
-
-                                        if (this.props.allowSeconds) {
-                                            return `${hourAdjusted}:${timeParsed?.[1] ?? '00'}:${timeParsed?.[2] ?? '00'}`;
-                                        } else {
-                                            return `${hourAdjusted}:${timeParsed?.[1] ?? '00'}`;
-                                        }
-                                    } else {
-                                        return padValue(parseInt(hour, 10));
-                                    }
-                                })();
-
                                 const isActiveHour =
-                                    hour === parseUnitOfTime('hours', formattedValue, this.is12HourFormat);
+                                    hour === parseUnitOfTime('hours', this.props.value, this.is12HourFormat);
 
                                 return (
                                     <TimeValueHolder
