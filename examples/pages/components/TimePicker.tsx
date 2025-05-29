@@ -7,12 +7,12 @@ import {TimePickerV2} from '../../../app-typescript/components/TimePickerV2';
 let minutes = Array.from(Array(60).keys());
 let changedMinutes = minutes.filter((num) => num % 15 !== 0);
 
-class TimePickerExample extends React.PureComponent<{}, {time: string}> {
+class TimePickerExample extends React.PureComponent<{}, {time: string | null}> {
     constructor(props) {
         super(props);
 
         this.state = {
-            time: '',
+            time: null,
         };
     }
 
