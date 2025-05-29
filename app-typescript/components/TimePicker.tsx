@@ -6,7 +6,7 @@ import {TimePickerPopover} from './TimePickerPopover';
 import {PopupPositioner} from './ShowPopup';
 
 interface IProps extends IInputWrapper {
-    value?: string; // ISO8601 time string(e.g. 16:55) or null if there's no value
+    value: string | null; // ISO8601 time string(e.g. 16:55) or null if there's no value
     onChange(valueNext: string): void;
     allowSeconds?: boolean;
     headerTemplate?: React.ReactNode;
@@ -83,8 +83,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                         cursor: 'pointer',
                     }}
                     ref={this.timeInputRef}
-                    key={this.props.value}
-                    value={this.props.value}
+                    value={this.props.value ?? undefined}
                     type="time"
                     onClick={(e) => {
                         // don't show default popup

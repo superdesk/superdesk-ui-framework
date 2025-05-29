@@ -94,13 +94,13 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         return unitOfTime.toString().padStart(2, '0');
     }
 
-    getTimeValue(): string {
+    getTimeValue(): string | null {
         if (this.props.valueType === 'date') {
             return this.props.value != null
                 ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
-                : '';
+                : null;
         } else if (this.props.valueType === 'object') {
-            return this.props.value.time ?? '';
+            return this.props.value.time ?? null;
         } else {
             assertNever(this.props);
         }

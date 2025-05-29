@@ -11,7 +11,7 @@ interface IProps {
     footerTemplate?: React.ReactNode;
     allowSeconds?: boolean;
     onChange: (nextValue: string) => void;
-    value?: string;
+    value: string | null;
 }
 
 interface IPropsTimeValueHolder {
@@ -48,7 +48,7 @@ class TimeValueHolder extends React.PureComponent<IPropsTimeValueHolder> {
     }
 }
 
-function parseUnitOfTime(unit: ITimeUnit, value?: string, is12HourFormat?: boolean): string {
+function parseUnitOfTime(unit: ITimeUnit, value: string | null, is12HourFormat?: boolean): string {
     const [hour, minutes, seconds] = (value ?? '').split(':');
     const valueForUnit = (() => {
         if (unit === 'hours') {
