@@ -31,7 +31,7 @@
     --gap-4: calc(4 * var(--base-increment)); // 32px;
     --gap--xx-large: calc(5 * var(--base-increment)); // 40px;
     --gap-5: calc(5 * var(--base-increment)); // 40px;
-    
+
     --gap--auto: auto;
 
     // BORDER RADIUS
@@ -85,10 +85,13 @@
     --sd-drop-shadow--none: drop-shadow(0 0 0 transparent);
 
     // FORM ELEMENTS
-    // Size 
+    // Size
     --form-element-height-small: var(--space--3);
     --form-element-height-medium: var(--space--4);
     --form-element-height-large: var(--space--5);
+
+    // TRANSITIONS
+    --transition__menu-item: background-color ease 0.1s
 }
 
 
@@ -123,7 +126,7 @@
     --sd-drop-shadow--z2: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 4px hsla(0, 0%, 0%, 0.38)) drop-shadow(0 2px 6px hsla(0, 0%, 0%, 0.28)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.2));
     --sd-drop-shadow--z3: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 1px 6px hsla(0, 0%, 0%, 0.38)) drop-shadow(0 3px 8px hsla(0, 0%, 0%, 0.50)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.2));
     --sd-drop-shadow--z4: drop-shadow(0 0 0 var(--sd-shadow-outline)) drop-shadow(0 2px 10px hsla(0, 0%, 0%, 0.44)) drop-shadow(0 6px 16px hsla(0, 0%, 0%, 0.64)) drop-shadow(0 0 1px hsla(0, 0%, 0%, 0.2));
-    
+
 }
 
 .sd-top-menu,

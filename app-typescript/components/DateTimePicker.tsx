@@ -22,6 +22,8 @@ interface IPropsValueDate extends IInputWrapper {
     disabled?: boolean;
     ref?: React.LegacyRef<InputWrapper>;
     'data-test-id'?: string;
+    timeHeaderTemplate?: React.ReactNode;
+    timeFooterTemplate?: React.ReactNode;
 }
 
 type IValue = {date?: string; time?: string};
@@ -38,6 +40,8 @@ interface IPropsValueObject extends IInputWrapper {
     disabled?: boolean;
     ref?: React.LegacyRef<InputWrapper>;
     'data-test-id'?: string;
+    timeHeaderTemplate?: React.ReactNode;
+    timeFooterTemplate?: React.ReactNode;
 }
 
 type IProps = IPropsValueDate | IPropsValueObject;
@@ -90,13 +94,13 @@ export class DateTimePicker extends React.PureComponent<IProps> {
         return unitOfTime.toString().padStart(2, '0');
     }
 
-    getTimeValue(): string {
+    getTimeValue(): string | null {
         if (this.props.valueType === 'date') {
             return this.props.value != null
                 ? `${this.prepareFormat(this.props.value.getHours())}:${this.prepareFormat(this.props.value.getMinutes())}`
-                : '';
+                : null;
         } else if (this.props.valueType === 'object') {
-            return this.props.value.time ?? '';
+            return this.props.value.time ?? null;
         } else {
             assertNever(this.props);
         }
@@ -169,6 +173,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             allowSeconds={this.props.allowSeconds}
                             fullWidth={this.props.fullWidth}
                             required={this.props.required}
+                            headerTemplate={this.props.timeHeaderTemplate}
+                            footerTemplate={this.props.timeFooterTemplate}
                         />
                     </div>
                     {this.props.preview !== true && (

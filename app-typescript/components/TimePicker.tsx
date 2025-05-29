@@ -2,16 +2,34 @@ import * as React from 'react';
 import nextId from 'react-id-generator';
 import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
+import {TimePickerPopover} from './TimePickerPopover';
+import {PopupPositioner} from './ShowPopup';
 
 interface IProps extends IInputWrapper {
-    value: string; // will output time as ISO8601 time string(e.g. 16:55) or an empty string if there's no value
+    value: string | null; // ISO8601 time string(e.g. 16:55) or null if there's no value
     onChange(valueNext: string): void;
     allowSeconds?: boolean;
+    headerTemplate?: React.ReactNode;
+    footerTemplate?: React.ReactNode;
     'data-test-id'?: string;
 }
 
-export class TimePicker extends React.PureComponent<IProps> {
+interface IState {
+    popupOpen: boolean;
+}
+
+export class TimePicker extends React.PureComponent<IProps, IState> {
     private htmlId = nextId();
+    private timeInputRef: React.RefObject<HTMLInputElement>;
+
+    constructor(props: IProps) {
+        super(props);
+
+        this.timeInputRef = React.createRef();
+        this.state = {
+            popupOpen: false,
+        };
+    }
 
     render() {
         if (this.props.preview) {
@@ -34,11 +52,47 @@ export class TimePicker extends React.PureComponent<IProps> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
-                inputWrapper={this.props.inputWrapper}
             >
+                {this.state.popupOpen && (
+                    <PopupPositioner
+                        getReferenceElement={() => this.timeInputRef.current as HTMLElement}
+                        placement="bottom-start"
+                        onClose={() => {
+                            this.setState({
+                                popupOpen: false,
+                            });
+                        }}
+                        data-test-id="time-picker-popover"
+                    >
+                        <TimePickerPopover
+                            value={this.props.value}
+                            onChange={this.props.onChange}
+                            closePopup={() => {
+                                this.setState({
+                                    popupOpen: false,
+                                });
+                            }}
+                            allowSeconds={this.props.allowSeconds}
+                            headerTemplate={this.props.headerTemplate}
+                            footerTemplate={this.props.footerTemplate}
+                        />
+                    </PopupPositioner>
+                )}
                 <input
-                    value={this.props.value}
+                    style={{
+                        cursor: 'pointer',
+                    }}
+                    ref={this.timeInputRef}
+                    value={this.props.value ?? undefined}
                     type="time"
+                    onClick={(e) => {
+                        // don't show default popup
+                        e.preventDefault();
+
+                        this.setState({
+                            popupOpen: true,
+                        });
+                    }}
                     className="sd-input__input"
                     id={this.htmlId}
                     aria-labelledby={this.htmlId + 'label'}
