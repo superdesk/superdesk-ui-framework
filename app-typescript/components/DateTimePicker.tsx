@@ -160,6 +160,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             inlineLabel
                             labelHidden
                             fullWidth={this.props.fullWidth}
+                            data-test-id="date-input"
                         />
                     </div>
                     <div style={{flexGrow: 1}}>
@@ -175,6 +176,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             required={this.props.required}
                             headerTemplate={this.props.timeHeaderTemplate}
                             footerTemplate={this.props.timeFooterTemplate}
+                            data-test-id="time-input"
                         />
                     </div>
                     {this.props.preview !== true && (
