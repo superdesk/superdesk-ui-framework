@@ -83,7 +83,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                         cursor: 'pointer',
                     }}
                     ref={this.timeInputRef}
-                    value={this.props.value ?? undefined}
+                    value={this.props.value ?? ''}
                     type="time"
                     onClick={(e) => {
                         // don't show default popup
