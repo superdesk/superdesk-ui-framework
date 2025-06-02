@@ -675,8 +675,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
         & ~ label {
             opacity: 1;
             color: $white;
-            background-color: var(--sd-colour-interactive--active);
-            border-color: var(--sd-colour-interactive--active);
+            background-color: var(--sd-colour-interactive);
+            border-color: var(--sd-colour-interactive);
             border-top-color: var(--sd-colour-interactive--darken-20);
             box-shadow: inset 0 2px 0 0 rgba(0, 0, 0, 0.2);
         }
