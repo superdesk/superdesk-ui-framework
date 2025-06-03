@@ -41,7 +41,6 @@
         text-transform: uppercase;
         letter-spacing: -0.03em;
         overflow: hidden;
-        cursor: default;
 
         > img {
             width: 100%;
@@ -88,9 +87,6 @@
                 cursor: pointer;
                 outline: 2px solid var(--sd-colour-interactive);
             }
-        }
-        span {
-            cursor: default;
         }
     }
 
@@ -372,7 +368,6 @@
             margin-inline-end: 0;
         }
     }
-    
     &.sd-avatar-group--grid {
         flex-wrap: wrap;
         justify-content: flex-start;
