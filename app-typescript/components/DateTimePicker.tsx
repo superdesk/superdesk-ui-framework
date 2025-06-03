@@ -30,6 +30,7 @@ type IValue = {date?: string; time?: string};
 
 interface IPropsValueObject extends IInputWrapper {
     valueType: 'object';
+    timeRequiresDate?: boolean;
     value: IValue;
     dateFormat: string;
     onChange: (value: IValue) => void; //
@@ -165,7 +166,10 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                     </div>
                     <div style={{flexGrow: 1}}>
                         <TimePicker
-                            disabled={this.props.disabled}
+                            disabled={
+                                this.props.disabled ||
+                                (this.props.valueType === 'object' && this.props.timeRequiresDate && dateValue == null)
+                            }
                             preview={this.props.preview}
                             value={timeValue}
                             onChange={this.handleTimeChange}
