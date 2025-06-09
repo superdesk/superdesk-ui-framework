@@ -117,6 +117,8 @@ $sd-big-icon-font: (
     checkmark-circle: "\e636",
     open-ai: "\e637",
     general-ai: "\e638",
+    user: "\e639",
+    user-ok: "\e63a",
 );
 
 @each $name, $value in $sd-big-icon-font {
