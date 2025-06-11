@@ -23,7 +23,7 @@
         "build-ui": "webpack && tsc && npm run lint",
         "playground-lint": "tsc -p examples/pages/playgrounds/react-playgrounds --noEmit",
         "format-code": "npx prettier . --write",
-        "lint": "tsc -p tsconfig.json --noEmit && npx prettier . --check && eslint --parser=@typescript-eslint/parser app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}' && npm run playground-lint",
+        "lint": "tsc -p tsconfig.json --noEmit && npx prettier . --check && eslint --parser=@typescript-eslint/parser app && tslint -c tslint.json 'app-typescript/**/*.{ts,tsx}' && npm run playground-lint && npm run unit-test",
         "lint-fix": "tsc -p tsconfig.json --noEmit && tslint --fix -c tslint.json 'app-typescript/**/*.{ts,tsx}'",
         "prepublishOnly": "npm run build",
         "unit-test": "mocha",

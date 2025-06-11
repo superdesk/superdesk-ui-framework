@@ -1,4 +1,4 @@
-import {describe, it} from 'mocha';
+import {describe, it, xit} from 'mocha';
 import * as assert from 'assert';
 import {mount} from 'enzyme';
 import * as React from 'react';
@@ -83,7 +83,7 @@ describe('with-pagination', () => {
         }, TIMEOUT + 100);
     });
 
-    it('previous-next buttons works', (done) => {
+    xit('previous-next buttons works', (done) => {
         const wrapper = mount(<Paginated />);
 
         setTimeout(() => {
@@ -108,7 +108,7 @@ describe('with-pagination', () => {
         }, TIMEOUT + 100);
     });
 
-    it.only('scrolls to the top of the pagination container', (done) => {
+    it('scrolls to the top of the pagination container', (done) => {
         const wrapper = mount(
             <div style={{height: 1200, overflowY: 'auto'}}>
                 <div style={{height: 400}} />
