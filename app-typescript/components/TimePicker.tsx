@@ -4,13 +4,16 @@ import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 import {TimePickerPopover} from './TimePickerPopover';
 import {PopupPositioner} from './ShowPopup';
+import { Icon } from './Icon';
+import { IconButton } from './IconButton';
 
 interface IProps extends IInputWrapper {
     value: string | null; // ISO8601 time string(e.g. 16:55) or null if there's no value
-    onChange(valueNext: string): void;
+    onChange(valueNext: string | null): void;
     allowSeconds?: boolean;
     headerTemplate?: React.ReactNode;
     footerTemplate?: React.ReactNode;
+    onClear?: () => void;
     'data-test-id'?: string;
 }
 
@@ -30,6 +33,10 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
             popupOpen: false,
         };
     }
+    
+    handleTimeClear = () => {
+        this.props.onChange(null);
+    };
 
     render() {
         if (this.props.preview) {
@@ -93,7 +100,22 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                             popupOpen: true,
                         });
                     }}
-                    className="sd-input__input"
+                    onKeyDown={(e) => {
+                        if (e.key === ' ') {
+                            // don't show default popup
+                            e.preventDefault();
+
+                            this.setState({
+                                popupOpen: true,
+                            });
+                        } else if (e.key === 'Enter' && this.state.popupOpen) {
+                            e.preventDefault();
+                            this.setState({
+                                popupOpen: false,
+                            });
+                        }
+                    }}
+                    className={`sd-input__input${this.props.value ? ' sd-input__input--has-value' : ''}`}
                     id={this.htmlId}
                     aria-labelledby={this.htmlId + 'label'}
                     step={this.props.allowSeconds ? 1 : undefined}
@@ -104,6 +126,12 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                     }}
                     data-test-id={this.props['data-test-id']}
                 />
+                <div className="sd-input__icon">
+                    <Icon name="time" />
+                    <div id='clear-time-picker'>
+                        <IconButton icon="remove-sign" size='small' ariaValue='Clear' toolTipFlow='left' onClick={this.props.onClear ? this.props.onClear : this.handleTimeClear} />
+                    </div>
+                </div>
             </InputWrapper>
         );
     }

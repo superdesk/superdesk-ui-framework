@@ -3,12 +3,12 @@ import {DatePicker} from '../components/DatePicker';
 import {Spacer} from '@sourcefabric/common';
 import {defaultTo} from 'lodash';
 import {TimePicker} from './TimePicker';
-import {IconButton} from './IconButton';
 import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 import nextId from 'react-id-generator';
 import {format} from 'date-fns';
 import {assertNever} from '../helpers';
+import { Button } from './Button';
 
 interface IPropsValueDate extends IInputWrapper {
     valueType: 'date';
@@ -173,7 +173,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             data-test-id="date-input"
                         />
                     </div>
-                    <div style={{flexGrow: 1}}>
+                    <div style={{flexGrow: 0, lineHeight: '3.2rem', color: 'var(--color-text-muted)'}}>@</div>
+                    <div id='time-picker' style={{flexGrow: 1}}>
                         <TimePicker
                             disabled={this.props.disabled || (timeRequiresDate && dateValue == null)}
                             preview={this.props.preview}
@@ -190,11 +191,14 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                         />
                     </div>
                     {this.props.preview !== true && (
-                        <IconButton
-                            disabled={this.props.disabled}
+                        <Button
                             icon="remove-sign"
+                            text="Clear"
+                            tooltip="Clear"
                             onClick={this.handleClear}
-                            ariaValue="Clear"
+                            type="default"
+                            style="hollow"
+                            iconOnly={true}
                         />
                     )}
                 </Spacer>

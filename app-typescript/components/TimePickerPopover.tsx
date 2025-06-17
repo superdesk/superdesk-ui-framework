@@ -30,7 +30,7 @@ class TimeValueHolder extends React.PureComponent<IPropsTimeValueHolder> {
     }
 
     public scrollToValue() {
-        this.spanEl.current?.scrollIntoView();
+        this.spanEl.current?.scrollIntoView({block: 'start', behavior: 'smooth'});
     }
 
     render() {
@@ -133,25 +133,35 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
             overflowY: 'auto',
             scrollbarWidth: 'none',
             marginTop: 'var(--gap-1)',
+            scrollBehavior: 'smooth',
         };
 
         return (
-            <div className="sd-shadow--z2 radius-md" onBlur={this.props.closePopup}>
+            <div 
+                className="sd-shadow--z2 radius-md" 
+                onBlur={this.props.closePopup}
+                onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        this.props.closePopup();
+                    }
+                }}
+                tabIndex={0}
+            >
                 <Spacer
                     v
                     gap="0"
                     style={{
-                        width: 200,
-                        padding: 'var(--gap-1)',
-                        backgroundColor: 'var(--color-bg-00)',
+                        minWidth: 200,
+                        maxWidth: 'max-content',
+                        backgroundColor: 'var(--color-dropdown-menu-Bg)',
                         borderRadius: 'var(--b-radius--small)',
                     }}
                 >
                     {this.props.headerTemplate && (
-                        <>
+                        <div className="px-1-5 py-1" style={{borderBottom: '1px solid var(--color-line-x-light)'}}>
                             {this.props.headerTemplate}
-                            <ContentDivider border type="solid" orientation="horizontal" margin="none" />
-                        </>
+                        </div>
                     )}
                     <Spacer h gap="4" noWrap justifyContent="center" alignItems="start">
                         <Spacer v gap="4" style={styleForColumnOfUnit} alignItems="center" noWrap>
@@ -262,10 +272,9 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                         )}
                     </Spacer>
                     {this.props.footerTemplate && (
-                        <>
-                            <ContentDivider border type="solid" orientation="horizontal" margin="none" />
+                        <div className="px-1-5 py-1" style={{borderTop: '1px solid var(--color-line-x-light)'}}>
                             {this.props.footerTemplate}
-                        </>
+                        </div>
                     )}
                 </Spacer>
             </div>

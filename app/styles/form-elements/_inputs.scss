@@ -783,23 +783,88 @@
             }
         }
     }
+    input[type="time"] {
+        &.sd-input__input {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            appearance: textfield;
+            &::-webkit-calendar-picker-indicator {
+                display: none;
+            }
+        }
+    }
+
+    .sd-input__input-container {
+        position: relative;
+        &:has(.sd-input__icon) {
+            .sd-input__input:not(.p-calendar) {
+                padding-inline-end: var(--space--4);
+            }
+        }
+        .sd-input__icon {
+            position: relative;
+            height: 2.4rem;
+            width: 2.4rem;
+            position: absolute;
+            inset-block-start: var(--space--0-5);
+            inset-inline-end: var(--space--0-5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            pointer-events: none;
+            
+            #clear-time-picker {
+                position: absolute;
+                inset-block-start: 0;
+                inset-inline-end: 0;
+                transition: opacity 0.2s ease;
+                z-index: 2;
+                opacity: 0;
+            }
+        }
+        &:has(.sd-input__input--has-value) {
+            .icon-time {
+                opacity: 1;
+                transition: opacity 0.2s ease;
+            }
+            .sd-input__icon {
+                pointer-events: all;
+            }
+            &:hover {
+                .icon-time {
+                    opacity: 0;
+                }
+                #clear-time-picker {
+                    opacity: 1;
+                }
+            }
+            &:focus-within {
+                .icon-time {
+                    opacity: 0;
+                }
+                #clear-time-picker {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    #time-picker { // only for the DateTimePicker component. Disable the clearing of the time input only.
+        .sd-input__icon {
+            pointer-events: none !important;
+        }
+        #clear-time-picker {
+            display: none;
+        }
+        .icon-time {
+            opacity: 1 !important;
+        }
+    }
+
 
     .sd-input__select {
-        // display: block;
-        // position: relative;
-        // @include Line-input-base;
-        // padding-inline-end: 2rem;
         grid-row: 2/3;
         grid-column: 2/4;
-        // min-width: 5rem;
-        // cursor: pointer;
-        // option {
-        //     color:inherit;
-        //     font-size: 1.4rem;
-        //     line-height: 2rem;
-        //     background-color: var(--color-dropdown-menu-Bg);
-        //     color: var(--color-dropdown-menu-text);
-        // }
     }
 
     &.sd-input--is-select {

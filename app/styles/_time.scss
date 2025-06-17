@@ -1,9 +1,14 @@
-.time-unit-highlight {
-    background-color: var(--sd-colour-interactive);
-    color: $white;
-}
 
 .time-unit {
+    display: flex;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--b-radius--x-small);
+    font-weight: normal;
+    margin-inline-start: var(--gap--x-small);
+    margin-inline-end: var(--gap--x-small);
+    transition: var(--transition__menu-item);
     transition: all ease 0.2s;
 
     &:hover {
@@ -14,15 +19,16 @@
 
     &:active {
         background-color: var(--sd-colour-interactive--alpha-20);
+
     }
 
-    display: flex;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border-radius: var(--b-radius--x-small);
-    font-weight: normal;
-    margin-inline-start: var(--gap--x-small);
-    margin-inline-end: var(--gap--x-small);
-    transition: var(--transition__menu-item);
+    &:focus-visible {
+        outline: 2px solid var(--sd-colour-interactive--alpha-40);
+    }
+
+    &.time-unit-highlight,
+    &.time-unit-highlight:hover {
+        background-color: var(--sd-colour-interactive);
+        color: var(--color-text-ondark);
+    }
 }

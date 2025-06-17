@@ -109,6 +109,13 @@
         }
     }
 }
+.p-datepicker table td > span {
+    &:not(.p-disabled) {
+        &:focus-visible {
+            outline: 2px solid var(--sd-colour-interactive--alpha-40);
+        }
+    }
+}
 
 // styles for a day box
 .p-datepicker table td > span {
@@ -180,6 +187,9 @@
             border-block-end: 1px dotted var(--color-input-border);
             background-color: var(--color-input-bg);
         }
+    }
+    &.sd-input__input {
+        padding-inline: 0;
     }
 }
 

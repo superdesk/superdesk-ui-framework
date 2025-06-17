@@ -242,8 +242,16 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     }
 
     &.btn--icon-only {
+        padding-inline: var(--space--1);
         [class^="icon-"], [class*=" icon-"] {
             margin: 0;
+        }
+        &.btn--small {
+            padding-inline: var(--space--0-5);
+        }
+
+        &.btn--large {
+            padding-inline: var(--space--1-5);
         }
 
         &.btn--icon-only-circle {
