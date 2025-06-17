@@ -4,8 +4,8 @@ import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 import {TimePickerPopover} from './TimePickerPopover';
 import {PopupPositioner} from './ShowPopup';
-import { Icon } from './Icon';
-import { IconButton } from './IconButton';
+import {Icon} from './Icon';
+import {IconButton} from './IconButton';
 
 interface IProps extends IInputWrapper {
     value: string | null; // ISO8601 time string(e.g. 16:55) or null if there's no value
@@ -33,7 +33,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
             popupOpen: false,
         };
     }
-    
+
     handleTimeClear = () => {
         this.props.onChange(null);
     };
@@ -128,8 +128,14 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                 />
                 <div className="sd-input__icon">
                     <Icon name="time" />
-                    <div id='clear-time-picker'>
-                        <IconButton icon="remove-sign" size='small' ariaValue='Clear' toolTipFlow='left' onClick={this.props.onClear ? this.props.onClear : this.handleTimeClear} />
+                    <div id="clear-time-picker">
+                        <IconButton
+                            icon="remove-sign"
+                            size="small"
+                            ariaValue="Clear"
+                            toolTipFlow="left"
+                            onClick={this.props.onClear ? this.props.onClear : this.handleTimeClear}
+                        />
                     </div>
                 </div>
             </InputWrapper>

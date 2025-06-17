@@ -21,12 +21,14 @@ class TimePickerExample extends React.PureComponent<{}, {time: string | null}> {
     render() {
         return (
             <TimePicker
-                headerTemplate={<ButtonGroup spaces='compact' align='center'>
-                    <Button size='small' text='In 30 min' style='hollow' onClick={()=> false} />
-                    <Button size='small' text='In 1 hr' style='hollow' onClick={()=> false} />
-                    <Button size='small' text='In 2 hr' style='hollow' onClick={()=> false} />
-                    <Button size='small' text='In 5 hr' style='hollow' onClick={()=> false} />
-                </ButtonGroup>}
+                headerTemplate={
+                    <ButtonGroup spaces="compact" align="center">
+                        <Button size="small" text="In 30 min" style="hollow" onClick={() => false} />
+                        <Button size="small" text="In 1 hr" style="hollow" onClick={() => false} />
+                        <Button size="small" text="In 2 hr" style="hollow" onClick={() => false} />
+                        <Button size="small" text="In 5 hr" style="hollow" onClick={() => false} />
+                    </ButtonGroup>
+                }
                 footerTemplate={<div>Footer</div>}
                 value={this.state.time}
                 onChange={(time) => {
