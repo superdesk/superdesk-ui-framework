@@ -1,7 +1,7 @@
 import * as React from 'react';
 import ReactDOM from 'react-dom';
 import {createPopper, Instance as PopperInstance, Placement, Modifier} from '@popperjs/core';
-import {throttle} from 'lodash';
+import {noop, throttle} from 'lodash';
 import maxSize from 'popper-max-size-modifier';
 import {getNextZIndex} from '../zIndex';
 
@@ -12,6 +12,8 @@ interface IPropsPopupPositioner {
     closeOnHoverEnd?: boolean;
     'data-test-id'?: string;
 }
+
+const padding = 8;
 
 export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> {
     private wrapperEl: HTMLDivElement | null;
@@ -78,11 +80,43 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
             fn: ({state}) => {
                 const {height} = state.modifiersData.maxSize;
 
-                // subtracting 10 in order to make a gap between the edge of the viewport
-                state.styles.popper.maxHeight = `${height - 10}px`;
+                // subtracting {padding} in order to make a gap between the edge of the viewport
+                state.styles.popper.maxHeight = `${height - padding}px`;
             },
         };
 
+        /**
+         * If popover height is greater than viewport height,
+         * popper will not flip it to direction that has more space available.
+         * This modifier limits popover height to max available
+         * so popper can position it in direction where more space is available.
+         */
+        const restrictHeightToMaxAvailable: Modifier<any, any> = {
+            name: 'restrictHeightToMaxAvailable',
+            enabled: true,
+            phase: 'main',
+            fn: noop,
+
+            // execute this as early as possible not to interfere with popper calculations
+            requires: ['popperOffsets'],
+
+            effect: (args) => {
+                const popperHeight = args.state.elements.popper.offsetHeight;
+                const viewportHeight = document.body.offsetHeight;
+                const refRect = args.state.elements.reference.getBoundingClientRect();
+                const availableSpaceAbove = refRect.top;
+                const availableSpaceBelow = viewportHeight - refRect.bottom;
+                const availableSpaceMax = Math.max(availableSpaceAbove, availableSpaceBelow);
+
+                if (popperHeight > availableSpaceMax) {
+                    args.state.elements.popper.style.height = availableSpaceMax + 'px';
+                }
+
+                return () => {
+                    // no cleanup needed
+                };
+            },
+        };
         if (this.wrapperEl != null) {
             /**
              * Wait until referenceElement renders so createPopper
@@ -92,7 +126,19 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
                 if (this.wrapperEl != null) {
                     this.popper = createPopper(this.props.getReferenceElement(), this.wrapperEl, {
                         placement: this.props.placement,
-                        modifiers: [maxSize, applyMaxSize],
+                        modifiers: [
+                            restrictHeightToMaxAvailable,
+                            {
+                                name: 'preventOverflow',
+                                options: {
+                                    padding: {
+                                        top: padding,
+                                    },
+                                },
+                            },
+                            maxSize,
+                            applyMaxSize,
+                        ],
                     });
                 }
             }, 50);
