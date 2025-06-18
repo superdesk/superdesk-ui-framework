@@ -37,6 +37,12 @@ class TimePickerExample extends React.PureComponent<{}, {time: string | null}> {
                 allowSeconds
                 label="This is Label"
                 info="This is info"
+                inputWrapper={{kind: 'custom', component: ({input}) => (
+                    <div>
+                        <div style={{border: '1px solid red'}}>custom label</div>
+                        <div>{input}</div>
+                    </div>
+                )}}
             />
         );
     }
