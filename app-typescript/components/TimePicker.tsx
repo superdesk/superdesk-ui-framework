@@ -59,6 +59,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                 labelHidden={this.props.labelHidden}
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
+                inputWrapper={this.props.inputWrapper}
             >
                 {this.state.popupOpen && (
                     <PopupPositioner
