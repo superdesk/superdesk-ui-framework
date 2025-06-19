@@ -81,7 +81,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                         />
                     </PopupPositioner>
                 )}
-                <div className='time-picker__input'>
+                <div className="time-picker__input">
                     <input
                         style={{
                             cursor: 'pointer',
