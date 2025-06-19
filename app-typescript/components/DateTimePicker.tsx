@@ -174,7 +174,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                         />
                     </div>
                     <div style={{flexGrow: 0, lineHeight: '3.2rem', color: 'var(--color-text-muted)'}}>@</div>
-                    <div id="time-picker" style={{flexGrow: 1}}>
+                    <div className="time-picker--date-time" style={{flexGrow: 1}}>
                         <TimePicker
                             disabled={this.props.disabled || (timeRequiresDate && dateValue == null)}
                             preview={this.props.preview}

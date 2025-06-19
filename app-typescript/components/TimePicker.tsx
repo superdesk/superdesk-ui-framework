@@ -13,7 +13,6 @@ interface IProps extends IInputWrapper {
     allowSeconds?: boolean;
     headerTemplate?: React.ReactNode;
     footerTemplate?: React.ReactNode;
-    onClear?: () => void;
     'data-test-id'?: string;
 }
 
@@ -33,10 +32,6 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
             popupOpen: false,
         };
     }
-
-    handleTimeClear = () => {
-        this.props.onChange(null);
-    };
 
     render() {
         if (this.props.preview) {
@@ -86,57 +81,59 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                         />
                     </PopupPositioner>
                 )}
-                <input
-                    style={{
-                        cursor: 'pointer',
-                    }}
-                    ref={this.timeInputRef}
-                    value={this.props.value ?? ''}
-                    type="time"
-                    onClick={(e) => {
-                        // don't show default popup
-                        e.preventDefault();
-
-                        this.setState({
-                            popupOpen: true,
-                        });
-                    }}
-                    onKeyDown={(e) => {
-                        if (e.key === ' ') {
+                <div className='time-picker__input'>
+                    <input
+                        style={{
+                            cursor: 'pointer',
+                        }}
+                        ref={this.timeInputRef}
+                        value={this.props.value ?? ''}
+                        type="time"
+                        onClick={(e) => {
                             // don't show default popup
                             e.preventDefault();
 
                             this.setState({
                                 popupOpen: true,
                             });
-                        } else if (e.key === 'Enter' && this.state.popupOpen) {
-                            e.preventDefault();
-                            this.setState({
-                                popupOpen: false,
-                            });
-                        }
-                    }}
-                    className={`sd-input__input${this.props.value ? ' sd-input__input--has-value' : ''}`}
-                    id={this.htmlId}
-                    aria-labelledby={this.htmlId + 'label'}
-                    step={this.props.allowSeconds ? 1 : undefined}
-                    required={this.props.required}
-                    disabled={this.props.disabled}
-                    onChange={(event) => {
-                        this.props.onChange(event.target.value);
-                    }}
-                    data-test-id={this.props['data-test-id']}
-                />
-                <div className="sd-input__icon">
-                    <Icon name="time" />
-                    <div id="clear-time-picker">
-                        <IconButton
-                            icon="remove-sign"
-                            size="small"
-                            ariaValue="Clear"
-                            toolTipFlow="left"
-                            onClick={this.props.onClear ? this.props.onClear : this.handleTimeClear}
-                        />
+                        }}
+                        onKeyDown={(e) => {
+                            if (e.key === ' ') {
+                                // don't show default popup
+                                e.preventDefault();
+
+                                this.setState({
+                                    popupOpen: true,
+                                });
+                            } else if (e.key === 'Enter' && this.state.popupOpen) {
+                                e.preventDefault();
+                                this.setState({
+                                    popupOpen: false,
+                                });
+                            }
+                        }}
+                        className={`sd-input__input${this.props.value ? ' sd-input__input--has-value' : ''}`}
+                        id={this.htmlId}
+                        aria-labelledby={this.htmlId + 'label'}
+                        step={this.props.allowSeconds ? 1 : undefined}
+                        required={this.props.required}
+                        disabled={this.props.disabled}
+                        onChange={(event) => {
+                            this.props.onChange(event.target.value);
+                        }}
+                        data-test-id={this.props['data-test-id']}
+                    />
+                    <div className="time-picker__icon-wrapper">
+                        <Icon name="time" />
+                        <div className="clear-time-picker">
+                            <IconButton
+                                icon="remove-sign"
+                                size="small"
+                                ariaValue="Clear"
+                                toolTipFlow="left"
+                                onClick={() => this.props.onChange(null)}
+                            />
+                        </div>
                     </div>
                 </div>
             </InputWrapper>
