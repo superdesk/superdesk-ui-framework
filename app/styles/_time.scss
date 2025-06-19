@@ -1,3 +1,82 @@
+.time-picker__input {
+    input[type="time"] {
+        -webkit-appearance: none;
+        -moz-appearance: textfield;
+        appearance: textfield;
+        &::-webkit-calendar-picker-indicator {
+            display: none;
+        }
+    }
+    position: relative;
+    &:has(.time-picker__icon-wrapper) {
+        .sd-input__input:not(.p-calendar) {
+            padding-inline-end: var(--space--4);
+        }
+    }
+    .time-picker__icon-wrapper {
+        position: relative;
+        height: 2.4rem;
+        width: 2.4rem;
+        position: absolute;
+        inset-block-start: var(--space--0-5);
+        inset-inline-end: var(--space--0-5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1;
+        pointer-events: none;
+        
+        .clear-time-picker {
+            position: absolute;
+            inset-block-start: 0;
+            inset-inline-end: 0;
+            transition: opacity 0.2s ease;
+            z-index: 2;
+            opacity: 0;
+        }
+    }
+    &:has(.sd-input__input--has-value) {
+        .icon-time {
+            opacity: 1;
+            transition: opacity 0.2s ease;
+        }
+        .time-picker__icon-wrapper {
+            pointer-events: all;
+        }
+        &:hover {
+            .icon-time {
+                opacity: 0;
+            }
+            .clear-time-picker {
+                opacity: 1;
+            }
+        }
+        &:focus-within {
+            .icon-time {
+                opacity: 0;
+            }
+            .clear-time-picker {
+                opacity: 1;
+            }
+        }
+    }
+}
+.time-picker--date-time { // only for the DateTimePicker component. Disable the clearing of the time input only.
+    .time-picker__input,
+    .time-picker__input:hover,
+    .time-picker__input:focus-within {
+        .time-picker__icon-wrapper {
+            pointer-events: none;
+        }
+        .clear-time-picker {
+            display: none;
+        }
+        .icon-time, {
+            opacity: 1;
+        }
+    }
+}
+
 
 .time-unit {
     display: flex;
