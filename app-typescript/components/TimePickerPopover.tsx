@@ -140,9 +140,9 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
             <div
                 className="sd-shadow--z2 radius-md"
                 onBlur={this.props.closePopup}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
+                onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === 'Escape') {
+                        event.preventDefault();
                         this.props.closePopup();
                     }
                 }}

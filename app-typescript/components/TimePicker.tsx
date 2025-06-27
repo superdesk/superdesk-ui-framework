@@ -97,16 +97,17 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                                 popupOpen: true,
                             });
                         }}
-                        onKeyDown={(e) => {
-                            if (e.key === ' ') {
-                                // don't show default popup
-                                e.preventDefault();
+                        onKeyDown={(event) => {
+                            // don't show default popup
+                            event.preventDefault();
 
+                            if (event.key === ' ') {
                                 this.setState({
-                                    popupOpen: true,
+                                    popupOpen: !this.state.popupOpen,
                                 });
-                            } else if (e.key === 'Enter' && this.state.popupOpen) {
-                                e.preventDefault();
+                            } else if (
+                                (event.key === 'Enter' || event.key === 'Escape') && this.state.popupOpen
+                            ) {
                                 this.setState({
                                     popupOpen: false,
                                 });
