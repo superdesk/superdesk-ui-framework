@@ -199,6 +199,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             type="default"
                             style="hollow"
                             iconOnly={true}
+                            disabled={this.props.disabled}
                         />
                     )}
                 </Spacer>
