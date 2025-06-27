@@ -157,7 +157,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                 data-test-id={this.props['data-test-id']}
                 ref={this.props.ref}
             >
-                <Spacer h gap="8" alignItems="end" noWrap>
+                <Spacer h gap="8" alignItems="center" noWrap>
                     <div style={{flexGrow: 1}}>
                         <DatePicker
                             disabled={this.props.disabled}
@@ -173,7 +173,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             data-test-id="date-input"
                         />
                     </div>
-                    <div style={{flexGrow: 0, lineHeight: '3.2rem', color: 'var(--color-text-muted)'}}>@</div>
+                    <div style={{flexGrow: 0, color: 'var(--color-text-muted)'}}>@</div>
                     <div className="time-picker--date-time" style={{flexGrow: 1}}>
                         <TimePicker
                             disabled={this.props.disabled || (timeRequiresDate && dateValue == null)}

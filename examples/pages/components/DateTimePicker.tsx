@@ -15,13 +15,11 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: Date | nu
         return (
             <DateTimePicker
                 label="Planning date"
-                labelHidden
                 inlineLabel
                 fullWidth
                 valueType="date"
                 value={this.state.dateTime}
                 dateFormat="YYYY-MM-DD"
-                fullWidth
                 onChange={(val) => {
                     const parsedVal = val != null ? new Date(val) : null;
 
