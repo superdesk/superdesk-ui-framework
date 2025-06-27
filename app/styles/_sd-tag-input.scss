@@ -116,7 +116,7 @@ tags-input,
                 &:hover {
                     text-decoration: none;
                     background-color: var(--sd-colour__tag-label-remove-Bg--hover);
-                    
+
                     [class^="icon-"], [class*=" icon-"] {
                         opacity: 0.85;
                     }
@@ -181,6 +181,9 @@ tags-input,
 
             // Override width and box-shadow from superdesk-client-core
             width: 20px;
+
+            // needed so placeholder is not cut off after 20px set above
+            flex-grow: 1;
 
             &:focus {
                 box-shadow: unset !important;
@@ -261,7 +264,7 @@ tags-input,
         &:not(.tags-input__add-button--disabled):hover {
             opacity: 1;
         }
-        
+
         &:not(.tags-input__add-button--disabled):focus {
             opacity: 1;
         }
@@ -680,7 +683,7 @@ tags-input,
         cursor: pointer;
         opacity: 0.5;
         transition: opacity 0.3s ease;
-        
+
         &:hover {
             opacity: 1;
         }
