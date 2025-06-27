@@ -10,6 +10,10 @@ export interface IPropsWithPopover {
     onClose?: () => void;
 }
 
+/**
+ * Wraps `PopupPositioner`
+ * Quicker to use for simple use cases.
+ */
 export class WithPopover extends React.PureComponent<IPropsWithPopover> {
     private closePopup?: () => void;
 

@@ -146,11 +146,14 @@ a.toggle-box__header {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
+}
+
+.toggle-box.hidden .toggle-box__content-wraper {
+    transition: all ease-out .5s;
     overflow: hidden;
 }
 
 .toggle-box__content {
-    overflow-y: auto;
     padding-block-start: 1.8rem;
     flex:1;
 }

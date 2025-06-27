@@ -189,6 +189,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
                 inputWrapper={this.props.inputWrapper}
+                fullWidth={this.props.fullWidth}
             >
                 <Calendar
                     className="sd-input__input"
