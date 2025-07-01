@@ -163,7 +163,15 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                             {this.props.headerTemplate}
                         </div>
                     )}
-                    <Spacer h gap="4" noWrap justifyContent="center" alignItems="start">
+
+                    <Spacer
+                        h
+                        gap="4"
+                        noWrap
+                        justifyContent="center"
+                        alignItems="start"
+                        style={{paddingInline: 'var(--gap-1)'}}
+                    >
                         <Spacer v gap="4" style={styleForColumnOfUnit} alignItems="center" noWrap>
                             {getOptionsForTimeUnit('hours', this.is12HourFormat).map((hour) => {
                                 const isActiveHour =
