@@ -32,12 +32,12 @@ const config = {
             {
                 test: /\.(ts|tsx|js|jsx)$/,
                 loader: 'ts-loader',
-                exclude: function(absolutePath) {
+                exclude: (absolutePath) => {
                     // date-fns uses optional chaining and nullish coalescing
                     // that crashes the build unless passed though the loader
                     if (
-                        absolutePath.includes('/node_modules/date-fns/')
-                        || absolutePath.includes('/node_modules/@date-fns/tz/')
+                        absolutePath.includes('/node_modules/date-fns/') ||
+                        absolutePath.includes('/node_modules/@date-fns/tz/')
                     ) {
                         return false;
                     }
