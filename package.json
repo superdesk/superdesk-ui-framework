@@ -102,7 +102,7 @@
         "@superdesk/primereact": "^5.0.2-13",
         "@superdesk/react-resizable-panels": "0.0.39",
         "chart.js": "^2.9.3",
-        "date-fns": "^4.1.0",
+        "date-fns": "2.7.0",
         "popper-max-size-modifier": "^0.2.0",
         "popper.js": "1.14.4",
         "primeicons": "2.0.0",
