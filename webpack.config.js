@@ -30,18 +30,20 @@ const config = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'react'],
-                    plugins: ['transform-object-rest-spread'],
-                },
-            },
-            {
-                test: /\.(ts|tsx)$/,
+                test: /\.(ts|tsx|js|jsx)$/,
                 loader: 'ts-loader',
-                exclude: /node_modules/,
+                exclude: function(absolutePath) {
+                    // date-fns uses optional chaining and nullish coalescing
+                    // that crashes the build unless passed though the loader
+                    if (
+                        absolutePath.includes('/node_modules/date-fns/')
+                        || absolutePath.includes('/node_modules/@date-fns/tz/')
+                    ) {
+                        return false;
+                    }
+
+                    return absolutePath.includes('/node_modules/');
+                },
                 options: {
                     transpileOnly: true,
                 },
