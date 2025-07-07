@@ -124,7 +124,7 @@
     &.form-label--required {
         &::after {
             margin-inline-start: 0.2rem;
-            color: #e41b21;
+            color: var(--color-warning-default);
             content: "*";
             vertical-align: top;
             font-size: 1.2rem;
@@ -762,7 +762,7 @@
     }
 
     .sd-input__input-container:has(input[type="time"]) {
-        min-width: 110px;
+        min-width: min-content;
     }
 
     textarea {
@@ -783,23 +783,24 @@
             }
         }
     }
+    input[type="time"] {
+        &.sd-input__input {
+            -webkit-appearance: none;
+            -moz-appearance: textfield;
+            appearance: textfield;
+            &::-webkit-calendar-picker-indicator {
+                display: none;
+            }
+        }
+    }
+
+
+
+
 
     .sd-input__select {
-        // display: block;
-        // position: relative;
-        // @include Line-input-base;
-        // padding-inline-end: 2rem;
         grid-row: 2/3;
         grid-column: 2/4;
-        // min-width: 5rem;
-        // cursor: pointer;
-        // option {
-        //     color:inherit;
-        //     font-size: 1.4rem;
-        //     line-height: 2rem;
-        //     background-color: var(--color-dropdown-menu-Bg);
-        //     color: var(--color-dropdown-menu-text);
-        // }
     }
 
     &.sd-input--is-select {
@@ -872,7 +873,6 @@
         }
     }
 
-
     .sd-input__message-box {
         grid-row: 3/4;
         grid-column: 2/3;
@@ -887,25 +887,12 @@
     .sd-input__hint,
     .sd-input__message,
     .sd-input__char-count {
-        // font-size: 1.2rem;
-        // line-height: 1.4rem;
-        // transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-        // color: var(--color-text-light);
-        // font-weight: 300;
         margin: 0.5rem 0;
-        // letter-spacing: 0.03em;
-        // display: block;
     }
 
     .sd-input__char-count {
-        // font-size: 1.1rem;
-        // font-weight: 400;
-        // font-style: italic;
         grid-row: 3/4;
         grid-column: 3/4;
-        // &--error {
-        //     color: $red;
-        // }
     }
 
     .sd-input__label {

@@ -65,7 +65,7 @@ interface IState {
     selctedTheme: string;
     invalid: boolean;
     date: any;
-    time: string;
+    time: string | null;
     modalPlanningTemplates: boolean;
     modalSaveEvent: boolean;
     modalSaveEvent2: boolean;

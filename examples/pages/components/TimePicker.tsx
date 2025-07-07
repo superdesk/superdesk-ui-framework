@@ -3,9 +3,21 @@ import * as Markup from '../../js/react';
 import {PropsList, Prop} from '../../../app-typescript';
 import {TimePicker} from '../../../app-typescript/components/TimePicker';
 import {TimePickerV2} from '../../../app-typescript/components/TimePickerV2';
+import {ButtonGroup} from '../../../app-typescript/components/ButtonGroup';
+import {Button} from '../../../app-typescript/components/Button';
 
 let minutes = Array.from(Array(60).keys());
 let changedMinutes = minutes.filter((num) => num % 15 !== 0);
+
+const inputWrapper: React.ComponentProps<typeof TimePicker>['inputWrapper'] = {
+    kind: 'custom',
+    component: ({input}) => (
+        <div>
+            <div style={{border: '1px solid red'}}>custom label</div>
+            <div>{input}</div>
+        </div>
+    ),
+};
 
 class TimePickerExample extends React.PureComponent<{}, {time: string | null}> {
     constructor(props) {
@@ -19,6 +31,15 @@ class TimePickerExample extends React.PureComponent<{}, {time: string | null}> {
     render() {
         return (
             <TimePicker
+                headerTemplate={
+                    <ButtonGroup spaces="compact" align="center">
+                        <Button size="small" text="In 30 min" style="hollow" onClick={() => false} />
+                        <Button size="small" text="In 1 hr" style="hollow" onClick={() => false} />
+                        <Button size="small" text="In 2 hr" style="hollow" onClick={() => false} />
+                        <Button size="small" text="In 5 hr" style="hollow" onClick={() => false} />
+                    </ButtonGroup>
+                }
+                footerTemplate={<div>Footer</div>}
                 value={this.state.time}
                 onChange={(time) => {
                     this.setState({time});
@@ -26,6 +47,7 @@ class TimePickerExample extends React.PureComponent<{}, {time: string | null}> {
                 allowSeconds
                 label="This is Label"
                 info="This is info"
+                inputWrapper={inputWrapper}
             />
         );
     }

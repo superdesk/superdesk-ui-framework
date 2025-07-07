@@ -238,6 +238,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                         }
                     }}
                     locale={locale}
+                    placeholder={this.props.dateFormat.replace('YYYY', 'yyyy').replace('MM', 'mm').replace('DD', 'dd')}
                     dateFormat={this.props.dateFormat.replace('YYYY', 'yy').replace('MM', 'mm').replace('DD', 'dd')}
                     showIcon={true}
                     icon="icon-calendar"
