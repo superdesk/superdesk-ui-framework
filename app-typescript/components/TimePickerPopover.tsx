@@ -161,6 +161,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                 return (
                                     <TimeValueHolder
+                                        key={hour}
                                         ref={isActiveHour ? this.inputRefs[0] : undefined}
                                         onClick={() => {
                                             this.handleChange('hours', hour);
@@ -179,6 +180,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                 return (
                                     <TimeValueHolder
+                                        key={minute}
                                         ref={isActiveMinute ? this.inputRefs[1] : undefined}
                                         isActive={isActiveMinute}
                                         value={minute}
@@ -206,6 +208,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                         return (
                                             <TimeValueHolder
+                                                key={second}
                                                 ref={isActiveMinute ? this.inputRefs[2] : undefined}
                                                 onClick={() => {
                                                     this.handleChange('seconds', second);
