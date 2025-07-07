@@ -106,9 +106,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                                 this.setState({
                                     popupOpen: !this.state.popupOpen,
                                 });
-                            } else if (
-                                (event.key === 'Enter' || event.key === 'Escape') && this.state.popupOpen
-                            ) {
+                            } else if ((event.key === 'Enter' || event.key === 'Escape') && this.state.popupOpen) {
                                 this.setState({
                                     popupOpen: false,
                                 });
