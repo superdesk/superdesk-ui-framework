@@ -10,7 +10,7 @@ interface IProps {
     shape?: 'round' | 'square'; // default round
     readOnly?: boolean;
     draggable?: boolean;
-    onClick(): void;
+    onClick?(): void;
 }
 
 export const Tag = ({text, keyValue, shade, shape, readOnly, onClick, label, draggable}: IProps) => {
@@ -19,6 +19,14 @@ export const Tag = ({text, keyValue, shade, shape, readOnly, onClick, label, dra
         'tag-label--square': shape === 'square',
         'tag-label--draggable': draggable === true,
     });
+
+    const removeButton =
+        onClick == null || readOnly === true ? null : (
+            <button className="tag-label__remove" onClick={onClick}>
+                <i className="icon-close-small"></i>
+            </button>
+        );
+
     return (
         <>
             {label ? (
@@ -28,21 +36,13 @@ export const Tag = ({text, keyValue, shade, shape, readOnly, onClick, label, dra
                         <span className="tag-label--text-label">{label}:</span>
                         <span className="tag-label--text">{text}</span>
                     </span>
-                    {!readOnly ? (
-                        <button className="tag-label__remove" onClick={onClick}>
-                            <i className="icon-close-small"></i>
-                        </button>
-                    ) : null}
+                    {removeButton}
                 </span>
             ) : (
                 <span className={classes} key={keyValue}>
                     {draggable && <DragHandle blank={true} dotsInRow="3" dotRows="4" />}
                     <span className="tag-label--text">{text}</span>
-                    {!readOnly ? (
-                        <button className="tag-label__remove" onClick={onClick}>
-                            <i className="icon-close-small"></i>
-                        </button>
-                    ) : null}
+                    {removeButton}
                 </span>
             )}
         </>
