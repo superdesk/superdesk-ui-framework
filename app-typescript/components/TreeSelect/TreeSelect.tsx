@@ -16,6 +16,7 @@ import {WithPortal} from '../WithPortal';
 import {DragDropContext, Droppable, Draggable, DropResult} from 'react-beautiful-dnd';
 import {getNextZIndex} from '../../zIndex';
 import {arrayMove} from '@sourcefabric/common';
+import {gettext} from '../../translations';
 
 interface IState<T> {
     value: Array<T>;
@@ -493,7 +494,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             });
 
             if (filteredArr.length === 0) {
-                return <li className="suggestion-item--nothing-found">Nothing found</li>;
+                return <li className="suggestion-item--nothing-found">{gettext('No results found')}</li>;
             } else {
                 return filteredArr.map((option, i) => {
                     let selectedItem = this.state.value.some(
