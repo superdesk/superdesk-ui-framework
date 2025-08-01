@@ -9,6 +9,7 @@ import nextId from 'react-id-generator';
 import {format} from 'date-fns';
 import {assertNever} from '../helpers';
 import {Button} from './Button';
+import {Button} from './Button';
 
 interface IPropsValueDate extends IInputWrapper {
     valueType: 'date';
@@ -53,7 +54,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
     handleTimeChange = (time: string) => {
         if (this.props.valueType === 'date') {
             const [hours, minutes] = time.split(':').map((x) => defaultTo(parseInt(x, 10), 0));
-            const origDate = this.props.value ? new Date(this.props.value) : new Date();
+            const origDate = this.props.value ?? new Date();
 
             origDate.setHours(hours, minutes);
 
@@ -157,7 +158,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                 data-test-id={this.props['data-test-id']}
                 ref={this.props.ref}
             >
-                <Spacer h gap="8" alignItems="end" noWrap>
+                <Spacer h gap="8" alignItems="center" noWrap>
                     <div style={{flexGrow: 1}}>
                         <DatePicker
                             disabled={this.props.disabled}
@@ -173,6 +174,8 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             data-test-id="date-input"
                         />
                     </div>
+                    <div style={{flexGrow: 0, color: 'var(--color-text-muted)'}}>@</div>
+                    <div className="time-picker--date-time" style={{flexGrow: 1}}>
                     <div style={{flexGrow: 0, lineHeight: '3.2rem', color: 'var(--color-text-muted)'}}>@</div>
                     <div className="time-picker--date-time" style={{flexGrow: 1}}>
                         <TimePicker
@@ -195,10 +198,13 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             icon="remove-sign"
                             text="Clear"
                             tooltip="Clear"
+                            text="Clear"
+                            tooltip="Clear"
                             onClick={this.handleClear}
                             type="default"
                             style="hollow"
                             iconOnly={true}
+                            disabled={this.props.disabled}
                         />
                     )}
                 </Spacer>

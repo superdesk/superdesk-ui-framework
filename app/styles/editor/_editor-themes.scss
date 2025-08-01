@@ -52,6 +52,12 @@
 
 		--sd-editor-colour__soft-limit:     var(--syrah-soil-400);
 		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
+
+		--sd-editor-colour__mark-people:       var(--sorcerer-blue-300);
+		--sd-editor-colour__mark-company:      var(--syrah-soil-200);
+
+		--sd-editor-colour__soft-limit:     var(--syrah-soil-400);
+		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
 	}
 
 	.sd-editor--theme-dark {
@@ -76,6 +82,11 @@
 
 		--sd-editor-colour__soft-limit:     var(--syrah-soil-200);
 		--sd-editor-colour__hard-limit:     var(--morocco-red-400);
+
+		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
+
+		--sd-editor-colour__soft-limit:     var(--syrah-soil-200);
+		--sd-editor-colour__hard-limit:     var(--morocco-red-400);
 	}
 
 	.sd-editor--theme-blue {
@@ -95,6 +106,11 @@
 		--sd-editor-colour__removing-bg:    var(--blissful-berry-400-a24);
 		--sd-editor-colour__adding:         var(--green-brier-100);
 		--sd-editor-colour__adding-bg:      var(--green-brier-400-a12);
+
+		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
+
+		--sd-editor-colour__soft-limit:     var(--syrah-soil-200);
+		--sd-editor-colour__hard-limit:     var(--morocco-red-400);
 
 		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
 
@@ -125,6 +141,12 @@
 
 		--sd-editor-colour__soft-limit:     var(--syrah-soil-500);
 		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
+
+		--sd-editor-colour__mark-people:       var(--sorcerer-blue-400);
+		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
+
+		--sd-editor-colour__soft-limit:     var(--syrah-soil-500);
+		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
 	}
 
 	.sd-editor--theme-military {
@@ -149,6 +171,11 @@
 		--sd-editor-colour__mark-company:      var(--syrah-soil-400);
 
 		--sd-editor-colour__soft-limit:     var(--syrah-soil-500);
+
+		--sd-editor-colour__mark-people:       var(--sorcerer-blue-500);
+		--sd-editor-colour__mark-company:      var(--syrah-soil-400);
+
+		--sd-editor-colour__soft-limit:     var(--syrah-soil-500);
 	}
 
 	.sd-editor--theme-natural {
@@ -167,7 +194,6 @@
 		--sd-editor-colour__adding:         var(--green-brier-600);
 		--sd-editor-colour__adding-bg:      var(--green-brier-400-a12);
 	}
-
 }
 
 $color-swatch-border-color: transparent;

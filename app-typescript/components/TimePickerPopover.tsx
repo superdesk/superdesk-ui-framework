@@ -140,9 +140,9 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
             <div
                 className="sd-shadow--z2 radius-md"
                 onBlur={this.props.closePopup}
-                onKeyDown={(e) => {
-                    if (e.key === 'Enter') {
-                        e.preventDefault();
+                onKeyDown={(event) => {
+                    if (event.key === 'Enter' || event.key === 'Escape') {
+                        event.preventDefault();
                         this.props.closePopup();
                     }
                 }}
@@ -163,7 +163,15 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
                             {this.props.headerTemplate}
                         </div>
                     )}
-                    <Spacer h gap="4" noWrap justifyContent="center" alignItems="start">
+
+                    <Spacer
+                        h
+                        gap="4"
+                        noWrap
+                        justifyContent="center"
+                        alignItems="start"
+                        style={{paddingInline: 'var(--gap-1)'}}
+                    >
                         <Spacer v gap="4" style={styleForColumnOfUnit} alignItems="center" noWrap>
                             {getOptionsForTimeUnit('hours', this.is12HourFormat).map((hour) => {
                                 const isActiveHour =
@@ -171,6 +179,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                 return (
                                     <TimeValueHolder
+                                        key={hour}
                                         ref={isActiveHour ? this.inputRefs[0] : undefined}
                                         onClick={() => {
                                             this.handleChange('hours', hour);
@@ -189,6 +198,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                 return (
                                     <TimeValueHolder
+                                        key={minute}
                                         ref={isActiveMinute ? this.inputRefs[1] : undefined}
                                         isActive={isActiveMinute}
                                         value={minute}
@@ -216,6 +226,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
 
                                         return (
                                             <TimeValueHolder
+                                                key={second}
                                                 ref={isActiveMinute ? this.inputRefs[2] : undefined}
                                                 onClick={() => {
                                                     this.handleChange('seconds', second);

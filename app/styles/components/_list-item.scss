@@ -359,12 +359,6 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 }
 
 .sd-list-item {
-    .badge {
-        margin: 0.2rem;
-    }
-}
-
-.sd-list-item {
     time {
         [class^="icon-"],
         [class*=" icon-"] {

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import nextId from 'react-id-generator';
+import classNames from 'classnames';
 import {InputWrapper} from './Form';
 import {IInputWrapper} from './Form/InputWrapper';
 import {TimePickerPopover} from './TimePickerPopover';
@@ -97,22 +98,23 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                                 popupOpen: true,
                             });
                         }}
-                        onKeyDown={(e) => {
-                            if (e.key === ' ') {
-                                // don't show default popup
-                                e.preventDefault();
+                        onKeyDown={(event) => {
+                            // don't show default popup
+                            event.preventDefault();
 
+                            if (event.key === ' ') {
                                 this.setState({
-                                    popupOpen: true,
+                                    popupOpen: !this.state.popupOpen,
                                 });
-                            } else if (e.key === 'Enter' && this.state.popupOpen) {
-                                e.preventDefault();
+                            } else if ((event.key === 'Enter' || event.key === 'Escape') && this.state.popupOpen) {
                                 this.setState({
                                     popupOpen: false,
                                 });
                             }
                         }}
-                        className={`sd-input__input${this.props.value ? ' sd-input__input--has-value' : ''}`}
+                        className={classNames('sd-input__input', {
+                            'sd-input__input--has-value': this.props.value != null,
+                        })}
                         id={this.htmlId}
                         aria-labelledby={this.htmlId + 'label'}
                         step={this.props.allowSeconds ? 1 : undefined}

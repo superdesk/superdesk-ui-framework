@@ -1,6 +1,6 @@
 import * as React from 'react';
-import addDays from 'date-fns/addDays';
-import format from 'date-fns/format';
+import {addDays} from 'date-fns';
+import {format} from 'date-fns';
 import moment from 'moment';
 import {Calendar, LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
 import {throttle} from 'lodash';
@@ -189,6 +189,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                 htmlId={this.htmlId}
                 tabindex={this.props.tabindex}
                 inputWrapper={this.props.inputWrapper}
+                fullWidth={this.props.fullWidth}
             >
                 <Calendar
                     className="sd-input__input"
