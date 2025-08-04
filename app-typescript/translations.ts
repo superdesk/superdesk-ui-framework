@@ -4,8 +4,8 @@
  */
 
 export const translations = {
-    'Close': 'Close',
-    'Search': 'Search',
+    Close: 'Close',
+    Search: 'Search',
     'No results found': 'No results found',
 };
 
