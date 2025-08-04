@@ -244,31 +244,59 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <hr />
 
-                        <div className='d-flex flex-wrap gap-2'>
-                            <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test'>
+                        <div className="d-flex flex-wrap gap-2">
+                            <Container gap="small" className="p-2 sd-width--medium flex-col items-start theme-test">
                                 {/* EDITOR TEST ===== */}
                                 <label className="theme-preview__label ng-binding">Body Text</label>
                                 <div className="Editor3-root Editor3-editor" data-test-id="editor3">
-                                    <div className="Editor3-controls" data-test-id="toolbar" style={{ width: 'auto' }}>
+                                    <div className="Editor3-controls" data-test-id="toolbar" style={{width: 'auto'}}>
                                         <span>
                                             <span className="Editor3-styleButton" data-sd-tooltip="H3" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="h3" className="icon-heading-3"></i>
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="h3"
+                                                    className="icon-heading-3"
+                                                ></i>
                                             </span>
-                                            <span className="Editor3-styleButton Editor3-activeButton" data-sd-tooltip="Ordered list" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="ordered list" className="icon-ordered-list"></i>
+                                            <span
+                                                className="Editor3-styleButton Editor3-activeButton"
+                                                data-sd-tooltip="Ordered list"
+                                                data-flow="down"
+                                            >
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="ordered list"
+                                                    className="icon-ordered-list"
+                                                ></i>
                                             </span>
                                         </span>
                                         <span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Bold (Ctrl+B)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Bold (Ctrl+B)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-bold"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Italic (Ctrl+I)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Italic (Ctrl+I)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-italic"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Underline (Ctrl+U)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Underline (Ctrl+U)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-underline"></i>
                                             </span>
-                                            <span className="Editor3-styleButton inactive" data-sd-tooltip="Link (Ctrl+K)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton inactive"
+                                                data-sd-tooltip="Link (Ctrl+K)"
+                                                data-flow="down"
+                                            >
                                                 <span className="inactive">
                                                     <i data-test-id="formatting-option" className="icon-link"></i>
                                                 </span>
@@ -278,29 +306,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className="focus-screen">
                                         <div className="DraftEditor-root">
                                             <div className="DraftEditor-editorContainer">
-                                                <div 
-                                                    className="public-DraftEditor-content" 
-                                                    role="textbox" 
-                                                    tabIndex={0} 
-                                                    style={{ outline: 'none', userSelect: 'text', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}
+                                                <div
+                                                    className="public-DraftEditor-content"
+                                                    role="textbox"
+                                                    tabIndex={0}
+                                                    style={{
+                                                        outline: 'none',
+                                                        userSelect: 'text',
+                                                        whiteSpace: 'pre-wrap',
+                                                        overflowWrap: 'break-word',
+                                                    }}
                                                 >
                                                     <div data-contents="true">
-                                                        <p className="text-md font-normal" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 
-                                                        <span style={{color: 'var(--sd-editor-colour__soft-limit)'}}>cum sociis natoque penatibus et magnis dis parturient montes</span>
-                                                        <span style={{color: 'var(--sd-editor-colour__hard-limit)'}}>, nascetur ridiculus mus.</span></p>
-                                                        <ol className="public-DraftStyleDefault-ol" data-offset-key="usqd-0-0">
+                                                        <p className="text-md font-normal">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__soft-limit)'}}
+                                                            >
+                                                                cum sociis natoque penatibus et magnis dis parturient
+                                                                montes
+                                                            </span>
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__hard-limit)'}}
+                                                            >
+                                                                , nascetur ridiculus mus.
+                                                            </span>
+                                                        </p>
+                                                        <ol
+                                                            className="public-DraftStyleDefault-ol"
+                                                            data-offset-key="usqd-0-0"
+                                                        >
                                                             <li>List item 1</li>
                                                             <li>List item 2</li>
                                                             <li>List item 3</li>
                                                         </ol>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                        <span style={{color: 'var(--sd-editor-colour__removing)', textDecoration: 'line-through', backgroundColor: 'var(--sd-editor-colour__removing-bg)'}}>adipiscing</span>
-                                                        elit. Sed do eiusmod tempor <span style={{color: 'var(--sd-editor-colour__adding)', backgroundColor: 'var(--sd-editor-colour__adding-bg)'}}>incididunt</span> ut labore et dolore magna aliqua.
-                                                        Duis aute irure dolor in reprehenderit in <span style={{backgroundColor: 'var(--sd-editor-colour__comment-bg)'}}>voluptate</span> velit esse cillum dolore eu fugiat nulla pariatur. 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-people, magenta)'}}>Excepteur</span> sint occaecat  
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-company, orange)'}}> Cupidatat</span> non proident, sunt in culpa qui officia 
-                                                        <span style={{borderBottom: '4px solid var(--sd-editor-colour__annotation)'}}> deserunt</span> mollit anim id est laborum.</p>
-                                                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__removing)',
+                                                                    textDecoration: 'line-through',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__removing-bg)',
+                                                                }}
+                                                            >
+                                                                adipiscing
+                                                            </span>
+                                                            elit. Sed do eiusmod tempor{' '}
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__adding)',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__adding-bg)',
+                                                                }}
+                                                            >
+                                                                incididunt
+                                                            </span>{' '}
+                                                            ut labore et dolore magna aliqua. Duis aute irure dolor in
+                                                            reprehenderit in{' '}
+                                                            <span
+                                                                style={{
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__comment-bg)',
+                                                                }}
+                                                            >
+                                                                voluptate
+                                                            </span>{' '}
+                                                            velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-people, magenta)',
+                                                                }}
+                                                            >
+                                                                Excepteur
+                                                            </span>{' '}
+                                                            sint occaecat
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-company, orange)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                Cupidatat
+                                                            </span>{' '}
+                                                            non proident, sunt in culpa qui officia
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px solid var(--sd-editor-colour__annotation)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                deserunt
+                                                            </span>{' '}
+                                                            mollit anim id est laborum.
+                                                        </p>
+                                                        <blockquote>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua.
+                                                        </blockquote>
                                                     </div>
                                                 </div>
                                             </div>
@@ -308,30 +417,61 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </Container>
-                            <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-default'>
+                            <Container
+                                gap="small"
+                                className="p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-default"
+                            >
                                 {/* EDITOR TEST ===== */}
                                 <label className="theme-preview__label ng-binding">Body Text</label>
                                 <div className="Editor3-root Editor3-editor" data-test-id="editor3">
-                                    <div className="Editor3-controls" data-test-id="toolbar" style={{ width: 'auto' }}>
+                                    <div className="Editor3-controls" data-test-id="toolbar" style={{width: 'auto'}}>
                                         <span>
                                             <span className="Editor3-styleButton" data-sd-tooltip="H3" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="h3" className="icon-heading-3"></i>
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="h3"
+                                                    className="icon-heading-3"
+                                                ></i>
                                             </span>
-                                            <span className="Editor3-styleButton Editor3-activeButton" data-sd-tooltip="Ordered list" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="ordered list" className="icon-ordered-list"></i>
+                                            <span
+                                                className="Editor3-styleButton Editor3-activeButton"
+                                                data-sd-tooltip="Ordered list"
+                                                data-flow="down"
+                                            >
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="ordered list"
+                                                    className="icon-ordered-list"
+                                                ></i>
                                             </span>
                                         </span>
                                         <span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Bold (Ctrl+B)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Bold (Ctrl+B)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-bold"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Italic (Ctrl+I)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Italic (Ctrl+I)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-italic"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Underline (Ctrl+U)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Underline (Ctrl+U)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-underline"></i>
                                             </span>
-                                            <span className="Editor3-styleButton inactive" data-sd-tooltip="Link (Ctrl+K)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton inactive"
+                                                data-sd-tooltip="Link (Ctrl+K)"
+                                                data-flow="down"
+                                            >
                                                 <span className="inactive">
                                                     <i data-test-id="formatting-option" className="icon-link"></i>
                                                 </span>
@@ -341,29 +481,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className="focus-screen">
                                         <div className="DraftEditor-root">
                                             <div className="DraftEditor-editorContainer">
-                                                <div 
-                                                    className="public-DraftEditor-content" 
-                                                    role="textbox" 
-                                                    tabIndex={0} 
-                                                    style={{ outline: 'none', userSelect: 'text', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}
+                                                <div
+                                                    className="public-DraftEditor-content"
+                                                    role="textbox"
+                                                    tabIndex={0}
+                                                    style={{
+                                                        outline: 'none',
+                                                        userSelect: 'text',
+                                                        whiteSpace: 'pre-wrap',
+                                                        overflowWrap: 'break-word',
+                                                    }}
                                                 >
                                                     <div data-contents="true">
-                                                        <p className="text-md font-normal" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 
-                                                        <span style={{color: 'var(--sd-editor-colour__soft-limit)'}}>cum sociis natoque penatibus et magnis dis parturient montes</span>
-                                                        <span style={{color: 'var(--sd-editor-colour__hard-limit)'}}>, nascetur ridiculus mus.</span></p>
-                                                        <ol className="public-DraftStyleDefault-ol" data-offset-key="usqd-0-0">
+                                                        <p className="text-md font-normal">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__soft-limit)'}}
+                                                            >
+                                                                cum sociis natoque penatibus et magnis dis parturient
+                                                                montes
+                                                            </span>
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__hard-limit)'}}
+                                                            >
+                                                                , nascetur ridiculus mus.
+                                                            </span>
+                                                        </p>
+                                                        <ol
+                                                            className="public-DraftStyleDefault-ol"
+                                                            data-offset-key="usqd-0-0"
+                                                        >
                                                             <li>List item 1</li>
                                                             <li>List item 2</li>
                                                             <li>List item 3</li>
                                                         </ol>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                        <span style={{color: 'var(--sd-editor-colour__removing)', textDecoration: 'line-through', backgroundColor: 'var(--sd-editor-colour__removing-bg)'}}>adipiscing</span>
-                                                        elit. Sed do eiusmod tempor <span style={{color: 'var(--sd-editor-colour__adding)', backgroundColor: 'var(--sd-editor-colour__adding-bg)'}}>incididunt</span> ut labore et dolore magna aliqua.
-                                                        Duis aute irure dolor in reprehenderit in <span style={{backgroundColor: 'var(--sd-editor-colour__comment-bg)'}}>voluptate</span> velit esse cillum dolore eu fugiat nulla pariatur. 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-people, magenta)'}}>Excepteur</span> sint occaecat 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-company, orange)'}}> Cupidatat</span> non proident, sunt in culpa qui officia 
-                                                        <span style={{borderBottom: '4px solid var(--sd-editor-colour__annotation)'}}> deserunt</span> mollit anim id est laborum.</p>
-                                                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__removing)',
+                                                                    textDecoration: 'line-through',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__removing-bg)',
+                                                                }}
+                                                            >
+                                                                adipiscing
+                                                            </span>
+                                                            elit. Sed do eiusmod tempor{' '}
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__adding)',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__adding-bg)',
+                                                                }}
+                                                            >
+                                                                incididunt
+                                                            </span>{' '}
+                                                            ut labore et dolore magna aliqua. Duis aute irure dolor in
+                                                            reprehenderit in{' '}
+                                                            <span
+                                                                style={{
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__comment-bg)',
+                                                                }}
+                                                            >
+                                                                voluptate
+                                                            </span>{' '}
+                                                            velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-people, magenta)',
+                                                                }}
+                                                            >
+                                                                Excepteur
+                                                            </span>{' '}
+                                                            sint occaecat
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-company, orange)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                Cupidatat
+                                                            </span>{' '}
+                                                            non proident, sunt in culpa qui officia
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px solid var(--sd-editor-colour__annotation)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                deserunt
+                                                            </span>{' '}
+                                                            mollit anim id est laborum.
+                                                        </p>
+                                                        <blockquote>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua.
+                                                        </blockquote>
                                                     </div>
                                                 </div>
                                             </div>
@@ -371,30 +592,61 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </Container>
-                            <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-natural'>
+                            <Container
+                                gap="small"
+                                className="p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-natural"
+                            >
                                 {/* EDITOR TEST ===== */}
                                 <label className="theme-preview__label ng-binding">Body Text</label>
                                 <div className="Editor3-root Editor3-editor" data-test-id="editor3">
-                                    <div className="Editor3-controls" data-test-id="toolbar" style={{ width: 'auto' }}>
+                                    <div className="Editor3-controls" data-test-id="toolbar" style={{width: 'auto'}}>
                                         <span>
                                             <span className="Editor3-styleButton" data-sd-tooltip="H3" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="h3" className="icon-heading-3"></i>
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="h3"
+                                                    className="icon-heading-3"
+                                                ></i>
                                             </span>
-                                            <span className="Editor3-styleButton Editor3-activeButton" data-sd-tooltip="Ordered list" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="ordered list" className="icon-ordered-list"></i>
+                                            <span
+                                                className="Editor3-styleButton Editor3-activeButton"
+                                                data-sd-tooltip="Ordered list"
+                                                data-flow="down"
+                                            >
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="ordered list"
+                                                    className="icon-ordered-list"
+                                                ></i>
                                             </span>
                                         </span>
                                         <span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Bold (Ctrl+B)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Bold (Ctrl+B)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-bold"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Italic (Ctrl+I)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Italic (Ctrl+I)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-italic"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Underline (Ctrl+U)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Underline (Ctrl+U)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-underline"></i>
                                             </span>
-                                            <span className="Editor3-styleButton inactive" data-sd-tooltip="Link (Ctrl+K)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton inactive"
+                                                data-sd-tooltip="Link (Ctrl+K)"
+                                                data-flow="down"
+                                            >
                                                 <span className="inactive">
                                                     <i data-test-id="formatting-option" className="icon-link"></i>
                                                 </span>
@@ -404,29 +656,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className="focus-screen">
                                         <div className="DraftEditor-root">
                                             <div className="DraftEditor-editorContainer">
-                                                <div 
-                                                    className="public-DraftEditor-content" 
-                                                    role="textbox" 
-                                                    tabIndex={0} 
-                                                    style={{ outline: 'none', userSelect: 'text', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}
+                                                <div
+                                                    className="public-DraftEditor-content"
+                                                    role="textbox"
+                                                    tabIndex={0}
+                                                    style={{
+                                                        outline: 'none',
+                                                        userSelect: 'text',
+                                                        whiteSpace: 'pre-wrap',
+                                                        overflowWrap: 'break-word',
+                                                    }}
                                                 >
                                                     <div data-contents="true">
-                                                        <p className="text-md font-normal" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 
-                                                        <span style={{color: 'var(--sd-editor-colour__soft-limit)'}}>cum sociis natoque penatibus et magnis dis parturient montes</span>
-                                                        <span style={{color: 'var(--sd-editor-colour__hard-limit)'}}>, nascetur ridiculus mus.</span></p>
-                                                        <ol className="public-DraftStyleDefault-ol" data-offset-key="usqd-0-0">
+                                                        <p className="text-md font-normal">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__soft-limit)'}}
+                                                            >
+                                                                cum sociis natoque penatibus et magnis dis parturient
+                                                                montes
+                                                            </span>
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__hard-limit)'}}
+                                                            >
+                                                                , nascetur ridiculus mus.
+                                                            </span>
+                                                        </p>
+                                                        <ol
+                                                            className="public-DraftStyleDefault-ol"
+                                                            data-offset-key="usqd-0-0"
+                                                        >
                                                             <li>List item 1</li>
                                                             <li>List item 2</li>
                                                             <li>List item 3</li>
                                                         </ol>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                        <span style={{color: 'var(--sd-editor-colour__removing)', textDecoration: 'line-through', backgroundColor: 'var(--sd-editor-colour__removing-bg)'}}>adipiscing</span>
-                                                        elit. Sed do eiusmod tempor <span style={{color: 'var(--sd-editor-colour__adding)', backgroundColor: 'var(--sd-editor-colour__adding-bg)'}}>incididunt</span> ut labore et dolore magna aliqua.
-                                                        Duis aute irure dolor in reprehenderit in <span style={{backgroundColor: 'var(--sd-editor-colour__comment-bg)'}}>voluptate</span> velit esse cillum dolore eu fugiat nulla pariatur. 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-people, magenta)'}}>Excepteur</span> sint occaecat 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-company, orange)'}}> Cupidatat</span> non proident, sunt in culpa qui officia 
-                                                        <span style={{borderBottom: '4px solid var(--sd-editor-colour__annotation)'}}> deserunt</span> mollit anim id est laborum.</p>
-                                                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__removing)',
+                                                                    textDecoration: 'line-through',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__removing-bg)',
+                                                                }}
+                                                            >
+                                                                adipiscing
+                                                            </span>
+                                                            elit. Sed do eiusmod tempor{' '}
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__adding)',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__adding-bg)',
+                                                                }}
+                                                            >
+                                                                incididunt
+                                                            </span>{' '}
+                                                            ut labore et dolore magna aliqua. Duis aute irure dolor in
+                                                            reprehenderit in{' '}
+                                                            <span
+                                                                style={{
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__comment-bg)',
+                                                                }}
+                                                            >
+                                                                voluptate
+                                                            </span>{' '}
+                                                            velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-people, magenta)',
+                                                                }}
+                                                            >
+                                                                Excepteur
+                                                            </span>{' '}
+                                                            sint occaecat
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-company, orange)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                Cupidatat
+                                                            </span>{' '}
+                                                            non proident, sunt in culpa qui officia
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px solid var(--sd-editor-colour__annotation)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                deserunt
+                                                            </span>{' '}
+                                                            mollit anim id est laborum.
+                                                        </p>
+                                                        <blockquote>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua.
+                                                        </blockquote>
                                                     </div>
                                                 </div>
                                             </div>
@@ -434,30 +767,61 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </Container>
-                            <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-turquoise'>
+                            <Container
+                                gap="small"
+                                className="p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-turquoise"
+                            >
                                 {/* EDITOR TEST ===== */}
                                 <label className="theme-preview__label ng-binding">Body Text</label>
                                 <div className="Editor3-root Editor3-editor" data-test-id="editor3">
-                                    <div className="Editor3-controls" data-test-id="toolbar" style={{ width: 'auto' }}>
+                                    <div className="Editor3-controls" data-test-id="toolbar" style={{width: 'auto'}}>
                                         <span>
                                             <span className="Editor3-styleButton" data-sd-tooltip="H3" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="h3" className="icon-heading-3"></i>
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="h3"
+                                                    className="icon-heading-3"
+                                                ></i>
                                             </span>
-                                            <span className="Editor3-styleButton Editor3-activeButton" data-sd-tooltip="Ordered list" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="ordered list" className="icon-ordered-list"></i>
+                                            <span
+                                                className="Editor3-styleButton Editor3-activeButton"
+                                                data-sd-tooltip="Ordered list"
+                                                data-flow="down"
+                                            >
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="ordered list"
+                                                    className="icon-ordered-list"
+                                                ></i>
                                             </span>
                                         </span>
                                         <span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Bold (Ctrl+B)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Bold (Ctrl+B)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-bold"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Italic (Ctrl+I)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Italic (Ctrl+I)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-italic"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Underline (Ctrl+U)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Underline (Ctrl+U)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-underline"></i>
                                             </span>
-                                            <span className="Editor3-styleButton inactive" data-sd-tooltip="Link (Ctrl+K)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton inactive"
+                                                data-sd-tooltip="Link (Ctrl+K)"
+                                                data-flow="down"
+                                            >
                                                 <span className="inactive">
                                                     <i data-test-id="formatting-option" className="icon-link"></i>
                                                 </span>
@@ -467,29 +831,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className="focus-screen">
                                         <div className="DraftEditor-root">
                                             <div className="DraftEditor-editorContainer">
-                                                <div 
-                                                    className="public-DraftEditor-content" 
-                                                    role="textbox" 
-                                                    tabIndex={0} 
-                                                    style={{ outline: 'none', userSelect: 'text', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}
+                                                <div
+                                                    className="public-DraftEditor-content"
+                                                    role="textbox"
+                                                    tabIndex={0}
+                                                    style={{
+                                                        outline: 'none',
+                                                        userSelect: 'text',
+                                                        whiteSpace: 'pre-wrap',
+                                                        overflowWrap: 'break-word',
+                                                    }}
                                                 >
                                                     <div data-contents="true">
-                                                        <p className="text-md font-normal" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 
-                                                        <span style={{color: 'var(--sd-editor-colour__soft-limit)'}}>cum sociis natoque penatibus et magnis dis parturient montes</span>
-                                                        <span style={{color: 'var(--sd-editor-colour__hard-limit)'}}>, nascetur ridiculus mus.</span></p>
-                                                        <ol className="public-DraftStyleDefault-ol" data-offset-key="usqd-0-0">
+                                                        <p className="text-md font-normal">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__soft-limit)'}}
+                                                            >
+                                                                cum sociis natoque penatibus et magnis dis parturient
+                                                                montes
+                                                            </span>
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__hard-limit)'}}
+                                                            >
+                                                                , nascetur ridiculus mus.
+                                                            </span>
+                                                        </p>
+                                                        <ol
+                                                            className="public-DraftStyleDefault-ol"
+                                                            data-offset-key="usqd-0-0"
+                                                        >
                                                             <li>List item 1</li>
                                                             <li>List item 2</li>
                                                             <li>List item 3</li>
                                                         </ol>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                        <span style={{color: 'var(--sd-editor-colour__removing)', textDecoration: 'line-through', backgroundColor: 'var(--sd-editor-colour__removing-bg)'}}>adipiscing</span>
-                                                        elit. Sed do eiusmod tempor <span style={{color: 'var(--sd-editor-colour__adding)', backgroundColor: 'var(--sd-editor-colour__adding-bg)'}}>incididunt</span> ut labore et dolore magna aliqua.
-                                                        Duis aute irure dolor in reprehenderit in <span style={{backgroundColor: 'var(--sd-editor-colour__comment-bg)'}}>voluptate</span> velit esse cillum dolore eu fugiat nulla pariatur. 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-people, magenta)'}}>Excepteur</span> sint occaecat 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-company, orange)'}}> Cupidatat</span> non proident, sunt in culpa qui officia 
-                                                        <span style={{borderBottom: '4px solid var(--sd-editor-colour__annotation)'}}> deserunt</span> mollit anim id est laborum.</p>
-                                                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__removing)',
+                                                                    textDecoration: 'line-through',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__removing-bg)',
+                                                                }}
+                                                            >
+                                                                adipiscing
+                                                            </span>
+                                                            elit. Sed do eiusmod tempor{' '}
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__adding)',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__adding-bg)',
+                                                                }}
+                                                            >
+                                                                incididunt
+                                                            </span>{' '}
+                                                            ut labore et dolore magna aliqua. Duis aute irure dolor in
+                                                            reprehenderit in{' '}
+                                                            <span
+                                                                style={{
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__comment-bg)',
+                                                                }}
+                                                            >
+                                                                voluptate
+                                                            </span>{' '}
+                                                            velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-people, magenta)',
+                                                                }}
+                                                            >
+                                                                Excepteur
+                                                            </span>{' '}
+                                                            sint occaecat
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-company, orange)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                Cupidatat
+                                                            </span>{' '}
+                                                            non proident, sunt in culpa qui officia
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px solid var(--sd-editor-colour__annotation)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                deserunt
+                                                            </span>{' '}
+                                                            mollit anim id est laborum.
+                                                        </p>
+                                                        <blockquote>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua.
+                                                        </blockquote>
                                                     </div>
                                                 </div>
                                             </div>
@@ -497,30 +942,61 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </Container>
-                            <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-military'>
+                            <Container
+                                gap="small"
+                                className="p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-military"
+                            >
                                 {/* EDITOR TEST ===== */}
                                 <label className="theme-preview__label ng-binding">Body Text</label>
                                 <div className="Editor3-root Editor3-editor" data-test-id="editor3">
-                                    <div className="Editor3-controls" data-test-id="toolbar" style={{ width: 'auto' }}>
+                                    <div className="Editor3-controls" data-test-id="toolbar" style={{width: 'auto'}}>
                                         <span>
                                             <span className="Editor3-styleButton" data-sd-tooltip="H3" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="h3" className="icon-heading-3"></i>
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="h3"
+                                                    className="icon-heading-3"
+                                                ></i>
                                             </span>
-                                            <span className="Editor3-styleButton Editor3-activeButton" data-sd-tooltip="Ordered list" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="ordered list" className="icon-ordered-list"></i>
+                                            <span
+                                                className="Editor3-styleButton Editor3-activeButton"
+                                                data-sd-tooltip="Ordered list"
+                                                data-flow="down"
+                                            >
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="ordered list"
+                                                    className="icon-ordered-list"
+                                                ></i>
                                             </span>
                                         </span>
                                         <span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Bold (Ctrl+B)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Bold (Ctrl+B)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-bold"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Italic (Ctrl+I)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Italic (Ctrl+I)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-italic"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Underline (Ctrl+U)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Underline (Ctrl+U)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-underline"></i>
                                             </span>
-                                            <span className="Editor3-styleButton inactive" data-sd-tooltip="Link (Ctrl+K)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton inactive"
+                                                data-sd-tooltip="Link (Ctrl+K)"
+                                                data-flow="down"
+                                            >
                                                 <span className="inactive">
                                                     <i data-test-id="formatting-option" className="icon-link"></i>
                                                 </span>
@@ -530,29 +1006,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className="focus-screen">
                                         <div className="DraftEditor-root">
                                             <div className="DraftEditor-editorContainer">
-                                                <div 
-                                                    className="public-DraftEditor-content" 
-                                                    role="textbox" 
-                                                    tabIndex={0} 
-                                                    style={{ outline: 'none', userSelect: 'text', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}
+                                                <div
+                                                    className="public-DraftEditor-content"
+                                                    role="textbox"
+                                                    tabIndex={0}
+                                                    style={{
+                                                        outline: 'none',
+                                                        userSelect: 'text',
+                                                        whiteSpace: 'pre-wrap',
+                                                        overflowWrap: 'break-word',
+                                                    }}
                                                 >
                                                     <div data-contents="true">
-                                                        <p className="text-md font-normal" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 
-                                                        <span style={{color: 'var(--sd-editor-colour__soft-limit)'}}>cum sociis natoque penatibus et magnis dis parturient montes</span>
-                                                        <span style={{color: 'var(--sd-editor-colour__hard-limit)'}}>, nascetur ridiculus mus.</span></p>
-                                                        <ol className="public-DraftStyleDefault-ol" data-offset-key="usqd-0-0">
+                                                        <p className="text-md font-normal">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__soft-limit)'}}
+                                                            >
+                                                                cum sociis natoque penatibus et magnis dis parturient
+                                                                montes
+                                                            </span>
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__hard-limit)'}}
+                                                            >
+                                                                , nascetur ridiculus mus.
+                                                            </span>
+                                                        </p>
+                                                        <ol
+                                                            className="public-DraftStyleDefault-ol"
+                                                            data-offset-key="usqd-0-0"
+                                                        >
                                                             <li>List item 1</li>
                                                             <li>List item 2</li>
                                                             <li>List item 3</li>
                                                         </ol>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                        <span style={{color: 'var(--sd-editor-colour__removing)', textDecoration: 'line-through', backgroundColor: 'var(--sd-editor-colour__removing-bg)'}}>adipiscing</span>
-                                                        elit. Sed do eiusmod tempor <span style={{color: 'var(--sd-editor-colour__adding)', backgroundColor: 'var(--sd-editor-colour__adding-bg)'}}>incididunt</span> ut labore et dolore magna aliqua.
-                                                        Duis aute irure dolor in reprehenderit in <span style={{backgroundColor: 'var(--sd-editor-colour__comment-bg)'}}>voluptate</span> velit esse cillum dolore eu fugiat nulla pariatur. 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-people, magenta)'}}>Excepteur</span> sint occaecat 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-company, orange)'}}> Cupidatat</span> non proident, sunt in culpa qui officia 
-                                                        <span style={{borderBottom: '4px solid var(--sd-editor-colour__annotation)'}}> deserunt</span> mollit anim id est laborum.</p>
-                                                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__removing)',
+                                                                    textDecoration: 'line-through',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__removing-bg)',
+                                                                }}
+                                                            >
+                                                                adipiscing
+                                                            </span>
+                                                            elit. Sed do eiusmod tempor{' '}
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__adding)',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__adding-bg)',
+                                                                }}
+                                                            >
+                                                                incididunt
+                                                            </span>{' '}
+                                                            ut labore et dolore magna aliqua. Duis aute irure dolor in
+                                                            reprehenderit in{' '}
+                                                            <span
+                                                                style={{
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__comment-bg)',
+                                                                }}
+                                                            >
+                                                                voluptate
+                                                            </span>{' '}
+                                                            velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-people, magenta)',
+                                                                }}
+                                                            >
+                                                                Excepteur
+                                                            </span>{' '}
+                                                            sint occaecat
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-company, orange)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                Cupidatat
+                                                            </span>{' '}
+                                                            non proident, sunt in culpa qui officia
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px solid var(--sd-editor-colour__annotation)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                deserunt
+                                                            </span>{' '}
+                                                            mollit anim id est laborum.
+                                                        </p>
+                                                        <blockquote>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua.
+                                                        </blockquote>
                                                     </div>
                                                 </div>
                                             </div>
@@ -560,30 +1117,61 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </Container>
-                            <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-blue'>
+                            <Container
+                                gap="small"
+                                className="p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-blue"
+                            >
                                 {/* EDITOR TEST ===== */}
                                 <label className="theme-preview__label ng-binding">Body Text</label>
                                 <div className="Editor3-root Editor3-editor" data-test-id="editor3">
-                                    <div className="Editor3-controls" data-test-id="toolbar" style={{ width: 'auto' }}>
+                                    <div className="Editor3-controls" data-test-id="toolbar" style={{width: 'auto'}}>
                                         <span>
                                             <span className="Editor3-styleButton" data-sd-tooltip="H3" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="h3" className="icon-heading-3"></i>
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="h3"
+                                                    className="icon-heading-3"
+                                                ></i>
                                             </span>
-                                            <span className="Editor3-styleButton Editor3-activeButton" data-sd-tooltip="Ordered list" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="ordered list" className="icon-ordered-list"></i>
+                                            <span
+                                                className="Editor3-styleButton Editor3-activeButton"
+                                                data-sd-tooltip="Ordered list"
+                                                data-flow="down"
+                                            >
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="ordered list"
+                                                    className="icon-ordered-list"
+                                                ></i>
                                             </span>
                                         </span>
                                         <span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Bold (Ctrl+B)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Bold (Ctrl+B)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-bold"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Italic (Ctrl+I)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Italic (Ctrl+I)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-italic"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Underline (Ctrl+U)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Underline (Ctrl+U)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-underline"></i>
                                             </span>
-                                            <span className="Editor3-styleButton inactive" data-sd-tooltip="Link (Ctrl+K)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton inactive"
+                                                data-sd-tooltip="Link (Ctrl+K)"
+                                                data-flow="down"
+                                            >
                                                 <span className="inactive">
                                                     <i data-test-id="formatting-option" className="icon-link"></i>
                                                 </span>
@@ -593,29 +1181,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className="focus-screen">
                                         <div className="DraftEditor-root">
                                             <div className="DraftEditor-editorContainer">
-                                                <div 
-                                                    className="public-DraftEditor-content" 
-                                                    role="textbox" 
-                                                    tabIndex={0} 
-                                                    style={{ outline: 'none', userSelect: 'text', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}
+                                                <div
+                                                    className="public-DraftEditor-content"
+                                                    role="textbox"
+                                                    tabIndex={0}
+                                                    style={{
+                                                        outline: 'none',
+                                                        userSelect: 'text',
+                                                        whiteSpace: 'pre-wrap',
+                                                        overflowWrap: 'break-word',
+                                                    }}
                                                 >
                                                     <div data-contents="true">
-                                                        <p className="text-md font-normal" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 
-                                                        <span style={{color: 'var(--sd-editor-colour__soft-limit)'}}>cum sociis natoque penatibus et magnis dis parturient montes</span>
-                                                        <span style={{color: 'var(--sd-editor-colour__hard-limit)'}}>, nascetur ridiculus mus.</span></p>
-                                                        <ol className="public-DraftStyleDefault-ol" data-offset-key="usqd-0-0">
+                                                        <p className="text-md font-normal">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__soft-limit)'}}
+                                                            >
+                                                                cum sociis natoque penatibus et magnis dis parturient
+                                                                montes
+                                                            </span>
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__hard-limit)'}}
+                                                            >
+                                                                , nascetur ridiculus mus.
+                                                            </span>
+                                                        </p>
+                                                        <ol
+                                                            className="public-DraftStyleDefault-ol"
+                                                            data-offset-key="usqd-0-0"
+                                                        >
                                                             <li>List item 1</li>
                                                             <li>List item 2</li>
                                                             <li>List item 3</li>
                                                         </ol>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                        <span style={{color: 'var(--sd-editor-colour__removing)', textDecoration: 'line-through', backgroundColor: 'var(--sd-editor-colour__removing-bg)'}}>adipiscing</span>
-                                                        elit. Sed do eiusmod tempor <span style={{color: 'var(--sd-editor-colour__adding)', backgroundColor: 'var(--sd-editor-colour__adding-bg)'}}>incididunt</span> ut labore et dolore magna aliqua.
-                                                        Duis aute irure dolor in reprehenderit in <span style={{backgroundColor: 'var(--sd-editor-colour__comment-bg)'}}>voluptate</span> velit esse cillum dolore eu fugiat nulla pariatur. 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-people, magenta)'}}>Excepteur</span> sint occaecat 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-company, orange)'}}> Cupidatat</span> non proident, sunt in culpa qui officia 
-                                                        <span style={{borderBottom: '4px solid var(--sd-editor-colour__annotation)'}}> deserunt</span> mollit anim id est laborum.</p>
-                                                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__removing)',
+                                                                    textDecoration: 'line-through',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__removing-bg)',
+                                                                }}
+                                                            >
+                                                                adipiscing
+                                                            </span>
+                                                            elit. Sed do eiusmod tempor{' '}
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__adding)',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__adding-bg)',
+                                                                }}
+                                                            >
+                                                                incididunt
+                                                            </span>{' '}
+                                                            ut labore et dolore magna aliqua. Duis aute irure dolor in
+                                                            reprehenderit in{' '}
+                                                            <span
+                                                                style={{
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__comment-bg)',
+                                                                }}
+                                                            >
+                                                                voluptate
+                                                            </span>{' '}
+                                                            velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-people, magenta)',
+                                                                }}
+                                                            >
+                                                                Excepteur
+                                                            </span>{' '}
+                                                            sint occaecat
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-company, orange)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                Cupidatat
+                                                            </span>{' '}
+                                                            non proident, sunt in culpa qui officia
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px solid var(--sd-editor-colour__annotation)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                deserunt
+                                                            </span>{' '}
+                                                            mollit anim id est laborum.
+                                                        </p>
+                                                        <blockquote>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua.
+                                                        </blockquote>
                                                     </div>
                                                 </div>
                                             </div>
@@ -623,30 +1292,61 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </Container>
-                            <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-dark'>
+                            <Container
+                                gap="small"
+                                className="p-2 sd-width--medium flex-col items-start theme-test sd-editor--theme-dark"
+                            >
                                 {/* EDITOR TEST ===== */}
                                 <label className="theme-preview__label ng-binding">Body Text</label>
                                 <div className="Editor3-root Editor3-editor" data-test-id="editor3">
-                                    <div className="Editor3-controls" data-test-id="toolbar" style={{ width: 'auto' }}>
+                                    <div className="Editor3-controls" data-test-id="toolbar" style={{width: 'auto'}}>
                                         <span>
                                             <span className="Editor3-styleButton" data-sd-tooltip="H3" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="h3" className="icon-heading-3"></i>
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="h3"
+                                                    className="icon-heading-3"
+                                                ></i>
                                             </span>
-                                            <span className="Editor3-styleButton Editor3-activeButton" data-sd-tooltip="Ordered list" data-flow="down">
-                                                <i data-test-id="formatting-option" data-test-value="ordered list" className="icon-ordered-list"></i>
+                                            <span
+                                                className="Editor3-styleButton Editor3-activeButton"
+                                                data-sd-tooltip="Ordered list"
+                                                data-flow="down"
+                                            >
+                                                <i
+                                                    data-test-id="formatting-option"
+                                                    data-test-value="ordered list"
+                                                    className="icon-ordered-list"
+                                                ></i>
                                             </span>
                                         </span>
                                         <span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Bold (Ctrl+B)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Bold (Ctrl+B)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-bold"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Italic (Ctrl+I)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Italic (Ctrl+I)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-italic"></i>
                                             </span>
-                                            <span className="Editor3-styleButton" data-sd-tooltip="Underline (Ctrl+U)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton"
+                                                data-sd-tooltip="Underline (Ctrl+U)"
+                                                data-flow="down"
+                                            >
                                                 <i data-test-id="formatting-option" className="icon-underline"></i>
                                             </span>
-                                            <span className="Editor3-styleButton inactive" data-sd-tooltip="Link (Ctrl+K)" data-flow="down">
+                                            <span
+                                                className="Editor3-styleButton inactive"
+                                                data-sd-tooltip="Link (Ctrl+K)"
+                                                data-flow="down"
+                                            >
                                                 <span className="inactive">
                                                     <i data-test-id="formatting-option" className="icon-link"></i>
                                                 </span>
@@ -656,29 +1356,110 @@ export class TestGround extends React.Component<IProps, IState> {
                                     <div className="focus-screen">
                                         <div className="DraftEditor-root">
                                             <div className="DraftEditor-editorContainer">
-                                                <div 
-                                                    className="public-DraftEditor-content" 
-                                                    role="textbox" 
-                                                    tabIndex={0} 
-                                                    style={{ outline: 'none', userSelect: 'text', whiteSpace: 'pre-wrap', overflowWrap: 'break-word' }}
+                                                <div
+                                                    className="public-DraftEditor-content"
+                                                    role="textbox"
+                                                    tabIndex={0}
+                                                    style={{
+                                                        outline: 'none',
+                                                        userSelect: 'text',
+                                                        whiteSpace: 'pre-wrap',
+                                                        overflowWrap: 'break-word',
+                                                    }}
                                                 >
                                                     <div data-contents="true">
-                                                        <p className="text-md font-normal" >Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua 
-                                                        <span style={{color: 'var(--sd-editor-colour__soft-limit)'}}>cum sociis natoque penatibus et magnis dis parturient montes</span>
-                                                        <span style={{color: 'var(--sd-editor-colour__hard-limit)'}}>, nascetur ridiculus mus.</span></p>
-                                                        <ol className="public-DraftStyleDefault-ol" data-offset-key="usqd-0-0">
+                                                        <p className="text-md font-normal">
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__soft-limit)'}}
+                                                            >
+                                                                cum sociis natoque penatibus et magnis dis parturient
+                                                                montes
+                                                            </span>
+                                                            <span
+                                                                style={{color: 'var(--sd-editor-colour__hard-limit)'}}
+                                                            >
+                                                                , nascetur ridiculus mus.
+                                                            </span>
+                                                        </p>
+                                                        <ol
+                                                            className="public-DraftStyleDefault-ol"
+                                                            data-offset-key="usqd-0-0"
+                                                        >
                                                             <li>List item 1</li>
                                                             <li>List item 2</li>
                                                             <li>List item 3</li>
                                                         </ol>
-                                                        <p>Lorem ipsum dolor sit amet, consectetur
-                                                        <span style={{color: 'var(--sd-editor-colour__removing)', textDecoration: 'line-through', backgroundColor: 'var(--sd-editor-colour__removing-bg)'}}>adipiscing</span>
-                                                        elit. Sed do eiusmod tempor <span style={{color: 'var(--sd-editor-colour__adding)', backgroundColor: 'var(--sd-editor-colour__adding-bg)'}}>incididunt</span> ut labore et dolore magna aliqua.
-                                                        Duis aute irure dolor in reprehenderit in <span style={{backgroundColor: 'var(--sd-editor-colour__comment-bg)'}}>voluptate</span> velit esse cillum dolore eu fugiat nulla pariatur. 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-people, magenta)'}}>Excepteur</span> sint occaecat 
-                                                        <span style={{borderBottom: '4px double var(--sd-editor-colour__mark-company, orange)'}}> Cupidatat</span> non proident, sunt in culpa qui officia  
-                                                        <span style={{borderBottom: '4px solid var(--sd-editor-colour__annotation)'}}> deserunt</span> mollit anim id est laborum.</p>
-                                                        <blockquote>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</blockquote>
+                                                        <p>
+                                                            Lorem ipsum dolor sit amet, consectetur
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__removing)',
+                                                                    textDecoration: 'line-through',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__removing-bg)',
+                                                                }}
+                                                            >
+                                                                adipiscing
+                                                            </span>
+                                                            elit. Sed do eiusmod tempor{' '}
+                                                            <span
+                                                                style={{
+                                                                    color: 'var(--sd-editor-colour__adding)',
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__adding-bg)',
+                                                                }}
+                                                            >
+                                                                incididunt
+                                                            </span>{' '}
+                                                            ut labore et dolore magna aliqua. Duis aute irure dolor in
+                                                            reprehenderit in{' '}
+                                                            <span
+                                                                style={{
+                                                                    backgroundColor:
+                                                                        'var(--sd-editor-colour__comment-bg)',
+                                                                }}
+                                                            >
+                                                                voluptate
+                                                            </span>{' '}
+                                                            velit esse cillum dolore eu fugiat nulla pariatur.
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-people, magenta)',
+                                                                }}
+                                                            >
+                                                                Excepteur
+                                                            </span>{' '}
+                                                            sint occaecat
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px double var(--sd-editor-colour__mark-company, orange)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                Cupidatat
+                                                            </span>{' '}
+                                                            non proident, sunt in culpa qui officia
+                                                            <span
+                                                                style={{
+                                                                    borderBottom:
+                                                                        '4px solid var(--sd-editor-colour__annotation)',
+                                                                }}
+                                                            >
+                                                                {' '}
+                                                                deserunt
+                                                            </span>{' '}
+                                                            mollit anim id est laborum.
+                                                        </p>
+                                                        <blockquote>
+                                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                                                            do eiusmod tempor incididunt ut labore et dolore magna
+                                                            aliqua.
+                                                        </blockquote>
                                                     </div>
                                                 </div>
                                             </div>
@@ -686,7 +1467,6 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                             </Container>
-
                         </div>
 
                         <hr />

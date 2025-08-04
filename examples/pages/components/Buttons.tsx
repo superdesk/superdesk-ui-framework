@@ -225,7 +225,7 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            
+
                             <Button
                                 type="primary"
                                 icon="plus-sign"
@@ -233,19 +233,8 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            <Button 
-                                icon="info-sign"
-                                text="info-sign"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="tertiary"
-                                icon="ok"
-                                text="ok"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
+                            <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={() => false} />
+                            <Button type="tertiary" icon="ok" text="ok" iconOnly={true} onClick={() => false} />
                             <Button
                                 type="primary"
                                 icon="plus-sign"

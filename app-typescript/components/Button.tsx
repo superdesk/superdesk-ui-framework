@@ -16,7 +16,16 @@ interface IPropsButton {
     tooltip?: string;
     id?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
-    type?: 'primary' | 'secondary' | 'tertiary' | 'default' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
+    type?:
+        | 'primary'
+        | 'secondary'
+        | 'tertiary'
+        | 'default'
+        | 'success'
+        | 'warning'
+        | 'alert'
+        | 'highlight'
+        | 'sd-green';
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
     textAlign?: 'start' | 'center' | 'end'; // defaults to 'center'
     children?: never;
@@ -36,7 +45,7 @@ export class Button extends React.PureComponent<IPropsButton> {
             [`btn--${this.props.type}`]: this.props.type !== 'secondary' && this.props.type !== undefined,
             [`btn--${this.props.type}`]: this.props.type !== 'default' && this.props.type !== undefined,
             [`btn--${this.props.style}`]: this.props.style !== 'filled' && this.props.style !== undefined,
-            
+
             'btn--disabled': this.props.disabled,
             'btn--icon-only': this.props.iconOnly,
             'btn--ui-dark': this.props.theme === 'dark',
