@@ -634,7 +634,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
     .dropdown__toggle {
         text-align: start;
         background: transparent;
-        height: $form-input-height;
+        height: var(--form-element-height-default);
         padding: 0.7rem 1.5rem;
         border-radius: $border-radius__base--small;
         color: var(--color-text);

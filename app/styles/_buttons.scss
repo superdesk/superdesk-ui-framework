@@ -172,18 +172,12 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
             --sd-btn-color: var(--sd-colour-superdesk);
         }
 
-        &.btn--secondary {
-            --sd-btn-border: var(--sd-colour-secondary-btn-border);
-            --sd-btn-color: var(--sd-colour-secondary);
-        }
-
         &.btn--primary,
         &.btn--success,
         &.btn--warning,
         &.btn--alert,
         &.btn--highlight,
-        &.btn--sd-green,
-        &.btn--secondary {
+        &.btn--sd-green {
             color: var(--sd-btn-color);
 
             .sd-spinner__path {
@@ -222,17 +216,12 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
             --sd-btn-hs: var(--sd-colour-superdesk-hs);
         }
 
-        &.btn--secondary {
-            --sd-btn-hs: var(--sd-colour-secondary-hs);
-        }
-
         &.btn--primary,
         &.btn--success,
         &.btn--warning,
         &.btn--alert,
         &.btn--highlight,
-        &.btn--sd-green,
-        &.btn--secondary {
+        &.btn--sd-green {
             color: var(--sd-btn-txt);
 
             .sd-spinner__path {
@@ -305,15 +294,15 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 }
 
 // Colours
-.btn--primary, .btn--success, .btn--warning, .btn--alert, .btn--highlight, .btn--sd-green, .btn--secondary {
-    color: $white;
+.btn--primary, .btn--success, .btn--warning, .btn--alert, .btn--highlight, .btn--sd-green {
+    color: var(--color-text-ondark);
 
     [class^="icon-"], [class*=" icon-"] {
-        color: $white;
+        color: var(--color-text-ondark);
     }
 
     .sd-spinner__path {
-        stroke: $white;
+        stroke: var(--color-text-ondark);
     }
 }
 
@@ -351,12 +340,6 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     --sd-btn-bg: var(--sd-colour-superdesk);
     --sd-btn-bg--hover: var(--sd-colour-superdesk--hover);
     --sd-btn-bg--active: var(--sd-colour-superdesk--active);
-}
-
-.btn--secondary {
-    --sd-btn-bg: var(--sd-colour-secondary);
-    --sd-btn-bg--hover: var(--sd-colour-secondary--hover);
-    --sd-btn-bg--active: var(--sd-colour-secondary--active);
 }
 
 ////////////////////////////// END NEW BUTTONS /////////////////////////////

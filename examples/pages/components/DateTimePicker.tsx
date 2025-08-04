@@ -15,8 +15,8 @@ class DateTimePickerExample extends React.PureComponent<{}, {dateTime: Date | nu
         return (
             <DateTimePicker
                 label="Planning date"
-                // labelHidden
-                // inlineLabel
+                //labelHidden
+                //inlineLabel
                 fullWidth
                 valueType="date"
                 value={this.state.dateTime}

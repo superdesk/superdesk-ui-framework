@@ -240,6 +240,10 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <hr />
 
+                        <input type="color" />
+
+                        <hr />
+
                         <div className='d-flex flex-wrap gap-2'>
                             <Container gap='small' className='p-2 sd-width--medium flex-col items-start theme-test'>
                                 {/* EDITOR TEST ===== */}

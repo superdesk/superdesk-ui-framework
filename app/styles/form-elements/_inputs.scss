@@ -10,7 +10,7 @@
     background-color: var(--color-input-bg);
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
     padding: 0 0.8rem;
-    height: $form-input-height;
+    height: var(--form-element-height-default);
     border-radius: $border-radius__base--x-small $border-radius__base--x-small 0 0;
     display: block;
     position: relative;
@@ -739,6 +739,43 @@
     color: $red;
 }
 
+input[type="color"] {
+    background-color: var(--color-input-bg);
+    border: 1px solid var(--color-input-border);
+    border-radius: var(--b-radius--full);
+    padding: var(--space--0-5);
+    width: var(--form-element-height-default);
+    height: var(--form-element-height-default);
+    transition: all ease 0.2s;
+    &:hover {
+        border-color: var(--color-input-border-hover);
+        cursor: pointer;
+    }
+    &:focus-visible {
+        outline: 2px solid var(--color-interactive-shadow-focus);
+    }
+}
+input[type="color" i]::-webkit-color-swatch-wrapper {
+    border-radius: var(--b-radius--full);
+    padding: 0;
+    border: 1px solid var(--color-line-strong) !important;
+}
+input[type="color" i]::-moz-color-swatch-wrapper {
+    border-radius: var(--b-radius--full);
+    padding: 0;
+    border: none !important;
+}
+input[type="color" i]::-moz-color-swatch {
+    border-radius: var(--b-radius--full);
+    border-width: 1px !important;
+    border-style: solid;
+    border-color: var(--color-line-strong) !important;
+}
+input[type="color" i]::-webkit-color-swatch {
+    border-radius: var(--b-radius--full);
+    border: none !important;
+}
+
 .sd-input {
     padding-block-start: 0;
     margin: 0;
@@ -768,7 +805,7 @@
     textarea {
         &.sd-input__input {
             height: auto;
-            min-height: $form-input-height;
+            min-height: var(--form-element-height-default);
         }
     }
 

@@ -9,7 +9,6 @@ import nextId from 'react-id-generator';
 import {format} from 'date-fns';
 import {assertNever} from '../helpers';
 import {Button} from './Button';
-import {Button} from './Button';
 
 interface IPropsValueDate extends IInputWrapper {
     valueType: 'date';
@@ -176,8 +175,6 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                     </div>
                     <div style={{flexGrow: 0, color: 'var(--color-text-muted)'}}>@</div>
                     <div className="time-picker--date-time" style={{flexGrow: 1}}>
-                    <div style={{flexGrow: 0, lineHeight: '3.2rem', color: 'var(--color-text-muted)'}}>@</div>
-                    <div className="time-picker--date-time" style={{flexGrow: 1}}>
                         <TimePicker
                             disabled={this.props.disabled || (timeRequiresDate && dateValue == null)}
                             preview={this.props.preview}
@@ -196,8 +193,6 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                     {this.props.preview !== true && (
                         <Button
                             icon="remove-sign"
-                            text="Clear"
-                            tooltip="Clear"
                             text="Clear"
                             tooltip="Clear"
                             onClick={this.handleClear}
