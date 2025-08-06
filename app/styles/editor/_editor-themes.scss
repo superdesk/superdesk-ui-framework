@@ -52,12 +52,6 @@
 
 		--sd-editor-colour__soft-limit:     var(--syrah-soil-400);
 		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
-
-		--sd-editor-colour__mark-people:       var(--sorcerer-blue-300);
-		--sd-editor-colour__mark-company:      var(--syrah-soil-200);
-
-		--sd-editor-colour__soft-limit:     var(--syrah-soil-400);
-		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
 	}
 
 	.sd-editor--theme-dark {
@@ -82,11 +76,6 @@
 
 		--sd-editor-colour__soft-limit:     var(--syrah-soil-200);
 		--sd-editor-colour__hard-limit:     var(--morocco-red-400);
-
-		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
-
-		--sd-editor-colour__soft-limit:     var(--syrah-soil-200);
-		--sd-editor-colour__hard-limit:     var(--morocco-red-400);
 	}
 
 	.sd-editor--theme-blue {
@@ -106,11 +95,6 @@
 		--sd-editor-colour__removing-bg:    var(--blissful-berry-400-a24);
 		--sd-editor-colour__adding:         var(--green-brier-100);
 		--sd-editor-colour__adding-bg:      var(--green-brier-400-a12);
-
-		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
-
-		--sd-editor-colour__soft-limit:     var(--syrah-soil-200);
-		--sd-editor-colour__hard-limit:     var(--morocco-red-400);
 
 		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
 
@@ -141,12 +125,6 @@
 
 		--sd-editor-colour__soft-limit:     var(--syrah-soil-500);
 		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
-
-		--sd-editor-colour__mark-people:       var(--sorcerer-blue-400);
-		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
-
-		--sd-editor-colour__soft-limit:     var(--syrah-soil-500);
-		--sd-editor-colour__hard-limit:     var(--morocco-red-500);
 	}
 
 	.sd-editor--theme-military {
@@ -166,11 +144,6 @@
 		--sd-editor-colour__removing-bg:    var(--blissful-berry-500-a12);
 		--sd-editor-colour__adding:         var(--green-brier-600);
 		--sd-editor-colour__adding-bg:      var(--green-brier-400-a12);
-
-		--sd-editor-colour__mark-people:       var(--sorcerer-blue-500);
-		--sd-editor-colour__mark-company:      var(--syrah-soil-400);
-
-		--sd-editor-colour__soft-limit:     var(--syrah-soil-500);
 
 		--sd-editor-colour__mark-people:       var(--sorcerer-blue-500);
 		--sd-editor-colour__mark-company:      var(--syrah-soil-400);
@@ -570,107 +543,4 @@ $body-font-size: (
 			}
 		}
 	}
-}
-
-
-// TEMP ================================
-
-.sd-container {
-	&.theme-test {
-		background-color: var(--sd-editor-colour__main-bg);
-		color: var(--sd-editor-colour__txt);
-	}
-}
-
-.Editor3-editor {
-    cursor: text;
-    font-size: 16px;
-    line-height: 1.4;
-    word-break: break-word;
-    border: 1px solid var(--sd-editor-colour__controls-border);
-    border-radius: var(--b-radius--medium);
-	color: var(--sd-editor-colour__txt);
-}
-.Editor3-root {
-    border: 1px solid var(--sd-editor-colour__controls-border);
-    font-weight: 300;
-    padding: 0;
-    position: relative;
-    transition: box-shadow .3s ease, border-color .3s ease;
-	width: 100%;
-}
-.Editor3-controls {
-    width: 100%;
-    min-width: 300px;
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
-    font-size: 14px !important;
-    user-select: none;
-    background-color: var(--sd-editor-colour__controls-bg);
-    border-block-end: 1px solid;
-    border-bottom-color: var(--sd-editor-colour__controls-border);
-    border-radius: var(--b-radius--medium) var(--b-radius--medium) 0 0;
-    line-height: 100% !important;
-
-	display: flex;
-	flex-wrap: wrap;
-	gap: var(--space--0-5);
-	padding: var(--space--0-5);
-
-	> span:not(.Editor3-styleButton) {
-		display: contents;
-	}
-}
-.DraftEditor-root {
-	position: relative;
-}
-.DraftEditor-editorContainer {
-    background-color: transparent;
-    border-left: .1px solid transparent;
-    position: relative;
-    z-index: 1;
-
-	ol {
-		margin-block-end: var(--space--3);
-	}
-	p {
-		font-size: 1.6rem;
-		line-height: 1.5;
-		margin-block-end: var(--space--3);
-	}
-
-	blockquote {
-		margin-inline-start: 4px;
-		margin-block-end: var(--space--3);
-		box-shadow: -4px 0 0 var(--sd-editor-colour__quote-border);
-		font-style: italic;
-		font-weight: 400;
-		font-size: 1.6rem;
-		line-height: 1.5;
-		padding: 0 0 0 1em;
-	}
-}
-.Editor3-editor .public-DraftEditor-content {
-    min-height: var(--space--3);
-	padding: var(--space--1-5);
-}
-
-.sd-container {
-	&.theme-test {
-		background-color: var(--sd-editor-colour__main-bg);
-	}
-}
-
-.Editor3-root:focus-within {
-    border-color: var(--color-interactive-highlight);
-    box-shadow: 0 0 0 3px var(--color-interactive-translucent);
-}
-
-.test-grid {
-	display: grid;
-	grid-template-columns: min-content min-content min-content;
-	gap: var(--space--3);
-
-	// .test-grid__item {
-		
-	// }
 }
