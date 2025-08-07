@@ -240,7 +240,7 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <hr />
 
-                        <input type="color" />
+                        <input type="color" className="sd-input__color-input" />
 
                         <hr />
 
