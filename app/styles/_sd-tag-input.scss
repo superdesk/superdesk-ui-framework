@@ -429,7 +429,7 @@ tags-input,
 .tags-input {
     padding-inline: 0 !important;
     height: auto !important;
-    min-height: $form-input-height;
+    min-height: var(--form-element-height-default);
 
     .tags-input__tags {
         .tags-input__input {

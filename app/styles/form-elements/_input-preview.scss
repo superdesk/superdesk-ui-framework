@@ -2,7 +2,7 @@
     display: flex;
     align-items: flex-start;
     word-wrap: break-word;
-    min-height: $form-input-height;
+    min-height: var(--form-element-height-default);
     padding: 0.4rem 0.4rem 0.3rem 0.4rem;
     overflow: hidden;
     background-color: transparent;

@@ -22,6 +22,7 @@
         }
         .toggle-box__content-wraper {
             transition: all ease-out .5s;
+            overflow: hidden;
         }
     }
 
@@ -80,7 +81,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    border-radius: $border-radius__base--full;
+    border-radius: var(--b-radius--full);
 }
 
 .toggle-box__header,
@@ -141,16 +142,12 @@ a.toggle-box__header {
 
 .toggle-box__content-wraper {
     grid-row: 2 / 3;
-    transition: grid-template-rows 0.2s ease;
+    transition: all 0.2s ease;
+    transition-behavior: allow-discrete;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-}
-
-.toggle-box.hidden .toggle-box__content-wraper {
-    transition: all ease-out .5s;
-    overflow: hidden;
 }
 
 .toggle-box__content {

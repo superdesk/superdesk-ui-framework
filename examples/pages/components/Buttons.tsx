@@ -22,28 +22,14 @@ export default class ButtonsDoc extends React.Component {
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className="docs-page__content-row">
-                            <Button text="default" onClick={() => false} tooltip="test tooltip" />
-                            <Button text="primary" type="primary" onClick={() => false} />
-                        </div>
-                        <p className="docs-page__paragraph">// Other colour options</p>
-                        <div className="docs-page__content-row docs-page__content-row--no-margin">
-                            <Button text="success" type="success" onClick={() => false} />
-                            <Button text="warning" type="warning" onClick={() => false} />
-                            <Button text="alert" type="alert" onClick={() => false} />
-                            <Button text="highlight" type="highlight" onClick={() => false} />
-                            <Button text="sd-green" type="sd-green" onClick={() => false} />
+                        <div className="docs-page__content-row docs-page__content-row--flex">
+                            <Button text="Primary" type="primary" onClick={() => false} />
+                            <Button text="Secondary" type="secondary" onClick={() => false} tooltip="test tooltip" />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="default" onClick={()=> false} />
-                        <Button text="primary" type="primary" onClick={()=> false} />
-                        // Other colour options
-                        <Button text="success" type="success" onClick={()=> false} />
-                        <Button text="warning" type="warning" onClick={()=> false} />
-                        <Button text="alert" type="alert" onClick={()=> false} />
-                        <Button text="highlight" type="highlight" onClick={()=> false} />
-                        <Button text="sd-green" type="sd-green" onClick={()=> false} />
+                        <Button text="Primary" type="primary" onClick={() => false} />
+                        <Button text="Secondary" type="secondary" onClick={() => false} tooltip="test tooltip" />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -56,61 +42,28 @@ export default class ButtonsDoc extends React.Component {
                     />
                 </Components.GraphicButtonsGroup>
 
-                <h3 className="docs-page__h3">Hollow style</h3>
-                <p className="docs-page__paragraph">
-                    Define prop <code>style="hollow"</code> to create a hollow buttons.
-                </p>
-                <Markup.ReactMarkup>
-                    <Markup.ReactMarkupPreview>
-                        <div className="docs-page__content-row">
-                            <Button text="default" style="hollow" onClick={() => false} />
-                            <Button text="primary" type="primary" style="hollow" onClick={() => false} />
-                        </div>
-                        <p className="docs-page__paragraph">// Other colour options</p>
-                        <div className="docs-page__content-row docs-page__content-row--no-margin">
-                            <Button text="success" type="success" style="hollow" onClick={() => false} />
-                            <Button text="warning" type="warning" style="hollow" onClick={() => false} />
-                            <Button text="alert" type="alert" style="hollow" onClick={() => false} />
-                            <Button text="highlight" type="highlight" style="hollow" onClick={() => false} />
-                            <Button text="sd-green" type="sd-green" style="hollow" onClick={() => false} />
-                        </div>
-                    </Markup.ReactMarkupPreview>
-                    <Markup.ReactMarkupCode>{`
-                        <Button text="default" style="hollow" onClick={()=> false} />
-                        <Button text="primary" type="primary" style="hollow" onClick={()=> false} />
-                        // Other colour options
-                        <Button text="success" type="success" style="hollow" onClick={()=> false} />
-                        <Button text="warning" type="warning" style="hollow" onClick={()=> false} />
-                        <Button text="alert" type="alert" style="hollow" onClick={()=> false} />
-                        <Button text="highlight" type="highlight" style="hollow" onClick={()=> false} />
-                        <Button text="sd-green" type="sd-green" style="hollow" onClick={()=> false} />
-                    `}</Markup.ReactMarkupCode>
-                </Markup.ReactMarkup>
-
                 <h3 className="docs-page__h3">Text only (without background)</h3>
                 <p className="docs-page__paragraph">
                     Define prop <code>style="text-only"</code> for buttons without a background.
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className="docs-page__content-row docs-page__content-row--no-margin">
-                            <Button text="default" style="text-only" onClick={() => false} />
+                        <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="primary" type="primary" style="text-only" onClick={() => false} />
+                            <Button text="default" style="text-only" onClick={() => false} />
                             <Button text="success" type="success" style="text-only" onClick={() => false} />
                             <Button text="warning" type="warning" style="text-only" onClick={() => false} />
                             <Button text="alert" type="alert" style="text-only" onClick={() => false} />
                             <Button text="highlight" type="highlight" style="text-only" onClick={() => false} />
-                            <Button text="sd-green" type="sd-green" style="text-only" onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
-                        <Button text="default" style="text-only" onClick={()=> false} />
                         <Button text="primary" type="primary" style="text-only" onClick={()=> false} />
+                        <Button text="default" style="text-only" onClick={()=> false} />
                         <Button text="success" type="success" style="text-only" onClick={()=> false} />
                         <Button text="warning" type="warning" style="text-only" onClick={()=> false} />
                         <Button text="alert" type="alert" style="text-only" onClick={()=> false} />
                         <Button text="highlight" type="highlight" style="text-only" onClick={()=> false} />
-                        <Button text="sd-green" type="sd-green" style="text-only" onClick={()=> false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -122,18 +75,18 @@ export default class ButtonsDoc extends React.Component {
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
-                        <div className="docs-page__content-row">
+                        <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="button large" size="large" onClick={() => false} />
                             <Button text="button default" onClick={() => false} />
                             <Button text="button small" size="small" onClick={() => false} />
                         </div>
-                        <div className="docs-page__content-row">
+                        <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="large expanded button" expand={true} size="large" onClick={() => false} />
                         </div>
-                        <div className="docs-page__content-row">
+                        <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="default expanded button" expand={true} onClick={() => false} />
                         </div>
-                        <div className="docs-page__content-row">
+                        <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="small expanded button" expand={true} size="small" onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -156,44 +109,24 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Disabled</p>
-                        <div className="docs-page__content-row">
-                            <Button text="default" disabled={true} onClick={() => false} />
-                            <Button text="primary" type="primary" disabled={true} onClick={() => false} />
-                            <Button text="default" style="hollow" disabled={true} onClick={() => false} />
-                            <Button
-                                text="primary"
-                                type="primary"
-                                disabled={true}
-                                style="hollow"
-                                onClick={() => false}
-                            />
+                        <div className="docs-page__content-row docs-page__content-row--flex">
+                            <Button text="Primary" type="primary" disabled={true} onClick={() => false} />
+                            <Button text="Secondary" disabled={true} onClick={() => false} />
                         </div>
                         <p className="docs-page__paragraph">// Loading</p>
-                        <div className="docs-page__content-row">
-                            <Button text="default" isLoading={true} onClick={() => false} />
-                            <Button text="primary" type="primary" isLoading={true} onClick={() => false} />
-                            <Button text="default" style="hollow" isLoading={true} onClick={() => false} />
-                            <Button
-                                text="primary"
-                                type="primary"
-                                isLoading={true}
-                                style="hollow"
-                                onClick={() => false}
-                            />
+                        <div className="docs-page__content-row docs-page__content-row--flex">
+                            <Button text="Primary" type="primary" isLoading={true} onClick={() => false} />
+                            <Button text="Secondary" isLoading={true} onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Disabled
-                        <Button text="default" disabled={true} onClick={()=> false} />
-                        <Button text="primary" type="primary" disabled={true} onClick={()=> false} />
-                        <Button text="default" style="hollow" disabled={true} onClick={()=> false} />
-                        <Button text="primary" type="primary" disabled={true} style="hollow" onClick={()=> false} />
+                        <Button text="Primary" type="primary" disabled={true} onClick={() => false} />
+                        <Button text="Secondary" disabled={true} onClick={() => false} />
 
                         // Loading
-                        <Button text="default" isLoading={true} onClick={()=> false} />
-                        <Button text="primary" type="primary" isLoading={true} onClick={()=> false} />
-                        <Button text="default" style="hollow" isLoading={true} onClick={()=> false} />
-                        <Button text="primary" type="primary" isLoading={true} style="hollow" onClick={()=> false} />
+                        <Button text="Primary" type="primary" isLoading={true} onClick={() => false} />
+                        <Button text="Secondary" isLoading={true} onClick={() => false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -205,55 +138,28 @@ export default class ButtonsDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Default size</p>
-                        <div className="docs-page__content-row">
-                            <Button text="default" icon="info-sign" onClick={() => false} />
-                            <Button text="primary" type="primary" icon="plus-sign" onClick={() => false} />
-                            <Button text="success" type="success" icon="ok" onClick={() => false} />
-                            <Button text="warning" type="warning" icon="exclamation-sign" onClick={() => false} />
-                            <Button text="alert" type="alert" icon="warning-sign" onClick={() => false} />
-                            <br />
-                            <Button text="default" icon="info-sign" style="hollow" onClick={() => false} />
-                            <Button
-                                text="primary"
-                                type="primary"
-                                icon="plus-sign"
-                                style="hollow"
-                                onClick={() => false}
-                            />
-                            <Button text="success" type="success" icon="ok" style="hollow" onClick={() => false} />
-                            <Button
-                                text="warning"
-                                type="warning"
-                                icon="exclamation-sign"
-                                style="hollow"
-                                onClick={() => false}
-                            />
-                            <Button
-                                text="alert"
-                                type="alert"
-                                icon="warning-sign"
-                                style="hollow"
-                                onClick={() => false}
-                            />
+                        <div className="docs-page__content-row docs-page__content-row--flex">
+                            <Button text="Primary" type="primary" icon="plus-sign" onClick={() => false} />
+                            <Button text="Secondary" type="secondary" icon="info-sign" onClick={() => false} />
                         </div>
                         <p className="docs-page__paragraph">// Large and small options</p>
-                        <div className="docs-page__content-row">
-                            <Button text="default large" icon="info-sign" size="large" onClick={() => false} />
+                        <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button
-                                text="primary large"
+                                text="Primary large"
                                 type="primary"
                                 icon="plus-sign"
                                 size="large"
                                 onClick={() => false}
                             />
-                            <Button text="default small" icon="info-sign" size="small" onClick={() => false} />
+                            <Button text="Secondary large" icon="info-sign" size="large" onClick={() => false} />
                             <Button
-                                text="primary small"
+                                text="Primary small"
                                 type="primary"
                                 icon="plus-sign"
                                 size="small"
                                 onClick={() => false}
                             />
+                            <Button text="Secondary small" icon="info-sign" size="small" onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
@@ -289,44 +195,35 @@ export default class ButtonsDoc extends React.Component {
                         <p className="docs-page__paragraph">// Large default and small</p>
                         <div className="docs-page__content-row">
                             <Button
-                                type="warning"
+                                type="primary"
+                                icon="plus-sign"
+                                text="plus-sign"
+                                size="large"
+                                iconOnly={true}
+                                onClick={() => false}
+                            />
+                            <Button
+                                type="secondary"
                                 icon="exclamation-sign"
                                 text="exclamation-sign"
                                 size="large"
                                 iconOnly={true}
                                 onClick={() => false}
                             />
+
                             <Button
                                 type="primary"
                                 icon="plus-sign"
                                 text="plus-sign"
-                                style="hollow"
-                                size="large"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="highlight"
-                                icon="bell"
-                                text="bell"
-                                size="large"
                                 iconOnly={true}
                                 onClick={() => false}
                             />
                             <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={() => false} />
+
                             <Button
                                 type="primary"
                                 icon="plus-sign"
                                 text="plus-sign"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button type="success" icon="ok" text="ok" iconOnly={true} onClick={() => false} />
-                            <Button
-                                type="alert"
-                                style="hollow"
-                                icon="kill"
-                                text="kill"
                                 size="small"
                                 iconOnly={true}
                                 onClick={() => false}
@@ -338,21 +235,21 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            <Button
-                                type="primary"
-                                style="hollow"
-                                icon="refresh"
-                                text="refresh"
-                                size="small"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
                         </div>
 
                         <p className="docs-page__paragraph">// Circle (large, default and small)</p>
                         <div className="docs-page__content-row">
                             <Button
-                                type="warning"
+                                type="primary"
+                                icon="plus-large"
+                                text="plus-large"
+                                size="large"
+                                shape="round"
+                                iconOnly={true}
+                                onClick={() => false}
+                            />
+                            <Button
+                                type="secondary"
                                 icon="exclamation-sign"
                                 text="exclamation-sign"
                                 size="large"
@@ -360,67 +257,24 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
+
                             <Button
                                 type="primary"
                                 icon="plus-large"
                                 text="plus-large"
-                                style="hollow"
-                                size="large"
                                 shape="round"
                                 iconOnly={true}
                                 onClick={() => false}
                             />
                             <Button
-                                icon="chevron-up-thin"
-                                text="Pull up"
-                                style="hollow"
-                                shape="round"
-                                size="large"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="highlight"
-                                icon="bell"
-                                text="bell"
-                                size="large"
-                                shape="round"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                size="normal"
+                                type="secondary"
                                 icon="info-sign"
                                 text="info-sign"
                                 shape="round"
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            <Button
-                                type="primary"
-                                icon="plus-large"
-                                text="plus-large"
-                                shape="round"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="success"
-                                icon="ok"
-                                text="ok"
-                                shape="round"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="alert"
-                                icon="close-small"
-                                text="close-small"
-                                size="small"
-                                shape="round"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
+
                             <Button
                                 type="primary"
                                 icon="plus-large"
@@ -431,15 +285,6 @@ export default class ButtonsDoc extends React.Component {
                                 onClick={() => false}
                             />
                             <Button
-                                icon="chevron-up-thin"
-                                text="Pull up"
-                                size="small"
-                                shape="round"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="sd-green"
                                 icon="star"
                                 text="star"
                                 size="small"

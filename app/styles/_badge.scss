@@ -1,7 +1,7 @@
 /// Default colors for badges.
 $badge-background: var(--sd-colour-bg--08) !default;
 $badge-background-translucent: var(--sd-colour-bg-translucent--08);
-$badge-color: var(--color-text--inverse) !default;
+$badge-color: var(--color-text-ondark) !default;
 $badge-color-alt: var(--sd-colour-btn-txt-neutral) !default;
 
 /// Coloring classes. A map of classes to output in the CSS.
@@ -16,6 +16,12 @@ $badge-minwidth: 1.8em !default;
 $badge-font-size: 1rem !default;
 $badge-lineheight: 1.1em !default;
 
+[data-theme="dark-ui"] {
+    .badge--light {
+        background-color: var(--buoyant-grey-200-a40);
+    }
+}
+
 /// Generates the base styles for a badge.
 @mixin badge {
     display: inline-block;
@@ -29,10 +35,10 @@ $badge-lineheight: 1.1em !default;
     font-weight: 400;
     --sd-badge-bg: var(--sd-colour-bg--08);
     background-color: var(--sd-badge-bg);
-    color: var(--color-text--inverse);
+    color: var(--color-text-ondark);
 
     &--square {
-        border-radius: $border-radius__base--x-small;
+        border-radius: var(--b-radius--small);
     }
 }
 
@@ -70,7 +76,7 @@ $badge-lineheight: 1.1em !default;
     // light gray
     &.badge--light {
         background-color: var(--sd-colour-bg-translucent--08);
-        color: $sd-text;
+        color: var(--color-text);
         font-weight: 500;
     }
 }
@@ -95,5 +101,3 @@ $badge-lineheight: 1.1em !default;
     margin-inline-start: 1.2rem;
     vertical-align: top;
 }
-
-

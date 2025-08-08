@@ -23,11 +23,12 @@
 	--sd-editor-colour__adding:         var(--color-success-text);
 	--sd-editor-colour__adding-bg:      var(--color-success-translucent);
 
-	--sd-editor-colour__mark-people:       var(--sorcerer-blue-300);
-	--sd-editor-colour__mark-company:      var(--syrah-soil-200);
+	--sd-editor-colour__mark-people:    var(--sorcerer-blue-300);
+	--sd-editor-colour__mark-company:   var(--syrah-soil-200);
 
 	--sd-editor-colour__soft-limit:     var(--syrah-soil-400);
 	--sd-editor-colour__hard-limit:     var(--morocco-red-500);
+	
 
 	.sd-editor--theme-default {
 		--theme-color-base: hsl(0 0% 100%);
@@ -67,8 +68,8 @@
 		--sd-editor-colour__field-label-bg: lch(from var(--theme-color-base) calc(l - 10) c h);
 
 		--sd-editor-colour__removing:       var(--blissful-berry-300);
-		--sd-editor-colour__removing-bg:    var(--blissful-berry-500-a16);
-		--sd-editor-colour__adding:         var(--green-brier-300);
+		--sd-editor-colour__removing-bg:    var(--blissful-berry-400-a24);
+		--sd-editor-colour__adding:         var(--green-brier-100);
 		--sd-editor-colour__adding-bg:      var(--green-brier-400-a12);
 
 		--sd-editor-colour__mark-company:      var(--syrah-soil-300);
@@ -91,8 +92,8 @@
 		--sd-editor-colour__field-label-bg: lch(from var(--theme-color-base) calc(l - 10) c h);
 
 		--sd-editor-colour__removing:       var(--blissful-berry-300);
-		--sd-editor-colour__removing-bg:    var(--blissful-berry-500-a16);
-		--sd-editor-colour__adding:         var(--green-brier-300);
+		--sd-editor-colour__removing-bg:    var(--blissful-berry-400-a24);
+		--sd-editor-colour__adding:         var(--green-brier-100);
 		--sd-editor-colour__adding-bg:      var(--green-brier-400-a12);
 
 		--sd-editor-colour__mark-company:      var(--syrah-soil-300);

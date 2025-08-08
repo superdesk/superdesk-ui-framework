@@ -230,7 +230,7 @@
 }
 
 .form__text-block {
-	min-height: $form-input-height;
+	min-height: var(--form-element-height-default);
 	margin-block-start: $form-label-height;
 	color: inherit;
 	font-size: 1.3rem;
@@ -322,9 +322,9 @@
 	}
 
 	.sd-text {
-		min-height: $form-input-height;
+		min-height: var(--form-element-height-default);
 		margin-block-start: $form-label-height;
-		line-height: $form-input-height;
+		line-height: var(--form-element-height-default);
 	}
 }
 

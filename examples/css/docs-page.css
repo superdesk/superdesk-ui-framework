@@ -636,6 +636,13 @@ div.docs-page__paragraph b {
     margin-right: 12px;
     margin-bottom: 14px;
 }
+.docs-page__code-example .docs-page__content-row.docs-page__content-row--flex {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--space-m);
+    flex-wrap: wrap;
+}
 
 .docs-page__content-row {
     margin-bottom: 20px;
