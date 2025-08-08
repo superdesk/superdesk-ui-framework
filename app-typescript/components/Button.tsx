@@ -16,16 +16,7 @@ interface IPropsButton {
     tooltip?: string;
     id?: string;
     theme?: 'light' | 'dark'; // defaults to 'light'
-    type?:
-        | 'primary'
-        | 'secondary'
-        | 'tertiary'
-        | 'default'
-        | 'success'
-        | 'warning'
-        | 'alert'
-        | 'highlight'
-        | 'sd-green';
+    type?: 'primary' | 'secondary' | 'default' | 'success' | 'warning' | 'alert' | 'highlight' | 'sd-green';
     size?: 'small' | 'normal' | 'large'; // defaults to 'normal'
     textAlign?: 'start' | 'center' | 'end'; // defaults to 'center'
     children?: never;
@@ -40,7 +31,7 @@ export class Button extends React.PureComponent<IPropsButton> {
     render() {
         let classes = classNames('btn', {
             'btn--expanded': this.props.expand,
-            'btn--hollow': this.props.type === 'tertiary' || this.props.style === 'hollow',
+            'btn--hollow': this.props.style === 'hollow',
             [`btn--${this.props.size}`]: this.props.size !== 'normal' && this.props.size !== undefined,
             [`btn--${this.props.type}`]: this.props.type !== 'secondary' && this.props.type !== undefined,
             [`btn--${this.props.type}`]: this.props.type !== 'default' && this.props.type !== undefined,

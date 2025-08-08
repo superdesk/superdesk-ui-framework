@@ -25,13 +25,11 @@ export default class ButtonsDoc extends React.Component {
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" onClick={() => false} />
                             <Button text="Secondary" type="secondary" onClick={() => false} tooltip="test tooltip" />
-                            <Button text="Tertiary" type="tertiary" onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Button text="Primary" type="primary" onClick={() => false} />
                         <Button text="Secondary" type="secondary" onClick={() => false} tooltip="test tooltip" />
-                        <Button text="Tertiary" type="tertiary" onClick={() => false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -114,25 +112,21 @@ export default class ButtonsDoc extends React.Component {
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" disabled={true} onClick={() => false} />
                             <Button text="Secondary" disabled={true} onClick={() => false} />
-                            <Button text="Tertiary" type="tertiary" disabled={true} onClick={() => false} />
                         </div>
                         <p className="docs-page__paragraph">// Loading</p>
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" isLoading={true} onClick={() => false} />
                             <Button text="Secondary" isLoading={true} onClick={() => false} />
-                            <Button text="Tertiary" type="tertiary" isLoading={true} onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Disabled
                         <Button text="Primary" type="primary" disabled={true} onClick={() => false} />
                         <Button text="Secondary" disabled={true} onClick={() => false} />
-                        <Button text="Tertiary" type="tertiary" disabled={true} onClick={() => false} />
 
                         // Loading
                         <Button text="Primary" type="primary" isLoading={true} onClick={() => false} />
                         <Button text="Secondary" isLoading={true} onClick={() => false} />
-                        <Button text="Tertiary" type="tertiary" isLoading={true} onClick={() => false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -147,7 +141,6 @@ export default class ButtonsDoc extends React.Component {
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" icon="plus-sign" onClick={() => false} />
                             <Button text="Secondary" type="secondary" icon="info-sign" onClick={() => false} />
-                            <Button text="Tertiary" type="tertiary" icon="ok" onClick={() => false} />
                         </div>
                         <p className="docs-page__paragraph">// Large and small options</p>
                         <div className="docs-page__content-row docs-page__content-row--flex">
@@ -217,14 +210,6 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            <Button
-                                type="tertiary"
-                                icon="bell"
-                                text="bell"
-                                size="large"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
 
                             <Button
                                 type="primary"
@@ -234,7 +219,7 @@ export default class ButtonsDoc extends React.Component {
                                 onClick={() => false}
                             />
                             <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={() => false} />
-                            <Button type="tertiary" icon="ok" text="ok" iconOnly={true} onClick={() => false} />
+
                             <Button
                                 type="primary"
                                 icon="plus-sign"
@@ -247,14 +232,6 @@ export default class ButtonsDoc extends React.Component {
                                 icon="calendar"
                                 size="small"
                                 text="calendar"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="tertiary"
-                                icon="refresh"
-                                text="refresh"
-                                size="small"
                                 iconOnly={true}
                                 onClick={() => false}
                             />
@@ -280,15 +257,6 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            <Button
-                                type="tertiary"
-                                icon="chevron-up-thin"
-                                text="Pull up"
-                                shape="round"
-                                size="large"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
 
                             <Button
                                 type="primary"
@@ -306,14 +274,6 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            <Button
-                                type="tertiary"
-                                icon="ok"
-                                text="ok"
-                                shape="round"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
 
                             <Button
                                 type="primary"
@@ -327,15 +287,6 @@ export default class ButtonsDoc extends React.Component {
                             <Button
                                 icon="star"
                                 text="star"
-                                size="small"
-                                shape="round"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="tertiary"
-                                icon="close-small"
-                                text="close-small"
                                 size="small"
                                 shape="round"
                                 iconOnly={true}
