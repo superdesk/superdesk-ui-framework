@@ -21,7 +21,7 @@ interface IBaseProps extends IInputWrapper {
     'data-test-id'?: string;
     timeHeaderTemplate?: React.ReactNode;
     timeFooterTemplate?: React.ReactNode;
-    dateLocale?: DatePicker['props']['locale'];
+    locale?: DatePicker['props']['locale'];
 }
 
 interface IPropsValueDate {
@@ -159,7 +159,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             required={this.props.required}
                             hideClearButton={true}
                             value={dateValue}
-                            locale={this.props.dateLocale}
+                            locale={this.props.locale}
                             onChange={this.handleDateChange}
                             dateFormat={this.props.dateFormat}
                             inlineLabel
