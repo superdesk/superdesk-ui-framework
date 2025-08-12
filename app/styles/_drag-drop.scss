@@ -1,6 +1,6 @@
 .basic-drag-block {
     border: 2px dashed #cacaca;
-    background-color: $sd-background;
+    background-color: var(--sd-colour-bg-translucent--10);
     position: relative;
     padding: 1.2rem;
     color: $grayText;
