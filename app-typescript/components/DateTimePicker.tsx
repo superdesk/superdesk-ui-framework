@@ -10,11 +10,8 @@ import {format} from 'date-fns';
 import {assertNever} from '../helpers';
 import {Button} from './Button';
 
-interface IPropsValueDate extends IInputWrapper {
-    valueType: 'date';
-    value: Date | null;
+interface IBaseProps extends IInputWrapper {
     dateFormat: string;
-    onChange: (value: Date | null) => void;
     preview?: boolean;
     fullWidth?: boolean;
     allowSeconds?: boolean;
@@ -24,28 +21,25 @@ interface IPropsValueDate extends IInputWrapper {
     'data-test-id'?: string;
     timeHeaderTemplate?: React.ReactNode;
     timeFooterTemplate?: React.ReactNode;
+    dateLocale?: DatePicker['props']['locale'];
+}
+
+interface IPropsValueDate {
+    valueType: 'date';
+    value: Date | null;
+    onChange: (value: Date | null) => void;
 }
 
 type IValue = {date?: string; time?: string};
 
-interface IPropsValueObject extends IInputWrapper {
+interface IPropsValueObject {
     valueType: 'object';
     timeRequiresDate?: boolean;
     value: IValue;
-    dateFormat: string;
-    onChange: (value: IValue) => void; //
-    preview?: boolean;
-    fullWidth?: boolean;
-    allowSeconds?: boolean;
-    required?: boolean;
-    disabled?: boolean;
-    ref?: React.LegacyRef<InputWrapper>;
-    'data-test-id'?: string;
-    timeHeaderTemplate?: React.ReactNode;
-    timeFooterTemplate?: React.ReactNode;
+    onChange: (value: IValue) => void;
 }
 
-type IProps = IPropsValueDate | IPropsValueObject;
+type IProps = (IPropsValueDate | IPropsValueObject) & IBaseProps;
 
 export class DateTimePicker extends React.PureComponent<IProps> {
     private htmlId: string = nextId();
@@ -165,6 +159,7 @@ export class DateTimePicker extends React.PureComponent<IProps> {
                             required={this.props.required}
                             hideClearButton={true}
                             value={dateValue}
+                            locale={this.props.dateLocale}
                             onChange={this.handleDateChange}
                             dateFormat={this.props.dateFormat}
                             inlineLabel
