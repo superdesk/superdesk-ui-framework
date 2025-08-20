@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Markup from '../../js/react';
-import {Button, Prop, PropsList} from '../../../app-typescript';
+import {Button, Prop, PropsList, Label} from '../../../app-typescript';
 import * as Components from '../playgrounds/react-playgrounds/components/Index';
 
 export default class ButtonsDoc extends React.Component {
@@ -15,21 +15,21 @@ export default class ButtonsDoc extends React.Component {
                 </Markup.ReactMarkupCodePreview>
                 <h3 className="docs-page__h3 docs-page__h3--small-top-m">Coloring</h3>
                 <p className="docs-page__paragraph">
-                    For Superdesk only <em>Default</em> and <em>Primary</em> buttons should be used in most cases. Other
-                    semantic colour options are allowed but should be used only in cases where a clear distinction
-                    between similarly important actions is needed (e.g. <em>Send To</em> versus <em>Publish</em>{' '}
-                    action).
+                    For Superdesk, only <em>Primary</em>, <em>Secondary</em> and <em>Tertiary</em> buttons should be
+                    used. Other colour options will be deprecated in future versions.
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" onClick={() => false} />
                             <Button text="Secondary" type="secondary" onClick={() => false} tooltip="test tooltip" />
+                            <Button text="Tertiary" type="tertiary" onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Button text="Primary" type="primary" onClick={() => false} />
                         <Button text="Secondary" type="secondary" onClick={() => false} tooltip="test tooltip" />
+                        <Button text="Tertiary" type="tertiary" onClick={() => false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -42,9 +42,12 @@ export default class ButtonsDoc extends React.Component {
                     />
                 </Components.GraphicButtonsGroup>
 
-                <h3 className="docs-page__h3">Text only (without background)</h3>
+                <div className="d-flex items-center gap-1 mt-5 mb-1">
+                    <h3 className="docs-page__h3 m-0">Text only (without background)</h3>
+                    <Label text="Deprecated" size="large" noTransform={true} type="warning" />
+                </div>
                 <p className="docs-page__paragraph">
-                    Define prop <code>style="text-only"</code> for buttons without a background.
+                    This option is deprecated and will be removed in future versions.
                 </p>
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
@@ -112,21 +115,25 @@ export default class ButtonsDoc extends React.Component {
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" disabled={true} onClick={() => false} />
                             <Button text="Secondary" disabled={true} onClick={() => false} />
+                            <Button text="Tertiary" type="tertiary" disabled={true} onClick={() => false} />
                         </div>
                         <p className="docs-page__paragraph">// Loading</p>
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" isLoading={true} onClick={() => false} />
                             <Button text="Secondary" isLoading={true} onClick={() => false} />
+                            <Button text="Tertiary" type="tertiary" isLoading={true} onClick={() => false} />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Disabled
                         <Button text="Primary" type="primary" disabled={true} onClick={() => false} />
                         <Button text="Secondary" disabled={true} onClick={() => false} />
+                        <Button text="Tertiary" type="tertiary" disabled={true} onClick={() => false} />
 
                         // Loading
                         <Button text="Primary" type="primary" isLoading={true} onClick={() => false} />
                         <Button text="Secondary" isLoading={true} onClick={() => false} />
+                        <Button text="Tertiary" type="tertiary" isLoading={true} onClick={() => false} />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -141,6 +148,7 @@ export default class ButtonsDoc extends React.Component {
                         <div className="docs-page__content-row docs-page__content-row--flex">
                             <Button text="Primary" type="primary" icon="plus-sign" onClick={() => false} />
                             <Button text="Secondary" type="secondary" icon="info-sign" onClick={() => false} />
+                            <Button text="Tertiary" type="tertiary" icon="info-sign" onClick={() => false} />
                         </div>
                         <p className="docs-page__paragraph">// Large and small options</p>
                         <div className="docs-page__content-row docs-page__content-row--flex">
@@ -159,28 +167,64 @@ export default class ButtonsDoc extends React.Component {
                                 size="small"
                                 onClick={() => false}
                             />
-                            <Button text="Secondary small" icon="info-sign" size="small" onClick={() => false} />
+                            <Button
+                                text="Tertiary small"
+                                type="tertiary"
+                                icon="info-sign"
+                                size="small"
+                                onClick={() => false}
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Default size
-                        <Button text="default" icon="info-sign" onClick={()=> false} />
-                        <Button text="primary" type="primary" icon="plus-sign" onClick={()=> false} />
-                        <Button text="success" type="success" icon="ok" onClick={()=> false} />
-                        <Button text="warning" type="warning" icon="exclamation-sign" onClick={()=> false} />
-                        <Button text="alert" type="alert" icon="warning-sign" onClick={()=> false} />
-
-                        <Button text="default" icon="info-sign" style="hollow" onClick={()=> false} />
-                        <Button text="primary" type="primary" icon="plus-sign" style="hollow" onClick={()=> false} />
-                        <Button text="success" type="success" icon="ok" style="hollow" onClick={()=> false} />
-                        <Button text="warning" type="warning" icon="exclamation-sign" style="hollow" onClick={()=> false} />
-                        <Button text="alert" type="alert" icon="warning-sign" style="hollow" onClick={()=> false} />
+                        <Button
+                            text="Primary"
+                            type="primary"
+                            icon="plus-sign"
+                            onClick={() => false}
+                        />
+                        <Button
+                            text="Secondary"
+                            type="secondary"
+                            icon="info-sign"
+                            onClick={() => false}
+                        />
+                        <Button
+                            text="Tertiary"
+                            type="tertiary"
+                            icon="info-sign"
+                            onClick={() => false}
+                        />
 
                         // Large and small options
-                        <Button text="default large" icon="info-sign" size="large" onClick={()=> false} />
-                        <Button text="primary large" type="primary" icon="plus-sign" size="large" onClick={()=> false} />
-                        <Button text="default small" icon="info-sign" size="small" onClick={()=> false} />
-                        <Button text="primary small" type="primary" icon="plus-sign" size="small" onClick={()=> false} />
+                        <Button
+                            text="Primary large"
+                            type="primary"
+                            icon="plus-sign"
+                            size="large"
+                            onClick={() => false}
+                        />
+                        <Button
+                            text="Secondary large"
+                            icon="info-sign"
+                            size="large"
+                            onClick={() => false}
+                        />
+                        <Button
+                            text="Primary small"
+                            type="primary"
+                            icon="plus-sign"
+                            size="small"
+                            onClick={() => false}
+                        />
+                        <Button
+                            text="Tertiary small"
+                            type="tertiary"
+                            icon="info-sign"
+                            size="small"
+                            onClick={() => false}
+                        />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -212,6 +256,14 @@ export default class ButtonsDoc extends React.Component {
                             />
 
                             <Button
+                                type="tertiary"
+                                icon="bell"
+                                text="bell"
+                                size="large"
+                                iconOnly={true}
+                                onClick={() => false}
+                            />
+                            <Button
                                 type="primary"
                                 icon="plus-sign"
                                 text="plus-sign"
@@ -219,7 +271,7 @@ export default class ButtonsDoc extends React.Component {
                                 onClick={() => false}
                             />
                             <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={() => false} />
-
+                            <Button type="tertiary" icon="ok" text="ok" iconOnly={true} onClick={() => false} />
                             <Button
                                 type="primary"
                                 icon="plus-sign"
@@ -232,6 +284,14 @@ export default class ButtonsDoc extends React.Component {
                                 icon="calendar"
                                 size="small"
                                 text="calendar"
+                                iconOnly={true}
+                                onClick={() => false}
+                            />
+                            <Button
+                                type="tertiary"
+                                icon="refresh"
+                                text="refresh"
+                                size="small"
                                 iconOnly={true}
                                 onClick={() => false}
                             />
@@ -259,6 +319,16 @@ export default class ButtonsDoc extends React.Component {
                             />
 
                             <Button
+                                type="tertiary"
+                                icon="chevron-up-thin"
+                                text="Pull up"
+                                shape="round"
+                                size="large"
+                                iconOnly={true}
+                                onClick={() => false}
+                            />
+
+                            <Button
                                 type="primary"
                                 icon="plus-large"
                                 text="plus-large"
@@ -270,6 +340,14 @@ export default class ButtonsDoc extends React.Component {
                                 type="secondary"
                                 icon="info-sign"
                                 text="info-sign"
+                                shape="round"
+                                iconOnly={true}
+                                onClick={() => false}
+                            />
+                            <Button
+                                type="tertiary"
+                                icon="ok"
+                                text="ok"
                                 shape="round"
                                 iconOnly={true}
                                 onClick={() => false}
@@ -292,28 +370,167 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
+                            <Button
+                                type="tertiary"
+                                icon="close-small"
+                                text="close-small"
+                                size="small"
+                                shape="round"
+                                iconOnly={true}
+                                onClick={() => false}
+                            />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         // Large default and small
-                        <Button type="primary" icon="plus-sign" text="plus-sign" style="hollow" size="large" iconOnly={true} onClick={()=> false} />
-                        <Button type="highlight" icon="bell" text="bell" size="large" iconOnly={true} onClick={()=> false} />
-                        <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={()=> false} />
-                        <Button type="primary" icon="plus-sign" text="plus-sign" iconOnly={true} onClick={()=> false} />
-                        <Button type="success" icon="ok" text="ok" iconOnly={true} onClick={()=> false} />
-                        <Button type="alert" style="hollow" icon="kill" text="kill" size="small" iconOnly={true} onClick={()=> false} />
-                        <Button icon="calendar" size="small" text="calendar" iconOnly={true} onClick={()=> false} />
-                        <Button type="primary" style="hollow" icon="refresh" text="refresh" size="small" iconOnly={true} onClick={()=> false} />
+                        <Button
+                            type="primary"
+                            icon="plus-sign"
+                            text="plus-sign"
+                            size="large"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="secondary"
+                            icon="exclamation-sign"
+                            text="exclamation-sign"
+                            size="large"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="tertiary"
+                            icon="bell"
+                            text="bell"
+                            size="large"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="primary"
+                            icon="plus-sign"
+                            text="plus-sign"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            icon="info-sign"
+                            text="info-sign"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="tertiary"
+                            icon="ok"
+                            text="ok"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="primary"
+                            icon="plus-sign"
+                            text="plus-sign"
+                            size="small"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            icon="calendar"
+                            size="small"
+                            text="calendar"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="tertiary"
+                            icon="refresh"
+                            text="refresh"
+                            size="small"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
 
-                        // // Circle (large, default and small)
-                        <Button type="primary" icon="plus-large" text="plus-large" style="hollow" size="large" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button type="highlight" icon="bell" text="bell" size="large" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button size="normal" icon="info-sign" text="info-sign" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" text="plus-large" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button type="success" icon="ok" text="ok" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button type="alert" icon="close-small" text="close-small" size="small" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button type="primary" icon="plus-large" text="plus-large" size="small" shape="round" iconOnly={true} onClick={()=> false} />
-                        <Button type="sd-green" icon="star" text="star" size="small" shape="round" iconOnly={true} onClick={()=> false} />
+                        // Circle (large, default and small)
+                        <Button
+                            type="primary"
+                            icon="plus-large"
+                            text="plus-large"
+                            size="large"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="secondary"
+                            icon="exclamation-sign"
+                            text="exclamation-sign"
+                            size="large"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="tertiary"
+                            icon="chevron-up-thin"
+                            text="Pull up"
+                            shape="round"
+                            size="large"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+
+                        <Button
+                            type="primary"
+                            icon="plus-large"
+                            text="plus-large"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="secondary"
+                            icon="info-sign"
+                            text="info-sign"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="tertiary"
+                            icon="ok"
+                            text="ok"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+
+                        <Button
+                            type="primary"
+                            icon="plus-large"
+                            text="Add New"
+                            size="small"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            icon="star"
+                            text="star"
+                            size="small"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
+                        <Button
+                            type="tertiary"
+                            icon="close-small"
+                            text="close-small"
+                            size="small"
+                            shape="round"
+                            iconOnly={true}
+                            onClick={() => false}
+                        />
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
@@ -345,7 +562,7 @@ export default class ButtonsDoc extends React.Component {
                         isRequired={false}
                         type="filled | hollow | text-only"
                         default="filled"
-                        description="Buttons may be one of styles such as hollow buttons, buttons without background (text-only) or filled (default)."
+                        description="Styles are deprecated and will be removed in future versions. Three levels (see type prop) are advised: Primary, Secondary, and Tertiary."
                     />
                     <Prop
                         name="shape"
@@ -357,9 +574,9 @@ export default class ButtonsDoc extends React.Component {
                     <Prop
                         name="type"
                         isRequired={false}
-                        type="default | primary | success | warning | alert | highlight | sd-green"
-                        default="default"
-                        description="Default + semantic colour variations (e.g. primary, success etc.)."
+                        type="primary | secondary | tertiary | default | success | warning | alert | highlight | sd-green"
+                        default="secondary"
+                        description="Three levels are advised: Primary, Secondary, and Tertiary. Other semantic variations (success, warning, alert, highlight, sd-green) are deprecated and will be removed in future versions."
                     />
                     <Prop
                         name="theme"

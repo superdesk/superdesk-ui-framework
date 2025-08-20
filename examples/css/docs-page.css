@@ -171,15 +171,13 @@ h4.docs-page__h4 {
     line-height: 140%;
     margin: 0 0 0.4em 0;
 }
-p.docs-page__paragraph,
-div.docs-page__paragraph {
+.docs-page__paragraph {
     font-size: 16px;
     margin: 1em 0;
     line-height: 150%;
-    font-weight: 300;
+    font-weight: 400;
 }
-p.docs-page__paragraph em,
-div.docs-page__paragraph em {
+.docs-page__paragraph em {
     font-style: italic;
     font-weight: 400;
 }
@@ -188,25 +186,25 @@ div.docs-page__paragraph em {
     margin: 0 0px 20px;
     color: rgb(116, 116, 116);
 }
-p.docs-page__paragraph + .docs-page__paragraph--small {
+.docs-page__paragraph + .docs-page__paragraph--small {
     margin-top: -10px;
 }
 .docs-page__code-example p.docs-page__paragraph {
     color: #7abcd1;
 }
 
-p.docs-page__paragraph--topMarginL {
+.docs-page__paragraph--topMarginL {
     margin-top: 3em;
 }
 .docs-page__code-example p.docs-page__paragraph--small {
     margin: -1em 0 1em;
 }
-p.docs-page__paragraph:first-child {
+.docs-page__paragraph:first-child {
     margin: 0 0 1em;
 }
-p.docs-page__paragraph b,
-div.docs-page__paragraph b {
-    font-weight: 400;
+.docs-page__paragraph b,
+.docs-page__paragraph strong {
+    font-weight: 600;
 }
 .docs-page .link {
     color: #5eadc8;
@@ -427,7 +425,7 @@ div.docs-page__paragraph b {
 }
 
 .docs-page__button-grid {
-    margin-block-start: 2.4rem;
+    margin-block-start: 3rem;
     margin-block-end: 2.4rem;
     display: flex;
     flex-direction: row;
@@ -681,7 +679,8 @@ pre.prettyprint {
     font-weight: 300;
 }
 
-.docs-page__paragraph code {
+.docs-page__paragraph code,
+.docs-page__caption-text code {
     font-size: 85%;
     padding: 0 0.4em;
     background-color: var(--sd-colour-interactive--alpha-20);
@@ -793,22 +792,31 @@ pre.prettyprint {
 .docs-page__container .docs-page__paragraph--small {
     max-width: 85ch;
 }
+.docs-page__container .docs-page__paragraph--large {
+    font-size: 1.8rem;
+}
 
 .docs-page__content-block {
     display: flex;
     flex-direction: row;
-    margin: 0 -16px;
+    gap: var(--gap-4);
+    flex-wrap: wrap;
 }
 .docs-page__content-block + .docs-page__content-block {
-    margin-top: 32px;
+    margin-top: var(--space--5);
 }
 .docs-page__content-block-item {
     flex: 1 1;
-    margin: 0 16px;
+    &.docs-page__content-block-item--small {
+        max-width: 25%;
+        min-width: 240px;
+        height: auto;
+        .docs-page__figure-media {
+            min-height: auto;
+        }
+    }
 }
-/* .docs-page__figure {
 
-} */
 .docs-page__figure-media {
     width: 100%;
     background: #f8f8f8;

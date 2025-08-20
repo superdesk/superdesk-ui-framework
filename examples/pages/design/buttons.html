@@ -1,22 +1,91 @@
 <section class="docs-page__container">
-    <h2 class="docs-page__h2">Button usage guidlines</h2>
-    <div class="docs-page__content-block">
+    <h2 class="docs-page__h2">Button Guidelines</h2>
+    <p class="docs-page__paragraph docs-page__paragraph--large">Our design system uses three button types to create clear visual hierarchy: <strong>Primary</strong> for the most important action, <strong>Secondary</strong> for alternative actions, and <strong>Tertiary</strong> for low-priority or optional actions. Each type has distinct visual weight to guide users effectively through interfaces.</p>
+    
+    <h3 class="docs-page__h3">Primary Buttons</h3>
+    <p class="docs-page__paragraph mb-0 font-semibold">Purpose</p>
+    <p class="docs-page__paragraph mt-0">Use for the most important action on a page or section. Primary buttons should guide users toward their main goal and stand out clearly from other elements.</p>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__content-block-item docs-page__content-block-item--small">
+            <figure class="docs-page__figure-media">
+                <img width="145" src="/button--primary.png" alt="Button Primary">
+            </figure>
+        </div>
+    </div>
+    <p class="docs-page__paragraph mb-0 font-semibold">Usage rules</p>
+    <p class="docs-page__paragraph mt-0">Limit to one primary button per view to maintain clear hierarchy. If you think you need two primary buttons, one of them should probably be secondary.</p>
+    
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large sd-content-divider--dashed" role="separator" />
+
+    <h3 class="docs-page__h3 mt-0">Secondary Buttons</h3>
+    <p class="docs-page__paragraph mb-0 font-semibold">Purpose</p>
+    <p class="docs-page__paragraph mt-0">Use for important but not critical actions, often paired with primary buttons. They provide alternatives or complementary actions without competing for attention.</p>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__content-block-item docs-page__content-block-item--small">
+            <figure class="docs-page__figure-media">
+                <img width="145" src="/button--secondary.png" alt="Button Secondary">
+            </figure>
+        </div>
+    </div>
+    <p class="docs-page__paragraph mb-0 font-semibold">Usage rules</p>
+    <p class="docs-page__paragraph mt-0">Work well alongside primary buttons. Use multiple secondary buttons when you have several actions of similar importance.</p>
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large sd-content-divider--dashed" role="separator" />
+
+    <h3 class="docs-page__h3 mt-0">Tertiary Buttons</h3>
+    <p class="docs-page__paragraph mb-0 font-semibold">Purpose</p>
+    <p class="docs-page__paragraph mt-0">Use for low-priority or optional actions. Ideal when you need functionality without visual clutter, especially for buttons that appear frequently in lists or cards.</p>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__content-block-item docs-page__content-block-item--small">
+            <figure class="docs-page__figure-media">
+                <img width="145" src="/button--tertiary.png" alt="Button Tertiary">
+            </figure>
+        </div>
+    </div>
+    <p class="docs-page__paragraph mb-0 font-semibold">Usage rules</p>
+    <p class="docs-page__paragraph mt-0">Great for actions that support the main experience but aren't essential to completing primary tasks.</p>
+    
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large" role="separator" />
+
+    <h3 class="docs-page__h3 mt-0">Mixed Button Types</h3>
+    <p class="docs-page__paragraph mt-0-5">You can combine different button styles to create a clear action hierarchy.</p>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
         <div class="docs-page__content-block-item">
             <figure class="docs-page__figure-media">
-                <img src="/buttons--dont-01.png" alt="Buttons - Don't">
+                <img width="264" src="/buttons--dont-01.png" alt="Buttons - Don't">
             </figure>
             <figcaption class="docs-page__figure-caption">
                 <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't.</p>
-                <p class="docs-page__caption-text">Don't use multiple high-emphasis buttons in a single component. Try to identify the most important command in the component and use the primary button only for this.</p>
+                <p class="docs-page__caption-text">Use multiple primary buttons in a single component. Try to identify the most important action and use the primary button only for this.</p>
             </figcaption>
         </div>
         <div class="docs-page__content-block-item">
             <figure class="docs-page__figure-media">
-                <img src="/buttons--do-02.png" alt="Buttons - Do">
+                <img width="371" src="/buttons--do-01.png" alt="Buttons - Do">
             </figure>
             <figcaption class="docs-page__figure-caption">
                 <p class="docs-page__caption-heading docs-page__caption-heading--do">Do.</p>
-                <p class="docs-page__caption-text">Mix different button styles to give a sense of hierarchy to the available actions. In this example, hollow buttons are combined with a primary button making it easy to distinguish between high, medium and low emphasis.</p>
+                <p class="docs-page__caption-text">Combine different button styles to create clear hierarchy. Use Primary, Secondary, and Tertiary buttons together so high-, medium-, and low-priority actions are easy to distinguish.</p>
+            </figcaption>
+        </div>
+    </div>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <img width="371" src="/buttons--dont-02.png" alt="Buttons - Don't">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't.</p>
+                <p class="docs-page__caption-text">Group buttons without spacing or use random gaps. Buttons need proper spacing to feel organized and prevent accidental clicks.</p>
+            </figcaption>
+        </div>
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <img width="371" src="/buttons--do-02.png" alt="Buttons - Do">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--do">Do.</p>
+                <p class="docs-page__caption-text">Do use consistent spacing between buttons. The best approach is to use the <code>ButtonGroup</code> component, which automatically handles proper spacing and alignment. If you need custom layouts, use the <code>--gap-1</code> spacing variable instead of hardcoded values to maintain design system consistency.</p>
             </figcaption>
         </div>
     </div>
@@ -26,8 +95,17 @@
                 <img src="/illustration-small--react.svg" alt="React components">
             </figure>
             <label class="docs-page__graphic-btn-label">
-                <span>View react component</span>
-                <span class="docs-page__small-text">React components</span>
+                <span>View Button component</span>
+                <span class="docs-page__small-text">Components</span>
+            </label>
+        </a>
+        <a class="docs-page__graphic-btn" href="#/components/button-groups" target="_blank">
+            <figure class="docs-page__graphic-btn-graphic">
+                <img src="/illustration-small--react.svg" alt="React components">
+            </figure>
+            <label class="docs-page__graphic-btn-label">
+                <span>View ButtonGroup component</span>
+                <span class="docs-page__small-text">Components</span>
             </label>
         </a>
     </div>
