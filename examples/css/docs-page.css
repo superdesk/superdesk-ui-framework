@@ -692,7 +692,6 @@ pre.prettyprint {
     color: var(--color-text);
 }
 
-
 .docs-page__unordered-list {
     font-size: 16px;
     margin: 1em 0 2em;
@@ -802,7 +801,6 @@ pre.prettyprint {
     flex-direction: row;
     gap: var(--gap-4);
     flex-wrap: wrap;
-
 }
 .docs-page__content-block + .docs-page__content-block {
     margin-top: var(--space--5);
@@ -818,7 +816,7 @@ pre.prettyprint {
         }
     }
 }
- 
+
 .docs-page__figure-media {
     width: 100%;
     background: #f8f8f8;

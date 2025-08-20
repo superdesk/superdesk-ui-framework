@@ -43,9 +43,7 @@ export default class ButtonsDoc extends React.Component {
                 </Components.GraphicButtonsGroup>
 
                 <div className="d-flex items-center gap-1 mt-5 mb-1">
-                    <h3 className="docs-page__h3 m-0">
-                        Text only (without background)
-                    </h3>
+                    <h3 className="docs-page__h3 m-0">Text only (without background)</h3>
                     <Label text="Deprecated" size="large" noTransform={true} type="warning" />
                 </div>
                 <p className="docs-page__paragraph">
@@ -148,24 +146,9 @@ export default class ButtonsDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <p className="docs-page__paragraph">// Default size</p>
                         <div className="docs-page__content-row docs-page__content-row--flex">
-                            <Button
-                                text="Primary"
-                                type="primary"
-                                icon="plus-sign"
-                                onClick={() => false}
-                            />
-                            <Button
-                                text="Secondary"
-                                type="secondary"
-                                icon="info-sign"
-                                onClick={() => false}
-                            />
-                            <Button
-                                text="Tertiary"
-                                type="tertiary"
-                                icon="info-sign"
-                                onClick={() => false}
-                            />
+                            <Button text="Primary" type="primary" icon="plus-sign" onClick={() => false} />
+                            <Button text="Secondary" type="secondary" icon="info-sign" onClick={() => false} />
+                            <Button text="Tertiary" type="tertiary" icon="info-sign" onClick={() => false} />
                         </div>
                         <p className="docs-page__paragraph">// Large and small options</p>
                         <div className="docs-page__content-row docs-page__content-row--flex">
@@ -176,12 +159,7 @@ export default class ButtonsDoc extends React.Component {
                                 size="large"
                                 onClick={() => false}
                             />
-                            <Button
-                                text="Secondary large"
-                                icon="info-sign"
-                                size="large"
-                                onClick={() => false}
-                            />
+                            <Button text="Secondary large" icon="info-sign" size="large" onClick={() => false} />
                             <Button
                                 text="Primary small"
                                 type="primary"
@@ -292,19 +270,8 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
-                            <Button
-                                icon="info-sign"
-                                text="info-sign"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
-                            <Button
-                                type="tertiary"
-                                icon="ok"
-                                text="ok"
-                                iconOnly={true}
-                                onClick={() => false}
-                            />
+                            <Button icon="info-sign" text="info-sign" iconOnly={true} onClick={() => false} />
+                            <Button type="tertiary" icon="ok" text="ok" iconOnly={true} onClick={() => false} />
                             <Button
                                 type="primary"
                                 icon="plus-sign"
