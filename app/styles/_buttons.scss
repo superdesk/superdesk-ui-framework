@@ -10,15 +10,14 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
 
 ////////////////////////////// NEW BUTTONS //////////////////////////////
 
-$new-button-active-shadow: inset 0 1px 2px hsla(0, 0%, 0%, 0.3);
-$new-button-active-shadow-hollow: inset 0 0 0 1px;
-
 :root {
-    --new-button-hover-shadow: 0 0 0 1px rgba(0,0,0,.12), 0 1px 4px 0 rgba(0,0,0,.14);
+    --new-button-hover-shadow: inset 0 0 0 3px hsla(0, 0%, 0%, 0.24);
+    --new-button-active-shadow: inset 0 0 0 5px hsla(0, 0%, 0%, 0.24);
 }
 
 [data-theme="dark-ui"], .dark-ui {
-    --new-button-hover-shadow: 0 0 0 1px rgba(0,0,0,.28), 0 1px 4px 0 rgba(0,0,0,.5);
+    --new-button-hover-shadow: inset 0 0 0 3px hsla(0, 0%, 100%, 0.24);
+    --new-button-active-shadow: inset 0 0 0 5px hsla(0, 0%, 100%, 0.32);
 }
 
 @mixin new-button-base {
@@ -34,7 +33,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     font-size: $font-size__button--default;
     -webkit-appearance: none;
     border: none;
-    border-radius: $border-radius__base--small;
+    border-radius: var(--b-radius--small);
     transition: $button-transition;
     text-transform: uppercase;
     line-height: 1;
@@ -44,23 +43,22 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     text-decoration: none;
     cursor: pointer;
     position: relative;
-    border: 1px solid transparent;
     background-color: var(--sd-btn-bg);
+    box-shadow: inset 0 0 0 0 var(--new-button-hover-shadow);
     gap: 0.6rem;
 
     &:hover {
-        background-color: var(--sd-btn-bg--hover);
         box-shadow: var(--new-button-hover-shadow);
         text-decoration: none !important;
     }
 
     &:active {
-        background-color: var(--sd-btn-bg--active);
-        box-shadow: $new-button-active-shadow;
+        box-shadow: var(--new-button-active-shadow);
     }
 
     &:focus-visible {
-        box-shadow: $button-focus-box-shadow;
+        outline: $button-focus-box-shadow;
+        outline-offset: 1px;
     }
 
     [class^="icon-"], [class*=" icon-"] {
@@ -71,52 +69,46 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 @mixin new-button-hollow {
     border: 1px solid var(--sd-btn-border);
     background-color: transparent !important;
-    box-shadow: inset 0 0 0 0px var(--sd-btn-border);
+    box-shadow: inset 0 0 0 0 var(--sd-btn-shadow);
 
     [class^="icon-"], [class*=" icon-"] {
         color: var(--sd-btn-color);
     }
 
     &:hover {
-        box-shadow: none;
-        border-color: var(--sd-btn-color);
-        box-shadow: inset 0 0 0 2px var(--sd-btn-border);
+        box-shadow: inset 0 0 0 3px var(--sd-btn-shadow);
     }
 
     &:active {
-        border-color: var(--sd-btn-color);
-        box-shadow: inset 0 0 0 2px var(--sd-btn-color);
+        box-shadow: inset 0 0 0 5px var(--sd-btn-shadow);
     }
 
     &:focus-visible {
-        box-shadow: $button-focus-box-shadow;
+        outline: $button-focus-box-shadow;
+        outline-offset: 1px;
     }
 }
 
 @mixin new-button-text-only {
+    --sd-btn-shadow: var(--color-surface-faded-translucent);
+    --sd-btn-txt: var(--color-text-muted);
+    --sd-btn-bg--hover: var(--color-neutral-light-default);
     border: none;
     background-color: transparent;
-    --sd-btn-hs: 214, 13%;
-    --sd-btn-l: var(--sd-btn-hs), 50%;
-    --sd-btn-txt: hsla(var(--sd-btn-l), 1);
-    --sd-btn-bg--hover: hsla(var(--sd-btn-l), 0.20);
-    --sd-btn-bg--active: hsla(var(--sd-btn-l), 0.16);
-    --sd-btn-bg--shadow: hsla(var(--sd-btn-l), 0.24);
+    box-shadow: inset 0 0 0 0 var(--sd-btn-shadow);
 
     [class^="icon-"], [class*=" icon-"] {
         color: currentColor;
     }
 
     &:hover {
-        box-shadow: none;
         background-color: var(--sd-btn-bg--hover);
         box-shadow: inset 0 0 0 0 var(--sd-btn-bg--shadow);
     }
 
     &:active {
-        box-shadow: none;
-        background-color: var(--sd-btn-bg--active);
-        box-shadow: inset 0 0 0 4px var(--sd-btn-bg--shadow);
+        background-color: var(--sd-btn-bg--hover);
+        box-shadow: inset 0 0 0 4px var(--sd-btn-shadow);
     }
 
     &:focus-visible {
@@ -137,39 +129,46 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
     // Hollow style
     &.btn--hollow {
-        --sd-btn-border: var(--sd-colour-btn-border-neutral);
-        --sd-btn-color: var(--sd-colour-btn-txt-neutral);
-        color: var(--sd-colour-btn-txt-neutral);
+        --sd-btn-border: var(--color-line-strong);
+        --sd-btn-color: var(--color-text-muted);
+        --sd-btn-shadow: var(--color-line-light);
+        color: var(--sd-btn-color);
         @include new-button-hollow;
 
         &.btn--primary {
-            --sd-btn-border: var(--sd-colour-interactive-btn-border);
-            --sd-btn-color: var(--sd-colour-interactive);
+            --sd-btn-border: var(--sd-colour-interactive);
+            --sd-btn-color: var(--sd-colour-interactive--text);
+            --sd-btn-shadow: var(--sd-colour-interactive-translucent-25);
         }
 
         &.btn--success {
-            --sd-btn-border: var(--sd-colour-success-btn-border);
-            --sd-btn-color: var(--sd-colour-success);
+            --sd-btn-border: var(--color-success-default);
+            --sd-btn-color: var(--color-success-text);
+            --sd-btn-shadow: var(--color-success-translucent);
         }
 
         &.btn--warning {
-            --sd-btn-border: var(--sd-colour-warning-btn-border);
-            --sd-btn-color: var(--sd-colour-warning);
+            --sd-btn-border: var(--color-warning-default);
+            --sd-btn-color: var(--color-warning-text);
+            --sd-btn-shadow: var(--color-warning-translucent);
         }
 
         &.btn--alert {
-            --sd-btn-border: var(--sd-colour-alert-btn-border);
-            --sd-btn-color: var(--sd-colour-alert);
+            --sd-btn-border: var(--color-alert-default);
+            --sd-btn-color: var(--color-alert-text);
+            --sd-btn-shadow: var(--color-alert-translucent);
         }
 
         &.btn--highlight {
-            --sd-btn-border: var(--sd-colour-highlight-btn-border);
-            --sd-btn-color: var(--sd-colour-highlight);
+            --sd-btn-border: var(--color-highlight-default);
+            --sd-btn-color: var(--color-highlight-text);
+            --sd-btn-shadow: var(--color-highlight-translucent);
         }
 
         &.btn--sd-green {
             --sd-btn-border: var(--sd-colour-superdesk-btn-border);
             --sd-btn-color: var(--sd-colour-superdesk);
+            --sd-btn-shadow: var(--sd-colour-superdesk--translucent);
         }
 
         &.btn--primary,
@@ -188,28 +187,36 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 
     // Text only
     &.btn--text-only {
-        --sd-btn-hs: 214, 13%;
-        color: var(--sd-colour-btn-txt-neutral);
         @include new-button-text-only;
 
         &.btn--primary {
-            --sd-btn-hs: var(--sd-colour-primary-hs);
+            --sd-btn-shadow: var(--color-primary-translucent);
+            --sd-btn-txt: var(--color-primary-text);
+            --sd-btn-bg--hover: var(--color-primary-translucent);
         }
 
         &.btn--success {
-            --sd-btn-hs: var(--sd-colour-success-hs);
+            --sd-btn-shadow: var(--color-success-translucent);
+            --sd-btn-txt: var(--color-success-text);
+            --sd-btn-bg--hover: var(--color-success-translucent);
         }
 
         &.btn--warning {
-            --sd-btn-hs: var(--sd-colour-warning-hs);
+            --sd-btn-shadow: var(--color-warning-translucent);
+            --sd-btn-txt: var(--color-warning-text);
+            --sd-btn-bg--hover: var(--color-warning-translucent);
         }
 
         &.btn--alert {
-            --sd-btn-hs: var(--sd-colour-alert-hs);
+            --sd-btn-shadow: var(--color-alert-translucent);
+            --sd-btn-txt: var(--color-alert-text);
+            --sd-btn-bg--hover: var(--color-alert-translucent);
         }
 
         &.btn--highlight {
-            --sd-btn-hs: var(--sd-colour-highlight-hs);
+            --sd-btn-shadow: var(--color-highlight-translucent);
+            --sd-btn-txt: var(--color-highlight-text);
+            --sd-btn-bg--hover: var(--color-highlight-translucent);
         }
 
         &.btn--sd-green {
@@ -313,33 +320,33 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
 }
 
 .btn--success {
-    --sd-btn-bg: var(--sd-colour-success);
-    --sd-btn-bg--hover: var(--sd-colour-success--hover);
-    --sd-btn-bg--active: var(--sd-colour-success--active);
+    --sd-btn-bg: var(--color-success-default);
+    --sd-btn-bg--hover: var(--color-success-default);
+    --sd-btn-bg--active: var(--color-success-default);
 }
 
 .btn--warning {
-    --sd-btn-bg: var(--sd-colour-warning);
-    --sd-btn-bg--hover: var(--sd-colour-warning--hover);
-    --sd-btn-bg--active: var(--sd-colour-warning--active);
+    --sd-btn-bg: var(--color-warning-default);
+    --sd-btn-bg--hover: var(--color-warning-default);
+    --sd-btn-bg--active: var(--color-warning-default);
 }
 
 .btn--alert {
-    --sd-btn-bg: var(--sd-colour-alert);
-    --sd-btn-bg--hover: var(--sd-colour-alert--hover);
-    --sd-btn-bg--active: var(--sd-colour-alert--active);
+    --sd-btn-bg: var(--color-alert-default);
+    --sd-btn-bg--hover: var(--color-alert-default);
+    --sd-btn-bg--active: var(--color-alert-default);
 }
 
 .btn--highlight {
-    --sd-btn-bg: var(--sd-colour-highlight);
-    --sd-btn-bg--hover: var(--sd-colour-highlight--hover);
-    --sd-btn-bg--active: var(--sd-colour-highlight--active);
+    --sd-btn-bg: var(--color-highlight-default);
+    --sd-btn-bg--hover: var(--color-highlight-default);
+    --sd-btn-bg--active: var(--color-highlight-default);
 }
 
 .btn--sd-green {
     --sd-btn-bg: var(--sd-colour-superdesk);
-    --sd-btn-bg--hover: var(--sd-colour-superdesk--hover);
-    --sd-btn-bg--active: var(--sd-colour-superdesk--active);
+    --sd-btn-bg--hover: var(--sd-colour-superdesk);
+    --sd-btn-bg--active: var(--sd-colour-superdesk);
 }
 
 ////////////////////////////// END NEW BUTTONS /////////////////////////////
@@ -687,7 +694,7 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    border: 0px solid var(--sd-colour-line--x-light);
+    border: 0 solid var(--sd-colour-line--x-light);
     border-inline-width: 1px 0;
 
     .circle {
@@ -799,15 +806,15 @@ $new-button-active-shadow-hollow: inset 0 0 0 1px;
     padding-inline: var(--space--2);
     padding-block-start: var(--space--2);
     padding-block-end: var(--space--1-5);
-    box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 0, hsla(0, 0%, 0%, 0.16) 0px 6px 12px -6px, hsla(0, 0%, 0%, 0.40) 0px 2px 8px -8px;
+    box-shadow: inset var(--sd-colour-interactive--alpha-30) 0 0 0 0, hsla(0, 0%, 0%, 0.16) 0 6px 12px -6px, hsla(0, 0%, 0%, 0.40) 0 2px 8px -8px;
     transition: all 0.2s ease;
     &:hover {
         border: 1px solid var(--sd-colour-line--strong);
-        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 0, hsla(0, 0%, 0%, 0.24) 0px 6px 12px -6px, hsla(0, 0%, 0%, 0.60) 0px 2px 8px -8px;
+        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0 0 0 0, hsla(0, 0%, 0%, 0.24) 0 6px 12px -6px, hsla(0, 0%, 0%, 0.60) 0 2px 8px -8px;
     }
     &:active {
         border: 1px solid var(--sd-colour-interactive);
-        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0px 0px 0px 4px;
+        box-shadow: inset var(--sd-colour-interactive--alpha-30) 0 0 0 4px;
     }
     &:focus-visible {
         outline: 2px solid var(--sd-colour-interactive--alpha-60);

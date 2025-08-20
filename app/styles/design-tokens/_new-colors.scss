@@ -188,7 +188,8 @@
     --sd-colour-superdesk:                  hsla(var(--sd-colour-superdesk-l--40), 1);
     --sd-colour-superdesk--hover:           hsla(var(--sd-colour-superdesk-l--50), 1);
     --sd-colour-superdesk--active:          hsla(var(--sd-colour-superdesk-l--30), 1);
-    --sd-colour-superdesk-btn-border:       hsla(var(--sd-colour-superdesk-l--40), 0.5);
+    --sd-colour-superdesk--translucent:     hsla(var(--sd-colour-superdesk-l--40), 0.25);
+    --sd-colour-superdesk-btn-border:       hsla(var(--sd-colour-superdesk-l--40), 0.7);
         // ---
     --sd-colour-neutral:                    hsla(var(--sd-colour-neutral-l--50), 0.5);
     --sd-colour-neutral--hover:             hsla(var(--sd-colour-neutral-l--60), 0.5);
@@ -440,10 +441,13 @@
     --sd-colour-interactive:                hsla(var(--sd-colour-interactive-l--50), 1);
     --sd-colour-interactive--hover:         hsla(var(--sd-colour-interactive-l--60), 1);
     --sd-colour-interactive--active:        hsla(var(--sd-colour-interactive-l--40), 1);
+    --sd-colour-interactive--text:          hsla(var(--sd-colour-interactive-l--70), 1);
     --sd-colour-interactive-btn-border:     hsla(var(--sd-colour-interactive-l--50), 0.5);
+    --sd-colour-interactive-translucent-10: hsla(var(--sd-colour-interactive-l--50), 0.1);
+    --sd-colour-interactive-translucent-25: hsla(var(--sd-colour-interactive-l--50), 0.25);
     // ---
-    --sd-colour-primary:                    hsla(var(--sd-colour-primary-l--50), 1);
-    --sd-colour-primary--hover:             hsla(var(--sd-colour-primary-l--60), 1);
+    --sd-colour-primary:                    hsla(var(--sd-colour-primary-l--40), 1);
+    --sd-colour-primary--hover:             hsla(var(--sd-colour-primary-l--30), 1);
     --sd-colour-primary--active:            hsla(var(--sd-colour-primary-l--40), 1);
 
     --sd-colour-interactive--alpha-10:      hsla(var(--sd-colour-interactive-l--50), 0.1);

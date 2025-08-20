@@ -823,7 +823,7 @@ class SpacingUtilitiesDoc extends React.Component {
 
                                 <tr>
                                     <td>mb-0</td>
-                                    <td>{'margin-inline-end: 0 !important;'}</td>
+                                    <td>{'margin-block-end: 0 !important;'}</td>
                                 </tr>
                                 <tr>
                                     <td>mb-0-5</td>
