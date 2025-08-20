@@ -25,22 +25,6 @@ export default class ButtonsDoc extends React.Component {
                             <Button text="Secondary" type="secondary" onClick={() => false} tooltip="test tooltip" />
                             <Button text="Tertiary" type="tertiary" onClick={() => false} />
                         </div>
-                        <div className="docs-page__content-row docs-page__content-row--flex">
-                            <Button text="Test" type="primary" onClick={() => false} />
-                            <Button text="Test" type="success" onClick={() => false} />
-                            <Button text="Test" type="alert" onClick={() => false} />
-                            <Button text="test" type="warning" onClick={() => false} />
-                            <Button text="test" type="highlight" onClick={() => false} />
-                            <Button text="test" type="sd-green" onClick={() => false} />
-                        </div>
-                        <div className="docs-page__content-row docs-page__content-row--flex">
-                            <Button style='hollow' text="Test" type="primary" onClick={() => false} />
-                            <Button style='hollow' text="Test" type="success" onClick={() => false} />
-                            <Button style='hollow' text="Test" type="alert" onClick={() => false} />
-                            <Button style='hollow' text="test" type="warning" onClick={() => false} />
-                            <Button style='hollow' text="test" type="highlight" onClick={() => false} />
-                            <Button style='hollow' text="test" type="sd-green" onClick={() => false} />
-                        </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>{`
                         <Button text="Primary" type="primary" onClick={() => false} />
@@ -292,6 +276,7 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
+
                             <Button
                                 type="tertiary"
                                 icon="bell"
@@ -365,6 +350,7 @@ export default class ButtonsDoc extends React.Component {
                                 iconOnly={true}
                                 onClick={() => false}
                             />
+
                             <Button
                                 type="tertiary"
                                 icon="chevron-up-thin"
