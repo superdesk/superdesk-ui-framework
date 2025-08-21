@@ -1,0 +1,208 @@
+<section class="docs-page__container">
+    <h1 class="docs-page__h2">Modals & Dialogs</h1>
+    <p class="docs-page__paragraph docs-page__paragraph--large">Dialogs and modals are essential components in Superdesk, used frequently for everything from quick confirmations to complex workflows. Given the sophisticated nature of content management, our modals often contain substantial functionality. Consistent structure and content guidelines help users navigate these interfaces confidently.</p>
+    
+    <h3 class="docs-page__h3 mt-5">Structure</h3>
+    <p class="docs-page__paragraph">Every dialog consists of three main areas: <strong>Header</strong> (with title), <strong>Content</strong>, and <strong>Footer</strong>. The Header and Content are always required, while the Footer is recommended in most cases.</p>
+    
+    <figure class="my-3" style="margin-inline-start: -8px;">
+        <img width="545" src="/simple-dialog__structure.png" alt="Button Tertiary">
+    </figure>
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large sd-content-divider--dashed" role="separator" />
+    
+    <h4 class="docs-page__h4 mt-0">Header</h4>
+    <p class="docs-page__paragraph mb-0 mt-1 font-semibold">Purpose</p>
+    <p class="docs-page__paragraph mt-0">Contains the dialog title and close button. Provides immediate context about the dialog's purpose.</p>
+    <p class="docs-page__paragraph mb-0 font-semibold">Requirements</p>
+    <ul class="docs-page__unordered-list mt-1">
+        <li>Title is always mandatory</li>
+        <li>Close (×) button aligned to the right is mandatory in most cases</li>
+        <li>Close button can only be removed when demanding a clear action from the user in the footer</li>
+    </ul>
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large sd-content-divider--dashed" role="separator" />
+
+    <h4 class="docs-page__h4 mt-0">Content</h4>
+    <p class="docs-page__paragraph mb-0 mt-1 font-semibold">Purpose</p>
+    <p class="docs-page__paragraph mt-0">The main area for information, forms, or other interactive elements that support the dialog's goal.</p>
+    <p class="docs-page__paragraph mb-0 font-semibold">Requirements</p>
+    <ul class="docs-page__unordered-list mt-1">
+        <li>Always mandatory</li>
+        <li>Should clearly explain what's happening or what the user needs to do</li>
+    </ul>
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large sd-content-divider--dashed" role="separator" />
+
+    <h4 class="docs-page__h4 mt-0">Footer</h4>
+    <p class="docs-page__paragraph mb-0 mt-1 font-semibold">Purpose</p>
+    <p class="docs-page__paragraph mt-0">Contains action buttons that allow users to proceed, cancel, or complete the dialog's purpose.</p>
+    <p class="docs-page__paragraph mb-0 font-semibold">Requirements</p>
+    <ul class="docs-page__unordered-list mt-1">
+        <li>Recommended in most cases but can be skipped occasionally</li>
+        <li>Rare exception: large and complex modals where actions happen inside the content area</li>
+        <li>Main action buttons always aligned to the right</li>
+        <li>Primary action positioned far right</li>
+    </ul>
+    
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large" role="separator" />
+
+    <h3 class="docs-page__h3 mt-0">Content Guidelines</h3>
+    <h4 class="docs-page__h4 mt-2">Clear Titles</h4>
+    <p class="docs-page__paragraph mt-0">Use specific, descriptive titles that immediately tell users what the dialog is about.</p>
+
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title">Do</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list">
+                    <li>"Save changes before closing?"</li>
+                    <li>"Export Customer Data"</li>
+                    <li>"You have unsaved changes"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list mt-1">
+                    <li>"Are you sure?"</li>
+                    <li>"Confirmation"</li>
+                    <li>"Dialog"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="docs-page__h4 mt-5">Explicit Button Labels</h4>
+    <p class="docs-page__paragraph mt-0">Button text should clearly state what will happen when clicked, not generic actions.</p>
+
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title">Do</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list">
+                    <li>"Delete Profile"</li>
+                    <li>"Save & Continue"</li>
+                    <li>"Discard Changes"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list mt-1">
+                    <li>"Ignore"</li>
+                    <li>"Submit"</li>
+                    <li>"Yes"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="docs-page__h4 mt-5">Clear Content</h4>
+    <p class="docs-page__paragraph mt-0">Explain what's happening and what the outcome will be. Users should never guess what an action will do.</p>
+
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title">Do</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list">
+                    <li>"This will permanently delete the profile and all its data. This action cannot be undone."</li>
+                    <li>"Your changes will be saved and you'll return to the article."</li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list mt-1">
+                    <li>"This action will affect your data."</li>
+                    <li>"Proceed with the operation?"</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large" role="separator" />
+
+    <h3 class="docs-page__h3 mt-0">Layout Guidelines</h3>
+    <h4 class="docs-page__h4 mt-2 mb-2">Action Alignment</h4>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media py-5" style="background-color: hsla(214, 13%, 92%, 1);">
+                <img width="420" src="/dialog--do-01.png" alt="Dialog - Do - example one.">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--do">Do.</p>
+                <p class="docs-page__caption-text">Align primary and secondary actions to the right, with the primary action positioned furthest right.</p>
+            </figcaption>
+        </div>
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media py-5" style="background-color: hsla(214, 13%, 92%, 1);">
+                <img width="420" src="/dialog--dont-01.png" alt="Dialog - Don't - example one.">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't.</p>
+                <p class="docs-page__caption-text">Place actions on the left side or center them, as this breaks expected interaction patterns.</p>
+            </figcaption>
+        </div>
+
+    </div>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media py-5" style="background-color: hsla(214, 13%, 92%, 1);">
+                <img width="420" src="/dialog--do-02.png" alt="Dialog - Do - example two.">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--do">Do.</p>
+                <p class="docs-page__caption-text">Use consistent spacing between buttons in the footer. The same spacing principles from our Button Guidelines apply here - use the <code>ButtonGroup</code> component when possible, or the <code>--gap-1</code> spacing variable for custom layouts. For more detailed information, see the guidelines for the <a href="#/design/buttons">Button component</a>.</p>
+            </figcaption>
+        </div>
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media py-5" style="background-color: hsla(214, 13%, 92%, 1);">
+                <img width="420" src="/dialog--dont-02.png" alt="Dialog - Don't - example two.">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't.</p>
+                <p class="docs-page__caption-text">Place footer buttons too close together or use random spacing. Poorly spaced actions create confusion, increase the risk of accidental clicks, and make the interface feel inconsistent.</p>
+            </figcaption>
+        </div>
+
+    </div>
+
+    <h4 class="docs-page__h4 mt-4 mb-2">Close Button Usage</h4>
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media py-5" style="background-color: hsla(214, 13%, 92%, 1);">
+                <img width="420" src="/dialog--do-03.png" alt="Dialog - Do - example three.">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--do">Do.</p>
+                <p class="docs-page__caption-text">Include the close (×) button in most dialogs to give users a clear escape route.</p>
+            </figcaption>
+        </div>
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media py-5" style="background-color: hsla(214, 13%, 92%, 1);">
+                <img width="420" src="/dialog--dont-03.png" alt="Dialog - Don't - example three.">
+            </figure>
+            <figcaption class="docs-page__figure-caption">
+                <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't.</p>
+                <p class="docs-page__caption-text">Remove the close button unless you specifically need to force a decision (like unsaved changes warnings).</p>
+            </figcaption>
+        </div>
+
+    </div>
+
+    <div class="docs-page__button-grid">
+        <a class="docs-page__graphic-btn" href="#/components/modal" target="_blank">
+            <figure class="docs-page__graphic-btn-graphic">
+                <img src="/illustration-small--react.svg" alt="React components">
+            </figure>
+            <label class="docs-page__graphic-btn-label">
+                <span>View Modal component</span>
+                <span class="docs-page__small-text">Components</span>
+            </label>
+        </a>
+    </div>
+</section>

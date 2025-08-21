@@ -213,17 +213,21 @@ export default angular
 
     .factory('design', () => ({
         basicComponents: {
-            name: 'Basic Components',
+            name: 'Component guidelines',
             items: {
-                buttons: {
+                'buttons': {
                     name: 'Buttons',
                     page: 'buttons.html',
+                },
+                'modals-and-dialogs': {
+                    name: 'Modals & Dialogs',
+                    page: 'modals-and-dialogs.html',
                 },
                 'checkbox-and-radio': {
                     name: 'Checkbox & Radio',
                     page: 'checkbox-and-radio.html',
                 },
-                switch: {
+                'switch': {
                     name: 'Switch',
                     page: 'switch.html',
                 },
@@ -240,14 +244,15 @@ export default angular
                     name: 'Main application structure',
                     page: 'application-structure.html',
                 },
-                pages: {
-                    name: 'Page layouts',
-                    page: 'pages.html',
+                'application-structure': {
+                    name: 'Main application structure',
+                    page: 'application-structure.html',
                 },
-                modules: {
-                    name: 'Modules',
-                    page: 'modules.html',
-                },
+
+                // modules: {
+                //     name: 'Modules',
+                //     page: 'modules.html',
+                // },
             },
         },
     }))
