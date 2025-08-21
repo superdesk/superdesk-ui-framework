@@ -215,7 +215,7 @@ export default angular
         basicComponents: {
             name: 'Component guidelines',
             items: {
-                'buttons': {
+                buttons: {
                     name: 'Buttons',
                     page: 'buttons.html',
                 },
@@ -227,7 +227,7 @@ export default angular
                     name: 'Checkbox & Radio',
                     page: 'checkbox-and-radio.html',
                 },
-                'switch': {
+                switch: {
                     name: 'Switch',
                     page: 'switch.html',
                 },

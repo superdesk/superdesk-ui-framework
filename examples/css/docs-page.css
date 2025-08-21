@@ -126,7 +126,6 @@ hr {
     margin: 32px auto;
 }
 
-
 .docs-page__rule {
     border: none;
     border-width: 2px;
@@ -1157,7 +1156,6 @@ pre[class*='language-'] {
     padding: var(--space--1-5) var(--space--2);
     border-radius: var(--b-radius--large) var(--b-radius--large) 0 0;
     border-bottom: 4px solid var(--sd-colour-line--medium);
-    
 }
 
 .docs-page__do-dont-block-content {
