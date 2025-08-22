@@ -1,45 +1,58 @@
 <section class="docs-page__container">
-        <h2 class="docs-page__h2">Switch usage guidlines</h2>
+        <h2 class="docs-page__h2">Switch guidlines</h2>
+        <p class="docs-page__paragraph docs-page__paragraph--large">Similar rules apply to switches as for checkboxes, with the key difference being when to use them. Use switches for settings that take effect immediately without requiring a confirmation button - the switch instantly affects the view or functionality. Use the <code>SwitchGroup</code> component when grouping multiple switches.</p>
         <div class="docs-page__content-block">
             <div class="docs-page__content-block-item">
                 <figure class="docs-page__figure-media">
-                    <img src="/switch--do-01.png" alt="Switch - Do">
+                    <img width="360" src="/switch--do-01.png" alt="Switch - Do">
                 </figure>
                 <figcaption class="docs-page__figure-caption">
                     <p class="docs-page__caption-heading docs-page__caption-heading--do">Do.</p>
-                    <p class="docs-page__caption-text">List multiple switches in a vertical list. If the containing block has text-align set to left the labels should always be on the right side of the switch. Always use plain labels, in the same line as the switch.</p>
+                    <p class="docs-page__caption-text">List multiple switches in a vertical list with labels on the right side of the switch. Always use plain labels on the same line as the switch. Use <code>SwitchGroup</code> to organize multiple switches with consistent spacing and alignment.</p>
                 </figcaption>
             </div>
             <div class="docs-page__content-block-item">
                 <figure class="docs-page__figure-media">
-                    <img src="/switch--do-02.png" alt="Switch - Caution">
+                    <img width="360" src="/switch--do-02.png" alt="Switch - Caution">
                 </figure>
                 <figcaption class="docs-page__figure-caption">
                     <p class="docs-page__caption-heading docs-page__caption-heading--caution">Caution.</p>
-                    <p class="docs-page__caption-text">In contained modules, not wider than 400 pixels, it is allowed to place labels on the left and align the switches to the right. This should be avoided though, as it makes it more difficult for the user to pair the labels with belonging switches. Consider placing label & switch pairs in dotted list items in such cases.</p>
+                    <p class="docs-page__caption-text">In contained modules narrower than 400 pixels, you may place labels on the left and align switches to the right. This should be avoided when possible, as it makes it harder for users to pair labels with their switches. Consider using clear visual grouping in such cases.</p>
                 </figcaption>
             </div>
         </div>
         <div class="docs-page__content-block">
             <div class="docs-page__content-block-item">
                 <figure class="docs-page__figure-media">
-                    <img src="/switch--dont-01.png" alt="Switch - Don't">
+                    <img width="360" src="/switch--dont-01.png" alt="Switch - Don't">
                 </figure>
                 <figcaption class="docs-page__figure-caption">
                     <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't.</p>
-                    <p class="docs-page__caption-text">Never list switches with the label on the left. Place labels to the left only if the containing block has text-align set to right.</p>
+                    <p class="docs-page__caption-text">List switches with labels on the left in normal layouts. Only place labels to the left when the containing block has right text alignment.</p>
                 </figcaption>
             </div>
             <div class="docs-page__content-block-item">
                 <figure class="docs-page__figure-media">
-                    <img src="/switch--dont-02.png" alt="Switch - Don't">
+                    <img width="360" src="/switch--dont-02.png" alt="Switch - Don't">
                 </figure>
                 <figcaption class="docs-page__figure-caption">
                     <p class="docs-page__caption-heading docs-page__caption-heading--dont">Don't</p>
-                    <p class="docs-page__caption-text">Never list multiple switches in-line.</p>
+                    <p class="docs-page__caption-text">List more than two switches horizontally in a single line - this creates scanning difficulties and breaks the expected vertical rhythm.</p>
                 </figcaption>
             </div>
         </div>
+
+        <h4 class="docs-page__h4 mt-5 mb-2">Component Usage</h4>
+        <ul class="docs-page__unordered-list mt-1 mb-5">
+            <li><strong>Switch:</strong> Individual switch component for single or multiple switch implementations</li>
+            <li><strong>SwitchGroup:</strong> Used to group multiple <code>Switch</code> components with consistent spacing and alignment</li>
+        </ul>
+
+        <h4 class="docs-page__h4 mt-5 mb-2">When to Use Switches vs Checkboxes</h4>
+        <ul class="docs-page__unordered-list mt-1 mb-5">
+            <li><strong>Switches:</strong> For settings that take effect immediately (toggle dark mode, enable notifications)</li>
+            <li><strong>Checkboxes:</strong> For selections that require confirmation or submission (form selections, bulk actions)</li>
+        </ul>
 
         <div class="docs-page__button-grid">
             <a class="docs-page__graphic-btn" href="#/react/switch" target="_blank">

@@ -24,10 +24,31 @@ interface IState {
     value9?: string;
     value10?: string;
     value11?: string;
+    value301?: string;
+    value302?: string;
+    value303?: string;
+    value304?: string;
+    value305?: string;
+    value306?: string;
+    value307?: string;
+    value308?: string;
+    value309?: string;
+    value310?: string;
+    value311?: string;
+    value312?: string;
+    value313?: string;
+    value314?: string;
+    value315?: string;
+    value316?: string;
+    value317?: string;
+    value318?: string;
+    value319?: string;
+    value320?: string;
+    value321?: string;
 }
 
 export default class RadioGroupDoc extends React.Component<{}, IState> {
-    constructor(props) {
+    constructor(props: {}) {
         super(props);
 
         this.state = {
@@ -42,6 +63,27 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
             value9: undefined,
             value10: undefined,
             value11: undefined,
+            value301: undefined,
+            value302: undefined,
+            value303: undefined,
+            value304: undefined,
+            value305: undefined,
+            value306: undefined,
+            value307: undefined,
+            value308: undefined,
+            value309: undefined,
+            value310: undefined,
+            value311: undefined,
+            value312: undefined,
+            value313: undefined,
+            value314: undefined,
+            value315: undefined,
+            value316: undefined,
+            value317: undefined,
+            value318: undefined,
+            value319: undefined,
+            value320: undefined,
+            value321: undefined,
         };
     }
     render() {
@@ -184,7 +226,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                     {value: 'test8', label: 'Button style'},
                                     {value: 'test9', label: 'Button style disabled', disabled: true},
                                 ]}
-                                value={this.state.value3}
+                                value={this.state.value3 ?? ''}
                                 onChange={(value) => this.setState(() => ({value3: value}))}
                             />
                         </div>
@@ -198,7 +240,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                     {value: 'test8', label: 'Button style'},
                                     {value: 'test9', label: 'Button style disabled', disabled: true},
                                 ]}
-                                value={this.state.value3}
+                                value={this.state.value3 ?? ''}
                                 onChange={(value) => this.setState(() => ({value3: value}))}
                             />
                         </div>
@@ -210,7 +252,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                     {value: 'test11', label: 'I have an icon!', icon: 'grid-view'},
                                     {value: 'test12', label: 'Yeah, me too!', icon: 'kanban-view'},
                                 ]}
-                                value={this.state.value4}
+                                value={this.state.value4 ?? ''}
                                 onChange={(value) => this.setState(() => ({value4: value}))}
                             />
                         </div>
@@ -224,7 +266,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                     {value: 'test11', label: 'I have an icon!', icon: 'grid-view'},
                                     {value: 'test12', label: 'Yeah, me too!', icon: 'kanban-view'},
                                 ]}
-                                value={this.state.value4}
+                                value={this.state.value4 ?? ''}
                                 onChange={(value) => this.setState(() => ({value4: value}))}
                             />
                         </div>
@@ -244,7 +286,7 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                     {value: 'test11', label: 'I have an icon!', icon: 'grid-view', labelHidden: true},
                                     {value: 'test12', label: 'Yeah, me too!', icon: 'kanban-view', labelHidden: true},
                                 ]}
-                                value={this.state.value4}
+                                value={this.state.value4 ?? ''}
                                 onChange={(value) => this.setState(() => ({value4: value}))}
                             />
                         </div>
@@ -306,39 +348,39 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Left (default)</p>
                         <div className="form__row form__row--flex docs-page__test-helper-2">
                             <RadioButtonGroup
-                                value={this.state.value3}
+                                value={this.state.value301 ?? ''}
                                 options={[
                                     {value: 'test301', label: 'Option one'},
                                     {value: 'test302', label: 'Option two'},
                                     {value: 'test303', label: 'Option three'},
                                 ]}
-                                onChange={(value) => this.setState(() => ({value3: value}))}
+                                onChange={(value) => this.setState(() => ({value301: value}))}
                             />
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Right</p>
                         <div className="form__row form__row--flex docs-page__test-helper-2">
                             <RadioButtonGroup
                                 group={{align: 'end'}}
-                                value={this.state.value4}
+                                value={this.state.value304 ?? ''}
                                 options={[
                                     {value: 'test304', label: 'Option one'},
                                     {value: 'test305', label: 'Option two'},
                                     {value: 'test306', label: 'Option three'},
                                 ]}
-                                onChange={(value) => this.setState(() => ({value4: value}))}
+                                onChange={(value) => this.setState(() => ({value304: value}))}
                             />
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Center</p>
                         <div className="form__row form__row--flex docs-page__test-helper-2">
                             <RadioButtonGroup
                                 group={{align: 'center', groupLabelledBy: 'someID'}}
-                                value={this.state.value5}
+                                value={this.state.value307 ?? ''}
                                 options={[
                                     {value: 'test307', label: 'Option one'},
                                     {value: 'test308', label: 'Option two'},
                                     {value: 'test309', label: 'Option three'},
                                 ]}
-                                onChange={(value) => this.setState(() => ({value5: value}))}
+                                onChange={(value) => this.setState(() => ({value307: value}))}
                             />
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">
@@ -346,39 +388,39 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         </p>
                         <div className="form__row form__row--flex docs-page__test-helper-2">
                             <RadioButtonGroup
-                                value={this.state.value6}
+                                value={this.state.value310 ?? ''}
                                 options={[
                                     {value: 'test310', label: 'One'},
                                     {value: 'test311', label: 'Two'},
                                 ]}
-                                onChange={(value) => this.setState(() => ({value6: value}))}
+                                onChange={(value) => this.setState(() => ({value310: value}))}
                             />
 
                             <RadioButtonGroup
                                 group={{align: 'center'}}
-                                value={this.state.value6}
+                                value={this.state.value312 ?? ''}
                                 options={[
                                     {value: 'test312', label: 'Three'},
                                     {value: 'test313', label: 'Four'},
                                 ]}
-                                onChange={(value) => this.setState(() => ({value6: value}))}
+                                onChange={(value) => this.setState(() => ({value312: value}))}
                             />
 
                             <RadioButtonGroup
                                 group={{align: 'end'}}
-                                value={this.state.value6}
+                                value={this.state.value314 ?? ''}
                                 options={[
                                     {value: 'test314', label: 'Five'},
                                     {value: 'test315', label: 'Six'},
                                 ]}
-                                onChange={(value) => this.setState(() => ({value6: value}))}
+                                onChange={(value) => this.setState(() => ({value314: value}))}
                             />
                         </div>
                         <p className="docs-page__paragraph docs-page__paragraph--topMarginL">// Grid</p>
                         <div className="form__row form__row--flex docs-page__test-helper-2" style={{width: 500}}>
                             <RadioButtonGroup
                                 group={{grid: true}}
-                                value={this.state.value7}
+                                value={this.state.value316 ?? ''}
                                 options={[
                                     {value: 'test316', label: 'One'},
                                     {value: 'test317', label: 'Two'},
@@ -387,60 +429,60 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                                     {value: 'test320', label: 'Five'},
                                     {value: 'test321', label: 'Six'},
                                 ]}
-                                onChange={(value) => this.setState(() => ({value7: value}))}
+                                onChange={(value) => this.setState(() => ({value316: value}))}
                             />
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
                         // Left (default)
-                        <RadioButtonGroup value={value3} options={[
+                        <RadioButtonGroup value={value301} options={[
                             {value:'test301', label:'Option one'},
                             {value:'test302', label:'Option two'},
                             {value:'test303', label:'Option three'},
-                        ]} />
+                        ]} onChange={(value) => this.setState(() => ({ value301: value }))} />
 
                         // Right
-                        <RadioButtonGroup group={{align:'end'}} value={value4} options={[
+                        <RadioButtonGroup group={{align:'end'}} value={value304} options={[
                             {value:'test304', label:'Option one'},
                             {value:'test305', label:'Option two'},
                             {value:'test306', label:'Option three'},
-                        ]} />
+                        ]} onChange={(value) => this.setState(() => ({ value304: value }))} />
 
                         // Center
-                        <RadioButtonGroup group={{align:'center'}} value={value5} options={[
+                        <RadioButtonGroup group={{align:'center'}} value={value307} options={[
                             {value:'test307', label:'Option one'},
                             {value:'test308', label:'Option two'},
                             {value:'test309', label:'Option three'},
-                        ]} />
+                        ]} onChange={(value) => this.setState(() => ({ value307: value }))} />
 
                         // Left + Center + Right
                         <div className='form__row form__row--flex'>
-                            <RadioButtonGroup value={value6} options={[
+                            <RadioButtonGroup value={value310} options={[
                                 {value:'test310', label:'One'},
                                 {value:'test311', label:'Two'},
-                            ]} />
+                            ]} onChange={(value) => this.setState(() => ({ value310: value }))} />
 
-                            <RadioButtonGroup group={{align:'center'}} value={value6} options={[
+                            <RadioButtonGroup group={{align:'center'}} value={value312} options={[
                                 {value:'test312', label:'Three'},
                                 {value:'test313', label:'Four'},
-                            ]} />
+                            ]} onChange={(value) => this.setState(() => ({ value312: value }))} />
 
-                            <RadioButtonGroup group={{align:'end'}} value={value6} options={[
+                            <RadioButtonGroup group={{align:'end'}} value={value314} options={[
                                 {value:'test314', label:'Five'},
                                 {value:'test315', label:'Six'},
-                            ]} />
+                            ]} onChange={(value) => this.setState(() => ({ value314: value }))} />
                         </div>
                         
                         // Grid
-                        <RadioButtonGroup group={{grid:true}} value={value7} options={[
+                        <RadioButtonGroup group={{grid:true}} value={value316} options={[
                             {value:'test316', label:'One'},
                             {value:'test317', label:'Two'},
                             {value:'test318', label:'Three'},
                             {value:'test319', label:'Four'},
                             {value:'test320', label:'Five'},
                             {value:'test321', label:'Six'},
-                        ]} />
+                        ]} onChange={(value) => this.setState(() => ({ value316: value }))} />
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -461,6 +503,13 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         type="Array"
                         default="/"
                         description="Array of Radio options."
+                    />
+                    <Prop
+                        name="labelSide"
+                        isRequired={false}
+                        type="start | end"
+                        default="end"
+                        description="Position of label relative to the button."
                     />
                     <Prop
                         name="options label"
@@ -484,18 +533,25 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         description="Disables the Radio, preventing mouse events."
                     />
                     <Prop
-                        name="labelSide"
+                        name="groupLabelledBy"
                         isRequired={false}
-                        type="start | end"
-                        default="end"
-                        description="Position of label relative to the button."
+                        type="string"
+                        default="/"
+                        description="Aria-labelledby for screen-reader support."
                     />
                     <Prop
-                        name="tabindex"
+                        name="required"
                         isRequired={false}
-                        type="number"
-                        default="/"
-                        description="Indicates an element can be focused on, and determines how that focus is handled."
+                        type="boolean"
+                        default="false"
+                        description="Marks the radio group as required."
+                    />
+                    <Prop
+                        name="orientation"
+                        isRequired={false}
+                        type="horizontal | vertical"
+                        default="horizontal"
+                        description="Orientation of the radio group."
                     />
                     <Prop
                         name="groupLabelledBy"
@@ -503,6 +559,13 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                         type="string"
                         default="/"
                         description="Aria-labelledby for screen-reader support."
+                    />
+                    <Prop
+                        name="tabindex"
+                        isRequired={false}
+                        type="number"
+                        default="/"
+                        description="Indicates an element can be focused on, and determines how that focus is handled."
                     />
                 </PropsList>
                 <p className="docs-page__paragraph">RadioButtonGroup</p>
@@ -580,14 +643,14 @@ export default class RadioGroupDoc extends React.Component<{}, IState> {
                     <Prop
                         name="group grid"
                         isRequired={false}
-                        type="bolean"
+                        type="boolean"
                         default="false"
                         description="Lays out child elements in an uniform grid list."
                     />
                     <Prop
                         name="group padded"
                         isRequired={false}
-                        type="bolean"
+                        type="boolean"
                         default="false"
                         description="Adds padding on the start and end (left and right) of the group."
                     />

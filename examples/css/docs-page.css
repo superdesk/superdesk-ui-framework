@@ -685,8 +685,9 @@ pre.prettyprint {
 }
 
 .docs-page__paragraph code,
-.docs-page__caption-text code {
-    font-size: 85%;
+.docs-page__caption-text code,
+.docs-page__unordered-list code {
+    font-size: 95%;
     padding: 0 0.4em;
     background-color: var(--sd-colour-interactive--alpha-20);
     border-radius: 3px;
@@ -695,6 +696,9 @@ pre.prettyprint {
     line-height: inherit;
     vertical-align: baseline;
     color: var(--color-text);
+}
+.docs-page__unordered-list strong {
+    font-weight: 600;
 }
 
 .docs-page__unordered-list {
