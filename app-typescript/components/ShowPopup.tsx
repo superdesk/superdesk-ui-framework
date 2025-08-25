@@ -9,6 +9,7 @@ interface IPropsPopupPositioner {
     getReferenceElement(): HTMLElement;
     placement: Placement;
     onClose(): void;
+    shouldCloseOnClick?: (event: MouseEvent) => boolean;
     closeOnHoverEnd?: boolean;
     'data-test-id'?: string;
 }
@@ -32,6 +33,10 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
 
     closeOnClick(event: MouseEvent) {
         if (this.wrapperEl == null) {
+            return;
+        }
+
+        if (this.props.shouldCloseOnClick != null && this.props.shouldCloseOnClick(event) === false) {
             return;
         }
 
@@ -191,6 +196,7 @@ export function showPopup(
     Component: React.ComponentType<{closePopup(): void}>,
     closeOnHoverEnd?: boolean,
     onClose?: () => void,
+    shouldCloseOnClick?: (event: MouseEvent) => boolean,
 ): {close: () => void} {
     const el = document.createElement('div');
 
@@ -207,6 +213,7 @@ export function showPopup(
             getReferenceElement={() => referenceElement}
             placement={placement}
             onClose={closeFn}
+            shouldCloseOnClick={shouldCloseOnClick}
             closeOnHoverEnd={closeOnHoverEnd || false}
         >
             <Component closePopup={closeFn} />
