@@ -11,7 +11,7 @@ interface IProps {
     type?: 'default' | 'primary' | 'highlight' | 'darker' | 'dark';
     state?: 'normal' | 'active'; // defaults to 'normal'
     value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
-    onClick(): void;
+    onClick(e: React.MouseEvent<HTMLButtonElement>): void;
     badgeValue?: string;
 }
 
