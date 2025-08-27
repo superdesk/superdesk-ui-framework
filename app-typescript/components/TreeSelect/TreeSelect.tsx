@@ -967,11 +967,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 handleTree={this.handleTree}
                                                 selectedItem={selectedItem}
                                                 allowMultiple={this.props.allowMultiple}
-                                                parentCategory={
-                                                    this.state.buttonValue == null
-                                                        ? undefined
-                                                        : this.props.getLabel(this.state.buttonValue.value)
-                                                }
                                                 getBorderColor={this.props.getBorderColor}
                                                 getBackgroundColor={this.props.getBackgroundColor}
                                                 getId={this.props.getId}
