@@ -33,6 +33,7 @@ interface IPropsButton {
     disabled?: boolean;
     iconOnly?: boolean;
     noMargin?: boolean;
+    ariaLabel?: string;
     'data-test-id'?: string;
 }
 
@@ -65,7 +66,7 @@ export class Button extends React.PureComponent<IPropsButton> {
                         disabled={this.props.disabled || this.props.isLoading}
                         data-loading={this.props.isLoading}
                         onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
-                        aria-label={this.props.iconOnly ? this.props.text : ''}
+                        aria-label={this.props.ariaLabel ?? (this.props.iconOnly ? this.props.text : undefined)}
                         data-test-id={this.props['data-test-id']}
                         style={this.props.noMargin ? {margin: 0} : undefined}
                     >

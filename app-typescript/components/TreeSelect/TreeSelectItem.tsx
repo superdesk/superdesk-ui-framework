@@ -12,7 +12,6 @@ interface IProps<T> {
     selectedItem?: boolean;
     disabledItem?: boolean;
     allowMultiple?: boolean;
-    parentCategory?: string | undefined;
     handleTree(event: React.MouseEvent<HTMLLIElement, MouseEvent>, option: ITreeNode<T>): any;
     getLabel(item: T): string;
     getId(item: T): string;
