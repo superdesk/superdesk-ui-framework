@@ -158,13 +158,13 @@ export default class BadgeDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row">
                             <Badge text="8" type="primary">
-                                <Button text="default" onClick={() => false} />
+                                <Button text="secondary" type="secondary" onClick={() => false} />
                             </Badge>
                             <Badge text="6">
                                 <Button text="primary" type="primary" onClick={() => false} />
                             </Badge>
                             <Badge text="4" type="highlight">
-                                <Button text="hollow" style="hollow" onClick={() => false} />
+                                <Button text="tertiary" type="tertiary" onClick={() => false} />
                             </Badge>
                         </div>
                     </Markup.ReactMarkupPreview>

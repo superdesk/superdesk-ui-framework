@@ -41,6 +41,7 @@ import {
     IllustrationButton,
     SubNav,
     NavButton,
+    ResizablePanels
 } from '../../../../app-typescript/index';
 import {IAvatarInGroup} from '../../../../app-typescript/components/avatar/avatar-group';
 import * as Form from '../../../../app-typescript/components/Form';
@@ -239,6 +240,128 @@ export class TestGround extends React.Component<IProps, IState> {
                         </ButtonGroup>
 
                         <hr />
+
+                        <Container gap="large" className='sd-border--medium text-md p-0 radius-lg mb-3'>
+                            <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>
+                                <div className='left-panel p-2'>
+                                    <div className='sd-list-item-group sd-list-item-group--space-between-items'>
+                                        <div role="listitem" className="sd-list-item sd-shadow--z1">
+                                            <div className="sd-list-item__border sd-list-item__border--locked"></div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Icon type="primary" name="calendar" ariaHidden={true} />
+                                            </div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Badge text='P' type='success' />
+                                            </div>
+                                            <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
+                                                <div className="sd-list-item__row me-1">
+                                                    <span className="sd-list-item__slugline sd-overflow-ellipsis flex-shrink">Planning Slug</span>
+                                                    <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                        <span className="sd-list-item__text-strong text-sm">
+                                                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                                                        </span>
+                                                    </span>
+                                                    <div className="sd-overflow-ellipsis ms-auto">
+                                                        <span className="EventDateTime sd-list-item__slugline sd-no-wrap text-sm">
+                                                            <time className="Datetime" title="CET 25.02&nbsp;06:00">25.02&nbsp;06:00</time>–<time className="Datetime" title="CET 26.02&nbsp;05:59">26.02&nbsp;05:59</time>
+                                                            <span>&nbsp;(<span className="EventDateTime__timezone sd-margin-r--0-5">EST</span><time className="Datetime" title="EST 00:00">00:00</time>–<time className="Datetime" title="EST 23:59">23:59</time>)</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                    <ButtonGroup orientation='horizontal' spaces='compact'>
+                                                        <Label text="article" />
+                                                        <Label text="in progress" type='success'  style="translucent" />
+                                                    </ButtonGroup>
+                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
+                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">Calendar:</span>
+                                                        <span className="sd-overflow-ellipsis">Entertainment</span>
+                                                    </span>
+                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
+                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">Agenda:</span>
+                                                        <span className="sd-overflow-ellipsis">Some agenda</span>
+                                                    </span>
+                                                    <span className="sd-margin-s--auto">
+                                                        <AvatarGroup size="x-small" items={avatars} />
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row ps-0">
+                                                <ButtonGroup orientation="vertical" spaces="compact">
+                                                    <IconButton
+                                                        size="small"
+                                                        icon="dots-vertical"
+                                                        ariaValue="Show more actions"
+                                                        onClick={() => false}
+                                                    />
+                                                </ButtonGroup>
+                                            </div>
+                                        </div>
+
+                                        <div role="listitem" className="sd-list-item sd-shadow--z1">
+                                            <div className="sd-list-item__border"></div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Icon type="primary" name="calendar" ariaHidden={true} />
+                                            </div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Badge text='P' type='success' />
+                                            </div>
+                                            <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
+                                                <div className="sd-list-item__row me-1">
+                                                    <ButtonGroup orientation='horizontal' spaces='compact'>
+                                                        <Label text="in progress" type='success'  style="translucent" />
+                                                    </ButtonGroup>
+                                                    <span className="sd-list-item__slugline sd-overflow-ellipsis flex-shrink">Planning Slug</span>
+                                                    <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                        <span className="sd-list-item__text-strong text-sm">
+                                                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.
+                                                        </span>
+                                                    </span>
+                                                    <div className="sd-overflow-ellipsis ms-auto">
+                                                        <span className="EventDateTime sd-list-item__slugline sd-no-wrap text-sm">
+                                                            <time className="Datetime" title="CET 25.02&nbsp;06:00">25.02&nbsp;06:00</time>–<time className="Datetime" title="CET 26.02&nbsp;05:59">26.02&nbsp;05:59</time>
+                                                            <span>&nbsp;(<span className="EventDateTime__timezone sd-margin-r--0-5">EST</span><time className="Datetime" title="EST 00:00">00:00</time>–<time className="Datetime" title="EST 23:59">23:59</time>)</span>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                                {/* <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                    <ButtonGroup orientation='horizontal' spaces='compact'>
+                                                        <Label text="article" />
+                                                        <Label text="in progress" type='success'  style="translucent" />
+                                                    </ButtonGroup>
+                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
+                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">Calendar:</span>
+                                                        <span className="sd-overflow-ellipsis">Entertainment</span>
+                                                    </span>
+                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
+                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">Agenda:</span>
+                                                        <span className="sd-overflow-ellipsis">Some agenda</span>
+                                                    </span>
+                                                    <span className="sd-margin-s--auto">
+                                                        <AvatarGroup size="x-small" items={avatars} />
+                                                    </span>
+                                                </div> */}
+                                            </div>
+                                            <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row ps-0">
+                                                <ButtonGroup orientation="vertical" spaces="compact">
+                                                    <IconButton
+                                                        size="small"
+                                                        icon="dots-vertical"
+                                                        ariaValue="Show more actions"
+                                                        onClick={() => false}
+                                                    />
+                                                </ButtonGroup>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className='right-panel p-2'></div>
+                            </ResizablePanels>
+
+
+                        </Container>
+
+
 
                         <input type="color" className="sd-input__color-input" />
 

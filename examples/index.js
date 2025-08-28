@@ -219,6 +219,10 @@ export default angular
                     name: 'Buttons',
                     page: 'buttons.html',
                 },
+                'icon-buttons': {
+                    name: 'Icon Buttons',
+                    page: 'icon-buttons.html',
+                },
                 'modals-and-dialogs': {
                     name: 'Modals & Dialogs',
                     page: 'modals-and-dialogs.html',
