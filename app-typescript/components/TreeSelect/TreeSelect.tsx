@@ -482,10 +482,10 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     filteredItem(list: Array<ITreeNode<T>>) {
         if (this.props.kind === 'synchronous') {
-            const listItemById: {[id: string]: ITreeNode<T>} = {};
+            const listItemsById: {[id: string]: ITreeNode<T>} = {};
 
             for (const item of list) {
-                listItemById[this.props.getId(item.value)] = item;
+                listItemsById[this.props.getId(item.value)] = item;
             }
 
             const filteredArr: Array<ITreeNode<T>> =
@@ -495,7 +495,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                               list.map(({value}) => value),
                               this.state.searchFieldValue,
                           )
-                          .map((item) => listItemById[this.props.getId(item)])
+                          .map((item) => listItemsById[this.props.getId(item)])
                     : list.filter((item) => {
                           return this.props
                               .getLabel(item.value)
