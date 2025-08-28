@@ -8,7 +8,7 @@ export interface IPropsWithPopover {
     component: React.ComponentType<{closePopup(): void}>;
     closeOnHoverEnd?: boolean;
     onClose?: () => void;
-    shouldCloseOnClick?(event: MouseEvent): boolean;
+    shouldClose?(event: MouseEvent | Event): boolean;
 }
 
 /**
@@ -38,7 +38,7 @@ export class WithPopover extends React.PureComponent<IPropsWithPopover> {
                     this.closePopup = undefined;
                     this.props.onClose?.();
                 },
-                this.props.shouldCloseOnClick,
+                this.props.shouldClose,
             ).close;
         }
     }
