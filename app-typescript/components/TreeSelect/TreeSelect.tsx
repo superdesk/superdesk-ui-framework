@@ -65,6 +65,12 @@ interface IPropsBase<T> extends IInputWrapper {
 interface IPropsSync<T> extends IPropsBase<T> {
     kind: 'synchronous';
     getOptions(): Array<ITreeNode<T>>;
+
+    /**
+     * By default, simple search is used that checks if label (from getLabel) contains search string.
+     * This method allows searching by data that is not included in a label.
+     */
+    search?(items: Array<T>, searchTerm: string): Array<T>;
 }
 
 type ICancelFn = () => void;
@@ -476,22 +482,26 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
 
     filteredItem(arr: Array<ITreeNode<T>>) {
         if (this.props.kind === 'synchronous') {
-            let filteredArr = arr.filter((item) => {
-                if (this.state.searchFieldValue) {
-                    if (
-                        this.props
-                            .getLabel(item.value)
-                            .toLowerCase()
-                            .includes(this.state.searchFieldValue.toLowerCase())
-                    ) {
-                        return item.value;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return item.value;
-                }
-            });
+            const arrKeyed: {[id: string]: ITreeNode<T>} = {};
+
+            for (const item of arr) {
+                arrKeyed[this.props.getId(item.value)] = item;
+            }
+
+            const filteredArr: Array<ITreeNode<T>> =
+                this.props.search != null
+                    ? this.props
+                          .search(
+                              arr.map(({value}) => value),
+                              this.state.searchFieldValue,
+                          )
+                          .map((item) => arrKeyed[this.props.getId(item)])
+                    : arr.filter((item) => {
+                          return this.props
+                              .getLabel(item.value)
+                              .toLowerCase()
+                              .includes(this.state.searchFieldValue.toLowerCase());
+                      });
 
             if (filteredArr.length === 0) {
                 return <li className="suggestion-item--nothing-found">{gettext('No results found')}</li>;
