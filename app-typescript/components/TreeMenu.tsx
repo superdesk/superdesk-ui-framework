@@ -445,11 +445,6 @@ export class TreeMenu<T> extends React.Component<IProps<T>, IState<T>> {
                                             }}
                                             disabledItem={disabledItem(option)}
                                             getBorderColor={this.props.getBorderColor}
-                                            parentCategory={
-                                                this.state.buttonValue == null
-                                                    ? undefined
-                                                    : this.props.getLabel(this.state.buttonValue.value)
-                                            }
                                             getBackgroundColor={this.props.getBackgroundColor}
                                             getId={this.props.getId}
                                             optionTemplate={this.props.optionTemplate}

@@ -65,6 +65,12 @@ interface IPropsBase<T> extends IInputWrapper {
 interface IPropsSync<T> extends IPropsBase<T> {
     kind: 'synchronous';
     getOptions(): Array<ITreeNode<T>>;
+
+    /**
+     * By default, simple search is used that checks if label (from getLabel) contains search string.
+     * This method allows searching by data that is not included in a label.
+     */
+    search?(items: Array<T>, searchTerm: string): Array<T>;
 }
 
 type ICancelFn = () => void;
@@ -474,24 +480,28 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
         });
     }
 
-    filteredItem(arr: Array<ITreeNode<T>>) {
+    filteredItem(list: Array<ITreeNode<T>>) {
         if (this.props.kind === 'synchronous') {
-            let filteredArr = arr.filter((item) => {
-                if (this.state.searchFieldValue) {
-                    if (
-                        this.props
-                            .getLabel(item.value)
-                            .toLowerCase()
-                            .includes(this.state.searchFieldValue.toLowerCase())
-                    ) {
-                        return item.value;
-                    } else {
-                        return;
-                    }
-                } else {
-                    return item.value;
-                }
-            });
+            const listItemsById: {[id: string]: ITreeNode<T>} = {};
+
+            for (const item of list) {
+                listItemsById[this.props.getId(item.value)] = item;
+            }
+
+            const filteredArr: Array<ITreeNode<T>> =
+                this.props.search != null
+                    ? this.props
+                          .search(
+                              list.map(({value}) => value),
+                              this.state.searchFieldValue,
+                          )
+                          .map((item) => listItemsById[this.props.getId(item)])
+                    : list.filter((item) => {
+                          return this.props
+                              .getLabel(item.value)
+                              .toLowerCase()
+                              .includes(this.state.searchFieldValue.toLowerCase());
+                      });
 
             if (filteredArr.length === 0) {
                 return <li className="suggestion-item--nothing-found">{gettext('No results found')}</li>;
@@ -967,11 +977,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 handleTree={this.handleTree}
                                                 selectedItem={selectedItem}
                                                 allowMultiple={this.props.allowMultiple}
-                                                parentCategory={
-                                                    this.state.buttonValue == null
-                                                        ? undefined
-                                                        : this.props.getLabel(this.state.buttonValue.value)
-                                                }
                                                 getBorderColor={this.props.getBorderColor}
                                                 getBackgroundColor={this.props.getBackgroundColor}
                                                 getId={this.props.getId}
