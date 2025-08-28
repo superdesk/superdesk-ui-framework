@@ -13,6 +13,7 @@ interface IProps {
     value?: 'button' | 'submit' | 'reset'; // defaults to 'button'
     onClick(e: React.MouseEvent<HTMLButtonElement>): void;
     badgeValue?: string;
+    'data-test-id'?: string;
 }
 
 export class NavButton extends React.PureComponent<IProps> {
@@ -26,6 +27,7 @@ export class NavButton extends React.PureComponent<IProps> {
         const value = this.props.value === undefined ? 'button' : this.props.value;
         return (
             <button
+                data-test-id={this.props['data-test-id']}
                 type={value}
                 className={classes}
                 tabIndex={0}
