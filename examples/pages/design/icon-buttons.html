@@ -1,0 +1,210 @@
+<section class="docs-page__container">
+    <h1 class="docs-page__h2">Icon Button Guidelines</h1>
+    <p class="docs-page__paragraph docs-page__paragraph--large">Icon buttons provide a compact way to trigger actions while maintaining clean interfaces. Since icons communicate meaning without text, choosing the right icon and providing clear tooltips becomes critical for usability. The <code>IconButton</code> component ensures consistent styling and behavior across all icon-based actions.</p>
+    
+    <h3 class="docs-page__h3 mt-5">Icon Selection</h3>
+    <h4 class="docs-page__h4 mt-3">Choose Recognizable Icons</h4>
+    <p class="docs-page__paragraph">Use icons that clearly represent their action. When in doubt, prioritize universal symbols over creative interpretations.</p>
+
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title">Do</h4>
+            <div class="docs-page__do-dont-block-content mt-0">
+                <ul class="docs-page__unordered-list">
+                    <li>Magnifying glass for search</li>
+                    <li>Pencil or edit icon for editing</li>
+                    <li>Download arrow for downloads</li>
+                    <li>Settings gear for configuration</li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list mt-1">
+                    <li>Abstract or ambiguous icons that require explanation</li>
+                    <li>Icons that could have multiple interpretations</li>
+                    <li>Custom icons when standard ones exist</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="docs-page__h4 mt-4">Icon Meaning Consistency</h4>
+    <p class="docs-page__paragraph">Use the same icon for the same action throughout the application. Users learn and expect consistency.</p>
+
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title">Do</h4>
+            <div class="docs-page__do-dont-block-content">
+                <p class="docs-page__paragraph">
+                    Use the same edit icon across all edit functions in your app.
+                </p>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <p class="docs-page__paragraph">
+                    Use different edit icons (pencil, pen, edit text) for similar editing actions.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large sd-content-divider--dashed" role="separator" />
+
+    <h3 class="docs-page__h3 mt-5">Tooltip Guidelines</h3>
+    <h4 class="docs-page__h4 mt-3">Always Provide Tooltips</h4>
+    <p class="docs-page__paragraph">Every icon button must have a descriptive tooltip that clearly states what will happen when clicked.</p>
+ 
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title">Do</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list">
+                    <li>"Delete item"</li>
+                    <li>"Edit profile settings"</li>
+                    <li>"Download report as PDF"</li>
+                    <li>"Close dialog"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list">
+                    <li>"Delete" (too vague)</li>
+                    <li>"Edit" (edit what?)</li>
+                    <li>"Download" (download what format?)</li>
+                    <li>"Close" (close what?)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="docs-page__h4 mt-4">Tooltip Language</h4>
+    <p class="docs-page__paragraph">Use action-oriented language that describes the outcome, not just the icon name.</p>
+
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title">Do</h4>
+            <div class="docs-page__do-dont-block-content">
+                <p class="docs-page__paragraph">"Remove item from list" instead of "X button"</p>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <p class="docs-page__paragraph">"Trash can" or "Delete icon"</p>
+            </div>
+        </div>
+    </div>
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large sd-content-divider--dashed" role="separator" />
+
+    <h3 class="docs-page__h3 mt-5 d-flex items-center gap-1">
+        Close <span class="docs-page__icon-wrapper"><i class="icon-close-small" aria-hidden="true"></i></span> vs 
+        Delete <span class="docs-page__icon-wrapper"><i class="icon-trash" aria-hidden="true"></i></span> Icons
+    </h3>
+    
+    <p class="docs-page__paragraph">Understanding when to use close versus delete icons is crucial for user expectations and preventing destructive actions. This is a common source of confusion that can lead to inconsistent user experiences.</p>
+    
+    <h4 class="docs-page__h4 mt-4 d-flex items-center gap-1">Use Close <span class="docs-page__icon-wrapper"><i class="icon-close-small" aria-hidden="true"></i></span> icon for:</h4>
+    <h5 class="docs-page__h5 mt-2">Temporary removals or dismissals:</h5>
+    <ul class="docs-page__unordered-list mt-2 mb-2">
+        <li>Recommended in most cases but can be skipped occasionally</li>
+        <li>Rare exception: large and complex modals where actions happen inside the content area</li>
+        <li>Main action buttons always aligned to the right</li>
+        <li>Primary action positioned far right</li>
+    </ul>
+    <p class="docs-page__paragraph mt-0"><strong>Characteristics:</strong> Reversible, non-destructive, affects UI state rather than data.</p>
+    
+    <h4 class="docs-page__h4 mt-4 d-flex items-center gap-1">Use Delete <span class="docs-page__icon-wrapper"><i class="icon-trash" aria-hidden="true"></i></span> icon for:</h4>
+    <h5 class="docs-page__h5 mt-2">Permanent data removal:</h5>
+    <ul class="docs-page__unordered-list mt-2 mb-2">
+        <li>Deleting files, records, or database entries</li>
+        <li>Removing user-created content permanently</li>
+        <li>Deleting accounts or user profiles</li>
+        <li>Deleting articles</li>
+    </ul>
+    <p class="docs-page__paragraph mt-0"><strong>Characteristics:</strong> Usually irreversible, destructive, affects actual data.</p>
+    
+    <h4 class="docs-page__h4 mt-4 ">Examples</h4>
+
+    <div class="docs-page__content-block d-flex flex-wrap gap-3">
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title d-flex items-center gap-0-5">Do - Close <span class="docs-page__icon-wrapper"><i class="icon-close-small" aria-hidden="true"></i></span> icon</h4>
+            <div class="docs-page__do-dont-block-content mt-0">
+                <ul class="docs-page__unordered-list">
+                    <li>Closing a modal dialog: "Close dialog"</li>
+                    <li>Removing an item from related content: "Remove from related"</li>
+                    <li>Dismissing a notification: "Dismiss notification"</li>
+                    <li>Closing a sidebar: "Close preview"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--do">
+            <h4 class="docs-page__do-dont-block-title d-flex items-center gap-0-5">Do - Delete <span class="docs-page__icon-wrapper"><i class="icon-trash" aria-hidden="true"></i></span> icon</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list mt-1">
+                    <li>Deleting a user account: "Delete account permanently"</li>
+                    <li>Removing a saved document: "Delete document"</li>
+                    <li>Deleting a database record: "Delete customer record"</li>
+                </ul>
+            </div>
+        </div>
+        <div class="docs-page__do-dont-block docs-page__do-dont-block--dont">
+            <h4 class="docs-page__do-dont-block-title">Don't</h4>
+            <div class="docs-page__do-dont-block-content">
+                <ul class="docs-page__unordered-list mt-1">
+                    <li>Using trash icon to close dialogs or dismiss notifications</li>
+                    <li>Using close (×) icon for permanent deletions</li>
+                    <li>Mixing these icons inconsistently for similar actions</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large" role="separator" />
+
+    <h3 class="docs-page__h3 mt-0">Accessibility Considerations</h3>
+    <h4 class="docs-page__h4 mt-2">Color and Contrast</h4>
+    <p class="docs-page__paragraph mt-0">Icons should meet accessibility contrast requirements. Don't rely on color alone to convey meaning.</p>
+
+
+
+    <h4 class="docs-page__h4 mt-5">Screen Readers</h4>
+    <p class="docs-page__paragraph mt-0">The <code>IconButton</code> component requires an ARIA label as a mandatory prop, which serves dual purposes: providing screen reader accessibility and generating the tooltip text. Screen reader support is built directly into the component.</p>
+
+    <hr class="sd-content-divider sd-content-divider--horizontal sd-content-divider--margin-large" role="separator" />
+
+    <h3 class="docs-page__h3 mt-0 mb-3">Component Usage</h3>
+
+    <ul class="docs-page__unordered-list mt-1 mb-5" style="max-width: 85ch;">
+        <li><strong>IconButton:</strong> Use for all icon-based actions with proper icon selection and mandatory tooltips for clear user communication.</li>
+        <li><strong>ButtonGroup:</strong> When grouping multiple icon buttons, use the <code>ButtonGroup</code> component for consistent spacing and alignment. The same spacing principles that apply to regular button grouping apply here.</li>
+    </ul>
+
+    <div class="docs-page__button-grid">
+        <a class="docs-page__graphic-btn" href="#/components/icon-buttons" target="_blank">
+            <figure class="docs-page__graphic-btn-graphic">
+                <img src="/illustration-small--react.svg" alt="React components">
+            </figure>
+            <label class="docs-page__graphic-btn-label">
+                <span>View IconButton component</span>
+                <span class="docs-page__small-text">Components</span>
+            </label>
+        </a>
+        <a class="docs-page__graphic-btn" href="#/components/button-groups" target="_blank">
+            <figure class="docs-page__graphic-btn-graphic">
+                <img src="/illustration-small--react.svg" alt="React components">
+            </figure>
+            <label class="docs-page__graphic-btn-label">
+                <span>View ButtonGroup component</span>
+                <span class="docs-page__small-text">Components</span>
+            </label>
+        </a>
+    </div>
+</section>

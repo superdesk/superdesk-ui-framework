@@ -91,7 +91,7 @@ hr {
 .docs-page__h3 {
     font-size: 32px;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     font-family: 'Merriweather', serif;
     margin: 2em 0 0.4em 0;
 }
@@ -101,10 +101,16 @@ hr {
 .docs-page__h4 {
     font-size: 22px;
     font-weight: 700;
-    line-height: 120%;
+    line-height: 1.2;
     font-family: 'Merriweather', serif;
     margin: 1em 0 0.2em 0;
     color: var(--color-text-muted);
+}
+.docs-page__h5 {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.2;
+    margin: 0 0 0.25em;
 }
 .docs-page__group-heading {
     font-size: 36px;
@@ -342,9 +348,14 @@ hr {
     overflow-y: auto;
     position: relative;
     background-color: var(--docs-page-color-bg-00);
-    a {
-        color: var(--sd-colour-interactive);
-        text-decoration: dotted;
+    .docs-page__link {
+        color: var(--sd-colour-interactive--text);
+        text-decoration: underline dotted;
+        transition: all 0.2s ease;
+        &:hover {
+            color: var(--sd-colour-interactive);
+            text-decoration: underline;
+        }
     }
 }
 .docs-page__masthead {
@@ -1033,6 +1044,15 @@ doc-gif-img:hover img {
     cursor: pointer;
 }
 
+.docs-page__icon-wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space--1);
+    background-color: var(--sd-item__main-Bg);
+    border-radius: var(--b-radius--full);
+}
+
 .docs-page__container table {
     margin-bottom: 32px;
     border-color: var(--docs-page-border__table) !important;
@@ -1135,7 +1155,6 @@ pre[class*='language-'] {
     border: 1px solid var(--sd-colour-line--medium);
     flex: 1 1%;
     min-width: 400px;
-
     &.docs-page__do-dont-block--do {
         .docs-page__do-dont-block-title {
             border-color: var(--color-success-highlight);
@@ -1143,7 +1162,6 @@ pre[class*='language-'] {
             background-color: var(--color-success-translucent);
         }
     }
-
     &.docs-page__do-dont-block--dont {
         .docs-page__do-dont-block-title {
             border-color: var(--color-alert-highlight);
@@ -1166,6 +1184,10 @@ pre[class*='language-'] {
     padding: var(--space--1);
     .docs-page__unordered-list {
         margin-block: var(--space--1-5);
+    }
+    .docs-page__paragraph {
+        margin: 0;
+        padding: var(--space--1);
     }
 }
 
