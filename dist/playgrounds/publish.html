@@ -1,0 +1,1007 @@
+<div class="sd-page-grid--basic" doc-modal>
+    <header class="sd-top-menu">
+        <a href="" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+        <p class="sd-top-menu__header">Publish pane test</p>
+    </header>
+
+    <section class="sd-content sd-page-content--slide-in" ng-class="{
+            'sd-page-content--slide-in--open' : editorOpen}">
+
+        <div class="sd-sidebar-menu sd-page-content__left-tabs">
+            <ul class="authoring-active">
+                <li sd-tooltip="Dashboard" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Monitoring" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn sd-sidebar-menu__btn--active">
+                        <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Highlights" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--marked-star"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Spiked" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li class="sd-sidebar-menu__spacer">
+                </li>
+                <li sd-tooltip="Personal" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+                <li sd-tooltip="Search" flow="right">
+                    <a href="" class="sd-sidebar-menu__btn">
+                        <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
+                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div id="leftContent" class="sd-page-content__content-block sd-page-content__content-block--main" ng-class="{
+                'open-filters': leftFilterOpen, 'open-preview': leftPreviewOpen}">
+            <!-- left content -->
+            <div class="subnav">
+
+                <div class="subnav__sliding-toolbar" ng-show="editMode">
+                    <div class="sliding-toolbar__inner">
+                        <a class="btn" ng-click="editMode = false">Cancel</a>
+                        <span class="sliding-toolbar__info-text">1 item selected</span>
+                    </div>
+                    <a class="btn btn--primary">Create Planning item</a>
+                    <a class="btn btn--alert"><i class="icon-trash"></i>Spike</a>
+                </div>
+                <div class="dropdown" dropdown="">
+                    <button class="dropdown__toggle navbtn navbtn--text-only dropdown-toggle" dropdown-toggle="" aria-haspopup="true" aria-expanded="false">Monitoring<span class="dropdown__caret"></span></button>
+                    <ul class="dropdown__menu scrollable" style="">
+                        <li><div class="dropdown__menu-label ng-binding">Monitoring</div></li>
+                        <li><button>Incoming stage</button></li>
+                        <li><button>Working stage</button></li>
+                        <li><button>Output stage</button></li>
+                    </ul>
+                </div>
+                <div class="subnav__spacer subnav__spacer--no-margin"></div>
+                <div class="sd-searchbar" ng-class="{
+                        'sd-searchbar--focused': focused}" >
+                    <label for="search-input" class="sd-searchbar__icon"></label>
+                    <input id="search-input"
+                           class="sd-searchbar__input"
+                           type="text"
+                           placeholder="Search"
+                           ng-keyup="searchOnEnter($event)"
+                           ng-model="query"
+                           tabindex="1"
+                           ng-focus="focused = true">
+                    <button class="sd-searchbar__cancel" ng-if="query">
+                        <i class="icon-remove-sign"></i>
+                    </button>
+                    <button id="sd-searchbar__search-btn" class="sd-searchbar__search-btn" ng-if="focused" tabindex="2">
+                        <i class="big-icon--chevron-right"></i>
+                    </button>
+                </div>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn sd-create-btn" dropdown__toggle>
+                        <i class="icon-plus-large"></i>
+                        <span class="circle"></span>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Create New Item</div>
+                        </li>
+                        
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Editor 3</button>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li>
+                            <div class="dropdown__menu-label">Recent templates</div>
+                        </li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Template one</button>
+                        </li>
+                        <li>
+                            <button><i class="icon-plus-sign icon--blue"></i>Template two</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="subnav">
+                <div class="subnav__stretch-bar" ng-init="planningType = 'events-planning'">
+                    <sd-check ng-model="planningType" type="radio" ng-value="all" label-position="inside">all</sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="text" label-position="inside"><i class="icon-text"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="photo" label-position="inside"><i class="icon-photo"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="graphic" label-position="inside"><i class="icon-graphic"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="composite" label-position="inside"><i class="icon-composite"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="video" label-position="inside"><i class="icon-video"></i></sd-check>
+                    <sd-check ng-model="planningType" type="radio" ng-value="audio" label-position="inside"><i class="icon-audio"></i></sd-check>
+                </div>
+                <div class="subnav__content-bar">
+                    <div class="dropdown dropdown--align-right" dropdown="">
+                        <button class="dropdown__toggle dropdown-toggle" dropdown__toggle="" aria-haspopup="true" aria-expanded="false">
+                            Updated<span class="dropdown__caret"></span>
+                        </button>
+                        <ul class="dropdown__menu">
+                            <li><button>Updated</button></li>
+                            <li><button>Created</button></li>
+                            <li><button>Urgency</button></li>
+                            <li><button>Category</button></li>
+                            <li><button>Slugline</button></li>
+                            <li><button>Priority</button></li>
+                            <li><button>Genre</button></li>
+                        </ul>
+                    </div>
+                    <a class="icn-btn ng-hide" sd-tooltip="Descending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-hide="!sortDesc"><i class="icon-descending"></i></a>
+                    <a class="icn-btn" sd-tooltip="Ascending" flow="bottom" ng-click="sortDesc = !sortDesc" ng-show="!sortDesc"><i class="icon-ascending"></i></a>
+                </div>
+                <button class="navbtn" ng-click="gridView = !gridView">
+                    <i class="icon-th ng-hide" ng-hide="gridView"></i>
+                    <i class="icon-th-list" ng-show="gridView"></i>
+                </button>
+                <div class="dropdown dropdown--align-right" dropdown>
+                    <button class="dropdown__toggle navbtn" dropdown__toggle>
+                        <i class="icon-dots-vertical"></i>
+                    </button>
+                    <ul class="dropdown__menu">
+                        <li>
+                            <div class="dropdown__menu-label">Actions</div>
+                        </li>
+                        <li class="dropdown__menu-divider"></li>
+                        <li><button>Action 2</button></li>
+                        <li><button>Action 3</button></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="sd-column-box--3" ng-init="editorOpen = true;">
+                <div class="sd-column-box__main-column">
+                    <div class="sd-list-header">
+                        <span class="sd-list-header__name"><a href="">Politics desk</a> / <a href="">Incoming stage</a></span>
+                    </div>
+                    <div class="sd-list-item-group sd-list-item-group--space-between-items" >
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select1}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select1}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select1"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--success badge--square">1</span>
+                                <span class="badge badge--highlight">2</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lorem Ipsum</span>Vulputate velit esse molestie consequatvel illum dolore.</span>
+                                    <time title="28 February 2018 17:04">Wednesday, 17:04</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label">Article</span> <span class="label label--yellow2 label--hollow">In Progress</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select2}">
+                            <div class="sd-list-item__border sd-list-item__border--locked"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select2}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select2"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--primary badge--square">2</span>
+                                <span class="badge badge--warning">3</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Ipsum lorem</span>Iriure dolor in hendrerit in vulputate velit esse molestie consequatvel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim.</span>
+                                    <time title="28 February 2018 17:00">Wednesday, 17:00</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label label--yellow2 label--hollow">In Progress</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <!--dropdown-->
+                                <div class="dropdown dropdown--align-right" dropdown dropdown-append-to-body is-open="itemActive18">
+                                    <button class="icn-btn dropdown__toggle" dropdown__toggle>
+                                        <i class="icon-dots-vertical"></i>
+                                    </button>
+                                    <ul class="dropdown__menu">
+                                        <li>
+                                            <div class="dropdown__menu-label">
+                                                Actions
+                                                <button class="dropdown__menu-close"><i class="icon-close-small"></i></button>
+                                            </div>
+                                        </li>
+                                        <li class="dropdown__menu-divider"></li>
+                                        <li><button><i class="icon-pencil"></i>Edit</button></li>
+                                        <li><button><i class="icon-copy"></i>Copy</button></li>
+                                        <li><button><i class="icon-trash"></i>Delete</button></li>
+                                        <li class="dropdown__menu-divider"></li>
+                                        <li>
+                                            <div class="dropdown__menu-label">Actions 2</div>
+                                        </li>
+                                        <li class="dropdown__menu-item--no-link">
+                                            Just some text without a link
+                                        </li>
+                                        
+                                        <li>
+                                            <button><i class="icon-download"></i>Download</button>
+                                        </li>
+                                        <li>
+                                            <button><i class="icon-print"></i>Print</button>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!--end dropdown-->
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select3}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select3}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select3"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--alert badge--square">3</span>
+                                <span class="badge">5</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">facilisis-eros</span>Dolore eu feugiat nulla facilisis at vero eros.</span>
+                                    <time title="28 February 2018 16:55">Wednesday, 16:55</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label label--hollow">Draft</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sd-list-header">
+                        <span class="sd-list-header__name"><a href="">Politics desk</a> / <a href="">Working stage</a></span>
+                    </div>
+                    <div class="sd-list-item-group sd-list-item-group--space-between-items">
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select4}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select4}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select4"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--success badge--square">1</span>
+                                <span class="badge badge--highlight">2</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Lipsum ipsum</span>Dolor illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim.</span>
+                                    <time title="28 February 2018 17:05">Wednesday, 17:05</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label">Article</span> <span class="label label--yellow2 label--hollow">In Progress</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select5}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select5}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select5"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--primary badge--square">2</span>
+                                <span class="badge badge--warning">3</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Tempor Nobis</span>Nam liber tempor cum soluta nobis eleifend option.</span>
+                                    <time title="28 February 2018 17:01">Wednesday, 17:01</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label">Article</span> <span class="label label--yellow2 label--hollow">In Progress</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select6}">
+                            <div class="sd-list-item__border sd-list-item__border--locked"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select6}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select6"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--alert badge--square">3</span>
+                                <span class="badge">5</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Dolore illum</span>Consequatvel molestie illum dolore eu feugiat nulla facilisis.</span>
+                                    <time title="28 February 2018 16:52">Wednesday, 16:52</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label label--yellow2 label--hollow">In Progress</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select7}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select7}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select7"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--primary badge--square">2</span>
+                                <span class="badge badge--warning">3</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Ipsum lorem</span>Nam liber tempor cum soluta nobis eleifend option.</span>
+                                    <time title="28 February 2018 15:23">Wednesday, 15:23</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label">Article</span> <span class="label label--yellow2 label--hollow">In Progress</span>
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select8}">
+                            <div class="sd-list-item__border"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select8}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select8"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--alert badge--square">3</span>
+                                <span class="badge">5</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">Feugiat nulla vero</span>Illum dolore eu feugiat nulla facilisis at vero eros.</span>
+                                    <time title="28 February 2018 14:48">Wednesday, 14:48</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label label--yellow2 label--hollow">In Progress</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                        <div class="sd-list-item sd-shadow--z1" ng-class="{'sd-list-item--selected' : select9}">
+                            <div class="sd-list-item__border sd-list-item__border--locked"></div>
+                            <div class="sd-list-item__column sd-list-item__column--has-check" ng-class="{'sd-list-item__column--checked' : select9}">
+                                <div class="sd-list-item__checkbox-container">
+                                    <sd-check ng-model="select9"></sd-check>
+                                </div>
+                                <span class="icn-mix sd-list-item__item-type">
+                                    <i class="icon-text"></i>
+                                </span>
+                            </div>
+                            <div class="sd-list-item__column">
+                                <span class="badge badge--success badge--square">1</span>
+                                <span class="badge badge--highlight">2</span>
+                            </div>
+                            <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                <div class="sd-list-item__row">
+                                    <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__slugline">facilisis-eros</span>Feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim.</span>
+                                    <time title="28 February 2018 13:34">Wednesday, 13:34</time>
+                                </div>
+                                <div class="sd-list-item__row">
+                                    <span class="label label--yellow2 label--hollow">In Progress</span> 
+                                    <span class="sd-overflow-ellipsis sd-list-item__inline-text">Reuters</span><span class="sd-list-item__text-label">desk:</span><span class="sd-overflow-ellipsis sd-list-item__text-strong sd-list-item--element-grow">Politics</span>
+                                </div>
+                            </div>
+                            <div class="sd-list-item__action-menu sd-list-item__action-menu--direction-row">
+                                <button class="icn-btn">
+                                    <i class="icon-dots-vertical"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- list item  -->
+                    </div>
+                </div>
+            </div>
+            <!-- END left content -->
+        </div>
+
+        <!-- SPLIT CONTENT -->
+
+
+        <div id="editPane" 
+             class="sd-edit-panel sd-page-content__content-block sd-page-content__content-block--right sd-page-content__content-block--30-slide" 
+             ng-class="{'open-filters': rightFilterOpen, 'open-preview': rightPreviewOpen}">
+            <!-- Eitor content -->
+            <div class="side-panel side-panel--shadow-right">
+                <!-- Article edit panel -->
+                <div class="side-panel__header subnav subnav--darker" ng-init="editorOpen = true">
+                    <div class="subnav__stretch-bar">
+                        <figure class="avatar" style="margin-right:10px;">VS</figure>
+                    </div>
+                    <div class="subnav__stretch-bar subnav__stretch-bar--right">
+                        <a href="" class="btn">Cancel</a>
+                        <a href="" class="btn btn--primary">Save</a>
+
+                    </div>
+                    <button class="navbtn" ng-click="editorOpen = !editorOpen">
+                        <i class="big-icon--minimize"></i>
+                    </button>
+                    <button class="navbtn">
+                        <i class="icon-dots-vertical"></i>
+                    </button>
+                    <button class="navbtn navbtn--highlighted" ng-click="publishPaneOpen = !publishPaneOpen">
+                        <i class="big-icon--send-to"></i>
+                    </button>
+                </div>
+                <div class="side-panel__content side-panel__content--flex">
+                    <div class="side-panel__content-tab-content">
+
+                        <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex" style="padding-bottom: 16px; box-shadow: 0 1px 2px 0 rgba(0,0,0,0.2)">
+                            <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                                <p class="sd-text__date-and-author"><time>Created 01.02.2018 by </time> <span class="sd-text__author">Mika Karapet</span></p> 
+                            </div>
+                        </div>
+
+                        <h3 class="side-panel__heading side-panel__heading--big" style="margin-top: 60px; opacity: 0.3; text-align: center;">EDITOR CONTENT</h3>
+                        <div class="side-panel__content-block">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="side-panel__footer"></div>
+                <!-- END Article edit panel -->
+            </div>
+            <!-- END Editor content -->
+        </div>
+    </section>
+    <footer class="sd-bottom-bar">
+        This is the optional footer.
+    </footer>
+</div>
+
+<div class="sd-overlay-panel sd-overlay-panel--dark-ui" ng-class="{'sd-overlay-panel--open' : publishPaneOpen, 'sd-overlay-panel--large': tab === 'publish'}">
+    <div class="side-panel side-panel--shadow-right side-panel--dark-ui overflow-x-hidden">
+        <div class="side-panel__header">
+            <div class="side-panel__tools">
+                <a class="icn-btn" ng-click="publishPaneOpen = !publishPaneOpen; $root.overlayPaneOpen = false"><i class="icon-close-small"></i></a>
+            </div>
+            <ul class="nav-tabs nav-tabs--big nav-tabs--ui-dark">
+                <li ng-class="{'nav-tabs__tab--active': !tab || tab === 'send-to'}" class="nav-tabs__tab">
+                    <button ng-click="tab = 'send-to'" class="nav-tabs__link"><span translate="">Send to</span></button>
+                </li>
+                <li ng-class="{'nav-tabs__tab--active': tab === 'publish'}" class="nav-tabs__tab">
+                    <button ng-click="tab = 'publish'" class="nav-tabs__link"><span translate="">Publish</span></button>
+                </li>
+            </ul>
+            <!-- <button class="navbtn navbtn--highlighted" ng-click="publishPaneOpen = !publishPaneOpen">
+                <i class="icon-close-small" style="margin-left: -10px;"></i>
+            </button>  -->
+        </div>
+        <!-- Send To Tab -->
+        <div class="side-panel__content" ng-if="!tab || tab === 'send-to'">
+            <div class="side-panel__content-block">
+                <div sd-toggle-box data-title="Destination" data-style="circle" data-open="true">
+                    <div class="form__row">
+                        <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-label sd-line-input--no-margin">
+                            <select class="sd-line-input__select">
+                                <option value="single">Politics desk</option>
+                                <option value="time">Sports desk</option>
+                                <option value="bananas">Features desk</option>
+                                <option value="indefinite">Photo desk</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form__row form__row--no-padding">
+                        <div class="flex-grid flex-grid--boxed-small flex-grid--wrap-items flex-grid--small-2">
+                            <button class="btn__check btn__check--active flex-grid__item" disabled="disabled">Active disabled</button>
+                            <button class="btn__check flex-grid__item" disabled="disabled">Disabled</button>
+                            <button ng-click="stageActive0 = !stageActive0" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive0}">Incoming stage</button>
+                            <button ng-click="stageActive1 = !stageActive1" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive1}">Working stage</button>
+                            <button ng-click="stageActive2 = !stageActive2" class="btn__check flex-grid__item" ng-class="{'btn__check--active' : stageActive2}">Revise stage</button>
+                        </div>
+                    </div>
+                </div>
+                <div sd-toggle-box data-title="Embargo" data-style="circle" data-open="true">
+                    <div class="form__row form__row--flex  form__row--small-padding">
+                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                            <label class="sd-line-input__label">Embargo till</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                    </div>
+                    <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear embargo</a>
+                </div>
+                <div sd-toggle-box data-title="Publish schedule" data-style="circle" data-open="true">
+                    <div class="form__row form__row--flex  form__row--small-padding">
+                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                            <label class="sd-line-input__label">Publish on</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                        <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                            <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                    </div>
+                    <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear schedule</a>
+                </div>
+            </div>
+        </div>
+        <!-- Publish Tab -->
+        <div class="side-panel__content side-panel__content--split overflow-x-hidden" ng-if="tab === 'publish'">
+            <!-- LEFT pane -->
+            <div class="side-panel__content-block side-panel__content-block--left">
+                <div sd-toggle-box data-title="Publish from" data-style="circle" data-open="true">
+                    <div class="form__row">
+                        <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-label sd-line-input--no-margin">
+                            <select class="sd-line-input__select">
+                                <option value="single">Politics desk</option>
+                                <option value="time">Sports desk</option>
+                                <option value="bananas">Features desk</option>
+                                <option value="indefinite">Photo desk</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div sd-toggle-box data-title="Embargo" data-style="circle" data-open="true">
+                        <div class="form__row form__row--flex  form__row--small-padding">
+                            <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                <label class="sd-line-input__label">Embargo till</label>
+                                <input class="sd-line-input__input" type="text">
+                            </div>
+                            <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                                <input class="sd-line-input__input" type="text">
+                            </div>
+                        </div>
+                        <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear embargo</a>
+                    </div>
+                    <div sd-toggle-box data-title="Publish schedule" data-style="circle" data-open="true">
+                        <div class="form__row form__row--flex  form__row--small-padding">
+                            <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                                <label class="sd-line-input__label">Publish on</label>
+                                <input class="sd-line-input__input" type="text">
+                            </div>
+                            <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed sd-line-input--no-margin">
+                                <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                                <input class="sd-line-input__input" type="text">
+                            </div>
+                        </div>
+                        <a class="text-link text-link--white" href=""><i class="icon-remove-sign"> </i> Clear schedule</a>
+                    </div>
+            </div>
+            <!-- RIGHT pane -->
+            <div class="side-panel__content-block side-panel__content-block--right side-panel__content-block--overlay-panel-inside">
+                <div>
+                    <span>
+                        <div sd-toggle-box data-title="Web publishing" data-style="circle" data-open="true">
+                            <!-- website 1 -->
+                            <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen0}">
+                                <div class="sd-collapse-box__header" ng-click="isOpen0 = !isOpen0">
+                                    <!-- list item  -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__text-strong">www.sourcefabric.org</span></span>
+                                            </div>
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-list-item__text-label">Publish to:</span><span class="sd-overflow-ellipsis">news</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END list item  -->
+                                </div>
+                                <div class="sd-collapse-box__content-wraper">
+                                    <div class="sd-collapse-box__content">
+                                        <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged0">
+                                            <div class="sd-collapse-box__sliding-toolbar">
+                                                <div class="sliding-toolbar__inner"></div>
+                                                <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged0 = true; isOpen0 = false">Cancel</a>
+                                                <a class="btn btn--primary" ng-click="contentChanged0 = true; isOpen0 = false">Save</a>
+                                            </div>
+                                        </div>
+                                        <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
+                                            <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen0 = false">
+                                                <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
+                                            </a>
+                                            <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                        </div>
+                                        <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
+                                            <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
+                                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__text-strong">www.sourcefabric.org</span>
+                                                        <a class="icn-btn" sd-tooltip="Preview" flow="left"><i class="icon-external"></i></a>
+                                                    </div>
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-list-item__text-label sd-overflow-ellipsis">Automatically:</span><span class="sd-overflow-ellipsis">news</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
+                                                <label class="sd-line-input__label">Route</label>
+                                                <select class="sd-line-input__select">
+                                                    <option value="single">News</option>
+                                                    <option value="time">Politics</option>
+                                                    <option value="bananas">Lifestyle</option>
+                                                    <option value="indefinite">Culture</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form__row" ng-init="contentChanged0 = true">
+                                            <sd-check ng-model="contentChanged0" ng-checked="false">Publish to facebook</sd-check>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-check ng-model="dnp0">Do not publish</sd-check>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- website 2 -->
+                            <div class="sd-collapse-box sd-shadow--z2" ng-class="{'sd-collapse-box--open' : isOpen1}">
+                                <div class="sd-collapse-box__header" ng-click="isOpen1 = !isOpen1">
+                                    <!-- list item  -->
+                                    <div class="sd-list-item">
+                                        <div class="sd-list-item__border"></div>
+                                        <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-overflow-ellipsis sd-list-item--element-grow"><span class="sd-list-item__text-strong">www.superdesk.org</span></span>
+                                            </div>
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-list-item__text-label">Publish to:</span><span class="sd-overflow-ellipsis">news, facebook</span>
+                                            </div>
+                                            <div class="sd-list-item__row">
+                                                <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- END list item  -->
+                                </div>
+                                <div class="sd-collapse-box__content-wraper">
+                                    <div class="sd-collapse-box__content">
+                                        <div class="sd-collapse-box__sliding-toolbar-wrapper" ng-show="!contentChanged1">
+                                            <div class="sd-collapse-box__sliding-toolbar">
+                                                <div class="sliding-toolbar__inner"></div>
+                                                <a class="btn btn--hollow btn--ui-dark" ng-click="contentChanged1 = true; isOpen1 = false">Cancel</a>
+                                                <a class="btn btn--primary" ng-click="contentChanged1 = true; isOpen1 = false">Save</a>
+                                            </div>
+                                        </div>
+                                        <div class="sd-collapse-box__tools sd-collapse-box__tools--flex">
+                                            <a class="sd-collapse-box__collapse-btn" href="" ng-click="isOpen1 = false">
+                                                <span class="icn-btn"><i class="icon-chevron-up-thin"></i></span>
+                                            </a>
+                                            <a class="icn-btn"><i class="icon-dots-vertical"></i></a>
+                                        </div>
+                                        <div class="sd-collapse-box__content-block sd-collapse-box__content-block--top">
+                                            <div class="sd-list-item sd-list-item--no-bg sd-list-item--no-hover">
+                                                <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-overflow-ellipsis sd-list-item--element-grow sd-list-item__text-strong">www.superdesk.org</span>
+                                                        <a class="icn-btn" sd-tooltip="Preview" flow="left"><i class="icon-external"></i></a>
+                                                    </div>
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-list-item__text-label sd-overflow-ellipsis">Automatically:</span><span class="sd-overflow-ellipsis">news, facebook</span>
+                                                    </div>
+                                                    <div class="sd-list-item__row">
+                                                        <span class="sd-list-item__text-label">Content lists:</span><span class="sd-overflow-ellipsis">Home page, Economy</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--is-select sd-line-input--dark-ui sd-line-input--no-margin">
+                                                <label class="sd-line-input__label">Route</label>
+                                                <select class="sd-line-input__select">
+                                                    <option value="single">News</option>
+                                                    <option value="time">Politics</option>
+                                                    <option value="bananas">Lifestyle</option>
+                                                    <option value="indefinite">Culture</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-check  ng-model="contentChanged1" ng-checked="true">Publish to facebook</sd-check>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-check ng-model="dnp1">Do not publish</sd-check>
+                                        </div>
+                                        <!-- content lists -->
+                                        <label class="form-label">Content lists</label>
+                                        <div class="sd-list-item sd-list-item--no-hover sd-margin-b--1" ng-show="contentListItem">
+                                            <div class="sd-list-item__column sd-list-item__column--large-padding sd-list-item__column--grow">
+                                                <div class="sd-list-item__row no-margin sd-flex-justify-end">
+                                                    <a class="icn-btn disabled" sd-tooltip="Remove list" flow="left" ng-click="contentListItem = false;"><i class="icon-trash"></i></a>
+                                                </div>
+                                                <div class="sd-list-item__row">
+                                                    <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
+                                                        <label class="sd-line-input__label">Choose list</label>
+                                                        <select class="sd-line-input__select">
+                                                            <option value=""></option>
+                                                            <option value="home">Home page</option>
+                                                            <option value="economy">Economy</option>
+                                                            <option value="business">Business</option>
+                                                            <option value="Sports">Sports</option>
+                                                            <option value="lifestyle">Lifestyle</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="sd-list-item__row">
+                                                    <div class="sd-line-input sd-line-input--is-select sd-list-item--element-grow">
+                                                        <label class="sd-line-input__label">Set order</label>
+                                                        <select class="sd-line-input__select">
+                                                            <option value=""></option>
+                                                            <option value="">1</option>
+                                                            <option value="">2</option>
+                                                            <option value="">3</option>
+                                                            <option value="">4</option>
+                                                            <option value="">5</option>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <button class="btn btn--hollow btn--expanded btn--primary" ng-click="contentListItem = true;">Add to content list</button>      
+                                        </div>                                
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end website 2-->
+                        </div>
+                        <div sd-toggle-box data-title="Related articles" data-open="false" data-style="circle">
+                            <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                                <li class="simple-list__item">
+                                    <p>J.P. Morgan to settle allegations of violating sanctions: U.S. Treasury</p>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                    <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                </li>
+                                <li class="simple-list__item">
+                                    <p>Republican Senator Murkowski says has not decided final Kavanaugh vote</p>
+                                    <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                    <span class="label-icon" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                </li>                        
+                                <li class="simple-list__item">
+                                    <p>China bet big on quantum computing. Now the US races to keep up.</p>
+                                    <span class="label-icon" ng-hide="deleteTenant0"><i class="icon-globe"></i> www.sourcefabric.org</span>
+                                    <span class="label-icon" ng-hide="deleteTenant1"><i class="icon-globe"></i> www.bbc.co.uk</span>
+                                    <span class="label-icon label-icon--success" ng-hide="deleteTenant2"><i class="icon-globe"></i> sp-magazine.s-lab.sourcefabric.org</span>  
+                                </li>
+                            </ul>
+                        </div>
+                        <div sd-toggle-box data-title="Meta data" data-open="true" data-style="circle">
+                            <div class="sd-list-item-group sd-shadow--z1">
+                                <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                    <div class="sd-list-item__border"></div>
+                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div class="sd-list-item__row">
+                                            <span class="sd-overflow-ellipsis">Facebook</span>
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <i class="icon-chevron-right-thin"></i>
+                                    </div>
+                                </div>
+                                <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                    <div class="sd-list-item__border"></div>
+                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div class="sd-list-item__row">
+                                            <span class="sd-overflow-ellipsis">Twitter</span>
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <i class="icon-chevron-right-thin"></i>
+                                    </div>
+                                </div>
+                            
+                                <div class="sd-list-item" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen">
+                                    <div class="sd-list-item__border"></div>
+                                    <div class="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
+                                        <div class="sd-list-item__row">
+                                            <span class="sd-overflow-ellipsis">SEO / Meta Tags</span>
+                                        </div>
+                                    </div>
+                                    <div class="sd-list-item__action-menu">
+                                        <i class="icon-chevron-right-thin"></i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Social media overlay -->
+                        <div class="side-panel__content-block-overlay" ng-class="{'side-panel__content-block-overlay--open' : $root.overlayPaneOpen}">
+                            <div class="side-panel">
+                                <div class="side-panel__header">
+                                    <a class="icn-btn sd-margin-l--1" ng-click="$root.overlayPaneOpen = !$root.overlayPaneOpen" sd-tooltip="Back" flow="right"><i class="icon-arrow-left"></i></a>
+                                    <h3 class="side-panel__heading side-panel__heading--big">Facebook meta data</h3>
+                                </div>
+                                <div class="side-panel__content">
+                                    <div class="side-panel__content-block">
+                                        <div class="form__row">
+                                            <p class="sd-opacity--60">Important: template has to support this feature. It won't work out of the box.</p>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input">
+                                                <label class="sd-line-input__label">Post image</label>                                    
+                                                <div class="sd-overlay-block sd-overlay-block--no-image">
+                                                    <div class="sd-overlay-block__overlay">
+                                                        <div class="sd-overlay-block__overlay-action-group">
+                                                            <a class="sd-overlay-block__overlay-action" sd-tooltip="Upload image"><i class="icon-upload"></i></a>
+                                                            <span class="sd-overlay-block__overlay-message">No image has been set so far.</span>
+                                                        </div>
+                                                    </div>
+                                                    <img src="/overlay-img.jpg" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--required sd-line-input--dark-ui sd-line-input--boxed">
+                                                <label class="sd-line-input__label">Headline</label>
+                                                <input class="sd-line-input__input" type="text" value="Article headline here.">
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-tag-input
+                                                ng-model="tags"
+                                                data-label="Tags"
+                                                data-items="[
+                                                { text: 'Audi' },
+                                                { text: 'BMW' },
+                                                { text: 'Hyundai' },
+                                                { text: 'Opel' },
+                                                { text: 'Audi2' },
+                                                { text: 'BMW2' },
+                                                { text: 'Hyundai2' },
+                                                { text: 'Opel2' },
+                                                { text: 'Audi3' },
+                                                { text: 'BMW3' },
+                                                { text: 'Hyundai3' },
+                                                { text: 'Opel3' },
+                                                { text: 'Audi4' },
+                                                { text: 'BMW4' },
+                                                { text: 'Hyundai4' },
+                                                { text: 'Opel4' },
+                                                { text: 'Audi5' },
+                                                { text: 'BMW5' },
+                                                { text: 'Hyundai5' },
+                                                { text: 'Opel5' },
+                                                { text: 'Audi6' },
+                                                { text: 'BMW6' },
+                                                { text: 'Hyundai6' },
+                                                { text: 'Opel6' }
+                                                ]"
+                                                data-field="text"
+                                                data-freetext="false">
+                                            </sd-tag-input>
+                                        </div>
+                                        <div class="form__row">
+                                            <div class="sd-line-input sd-line-input--dark-ui sd-line-input--boxed">
+                                                <label class="sd-line-input__label">Text body</label>
+                                                <textarea class="sd-line-input__input"></textarea>
+                                            </div>
+                                        </div>
+                                        <div class="form__row">
+                                            <sd-tag-input
+                                                ng-model="authors"
+                                                data-label="Authors"
+                                                data-items="[
+                                                { text: 'Author 1' },
+                                                { text: 'Author 2' },
+                                                { text: 'Author 3' },
+                                                { text: 'Author 4' },
+                                                { text: 'Author 5' }                                        
+                                                ]"
+                                                data-field="text"
+                                                data-freetext="false">
+                                            </sd-tag-input>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div> <!-- end RIGHT pane -->
+        </div>
+        <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="!tab || tab === 'send-to'">
+            <button class="btn btn--large btn--primary btn--expanded">Send</button>
+        </div>
+        <div class="side-panel__footer side-panel__footer--button-box-large" ng-if="tab === 'publish'">
+            <button class="btn btn--large btn--primary btn--hollow btn--expanded btn--ui-dark" disabled="disabled">publish from</button>
+            <button class="btn btn--large btn--highlight btn--expanded">Publish</button>
+        </div>
+    </div>  
+</div>

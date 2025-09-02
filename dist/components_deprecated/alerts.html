@@ -1,0 +1,113 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Alerts</h2>
+    <p class="docs-page__paragraph">Provide contextual feedback or info messages for user actions with the handful of available alert box options.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <p class="docs-page__paragraph">// Hollow style (preferred usage)</p>
+
+                <div class="sd-alert__container" ng-init="alert=true">
+                    <div class="sd-alert sd-alert--hollow" ng-class="{'sd-alert--hidden': !alert}">
+                        <button class="sd-alert__close" ng-click="alert=false"></button>
+                        Fusce nec ex et dolor rhoncus iaculis maximus sit amet lorem. Nunc posuere, ligula quis dictum tempor, lectus diam pharetra est, id fringilla leo urna vel arcu.
+                    </div>
+                    <span class="sd-alert__info-btn sd-shadow--z2" ng-click="alert=!alert" ng-class="{'sd-alert__info-btn--hidden': alert}"><i class="icon-info-large"></i></span>
+                </div>
+
+                <div class="sd-alert__container" ng-init="alert2=true">
+                    <div class="sd-alert sd-alert--hollow sd-alert--alert" ng-class="{'sd-alert--hidden': !alert2}">
+                        <button class="sd-alert__close" ng-click="alert2=false"></button>
+                        Sed tincidunt ipsum metus, consectetur vestibulum turpis luctus in. Vestibulum ut ex vulputate, lacinia mauris vel, accumsan libero. Morbi dapibus non felis et convallis. Sed at dolor vel nisl aliquam vehicula.
+                    </div>
+                    <span class="sd-alert__info-btn sd-alert__info-btn--alert sd-shadow--z2" ng-click="alert2=!alert2" ng-class="{'sd-alert__info-btn--hidden': alert2}"><i class="icon-info-large"></i></span>
+                </div>
+
+                <div class="sd-alert__container" ng-init="alert3=true">
+                    <div class="sd-alert sd-alert--hollow sd-alert--sd-green" ng-class="{'sd-alert--hidden': !alert3}">
+                        <button class="sd-alert__close" ng-click="alert3=false"></button>
+                        In mattis tellus odio, quis dictum sapien pellentesque in. Phasellus dignissim tempus ante at congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus bibendum lacinia.
+                    </div>
+                    <span class="sd-alert__info-btn sd-alert__info-btn--sd-green sd-shadow--z2" ng-click="alert3=!alert3" ng-class="{'sd-alert__info-btn--hidden': alert3}"><i class="icon-help-large"></i></span>
+                </div>
+
+                <div class="sd-alert__container" ng-init="alert4=true">
+                    <div class="sd-alert sd-alert--hollow sd-alert--primary" ng-class="{'sd-alert--hidden': !alert4}">
+                        <button class="sd-alert__close" ng-click="alert4=false"></button>
+                        Integer elementum vestibulum ipsum a rhoncus. Cras et tortor tempus, imperdiet neque sit amet, imperdiet elit. Nunc eleifend sollicitudin molestie. Aliquam nec enim orci.
+                    </div>
+                    <span class="sd-alert__info-btn sd-alert__info-btn--primary sd-shadow--z2" ng-click="alert4=!alert4" ng-class="{'sd-alert__info-btn--hidden': alert4}"><i class="icon-info-large"></i></span>
+                </div>
+
+                <p class="docs-page__paragraph">// Filled</p>
+                <div class="sd-alert__container" ng-init="alert5=true">
+                    <div class="sd-alert sd-alert--sd-green" ng-class="{'sd-alert--hidden': !alert5}">
+                        <button class="sd-alert__close" ng-click="alert5=false"></button>
+                        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. Praesent vulputate eros nisi, et porta magna eleifend et. 
+                    </div>
+                    <span class="sd-alert__info-btn sd-alert__info-btn--sd-green sd-shadow--z2" ng-click="alert5=!alert5" ng-class="{'sd-alert__info-btn--hidden': alert5}"><i class="icon-info-large"></i></span>
+                </div>
+
+                <div class="sd-alert__container" ng-init="alert6=true">
+                    <div class="sd-alert sd-alert--warning" ng-class="{'sd-alert--hidden': !alert6}">
+                        <button class="sd-alert__close" ng-click="alert6=false"></button>
+                        Praesent vulputate eros nisi, et porta magna eleifend et. Duis non sagittis erat. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                    </div>
+                    <span class="sd-alert__info-btn sd-alert__info-btn--warning sd-shadow--z2" ng-click="alert6=!alert6" ng-class="{'sd-alert__info-btn--hidden': alert6}"><i class="icon-info-large"></i></span>
+                </div>
+
+                <p class="docs-page__paragraph">// Small</p>
+                <div class="sd-alert__container" ng-init="alert7=true">
+                    <div class="sd-alert sd-alert--hollow sd-alert--primary sd-alert--small" ng-class="{'sd-alert--hidden': !alert7}">
+                        <button class="sd-alert__close" ng-click="alert7=false"></button>
+                        Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    </div>
+                    <span class="sd-alert__info-btn sd-alert__info-btn--primary sd-shadow--z2" ng-click="alert7=!alert7" ng-class="{'sd-alert__info-btn--hidden': alert7}"><i class="icon-info-large"></i></span>
+                </div>
+
+                <div class="sd-alert__container" ng-init="alert8=true">
+                    <div class="sd-alert sd-alert--highlight sd-alert--small" ng-class="{'sd-alert--hidden': !alert8}">
+                        <button class="sd-alert__close" ng-click="alert8=false"></button>
+                        Maecenas sed diam eget risus varius blandit sit amet non magna. Curabitur blandit tempus porttitor. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Donec ullamcorper nulla non metus auctor fringilla. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    </div>
+                    <span class="sd-alert__info-btn sd-alert__info-btn--highlight sd-shadow--z2" ng-click="alert8=!alert8" ng-class="{'sd-alert__info-btn--hidden': alert8}"><i class="icon-info-large"></i></span>
+                </div>
+
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                <!--Hollow style (preferred usage)-->
+                <div class="sd-alert sd-alert--hollow">
+                    <button class="sd-alert__close"></button>
+                    Fusce nec ex et dolor rhoncus iaculis maximus sit amet lorem. Nunc posuere, ligula quis dictum tempor, lectus diam pharetra est, id fringilla leo urna vel arcu.
+                </div>
+                <div class="sd-alert sd-alert--hollow sd-alert--alert">
+                    <button class="sd-alert__close"></button>
+                    Sed tincidunt ipsum metus, consectetur vestibulum turpis luctus in. Vestibulum ut ex vulputate, lacinia mauris vel, accumsan libero. Morbi dapibus non felis et convallis. Sed at dolor vel nisl aliquam vehicula.
+                </div>
+                <div class="sd-alert sd-alert--hollow sd-alert--sd-green">
+                    <button class="sd-alert__close"></button>
+                    In mattis tellus odio, quis dictum sapien pellentesque in. Phasellus dignissim tempus ante at congue. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis maximus bibendum lacinia.
+                </div>
+                <div class="sd-alert sd-alert--hollow sd-alert--primary">
+                    <button class="sd-alert__close"></button>
+                    Integer elementum vestibulum ipsum a rhoncus. Cras et tortor tempus, imperdiet neque sit amet, imperdiet elit. Nunc eleifend sollicitudin molestie. Aliquam nec enim orci.
+                </div>
+
+                <!--Filled-->
+                <div class="sd-alert sd-alert--sd-green">
+                    <button class="sd-alert__close"></button>
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis. Praesent vulputate eros nisi, et porta magna eleifend et. Duis non sagittis erat. 
+                </div>
+                <div class="sd-alert sd-alert--warning">
+                    <button class="sd-alert__close"></button>
+                    Praesent vulputate eros nisi, et porta magna eleifend et. Duis non sagittis erat. Morbi sollicitudin non eros non egestas. Nulla facilisi. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+                </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

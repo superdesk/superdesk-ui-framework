@@ -1,0 +1,170 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Labels</h2>
+    <p class="docs-page__paragraph">Labels are inline styles that can be dropped into body text. For example, labels are used to show the state of items in Superdesk.</p>
+    <h3 class="docs-page__h3">Sizing</h3>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <span class="label">default label</span>
+                    <span class="label label--large">large label</span>
+                </div>
+                <p class="docs-page__paragraph">// No text transformation</p>
+                <p style="margin: -10px 0 20px; color: #747474;">This version should be used only in combination with <code>label--large</code></p>
+                <div class="docs-page__content-row">
+                    <span class="label label--large label--no-transform label--primary">No text transform here</span>
+                    <span class="label label--large label--no-transform label--success">No text transform</span>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <span class="label">default label</span>
+                    <span class="label label--large">large label</span>
+                    <!-- No text transformation -->
+                    <span class="label label--large label--no-transform label--primary">No text transform here</span>
+                    <span class="label label--large label--no-transform label--success">No text transform</span>
+                </pre>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="docs-page__h3">Coloring</h3>
+    <p class="docs-page__paragraph">By default labels have a wider color palette than buttons and badges.</p>
+
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <span class="label">default label</span>
+                    <span class="label label--primary">primary label</span>
+                    <span class="label label--success">success label</span>
+                    <span class="label label--yellow2">Color label</span>
+                    <span class="label label--warning">warning label</span>
+                    <span class="label label--orange2">Color label</span>
+                    <span class="label label--alert">alert label</span>
+                    <span class="label label--red2">Color label</span>
+                    <span class="label label--highlight">highlight label</span>
+                    <span class="label label--highlight2">Color label</span>
+                    <span class="label label--highlight3">Color label</span>
+                    <span class="label label--highlight4">Color label</span>
+                    <span class="label label--darkBlue2">Color label</span>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <span class="label">default label</span>
+                    <span class="label label--primary">primary label</span>
+                    <span class="label label--success">success label</span>
+                    <span class="label label--yellow2">Color label</span>
+                    <span class="label label--warning">warning label</span>
+                    <span class="label label--orange2">Color label</span>
+                    <span class="label label--alert">alert label</span>
+                    <span class="label label--red2">Color label</span>
+                    <span class="label label--highlight">highlight label</span>
+                    <span class="label label--highlight2">Color label</span>
+                    <span class="label label--highlight3">Color label</span>
+                    <span class="label label--highlight4">Color label</span>
+                    <span class="label label--darkBlue2">Color label</span>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h3 class="docs-page__h3">Hollow style</h3>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <span class="label label--hollow">default label</span>
+                    <span class="label label--primary label--hollow">primary label</span>
+                    <span class="label label--success label--hollow">success label</span>
+                    <span class="label label--yellow2 label--hollow">Color label</span>
+                    <span class="label label--warning label--hollow">warning label</span>
+                    <span class="label label--orange2 label--hollow">Color label</span>
+                    <span class="label label--alert label--hollow">alert label</span>
+                    <span class="label label--red2 label--hollow">Color label</span>
+                    <span class="label label--highlight label--hollow">highlight label</span>
+                    <span class="label label--highlight2 label--hollow">Color label</span>
+                    <span class="label label--highlight3 label--hollow">Color label</span>
+                    <span class="label label--highlight4 label--hollow">Color label</span>
+                    <span class="label label--darkBlue2 label--hollow">Color label</span>
+                </div>
+                <div class="docs-page__content-row">
+                    <span class="label label--hollow label--large">Hollow large</span>
+                    <span class="label label--primary label--hollow label--large">Hollow large</span>
+                    <span class="label label--highlight2 label--hollow label--large label--no-transform">Hollow, large & no text transformation</span>
+                </div> 
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <span class="label label--hollow">default label</span>
+                    <span class="label label--primary label--hollow">primary label</span>
+                    <span class="label label--success label--hollow">success label</span>
+                    <span class="label label--yellow2 label--hollow">Color label</span>
+                    <span class="label label--warning label--hollow">warning label</span>
+                    <span class="label label--orange2 label--hollow">Color label</span>
+                    <span class="label label--alert label--hollow">alert label</span>
+                    <span class="label label--red2 label--hollow">Color label</span>
+                    <span class="label label--highlight label--hollow">highlight label</span>
+                    <span class="label label--highlight2 label--hollow">Color label</span>
+                    <span class="label label--highlight3 label--hollow">Color label</span>
+                    <span class="label label--highlight4 label--hollow">Color label</span>
+                    <span class="label label--darkBlue2 label--hollow">Color label</span>
+                    <!-- Large and Hollow -->
+                    <span class="label label--hollow label--large">Hollow large</span>
+                    <span class="label label--primary label--hollow label--large">Hollow large</span>
+                    <span class="label label--highlight2 label--hollow label--large label--no-transform">Hollow, large & no text transformation</span>
+                </pre>
+            </div>
+        </div>
+    </div>
+    <h3 class="docs-page__h3">Link label</h3>
+    <p class="docs-page__paragraph">Should be used only in specific case, like in line with other regular labels inside the list item. Otherwise using regular buttons is preferred.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div> 
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <a href="#" class="label">default label</a>
+                    <a href="#" class="label label--primary">primary label</a>
+                    <a href="#" class="label label--success">success label</a>
+                    <a href="#" class="label label--alert">alert label</a>
+                </div>
+                <div class="docs-page__content-row">
+                    <a href="#" class="label label--hollow">default label</a>
+                    <a href="#" class="label label--primary label--hollow">primary label</a>
+                    <a href="#" class="label label--success label--hollow">success label</a>
+                    <a href="#" class="label label--alert label--hollow">alert label</a>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <a href="#" class="label">default label</a>
+                    <a href="#" class="label label--primary">primary label</a>
+                    <a href="#" class="label label--success">success label</a>
+                    <a href="#" class="label label--alert">alert label</a>
+                    ...
+                    <!-- Hollow -->
+                    <a href="#" class="label label--hollow">default label</a>
+                    <a href="#" class="label label--primary label--hollow">primary label</a>
+                    <a href="#" class="label label--success label--hollow">success label</a>
+                    <a href="#" class="label label--alert label--hollow">alert label</a>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,187 @@
+<section class="docs-page__container">   
+    <h2 class="docs-page__h2">Form layout</h2>
+    <p class="docs-page__paragraph">Creating a form in Superdesk is extremely easy. The basisc element for form layouts is the <code>form__row</code> class placed on a div. 
+    In its default state it just provides a container for a form element, with a bottom margin. The <code>form__row</code> container provides vertical flow and behaviour to containing elements.
+    The modifier class <code>form__row--flex</code> will provide a flex-box behaviour to the container. For simpler layouts multiple <code>sd-line-input</code> elements can be
+    placed directly inside the form row. For more complex layouts elements should be placed in additional <code>form__row-item</code> container first. The elements will take space
+    of the parent <code>form__row form__row--flex</code> container. An an additional modifier <code>form__row-item--no-grow</code> can be added in order to mace the item take only the space of the content.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Form row with a single element</p>
+                <div class="form__row">
+                    <div class="sd-line-input">
+                        <label class="sd-line-input__label">Username</label>
+                        <input class="sd-line-input__input" type="text">
+                        <span class="sd-line-input__hint">Sed a nunc non lectus fringilla suscipit.</span>
+                    </div>
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Form row with multiple elements and the flex modifier</p>
+                <div class="form__row form__row--flex">
+                    <div class="sd-line-input">
+                        <label class="sd-line-input__label">Name</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                    <div class="sd-line-input">
+                        <label class="sd-line-input__label">Last name</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                    <div class="sd-line-input sd-line-input--is-select">
+                        <label class="sd-line-input__label">City</label>
+                        <select class="sd-line-input__select">
+                            <option value=""></option>
+                            <option value="prague">Prague</option>
+                            <option value="berlin">Berlin</option>
+                            <option value="belgrade">Belgrade</option>
+                            <option value="cluj-napoca">Cluj-Napoca</option>
+                            <option value="toronto">Toronto</option>
+                        </select>
+                        <span class="sd-line-input__hint">Lectus fringilla suscipit.</span>
+                    </div>
+                    <a class="btn">Submit</a>
+                </div>
+
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Form row with multiple elements inside <code>form__row-item</code> containers</p>
+                <div class="form__row form__row--flex">
+                    <div class="form__row-item">
+                        <div class="sd-line-input">
+                            <label class="sd-line-input__label">Name</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                    </div>
+                    <div class="form__row-item">
+                        <div class="sd-line-input">
+                            <label class="sd-line-input__label">Last name</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                    </div>
+                    <div class="form__row-item form__row-item--no-grow">
+                        <span>Duis autem vel dolor.</span>
+                    </div>
+                    <div class="form__row-item">
+                        <div class="sd-line-input sd-line-input--is-select">
+                            <label class="sd-line-input__label">Favorite fruit</label>
+                            <select class="sd-line-input__select">
+                                <option value=""></option>
+                                <option value="apples">Apples</option>
+                                <option value="oranges">Oranges</option>
+                                <option value="bananas">Bananas</option>
+                                <option value="pears">Pears</option>
+                                <option value="peaches">Peaches</option>
+                            </select>
+                            <span class="sd-line-input__hint">Eat your vitamins!</span>
+                        </div>
+                    </div>
+                    <div class="form__row-item">
+                        <div class="sd-line-input sd-line-input--is-select">
+                            <label class="sd-line-input__label">Favorite vegetable</label>
+                            <select class="sd-line-input__select">
+                                <option value=""></option>
+                                <option value="carrots">Carrots</option>
+                                <option value="broccoli">Broccoli</option>
+                                <option value="spinach">Spinach</option>
+                                <option value="kale">Kale</option>
+                                <option value="zucchini">Zucchini</option>
+                            </select>
+                            <span class="sd-line-input__hint">No veggies, no dessert!</span>
+                        </div>
+                    </div>
+                    <div class="form__row-item form__row-item--no-grow">
+                        <a class="btn">Submit</a>
+                    </div>
+                </div>
+            </div>
+
+            <!--/////////// CODE //////////-->
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Form row with a single element-->
+                    <div class="form__row">
+                        <div class="sd-line-input">
+                            <label class="sd-line-input__label">Username</label>
+                            <input class="sd-line-input__input" type="text">
+                            <span class="sd-line-input__hint">Sed a nunc non lectus fringilla suscipit.</span>
+                        </div>
+                    </div>
+                    <!--Form row with multiple elements and the flex modifier-->
+                    <div class="form__row form__row--flex">
+                        <div class="sd-line-input">
+                            <label class="sd-line-input__label">Name</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                        <div class="sd-line-input">
+                            <label class="sd-line-input__label">Last name</label>
+                            <input class="sd-line-input__input" type="text">
+                        </div>
+                        <div class="sd-line-input sd-line-input--is-select">
+                            <label class="sd-line-input__label">City</label>
+                            <select class="sd-line-input__select">
+                                <option value=""></option>
+                                <option value="prague">Prague</option>
+                                <option value="berlin">Berlin</option>
+                                <option value="belgrade">Belgrade</option>
+                                <option value="cluj-napoca">Cluj-Napoca</option>
+                                <option value="toronto">Toronto</option>
+                            </select>
+                            <span class="sd-line-input__hint">Lectus fringilla suscipit.</span>
+                        </div>
+                        <a class="btn">Submit</a>
+                    </div>
+                    <!--Form row with multiple elements inside .form__row-item containers-->
+                    <div class="form__row form__row--flex">
+                        <div class="form__row-item">
+                            <div class="sd-line-input">
+                                <label class="sd-line-input__label">Name</label>
+                                <input class="sd-line-input__input" type="text">
+                            </div>
+                        </div>
+                        <div class="form__row-item">
+                            <div class="sd-line-input">
+                                <label class="sd-line-input__label">Last name</label>
+                                <input class="sd-line-input__input" type="text">
+                            </div>
+                        </div>
+                        <div class="form__row-item form__row-item--no-grow">
+                            <span>Duis autem vel dolor.</span>
+                        </div>
+                        <div class="form__row-item">
+                            <div class="sd-line-input sd-line-input--is-select">
+                                <label class="sd-line-input__label">Favorite fruit</label>
+                                <select class="sd-line-input__select">
+                                    <option value=""></option>
+                                    <option value="apples">Apples</option>
+                                    <option value="oranges">Oranges</option>
+                                    <option value="bananas">Bananas</option>
+                                    <option value="pears">Pears</option>
+                                    <option value="peaches">Peaches</option>
+                                </select>
+                                <span class="sd-line-input__hint">Eat your vitamins!</span>
+                            </div>
+                        </div>
+                        <div class="form__row-item">
+                            <div class="sd-line-input sd-line-input--is-select">
+                                <label class="sd-line-input__label">Favorite vegetable</label>
+                                <select class="sd-line-input__select">
+                                    <option value=""></option>
+                                    <option value="carrots">Carrots</option>
+                                    <option value="broccoli">Broccoli</option>
+                                    <option value="spinach">Spinach</option>
+                                    <option value="kale">Kale</option>
+                                    <option value="zucchini">Zucchini</option>
+                                </select>
+                                <span class="sd-line-input__hint">No veggies, no dessert!</span>
+                            </div>
+                        </div>
+                        <div class="form__row-item form__row-item--no-grow">
+                            <a class="btn">Submit</a>
+                        </div>
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section> 

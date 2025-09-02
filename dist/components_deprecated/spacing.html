@@ -1,0 +1,117 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Spacing</h2>
+    <p class="docs-page__paragraph">
+        Superdesk UI Framework includes a range of shorthand margin and padding helper classes to modify an element’s appearance. 
+        To keep consistency, all end values are actualy mutipliers of the <code>$sd-base-increment</code> variable, which equals to 0.8rem. 
+        For convinience the root (html) font-size is set to 10px, which makes 1rem by default equal to 10px.
+    </p>
+
+    <h4 class="docs-page__h4">Naming</h4>
+    <p class="docs-page__paragraph">
+        The classes are named using the format <code>{property}-{side}--{size}</code>.
+    </p>
+    <div class="docs-page__paragraph">
+        <b>Where <code>{property}</code> is:</b>
+        <ul class="docs-page__unordered-list">
+            <li><code>sd-padding</code> - for setting <code>padding</code></li>
+            <li><code>sd-margin</code> - for setting <code>margin</code></li>
+        </ul>
+
+        <b>Where <code>{side}</code> is one of:</b>
+        <ul class="docs-page__unordered-list">
+            <li><code>t</code> - sets <code>margin-top</code> or <code>padding-top</code></li>
+            <li><code>b</code> - sets <code>margin-bottom</code> or <code>padding-bottom</code></li>
+            <li><code>l</code> - sets <code>margin-left</code> or <code>padding-left</code></li>
+            <li><code>r</code> - sets <code>margin-right</code> or <code>padding-right</code></li>
+            <li><code>x</code> - sets both <code>*-left</code> and <code>*-right</code></li>
+            <li><code>y</code> - sets both <code>*-top</code> and <code>*-bottom</code></li>
+            <li>blank (no side defined) - sets a margin or padding on all 4 sides of the element (eg. <code>sd-margin--2</code> )</li> 
+        </ul>
+
+        <b>Where <code>{size}</code> is one of:</b>
+        <ul class="docs-page__unordered-list">
+            <li><code>0</code> - eliminates the margin or padding by setting it to <code>0</code></li>
+            <li><code>0-5</code> - sets the margin or padding to <code>$sd-base-increment * .5</code> (results to 0.4rem)</li>
+            <li><code>1</code> - sets the margin or padding to <code>$sd-base-increment</code> (results to 0.8rem)</li>
+            <li><code>1-5</code> - sets the margin or padding to <code>$sd-base-increment * 1.5</code> (results to 1.2rem)</li>
+            <li><code>2</code> - sets the margin or padding to <code>$sd-base-increment * 2</code> (results to 1.6rem)</li>
+            <li><code>3</code> - sets the margin or padding to <code>$sd-base-increment * 3</code> (results to 2.4rem)</li>
+            <li><code>4</code> - sets the margin or padding to <code>$sd-base-increment * 4</code> (results to 3.2rem)</li>
+            <li><code>5</code> - sets the margin or padding to <code>$sd-base-increment * 5</code> (results to 4rem)</li>
+        </ul>
+    </div>
+    <h4 class="docs-page__h4">Examples</h4>
+    <div class="docs-page__code-window" doc-tabs>
+            <div class="docs-page__window-content">
+                <div class="docs-page__code-example">
+    <code class="docs-page__code--large"><xmp><div class="sd-margin-t--2"></div></xmp></code>
+    <p class="docs-page__paragraph docs-page__paragraph--small">// Sets the top margin to 1.6rem</p>
+    <code class="docs-page__code--large"><xmp><div class="sd-margin--3"></div></xmp></code>
+    <p class="docs-page__paragraph docs-page__paragraph--small">// Sets the margin on all sides to 2.4rem</p>
+    <code class="docs-page__code--large"><xmp><div class="sd-margin-y--1"></div></xmp></code>
+    <p class="docs-page__paragraph docs-page__paragraph--small">// Sets the top and bottom margin to 0.8rem</p>
+    <code class="docs-page__code--large"><xmp><div class="sd-padding-x--2"></div></xmp></code>
+    <p class="docs-page__paragraph docs-page__paragraph--small">// Sets the left and right padding to 1.6rem</p>
+    <code class="docs-page__code--large"><xmp><div class="sd-padding-b--4"></div></xmp></code>
+    <p class="docs-page__paragraph docs-page__paragraph--small">// Sets the bottom padding to 3.2rem</p>
+    <code class="docs-page__code--large"><xmp><div class="sd-padding--0"></div></xmp></code>
+    <p class="docs-page__paragraph docs-page__paragraph--small">// Set/reset the padding on all sides to 0</p>
+                <div class="docs-page__code-markup">
+                    <pre class="prettyprint lang-html linenums">
+                    </pre>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="docs-page__h3 sd-margin-t--5">Margin auto</h3>
+    <p class="docs-page__paragraph">
+        Besides numeric margin values, Superdesk UI Framework includes also a range of helper classes to set margins to <code>auto</code>. 
+            The naming logic is the same as with nuneric values except that <code>{size}</code> is always replaced with <code>auto</code>.    
+    </p>
+    <h4 class="docs-page__h4">Available options</h4>
+    <ul class="sd-margin-t--2">
+        <li>
+            <p class="docs-page__paragraph">
+                <code>sd-margin-l--auto</code><br>
+                // Sets the left margin to auto.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>sd-margin-r--auto</code><br>
+                // Sets the right margin to auto.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>sd-margin-t--auto</code><br>
+                // Sets the top margin to auto.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>sd-margin-b--auto</code><br>
+                // Sets the bottom margin to auto.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>sd-margin-x--auto</code><br>
+                // Sets the left and right margin to auto (convinient for centering block level items inside a container).
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>sd-margin-y--auto</code><br>
+                // Sets the top and bottom margin to auto.
+            </p>
+        </li>
+        <li>
+            <p class="docs-page__paragraph">
+                <code>sd-margin--auto</code><br>
+                // Sets all margins to auto.
+            </p>
+        </li>
+    </ul>
+</section>    

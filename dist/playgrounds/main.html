@@ -1,0 +1,16 @@
+<aside class="docs-page__sidebar">
+    <ul class="docs-page__nav" doc-nav>
+        <li ng-repeat="group in components">
+            <span class="docs-page__nav-title">{{group.name}}</span>
+            <ul>
+                <li ng-repeat="(name, item) in group.items"><a ng-click="navigateTo(name, $event)" href="{{name}}">{{item.name}}</a></li>
+            </ul>
+        </li>
+    </ul>
+</aside>
+<article class="docs-page__content">
+    <div class="docs-page__content-group" ng-repeat="group in components">
+        <h2 class="docs-page__group-heading">{{group.name}}</h2>                                       
+        <section class="docs-page__section"  ng-repeat="(name, item) in group.items" id="{{name}}" ng-include="'../examples/templates/' + item.page"></section>
+    </div>
+</article>

@@ -1,0 +1,41 @@
+<section class="docs-page__container">  
+    <h2 class="docs-page__h2">Wizard</h2>
+    <p class="docs-page__paragraph">It allows to build a wizard functionality using buttons to go through the different wizard steps and using events allows to hook into each step individually.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example" doc-modal>
+                <button class="btn" ng-click="openModal('wizardModal')">Show wizard</button>
+                <div sd-modal data-model="wizardModal" class="modal--tabs modal--large">
+                    <div class="modal__header">
+                        <button class="modal__close pull-right" ng-click="closeModal('wizardModal')"><i class="icon-close-small"></i></button>
+                        <h3 class="modal__heading">Modal Default</h3>
+                    </div>
+                    <div class="modal__body" sd-wizard data-name="wizard" data-finish="closeModal('wizardModel')">
+                        <div sd-wizard-step data-title="General" data-code="general">
+                            <p>Content in General Tab</p>
+                        </div>
+                        <div sd-wizard-step data-title="Services" data-code="services">
+                            <p>Content in Services Tab</p>
+                        </div>
+                        <div sd-wizard-step data-title="Stages" data-code="stages">
+                            <p>Content in Stages Tab</p>
+                        </div>
+                    </div>
+                    <div class="modal__footer">
+                        <button class="btn" ng-click="closeModal('wizardModal')">Cancel</button>
+                        <button class="btn btn--primary" ng-click="closeModal('wizardModal')">Ok</button>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <button class="btn" ng-click="openModal('wizardModal')">Show wizard</button>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

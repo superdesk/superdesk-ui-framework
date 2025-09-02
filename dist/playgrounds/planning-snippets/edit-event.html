@@ -1,0 +1,187 @@
+<!-- Event edit panel -->
+<div class="side-panel__header subnav subnav--dark-blue-grey">
+    <div class="subnav__stretch-bar">
+        <span class="icn-mix icn-mix--2x" data-sd-tooltip="Event" data-flow="right">
+            <i class="icon-repeat icn-mix__sub-icn"></i>
+            <i class="icon-event icn-mix__icn"></i>
+        </span>
+        <figure class="avatar" style="margin-right:10px;">sd</figure>
+    </div>
+    <div class="subnav__stretch-bar subnav__stretch-bar--right">
+        <a href="" class="btn btn--ui-dark" ng-click="$parent.editorOpen = false">Cancel</a>
+        <button class="btn btn--success">Publish</button>
+        <a href="" class="btn btn--primary" ng-click="$parent.editorOpen = false">Save</a>
+
+    </div>
+    <button class="navbtn" ng-click="editorOpen = !editorOpen">
+        <i class="big-icon--minimize"></i>
+    </button>
+    <button class="navbtn">
+        <i class="icon-dots-vertical"></i>
+    </button>
+</div>
+<div class="side-panel__content side-panel__content--flex">
+
+    <ul class="nav-tabs side-panel__content-tab-nav">
+        <li ng-class="{'nav-tabs__tab--active': !tab2 || tab2 === 'event-details2'}" class="nav-tabs__tab">
+            <button ng-click="tab2 = 'event-details2'" class="nav-tabs__link"><span translate="">Content</span></button>
+        </li>
+        <li ng-class="{'nav-tabs__tab--active': tab2 === 'event-history2'}" class="nav-tabs__tab">
+            <button ng-click="tab2 = 'event-history2'" class="nav-tabs__link"><span translate="">History</span></button>
+        </li>
+    </ul>
+    <!-- First tab -->
+    <div class="side-panel__content-tab-content" ng-if="!tab2 || tab2 === 'event-details2'">
+
+        <div class="side-panel__content-block side-panel__content-block--pad-small side-panel__content-block--flex">
+            <div class="side-panel__content-block-inner side-panel__content-block-inner--grow">
+                <p class="sd-text__date-and-author"><time>Created 16.10.2017 by </time> <span class="sd-text__author">John Doe</span></p> 
+                <p class="sd-text__date-and-author"><time>Updated 3 hours ago by </time> <span class="sd-text__author">Mika Karapet</span></p> 
+            </div>
+            <div class="side-panel__content-block-inner side-panel__content-block-inner--right">
+                <span class="label label--success label--hollow">Scheduled</span>
+            </div>
+        </div>
+
+        <div class="side-panel__content-block">
+            <div class="form__row">
+                <div class="sd-line-input">
+                    <label class="sd-line-input__label">Slugline</label>
+                    <input class="sd-line-input__input" type="text" value="Clickable event">
+                </div>
+            </div>
+            <div class="form__row">
+                <div class="sd-line-input sd-line-input--required">
+                    <label class="sd-line-input__label">Name</label>
+                    <input class="sd-line-input__input" type="text">
+                </div>
+            </div>
+            <div class="form__row">
+                <div class="sd-line-input">
+                    <label class="sd-line-input__label">Description</label>
+                    <input class="sd-line-input__input" type="text">
+                </div>
+            </div>
+            <div class="form__row">
+                <div class="sd-line-input sd-line-input--is-select">
+                    <label class="sd-line-input__label">Occurence Status</label>
+                    <select class="sd-line-input__select">
+                        <option value="">Unplanned event</option>
+                        <option value="">Planned, occurence planned only</option>
+                        <option value="">Planned, occurence highly uncertain</option>
+                        <option value="">Planned, May occur</option>
+                        <option value="">Planned, occurence highly likely</option>
+                        <option value="">Planned, occurs certainly</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form__row form__row--flex">
+                <span>From</span>
+                <div class="sd-line-input sd-line-input--no-margin">
+                    <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                    <input class="sd-line-input__input" type="text">
+                </div>
+                <div class="sd-line-input sd-line-input--no-margin">
+                    <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                    <input class="sd-line-input__input" type="text">
+                </div>
+                <span>to</span>
+                <div class="sd-line-input sd-line-input--no-margin">
+                    <a class="icn-btn sd-line-input__icon-right"><i class="icon-calendar"></i></a>
+                    <input class="sd-line-input__input">
+                </div>
+                <div class="sd-line-input">
+                    <a class="icn-btn sd-line-input__icon-right"><i class="icon-time"></i></a>
+                    <input class="sd-line-input__input" type="text">
+                </div>
+            </div>
+            <div class="form__row">
+                <div class="sd-line-input">
+                    <label class="sd-line-input__label">Location</label>
+                    <input class="sd-line-input__input" type="text">
+                </div>
+            </div>
+            <div sd-toggle-box data-title="Details" data-style="circle">
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                        <span class="sd-line-input__plus-btn"></span>
+                        <label class="sd-line-input__label">Calendars</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                        <span class="sd-line-input__plus-btn"></span>
+                        <label class="sd-line-input__label">Category</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin sd-line-input--with-button">
+                        <span class="sd-line-input__plus-btn"></span>
+                        <label class="sd-line-input__label">Subject</label>
+                        <input class="sd-line-input__input" type="text">
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin">
+                        <label class="sd-line-input__label">Long Description</label>
+                        <textarea class="sd-line-input__input"></textarea>
+                    </div>
+                </div>
+                <div class="form__row">
+                    <div class="sd-line-input sd-line-input--no-margin">
+                        <label class="sd-line-input__label">Internal Note</label>
+                        <textarea class="sd-line-input__input"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div sd-toggle-box data-title="Attached files" data-open="false" data-style="circle">
+                <div class="basic-drag-block">
+                    <i class="big-icon--upload-alt"></i> <span class="basic-drag-block__text"> Drag files here or</span> <a class="text-link" href="">browse</a>.
+                </div>
+            </div>
+            <div sd-toggle-box data-title="External links" data-open="false" data-style="circle">
+                <a class="text-link" href=""><i class="icon-plus-sign"> </i> Add link</a>
+            </div>
+            <div sd-toggle-box data-title="Related planning items" data-open="false" data-style="circle">
+                <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                    <li class="simple-list__item simple-list__item--with-icon"><i class="icon-text"></i> <p><strong>Planning_1</strong> created by Mika Karapet in Agenda: <a class="text-link" href="">Daily Sports</a></p></li>
+                    <li class="simple-list__item simple-list__item--with-icon"><i class="icon-text"></i> <p><strong>Planning_2</strong> created by Vince Ryan in Agenda: <a class="text-link" href="">Daily Sports</a></p></li>
+                    <li class="simple-list__item simple-list__item--with-icon"><i class="icon-text"></i> <p><strong>Planning_3</strong> created by Karel Petrak in Agenda: <a class="text-link" href="">Daily Sports</a></p></li>
+                    <li class="simple-list__item simple-list__item--with-icon"><i class="icon-text"></i> <p><strong>Planning_4</strong> created by John Doe in Agenda: <a class="text-link" href="">Daily Sports</a></p></li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- END First tab -->
+    <!-- Second tab -->
+    <div class="side-panel__content-tab-content" ng-if="tab2 === 'event-history2'">
+        <div class="side-panel__content-block">
+            <ul class="simple-list simple-list--dotted simple-list--no-padding">
+                <li class="simple-list__item">
+                    <p><strong>Created by</strong> Mika Karapet</p>
+                    <time class="small">Tuesday, 12. September 13:10</time>
+                </li>
+                <li class="simple-list__item">
+                    <p><strong>Coverage created by</strong> Vince Ryan</p>
+                    <time class="small">Tuesday, 12. September 13:13</time>
+                </li>
+                <li class="simple-list__item">
+                    <p><strong>Updated by</strong> Karel Petrak</p>
+                    <time class="small">Tuesday, 12. September 13:13</time>
+                </li>
+                <li class="simple-list__item">
+                    <p><strong>Coverage updated by</strong> John Doe</p>
+                    <time class="small">Tuesday, 12. September 13:21</time>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- END Second tab -->
+</div>
+<div class="side-panel__footer">
+
+</div>

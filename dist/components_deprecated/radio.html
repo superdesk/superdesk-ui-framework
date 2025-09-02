@@ -1,0 +1,64 @@
+<section class="docs-page__container">   
+    <h2 class="docs-page__h2">Radio button</h2>
+    <p class="docs-page__paragraph">Radio buttons are created the same way the SD checkboxes with the addition of the property <code>type="radio"</code>.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <p class="docs-page__paragraph">// Basic SD Radio buttons</p>
+                <div class="form__row">
+                    <sd-check ng-model="stu" type="radio" ng-value="value1">Default label position</sd-check>
+                    <sd-check ng-model="stu" type="radio" ng-value="value2">Default label</sd-check> 
+                    <sd-check ng-model="stu" type="radio" ng-value="value3">Default label</sd-check>
+                    <sd-check ng-model="stu" type="radio" ng-value="value4" disabled="disabled">Disabled state</sd-check>  
+                </div>
+                <p class="docs-page__paragraph">// Basic - labels on the left</p>
+                <div class="form__row">
+                    <sd-check ng-model="opr" type="radio" ng-value="value1" label-position="left">Label on the left</sd-check>
+                    <sd-check ng-model="opr" type="radio" ng-value="value2" label-position="left">Label on the left</sd-check> 
+                    <sd-check ng-model="opr" type="radio" ng-value="value3" label-position="left">Label on the left</sd-check> 
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Button styled radio buttons</p>
+                <div class="form__row">
+                    <sd-check ng-model="xyz" type="radio" ng-value="value1" label-position="inside">Button style radio</sd-check>
+                    <sd-check ng-model="xyz" type="radio" ng-value="value2" label-position="inside">Button style</sd-check> 
+                    <sd-check ng-model="xyz" type="radio" ng-value="value3" label-position="inside">Button style</sd-check>
+                    <sd-check ng-model="xyz" type="radio" ng-value="value4" label-position="inside" disabled="disabled">Button style disabled</sd-check> 
+                </div>
+                <p class="docs-page__paragraph docs-page__paragraph--topMarginL">// Button style radio with icon</p>
+                <div class="form__row">
+                    <sd-check ng-model="zzx" type="radio" ng-value="value1" data-icon="list-view">Radio button with icon</sd-check>
+                    <sd-check ng-model="zzx" type="radio" ng-value="value2" data-icon="grid-view">I have an icon!</sd-check>
+                    <sd-check ng-model="zzx" type="radio" ng-value="value3" data-icon="kanban-view">Yeah, me too!</sd-check>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <!--Basic SD Radio buttons-->
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="stu" type="radio" ng-value="value1">Default label position</sd-check>
+                        <sd-check ng-model="stu" type="radio" ng-value="value2">Default label</sd-check> 
+                        <sd-check ng-model="stu" type="radio" ng-value="value3">Default label</sd-check>
+                        <sd-check ng-model="stu" type="radio" ng-value="value4" disabled="disabled">Disabled state</sd-check> 
+                    </div>
+                    <!--Basic - labels on the left-->
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="opr" type="radio" ng-value="value1" label-position="left">Label on the left</sd-check>
+                        <sd-check ng-model="opr" type="radio" ng-value="value2" label-position="left">Label on the left</sd-check> 
+                        <sd-check ng-model="opr" type="radio" ng-value="value3" label-position="left">Label on the left</sd-check> 
+                    </div>
+                    <!--Button styled radio buttons-->
+                    <div class="form__row" ng-non-bindable>
+                        <sd-check ng-model="xyz" type="radio" ng-value="value1" label-position="inside">Button style radio</sd-check>
+                        <sd-check ng-model="xyz" type="radio" ng-value="value2" label-position="inside">Button style</sd-check> 
+                        <sd-check ng-model="xyz" type="radio" ng-value="value3" label-position="inside">Button style</sd-check>
+                        <sd-check ng-model="xyz" type="radio" ng-value="value4" label-position="inside" disabled="disabled">Button style disabled</sd-check> 
+                    </div>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section> 

@@ -1,0 +1,168 @@
+<section class="docs-page__container">
+    <h2 class="docs-page__h2">Main application structure</h2>
+    <p class="docs-page__paragraph">Superdesk and its modules (Planning, Publisher, etc.) should share the same fundamental layout structure. This will guarantee a familiar experience and a shorter learning curve for users.</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media docs-page__figure-media--light">
+                <img src="/application-frame.png" alt="Application frame">
+            </figure>
+        </div>
+    </div>
+    <div class="docs-page__button-grid">
+        <!-- <a class="docs-page__graphic-btn" href="#/components/spacing" target="blank">
+            <figure class="docs-page__graphic-btn-graphic">
+                <img src="/illustration-small--components.svg" alt="Components">
+            </figure>
+            <label class="docs-page__graphic-btn-label">
+                <span>View component</span>
+                <span class="docs-page__small-text">Components</span>
+
+            </label>
+        </a>
+        <a class="docs-page__graphic-btn" href="">
+            <figure class="docs-page__graphic-btn-graphic">
+                <img src="/illustration-small--react.svg" alt="React components">
+            </figure>
+            <label class="docs-page__graphic-btn-label">
+                <span>View react component</span>
+                <span class="docs-page__small-text">React components</span>
+            </label>
+        </a> -->
+        <a class="docs-page__graphic-btn" href="#/playgrounds/layout-test-2" target="_blank">
+            <figure class="docs-page__graphic-btn-graphic">
+                <img src="/illustration-small--playground.svg" alt="UI Playgrounds">
+            </figure>
+            <label class="docs-page__graphic-btn-label">
+                <span>View Playground</span>
+                <span class="docs-page__small-text">UI Playgrounds</span>
+            </label>
+        </a>
+    </div>
+    <h3 class="docs-page__h3">Table of contents</h3>
+    <hr class="docs-page__rule docs-page__rule--large">
+    <ul class="docs-page__unordered-list docs-page__unordered-list--plain docs-page__unordered-list--small">
+        <li><a class="link" href="#topBar">Top bar</a></li>
+        <li><a class="link" href="#sideBar">Left side-bar</a></li>
+        <li><a class="link" href="#subNav">Sub-navigation toolbar</a></li>
+        <li><a class="link" href="#leftPane">Left-side panel</a></li>
+        <li><a class="link" href="#mainContent">Main Content</a></li>
+        <li><a class="link" href="#rightPane">Right-side panel</a></li>
+        <li><a class="link" href="#bottomBar">Bottom bar</a></li>
+    </ul>
+
+    <h3 class="docs-page__h3" id="topBar">Top bar</h3>
+    <p class="docs-page__paragraph">A fixed bar that contains top-level navigation elements (e.g. activation button for the hamburger menu, 
+        title, desk dropdown, active user avatar etc.). In Superdesk most UI elements inside the top bar are persistent, only the title and 
+        the desk dropdown are contextual.</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <img src="/application-frame__top-bar.png" alt="Top bar">
+            </figure>
+        </div>
+    </div>
+    <h4 class="docs-page__h4 sd-margin-y--3">Examples</h4>
+    <img class="sd-shadow--z2" src="/example__top-bar--01.png" alt="Top bar example">
+    <p class="docs-page__paragraph"></p>
+    
+    <h3 class="docs-page__h3" id="sideBar">Left side-bar</h3>
+    <p class="docs-page__paragraph">This is a persistent navigation menu consisting of icon buttons inside a fixed-width bar. 
+        It is for navigating the main user workspace, each button will open a specific screen inside the workspace. The content 
+        of the left side-bar can differ from user to user, as it is based on user rights and preferences. It will stay the same 
+        for a single user though, indicating only which screen is active.</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <img src="/application-frame__side-tabs.png" alt="Side bar">
+            </figure>
+        </div>
+    </div>
+    <h4 class="docs-page__h4 sd-margin-y--3">Example</h4>
+    <img class="sd-shadow--z2" src="/example__left_side-bar--01.png" alt="Left side-bar example">
+    <p class="docs-page__paragraph"></p>
+
+    <h3 class="docs-page__h3" id="subNav">Sub-navigation toolbar</h3>
+    <p class="docs-page__paragraph">Contextual navigation bar with various content options. Usually, it contains a diverse combination 
+        of button groups that control the content area below it. It is possible to have multiple levels of Sub-navigation toolbars on one page.</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <img src="/application-frame__sub-nav.png" alt="Sub-nav">
+            </figure>
+        </div>
+    </div>
+    <h4 class="docs-page__h4 sd-margin-y--3">Examples</h4>
+    <img class="sd-shadow--z2" src="/example__sub-nav--01.png" alt="Sub-navigation toolbar example one">
+    <img class="sd-shadow--z2 sd-margin-t--3" src="/example__sub-nav--02.png" alt="Sub-navigation toolbar example two">
+    <img class="sd-shadow--z2 sd-margin-t--3" src="/example__sub-nav--03.png" alt="Sub-navigation toolbar example three">
+    <p class="docs-page__paragraph"></p>
+
+    <h3 class="docs-page__h3" id="leftPane">Left-side panel</h3>
+    <p class="docs-page__paragraph">A closable panel that will push the main content area to the right when open. It is mostly used to contain 
+        advanced controls of the main content area (e.g. advanced search filters and similar).</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <doc-gif-img src="/application-frame__left-panel.gif"></doc-gif-img>
+            </figure>
+        </div>
+    </div>
+    <h4 class="docs-page__h4 sd-margin-y--3">Example</h4>
+    <img class="sd-shadow--z2" src="/example__left-side_panel--01.png" alt="Left-side panel example">
+    <p class="docs-page__paragraph"></p>
+
+    <h3 class="docs-page__h3" id="mainContent">Main Content area</h3>
+    <p class="docs-page__paragraph">The title explains it all - main content area. This is the place where the content is, which in most cases 
+        are different types of list or grid views.</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <doc-gif-img src="/application-frame__main-content.gif"></doc-gif-img>
+            </figure>
+        </div>
+    </div>
+    <h4 class="docs-page__h4 sd-margin-y--3">Example</h4>
+    <img class="sd-shadow--z2" src="/example__main-content--01.png" alt="Main Content example">
+    <p class="docs-page__paragraph"></p>
+    
+    <h3 class="docs-page__h3" id="rightPane">Right-side panel</h3>
+    <p class="docs-page__paragraph">The right-side panel has a similar behaviour as the left-side panel with the difference that it appears 
+        at the right side. The opening is usually controlled from the items in the main content area whereas the closing is performed directly 
+        from the panel. Most commonly it is used as a detailed preview of content items. In some areas, it can also serve as an edit panel 
+        (eg. user management, parts of the Settings section).</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <doc-gif-img src="/application-frame__right-panel.gif"></doc-gif-img>
+            </figure>
+        </div>
+    </div>
+    <h4 class="docs-page__h4 sd-margin-y--3">Example</h4>
+    <img class="sd-shadow--z2" src="/example__right_side-panel--02.png" style="max-width: 100%;" alt="Right-side panel example">
+    <p class="docs-page__paragraph"></p>
+    
+    <h3 class="docs-page__h3" id="bottomBar">Bottom bar</h3>
+    <p class="docs-page__paragraph">The bottom bar is a fixed bar that is present in the user workspace. Open items, the ones that the user is 
+        still working on, will appear there. It is possible to close or maximise individual items from the bar for editing.</p>
+    <div class="docs-page__content-block">
+        <div class="docs-page__content-block-item">
+            <figure class="docs-page__figure-media">
+                <img src="/application-frame__bottom-bar.png" alt="Bottom bar">
+            </figure>
+        </div>
+    </div>
+    <h4 class="docs-page__h4 sd-margin-y--3">Example</h4>
+    <img class="sd-shadow--z2" src="/example__bottom-bar--01.png" alt="Bottom bar example">
+    <p class="docs-page__paragraph"></p>
+</section>
+
+
+
+
+
+
+
+
+
+
+

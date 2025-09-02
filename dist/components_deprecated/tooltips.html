@@ -1,0 +1,29 @@
+<section class="docs-page__container">  
+    <h2 class="docs-page__h2">Tooltips</h2>
+    <p class="docs-page__paragraph">Add the <code>sd-tooltip</code> attribute to an element to add a tooltip to the element. The value of the attribute will be the text in the tooltip. The tooltip will appear at the top of the element by default. Use the optional <code>flow</code> attribute to control the possiton of the tooltip; possible values are: <code>bottom</code>, <code>left</code> and <code>right</code>.<br /></p>
+    <p class="docs-page__paragraph">You can also use <code>data-sd-tooltip</code> syntax with <code>data-flow</code> attribute, if needed.</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <a class="btn" sd-tooltip="I'm on top">Top</a>
+                    <a class="btn" sd-tooltip="I'm at the Botton" flow="down">Bottom</a>
+                    <a class="btn" data-sd-tooltip="I open on the left" data-flow="left">Left</a>
+                    <a class="btn" data-sd-tooltip="Right on!" data-flow="right">Right</a>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <a class="btn" sd-tooltip="I'm on top">Top</a>
+                    <a class="btn" sd-tooltip="I'm at the Botton" flow="down">Bottom</a>
+                    <a class="btn" data-sd-tooltip="I open on the left" data-flow="left">Left</a>
+                    <a class="btn" data-sd-tooltip="Right on!" data-flow="right">Right</a>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>  

@@ -1,0 +1,111 @@
+<section class="docs-page__container">  
+    <h2 class="docs-page__h2">Sidebar menu</h2>
+    <p class="docs-page__paragraph">...</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <div style="position: relative; min-height:400px; background-color: #efefef; overflow: hidden; border: 1px solid #dadada;">
+                        <div class="sd-top-menu">
+                            <a href="#" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+                            <p class="sd-top-menu__header">Top menu</p>
+                        </div>
+                        <div class="sd-sidebar-menu sd-sidebar-menu--left">
+                            <ul class="authoring-active ">
+                            <!--<ul>-->
+                                <li sd-tooltip="Dashboard" flow="right">
+                                    <a href="#" class="sd-sidebar-menu__btn" ng-click="menuItemActive1=!menuItemActive1" ng-class="{'sd-sidebar-menu__btn--active': menuItemActive1}">
+                                        <i class="sd-sidebar-menu__main-icon big-icon--dashboard"></i>
+                                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Monitoring" flow="right">
+                                    <a href="#" class="sd-sidebar-menu__btn" ng-click="menuItemActive2=!menuItemActive2" ng-class="{'sd-sidebar-menu__btn--active': menuItemActive2}">
+                                        <i class="sd-sidebar-menu__main-icon big-icon--view"></i>
+                                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Spiked items" flow="right">
+                                    <a href="#" class="sd-sidebar-menu__btn" ng-click="menuItemActive3=!menuItemActive3" ng-class="{'sd-sidebar-menu__btn--active': menuItemActive3}">
+                                        <i class="sd-sidebar-menu__main-icon big-icon--spike"></i>
+                                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <hr class="sd-sidebar-menu__spacer">
+                                </li>
+                                <li sd-tooltip="Global search" flow="right">
+                                    <a href="#" class="sd-sidebar-menu__btn" ng-click="menuItemActive4=!menuItemActive4" ng-class="{'sd-sidebar-menu__btn--active': menuItemActive4}">
+                                        <i class="sd-sidebar-menu__main-icon big-icon--global-search"></i>
+                                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Personal" flow="right">
+                                    <a href="#" class="sd-sidebar-menu__btn" ng-click="menuItemActive5=!menuItemActive5" ng-class="{'sd-sidebar-menu__btn--active': menuItemActive5}">
+                                        <i class="sd-sidebar-menu__main-icon big-icon--personal"></i>
+                                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Analytics" flow="right">
+                                    <a href="#" class="sd-sidebar-menu__btn" ng-click="menuItemActive6=!menuItemActive6" ng-class="{'sd-sidebar-menu__btn--active': menuItemActive6}">
+                                        <i class="sd-sidebar-menu__main-icon big-icon--analytics"></i>
+                                        <i class="sd-sidebar-menu__helper-icon big-icon--chevron-left"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                            
+                        </div>
+
+                        <div class="sd-sidetab-menu sd-sidetab-menu--right">
+                            <ul>
+                                <li sd-tooltip="Info" flow="left">
+                                    <a href="#" class="sd-sidetab-menu__btn" ng-click="sidetabItemActive1=!sidetabItemActive1" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive1}">
+                                        <i class="sd-sidetab-menu__main-icon big-icon--info"></i>
+                                        <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Find & Replace" flow="left">
+                                    <a href="#" class="sd-sidetab-menu__btn" ng-click="sidetabItemActive2=!sidetabItemActive2" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive2}">
+                                        <i class="sd-sidetab-menu__main-icon big-icon--find-replace"></i>
+                                        <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Comments" flow="left">
+                                    <a href="#" class="sd-sidetab-menu__btn" ng-click="sidetabItemActive3=!sidetabItemActive3" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive3}">
+                                        <span class="sd-sidetab-menu__info-label badge badge--success">3</span>
+                                        <i class="sd-sidetab-menu__main-icon big-icon--comments"></i>
+                                        <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Versions / History" flow="left">
+                                    <a href="#" class="sd-sidetab-menu__btn" ng-click="sidetabItemActive4=!sidetabItemActive4" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive4}">
+                                        <i class="sd-sidetab-menu__main-icon big-icon--history"></i>
+                                        <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
+                                    </a>
+                                </li>
+                                <li sd-tooltip="Macros" flow="left">
+                                    <a href="#" class="sd-sidetab-menu__btn" ng-click="sidetabItemActive5=!sidetabItemActive5" ng-class="{'sd-sidetab-menu__btn--active': sidetabItemActive5}">
+                                        <i class="sd-sidetab-menu__main-icon big-icon--macro"></i>
+                                        <i class="sd-sidetab-menu__helper-icon icon-close-small"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+
+
+
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>

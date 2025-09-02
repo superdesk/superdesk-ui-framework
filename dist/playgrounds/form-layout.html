@@ -1,0 +1,285 @@
+<header class="sd-top-menu">
+    <a class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+    <p class="sd-top-menu__header">Forms</p>
+</header>
+<main class="sd-page" ng-init="darkTheme = false" data-theme="{{darkTheme ? 'dark-ui' : 'light-ui'}}">
+    <section class="sd-page__main-content" ng-class="{'dark-ui': darkTheme == true}">
+        <div class="subnav" ng-class="{'subnav--dark-ui': darkTheme == true}">
+            <h3 class="subnav__page-title">Form layout</h3>
+            <span class="label label--large label--warning label--no-transform sd-margin-r--2">Work in progress!</span>
+            <span sd-tooltip="Dark mode" flow="left">
+                <span sd-switch ng-model="darkTheme" class="sd-margin-r--2"></span>
+            </span>
+        </div>
+        <div class="sd-page__content">
+            
+            <div style="width: 70%; margin: 100px auto; max-width: 900px;" class="docs-page__code-window">
+
+                <div class="sd-form-element" style="padding: 30px;" data-theme="{{darkTheme ? 'dark-ui' : 'ligh-ui'}}">
+                    <div class="form__group">
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">input field label 1</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__char-count">00/90</div>
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Hendrerit in vulputate.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">input field label 1</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__char-count">00/90</div>
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Hendrerit in vulputate.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <div class="sd-input sd-input--invalid">
+                                <label class="sd-input__label">label 2</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__message">Error hendrerit in vulputate.</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form__item">
+                            <div class="sd-input sd-input--disabled">
+                                <label class="sd-input__label">input label 3</label>
+                                <input class="sd-input__input" type="text" disabled>
+                                <div class="sd-input__char-count">00/90</div>
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Hendrerit in vulputate.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">input field label 1</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__char-count">00/90</div>
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Hendrerit in vulputate.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form__item">
+                            <div class="sd-input sd-input--required ">
+                                <label class="sd-input__label">input label 3</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__char-count">00/90</div>
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Integer posuere erat a ante venenatis.</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__group">
+                        <div class="form__item form__item--auto-width">
+                            <div class="form__text-block">
+                                Morbi:
+                            </div>
+                        </div>
+
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">Label</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__char-count">00/90</div>
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Nulla vitae elit libero, a pharetra augue.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form__item form__item--auto-width">
+                            <div class="form__text-block">
+                                Risus:
+                            </div>
+                        </div>
+
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">Label</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Pellentesque ornare sem lacinia quam venenatis vestibulum.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form__item form__item--auto-width">
+                            <a class="btn btn--primary">Primary</a>
+                        </div>
+
+                    </div>
+
+                    <div class="form__group">
+                        <div class="form__item">
+                            <div class="sd-input sd-input--is-select ">
+                                <label class="sd-input__label">City</label>
+                                <select class="sd-input__select" type="text">
+                                    <option value="">Select your city</option>
+                                    <option value="prague">Prague</option>
+                                    <option value="belgrade">Belgrade</option>
+                                    <option value="berlin">Berlin</option>
+                                </select>
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Nulla vitae elit libero, a pharetra augue.</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">Label</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__message-box">
+                                    <div class="sd-input__hint">Pellentesque ornare sem lacinia quam venenatis vestibulum.</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form__item form__item--auto-width">
+                            <a class="btn btn--primary">Primary</a>
+                        </div>
+                    </div>
+
+                    <div class="form__group form__group--inline-label">
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">Label</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__char-count">00/90</div>
+                                <div class="sd-input__message-box"></div>
+                            </div>
+                        </div>
+
+
+                        <div class="form__item">
+                            <div class="sd-input">
+                                <label class="sd-input__label">Label</label>
+                                <input class="sd-input__input" type="text">
+                                <div class="sd-input__message-box"></div>
+                            </div>
+                        </div>
+
+                        <div class="form__item form__item--auto-width">
+                            <a class="btn btn--primary">Primary</a>
+                        </div>
+                    </div>
+
+                    <div class="form__group form__group--inline-label">
+                        <div class="form__item">
+                            <div class="sd-check__group-new ">
+                                <span class="sd-check-new__wrapper">
+                                    <span class="sd-check-new"></span>
+                                    <label>Checkbox label right</label>
+                                </span>
+                                <span class="sd-check-new__wrapper">
+                                    <span class="sd-check-new checked" checked="checked"></span>
+                                    <label class="label--active">Checkbox label right</label>
+                                </span>
+                                <span class="sd-check-new__wrapper">
+                                    <span class="sd-check-new"></span>
+                                    <label>Checkbox label right</label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__group form__group--inline-label">
+                        <div class="form__item">
+                            <div class="sd-check__group-new sd-check__group-new--vertical">
+                                <span class="sd-check-new__wrapper">
+                                    <span class="sd-radio-new"></span>
+                                    <label>Radio label</label>
+                                </span>
+                                <span class="sd-check-new__wrapper">
+                                    <span class="sd-radio-new checked" checked="checked"></span>
+                                    <label class="label--active">Radio label</label>
+                                </span>
+                                <span class="sd-check-new__wrapper">
+                                    <span class="sd-radio-new"></span>
+                                    <label>Radio label</label>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form__group form__group--inline-label">
+                        <div class="form__item">
+                            <span class="sd-check-new__wrapper" label-position="left">
+                                <label for="">Checkbox label right</label>
+                                <span class="sd-check-new"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form__group form__group--inline-label">
+                        <div class="sd-check-button__group sd-check-button__group--left docs-page__test-helper">
+                            <span class="sd-check-button">
+                                <label class="sd-check-button__text-label">Check Button</label>
+                            </span>
+                            <span class="sd-check-button">
+                                <label class="sd-check-button__text-label">Check Button</label>
+                            </span>
+                        </div>
+
+                        <div class="sd-check-button__group sd-check-button__group--center docs-page__test-helper">
+                            <span class="sd-check-button">
+                                <label class="sd-check-button__text-label">Check</label>
+                            </span>
+                            <span class="sd-check-button">
+                                <label class="sd-check-button__text-label">Button</label>
+                            </span>
+                        </div>
+
+                        <div class="sd-check-button__group sd-check-button__group--right docs-page__test-helper">
+                            <span class="sd-check-button">
+                                <label class="sd-check-button__text-label">Check Button</label>
+                            </span>
+                            <span class="sd-check-button">
+                                <label class="sd-check-button__text-label">Check Button</label>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="form__group form__group--inline-label sd-margin-y--3" >
+                        <div class="sd-check-button__group sd-check-button__group--grid docs-page__test-helper" style="max-width:400px">
+                            <span class="sd-check-button checked">
+                                <i class="icon-th-list"></i>
+                                <label class="sd-check-button__text-label">Button one</label>
+                            </span>
+                            <span class="sd-check-button">
+                                <i class="icon-th"></i>
+                                <label class="sd-check-button__text-label">Button two</label>
+                            </span>
+                            <span class="sd-check-button checked">
+                                <i class="icon-th-large"></i>
+                                <label class="sd-check-button__text-label">SD Check Button</label>
+                            </span>
+                            <span class="sd-check-button">
+                                <i class="icon-kanban-view"></i>
+                                <label class="sd-check-button__text-label">Button three</label>
+                            </span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

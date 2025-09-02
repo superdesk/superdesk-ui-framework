@@ -1,0 +1,83 @@
+<section class="docs-page__container"> 
+    <h2 class="docs-page__h2">Left navigation</h2>
+    <p class="docs-page__paragraph">...</p>
+    <div class="docs-page__code-window" doc-tabs>
+        <div class="docs-page__window-bar">
+            <a id="example" href="#" class="active">Example</a>
+            <a id="markup" href="#">Markup</a>
+        </div>
+        <div class="docs-page__window-content">
+            <div class="docs-page__code-example">
+                <div class="docs-page__content-row">
+                    <div style="position: relative; min-height:600px; background-color: #efefef; overflow: hidden; border: 1px solid #dadada;">
+                        <div class="sd-top-menu">
+                            <a href="#" class="sd-top-menu__collapse-nav"><i class="icon-collapse icon--white"></i></a>
+                            <p class="sd-top-menu__header">Top menu</p>
+                        </div>
+                        <nav class="sd-left-nav sd-left-nav--absolute" style="top:48px;">
+                            <ul>
+                            <!--<ul>-->
+                                <li class="sd-left-nav__group-header sd-left-nav__group-header--first">System settings</li>
+                                <li>
+                                    <a href="#" class="sd-left-nav__btn" ng-click="leftMenuItemActive1=!leftMenuItemActive1" ng-class="{'sd-left-nav__btn--active': leftMenuItemActive1}">General</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="sd-left-nav__btn" ng-click="leftMenuItemActive2=!leftMenuItemActive2" ng-class="{'sd-left-nav__btn--active': leftMenuItemActive2}">Email settings</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="sd-left-nav__btn" ng-click="leftMenuItemActive3=!leftMenuItemActive3" ng-class="{'sd-left-nav__btn--active': leftMenuItemActive3}">Spell checking</a>
+                                </li>
+                                <li class="sd-left-nav__group-header">Workflow</li>
+                                <li>
+                                    <a href="#" class="sd-left-nav__btn" ng-click="leftMenuItemActive4=!leftMenuItemActive4" ng-class="{'sd-left-nav__btn--active': leftMenuItemActive4}">Desk</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="sd-left-nav__btn" ng-click="leftMenuItemActive5=!leftMenuItemActive5" ng-class="{'sd-left-nav__btn--active': leftMenuItemActive5}">User Roles &amp; Privileges</a>
+                                </li>
+                                <li class="sd-left-nav__group-header">Content Config</li>
+                                <li>
+                                    <a href="#" class="sd-left-nav__btn" ng-click="leftMenuItemActive6=!leftMenuItemActive6" ng-class="{'sd-left-nav__btn--active': leftMenuItemActive6}">Image renditions</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="sd-left-nav__btn" ng-click="leftMenuItemActive7=!leftMenuItemActive7" ng-class="{'sd-left-nav__btn--active': leftMenuItemActive7}">Controlled Vocabularies</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="docs-page__code-markup">
+                <pre class="prettyprint lang-html linenums">
+                    <nav class="sd-left-nav sd-left-nav--absolute">
+                        <ul>
+                            <li class="sd-left-nav__group-header sd-left-nav__group-header--first">System settings</li>
+                            <li>
+                                <a href="#" class="sd-left-nav__btn">General</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sd-left-nav__btn">Email settings</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sd-left-nav__btn">Spell checking</a>
+                            </li>
+                            <li class="sd-left-nav__group-header">Workflow</li>
+                            <li>
+                                <a href="#" class="sd-left-nav__btn">Desk</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sd-left-nav__btn">User Roles &amp; Privileges</a>
+                            </li>
+                            <li class="sd-left-nav__group-header">Content Config</li>
+                            <li>
+                                <a href="#" class="sd-left-nav__btn">Image renditions</a>
+                            </li>
+                            <li>
+                                <a href="#" class="sd-left-nav__btn">Controlled Vocabularies</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </pre>
+            </div>
+        </div>
+    </div>
+</section>   
