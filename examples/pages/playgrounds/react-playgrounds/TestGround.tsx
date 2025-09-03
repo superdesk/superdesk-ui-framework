@@ -42,6 +42,7 @@ import {
     SubNav,
     NavButton,
     ResizablePanels,
+    Tag,
 } from '../../../../app-typescript/index';
 import {IAvatarInGroup} from '../../../../app-typescript/components/avatar/avatar-group';
 import * as Form from '../../../../app-typescript/components/Form';
@@ -245,6 +246,7 @@ export class TestGround extends React.Component<IProps, IState> {
                             <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>
                                 <div className="left-panel p-2">
                                     <div className="sd-list-item-group sd-list-item-group--space-between-items">
+                                        {/* List item 1 */}
                                         <div role="listitem" className="sd-list-item sd-shadow--z1">
                                             <div className="sd-list-item__border sd-list-item__border--locked"></div>
                                             <div className="sd-list-item__column px-1">
@@ -254,23 +256,35 @@ export class TestGround extends React.Component<IProps, IState> {
                                                 <Badge text="P" type="success" />
                                             </div>
                                             <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
-                                                <div className="sd-list-item__row me-1">
-                                                    <span className="sd-list-item__slugline sd-overflow-ellipsis flex-shrink">
+                                                <div className="sd-list-item__row me-0-5">
+                                                    <ButtonGroup orientation="horizontal" spaces="compact">
+                                                        <Badge text="2" type="alert" />
+                                                        <Tag text="Tag one" size="small" shade="inverse" />
+                                                        <Tag text="Tag two" size="small" shade="inverse" />
+                                                    </ButtonGroup>
+
+                                                    <span className="sd-list-item__slugline text-ellipsis flex-shrink">
                                                         Planning Slug
                                                     </span>
-                                                    <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                    <span className="text-ellipsis">
                                                         <span className="sd-list-item__text-strong text-sm">
-                                                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus
-                                                            dolor auctor.
+                                                            Planning name vivamus sagittis lacus vel augue laoreet
+                                                            rutrum faucibus dolor auctor
                                                         </span>
                                                     </span>
-                                                    <div className="sd-overflow-ellipsis ms-auto">
+                                                    <div className="text-ellipsis ms-auto">
                                                         <span className="EventDateTime sd-list-item__slugline sd-no-wrap text-sm">
-                                                            <time className="Datetime" title="CET 25.02&nbsp;06:00">
+                                                            <time
+                                                                className="Datetime text-ellipsis"
+                                                                title="CET 25.02&nbsp;06:00"
+                                                            >
                                                                 25.02&nbsp;06:00
                                                             </time>
                                                             –
-                                                            <time className="Datetime" title="CET 26.02&nbsp;05:59">
+                                                            <time
+                                                                className="Datetime text-ellipsis"
+                                                                title="CET 26.02&nbsp;05:59"
+                                                            >
                                                                 26.02&nbsp;05:59
                                                             </time>
                                                             <span>
@@ -290,24 +304,49 @@ export class TestGround extends React.Component<IProps, IState> {
                                                         </span>
                                                     </div>
                                                 </div>
-                                                <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
+                                                <div className="sd-list-item__row sd-list-item__row--overflow-visible me-0-5">
                                                     <ButtonGroup orientation="horizontal" spaces="compact">
-                                                        <Label text="article" />
+                                                        <Label text="article" style="translucent" />
                                                         <Label text="in progress" type="success" style="translucent" />
+                                                        <i
+                                                            className="internal-note__label icon-info-sign"
+                                                            style={{color: 'var(--color-warning-default)'}}
+                                                        ></i>
                                                     </ButtonGroup>
-                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
-                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">
+                                                    <span className="sd-list-item__compound-text text-sm text-ellipsis">
+                                                        <span className="sd-list-item__text-label text-ellipsis">
                                                             Calendar:
                                                         </span>
-                                                        <span className="sd-overflow-ellipsis">Entertainment</span>
+                                                        <span className="text-ellipsis">Entertainment</span>
                                                     </span>
-                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
-                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">
+                                                    <span className="sd-list-item__compound-text text-sm text-ellipsis">
+                                                        <span className="sd-list-item__text-label text-ellipsis">
                                                             Agenda:
                                                         </span>
-                                                        <span className="sd-overflow-ellipsis">Some agenda</span>
+                                                        <span className="text-ellipsis">Some agenda</span>
                                                     </span>
-                                                    <span className="sd-margin-s--auto">
+                                                    <span className="d-flex items-center sd-margin-s--auto">
+                                                        <a
+                                                            href="#"
+                                                            className="text-link text-xs d-flex items-center gap-0-5 me-1 text-ellipsis"
+                                                        >
+                                                            <i
+                                                                className="icon-event"
+                                                                style={{margin: '0', inset: '0'}}
+                                                            ></i>
+                                                            <span className="text-ellipsis">Show events (1)</span>
+                                                            <i
+                                                                className="icon-chevron-down-thin text-xs"
+                                                                style={
+                                                                    {
+                                                                        margin: '0',
+                                                                        inset: '0',
+                                                                        '--icon-base-size': '12px',
+                                                                    } as React.CSSProperties & Record<string, string>
+                                                                }
+                                                            ></i>
+                                                        </a>
+
                                                         <AvatarGroup size="x-small" items={avatars} />
                                                     </span>
                                                 </div>
@@ -324,8 +363,9 @@ export class TestGround extends React.Component<IProps, IState> {
                                             </div>
                                         </div>
 
+                                        {/* List item 2 */}
                                         <div role="listitem" className="sd-list-item sd-shadow--z1">
-                                            <div className="sd-list-item__border"></div>
+                                            <div className="sd-list-item__border sd-list-item__border--locked"></div>
                                             <div className="sd-list-item__column px-1">
                                                 <Icon type="primary" name="calendar" ariaHidden={true} />
                                             </div>
@@ -333,20 +373,22 @@ export class TestGround extends React.Component<IProps, IState> {
                                                 <Badge text="P" type="success" />
                                             </div>
                                             <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
-                                                <div className="sd-list-item__row me-1">
+                                                <div className="sd-list-item__row me-0-5">
                                                     <ButtonGroup orientation="horizontal" spaces="compact">
-                                                        <Label text="in progress" type="success" style="translucent" />
+                                                        <Tag text="Tag one" size="small" shade="inverse" />
+                                                        <Tag text="Tag two" size="small" shade="inverse" />
                                                     </ButtonGroup>
-                                                    <span className="sd-list-item__slugline sd-overflow-ellipsis flex-shrink">
+
+                                                    <span className="sd-list-item__slugline text-ellipsis flex-shrink">
                                                         Planning Slug
                                                     </span>
-                                                    <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                    <span className="text-ellipsis">
                                                         <span className="sd-list-item__text-strong text-sm">
-                                                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus
-                                                            dolor auctor.
+                                                            Planning name vivamus sagittis lacus vel augue laoreet
+                                                            rutrum faucibus dolor auctor
                                                         </span>
                                                     </span>
-                                                    <div className="sd-overflow-ellipsis ms-auto">
+                                                    <div className="text-ellipsis ms-auto">
                                                         <span className="EventDateTime sd-list-item__slugline sd-no-wrap text-sm">
                                                             <time className="Datetime" title="CET 25.02&nbsp;06:00">
                                                                 25.02&nbsp;06:00
@@ -372,23 +414,179 @@ export class TestGround extends React.Component<IProps, IState> {
                                                         </span>
                                                     </div>
                                                 </div>
-                                                {/* <div className="sd-list-item__row sd-list-item__row--overflow-visible me-1 mb-1-5">
-                                                    <ButtonGroup orientation='horizontal' spaces='compact'>
-                                                        <Label text="article" />
-                                                        <Label text="in progress" type='success'  style="translucent" />
+                                                <div className="sd-list-item__row sd-list-item__row--overflow-visible me-0-5">
+                                                    <ButtonGroup orientation="horizontal" spaces="compact">
+                                                        <Badge text="2" type="alert" />
+                                                        <Label text="article" style="translucent" />
+                                                        <Label text="in progress" type="success" style="translucent" />
+                                                        <i
+                                                            className="internal-note__label icon-info-sign"
+                                                            style={{color: 'var(--color-warning-default)'}}
+                                                        ></i>
                                                     </ButtonGroup>
-                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
-                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">Calendar:</span>
-                                                        <span className="sd-overflow-ellipsis">Entertainment</span>
+                                                    <a
+                                                        href="#"
+                                                        className="text-link text-xs d-flex items-center gap-0-5 text-ellipsis"
+                                                    >
+                                                        <i className="icon-event" style={{margin: '0', inset: '0'}}></i>
+                                                        <span className="text-ellipsis">Show events (1)</span>
+                                                        <i
+                                                            className="icon-chevron-down-thin text-xs"
+                                                            style={
+                                                                {
+                                                                    margin: '0',
+                                                                    inset: '0',
+                                                                    '--icon-base-size': '12px',
+                                                                } as React.CSSProperties & Record<string, string>
+                                                            }
+                                                        ></i>
+                                                    </a>
+                                                    <span className="sd-list-item__compound-text text-sm text-ellipsis">
+                                                        <span className="sd-list-item__text-label text-ellipsis">
+                                                            Calendar:
+                                                        </span>
+                                                        <span className="text-ellipsis">Entertainment</span>
                                                     </span>
-                                                    <span className="sd-list-item__compound-text text-sm sd-overflow-ellipsis">
-                                                        <span className="sd-list-item__text-label sd-overflow-ellipsis">Agenda:</span>
-                                                        <span className="sd-overflow-ellipsis">Some agenda</span>
+                                                    <span className="sd-list-item__compound-text text-sm text-ellipsis">
+                                                        <span className="sd-list-item__text-label text-ellipsis">
+                                                            Agenda:
+                                                        </span>
+                                                        <span className="text-ellipsis">Some agenda</span>
                                                     </span>
-                                                    <span className="sd-margin-s--auto">
-                                                        <AvatarGroup size="x-small" items={avatars} />
+                                                    <span className="me-auto"></span>
+                                                    <AvatarGroup size="x-small" items={avatars} />
+                                                </div>
+                                            </div>
+                                            <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row ps-0">
+                                                <ButtonGroup orientation="vertical" spaces="compact">
+                                                    <IconButton
+                                                        size="small"
+                                                        icon="dots-vertical"
+                                                        ariaValue="Show more actions"
+                                                        onClick={() => false}
+                                                    />
+                                                </ButtonGroup>
+                                            </div>
+                                        </div>
+
+                                        {/* List item 3 */}
+                                        <div role="listitem" className="sd-list-item sd-shadow--z1">
+                                            <div className="sd-list-item__border"></div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Icon type="primary" name="calendar" ariaHidden={true} />
+                                            </div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Badge text="P" type="success" />
+                                            </div>
+                                            <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
+                                                <div className="sd-list-item__row me-0-5">
+                                                    <ButtonGroup orientation="horizontal" spaces="compact">
+                                                        <Badge text="2" type="alert" />
+                                                        <Tag text="Tag one" size="small" shade="inverse" />
+                                                        <Label text="in progress" type="success" style="translucent" />
+                                                    </ButtonGroup>
+                                                    <span className="sd-list-item__slugline text-ellipsis flex-shrink">
+                                                        Planning Slug
                                                     </span>
-                                                </div> */}
+                                                    <span className="text-ellipsis">
+                                                        <span className="sd-list-item__text-strong text-sm">
+                                                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus
+                                                            dolor auctor.
+                                                        </span>
+                                                    </span>
+                                                    <div className="text-ellipsis ms-auto">
+                                                        <span className="EventDateTime sd-list-item__slugline sd-no-wrap text-sm">
+                                                            <time className="Datetime" title="CET 25.02&nbsp;06:00">
+                                                                25.02&nbsp;06:00
+                                                            </time>
+                                                            –
+                                                            <time className="Datetime" title="CET 26.02&nbsp;05:59">
+                                                                26.02&nbsp;05:59
+                                                            </time>
+                                                            <span>
+                                                                &nbsp;(
+                                                                <span className="EventDateTime__timezone sd-margin-r--0-5">
+                                                                    EST
+                                                                </span>
+                                                                <time className="Datetime" title="EST 00:00">
+                                                                    00:00
+                                                                </time>
+                                                                –
+                                                                <time className="Datetime" title="EST 23:59">
+                                                                    23:59
+                                                                </time>
+                                                                )
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <AvatarGroup size="x-small" items={avatars} />
+                                                </div>
+                                            </div>
+                                            <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row ps-0">
+                                                <ButtonGroup orientation="vertical" spaces="compact">
+                                                    <IconButton
+                                                        size="small"
+                                                        icon="dots-vertical"
+                                                        ariaValue="Show more actions"
+                                                        onClick={() => false}
+                                                    />
+                                                </ButtonGroup>
+                                            </div>
+                                        </div>
+
+                                        {/* List item 4 */}
+                                        <div role="listitem" className="sd-list-item sd-shadow--z1">
+                                            <div className="sd-list-item__border"></div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Icon type="primary" name="calendar" ariaHidden={true} />
+                                            </div>
+                                            <div className="sd-list-item__column px-1">
+                                                <Badge text="P" type="success" />
+                                            </div>
+                                            <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
+                                                <div className="sd-list-item__row me-0-5">
+                                                    <ButtonGroup orientation="horizontal" spaces="compact">
+                                                        <Badge text="2" type="alert" />
+                                                        <Tag text="Tag one" size="small" shade="inverse" />
+                                                        <Label text="in progress" type="success" style="translucent" />
+                                                    </ButtonGroup>
+                                                    <span className="sd-list-item__slugline text-ellipsis flex-shrink">
+                                                        Planning Slug
+                                                    </span>
+                                                    <span className="text-ellipsis">
+                                                        <span className="sd-list-item__text-strong text-sm">
+                                                            Vivamus sagittis lacus vel augue laoreet rutrum faucibus
+                                                            dolor auctor.
+                                                        </span>
+                                                    </span>
+                                                    <span className="me-auto"></span>
+                                                    <div className="text-ellipsis">
+                                                        <span className="EventDateTime sd-list-item__slugline sd-no-wrap text-sm">
+                                                            <time className="Datetime" title="CET 25.02&nbsp;06:00">
+                                                                25.02&nbsp;06:00
+                                                            </time>
+                                                            –
+                                                            <time className="Datetime" title="CET 26.02&nbsp;05:59">
+                                                                26.02&nbsp;05:59
+                                                            </time>
+                                                            <span>
+                                                                &nbsp;(
+                                                                <span className="EventDateTime__timezone sd-margin-r--0-5">
+                                                                    EST
+                                                                </span>
+                                                                <time className="Datetime" title="EST 00:00">
+                                                                    00:00
+                                                                </time>
+                                                                –
+                                                                <time className="Datetime" title="EST 23:59">
+                                                                    23:59
+                                                                </time>
+                                                                )
+                                                            </span>
+                                                        </span>
+                                                    </div>
+                                                    <AvatarGroup size="x-small" items={avatars} />
+                                                </div>
                                             </div>
                                             <div className="sd-list-item__action-menu sd-list-item__action-menu--direction-row ps-0">
                                                 <ButtonGroup orientation="vertical" spaces="compact">
@@ -1751,7 +1949,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                         <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border pe-1">
                                             <div className="sd-list-item__row">
                                                 <span className="sd-list-item__slugline">Planning Slug</span>
-                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="text-ellipsis sd-list-item--element-grow">
                                                     <span className="sd-list-item__text-strong">
                                                         Cras justo odio, dapibus ac facilisis in.
                                                     </span>
@@ -1971,7 +2169,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                                     </div>
                                                     <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                         <div className="sd-list-item__row">
-                                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                            <span className="text-ellipsis sd-list-item--element-grow">
                                                                 <span className="sd-list-item__compound-text">
                                                                     <span className="sd-list-item__text-strong">
                                                                         Photo
@@ -2053,7 +2251,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                                         </div>
                                                         <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border gap-0-5">
                                                             <div className="sd-list-item__row m-0 flex-grow">
-                                                                <span className="sd-overflow-ellipsis flex-grow">
+                                                                <span className="text-ellipsis flex-grow">
                                                                     <span className="sd-list-item__compound-text">
                                                                         <span className="sd-list-item__text-strong">
                                                                             Photo
@@ -2308,7 +2506,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                         <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                             <div className="sd-list-item__row">
                                                 <span className="sd-list-item__slugline">Planning Slug</span>
-                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="text-ellipsis sd-list-item--element-grow">
                                                     <span className="sd-list-item__text-strong">
                                                         Cras justo odio, dapibus ac facilisis in.
                                                     </span>
@@ -2388,7 +2586,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                                     </div>
                                                     <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                                         <div className="sd-list-item__row">
-                                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                            <span className="text-ellipsis sd-list-item--element-grow">
                                                                 <span className="sd-list-item__compound-text">
                                                                     <span className="sd-list-item__text-strong">
                                                                         Photo
@@ -2495,7 +2693,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                         <div className="sd-list-item__column sd-list-item__column--grow sd-list-item__column--no-border">
                                             <div className="sd-list-item__row">
                                                 <span className="sd-list-item__slugline">Planning Item Slug</span>
-                                                <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                                <span className="text-ellipsis sd-list-item--element-grow">
                                                     <span className="sd-list-item__text-strong">
                                                         Aenean eu leo quam. Pellentesque ornare sem lacinia quam
                                                     </span>
@@ -2882,7 +3080,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                         <div className="sd-list-item__row">
                                             <i role="presentation" className="icon-calendar icon--light-blue"></i>
                                             <span className="sd-list-item__slugline">Planning Slug</span>
-                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                            <span className="text-ellipsis sd-list-item--element-grow">
                                                 <span className="sd-list-item__text-strong">
                                                     Cras justo odio, dapibus ac facilisis in.
                                                 </span>
@@ -2943,7 +3141,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                         <div className="sd-list-item__row">
                                             <i role="presentation" className="icon-calendar icon--light-blue"></i>
                                             <span className="sd-list-item__slugline">Planning Slug</span>
-                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                            <span className="text-ellipsis sd-list-item--element-grow">
                                                 <span className="sd-list-item__text-strong">
                                                     Cras justo odio, dapibus ac facilisis in.
                                                 </span>
@@ -2991,7 +3189,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                         <div className="sd-list-item__row">
                                             <i role="presentation" className="icon-calendar icon--light-blue"></i>
                                             <span className="sd-list-item__slugline">Planning Slug</span>
-                                            <span className="sd-overflow-ellipsis sd-list-item--element-grow">
+                                            <span className="text-ellipsis sd-list-item--element-grow">
                                                 <span className="sd-list-item__text-strong">
                                                     Cras justo odio, dapibus ac facilisis in.
                                                 </span>

@@ -6,6 +6,7 @@ interface IProps {
     text: string;
     label?: string;
     keyValue?: number;
+    size?: 'small' | 'normal'; // default normal
     shade?: 'light' | 'darker' | 'highlight1' | 'highlight2' | 'inverse'; // default light
     shape?: 'round' | 'square'; // default round
     readOnly?: boolean;
@@ -13,11 +14,12 @@ interface IProps {
     onClick?(): void;
 }
 
-export const Tag = ({text, keyValue, shade, shape, readOnly, onClick, label, draggable}: IProps) => {
+export const Tag = ({text, keyValue, shade, shape, readOnly, onClick, label, draggable, size}: IProps) => {
     let classes = classNames('tag-label', {
         [`tag-label--${shade}`]: shade && shade !== 'light',
         'tag-label--square': shape === 'square',
         'tag-label--draggable': draggable === true,
+        [`tag-label--${size}`]: size !== 'normal' && size !== undefined,
     });
 
     const removeButton =

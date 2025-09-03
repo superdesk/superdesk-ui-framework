@@ -1082,7 +1082,6 @@ doc-gif-img:hover img {
     position: sticky;
     top: 0;
     background-color: var(--docs-page-color-bg-00);
-    border-bottom:;
 }
 
 .docs-page__container table.utilities-table tbody td {
