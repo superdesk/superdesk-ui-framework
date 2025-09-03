@@ -1,69 +1,100 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
+'use strict';
+var __extends =
+    (this && this.__extends) ||
+    (function () {
+        var extendStatics = function (d, b) {
+            extendStatics =
+                Object.setPrototypeOf ||
+                ({__proto__: []} instanceof Array &&
+                    function (d, b) {
+                        d.__proto__ = b;
+                    }) ||
+                function (d, b) {
+                    for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+                };
+            return extendStatics(d, b);
         };
-        return ownKeys(o);
+        return function (d, b) {
+            if (typeof b !== 'function' && b !== null)
+                throw new TypeError('Class extends value ' + String(b) + ' is not a constructor or null');
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : ((__.prototype = b.prototype), new __());
+        };
+    })();
+var __createBinding =
+    (this && this.__createBinding) ||
+    (Object.create
+        ? function (o, m, k, k2) {
+              if (k2 === undefined) k2 = k;
+              var desc = Object.getOwnPropertyDescriptor(m, k);
+              if (!desc || ('get' in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+                  desc = {
+                      enumerable: true,
+                      get: function () {
+                          return m[k];
+                      },
+                  };
+              }
+              Object.defineProperty(o, k2, desc);
+          }
+        : function (o, m, k, k2) {
+              if (k2 === undefined) k2 = k;
+              o[k2] = m[k];
+          });
+var __setModuleDefault =
+    (this && this.__setModuleDefault) ||
+    (Object.create
+        ? function (o, v) {
+              Object.defineProperty(o, 'default', {enumerable: true, value: v});
+          }
+        : function (o, v) {
+              o['default'] = v;
+          });
+var __importStar =
+    (this && this.__importStar) ||
+    (function () {
+        var ownKeys = function (o) {
+            ownKeys =
+                Object.getOwnPropertyNames ||
+                function (o) {
+                    var ar = [];
+                    for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+                    return ar;
+                };
+            return ownKeys(o);
+        };
+        return function (mod) {
+            if (mod && mod.__esModule) return mod;
+            var result = {};
+            if (mod != null)
+                for (var k = ownKeys(mod), i = 0; i < k.length; i++)
+                    if (k[i] !== 'default') __createBinding(result, mod, k[i]);
+            __setModuleDefault(result, mod);
+            return result;
+        };
+    })();
+var __importDefault =
+    (this && this.__importDefault) ||
+    function (mod) {
+        return mod && mod.__esModule ? mod : {default: mod};
     };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', {value: true});
 exports.TabList = exports.Tab = void 0;
-var React = __importStar(require("react"));
-var classnames_1 = __importDefault(require("classnames"));
+var React = __importStar(require('react'));
+var classnames_1 = __importDefault(require('classnames'));
 var Tab = /** @class */ (function (_super) {
     __extends(Tab, _super);
     function Tab() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        return (_super !== null && _super.apply(this, arguments)) || this;
     }
     Tab.prototype.render = function () {
-        return (React.createElement("div", { className: "sd-nav-tabs__pane", role: "tabpanel" }, this.props.children));
+        return React.createElement('div', {className: 'sd-nav-tabs__pane', role: 'tabpanel'}, this.props.children);
     };
     return Tab;
-}(React.PureComponent));
+})(React.PureComponent);
 exports.Tab = Tab;
 var TabList = /** @class */ (function (_super) {
     __extends(TabList, _super);
@@ -82,7 +113,9 @@ var TabList = /** @class */ (function (_super) {
         });
     };
     TabList.prototype.goTo = function (label) {
-        var refLabel = this.props.children.find(function (item) { return item.props.label === label; });
+        var refLabel = this.props.children.find(function (item) {
+            return item.props.label === label;
+        });
         this.setState({
             index: this.props.children.indexOf(refLabel),
         });
@@ -90,15 +123,46 @@ var TabList = /** @class */ (function (_super) {
     TabList.prototype.render = function () {
         var _a;
         var _this = this;
-        var classes = (0, classnames_1.default)('sd-nav-tabs', (_a = {},
-            _a["sd-nav-tabs--".concat(this.props.size)] = this.props.size && this.props.size !== undefined,
-            _a['sd-nav-tabs--ui-dark'] = this.props.theme === 'dark',
-            _a));
-        return (React.createElement(React.Fragment, null,
-            React.createElement("div", { className: classes, role: "tablist" }, this.props.children.map(function (item, index) { return (React.createElement("button", { key: index, onClick: function () { return _this.handleChange(index); }, role: "tab", "aria-selected": _this.state.index === index ? 'true' : 'false', className: 'sd-nav-tabs__tab' + (_this.state.index === index ? ' sd-nav-tabs__tab--active' : '') },
-                React.createElement("span", null, item.props.label))); })),
-            React.createElement("div", { className: 'sd-nav-tabs__content' + (this.props.theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : '') }, this.props.children[this.state.index])));
+        var classes = (0, classnames_1.default)(
+            'sd-nav-tabs',
+            ((_a = {}),
+            (_a['sd-nav-tabs--'.concat(this.props.size)] = this.props.size && this.props.size !== undefined),
+            (_a['sd-nav-tabs--ui-dark'] = this.props.theme === 'dark'),
+            _a),
+        );
+        return React.createElement(
+            React.Fragment,
+            null,
+            React.createElement(
+                'div',
+                {className: classes, role: 'tablist'},
+                this.props.children.map(function (item, index) {
+                    return React.createElement(
+                        'button',
+                        {
+                            key: index,
+                            onClick: function () {
+                                return _this.handleChange(index);
+                            },
+                            role: 'tab',
+                            'aria-selected': _this.state.index === index ? 'true' : 'false',
+                            className:
+                                'sd-nav-tabs__tab' + (_this.state.index === index ? ' sd-nav-tabs__tab--active' : ''),
+                        },
+                        React.createElement('span', null, item.props.label),
+                    );
+                }),
+            ),
+            React.createElement(
+                'div',
+                {
+                    className:
+                        'sd-nav-tabs__content' + (this.props.theme === 'dark' ? ' sd-nav-tabs__content--ui-dark' : ''),
+                },
+                this.props.children[this.state.index],
+            ),
+        );
     };
     return TabList;
-}(React.PureComponent));
+})(React.PureComponent);
 exports.TabList = TabList;

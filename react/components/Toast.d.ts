@@ -1,4 +1,4 @@
-import { MessageProp, IMessageOptions, Position } from './ToastMessage';
+import {MessageProp, IMessageOptions, Position} from './ToastMessage';
 import ToastWrapper from './ToastWrapper';
 interface IMessageId {
     id: string;

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IInputWrapper } from '../Form/InputWrapper';
-import { DropResult } from 'react-beautiful-dnd';
+import {IInputWrapper} from '../Form/InputWrapper';
+import {DropResult} from 'react-beautiful-dnd';
 interface IState<T> {
     value: Array<T>;
     options: Array<ITreeNode<T>>;
@@ -35,9 +35,12 @@ interface IPropsBase<T> extends IInputWrapper {
     getBackgroundColor?(item: T): string;
     getBorderColor?(item: T): string;
     optionTemplate?(item: T): React.ComponentType<T> | JSX.Element;
-    valueTemplate?(item: T, Wrapper: React.ComponentType<{
-        backgroundColor?: string;
-    }>): React.ComponentType<T> | JSX.Element;
+    valueTemplate?(
+        item: T,
+        Wrapper: React.ComponentType<{
+            backgroundColor?: string;
+        }>,
+    ): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
 }
 interface IPropsSync<T> extends IPropsBase<T> {

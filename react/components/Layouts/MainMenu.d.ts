@@ -38,4 +38,4 @@ interface IProps {
 export default class MainMenu extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
-export { MainMenu, MainMenuContainer, MainMenuHeader, MainMenuContent, MainMenuFooter };
+export {MainMenu, MainMenuContainer, MainMenuHeader, MainMenuContent, MainMenuFooter};

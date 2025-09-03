@@ -1,86 +1,350 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.NotificationPanel = exports.MainMenu = exports.BottomBarAction = exports.HamburgerButton = exports.CoreLayoutOverlay = exports.CoreLayoutFooter = exports.CoreLayoutSlideInMenu = exports.CoreLayoutMain = exports.CoreLayoutTopMenu = exports.CoreLayoutContainer = exports.CoreLayout = exports.AuthorinInnerSideBar = exports.AuthoringInnerBody = exports.AuthoringInnerHeader = exports.AuthoringMainContent = exports.AuthoringMainToolBar = exports.AuthoringMainContainer = exports.AuthoringMain = exports.AuthoringFrame = exports.AuthoringFrameOverlay = exports.AuthoringFrameSidePanelOverlay = exports.AuthoringFrameSidePanel = exports.AuthoringFrameRightBar = exports.AuthoringFrameLeftBar = exports.AuthoringFrameNavBar = exports.AuthoringFrameMain = exports.AuthoringFrameContainer = exports.Container = exports.PageLayout = exports.ContentSplitter = exports.AuthoringContainer = exports.OverlayPanel = exports.RightPanel = exports.LeftPanel = exports.MainPanel = exports.HeaderPanel = exports.LayoutContainer = exports.Layout = exports.PanelHeaderSlidingToolbar = exports.PanelFooter = exports.PanelContentBlock = exports.PanelContent = exports.PanelHeader = exports.Panel = void 0;
-var Panel_1 = require("./Panel");
-Object.defineProperty(exports, "Panel", { enumerable: true, get: function () { return Panel_1.Panel; } });
-Object.defineProperty(exports, "PanelHeader", { enumerable: true, get: function () { return Panel_1.PanelHeader; } });
-Object.defineProperty(exports, "PanelContent", { enumerable: true, get: function () { return Panel_1.PanelContent; } });
-Object.defineProperty(exports, "PanelContentBlock", { enumerable: true, get: function () { return Panel_1.PanelContentBlock; } });
-Object.defineProperty(exports, "PanelFooter", { enumerable: true, get: function () { return Panel_1.PanelFooter; } });
-Object.defineProperty(exports, "PanelHeaderSlidingToolbar", { enumerable: true, get: function () { return Panel_1.PanelHeaderSlidingToolbar; } });
-var Layout_1 = require("./Layout");
-Object.defineProperty(exports, "Layout", { enumerable: true, get: function () { return Layout_1.Layout; } });
-var LayoutContainer_1 = require("./LayoutContainer");
-Object.defineProperty(exports, "LayoutContainer", { enumerable: true, get: function () { return LayoutContainer_1.LayoutContainer; } });
-var HeaderPanel_1 = require("./HeaderPanel");
-Object.defineProperty(exports, "HeaderPanel", { enumerable: true, get: function () { return HeaderPanel_1.HeaderPanel; } });
-var MainPanel_1 = require("./MainPanel");
-Object.defineProperty(exports, "MainPanel", { enumerable: true, get: function () { return MainPanel_1.MainPanel; } });
-var LeftPanel_1 = require("./LeftPanel");
-Object.defineProperty(exports, "LeftPanel", { enumerable: true, get: function () { return LeftPanel_1.LeftPanel; } });
-var RightPanel_1 = require("./RightPanel");
-Object.defineProperty(exports, "RightPanel", { enumerable: true, get: function () { return RightPanel_1.RightPanel; } });
-var OverlayPanel_1 = require("./OverlayPanel");
-Object.defineProperty(exports, "OverlayPanel", { enumerable: true, get: function () { return OverlayPanel_1.OverlayPanel; } });
-var AuthoringContainer_1 = require("./AuthoringContainer");
-Object.defineProperty(exports, "AuthoringContainer", { enumerable: true, get: function () { return AuthoringContainer_1.AuthoringContainer; } });
-var ContentSplitter_1 = require("./ContentSplitter");
-Object.defineProperty(exports, "ContentSplitter", { enumerable: true, get: function () { return ContentSplitter_1.ContentSplitter; } });
-var PageLayout_1 = require("./PageLayout");
-Object.defineProperty(exports, "PageLayout", { enumerable: true, get: function () { return PageLayout_1.PageLayout; } });
-var Container_1 = require("./Container");
-Object.defineProperty(exports, "Container", { enumerable: true, get: function () { return Container_1.Container; } });
-var AuthoringFrameContainer_1 = require("./AuthoringFrameContainer");
-Object.defineProperty(exports, "AuthoringFrameContainer", { enumerable: true, get: function () { return AuthoringFrameContainer_1.AuthoringFrameContainer; } });
-var AuthoringFrameMain_1 = require("./AuthoringFrameMain");
-Object.defineProperty(exports, "AuthoringFrameMain", { enumerable: true, get: function () { return AuthoringFrameMain_1.AuthoringFrameMain; } });
-var AuthoringFrameNavBar_1 = require("./AuthoringFrameNavBar");
-Object.defineProperty(exports, "AuthoringFrameNavBar", { enumerable: true, get: function () { return AuthoringFrameNavBar_1.AuthoringFrameNavBar; } });
-var AuthoringFrameLeftBar_1 = require("./AuthoringFrameLeftBar");
-Object.defineProperty(exports, "AuthoringFrameLeftBar", { enumerable: true, get: function () { return AuthoringFrameLeftBar_1.AuthoringFrameLeftBar; } });
-var AuthoringFrameRightBar_1 = require("./AuthoringFrameRightBar");
-Object.defineProperty(exports, "AuthoringFrameRightBar", { enumerable: true, get: function () { return AuthoringFrameRightBar_1.AuthoringFrameRightBar; } });
-var AuthoringFrameSidePanel_1 = require("./AuthoringFrameSidePanel");
-Object.defineProperty(exports, "AuthoringFrameSidePanel", { enumerable: true, get: function () { return AuthoringFrameSidePanel_1.AuthoringFrameSidePanel; } });
-var AuthoringFrameSidePanelOverlay_1 = require("./AuthoringFrameSidePanelOverlay");
-Object.defineProperty(exports, "AuthoringFrameSidePanelOverlay", { enumerable: true, get: function () { return AuthoringFrameSidePanelOverlay_1.AuthoringFrameSidePanelOverlay; } });
-var AuthoringFrameOverlay_1 = require("./AuthoringFrameOverlay");
-Object.defineProperty(exports, "AuthoringFrameOverlay", { enumerable: true, get: function () { return AuthoringFrameOverlay_1.AuthoringFrameOverlay; } });
-var AuthoringFrame_1 = require("./AuthoringFrame");
-Object.defineProperty(exports, "AuthoringFrame", { enumerable: true, get: function () { return AuthoringFrame_1.AuthoringFrame; } });
-var AuthoringMain_1 = require("./AuthoringMain");
-Object.defineProperty(exports, "AuthoringMain", { enumerable: true, get: function () { return AuthoringMain_1.AuthoringMain; } });
-var AuthoringMainContainer_1 = require("./AuthoringMainContainer");
-Object.defineProperty(exports, "AuthoringMainContainer", { enumerable: true, get: function () { return AuthoringMainContainer_1.AuthoringMainContainer; } });
-var AuthoringMainToolBar_1 = require("./AuthoringMainToolBar");
-Object.defineProperty(exports, "AuthoringMainToolBar", { enumerable: true, get: function () { return AuthoringMainToolBar_1.AuthoringMainToolBar; } });
-var AuthoringMainContent_1 = require("./AuthoringMainContent");
-Object.defineProperty(exports, "AuthoringMainContent", { enumerable: true, get: function () { return AuthoringMainContent_1.AuthoringMainContent; } });
-var AuthoringInnerHeader_1 = require("./AuthoringInnerHeader");
-Object.defineProperty(exports, "AuthoringInnerHeader", { enumerable: true, get: function () { return AuthoringInnerHeader_1.AuthoringInnerHeader; } });
-var AuthoringInnerBody_1 = require("./AuthoringInnerBody");
-Object.defineProperty(exports, "AuthoringInnerBody", { enumerable: true, get: function () { return AuthoringInnerBody_1.AuthoringInnerBody; } });
-var AuthorinInnerSideBar_1 = require("./AuthorinInnerSideBar");
-Object.defineProperty(exports, "AuthorinInnerSideBar", { enumerable: true, get: function () { return AuthorinInnerSideBar_1.AuthorinInnerSideBar; } });
-var CoreLayout_1 = require("./CoreLayout");
-Object.defineProperty(exports, "CoreLayout", { enumerable: true, get: function () { return CoreLayout_1.CoreLayout; } });
-var CoreLayoutContainer_1 = require("./CoreLayoutContainer");
-Object.defineProperty(exports, "CoreLayoutContainer", { enumerable: true, get: function () { return CoreLayoutContainer_1.CoreLayoutContainer; } });
-var CoreLayoutTopMenu_1 = require("./CoreLayoutTopMenu");
-Object.defineProperty(exports, "CoreLayoutTopMenu", { enumerable: true, get: function () { return CoreLayoutTopMenu_1.CoreLayoutTopMenu; } });
-var CoreLayoutMain_1 = require("./CoreLayoutMain");
-Object.defineProperty(exports, "CoreLayoutMain", { enumerable: true, get: function () { return CoreLayoutMain_1.CoreLayoutMain; } });
-var CoreLayoutSlideInMenu_1 = require("./CoreLayoutSlideInMenu");
-Object.defineProperty(exports, "CoreLayoutSlideInMenu", { enumerable: true, get: function () { return CoreLayoutSlideInMenu_1.CoreLayoutSlideInMenu; } });
-var CoreLayoutFooter_1 = require("./CoreLayoutFooter");
-Object.defineProperty(exports, "CoreLayoutFooter", { enumerable: true, get: function () { return CoreLayoutFooter_1.CoreLayoutFooter; } });
-var CoreLayoutOverlay_1 = require("./CoreLayoutOverlay");
-Object.defineProperty(exports, "CoreLayoutOverlay", { enumerable: true, get: function () { return CoreLayoutOverlay_1.CoreLayoutOverlay; } });
-var HamburgerButton_1 = require("./HamburgerButton");
-Object.defineProperty(exports, "HamburgerButton", { enumerable: true, get: function () { return HamburgerButton_1.HamburgerButton; } });
-var BottomBarAction_1 = require("./BottomBarAction");
-Object.defineProperty(exports, "BottomBarAction", { enumerable: true, get: function () { return BottomBarAction_1.BottomBarAction; } });
-var MainMenu_1 = require("./MainMenu");
-Object.defineProperty(exports, "MainMenu", { enumerable: true, get: function () { return MainMenu_1.MainMenu; } });
-var NotificationPanel_1 = require("./NotificationPanel");
-Object.defineProperty(exports, "NotificationPanel", { enumerable: true, get: function () { return NotificationPanel_1.NotificationPanel; } });
+'use strict';
+Object.defineProperty(exports, '__esModule', {value: true});
+exports.NotificationPanel =
+    exports.MainMenu =
+    exports.BottomBarAction =
+    exports.HamburgerButton =
+    exports.CoreLayoutOverlay =
+    exports.CoreLayoutFooter =
+    exports.CoreLayoutSlideInMenu =
+    exports.CoreLayoutMain =
+    exports.CoreLayoutTopMenu =
+    exports.CoreLayoutContainer =
+    exports.CoreLayout =
+    exports.AuthorinInnerSideBar =
+    exports.AuthoringInnerBody =
+    exports.AuthoringInnerHeader =
+    exports.AuthoringMainContent =
+    exports.AuthoringMainToolBar =
+    exports.AuthoringMainContainer =
+    exports.AuthoringMain =
+    exports.AuthoringFrame =
+    exports.AuthoringFrameOverlay =
+    exports.AuthoringFrameSidePanelOverlay =
+    exports.AuthoringFrameSidePanel =
+    exports.AuthoringFrameRightBar =
+    exports.AuthoringFrameLeftBar =
+    exports.AuthoringFrameNavBar =
+    exports.AuthoringFrameMain =
+    exports.AuthoringFrameContainer =
+    exports.Container =
+    exports.PageLayout =
+    exports.ContentSplitter =
+    exports.AuthoringContainer =
+    exports.OverlayPanel =
+    exports.RightPanel =
+    exports.LeftPanel =
+    exports.MainPanel =
+    exports.HeaderPanel =
+    exports.LayoutContainer =
+    exports.Layout =
+    exports.PanelHeaderSlidingToolbar =
+    exports.PanelFooter =
+    exports.PanelContentBlock =
+    exports.PanelContent =
+    exports.PanelHeader =
+    exports.Panel =
+        void 0;
+var Panel_1 = require('./Panel');
+Object.defineProperty(exports, 'Panel', {
+    enumerable: true,
+    get: function () {
+        return Panel_1.Panel;
+    },
+});
+Object.defineProperty(exports, 'PanelHeader', {
+    enumerable: true,
+    get: function () {
+        return Panel_1.PanelHeader;
+    },
+});
+Object.defineProperty(exports, 'PanelContent', {
+    enumerable: true,
+    get: function () {
+        return Panel_1.PanelContent;
+    },
+});
+Object.defineProperty(exports, 'PanelContentBlock', {
+    enumerable: true,
+    get: function () {
+        return Panel_1.PanelContentBlock;
+    },
+});
+Object.defineProperty(exports, 'PanelFooter', {
+    enumerable: true,
+    get: function () {
+        return Panel_1.PanelFooter;
+    },
+});
+Object.defineProperty(exports, 'PanelHeaderSlidingToolbar', {
+    enumerable: true,
+    get: function () {
+        return Panel_1.PanelHeaderSlidingToolbar;
+    },
+});
+var Layout_1 = require('./Layout');
+Object.defineProperty(exports, 'Layout', {
+    enumerable: true,
+    get: function () {
+        return Layout_1.Layout;
+    },
+});
+var LayoutContainer_1 = require('./LayoutContainer');
+Object.defineProperty(exports, 'LayoutContainer', {
+    enumerable: true,
+    get: function () {
+        return LayoutContainer_1.LayoutContainer;
+    },
+});
+var HeaderPanel_1 = require('./HeaderPanel');
+Object.defineProperty(exports, 'HeaderPanel', {
+    enumerable: true,
+    get: function () {
+        return HeaderPanel_1.HeaderPanel;
+    },
+});
+var MainPanel_1 = require('./MainPanel');
+Object.defineProperty(exports, 'MainPanel', {
+    enumerable: true,
+    get: function () {
+        return MainPanel_1.MainPanel;
+    },
+});
+var LeftPanel_1 = require('./LeftPanel');
+Object.defineProperty(exports, 'LeftPanel', {
+    enumerable: true,
+    get: function () {
+        return LeftPanel_1.LeftPanel;
+    },
+});
+var RightPanel_1 = require('./RightPanel');
+Object.defineProperty(exports, 'RightPanel', {
+    enumerable: true,
+    get: function () {
+        return RightPanel_1.RightPanel;
+    },
+});
+var OverlayPanel_1 = require('./OverlayPanel');
+Object.defineProperty(exports, 'OverlayPanel', {
+    enumerable: true,
+    get: function () {
+        return OverlayPanel_1.OverlayPanel;
+    },
+});
+var AuthoringContainer_1 = require('./AuthoringContainer');
+Object.defineProperty(exports, 'AuthoringContainer', {
+    enumerable: true,
+    get: function () {
+        return AuthoringContainer_1.AuthoringContainer;
+    },
+});
+var ContentSplitter_1 = require('./ContentSplitter');
+Object.defineProperty(exports, 'ContentSplitter', {
+    enumerable: true,
+    get: function () {
+        return ContentSplitter_1.ContentSplitter;
+    },
+});
+var PageLayout_1 = require('./PageLayout');
+Object.defineProperty(exports, 'PageLayout', {
+    enumerable: true,
+    get: function () {
+        return PageLayout_1.PageLayout;
+    },
+});
+var Container_1 = require('./Container');
+Object.defineProperty(exports, 'Container', {
+    enumerable: true,
+    get: function () {
+        return Container_1.Container;
+    },
+});
+var AuthoringFrameContainer_1 = require('./AuthoringFrameContainer');
+Object.defineProperty(exports, 'AuthoringFrameContainer', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameContainer_1.AuthoringFrameContainer;
+    },
+});
+var AuthoringFrameMain_1 = require('./AuthoringFrameMain');
+Object.defineProperty(exports, 'AuthoringFrameMain', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameMain_1.AuthoringFrameMain;
+    },
+});
+var AuthoringFrameNavBar_1 = require('./AuthoringFrameNavBar');
+Object.defineProperty(exports, 'AuthoringFrameNavBar', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameNavBar_1.AuthoringFrameNavBar;
+    },
+});
+var AuthoringFrameLeftBar_1 = require('./AuthoringFrameLeftBar');
+Object.defineProperty(exports, 'AuthoringFrameLeftBar', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameLeftBar_1.AuthoringFrameLeftBar;
+    },
+});
+var AuthoringFrameRightBar_1 = require('./AuthoringFrameRightBar');
+Object.defineProperty(exports, 'AuthoringFrameRightBar', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameRightBar_1.AuthoringFrameRightBar;
+    },
+});
+var AuthoringFrameSidePanel_1 = require('./AuthoringFrameSidePanel');
+Object.defineProperty(exports, 'AuthoringFrameSidePanel', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameSidePanel_1.AuthoringFrameSidePanel;
+    },
+});
+var AuthoringFrameSidePanelOverlay_1 = require('./AuthoringFrameSidePanelOverlay');
+Object.defineProperty(exports, 'AuthoringFrameSidePanelOverlay', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameSidePanelOverlay_1.AuthoringFrameSidePanelOverlay;
+    },
+});
+var AuthoringFrameOverlay_1 = require('./AuthoringFrameOverlay');
+Object.defineProperty(exports, 'AuthoringFrameOverlay', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrameOverlay_1.AuthoringFrameOverlay;
+    },
+});
+var AuthoringFrame_1 = require('./AuthoringFrame');
+Object.defineProperty(exports, 'AuthoringFrame', {
+    enumerable: true,
+    get: function () {
+        return AuthoringFrame_1.AuthoringFrame;
+    },
+});
+var AuthoringMain_1 = require('./AuthoringMain');
+Object.defineProperty(exports, 'AuthoringMain', {
+    enumerable: true,
+    get: function () {
+        return AuthoringMain_1.AuthoringMain;
+    },
+});
+var AuthoringMainContainer_1 = require('./AuthoringMainContainer');
+Object.defineProperty(exports, 'AuthoringMainContainer', {
+    enumerable: true,
+    get: function () {
+        return AuthoringMainContainer_1.AuthoringMainContainer;
+    },
+});
+var AuthoringMainToolBar_1 = require('./AuthoringMainToolBar');
+Object.defineProperty(exports, 'AuthoringMainToolBar', {
+    enumerable: true,
+    get: function () {
+        return AuthoringMainToolBar_1.AuthoringMainToolBar;
+    },
+});
+var AuthoringMainContent_1 = require('./AuthoringMainContent');
+Object.defineProperty(exports, 'AuthoringMainContent', {
+    enumerable: true,
+    get: function () {
+        return AuthoringMainContent_1.AuthoringMainContent;
+    },
+});
+var AuthoringInnerHeader_1 = require('./AuthoringInnerHeader');
+Object.defineProperty(exports, 'AuthoringInnerHeader', {
+    enumerable: true,
+    get: function () {
+        return AuthoringInnerHeader_1.AuthoringInnerHeader;
+    },
+});
+var AuthoringInnerBody_1 = require('./AuthoringInnerBody');
+Object.defineProperty(exports, 'AuthoringInnerBody', {
+    enumerable: true,
+    get: function () {
+        return AuthoringInnerBody_1.AuthoringInnerBody;
+    },
+});
+var AuthorinInnerSideBar_1 = require('./AuthorinInnerSideBar');
+Object.defineProperty(exports, 'AuthorinInnerSideBar', {
+    enumerable: true,
+    get: function () {
+        return AuthorinInnerSideBar_1.AuthorinInnerSideBar;
+    },
+});
+var CoreLayout_1 = require('./CoreLayout');
+Object.defineProperty(exports, 'CoreLayout', {
+    enumerable: true,
+    get: function () {
+        return CoreLayout_1.CoreLayout;
+    },
+});
+var CoreLayoutContainer_1 = require('./CoreLayoutContainer');
+Object.defineProperty(exports, 'CoreLayoutContainer', {
+    enumerable: true,
+    get: function () {
+        return CoreLayoutContainer_1.CoreLayoutContainer;
+    },
+});
+var CoreLayoutTopMenu_1 = require('./CoreLayoutTopMenu');
+Object.defineProperty(exports, 'CoreLayoutTopMenu', {
+    enumerable: true,
+    get: function () {
+        return CoreLayoutTopMenu_1.CoreLayoutTopMenu;
+    },
+});
+var CoreLayoutMain_1 = require('./CoreLayoutMain');
+Object.defineProperty(exports, 'CoreLayoutMain', {
+    enumerable: true,
+    get: function () {
+        return CoreLayoutMain_1.CoreLayoutMain;
+    },
+});
+var CoreLayoutSlideInMenu_1 = require('./CoreLayoutSlideInMenu');
+Object.defineProperty(exports, 'CoreLayoutSlideInMenu', {
+    enumerable: true,
+    get: function () {
+        return CoreLayoutSlideInMenu_1.CoreLayoutSlideInMenu;
+    },
+});
+var CoreLayoutFooter_1 = require('./CoreLayoutFooter');
+Object.defineProperty(exports, 'CoreLayoutFooter', {
+    enumerable: true,
+    get: function () {
+        return CoreLayoutFooter_1.CoreLayoutFooter;
+    },
+});
+var CoreLayoutOverlay_1 = require('./CoreLayoutOverlay');
+Object.defineProperty(exports, 'CoreLayoutOverlay', {
+    enumerable: true,
+    get: function () {
+        return CoreLayoutOverlay_1.CoreLayoutOverlay;
+    },
+});
+var HamburgerButton_1 = require('./HamburgerButton');
+Object.defineProperty(exports, 'HamburgerButton', {
+    enumerable: true,
+    get: function () {
+        return HamburgerButton_1.HamburgerButton;
+    },
+});
+var BottomBarAction_1 = require('./BottomBarAction');
+Object.defineProperty(exports, 'BottomBarAction', {
+    enumerable: true,
+    get: function () {
+        return BottomBarAction_1.BottomBarAction;
+    },
+});
+var MainMenu_1 = require('./MainMenu');
+Object.defineProperty(exports, 'MainMenu', {
+    enumerable: true,
+    get: function () {
+        return MainMenu_1.MainMenu;
+    },
+});
+var NotificationPanel_1 = require('./NotificationPanel');
+Object.defineProperty(exports, 'NotificationPanel', {
+    enumerable: true,
+    get: function () {
+        return NotificationPanel_1.NotificationPanel;
+    },
+});

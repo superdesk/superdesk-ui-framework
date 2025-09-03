@@ -1,67 +1,99 @@
-"use strict";
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    var desc = Object.getOwnPropertyDescriptor(m, k);
-    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
-      desc = { enumerable: true, get: function() { return m[k]; } };
-    }
-    Object.defineProperty(o, k2, desc);
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || (function () {
-    var ownKeys = function(o) {
-        ownKeys = Object.getOwnPropertyNames || function (o) {
-            var ar = [];
-            for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
-            return ar;
+'use strict';
+var __extends =
+    (this && this.__extends) ||
+    (function () {
+        var extendStatics = function (d, b) {
+            extendStatics =
+                Object.setPrototypeOf ||
+                ({__proto__: []} instanceof Array &&
+                    function (d, b) {
+                        d.__proto__ = b;
+                    }) ||
+                function (d, b) {
+                    for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p];
+                };
+            return extendStatics(d, b);
         };
-        return ownKeys(o);
+        return function (d, b) {
+            if (typeof b !== 'function' && b !== null)
+                throw new TypeError('Class extends value ' + String(b) + ' is not a constructor or null');
+            extendStatics(d, b);
+            function __() {
+                this.constructor = d;
+            }
+            d.prototype = b === null ? Object.create(b) : ((__.prototype = b.prototype), new __());
+        };
+    })();
+var __createBinding =
+    (this && this.__createBinding) ||
+    (Object.create
+        ? function (o, m, k, k2) {
+              if (k2 === undefined) k2 = k;
+              var desc = Object.getOwnPropertyDescriptor(m, k);
+              if (!desc || ('get' in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+                  desc = {
+                      enumerable: true,
+                      get: function () {
+                          return m[k];
+                      },
+                  };
+              }
+              Object.defineProperty(o, k2, desc);
+          }
+        : function (o, m, k, k2) {
+              if (k2 === undefined) k2 = k;
+              o[k2] = m[k];
+          });
+var __setModuleDefault =
+    (this && this.__setModuleDefault) ||
+    (Object.create
+        ? function (o, v) {
+              Object.defineProperty(o, 'default', {enumerable: true, value: v});
+          }
+        : function (o, v) {
+              o['default'] = v;
+          });
+var __importStar =
+    (this && this.__importStar) ||
+    (function () {
+        var ownKeys = function (o) {
+            ownKeys =
+                Object.getOwnPropertyNames ||
+                function (o) {
+                    var ar = [];
+                    for (var k in o) if (Object.prototype.hasOwnProperty.call(o, k)) ar[ar.length] = k;
+                    return ar;
+                };
+            return ownKeys(o);
+        };
+        return function (mod) {
+            if (mod && mod.__esModule) return mod;
+            var result = {};
+            if (mod != null)
+                for (var k = ownKeys(mod), i = 0; i < k.length; i++)
+                    if (k[i] !== 'default') __createBinding(result, mod, k[i]);
+            __setModuleDefault(result, mod);
+            return result;
+        };
+    })();
+var __spreadArray =
+    (this && this.__spreadArray) ||
+    function (to, from, pack) {
+        if (pack || arguments.length === 2)
+            for (var i = 0, l = from.length, ar; i < l; i++) {
+                if (ar || !(i in from)) {
+                    if (!ar) ar = Array.prototype.slice.call(from, 0, i);
+                    ar[i] = from[i];
+                }
+            }
+        return to.concat(ar || Array.prototype.slice.call(from));
     };
-    return function (mod) {
-        if (mod && mod.__esModule) return mod;
-        var result = {};
-        if (mod != null) for (var k = ownKeys(mod), i = 0; i < k.length; i++) if (k[i] !== "default") __createBinding(result, mod, k[i]);
-        __setModuleDefault(result, mod);
-        return result;
-    };
-})();
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-Object.defineProperty(exports, "__esModule", { value: true });
+Object.defineProperty(exports, '__esModule', {value: true});
 exports.IconPicker = void 0;
-var React = __importStar(require("react"));
-var Button_1 = require("./Button");
-var Icon_1 = require("./Icon");
-var SelectGrid_1 = require("./SelectGrid");
+var React = __importStar(require('react'));
+var Button_1 = require('./Button');
+var Icon_1 = require('./Icon');
+var SelectGrid_1 = require('./SelectGrid');
 var IconPicker = /** @class */ (function (_super) {
     __extends(IconPicker, _super);
     function IconPicker(props) {
@@ -71,8 +103,10 @@ var IconPicker = /** @class */ (function (_super) {
                 var icons = __spreadArray([], _this.state.icons, true);
                 if (searchString) {
                     icons = icons.filter(function (icon) {
-                        return icon.value.toLowerCase().includes(searchString) ||
-                            icon.label.toLowerCase().includes(searchString);
+                        return (
+                            icon.value.toLowerCase().includes(searchString) ||
+                            icon.label.toLowerCase().includes(searchString)
+                        );
                     });
                 }
                 resolve(icons);
@@ -81,32 +115,54 @@ var IconPicker = /** @class */ (function (_super) {
         _this.onChange = function (item) {
             _this.props.onChange(item.value);
         };
-        _this.triggerTemplate = function (props) { return (React.createElement(Button_1.Button, { icon: _this.props.value, text: _this.props.value, onClick: function (e) {
-                props.onClick(e);
-            }, iconOnly: true })); };
+        _this.triggerTemplate = function (props) {
+            return React.createElement(Button_1.Button, {
+                icon: _this.props.value,
+                text: _this.props.value,
+                onClick: function (e) {
+                    props.onClick(e);
+                },
+                iconOnly: true,
+            });
+        };
         _this.itemTemplate = function (_a) {
             var item = _a.item;
-            return item && (React.createElement(React.Fragment, null,
-                React.createElement(Icon_1.Icon, { name: item.value }),
-                React.createElement("span", { className: "sd-text--normal sd-padding-t--1" }, item.label)));
+            return (
+                item &&
+                React.createElement(
+                    React.Fragment,
+                    null,
+                    React.createElement(Icon_1.Icon, {name: item.value}),
+                    React.createElement('span', {className: 'sd-text--normal sd-padding-t--1'}, item.label),
+                )
+            );
         };
-        _this.state = { icons: [] };
+        _this.state = {icons: []};
         return _this;
     }
     IconPicker.prototype.componentDidMount = function () {
         var translateFunction = this.props.translateFunction
             ? this.props.translateFunction
-            : function (text) { return text; };
+            : function (text) {
+                  return text;
+              };
         this.setState({
             icons: getIcons(translateFunction),
         });
     };
     IconPicker.prototype.render = function () {
         var _a, _b;
-        return (React.createElement(SelectGrid_1.SelectGrid, { label: (_a = this.props.label) !== null && _a !== void 0 ? _a : 'Icon', filterPlaceholder: (_b = this.props.filterPlaceholder) !== null && _b !== void 0 ? _b : 'Search...', getItems: this.getItems, onChange: this.onChange, itemTemplate: this.itemTemplate, triggerTemplate: this.triggerTemplate }));
+        return React.createElement(SelectGrid_1.SelectGrid, {
+            label: (_a = this.props.label) !== null && _a !== void 0 ? _a : 'Icon',
+            filterPlaceholder: (_b = this.props.filterPlaceholder) !== null && _b !== void 0 ? _b : 'Search...',
+            getItems: this.getItems,
+            onChange: this.onChange,
+            itemTemplate: this.itemTemplate,
+            triggerTemplate: this.triggerTemplate,
+        });
     };
     return IconPicker;
-}(React.PureComponent));
+})(React.PureComponent);
 exports.IconPicker = IconPicker;
 var getIcons = function (translateFunction) {
     var translatedIconNameMap = {
@@ -296,8 +352,10 @@ var getIcons = function (translateFunction) {
     };
     return Object.keys(translatedIconNameMap)
         .sort()
-        .map(function (icon) { return ({
-        value: icon,
-        label: translateFunction(translatedIconNameMap[icon]),
-    }); });
+        .map(function (icon) {
+            return {
+                value: icon,
+                label: translateFunction(translatedIconNameMap[icon]),
+            };
+        });
 };

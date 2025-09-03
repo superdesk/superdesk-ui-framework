@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { SimpleToggleBox } from './SimpleToggleBox';
-import { CustomHeaderToggleBox } from './CustomHeaderToggleBox';
+import {SimpleToggleBox} from './SimpleToggleBox';
+import {CustomHeaderToggleBox} from './CustomHeaderToggleBox';
 export interface IPropsSimple {
     variant: 'simple';
     title: string;

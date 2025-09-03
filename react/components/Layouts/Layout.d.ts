@@ -4,5 +4,5 @@ interface IProps {
     children?: React.ReactNode;
     theme?: string;
 }
-export declare const Layout: ({ header, children, theme }: IProps) => JSX.Element;
+export declare const Layout: ({header, children, theme}: IProps) => JSX.Element;
 export {};

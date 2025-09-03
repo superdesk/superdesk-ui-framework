@@ -1,6 +1,10 @@
 import * as React from 'react';
 interface IProps<T> {
-    getItems(pageNo: number, pageSize: number, signal: AbortSignal): Promise<{
+    getItems(
+        pageNo: number,
+        pageSize: number,
+        signal: AbortSignal,
+    ): Promise<{
         items: Array<T>;
         itemCount: number;
     }>;

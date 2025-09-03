@@ -20,8 +20,8 @@ interface ITabPanel {
     indexValue: number;
     children: any;
 }
-export declare const TabLabel: ({ label }: ITabLabel) => JSX.Element;
+export declare const TabLabel: ({label}: ITabLabel) => JSX.Element;
 export declare const Tabs: (props: ITabs) => JSX.Element;
-export declare const TabContent: ({ theme, children, activePanel }: ITabContent) => JSX.Element;
-export declare const TabPanel: ({ children, indexValue }: ITabPanel) => JSX.Element;
+export declare const TabContent: ({theme, children, activePanel}: ITabContent) => JSX.Element;
+export declare const TabPanel: ({children, indexValue}: ITabPanel) => JSX.Element;
 export {};

@@ -1,19 +1,21 @@
 import * as React from 'react';
-import { LocaleSettings, CalendarProps } from '@superdesk/primereact/calendar';
-import { IInputWrapper } from './Form/InputWrapper';
+import {LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
+import {IInputWrapper} from './Form/InputWrapper';
 interface IDatePickerBase extends IInputWrapper {
     dateFormat: string;
     headerButtonBar?: Array<{
         days: number;
         label: string;
     }>;
-    locale?: {
-        type: 'code-only';
-        code: string;
-    } | {
-        type: 'full';
-        payload: Omit<LocaleSettings, 'today' | 'clear'>;
-    };
+    locale?:
+        | {
+              type: 'code-only';
+              code: string;
+          }
+        | {
+              type: 'full';
+              payload: Omit<LocaleSettings, 'today' | 'clear'>;
+          };
     hideClearButton?: boolean;
 }
 interface IDatePicker extends IDatePickerBase {

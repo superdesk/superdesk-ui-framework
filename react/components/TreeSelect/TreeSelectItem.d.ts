@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ITreeNode } from './TreeSelect';
+import {ITreeNode} from './TreeSelect';
 export declare function getPrefixedItemId(id: string): string;
 interface IProps<T> {
     option: ITreeNode<T>;

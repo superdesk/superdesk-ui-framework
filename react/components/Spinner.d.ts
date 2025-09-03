@@ -8,4 +8,4 @@ interface IProps {
 declare class Spinner extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
-export { Spinner, LoadingOverlay };
+export {Spinner, LoadingOverlay};

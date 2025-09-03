@@ -4,9 +4,20 @@ interface IPropsPanel {
     side?: 'left' | 'right';
     theme?: 'light' | 'dark';
     className?: string;
-    size?: 'xx-small' | 'x-small' | 'small' | 'medium' | 'large' | 'x-large' | 'xx-large' | 'xxx-large' | 'full' | 'auto' | {
-        custom: React.CSSProperties['width'];
-    };
+    size?:
+        | 'xx-small'
+        | 'x-small'
+        | 'small'
+        | 'medium'
+        | 'large'
+        | 'x-large'
+        | 'xx-large'
+        | 'xxx-large'
+        | 'full'
+        | 'auto'
+        | {
+              custom: React.CSSProperties['width'];
+          };
     background?: 'transparent' | 'light' | 'grey';
     open?: boolean;
     ['data-test-id']?: string;
@@ -67,4 +78,4 @@ interface IPropsPanelTools {
 declare class PanelTools extends React.PureComponent<IPropsPanelTools> {
     render(): JSX.Element;
 }
-export { Panel, PanelHeader, PanelContent, PanelContentBlock, PanelFooter, PanelHeaderSlidingToolbar, PanelTools };
+export {Panel, PanelHeader, PanelContent, PanelContentBlock, PanelFooter, PanelHeaderSlidingToolbar, PanelTools};

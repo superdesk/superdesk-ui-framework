@@ -12,4 +12,4 @@ declare class Prop extends React.PureComponent<IProps> {
 declare class PropsList extends React.PureComponent {
     render(): JSX.Element;
 }
-export { Prop, PropsList };
+export {Prop, PropsList};

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { IPropsAvatar } from './avatar';
-import { IPropsAvatarPlaceholder } from './avatar-placeholder';
+import {IPropsAvatar} from './avatar';
+import {IPropsAvatarPlaceholder} from './avatar-placeholder';
 export type IAvatarInGroup = Omit<IPropsAvatar, 'size'>;
 export type IAvatarPlaceholderInGroup = Omit<IPropsAvatarPlaceholder, 'size'>;
 export type IAvatarGroupItem = IAvatarInGroup | IAvatarPlaceholderInGroup;

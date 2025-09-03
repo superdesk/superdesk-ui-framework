@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Placement } from '@popperjs/core';
+import {Placement} from '@popperjs/core';
 interface IPropsPopupPositioner {
     getReferenceElement(): HTMLElement;
     placement: Placement;
@@ -22,9 +22,15 @@ export declare class PopupPositioner extends React.PureComponent<IPropsPopupPosi
 /**
  * The popup will remove itself if click/scroll events are detected outside the popup.
  */
-export declare function showPopup(referenceElement: HTMLElement, placement: Placement, Component: React.ComponentType<{
-    closePopup(): void;
-}>, closeOnHoverEnd?: boolean, onClose?: () => void): {
+export declare function showPopup(
+    referenceElement: HTMLElement,
+    placement: Placement,
+    Component: React.ComponentType<{
+        closePopup(): void;
+    }>,
+    closeOnHoverEnd?: boolean,
+    onClose?: () => void,
+): {
     close: () => void;
 };
 export {};

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { DropResult } from 'react-beautiful-dnd';
-import { IMenuItem, ISubmenu, IMenuGroup } from '../Dropdown';
+import {DropResult} from 'react-beautiful-dnd';
+import {IMenuItem, ISubmenu, IMenuGroup} from '../Dropdown';
 export interface IProps {
     array: Array<IPropsArrayItem>;
     addItem?: boolean;
@@ -60,4 +60,4 @@ declare class TableListItem extends React.PureComponent<IPropsItem> {
     onActionMenuClick: (event: React.MouseEvent<HTMLElement>) => void;
     render(): JSX.Element;
 }
-export { TableList, TableListItem };
+export {TableList, TableListItem};

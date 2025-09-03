@@ -1,4 +1,4 @@
-import { PopperOptions } from 'popper.js';
+import {PopperOptions} from 'popper.js';
 import * as React from 'react';
 interface IProps {
     title: string;

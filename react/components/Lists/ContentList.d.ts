@@ -45,4 +45,4 @@ interface IItemArray {
 declare class ContentList extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
-export { ContentList, ContentListItem };
+export {ContentList, ContentListItem};

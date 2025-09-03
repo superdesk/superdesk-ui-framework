@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IInputWrapper } from './Form/InputWrapper';
+import {IInputWrapper} from './Form/InputWrapper';
 interface ISelect extends IInputWrapper {
     value?: string;
     onChange(newValue: string): void;
@@ -17,4 +17,4 @@ interface IOption {
 declare class Option extends React.PureComponent<IOption> {
     render(): JSX.Element;
 }
-export { Select, Option };
+export {Select, Option};

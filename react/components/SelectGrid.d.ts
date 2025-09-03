@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { OverlayPanel } from '@superdesk/primereact/overlaypanel';
+import {OverlayPanel} from '@superdesk/primereact/overlaypanel';
 /**
  * @ngdoc react
  * @name SelectGrid

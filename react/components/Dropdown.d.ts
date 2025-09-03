@@ -26,5 +26,5 @@ interface IMenu {
     onChange?(event?: any): void;
     maxHeight?: number;
 }
-export declare const Dropdown: ({ items, header, footer, children, align, onChange, maxHeight }: IMenu) => JSX.Element;
+export declare const Dropdown: ({items, header, footer, children, align, onChange, maxHeight}: IMenu) => JSX.Element;
 export {};

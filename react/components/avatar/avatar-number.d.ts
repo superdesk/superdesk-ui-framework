@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPropsBase } from './interfaces';
+import {IPropsBase} from './interfaces';
 interface IPropsNumberAvatar extends IPropsBase {
     number: string;
 }

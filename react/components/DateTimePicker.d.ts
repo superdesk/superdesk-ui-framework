@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { DatePicker } from '../components/DatePicker';
-import { InputWrapper } from './Form';
-import { IInputWrapper } from './Form/InputWrapper';
+import {DatePicker} from '../components/DatePicker';
+import {InputWrapper} from './Form';
+import {IInputWrapper} from './Form/InputWrapper';
 interface IBaseProps extends IInputWrapper {
     dateFormat: string;
     preview?: boolean;

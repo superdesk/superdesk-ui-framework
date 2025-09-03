@@ -5,5 +5,5 @@ interface IProps {
     icon?: string;
     onClose: () => void;
 }
-declare const ToastText: ({ id, title, icon, onClose }: IProps) => JSX.Element;
+declare const ToastText: ({id, title, icon, onClose}: IProps) => JSX.Element;
 export default ToastText;

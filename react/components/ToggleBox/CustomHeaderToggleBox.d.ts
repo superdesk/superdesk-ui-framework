@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPropsCustomHeader } from '../ToggleBox/index';
+import {IPropsCustomHeader} from '../ToggleBox/index';
 interface IState {
     isOpen: boolean;
     wasOpened: boolean;

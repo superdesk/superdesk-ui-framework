@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { SyntheticEvent } from 'react';
+import {SyntheticEvent} from 'react';
 /**
  * Known issues:
  *

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ITimeUnit } from '../utils/time';
+import {ITimeUnit} from '../utils/time';
 interface IProps {
     closePopup: () => void;
     headerTemplate?: React.ReactNode;

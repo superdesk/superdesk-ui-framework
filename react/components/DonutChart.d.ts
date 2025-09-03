@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ChartData, ChartOptions } from 'chart.js';
+import {ChartData, ChartOptions} from 'chart.js';
 interface IProps {
     data: ChartData;
     options: ChartOptions;

@@ -8,5 +8,5 @@ interface IProps {
     draggable?: boolean;
     onClick(): void;
 }
-export declare const Tag: ({ text, keyValue, shade, shape, readOnly, onClick, label, draggable }: IProps) => JSX.Element;
+export declare const Tag: ({text, keyValue, shade, shape, readOnly, onClick, label, draggable}: IProps) => JSX.Element;
 export {};

@@ -43,4 +43,4 @@ interface IProps {
 declare class BoxedList extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
-export { BoxedList, BoxedListItem, BoxedListContentRow, BoxedListActions, BoxedListFooter };
+export {BoxedList, BoxedListItem, BoxedListContentRow, BoxedListActions, BoxedListFooter};

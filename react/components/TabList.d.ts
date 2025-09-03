@@ -19,4 +19,4 @@ declare class TabList extends React.PureComponent<ITabList, IState> {
     goTo(label: string): void;
     render(): JSX.Element;
 }
-export { Tab, TabList };
+export {Tab, TabList};

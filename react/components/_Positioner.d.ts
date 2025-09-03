@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PopperOptions } from 'popper.js';
+import {PopperOptions} from 'popper.js';
 type ICloseOthersEvent = CustomEvent<{
     triggerElement: HTMLElement;
 }>;

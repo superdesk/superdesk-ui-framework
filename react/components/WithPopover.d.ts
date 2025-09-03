@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Placement } from '@popperjs/core';
+import {Placement} from '@popperjs/core';
 export interface IPropsWithPopover {
     children(toggle: (referenceElement: HTMLElement) => void): React.ReactNode;
     placement: Placement;

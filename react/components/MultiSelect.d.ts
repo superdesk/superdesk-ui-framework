@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IInputWrapper } from './Form/InputWrapper';
+import {IInputWrapper} from './Form/InputWrapper';
 interface IProps<T> extends IInputWrapper {
     value: Array<T>;
     options: Array<T>;

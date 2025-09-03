@@ -42,4 +42,10 @@ interface IProps {
 export default class NotificationPanel extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
-export { NotificationPanel, NotificationPanelContainer, NotificationPanelHeader, NotificationPanelContent, NotificationPanelFooter, };
+export {
+    NotificationPanel,
+    NotificationPanelContainer,
+    NotificationPanelHeader,
+    NotificationPanelContent,
+    NotificationPanelFooter,
+};

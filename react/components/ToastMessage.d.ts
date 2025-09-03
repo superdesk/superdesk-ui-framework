@@ -14,5 +14,14 @@ export interface IMessageOptions {
 interface IProps extends IMessageOptions {
     closeElement(id: string, position: Position): void;
 }
-export declare const ToastMessage: ({ id, message, type, icon, size, duration, position, closeElement }: IProps) => JSX.Element;
+export declare const ToastMessage: ({
+    id,
+    message,
+    type,
+    icon,
+    size,
+    duration,
+    position,
+    closeElement,
+}: IProps) => JSX.Element;
 export {};

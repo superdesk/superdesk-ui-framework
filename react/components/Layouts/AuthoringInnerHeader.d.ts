@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { HeaderPadding } from './AuthoringMain';
+import {HeaderPadding} from './AuthoringMain';
 interface IProps {
     children?: React.ReactNode;
     collapsed?: boolean;

@@ -20,9 +20,7 @@ interface IProps {
     circular?: boolean;
     autoplayInterval?: number;
     responsiveOptions?: Array<IPropsResponsive>;
-    onPageChange?(e: {
-        page: number;
-    }): void;
+    onPageChange?(e: {page: number}): void;
 }
 interface IPropsResponsive {
     breakpoint: string;

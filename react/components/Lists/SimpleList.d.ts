@@ -19,4 +19,4 @@ declare class SimpleListItem extends React.PureComponent<IPropsItem> {
 declare class SimpleList extends React.PureComponent<IProps> {
     render(): JSX.Element;
 }
-export { SimpleList, SimpleListItem };
+export {SimpleList, SimpleListItem};

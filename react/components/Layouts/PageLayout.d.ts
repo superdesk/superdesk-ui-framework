@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IMainPanelProps } from '../Layouts';
+import {IMainPanelProps} from '../Layouts';
 interface IProps {
     header?: React.ReactNode;
     main?: React.ReactNode;

@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IPropsSimple } from '../ToggleBox/index';
+import {IPropsSimple} from '../ToggleBox/index';
 interface IState {
     isOpen: boolean;
     isAnimating: boolean;

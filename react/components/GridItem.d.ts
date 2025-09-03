@@ -66,4 +66,18 @@ export default class GridItem extends React.PureComponent<IProps> {
     };
     render(): JSX.Element;
 }
-export { GridItem, GridItemContent, GridItemMedia, GridItemFooter, GridItemContentBlock, GridItemTime, GridItemTitle, GridItemText, GridItemSlug, GridItemFooterBlock, GridItemFooterActions, GridItemTopActions, GridItemCheckWrapper, };
+export {
+    GridItem,
+    GridItemContent,
+    GridItemMedia,
+    GridItemFooter,
+    GridItemContentBlock,
+    GridItemTime,
+    GridItemTitle,
+    GridItemText,
+    GridItemSlug,
+    GridItemFooterBlock,
+    GridItemFooterActions,
+    GridItemTopActions,
+    GridItemCheckWrapper,
+};

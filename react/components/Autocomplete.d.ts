@@ -14,7 +14,10 @@ interface IProps {
     inlineLabel?: boolean;
     isSearchField?: boolean;
     listItemTemplate?(value: any): any;
-    search?(searhString: string, callback: (result: Array<any>) => void): {
+    search?(
+        searhString: string,
+        callback: (result: Array<any>) => void,
+    ): {
         cancel: () => void;
     };
     onChange(newValue: string): void;
@@ -34,14 +37,8 @@ export declare class Autocomplete extends React.Component<IProps, IState> {
     htmlId: string;
     search(term: string): void;
     searchItem(event: any): void;
-    handleChange(event: {
-        originalEvent: Event;
-        value: any;
-    }): void;
-    handleSelect(event: {
-        originalEvent: Event;
-        value: any;
-    }): void;
+    handleChange(event: {originalEvent: Event; value: any}): void;
+    handleSelect(event: {originalEvent: Event; value: any}): void;
     handleInputClear(): void;
     render(): JSX.Element;
 }

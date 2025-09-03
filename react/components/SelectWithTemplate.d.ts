@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { Dropdown } from '@superdesk/primereact/dropdown';
-import { IInputWrapper } from './Form/InputWrapper';
+import {Dropdown} from '@superdesk/primereact/dropdown';
+import {IInputWrapper} from './Form/InputWrapper';
 interface IProps<T> extends IInputWrapper {
     getItems(searchString: string | null): Promise<Array<T>>;
     value: T;

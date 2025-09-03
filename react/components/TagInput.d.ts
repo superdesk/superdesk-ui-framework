@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IInputWrapper } from './Form/InputWrapper';
+import {IInputWrapper} from './Form/InputWrapper';
 interface IProps extends IInputWrapper {
     value: Array<string>;
     onChange(value: Array<string>): void;

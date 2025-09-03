@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IItem } from './SelectGrid';
+import {IItem} from './SelectGrid';
 interface IProps {
     label?: string;
     filterPlaceholder?: string;
@@ -15,12 +15,8 @@ export declare class IconPicker extends React.PureComponent<IProps, IState> {
     componentDidMount(): void;
     getItems: (searchString: string | null) => Promise<Array<IItem>>;
     onChange: (item: IItem) => void;
-    triggerTemplate: (props: {
-        onClick: (e: React.SyntheticEvent) => void;
-    }) => JSX.Element;
-    itemTemplate: ({ item }: {
-        item: IItem | null;
-    }) => JSX.Element | null;
+    triggerTemplate: (props: {onClick: (e: React.SyntheticEvent) => void}) => JSX.Element;
+    itemTemplate: ({item}: {item: IItem | null}) => JSX.Element | null;
     render(): JSX.Element;
 }
 export {};
