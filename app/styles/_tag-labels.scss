@@ -15,41 +15,41 @@ $tag-bg-colors: (
 /// Coloring classes. A map of classes to output in the CSS.
 $tag-label-palette: $tag-bg-colors !default;
 
-/// Default padding inside badges.
-$tag-label-padding: 1em 1em !default;
+:root {
+    --tag-label-height: calc(3 * var(--base-increment));
+    --tag-label-height-small: calc(2.25 * var(--base-increment));
+    --tag-label-padding: 1em 1em;
+    --tag-label-padding-small: 1em;
 
-/// Minimum width of a badge.
-$tag-label-minwidth: 1.8em !default;
+    --tag-label-font-size: var(--text-size-small);
+    --tag-label-font-size-small: 1.1rem;    
 
-/// Default radius of a badge.
-$tag-label-radius: $border-radius__base--full;
-
-/// Default font size and line height for badges.
-$tag-label-font-size: 1.4rem !default;
-$tag-label-lineheight: 100% !default;
-
+    --tag-label-minwidth: 1.8em;
+    --tag-label-radius: var(--b-radius--full);
+    --tag-label-lineheight: 1.1;
+}
 
 /// Generates the base styles for a badge.
 @mixin tag-label {
     display: inline-flex;
     align-items: center;
-    min-width: $tag-label-minwidth;
+    min-width: var(--tag-label-minwidth);
     padding: 0;
-    padding-inline: $tag-label-padding;
-    border-radius: $tag-label-radius;
-    font-size: $tag-label-font-size;
+    padding-inline: var(--tag-label-padding);
+    border-radius: var(--tag-label-radius);
+    font-size: var(--tag-label-font-size);
+    line-height: var(--tag-label-lineheight);
     position: relative;
     text-align: center;
     font-weight: 400;
     transition: background-color .2s ease-out, opacity .1s ease-out;
-    height: $sd-base-increment * 3;
+    height: var(--tag-label-height);
     color: var(--color-text);
 }
 
 .tag-label {
     @include tag-label;
-    background: $tag-label-BG-default;
-
+    background: var(--sd-colour__tag-label-Bg--1);
     @each $name, $color in $tag-label-palette {
         &.tag-label--#{$name} {
             background: $color;
@@ -75,7 +75,7 @@ $tag-label-lineheight: 100% !default;
         text-decoration: none;
         text-align: center;
         vertical-align: middle;
-        border-radius: $border-radius__base--full;
+        border-radius: var(--b-radius--full);
         background-color: var(--sd-colour__tag-label-remove-Bg);
         color: var(--color-text);
         cursor: pointer;
@@ -102,7 +102,7 @@ $tag-label-lineheight: 100% !default;
             }
         }
 
-          &:active {
+        &:active {
             background-color: var(--sd-colour__tag-label-remove-Bg--hover);
 
             [class^="icon-"], [class*=" icon-"] {
@@ -113,29 +113,57 @@ $tag-label-lineheight: 100% !default;
     }
 
     &.tag-label--inverse {
-        color: $tag-label-Txt-inverse;
-        background-color: $tag-label-BG-inverse;
+        color: var(--sd-colour__tag-label-Txt--inverse);
+        background-color: var(--sd-colour__tag-label-Bg--inverse);
     }
-
     .tag-label--text-wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 4px;
+        gap: var(--gap-0-5);
     }
-
     .tag-label--text-label {
         opacity: 0.7;
+    }
+
+    &.tag-label--small {
+        height: var(--tag-label-height-small);
+        font-size: var(--tag-label-font-size-small);
+        padding-inline: var(--tag-label-padding-small);
+        letter-spacing: 0.025em;
+        .tag-label__remove {
+            height: 1.4rem;
+            width: 1.4rem;
+            margin-inline-start: 0.6rem;
+            margin-inline-end: -0.9rem;
+    
+            [class^="icon-"], [class*=" icon-"] {
+                --icon-size: 1.rem;
+                font-size: var(--icon-size);
+                height: var(--icon-size);
+                width: var(--icon-size);
+            }
+        }
+        &.tag-label--square {
+            padding-inline-start: var(--space--1);
+        }
+        &.tag-label--draggable {
+            border-radius: var(--b-radius--small);
+            padding-inline-start: 4px;
+            .drag-handle-wrapper {
+                margin-inline-end: 6px;
+            }
+        }
     }
 }
 
 .tag-label--square {
-    border-radius: $border-radius__base--small;
+    border-radius: var(--b-radius--small);
     padding-inline-start: var(--space--1);
 }
 
 .tag-label--draggable {
-    border-radius: $border-radius__base--small;
+    border-radius: var(--b-radius--small);
     padding-inline-start: 6px;
     .drag-handle-wrapper {
         margin-inline-end: 6px;
@@ -157,11 +185,9 @@ $tag-label-lineheight: 100% !default;
 
 .sd-search-tags__tag-list {
     margin: 0.6rem 0;
-
     &:empty {
         padding: 0 !important;
     }
-
     .sd-search-tags__tag {
         margin-inline-start: 2px !important;
         margin-inline-end: 2px !important;

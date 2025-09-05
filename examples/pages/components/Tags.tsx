@@ -6,6 +6,7 @@ import {Tag, Prop, PropsList} from '../../../app-typescript';
 interface ITag {
     tags: Array<any>;
     tags2: Array<any>;
+    tags3: Array<any>;
 }
 export default class TagDoc extends React.Component<{}, ITag> {
     constructor(props) {
@@ -23,6 +24,17 @@ export default class TagDoc extends React.Component<{}, ITag> {
             tags2: [
                 {text: 'Tag with label', label: 'Label'},
                 {text: 'I am', draggable: true, label: 'Draggable'},
+                {text: 'Tag with label', label: 'Label', size: 'small'},
+                {text: 'I am', draggable: true, label: 'Draggable', size: 'small'},
+            ],
+            tags3: [
+                {text: 'This is a small tag', size: 'small'},
+                {text: 'Another small tag', size: 'small', shade: 'darker'},
+                {text: 'Inverse small tag', size: 'small', shade: 'inverse'},
+                {text: 'Lorem ipsum', size: 'small', shade: 'highlight1'},
+                {text: 'Dolor amet ', size: 'small', shade: 'highlight2', shape: 'square'},
+                {text: 'Read only small tag', size: 'small', readOnly: true},
+                {text: 'Draggable small tag', size: 'small', draggable: true},
             ],
         };
         this.handleClick = this.handleClick.bind(this);
@@ -68,6 +80,26 @@ export default class TagDoc extends React.Component<{}, ITag> {
                                             label={tag.label}
                                             readOnly={tag.readOnly}
                                             draggable={tag.draggable}
+                                            size={tag.size}
+                                            onClick={() => this.handleClick(index)}
+                                        />
+                                    </React.Fragment>
+                                );
+                            })}
+                        </div>
+                        <div className="docs-page__content-row d-flex gap-1 mt-1">
+                            {this.state.tags3.map((tag, index) => {
+                                return (
+                                    <React.Fragment key={index}>
+                                        <Tag
+                                            keyValue={index}
+                                            text={tag.text}
+                                            shade={tag.shade}
+                                            shape={tag.shape}
+                                            label={tag.label}
+                                            readOnly={tag.readOnly}
+                                            draggable={tag.draggable}
+                                            size={tag.size}
                                             onClick={() => this.handleClick(index)}
                                         />
                                     </React.Fragment>
@@ -99,6 +131,7 @@ export default class TagDoc extends React.Component<{}, ITag> {
                                             text={tag.text}
                                             label={tag.label}
                                             draggable={tag.draggable}
+                                            size={tag.size}
                                             onClick={() => this.handleClick2(index)}
                                         />
                                     </React.Fragment>
