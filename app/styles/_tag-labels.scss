@@ -138,10 +138,11 @@ $tag-label-palette: $tag-bg-colors !default;
             margin-inline-end: -0.9rem;
     
             [class^="icon-"], [class*=" icon-"] {
-                --icon-size: 1.rem;
+                --icon-size: 1.2rem;
                 font-size: var(--icon-size);
                 height: var(--icon-size);
                 width: var(--icon-size);
+                line-height: 1;
             }
         }
         &.tag-label--square {
