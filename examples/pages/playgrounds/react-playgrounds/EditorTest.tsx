@@ -9,8 +9,6 @@ import {
     IconButton,
     Divider,
     Tooltip,
-    Select,
-    Option,
     Switch,
     Icon,
     Avatar,
@@ -327,7 +325,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                                     </Wrapper>
                                                 );
                                             }}
-                                            onChange={(e) => false}
+                                            onChange={() => false}
                                         />
                                         {/* <Dropdown
                                             items={[
