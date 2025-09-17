@@ -56,7 +56,13 @@ export default class TooltipDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
-                            <Tooltip content={() => <span>hello <span style={{color: 'yellow'}}>world</span></span>}>
+                            <Tooltip
+                                content={() => (
+                                    <span>
+                                        hello <span style={{color: 'yellow'}}>world</span>
+                                    </span>
+                                )}
+                            >
                                 <Button text="demo" onClick={() => false} />
                             </Tooltip>
                         </div>

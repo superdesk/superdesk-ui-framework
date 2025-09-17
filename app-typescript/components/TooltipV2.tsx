@@ -37,15 +37,11 @@ export class TooltipV2 extends React.PureComponent<IPropsTooltipV2> {
                             >
                                 {(() => {
                                     if (typeof this.props.content === 'string') {
-                                        return (
-                                            <span>{this.props.content}</span>
-                                        );
+                                        return <span>{this.props.content}</span>;
                                     } else {
                                         const Component = this.props.content;
 
-                                        return (
-                                            <Component />
-                                        );
+                                        return <Component />;
                                     }
                                 })()}
                             </div>
@@ -56,10 +52,10 @@ export class TooltipV2 extends React.PureComponent<IPropsTooltipV2> {
                 {(toggle) => {
                     const attributes: React.HTMLAttributes<HTMLElement> = {
                         onMouseOver: (event) => {
-                            toggle(event.target as HTMLElement)
+                            toggle(event.target as HTMLElement);
                         },
                         onMouseOut: (event) => {
-                            toggle(event.target as HTMLElement)
+                            toggle(event.target as HTMLElement);
                         },
                     };
 
@@ -67,10 +63,7 @@ export class TooltipV2 extends React.PureComponent<IPropsTooltipV2> {
                         return this.props.children({attributes});
                     } else {
                         return (
-                            <span
-                                {...attributes}
-                                style={{display: 'inline-flex'}}
-                            >
+                            <span {...attributes} style={{display: 'inline-flex'}}>
                                 {this.props.children}
                             </span>
                         );
