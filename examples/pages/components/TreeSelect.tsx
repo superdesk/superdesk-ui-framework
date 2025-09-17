@@ -375,7 +375,7 @@ export class TreeSelectDocs extends React.Component<{}, IState> {
                                     }}
                                     valueTemplate={(item: any, Wrapper) => {
                                         return (
-                                            <Wrapper borderColor={item.border}>
+                                            <Wrapper backgroundColor={item.bgColor}>
                                                 <span>{item.name}</span>
                                             </Wrapper>
                                         );

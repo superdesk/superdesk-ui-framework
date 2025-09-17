@@ -13,11 +13,11 @@ import {
     Option,
     Switch,
     Icon,
-    AvatarWrapper,
-    AvatarContentText,
+    Avatar,
     Text,
     EmptyState,
     Heading,
+    TreeSelect,
 } from '../../../../app-typescript/index';
 import * as Layout from '../../../../app-typescript/components/Layouts';
 import * as Form from '../../../../app-typescript/components/Form';
@@ -45,6 +45,60 @@ interface IState {
     sideOverlayOpen: boolean;
     activeTab: string | null;
 }
+
+const singleSelectOptions = [
+    {
+        value: {name: 'Category1', border: 'red'},
+        children: [
+            {
+                value: {name: 'Sub-category1'},
+                children: [{value: {name: 'Item5'}}, {value: {name: 'Item6'}}],
+            },
+            {
+                value: {name: 'Sub-category2'},
+                children: [{value: {name: 'Item7'}}, {value: {name: 'Item8'}}],
+            },
+            {
+                value: {name: 'Sub-category3'},
+                children: [{value: {name: 'Item9'}}, {value: {name: 'Item10'}}],
+            },
+            {
+                value: {name: 'Sub-category4'},
+                children: [{value: {name: 'Item11'}}, {value: {name: 'Item12'}}],
+            },
+            {
+                value: {name: 'Sub-category5'},
+                children: [{value: {name: 'Item13'}}, {value: {name: 'Item14'}}],
+            },
+            {
+                value: {name: 'Sub-category6'},
+                children: [{value: {name: 'Item15'}}, {value: {name: 'Item16'}}],
+            },
+        ],
+    },
+    {
+        value: {name: 'Category2', border: 'green'},
+        children: [
+            {
+                value: {name: 'Item1'},
+            },
+            {
+                value: {name: 'Item2'},
+            },
+        ],
+    },
+    {
+        value: {name: 'Category3', border: 'yellow'},
+        children: [
+            {
+                value: {name: 'Item3'},
+            },
+            {
+                value: {name: 'Item4'},
+            },
+        ],
+    },
+];
 
 export class EditorTest extends React.Component<IProps, IState> {
     constructor(props: IProps) {
@@ -194,7 +248,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                         }
                         authoringHeader={
                             <React.Fragment>
-                                <Form.FormGroup inlineLabel={true}>
+                                <Form.FormGroup>
                                     <Form.FormItem>
                                         <Input
                                             type="text"
@@ -220,7 +274,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         />
                                     </Form.FormItem>
                                 </Form.FormGroup>
-                                <Form.FormGroup inlineLabel={true}>
+                                <Form.FormGroup>
                                     <Form.FormItem>
                                         <Input
                                             type="text"
@@ -234,7 +288,7 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         />
                                     </Form.FormItem>
                                 </Form.FormGroup>
-                                <Form.FormGroup marginBottom="0" inlineLabel={true}>
+                                <Form.FormGroup marginBottom="0">
                                     <Form.FormItem>
                                         <Input
                                             type="text"
@@ -251,18 +305,38 @@ export class EditorTest extends React.Component<IProps, IState> {
                                         <Form.FormText>Just testing:</Form.FormText>
                                     </Form.FormItem>
                                     <Form.FormItem>
-                                        <Select
-                                            label="Categories"
+                                        <TreeSelect
+                                            kind="synchronous"
+                                            value={[]}
+                                            getOptions={() => singleSelectOptions}
+                                            getLabel={(item) => item.name}
+                                            getId={(item) => item.name}
+                                            getBorderColor={(item) => item.border}
+                                            selectBranchWithChildren
+                                            label="TreeSelect Label"
+                                            // info="Info Message"
                                             labelHidden={true}
-                                            value="This is some value"
-                                            info="This is some hint message"
-                                            required={true}
-                                            disabled={false}
-                                            onChange={() => false}
-                                        >
-                                            <Option>Option 1</Option>
-                                            <Option>Option 2</Option>
-                                        </Select>
+                                            placeholder="Select one"
+                                            optionTemplate={(item: any) => {
+                                                return <div>Label: {item.name}</div>;
+                                            }}
+                                            valueTemplate={(item: any, Wrapper) => {
+                                                return (
+                                                    <Wrapper backgroundColor={item.bgColor}>
+                                                        <span>{item.name}</span>
+                                                    </Wrapper>
+                                                );
+                                            }}
+                                            onChange={(e) => false}
+                                        />
+                                        {/* <Dropdown
+                                            items={[
+                                                { label: 'Action 1', onSelect: () => 1 },
+                                                { label: 'Action 2', onSelect: () => 1 },
+                                                { label: 'Action 3', onSelect: () => 1 },
+                                            ]}>
+                                        Toogle button
+                                        </Dropdown> */}
                                     </Form.FormItem>
                                     <Form.FormItem autoWidth={true}>
                                         <ButtonGroup>
@@ -528,22 +602,19 @@ export class EditorTest extends React.Component<IProps, IState> {
                                     <BoxedListItem
                                         type="warning"
                                         media={
-                                            <AvatarWrapper size="medium">
-                                                <AvatarContentText text="JL" tooltipText="Jeffrey Lebowski" />
-                                            </AvatarWrapper>
+                                            <Avatar
+                                                size="medium"
+                                                displayName="Jeffrey Lebowski"
+                                                imageUrl={null}
+                                                initials="JL"
+                                            />
                                         }
                                         footer={
                                             <ButtonGroup align="end">
+                                                <Button text="cancel" size="small" onClick={() => false} />
                                                 <Button
-                                                    text="cancel"
+                                                    text="Save Changes"
                                                     size="small"
-                                                    style="hollow"
-                                                    onClick={() => false}
-                                                />
-                                                <Button
-                                                    text="yes"
-                                                    size="small"
-                                                    style="hollow"
                                                     type="primary"
                                                     onClick={() => false}
                                                 />

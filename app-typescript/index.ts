@@ -3,6 +3,7 @@
 
 export {HelloWorld} from './components/HelloWorld';
 export {Button} from './components/Button';
+export {WrapperButton} from './components/WrapperButton';
 export {Input} from './components/Input';
 export {Select, Option} from './components/Select';
 export {SelectWithTemplate} from './components/SelectWithTemplate';

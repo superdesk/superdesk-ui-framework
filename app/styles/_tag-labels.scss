@@ -26,7 +26,7 @@ $tag-label-palette: $tag-bg-colors !default;
 
     --tag-label-minwidth: 1.8em;
     --tag-label-radius: var(--b-radius--full);
-    --tag-label-lineheight: 1.1;
+    --tag-label-lineheight: 1;
 }
 
 /// Generates the base styles for a badge.
