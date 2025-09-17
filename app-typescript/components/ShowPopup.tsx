@@ -7,7 +7,7 @@ import {getNextZIndex} from '../zIndex';
 
 interface IPropsPopupPositioner {
     getReferenceElement(): HTMLElement;
-    placement: Placement;
+    placement?: Placement;
     onClose(): void;
     shouldClose?: (event: MouseEvent | Event) => boolean;
     closeOnHoverEnd?: boolean;
@@ -137,8 +137,7 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
              */
             setTimeout(() => {
                 if (this.wrapperEl != null) {
-                    this.popper = createPopper(this.props.getReferenceElement(), this.wrapperEl, {
-                        placement: this.props.placement,
+                    const options: Parameters<typeof createPopper>[2] = {
                         modifiers: [
                             restrictHeightToMaxAvailable,
                             {
@@ -152,7 +151,13 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
                             maxSize,
                             applyMaxSize,
                         ],
-                    });
+                    };
+
+                    if (this.props.placement != null) {
+                        options.placement = this.props.placement;
+                    }
+
+                    this.popper = createPopper(this.props.getReferenceElement(), this.wrapperEl, options);
                 }
             }, 50);
         }
@@ -200,7 +205,7 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
  */
 export function showPopup(
     referenceElement: HTMLElement,
-    placement: Placement,
+    placement: Placement | undefined,
     Component: React.ComponentType<{closePopup(): void}>,
     closeOnHoverEnd?: boolean,
     onClose?: () => void,

@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {Icon} from './Icon';
 import {Spinner} from './Spinner';
-import {WithTooltip} from './Tooltip';
+import {Tooltip} from './Tooltip';
 
 interface IPropsButton {
     text: string;
@@ -82,17 +82,21 @@ export class Button extends React.PureComponent<IPropsButton> {
 
 interface ITooltipWrapperProps {
     tooltipText: string | null | undefined;
-    children: React.ComponentProps<typeof WithTooltip>['children'];
+    children: (options: {attributes: React.HTMLAttributes<HTMLElement>}) => React.ReactNode;
 }
 
 class TooltipWrapper extends React.PureComponent<ITooltipWrapperProps> {
     render() {
         const {tooltipText, children} = this.props;
 
-        return (tooltipText ?? '').length > 0 ? (
-            <WithTooltip text={tooltipText}>{({attributes}) => children({attributes})}</WithTooltip>
-        ) : (
-            <>{children({attributes: {}})}</>
-        );
+        return tooltipText != null && (tooltipText ?? '').length > 0
+            ? (
+                <Tooltip content={tooltipText}>
+                    {({attributes}) => children({attributes})}
+                </Tooltip>
+            )
+            : (
+                <>{children({attributes: {}})}</>
+            );
     }
 }
