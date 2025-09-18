@@ -8,7 +8,7 @@ export interface IPropsTooltipV2 {
 
     /**
      * If unsure - use ReactNode.
-     * Function is for advanced use cases where it's needed to wrapper span.
+     * Function is for advanced use cases where it's needed to avoid the wrapping span.
      */
     children: React.ReactNode | ((options: {attributes: React.HTMLAttributes<HTMLElement>}) => React.ReactNode);
 }
