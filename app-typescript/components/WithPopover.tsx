@@ -4,7 +4,7 @@ import {showPopup} from './ShowPopup';
 
 export interface IPropsWithPopover {
     children(toggle: (referenceElement: HTMLElement) => void): React.ReactNode;
-    placement: Placement;
+    placement?: Placement;
     component: React.ComponentType<{closePopup(): void}>;
     closeOnHoverEnd?: boolean;
     onClose?: () => void;
