@@ -2,8 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import {WithTooltip} from './Tooltip';
 
-interface IPropsWrapperButton {
-    text?: string;
+interface IPropsHeadlessButton {
     onClick(event: React.MouseEvent<HTMLButtonElement, MouseEvent>): void;
     tooltip?: string;
     id?: string;
@@ -15,12 +14,11 @@ interface IPropsWrapperButton {
     'data-test-id'?: string;
 }
 
-export class WrapperButton extends React.PureComponent<IPropsWrapperButton> {
+export class HeadlessButton extends React.PureComponent<IPropsHeadlessButton> {
     render() {
         let classes = classNames(
-            'wrapper-button',
+            'headless-button',
             {
-                'wrapper-button--disabled': this.props.disabled,
                 'radius-xs': this.props.radius === 'x-small',
                 'radius-sm': this.props.radius === 'small',
                 'radius-md': this.props.radius === 'medium',
@@ -33,16 +31,16 @@ export class WrapperButton extends React.PureComponent<IPropsWrapperButton> {
             <TooltipWrapper tooltipText={this.props.tooltip}>
                 {({attributes}) => (
                     <button
-                        {...attributes}
                         id={this.props.id}
                         className={classes}
                         tabIndex={0}
                         disabled={this.props.disabled}
-                        onClick={this.props.disabled ? () => false : (event) => this.props.onClick(event)}
+                        onClick={this.props.onClick}
                         aria-label={this.props.ariaLabel}
                         data-test-id={this.props['data-test-id']}
+                        {...attributes}
                     >
-                        {this.props.children || this.props.text}
+                        {this.props.children}
                     </button>
                 )}
             </TooltipWrapper>

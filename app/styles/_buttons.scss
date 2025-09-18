@@ -840,7 +840,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     text-align: center;
 }
 
-.wrapper-button {
+.headless-button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -851,7 +851,8 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     outline-offset: 0;
     transition: all 0.2s ease;
 
-    &:hover, &:focus-visible {
+    &:hover,
+    &:focus-visible {
         cursor: pointer;
         outline-color: var(--sd-colour-interactive);
         outline-offset: 1px;
@@ -859,8 +860,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     &:active {
         outline-width: 2px;
     }
-    &:disabled,
-    &.wrapper-button--disabled {
+    &:disabled {
         opacity: 0.75;
         cursor: not-allowed;
         outline: none !important;
