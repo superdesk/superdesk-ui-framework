@@ -43,6 +43,7 @@ import {
     NavButton,
     ResizablePanels,
     Tag,
+    HeadlessButton,
 } from '../../../../app-typescript/index';
 import {IAvatarInGroup} from '../../../../app-typescript/components/avatar/avatar-group';
 import * as Form from '../../../../app-typescript/components/Form';
@@ -377,6 +378,13 @@ export class TestGround extends React.Component<IProps, IState> {
                                                     <ButtonGroup orientation="horizontal" spaces="compact">
                                                         <Tag text="Tag one" size="small" shade="inverse" />
                                                         <Tag text="Tag two" size="small" shade="inverse" />
+                                                        <HeadlessButton
+                                                            tooltip="2 more Tags"
+                                                            radius="full"
+                                                            onClick={() => false}
+                                                        >
+                                                            <Tag text="+2" size="small" />
+                                                        </HeadlessButton>
                                                     </ButtonGroup>
 
                                                     <span className="sd-list-item__slugline text-ellipsis flex-shrink">

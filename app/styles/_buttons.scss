@@ -839,3 +839,30 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     line-height: 1.2;
     text-align: center;
 }
+
+.headless-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    outline: 1px solid transparent;
+    outline-offset: 0;
+    transition: all 0.2s ease;
+
+    &:hover,
+    &:focus-visible {
+        cursor: pointer;
+        outline-color: var(--sd-colour-interactive);
+        outline-offset: 1px;
+    }
+    &:active {
+        outline-width: 2px;
+    }
+    &:disabled {
+        opacity: 0.75;
+        cursor: not-allowed;
+        outline: none !important;
+    }
+}
