@@ -18,7 +18,7 @@ export class EmptyState extends React.PureComponent<IProps> {
 
         const size = this.props.size ?? 'small';
         const illustration = this.props.illustration ?? '1';
-        const image = require(`../../app/img/empty_states/empty-state--${size}-${illustration}.svg`).default;
+        const image = require(`../../app/img/empty_states/empty-state--${size}-${illustration}.svg`);
 
         return (
             <div
