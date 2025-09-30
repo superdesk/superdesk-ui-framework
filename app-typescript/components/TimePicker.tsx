@@ -14,6 +14,7 @@ interface IProps extends IInputWrapper {
     allowSeconds?: boolean;
     headerTemplate?: React.ReactNode;
     footerTemplate?: React.ReactNode;
+    canClear?: boolean; // defaults to true
     'data-test-id'?: string;
 }
 
@@ -42,6 +43,8 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                 </div>
             );
         }
+
+        const canClear = this.props.canClear ?? true;
 
         return (
             <InputWrapper
@@ -113,7 +116,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                             }
                         }}
                         className={classNames('sd-input__input', {
-                            'sd-input__input--has-value': this.props.value != null,
+                            'sd-input__input--can-clear': this.props.value != null && canClear,
                         })}
                         id={this.htmlId}
                         aria-labelledby={this.htmlId + 'label'}
