@@ -27,6 +27,7 @@ interface IProps {
     maximizable?: boolean;
     headerTemplate?: JSX.Element | string;
     footerTemplate?: JSX.Element | string;
+    appendTo?: HTMLElement;
     'data-test-id'?: string;
     onShow?(): void;
     onHide?(): void;
@@ -63,6 +64,7 @@ export class Modal extends React.Component<IProps, {}> {
                     position={this.props.position}
                     closable={this.props.onHide != null ? true : false}
                     data-test-id={this.props['data-test-id']}
+                    appendTo={this.props.appendTo ?? document.body}
                 >
                     {this.props.children}
                 </PrimeDialog>
