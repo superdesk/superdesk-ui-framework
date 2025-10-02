@@ -63,6 +63,7 @@ export class Modal extends React.Component<IProps, {}> {
                     position={this.props.position}
                     closable={this.props.onHide != null ? true : false}
                     data-test-id={this.props['data-test-id']}
+                    appendTo={document.body}
                 >
                     {this.props.children}
                 </PrimeDialog>
