@@ -7,7 +7,7 @@ import {getNextZIndex} from './../zIndex';
 interface IProps {
     id?: string;
     className?: string;
-    theme?: string;
+    theme?: 'dark' | string;
     visible?: boolean;
     closeOnEscape?: boolean;
     contentBg?: 'default' | 'medium' | 'dark';
@@ -47,27 +47,26 @@ export class Modal extends React.Component<IProps, {}> {
             this.props.className,
         );
         return (
-            <div style={{display: 'content'}} data-theme={this.props.theme !== 'dark' ? null : 'dark-ui'}>
-                <PrimeDialog
-                    id={this.props.id}
-                    visible={this.props.visible}
-                    header={this.props.headerTemplate}
-                    footer={this.props.footerTemplate}
-                    closeOnEscape={this.props.closeOnEscape}
-                    maximized={this.props.maximized}
-                    maximizable={this.props.maximizable}
-                    contentClassName={classes}
-                    onShow={this.props.onShow}
-                    onHide={this.props.onHide ?? noop}
-                    zIndex={this.zIndex}
-                    position={this.props.position}
-                    closable={this.props.onHide != null ? true : false}
-                    data-test-id={this.props['data-test-id']}
-                    appendTo={document.body}
-                >
-                    {this.props.children}
-                </PrimeDialog>
-            </div>
+            <PrimeDialog
+                id={this.props.id}
+                visible={this.props.visible}
+                header={this.props.headerTemplate}
+                footer={this.props.footerTemplate}
+                closeOnEscape={this.props.closeOnEscape}
+                maximized={this.props.maximized}
+                maximizable={this.props.maximizable}
+                contentClassName={classes}
+                onShow={this.props.onShow}
+                onHide={this.props.onHide ?? noop}
+                zIndex={this.zIndex}
+                position={this.props.position}
+                closable={this.props.onHide != null ? true : false}
+                data-test-id={this.props['data-test-id']}
+                appendTo={document.body}
+                superdeskTheme={this.props.theme !== 'dark' ? undefined : 'dark-ui'}
+            >
+                {this.props.children}
+            </PrimeDialog>
         );
     }
 }
