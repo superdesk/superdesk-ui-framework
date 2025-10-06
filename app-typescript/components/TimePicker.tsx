@@ -76,18 +76,12 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                     <PopupPositioner
                         getReferenceElement={() => this.timeInputRef.current as HTMLElement}
                         shouldClose={(event) => {
-                            const clickedInsideInput
-                                = this.timeInputRef
-                                    ?.current
-                                    ?.contains(event.target as Node)
-                                    ?? false;
+                            const clickedInsideInput =
+                                this.timeInputRef?.current?.contains(event.target as Node) ?? false;
 
-                            const clickedInsidePopover
-                                = this.popupPositionerRef
-                                    ?.current
-                                    ?.getRefElement()
-                                    ?.contains(event.target as Node)
-                                    ?? false;
+                            const clickedInsidePopover =
+                                this.popupPositionerRef?.current?.getRefElement()?.contains(event.target as Node) ??
+                                false;
 
                             return !clickedInsideInput && !clickedInsidePopover;
                         }}
@@ -161,12 +155,10 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                         }}
                         data-test-id={this.props['data-test-id']}
                         onBlur={(event) => {
-                            const blurToPopover
-                                = this.popupPositionerRef
-                                    ?.current
+                            const blurToPopover =
+                                this.popupPositionerRef?.current
                                     ?.getRefElement()
-                                    ?.contains(event.relatedTarget as Node)
-                                    ?? false;
+                                    ?.contains(event.relatedTarget as Node) ?? false;
 
                             if (!blurToPopover) {
                                 this.props.onBlur?.();
