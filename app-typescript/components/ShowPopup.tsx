@@ -11,6 +11,7 @@ interface IPropsPopupPositioner {
     onClose(): void;
     shouldClose?: (event: MouseEvent | Event) => boolean;
     closeOnHoverEnd?: boolean;
+    onKeyDown?(event: React.KeyboardEvent): void;
     'data-test-id'?: string;
 }
 
@@ -24,11 +25,16 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
     constructor(props: IPropsPopupPositioner) {
         super(props);
 
+        this.getRefElement = this.getRefElement.bind(this);
         this.closeOnClick = this.closeOnClick.bind(this);
         this.closeOnScroll = throttle(this.closeOnScroll.bind(this), 200);
         this.closeOnMouseLeave = this.closeOnMouseLeave.bind(this);
         this.wrapperEl = null;
         this.popper = null;
+    }
+
+    public getRefElement(): HTMLElement | null {
+        return this.wrapperEl;
     }
 
     closeOnClick(event: MouseEvent) {
@@ -189,7 +195,9 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
                             display: 'flex',
                             zIndex: this.zIndex,
                         }}
+                        tabIndex={0}
                         data-test-id={this.props['data-test-id']}
+                        onKeyDown={this.props.onKeyDown}
                     >
                         {this.props.children}
                     </div>,

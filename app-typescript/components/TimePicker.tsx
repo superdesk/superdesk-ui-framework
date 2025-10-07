@@ -15,6 +15,10 @@ interface IProps extends IInputWrapper {
     headerTemplate?: React.ReactNode;
     footerTemplate?: React.ReactNode;
     canClear?: boolean; // defaults to true
+
+    /** unified handler - won't fire if focus moves from input to popover  */
+    onBlur?(): void;
+
     'data-test-id'?: string;
 }
 
@@ -25,14 +29,22 @@ interface IState {
 export class TimePicker extends React.PureComponent<IProps, IState> {
     private htmlId = nextId();
     private timeInputRef: React.RefObject<HTMLInputElement>;
+    private popupPositionerRef: React.RefObject<PopupPositioner>;
 
     constructor(props: IProps) {
         super(props);
 
         this.timeInputRef = React.createRef();
+        this.popupPositionerRef = React.createRef();
         this.state = {
             popupOpen: false,
         };
+    }
+
+    componentDidUpdate(_prevProps: Readonly<IProps>, prevState: Readonly<IState>): void {
+        if (prevState.popupOpen === true && this.state.popupOpen === false) {
+            this.props.onBlur?.();
+        }
     }
 
     render() {
@@ -63,22 +75,37 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                 {this.state.popupOpen && (
                     <PopupPositioner
                         getReferenceElement={() => this.timeInputRef.current as HTMLElement}
-                        placement="bottom-start"
+                        shouldClose={(event) => {
+                            const clickedInsideInput =
+                                this.timeInputRef?.current?.contains(event.target as Node) ?? false;
+
+                            const clickedInsidePopover =
+                                this.popupPositionerRef?.current?.getRefElement()?.contains(event.target as Node) ??
+                                false;
+
+                            return !clickedInsideInput && !clickedInsidePopover;
+                        }}
                         onClose={() => {
                             this.setState({
                                 popupOpen: false,
                             });
                         }}
+                        placement="bottom-start"
                         data-test-id="time-picker-popover"
+                        onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === 'Escape') {
+                                event.preventDefault();
+
+                                this.setState({
+                                    popupOpen: false,
+                                });
+                            }
+                        }}
+                        ref={this.popupPositionerRef}
                     >
                         <TimePickerPopover
                             value={this.props.value}
                             onChange={this.props.onChange}
-                            closePopup={() => {
-                                this.setState({
-                                    popupOpen: false,
-                                });
-                            }}
                             allowSeconds={this.props.allowSeconds}
                             headerTemplate={this.props.headerTemplate}
                             footerTemplate={this.props.footerTemplate}
@@ -98,7 +125,7 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                             e.preventDefault();
 
                             this.setState({
-                                popupOpen: true,
+                                popupOpen: !this.state.popupOpen,
                             });
                         }}
                         onKeyDown={(event) => {
@@ -127,6 +154,16 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                             this.props.onChange(event.target.value);
                         }}
                         data-test-id={this.props['data-test-id']}
+                        onBlur={(event) => {
+                            const blurToPopover =
+                                this.popupPositionerRef?.current
+                                    ?.getRefElement()
+                                    ?.contains(event.relatedTarget as Node) ?? false;
+
+                            if (!blurToPopover) {
+                                this.props.onBlur?.();
+                            }
+                        }}
                     />
                     <div className="time-picker__icon-wrapper">
                         <Icon name="time" />
