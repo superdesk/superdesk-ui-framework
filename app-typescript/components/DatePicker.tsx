@@ -13,7 +13,13 @@ import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
 import {localization} from '../localization';
 import {assertNever} from '../helpers';
 
-interface IDatePickerBase extends IInputWrapper {
+interface NavigatorsDateRange {
+    showNavigators?: boolean;
+    minYearRange?: string;
+    maxYearRange?: string;
+}
+
+interface IDatePickerBase extends IInputWrapper, NavigatorsDateRange {
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
 
     // shortcuts can be used to jump to a date relative to today
@@ -176,6 +182,17 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 
         const showClearButton = this.props.required === true ? false : this.props.hideClearButton !== true;
 
+        const navigatorsProps = this.props.showNavigators
+            ? {
+                  monthNavigator: true,
+                  yearNavigator: true,
+                  yearRange:
+                      this.props.minYearRange && this.props.maxYearRange
+                          ? `${this.props.minYearRange}:${this.props.maxYearRange}`
+                          : `1900:${new Date().getFullYear() + 10}`,
+              }
+            : {};
+
         return (
             <InputWrapper
                 label={this.props.label}
@@ -279,6 +296,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                             this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
                         }
                     }}
+                    {...navigatorsProps}
                 />
             </InputWrapper>
         );
@@ -315,6 +333,9 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 label={this.props.label}
                 info={this.props.info}
                 error={this.props.error}
+                showNavigators={this.props.showNavigators}
+                minYearRange={this.props.minYearRange}
+                maxYearRange={this.props.maxYearRange}
             />
         );
     }
