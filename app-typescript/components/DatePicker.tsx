@@ -190,6 +190,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                       this.props.minYearRange && this.props.maxYearRange
                           ? `${this.props.minYearRange}:${this.props.maxYearRange}`
                           : `1900:${new Date().getFullYear() + 10}`,
+                  panelClassName: "datepicker-calendar-panel"
               }
             : {};
 
