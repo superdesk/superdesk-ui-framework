@@ -9,6 +9,10 @@
         line-height: 1;
         margin: 0 auto;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: $sd-base-increment;
     }
 
     .p-datepicker-header {
@@ -75,12 +79,40 @@
 .p-datepicker-year {
     display: block;
     text-align: center;
+    border: none;
+    appearance: none;
+    text-align-last: center;
+    padding: $sd-base-increment;
+    padding-inline-end: 2rem;
+    background: url(../img/chevron-down.svg) no-repeat right 0 center;
+    background-size: 2rem;
+    transition: all 0.2s ease-out, color 0.1s ease-out;
+
+    &:active {
+        background-color: hsla(214, 13%, 55%, 0.3);
+        color: var(--sd-colour-interactive);
+    }
+
+    &:hover,
+    &:focus {
+        cursor: pointer;
+        background-color: hsla(214, 13%, 55%, 0.2);
+    }
+
+    &:focus-visible {
+        background-color: hsla(214, 13%, 55%, 0.2);
+        box-shadow: $icn-button-focus-box-shadow;
+    }
 }
 
 .p-datepicker-year {
     font-weight: 400;
-    margin-block-start: 4px;
     color: var(--color-text-light);
+}
+
+.p-datepicker-month {
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .p-datepicker {
