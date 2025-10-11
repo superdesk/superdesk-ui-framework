@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {addDays} from 'date-fns';
+import {addDays, startOfToday} from 'date-fns';
 import {format} from 'date-fns';
 import moment from 'moment';
 import {Calendar, LocaleSettings, CalendarProps} from '@superdesk/primereact/calendar';
@@ -250,7 +250,7 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                                         key={i}
                                         className="btn btn--small"
                                         onClick={() => {
-                                            this.props.onChange(addDays(new Date(), days));
+                                            this.props.onChange(addDays(startOfToday(), days));
                                             if (
                                                 this.instance != null &&
                                                 typeof this.instance.hideOverlay === 'function'
