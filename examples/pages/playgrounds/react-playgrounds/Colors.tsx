@@ -1,6 +1,6 @@
 import * as React from 'react';
 import * as Components from './components/Index';
-import {IconButton, Text, ButtonGroup, Heading, Container} from '../../../../app-typescript/index';
+import {IconButton, ButtonGroup, Heading, Container} from '../../../../app-typescript/index';
 
 interface IProps {
     children?: React.ReactNode;
