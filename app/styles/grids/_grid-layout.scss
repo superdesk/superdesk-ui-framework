@@ -282,7 +282,7 @@
     padding: 0 2rem 0 1.6rem;
     margin: 0;
     font-size: 1.5rem;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-weight: 300;
     letter-spacing: 0.02em;
     margin-inline-end: auto;
@@ -302,7 +302,7 @@
 
 .sd-slide-in-panel__close {
     z-index: 2;
-    color: var(--color-text-lighter);
+    color: var(--color-text-subdued);
     margin-inline-end: $sd-base-increment * 1.5;
 }
 
@@ -621,7 +621,7 @@ $planningEditor-width: 53rem;
 .text-label {
     display: inline-block;
     min-width: 4rem;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-weight: 300;
 }
 

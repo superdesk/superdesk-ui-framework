@@ -457,7 +457,7 @@ $photo-nav-transition: all 0.2s ease-out;
     text-align: center;
     padding-block-start: 3rem;
     text-align: center;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-size: 2.4rem;
     font-weight: 300;
 }
@@ -467,7 +467,7 @@ $photo-nav-transition: all 0.2s ease-out;
     text-align: center;
     font-style: italic;
     margin: 2.2rem auto;
-    color: var(--color-text-lighter);
+    color: var(--color-text-subdued);
     opacity: 0.85;
 
     &::after, &::before {

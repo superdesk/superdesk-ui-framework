@@ -1,4 +1,5 @@
 .p-tieredmenu {
+    min-width: 200px;
     &, .p-submenu-list {
         padding-block-start: $sd-base-increment;
         padding-block-end: $sd-base-increment;
@@ -6,10 +7,29 @@
         box-shadow: $shadow__dropdown--default;
         border-radius: $border-radius__base--small;
     }
+    .p-menuitem-link {
+        width: 100%;
+        max-width: 36ch;
+    }
+    .p-menuitem-text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .p-submenu-list {
+        .p-menuitem-text {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
 }
 
-.p-menuitem-text {
-    font-size: 1.3rem;
+.p-tieredmenu {
+    .p-menuitem-text {
+        font-size: 1.3rem;
+        line-height: 1.1;
+    }
 }
 
 .p-menu-separator {

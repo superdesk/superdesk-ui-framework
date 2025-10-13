@@ -27,7 +27,7 @@ sd-tag-input {
     margin: 0;
     inset-block-start:0;
     line-height: 100%;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     text-transform: uppercase;
     font-weight: 500;
     letter-spacing: 0.08em;
@@ -104,7 +104,7 @@ tags-input,
                 margin-inline-end: -1rem;
 
                 [class^="icon-"], [class*=" icon-"] {
-                    color: var(--color-text-light);
+                    color: var(--color-text-muted);
                     font-size: 1.6rem;
                     flex-grow: 0;
                     flex-shrink: 0;
@@ -561,7 +561,7 @@ tags-input,
         color: var(--color-text);
 
         &::placeholder {
-            color: var(--color-text-lighter);
+            color: var(--color-text-subdued);
             font-weight: 300;
             //font-style: italic;
         }
@@ -598,7 +598,7 @@ tags-input,
         &.autocomplete__button--disabled:hover {
             opacity: 0.75;
             border: 1px solid var(--sd-colour-line--light);
-            color: var(--color-text-light);
+            color: var(--color-text-muted);
             cursor: not-allowed;
             box-shadow: none;
         }
@@ -690,7 +690,7 @@ tags-input,
     }
 
     .tags-input__placeholder {
-        color: var(--color-text-lighter);
+        color: var(--color-text-subdued);
         font-weight: 300;
     }
 }

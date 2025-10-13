@@ -271,6 +271,18 @@ export class EditorTest extends React.Component<IProps, IState> {
                                             onChange={() => false}
                                         />
                                     </Form.FormItem>
+                                    <Form.FormItem>
+                                        <Input
+                                            type="text"
+                                            label="Slugline"
+                                            value="This is some value"
+                                            maxLength={30}
+                                            info="This is some hint message"
+                                            required={false}
+                                            disabled={false}
+                                            onChange={() => false}
+                                        />
+                                    </Form.FormItem>
                                 </Form.FormGroup>
                                 <Form.FormGroup>
                                     <Form.FormItem>

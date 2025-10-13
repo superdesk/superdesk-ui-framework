@@ -111,7 +111,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
 
 .sd-alert {
     @include sd-alert;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     --sd-alert-bg: var(--sd-colour-alert-bg-neutral);
 
     p {
@@ -127,7 +127,7 @@ $sd-alert-transition-small: font-size ease-out 20ms, padding ease-out 200ms, max
     &.sd-alert--hollow {
         --sd-alert-hs: 214, 13%;
         --sd-alert-border: var(--sd-colour-line--strong);
-        --sd-alert-color: var(--color-text-light);
+        --sd-alert-color: var(--color-text-muted);
         @include sd-alert-hollow;
 
         &.sd-alert--primary {

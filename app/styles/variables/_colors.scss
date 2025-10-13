@@ -50,7 +50,7 @@ $sd-colour-brand__base--primary: hsla(165, 59%, 49%, 1);
 $sd-colour-brand__base--secondary: hsla(185, 33%, 57%, 1);
 
 $sd-colour-text__base: var(--color-text);
-$sd-colour-text__base--light: var(--color-text-light);
+$sd-colour-text__base--light: var(--color-text-muted);
 $sd-colour-text__slugline: var(--sd-slugline-color);
 
 $sd-colour-background__sliding-toolbar: var(--sd-colour-bg__sliding-toolbar);
@@ -123,8 +123,8 @@ $navy: hsla(240, 100%, 25%, 1);
 //Subnav colours
 
 $sd-text: var(--color-text);
-$sd-text-light: var(--color-text-light);
-$sd-text-lighter: var(--color-text-lighter);
+$sd-text-light: var(--color-text-muted);
+$sd-text-lighter: var(--color-text-subdued);
 $sd-slugline: var(--sd-slugline-color);
 $sd-slugline-darkUI: hsl(196, 19%, 50%);
 

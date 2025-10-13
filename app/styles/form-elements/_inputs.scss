@@ -16,7 +16,7 @@
     position: relative;
 
     &::placeholder {
-        color: var(--color-text-lighter);
+        color: var(--color-text-subdued);
         font-weight: 400;
         opacity: 0.75;
     }
@@ -81,7 +81,7 @@
 }
 
 .form-label--light {
-    color: var(--color-text-lighter);
+    color: var(--color-text-subdued);
     font-weight: 400;
 }
 
@@ -322,7 +322,7 @@
         font-size: 1.2rem;
         line-height: 1.4rem;
         transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
         font-weight: 300;
         letter-spacing: 0.03em;
     }
@@ -723,7 +723,7 @@
     font-size: 1.2rem;
     line-height: 1.4rem;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-weight: 300;
     letter-spacing: 0.03em;
     display: block;
@@ -1356,7 +1356,7 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
         height: 3.2rem;
         line-height: 3.2rem;
         font-size: 1.4rem;
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
         display: inline-block;
         pointer-events: none;
         margin-inline-end: 2px;

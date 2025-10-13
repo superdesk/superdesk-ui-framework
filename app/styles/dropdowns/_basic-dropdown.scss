@@ -143,7 +143,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
                 margin-block-start: -0.3rem;
                 min-width: 1.9rem;
                 vertical-align: middle;
-                color: var(--color-text-light);
+                color: var(--color-text-muted);
             }
 
             > i[class^="icon-"] {
@@ -323,7 +323,7 @@ $focus-box-shadow:              0 0 0 3px $sd-colour--focus-shadow;
 .dropdown__menu-label {
     text-transform: uppercase;
     font-size: 1.1rem;
-    color: var(--color-text-lighter);
+    color: var(--color-text-subdued);
     font-weight: 500;
     padding-inline-start: 1.6rem;
     margin-block-end: .6rem;

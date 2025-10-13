@@ -232,16 +232,85 @@ export class TestGround extends React.Component<IProps, IState> {
             <Components.Layout header="Testing Ground" theme={this.state.thisTheme}>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
-                        <ButtonGroup align="end">
-                            <IconButton
-                                icon="adjust"
-                                ariaValue="Toggle theme"
-                                onClick={this.toggleTheme}
-                                toolTipFlow="left"
-                            />
-                        </ButtonGroup>
+                        <Container className='p-sticky top-0 z-2'>
+                            <ButtonGroup align="end">
+                                <IconButton
+                                    icon="adjust"
+                                    ariaValue="Toggle theme"
+                                    onClick={this.toggleTheme}
+                                    toolTipFlow="left"
+                                />
+                            </ButtonGroup>
+                        </Container>
 
                         <hr />
+
+                        <Spinner size="large" />
+                        <Spinner size="medium" />
+                        <Spinner size="small" />
+                        <Spinner size="mini" />
+
+                        <Spinner />
+
+                        <hr />
+
+                        <Container gap="large" className="sd-border--medium text-md p-0 radius-lg mb-3">
+                            <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>
+                                <div className="left-panel p-2">
+                                    <div className="new-form-layout">
+                                        <div className="new-form-heading">
+                                            Nice little sign-in form
+                                        </div>
+                                        <div className="new-form-group">
+                                            <div className="new-form-group-item">   
+                                                <Input
+                                                    label="Name"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">   
+                                                <Input
+                                                    label="Last Name"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="new-form-group">
+                                            <div className="new-form-group-item">   
+                                                <Input
+                                                    label="Username"
+                                                    value={''}
+                                                    type="text"
+                                                    required={true}
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">   
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    required={true}
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="right-panel p-2"></div>
+                            </ResizablePanels>  
+
+                        </Container>
+
+
 
                         <Container gap="large" className="sd-border--medium text-md p-0 radius-lg mb-3">
                             <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>

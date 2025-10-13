@@ -29,4 +29,8 @@
     --brand-secondary-700: lch(from var(--brand-secondary) calc(l - var(--l-700-remove)) calc(c + 0) h);
     --brand-secondary-800: lch(from var(--brand-secondary) calc(l - 28) calc(c + 0) h);
     --brand-secondary-950: lch(from var(--brand-secondary) calc(l - 40) calc(c + 10) h);
+    --brand-secondary-a32: hsl(from var(--brand-secondary) h s l / .32);
+    --brand-secondary-a24: hsl(from var(--brand-secondary) h s l / .24);
+    --brand-secondary-a16: hsl(from var(--brand-secondary) h s l / .16);
+    --brand-secondary-a12: hsl(from var(--brand-secondary) h s l / .12);
 }

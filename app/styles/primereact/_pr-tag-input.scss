@@ -19,12 +19,12 @@
 }
 
 .p-chips-token-icon {
-    color: var(--color-text-lighter);
+    color: var(--color-text-subdued);
     font-size: 20px;
     
     &:hover {
         cursor: pointer;
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
     }
 }
 

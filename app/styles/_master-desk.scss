@@ -78,7 +78,7 @@ $board-header-border-color: var(--color-kanban-border);
     flex-grow: 1;
     text-transform: uppercase;
     font-size: 1.2rem;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
 
     &.sd-board__list-item-title--to-do {
         color: var(--color-assignment-to-do);
@@ -105,7 +105,7 @@ $board-header-border-color: var(--color-kanban-border);
 
 .sd-board__item-count--large {
     margin-inline-end: var(--space--1);
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-size: 3.6rem;
     font-weight: 300;
     line-height: 4rem;
@@ -152,7 +152,7 @@ $board-header-border-color: var(--color-kanban-border);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--color-text-light);
+    color: var(--color-text-muted);
     font-weight: 600;
     text-align: center;
 }

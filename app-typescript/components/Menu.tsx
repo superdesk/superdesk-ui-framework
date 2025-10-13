@@ -134,7 +134,7 @@ export class Menu extends React.Component<IProps, {}> {
             <React.Fragment>
                 {this.props.children(this.toggle)}
 
-                <div
+                <div className="d-contents"
                     onKeyDown={(event) => {
                         if (event.key === 'Escape') {
                             event.stopPropagation();
