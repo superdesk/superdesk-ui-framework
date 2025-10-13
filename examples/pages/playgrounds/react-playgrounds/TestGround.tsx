@@ -232,7 +232,7 @@ export class TestGround extends React.Component<IProps, IState> {
             <Components.Layout header="Testing Ground" theme={this.state.thisTheme}>
                 <Components.LayoutContainer>
                     <Components.MainPanel>
-                        <Container className='p-sticky top-0 z-2'>
+                        <Container className="p-sticky top-0 z-2">
                             <ButtonGroup align="end">
                                 <IconButton
                                     icon="adjust"
@@ -258,11 +258,9 @@ export class TestGround extends React.Component<IProps, IState> {
                             <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>
                                 <div className="left-panel p-2">
                                     <div className="new-form-layout">
-                                        <div className="new-form-heading">
-                                            Nice little sign-in form
-                                        </div>
+                                        <div className="new-form-heading">Nice little sign-in form</div>
                                         <div className="new-form-group">
-                                            <div className="new-form-group-item">   
+                                            <div className="new-form-group-item">
                                                 <Input
                                                     label="Name"
                                                     value={''}
@@ -271,7 +269,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                                     onChange={(value) => this.setState({value: value})}
                                                 />
                                             </div>
-                                            <div className="new-form-group-item">   
+                                            <div className="new-form-group-item">
                                                 <Input
                                                     label="Last Name"
                                                     value={''}
@@ -282,7 +280,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                             </div>
                                         </div>
                                         <div className="new-form-group">
-                                            <div className="new-form-group-item">   
+                                            <div className="new-form-group-item">
                                                 <Input
                                                     label="Username"
                                                     value={''}
@@ -292,7 +290,7 @@ export class TestGround extends React.Component<IProps, IState> {
                                                     onChange={(value) => this.setState({value: value})}
                                                 />
                                             </div>
-                                            <div className="new-form-group-item">   
+                                            <div className="new-form-group-item">
                                                 <Input
                                                     label="Password"
                                                     value={''}
@@ -306,11 +304,8 @@ export class TestGround extends React.Component<IProps, IState> {
                                     </div>
                                 </div>
                                 <div className="right-panel p-2"></div>
-                            </ResizablePanels>  
-
+                            </ResizablePanels>
                         </Container>
-
-
 
                         <Container gap="large" className="sd-border--medium text-md p-0 radius-lg mb-3">
                             <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>

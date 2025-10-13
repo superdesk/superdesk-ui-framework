@@ -7,10 +7,11 @@ import {getNextZIndex} from '../zIndex';
 
 interface IPropsPopupPositioner {
     getReferenceElement(): HTMLElement;
-    placement: Placement;
+    placement?: Placement;
     onClose(): void;
     shouldClose?: (event: MouseEvent | Event) => boolean;
     closeOnHoverEnd?: boolean;
+    onKeyDown?(event: React.KeyboardEvent): void;
     'data-test-id'?: string;
 }
 
@@ -24,11 +25,16 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
     constructor(props: IPropsPopupPositioner) {
         super(props);
 
+        this.getRefElement = this.getRefElement.bind(this);
         this.closeOnClick = this.closeOnClick.bind(this);
         this.closeOnScroll = throttle(this.closeOnScroll.bind(this), 200);
         this.closeOnMouseLeave = this.closeOnMouseLeave.bind(this);
         this.wrapperEl = null;
         this.popper = null;
+    }
+
+    public getRefElement(): HTMLElement | null {
+        return this.wrapperEl;
     }
 
     closeOnClick(event: MouseEvent) {
@@ -137,8 +143,7 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
              */
             setTimeout(() => {
                 if (this.wrapperEl != null) {
-                    this.popper = createPopper(this.props.getReferenceElement(), this.wrapperEl, {
-                        placement: this.props.placement,
+                    const options: Parameters<typeof createPopper>[2] = {
                         modifiers: [
                             restrictHeightToMaxAvailable,
                             {
@@ -152,7 +157,13 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
                             maxSize,
                             applyMaxSize,
                         ],
-                    });
+                    };
+
+                    if (this.props.placement != null) {
+                        options.placement = this.props.placement;
+                    }
+
+                    this.popper = createPopper(this.props.getReferenceElement(), this.wrapperEl, options);
                 }
             }, 50);
         }
@@ -184,7 +195,9 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
                             display: 'flex',
                             zIndex: this.zIndex,
                         }}
+                        tabIndex={0}
                         data-test-id={this.props['data-test-id']}
+                        onKeyDown={this.props.onKeyDown}
                     >
                         {this.props.children}
                     </div>,
@@ -200,7 +213,7 @@ export class PopupPositioner extends React.PureComponent<IPropsPopupPositioner> 
  */
 export function showPopup(
     referenceElement: HTMLElement,
-    placement: Placement,
+    placement: Placement | undefined,
     Component: React.ComponentType<{closePopup(): void}>,
     closeOnHoverEnd?: boolean,
     onClose?: () => void,

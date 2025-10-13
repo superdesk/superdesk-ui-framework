@@ -712,7 +712,6 @@ pre.prettyprint {
     .docs-page__unordered-list {
         font-size: inherit;
     }
-
 }
 .docs-page__unordered-list strong {
     font-weight: 600;
@@ -1230,7 +1229,6 @@ doc-react-playground {
 
 /* ------------ END DOC PAGE SPECIFIC OVERRIDES ------------ */
 
-
 /* ------------  Temp  ------------ */
 .color-swatch_grid {
     display: grid;
@@ -1315,12 +1313,11 @@ doc-react-playground {
     color: white;
 }
 
-
 .neutral-200-a12 {
     background-color: var(--buoyant-grey-200-a12);
 }
 .neutral-200-a16 {
-    background-color: var(--buoyant-grey-200-a16); 
+    background-color: var(--buoyant-grey-200-a16);
 }
 .neutral-200-a24 {
     background-color: var(--buoyant-grey-200-a24);
@@ -1336,7 +1333,7 @@ doc-react-playground {
     background-color: var(--buoyant-grey-300-a12);
 }
 .neutral-300-a16 {
-    background-color: var(--buoyant-grey-300-a16); 
+    background-color: var(--buoyant-grey-300-a16);
 }
 .neutral-300-a24 {
     background-color: var(--buoyant-grey-300-a24);
@@ -1352,7 +1349,7 @@ doc-react-playground {
     background-color: var(--buoyant-grey-400-a12);
 }
 .neutral-400-a16 {
-    background-color: var(--buoyant-grey-400-a16); 
+    background-color: var(--buoyant-grey-400-a16);
 }
 .neutral-400-a24 {
     background-color: var(--buoyant-grey-400-a24);
@@ -1368,7 +1365,7 @@ doc-react-playground {
     background-color: var(--buoyant-grey-500-a12);
 }
 .neutral-500-a16 {
-    background-color: var(--buoyant-grey-500-a16); 
+    background-color: var(--buoyant-grey-500-a16);
 }
 .neutral-500-a24 {
     background-color: var(--buoyant-grey-500-a24);
@@ -1384,7 +1381,7 @@ doc-react-playground {
     background-color: var(--buoyant-grey-600-a12);
 }
 .neutral-600-a16 {
-    background-color: var(--buoyant-grey-600-a16); 
+    background-color: var(--buoyant-grey-600-a16);
 }
 .neutral-600-a24 {
     background-color: var(--buoyant-grey-600-a24);
@@ -1395,7 +1392,6 @@ doc-react-playground {
 .neutral-600-a40 {
     background-color: var(--buoyant-grey-600-a40);
 }
-
 
 .morocco-red-100 {
     background-color: var(--morocco-red-100);
@@ -1421,7 +1417,6 @@ doc-react-playground {
 .morocco-red-800 {
     background-color: var(--morocco-red-800);
 }
-
 
 .syrah-soil-100 {
     background-color: var(--syrah-soil-100);

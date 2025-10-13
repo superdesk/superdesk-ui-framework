@@ -6,7 +6,6 @@ import {getOptionsForTimeUnit, ITimeUnit, padValue} from '../utils/time';
 import {assertNever} from '../helpers';
 
 interface IProps {
-    closePopup: () => void;
     headerTemplate?: React.ReactNode;
     footerTemplate?: React.ReactNode;
     allowSeconds?: boolean;
@@ -137,17 +136,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
         };
 
         return (
-            <div
-                className="sd-shadow--z2 radius-md"
-                onBlur={this.props.closePopup}
-                onKeyDown={(event) => {
-                    if (event.key === 'Enter' || event.key === 'Escape') {
-                        event.preventDefault();
-                        this.props.closePopup();
-                    }
-                }}
-                tabIndex={0}
-            >
+            <div className="sd-shadow--z2 radius-md">
                 <Spacer
                     v
                     gap="0"

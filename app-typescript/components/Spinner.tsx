@@ -20,7 +20,7 @@ class Spinner extends React.PureComponent<IProps> {
         return (
             <svg viewBox="0 0 24 24" className={classes} stroke="var(--color-text-muted)">
                 <g className="sd-spinner__path">
-                    <circle cx="12" cy="12" r="9.5" fill="none" stroke-width="3"/>
+                    <circle cx="12" cy="12" r="9.5" fill="none" stroke-width="3" />
                 </g>
             </svg>
         );
