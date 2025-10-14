@@ -38,6 +38,7 @@ function toInternalState(timeStr: string | undefined | null): IState {
     }
 
     const [hours, minutes, seconds] = timeStr.split(':');
+    const secondsDefault = hours != null && minutes != null ? '00' : null;
 
     return {
         hours: (() => {
@@ -52,7 +53,7 @@ function toInternalState(timeStr: string | undefined | null): IState {
             }
         })(),
         minutes: minutes ?? null,
-        seconds: seconds ?? null,
+        seconds: seconds ?? secondsDefault,
         period: hours == null ? null : isAm(parseInt(hours, 10)) ? 'am' : 'pm',
     };
 }
