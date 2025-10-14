@@ -4,10 +4,16 @@
     --color-surface-muted: var(--buoyant-grey-050);
     --color-surface-subdued: var(--buoyant-grey-100);
     --color-surface-faded: var(--buoyant-grey-125);
-    --color-surface-base-translucent: var(--buoyant-grey-200-a16);
-    --color-surface-muted-translucent: var(--buoyant-grey-200-a16);
-    --color-surface-subdued-translucent: var(--buoyant-grey-200-a32);
-    --color-surface-faded-translucent: var(--buoyant-grey-200-a32);
+    --color-surface-dimmed: var(--buoyant-grey-150);
+    --color-surface-deep: var(--buoyant-grey-200);
+    --color-surface-inverted-medium: var(--buoyant-grey-900);
+    --color-surface-inverted-strong: var(--buoyant-grey-950);
+
+    --color-surface-dark: var(--buoyant-grey-800);
+
+    --color-surface-muted-translucent: var(--buoyant-grey-200-a12);
+    --color-surface-subdued-translucent: var(--buoyant-grey-200-a24);
+    --color-surface-faded-translucent: var(--buoyant-grey-200-a40);
     // Text
     --color-text-default: var(--buoyant-grey-900);
     --color-text-muted: var(--buoyant-grey-600);
@@ -20,6 +26,7 @@
     --color-line-light: var(--buoyant-grey-500-a24);
     --color-line-medium: var(--buoyant-grey-500-a32);
     --color-line-strong: var(--buoyant-grey-500-a40);
+    --color-line-x-strong: var(--buoyant-grey-400);
     // Primary
     --color-primary-default: var(--brand-primary-700);
     --color-primary-highlight: var(--brand-primary);
@@ -79,9 +86,17 @@
     --color-surface-muted: var(--buoyant-grey-850);
     --color-surface-subdued: var(--buoyant-grey-825);
     --color-surface-faded: var(--buoyant-grey-800);
+    --color-surface-dimmed: var(--buoyant-grey-700);
+    --color-surface-deep: var(--buoyant-grey-600);
+
+    --color-surface-dark: var(--buoyant-grey-900);
+
+    --color-surface-inverted-medium: var(--buoyant-grey-700);
+    --color-surface-inverted-strong: var(--buoyant-grey-300);
+
     --color-surface-muted-translucent: var(--buoyant-grey-600-a16);
-    --color-surface-subdued-translucent: var(--buoyant-grey-600-a32);
-    --color-surface-faded-translucent: var(--buoyant-grey-600-a32);
+    --color-surface-subdued-translucent: var(--buoyant-grey-600-a24);
+    --color-surface-faded-translucent: var(--buoyant-grey-500-a24);
     // Text
     --color-text-default: var(--buoyant-grey-050);
     --color-text-muted: var(--buoyant-grey-200);
@@ -94,6 +109,7 @@
     --color-line-light: var(--buoyant-grey-300-a24);
     --color-line-medium: var(--buoyant-grey-300-a32);
     --color-line-strong: var(--buoyant-grey-300-a40);
+    --color-line-x-strong: var(--buoyant-grey-400);
     // Primary
     --color-primary-default: var(--brand-primary-700);
     --color-primary-highlight: var(--brand-primary-600);

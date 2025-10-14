@@ -68,7 +68,7 @@ export class ResizablePanels extends React.PureComponent<IProps> {
 
                 <PanelResizeHandle>
                     <div
-                        style={{background: 'var(--color-text-lighter)', ...separatorDimensions}}
+                        style={{background: 'var(--color-text-subdued)', ...separatorDimensions}}
                         onDoubleClick={() => {
                             if (primarySize?.default != null) {
                                 this.primaryPanelRef?.resize(primarySize.default);

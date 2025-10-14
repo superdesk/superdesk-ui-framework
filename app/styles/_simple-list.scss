@@ -12,7 +12,7 @@ $simple-list-border-color: $neutral-border-color;
         display: flex;
         flex-direction: row;
         align-items: center;
-        gap: var(--space--1);
+        gap: var(--gap-1);
         color: var(--color-text);
 
         [class^="icon-"], [class*=" icon-"] {
@@ -23,13 +23,13 @@ $simple-list-border-color: $neutral-border-color;
             gap: 0;
         }
         &.simple-list__item--gap-small {
-            gap: var(--space-0-5);
+            gap: var(--gap-0-5);
         }
         &.simple-list__item--gap-medium {
-            gap: var(--space-1);
+            gap: var(--gap-1);
         }
         &.simple-list__item--gap-large {
-            gap: var(--space-1-5);
+            gap: var(--gap-1-5);
         }
     }
 

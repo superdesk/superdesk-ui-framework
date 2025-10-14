@@ -12,16 +12,16 @@ const menuItems: Array<IMenuItem> = [
         onClick: () => console.log('action: Edit'),
     },
     {
-        label: 'Edit in the new window',
+        label: 'Edit in new window',
         icon: 'icon-pencil',
         onClick: () => console.log('action: Edit in the new window'),
     },
     {
-        label: 'Translate',
+        label: 'Trans',
         icon: 'icon-globe',
         children: [
             {
-                label: 'German',
+                label: 'German Dolor Tristique Sit Quam Tristique Sit Quam',
                 onClick: () => console.log('action: German'),
             },
             {
@@ -33,11 +33,11 @@ const menuItems: Array<IMenuItem> = [
     {
         label: 'Export',
         icon: 'icon-download',
-        disabled: true,
+        disabled: false,
         onClick: () => console.log('action: Export'),
     },
     {
-        label: 'Spike item',
+        label: 'Spike',
         icon: 'icon-trash',
         onClick: () => console.log('action: Spike item'),
     },
@@ -52,11 +52,6 @@ const menuItems: Array<IMenuItem> = [
         icon: 'icon-download',
         onClick: () => console.log('action: Export'),
     },
-    {
-        label: 'Spike item',
-        icon: 'icon-trash',
-        onClick: () => console.log('action: Spike item'),
-    },
 ];
 
 export class MenuDocs extends React.Component {
@@ -69,7 +64,18 @@ export class MenuDocs extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
-                            <div className="form__row">
+                            <div className="form__row d-flex justify-between">
+                                <Menu items={menuItems}>
+                                    {(toggle) => (
+                                        <Button
+                                            text="open menu"
+                                            onClick={(event) => {
+                                                toggle(event);
+                                            }}
+                                        />
+                                    )}
+                                </Menu>
+
                                 <Menu items={menuItems}>
                                     {(toggle) => (
                                         <Button

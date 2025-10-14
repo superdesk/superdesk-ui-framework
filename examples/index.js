@@ -227,6 +227,10 @@ export default angular
                     name: 'Modals & Dialogs',
                     page: 'modals-and-dialogs.html',
                 },
+                'form-layout': {
+                    name: 'Forms',
+                    page: 'form-layout.html',
+                },
                 'checkbox-and-radio': {
                     name: 'Checkbox & Radio',
                     page: 'checkbox-and-radio.html',
@@ -307,6 +311,10 @@ export default angular
             multiedit: {
                 name: 'Multiedit',
                 component: 'Multiedit',
+            },
+            colors: {
+                name: 'Colors',
+                component: 'Colors',
             },
         },
 
