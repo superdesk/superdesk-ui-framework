@@ -120,18 +120,12 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                         ref={this.timeInputRef}
                         value={this.props.value ?? ''}
                         type="time"
-                        onClick={(e) => {
-                            // don't show default popup
-                            e.preventDefault();
-
+                        onClick={() => {
                             this.setState({
                                 popupOpen: !this.state.popupOpen,
                             });
                         }}
                         onKeyDown={(event) => {
-                            // don't show default popup
-                            event.preventDefault();
-
                             if (event.key === ' ') {
                                 this.setState({
                                     popupOpen: !this.state.popupOpen,
