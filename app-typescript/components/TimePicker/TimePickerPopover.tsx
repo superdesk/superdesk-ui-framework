@@ -24,7 +24,7 @@ function convert24HourTo12Hour(hour: number) {
 }
 
 function isAm(hours: number) {
-    return hours < 12 ;
+    return hours < 12;
 }
 
 function toInternalState(timeStr: string | undefined | null): IState {
@@ -107,7 +107,9 @@ export class TimePickerPopover extends React.PureComponent<IProps, IState> {
                 }
 
                 timeParts.push(
-                    convert12HourTo24Hour(parseInt(this.state.hours, 10), this.state.period).toString().padStart(2, '0'),
+                    convert12HourTo24Hour(parseInt(this.state.hours, 10), this.state.period)
+                        .toString()
+                        .padStart(2, '0'),
                 );
             } else {
                 timeParts.push(this.state.hours);
@@ -259,7 +261,10 @@ export class TimePickerPopover extends React.PureComponent<IProps, IState> {
                                     onChange={(nextValue) => {
                                         this.handleChange({...this.state, period: nextValue as 'am' | 'pm'});
                                     }}
-                                    options={[{label: 'AM', value: 'am'}, {label: 'PM', value: 'pm'}]}
+                                    options={[
+                                        {label: 'AM', value: 'am'},
+                                        {label: 'PM', value: 'pm'},
+                                    ]}
                                     value={this.state.period == null ? '' : this.state.period}
                                 />
                             </div>
