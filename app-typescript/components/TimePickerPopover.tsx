@@ -130,7 +130,7 @@ export class TimePickerPopover extends React.PureComponent<IProps> {
         const styleForColumnOfUnit: React.CSSProperties = {
             maxHeight: 190,
             overflowY: 'auto',
-            scrollbarWidth: 'none',
+            scrollbarWidth: 'thin',
             marginTop: 'var(--gap-1)',
             scrollBehavior: 'smooth',
         };
