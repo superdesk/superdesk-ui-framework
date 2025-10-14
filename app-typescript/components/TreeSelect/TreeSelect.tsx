@@ -60,6 +60,7 @@ interface IPropsBase<T> extends IInputWrapper {
         Wrapper: React.ComponentType<{backgroundColor?: string}>,
     ): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
+    clearable?: boolean
 }
 
 interface IPropsSync<T> extends IPropsBase<T> {
@@ -864,7 +865,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                                                 {children}
                                             </span>
 
-                                            {this.props.readOnly !== true && this.props.required !== true && (
+                                            {this.props.readOnly !== true && this.props.required !== true && this.props.clearable !== false && (
                                                 <span className="tags-input__remove-button" data-test-id="clear-value">
                                                     <Icon name="remove-sign"></Icon>
                                                 </span>

@@ -12,6 +12,7 @@ import {getWeekStartByLocale} from 'weekstart';
 import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
 import {localization} from '../localization';
 import {assertNever} from '../helpers';
+import {TreeSelect} from './TreeSelect/TreeSelect';
 
 interface IDatePickerBase extends IInputWrapper {
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
@@ -179,15 +180,6 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
 
         const showClearButton = this.props.required === true ? false : this.props.hideClearButton !== true;
 
-        const navigatorsProps = {
-            monthNavigator: true,
-            yearNavigator: true,
-            yearRange:
-                this.props.minYearRange && this.props.maxYearRange
-                    ? `${this.props.minYearRange}:${this.props.maxYearRange}`
-                    : `1900:${new Date().getFullYear() + 10}`,
-        };
-
         return (
             <InputWrapper
                 label={this.props.label}
@@ -291,7 +283,15 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                             this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
                         }
                     }}
-                    {...navigatorsProps}
+                    monthNavigator={true}
+                    monthNavigatorComponent={MonthNavigator}
+                    yearNavigator={true}
+                    yearNavigatorComponent={YearNavigator}
+                    yearRange={
+                        this.props.minYearRange && this.props.maxYearRange
+                            ? `${this.props.minYearRange}:${this.props.maxYearRange}`
+                            : `1900:${new Date().getFullYear() + 10}`
+                    }
                 />
             </InputWrapper>
         );
@@ -334,3 +334,41 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
         );
     }
 }
+
+const MonthNavigator = ({
+    value,
+    options,
+    onChange,
+}: React.ComponentProps<NonNullable<CalendarProps['monthNavigatorComponent']>>) => (
+    <TreeSelect<string>
+        kind="synchronous"
+        value={[value]}
+        getOptions={() => options.map((o) => ({...o, value: o.id}))}
+        getLabel={(option) => options[parseInt(option)].label}
+        getId={(option) => option}
+        onChange={(selected) => {
+            onChange(selected[0]);
+        }}
+        clearable={false}
+        labelHidden
+    />
+);
+
+const YearNavigator = ({
+    value,
+    options,
+    onChange,
+}: React.ComponentProps<NonNullable<CalendarProps['yearNavigatorComponent']>>) => (
+    <TreeSelect<string>
+        kind="synchronous"
+        value={[value]}
+        getOptions={() => options.map((o) => ({...o, value: o.label}))}
+        getLabel={(option) => option}
+        getId={(option) => option}
+        onChange={(selected) => {
+            onChange(selected[0]);
+        }}
+        clearable={false}
+        labelHidden
+    />
+);
