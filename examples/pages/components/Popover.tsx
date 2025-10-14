@@ -23,11 +23,7 @@ export class PopoverDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
                             <div className="form__row gap-0-5 sd-d-flex">
-                                <button
-                                    className="btn btn-default"
-                                    aria-haspopup="true"
-                                    id="button-view-content"
-                                >
+                                <button className="btn btn-default" aria-haspopup="true" id="button-view-content">
                                     Click me
                                 </button>
 
@@ -59,11 +55,7 @@ export class PopoverDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
                             <div className="form__row gap-0-5 sd-d-flex">
-                                <button
-                                    className="btn btn-default"
-                                    aria-haspopup="true"
-                                    id="hover-content"
-                                >
+                                <button className="btn btn-default" aria-haspopup="true" id="hover-content">
                                     Hover me
                                 </button>
 
@@ -91,7 +83,6 @@ export class PopoverDoc extends React.Component {
                         </Popover>
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
-
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>

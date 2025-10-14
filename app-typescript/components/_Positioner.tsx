@@ -120,11 +120,11 @@ interface IBasePositioner {
 }
 
 interface IPropsPositioner extends IBasePositioner {
-    type: "click";
+    type: 'click';
 }
 
 interface IPropsPositionerOnHover extends IBasePositioner {
-    type: "hover";
+    type: 'hover';
 }
 
 type IProps = IPropsPositioner | IPropsPositionerOnHover;
@@ -250,10 +250,13 @@ export class Positioner extends React.Component<IProps, IStatePositioner> {
 
     componentDidUpdate() {
         if (this.state.open === true) {
-            const hoverProps = this.props.type === 'hover' ? {
-                onMouseEnter: this.handleMouseEnter,
-                onMouseLeave: this.handleMouseLeave,
-            } : {};
+            const hoverProps =
+                this.props.type === 'hover'
+                    ? {
+                          onMouseEnter: this.handleMouseEnter,
+                          onMouseLeave: this.handleMouseLeave,
+                      }
+                    : {};
 
             ReactDOM.render(
                 <PopperWrapper
