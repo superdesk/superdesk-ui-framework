@@ -142,7 +142,7 @@ export class TimePickerPopover extends React.PureComponent<IProps, IState> {
     }
 
     componentDidUpdate(prevProps: Readonly<IProps>): void {
-        if (this.props.value != prevProps.value) {
+        if (this.props.value !== prevProps.value) {
             this.setState(toInternalState(this.props.value), () => {
                 this.scrollToValues();
             });
