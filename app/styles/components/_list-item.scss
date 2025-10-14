@@ -370,7 +370,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
 // Text specific styles
 .sd-list-item {
     time {
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
         font-size: 1.2rem;
         letter-spacing: 0.025em;
         flex-shrink: 0;
@@ -401,7 +401,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
     }
 
     .sd-list-item__text-label {
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
         font-weight: 400;
         font-style: italic;
     }
@@ -657,7 +657,7 @@ $sd-ListItem-column-border: var(--sd-colour-line--x-light);
         letter-spacing: .08em;
         font-weight: 500;
         text-transform: uppercase;
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
 
         a {
             color: $sd-colour-interactive;

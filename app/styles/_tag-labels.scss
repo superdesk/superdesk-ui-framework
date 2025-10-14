@@ -84,7 +84,7 @@ $tag-label-palette: $tag-bg-colors !default;
         margin-inline-end: -1rem;
 
         [class^="icon-"], [class*=" icon-"] {
-            color: var(--color-text-light);
+            color: var(--color-text-muted);
             font-size: 1.6rem;
             flex-grow: 0;
             flex-shrink: 0;

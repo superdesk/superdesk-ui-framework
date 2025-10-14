@@ -335,23 +335,37 @@ class TextUtilitiesDoc extends React.Component {
                                 </tr>
                                 <tr>
                                     <td>text-color-muted</td>
-                                    <td>{'color: var(--color-text-light) !important;'}</td>
+                                    <td>{'color: var(--color-text-muted) !important;'}</td>
                                     <td>
                                         <span className="text-color-muted">Aa</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>text-color-subdued</td>
-                                    <td>{'color: var(--color-text-lighter) !important;'}</td>
+                                    <td>{'color: var(--color-text-subdued) !important;'}</td>
                                     <td>
                                         <span className="text-color-subdued">Aa</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>text-color-inverse</td>
-                                    <td>{'color: var(--color-text--inverse) !important;'}</td>
-                                    <td style={{backgroundColor: 'var(--color-text-lighter)'}}>
+                                    <td>{'color: var(--color-text-inverse) !important;'}</td>
+                                    <td style={{backgroundColor: 'var(--color-text-subdued)'}}>
                                         <span className="text-color-inverse">Aa</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>text-color-on-dark</td>
+                                    <td>{'color: var(--color-text-ondark) !important;'}</td>
+                                    <td style={{backgroundColor: 'var(--color-surface-dark)'}}>
+                                        <span className="text-color-on-dark">Aa</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>text-color-on-light</td>
+                                    <td>{'color: var(--color-text-onlight) !important;'}</td>
+                                    <td style={{backgroundColor: 'var(--buoyant-grey-050)'}}>
+                                        <span className="text-color-on-light">Aa</span>
                                     </td>
                                 </tr>
                             </tbody>

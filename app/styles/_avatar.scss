@@ -74,7 +74,7 @@
 
         &.sd-avatar-content--number {
             background-color: var(--sd-colour-avatar-bg--light);
-            color: var(--color-text-light);
+            color: var(--color-text-muted);
             outline: 1px solid transparent;
             outline-offset: 0px;
             transition: all 0.2s ease;
@@ -120,7 +120,7 @@
         inset-block-end: -4px;
         inset-inline-end: -4px;
         opacity: 1;
-        color: var(--color-text-lighter);
+        color: var(--color-text-subdued);
         [class^="icon-"], [class*=" icon-"] {
             color: inherit;
             text-shadow: -1px 1px 0 var(--sd-item__main-Bg), 1px 1px 0 var(--sd-item__main-Bg), 1px -1px 0 var(--sd-item__main-Bg), -1px -1px 0 var(--sd-item__main-Bg);

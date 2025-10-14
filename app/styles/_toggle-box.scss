@@ -17,7 +17,7 @@
         .toggle-box__chevron--circle {
             background-color: var(--sd-colour-btn-bg-neutral);
             i {
-                color: var(--color-text-light);
+                color: var(--color-text-muted);
             }
         }
         .toggle-box__content-wraper {
@@ -102,7 +102,7 @@ a.toggle-box__header {
     .toggle-box__label {
         font-size: var(--text-size-x-small);
         padding: 0 var(--space--2) 0 var(--space--1);
-        color: var(--color-text-light);
+        color: var(--color-text-muted);
         text-transform: uppercase;
         transition: color 0.2s ease;
     }

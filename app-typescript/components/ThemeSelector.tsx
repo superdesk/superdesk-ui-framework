@@ -45,7 +45,7 @@ export class ThemeSelector extends React.Component<IProps> {
                             <svg viewBox="0 0 156 94" xmlns="http://www.w3.org/2000/svg">
                                 <g fill="none" fillRule="evenodd">
                                     <path d="m0 0h156v94h-156z" fill="var(--sd-colour-panel-bg--100)" />
-                                    <circle cx="144" cy="33" fill="var(--color-text-lighter)" r="4" />
+                                    <circle cx="144" cy="33" fill="var(--color-text-subdued)" r="4" />
                                     <rect
                                         fill="var(--sd-colour-interactive)"
                                         height="15"
@@ -64,7 +64,7 @@ export class ThemeSelector extends React.Component<IProps> {
                                         <rect height="3" rx="1.5" width="11" x="130" y="77" />
                                         <rect height="3" rx="1.5" width="18" x="110" y="77" />
                                     </g>
-                                    <g fill="var(--color-text-light)">
+                                    <g fill="var(--color-text-muted)">
                                         <rect height="3" rx="1.5" width="9" x="37" y="58" />
                                         <rect height="3" rx="1.5" width="11" x="68" y="58" />
                                         <rect height="3" rx="1.5" width="18" x="48" y="58" />

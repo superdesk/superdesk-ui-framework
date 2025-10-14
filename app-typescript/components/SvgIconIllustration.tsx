@@ -15,37 +15,37 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                         <g clipPath="url(#clip0_1958_28602)">
                             <path
                                 d="M26 14.5C26 14.2239 26.2239 14 26.5 14H32.5C32.7761 14 33 14.2239 33 14.5C33 14.7761 32.7761 15 32.5 15H26.5C26.2239 15 26 14.7761 26 14.5Z"
-                                fill="var(--color-text-lighter)"
+                                fill="var(--color-text-subdued)"
                                 fillOpacity="0.5"
                             />
                             <path
                                 d="M26 17.5C26 17.2239 26.2239 17 26.5 17H32.5C32.7761 17 33 17.2239 33 17.5C33 17.7761 32.7761 18 32.5 18H26.5C26.2239 18 26 17.7761 26 17.5Z"
-                                fill="var(--color-text-lighter)"
+                                fill="var(--color-text-subdued)"
                                 fillOpacity="0.5"
                             />
                             <path
                                 d="M35 17.5C35 17.2239 35.2239 17 35.5 17H41.5C41.7761 17 42 17.2239 42 17.5C42 17.7761 41.7761 18 41.5 18H35.5C35.2239 18 35 17.7761 35 17.5Z"
-                                fill="var(--color-text-lighter)"
+                                fill="var(--color-text-subdued)"
                                 fillOpacity="0.5"
                             />
                             <path
                                 d="M26.5 20C26.2239 20 26 20.2239 26 20.5C26 20.7761 26.2239 21 26.5 21H32.5C32.7761 21 33 20.7761 33 20.5C33 20.2239 32.7761 20 32.5 20H26.5Z"
-                                fill="var(--color-text-lighter)"
+                                fill="var(--color-text-subdued)"
                                 fillOpacity="0.5"
                             />
                             <path
                                 d="M35.5 20C35.2239 20 35 20.2239 35 20.5C35 20.7761 35.2239 21 35.5 21H41.5C41.7761 21 42 20.7761 42 20.5C42 20.2239 41.7761 20 41.5 20H35.5Z"
-                                fill="var(--color-text-lighter)"
+                                fill="var(--color-text-subdued)"
                                 fillOpacity="0.5"
                             />
                             <path
                                 d="M26 23.5C26 23.2239 26.2239 23 26.5 23H32.5C32.7761 23 33 23.2239 33 23.5C33 23.7761 32.7761 24 32.5 24H26.5C26.2239 24 26 23.7761 26 23.5Z"
-                                fill="var(--color-text-lighter)"
+                                fill="var(--color-text-subdued)"
                                 fillOpacity="0.5"
                             />
                             <path
                                 d="M34.998 23.5C34.998 23.2239 35.2219 23 35.498 23H41.498C41.7742 23 41.998 23.2239 41.998 23.5C41.998 23.7761 41.7742 24 41.498 24H35.498C35.2219 24 34.998 23.7761 34.998 23.5Z"
-                                fill="var(--color-text-lighter)"
+                                fill="var(--color-text-subdued)"
                                 fillOpacity="0.5"
                             />
                         </g>
@@ -60,7 +60,7 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                             fillRule="evenodd"
                             clipRule="evenodd"
                             d="M21 5V2C21 0.981692 21.9378 0 23 0H45C46.1043 0 47 0.895715 47 2V7H45V2H23V27C23 27.5523 22.5523 28 22 28C21.4477 28 21 27.5523 21 27V7H19V28C19 29.0889 19.9118 30 21 30H43C44 30 45 29 45 28V17H47V28C47 29.0608 46.579 30.0782 45.8281 30.8281C45.0783 31.579 44.0608 32 43 32H21C19.9392 32 18.9218 31.579 18.1719 30.8281C17.421 30.0782 17 29.0608 17 28V6C17 5.5 17.4477 5 18 5H21Z"
-                            fill="var(--color-text-light)"
+                            fill="var(--color-text-muted)"
                             fillOpacity="0.8"
                         />
                         <rect x="35" y="9" width="16" height="6" rx="1" fill="var(--sd-colour-primary--active)" />
@@ -112,57 +112,57 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                                     width="22"
                                     height="5"
                                     rx="1"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.8"
                                 />
                                 <path
                                     d="M21.5 13C21.2239 13 21 13.2239 21 13.5C21 13.7761 21.2239 14 21.5 14H30.5C30.7761 14 31 13.7761 31 13.5C31 13.2239 30.7761 13 30.5 13H21.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M33.5 13C33.2239 13 33 13.2239 33 13.5C33 13.7761 33.2239 14 33.5 14H42.5C42.7761 14 43 13.7761 43 13.5C43 13.2239 42.7761 13 42.5 13H33.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M21.5 16C21.2239 16 21 16.2239 21 16.5C21 16.7761 21.2239 17 21.5 17H30.5C30.7761 17 31 16.7761 31 16.5C31 16.2239 30.7761 16 30.5 16H21.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M33.5 16C33.2239 16 33 16.2239 33 16.5C33 16.7761 33.2239 17 33.5 17H42.5C42.7761 17 43 16.7761 43 16.5C43 16.2239 42.7761 16 42.5 16H33.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M21 19.5C21 19.2239 21.2239 19 21.5 19H30.5C30.7761 19 31 19.2239 31 19.5C31 19.7761 30.7761 20 30.5 20H21.5C21.2239 20 21 19.7761 21 19.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M33 19.5C33 19.2239 33.2239 19 33.5 19H42.5C42.7761 19 43 19.2239 43 19.5C43 19.7761 42.7761 20 42.5 20H33.5C33.2239 20 33 19.7761 33 19.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M21.5 22C21.2239 22 21 22.2239 21 22.5C21 22.7761 21.2239 23 21.5 23H30.5C30.7761 23 31 22.7761 31 22.5C31 22.2239 30.7761 22 30.5 22H21.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M33.5 22C33.2239 22 33 22.2239 33 22.5C33 22.7761 33.2239 23 33.5 23H42.5C42.7761 23 43 22.7761 43 22.5C43 22.2239 42.7761 22 42.5 22H33.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M21 25.5C21 25.2239 21.2239 25 21.5 25H30.5C30.7761 25 31 25.2239 31 25.5C31 25.7761 30.7761 26 30.5 26H21.5C21.2239 26 21 25.7761 21 25.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M33 25.5C33 25.2239 33.2239 25 33.5 25H42.5C42.7761 25 43 25.2239 43 25.5C43 25.7761 42.7761 26 42.5 26H33.5C33.2239 26 33 25.7761 33 25.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                             </g>
@@ -170,7 +170,7 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                                 fillRule="evenodd"
                                 clipRule="evenodd"
                                 d="M47 2H17V6H15V2C15 0.895431 15.8954 0 17 0H47C48.1046 0 49 0.895431 49 2V15H47V2ZM47 27V30H17V20H15V30C15 31.1046 15.8954 32 17 32H47C48.1046 32 49 31.1046 49 30V27H47Z"
-                                fill="var(--color-text-light)"
+                                fill="var(--color-text-muted)"
                                 fillOpacity="0.8"
                             />
                             <rect x="45" y="17" width="19" height="8" rx="1" fill="var(--sd-colour-primary--active)" />
@@ -273,59 +273,59 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                             <g clipPath="url(#clip1_1814_54107)">
                                 <path
                                     d="M37.0012 22C37.2658 22.3521 37.5531 22.6861 37.8609 23H30.5C30.2239 23 30 22.7761 30 22.5C30 22.2239 30.2239 22 30.5 22H37.0012Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M35.4584 19C35.5658 19.3416 35.6911 19.6753 35.8331 20H30.5C30.2239 20 30 19.7761 30 19.5C30 19.2239 30.2239 19 30.5 19H35.4584Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M35 16H30.5C30.2239 16 30 16.2239 30 16.5C30 16.7761 30.2239 17 30.5 17H35.0495C35.0167 16.6711 35 16.3375 35 16Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M35.4584 13C35.3558 13.3265 35.2694 13.6601 35.2003 14H30.5C30.2239 14 30 13.7761 30 13.5C30 13.2239 30.2239 13 30.5 13H35.4584Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M18 13.5C18 13.2239 18.2239 13 18.5 13H27.5C27.7761 13 28 13.2239 28 13.5C28 13.7761 27.7761 14 27.5 14H18.5C18.2239 14 18 13.7761 18 13.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M18 16.5C18 16.2239 18.2239 16 18.5 16H27.5C27.7761 16 28 16.2239 28 16.5C28 16.7761 27.7761 17 27.5 17H18.5C18.2239 17 18 16.7761 18 16.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M18.5 19C18.2239 19 18 19.2239 18 19.5C18 19.7761 18.2239 20 18.5 20H27.5C27.7761 20 28 19.7761 28 19.5C28 19.2239 27.7761 19 27.5 19H18.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M18 22.5C18 22.2239 18.2239 22 18.5 22H27.5C27.7761 22 28 22.2239 28 22.5C28 22.7761 27.7761 23 27.5 23H18.5C18.2239 23 18 22.7761 18 22.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M18.5 25C18.2239 25 18 25.2239 18 25.5C18 25.7761 18.2239 26 18.5 26H27.5C27.7761 26 28 25.7761 28 25.5C28 25.2239 27.7761 25 27.5 25H18.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     d="M30.5 25C30.2239 25 30 25.2239 30 25.5C30 25.7761 30.2239 26 30.5 26H39.5C39.7761 26 40 25.7761 40 25.5C40 25.2239 39.7761 25 39.5 25H30.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                                 <path
                                     fillRule="evenodd"
                                     clipRule="evenodd"
                                     d="M19 5C18.4477 5 18 5.44772 18 6V9C18 9.55228 18.4477 10 19 10H37.0012C37.8097 8.92425 38.83 8.01663 40 7.33929V6C40 5.44772 39.5523 5 39 5H19Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.8"
                                 />
                             </g>
@@ -333,7 +333,7 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                                 fillRule="evenodd"
                                 clipRule="evenodd"
                                 d="M14 2H44V6.04946C44.3289 6.01675 44.6625 6 45 6C45.3375 6 45.6711 6.01675 46 6.04946V2C46 0.895431 45.1046 0 44 0H14C12.8954 0 12 0.895431 12 2V30C12 31.1046 12.8954 32 14 32H44C45.1046 32 46 31.1046 46 30V25.9505C45.6711 25.9833 45.3375 26 45 26C44.6625 26 44.3289 25.9833 44 25.9505V30H14L14 2Z"
-                                fill="var(--color-text-light)"
+                                fill="var(--color-text-muted)"
                                 fillOpacity="0.8"
                             />
                             <circle cx="45" cy="16" r="7" fill="var(--color-bg-00)" />
@@ -414,14 +414,14 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                                     fillRule="evenodd"
                                     clipRule="evenodd"
                                     d="M41 6.34267V6C41 5.44772 40.5523 5 40 5H20C19.4477 5 19 5.44772 19 6V9C19 9.55228 19.4477 10 20 10H39.223C39.5322 8.63763 40.1504 7.39265 41 6.34267Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.8"
                                 />
                                 <path
                                     fillRule="evenodd"
                                     clipRule="evenodd"
                                     d="M31.5 13H39.0549C39.0924 13.3394 39.1488 13.6731 39.223 14H31.5C31.2239 14 31 13.7761 31 13.5C31 13.2239 31.2239 13 31.5 13ZM31.5 16H39.9355C40.1077 16.3465 40.3016 16.6804 40.5154 16.9998L40.5 17H31.5C31.2239 17 31 16.7761 31 16.5C31 16.2239 31.2239 16 31.5 16ZM19.5 13C19.2239 13 19 13.2239 19 13.5C19 13.7761 19.2239 14 19.5 14H28.5C28.7761 14 29 13.7761 29 13.5C29 13.2239 28.7761 13 28.5 13H19.5ZM20.9291 20C20.8802 19.6581 20.8066 19.3241 20.7101 19H28.5C28.7761 19 29 19.2239 29 19.5C29 19.7761 28.7761 20 28.5 20H20.9291ZM20.7101 23C20.8066 22.6759 20.8802 22.3419 20.9291 22H28.5C28.7761 22 29 22.2239 29 22.5C29 22.7761 28.7761 23 28.5 23H20.7101ZM19.0978 16.2029C19.1889 16.0798 19.3351 16 19.5 16H28.5C28.7761 16 29 16.2239 29 16.5C29 16.7761 28.7761 17 28.5 17H19.7453C19.5489 16.7185 19.3324 16.4521 19.0978 16.2029ZM19.0978 25.7971C19.3324 25.5479 19.5489 25.2815 19.7453 25H28.5C28.7761 25 29 25.2239 29 25.5C29 25.7761 28.7761 26 28.5 26H19.5C19.3351 26 19.1889 25.9202 19.0978 25.7971ZM31 19.5C31 19.2239 31.2239 19 31.5 19H40.5C40.7761 19 41 19.2239 41 19.5C41 19.7761 40.7761 20 40.5 20H31.5C31.2239 20 31 19.7761 31 19.5ZM31.5 22C31.2239 22 31 22.2239 31 22.5C31 22.7761 31.2239 23 31.5 23H40.5C40.7761 23 41 22.7761 41 22.5C41 22.2239 40.7761 22 40.5 22H31.5ZM31 25.5C31 25.2239 31.2239 25 31.5 25H40.5C40.7761 25 41 25.2239 41 25.5C41 25.7761 40.7761 26 40.5 26H31.5C31.2239 26 31 25.7761 31 25.5Z"
-                                    fill="var(--color-text-lighter)"
+                                    fill="var(--color-text-subdued)"
                                     fillOpacity="0.5"
                                 />
                             </g>
@@ -429,7 +429,7 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                                 fillRule="evenodd"
                                 clipRule="evenodd"
                                 d="M45 2H15V14.0709C14.6734 14.0242 14.3395 14 14 14C13.6605 14 13.3266 14.0242 13 14.0709V2C13 0.895431 13.8954 0 15 0H45C46.1046 0 47 0.895431 47 2V3.05493C46.3065 3.13159 45.6368 3.28703 45 3.51212V2ZM45 20.4879V30H15V27.9291C14.6734 27.9758 14.3395 28 14 28C13.6605 28 13.3266 27.9758 13 27.9291V30C13 31.1046 13.8954 32 15 32H45C46.1046 32 47 31.1046 47 30V20.9451C46.3065 20.8684 45.6368 20.713 45 20.4879Z"
-                                fill="var(--color-text-light)"
+                                fill="var(--color-text-muted)"
                                 fillOpacity="0.8"
                             />
                             <circle cx="48" cy="12" r="7" fill="var(--sd-colour-primary--active)" />
@@ -494,14 +494,14 @@ export class SvgIconIllustration extends React.PureComponent<IProps> {
                             fillRule="evenodd"
                             clipRule="evenodd"
                             d="M28 20V25C28 26.1046 28.8954 27 30 27H45L50 32V11C50 9.89543 49.1046 9 48 9H34V11L48 11V27.1716L45.8284 25H30L30 20H28Z"
-                            fill="var(--color-text-light)"
+                            fill="var(--color-text-muted)"
                             fillOpacity="0.8"
                         />
                         <path
                             fillRule="evenodd"
                             clipRule="evenodd"
                             d="M39 13.3C39.2943 13.3 39.5573 13.4842 39.6578 13.7608L41.654 19.2504L42.6499 21.7401C42.7935 22.099 42.6189 22.5064 42.26 22.65C41.901 22.7936 41.4936 22.619 41.3501 22.26L40.5261 20.2H37.4739L36.6499 22.26C36.5063 22.619 36.099 22.7936 35.74 22.65C35.3811 22.5064 35.2065 22.099 35.3501 21.7401L36.3459 19.2504L38.3421 13.7608C38.4427 13.4842 38.7056 13.3 39 13.3ZM37.9994 18.8H40.0006L39 16.0484L37.9994 18.8Z"
-                            fill="var(--color-text-light)"
+                            fill="var(--color-text-muted)"
                         />
                         <path
                             d="M49 8L50.2533 5.25333L53 4L50.2533 2.74667L49 0L47.7467 2.74667L45 4L47.7467 5.25333L49 8Z"
