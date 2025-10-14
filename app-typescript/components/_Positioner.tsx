@@ -11,11 +11,13 @@ const padding = 5;
 
 type ICloseOthersEvent = CustomEvent<{triggerElement: HTMLElement}>;
 
-interface IPropsPopperWrapper extends IPropsPositioner {
+interface IPropsPopperWrapper extends IBasePositioner {
     handleCloseOthers(event: ICloseOthersEvent): void;
     close(): void;
     closeDropdownOnOutsideClick(wrappper: HTMLElement, event: MouseEvent): void;
     triggerElement: HTMLElement;
+    onMouseEnter?: () => void;
+    onMouseLeave?: () => void;
 }
 
 class PopperWrapper extends React.Component<IPropsPopperWrapper> {
@@ -72,6 +74,7 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
 
         this.wrapper.focus();
     }
+
     componentWillUnmount() {
         window.removeEventListener('click', this.closeDropdownOnOutsideClickBound);
         window.removeEventListener(eventCloseOthers, (_event) => {
@@ -82,6 +85,7 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
         this.popperInstance.destroy();
         this.previouslyFocusedElement?.focus();
     }
+
     render() {
         return (
             <div
@@ -100,6 +104,8 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
                         this.props.close();
                     }
                 }}
+                onMouseEnter={this.props.onMouseEnter}
+                onMouseLeave={this.props.onMouseLeave}
             >
                 {this.props.children}
             </div>
@@ -107,21 +113,32 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
     }
 }
 
-interface IPropsPositioner {
+interface IBasePositioner {
     triggerSelector: string;
     placement: PopperOptions['placement'];
     className?: string;
 }
 
+interface IPropsPositioner extends IBasePositioner {
+    type: "click";
+}
+
+interface IPropsPositionerOnHover extends IBasePositioner {
+    type: "hover";
+}
+
+type IProps = IPropsPositioner | IPropsPositionerOnHover;
+
 interface IStatePositioner {
     open: boolean;
 }
 
-export class Positioner extends React.Component<IPropsPositioner, IStatePositioner> {
+export class Positioner extends React.Component<IProps, IStatePositioner> {
     elementForPositioner: HTMLDivElement;
     triggerElement: HTMLElement;
+    closeTimeout: NodeJS.Timeout | null = null;
 
-    constructor(props: IPropsPositioner) {
+    constructor(props: IProps) {
         super(props);
 
         this.elementForPositioner = document.body.appendChild(document.createElement('div'));
@@ -134,12 +151,31 @@ export class Positioner extends React.Component<IPropsPositioner, IStatePosition
         this.toggleDropdown = this.toggleDropdown.bind(this);
         this.handleCloseOthers = this.handleCloseOthers.bind(this);
         this.closeDropdownOnOutsideClick = this.closeDropdownOnOutsideClick.bind(this);
+        this.handleMouseEnter = this.handleMouseEnter.bind(this);
+        this.handleMouseLeave = this.handleMouseLeave.bind(this);
     }
 
     handleCloseOthers(event: ICloseOthersEvent) {
         if (event.detail.triggerElement !== this.triggerElement) {
             this.setState({open: false});
         }
+    }
+
+    handleMouseEnter() {
+        if (this.closeTimeout) {
+            clearTimeout(this.closeTimeout);
+            this.closeTimeout = null;
+        }
+
+        if (!this.state.open) {
+            this.setState({open: true});
+        }
+    }
+
+    handleMouseLeave() {
+        this.closeTimeout = setTimeout(() => {
+            this.setState({open: false});
+        }, 100);
     }
 
     componentDidMount() {
@@ -151,15 +187,31 @@ export class Positioner extends React.Component<IPropsPositioner, IStatePosition
 
             if (el instanceof HTMLElement) {
                 this.triggerElement = el;
-                this.triggerElement.addEventListener('click', this.toggleDropdown);
+
+                if (this.props.type === 'click') {
+                    this.triggerElement.addEventListener('click', this.toggleDropdown);
+                } else if (this.props.type === 'hover') {
+                    this.triggerElement.addEventListener('mouseenter', this.handleMouseEnter);
+                    this.triggerElement.addEventListener('mouseleave', this.handleMouseLeave);
+                }
             }
         });
     }
 
     componentWillUnmount() {
+        if (this.closeTimeout) {
+            clearTimeout(this.closeTimeout);
+        }
+
         this.elementForPositioner.remove();
         ReactDOM.unmountComponentAtNode(this.elementForPositioner);
-        this.triggerElement.removeEventListener('click', this.toggleDropdown);
+
+        if (this.props.type === 'click') {
+            this.triggerElement.removeEventListener('click', this.toggleDropdown);
+        } else if (this.props.type === 'hover') {
+            this.triggerElement.removeEventListener('mouseenter', this.handleMouseEnter);
+            this.triggerElement.removeEventListener('mouseleave', this.handleMouseLeave);
+        }
     }
 
     toggleDropdown(e: MouseEvent) {
@@ -198,9 +250,15 @@ export class Positioner extends React.Component<IPropsPositioner, IStatePosition
 
     componentDidUpdate() {
         if (this.state.open === true) {
+            const hoverProps = this.props.type === 'hover' ? {
+                onMouseEnter: this.handleMouseEnter,
+                onMouseLeave: this.handleMouseLeave,
+            } : {};
+
             ReactDOM.render(
                 <PopperWrapper
                     {...this.props}
+                    {...hoverProps}
                     handleCloseOthers={this.handleCloseOthers}
                     closeDropdownOnOutsideClick={this.closeDropdownOnOutsideClick}
                     triggerElement={this.triggerElement}

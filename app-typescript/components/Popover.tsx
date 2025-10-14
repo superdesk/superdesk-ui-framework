@@ -7,12 +7,14 @@ interface IProps {
     triggerSelector: string; // CSS selector for an element that will be used to toggle the popover.
     displayCloseButton?: boolean; // defaults to true
     placement?: PopperOptions['placement']; // defaults to auto
+    showOnHover?: boolean;
 }
 
 export class Popover extends React.Component<IProps> {
     render() {
         return (
             <Positioner
+                type={this.props.showOnHover ? 'hover' : 'click'}
                 triggerSelector={this.props.triggerSelector}
                 placement={this.props.placement ?? 'auto'}
                 className="sd-popover"

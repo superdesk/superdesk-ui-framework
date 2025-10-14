@@ -9,7 +9,7 @@ export class PopoverDoc extends React.Component {
     render() {
         return (
             <section className="docs-page__container">
-                <h2 className="docs-page__h2">Popover</h2>
+                <h2 className="docs-page__h2">Popover triggered on click</h2>
                 <Markup.ReactMarkupCodePreview>
                     {`
                     <Popover triggerSelector="#trigger-button-id" title="Popover title">
@@ -22,13 +22,13 @@ export class PopoverDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
-                            <div className="form__row">
+                            <div className="form__row gap-0-5 sd-d-flex">
                                 <button
-                                    className="btn btn-default btn--small"
+                                    className="btn btn-default"
                                     aria-haspopup="true"
                                     id="button-view-content"
                                 >
-                                    Open popover
+                                    Click me
                                 </button>
 
                                 <Popover
@@ -53,6 +53,46 @@ export class PopoverDoc extends React.Component {
                     `}</Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
 
+                <h2 className="docs-page__h2">Popover triggered on hover</h2>
+                <p className="docs-page__paragraph"></p>
+                <Markup.ReactMarkup>
+                    <Markup.ReactMarkupPreview>
+                        <div className="docs-page__content-row docs-page__content-row--no-margin">
+                            <div className="form__row gap-0-5 sd-d-flex">
+                                <button
+                                    className="btn btn-default"
+                                    aria-haspopup="true"
+                                    id="hover-content"
+                                >
+                                    Hover me
+                                </button>
+
+                                <Popover
+                                    showOnHover={true}
+                                    triggerSelector="#hover-content"
+                                    title="Popover test"
+                                    placement="top-end"
+                                    displayCloseButton={false}
+                                >
+                                    Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+                                </Popover>
+                            </div>
+                        </div>
+                    </Markup.ReactMarkupPreview>
+
+                    <Markup.ReactMarkupCode>{`
+                        <Popover
+                            triggerSelector="#button-view-content"
+                            title="Popover test"
+                            placement="top-end"
+                            showOnHover={true}
+                        >
+                            Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+                        </Popover>
+                    `}</Markup.ReactMarkupCode>
+                </Markup.ReactMarkup>
+
+
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
                     <Prop
@@ -68,6 +108,13 @@ export class PopoverDoc extends React.Component {
                         type="string"
                         default="null"
                         description="ID selector for an element that will be used to toggle the popover."
+                    />
+                    <Prop
+                        name="showOnHover"
+                        isRequired={false}
+                        type="boolean"
+                        default="undefined"
+                        description="Show/hide the popover on hover."
                     />
                     <Prop
                         name="displayCloseButton"
