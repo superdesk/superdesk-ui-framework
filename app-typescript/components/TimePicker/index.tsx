@@ -1,12 +1,12 @@
 import * as React from 'react';
 import nextId from 'react-id-generator';
 import classNames from 'classnames';
-import {InputWrapper} from './Form';
-import {IInputWrapper} from './Form/InputWrapper';
+import {InputWrapper} from '../Form';
+import {IInputWrapper} from '../Form/InputWrapper';
 import {TimePickerPopover} from './TimePickerPopover';
-import {PopupPositioner} from './ShowPopup';
-import {Icon} from './Icon';
-import {IconButton} from './IconButton';
+import {PopupPositioner} from '../ShowPopup';
+import {Icon} from '../Icon';
+import {IconButton} from '../IconButton';
 
 interface IProps extends IInputWrapper {
     value: string | null; // ISO8601 time string(e.g. 16:55) or null if there's no value
