@@ -355,7 +355,7 @@ const MonthNavigator = ({
         valueTemplate={(item) => (
             <div className="sd-datepicker__navigator-value sd-datepicker__navigator-month">
                 <div>{options[parseInt(item)].label}</div>
-                <Icon name="chevron-down-thin" className="sd-datepicker__navigator-chevron-down" />
+                <Icon name="chevron-down-thin" />
             </div>
         )}
         inputWrapper={{
@@ -384,7 +384,7 @@ const YearNavigator = ({
         valueTemplate={(item) => (
             <div className="sd-datepicker__navigator-value sd-datepicker__navigator-year">
                 <div>{item}</div>
-                <Icon name="chevron-down-thin" className="sd-datepicker__navigator-chevron-down" />
+                <Icon name="chevron-down-thin" />
             </div>
         )}
         inputWrapper={{

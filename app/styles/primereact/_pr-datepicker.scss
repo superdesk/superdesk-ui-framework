@@ -32,26 +32,6 @@
             transition:
                 all 0.2s ease-out,
                 color 0.1s ease-out;
-
-            &:hover {
-                background-color: hsla(214, 13%, 55%, 0.2);
-            }
-
-            &:active {
-                background-color: hsla(214, 13%, 55%, 0.3);
-
-                .sd-datepicker__navigator-chevron-down {
-                    opacity: 1;
-                    color: var(--sd-colour-interactive);
-                }
-            }
-
-            button {
-                &:focus-visible {
-                    background-color: hsla(214, 13%, 55%, 0.2);
-                    box-shadow: $icn-button-focus-box-shadow;
-                }
-            }
         }
 
         .sd-datepicker__navigator-value {
@@ -61,10 +41,6 @@
             align-items: center;
             width: 100%;
             gap: $sd-base-increment * 0.5;
-
-            .sd-datepicker__navigator-chevron-down {
-                opacity: 0.6;
-            }
 
             &.sd-datepicker__navigator-month {
                 text-transform: uppercase;
@@ -82,7 +58,7 @@
         position: relative;
         display: flex;
         flex-wrap: wrap;
-        padding: 0.8em 4px;
+        padding: .8em 4px;
         min-height: 32px;
         margin-block-end: 8px;
 
@@ -95,9 +71,7 @@
             border-radius: var(--b-radius--full);
             height: $sd-base-increment * 4;
             width: $sd-base-increment * 4;
-            transition:
-                all 0.2s ease-out,
-                color 0.1s ease-out;
+            transition: all 0.2s ease-out, color 0.1s ease-out;
 
             &:hover {
                 background-color: hsla(214, 13%, 55%, 0.2);
@@ -113,11 +87,11 @@
                 box-shadow: $icn-button-focus-box-shadow;
                 outline: none;
 
-                [class^='icon-'],
-                [class*=' icon-'] {
+                [class^="icon-"], [class*=" icon-"] {
                     opacity: 1;
                 }
             }
+
         }
 
         .datepicker-header-toolbar {
@@ -148,14 +122,14 @@
 
 .p-datepicker-year {
     font-weight: 400;
-    color: var(--color-text-light);
+    margin-block-start: 4px;
+    color: var(--color-text-muted);
 }
 
 .p-datepicker {
-    td,
-    th {
+    td, th {
         border: 0;
-        padding: 0;
+        padding: 0
     }
 
     &.p-component {
@@ -226,7 +200,7 @@
     cursor: pointer;
 
     .p-button-icon-left {
-        color: #7f7f7f;
+        color: #7F7F7F;
     }
 
     &:not(.p-disabled) .p-button-icon-left:hover {
@@ -275,19 +249,20 @@
         color: inherit;
         margin: 0 4px 0 0;
 
-        [class^='icon-'],
-        [class*=' icon-'] {
+        [class^="icon-"],
+        [class*=" icon-"] {
             color: var(--color-text);
             margin-block-start: -2px;
             opacity: 0.75;
         }
 
         &:hover {
-            [class^='icon-'],
-            [class*=' icon-'] {
+            [class^="icon-"],
+            [class*=" icon-"] {
                 opacity: 0.99;
             }
         }
+
     }
 }
 
