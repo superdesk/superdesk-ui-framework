@@ -113,19 +113,6 @@
     }
 }
 
-// display month and year on separate lines
-.p-datepicker-month,
-.p-datepicker-year {
-    display: block;
-    text-align: center;
-}
-
-.p-datepicker-year {
-    font-weight: 400;
-    margin-block-start: 4px;
-    color: var(--color-text-muted);
-}
-
 .p-datepicker {
     td, th {
         border: 0;
