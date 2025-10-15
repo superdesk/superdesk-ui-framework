@@ -5,7 +5,7 @@ import {RadioButtonGroup} from '../RadioButtonGroup';
 import {getOptionsForTimeUnit} from '../../utils/time';
 import {TimeValueHolder} from './TimeValueHolder';
 
-function convert12HourTo24Hour(hour: number, period: 'am' | 'pm'): number {
+export function convert12HourTo24Hour(hour: number, period: 'am' | 'pm'): number {
     if (period === 'am' && hour === 12) {
         return 0; // midnight
     }
@@ -17,7 +17,7 @@ function convert12HourTo24Hour(hour: number, period: 'am' | 'pm'): number {
     return hour; // For 12PM, 1-11AM
 }
 
-function convert24HourTo12Hour(hour: number) {
+export function convert24HourTo12Hour(hour: number) {
     const remainder = hour % 12;
 
     return remainder === 0 ? 12 : remainder;
@@ -27,8 +27,10 @@ function isAm(hours: number) {
     return hours < 12;
 }
 
-function toInternalState(timeStr: string | undefined | null): IState {
-    if (timeStr == null || (timeStr ?? '').length < 1) {
+export function toInternalState(
+    timeStr: string | undefined | null, // will always be in 24h format
+): IState {
+    if (timeStr == null || (timeStr ?? '').trim().length < 1) {
         return {
             hours: null,
             minutes: null,
