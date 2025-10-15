@@ -12,7 +12,8 @@ import {getWeekStartByLocale} from 'weekstart';
 import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
 import {localization} from '../localization';
 import {assertNever} from '../helpers';
-import {TreeSelect} from './TreeSelect/TreeSelect';
+import {ITreeNode, TreeSelect} from './TreeSelect/TreeSelect';
+import {Icon} from './Icon';
 
 interface IDatePickerBase extends IInputWrapper {
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
@@ -343,7 +344,7 @@ const MonthNavigator = ({
     <TreeSelect<string>
         kind="synchronous"
         value={[value]}
-        getOptions={() => options.map((o) => ({...o, value: o.id}))}
+        getOptions={() => options.map<ITreeNode<string>>((option) => ({...option, value: option.id}))}
         getLabel={(option) => options[parseInt(option)].label}
         getId={(option) => option}
         onChange={(selected) => {
@@ -351,6 +352,16 @@ const MonthNavigator = ({
         }}
         clearable={false}
         labelHidden
+        valueTemplate={(item) => (
+            <div className="sd-datepicker__navigator-value sd-datepicker__navigator-month">
+                <div>{options[parseInt(item)].label}</div>
+                <Icon name="chevron-down-thin" className="sd-datepicker__navigator-chevron-down" />
+            </div>
+        )}
+        inputWrapper={{
+            kind: 'custom',
+            component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
+        }}
     />
 );
 
@@ -362,7 +373,7 @@ const YearNavigator = ({
     <TreeSelect<string>
         kind="synchronous"
         value={[value]}
-        getOptions={() => options.map((o) => ({...o, value: o.label}))}
+        getOptions={() => options.map<ITreeNode<string>>((option) => ({...option, value: option.id}))}
         getLabel={(option) => option}
         getId={(option) => option}
         onChange={(selected) => {
@@ -370,5 +381,15 @@ const YearNavigator = ({
         }}
         clearable={false}
         labelHidden
+        valueTemplate={(item) => (
+            <div className="sd-datepicker__navigator-value sd-datepicker__navigator-year">
+                <div>{item}</div>
+                <Icon name="chevron-down-thin" className="sd-datepicker__navigator-chevron-down" />
+            </div>
+        )}
+        inputWrapper={{
+            kind: 'custom',
+            component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
+        }}
     />
 );
