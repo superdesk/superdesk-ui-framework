@@ -15,7 +15,8 @@
         gap: $sd-base-increment * 0.2;
 
         .sd-datepicker__navigator-wrapper {
-            * {
+            .tags-input,
+            .tags-input__tags {
                 border: none;
                 background: none;
                 padding: 0;
@@ -35,7 +36,6 @@
         }
 
         .sd-datepicker__navigator-value {
-            z-index: -1;
             display: flex;
             justify-content: center;
             align-items: center;

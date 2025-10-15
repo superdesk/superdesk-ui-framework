@@ -61,6 +61,7 @@ interface IPropsBase<T> extends IInputWrapper {
     ): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
     clearable?: boolean;
+    onDropdownClick?(ref: HTMLInputElement | null, isOpen: boolean): void;
 }
 
 interface IPropsSync<T> extends IPropsBase<T> {
@@ -257,6 +258,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 this.popperInstance = createPopper(this.treeSelectRef.current, this.dropdownRef.current, {
                     placement: 'bottom-start',
                 });
+                this.props?.onDropdownClick?.(this.dropdownRef.current, this.state.openDropdown);
             }
 
             this.inputRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
@@ -274,11 +276,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 }
             });
 
-            this.dropdownRef.current?.addEventListener('mousedown', (e: MouseEvent) => {
-                e.preventDefault();
-                e.stopPropagation();
-            });
-
             if (this.inputRef.current) {
                 this.inputFocus();
             } else {
@@ -287,6 +284,7 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             }
         } else {
             this.openDropdownRef.current?.focus();
+            this.props?.onDropdownClick?.(this.dropdownRef.current, this.state.openDropdown);
         }
     }
 

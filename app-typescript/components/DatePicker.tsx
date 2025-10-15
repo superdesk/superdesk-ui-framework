@@ -12,7 +12,7 @@ import {getWeekStartByLocale} from 'weekstart';
 import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
 import {localization} from '../localization';
 import {assertNever} from '../helpers';
-import {ITreeNode, TreeSelect} from './TreeSelect/TreeSelect';
+import {TreeSelect} from './TreeSelect/TreeSelect';
 import {Icon} from './Icon';
 
 interface IDatePickerBase extends IInputWrapper {
@@ -344,7 +344,7 @@ const MonthNavigator = ({
     <TreeSelect<string>
         kind="synchronous"
         value={[value]}
-        getOptions={() => options.map<ITreeNode<string>>((option) => ({...option, value: option.id}))}
+        getOptions={() => options.map((option) => ({value: option.id}))}
         getLabel={(option) => options[parseInt(option)].label}
         getId={(option) => option}
         onChange={(selected) => {
@@ -362,6 +362,20 @@ const MonthNavigator = ({
             kind: 'custom',
             component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
         }}
+        onDropdownClick={(dropdown, isOpen) => {
+            if (dropdown && isOpen) {
+                const handleMouseDown = (e: MouseEvent) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                };
+                const handleDropdownClose = () => {
+                    dropdown.removeEventListener('mousedown', handleMouseDown);
+                };
+
+                dropdown.addEventListener('mousedown', handleMouseDown);
+                if (!isOpen) handleDropdownClose();
+            }
+        }}
     />
 );
 
@@ -373,7 +387,7 @@ const YearNavigator = ({
     <TreeSelect<string>
         kind="synchronous"
         value={[value]}
-        getOptions={() => options.map<ITreeNode<string>>((option) => ({...option, value: option.id}))}
+        getOptions={() => options.map((option) => ({value: option.id}))}
         getLabel={(option) => option}
         getId={(option) => option}
         onChange={(selected) => {
@@ -390,6 +404,20 @@ const YearNavigator = ({
         inputWrapper={{
             kind: 'custom',
             component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
+        }}
+        onDropdownClick={(dropdown, isOpen) => {
+            if (dropdown && isOpen) {
+                const handleMouseDown = (e: MouseEvent) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                };
+                const handleDropdownClose = () => {
+                    dropdown.removeEventListener('mousedown', handleMouseDown);
+                };
+
+                dropdown.addEventListener('mousedown', handleMouseDown);
+                if (!isOpen) handleDropdownClose();
+            }
         }}
     />
 );
