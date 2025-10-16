@@ -345,7 +345,7 @@ const MonthNavigator = ({
         kind="synchronous"
         value={[value]}
         getOptions={() => options.map((option) => ({value: option.id}))}
-        getLabel={(option) => options[parseInt(option)].label}
+        getLabel={(option) => options[parseInt(option, 10)].label}
         getId={(option) => option}
         onChange={(selected) => {
             onChange(selected[0]);
@@ -354,7 +354,7 @@ const MonthNavigator = ({
         labelHidden
         valueTemplate={(item) => (
             <div className="sd-datepicker__navigator-value sd-datepicker__navigator-month">
-                <div>{options[parseInt(item)].label}</div>
+                <div>{options[parseInt(item, 10)].label}</div>
                 <Icon name="chevron-down-thin" />
             </div>
         )}
