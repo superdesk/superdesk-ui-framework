@@ -12,7 +12,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: $sd-base-increment * 0.2;
 
         .sd-datepicker__navigator-wrapper {
             .tags-input,
@@ -28,8 +27,6 @@
                 }
             }
 
-            padding: $sd-base-increment * 0.2;
-
             transition:
                 all 0.2s ease-out,
                 color 0.1s ease-out;
@@ -41,6 +38,7 @@
             align-items: center;
             width: 100%;
             gap: $sd-base-increment * 0.5;
+            font-size: 1.3rem;
 
             &.sd-datepicker__navigator-month {
                 text-transform: uppercase;
