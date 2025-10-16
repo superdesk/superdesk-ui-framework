@@ -36,7 +36,12 @@ class TimePickerExample extends React.PureComponent<{}, {time: string | null}> {
                         <Button size="small" text="In 30 min" style="hollow" onClick={() => false} />
                         <Button size="small" text="In 1 hr" style="hollow" onClick={() => false} />
                         <Button size="small" text="In 2 hr" style="hollow" onClick={() => false} />
-                        <Button size="small" text="In 5 hr" style="hollow" onClick={() => false} />
+                        <Button
+                            size="small"
+                            text="16:32"
+                            style="hollow"
+                            onClick={() => this.setState({time: '16:32'})}
+                        />
                     </ButtonGroup>
                 }
                 footerTemplate={<div>Footer</div>}
@@ -65,7 +70,7 @@ export default class TimePickerDoc extends React.Component<{}, {time: string}> {
     render() {
         return (
             <section className="docs-page__container">
-                <h2 className="docs-page__h2">Time picker</h2>
+                <h2 className="docs-page__h2">Time picker 1</h2>
                 <Markup.ReactMarkupCodePreview>{`
                     <TimePicker
                         value={this.state.time}

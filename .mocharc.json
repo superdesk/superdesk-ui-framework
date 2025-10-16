@@ -1,5 +1,5 @@
 {
     "extension": ["ts", ".tsx"],
-    "spec": "app-typescript/components/*.spec.*",
+    "spec": "app-typescript/**/*.spec.*",
     "require": ["ts-node/register", "./mocha-setup.ts"]
 }
