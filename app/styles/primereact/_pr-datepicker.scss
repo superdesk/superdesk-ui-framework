@@ -9,6 +9,47 @@
         line-height: 1;
         margin: 0 auto;
         text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sd-datepicker__navigator-wrapper {
+            .tags-input,
+            .tags-input__tags {
+                border: none;
+                background: none;
+                padding: 0;
+                height: auto;
+                min-height: auto;
+
+                &:after {
+                    display: none;
+                }
+            }
+
+            transition:
+                all 0.2s ease-out,
+                color 0.1s ease-out;
+        }
+
+        .sd-datepicker__navigator-value {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            gap: $sd-base-increment * 0.5;
+            font-size: 1.3rem;
+
+            &.sd-datepicker__navigator-month {
+                text-transform: uppercase;
+                font-weight: bold;
+            }
+
+            &.sd-datepicker__navigator-year {
+                font-weight: 400;
+                color: var(--color-text-light);
+            }
+        }
     }
 
     .p-datepicker-header {
@@ -68,19 +109,6 @@
     table {
         border: none;
     }
-}
-
-// display month and year on separate lines
-.p-datepicker-month,
-.p-datepicker-year {
-    display: block;
-    text-align: center;
-}
-
-.p-datepicker-year {
-    font-weight: 400;
-    margin-block-start: 4px;
-    color: var(--color-text-light);
 }
 
 .p-datepicker {
