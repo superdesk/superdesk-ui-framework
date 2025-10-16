@@ -362,20 +362,6 @@ const MonthNavigator = ({
             kind: 'custom',
             component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
         }}
-        onDropdownClick={(dropdown, isOpen) => {
-            if (dropdown && isOpen) {
-                const handleMouseDown = (e: MouseEvent) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                };
-                const handleDropdownClose = () => {
-                    dropdown.removeEventListener('mousedown', handleMouseDown);
-                };
-
-                dropdown.addEventListener('mousedown', handleMouseDown);
-                if (!isOpen) handleDropdownClose();
-            }
-        }}
     />
 );
 
@@ -404,20 +390,6 @@ const YearNavigator = ({
         inputWrapper={{
             kind: 'custom',
             component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
-        }}
-        onDropdownClick={(dropdown, isOpen) => {
-            if (dropdown && isOpen) {
-                const handleMouseDown = (e: MouseEvent) => {
-                    e.preventDefault();
-                    e.stopPropagation();
-                };
-                const handleDropdownClose = () => {
-                    dropdown.removeEventListener('mousedown', handleMouseDown);
-                };
-
-                dropdown.addEventListener('mousedown', handleMouseDown);
-                if (!isOpen) handleDropdownClose();
-            }
         }}
     />
 );

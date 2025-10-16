@@ -61,7 +61,6 @@ interface IPropsBase<T> extends IInputWrapper {
     ): React.ComponentType<T> | JSX.Element;
     onChange(e: Array<T>): void;
     clearable?: boolean;
-    onDropdownClick?(ref: HTMLInputElement | null, isOpen: boolean): void;
 }
 
 interface IPropsSync<T> extends IPropsBase<T> {
@@ -258,13 +257,12 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 this.popperInstance = createPopper(this.treeSelectRef.current, this.dropdownRef.current, {
                     placement: 'bottom-start',
                 });
-                this.props?.onDropdownClick?.(this.dropdownRef.current, this.state.openDropdown);
             }
 
-            this.inputRef.current?.addEventListener('keydown', (e: KeyboardEvent) => {
-                if (e.key === 'ArrowDown') {
-                    e.preventDefault();
-                    e.stopPropagation();
+            this.inputRef.current?.addEventListener('keydown', (event: KeyboardEvent) => {
+                if (event.key === 'ArrowDown') {
+                    event.preventDefault();
+                    event.stopPropagation();
 
                     if (this.categoryButtonRef.current) {
                         this.buttonFocus();
@@ -276,6 +274,18 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
                 }
             });
 
+            /**
+             * When TreeSelect is rendered inside a popover, a click event emitted by selecting an item
+             * is detected by the popover, is considered as a click outside the popover and the popover is closed.
+             * The problem lies in the popover code where outside click is detected,
+             * but since TreeSelect renders options element into the body
+             * the element is not a descendant of the popover and it's tricky to detect the outside click.
+             * Thus we stop the event as a workaround.
+             */
+            this.dropdownRef.current?.addEventListener('mousedown', (event: MouseEvent) => {
+                event.stopPropagation();
+            });
+
             if (this.inputRef.current) {
                 this.inputFocus();
             } else {
@@ -284,7 +294,6 @@ export class TreeSelect<T> extends React.Component<IProps<T>, IState<T>> {
             }
         } else {
             this.openDropdownRef.current?.focus();
-            this.props?.onDropdownClick?.(this.dropdownRef.current, this.state.openDropdown);
         }
     }
 
