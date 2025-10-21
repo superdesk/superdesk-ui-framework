@@ -8,8 +8,9 @@ $checkButtonBorderColorHover: var(--sd-colour-line--strong);
 $checkButtonBorderRadius: $border-radius__base--small;
 
 @mixin check-base {
-    width: 1.6rem;
-    height: 1.6rem;
+    --check-size: 1.6rem;
+    width: var(--check-size);
+    height: var(--check-size);
     display: inline-block;
     position: relative;
     background: transparent;
@@ -17,6 +18,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     vertical-align: middle;
     font-family: $baseFontFamily;
     transition: all 0.2s ease-out;
+    flex: 0 0 var(--check-size);
 }
 
 .sd-checkbox {
