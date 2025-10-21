@@ -192,6 +192,15 @@ angular.module('superdesk-ui.helper.dropdown', ['superdesk-ui.helper.position'])
             }
 
             $animate[isOpen ? 'addClass' : 'removeClass'](self.$element, openClass).then(() => {
+                // NOTE: this checks whether there is at least one dropdown open - not only this instance
+                const legacyAngularDropdownOpen = document.querySelector('.dropdown.open') != null;
+
+                if (legacyAngularDropdownOpen) {
+                    document.body.classList.add('legacyAngularDropdownOpen');
+                } else {
+                    document.body.classList.remove('legacyAngularDropdownOpen');
+                }
+
                 if (angular.isDefined(isOpen) && isOpen !== wasOpen) {
                     toggleInvoker($scope, {open: !!isOpen});
                 }
