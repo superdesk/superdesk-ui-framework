@@ -142,6 +142,57 @@ class TextUtilitiesDoc extends React.Component {
                     </div>
                 </div>
 
+                <div className="docs-page__container-block--line-height">
+                    <h3 className="docs-page__h3">Line Height</h3>
+                    <div className="utilities-table__container">
+                        <table className="table utilities-table">
+                            <thead>
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Properties</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>line-height-1</td>
+                                    <td>
+                                        {'line-height: var(--l-height-none);'}{' '}
+                                        <span className="doc-text--highlight">/* 1 */</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>line-height-xs</td>
+                                    <td>
+                                        {'line-height: var(--l-height-xs);'}{' '}
+                                        <span className="doc-text--highlight">/* 1.1 */</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>line-height-sm</td>
+                                    <td>
+                                        {'line-height: var(--l-height-sm);'}{' '}
+                                        <span className="doc-text--highlight">/* 1.2 */</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>line-height-md</td>
+                                    <td>
+                                        {'line-height: var(--l-height-md);'}{' '}
+                                        <span className="doc-text--highlight">/* 1.4 */</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>line-height-lg</td>
+                                    <td>
+                                        {'line-height: var(--l-height-lg);'}{' '}
+                                        <span className="doc-text--highlight">/* 1.5 */</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
                 <div className="docs-page__container-block--line-clamp">
                     <h3 className="docs-page__h3">Line Clamp</h3>
                     <p className="docs-page__paragraph">
@@ -239,43 +290,6 @@ class TextUtilitiesDoc extends React.Component {
                                         <br />
                                         {'-webkit-line-clamp: none;'}
                                     </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div className="docs-page__container-block--line-height">
-                    <h3 className="docs-page__h3">Line Height</h3>
-                    <p className="docs-page__paragraph">Utilities for managing the line height of an element.</p>
-                    <div className="utilities-table__container">
-                        <table className="table utilities-table">
-                            <thead>
-                                <tr>
-                                    <th>Class</th>
-                                    <th>Properties</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>line-height-1</td>
-                                    <td>{'line-height: 1;'}</td>
-                                </tr>
-                                <tr>
-                                    <td>line-height-xs</td>
-                                    <td>{'line-height: 1.1;'}</td>
-                                </tr>
-                                <tr>
-                                    <td>line-height-sm</td>
-                                    <td>{'line-height: 1.2;'}</td>
-                                </tr>
-                                <tr>
-                                    <td>line-height-md</td>
-                                    <td>{'line-height: 1.4;'}</td>
-                                </tr>
-                                <tr>
-                                    <td>line-height-lg</td>
-                                    <td>{'line-height: 1.5;'}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -7,6 +7,7 @@ interface IProps {
     triggerSelector: string; // CSS selector for an element that will be used to toggle the popover.
     displayCloseButton?: boolean; // defaults to true
     placement?: PopperOptions['placement']; // defaults to auto
+    theme?: 'light-ui' | 'dark-ui';
 }
 
 export class Popover extends React.Component<IProps> {
@@ -14,6 +15,7 @@ export class Popover extends React.Component<IProps> {
         return (
             <Positioner
                 triggerSelector={this.props.triggerSelector}
+                theme={this.props.theme}
                 placement={this.props.placement ?? 'auto'}
                 className="sd-popover"
             >

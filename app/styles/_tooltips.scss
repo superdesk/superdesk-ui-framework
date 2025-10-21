@@ -340,3 +340,86 @@
 .p-tooltip-right {
 	margin-inline-start: 8px;
 }
+
+
+
+
+// NEW TOOLTIP STYLES ----------------------------------------------------------------------------
+
+.tooltip {
+	--tooltip-arrow_border: 6px;
+	margin: calc(var(--tooltip-arrow_border) / 2);
+	border-radius: var(--b-radius--medium);
+	padding: var(--space--1) var(--space--1-5);
+	font-size: var(--text-size-small);
+	position: relative;
+	background-color: var(--sd-colour-background__tooltip);
+	box-shadow: var(--sd-shadow--z3);
+	color: var(--color-text-ondark);
+	opacity: 1;
+	transition: opacity 400ms ease-out, margin 200ms ease-out;
+	transition-behavior: allow-discrete;
+
+	@starting-style {
+		opacity: 0;
+	}
+
+	&::before {
+		content: '';
+		border: var(--tooltip-arrow_border) solid transparent;
+		border-width: var(--tooltip-arrow_border);
+		z-index: 1001;
+		user-select: none;
+		pointer-events: none;
+		position: absolute;
+		overflow: hidden;
+	}
+}
+
+[data-popper-placement^="top"] {
+    .tooltip {   
+		margin-block-end: var(--tooltip-arrow_border);
+        &::before {   
+            inset-block-end: calc(var(--tooltip-arrow_border) * -1);
+            inset-inline-start: calc(50% - var(--tooltip-arrow_border));
+            border-bottom-width: 0;
+            border-top-color: var(--sd-colour-background__tooltip);
+        }
+    }
+}
+
+[data-popper-placement^="bottom"] {
+    .tooltip {
+        margin-block-start: var(--tooltip-arrow_border);
+        &::before {
+            inset-block-start: calc(var(--tooltip-arrow_border) * -1);
+            inset-inline-start: calc(50% - var(--tooltip-arrow_border));
+            border-top-width: 0;
+            border-bottom-color: var(--sd-colour-background__tooltip);
+        }
+    }
+}
+
+[data-popper-placement^="left"] {
+    .tooltip {
+        margin-inline-end: var(--tooltip-arrow_border);
+        &::before {
+            inset-inline-end: calc(var(--tooltip-arrow_border) * -1);
+            inset-block-start: calc(50% - var(--tooltip-arrow_border));
+            border-right-width: 0;
+            border-left-color: var(--sd-colour-background__tooltip);
+        }
+    }
+}
+
+[data-popper-placement^="right"] {
+    .tooltip {
+        margin-inline-start: var(--tooltip-arrow_border);
+        &::before {
+            inset-inline-start: calc(var(--tooltip-arrow_border) * -1);
+            inset-block-start: calc(50% - var(--tooltip-arrow_border));
+            border-left-width: 0;
+            border-right-color: var(--sd-colour-background__tooltip);
+        }
+    }
+}

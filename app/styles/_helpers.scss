@@ -1866,20 +1866,21 @@ h6 {
 
 // LINE HIGHT
 .line-height-1 {
-    line-height: 1;
+    line-height: var(--l-height-none);
 }
 .line-height-xs {
-    line-height: 1.1;
+    line-height: var(--l-height-xs);
 }
 .line-height-sm {
-    line-height: 1.2;
+    line-height: var(--l-height-sm);
 }
 .line-height-md {
-    line-height: 1.4;
+    line-height: var(--l-height-md);
 }
 .line-height-lg {
-    line-height: 1.5;
+    line-height: var(--l-height-lg);
 }
+
 
 // LINE CLAMP
 // limit the number of horizontal lines in an elemnt (e.g. <p>)
@@ -2204,6 +2205,8 @@ h6 {
     container-type: inline-size;
     container-name: left-panel;
 }
+
+
 .new-form-layout {
     --form-group-gap: var(--gap-5);
     --form-layout-gap: var(--gap-4);
@@ -2216,22 +2219,38 @@ h6 {
     background-color: var(--color-surface-base);
     border-radius: var(--b-radius--large);
     border: 1px solid var(--color-line-light);
-
     .new-form-heading {
         font-family: $baseFontFamilySerif;
         font-weight: 900;
         font-size: var(--form-heading-font-size);
         line-height: 1.2;
     }
+    legend {
+        float: left;
+    }
 }
 .new-form-group {
     display: flex;
     gap: var(--form-group-gap);
+    &.new-form-group--grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: var(--form-group-gap);
+    }
 }
 .new-form-group-item {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    &.new-form-group-item--span-2 {
+        grid-column: span 2;
+    }
+    &.new-form-group-item--span-3 {
+        grid-column: span 3;
+    }
+    &.new-form-group-item--span-4 {
+        grid-column: span 4;
+    }
 }
 
 @container left-panel (width <= 900px) {

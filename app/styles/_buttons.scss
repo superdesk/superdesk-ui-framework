@@ -372,6 +372,7 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
     [class^="icon-"], [class*=" icon-"] {
         color: var(--color-icon-default) !important;
         vertical-align: baseline !important;
+        pointer-events: none;
     }
 
     &:hover {
@@ -401,8 +402,10 @@ $icn-button-focus-box-shadow: 0 0 0 2px $sd-colour--focus-shadow;
         }
     }
 
-    &--disabled {
+    &--disabled,
+    &:disabled {
         opacity: $icn-button-opacity-disabled;
+        pointer-events: none;
 
         &:hover, &:active, &:focus-visible {
             background-color: transparent !important;

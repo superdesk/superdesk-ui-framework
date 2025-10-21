@@ -2,6 +2,7 @@ import * as React from 'react';
 import * as Components from './components/Index';
 import {
     Checkbox,
+    CheckGroup,
     RadioGroup,
     CheckboxButton,
     RadioButtonGroup,
@@ -84,6 +85,10 @@ interface IState {
     openCollapsibleThree: boolean;
     openCollapsibleFour: boolean;
     openCollapsibleFive: boolean;
+    value22: boolean;
+    value23: boolean;
+    value24: boolean;
+    value25: boolean;
 }
 
 let options2 = [
@@ -153,6 +158,10 @@ export class TestGround extends React.Component<IProps, IState> {
             openCollapsibleThree: false,
             openCollapsibleFour: false,
             openCollapsibleFive: false,
+            value22: false,
+            value23: false,
+            value24: false,
+            value25: false,
         };
     }
 
@@ -245,15 +254,6 @@ export class TestGround extends React.Component<IProps, IState> {
 
                         <hr />
 
-                        <Spinner size="large" />
-                        <Spinner size="medium" />
-                        <Spinner size="small" />
-                        <Spinner size="mini" />
-
-                        <Spinner />
-
-                        <hr />
-
                         <Container gap="large" className="sd-border--medium text-md p-0 radius-lg mb-3">
                             <ResizablePanels direction="horizontal" secondarySize={{default: 20}}>
                                 <div className="left-panel p-2">
@@ -302,6 +302,255 @@ export class TestGround extends React.Component<IProps, IState> {
                                             </div>
                                         </div>
                                     </div>
+
+                                    <fieldset className="new-form-layout mt-3">
+                                        <legend className="new-form-heading">Nice little sign-in form</legend>
+                                        <div className="new-form-group new-form-group--grid">
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Name"
+                                                    value={''}
+                                                    type="text"
+                                                    required={true}
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Last Name"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Last Name"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Last Name"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="new-form-group new-form-group--grid">
+                                            <div className="new-form-group-item new-form-group-item--span-2">
+                                                <Input
+                                                    label="Username"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="new-form-group new-form-group--grid">
+                                            <div className="new-form-group-item new-form-group-item--span-2">
+                                                <Input
+                                                    label="Username"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item new-form-group-item--span-2">
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                        </div>
+                                        <div className="new-form-group new-form-group--grid">
+                                            <div className="new-form-group-item new-form-group-item--span-3">
+                                                <Input
+                                                    label="Username"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                        </div>
+                                    </fieldset>
+
+                                    <fieldset className="new-form-layout mt-3">
+                                        <legend className="new-form-heading">Nice little sign-in form</legend>
+                                        <div className="new-form-group new-form-group--grid">
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="First Name"
+                                                    value={''}
+                                                    type="text"
+                                                    required={true}
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Last Name"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Username"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Sign-off"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item new-form-group-item--span-2">
+                                                <Input
+                                                    label="Email"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    required={true}
+                                                    info="Password must be at least 8 characters long"
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Confirm Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    required={true}
+                                                    info="Confirm password must match the password"
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item new-form-group-item--span-2">
+                                                <TreeSelect
+                                                    kind={'synchronous'}
+                                                    value={this.state.treeSelectValue}
+                                                    getOptions={() => options3}
+                                                    getLabel={(item) => item.name}
+                                                    getId={(item) => item.name}
+                                                    allowMultiple
+                                                    sortable
+                                                    label="Languages"
+                                                    onChange={() => false}
+                                                    placeholder="Add languages"
+                                                    width="medium"
+                                                ></TreeSelect>
+                                            </div>
+                                            <div className="new-form-group-item new-form-group-item--span-2">
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                                {/* <Text>Password must be at least 8 characters long</Text> */}
+                                            </div>
+                                            <div className="new-form-group-item new-form-group-item--span-2">
+                                                <CheckGroup>
+                                                    <Checkbox
+                                                        checked={this.state.value22}
+                                                        label={{text: 'Checkbox one'}}
+                                                        onChange={(value) => this.setState(() => ({value22: value}))}
+                                                    />
+                                                    <Checkbox
+                                                        checked={this.state.value23}
+                                                        label={{text: 'Checkbox two'}}
+                                                        onChange={(value) => this.setState(() => ({value23: value}))}
+                                                    />
+
+                                                    <Checkbox
+                                                        checked={this.state.value24}
+                                                        label={{text: 'Checkbox three'}}
+                                                        onChange={(value) => this.setState(() => ({value24: value}))}
+                                                    />
+                                                </CheckGroup>
+                                            </div>
+                                            <div className="new-form-group-item new-form-group-item--span-3">
+                                                <Input
+                                                    label="Username"
+                                                    value={''}
+                                                    type="text"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                            <div className="new-form-group-item">
+                                                <Input
+                                                    label="Password"
+                                                    value={''}
+                                                    type="password"
+                                                    tabindex={0}
+                                                    onChange={(value) => this.setState({value: value})}
+                                                />
+                                            </div>
+                                        </div>
+                                    </fieldset>
                                 </div>
                                 <div className="right-panel p-2"></div>
                             </ResizablePanels>

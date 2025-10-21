@@ -2,7 +2,7 @@ import * as React from 'react';
 
 import * as Markup from '../../js/react';
 
-import {Tooltip, Prop, PropsList, Button} from '../../../app-typescript';
+import {Tooltip, Prop, PropsList, Button, ButtonGroup} from '../../../app-typescript';
 
 export default class TooltipDoc extends React.Component {
     render() {
@@ -20,18 +20,20 @@ export default class TooltipDoc extends React.Component {
                 <Markup.ReactMarkup>
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
-                            <Tooltip content="I'm on top">
-                                <Button text="top" onClick={() => false} />
-                            </Tooltip>
-                            <Tooltip content="I'm at the bottom" placement="bottom">
-                                <Button text="bottom" onClick={() => false} />
-                            </Tooltip>
-                            <Tooltip content="I open on the left" placement="left">
-                                <Button text="left" onClick={() => false} />
-                            </Tooltip>
-                            <Tooltip content="Right on!" placement="right">
-                                <Button text="right" onClick={() => false} />
-                            </Tooltip>
+                            <ButtonGroup>
+                                <Tooltip content="I'm on top">
+                                    <Button text="top" onClick={() => false} />
+                                </Tooltip>
+                                <Tooltip content="I'm at the bottom" placement="bottom">
+                                    <Button text="bottom" onClick={() => false} />
+                                </Tooltip>
+                                <Tooltip content="I open on the left" placement="left">
+                                    <Button text="left" onClick={() => false} />
+                                </Tooltip>
+                                <Tooltip content="Right on!" placement="right">
+                                    <Button text="right" onClick={() => false} />
+                                </Tooltip>
+                            </ButtonGroup>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>

@@ -132,7 +132,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
 
     i + label {
-        margin-inline-start: 8px;
+        margin-inline-start: var(--space--1);
+        font-size: var(--text-size-small);
     }
 
     &::after {
@@ -383,7 +384,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
 
     i + .sd-check-button__text-label {
-        margin-inline-start: $sd-base-increment;
+        margin-inline-start: var(--space--1);
     }
 
     &:hover {
@@ -501,7 +502,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
 
     .sd-check-new + label,
     .sd-radio-new + label {
-        margin-inline-start: $sd-base-increment;
+        margin-inline-start: var(--space--1);
+        font-size: var(--text-size-small);
     }
 
     .sd-check-new + label:empty,

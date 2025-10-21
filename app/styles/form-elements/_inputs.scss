@@ -781,7 +781,7 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
     margin: 0;
     display: grid;
     grid-template-columns: auto 1fr auto;
-    grid-template-rows: $form-label-height auto auto;
+    grid-template-rows: $form-label-height auto 1fr;
     grid-gap: 0;
     position: relative;
     align-self: stretch;
@@ -940,6 +940,12 @@ input[type="color" i].sd-input__color-input::-webkit-color-swatch {
         margin: 0;
         grid-row: 1/2;
         grid-column: 2/4;
+        span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+        }
     }
 
     .sd-input__label--required::after {
