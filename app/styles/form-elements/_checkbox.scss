@@ -8,8 +8,9 @@ $checkButtonBorderColorHover: var(--sd-colour-line--strong);
 $checkButtonBorderRadius: $border-radius__base--small;
 
 @mixin check-base {
-    width: 1.6rem;
-    height: 1.6rem;
+    --check-size: 1.6rem;
+    width: var(--check-size);
+    height: var(--check-size);
     display: inline-block;
     position: relative;
     background: transparent;
@@ -17,6 +18,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     vertical-align: middle;
     font-family: $baseFontFamily;
     transition: all 0.2s ease-out;
+    flex: 0 0 var(--check-size);
 }
 
 .sd-checkbox {
@@ -132,7 +134,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
 
     i + label {
-        margin-inline-start: 8px;
+        margin-inline-start: var(--space--1);
+        font-size: var(--text-size-small);
     }
 
     &::after {
@@ -383,7 +386,7 @@ $checkButtonBorderRadius: $border-radius__base--small;
     }
 
     i + .sd-check-button__text-label {
-        margin-inline-start: $sd-base-increment;
+        margin-inline-start: var(--space--1);
     }
 
     &:hover {
@@ -501,7 +504,8 @@ $checkButtonBorderRadius: $border-radius__base--small;
 
     .sd-check-new + label,
     .sd-radio-new + label {
-        margin-inline-start: $sd-base-increment;
+        margin-inline-start: var(--space--1);
+        font-size: var(--text-size-small);
     }
 
     .sd-check-new + label:empty,

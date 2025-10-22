@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {Popover, PropsList, Prop} from '../../../app-typescript';
+import {Popover, PropsList, Prop, Button, ButtonGroup} from '../../../app-typescript';
 
 import * as Markup from '../../js/react';
 
@@ -23,13 +23,20 @@ export class PopoverDoc extends React.Component {
                     <Markup.ReactMarkupPreview>
                         <div className="docs-page__content-row docs-page__content-row--no-margin">
                             <div className="form__row">
-                                <button
-                                    className="btn btn-default btn--small"
-                                    aria-haspopup="true"
-                                    id="button-view-content"
-                                >
-                                    Open popover
-                                </button>
+                                <ButtonGroup>
+                                    <Button
+                                        aria-haspopup="true"
+                                        id="button-view-content"
+                                        text="Open popover"
+                                        onClick={() => false}
+                                    />
+                                    <Button
+                                        aria-haspopup="true"
+                                        id="button-view-content-dark"
+                                        text="Open popover"
+                                        onClick={() => false}
+                                    />
+                                </ButtonGroup>
 
                                 <Popover
                                     triggerSelector="#button-view-content"
@@ -37,6 +44,15 @@ export class PopoverDoc extends React.Component {
                                     placement="top-end"
                                 >
                                     Donec sed odio dui. Aenean lacinia bibendum nulla sed consectetur.
+                                </Popover>
+                                <Popover
+                                    triggerSelector="#button-view-content-dark"
+                                    title="Popover test"
+                                    placement="top-end"
+                                    theme="dark-ui"
+                                >
+                                    Enforce a dark theme. Donec sed odio dui. Aenean lacinia bibendum nulla sed
+                                    consectetur.
                                 </Popover>
                             </div>
                         </div>
@@ -82,6 +98,13 @@ export class PopoverDoc extends React.Component {
                         type="auto | auto-end | auto-start | bottom | bottom-end | bottom-start | left | left-end | left-start | right | right-end | right-start | top | top-end | top-start"
                         default="auto"
                         description="Define the placement of the Popover."
+                    />
+                    <Prop
+                        name="theme"
+                        isRequired={false}
+                        type="light-ui | dark-ui"
+                        default="/"
+                        description="Define the theme of the Popover. It will inherit the default theme if not set."
                     />
                 </PropsList>
             </section>

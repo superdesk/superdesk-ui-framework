@@ -95,7 +95,7 @@ export class InputWrapper extends React.Component<IProps, IState> {
                     id={this.props.htmlId + 'label'}
                     tabIndex={this.props.tabindex === undefined ? undefined : -1}
                 >
-                    {this.props.label}
+                    <span>{this.props.label}</span>
                 </label>
                 <div className="sd-input__input-container">{this.props.children}</div>
                 {this.props.maxLength && (

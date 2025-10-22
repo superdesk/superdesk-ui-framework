@@ -93,6 +93,7 @@ class PopperWrapper extends React.Component<IPropsPopperWrapper> {
                 }}
                 tabIndex={0}
                 role="dialog"
+                data-theme={this.props.theme}
                 aria-labelledby="popoverTitle"
                 onKeyDown={(event) => {
                     if (event.key === 'Escape') {
@@ -111,6 +112,7 @@ interface IPropsPositioner {
     triggerSelector: string;
     placement: PopperOptions['placement'];
     className?: string;
+    theme?: 'light-ui' | 'dark-ui';
 }
 
 interface IStatePositioner {

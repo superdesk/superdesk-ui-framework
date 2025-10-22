@@ -126,7 +126,7 @@ export class Autocomplete extends React.Component<IProps, IState> {
                 <div className={classes}>
                     {this.props.label && !this.props.isSearchField ? (
                         <label className="sd-input__label" htmlFor={this.htmlId}>
-                            {this.props.label}
+                            <span>{this.props.label}</span>
                         </label>
                     ) : null}
 

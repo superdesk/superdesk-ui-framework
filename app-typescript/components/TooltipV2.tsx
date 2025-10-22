@@ -24,27 +24,16 @@ export class TooltipV2 extends React.PureComponent<IPropsTooltipV2> {
                 placement={this.props.placement ?? 'top'}
                 component={() => {
                     return (
-                        <div data-theme="dark-ui">
-                            <div
-                                style={{
-                                    background: 'var(--color-bg-100)',
-                                    color: 'var(--color-text)',
-                                    borderRadius: 'var(--b-radius--medium)',
-                                    paddingInline: 'var(--space--0-5)',
-                                    fontSize: 'var(--text-size-x-small)',
-                                    margin: 2,
-                                }}
-                            >
-                                {(() => {
-                                    if (typeof this.props.content === 'string') {
-                                        return <span>{this.props.content}</span>;
-                                    } else {
-                                        const Component = this.props.content;
+                        <div className="tooltip">
+                            {(() => {
+                                if (typeof this.props.content === 'string') {
+                                    return <span>{this.props.content}</span>;
+                                } else {
+                                    const Component = this.props.content;
 
-                                        return <Component />;
-                                    }
-                                })()}
-                            </div>
+                                    return <Component />;
+                                }
+                            })()}
                         </div>
                     );
                 }}
@@ -63,7 +52,7 @@ export class TooltipV2 extends React.PureComponent<IPropsTooltipV2> {
                         return this.props.children({attributes});
                     } else {
                         return (
-                            <span {...attributes} style={{display: 'inline-flex'}}>
+                            <span {...attributes} style={{display: 'contents'}}>
                                 {this.props.children}
                             </span>
                         );

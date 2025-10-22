@@ -33,49 +33,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>p-0-5</td>
                                     <td>
-                                        {'padding: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>p-1</td>
                                     <td>
-                                        {'padding: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>p-1-5</td>
                                     <td>
-                                        {'padding: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>p-2</td>
                                     <td>
-                                        {'padding: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>p-3</td>
                                     <td>
-                                        {'padding: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>p-4</td>
                                     <td>
-                                        {'padding: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>p-5</td>
                                     <td>
-                                        {'padding: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -92,49 +92,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>ps-0-5</td>
                                     <td>
-                                        {'padding-inline-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ps-1</td>
                                     <td>
-                                        {'padding-inline-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ps-1-5</td>
                                     <td>
-                                        {'padding-inline-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ps-2</td>
                                     <td>
-                                        {'padding-inline-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ps-3</td>
                                     <td>
-                                        {'padding-inline-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ps-4</td>
                                     <td>
-                                        {'padding-inline-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ps-5</td>
                                     <td>
-                                        {'padding-inline-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -151,49 +151,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>pe-0-5</td>
                                     <td>
-                                        {'padding-inline-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pe-1</td>
                                     <td>
-                                        {'padding-inline-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pe-1-5</td>
                                     <td>
-                                        {'padding-inline-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pe-2</td>
                                     <td>
-                                        {'padding-inline-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pe-3</td>
                                     <td>
-                                        {'padding-inline-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pe-4</td>
                                     <td>
-                                        {'padding-inline-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pe-5</td>
                                     <td>
-                                        {'padding-inline-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -214,70 +214,70 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>px-0-5</td>
                                     <td>
-                                        {'padding-inline-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                         <br />
-                                        {'padding-inline-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>px-1</td>
                                     <td>
-                                        {'padding-inline-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                         <br />
-                                        {'padding-inline-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>px-1-5</td>
                                     <td>
-                                        {'padding-inline-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                         <br />
-                                        {'padding-inline-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>px-2</td>
                                     <td>
-                                        {'padding-inline-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                         <br />
-                                        {'padding-inline-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>px-3</td>
                                     <td>
-                                        {'padding-inline-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                         <br />
-                                        {'padding-inline-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>px-4</td>
                                     <td>
-                                        {'padding-inline-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                         <br />
-                                        {'padding-inline-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>px-5</td>
                                     <td>
-                                        {'padding-inline-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                         <br />
-                                        {'padding-inline-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-inline-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -293,49 +293,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>pt-0-5</td>
                                     <td>
-                                        {'padding-block-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pt-1</td>
                                     <td>
-                                        {'padding-block-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pt-1-5</td>
                                     <td>
-                                        {'padding-block-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pt-2</td>
                                     <td>
-                                        {'padding-block-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pt-3</td>
                                     <td>
-                                        {'padding-block-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pt-4</td>
                                     <td>
-                                        {'padding-block-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pt-5</td>
                                     <td>
-                                        {'padding-block-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -352,49 +352,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>pb-0-5</td>
                                     <td>
-                                        {'padding-block-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pb-1</td>
                                     <td>
-                                        {'padding-block-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pb-1-5</td>
                                     <td>
-                                        {'padding-block-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pb-2</td>
                                     <td>
-                                        {'padding-block-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pe-3</td>
                                     <td>
-                                        {'padding-block-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pb-4</td>
                                     <td>
-                                        {'padding-block-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>pb-5</td>
                                     <td>
-                                        {'padding-block-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -415,70 +415,70 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>py-0-5</td>
                                     <td>
-                                        {'padding-block-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                         <br />
-                                        {'padding-block-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>py-1</td>
                                     <td>
-                                        {'padding-block-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                         <br />
-                                        {'padding-block-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>py-1-5</td>
                                     <td>
-                                        {'padding-block-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                         <br />
-                                        {'padding-block-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>py-2</td>
                                     <td>
-                                        {'padding-block-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                         <br />
-                                        {'padding-block-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>py-3</td>
                                     <td>
-                                        {'padding-block-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                         <br />
-                                        {'padding-block-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>py-4</td>
                                     <td>
-                                        {'padding-block-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                         <br />
-                                        {'padding-block-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>py-5</td>
                                     <td>
-                                        {'padding-block-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                         <br />
-                                        {'padding-block-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'padding-block-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -509,49 +509,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>m-0-5</td>
                                     <td>
-                                        {'margin: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>m-1</td>
                                     <td>
-                                        {'margin: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>m-1-5</td>
                                     <td>
-                                        {'margin: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>m-2</td>
                                     <td>
-                                        {'margin: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>m-3</td>
                                     <td>
-                                        {'margin: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>m-4</td>
                                     <td>
-                                        {'margin: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>m-5</td>
                                     <td>
-                                        {'margin: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -568,49 +568,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>ms-0-5</td>
                                     <td>
-                                        {'margin-inline-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ms-1</td>
                                     <td>
-                                        {'margin-inline-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ms-1-5</td>
                                     <td>
-                                        {'margin-inline-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ms-2</td>
                                     <td>
-                                        {'margin-inline-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ms-3</td>
                                     <td>
-                                        {'margin-inline-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ms-4</td>
                                     <td>
-                                        {'margin-inline-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>ms-5</td>
                                     <td>
-                                        {'margin-inline-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -627,49 +627,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>me-0-5</td>
                                     <td>
-                                        {'margin-inline-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>me-1</td>
                                     <td>
-                                        {'margin-inline-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>me-1-5</td>
                                     <td>
-                                        {'margin-inline-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>me-2</td>
                                     <td>
-                                        {'margin-inline-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>me-3</td>
                                     <td>
-                                        {'margin-inline-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>me-4</td>
                                     <td>
-                                        {'margin-inline-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>me-5</td>
                                     <td>
-                                        {'margin-inline-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -690,70 +690,70 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>mx-0-5</td>
                                     <td>
-                                        {'margin-inline-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                         <br />
-                                        {'margin-inline-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mx-1</td>
                                     <td>
-                                        {'margin-inline-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                         <br />
-                                        {'margin-inline-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mx-1-5</td>
                                     <td>
-                                        {'margin-inline-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                         <br />
-                                        {'margin-inline-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mx-2</td>
                                     <td>
-                                        {'margin-inline-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                         <br />
-                                        {'margin-inline-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mx-3</td>
                                     <td>
-                                        {'margin-inline-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                         <br />
-                                        {'margin-inline-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mx-4</td>
                                     <td>
-                                        {'margin-inline-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                         <br />
-                                        {'margin-inline-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mx-5</td>
                                     <td>
-                                        {'margin-inline-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                         <br />
-                                        {'margin-inline-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-inline-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -769,49 +769,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>mt-0-5</td>
                                     <td>
-                                        {'margin-block-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mt-1</td>
                                     <td>
-                                        {'margin-block-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mt-1-5</td>
                                     <td>
-                                        {'margin-block-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mt-2</td>
                                     <td>
-                                        {'margin-block-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mt-3</td>
                                     <td>
-                                        {'margin-block-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mt-4</td>
                                     <td>
-                                        {'margin-block-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mt-5</td>
                                     <td>
-                                        {'margin-block-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -828,49 +828,49 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>mb-0-5</td>
                                     <td>
-                                        {'margin-block-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mb-1</td>
                                     <td>
-                                        {'margin-block-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mb-1-5</td>
                                     <td>
-                                        {'margin-block-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mb-2</td>
                                     <td>
-                                        {'margin-block-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>me-3</td>
                                     <td>
-                                        {'margin-block-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mb-4</td>
                                     <td>
-                                        {'margin-block-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>mb-5</td>
                                     <td>
-                                        {'margin-block-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>
@@ -891,70 +891,70 @@ class SpacingUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>my-0-5</td>
                                     <td>
-                                        {'margin-block-start: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                         <br />
-                                        {'margin-block-end: calc(0.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--0-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 4px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>my-1</td>
                                     <td>
-                                        {'margin-block-start: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                         <br />
-                                        {'margin-block-end: calc(1 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--1) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 8px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>my-1-5</td>
                                     <td>
-                                        {'margin-block-start: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                         <br />
-                                        {'margin-block-end: calc(1.5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--1-5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 12px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>my-2</td>
                                     <td>
-                                        {'margin-block-start: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                         <br />
-                                        {'margin-block-end: calc(2 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--2) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 16px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>my-3</td>
                                     <td>
-                                        {'margin-block-start: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                         <br />
-                                        {'margin-block-end: calc(3 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--3) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 24px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>my-4</td>
                                     <td>
-                                        {'margin-block-start: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                         <br />
-                                        {'margin-block-end: calc(4 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--4) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 32px */</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>my-5</td>
                                     <td>
-                                        {'margin-block-start: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-start: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                         <br />
-                                        {'margin-block-end: calc(5 * var(--base-increment)) !important;'}{' '}
+                                        {'margin-block-end: var(--space--5) !important;'}{' '}
                                         <span className="doc-text--highlight">/* 40px */</span>
                                     </td>
                                 </tr>

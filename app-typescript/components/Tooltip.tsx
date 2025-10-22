@@ -37,7 +37,7 @@ export class Tooltip extends React.PureComponent<IProps> {
             return (
                 <TooltipV2 content={this.props.text ?? ''} placement={flowToPlacement(this.props.flow)}>
                     {({attributes}) => (
-                        <div {...attributes} style={{display: 'inline-flex'}}>
+                        <div {...attributes} style={{display: 'contents'}}>
                             {this.props.children}
                         </div>
                     )}

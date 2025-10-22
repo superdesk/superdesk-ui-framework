@@ -70,6 +70,12 @@
     --text-size-x-large: calc(var(--text-size--base) * 2.4); // 24px;
     --text-size-xx-large: calc(var(--text-size--base) * 3.2); // 32px;
 
+    // LINE HEIGHT
+    --l-height-none: 1;
+    --l-height-xs: 1.1;    
+    --l-height-sm: 1.2;
+    --l-height-md: 1.4;
+    --l-height-lg: 1.5;
 
     // SHADOW
     --sd-shadow--z1: 0 0 0 1px var(--sd-shadow-outline), 0 1px 3px hsla(0, 0%, 0%, 0.16), 0 0 1px hsla(0, 0%, 0%, 0.1);

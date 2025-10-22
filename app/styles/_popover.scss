@@ -1,9 +1,9 @@
 .sd-popover {
-    background: var(--sd-colour-bg--05);
-    color: #fff;
-    padding: 8px 12px 12px;
-    border-radius: $border-radius__base--medium;
-    box-shadow: 0 3px 7px rgba(0,0,0,0.3);
+    background: var(--color-surface-base);
+    color: var(--color-text-default);
+    padding: var(--space--1) var(--space--1-5) var(--space--1-5);
+    border-radius: var(--b-radius--medium);
+    box-shadow: var(--sd-shadow--z4);
     max-width: 320px !important;
 }
 
@@ -11,15 +11,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-block-end: 4px;
+    margin-block-end: var(--space--0-5);
     min-height: 20px;
 }
 
 .sd-popover__title {
-    font-size: 11px;
+    font-size: var(--text-size-xx-small);
     line-height: 1;
     text-transform: uppercase;
-    color: #ccc;
+    color: var(--color-text-muted);
     padding: 0;
     margin: 0;
 }

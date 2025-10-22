@@ -171,7 +171,9 @@ export class SelectGrid extends React.PureComponent<IProps, IState> {
                     aria-label={this.props.label}
                     key={this.props.label}
                 >
-                    <label className="sd-input__label">{this.props.label}</label>
+                    <label className="sd-input__label">
+                        <span>{this.props.label}</span>
+                    </label>
                     <TriggerTemplate onClick={this.mountPopup} />
                 </div>
                 <OverlayPanel
