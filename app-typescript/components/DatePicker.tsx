@@ -201,22 +201,22 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                     footerTemplate={
                         showClearButton
                             ? () => (
-                                  <div className="d-flex justify-end">
-                                      <Button
-                                          onClick={() => {
-                                              this.props.onChange(null);
-                                              if (
-                                                  this.instance != null &&
-                                                  typeof this.instance.hideOverlay === 'function'
-                                              ) {
-                                                  this.instance.hideOverlay();
-                                              }
-                                          }}
-                                          text="Clear"
-                                          data-test-id="clear-button"
-                                      />
-                                  </div>
-                              )
+                                <div className="d-flex justify-end">
+                                    <Button
+                                        onClick={() => {
+                                            this.props.onChange(null);
+                                            if (
+                                                this.instance != null &&
+                                                typeof this.instance.hideOverlay === 'function'
+                                            ) {
+                                                this.instance.hideOverlay();
+                                            }
+                                        }}
+                                        text="Clear"
+                                        data-test-id="clear-button"
+                                    />
+                                </div>
+                            )
                             : undefined
                     }
                     inputId={this.htmlId}
@@ -318,6 +318,7 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 }}
                 disabled={this.props.disabled}
                 preview={this.props.preview}
+                hideClearButton={this.props.hideClearButton}
                 headerButtonBar={this.props.headerButtonBar}
                 dateFormat={this.props.dateFormat}
                 locale={this.props.locale}
