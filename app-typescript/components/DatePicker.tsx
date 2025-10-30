@@ -304,6 +304,7 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 }}
                 disabled={this.props.disabled}
                 preview={this.props.preview}
+                hideClearButton={this.props.hideClearButton}
                 headerButtonBar={this.props.headerButtonBar}
                 dateFormat={this.props.dateFormat}
                 locale={this.props.locale}
