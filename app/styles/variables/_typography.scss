@@ -1,11 +1,20 @@
 // variables/typography.scss
 
-$baseFontSize: 13px;
+$baseFontSize: 1.3rem;
 $baseFontFamily: "Roboto", Helvetica, Arial, sans-serif;
 $baseFontFamilyMono:'Roboto Mono', 'Consolas', 'monaco', monospace;
 $baseFontFamilySerif: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
-$baseLineHeight: 140%;
+$baseLineHeight: 1.4;
 $altFontFamily: Georgia, "Times New Roman", Times, serif;
 
 $headingsFontFamily: inherit; // empty to use BS default, $baseFontFamily
 $headingsFontWeight: bold;    // instead of browser default, bold
+
+:root {
+    --font-size-base: 1.3rem;
+    --line-height-base: 1.4;
+    --font-primary: "Roboto", Helvetica, Arial, sans-serif;
+    --font-secondary: 'Merriweather', Georgia, 'Times New Roman', Times, serif;
+    --font-mono: 'Roboto Mono', 'Consolas', 'monaco', monospace;
+    --font-alt: Georgia, "Times New Roman", Times, serif;
+}

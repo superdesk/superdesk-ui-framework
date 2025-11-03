@@ -125,6 +125,9 @@ $tag-label-palette: $tag-bg-colors !default;
     .tag-label--text-label {
         opacity: 0.7;
     }
+    .tag-label--text {
+        pointer-events: none;
+    }
 
     &.tag-label--small {
         height: var(--tag-label-height-small);

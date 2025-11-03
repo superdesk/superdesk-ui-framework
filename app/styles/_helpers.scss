@@ -1677,31 +1677,30 @@ h6 {
 // TYPOGRAPHY -------------------------------------------------------------------------------------
 // FONT SIZE
 .text-2xs {
-    font-size: calc(var(--text-size--base) * 1); // 12px;
+    font-size: var(--text-size-xx-small); // 10px;
 }
 .sd-font-size--x-small,
 .text-xs {
-    font-size: calc(var(--text-size--base) * 1.2); // 12px;
+    font-size: var(--text-size-x-small); // 12px;
 }
 .sd-font-size--small,
 .text-sm {
-    font-size: calc(var(--text-size--base) * 1.4); // 14px;
+    font-size: var(--text-size-small); // 14px;
 }
 .sd-font-size--medium ,
 .text-md {
-    font-size: calc(var(--text-size--base) * 1.6); // 16px;
+    font-size: var(--text-size-medium); // 16px;
 }
 .sd-font-size--large,
 .text-lg {
-    font-size: calc(var(--text-size--base) * 2); // 20px;
+    font-size: var(--text-size-large); // 20px;
 }
 .sd-font-size--x-large,
 .text-xl {
-    font-size: calc(var(--text-size--base) * 2.4); // 24px;
+    font-size: var(--text-size-x-large); // 24px;
 }
-.sd-font-size--x-large,
 .text-2xl {
-    font-size: calc(var(--text-size--base) * 3.2); // 32px;
+    font-size: var(--text-size-xx-large); // 32px;
 }
 
 // TEXT COLOR
@@ -2205,7 +2204,20 @@ h6 {
     container-type: inline-size;
     container-name: left-panel;
 }
-
+@container left-panel (width <= 900px) {
+    .new-form-layout {
+        --form-group-gap: var(--gap-3);
+        --form-padding: var(--space--3);
+    }
+}
+@container left-panel (width<= 500px) {
+    .new-form-layout {
+        --form-group-gap: var(--gap-1-5);
+        --form-padding: var(--space--2);
+        --form-layout-gap: var(--gap-2);
+    }
+}
+// ------------------------------------------------------------------------
 
 .new-form-layout {
     --form-group-gap: var(--gap-5);
@@ -2253,16 +2265,4 @@ h6 {
     }
 }
 
-@container left-panel (width <= 900px) {
-    .new-form-layout {
-        --form-group-gap: var(--gap-3);
-        --form-padding: var(--space--3);
-    }
-}
-@container left-panel (width<= 500px) {
-    .new-form-layout {
-        --form-group-gap: var(--gap-1-5);
-        --form-padding: var(--space--2);
-        --form-layout-gap: var(--gap-2);
-    }
-}
+

@@ -98,6 +98,10 @@ export default class ContentDividerDoc extends React.Component {
                                 cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
                                 Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
                             </p>
+                            <ContentDivider textSize="x-small">Extra-small text size</ContentDivider>
+                            <ContentDivider textSize="small">Small text size</ContentDivider>
+                            <ContentDivider textSize="medium">Medium text size (default)</ContentDivider>
+                            <ContentDivider textSize="large">Large text size</ContentDivider>
                         </div>
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
@@ -119,6 +123,22 @@ export default class ContentDividerDoc extends React.Component {
                         </ContentDivider>
 
                         <p>Praesent commodo cursus magna...</p>
+
+                        <ContentDivider textSize='x-small'>
+                            Extra-small text size
+                        </ContentDivider>
+
+                        <ContentDivider textSize='small'>
+                            Small text size
+                        </ContentDivider>
+
+                        <ContentDivider textSize='medium'>
+                            Medium text size (default)
+                        </ContentDivider>
+
+                        <ContentDivider textSize='large'>
+                            Large text size
+                        </ContentDivider>
                     `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -137,7 +157,7 @@ export default class ContentDividerDoc extends React.Component {
                         </div>
                         <p className="docs-page__paragraph ">// With text</p>
                         <p className="docs-page__paragraph--small sd-margin-b--3">
-                            Inside a flex container (flex-direction: column;).
+                            Inside a flex container (flex-direction: row;).
                         </p>
                         <div className="docs-page__content-row d-flex">
                             <div style={{width: '100%'}}>
@@ -221,6 +241,13 @@ export default class ContentDividerDoc extends React.Component {
                         type="x-small | small | medium | large | none"
                         default="medium"
                         description="Vertical or horizontal margins (depending on the orientation) of the ContentDivider. Default to medium if not set."
+                    />
+                    <Prop
+                        name="textSize"
+                        isRequired={false}
+                        type="x-small | small | medium | large"
+                        default="medium"
+                        description="Text size of the divider text. Default to medium if not set."
                     />
                 </PropsList>
             </section>

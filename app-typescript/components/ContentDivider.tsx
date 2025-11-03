@@ -5,6 +5,7 @@ interface IProps {
     type?: 'dashed' | 'dotted' | 'solid'; // defaults to 'solid'
     orientation?: 'horizontal' | 'vertical'; // defaults to 'horizontal'
     align?: 'center' | 'left' | 'right'; // defaults to 'center'
+    textSize?: 'x-small' | 'small' | 'medium' | 'large'; // defaults to 'medium'
     border?: boolean;
     margin?: 'x-small' | 'small' | 'medium' | 'large' | 'none';
     children?: React.ReactNode;
@@ -17,6 +18,8 @@ export class ContentDivider extends React.PureComponent<IProps> {
             'sd-content-divider--no-border': this.props.border === false,
             [`sd-content-divider--${this.props.type}`]: this.props.type || this.props.type !== undefined,
             [`sd-content-divider--text-${this.props.align}`]: this.props.align || this.props.align !== undefined,
+            [`sd-content-divider--text-${this.props.textSize}`]:
+                this.props.textSize || this.props.textSize !== undefined,
             [`sd-content-divider--${this.props.orientation}`]:
                 this.props.orientation || this.props.orientation !== undefined,
             'sd-content-divider--margin-medium': this.props.margin === undefined,

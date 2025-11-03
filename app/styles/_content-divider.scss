@@ -2,7 +2,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    color: $sd-text;
+    color: var(--color-text);
     list-style: none;
     border-block-end: 0;
     border-inline-start: 0;
@@ -11,10 +11,11 @@
     border-style: solid;
 
     &.sd-content-divider--with-text {
+        --text-size: var(--text-size-medium);
         display: flex;
-        color: $sd-text;
+        color: var(--color-text);
         font-weight: 500;
-        font-size: 16px;
+        font-size: var(--text-size);
         white-space: nowrap;
         text-align: center;
         border-block-start: 0;
@@ -23,37 +24,61 @@
         border-inline-end: 0;
         border-top-color: var(--sd-colour-line--medium);
         border-style: solid;
+
+        &.sd-content-divider--text-x-small {
+            --text-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            letter-spacing: 0.06em;
+        }
+        
+        &.sd-content-divider--text-small {
+            --text-size: var(--text-size-small);
+        }
+
+        &.sd-content-divider--text-medium {
+            --text-size: var(--text-size-medium);
+        }
+
+        &.sd-content-divider--text-large {
+            --text-size: var(--text-size-large);
+            font-weight: 700;
+            font-family: var(--font-secondary);
+        }
     }
 
     &.sd-content-divider--horizontal {
+        --margin-block: 0;
         display: flex;
         clear: both;
         width: 100%;
         min-width: 100%;
 
         &.sd-content-divider--margin-x-small {
-            margin: $sd-base-increment * 1 0;
+            --margin-block: var(--space--1);
         }
 
         &.sd-content-divider--margin-small {
-            margin: $sd-base-increment * 2 0;
+            --margin-block: var(--space--2);
         }
 
         &.sd-content-divider--margin-medium {
-            margin: $sd-base-increment * 3 0;
+            --margin-block: var(--space--3);
         }
 
         &.sd-content-divider--margin-large {
-            margin: $sd-base-increment * 4 0;
+            --margin-block: var(--space--4);
         }
 
         &.sd-content-divider--margin-none {
-            margin: 0 0;
+            --margin-block: 0;
         }
+
+        margin-block: var(--margin-block);
     }
 
     &.sd-content-divider--horizontal.sd-content-divider--with-text {
-        margin: 1.6rem 0;
 
         &::before, &::after {
             content: "";
@@ -89,40 +114,40 @@
         }
 
         &.sd-content-divider--margin-x-small {
-            margin: $sd-base-increment * 1 0;
+            --margin-block: var(--space--1);
         }
 
         &.sd-content-divider--margin-small {
-            margin: $sd-base-increment * 2 0;
+            --margin-block: var(--space--2);
         }
 
         &.sd-content-divider--margin-medium {
-            margin: $sd-base-increment * 3 0;
+            --margin-block: var(--space--3);
         }
 
         &.sd-content-divider--margin-large {
-            margin: $sd-base-increment * 4 0;
+            --margin-block: var(--space--4);
         }
 
         &.sd-content-divider--margin-none {
-            margin: $sd-base-increment / 2 0;
+            --margin-block: var(--space--0-5);
         }
+
+        margin-block: var(--margin-block);
     }
 
     &.sd-content-divider--vertical {
         position: relative;
         display: inline-block;
-        //margin: $sd-base-increment * 0.5 $sd-base-increment * 1.5;
         vertical-align: middle;
         border-block-start: 0;
         border-inline-start: 1px var(--sd-colour-line--medium);
         border-style: solid;
         flex-grow: 0;
         align-self: stretch;
-        min-height: $sd-base-increment * 2;
+        min-height: var(--space--2);
 
         &.sd-content-divider--with-text {
-            margin: 0 $sd-base-increment * 1.5;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -130,7 +155,7 @@
             border-inline-start: 0;
 
             .sd-content-divider__inner-text {
-                padding: $sd-base-increment * 0.5 $sd-base-increment * 2;
+                padding: var(--space--0-5) var(--space--2);
             }
 
             &::before, &::after {
@@ -162,24 +187,26 @@
         }
 
         &.sd-content-divider--margin-x-small {
-            margin: 0 $sd-base-increment * 1;
+            --margin-inline: var(--space--1);
         }
 
         &.sd-content-divider--margin-small {
-            margin: 0 $sd-base-increment * 2;
+            --margin-inline: var(--space--2);
         }
 
         &.sd-content-divider--margin-medium {
-            margin: 0 $sd-base-increment * 3;
+            --margin-inline: var(--space--3);
         }
 
         &.sd-content-divider--margin-large {
-            margin: 0 $sd-base-increment * 4;
+            --margin-inline: var(--space--4);
         }
 
         &.sd-content-divider--margin-none {
-            margin: 0 0;
+            --margin-inline: 0;
         }
+        
+        margin-inline: var(--margin-inline);
     }
 
     &.sd-content-divider--dashed {
@@ -202,5 +229,5 @@
 
 .sd-content-divider__inner-text {
     display: inline-block;
-    padding: 0 $sd-base-increment;
+    padding: 0 var(--space--1);
 }

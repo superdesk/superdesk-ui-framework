@@ -10,6 +10,7 @@
     background-color: transparent;
     transition: all 0.2s ease-out;
     height: 100%; // adapts to the height of the parent element, usually .subnav. 
+    min-height: $height-input--default;
     max-height: $subnav-height;
 }
 
