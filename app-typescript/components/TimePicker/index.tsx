@@ -71,11 +71,6 @@ export class TimePicker extends React.PureComponent<IProps, IState> {
                         <TimePickerPopover
                             value={this.props.value}
                             onChange={this.props.onChange}
-                            closePopup={() => {
-                                this.setState({
-                                    popupOpen: false,
-                                });
-                            }}
                             allowSeconds={this.props.allowSeconds}
                             headerTemplate={this.props.headerTemplate}
                             footerTemplate={this.props.footerTemplate}
