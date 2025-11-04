@@ -55,6 +55,8 @@ import DropZoneDoc from './DropZone';
 import CreateButtonDoc from './CreateButton';
 import TagInputDocs from './TagInputDocs';
 import DragHandleDocs from './DragHandleDocs';
+import SearchBarDoc from './SearchBar';
+import OverflowStackDoc from './OverflowStack';
 
 import * as Playgrounds from '../playgrounds/react-playgrounds/Index';
 import {SelectWithTemplateDocs} from './SelectWithTemplate';
@@ -136,6 +138,10 @@ const pages: IPages = {
             avatar: {
                 name: 'Avatar',
                 component: AvatarDoc,
+            },
+            'overflow-stack': {
+                name: 'Overflow Stack',
+                component: OverflowStackDoc,
             },
             tooltips: {
                 name: 'Tooltips',
@@ -374,6 +380,10 @@ const pages: IPages = {
             'create-button': {
                 name: 'CreateButton',
                 component: CreateButtonDoc,
+            },
+            'search-bar': {
+                name: 'SearchBar',
+                component: SearchBarDoc,
             },
         },
     },

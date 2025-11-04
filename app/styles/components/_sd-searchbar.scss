@@ -1,5 +1,4 @@
 // Large Searchbar
-
 // Large searchbar is usualy used inside the 'subnav' component, hence the flex-grow property;
 
 .sd-searchbar {
@@ -63,7 +62,6 @@
     &.sd-searchbar--invalid {
         border-color: rgba(229, 28, 35, 0.75);
         box-shadow: inset 0 0 0 1px rgba(229,28,35,0.1), inset 0 0 0 4px rgba(229,28,35,0.1);
-
     }
 
     &.sd-searchbar--disabled {
@@ -111,7 +109,6 @@
             box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), 3px 0 0 var(--sd-colour-interactive--alpha-10);
         }
     }
-
 }
 
 .sd-searchbar__input, input[type="text"].sd-searchbar__input, input[type="search"].sd-searchbar__input {
@@ -119,7 +116,7 @@
     flex-shrink: 1;
     font-size: 1.4rem;
     padding: 0;
-    color: $sd-text;
+    color: var(--color-text);
     align-self: auto;
     background-color: transparent;
     border: 0;
@@ -128,7 +125,7 @@
     height: auto;
 
     &::placeholder {
-        color: $sd-text-light;
+        color: var(--color-text-muted);
         font-weight: 300;
         letter-spacing: 0.03rem;
     }
@@ -183,38 +180,38 @@
     opacity: 0.8;
     transition: all 0.2s ease-out;
     background-color: var(--sd-colour-interactive--alpha-30);
-    border-radius: $border-radius__base--full;
+    border-radius: var(--b-radius--full);
     display: flex;
     align-items: center;
     justify-content: center;
 
     i {
         transition: color 0.2s ease-out;
-        color: $sd-colour-interactive;
+        color: var(--sd-colour-interactive);
     }
 
     &:hover {
         background-color: var(--sd-colour-interactive--alpha-80);
         i {
-            color: $white;
+            color: var(--color-text-ondark);
         }
     }
 
     &:active {
-        background-color: $sd-colour-interactive;
+        background-color: var(--sd-colour-interactive);
         opacity: 1;
         i {
-            color: $white;
+            color: var(--color-text-ondark);
         }
     }
 }
 
 .sd-searchbar__search-btn--active {
-    background-color: $sd-colour-interactive;
+    background-color: var(--sd-colour-interactive);
     opacity: 1;
 
     i {
-        color: $white;
+        color: var(--color-text-ondark);
     }
 }
 
@@ -240,7 +237,7 @@
     color: currentColor;
 
     i {
-        color: $sd-text; 
+        color: var(--color-text); 
     }
 
     &:hover {
@@ -255,7 +252,7 @@
     font-size: 1.3rem;
     line-height: 1.4rem;
     transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-    color: $sd-text-light;
+    color: var(--color-text-muted);
     font-weight: 300;
     margin: 0.5rem 0;
     letter-spacing: 0.03em;
@@ -263,17 +260,6 @@
     margin-block-start: 8px;
 
     .sd-searchbar__message {
-        color: $red;
+        color: var(--color-alert-text);
     }
 }
-
-[data-theme="dark-ui"] {
-    .sd-searchbar--boxed {
-        background-color: hsla(0, 0%, 0%, 0.2);
-        
-        &.sd-searchbar--focused {
-            background-color: hsla(0, 0%, 0%, 0.25) !important;
-        }
-
-    }
-} 
