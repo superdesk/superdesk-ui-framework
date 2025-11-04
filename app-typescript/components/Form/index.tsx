@@ -7,3 +7,6 @@ export {InputWrapper} from './InputWrapper';
 export {InputBase} from './InputBase';
 export {InputNew} from './InputNew';
 export {FormRowNew} from './FormRowNew';
+export {FormLayout} from './FormLayout';
+export {FormGroupNew} from './FormGroupNew';
+export {FormGroupItemNew} from './FormGroupItemNew';
