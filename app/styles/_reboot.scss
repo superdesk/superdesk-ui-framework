@@ -11,12 +11,13 @@
   box-sizing: border-box;
   text-align: start;
 }
-// Set box-sizing globally to handle padding and border widths
 
+// Set box-sizing globally to handle padding and border widths
 *::before,
 *::after {
     box-sizing: inherit;
 }
+
 // remove deafult browser focus
 :focus,
 select:focus,
@@ -29,11 +30,6 @@ html {
   font-size: 10px;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
-
-// $baseFontSize: 1.3rem;
-// $baseFontFamily: "Roboto", Helvetica, Arial, sans-serif;
-// $baseLineHeight: 1.8rem;
-// $altFontFamily: Georgia, "Times New Roman", Times, serif;
 
 body {
   font-family: var(--font-primary) ;
