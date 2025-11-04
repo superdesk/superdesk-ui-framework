@@ -346,14 +346,6 @@ h6 {
     white-space: nowrap;
 }
 
-
-
-
-
-
-
-
-
 // FONT FAMILY
 .sd-text__serif,
 .sd-text--serif {
@@ -390,7 +382,6 @@ h6 {
 .whitespace-break-spaces {
     white-space: break-spaces;
 }
-
 
 
 // ==================================================== //
@@ -1158,31 +1149,31 @@ h6 {
 }
 .m-0-5,
 .sd-margin--0-5 {
-    margin: calc(0.5 * var(--base-increment)) !important;
+    margin: var(--space--0-5) !important;
 }
 .m-1,
 .sd-margin--1 {
-    margin: calc(1 * var(--base-increment)) !important;
+    margin: var(--space--1) !important;
 }
 .m-1-5,
 .sd-margin--1-5 {
-    margin: calc(1.5 * var(--base-increment)) !important;
+    margin: var(--space--1-5) !important;
 }
 .m-2,
 .sd-margin--2 {
-    margin: calc(2 * var(--base-increment)) !important;
+    margin: var(--space--2) !important;
 }
 .m-3,
 .sd-margin--3 {
-    margin: calc(3 * var(--base-increment)) !important;
+    margin: var(--space--3) !important;
 }
 .m-4,
 .sd-margin--4 {
-    margin: calc(4 * var(--base-increment)) !important;
+    margin: var(--space--4) !important;
 }
 .m-5,
 .sd-margin--5 {
-    margin: calc(5 * var(--base-increment)) !important;
+    margin: var(--space--5) !important;
 }
 // MARGIN INLINE START (left)
 .ms-0,
@@ -1191,31 +1182,31 @@ h6 {
 }
 .ms-0-5,
 .sd-margin-l--0-5 {
-    margin-inline-start: calc(0.5 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--0-5) !important;
 }
 .ms-1,
 .sd-margin-l--1 {
-    margin-inline-start: calc(1 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--1) !important;
 }
 .ms-1-5,
 .sd-margin-l--1-5 {
-    margin-inline-start: calc(1.5 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--1-5) !important;
 }
 .ms-2,
 .sd-margin-l--2 {
-    margin-inline-start: calc(2 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--2) !important;
 }
 .ms-3,
 .sd-margin-l--3 {
-    margin-inline-start: calc(3 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--3) !important;
 }
 .ms-4,
 .sd-margin-l--4 {
-    margin-inline-start: calc(4 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--4) !important;
 }
 .ms-5,
 .sd-margin-l--5 {
-    margin-inline-start: calc(5 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--5) !important;
 }
 // MARGIN INLINE END (right)
 .me-0,
@@ -1224,31 +1215,31 @@ h6 {
 }
 .me-0-5,
 .sd-margin-r--0-5 {
-    margin-inline-end: calc(0.5 * var(--base-increment)) !important;
+    margin-inline-end: var(--space--0-5) !important;
 }
 .me-1,
 .sd-margin-r--1 {
-    margin-inline-end: calc(1 * var(--base-increment)) !important;
+    margin-inline-end: var(--space--1) !important;
 }
 .me-1-5,
 .sd-margin-r--1-5 {
-    margin-inline-end: calc(1.5 * var(--base-increment)) !important;
+    margin-inline-end: var(--space--1-5) !important;
 }
 .me-2,
 .sd-margin-r--2 {
-    margin-inline-end: calc(2 * var(--base-increment)) !important;
+    margin-inline-end: var(--space--2) !important;
 }
 .me-3,
 .sd-margin-r--3 {
-    margin-inline-end: calc(3 * var(--base-increment)) !important;
+    margin-inline-end: var(--space--3) !important;
 }
 .me-4,
 .sd-margin-r--4 {
-    margin-inline-end: calc(4 * var(--base-increment)) !important;
+    margin-inline-end: var(--space--4) !important;
 }
 .me-5,
 .sd-margin-r--5 {
-    margin-inline-end: calc(5 * var(--base-increment)) !important;
+    margin-inline-end: var(--space--5) !important;
 }
 // MARGIN INLINE (x, left and right)
 .mx-0,
@@ -1258,38 +1249,38 @@ h6 {
 }
 .mx-0-5,
 .sd-margin-r--0-5 {
-    margin-inline-start: calc(0.5 * var(--base-increment)) !important;
-    margin-inline-end: calc(0.5 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--0-5) !important;
+    margin-inline-end: var(--space--0-5) !important;
 }
 .mx-1,
 .sd-margin-x--1 {
-    margin-inline-start: calc(1 * var(--base-increment)) !important;
-    margin-inline-end: calc(1 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--1) !important;
+    margin-inline-end: var(--space--1) !important;
 }
 .mx-1-5,
 .sd-margin-x--1-5 {
-    margin-inline-start: calc(1.5 * var(--base-increment)) !important;
-    margin-inline-end: calc(1.5 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--1-5) !important;
+    margin-inline-end: var(--space--1-5) !important;
 }
 .mx-2,
 .sd-margin-x--2 {
-    margin-inline-start: calc(2 * var(--base-increment)) !important;
-    margin-inline-end: calc(2 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--2) !important;
+    margin-inline-end: var(--space--2) !important;
 }
 .mx-3,
 .sd-margin-x--3 {
-    margin-inline-start: calc(3 * var(--base-increment)) !important;
-    margin-inline-end: calc(3 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--3) !important;
+    margin-inline-end: var(--space--3) !important;
 }
 .mx-4,
 .sd-margin-x--4 {
-    margin-inline-start: calc(4 * var(--base-increment)) !important;
-    margin-inline-end: calc(4 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--4) !important;
+    margin-inline-end: var(--space--4) !important;
 }
 .mx-5,
 .sd-margin-x--5 {
-    margin-inline-start: calc(5 * var(--base-increment)) !important;
-    margin-inline-end: calc(5 * var(--base-increment)) !important;
+    margin-inline-start: var(--space--5) !important;
+    margin-inline-end: var(--space--5) !important;
 }
 // MARGIN BLOCK START (top)
 .mt-0,
@@ -1298,31 +1289,31 @@ h6 {
 }
 .mt-0-5,
 .sd-margin-t--0-5 {
-    margin-block-start: calc(0.5 * var(--base-increment)) !important;
+    margin-block-start: var(--space--0-5) !important;
 }
 .mt-1,
 .sd-margin-t--1 {
-    margin-block-start: calc(1 * var(--base-increment)) !important;
+    margin-block-start: var(--space--1) !important;
 }
 .mt-1-5,
 .sd-margin-t--1-5 {
-    margin-block-start: calc(1.5 * var(--base-increment)) !important;
+    margin-block-start: var(--space--1-5) !important;
 }
 .mt-2,
 .sd-margin-t--2 {
-    margin-block-start: calc(2 * var(--base-increment)) !important;
+    margin-block-start: var(--space--2) !important;
 }
 .mt-3,
 .sd-margin-t--3 {
-    margin-block-start: calc(3 * var(--base-increment)) !important;
+    margin-block-start: var(--space--3) !important;
 }
 .mt-4,
 .sd-margin-t--4 {
-    margin-block-start: calc(4 * var(--base-increment)) !important;
+    margin-block-start: var(--space--4) !important;
 }
 .mt-5,
 .sd-margin-t--5 {
-    margin-block-start: calc(5 * var(--base-increment)) !important;
+    margin-block-start: var(--space--5) !important;
 }
 // MARGIN BLOCK END (bottom)
 .mb-0,
@@ -1331,31 +1322,31 @@ h6 {
 }
 .mb-0-5,
 .sd-margin-b--0-5 {
-    margin-block-end: calc(0.5 * var(--base-increment)) !important;
+    margin-block-end: var(--space--0-5) !important;
 }
 .mb-1,
 .sd-margin-b--1 {
-    margin-block-end: calc(1 * var(--base-increment)) !important;
+    margin-block-end: var(--space--1) !important;
 }
 .mb-1-5,
 .sd-margin-b--1-5 {
-    margin-block-end: calc(1.5 * var(--base-increment)) !important;
+    margin-block-end: var(--space--1-5) !important;
 }
 .mb-2,
 .sd-margin-b--2 {
-    margin-block-end: calc(2 * var(--base-increment)) !important;
+    margin-block-end: var(--space--2) !important;
 }
 .mb-3,
 .sd-margin-b--3 {
-    margin-block-end: calc(3 * var(--base-increment)) !important;
+    margin-block-end: var(--space--3) !important;
 }
 .mb-4,
 .sd-margin-b--4 {
-    margin-block-end: calc(4 * var(--base-increment)) !important;
+    margin-block-end: var(--space--4) !important;
 }
 .mb-5,
 .sd-margin-b--5 {
-    margin-block-end: calc(5 * var(--base-increment)) !important;
+    margin-block-end: var(--space--5) !important;
 }
 // MARGIN BLOCK (y, top & bottom)
 .my-0,
@@ -1365,38 +1356,38 @@ h6 {
 }
 .my-0-5,
 .sd-margin-y--0-5 {
-    margin-block-start: calc(0.5 * var(--base-increment)) !important;
-    margin-block-end: calc(0.5 * var(--base-increment)) !important;
+    margin-block-start: var(--space--0-5) !important;
+    margin-block-end: var(--space--0-5) !important;
 }
 .my-1,
 .sd-margin-y--1 {
-    margin-block-start: calc(1 * var(--base-increment)) !important;
-    margin-block-end: calc(1 * var(--base-increment)) !important;
+    margin-block-start: var(--space--1) !important;
+    margin-block-end: var(--space--1) !important;
 }
 .my-1-5,
 .sd-margin-y--1-5 {
-    margin-block-start: calc(1.5 * var(--base-increment)) !important;
-    margin-block-end: calc(1.5 * var(--base-increment)) !important;
+    margin-block-start: var(--space--1-5) !important;
+    margin-block-end: var(--space--1-5) !important;
 }
 .my-2,
 .sd-margin-y--2 {
-    margin-block-start: calc(2 * var(--base-increment)) !important;
-    margin-block-end: calc(2 * var(--base-increment)) !important;
+    margin-block-start: var(--space--2) !important;
+    margin-block-end: var(--space--2) !important;
 }
 .my-3,
 .sd-margin-y--3 {
-    margin-block-start: calc(3 * var(--base-increment)) !important;
-    margin-block-end: calc(3 * var(--base-increment)) !important;
+    margin-block-start: var(--space--3) !important;
+    margin-block-end: var(--space--3) !important;
 }
 .my-4,
 .sd-margin-y--4 {
-    margin-block-start: calc(4 * var(--base-increment)) !important;
-    margin-block-end: calc(4 * var(--base-increment)) !important;
+    margin-block-start: var(--space--4) !important;
+    margin-block-end: var(--space--4) !important;
 }
 .my-5,
 .sd-margin-y--5 {
-    margin-block-start: calc(5 * var(--base-increment)) !important;
-    margin-block-end: calc(5 * var(--base-increment)) !important;
+    margin-block-start: var(--space--5) !important;
+    margin-block-end: var(--space--5) !important;
 }
 
 // PADDINGS ---------------------------------------------------------------------------------------
@@ -1407,31 +1398,31 @@ h6 {
 }
 .p-0-5,
 .sd-padding--0-5 {
-    padding: calc(0.5 * var(--base-increment)) !important;
+    padding: var(--space--0-5) !important;
 }
 .p-1,
 .sd-padding--1 {
-    padding: calc(1 * var(--base-increment)) !important;
+    padding: var(--space--1) !important;
 }
 .p-1-5,
 .sd-padding--1-5 {
-    padding: calc(1.5 * var(--base-increment)) !important;
+    padding: var(--space--1-5) !important;
 }
 .p-2,
 .sd-padding--2 {
-    padding: calc(2 * var(--base-increment)) !important;
+    padding: var(--space--2) !important;
 }
 .p-3,
 .sd-padding--3 {
-    padding: calc(3 * var(--base-increment)) !important;
+    padding: var(--space--3) !important;
 }
 .p-4,
 .sd-padding--4 {
-    padding: calc(4 * var(--base-increment)) !important;
+    padding: var(--space--4) !important;
 }
 .p-5,
 .sd-padding--5 {
-    padding: calc(5 * var(--base-increment)) !important;
+    padding: var(--space--5) !important;
 }
 // PADDING INLINE START (left)
 .ps-0,
@@ -1440,31 +1431,31 @@ h6 {
 }
 .ps-0-5,
 .sd-padding-l--0-5 {
-    padding-inline-start: calc(0.5 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--0-5) !important;
 }
 .ps-1,
 .sd-padding-l--1 {
-    padding-inline-start: calc(1 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--1) !important;
 }
 .ps-1-5,
 .sd-padding-l--1-5 {
-    padding-inline-start: calc(1.5 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--1-5) !important;
 }
 .ps-2,
 .sd-padding-l--2 {
-    padding-inline-start: calc(2 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--2) !important;
 }
 .ps-3,
 .sd-padding-l--3 {
-    padding-inline-start: calc(3 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--3) !important;
 }
 .ps-4,
 .sd-padding-l--4 {
-    padding-inline-start: calc(4 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--4) !important;
 }
 .ps-5,
 .sd-padding-l--5 {
-    padding-inline-start: calc(5 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--5) !important;
 }
 // PADDING INLINE END (right)
 .pe-0,
@@ -1473,31 +1464,31 @@ h6 {
 }
 .pe-0-5,
 .sd-padding-r--0-5 {
-    padding-inline-end: calc(0.5 * var(--base-increment)) !important;
+    padding-inline-end: var(--space--0-5) !important;
 }
 .pe-1,
 .sd-padding-r--1 {
-    padding-inline-end: calc(1 * var(--base-increment)) !important;
+    padding-inline-end: var(--space--1) !important;
 }
 .pe-1-5,
 .sd-padding-r--1-5 {
-    padding-inline-end: calc(1.5 * var(--base-increment)) !important;
+    padding-inline-end: var(--space--1-5) !important;
 }
 .pe-2,
 .sd-padding-r--2 {
-    padding-inline-end: calc(2 * var(--base-increment)) !important;
+    padding-inline-end: var(--space--2) !important;
 }
 .pe-3,
 .sd-padding-r--3 {
-    padding-inline-end: calc(3 * var(--base-increment)) !important;
+    padding-inline-end: var(--space--3) !important;
 }
 .pe-4,
 .sd-padding-r--4 {
-    padding-inline-end: calc(4 * var(--base-increment)) !important;
+    padding-inline-end: var(--space--4) !important;
 }
 .pe-5,
 .sd-padding-r--5 {
-    padding-inline-end: calc(5 * var(--base-increment)) !important;
+    padding-inline-end: var(--space--5) !important;
 }
 // PADDING INLINE (x, left and right)
 .px-0,
@@ -1507,38 +1498,38 @@ h6 {
 }
 .px-0-5,
 .sd-padding-r--0-5 {
-    padding-inline-start: calc(0.5 * var(--base-increment)) !important;
-    padding-inline-end: calc(0.5 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--0-5) !important;
+    padding-inline-end: var(--space--0-5) !important;
 }
 .px-1,
 .sd-padding-x--1 {
-    padding-inline-start: calc(1 * var(--base-increment)) !important;
-    padding-inline-end: calc(1 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--1) !important;
+    padding-inline-end: var(--space--1) !important;
 }
 .px-1-5,
 .sd-padding-x--1-5 {
-    padding-inline-start: calc(1.5 * var(--base-increment)) !important;
-    padding-inline-end: calc(1.5 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--1-5) !important;
+    padding-inline-end: var(--space--1-5) !important;
 }
 .px-2,
 .sd-padding-x--2 {
-    padding-inline-start: calc(2 * var(--base-increment)) !important;
-    padding-inline-end: calc(2 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--2) !important;
+    padding-inline-end: var(--space--2) !important;
 }
 .px-3,
 .sd-padding-x--3 {
-    padding-inline-start: calc(3 * var(--base-increment)) !important;
-    padding-inline-end: calc(3 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--3) !important;
+    padding-inline-end: var(--space--3) !important;
 }
 .px-4,
 .sd-padding-x--4 {
-    padding-inline-start: calc(4 * var(--base-increment)) !important;
-    padding-inline-end: calc(4 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--4) !important;
+    padding-inline-end: var(--space--4) !important;
 }
 .px-5,
 .sd-padding-x--5 {
-    padding-inline-start: calc(5 * var(--base-increment)) !important;
-    padding-inline-end: calc(5 * var(--base-increment)) !important;
+    padding-inline-start: var(--space--5) !important;
+    padding-inline-end: var(--space--5) !important;
 }
 // PADDING BLOCK START (top)
 .pt-0,
@@ -1547,31 +1538,31 @@ h6 {
 }
 .pt-0-5,
 .sd-padding-t--0-5 {
-    padding-block-start: calc(0.5 * var(--base-increment)) !important;
+    padding-block-start: var(--space--0-5) !important;
 }
 .pt-1,
 .sd-padding-t--1 {
-    padding-block-start: calc(1 * var(--base-increment)) !important;
+    padding-block-start: var(--space--1) !important;
 }
 .pt-1-5,
 .sd-padding-t--1-5 {
-    padding-block-start: calc(1.5 * var(--base-increment)) !important;
+    padding-block-start: var(--space--1-5) !important;
 }
 .pt-2,
 .sd-padding-t--2 {
-    padding-block-start: calc(2 * var(--base-increment)) !important;
+    padding-block-start: var(--space--2) !important;
 }
 .pt-3,
 .sd-padding-t--3 {
-    padding-block-start: calc(3 * var(--base-increment)) !important;
+    padding-block-start: var(--space--3) !important;
 }
 .pt-4,
 .sd-padding-t--4 {
-    padding-block-start: calc(4 * var(--base-increment)) !important;
+    padding-block-start: var(--space--4) !important;
 }
 .pt-5,
 .sd-padding-t--5 {
-    padding-block-start: calc(5 * var(--base-increment)) !important;
+    padding-block-start: var(--space--5) !important;
 }
 // PADDING BLOCK END (bottom)
 .pb-0,
@@ -1580,31 +1571,31 @@ h6 {
 }
 .pb-0-5,
 .sd-padding-b--0-5 {
-    padding-block-end: calc(0.5 * var(--base-increment)) !important;
+    padding-block-end: var(--space--0-5) !important;
 }
 .pb-1,
 .sd-padding-b--1 {
-    padding-block-end: calc(1 * var(--base-increment)) !important;
+    padding-block-end: var(--space--1) !important;
 }
 .pb-1-5,
 .sd-padding-b--1-5 {
-    padding-block-end: calc(1.5 * var(--base-increment)) !important;
+    padding-block-end: var(--space--1-5) !important;
 }
 .pb-2,
 .sd-padding-b--2 {
-    padding-block-end: calc(2 * var(--base-increment)) !important;
+    padding-block-end: var(--space--2) !important;
 }
 .pb-3,
 .sd-padding-b--3 {
-    padding-block-end: calc(3 * var(--base-increment)) !important;
+    padding-block-end: var(--space--3) !important;
 }
 .pb-4,
 .sd-padding-b--4 {
-    padding-block-end: calc(4 * var(--base-increment)) !important;
+    padding-block-end: var(--space--4) !important;
 }
 .pb-5,
 .sd-padding-b--5 {
-    padding-block-end: calc(5 * var(--base-increment)) !important;
+    padding-block-end: var(--space--5) !important;
 }
 // PADDING BLOCK (y, top & bottom)
 .py-0,
@@ -1614,38 +1605,38 @@ h6 {
 }
 .py-0-5,
 .sd-padding-y--0-5 {
-    padding-block-start: calc(0.5 * var(--base-increment)) !important;
-    padding-block-end: calc(0.5 * var(--base-increment)) !important;
+    padding-block-start: var(--space--0-5) !important;
+    padding-block-end: var(--space--0-5) !important;
 }
 .py-1,
 .sd-padding-y--1 {
-    padding-block-start: calc(1 * var(--base-increment)) !important;
-    padding-block-end: calc(1 * var(--base-increment)) !important;
+    padding-block-start: var(--space--1) !important;
+    padding-block-end: var(--space--1) !important;
 }
 .py-1-5,
 .sd-padding-y--1-5 {
-    padding-block-start: calc(1.5 * var(--base-increment)) !important;
-    padding-block-end: calc(1.5 * var(--base-increment)) !important;
+    padding-block-start: var(--space--1-5) !important;
+    padding-block-end: var(--space--1-5) !important;
 }
 .py-2,
 .sd-padding-y--2 {
-    padding-block-start: calc(2 * var(--base-increment)) !important;
-    padding-block-end: calc(2 * var(--base-increment)) !important;
+    padding-block-start: var(--space--2) !important;
+    padding-block-end: var(--space--2) !important;
 }
 .py-3,
 .sd-padding-y--3 {
-    padding-block-start: calc(3 * var(--base-increment)) !important;
-    padding-block-end: calc(3 * var(--base-increment)) !important;
+    padding-block-start: var(--space--3) !important;
+    padding-block-end: var(--space--3) !important;
 }
 .py-4,
 .sd-padding-y--4 {
-    padding-block-start: calc(4 * var(--base-increment)) !important;
-    padding-block-end: calc(4 * var(--base-increment)) !important;
+    padding-block-start: var(--space--4) !important;
+    padding-block-end: var(--space--4) !important;
 }
 .py-5,
 .sd-padding-y--5 {
-    padding-block-start: calc(5 * var(--base-increment)) !important;
-    padding-block-end: calc(5 * var(--base-increment)) !important;
+    padding-block-start: var(--space--5) !important;
+    padding-block-end: var(--space--5) !important;
 }
 
 // GAP --------------------------------------------------------------------------------------------
