@@ -3,8 +3,10 @@ import classNames from 'classnames';
 
 interface IProps {
     children: React.ReactNode;
-    autoWidth?: boolean; // defaults to 'false' if not specified. This works only in combination flex based FormGroupNew.
-    colSpan?: 1 | 2 | 3 | 4; // defaults to '4' (full width) if not specified. This works only in combination grid based FormGroupNew.
+    autoWidth?: boolean; // defaults to 'false'.
+    // 'autoWidth' works only with flex based FormGroupNew.
+    colSpan?: 1 | 2 | 3 | 4; // defaults to '4' (full width).
+    // 'colSpan' works only with grid based FormGroupNew.
 }
 
 export class FormGroupItemNew extends React.PureComponent<IProps> {
