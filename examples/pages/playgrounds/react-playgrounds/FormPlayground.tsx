@@ -21,52 +21,13 @@ interface IProps {
 }
 
 interface IState {
-    itemType: string;
-    itemSelected1: boolean;
-    itemSelected2: boolean;
-    itemSelected3: boolean;
-    value1?: string;
-    value2?: string;
-    value3?: string;
-    value4?: string;
-    value5?: string;
-    value6?: string;
-    selctedTheme: string;
-    invalid: boolean;
-    date: any;
-    time: string | null;
-    modalPlanningTemplates: boolean;
-    modalSaveEvent: boolean;
-    modalSaveEvent2: boolean;
-    modalSaveEvent3: boolean;
-    modalSaveEvent4: boolean;
     treeSelectValue: any;
-    value: any;
-    valueS2: any;
     thisTheme: string;
-    isExpanded: boolean;
-    openCollapsibleOne: boolean;
-    openCollapsibleTwo: boolean;
-    openCollapsibleThree: boolean;
-    openCollapsibleFour: boolean;
-    openCollapsibleFive: boolean;
     value22: boolean;
     value23: boolean;
     value24: boolean;
-    value25: boolean;
 }
 
-let options2 = [
-    {
-        value: {name: 'A long category Category1'},
-    },
-    {
-        value: {name: 'Category2'},
-    },
-    {
-        value: {name: 'Category3'},
-    },
-];
 let options3 = [
     {
         value: {name: 'Norvegian'},
@@ -78,55 +39,16 @@ let options3 = [
         value: {name: 'English'},
     },
 ];
-let options4 = [
-    {
-        value: {name: 'Turku, Finland'},
-    },
-    {
-        value: {name: 'Helsinki, Finland'},
-    },
-    {
-        value: {name: 'Rovaniemi, Finland'},
-    },
-];
 
 export class FormPlayground extends React.Component<IProps, IState> {
     constructor(props: IProps) {
         super(props);
         this.state = {
-            itemType: 'itemtype01',
-            itemSelected1: false,
-            itemSelected2: false,
-            itemSelected3: false,
-            value1: undefined,
-            value2: undefined,
-            value3: undefined,
-            value4: undefined,
-            value5: undefined,
-            value6: undefined,
-            selctedTheme: 'light',
-            invalid: false,
-            date: new Date('2022-01-08'),
-            time: '16:50',
-            modalPlanningTemplates: false,
-            modalSaveEvent: false,
-            modalSaveEvent2: false,
-            modalSaveEvent3: false,
-            modalSaveEvent4: false,
             treeSelectValue: [],
-            value: undefined,
-            valueS2: undefined,
             thisTheme: 'light-ui',
-            isExpanded: false,
-            openCollapsibleOne: false,
-            openCollapsibleTwo: false,
-            openCollapsibleThree: false,
-            openCollapsibleFour: false,
-            openCollapsibleFive: false,
             value22: false,
             value23: false,
             value24: false,
-            value25: false,
         };
     }
 
@@ -144,9 +66,6 @@ export class FormPlayground extends React.Component<IProps, IState> {
         });
     };
 
-    toggleExpand = () => {
-        this.setState((prevState) => ({isExpanded: !prevState.isExpanded}));
-    };
 
     render() {
         return (
@@ -184,7 +103,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         type="text"
                                                         required={true}
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -193,7 +112,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
 
@@ -203,7 +122,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -212,7 +131,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                             </FormGroupNew>
@@ -223,7 +142,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -234,7 +153,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         required={true}
                                                         info="Password must be at least 8 characters long"
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -245,7 +164,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         required={true}
                                                         info="Confirm password must match the password"
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                             </FormGroupNew>
@@ -271,7 +190,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="password"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                     {/* <Text>Password must be at least 8 characters long</Text> */}
                                                 </FormGroupItemNew>
@@ -313,7 +232,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -322,7 +241,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="password"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                             </FormGroupNew>
@@ -334,7 +253,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew>
@@ -343,7 +262,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="password"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 {/* <FormGroupItemNew autoWidth>
@@ -358,7 +277,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                             value={''}
                                                             type="password"
                                                             tabindex={0}
-                                                            onChange={(value) => this.setState({value: value})}
+                                                            onChange={() => false}
                                                         />
 
                                                         <Button text="Submit" onClick={() => false} type="primary" />
@@ -394,7 +313,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         type="text"
                                                         required={true}
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -403,7 +322,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -412,7 +331,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -421,7 +340,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={2}>
@@ -430,7 +349,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -441,7 +360,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         required={true}
                                                         info="Password must be at least 8 characters long"
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -452,7 +371,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         tabindex={0}
                                                         required={true}
                                                         info="Confirm password must match the password"
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={2}>
@@ -476,7 +395,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="password"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                     {/* <Text>Password must be at least 8 characters long</Text> */}
                                                 </FormGroupItemNew>
@@ -512,7 +431,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="text"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                                 <FormGroupItemNew colSpan={1}>
@@ -521,7 +440,7 @@ export class FormPlayground extends React.Component<IProps, IState> {
                                                         value={''}
                                                         type="password"
                                                         tabindex={0}
-                                                        onChange={(value) => this.setState({value: value})}
+                                                        onChange={() => false}
                                                     />
                                                 </FormGroupItemNew>
                                             </FormGroupNew>
