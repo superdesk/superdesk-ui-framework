@@ -11,12 +11,13 @@
   box-sizing: border-box;
   text-align: start;
 }
-// Set box-sizing globally to handle padding and border widths
 
+// Set box-sizing globally to handle padding and border widths
 *::before,
 *::after {
     box-sizing: inherit;
 }
+
 // remove deafult browser focus
 :focus,
 select:focus,

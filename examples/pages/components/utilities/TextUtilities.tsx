@@ -27,7 +27,7 @@ class TextUtilitiesDoc extends React.Component {
                                 <tr>
                                     <td>text-2xs</td>
                                     <td>
-                                        {'font-size: var(--text-size-x-small);'}{' '}
+                                        {'font-size: var(--text-size-xx-small);'}{' '}
                                         <span className="doc-text--highlight">/* 10px */</span>
                                     </td>
                                 </tr>
