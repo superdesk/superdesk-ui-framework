@@ -66,7 +66,6 @@ export class FormPlayground extends React.Component<IProps, IState> {
         });
     };
 
-
     render() {
         return (
             <Components.Layout header="Testing Ground" theme={this.state.thisTheme}>
