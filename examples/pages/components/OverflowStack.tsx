@@ -4,11 +4,7 @@ import {
     PropsList,
     Prop,
     OverflowStack,
-    Badge,
     Tag,
-    Button,
-    ButtonGroup,
-    IconButton,
     Label,
     CheckboxButton,
     ResizablePanels,
@@ -28,12 +24,14 @@ interface ContentTypeItem {
 
 interface IState {
     customIndicatorCount: number;
-    value1: boolean;
-    value2: boolean;
-    value3: boolean;
-    value4: boolean;
-    value5: boolean;
-    value6: boolean;
+    checkboxValues: {
+        value1: boolean;
+        value2: boolean;
+        value3: boolean;
+        value4: boolean;
+        value5: boolean;
+        value6: boolean;
+    };
     contentTypes: ContentTypeItem[];
 }
 
@@ -42,12 +40,14 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
         super(props);
         this.state = {
             customIndicatorCount: 0,
-            value1: false,
-            value2: false,
-            value3: false,
-            value4: false,
-            value5: true,
-            value6: false,
+            checkboxValues: {
+                value1: false,
+                value2: false,
+                value3: false,
+                value4: false,
+                value5: true,
+                value6: false,
+            },
             contentTypes: [
                 {id: 'text', label: 'Text', icon: 'text', checked: false},
                 {id: 'photo', label: 'Photo', icon: 'photo', checked: true},
@@ -84,42 +84,42 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
             <Tag key="5" text="CSS" />,
         ];
 
-        const buttonItems = [
-            <IconButton key="1" icon="list-view" ariaValue="List" onClick={() => false} />,
-            <IconButton key="2" icon="grid-view" ariaValue="Grid" onClick={() => false} />,
-            <IconButton key="3" icon="kanban-view" ariaValue="Kanban" onClick={() => false} />,
-            <IconButton key="4" icon="preview-large" ariaValue="Preview" onClick={() => false} />,
-        ];
         const checkbuttonItems = [
             <CheckboxButton
                 key="1"
                 label={{text: 'Text', icon: 'text', hidden: true}}
-                onChange={(value) => this.setState(() => ({value1: value}))}
+                checked={this.state.checkboxValues.value1}
+                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value1: value}}))}
             />,
             <CheckboxButton
                 key="2"
                 label={{text: 'Photo', icon: 'photo', hidden: true}}
-                onChange={(value) => this.setState(() => ({value2: value}))}
+                checked={this.state.checkboxValues.value2}
+                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value2: value}}))}
             />,
             <CheckboxButton
                 key="3"
                 label={{text: 'Video', icon: 'video', hidden: true}}
-                onChange={(value) => this.setState(() => ({value3: value}))}
+                checked={this.state.checkboxValues.value3}
+                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value3: value}}))}
             />,
             <CheckboxButton
                 key="4"
                 label={{text: 'Slideshow', icon: 'slideshow', hidden: true}}
-                onChange={(value) => this.setState(() => ({value4: value}))}
+                checked={this.state.checkboxValues.value4}
+                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value4: value}}))}
             />,
             <CheckboxButton
                 key="5"
                 label={{text: 'Audio', icon: 'audio'}}
-                onChange={(value) => this.setState(() => ({value5: value}))}
+                checked={this.state.checkboxValues.value5}
+                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value5: value}}))}
             />,
             <CheckboxButton
                 key="6"
                 label={{text: 'Composite', icon: 'composite'}}
-                onChange={(value) => this.setState(() => ({value6: value}))}
+                checked={this.state.checkboxValues.value6}
+                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value6: value}}))}
             />,
         ];
 
@@ -192,12 +192,12 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                             // CheckButton Stack (show only hidden in popover)
                             <OverflowStack
                                 items={[
-                                    <CheckboxButton key="1" label={{text: 'Text', icon: 'text', hidden: true}} onChange={(value) => this.setState(() => ({ value1: value }))} />,
-                                    <CheckboxButton key="2" label={{text: 'Photo', icon: 'photo', hidden: true}}  onChange={(value) => this.setState(() => ({ value2: value }))} />,
-                                    <CheckboxButton key="3" label={{text: 'Video', icon: 'video', hidden: true}}  onChange={(value) => this.setState(() => ({ value3: value }))} />,
-                                    <CheckboxButton key="4" label={{text: 'Slideshow', icon: 'slideshow', hidden: true}}  onChange={(value) => this.setState(() => ({ value4: value }))} />,
-                                    <CheckboxButton key="5" label={{text: 'Audio', icon: 'audio'}}  onChange={(value) => this.setState(() => ({ value5: value }))} />,
-                                    <CheckboxButton key="6" label={{text: 'Composite', icon: 'composite'}}  onChange={(value) => this.setState(() => ({ value6: value }))} />,
+                                    <CheckboxButton key="1" label={{text: 'Text', icon: 'text', hidden: true}} checked={value1} onChange={(value) => setValue1(value)} />,
+                                    <CheckboxButton key="2" label={{text: 'Photo', icon: 'photo', hidden: true}} checked={value2} onChange={(value) => setValue2(value)} />,
+                                    <CheckboxButton key="3" label={{text: 'Video', icon: 'video', hidden: true}} checked={value3} onChange={(value) => setValue3(value)} />,
+                                    <CheckboxButton key="4" label={{text: 'Slideshow', icon: 'slideshow', hidden: true}} checked={value4} onChange={(value) => setValue4(value)} />,
+                                    <CheckboxButton key="5" label={{text: 'Audio', icon: 'audio'}} checked={value5} onChange={(value) => setValue5(value)} />,
+                                    <CheckboxButton key="6" label={{text: 'Composite', icon: 'composite'}} checked={value6} onChange={(value) => setValue6(value)} />,
                                 ]}
                                 showOnlyHiddenInPopover={true}
                                 max={4}
@@ -229,9 +229,14 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
-                            <OverflowStack items={tagItems.slice(0, 4)} max={4} gap="compact" />
-                            <OverflowStack items={tagItems.slice(0, 4)} max={4} gap="loose" />
-                            <OverflowStack items={tagItems.slice(0, 4)} max={4} gap="none" />
+                            // Compact (default)
+                            <OverflowStack items={tagItems.slice(0, 4)} gap="compact" max="show-all" />
+
+                            // Loose
+                            <OverflowStack items={tagItems.slice(0, 4)} gap="loose" max="show-all" />
+
+                            // None (no gap; should only be used in rare cases where components have already have visual spacing)
+                            <OverflowStack items={tagItems.slice(0, 4)} gap="none" max="show-all" />
                         `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -320,18 +325,30 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
-                            // Auto overflow - dynamically calculates visible items based on available space
-                            <OverflowStack
-                                items={labelItems}
-                                overflow="auto"
-                                indicatorStyle="dots"
-                            />
+                            // Show all items in popover (default)
+                            <ResizablePanels direction="horizontal" secondarySize={{default: 10}}>
+                                <div className="left-panel py-3 ps-3 sd-border--medium radius-lg me-0-5">
+                                    <OverflowStack items={labelItems} overflow="auto" indicatorStyle="dots" />
+                                    <br />
+                                    <OverflowStack items={tagItems} overflow="auto" />
+                                </div>
+                                <div className="right-panel p-2"></div>
+                            </ResizablePanels>
 
-                            // Auto overflow with tags
-                            <OverflowStack
-                                items={tagItems}
-                                overflow="auto"
-                            />
+                            // Show only hidden items in popover
+                            <ResizablePanels direction="horizontal" secondarySize={{default: 10}}>
+                                <div className="left-panel py-3 ps-3 sd-border--medium radius-lg me-0-5">
+                                    <OverflowStack
+                                        items={labelItems}
+                                        overflow="auto"
+                                        showOnlyHiddenInPopover={true}
+                                        indicatorStyle="dots"
+                                    />
+                                    <br />
+                                    <OverflowStack items={tagItems} overflow="auto" showOnlyHiddenInPopover={true} />
+                                </div>
+                                <div className="right-panel p-2"></div>
+                            </ResizablePanels>
                         `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
@@ -418,12 +435,19 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                     </Markup.ReactMarkupPreview>
                     <Markup.ReactMarkupCode>
                         {`
+                            // Custom popover item rendering
                             <OverflowStack
-                                items={items}
+                                items={labelItems}
                                 max={3}
                                 renderPopoverItem={(item, index) => (
-                                    <div key={index}>
-                                        <span>#{index + 1}</span>
+                                    <div
+                                        key={index}
+                                        style={{
+                                            padding: '8px',
+                                            borderBottom: '1px solid var(--sd-colour-line--light)',
+                                        }}
+                                    >
+                                        <span style={{marginRight: '8px'}}>#{index + 1}</span>
                                         {item}
                                     </div>
                                 )}
@@ -459,10 +483,19 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                         {`
                             // Custom onClick handler (popover won't open automatically)
                             <OverflowStack
-                                items={items}
+                                items={labelItems}
                                 max={3}
-                                onIndicatorClick={() => console.log('Clicked!')}
+                                onIndicatorClick={() => {
+                                    this.setState((state) => ({
+                                        customIndicatorCount: state.customIndicatorCount + 1,
+                                    }));
+                                }}
                             />
+                            {this.state.customIndicatorCount > 0 && (
+                                <span style={{marginLeft: '16px'}}>
+                                    Clicked {this.state.customIndicatorCount} times
+                                </span>
+                            )}
                         `}
                     </Markup.ReactMarkupCode>
                 </Markup.ReactMarkup>
