@@ -89,37 +89,49 @@ export default class OverflowStackDoc extends React.Component<IProps, IState> {
                 key="1"
                 label={{text: 'Text', icon: 'text', hidden: true}}
                 checked={this.state.checkboxValues.value1}
-                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value1: value}}))}
+                onChange={(value) =>
+                    this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value1: value}}))
+                }
             />,
             <CheckboxButton
                 key="2"
                 label={{text: 'Photo', icon: 'photo', hidden: true}}
                 checked={this.state.checkboxValues.value2}
-                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value2: value}}))}
+                onChange={(value) =>
+                    this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value2: value}}))
+                }
             />,
             <CheckboxButton
                 key="3"
                 label={{text: 'Video', icon: 'video', hidden: true}}
                 checked={this.state.checkboxValues.value3}
-                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value3: value}}))}
+                onChange={(value) =>
+                    this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value3: value}}))
+                }
             />,
             <CheckboxButton
                 key="4"
                 label={{text: 'Slideshow', icon: 'slideshow', hidden: true}}
                 checked={this.state.checkboxValues.value4}
-                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value4: value}}))}
+                onChange={(value) =>
+                    this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value4: value}}))
+                }
             />,
             <CheckboxButton
                 key="5"
                 label={{text: 'Audio', icon: 'audio'}}
                 checked={this.state.checkboxValues.value5}
-                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value5: value}}))}
+                onChange={(value) =>
+                    this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value5: value}}))
+                }
             />,
             <CheckboxButton
                 key="6"
                 label={{text: 'Composite', icon: 'composite'}}
                 checked={this.state.checkboxValues.value6}
-                onChange={(value) => this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value6: value}}))}
+                onChange={(value) =>
+                    this.setState((prevState) => ({checkboxValues: {...prevState.checkboxValues, value6: value}}))
+                }
             />,
         ];
 
