@@ -8,14 +8,16 @@
     position: relative;
     background-color: transparent;
     transition: all 0.2s ease-out;
-    height: 100%; // adapts to the height of the parent element, usually .subnav. 
+    height: 100%; // adapts to the height of the parent element, usually .subnav.
     min-height: $height-input--default;
     max-height: $subnav-height;
 }
 
 .sd-searchbar--focused {
     background-color: var(--sd-colour-bg__searchbar);
-    box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 6px var(--sd-colour-interactive--alpha-20);
+    box-shadow:
+        inset 0 0 0 1px var(--sd-colour-interactive--alpha-50),
+        inset 0 0 0 6px var(--sd-colour-interactive--alpha-20);
 }
 
 .sd-searchbar--border-r {
@@ -48,20 +50,23 @@
     transition: box-shadow 0.2s ease-out;
 
     &:hover {
-        border-color: rgba(123,123,123,0.6);
+        border-color: rgba(123, 123, 123, 0.6);
     }
 
     &.sd-searchbar--focused,
     &:focus-within {
         transition: box-shadow 0.2s ease-out;
         border-color: var(--sd-colour-interactive--alpha-70);
-        box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
-
+        box-shadow:
+            inset 0 0 0 1px var(--sd-colour-interactive--alpha-50),
+            inset 0 0 0 4px var(--sd-colour-interactive--alpha-20);
     }
 
     &.sd-searchbar--invalid {
         border-color: rgba(229, 28, 35, 0.75);
-        box-shadow: inset 0 0 0 1px rgba(229,28,35,0.1), inset 0 0 0 4px rgba(229,28,35,0.1);
+        box-shadow:
+            inset 0 0 0 1px rgba(229, 28, 35, 0.1),
+            inset 0 0 0 4px rgba(229, 28, 35, 0.1);
     }
 
     &.sd-searchbar--disabled {
@@ -73,7 +78,7 @@
         }
 
         &:hover {
-            border-color: rgba(123,123,123,0.4);
+            border-color: rgba(123, 123, 123, 0.4);
         }
     }
 
@@ -106,12 +111,16 @@
         .dropdown,
         .sd-input {
             border-inline-end-color: var(--sd-colour-interactive--alpha-50);
-            box-shadow: inset 0 0 0 1px var(--sd-colour-interactive--alpha-50), 3px 0 0 var(--sd-colour-interactive--alpha-10);
+            box-shadow:
+                inset 0 0 0 1px var(--sd-colour-interactive--alpha-50),
+                3px 0 0 var(--sd-colour-interactive--alpha-10);
         }
     }
 }
 
-.sd-searchbar__input, input[type="text"].sd-searchbar__input, input[type="search"].sd-searchbar__input {
+.sd-searchbar__input,
+input[type="text"].sd-searchbar__input,
+input[type="search"].sd-searchbar__input {
     flex-grow: 1;
     flex-shrink: 1;
     font-size: 1.4rem;
@@ -144,11 +153,11 @@
     justify-content: center;
 
     &::after {
-        content:"\e618";
+        content: "\e618";
         width: 16px;
         height: 16px;
         line-height: 16px;
-        font-family: 'sd_icons';
+        font-family: "sd_icons";
         font-size: 16px;
         font-style: normal;
         font-weight: normal;
@@ -158,7 +167,6 @@
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
     }
-    
 }
 
 .sd-searchbar--boxed {
