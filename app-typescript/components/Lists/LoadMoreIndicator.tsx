@@ -38,9 +38,6 @@ interface IProps {
      */
     className?: string;
 
-    /**
-     * Test ID for testing purposes
-     */
     'data-test-id'?: string;
 }
 
