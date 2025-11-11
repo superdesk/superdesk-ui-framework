@@ -50,6 +50,7 @@ export {
     Carousel,
     ContentDivider,
     CalendarWeekDayItem,
+    LoadMoreIndicator,
 } from '../app-typescript/index';
 
 export default angular.module('superdesk-ui', [

@@ -109,6 +109,7 @@ export {TreeSelect} from './components/TreeSelect/TreeSelect';
 export {TreeMenu} from './components/TreeMenu';
 export {TableList, TableListItem} from './components/Lists/TableList';
 export {ContentListItem} from './components/Lists/ContentList';
+export {LoadMoreIndicator} from './components/Lists/LoadMoreIndicator';
 export {MultiSelect} from './components/MultiSelect';
 export {ResizablePanels} from './components/ResizablePanels';
 export {WithPopover} from './components/WithPopover';
