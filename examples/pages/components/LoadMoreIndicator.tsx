@@ -115,7 +115,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                                     currentCount={1}
                                     totalCount={5}
                                     loadingText="Fetching more items..."
-                                    loaderSize="medium"
+                                    size="medium"
                                 />
                             </ul>
                         </div>
@@ -127,7 +127,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                             currentCount={1}
                             totalCount={5}
                             loadingText="Fetching more items..."
-                            loaderSize="medium"
+                            size="medium"
                         />
                     `}
                     </Markup.ReactMarkupCode>
@@ -171,7 +171,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                         description="Whether to show the progress counter (e.g., '25 of 100')"
                     />
                     <Prop
-                        name="loaderSize"
+                        name="size"
                         isRequired={false}
                         type="'small' | 'medium' | 'large'"
                         default="'small'"

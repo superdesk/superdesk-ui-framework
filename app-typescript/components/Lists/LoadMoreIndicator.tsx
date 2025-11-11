@@ -31,7 +31,7 @@ interface IProps {
      * Size of the loader
      * @default 'small'
      */
-    loaderSize?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'medium' | 'large';
 
     /**
      * Custom className for the container
@@ -66,7 +66,7 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
     totalCount,
     loadingText = 'Loading more...',
     showProgress = true,
-    loaderSize = 'small',
+    size = 'small',
     className,
     'data-test-id': testId = 'load-more-indicator',
 }) => {
@@ -76,9 +76,9 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
 
     let loaderClassName = 'sd-loader';
 
-    if (loaderSize === 'small') {
+    if (size === 'small') {
         loaderClassName = 'sd-loader sd-loader--small';
-    } else if (loaderSize === 'large') {
+    } else if (size === 'large') {
         loaderClassName = 'sd-loader sd-loader--large';
     }
 
