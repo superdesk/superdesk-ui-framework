@@ -96,7 +96,10 @@ export const LoadMoreIndicator: React.FC<IProps> = ({
                 <span className="sd-text__normal">
                     {loadingText}
                     {showProgress && currentCount != null && totalCount != null && (
-                        <> ({currentCount} of {totalCount})</>
+                        <>
+                            {' '}
+                            ({currentCount} of {totalCount})
+                        </>
                     )}
                 </span>
             </div>

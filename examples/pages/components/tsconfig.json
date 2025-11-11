@@ -6,7 +6,5 @@
         "skipLibCheck": true,
         "noImplicitAny": false
     },
-    "include": [
-        "./**/*"
-    ]
+    "include": ["./**/*"]
 }

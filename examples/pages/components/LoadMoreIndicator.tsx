@@ -32,8 +32,8 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                 `}
                 </Markup.ReactMarkupCodePreview>
                 <p className="docs-page__paragraph">
-                    A loading indicator component designed to be appended at the end of scrollable lists
-                    during infinite scroll/pagination. Shows a spinner with optional progress counter.
+                    A loading indicator component designed to be appended at the end of scrollable lists during infinite
+                    scroll/pagination. Shows a spinner with optional progress counter.
                 </p>
 
                 <Markup.ReactMarkup>
@@ -50,11 +50,7 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                                 <li className="sd-list-item">
                                     <div className="sd-list-item__column">Item 3</div>
                                 </li>
-                                <LoadMoreIndicator
-                                    loading={this.state.showExample1}
-                                    currentCount={3}
-                                    totalCount={10}
-                                />
+                                <LoadMoreIndicator loading={this.state.showExample1} currentCount={3} totalCount={10} />
                             </ul>
                         </div>
                     </Markup.ReactMarkupPreview>
@@ -139,20 +135,68 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
 
                 <h3 className="docs-page__h3">Props</h3>
                 <PropsList>
-                    <Prop name="loading" isRequired={true} type="boolean" default="/" description="Whether the loading indicator should be visible" />
-                    <Prop name="currentCount" isRequired={true} type="number" default="/" description="Current number of loaded items" />
-                    <Prop name="totalCount" isRequired={true} type="number" default="/" description="Total number of items available" />
-                    <Prop name="loadingText" isRequired={false} type="string" default="'Loading more...'" description="Custom loading text" />
-                    <Prop name="showProgress" isRequired={false} type="boolean" default="true" description="Whether to show the progress counter (e.g., '25 of 100')" />
-                    <Prop name="loaderSize" isRequired={false} type="'small' | 'medium' | 'large'" default="'small'" description="Size of the loader spinner" />
-                    <Prop name="className" isRequired={false} type="string" default="/" description="Custom className for the container" />
-                    <Prop name="data-test-id" isRequired={false} type="string" default="'load-more-indicator'" description="Test ID for testing purposes" />
+                    <Prop
+                        name="loading"
+                        isRequired={true}
+                        type="boolean"
+                        default="/"
+                        description="Whether the loading indicator should be visible"
+                    />
+                    <Prop
+                        name="currentCount"
+                        isRequired={true}
+                        type="number"
+                        default="/"
+                        description="Current number of loaded items"
+                    />
+                    <Prop
+                        name="totalCount"
+                        isRequired={true}
+                        type="number"
+                        default="/"
+                        description="Total number of items available"
+                    />
+                    <Prop
+                        name="loadingText"
+                        isRequired={false}
+                        type="string"
+                        default="'Loading more...'"
+                        description="Custom loading text"
+                    />
+                    <Prop
+                        name="showProgress"
+                        isRequired={false}
+                        type="boolean"
+                        default="true"
+                        description="Whether to show the progress counter (e.g., '25 of 100')"
+                    />
+                    <Prop
+                        name="loaderSize"
+                        isRequired={false}
+                        type="'small' | 'medium' | 'large'"
+                        default="'small'"
+                        description="Size of the loader spinner"
+                    />
+                    <Prop
+                        name="className"
+                        isRequired={false}
+                        type="string"
+                        default="/"
+                        description="Custom className for the container"
+                    />
+                    <Prop
+                        name="data-test-id"
+                        isRequired={false}
+                        type="string"
+                        default="'load-more-indicator'"
+                        description="Test ID for testing purposes"
+                    />
                 </PropsList>
 
                 <h3 className="docs-page__h3">Usage with Infinite Scroll</h3>
                 <p className="docs-page__paragraph">
-                    This component is designed to work with infinite scroll patterns. Simply add it at the end
-                    of your list and control its visibility with a loading state that tracks when you're fetching more items.
+                    This component is designed to work with infinite scroll patterns. Simply add it at the end of your
+                    list and control its visibility with a loading state that tracks when you're fetching more items.
                 </p>
                 <Markup.ReactMarkupCode>
                     {`
@@ -191,9 +235,15 @@ export default class LoadMoreIndicatorDoc extends React.Component<{}, IState> {
                     The component includes proper ARIA attributes for screen readers:
                 </p>
                 <ul className="docs-page__ul">
-                    <li><code>role="status"</code> - Indicates the element is a status message</li>
-                    <li><code>aria-live="polite"</code> - Screen readers will announce updates when convenient</li>
-                    <li><code>aria-busy="true"</code> - Indicates the section is being updated</li>
+                    <li>
+                        <code>role="status"</code> - Indicates the element is a status message
+                    </li>
+                    <li>
+                        <code>aria-live="polite"</code> - Screen readers will announce updates when convenient
+                    </li>
+                    <li>
+                        <code>aria-busy="true"</code> - Indicates the section is being updated
+                    </li>
                 </ul>
             </section>
         );
