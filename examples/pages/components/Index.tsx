@@ -48,6 +48,7 @@ import SimpleListDoc from './SimpleList';
 import BoxedListDoc from './BoxedList';
 import TableListDoc from './TableList';
 import ContentListDoc from './ContentList';
+import LoadMoreIndicatorDoc from './LoadMoreIndicator';
 import HeadingDoc from './Heading';
 import TextDoc from './Text';
 import ContainerDoc from './Container';
@@ -289,6 +290,10 @@ const pages: IPages = {
             'content-list': {
                 name: 'Content list',
                 component: ContentListDoc,
+            },
+            'load-more-indicator': {
+                name: 'Load more indicator',
+                component: LoadMoreIndicatorDoc,
             },
             'with-pagination': {
                 name: 'With pagination',
