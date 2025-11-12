@@ -45,7 +45,7 @@ jobs:
               uses: softprops/action-gh-release@v1
               with:
                   tag_name: v${{ steps.package-version.outputs.version }}
-                  name: Release v${{ steps.package-version.outputs.version }}
+                  name: v${{ steps.package-version.outputs.version }}
                   generate_release_notes: true
                   body: |
                       Published to npm: https://www.npmjs.com/package/superdesk-ui-framework/v/${{ steps.package-version.outputs.version }}
