@@ -12,6 +12,8 @@ import {getWeekStartByLocale} from 'weekstart';
 import {getMonthNames, getWeekdayNames} from '@sourcefabric/common';
 import {localization} from '../localization';
 import {assertNever} from '../helpers';
+import {TreeSelect} from './TreeSelect/TreeSelect';
+import {Icon} from './Icon';
 
 interface IDatePickerBase extends IInputWrapper {
     dateFormat: string; // a combination of YYYY, MM, and DD with a custom separator e.g. 'MM/DD/YYYY'
@@ -23,6 +25,9 @@ interface IDatePickerBase extends IInputWrapper {
     locale?: {type: 'code-only'; code: string} | {type: 'full'; payload: Omit<LocaleSettings, 'today' | 'clear'>};
 
     hideClearButton?: boolean;
+
+    minYearRange?: string;
+    maxYearRange?: string;
 }
 
 interface IDatePicker extends IDatePickerBase {
@@ -279,6 +284,15 @@ export class DatePicker extends React.PureComponent<IDatePicker, IState> {
                             this.setState({valid: true, value: parseToPrimeReactCalendarFormat(this.props.value)});
                         }
                     }}
+                    monthNavigator={true}
+                    monthNavigatorComponent={MonthNavigator}
+                    yearNavigator={true}
+                    yearNavigatorComponent={YearNavigator}
+                    yearRange={
+                        this.props.minYearRange && this.props.maxYearRange
+                            ? `${this.props.minYearRange}:${this.props.maxYearRange}`
+                            : `1900:${new Date().getFullYear() + 10}`
+                    }
                 />
             </InputWrapper>
         );
@@ -316,7 +330,67 @@ export class DatePickerISO extends React.PureComponent<IDatePickerISO> {
                 label={this.props.label}
                 info={this.props.info}
                 error={this.props.error}
+                minYearRange={this.props.minYearRange}
+                maxYearRange={this.props.maxYearRange}
             />
         );
     }
 }
+
+const MonthNavigator = ({
+    value,
+    options,
+    onChange,
+}: React.ComponentProps<NonNullable<CalendarProps['monthNavigatorComponent']>>) => (
+    <TreeSelect<string>
+        kind="synchronous"
+        value={[value]}
+        getOptions={() => options.map((option) => ({value: option.id}))}
+        getLabel={(option) => options[parseInt(option, 10)].label}
+        getId={(option) => option}
+        onChange={(selected) => {
+            onChange(selected[0]);
+        }}
+        clearable={false}
+        labelHidden
+        valueTemplate={(item) => (
+            <div className="sd-datepicker__navigator-value sd-datepicker__navigator-month">
+                <div>{options[parseInt(item, 10)].label}</div>
+                <Icon name="chevron-down-thin" />
+            </div>
+        )}
+        inputWrapper={{
+            kind: 'custom',
+            component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
+        }}
+    />
+);
+
+const YearNavigator = ({
+    value,
+    options,
+    onChange,
+}: React.ComponentProps<NonNullable<CalendarProps['yearNavigatorComponent']>>) => (
+    <TreeSelect<string>
+        kind="synchronous"
+        value={[value]}
+        getOptions={() => options.map((option) => ({value: option.id}))}
+        getLabel={(option) => option}
+        getId={(option) => option}
+        onChange={(selected) => {
+            onChange(selected[0]);
+        }}
+        clearable={false}
+        labelHidden
+        valueTemplate={(item) => (
+            <div className="sd-datepicker__navigator-value sd-datepicker__navigator-year">
+                <div>{item}</div>
+                <Icon name="chevron-down-thin" />
+            </div>
+        )}
+        inputWrapper={{
+            kind: 'custom',
+            component: ({input}) => <div className="sd-datepicker__navigator-wrapper">{input}</div>,
+        }}
+    />
+);

@@ -1,0 +1,10 @@
+{
+    "extends": "../../../tsconfig.json",
+    "compilerOptions": {
+        "jsx": "react",
+        "noEmit": true,
+        "skipLibCheck": true,
+        "noImplicitAny": false
+    },
+    "include": ["./**/*"]
+}
