@@ -3,7 +3,12 @@ import classNames from 'classnames';
 
 interface IProps {
     children: React.ReactNode;
-    inlineLabels?: boolean; // defaults to 'false'
+
+    /**
+     * Defaults to `false`.
+     */
+    inlineLabels?: boolean;
+
     rowLabel?: string;
     grid?: boolean;
 }
@@ -17,9 +22,7 @@ export class FormGroupNew extends React.PureComponent<IProps> {
 
         if (this.props.rowLabel) {
             return (
-                // <div className="form__group-new__wrapper">
                 <div className="form-group-new__wrapper">
-                    {/* <label className="form__group-new__label"> */}
                     <label className="form-group-new__label">{this.props.rowLabel}</label>
                     <div className={classes}>{this.props.children}</div>
                 </div>

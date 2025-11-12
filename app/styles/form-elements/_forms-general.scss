@@ -402,14 +402,6 @@
 	}
 }
 
-.form__group-new--has_row-label {
-	.form__group-new__wrapper {
-		display: flex;
-		flex-direction: column;
-		width: 100%;
-	}
-}
-
 .form-container {
     container-type: inline-size;
     container-name: form-container;
@@ -496,7 +488,7 @@
 		line-height: 1;
 		margin-block-end: var(--space--1);
 	}
-	
+
 }
 .form-group-new-item {
     display: flex;
@@ -536,7 +528,6 @@
 			margin-block-start: 1.6rem;
 		}
 	}
-	
 }
 
 .form-group-new-item--auto-width {
